@@ -176,7 +176,7 @@ The worst of all possible methods is so called "stochastic testing", i.e. runnin
    <br><br>
    Besides, it's useful to communicate with coders who performed several successful challenges on the same test case on the same problem. Their experience can give you the flavor of typical mistakes.
    <br><br>
-   For example, a very common mistake is computation imprecision while managing doubles. In <a href="/stat?c=problem_statement&pm=5943&rd=9809">FindTriangle</A> (SRM 288, Div1 Easy, Div2 Medium) there are several ways of computing a triangle's area. If you use Geron's formula, you will get a non-zero area when all vertices belong to the same line and are rather distant.
+   For example, a very common mistake is computation imprecision while managing doubles. In <a href="/stat?c=problem_statement&pm=5943&rd=9809">FindTriangle</A> (SRM 288, Div1 Easy, Div2 Medium) there are several ways of computing a triangle's area. If you use Heron's formula, you will get a non-zero area when all vertices belong to the same line and are rather distant.
 </li>
 </ul>
 
