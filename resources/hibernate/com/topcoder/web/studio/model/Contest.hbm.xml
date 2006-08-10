@@ -27,6 +27,10 @@
             <key column="contest_id" not-null="true"/>
             <many-to-many column="prize_id" class="Prize"/>
         </set>
+        <set name="submissions" inverse="true" access="field">
+            <key column="contest_id" not-null="true"/>
+            <one-to-many class="Submission"/>
+        </set>
         <many-to-one name="status" column="contest_status_id" class="ContestStatus" access="field"/>
 
 

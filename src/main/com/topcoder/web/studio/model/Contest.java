@@ -24,6 +24,7 @@ public class Contest extends Base {
     private Set documents = new HashSet();
     private ContestStatus status;
     private Integer forumId;
+    private Set submissions;
 
     public Long getId() {
         return id;
@@ -130,5 +131,15 @@ public class Contest extends Base {
     public void setForumId(Integer forumId) {
         this.forumId = forumId;
     }
+
+
+    public Set getSubmissions() {
+        return submissions;
+    }
+
+    public void setSubmissions(Set submissions) {
+        this.submissions = submissions;
+    }
+
 
 }
