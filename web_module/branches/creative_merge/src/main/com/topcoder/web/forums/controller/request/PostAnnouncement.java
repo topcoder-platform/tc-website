@@ -31,7 +31,7 @@ public class PostAnnouncement extends ForumsProcessor {
         }
         
         if (!ForumsUtil.isAdmin(user)) {
-            setNextPage("?module=ForumList");
+            setNextPage(getSessionInfo().getServletPath() + "?module=Main");
             setIsNextPageInContext(false);
             return;
         }
@@ -136,7 +136,8 @@ public class PostAnnouncement extends ForumsProcessor {
             announcementManager.addAnnouncement(announcement);
         }
         
-		setNextPage("?module=Announcement&" + ForumConstants.ANNOUNCEMENT_ID + "=" + announcement.getID());
+		setNextPage(getSessionInfo().getServletPath() +
+				"?module=Announcement&" + ForumConstants.ANNOUNCEMENT_ID + "=" + announcement.getID());
 		setIsNextPageInContext(false);
 	}
 }

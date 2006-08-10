@@ -111,6 +111,7 @@ public class TCHandleTag implements Filter {
                 
             } catch (Exception e) {
                 // invalid handle - return no output
+            	e.printStackTrace();
             }
             
             if (!output.toString().equals("")) {
