@@ -8,9 +8,7 @@ import com.jivesoftware.base.JiveGlobals;
 /**
  * @author mtong
  */
-public interface ForumConstants {
-    public final static String FORUMS_DIR = "/";
-    
+public interface ForumConstants {    
     public final static String CATEGORY_ID = "categoryID";
 	public final static String FORUM_ID = "forumID";
 	public final static String THREAD_ID = "threadID";
