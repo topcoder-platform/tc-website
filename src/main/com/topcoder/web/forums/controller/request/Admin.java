@@ -4,8 +4,12 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.Log;
-import com.jivesoftware.forum.*;
-import com.topcoder.common.web.data.Round;
+import com.jivesoftware.forum.Forum;
+import com.jivesoftware.forum.ForumCategory;
+import com.jivesoftware.forum.ForumMessage;
+import com.jivesoftware.forum.ForumMessageIterator;
+import com.jivesoftware.forum.RatingManager;
+import com.jivesoftware.forum.RatingManagerFactory;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
