@@ -45,7 +45,7 @@ public class HandleTag extends TagSupport {
                 output.append(rsc.getStringItem(0, "handle"));
             } else {
                 output.append("<span class=\"");
-                if (rsc.getIntItem(0, "alg_rating") == -1) {
+                if (rsc.getIntItem(0, "algorithm_rating") == -1) {
                     output.append("coderTextOrange");
                 } else {
                     output.append(cssclass);
