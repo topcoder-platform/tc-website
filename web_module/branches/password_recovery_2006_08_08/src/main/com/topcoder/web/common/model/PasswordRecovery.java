@@ -1,5 +1,7 @@
 package com.topcoder.web.common.model;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
 /**
@@ -45,5 +47,21 @@ public class PasswordRecovery extends Base {
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	public String hash() {
+		try {
+			MessageDigest md = MessageDigest.getInstance("MD5");
+	        byte[] plain = (getId().toString() + getUser().getHandle() + getExpireDate().getTime()).getBytes();
+	        byte[] raw = md.digest(plain);
+	        StringBuffer hex = new StringBuffer();
+	        for (int i = 0; i < raw.length; i++)
+	            hex.append(Integer.toHexString(raw[i] & 0xff));
+	        
+	        return hex.toString();
+		} catch(NoSuchAlgorithmException e) {
+			throw new IllegalArgumentException("Can't do an MD5 hash.", e);
+		}
+
 	}
 }

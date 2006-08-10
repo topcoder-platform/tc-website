@@ -10,6 +10,9 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.PasswordRecovery;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.validation.StringInput;
+import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.reg.validation.PasswordValidator;
 import com.topcoder.web.tc.Constants;
 
 
@@ -21,10 +24,16 @@ public class ResetPassword extends ShortHibernateProcessor {
         String pw = StringUtils.checkNull(getRequest().getParameter("password")); 
 
         PasswordRecovery pr = DAOUtil.getFactory().getPasswordRecoveryDAO().find(new Long(prId));
+        
         if (pr == null) {
         	throw new TCWebException("Row not found in password_recovery: " + prId);
         }
         
+		if (!hc.equals(pr.hash())) {
+			throw new TCWebException("Invalid hashcode.");
+		}
+
+	
         if (pr.isUsed()) {
         	addError("error", "The password was already changed.");
         }
@@ -36,32 +45,17 @@ public class ResetPassword extends ShortHibernateProcessor {
         	addError("error", "The time for changing the password has expired. Please require password change again.");
         }
         
+        ValidationResult vr = new PasswordValidator().validate(new StringInput(pw));
+        if (!vr.isValid()) {
+        	addError("error", vr.getMessage());
+        }
+       
         if (hasErrors()) {
             setNextPage(Constants.RESET_PASSWORD);
             setIsNextPageInContext(true);
         	return;        	
         }
         
-        // fix refactor
-    	String hash;
-		try {
-			MessageDigest md = MessageDigest.getInstance("MD5");
-			log.info("hashing: "+pr.getId().toString() + pr.getUser().getHandle() + pr.getExpireDate().toString());
-
-	        byte[] plain = (pr.getId().toString() + pr.getUser().getHandle() + pr.getExpireDate().getTime()).getBytes();
-	        byte[] raw = md.digest(plain);
-	        StringBuffer hex = new StringBuffer();
-	        for (int i = 0; i < raw.length; i++)
-	            hex.append(Integer.toHexString(raw[i] & 0xff));
-	        
-	        hash = hex.toString();
-		} catch (NoSuchAlgorithmException e) {
-			throw new TCWebException("Can't hash with md5.", e);
-		}
-		
-		if (hash.equals(hc)) {
-			throw new TCWebException("Invalid hashcode.");
-		}
 		
 		pr.setUsed(true);
 		DAOUtil.getFactory().getPasswordRecoveryDAO().saveOrUpdate(pr);

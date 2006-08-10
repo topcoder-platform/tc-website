@@ -1,7 +1,5 @@
 package com.topcoder.web.tc.controller.request.authentication;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.GregorianCalendar;
 
 import com.topcoder.shared.util.ApplicationServer;
@@ -27,6 +25,9 @@ public class RecoverEmail extends ShortHibernateProcessor {
     	if (email.length() > 0) {
         	if (!u.getSecretQuestion().getResponse().equals(response)) {
         		// failed.  To do: error message
+        		addError("error", "Incorrect response");
+        		
+        		getRequest().setAttribute("sq", u.getSecretQuestion().getQuestion());
                 setNextPage(Constants.SECRET_QUESTION);
                 setIsNextPageInContext(true);
                 return;
@@ -42,27 +43,13 @@ public class RecoverEmail extends ShortHibernateProcessor {
     	pr.setExpireDate(expire.getTime());
     	DAOUtil.getFactory().getPasswordRecoveryDAO().saveOrUpdate(pr);
     	
-    	String hash;
-		try {
-			MessageDigest md = MessageDigest.getInstance("MD5");
-			log.info("hashing: "+pr.getId().toString() + pr.getUser().getHandle() + pr.getExpireDate().toString());
-	        byte[] plain = (pr.getId().toString() + pr.getUser().getHandle() + pr.getExpireDate().getTime()).getBytes();
-	        byte[] raw = md.digest(plain);
-	        StringBuffer hex = new StringBuffer();
-	        for (int i = 0; i < raw.length; i++)
-	            hex.append(Integer.toHexString(raw[i] & 0xff));
-	        
-	        hash = hex.toString();
-		} catch (NoSuchAlgorithmException e) {
-			throw new TCWebException("Can't hash with md5.", e);
-		}
 		
 		try {
             StringBuffer msgText = new StringBuffer(1000);
             msgText.append("In order to reset your password please go to the following URL: \n\n");
             msgText.append("http://");
             msgText.append(ApplicationServer.SERVER_NAME);
-            msgText.append("/tc?module=Static&d1=authentication&d2=resetPassword&pr=" + pr.getId() + "&hc=" + hash);
+            msgText.append("/tc?module=Static&d1=authentication&d2=resetPassword&pr=" + pr.getId() + "&hc=" + pr.hash());
             
 	        TCSEmailMessage mail = new TCSEmailMessage();
 	        mail.setSubject("TopCoder Password Recovery");
