@@ -1,13 +1,14 @@
 package com.topcoder.web.tc.controller.request.authentication;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.Set;
 
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Email;
 import com.topcoder.web.common.model.PasswordRecovery;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.StringInput;
@@ -29,8 +30,6 @@ public class ResetPassword extends ShortHibernateProcessor {
         	throw new TCWebException("Row not found in password_recovery: " + prId);
         }
 
-        log.info("calc hc: " + pr.hash());
-        log.info("hc: " + hc);
 		if (!hc.equals(pr.hash())) {
 			throw new TCWebException("Invalid hashcode.");
 		}
@@ -65,6 +64,16 @@ public class ResetPassword extends ShortHibernateProcessor {
 		// todo, validate pwd
 		User u = pr.getUser();
 		u.setPassword(pw);
+		Set s = u.getEmailAddresses();
+		for (Iterator it = s.iterator(); it.hasNext(); ) {
+            Email e = (Email) it.next();
+            if (e.isPrimary()) {
+            	e.setAddress(pr.getRecoveryAddress());
+            	break;
+            }
+		}
+		u.setEmailAddresses(s);
+		
 		DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
 
         setNextPage(Constants.RESET_PASSWORD_CONFIRM);

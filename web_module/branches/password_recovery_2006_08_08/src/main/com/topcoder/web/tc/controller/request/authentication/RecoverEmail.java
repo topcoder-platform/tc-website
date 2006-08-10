@@ -28,6 +28,8 @@ public class RecoverEmail extends ShortHibernateProcessor {
         		addError("error", "Incorrect response");
         		
         		getRequest().setAttribute("sq", u.getSecretQuestion().getQuestion());
+        		getRequest().setAttribute(Constants.CODER_ID, userId);
+        		
                 setNextPage(Constants.SECRET_QUESTION);
                 setIsNextPageInContext(true);
                 return;
