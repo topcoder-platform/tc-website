@@ -30,7 +30,7 @@
          <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
          <div class="contentSpacer">
 
-        <h1>Contest List</h1>
+        <h1>Contests</h1>
 
             <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
                 <tbody>
