@@ -7,7 +7,7 @@
 
 <body>
 An email has been sent to <%= request.getAttribute("email") %>.  Please check your email and follow the link to reset your password.
-YOur must do that in the next 10 minutes or your key will expire.
+You must do that in the next 10 minutes or your key will expire.
 
 </body>
 </html>

@@ -28,7 +28,9 @@ public class ResetPassword extends ShortHibernateProcessor {
         if (pr == null) {
         	throw new TCWebException("Row not found in password_recovery: " + prId);
         }
-        
+
+        log.info("calc hc: " + pr.hash());
+        log.info("hc: " + hc);
 		if (!hc.equals(pr.hash())) {
 			throw new TCWebException("Invalid hashcode.");
 		}

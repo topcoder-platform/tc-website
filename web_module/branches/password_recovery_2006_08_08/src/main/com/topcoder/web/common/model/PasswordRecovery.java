@@ -49,10 +49,16 @@ public class PasswordRecovery extends Base {
 		this.user = user;
 	}
 	
+	/**
+	 * Return a md5 hashcode for the password_recovery row.
+	 * 
+	 * @return a md5 hashcode for the password_recovery row.
+	 */
 	public String hash() {
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
 	        byte[] plain = (getId().toString() + getUser().getHandle() + getExpireDate().getTime()).getBytes();
+			log.info("hashing: " + getId().toString() + getUser().getHandle() + getExpireDate().getTime());
 	        byte[] raw = md.digest(plain);
 	        StringBuffer hex = new StringBuffer();
 	        for (int i = 0; i < raw.length; i++)
