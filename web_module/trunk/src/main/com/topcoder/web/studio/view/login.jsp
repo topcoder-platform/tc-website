@@ -39,7 +39,7 @@
     <div class="contentOut">
 
         <jsp:include page="top.jsp">
-            <jsp:param name="section" value="default"/>
+            <jsp:param name="section" value="login"/>
         </jsp:include>
          <jsp:include page="topNav.jsp">
              <jsp:param name="node" value="none"/>
