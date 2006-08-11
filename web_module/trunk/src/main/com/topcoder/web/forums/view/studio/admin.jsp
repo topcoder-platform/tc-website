@@ -86,7 +86,7 @@
       <td class="rtTextCell100">
         <%  while (itOnline.hasNext()) { %>
             <%  User u = (User)itOnline.next(); %>
-            <tc-webtag:handle coderId="<%=u.getID()%>"/><%  if (itOnline.hasNext()) { %>, <% } %>
+            <studio:handle coderId="<%=u.getID()%>"/><%  if (itOnline.hasNext()) { %>, <% } %>
         <%  } %>
       </td>
    </tr>
