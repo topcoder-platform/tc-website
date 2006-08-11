@@ -116,7 +116,7 @@
       <jsp:include page="categoriesHeader.jsp" />
    </td>
    <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
-       <jsp:include page="searchHeader.jsp" ></jsp:include>
+       <jsp:include page="searchHeader.jsp" />
     </td>
     <td align="right" nowrap="nowrap" valign="top">
         <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
