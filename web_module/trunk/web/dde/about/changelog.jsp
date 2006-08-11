@@ -62,6 +62,12 @@
 <tr><td align="left" colspan="2" class="bodyText">
     <H3>TopCoder Software Web Site Change Log</H3>
     <p>
+        1.0.4 - 2006.08.XX
+        <ul>
+            <li>RBoard schema updated and automatic disqualification - activation was added.</li>
+        </ul>
+    </p>
+    <p>
         1.0.3 - 2006.08.03
         <ul>
             <li>RBoard registration bug fixed</li>
