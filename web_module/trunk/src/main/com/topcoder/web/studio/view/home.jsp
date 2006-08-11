@@ -44,9 +44,13 @@
       <td valign="top" style="padding-left: 10px;">
 
          <h1>Welcome to TopCoder Studio</h1>
-         Welcome to TopCoder Studio - the best place on the web for showing off your creative skills in a competitive environment and getting paid for being the best!  At the Studio, clients post their projects with definitive timelines, deliverables and payouts, and you decide which ones pique your interest.  There's even advancement opportunities available into the Review Board, where a select group of competing members will evaluate all submissions before they are passed on to the client.  So, poke around, ask questions and, above all, compete and have fun!
+         Welcome to TopCoder Studio - the best place on the web for showing off your creative skills in a competitive environment and getting paid for being the best! 
          <br><br>
-         <A href="/?module=ViewActiveContests">Check out</A> the contests going on right now!
+         At the Studio, clients post their projects with definitive timelines, deliverables and payouts, and you decide which ones pique your interest. There are even advancement opportunities available into the Review Board, where a select group of competing members will evaluate all submissions before they are passed on to the client. 
+         <br><br>
+         So, poke around, ask questions and, above all, compete and have fun! 
+         <br><br>
+         <h3>Contests will be posted soon!  Register as a Studio member so you can receive emails when new contests arrive.</h3>
 
 <%--
          <div align="center">

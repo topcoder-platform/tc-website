@@ -62,7 +62,7 @@
     send it
     to you via email.
     <br><br>
-    <strong>New to TopCoder?</strong><br>
+    <strong>New to TopCoder Studio?</strong><br>
     <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register now</A>. After you complete the
     registration process,
     we
