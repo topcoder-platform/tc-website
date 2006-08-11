@@ -57,6 +57,7 @@
         <!-- TCS Components -->
         <pathelement location="${jars.dir}/tcs/configuration_manager/2.1.3/configuration_manager.jar"/>
         <pathelement location="${jars.dir}/object_formatter.jar"/>
+        <pathelement location="${jars.dir}/idgenerator.jar"/>
         <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
         <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
         <pathelement location="${jars.dir}/upload.jar"/>
