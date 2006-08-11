@@ -5,7 +5,7 @@ package com.topcoder.web.common.model;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: May 30, 2006
  */
-public class Referral {
+public class Referral extends Base {
 
     public static final Integer DECLINE = new Integer(0);
     public static final Integer MEMBER_REFERRAL = new Integer(40);
