@@ -164,7 +164,7 @@
         </jar>
     </target>
 
-    <target name="package-EJB-MessageHistoryBean" depends="compile_forums">
+    <target name="package-EJB-MessageHistoryBean" depends="compile">
         <jar jarfile="${ejb_jars}/messagehistory.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <!--
@@ -175,7 +175,7 @@
         </jar>
     </target>
 
-    <target name="package-EJB-ForumsBean" depends="compile_forums">
+    <target name="package-EJB-ForumsBean" depends="compile">
         <jar jarfile="${ejb_jars}/forums.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <!--
@@ -267,7 +267,7 @@
     </target>
 
 
-    <target name="package-TCUser" depends="compile_TCUser">
+    <target name="package-TCUser" depends="compile">
         <jar jarfile="${jars.dir}/tcuser.jar">
             <fileset dir="${classes}/">
                 <include name="com/topcoder/web/forums/model/TCUser.class"/>
@@ -277,7 +277,7 @@
         </jar>
     </target>
 
-    <target name="package-TCAuth" depends="compile_TCAuth">
+    <target name="package-TCAuth" depends="compile">
         <jar jarfile="${jars.dir}/tcauth.jar">
             <fileset dir="${classes}/">
                 <include name="com/topcoder/web/forums/model/TCAuthFactory.class"/>
@@ -286,7 +286,7 @@
         </jar>
     </target>
 
-    <target name="package-TCFilters" depends="compile_TCFilters">
+    <target name="package-TCFilters" depends="compile">
         <jar jarfile="${jars.dir}/tcfilters.jar">
             <fileset dir="${classes}/">
                 <include name="com/topcoder/web/forums/util/filter/*.class"/>
