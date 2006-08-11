@@ -33,15 +33,19 @@ public class ViewContestDetails extends ShortHibernateProcessor {
             }
             Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(cid);
 
-            if (ContestStatus.ACTIVE.equals(contest.getStatus().getId())) {
-                Date now = new Date();
-                if (contest.getStartTime().before(now)) {
-                    getRequest().setAttribute("contest", contest);
-                } else {
-                    throw new NavigationException("Inactive contest specified.");
-                }
+            if (isAdmin()) {
+                getRequest().setAttribute("contest", contest);
             } else {
-                throw new NavigationException("Invalid contest specified.");
+                if (ContestStatus.ACTIVE.equals(contest.getStatus().getId())) {
+                    Date now = new Date();
+                    if (contest.getStartTime().before(now)) {
+                        getRequest().setAttribute("contest", contest);
+                    } else {
+                        throw new NavigationException("Inactive contest specified.");
+                    }
+                } else {
+                    throw new NavigationException("Invalid contest specified.");
+                }
             }
 
 
