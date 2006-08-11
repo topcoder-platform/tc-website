@@ -92,9 +92,11 @@ function AllowTabCharacter() {
 
 <body>
 
-<jsp:include page="top.jsp">
-    <jsp:param name="section" value="default"/>
-</jsp:include>
+
+
+      <jsp:include page="top.jsp" />
+
+
 
 <jsp:include page="left.jsp">
     <jsp:param name="node" value="forums"/>
