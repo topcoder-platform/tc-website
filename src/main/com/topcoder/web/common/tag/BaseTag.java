@@ -16,7 +16,6 @@ import java.util.HashMap;
 public abstract class BaseTag extends BodyTagSupport {
 
     protected String name;
-    protected String id;
 
     /**
      * Sets the name.
@@ -25,10 +24,6 @@ public abstract class BaseTag extends BodyTagSupport {
      */
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     protected Object getDefaultValue() {
@@ -42,7 +37,7 @@ public abstract class BaseTag extends BodyTagSupport {
 
     public int doEndTag() throws JspException {
         this.name = null;
-        this.id = null;
+        this.id = null;//declared in super class
         init();
         return super.doEndTag();
     }
