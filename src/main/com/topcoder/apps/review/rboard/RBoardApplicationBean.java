@@ -722,7 +722,7 @@ public class RBoardApplicationBean extends BaseEJB {
         return selectString(conn,
             "catalog",
             "catalog_name",
-            new String[] { "category_id" },
+            new String[] { "catalog_id" },
             new String[] { String.valueOf(catalogId)});
     }
 
