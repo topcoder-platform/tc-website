@@ -121,7 +121,9 @@
             <!--
                         <include name="com/topcoder/utilities/**"/>
             -->
-            <include name="com/topcoder/web/**"/>
+            <include name="com/topcoder/web/common/**"/>
+            <include name="com/topcoder/web/forums/**"/>
+            <include name="com/topcoder/web/studio/**"/>
         </javac>
         <antcall target="jar_common"/>
     </target>
