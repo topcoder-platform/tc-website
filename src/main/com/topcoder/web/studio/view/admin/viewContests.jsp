@@ -38,7 +38,7 @@
                             <td class="NW">&nbsp;</td>
                             <td class="title" colspan="5">Contests</td>
                             <td class="titleR">
-                                <a href="${sessionInfo.servletPath}?module=AdminViewContest">add</a></td>
+                                <h2><a href="${sessionInfo.servletPath}?module=AdminViewContest">add contest</a></h2></td>
                             <td class="NE">&nbsp;</td>
                         </tr>
                         <tr>
