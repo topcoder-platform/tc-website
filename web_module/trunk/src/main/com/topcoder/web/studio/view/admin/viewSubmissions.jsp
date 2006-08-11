@@ -45,7 +45,7 @@
 
 <div align="center">
 <div class="contentOut">
-<jsp:include page="../top.jsp" />
+<jsp:include page="../top.jsp"/>
 <jsp:include page="../topNav.jsp">
     <jsp:param name="node" value="contests"/>
 </jsp:include>
@@ -60,7 +60,7 @@
 <div class="breadcrumb">
     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">Contests</a>
     &gt;
-    <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${submission.contest.id}">${submission.contest.name}</a>
+    <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${contest.id}">${contest.name}</a>
     &gt; Submissions
 </div>
 
