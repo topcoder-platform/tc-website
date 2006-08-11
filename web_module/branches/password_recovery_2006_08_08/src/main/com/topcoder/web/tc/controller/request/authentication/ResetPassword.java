@@ -4,6 +4,15 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Set;
 
+import javax.naming.Context;
+
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -20,68 +29,80 @@ import com.topcoder.web.tc.Constants;
 public class ResetPassword extends ShortHibernateProcessor {
 
     protected void dbProcessing() throws TCWebException {
-        String prId = StringUtils.checkNull(getRequest().getParameter("pr"));
-        String hc = StringUtils.checkNull(getRequest().getParameter("hc"));
-        String pw = StringUtils.checkNull(getRequest().getParameter("password")); 
-
-        PasswordRecovery pr = DAOUtil.getFactory().getPasswordRecoveryDAO().find(new Long(prId));
-        
-        if (pr == null) {
-        	throw new TCWebException("Row not found in password_recovery: " + prId);
-        }
-
-		if (!hc.equals(pr.hash())) {
-			throw new TCWebException("Invalid hashcode.");
-		}
-
+    	try {
+	        String prId = StringUtils.checkNull(getRequest().getParameter("pr"));
+	        String hc = StringUtils.checkNull(getRequest().getParameter("hc"));
+	        String pw = StringUtils.checkNull(getRequest().getParameter("password")); 
 	
-        if (pr.isUsed()) {
-        	addError("error", "The password was already changed.");
-        }
-        
-        log.info("expires: " + pr.getExpireDate());
-        log.info("now: " + new Date());
-        
-        if (pr.getExpireDate().before(new Date())) {
-        	addError("error", "The time for changing the password has expired. Please require password change again.");
-        }
-        
-        ValidationResult vr = new PasswordValidator().validate(new StringInput(pw));
-        if (!vr.isValid()) {
-        	addError("error", vr.getMessage());
-        }
-       
-        if (hasErrors()) {
-            setNextPage(Constants.RESET_PASSWORD);
-            setIsNextPageInContext(true);
-        	return;        	
-        }
-        
-		
-		pr.setUsed(true);
-		DAOUtil.getFactory().getPasswordRecoveryDAO().saveOrUpdate(pr);
-		
-		User u = pr.getUser();
-		u.setPassword(pw);
-
-		if (!u.getPrimaryEmailAddress().equals(pr.getRecoveryAddress())) {
-			Set s = u.getEmailAddresses();
-			for (Iterator it = s.iterator(); it.hasNext(); ) {
-	            Email e = (Email) it.next();
-	            if (e.isPrimary()) {
-	            	e.setAddress(pr.getRecoveryAddress());
-	            	break;
-	            }
+	        PasswordRecovery pr = DAOUtil.getFactory().getPasswordRecoveryDAO().find(new Long(prId));
+	        
+	        if (pr == null) {
+	        	throw new TCWebException("Row not found in password_recovery: " + prId);
+	        }
+	
+			if (!hc.equals(pr.hash())) {
+				throw new TCWebException("Invalid hashcode.");
 			}
-			u.setEmailAddresses(s);
-			getRequest().setAttribute("email", pr.getRecoveryAddress());
-		}
+	
 		
-		
-		DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
-
-        setNextPage(Constants.RESET_PASSWORD_CONFIRM);
-        setIsNextPageInContext(true);
+	        if (pr.isUsed()) {
+	        	addError("error", "The password was already changed.");
+	        }
+	        
+	        log.info("expires: " + pr.getExpireDate());
+	        log.info("now: " + new Date());
+	        
+	        if (pr.getExpireDate().before(new Date())) {
+	        	addError("error", "The time for changing the password has expired. Please require password change again.");
+	        }
+	        
+	        ValidationResult vr = new PasswordValidator().validate(new StringInput(pw));
+	        if (!vr.isValid()) {
+	        	addError("error", vr.getMessage());
+	        }
+	       
+	        if (hasErrors()) {
+	            setNextPage(Constants.RESET_PASSWORD);
+	            setIsNextPageInContext(true);
+	        	return;        	
+	        }
+	        
+			
+			pr.setUsed(true);
+			DAOUtil.getFactory().getPasswordRecoveryDAO().saveOrUpdate(pr);
+			
+	        Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+	
+			User u = pr.getUser();
+			u.setPassword(pw);
+	
+	        TCSubject tcs = new TCSubject(132456);
+	        PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+	        PrincipalMgrRemote pmr = pmrh.create();
+	        UserPrincipal myPrincipal = new UserPrincipal("", u.getId().longValue());
+	        pmr.editPassword(myPrincipal, u.getPassword(), tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+	
+			if (!u.getPrimaryEmailAddress().equals(pr.getRecoveryAddress())) {
+				Set s = u.getEmailAddresses();
+				for (Iterator it = s.iterator(); it.hasNext(); ) {
+		            Email e = (Email) it.next();
+		            if (e.isPrimary()) {
+		            	e.setAddress(pr.getRecoveryAddress());
+		            	break;
+		            }
+				}
+				u.setEmailAddresses(s);
+				getRequest().setAttribute("email", pr.getRecoveryAddress());
+			}
+			
+			
+			DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
+	
+	        setNextPage(Constants.RESET_PASSWORD_CONFIRM);
+	        setIsNextPageInContext(true);
+    	} catch (Exception e) {
+    		throw new TCWebException("Couldn't change the password", e);
+    	}
     }
 
 
