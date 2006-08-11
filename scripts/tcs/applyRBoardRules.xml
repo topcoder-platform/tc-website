@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-  <rboardUtil>
+  <applyRBoardRules>
     <sourcesList>
         <source name = "tcs_catalog" value = "jdbc:informix-sqli://172.16.214.52:1526/tcs_catalog:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec"/>
     </sourcesList>
@@ -14,4 +14,4 @@
     <systemEmail>service@topcodersoftware.com</systemEmail>
     <parameterList>
     </parameterList>
-  </rboardUtil>
+  </applyRBoardRules>
