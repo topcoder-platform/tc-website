@@ -241,6 +241,7 @@
     <target name="expand-studio" depends="">
 
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
+        <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcauth.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcuser.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcfilters.jar"/>
