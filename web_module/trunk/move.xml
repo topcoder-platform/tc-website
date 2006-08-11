@@ -201,8 +201,8 @@
             <arg line="update -dP src"/>
         </exec>
 
-        <ant antfile="build.xml" target="deploy-studio"/>
-        <ant antfile="build.xml" target="build-security"/>
+        <ant antfile="build_studio.xml" target="deploy-studio"/>
+        <ant antfile="build_studio.xml" target="build-security"/>
 
         <jar destfile="studio.jar" update="true">
             <fileset dir=".">
