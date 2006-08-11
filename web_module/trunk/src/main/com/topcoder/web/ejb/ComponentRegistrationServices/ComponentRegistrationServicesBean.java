@@ -1,10 +1,10 @@
 package com.topcoder.web.ejb.ComponentRegistrationServices;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.common.RowNotFoundException;
+import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
@@ -75,7 +75,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             //whether or not they have reviewed the project previously, and the
             //repost status of the project
 
-            query.append("select * ");
+            query.append("select 1 ");
             query.append("from r_user_role rur, ");
             query.append("project p ");
             query.append("where  ");
@@ -399,7 +399,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             query.append("select a.comp_reg_answer_id, a.comp_reg_question_id, a.answer_text, a.sort_order ");
             query.append("from comp_reg_answer a, comp_reg_question q ");
             query.append("where a.comp_reg_question_id = q.comp_reg_question_id ");
-            query.append("and q.is_active = 1" );
+            query.append("and q.is_active = 1");
             query.append("order by comp_reg_question_id, sort_order");
 
             ps = conn.prepareStatement(query.toString());
@@ -430,7 +430,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
         insert("comp_reg_response",
                 new String[]{"comp_reg_question_id", "comp_reg_answer_id", "user_id", "project_id"},
                 new String[]{String.valueOf(questionId), String.valueOf(answerId),
-                    String.valueOf(userId), String.valueOf(projectId)},
+                        String.valueOf(userId), String.valueOf(projectId)},
                 DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
 
@@ -438,7 +438,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
         insert("comp_reg_response",
                 new String[]{"comp_reg_question_id", "response_text", "user_id", "project_id"},
                 new String[]{String.valueOf(questionId), text,
-                    String.valueOf(userId), String.valueOf(projectId)},
+                        String.valueOf(userId), String.valueOf(projectId)},
                 DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
 
@@ -471,27 +471,27 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
 
     private static final String reliableEnough =
             " select count(*)" +
-              " from component_inquiry ci" +
-                 " , phase_instance pi" +
-             " where ci.project_id = pi.project_id" +
-               " and pi.cur_version = 1" +
-               " and pi.phase_id = 1" +
-               " and ci.phase = ?" +
-               " and ci.user_id = ?" +
-               " and pi.end_date > current";
+                    " from component_inquiry ci" +
+                    " , phase_instance pi" +
+                    " where ci.project_id = pi.project_id" +
+                    " and pi.cur_version = 1" +
+                    " and pi.phase_id = 1" +
+                    " and ci.phase = ?" +
+                    " and ci.user_id = ?" +
+                    " and pi.end_date > current";
 
     public boolean isUserReliableEnough(long phaseId, long userId, String dataSource) throws EJBException {
         //if their reliability is < 70 %
-            //if they have more than two registrations
-                //return false
+        //if they have more than two registrations
+        //return false
         Double reliability = null;
         try {
-            reliability = selectDouble("user_reliability", "rating", new String[] {"phase_id", "user_id"},
-                new String[]{String.valueOf(phaseId), String.valueOf(userId)}, dataSource);
+            reliability = selectDouble("user_reliability", "rating", new String[]{"phase_id", "user_id"},
+                    new String[]{String.valueOf(phaseId), String.valueOf(userId)}, dataSource);
         } catch (RowNotFoundException e) {
             reliability = new Double(0d);
         }
-        if (reliability.compareTo(new Double(ComponentRegistrationServices.MIN_RELIABLE_PERCENTAGE))<0) {
+        if (reliability.compareTo(new Double(ComponentRegistrationServices.MIN_RELIABLE_PERCENTAGE)) < 0) {
             PreparedStatement ps = null;
             ResultSet rs = null;
             Connection conn = null;
@@ -502,7 +502,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
                 ps.setLong(2, userId);
                 rs = ps.executeQuery();
                 rs.next();
-                if (rs.getInt(1)>=ComponentRegistrationServices.MAX_PROJECTS_WHEN_UNRELIABLE) {
+                if (rs.getInt(1) >= ComponentRegistrationServices.MAX_PROJECTS_WHEN_UNRELIABLE) {
                     return false;
                 }
             } catch (SQLException e) {
