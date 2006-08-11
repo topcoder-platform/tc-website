@@ -511,7 +511,7 @@ public class RBoardApplicationBean extends BaseEJB {
 
             long status = 0;
             try {
-                status = getStatus(conn, userId, phaseId, catalogId);
+                status = getStatus(conn, userId, phaseId - 111, catalogId);
             } catch (RowNotFoundException rnfe) {
                 throw new RBoardRegistrationException("Sorry, you are not a " + getCatalogName(conn, catalogId) + " reviewer.  Please contact TopCoder if you would like to become one.");
             }
