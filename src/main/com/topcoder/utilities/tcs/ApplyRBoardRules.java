@@ -194,14 +194,9 @@ public class ApplyRBoardRules extends DBUtility {
                             rsUsers.getInt("project_type_id"), rsUsers.getLong("catalog_id"));
                         log.debug("... activated!!! ");
 
-                        // TODO: take out the < 5 restriction
-                        if (qualifiedReviewersCount < 5) {
-                            // send mail.
-                            sendActivationMail(rsUsers.getString("handle"), "pwolfus@topcoder.com",
-                                    rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
-    //                        sendDisqualificationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
-    //                                rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
-                        }
+                        // send mail.
+                        sendActivationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
+                            rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
                     }
                 } else {
                     activeReviewersCount++;
@@ -213,14 +208,9 @@ public class ApplyRBoardRules extends DBUtility {
                             rsUsers.getInt("project_type_id"), rsUsers.getLong("catalog_id"));
                         log.debug("... disqualified " + possibleDisqualificationReason);
 
-                        // TODO: take out the < 5 restriction
-                        if (disqualifiedReviewersCount < 5) {
-                            // send mail.
-                            sendDisqualificationMail(rsUsers.getString("handle"), "pwolfus@topcoder.com",
-                                    rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
-    //                        sendDisqualificationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
-    //                                rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
-                        }
+                        // send mail.
+                        sendDisqualificationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
+                            rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
                     } else {
                         // reviewer shouldn't be disqualified, but maybe a warning mail is appropriate if he is
                         // near to be disqualified.
@@ -230,12 +220,9 @@ public class ApplyRBoardRules extends DBUtility {
                             // send mail.
                             if (daysToBeDisqualified % firstWarningInterval == 0 || daysToBeDisqualified == 1 ||
                                 (daysToBeDisqualified < firstWarningInterval && daysToBeDisqualified % secondWarningInterval == 0)) {
-                                sendWarningMail(rsUsers.getString("handle"), "pwolfus@topcoder.com",
+                                sendWarningMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
                                         rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
                                         daysToBeDisqualified);
-    //                            sendWarningMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
-    //                                    rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
-    //                                    daysToBeDisqualified);
                             }
                         } else {
                             log.debug("... ok");
