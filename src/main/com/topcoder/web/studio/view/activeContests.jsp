@@ -82,7 +82,7 @@
                                 <td class="valueC">
                                     <rsc:item name="end_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
                                 <td class="valueR">
-                                    <rsc:item name="amount" row="<%=resultRow%>" format="$0.00" ifNull=""/></td>
+                                    <rsc:item name="amount" row="<%=resultRow%>" format="$0.00" ifNull="&nbsp;"/></td>
                                 <td class="valueC">
                                     <div align="right">
                                         <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" class="btn_submit">
