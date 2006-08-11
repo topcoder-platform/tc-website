@@ -10,7 +10,7 @@
     <daysBeforeWarning>30</daysBeforeWarning>
     <scoreThreshold>80</scoreThreshold>
     <submissionThresholdLastYear>4</submissionThresholdLastYear>
-    <adminEmail>pwolfus@topcoder.com</adminEmail>
+    <adminEmail>jivern@topcoder.com</adminEmail>
     <systemEmail>service@topcodersoftware.com</systemEmail>
     <parameterList>
     </parameterList>
