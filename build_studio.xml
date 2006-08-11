@@ -275,6 +275,8 @@
         <copy todir="${jboss_conf}/com/topcoder/security/" file="${resources}/com/topcoder/security/Util.properties"/>
         <copy todir="${jboss_conf}/com/topcoder/util/config/"
               file="${resources}/com/topcoder/util/config/ConfigManager.properties"/>
+        <copy todir="${jboss_conf}/com/topcoder/servlet/request/"
+              file="${resources}/com/topcoder/servlet/request/FileUpload.xml"/>
 
 
         <delete file="${jboss_home}/server/default/deploy/studio.war"/>
