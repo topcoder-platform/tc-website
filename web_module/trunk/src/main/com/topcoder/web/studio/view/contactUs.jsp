@@ -47,7 +47,7 @@
    <tr>
       <td>
       <strong>Membership</strong><br>
-      Email: <A href="mailto:service@topcoder.com">service@topcoder.com</A>
+      Email: <A href="mailto:service@topcoder.com?subject=TopCoder Studio Membership">service@topcoder.com</A>
       </td>
       <td>
       <strong>Competition Tech Support</strong><br>
@@ -57,7 +57,7 @@
    <tr>
       <td>
       <strong>General questions</strong><br>
-      Email:  <A href="mailto:service@topcoder.com">service@topcoder.com</A>
+      Email:  <A href="mailto:service@topcoder.com?subject=TopCoder Studio General Questions">service@topcoder.com</A>
       </td>
       <td>
       <strong>Sales</strong><br>
