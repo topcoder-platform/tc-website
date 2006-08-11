@@ -228,7 +228,7 @@
         </war>
     </target>
 
-    <target name="deploy-studio" depends="war-studio">
+    <target name="deploy-studio" depends="war-studio,build-security">
         <antcall target="package-TCUser"/>
         <antcall target="package-TCAuth"/>
         <antcall target="package-TCFilters"/>
