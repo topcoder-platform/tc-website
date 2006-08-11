@@ -208,7 +208,6 @@
                 <include name="*.*"/>
             </fileset>
             <fileset dir="${java}/com/topcoder/web/jsp">
-                <include name="errorPage.jsp"/>
                 <include name="style.jsp"/>
             </fileset>
             <webinf dir="${resources}/studio">
@@ -255,6 +254,7 @@
 
         <copy todir="${jboss_lib}" file="${jive.dir}/webwork.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_manager/2.1.3/configuration_manager.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/object_formatter.jar"/>
 
 
         <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
