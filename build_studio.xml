@@ -239,9 +239,9 @@
     <target name="expand-studio" depends="">
 
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcauth.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcuser.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcfilters.jar"/>
+        <copy todir="${jboss_lib}" file="${bin}/tcauth.jar"/>
+        <copy todir="${jboss_lib}" file="${bin}/tcuser.jar"/>
+        <copy todir="${jboss_lib}" file="${bin}/tcfilters.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
@@ -268,7 +268,7 @@
 
 
     <target name="package-TCUser" depends="compile">
-        <jar jarfile="${jars.dir}/tcuser.jar">
+        <jar jarfile="${bin}/tcuser.jar">
             <fileset dir="${classes}/">
                 <include name="com/topcoder/web/forums/model/TCUser.class"/>
                 <include name="com/topcoder/web/forums/model/TCUserManager.class"/>
@@ -278,7 +278,7 @@
     </target>
 
     <target name="package-TCAuth" depends="compile">
-        <jar jarfile="${jars.dir}/tcauth.jar">
+        <jar jarfile="${bin}/tcauth.jar">
             <fileset dir="${classes}/">
                 <include name="com/topcoder/web/forums/model/TCAuthFactory.class"/>
                 <include name="com/topcoder/web/forums/model/TCAuthToken.class"/>
@@ -287,7 +287,7 @@
     </target>
 
     <target name="package-TCFilters" depends="compile">
-        <jar jarfile="${jars.dir}/tcfilters.jar">
+        <jar jarfile="${bin}/tcfilters.jar">
             <fileset dir="${classes}/">
                 <include name="com/topcoder/web/forums/util/filter/*.class"/>
             </fileset>
