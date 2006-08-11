@@ -140,10 +140,7 @@
       --%>
       </td>
       <td class="valueC">
-      &#160;
-      <%-- 
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_reviewProjectAdmin">standings</A>
-      --%>
       </td>
       <td class="valueC">$10,000</td>
       <td class="valueC">
@@ -176,10 +173,7 @@
       --%>
       </td>
       <td class="valueC">
-      &#160;
-      <%-- 
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_reviewProjectReview">standings</A>
-      --%>
       </td>
       <td class="valueC">$10,000</td>
       <td class="valueC">
