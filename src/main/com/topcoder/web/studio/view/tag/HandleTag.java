@@ -69,7 +69,7 @@ public class HandleTag extends TagSupport {
      */
     public int doEndTag() throws JspException {
         coderId = 0;
-        cssclass = "";
+        cssclass = "coderText";
         return super.doEndTag();
     }
 
