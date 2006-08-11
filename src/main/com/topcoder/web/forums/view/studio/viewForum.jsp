@@ -1,22 +1,22 @@
-<%@ page import="com.topcoder.web.common.BaseServlet,
-                 com.topcoder.web.forums.ForumConstants,
-                 com.topcoder.web.forums.controller.ForumsUtil,
-                 com.topcoder.web.forums.model.Paging,
-                 com.jivesoftware.base.JiveConstants,
+<%@ page import="com.jivesoftware.base.JiveConstants,
                  com.jivesoftware.base.JiveGlobals,
                  com.jivesoftware.base.User,
-                 com.jivesoftware.forum.stats.ViewCountManager,
                  com.jivesoftware.forum.ForumMessage,
-                 com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.ReadTracker,
+                 com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.WatchManager,
                  com.jivesoftware.forum.action.util.Page,
                  com.jivesoftware.forum.action.util.Paginator,
-                 java.util.Iterator,
-                 java.util.Enumeration"
-%>
+                 com.jivesoftware.forum.stats.ViewCountManager,
+                 com.topcoder.web.forums.ForumConstants,
+                 com.topcoder.web.forums.controller.ForumsUtil,
+                 com.topcoder.web.forums.model.Paging,
+                 java.util.Iterator"
+        %>
+<%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="studio.tld" prefix="studio" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
@@ -24,15 +24,15 @@
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
-<%  WatchManager watchManager = forumFactory.getWatchManager();
+<% WatchManager watchManager = forumFactory.getWatchManager();
     ReadTracker readTracker = forumFactory.getReadTracker();
-    User user = (User)request.getAttribute("user");
-    String sortField = (String)request.getAttribute("sortField");
-    String sortOrder = (String)request.getAttribute("sortOrder");
-    String startIdx = (String)request.getAttribute("startIdx");
+    User user = (User) request.getAttribute("user");
+    String sortField = (String) request.getAttribute("sortField");
+    String sortOrder = (String) request.getAttribute("sortOrder");
+    String startIdx = (String) request.getAttribute("startIdx");
     boolean isDefaultView = (sortField.equals(String.valueOf(JiveConstants.MODIFICATION_DATE))
-        && sortOrder.equals(String.valueOf(ResultFilter.DESCENDING))
-        && startIdx.equals("0"));
+            && sortOrder.equals(String.valueOf(ResultFilter.DESCENDING))
+            && startIdx.equals("0"));
 
     StringBuffer linkBuffer = new StringBuffer("?module=ThreadList");
     linkBuffer.append("&").append(ForumConstants.FORUM_ID).append("=").append(forum.getID());
@@ -77,180 +77,201 @@
 
 <html>
 <head>
-<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title>TopCoder Studio</title>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>TopCoder Studio</title>
 
-<jsp:include page="style.jsp">
-    <jsp:param name="key" value="tc_studio_forums"/>
-</jsp:include>
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_studio_forums"/>
+    </jsp:include>
 </head>
 
 <body>
 
 <div align="center">
-   <div class="contentOut">
-   <jsp:include page="top.jsp">
-       <jsp:param name="section" value="default"/>
-   </jsp:include>
-   <jsp:include page="topNav.jsp">
-       <jsp:param name="node" value="forums"/>
-   </jsp:include>
-      <div class="contentIn">
-         <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
-         <div class="contentSpacer">
+<div class="contentOut">
+<jsp:include page="top.jsp">
+    <jsp:param name="section" value="default"/>
+</jsp:include>
+<jsp:include page="topNav.jsp">
+    <jsp:param name="node" value="forums"/>
+</jsp:include>
+<div class="contentIn">
+<img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;"/>
+
+<div class="contentSpacer">
 
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr>
-   <td class="categoriesBox" style="padding-right: 20px;">
-      <jsp:include page="categoriesHeader.jsp" />
-   </td>
-   <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
-      <jsp:include page="searchHeader.jsp" />
-    </td>
-   <td align="right" nowrap="nowrap" valign="top">
-      <A href="?module=History" class="rtbcLink">My Post History</A> | <A href="?module=Watches" class="rtbcLink">My Watches</A> | <A href="?module=Settings" class="rtbcLink">User Settings</A><br>
-       <%   if (ForumsUtil.isAdmin(user)) { %>
-                 <A href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.CATEGORY_ID%>=<%=forum.getForumCategory().getID()%>&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post Announcement</A> | 
-       <%   } %>
-      <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post New Thread</A><br>
-   </td>
-</tr>
-<tr><td colspan="3" style="padding-bottom:3px;"><b>
-<% Page[] pages; %>
-<% if (paginator.getNumPages() > 1) { %>
-   <div style="float:right;" class="rtbc"><b>
-      <%  if (paginator.getPreviousPage()) { %>
-         <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
-               << PREV</A>&#160;&#160;&#160;
-        <%  } %> [
-        <%  pages = paginator.getPages(5);
-            for (int i=0; i<pages.length; i++) {
-        %>  <%  if (pages[i] != null) { %>
-                 <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
-                       <span class="currentPage"><%= pages[i].getNumber() %></span>
-                 <%  } else { %>
-                        <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
-                         <%= pages[i].getNumber() %></A>
-                   <%  } %>
-            <%  } else { %> ... <%  } %>
-        <%  } %> ]
-      <%  if (paginator.getNextPage()) { %>
-         &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT ></A>
-        <%  } %>
-      </b>
-   </div>
-<% } %>
-       <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
-          <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >
-       </tc-webtag:iterator>
+    <tr>
+        <td class="categoriesBox" style="padding-right: 20px;">
+            <jsp:include page="categoriesHeader.jsp"/>
+        </td>
+        <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
+            <jsp:include page="searchHeader.jsp"/>
+        </td>
+        <td align="right" nowrap="nowrap" valign="top">
+            <A href="?module=History" class="rtbcLink">My Post History</A> | <A href="?module=Watches" class="rtbcLink">My
+            Watches</A> | <A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+            <% if (ForumsUtil.isAdmin(user)) { %>
+            <A href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.CATEGORY_ID%>=<%=forum.getForumCategory().getID()%>&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post
+                Announcement</A> |
+            <% } %>
+            <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post
+                New Thread</A><br>
+        </td>
+    </tr>
+    <tr><td colspan="3" style="padding-bottom:3px;"><b>
+        <% Page[] pages; %>
+        <% if (paginator.getNumPages() > 1) { %>
+        <div style="float:right;" class="rtbc"><b>
+            <% if (paginator.getPreviousPage()) { %>
+            <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
+                <<PREV</A>&#160;&#160;&#160;
+            <% } %> [
+            <% pages = paginator.getPages(5);
+                for (int i = 0; i < pages.length; i++) {
+            %>  <% if (pages[i] != null) { %>
+            <% if (pages[i].getNumber() == paginator.getPageIndex() + 1) { %>
+            <span class="currentPage"><%= pages[i].getNumber() %></span>
+            <% } else { %>
+            <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
+                <%= pages[i].getNumber() %></A>
+            <% } %>
+            <% } else { %> ... <% } %>
+            <% } %> ]
+            <% if (paginator.getNextPage()) { %>
+            &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT
+            ></A>
+            <% } %>
+        </b>
+        </div>
+        <% } %>
+        <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory"
+                            iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
+        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink">
+            <jsp:getProperty name="category" property="name"/>
+        </A> >
+        </tc-webtag:iterator>
         <jsp:getProperty name="forum" property="name"/>
     </td>
 </table>
-            
-<%  if (forum.getThreadCount() > 0) { %>
-<table cellpadding="0" cellspacing="0" class="rtTable">
-<tr>
-<td class="rtHeader" width="70%"><a href="<%=threadLink%>" class="rtbcLink">Thread</a></td>
-<td class="rtHeader" width="10%">Author</td>
-<td class="rtHeader" width="10%" align="right">Replies</td>
-<td class="rtHeader" width="10%" align="right">Views</td>
-<td class="rtHeader" align="center" colspan="2"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></td>
-</tr>
-<%  if (startIdx.equals("0")) { %>
-<tc-webtag:iterator id="announcement" type="com.jivesoftware.forum.Announcement" iterator='<%=(Iterator)request.getAttribute("announcements")%>'>
-    <tr>
-    <td class="rtThreadCellWrap">
-        <div><A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtLinkBold"><img src="/i/interface/announcement.gif" alt="" border="0" /> <%=announcement.getSubject()%></A></div>
-    </td>
-    <td class="rtThreadCell"><tc-webtag:studioHandle coderId="<%=announcement.getUser().getID()%>"/></td>
-    <td class="rtThreadCell"></td>
-    <td class="rtThreadCell"></td>
-    <td class="rtThreadCell"><b><A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtLinkNew"><tc-webtag:beanWrite name="announcement" property="startDate" format="EEE, MMM d yyyy 'at' h:mm a"/></A></b></td>
-    <td class="rtThreadCell"><tc-webtag:studioHandle coderId="<%=announcement.getUser().getID()%>"/></td>
-    </tr>
-</tc-webtag:iterator>
-<%  } %>
-<tc-webtag:iterator id="thread" type="com.jivesoftware.forum.ForumThread" iterator='<%=(Iterator)request.getAttribute("threads")%>'>
-    <%  ForumMessage lastPost = ForumsUtil.getLatestMessage(thread);
-        String trackerClass = (user == null || readTracker.getReadStatus(user, lastPost) == ReadTracker.READ ||
-            ("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, thread))) ? "rtLinkOld" : "rtLinkBold"; %>
-    <tr>
-    <tc-webtag:useBean id="message" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
-    <td class="rtThreadCellWrap">
-        <%  if (((authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat")) || user.getProperty("jiveThreadMode").equals("flat")) { %>
-            <%  if (!authToken.isAnonymous()) { %>
-            <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0" class="<%=trackerClass%>"><%=thread.getRootMessage().getSubject()%></A>
-            <%  } else { %>
-                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
-            <%  } %>
-         <% Paginator threadPaginator;
-            ResultFilter resultFilter = ResultFilter.createDefaultMessageFilter();
-            resultFilter.setStartIndex(0);
-            int range = JiveGlobals.getJiveIntProperty("skin.default.defaultMessagesPerPage",
-                  ForumConstants.DEFAULT_MESSAGE_RANGE);
-            if (user != null) {
-                  try {
-                      range = Integer.parseInt(user.getProperty("jiveMessageRange"));
-                  } catch (Exception ignored) {}
-            }
-            resultFilter.setNumResults(range);
-            threadPaginator = new Paginator(new Paging(resultFilter, thread.getMessageCount()));
 
-            if (threadPaginator.getNumPages() > 1) { %> [
-              <%  pages = threadPaginator.getPages(4);
-                  for (int i=0; i<pages.length; i++) {
-              %>  <%  if (pages[i] != null) { %>
-                       <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtLinkOld">
-                         <%= pages[i].getNumber() %></A>
-                  <%  } %>
-              <%  } %>
-                <%  if (threadPaginator.getNumPages() > 4) { %>
-                    <%  if (threadPaginator.getNumPages()-4 > 1) { %> ... <%  } %>
-                    <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=(threadPaginator.getNumPages()-1)*threadPaginator.getRange()%>" class="rtLinkOld">
-                            <%= threadPaginator.getNumPages() %></A>
-                <%  } %> ]
-          <%  } %>
-      <%  } else { %>
-            <%  if (!authToken.isAnonymous()) { %>
-               <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>" class="<%=trackerClass%>"><%=thread.getRootMessage().getSubject()%></A>
-            <%  } else { %>
+<% if (forum.getThreadCount() > 0) { %>
+<table cellpadding="0" cellspacing="0" class="rtTable">
+    <tr>
+        <td class="rtHeader" width="70%"><a href="<%=threadLink%>" class="rtbcLink">Thread</a></td>
+        <td class="rtHeader" width="10%">Author</td>
+        <td class="rtHeader" width="10%" align="right">Replies</td>
+        <td class="rtHeader" width="10%" align="right">Views</td>
+        <td class="rtHeader" align="center" colspan="2"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></td>
+    </tr>
+    <% if (startIdx.equals("0")) { %>
+    <tc-webtag:iterator id="announcement" type="com.jivesoftware.forum.Announcement" iterator='<%=(Iterator)request.getAttribute("announcements")%>'>
+        <tr>
+            <td class="rtThreadCellWrap">
+                <div>
+                    <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtLinkBold"><img src="/i/interface/announcement.gif" alt="" border="0"/> <%=announcement.getSubject()%>
+                    </A></div>
+            </td>
+            <td class="rtThreadCell"><studio:handle coderId="<%=announcement.getUser().getID()%>"/></td>
+            <td class="rtThreadCell"></td>
+            <td class="rtThreadCell"></td>
+            <td class="rtThreadCell">
+                <b><A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtLinkNew">
+                    <tc-webtag:beanWrite name="announcement" property="startDate" format="EEE, MMM d yyyy 'at' h:mm a"/></A></b>
+            </td>
+            <td class="rtThreadCell"><studio:handle coderId="<%=announcement.getUser().getID()%>"/></td>
+        </tr>
+    </tc-webtag:iterator>
+    <% } %>
+    <tc-webtag:iterator id="thread" type="com.jivesoftware.forum.ForumThread" iterator='<%=(Iterator)request.getAttribute("threads")%>'>
+        <% ForumMessage lastPost = ForumsUtil.getLatestMessage(thread);
+            String trackerClass = (user == null || readTracker.getReadStatus(user, lastPost) == ReadTracker.READ ||
+                    ("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, thread))) ? "rtLinkOld" : "rtLinkBold"; %>
+        <tr>
+            <tc-webtag:useBean id="message" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
+            <td class="rtThreadCellWrap">
+                <% if (((authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat")) || user.getProperty("jiveThreadMode").equals("flat")) { %>
+                <% if (!authToken.isAnonymous()) { %>
+                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0" class="<%=trackerClass%>"><%=thread.getRootMessage().getSubject()%></A>
+                <% } else { %>
+                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
+                <% } %>
+                <% Paginator threadPaginator;
+                    ResultFilter resultFilter = ResultFilter.createDefaultMessageFilter();
+                    resultFilter.setStartIndex(0);
+                    int range = JiveGlobals.getJiveIntProperty("skin.default.defaultMessagesPerPage",
+                            ForumConstants.DEFAULT_MESSAGE_RANGE);
+                    if (user != null) {
+                        try {
+                            range = Integer.parseInt(user.getProperty("jiveMessageRange"));
+                        } catch (Exception ignored) {
+                        }
+                    }
+                    resultFilter.setNumResults(range);
+                    threadPaginator = new Paginator(new Paging(resultFilter, thread.getMessageCount()));
+
+                    if (threadPaginator.getNumPages() > 1) { %> [
+                <% pages = threadPaginator.getPages(4);
+                    for (int i = 0; i < pages.length; i++) {
+                %>  <% if (pages[i] != null) { %>
+                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtLinkOld">
+                    <%= pages[i].getNumber() %></A>
+                <% } %>
+                <% } %>
+                <% if (threadPaginator.getNumPages() > 4) { %>
+                <% if (threadPaginator.getNumPages() - 4 > 1) { %> ... <% } %>
+                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=(threadPaginator.getNumPages()-1)*threadPaginator.getRange()%>" class="rtLinkOld">
+                    <%= threadPaginator.getNumPages() %></A>
+                <% } %> ]
+                <% } %>
+                <% } else { %>
+                <% if (!authToken.isAnonymous()) { %>
+                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>" class="<%=trackerClass%>"><%=thread.getRootMessage().getSubject()%></A>
+                <% } else { %>
                 <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
-            <%  } %>
-        <%  } %></td>
-    <% if (thread.getRootMessage().getUser() != null) { %>
-       <td class="rtThreadCell"><tc-webtag:studioHandle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
-    <% } else { %>
-        <td class="rtThreadCell"></td>
-    <% } %>
-   <td class="rtThreadCell" align="right"><%=thread.getMessageCount()-1%>&#160;&#160;&#160;&#160;&#160;</td>
-   <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%>&#160;&#160;&#160;&#160;</td>
-   <td class="rtThreadCell"><b><A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=lastPost.getID()%>" class="rtLinkNew"><tc-webtag:beanWrite name="thread" property="modificationDate" format="EEE, MMM d yyyy 'at' h:mm a"/></A></b></td>
-   <% if (lastPost.getUser() != null) { %>
-        <td class="rtThreadCell"><tc-webtag:studioHandle coderId="<%=lastPost.getUser().getID()%>"/></td>
-    <% } else { %>
-        <td class="rtThreadCell"></td>
-    <% } %>
-   </tr>
-</tc-webtag:iterator>
+                <% } %>
+                <% } %></td>
+            <% if (thread.getRootMessage().getUser() != null) { %>
+            <td class="rtThreadCell"><studio:handle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
+            <% } else { %>
+            <td class="rtThreadCell"></td>
+            <% } %>
+            <td class="rtThreadCell" align="right"><%=thread.getMessageCount() - 1%>&#160;&#160;&#160;&#160;&#160;</td>
+            <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%>&#160;&#160;&#160;&#160;</td>
+            <td class="rtThreadCell">
+                <b><A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=lastPost.getID()%>" class="rtLinkNew">
+                    <tc-webtag:beanWrite name="thread" property="modificationDate" format="EEE, MMM d yyyy 'at' h:mm a"/></A></b>
+            </td>
+            <% if (lastPost.getUser() != null) { %>
+            <td class="rtThreadCell"><studio:handle coderId="<%=lastPost.getUser().getID()%>"/></td>
+            <% } else { %>
+            <td class="rtThreadCell"></td>
+            <% } %>
+        </tr>
+    </tc-webtag:iterator>
 </table>
 
 <div>
-<div style="float:right;"><a href="?module=RSS&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>"><img border="none" src="/i/interface/btn_rss.gif"/></a></div>
-<span class="small">A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <%if (user!=null) {%><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark all as read)</A><% } %></span>
+    <div style="float:right;">
+        <a href="?module=RSS&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>"><img border="none" src="/i/interface/btn_rss.gif"/></a>
+    </div>
+    <span class="small">A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <%if (user != null) {%><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
+        all as read)</A><% } %></span>
 </div>
-<%  } else { %>
-    <span class="bigRed"><A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="bigRed">Be the first to post in this forum!</A></span>
-<%  } %>
+<% } else { %>
+<span class="bigRed"><A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="bigRed">Be
+    the first to post in this forum!</A></span>
+<% } %>
 
 
-         </div>
-         <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;" />
-      </div>
-      <jsp:include page="foot.jsp"/>
-      <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
-   </div>
+</div>
+<img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;"/>
+</div>
+<jsp:include page="foot.jsp"/>
+<img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
+</div>
 </div>
 
 </body>

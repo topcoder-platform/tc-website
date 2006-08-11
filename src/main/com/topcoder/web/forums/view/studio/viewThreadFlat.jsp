@@ -241,7 +241,7 @@
                     |
                     <% } %>
                     <a name=
-                            <jsp:getProperty name="message" property="ID"/>
+                        <jsp:getProperty name="message" property="ID"/>
                             >
                         <tc-webtag:beanWrite name="message" property="creationDate" format="EEE, MMM d, yyyy 'at' h:mm a z"/></a>
                 </div>
@@ -259,11 +259,13 @@
                         <%}%>)
                         <%  } %>
                         <%
+
                         if (ratingManager.isRatingsEnabled() && user != null && ForumsUtil.showRatings(user)) {
                      int[] ratings = ForumsUtil.getRatings(ratingManager, message);
                      posRatings = ratings[0];
                      negRatings = ratings[1];
                      ratingCount = posRatings+negRatings;
+
                         %>
                     | Feedback: <span id="<%=ratingsID%>">(+<%=posRatings%>/-<%=negRatings%>)</span> |
                     <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','2')" class="rtbcLink">[+]</a>
@@ -310,11 +312,13 @@
     <div style="float:right; text-align:right; class=" rtbc">< b>
         <%  if (paginator.getPreviousPage()) { %>
         <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>&mc=<jsp:getProperty name="thread" property="messageCount"/><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">
-            <<PREV</A>&#160;&#160;&#160;
+            &lt;&lt;PREV</A>&#160;&#160;&#160;
         <%  } %> [
         <%
+
         Page[] pages = paginator.getPages(5);
             for (int i=0; i<pages.length; i++) {
+
 
         %> <%  if (pages[i] != null) { %>
         <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
