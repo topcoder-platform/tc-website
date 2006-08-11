@@ -37,19 +37,19 @@
 <br><br>
 <span class="bodySubtitle">Overview of the Tournament</span>
 <br><br>
-The 2006 TopCoder Collegiate Challenge ("TCCC") Sponsor Track Competition will take place between September 7 and October 14, 2006.  This algorithm competition will consist of one (1) online qualification round, two (2) online elimination rounds and one (1) online final round.
+The 2006 TopCoder Collegiate Challenge ("TCCC") Sponsor Track Competition will take place between September 12 and October 14, 2006.  This algorithm competition will consist of one (1) online qualification round, two (2) online elimination rounds and one (1) online final round.
 <br><br>
 
 <a name="eligibility"></a>
 <a href="#top"><img src="/i/interface/back_to_top_dk.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <b>Eligibility</b><br>
-Employees and interns of all official TCCC sponsors who are TopCoder members and are at least 18 years of age as of September 7, 2006 are eligible to compete in the Sponsor Track  Competition.  TCCC sponsor employees and interns may register to become a TopCoder member by navigating to www.topcoder.com and then clicking on "Register" in the upper right corner of the screen.
+Employees and interns of all official TCCC sponsors who are TopCoder members and are at least 18 years of age as of September 12, 2006 are eligible to compete in the Sponsor Track  Competition.  TCCC sponsor employees and interns may register to become a TopCoder member by navigating to <A href="/">www.topcoder.com</A> and then clicking on "Register" in the upper right corner of the screen.
 <br><br>
 
 <a name="registration"></a>
 <a href="#top"><img src="/i/interface/back_to_top_dk.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <b>Registration</b><br>
-Registration for the 2006 TopCoder Collegiate Challenge Sponsor Track Competition will open 9:00AM EDT on Monday, August 18, 2006, and will close at 6:00PM EDT on Wednesday, September 13, 2006.  In order to be eligible to compete in the Sponsor Track Competition, competitors must be a registered TopCoder member and must register separately for the Sponsor Track Competition.  There is no limit to the number of registrants in the competition, however each individual may only register once.
+Registration for the 2006 TopCoder Collegiate Challenge Sponsor Track Competition will open 9:00AM EDT on Monday, August 28, 2006, and will close at 6:00PM EDT on Tuesday, September 12, 2006.  In order to be eligible to compete in the Sponsor Track Competition, competitors must be a registered TopCoder member and must register separately for the Sponsor Track Competition.  There is no limit to the number of registrants in the competition, however each individual may only register once.
 <br><br>
 
 <a name="qualification"></a>
@@ -75,16 +75,16 @@ All Sponsor Track competitors who have qualified for an online round will be ass
 The dates and times of the online rounds of competition are as follows: 
 <br><br>
 
-         <table width="400" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
+         <table width="450" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
             <tr>
-               <td class="sidebarTitle" width="25%">Round</td>
-               <td class="sidebarTitle" width="35%">Date and Time*</td>
-               <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
-               <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
+               <td class="sidebarTitle" width="22%">Round</td>
+               <td class="sidebarTitle" width="42%">Date and Time*</td>
+               <td class="sidebarTitle" width="18%" align="center"># of Participants</td>
+               <td class="sidebarTitle" width="18%" align="center"># of Advancers</td>
             </tr>
             <tr valign="top">
                <td class="sidebarText">Online Round 1</td>
-               <td class="sidebarText">Wednesday, September 27, 2006<br />
+               <td class="sidebarText" nowrap>Wednesday, September 27, 2006<br />
                                        Register: 6:00 - 8:55 PM<br />
                                        START: 9:00 PM<br /></td>
                <td class="sidebarText" align="center">100</td>
@@ -92,7 +92,7 @@ The dates and times of the online rounds of competition are as follows:
             </tr>
             <tr valign="top">
                <td class="sidebarText">Online Round 2</td>
-               <td class="sidebarText">Wednesday, October 11, 2006<br />
+               <td class="sidebarText" nowrap>Wednesday, October 11, 2006<br />
                                        Register: 6:00 - 8:55 PM<br />
                                        START: 9:00 PM<br /></td>
                <td class="sidebarText" align="center">50</td>
@@ -100,7 +100,7 @@ The dates and times of the online rounds of competition are as follows:
             </tr>
             <tr valign="top">
                <td class="sidebarText">Final Online Round</td>
-               <td class="sidebarText">Saturday, October 14, 2006<br />
+               <td class="sidebarText" nowrap>Saturday, October 14, 2006<br />
                                        Register: 10:00 AM - 12:55 PM<br />
                                        START: 1:00 PM<br /></td>
                <td class="sidebarText" align="center">25</td>
@@ -132,7 +132,7 @@ This round will be the last round of the Sponsor Track Competition.  Up to 25 co
 
 <b>NOTE:</b>  In the event of a tie for any advancing position during the online rounds, the tie will be resolved in the following manner:
 <ul>
-<li>Total points acquired (higher is better) during the previous online rounds of the tournament (excluding the Qualification Round).</li>
+<li>Total points acquired (higher is better) during the previous online rounds of the tournament.</li>
 <li>If a tie still remains, then by rating (higher is better) following the Qualification Round.</li>
 <li>If a tie still remains, all tied coders will advance to the next round.</li>
 </ul>
