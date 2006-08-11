@@ -53,16 +53,11 @@ From within the competition room, you will access the problem statements that yo
 
 <br><br>
 <div align="center"><img src="/i/tournament/tccc06/arena3.gif" alt="" border="0" /></div>
-<br><br><br>
+<br><br>
 
 <span class="bodySubtitle">Coding Phase</span><br>
-The Coding Phase is the period during which each contestant attempts to create solutions to three problem statements. The amount of time you will be given will vary depending on the round of competition:
-<ul>
-<li>In the Qualification Round, the Coding Phase will last 60 minutes from the time that the first problem is opened and the contestants will be given two problems to solve.</li>
-<li>In the Online Rounds of the Sponsor Track Competiton, the Coding Phase will last 75 minutes and the contestants will be given three problems to solve.</li>
-<li>In the Online Final Round of the Sponsor Track Competiton, the coding phase will last 75 minutes and the contestants will be given three problems to solve.</li>
-</ul>
-
+The Coding Phase is the period during which each contestant attempts to create solutions to three problem statements. In all rounds of the Sponsor Track Competition, the coding phase will last 75 minutes and the contestants will be given three problems to solve.
+<br><br>
 When the competition begins, you may view the problem statements as follows:
 <ul>
 <li>Click on the drop-down box labeled "Select one"</li>

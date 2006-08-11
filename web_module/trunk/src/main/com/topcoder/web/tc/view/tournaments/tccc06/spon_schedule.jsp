@@ -36,12 +36,10 @@
    <tr valign="top">
       <td class="sidebarText">Qualification Round</td>
       <td class="sidebarText">
-      START: Tuesday, September 12, 2006<br>
-      9:00 PM
-      <br><br>
-      END: Wednesday, September 13, 2006<br>
-      9:00 PM
-      </td>
+      Tuesday, September 12, 2006<br>
+      Register 6:00 - 8:55 PM<br>
+      START: 9:00 PM
+       </td>
       <td class="sidebarText">All eligible registered competitors</td>
       <td class="sidebarText">Top 100 scorers</td>
    </tr>
@@ -72,7 +70,7 @@
       Register 10:00 AM - 12:55 PM<br>
       START: 1:00 PM
       </td>
-      <td class="sidebarText">10</td>
+      <td class="sidebarText">25</td>
       <td class="sidebarText">1 - Champion</td>
    </tr>
    <tr><td class="sidebarText" colspan="4">*NOTE:  In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.</td></tr>

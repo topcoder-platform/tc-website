@@ -5,7 +5,7 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr>
-      <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=spon_description"><img src="/i/tournament/tccc06/tccc06_logo.gif" border="0"/></A></td>
+      <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=spon_description"><img src="/i/tournament/tccc06/tccc06_logo_aol.gif" border="0"/></A></td>
       <td valign="middle" align="center" rowspan="2"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=spon_description"><img src="/i/tournament/tccc06/sponsor_track.gif" alt="Sponsor Track" border="0"/></a></td>
       <td valign="top" align="right" rowspan="2" width="50%"><a href="/"><img src="/i/tournament/tccc06/tc_logo.gif" border="0"/></a></td>
    </tr>
