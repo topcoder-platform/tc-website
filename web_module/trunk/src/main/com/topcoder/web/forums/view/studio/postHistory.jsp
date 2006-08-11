@@ -1,16 +1,15 @@
-<%@ page import="com.topcoder.web.common.BaseServlet,
+<%@ page import="com.jivesoftware.base.JiveConstants,
+                 com.jivesoftware.forum.ResultFilter,
+                 com.jivesoftware.forum.action.util.Page,
+                 com.topcoder.shared.util.DBMS,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
-                 com.jivesoftware.forum.stats.ViewCountManager,
-                 com.jivesoftware.forum.action.util.Page,
-                 com.jivesoftware.base.JiveConstants,
-                 com.jivesoftware.base.Group,
-                 com.jivesoftware.forum.ResultFilter,
-                 java.util.*,
-                 com.topcoder.shared.util.DBMS"
-%>
+                 java.util.Iterator"
+        %>
+<%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="studio.tld" prefix="studio" %>
 
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
@@ -19,12 +18,12 @@
 <tc-webtag:useBean id="historyBean" name="historyBean" type="com.topcoder.web.ejb.messagehistory.MessageHistory" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
-<%  String sortField = (String)request.getAttribute("sortField");
-    String sortOrder = (String)request.getAttribute("sortOrder");
-    
+<% String sortField = (String) request.getAttribute("sortField");
+    String sortOrder = (String) request.getAttribute("sortOrder");
+
     StringBuffer linkBuffer = new StringBuffer("?module=History");
     linkBuffer.append("&").append(ForumConstants.USER_ID).append("=").append(historyUser.getID());
-    
+
     StringBuffer messageLinkBuffer = new StringBuffer(linkBuffer.toString());
     StringBuffer dateLinkBuffer = new StringBuffer(linkBuffer.toString());
     messageLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.MESSAGE_SUBJECT);
@@ -65,99 +64,121 @@
 
 <html>
 <head>
-<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title>TopCoder Studio</title>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>TopCoder Studio</title>
 
-<jsp:include page="style.jsp">
-    <jsp:param name="key" value="tc_studio_forums"/>
-</jsp:include>
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_studio_forums"/>
+    </jsp:include>
 </head>
 
 <body>
 
 <div align="center">
-   <div class="contentOut">
-   <jsp:include page="top.jsp">
-       <jsp:param name="section" value="default"/>
-   </jsp:include>
-   <jsp:include page="topNav.jsp">
-       <jsp:param name="node" value="none"/>
-   </jsp:include>
-      <div class="contentIn">
-         <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
-         <div class="contentSpacer">
+    <div class="contentOut">
+        <jsp:include page="top.jsp">
+            <jsp:param name="section" value="default"/>
+        </jsp:include>
+        <jsp:include page="topNav.jsp">
+            <jsp:param name="node" value="none"/>
+        </jsp:include>
+        <div class="contentIn">
+            <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;"/>
 
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
-	<tr>
-      <td class="categoriesBox" style="padding-right: 20px;">
-         <jsp:include page="categoriesHeader.jsp" />
-      </td>
-      <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
-         <jsp:include page="searchHeader.jsp" />
-       </td>
-       <td align="right" nowrap="nowrap" valign="top">
-           <A href="?module=History" class="rtbcLink">My Post History</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Watches" class="rtbcLink">My Watches</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
-       </td>
-	</tr>
-	<tr>
-	   <td colspan="2" style="padding-bottom:3px;">
-			<strong><a href="?module=Main" class="rtbcLink">Forums</a> > Post History: <tc-webtag:studioHandle coderId="<%=historyUser.getID()%>"/> (<%=ForumsUtil.display(forumFactory.getUserMessageCount(historyUser), "post")%>)</strong>
-	   </td>
-	   <% if (paginator.getNumPages() > 1) { %>
-	   <td class="rtbc" width="100%" align="right" nowrap="nowrap" style="padding-bottom:3px;"><b>
-	      <%  if (paginator.getPreviousPage()) { %>
-	         <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
-	               << PREV</A>&#160;&#160;&#160;
-	        <%  } %> [
-	        <%  Page[] pages = paginator.getPages(5);
-	            for (int i=0; i<pages.length; i++) {
-	        %>  <%  if (pages[i] != null) { %>
-	                 <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
-	                       <span class="currentPage"><%= pages[i].getNumber() %></span>
-	                 <%  } else { %>
-	                        <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
-	                         <%= pages[i].getNumber() %></A>
-	                   <%  } %>
-	            <%  } %>
-	        <%  } %> ]
-	      <%  if (paginator.getNextPage()) { %>
-	         &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT ></A>
-	        <%  } %>
-	   </b>
-	   </td>
-	   <% } %>
-	</tr>
-</table>
+            <div class="contentSpacer">
 
-<table cellpadding="0" cellspacing="0" class="rtTable">
-    <tr>
-        <td class="rtHeader" width="100%"><a href="<%=messageLink%>" class="rtbcLink">Post</a></td>
-        <td class="rtHeader">Forum</td>
-        <td class="rtHeader"><a href="<%=dateLink%>" class="rtbcLink">Date</a></td>
-        <td class="rtHeader" align="right">Replies</td>
-        <td class="rtHeader" align="right">Edits</td>
-    </tr>
-   <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
-   <tr class="light">
-         <td class="rtThreadCellWrap"><A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink"><jsp:getProperty name="message" property="subject"/></A>
-         <%   if (message.getParentMessage() != null) { %>
-            (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:studioHandle coderId="<%=message.getParentMessage().getUser().getID()%>"/> (<A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getParentMessage().getUser().getID()%>" alt="Post history for <%=message.getParentMessage().getUser().getUsername()%>" class="rtbcLink"/>history</A>)<%}%>)
-      <%   } %></td>
-         <td class="rtThreadCell" nowrap="nowrap"><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=message.getForum().getID()%>&mc=<%=message.getForum().getMessageCount()%>" class="rtbcLink"><%=message.getForum().getName()%></A></td>
-         <td class="rtThreadCell" nowrap="nowrap"><strong><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy h:mm a z"/></strong></td>
-         <td class="rtThreadCell" align="right"><%=message.getForumThread().getTreeWalker().getRecursiveChildCount(message)%></td>
-         <td class="rtThreadCell" align="right"><A href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>" class="rtbcLink"><%=historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME)%></A></td>
-   </tr>
-   </tc-webtag:iterator>
-</table>
-            
-         </div>
-         <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;" />
-      </div>
-      <jsp:include page="foot.jsp"/>
-      <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
-   </div>
+                <table cellpadding="0" cellspacing="0" class="rtbcTable">
+                    <tr>
+                        <td class="categoriesBox" style="padding-right: 20px;">
+                            <jsp:include page="categoriesHeader.jsp"/>
+                        </td>
+                        <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
+                            <jsp:include page="searchHeader.jsp"/>
+                        </td>
+                        <td align="right" nowrap="nowrap" valign="top">
+                            <A href="?module=History" class="rtbcLink">My Post
+                                History</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Watches" class="rtbcLink">My
+                            Watches</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Settings" class="rtbcLink">User
+                            Settings</A><br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="padding-bottom:3px;">
+                            <strong><a href="?module=Main" class="rtbcLink">Forums</a> > Post History:
+                                <studio:handle coderId="<%=historyUser.getID()%>"/>
+                                (<%=ForumsUtil.display(forumFactory.getUserMessageCount(historyUser), "post")%>)
+                            </strong>
+                        </td>
+                        <% if (paginator.getNumPages() > 1) { %>
+                        <td class="rtbc" width="100%" align="right" nowrap="nowrap" style="padding-bottom:3px;"><b>
+                            <% if (paginator.getPreviousPage()) { %>
+                            <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
+                                <<PREV</A>&#160;&#160;&#160;
+                            <% } %> [
+                            <% Page[] pages = paginator.getPages(5);
+                                for (int i = 0; i < pages.length; i++) {
+                            %>  <% if (pages[i] != null) { %>
+                            <% if (pages[i].getNumber() == paginator.getPageIndex() + 1) { %>
+                            <span class="currentPage"><%= pages[i].getNumber() %></span>
+                            <% } else { %>
+                            <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
+                                <%= pages[i].getNumber() %></A>
+                            <% } %>
+                            <% } %>
+                            <% } %> ]
+                            <% if (paginator.getNextPage()) { %>
+                            &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT
+                            ></A>
+                            <% } %>
+                        </b>
+                        </td>
+                        <% } %>
+                    </tr>
+                </table>
+
+                <table cellpadding="0" cellspacing="0" class="rtTable">
+                    <tr>
+                        <td class="rtHeader" width="100%"><a href="<%=messageLink%>" class="rtbcLink">Post</a></td>
+                        <td class="rtHeader">Forum</td>
+                        <td class="rtHeader"><a href="<%=dateLink%>" class="rtbcLink">Date</a></td>
+                        <td class="rtHeader" align="right">Replies</td>
+                        <td class="rtHeader" align="right">Edits</td>
+                    </tr>
+                    <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage"
+                                        iterator='<%=(Iterator)request.getAttribute("messages")%>'>
+                    <tr class="light">
+                        <td class="rtThreadCellWrap">
+                            <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">
+                                <jsp:getProperty name="message" property="subject"/>
+                            </A>
+                            <% if (message.getParentMessage() != null) { %>
+                            (response to
+                            <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%>
+                            by <studio:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/>
+                            (<A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getParentMessage().getUser().getID()%>" alt="Post history for <%=message.getParentMessage().getUser().getUsername()%>" class="rtbcLink"/>history
+                        </A>)<%}%>)
+                        <% } %></td>
+                    <td class="rtThreadCell" nowrap="nowrap">
+                        <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=message.getForum().getID()%>&mc=<%=message.getForum().getMessageCount()%>" class="rtbcLink"><%=message.getForum().getName()%></A>
+                    </td>
+                    <td class="rtThreadCell" nowrap="nowrap"><strong>
+                        <tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy h:mm a z"/></strong>
+                    </td>
+                    <td class="rtThreadCell" align="right"><%=message.getForumThread().getTreeWalker().getRecursiveChildCount(message)%></td>
+                    <td class="rtThreadCell" align="right">
+                        <A href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>" class="rtbcLink"><%=historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME)%></A>
+                    </td>
+                </tr>
+                </tc-webtag:iterator>
+            </table>
+
+        </div>
+        <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;"/>
+    </div>
+    <jsp:include page="foot.jsp"/>
+    <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
+</div>
 </div>
 
 </body>
