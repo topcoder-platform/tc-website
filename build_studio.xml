@@ -256,9 +256,9 @@
         <copy todir="${jboss_conf}" file="${resources}/forums/studio/jive_init.xml"/>
 
 
-        <delete file="${jboss_home}/server/all/deploy/studio.war"/>
-        <unwar src="${war.dir}/studio.war" dest="${jboss_home}/server/all/deploy/studio.war/" overwrite="yes"/>
-        <delete dir="${jboss_home}/server/all/deploy/studio.war/META-INF"/>
+        <delete file="${jboss_home}/server/default/deploy/studio.war"/>
+        <unwar src="${war.dir}/studio.war" dest="${jboss_home}/server/default/deploy/studio.war/" overwrite="yes"/>
+        <delete dir="${jboss_home}/server/default/deploy/studio.war/META-INF"/>
         <copy todir="${jboss_conf}">
             <fileset dir="${resources}">
                 <include name="Studio.properties"/>
