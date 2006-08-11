@@ -15,7 +15,7 @@
     <property name="src.dir" value="src"/>
     <property name="java" value="${src.dir}/main"/>
     <property name="shared.jar" value="${bin}/shared.jar"/>
-    <property name="jboss_home" value="../jboss-4.0.2"/>
+    <property name="jboss_home" value="../jboss-4.0.4.GA"/>
     <property name="jboss_deploy" value="${jboss_home}/server/all/deploy"/>
     <property name="jboss_lib" value="${jboss_home}/server/all/lib"/>
     <property name="jboss_conf" value="${jboss_home}/server/all/conf"/>
