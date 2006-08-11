@@ -10,12 +10,12 @@
 
 <div class="topBox">
     <div class="logoBox">
-        <A href="/"><img src="/i/studio/studio_logo.gif" alt="TopCoder Studio"/></A>
+        <A href="/"><img src="/i/studio_logo.gif" alt="TopCoder Studio"/></A>
     </div>
 
 <% if (section.equals("")) {%>
     <div class="loginBox" align="center">
-        <img src="/i/studio/layout/loginBoxN.gif" alt="" style="display:block;"/>
+        <img src="/i/layout/loginBoxN.gif" alt="" style="display:block;"/>
 
         <div style="width:250px; background: #E7E5BC;" align="left">
             <div style="padding: 4px 10px 4px 10px;">
@@ -44,7 +44,7 @@
                                             <input name="<%=Login.PASSWORD%>" size="8" maxlength="15" type="password" value=""/>
                                         </td>
                                         <td>
-                                            <input type="image" src="/i/studio/layout/btn_login.gif" onmouseover="this.src='/i/studio/layout/btn_login_on.gif'" onmouseout="this.src='/i/studio/layout/btn_login.gif'">
+                                            <input type="image" src="/i/layout/btn_login.gif" onmouseover="this.src='/i/layout/btn_login_on.gif'" onmouseout="this.src='/i/layout/btn_login.gif'">
                                         </td>
                                     </tr>
                                 </tbody>
@@ -66,7 +66,7 @@
                 </c:choose>
             </div>
         </div>
-        <img src="/i/studio/layout/loginBoxS.gif" alt="" style="display:block;"/>
+        <img src="/i/layout/loginBoxS.gif" alt="" style="display:block;"/>
     </div>
 <% } %>
 </div>

@@ -22,7 +22,7 @@
             <jsp:param name="node" value="contests"/>
         </jsp:include>
         <div class="contentIn">
-            <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;"/>
+            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
 
             <div class="contentSpacer">
 
@@ -53,7 +53,7 @@
                     <br/></tc-webtag:errorIterator></span>
                         <INPUT TYPE="checkbox" NAME="<%=Constants.TERMS_AGREE%>"/>I agree
                         <br><br>
-                        <input type="image" src="/i/studio/layout/btn_submit.gif" onmouseover="this.src='/i/studio/layout/btn_submit_on.gif'" onmouseout="this.src='/i/studio/layout/btn_submit.gif'">
+                        <input type="image" src="/i/layout/btn_submit.gif" onmouseover="this.src='/i/layout/btn_submit_on.gif'" onmouseout="this.src='/i/layout/btn_submit.gif'">
                         <br><br>
 
 
@@ -61,10 +61,10 @@
                 </div>
 
             </div>
-            <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;"/>
+            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
         </div>
         <jsp:include page="foot.jsp"/>
-        <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
+        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
     </div>
 </div>
 

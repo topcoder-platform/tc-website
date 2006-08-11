@@ -19,7 +19,7 @@
             <jsp:param name="node" value="contests"/>
         </jsp:include>
         <div class="contentIn">
-            <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;"/>
+            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
 
             <div class="contentSpacer">
 
@@ -46,10 +46,10 @@
                 </div>
 
             </div>
-            <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;"/>
+            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
         </div>
         <jsp:include page="foot.jsp"/>
-        <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
+        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
     </div>
 </div>
 
