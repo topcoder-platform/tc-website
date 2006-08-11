@@ -27,7 +27,7 @@
                 <p class=bigTitle>Registration</p>
 
                 <p align="left">
-                    You have successfully registered for the 2006 TopCoTopCoder Collegiate Challenge.</p>
+                    You have successfully registered for the 2006 TopCoder Collegiate Challenge.</p>
 
 
             </div>
