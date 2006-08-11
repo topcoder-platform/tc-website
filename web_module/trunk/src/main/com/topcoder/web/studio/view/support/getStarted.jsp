@@ -66,7 +66,7 @@ In order to read the specifications provided by the client, you must be a regist
    <img src="/i/studio/layout/step5.gif" alt="Step 5" />
 </div>
 <strong>Registered TopCoder Studio members can submit their design(s)</strong>: 
-Once you've read through a Project's overview and specifications, it's time to work on your submission.  Designs can be submitted from the Project Details page and must conform to the requirements:
+Once you've read through a Project's overview and specifications, it's time to work on your submission.  Designs can be submitted from the Contest Details page and must conform to the requirements:
    <ul>
    <li>The submitted file must be 2MB or smaller in size.</li>
    <li>The submitted file must be a PDF.</li>

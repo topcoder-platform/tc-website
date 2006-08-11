@@ -41,12 +41,12 @@
     &gt; ${contest.name}
 </div>
 
-<h1>Project Details</h1>
+<h1>Contest Details</h1>
 
 <div align="center">
     <div style="width:510px;" align="left">
 
-        <div class="header">Overview</div>
+        <div class="header">Project Overview</div>
         ${contest.overview.value}
         <br><br>
         <strong>Documentation</strong><br>
