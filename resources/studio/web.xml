@@ -71,6 +71,10 @@
             <param-name>Admin</param-name>
             <param-value>com.topcoder.web.forums.controller.request.studio.Admin</param-value>
         </init-param>
+        <init-param>
+            <param-name>Login</param-name>
+            <param-value>com.topcoder.web.forums.controller.request.studio.Login</param-value>
+        </init-param>
         <!-- end parameters for ForumsServlet processor mapping -->
         <init-param>
             <param-name>authentication_implementation</param-name>
