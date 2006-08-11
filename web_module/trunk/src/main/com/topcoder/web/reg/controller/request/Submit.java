@@ -37,13 +37,13 @@ public class Submit extends Base {
         } else if (u.isNew() || userLoggedIn()) {
             //todo check if the handle is taken again
             boolean newUser = u.isNew();
-            try {
-                getFactory().getUserDAO().saveOrUpdate(u);
+            getFactory().getUserDAO().saveOrUpdate(u);
 
-                securityStuff(newUser, u);
+            securityStuff(newUser, u);
 
-                markForCommit();
-                if (newUser) {
+            markForCommit();
+            if (newUser) {
+                try {
                     Long newUserId = u.getId();
                     closeConversation();
                     //have to wrap up the last stuff, and get into new stuff.  we don't want
@@ -73,22 +73,23 @@ public class Submit extends Base {
                         //we don't want whatever happened to affect the registration.
                         e.printStackTrace();
                     }
-                }
-            } catch (Throwable e) {
-                if (u != null && u.getId() != null) {
-                    Context ctx = null;
-                    try {
-                        ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
-                        PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-                        PrincipalMgrRemote pmr = pmrh.create();
-                        pmr.removeUser(new UserPrincipal("", u.getId().longValue()), new TCSubject(132456));
+                } catch (Throwable e) {
+                    if (u != null && u.getId() != null) {
+                        Context ctx = null;
+                        try {
+                            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+                            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+                            PrincipalMgrRemote pmr = pmrh.create();
+                            pmr.removeUser(new UserPrincipal("", u.getId().longValue()), new TCSubject(132456));
 
-                    } catch (Throwable ex) {
-                        log.error("problem in exception callback for user: " + u.getId() + " " + e.getMessage());
-                    } finally {
-                        close(ctx);
+                        } catch (Throwable ex) {
+                            log.error("problem in exception callback for user: " + u.getId() + " " + e.getMessage());
+                        } finally {
+                            close(ctx);
+                        }
                     }
                 }
+
             }
 
             HashSet h = new HashSet();
