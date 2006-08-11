@@ -17,7 +17,7 @@
 
 <div align="center">
    <div class="contentOut">
-   <jsp:include page="top.jsp" />
+   <jsp:include page="../top.jsp" />
    <jsp:include page="../topNav.jsp">
        <jsp:param name="node" value="support"/>
    </jsp:include>
