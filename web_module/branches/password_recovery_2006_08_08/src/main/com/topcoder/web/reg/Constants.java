@@ -75,6 +75,10 @@ public class Constants implements WebConstants {
     public static int MAX_HANDLE_LENGTH;
     public static int MIN_PASSWORD_LENGTH;
     public static int MAX_PASSWORD_LENGTH;
+    public static int MIN_SECRET_QUESTION_LENGTH;
+    public static int MAX_SECRET_QUESTION_LENGTH;
+    public static int MIN_SECRET_QUESTION_RESPONSE_LENGTH;
+    public static int MAX_SECRET_QUESTION_RESPONSE_LENGTH;
     public static int MAX_GIVEN_NAME_LENGTH;
     public static int MAX_SURNAME_LENGTH;
     public static int MAX_MIDDLE_NAME_LENGTH;

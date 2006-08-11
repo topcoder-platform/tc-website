@@ -23,8 +23,7 @@ public class RecoverEmail extends ShortHibernateProcessor {
 
         User u = DAOUtil.getFactory().getUserDAO().find(new Long(userId));
     	if (email.length() > 0) {
-        	if (!u.getSecretQuestion().getResponse().equals(response)) {
-        		// failed.  To do: error message
+        	if (!u.getSecretQuestion().getResponse().equalsIgnoreCase(response)) {
         		addError("error", "Incorrect response");
         		
         		getRequest().setAttribute("sq", u.getSecretQuestion().getQuestion());

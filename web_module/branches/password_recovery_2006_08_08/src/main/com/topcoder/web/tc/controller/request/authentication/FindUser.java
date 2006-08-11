@@ -11,12 +11,22 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.tc.Constants;
 
-
+/**
+ * Finds an user to reset his password.
+ * If zero or more than one users are found with the provided data, it goes back to the recover password page and
+ * asks for more data.
+ * If exactly one user is found, it redirects to secret question if he doesn't use his registered address anymore
+ * or to RecoverEmail processor if he does.
+ * 
+ * @author cucu
+ *
+ */
 public class FindUser extends ShortHibernateProcessor {
 
 	public static final String LOST_EMAIL = "le";
 	public static final String GOOD_EMAIL = "ge";
 	public static final String NEEDS_HANDLE = "nh";
+	public static final String SECRET_QUESTION = "sq";
 	
     protected void dbProcessing() throws TCWebException {
     	String handle = StringUtils.checkNull(getRequest().getParameter(Constants.HANDLE));
@@ -25,10 +35,12 @@ public class FindUser extends ShortHibernateProcessor {
         String regEmail = StringUtils.checkNull(getRequest().getParameter(Constants.REGISTERED_EMAIL));
         String currEmail = StringUtils.checkNull(getRequest().getParameter(Constants.CURRENT_EMAIL));
         
+        // If the user still has access to the email he used for registering
         if (currEmail.length() > 0) {
         	List l = DAOUtil.getFactory().getUserDAO().find(handle, null, null, currEmail);
        	        	
         	if(l.size() == 1) {
+        		// Exactly one user found, so send him an email with the key
         		User u = (User) l.get(0);
         		
                 SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
@@ -36,7 +48,8 @@ public class FindUser extends ShortHibernateProcessor {
                 setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=RecoverEmail&"
                 		+ Constants.CODER_ID + "=" + u.getId());
                 setIsNextPageInContext(false);
-        	} else {       	
+        	} else {   
+        		// zero or more than one users found. Display error.        		
          	    if(l.size() == 0) { 
 	        	    addError(GOOD_EMAIL, "No user found with that email address."); 
 	        	} else {
@@ -60,16 +73,22 @@ public class FindUser extends ShortHibernateProcessor {
                     setIsNextPageInContext(true);
                     return;
         		}
-        		getRequest().setAttribute("sq", u.getSecretQuestion().getQuestion());
-        		getRequest().setAttribute("cr", u.getId().toString());
+        		getRequest().setAttribute(SECRET_QUESTION, u.getSecretQuestion().getQuestion());
+        		getRequest().setAttribute(Constants.CODER_ID, u.getId().toString());
                 setNextPage(Constants.SECRET_QUESTION);
                 setIsNextPageInContext(true);
         	} else {       	
          	    if(l.size() == 0) { 
 	        	    addError(LOST_EMAIL, "No user found."); 
-	        	} else {
-		     		addError(LOST_EMAIL, "More than one user found. Please provide additional data.");
+	        	} else {		     
+	        		addError(LOST_EMAIL, "More than one user found. Please provide additional data.");
 	        	}
+         	    
+         	    setDefault(Constants.HANDLE, handle);
+         	    setDefault(Constants.FIRST_NAME, firstName);
+         	    setDefault(Constants.LAST_NAME, lastName);
+         	    setDefault(Constants.REGISTERED_EMAIL, regEmail);
+
                 setNextPage(Constants.RECOVER_PASSWORD);
                 setIsNextPageInContext(true);
 

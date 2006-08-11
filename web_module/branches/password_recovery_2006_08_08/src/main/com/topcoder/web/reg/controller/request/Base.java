@@ -185,6 +185,8 @@ abstract class Base extends LongHibernateProcessor {
         simpleValidation(GivenNameValidator.class, fields, params, Constants.GIVEN_NAME);
         simpleValidation(MiddleNameValidator.class, fields, params, Constants.MIDDLE_NAME);
         simpleValidation(PasswordValidator.class, fields, params, Constants.PASSWORD);
+        simpleValidation(SecretQuestionValidator.class, fields, params, Constants.SECRET_QUESTION);
+        simpleValidation(SecretQuestionResponseValidator.class, fields, params, Constants.SECRET_QUESTION_RESPONSE);
         simpleValidation(PostalCodeValidator.class, fields, params, Constants.POSTAL_CODE);
         simpleValidation(ProvinceValidator.class, fields, params, Constants.PROVINCE);
         simpleValidation(QuoteValidator.class, fields, params, Constants.QUOTE);
