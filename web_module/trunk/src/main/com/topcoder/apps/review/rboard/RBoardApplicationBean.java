@@ -702,7 +702,7 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     private long getCatalogId(Connection conn, long categoryId) {
         return selectLong(conn,
-            "catalog_category_xref ccx",
+            "category_catalog",
             "catalog_id",
             new String[] { "category_id" },
             new String[] { String.valueOf(categoryId)}).intValue();
@@ -737,7 +737,7 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     private long getStatus(Connection conn, long userId, int projectType, long catalogId) {
         return selectLong(conn,
-            "rboard_user2",
+            "rboard_user",
             "status_id",
             new String[] { "user_id", "project_type_id", "catalog_id" },
             new String[] { String.valueOf(userId), String.valueOf(projectType),
