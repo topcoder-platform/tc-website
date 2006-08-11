@@ -1201,86 +1201,6 @@
     </target>
 
 
-    <target name="war-studio" depends="compile">
-        <war warfile="${war.dir}/studio.war" webxml="${resources}/studio/web.xml">
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/studio/**/*.class"/>
-                <include name="com/topcoder/web/forums/**/*.class"/>
-            </classes>
-            <webinf dir="${resources}/taglib">
-                <include name="tc-webtags.tld"/>
-                <include name="nav.tld"/>
-                <include name="rsc-taglib.tld"/>
-                <include name="studio.tld"/>
-            </webinf>
-            <fileset dir="${java}/com/topcoder/web/studio/view">
-                <include name="**/*.jsp"/>
-            </fileset>
-            <fileset dir="${java}/com/topcoder/web/forums/view/studio">
-                <include name="*.*"/>
-            </fileset>
-            <fileset dir="${java}/com/topcoder/web/jsp">
-                <include name="errorPage.jsp"/>
-                <include name="style.jsp"/>
-            </fileset>
-            <webinf dir="${resources}/studio">
-                <include name="jboss-web.xml"/>
-            </webinf>
-            <classes dir="${resources}/studio">
-                <include name="hibernate.cfg.xml"/>
-            </classes>
-            <classes dir="${resources}/hibernate">
-                <include name="com/topcoder/web/common/model/**/*.xml"/>
-                <include name="com/topcoder/web/studio/model/**/*.xml"/>
-            </classes>
-            <lib dir="${jars.dir}">
-                <include name="jstl.jar"/>
-                <include name="standard.jar"/>
-            </lib>
-        </war>
-    </target>
-
-    <target name="deploy-studio" depends="war-studio">
-        <antcall target="package-TCUser"/>
-        <antcall target="package-TCAuth"/>
-        <antcall target="package-TCFilters"/>
-        <antcall target="package-EJB-MessageHistoryBean"/>
-        <antcall target="package-EJB-ForumsBean"/>
-
-        <antcall target="expand-studio"/>
-    </target>
-
-    <target name="expand-studio" depends="">
-
-        <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcauth.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcuser.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcfilters.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/velocity-dep.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
-
-        <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
-        <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
-        <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
-
-        <copy todir="${jboss_conf}" file="${resources}/forums/studio/jive_init.xml"/>
-
-
-        <delete file="${jboss_home}/server/all/deploy/studio.war"/>
-        <unwar src="${war.dir}/studio.war" dest="${jboss_home}/server/all/deploy/studio.war/" overwrite="yes"/>
-        <delete dir="${jboss_home}/server/all/deploy/studio.war/META-INF"/>
-        <copy todir="${jboss_conf}">
-            <fileset dir="${resources}">
-                <include name="Studio.properties"/>
-            </fileset>
-        </copy>
-
-    </target>
-
-
     <target name="package-TCUser" depends="compile_TCUser">
         <jar jarfile="${jars.dir}/tcuser.jar">
             <fileset dir="${classes}/">
@@ -1356,23 +1276,6 @@
         </junitreport>
     </target>
 
-    <target name="run_studio_tests" depends="compile_tests" description="run junit tests">
-        <junit printsummary="${junitsummary}" fork="yes">
-            <classpath>
-                <pathelement path="${class.path}"/>
-                <pathelement location="resources/studio/"/>
-            </classpath>
-            <formatter type="xml"/>
-            <test name="com.topcoder.web.studio.StudioTests" todir="${testclasses}"/>
-        </junit>
-
-        <junitreport todir="${testclasses}">
-            <fileset dir="${testclasses}">
-                <include name="TEST-*.xml"/>
-            </fileset>
-            <report format="frames" todir="${testclasses}/html"/>
-        </junitreport>
-    </target>
 
     <target name="deploy-admin" depends="compile">
         <jar jarfile="${ejb_jars}/ContestAdminServices.jar">
