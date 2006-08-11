@@ -145,8 +145,7 @@
             <jsp:include page="categoriesHeader.jsp"/>
         </td>
         <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
-            <jsp:include page="searchHeader.jsp">
-            </jsp:include>
+            <jsp:include page="searchHeader.jsp"/>
         </td>
         <td align="right" nowrap="nowrap" valign="top">
             <A href="?module=Watch&<%=ForumConstants.WATCH_TYPE%>=<%=JiveConstants.THREAD%>&<%=ForumConstants.WATCH_ID%>=<jsp:getProperty name="thread" property="ID"/><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>&<%=ForumConstants.WATCH_COMMAND%>=<%=cmd%>"
