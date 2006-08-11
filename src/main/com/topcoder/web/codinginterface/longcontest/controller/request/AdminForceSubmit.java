@@ -34,8 +34,8 @@ public class AdminForceSubmit extends Base {
             StringBuffer buf = new StringBuffer(1000);
             int count = 0;
             String message;
-            for (Enumeration enum = getRequest().getParameterNames(); enum.hasMoreElements();) {
-                name = (String) enum.nextElement();
+            for (Enumeration enm = getRequest().getParameterNames(); enm.hasMoreElements();) {
+                name = (String) enm.nextElement();
                 log.debug(name);
                 if (name.startsWith(Constants.SUBMISSION_PREFIX) && "on".equals(getRequest().getParameter(name))) {
                     String[] ids = name.substring(Constants.SUBMISSION_PREFIX.length()).split(",");
