@@ -50,7 +50,8 @@
          <br><br>
          So, poke around, ask questions and, above all, compete and have fun! 
          <br><br>
-         <h3>Contests will be posted soon!  Register as a Studio member so you can receive emails when new contests arrive.</h3>
+         <h2>Contests will be posted soon!</h2>
+         <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</A> as a Studio member so you can receive emails when new contests arrive.
 
 <%--
          <div align="center">
