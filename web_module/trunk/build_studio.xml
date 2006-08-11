@@ -254,6 +254,7 @@
 
         <copy todir="${jboss_lib}" file="${jive.dir}/webwork.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_manager/2.1.3/configuration_manager.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/object_formatter.jar"/>
 
 
