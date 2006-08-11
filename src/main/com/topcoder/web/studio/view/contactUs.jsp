@@ -21,7 +21,7 @@
             <jsp:param name="section" value="default"/>
         </jsp:include>
          <jsp:include page="topNav.jsp">
-             <jsp:param name="node" value="about_us"/>
+             <jsp:param name="node" value="contactUs"/>
          </jsp:include>
 
         <div class="contentIn">
