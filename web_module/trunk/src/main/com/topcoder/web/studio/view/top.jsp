@@ -13,7 +13,7 @@
         <A href="/"><img src="/i/studio/studio_logo.gif" alt="TopCoder Studio"/></A>
     </div>
 
-<% if (section.equals("default")) {%>
+<% if (section.equals("")) {%>
     <div class="loginBox" align="center">
         <img src="/i/studio/layout/loginBoxN.gif" alt="" style="display:block;"/>
 
