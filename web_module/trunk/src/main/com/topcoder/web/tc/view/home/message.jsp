@@ -57,7 +57,7 @@
             You are not registered for the <strong>TCCC Algorithm Competition</strong>, click
             <a href="/tc?module=TCCC06ViewAlgoReg" class="tccc06MessageLink">here</a> to register.<br/>
             <% } else { %>
-            Sorry, you are not eligible to register for the TCCC Algorithm Competition.
+            Sorry, you are not eligible to register for the TCCC Algorithm Competition.<br/>
             <% }
             }
             }%>
