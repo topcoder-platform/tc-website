@@ -48,7 +48,7 @@
         <div class="contentIn">
 
 
-            <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;"/>
+            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
 
             <div style="text-align:left; padding: 0px 10px 0px 10px;">
 
@@ -100,7 +100,7 @@
 
                 <tr>
                     <td colspan="2" align="center">
-                        <input type="image" src="/i/studio/layout/btn_login.gif" onmouseover="this.src='/i/studio/layout/btn_login_on.gif'" onmouseout="this.src='/i/studio/layout/btn_login.gif'">
+                        <input type="image" src="/i/layout/btn_login.gif" onmouseover="this.src='/i/layout/btn_login_on.gif'" onmouseout="this.src='/i/layout/btn_login.gif'">
                     </td>
                 </tr>
             </table>
@@ -117,12 +117,12 @@
 </div>
 
             </div>
-            <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;"/>
+            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
         </div>
 
         <jsp:include page="foot.jsp"/>
 
-        <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
+        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
     </div>
 </div>
 

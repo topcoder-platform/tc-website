@@ -80,7 +80,7 @@ function toggleTabs(anchor,id) {
        <jsp:param name="node" value="forums"/>
    </jsp:include>
       <div class="contentIn">
-         <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
+         <img src="/i/layout/contentInN.gif" alt="" style="display:block;" />
          <div class="contentSpacer">
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
@@ -457,16 +457,16 @@ function toggleTabs(anchor,id) {
 
 <div>
    <div style="float:right;">
-   <input type="image" src="/i/studio/layout/btn_save.gif" onmouseover="this.src='/i/studio/layout/btn_save_on.gif'" onmouseout="this.src='/i/studio/layout/btn_save.gif'">
+   <input type="image" src="/i/layout/btn_save.gif" onmouseover="this.src='/i/layout/btn_save_on.gif'" onmouseout="this.src='/i/layout/btn_save.gif'">
    </div>
 </div>
 </form>
 <br><br><br>
          </div>
-         <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;" />
+         <img src="/i/layout/contentInS.gif" alt="" style="display:block;" />
       </div>
       <jsp:include page="foot.jsp"/>
-      <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
+      <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
    </div>
 </div>
 

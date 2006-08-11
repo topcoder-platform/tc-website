@@ -22,7 +22,7 @@
           <jsp:param name="node" value="home"/>
       </jsp:include>
       <div class="contentIn">
-         <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
+         <img src="/i/layout/contentInN.gif" alt="" style="display:block;" />
          <div class="contentSpacer">
 
 <table cellpadding="0" cellspacing="0" style="width:740px;">
@@ -30,13 +30,13 @@
    <tr>
       <td style="padding: 0px 10px 0px 0px; border-right: 1px dashed #999999;">
          <div>
-         <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/studio/home/register_now.gif" alt="Register now" /></A>
+         <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/home/register_now.gif" alt="Register now" /></A>
          </div>
          <div>
-         <A href="/?module=Static&d1=support&d2=getStarted"><img src="/i/studio/home/need_help.gif" alt="Need help?" /></A>
+         <A href="/?module=Static&d1=support&d2=getStarted"><img src="/i/home/need_help.gif" alt="Need help?" /></A>
          </div>
          <div>
-         <A href="/?module=Static&d1=contactUs"><img src="/i/studio/home/post_project.gif" alt="Post a project" /></A>
+         <A href="/?module=Static&d1=contactUs"><img src="/i/home/post_project.gif" alt="Post a project" /></A>
          </div>
       </td>
       <td valign="top" style="padding-left: 10px;">
@@ -55,9 +55,9 @@
          <div align="center">
          <table cellpadding="0" cellspacing="0">
             <tr>
-               <td><A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/studio/home/register_now.gif" alt="Register now" /></A></td>
-               <td><A href="/?module=Static&d1=support&d2=getStarted"><img src="/i/studio/home/need_help.gif" alt="Need help?" /></A></td>
-               <td><A href="/?module=Static&d1=contactUs"><img src="/i/studio/home/post_project.gif" alt="Post a project" /></A></td>
+               <td><A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/home/register_now.gif" alt="Register now" /></A></td>
+               <td><A href="/?module=Static&d1=support&d2=getStarted"><img src="/i/home/need_help.gif" alt="Need help?" /></A></td>
+               <td><A href="/?module=Static&d1=contactUs"><img src="/i/home/post_project.gif" alt="Post a project" /></A></td>
             </tr>
          </table>
          </div>
@@ -68,10 +68,10 @@
 </table>
 
          </div>
-         <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;" />
+         <img src="/i/layout/contentInS.gif" alt="" style="display:block;" />
       </div>
       <jsp:include page="foot.jsp"/>
-      <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
+      <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
    </div>
 </div>
 
