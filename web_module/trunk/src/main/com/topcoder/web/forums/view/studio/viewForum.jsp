@@ -173,7 +173,7 @@
         <tr>
             <td class="rtThreadCellWrap">
                 <div>
-                    <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>" class="rtLinkBold"><img src="/i/interface/announcement.gif" alt="" border="0"/> <%=announcement.getSubject()%>
+                    <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>" class="rtLinkBold"><img src="/i/forums/announcement.gif" alt="" border="0"/> <%=announcement.getSubject()%>
                     </A></div>
             </td>
             <td class="rtThreadCell"><studio:handle coderId="<%=announcement.getUser().getID()%>"/></td>
@@ -257,7 +257,7 @@
 
 <div>
     <div style="float:right;">
-        <a href="?module=RSS&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>"><img border="none" src="/i/interface/btn_rss.gif"/></a>
+        <a href="?module=RSS&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>"><img border="none" src="/i/forums/btn_rss.gif"/></a>
     </div>
     <span class="small">A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <%if (user != null) {%><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
         all as read)</A><% } %></span>
