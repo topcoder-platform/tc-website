@@ -261,7 +261,7 @@
 
 <div>
     <div style="float:right;">
-        <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>"><img border="none" src="/i/interface/btn_rss.gif"/></a>
+        <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>"><img border="none" src="/i/forums/btn_rss.gif"/></a>
     </div>
 <span class="small">
 <% if (forumCategory.getID() != 1) { %>
