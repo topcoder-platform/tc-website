@@ -95,7 +95,7 @@
    --%>
 </table>
 <div align="right">
-<input type="image" src="/i/roundTables/update.gif" alt="Update" />
+<input type="image" src="/i/forums/update.gif" alt="Update" />
 </div></form>
             
          </div>
