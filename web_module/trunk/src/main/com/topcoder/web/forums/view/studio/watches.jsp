@@ -65,12 +65,12 @@
                 <b><A href="?module=Main" class="rtbcLink">Forums</A> > My Watches
                     (<%=watchManager.getTotalWatchCount(user, JiveConstants.THREAD)%> threads)</b>
                 <br><span class="small">All watch updates will be emailed to your email address: <b>
-                <jsp:getProperty name="user" property="email"/>
+                <%=user.getEmail()%>
             </b>.
 Watches on content that hasn't been updated for more than 90 days will be automatically removed from your list.
 To prevent any watch from being automatically deleted, toggle the "save" option.</span>
 
-                <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+                <form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
                     <tc-webtag:hiddenInput name="module" value="Watches"/>
                     <tc-webtag:hiddenInput name="<%=ForumConstants.WATCHLIST_STATUS%>"/>
                     <table cellpadding="0" cellspacing="0" class="rtTable">
@@ -89,8 +89,8 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
                             <tr>
                                 <% String trackerClass = (user == null || readTracker.getReadStatus(user, latestMessage) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
                                 <td class="rtThreadCellWrap">
-                                    <a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="rootMessage" property="ID"/>" class="<%=trackerClass%>">
-                                        <jsp:getProperty name="thread" property="name"/>
+                                    <a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=rootMessage.getID()%>" class="<%=trackerClass%>">
+                                        <%=thread.getName()%>
                                     </a></td>
                                 <td class="rtThreadCell"><%if (rootMessage.getUser() != null) {%>
                                     <studio:handle coderId="<%=rootMessage.getUser().getID()%>"/><%}%></td>
@@ -103,12 +103,12 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
                                 <td class="rtThreadCell"><%if (latestMessage.getUser() != null) {%>
                                     <studio:handle coderId="<%=latestMessage.getUser().getID()%>"/><%}%></td>
                                 <td class="rtThreadCell" align="center">
-                                    <input name="<%=ForumConstants.WATCHES_SAVE_THREAD%><jsp:getProperty name="thread" property="ID"/>" value="<jsp:getProperty name="thread" property="ID"/>" type="checkbox"
-                                            <%= (watchManager.getWatch(user, thread).isExpirable()) ? "" : "checked" %> onclick="Javascript:document.form1.<%=ForumConstants.WATCHES_DELETE_THREAD%><jsp:getProperty name="thread" property="ID"/>.checked=false;"/>
+                                    <input name="<%=ForumConstants.WATCHES_SAVE_THREAD%><%=thread.getID()%>" value="<%=thread.getID()%>" type="checkbox"
+                                            <%= (watchManager.getWatch(user, thread).isExpirable()) ? "" : "checked" %> onclick="Javascript:document.form1.<%=ForumConstants.WATCHES_DELETE_THREAD%><%=thread.getID()%>.checked=false;"/>
                                 </td>
                                 <td class="rtThreadCell" align="center">
-                                    <input name="<%=ForumConstants.WATCHES_DELETE_THREAD%><jsp:getProperty name="thread" property="ID"/>" value="<jsp:getProperty name="thread" property="ID"/>" type="checkbox"
-                                           onclick="Javascript:document.form1.<%=ForumConstants.WATCHES_SAVE_THREAD%><jsp:getProperty name="thread" property="ID"/>.checked=false;"/>
+                                    <input name="<%=ForumConstants.WATCHES_DELETE_THREAD%><%=thread.getID()%>" value="<%=thread.getID()%>" type="checkbox"
+                                           onclick="Javascript:document.form1.<%=ForumConstants.WATCHES_SAVE_THREAD%><%=thread.getID()%>.checked=false;"/>
                                 </td>
                             </tr>
                         </tc-webtag:iterator>
