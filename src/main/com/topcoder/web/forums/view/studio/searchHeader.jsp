@@ -11,7 +11,7 @@
 <%  HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
     String queryTerms = com.topcoder.web.common.StringUtils.checkNull(request.getParameter("queryTerms")); %>
 <div style="margin-bottom:6px;">
-<form name="formSearch" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+<form name="formSearch" method="post" action="${sessionInfo.servletPath}">
 <tc-webtag:hiddenInput name="module" value="Search"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.SEARCH_STATUS%>" value="search"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.SEARCH_SCOPE%>" value="all"/>

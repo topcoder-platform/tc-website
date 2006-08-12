@@ -261,16 +261,16 @@
 
 <div>
     <div style="float:right;">
-        <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="forumCategory" property="ID"/>"><img border="none" src="/i/interface/btn_rss.gif"/></a>
+        <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>"><img border="none" src="/i/interface/btn_rss.gif"/></a>
     </div>
 <span class="small">
 <% if (forumCategory.getID() != 1) { %>
 A forum with a <b>bold
-    title</b> indicates it either has a new thread or has a thread with new postings. <%if (user != null) {%><A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="forumCategory" property="ID"/>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
+    title</b> indicates it either has a new thread or has a thread with new postings. <%if (user != null) {%><A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
     all as read)</A><%}%>
 <% } else { %>
 A category with a <b>bold
-    title</b> in the left navigation indicates it has a forum with new postings. <%if (user != null) {%><A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="forumCategory" property="ID"/>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
+    title</b> in the left navigation indicates it has a forum with new postings. <%if (user != null) {%><A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
     all as read)</A><%}%>
 <% } %>
 </span>
