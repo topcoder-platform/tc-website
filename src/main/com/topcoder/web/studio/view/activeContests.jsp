@@ -30,8 +30,11 @@
             <div class="contentSpacer">
 
                 <h1>Active Contests</h1>
-
-
+<%--
+<div align="center" style="margin: 50px 0px 100px 0px;">
+There are currently no active contests, but check back soon.
+</div>
+--%>
                 <h2 align="right">Need help? Learn how to <strong><A href="/?module=Static&d1=support&d2=getStarted">get
                     started</A></strong></h2>
 
@@ -96,7 +99,6 @@
                         </tr>
                     </tbody>
                 </table>
-
 
             </div>
             <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
