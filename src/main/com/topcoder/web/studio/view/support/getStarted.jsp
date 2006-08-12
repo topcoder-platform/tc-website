@@ -96,7 +96,7 @@ In most cases, it is at the client's sole discretion which design is selected as
    <img src="/i/layout/step9.gif" alt="Step 9" />
 </div>
 <strong>Winning designer is compensated for their work</strong>: 
-In order for the winning designer to be compensated for their work, she/he must submit to TopCoder Studio a vector-based file of the winning design.  Once TopCoder Studio receives the vector-based file, the winning designer will be paid the amount specified in the Project Details.  Should the client want any changes made to or additional work done for the project, the client will contact the winning designer directly and further compensation will be decided between the client and the winning designer.
+In order for the winning designer to be compensated for their work, she/he must submit to TopCoder Studio a vector-based file of the winning design.  Once TopCoder Studio receives the vector-based file, the winning designer will be paid the amount specified in the Project Details.
 <br><br>
 
 Get started now by checking out the current <A href="/?module=ViewActiveContests">Contests</A>!
