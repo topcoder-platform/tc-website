@@ -58,8 +58,7 @@
                             <jsp:include page="categoriesHeader.jsp"/>
                         </td>
                         <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
-                            <jsp:include page="searchHeader.jsp">
-                            </jsp:include>
+                            <jsp:include page="searchHeader.jsp"/>
                         </td>
                         <td align="right" nowrap="nowrap" valign="top">
                             <A href="?module=History" class="rtbcLink">My Post
@@ -68,25 +67,24 @@
                             Settings</A><br>
                         </td>
                     </tr>
-                    <tr><td colspan="2" style="padding-bottom:3px;"><b>
+                    <tr><td colspan="3" style="padding-bottom:3px;"><b>
                         <%   if (ForumsUtil.isAdmin(user)) { %>
                         <div style="float:right;white-space: nowrap;">
                             <% Date now = Calendar.getInstance(TimeZone.getTimeZone("EST")).getTime();
                                 if (announcement.getEndDate() == null || announcement.getEndDate().after(now)) { %>
-                            <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Expire" class="rtbcLink">Expire</A>&#160;
+                            <br><A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Expire" class="rtbcLink">Expire</A>&#160;
                             |
                             <% } else { %>
-                            <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Activate" class="rtbcLink">Activate</A>&#160;
+                            <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Activate" class="rtbcLink">Activate</A>&#160;
                             |
                             <% } %>
-                            &#160;<A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Delete" class="rtbcLink">Delete</A>
-                            <br/>
+                            &#160;<A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Delete" class="rtbcLink">Delete</A>
                         </div>
                         <%   } %>
                         <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory"
                                             iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
-                        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink">
-                            <jsp:getProperty name="category" property="name"/>
+                        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink">
+                            <%=category.getName()%>
                         </A> >
                         </tc-webtag:iterator>
                         <%  if (forum != null) { %>
@@ -104,14 +102,14 @@
                         <td class="rtHeader" colspan="2">
                             <div style="float: right; padding-left: 5px; white-space: nowrap;">
                                 <a name=
-                                <jsp:getProperty name="announcement" property="ID"/>><tc-webtag:beanWrite
+                                <%=announcement.getID()%>><tc-webtag:beanWrite
                                         name="announcement" property="startDate" format="MMM d, yyyy 'at' h:mm a z"/>
                             </div>
-                            <jsp:getProperty name="announcement" property="subject"/>
+                            <%=announcement.getSubject()%>
                         </a>
                         <% if (announcement.getUser() != null && announcement.getUser().equals(user)) { %>
                         |
-                        <A href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtbcLink">Edit</A>
+                        <A href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>" class="rtbcLink">Edit</A>
                         <% } %>
                     </td>
                 </tr>
@@ -127,7 +125,7 @@
                         </div>
                     </td>
                     <td class="rtTextCell" width="100%">
-                        <jsp:getProperty name="announcement" property="body"/>
+                        <%=announcement.getBody()%>
                     </td>
                 </tr>
             </table>
