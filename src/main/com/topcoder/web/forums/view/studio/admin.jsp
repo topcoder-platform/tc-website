@@ -64,7 +64,7 @@
    </tr>
 </table>
 
-<form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+<form name="form1" method="post" action="${sessionInfo.servletPath}">
 <tc-webtag:hiddenInput name="module" value="Admin"/>
 <table cellpadding="0" cellspacing="0" class="rtTable">
    <tr>
