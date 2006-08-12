@@ -110,7 +110,7 @@
         </td>
         <td align="right" valign="top" nowrap="nowrap">
             <A href="?module=History" class="rtbcLink">My Post
-                History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User
+                History</A> | <A href="?module=Watches" class="rtbcLink">My Watches</A> | <A href="?module=Settings" class="rtbcLink">User
             Settings</A><br/>
         </td>
     </tr>
@@ -153,7 +153,7 @@
 </table>
 
 <% if (forumCategory.getForumCount() > 0) { %>
-<table cellpadding="0" cellspacing="0" class="rtTable">
+<table cellpadding="0" cellspacing="0" class="rtTable" style="width:740px;">
     <tr>
         <td class="rtHeader" width="80%"><a href="<%=forumLink%>" class="rtbcLink">Forum</a></td>
         <td class="rtHeader" width="20%">T./M.</td>
