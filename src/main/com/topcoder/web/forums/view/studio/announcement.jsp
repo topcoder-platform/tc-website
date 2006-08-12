@@ -69,7 +69,7 @@
                     </tr>
                     <tr><td colspan="3" style="padding-bottom:3px;"><b>
                         <%   if (ForumsUtil.isAdmin(user)) { %>
-                        <div style="float:right;white-space: nowrap;">
+                        <div style="float:right; white-space: nowrap;">
                             <% Date now = Calendar.getInstance(TimeZone.getTimeZone("EST")).getTime();
                                 if (announcement.getEndDate() == null || announcement.getEndDate().after(now)) { %>
                             <br><A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Expire" class="rtbcLink">Expire</A>&#160;
