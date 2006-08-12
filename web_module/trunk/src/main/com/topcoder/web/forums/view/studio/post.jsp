@@ -128,17 +128,17 @@
                     <tr>
                         <td colspan="2" style="padding-bottom:3px;"><b>
                             <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
-                                <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink">
-                                    <jsp:getProperty name="category" property="name"/>
+                                <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink">
+                                    <%=category.getName()%>
                                 </A> >
                             </tc-webtag:iterator>
-                            <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink">
-                                <jsp:getProperty name="forum" property="name"/>
+                            <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink">
+                                <%=forum.getName()%>
                             </A>
                             <% if (thread != null) { %>
                             >
-                            <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink">
-                                <jsp:getProperty name="thread" property="name"/>
+                            <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>" class="rtbcLink">
+                                <%=thread.getName()%>
                             </A>
                             <% } %>
                             > <%=postHeading%></b>
@@ -152,7 +152,7 @@
                 <div id="Options"><span class="small">Allowed tags: <%=ForumsUtil.getAllowedTagsDisplay()%>. Allowed attributes: <%=ForumsUtil.getAllowedAttributesDisplay()%>. Syntax highlighting is applied to text within [code][/code], [cpp][/cpp], [java][/java], [c#][/c#], and [vb][/vb] blocks. <!--Usernames within [handle][/handle] blocks are converted into color-coded links.--></span>
                 </div><br>
                 <table cellpadding="0" cellspacing="0" class="rtTable">
-                    <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+                    <form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
                         <tc-webtag:hiddenInput name="module"/>
                         <tc-webtag:hiddenInput name="<%=ForumConstants.FORUM_ID%>"/>
                         <tc-webtag:hiddenInput name="<%=ForumConstants.MESSAGE_ID%>"/>
@@ -194,11 +194,11 @@
                 <h3>Original Message</h3>
                 <table cellpadding="0" cellspacing="0" class="rtTable">
                     <tr><td class="rtHeader" colspan="2"><a name=
-                            <jsp:getProperty name="message" property="ID"/>
+                            <%=message.getID()%>
                             >
                         <tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/>
                         |
-                        <jsp:getProperty name="message" property="subject"/>
+                        <%=message.getSubject()%>
                         <% if (message.getParentMessage() != null) { %>
                         (response to
                         <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%>" class="rtbcLink">post</A>
@@ -215,7 +215,7 @@
                             <A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(message.getUser()), "post")%></A>
                         </div></td>
                         <td class="rtTextCell100">
-                            <jsp:getProperty name="message" property="body"/>
+                            <%=message.getBody()%>
                         </td>
                     </tr>
                 </table>
