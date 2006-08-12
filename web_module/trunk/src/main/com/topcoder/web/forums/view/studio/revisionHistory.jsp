@@ -50,8 +50,7 @@
                             <jsp:include page="categoriesHeader.jsp"/>
                         </td>
                         <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
-                            <jsp:include page="searchHeader.jsp">
-                            </jsp:include>
+                            <jsp:include page="searchHeader.jsp"/>
                         </td>
                         <td align="right" nowrap="nowrap" valign="top">
                             <A href="?module=History" class="rtbcLink">My Post
@@ -64,15 +63,15 @@
                         <td colspan="3" style="padding-bottom:3px;">
                             <b>
                                 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
-                                    <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink">
-                                        <jsp:getProperty name="category" property="name"/>
+                                    <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink">
+                                        <%=category.getName()%>
                                     </A> >
                                 </tc-webtag:iterator>
-                                <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink">
-                                    <jsp:getProperty name="forum" property="name"/>
+                                <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink">
+                                    <%=forum.getName()%>
                                 </A> >
-                                <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">
-                                    <jsp:getProperty name="message" property="subject"/>
+                                <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>" class="rtbcLink">
+                                    <%=message.getSubject()%>
                                 </A> >
                                 Revision History
                                 <% if (revisionList.size() == 1) { %>
@@ -91,11 +90,11 @@
                         <td class="rtHeader" colspan="2">
                             <div style="float: right; padding-left: 5px; white-space: nowrap;">
                                 <a name=
-                                <jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message"
+                                <%=message.getID()%>><tc-webtag:beanWrite name="message"
                                                                                                      property="modificationDate"
                                                                                                      format="MMM d, yyyy 'at' h:mm a z"/>
                             </div>
-                            <jsp:getProperty name="message" property="subject"/>
+                            <%=message.getSubject()%>
                         </a>
                         <% if (message.getParentMessage() != null) { %>
                         (response to
@@ -116,7 +115,7 @@
                         </div>
                     </td>
                     <td class="rtTextCell" width="100%">
-                        <jsp:getProperty name="message" property="body"/>
+                        <%=message.getBody()%>
                     </td>
                 </tr>
             </table>
@@ -128,11 +127,11 @@
                     <td class="rtHeader" colspan="2">
                         <div style="float: right; padding-left: 5px; white-space: nowrap;">
                             <a name=
-                                <jsp:getProperty name="revision" property="ID"/>><tc-webtag:beanWrite name="revision"
+                                <%=revision.getID()%>><tc-webtag:beanWrite name="revision"
                                                                                                       property="modificationDate"
                                                                                                       format="MMM d, yyyy 'at' h:mm a z"/>
                         </div>
-                        <jsp:getProperty name="revision" property="subject"/>
+                        <%=revision.getSubject()%>
                     </a>
                     <% if (message.getParentMessage() != null) { %>
                     (response to
@@ -155,7 +154,7 @@
                 </div>
             </td>
             <td class="rtTextCell" width="100%">
-                <jsp:getProperty name="revision" property="body"/>
+                <%=revision.getBody()%>
             </td>
         </tr>
     </table>

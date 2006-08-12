@@ -106,8 +106,8 @@
     <table cellpadding="0" cellspacing="0" class="rtTable">
         <tr>
             <td class="rtHeader" width="100%">
-                <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink">
-                    <jsp:getProperty name="category" property="name"/>
+                <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink">
+                    <%=category.getName()%>
                 </A>
             </td>
             <td class="rtHeader"><div style="width:80px;">T./M.</div></td>
@@ -120,23 +120,23 @@
             <tr>
                 <td class="rtThreadCellWrap">
                     <% if (user == null) { %>
-                    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.MESSAGE_COUNT%>=<jsp:getProperty name="forum" property="messageCount"/>" class="rtLinkNew">
-                        <jsp:getProperty name="forum" property="name"/>
+                    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=forum.getMessageCount()%>" class="rtLinkNew">
+                        <%=forum.getName()%>
                     </A>
                     <% } else { %>
-                    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="<%=trackerClass%>">
-                        <jsp:getProperty name="forum" property="name"/>
+                    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="<%=trackerClass%>">
+                        <%=forum.getName()%>
                     </A>
                     <% } %>
                     <% if (forum.getDescription() != null) { %><br/>
 
                     <div class="rtDescIndent">
-                        <jsp:getProperty name="forum" property="description"/>
+                        <%=forum.getDescription()%>
                     </div><% } %></td>
                 <td class="rtThreadCell" style="width: 80px;">
-                    <jsp:getProperty name="forum" property="threadCount"/>
+                    <%=forum.getThreadCount()%>
                     &#160;/&#160;
-                    <jsp:getProperty name="forum" property="messageCount"/>
+                    <%=forum.getMessageCount()%>
                 </td>
                 <% if (forum.getMessageCount() > 0) { %>
                 <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
@@ -164,7 +164,7 @@
             }
             if (category.getForumCount() >= limitCNT) { %>
         <tr><td class="rtThreadCell" colspan="4">
-            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtLinkNew">...more</A>
+            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtLinkNew">...more</A>
         </td></tr>
         <% } %>
         <% } %>
