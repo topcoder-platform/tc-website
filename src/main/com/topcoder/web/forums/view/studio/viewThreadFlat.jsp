@@ -149,8 +149,8 @@
         </td>
         <td align="right" nowrap="nowrap" valign="top">
             <A href="?module=Watch&<%=ForumConstants.WATCH_TYPE%>=<%=JiveConstants.THREAD%>&<%=ForumConstants.WATCH_ID%>=<%=thread.getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>&<%=ForumConstants.WATCH_COMMAND%>=<%=cmd%>"
-               class="rtbcLink"><%=watchMessage%></A>&#160;&#160;|&#160;&#160;<A href="?module=History" class="rtbcLink">My
-            Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User
+               class="rtbcLink"><%=watchMessage%></A> | <A href="?module=History" class="rtbcLink">My
+            Post History</A> | <A href="?module=Watches" class="rtbcLink">My Watches</A> | <A href="?module=Settings" class="rtbcLink">User
             Settings</A><br>
             View:
             <span class="currentPage">Flat</span>
