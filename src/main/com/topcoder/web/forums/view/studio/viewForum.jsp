@@ -116,10 +116,10 @@
             <A href="?module=History" class="rtbcLink">My Post History</A> | <A href="?module=Watches" class="rtbcLink">My
             Watches</A> | <A href="?module=Settings" class="rtbcLink">User Settings</A><br>
             <% if (ForumsUtil.isAdmin(user)) { %>
-            <A href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.CATEGORY_ID%>=<%=forum.getForumCategory().getID()%>&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post
+            <A href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.CATEGORY_ID%>=<%=forum.getForumCategory().getID()%>&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="rtbcLink">Post
                 Announcement</A> |
             <% } %>
-            <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post
+            <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="rtbcLink">Post
                 New Thread</A><br>
         </td>
     </tr>
@@ -151,11 +151,11 @@
         <% } %>
         <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory"
                             iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
-        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink">
-            <jsp:getProperty name="category" property="name"/>
+        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink">
+            <%=category.getName()%>
         </A> >
         </tc-webtag:iterator>
-        <jsp:getProperty name="forum" property="name"/>
+        <%=forum.getName()%>
     </td>
 </table>
 
@@ -173,14 +173,14 @@
         <tr>
             <td class="rtThreadCellWrap">
                 <div>
-                    <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtLinkBold"><img src="/i/interface/announcement.gif" alt="" border="0"/> <%=announcement.getSubject()%>
+                    <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>" class="rtLinkBold"><img src="/i/interface/announcement.gif" alt="" border="0"/> <%=announcement.getSubject()%>
                     </A></div>
             </td>
             <td class="rtThreadCell"><studio:handle coderId="<%=announcement.getUser().getID()%>"/></td>
             <td class="rtThreadCell"></td>
             <td class="rtThreadCell"></td>
             <td class="rtThreadCell">
-                <b><A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtLinkNew">
+                <b><A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>" class="rtLinkNew">
                     <tc-webtag:beanWrite name="announcement" property="startDate" format="EEE, MMM d yyyy 'at' h:mm a"/></A></b>
             </td>
             <td class="rtThreadCell"><studio:handle coderId="<%=announcement.getUser().getID()%>"/></td>
@@ -196,9 +196,9 @@
             <td class="rtThreadCellWrap">
                 <% if (((authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat")) || user.getProperty("jiveThreadMode").equals("flat")) { %>
                 <% if (!authToken.isAnonymous()) { %>
-                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0" class="<%=trackerClass%>"><%=thread.getRootMessage().getSubject()%></A>
+                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&<%=ForumConstants.START_IDX%>=0" class="<%=trackerClass%>"><%=thread.getRootMessage().getSubject()%></A>
                 <% } else { %>
-                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
+                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=thread.getMessageCount()%>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
                 <% } %>
                 <% Paginator threadPaginator;
                     ResultFilter resultFilter = ResultFilter.createDefaultMessageFilter();
@@ -218,21 +218,21 @@
                 <% pages = threadPaginator.getPages(4);
                     for (int i = 0; i < pages.length; i++) {
                 %>  <% if (pages[i] != null) { %>
-                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtLinkOld">
+                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtLinkOld">
                     <%= pages[i].getNumber() %></A>
                 <% } %>
                 <% } %>
                 <% if (threadPaginator.getNumPages() > 4) { %>
                 <% if (threadPaginator.getNumPages() - 4 > 1) { %> ... <% } %>
-                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=(threadPaginator.getNumPages()-1)*threadPaginator.getRange()%>" class="rtLinkOld">
+                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&<%=ForumConstants.START_IDX%>=<%=(threadPaginator.getNumPages()-1)*threadPaginator.getRange()%>" class="rtLinkOld">
                     <%= threadPaginator.getNumPages() %></A>
                 <% } %> ]
                 <% } %>
                 <% } else { %>
                 <% if (!authToken.isAnonymous()) { %>
-                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>" class="<%=trackerClass%>"><%=thread.getRootMessage().getSubject()%></A>
+                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>" class="<%=trackerClass%>"><%=thread.getRootMessage().getSubject()%></A>
                 <% } else { %>
-                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
+                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
                 <% } %>
                 <% } %></td>
             <% if (thread.getRootMessage().getUser() != null) { %>
@@ -257,13 +257,13 @@
 
 <div>
     <div style="float:right;">
-        <a href="?module=RSS&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>"><img border="none" src="/i/interface/btn_rss.gif"/></a>
+        <a href="?module=RSS&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>"><img border="none" src="/i/interface/btn_rss.gif"/></a>
     </div>
-    <span class="small">A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <%if (user != null) {%><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
+    <span class="small">A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <%if (user != null) {%><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
         all as read)</A><% } %></span>
 </div>
 <% } else { %>
-<span class="bigRed"><A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="bigRed">Be
+<span class="bigRed"><A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="bigRed">Be
     the first to post in this forum!</A></span>
 <% } %>
 
