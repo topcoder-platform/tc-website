@@ -55,6 +55,9 @@
 
                 <span class="bigBluetitle">Competition Arena</span>
                 <br><br>
+                <%--
+                The Google Code Jam 2006 Arena is not available yet.
+                --%>
                 <A href="/pl/?module=Google06Credentials&cid=18317">Forgot your password?</A>
 
                 <br><br>
@@ -79,16 +82,16 @@
                     href="http://java.sun.com/products/javawebstart/index.html" target="_blank">here</a>.
                 <br><br>
                 Click
-                <a href="Javascript:openWin('?module=Static&d1=google06&d2=quick_launch','comp',300,275);">here</a>
+                <a href="Javascript:openWin('?module=Static&d1=google06&d2=google_quick_launch','comp',300,275);">here</a>
                 to run the Competition Arena as a
-                <a href="Javascript:openWin('?module=Static&d1=google06&d2=quick_launch','comp',300,275);">Java
+                <a href="Javascript:openWin('?module=Static&d1=google06&d2=google_quick_launch','comp',300,275);">Java
                     Applet</A>.
                 <br><br>
                 If you experience problems loading or running the Competition Arena please contact
                 <A href="mailto:gcj@topcoder.com?subject=Question regarding Google Code Jam 2006">gcj@topcoder.com</A>.
 
 
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                 <br><br><br><br>
                 To find out more detailed information about the Google&#153; Code Jam 2006, please read the
                 <a href="/pl/?&module=Static&d1=google06&d2=rules">Terms and Conditions</a>.
