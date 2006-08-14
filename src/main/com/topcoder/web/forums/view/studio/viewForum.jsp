@@ -185,7 +185,7 @@
             <td class="rtThreadCell"></td>
             <td class="rtThreadCell">
                 <b><A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>" class="rtLinkNew">
-                    <tc-webtag:beanWrite name="announcement" property="startDate" format="EEE, MMM d yyyy 'at' h:mm a"/></A></b>
+                    <tc-webtag:format object="${announcement.startDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></A></b>
             </td>
             <td class="rtThreadCell"><studio:handle coderId="<%=announcement.getUser().getID()%>"/></td>
         </tr>
@@ -248,7 +248,7 @@
             <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%></td>
             <td class="rtThreadCell">
                 <b><A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=lastPost.getID()%>" class="rtLinkNew">
-                    <tc-webtag:beanWrite name="thread" property="modificationDate" format="EEE, MMM d yyyy 'at' h:mm a"/></A></b>
+                    <tc-webtag:format object="${thread.modificationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></A></b>
             </td>
             <% if (lastPost.getUser() != null) { %>
             <td class="rtThreadCell"><studio:handle coderId="<%=lastPost.getUser().getID()%>"/></td>

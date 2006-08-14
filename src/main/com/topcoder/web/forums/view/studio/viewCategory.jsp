@@ -187,8 +187,8 @@
             <% if (forum.getMessageCount() > 0) { %>
             <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
             <td class="rtThreadCell"><b>
-                <tc-webtag:beanWrite name="message" property="modificationDate" format="EEE, MMM d yyyy 'at' h:mm a"/></b>
-            </td>
+            	<tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/>
+			</b></td>
             <% if (message.getUser() != null) { %>
             <td class="rtThreadCell"><studio:handle coderId="<%=message.getUser().getID()%>"/></td>
             <% } else { %>
@@ -243,8 +243,8 @@
             <% if (category.getLatestMessage() != null) { %>
             <tc-webtag:useBean id="message" name="category" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
             <td class="rtThreadCell"><b>
-                <tc-webtag:beanWrite name="message" property="modificationDate" format="EEE, MMM d yyyy 'at' h:mm a"/></b>
-            </td>
+            	<tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/>
+			</b></td>
             <% if (message.getUser() != null) { %>
             <td class="rtThreadCell"><studio:handle coderId="<%=message.getUser().getID()%>"/></td>
             <% } else { %>

@@ -210,15 +210,11 @@
                     <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
                         <% int editCount = historyBean.getEditCount(activeMessage.getID(), DBMS.FORUMS_DATASOURCE_NAME);
                             if (editCount > 0) { %>
-                        <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<%=activeMessage.getID()%>" class="rtbcLink" title="Last updated <tc-webtag:beanWrite name="activeMessage" property="modificationDate" format="EEE, MMM d, yyyy 'at' h:mm a z"/>"><%=ForumsUtil.display(editCount, "edit")%></a>
+                        <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<%=activeMessage.getID()%>" class="rtbcLink" title="Last updated <tc-webtag:format object="${activeMessage.modificationDate}" format="EEE, MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/><%=ForumsUtil.display(editCount, "edit")%></a>
                         |
                         <% } %>
-                        <a name=
-                        <%=activeMessage.getID()%>><tc-webtag:beanWrite name="activeMessage"
-                                                                                                   property="creationDate"
-                                                                                                   format="EEE, MMM d, yyyy 'at' h:mm a z"/>
+                        <a name=<%=activeMessage.getID()%>><tc-webtag:format object="${activeMessage.creationDate}" format="EEE, MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/>
                     </div>
-
                     <%=activeMessage.getSubject()%>
                 </a>
                 <% if (activeMessage.getParentMessage() != null) { %>
@@ -296,7 +292,7 @@
     <td class="rtThreadCell"><%if (message.getUser() != null) {%>
         <studio:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
     <td class="rtThreadCell"><strong>
-        <tc-webtag:beanWrite name="message" property="creationDate" format="MMM d, yyyy 'at' h:mm a z"/></strong></td>
+    	<tc-webtag:format object="${message.creationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></strong></td>
 </tr>
 </tc-webtag:iterator>
 </table>

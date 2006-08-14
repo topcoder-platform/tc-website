@@ -196,7 +196,7 @@
                     <tr><td class="rtHeader" colspan="2"><a name=
                             <%=message.getID()%>
                             >
-                        <tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/>
+                        <tc-webtag:format object="${message.modificationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/>
                         |
                         <%=message.getSubject()%>
                         <% if (message.getParentMessage() != null) { %>
