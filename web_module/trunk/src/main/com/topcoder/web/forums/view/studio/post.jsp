@@ -149,7 +149,7 @@
 
                 <br>
 
-                <div id="Options"><span class="small">Allowed tags: <%=ForumsUtil.getAllowedTagsDisplay()%>. Allowed attributes: <%=ForumsUtil.getAllowedAttributesDisplay()%>. Syntax highlighting is applied to text within [code][/code], [cpp][/cpp], [java][/java], [c#][/c#], and [vb][/vb] blocks. <!--Usernames within [handle][/handle] blocks are converted into color-coded links.--></span>
+                <div id="Options"><span class="small">Allowed tags: <%=ForumsUtil.getAllowedTagsDisplay()%>. Allowed attributes: <%=ForumsUtil.getAllowedAttributesDisplay()%>. <!--Usernames within [handle][/handle] blocks are converted into color-coded links.--></span>
                 </div><br>
                 <table cellpadding="0" cellspacing="0" class="rtTable">
                     <form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
