@@ -12,7 +12,8 @@
 
 <SCRIPT type="text/javascript">
 function send() {
-	if (document.frm.mailAccess.value != "true" && document.frm.mailAccess.value != "false" ) {
+	if (document.frm.<%= FindUser.HAS_MAIL_ACCESS %>.value != "true" 
+	  && document.frm.<%= FindUser.HAS_MAIL_ACCESS %>.value != "false" ) {
 		alert("Please reply whether you have access or not to your email account.");
 		return;
 	}
