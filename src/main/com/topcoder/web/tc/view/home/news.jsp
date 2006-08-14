@@ -8,6 +8,28 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>08.14.06<br>3:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+      <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_7">Intel&#174; Multi-Threading Competition 7 - Analysis</A>
+      </span><br><br>
+  In this contest we were faced with a problem that has been the subject of
+  numerous research papers, known as the &quot;multi-source Weber problem&quot;
+  in research circles, with the added twist of a scoring formula which required
+  a fine balance between runtime and quality of the solution.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/battyone_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7504863" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_7">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506073" message="discuss this" />&#160;|&#160;
+       <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>08.14.06<br>12:00 Noon</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -178,19 +200,6 @@ pi to two decimal places, putting it quite exclusive company -- only SRM 3
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>08.02.06<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      Downtime for scheduled maintenance: 08.03
-      </span><br><br>
-      TopCoder systems will be down for maintenance at 5PM on Thursday August 3rd, lasting approximately 2 hours.  All competition systems will be affected.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=MemberContact">view</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="506081" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
 
 </table>
 <br><br>
