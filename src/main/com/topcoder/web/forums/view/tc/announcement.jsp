@@ -70,7 +70,7 @@
        <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
    </td>
 </tr>
-<tr><td colspan="2" style="padding-bottom:3px;"><b>
+<tr><td colspan="3" style="padding-bottom:3px;"><b>
    <%   if (ForumsUtil.isAdmin(user)) { %>
    <div style="float:right;white-space: nowrap;">
         <%  Date now = Calendar.getInstance(TimeZone.getTimeZone("EST")).getTime();
@@ -98,7 +98,7 @@
    <tr>
       <td class="rtHeader" colspan="2">
          <div style="float: right; padding-left: 5px; white-space: nowrap;">
-            <a name=<jsp:getProperty name="announcement" property="ID"/>><tc-webtag:beanWrite name="announcement" property="startDate" format="MMM d, yyyy 'at' h:mm a z"/> 
+            <a name=<jsp:getProperty name="announcement" property="ID"/>><tc-webtag:format object="${announcement.startDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/> 
          </div>
          <jsp:getProperty name="announcement" property="subject"/></a>
          <%  if (announcement.getUser() != null && announcement.getUser().equals(user)) { %>
