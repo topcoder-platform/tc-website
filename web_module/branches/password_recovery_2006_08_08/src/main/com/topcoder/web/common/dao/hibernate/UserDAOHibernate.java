@@ -75,7 +75,8 @@ public class UserDAOHibernate extends Base implements UserDAO {
 
         if (email != null && email.length() > 0) {
 	    	crit.createCriteria("emailAddresses")
-	    		.add(Restrictions.sqlRestriction("lower({alias}.address)=lower(?)", email, Hibernate.STRING));
+	    		.add(Restrictions.sqlRestriction("lower({alias}.address)=lower(?)", email, Hibernate.STRING))
+	    		.add(Restrictions.eq("{alias}.primary_ind", "1"));
         }
         
         if (firstName != null && firstName.length() > 0) {
@@ -86,9 +87,7 @@ public class UserDAOHibernate extends Base implements UserDAO {
         	crit.add(Restrictions.sqlRestriction("lower({alias}.last_name)=lower(?)", lastName, Hibernate.STRING));
         }
 
-    	//crit.add(Expression.eq("u.emailAddresses.address", email));
     	return crit.list();
-    	//return session.createQuery("from User u where u.emailAddresses.address='amarcu@gmail.com' ").list();
     }
     
     public void saveOrUpdate(User u) {
