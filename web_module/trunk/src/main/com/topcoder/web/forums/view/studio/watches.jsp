@@ -98,7 +98,7 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
                                 <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%>
                                     &#160;&#160;&#160;&#160;</td>
                                 <td class="rtThreadCell"><b>
-                                    <tc-webtag:beanWrite name="thread" property="modificationDate" format="MMM d, yyyy h:mm a"/></b>
+                                	<tc-webtag:format object="${thread.modificationDate}" format="MMM d, yyyy h:mm a" timeZone="${sessionInfo.timezone}"/></b>
                                 </td>
                                 <td class="rtThreadCell"><%if (latestMessage.getUser() != null) {%>
                                     <studio:handle coderId="<%=latestMessage.getUser().getID()%>"/><%}%></td>
