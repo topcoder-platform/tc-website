@@ -156,10 +156,14 @@
         </A> >
         </tc-webtag:iterator>
         <%=forum.getName()%>
+        <%	String linkStr = ForumsUtil.createLinkString(forum);
+        		if (!linkStr.equals("")) { %>
+        			<%=linkStr%>
+        	<% 	} %>
     </td>
 </table>
 
-<% if (forum.getThreadCount() > 0) { %>
+<%  if (forum.getThreadCount() > 0 || ((Iterator)request.getAttribute("announcements")).hasNext()) { %>
 <table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
         <td class="rtHeader" width="70%"><a href="<%=threadLink%>" class="rtbcLink">Thread</a></td>
