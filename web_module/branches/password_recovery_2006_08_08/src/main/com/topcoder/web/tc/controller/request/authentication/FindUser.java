@@ -61,7 +61,7 @@ public class FindUser extends ShortHibernateProcessor {
                 setIsNextPageInContext(true);
         	}
 
-        } else {
+        } else {  // the user doesn't have access anymore to his email address
         	List l = DAOUtil.getFactory().getUserDAO().find(handle, firstName, lastName, regEmail);
 
         	if(l.size() == 1) {

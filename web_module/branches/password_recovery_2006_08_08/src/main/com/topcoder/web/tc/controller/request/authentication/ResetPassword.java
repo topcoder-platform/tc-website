@@ -26,37 +26,52 @@ import com.topcoder.web.reg.validation.PasswordValidator;
 import com.topcoder.web.tc.Constants;
 
 
+/**
+ * Changes the password for a user.
+ * It receives the id for a row in password_recovery table, as well as it hash code, and if this is
+ * ok and the new password is valid, then is changed.
+ *  
+ * @author Cucu
+ */
 public class ResetPassword extends ShortHibernateProcessor {
+
+	public static final String PASSWORD_RECOVERY_ID = "pr";
+	public static final String HASH_CODE = "hc";
+	public static final String PASSWORD = "pwd";
+	public static final String PASSWORD_VERIF = "pwdv";
+	
 
     protected void dbProcessing() throws TCWebException {
     	try {
-	        String prId = StringUtils.checkNull(getRequest().getParameter("pr"));
-	        String hc = StringUtils.checkNull(getRequest().getParameter("hc"));
-	        String pw = StringUtils.checkNull(getRequest().getParameter("password")); 
+	        String passwordRecoveryId = StringUtils.checkNull(getRequest().getParameter(PASSWORD_RECOVERY_ID));
+	        String rowHashCode = StringUtils.checkNull(getRequest().getParameter(HASH_CODE));
+	        String password = StringUtils.checkNull(getRequest().getParameter(PASSWORD)); 
+	        String passwordVerif = StringUtils.checkNull(getRequest().getParameter(PASSWORD_VERIF));
 	
-	        PasswordRecovery pr = DAOUtil.getFactory().getPasswordRecoveryDAO().find(new Long(prId));
+	        PasswordRecovery passwordRecovery = DAOUtil.getFactory().getPasswordRecoveryDAO().find(new Long(passwordRecoveryId));
 	        
-	        if (pr == null) {
-	        	throw new TCWebException("Row not found in password_recovery: " + prId);
+	        if (passwordRecovery == null) {
+	        	throw new TCWebException("Row not found in password_recovery: " + passwordRecoveryId);
 	        }
 	
-			if (!hc.equals(pr.hash())) {
+			if (!rowHashCode.equals(passwordRecovery.hash())) {
 				throw new TCWebException("Invalid hashcode.");
 			}
 	
 		
-	        if (pr.isUsed()) {
+	        if (passwordRecovery.isUsed()) {
 	        	addError("error", "The password was already changed.");
-	        }
-	        
-	        log.info("expires: " + pr.getExpireDate());
-	        log.info("now: " + new Date());
-	        
-	        if (pr.getExpireDate().before(new Date())) {
+	        }	        
+        
+	        if (passwordRecovery.getExpireDate().before(new Date())) {
 	        	addError("error", "The time for changing the password has expired. Please require password change again.");
 	        }
 	        
-	        ValidationResult vr = new PasswordValidator().validate(new StringInput(pw));
+	        if (!password.equals(passwordVerif)) {
+	        	addError("error", "Password does not match verification.");
+	        }
+	        
+	        ValidationResult vr = new PasswordValidator().validate(new StringInput(password));
 	        if (!vr.isValid()) {
 	        	addError("error", vr.getMessage());
 	        }
@@ -67,14 +82,15 @@ public class ResetPassword extends ShortHibernateProcessor {
 	        	return;        	
 	        }
 	        
-			
-			pr.setUsed(true);
-			DAOUtil.getFactory().getPasswordRecoveryDAO().saveOrUpdate(pr);
-			
+
+			passwordRecovery.setUsed(true);
+			DAOUtil.getFactory().getPasswordRecoveryDAO().saveOrUpdate(passwordRecovery);
+
+			// save the new password in user and security.
 	        Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
 	
-			User u = pr.getUser();
-			u.setPassword(pw);
+			User u = passwordRecovery.getUser();
+			u.setPassword(password);
 	
 	        TCSubject tcs = new TCSubject(132456);
 	        PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
@@ -82,17 +98,18 @@ public class ResetPassword extends ShortHibernateProcessor {
 	        UserPrincipal myPrincipal = new UserPrincipal("", u.getId().longValue());
 	        pmr.editPassword(myPrincipal, u.getPassword(), tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
 	
-			if (!u.getPrimaryEmailAddress().equals(pr.getRecoveryAddress())) {
+	        // if the user has changed email address, set it as his new primary address
+			if (!u.getPrimaryEmailAddress().equals(passwordRecovery.getRecoveryAddress())) {
 				Set s = u.getEmailAddresses();
 				for (Iterator it = s.iterator(); it.hasNext(); ) {
 		            Email e = (Email) it.next();
 		            if (e.isPrimary()) {
-		            	e.setAddress(pr.getRecoveryAddress());
+		            	e.setAddress(passwordRecovery.getRecoveryAddress());
 		            	break;
 		            }
 				}
 				u.setEmailAddresses(s);
-				getRequest().setAttribute("email", pr.getRecoveryAddress());
+				getRequest().setAttribute("email", passwordRecovery.getRecoveryAddress());
 			}
 			
 			

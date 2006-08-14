@@ -13,20 +13,30 @@ import com.topcoder.web.common.model.PasswordRecovery;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.tc.Constants;
 
-
+/**
+ * Send an email to an user with an url to reset his password.
+ * If the email needs to be sent to a different address than the registered, then 
+ * it is checked that the security question is correctly replyed.
+ *  
+ * @author Cucu
+ */
 public class RecoverEmail extends ShortHibernateProcessor {
 
+	public static final String SECRET_QUESTION_RESPONSE ="sqr";
+	
     protected void dbProcessing() throws TCWebException {
         String userId = StringUtils.checkNull(getRequest().getParameter(Constants.CODER_ID));
         String email = StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL));
-        String response = StringUtils.checkNull(getRequest().getParameter("resp")); // fix
+        String response = StringUtils.checkNull(getRequest().getParameter(SECRET_QUESTION_RESPONSE)); 
 
         User u = DAOUtil.getFactory().getUserDAO().find(new Long(userId));
+        
+        // if different mail, check secret question.
     	if (email.length() > 0) {
         	if (!u.getSecretQuestion().getResponse().equalsIgnoreCase(response)) {
         		addError("error", "Incorrect response");
         		
-        		getRequest().setAttribute("sq", u.getSecretQuestion().getQuestion());
+        		getRequest().setAttribute(FindUser.SECRET_QUESTION, u.getSecretQuestion().getQuestion());
         		getRequest().setAttribute(Constants.CODER_ID, userId);
         		
                 setNextPage(Constants.SECRET_QUESTION);
@@ -35,8 +45,9 @@ public class RecoverEmail extends ShortHibernateProcessor {
         	}
         } 
     	
+    	// Create a password recovery entry in DB
     	GregorianCalendar expire = new GregorianCalendar();
-    	expire.add(GregorianCalendar.MINUTE, 10); // FIX: use constant!
+    	expire.add(GregorianCalendar.MINUTE, Constants.PASSWORD_RECOVERY_EXPIRE); 
     	
     	PasswordRecovery pr = new PasswordRecovery();
     	pr.setUser(u);
@@ -44,7 +55,7 @@ public class RecoverEmail extends ShortHibernateProcessor {
     	pr.setExpireDate(expire.getTime());
     	DAOUtil.getFactory().getPasswordRecoveryDAO().saveOrUpdate(pr);
     	
-		
+		// send the email
 		try {
             StringBuffer msgText = new StringBuffer(1000);
             msgText.append("In order to reset your password please go to the following URL: \n\n");
@@ -57,14 +68,13 @@ public class RecoverEmail extends ShortHibernateProcessor {
 	        mail.setBody(msgText.toString());
 	        		
 	        mail.setToAddress(pr.getRecoveryAddress(), TCSEmailMessage.TO);
-	        mail.setFromAddress("no_reply@topcoder.com");
+	        mail.setFromAddress("service@topcoder.com");
 	        EmailEngine.send(mail);
 		} catch (Exception e) {
 			throw new TCWebException("Couldn't send the email to the user.", e);
 		}
 
-
-		getRequest().setAttribute("email", pr.getRecoveryAddress());
+		getRequest().setAttribute(Constants.EMAIL, pr.getRecoveryAddress());
         setNextPage(Constants.RECOVER_PASSWORD_CONFIRM);
         setIsNextPageInContext(true);
     }

@@ -2,6 +2,7 @@
          import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.tc.controller.request.authentication.Login,
                  com.topcoder.web.tc.controller.request.authentication.FindUser,                 
+                 com.topcoder.web.tc.controller.request.authentication.ResetPassword,                 
                  com.topcoder.web.tc.Constants" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -31,17 +32,17 @@ function setPassword() {
 
 <form method="post" name="frmPwd" action="/tc">
 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ResetPassword"/>
-<input type="hidden" name="pr" value='<%= request.getParameter("pr")%>'/>
-<input type="hidden" name="hc" value='<%= request.getParameter("hc")%>'/>
+<input type="hidden" name="<%= ResetPassword.PASSWORD_RECOVERY_ID %>" value='<%= request.getParameter(ResetPassword.PASSWORD_RECOVERY_ID)%>'/>
+<input type="hidden" name="<%= ResetPassword.HASH_CODE %>" value='<%= request.getParameter(ResetPassword.HASH_CODE)%>'/>
 
          <tc-webtag:errorIterator id="err" name="error"><%=err%></tc-webtag:errorIterator></span>
 <br>
 
-Enter your password: <input type="password" name="password">
+Enter your password: <input type="password" name="<%= ResetPassword.PASSWORD %>">
 <br>
-Retype your password: <input type="password" name="passwordVerif">
+Retype your password: <input type="password" name="<%= ResetPassword.PASSWORD_VERIF %>">
          
-<a href="JavaScript:setPassword()" class="bodyText">Submit</a>
+<a href="JavaScript:document.frmPwd.submit()" class="bodyText">Submit</a>
 
 </form>
 
