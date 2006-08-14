@@ -45,14 +45,14 @@ Companies who are in need of graphic design work for their website or product li
    <img src="/i/layout/step2.gif" alt="Step 2" />
 </div>
 <strong>TopCoder Studio posts project as a new contest</strong>: 
-Once the project documentation has been completed by the client and formatted appropriately by TopCoder Studio, it is posted on the <A href="/?module=ViewActiveContests">Active Contests page</A>.  All TopCoder Studio members will be alerted via email when new contests are posted.
+Once the project documentation has been completed by the client and formatted appropriately by TopCoder Studio, it is posted on the <A href="/?module=ViewActiveContests">Contests page</A>.  All TopCoder Studio members will be alerted via email when new contests are posted.
 <br><br>
 
 <div style="float:left; margin: 0px 6px 4px 0px;">
    <img src="/i/layout/step3.gif" alt="Step 3" />
 </div>
 <strong>Browse through the posted contests</strong>: 
-Anyone interested in participating in TopCoder Studio can read through the Active Contest page - no prior registration is necessary.  If there is a contest that you think a friend, co-worker or fellow designer might be interested in, send them a link to the <A href="/?module=ViewActiveContests">Contests</A> page.
+Anyone interested in participating in TopCoder Studio can read through the Contests page - no prior registration is necessary.  If there is a contest that you think a friend, co-worker or fellow designer might be interested in, send them a link to the <A href="/?module=ViewActiveContests">Contests page</A>.
 <br><br>
 
 <div style="float:left; margin: 0px 6px 4px 0px;">
