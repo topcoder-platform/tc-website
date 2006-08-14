@@ -70,17 +70,9 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
      * End a single exchange in a long running conversation of exchanges
      */
     protected void endCommunication() {
-//                log.debug("Committing database transaction");
         HibernateUtils.commit();
-
-//                 log.debug("Unbinding Session from thread");
         Session hibernateSession = ExtendedThreadLocalSessionContext.unbind(HibernateUtils.getFactory());
-
-//                 log.debug("Storing Session in the HttpSession");
         getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, hibernateSession);
-
-//                 log.debug("> Returning to user in conversation");
-
     }
 
     /**
@@ -90,10 +82,7 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
         Session hibernateSession =
                 (Session) getRequest().getSession().getAttribute(HIBERNATE_SESSION_KEY);
         if (hibernateSession != null) {
-            //log.debug("< Continuing conversation");
             ExtendedThreadLocalSessionContext.bind(hibernateSession);
-        } else {
-            //log.debug(">>> New conversation");
         }
 
         //log.debug("Starting a database transaction");
@@ -106,27 +95,24 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
      * End a conversation.  This will persist changes to the db, and wrap things up.
      */
     protected void closeConversation() {
-//                log.debug("Flushing Session");
-        HibernateUtils.getSession().flush();
+        //only close if there is something to close
+        if (String.valueOf(true).equals(getRequest().getAttribute(ACTIVE_CONVERSATION_FLAG))) {
+            HibernateUtils.getSession().flush();
+            HibernateUtils.commit();
+            HibernateUtils.getSession().close(); // Unbind is automatic here
 
-//                log.debug("Committing the database transaction");
-        HibernateUtils.commit();
-
-//                log.debug("Closing and unbinding Session from thread");
-        HibernateUtils.getSession().close(); // Unbind is automatic here
-
-//                log.debug("Removing Session from HttpSession");
-        //we're creating a new session to handle the case that the request processing invalidated the session
-        //there's no way to check, so this is what we're doing.
-        getRequest().removeAttribute(END_OF_CONVERSATION_FLAG);
-        getRequest().removeAttribute(ACTIVE_CONVERSATION_FLAG);
-        try {
-            getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, null);
-        } catch (Exception e) {
-            log.error("problem nulling out the hibernate session key: " + e.getMessage());
+            //we're creating a new session to handle the case that the request processing invalidated the session
+            //there's no way to check, so this is what we're doing.
+            getRequest().removeAttribute(END_OF_CONVERSATION_FLAG);
+            getRequest().removeAttribute(ACTIVE_CONVERSATION_FLAG);
+            try {
+                getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, null);
+            } catch (Exception e) {
+                log.error("problem nulling out the hibernate session key: " + e.getMessage());
+            }
+        } else if (HibernateUtils.getSession().isOpen()) {
+            log.error("we're not closing a conversation that has an open session");
         }
-
-//                log.debug("<<< End of conversation");
     }
 
 
