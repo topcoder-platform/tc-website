@@ -22,7 +22,7 @@
     Iterator results = (Iterator) request.getAttribute("results");
 
     int numResults = paginator.getPageable().getResultFilter().getNumResults();
-    SimpleDateFormat formatter = new SimpleDateFormat("EEE, MMM d yyyy 'at' h:mm a");
+    SimpleDateFormat formatter = new SimpleDateFormat("EEE, MMM d yyyy 'at' h:mm a z");
     boolean displayPerThread = JiveGlobals.getJiveBooleanProperty("search.results.groupByThread", true);
     int resultCount = (displayPerThread) ? query.getResultByThreadCount() : query.getResultCount();
 
