@@ -37,25 +37,25 @@
         <jsp:param name="title" value="Powered by TopCoder"/>
     </jsp:include>
 
-<%-- Current Tournaments begins
+<%-- Current Tournaments begins --%>
 
          <div class="sectionHeader">Current Tournaments</div>
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274" rowspan="2"><A href="/pl/?module=Static&d1=gecj06&d2=overview" target="_blank"><img src="/i/events/gecj06.gif" alt="GCJE" border="0" /></A></td>
+                    <td width="274" rowspan="2"><A href="/pl/?module=Static&d1=google06&d2=overview" target="_blank"><img src="/i/events/gcj06.gif" alt="GCJ06" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText"><font size="3"><strong>Google Code Jam Europe</strong></font></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>Google Code Jam 2006</strong></font></td>
                 </tr>
                 <tr valign="top">
                     <td class="bodyText">
-                        June 29, 2006<br />
-                        Dublin, Ireland<br/>
-                        <A href="/pl/?module=Static&d1=gecj06&d2=overview" target="_blank">Summary</A>
+                        October 27, 2006<br />
+                        New York City, NY, USA<br/>
+                        <A href="/pl/?module=Static&d1=google06&d2=overview" target="_blank">Summary</A>
                     </td>
                 </tr>
             </table>
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
---%>
+
 
 <%-- Past Tournaments begins --%>
 
