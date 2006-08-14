@@ -211,7 +211,7 @@
                         <A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0"  style="display:block;" /></A>
             --%>
             <%-- employee referral 
-            <A href="/tc?module=Static&d1=my_home&d2=empReferrals"><img src="/i/home/emp_ref_062806_sm.gif" alt="TopCoder Employee Referral Program" border="0" style="display:block;" /></A>
+            <img src="/i/home/emp_ref_062806_sm.gif" alt="TopCoder Employee Referral Program" border="0" style="display:block;"  usemap="#"/>
             --%>
         </td></tr>
     </table>
