@@ -8,16 +8,16 @@
 
 <IMG SRC="/i/home/promos/tccc06_rep_promo.gif" border="0" ALT="TCCC06" usemap="#tccc_rep" />
 --%>
-<%-- STUDIO & TCCC06 CDDC REG & DIGITAL RUN 
+<%-- STUDIO & TCCC06 CDDC REG & DIGITAL RUN --%>
 
 <map name="studio_tccc06_dr">
-<area shape="rect" alt="" coords="1,1,300,149" href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/" />
+<area shape="rect" alt="" coords="1,1,300,149" href="http://studio.topcoder.com/" />
 <area shape="rect" alt="" coords="305,1,500,90" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
 <area shape="rect" alt="" coords="305,95,500,149" href="/tc?module=Static&d1=digital_run&d2=description" />
 </map>
-<IMG SRC="/i/home/studio_tccc06_dr.jpg" border="0" alt="TopCoder Studio, TCCC06 CDDC Registration Open, and The Digital Run" usemap="#studio_tccc06_dr" />
---%>
-<%-- TCCC06 CDDC REG & DIGITAL RUN --%>
+<IMG SRC="/i/home/studio_tccc06_dr.gif" border="0" alt="TopCoder Studio, TCCC06 CDDC Registration Open, and The Digital Run" usemap="#studio_tccc06_dr" />
+
+<%-- TCCC06 CDDC REG & DIGITAL RUN 
 
 <map name="tccc_cddc_dr">
 <area shape="rect" alt="" coords="1,1,249,118" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
@@ -25,7 +25,7 @@
 <area shape="rect" alt="" coords="251,1,499,149" href="/tc?module=Static&d1=digital_run&d2=description" />
 </map>
 <IMG SRC="/i/home/tccc06_cddc_digital_run.gif" border="0" alt="TCCC06 CDDC REGISTRATION OPEN & THE DIGITAL RUN" usemap="#tccc_cddc_dr" />
-
+--%>
 <%-- Digital Run 
 <map name="digital_run">
 <area shape="rect" alt="" coords="1,1,279,154" href="/tc?module=Static&d1=digital_run&d2=description" />
