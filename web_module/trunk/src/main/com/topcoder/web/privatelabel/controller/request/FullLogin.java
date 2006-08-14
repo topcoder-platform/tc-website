@@ -214,13 +214,10 @@ public abstract class FullLogin extends FullReg {
 
     protected static void loadQuestionMaps() {
         TC_TO_PL_QUESTION_MAP.put(new Long(21), new Long(100));
-        TC_TO_PL_QUESTION_MAP.put(new Long(20), new Long(102));
         TC_TO_PL_QUESTION_MAP.put(new Long(15), new Long(106));
         TC_TO_PL_QUESTION_MAP.put(new Long(5), new Long(105));
         TC_TO_PL_QUESTION_MAP.put(new Long(2), new Long(112));
         TC_TO_PL_QUESTION_MAP.put(new Long(3), new Long(108));
-        TC_TO_PL_QUESTION_MAP.put(new Long(18), new Long(18));
-        TC_TO_PL_QUESTION_MAP.put(new Long(23), new Long(23));
 
         TC_TO_PL_ANSWER_MAP.put(new Long(141), new Long(100));
         TC_TO_PL_ANSWER_MAP.put(new Long(142), new Long(101));
