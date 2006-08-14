@@ -44,6 +44,11 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="275640" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=081406"><strong>The art of testing C++ code: An introduction to cppUnit</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Aug 14, 2006</td>
+            </tr>
+            <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="9927526" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=080706"><strong>The Intricate Art of Testing</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Aug 7, 2006</td>
