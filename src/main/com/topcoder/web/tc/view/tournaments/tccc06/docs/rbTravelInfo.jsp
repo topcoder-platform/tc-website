@@ -122,15 +122,17 @@
 </tr>
 
 <tr>
-    <td class="sidebarText" align="right"><input type="hidden" name="q44" value="May 2, 2006 - Preferred arrival time"/>
-        May 2, 2006 - Preferred arrival time:</td>
+    <td class="sidebarText" align="right">
+        <input type="hidden" name="q44" value="November 14, 2006 - Preferred arrival time"/>
+        November 14, 2006 - Preferred arrival time:</td>
     <td class="sidebarText" align="left"><select name="a44"><option value="AM">AM</option><option value="PM">PM</option>
     </select></td>
 </tr>
 
 <tr>
     <td class="sidebarText" align="right">
-        <input type="hidden" name="q45" value="May 6, 2006 - preferred departure time"/>May 6, 2006 - preferred
+        <input type="hidden" name="q45" value="November 18, 2006 - preferred departure time"/>November 18, 2006 -
+        preferred
         departure time:</td>
     <td class="sidebarText" align="left"><select name="a45"><option value="AM">AM</option><option value="PM">PM</option>
     </select></td>
@@ -159,8 +161,8 @@
 
 <tr>
     <td class="sidebarText" align="center" colspan="2">
-        <input type="hidden" name="q49" value="Personal Considerations/Special Requests"/>Personal
-        Considerations/Special Requests: (Physical requirements or Medical needs)</td>
+        <input type="hidden" name="q49" value="Personal Considerations/Special Requests"/>
+        If you have special considerations or questions regarding your travel, please provide them here:</td>
 </tr>
 <tr>
     <td class="sidebarText" align="right" colspan="2">
