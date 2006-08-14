@@ -52,12 +52,6 @@
     appropriate space with your roommate preference if you have one. We will do our best to accommodate your request.
 </p>
 
-
-<p>
-    <b>At the TCCC06, you will be sharing a hotel room with another Review Board member.</b> Please fill in the
-    appropriate space with your roommate preference if you have one. We will do our best to accommodate your request.
-</p>
-
 <B><U>AIRLINE INFORMATION:</U></B>
 
 <p>TopCoder will secure airline reservations based upon your registration information and will email a travel itinerary
