@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
@@ -15,6 +16,8 @@ import com.topcoder.web.ejb.user.UserAddress;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 
+import javax.transaction.Status;
+import javax.transaction.TransactionManager;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.Map;
@@ -93,21 +96,32 @@ public abstract class BaseSubmitTravelInfo extends Base {
             buf.append("\n");
             buf.append("\n");
 
-            Map.Entry me = null;
-            Response response = (Response) createEJB(getInitialContext(), Response.class);
-            for (Iterator it = questions.entrySet().iterator(); it.hasNext();) {
-                me = (Map.Entry) it.next();
-                buf.append(me.getValue());
-                buf.append(":\n");
-                buf.append(answers.get(me.getKey()));
-                buf.append("\n\n");
 
-                if (response.exists(getUser().getId(), Long.parseLong(me.getKey().toString()))) {
-                    throw new NavigationException("You have already filled out this form.");
-                } else {
-                    response.createResponse(getUser().getId(),
-                            Long.parseLong(me.getKey().toString()), answers.get(me.getKey()).toString());
+            TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+            try {
+                tm.begin();
+                Map.Entry me = null;
+                Response response = (Response) createEJB(getInitialContext(), Response.class);
+                for (Iterator it = questions.entrySet().iterator(); it.hasNext();) {
+                    me = (Map.Entry) it.next();
+                    buf.append(me.getValue());
+                    buf.append(":\n");
+                    buf.append(answers.get(me.getKey()));
+                    buf.append("\n\n");
+
+                    if (response.exists(getUser().getId(), Long.parseLong(me.getKey().toString()))) {
+                        throw new NavigationException("You have already filled out this form.");
+                    } else {
+                        response.createResponse(getUser().getId(),
+                                Long.parseLong(me.getKey().toString()), answers.get(me.getKey()).toString());
+                    }
                 }
+                tm.commit();
+            } catch (Exception e) {
+                if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                    tm.rollback();
+                }
+                throw e;
             }
 
             TCSEmailMessage mail = new TCSEmailMessage();
