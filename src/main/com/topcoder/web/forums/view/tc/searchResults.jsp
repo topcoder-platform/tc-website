@@ -24,8 +24,7 @@
     
     int numResults = paginator.getPageable().getResultFilter().getNumResults(); 
     SimpleDateFormat formatter = new SimpleDateFormat("EEE, MMM d yyyy 'at' h:mm a"); 
-    boolean displayPerThread
-        = JiveGlobals.getJiveBooleanProperty("search.results.groupByThread", true); 
+    boolean displayPerThread = JiveGlobals.getJiveBooleanProperty("search.results.groupByThread", true); 
     int resultCount = (displayPerThread) ? query.getResultByThreadCount() : query.getResultCount(); 
     
     StringBuffer linkBuffer = new StringBuffer("?module=Search");
@@ -99,7 +98,7 @@
             <td class="rtThreadCell"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
             <td class="rtThreadCell" align="right"><%=message.getForumThread().getTreeWalker().getChildCount(message)%></td>
             <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(message.getForumThread())%></td>
-          <td class="rtThreadCell"><b><%=formatter.format(message.getModificationDate())%></b></td>
+        	<td class="rtThreadCell"><b><%=formatter.format(message.getModificationDate())%></b></td>
         </tr>
    </tc-webtag:iterator>
 </table>
