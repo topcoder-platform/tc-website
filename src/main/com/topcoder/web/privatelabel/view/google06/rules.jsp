@@ -77,7 +77,7 @@
             <br><br>
             Registrants who are 13 years of age or older as of September 5, 2006 may compete in the Qualification
             and Online Rounds of the Google Code Jam 2006. Only participants who are 18 years of age or older as of
-            September 5, 2006 are eligible to compete in the Championship Round and win cash and prizes, unless
+            September 5, 2006 are eligible to compete in the Championship Round and to win cash and prizes, unless
             otherwise prohibited. The Google Code Jam 2006 is void where prohibited by applicable law. Cash and
             prizes, including t-shirts, will not be provided to residents of Iran, Iraq, Libya, Sudan or Syria.
             <br><br>
