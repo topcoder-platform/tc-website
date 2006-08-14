@@ -17,42 +17,46 @@
 
 
 <table border="0" width="100%" cellpadding="0" cellspacing="0">
-    <tr>
-        <td width="49%">&#160;</td>
-        <td align="center">
-            <table border="0" width="100%" cellpadding="0" cellspacing="0">
-                <tr>
-                    <td width="49%"></td>
-                    <td valign="bottom" align="center">
-                        <img border="0" src="/i/events/google2006/codejamLogo.gif" alt="Google Code Jam logo"></td>
-                    <td width="49%"></td>
-                </tr>
-            </table>
-        </td>
-        <td width="49%"></td>
-    </tr>
-    <tr>
-        <td width="49%">&#160;</td>
-        <td>
-            <div class="greenBigBox">
+<tr>
+    <td width="49%">&#160;</td>
+    <td align="center">
+        <table border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+                <td width="49%"></td>
+                <td valign="bottom" align="center">
+                    <img border=0 src="/i/events/google2006/codejamLogo.gif" alt="Google Code Jam logo"></td>
+                <td width="49%"></td>
+            </tr>
+        </table>
+    </td>
+    <td width="49%"></td>
+</tr>
 
-                <!-- Tab bar links-->
-                <div align=center>
-                    <jsp:include page="links.jsp">
-                        <jsp:param name="selectedTab" value="registration"/>
-                    </jsp:include>
-                </div>
+<!-- Tab bar links-->
+<tr>
+    <td colspan="3">
+        <div align="center">
+            <jsp:include page="links.jsp">
+                <jsp:param name="selectedTab" value="registration"/>
+            </jsp:include>
+            <br/>
+        </div>
+    </td>
+</tr>
 
-                <br><br>
+<tr>
+<td width="49%">&#160;</td>
 
-                <div style="float: left">
-                    <span class="bigTitle">Registration</span>
-                </div>
+<!-- content -->
+<td>
+<div class="pageLayout">
 
-                <div style="float: right">
-                    <jsp:include page="right_reg.jsp"/>
-                </div>
-                <br><br>
+         <span valign="top">
+         <jsp:include page="right_reg.jsp"/>
+         </span>
+
+         <span class="bigBluetitle">Registration</span>
+         <br><br>
 
                 Please enter your email address below. You should receive an email shortly with your username and
                 password.
@@ -81,14 +85,23 @@
                 </table>
 
 
-                <br><br><br><br><br><br><br><br><br><br>
-                To find out more detailed information about Google Code Jam 2006, including a list of the prizes, please
-                read the <a href="/pl/?module=Static&d1=google06&d2=rules">Terms and Conditions</a>.
-            </div>
-        </td>
-        <td width="49%">&#160;</td>
-    <tr>
+         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+         <br><br><br><br><br><br><br>
+         To find out more detailed information about the Google&#153; Code Jam 2006, please read the
+         <a href="/pl/?&module=Static&d1=google06&d2=rules">Terms and Conditions</a>.
+         <br><br>
+</div>
+</td>
+<td width="49%">&#160;</td>
+<tr>
+<tr>
+    <td colspan="3">
+        <div align="center">
+            <jsp:include page="foot.jsp"/>
+        </div>
+    </td>
+</tr>
+
 </table>
-<jsp:include page="foot.jsp"/>
 </body>
 </html>
