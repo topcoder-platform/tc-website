@@ -166,7 +166,7 @@
 </tr>
 <tr>
     <td class="sidebarText" align="right" colspan="2">
-        <textarea cols="80" rows="10" name="code"></textarea>
+        <textarea cols="80" rows="10" name="a49"></textarea>
     </td>
 </tr>
 
