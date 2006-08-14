@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.privatelabel.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -58,7 +59,7 @@
                 <%--
                 The Google Code Jam 2006 Arena is not available yet.
                 --%>
-                <A href="/pl/?module=Google06Credentials&cid=1865">Forgot your password?</A>
+                <A href="/pl/?module=Google06Credentials&<%=Constants.COMPANY_ID%>=1865">Forgot your password?</A>
 
                 <br><br>
                 You need at least <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version
