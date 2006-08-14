@@ -165,7 +165,6 @@ public class SessionInfo implements Serializable {
         return ((ResultSetContainer) tzDai.getData(tzReq).get("user_timezone")).getStringItem(0, "timezone_desc");
     }
 
-    //todo consider removing or making it lazy instantiated so that we don't have to deploy DW on the studio site.
     private int loadMemberCount() throws Exception {
         CachedDataAccess countDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
         countDai.setExpireTime(15 * 60 * 1000);
