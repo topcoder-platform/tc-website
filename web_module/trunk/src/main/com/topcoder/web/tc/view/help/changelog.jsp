@@ -43,6 +43,14 @@
 </jsp:include>
 
 <p>
+    5.4.4 - 2006.08.14
+    <ul>
+        <li>Add TCCC06 forms</li>
+        <li>Add automatic monitoring of review board eligibility</li>
+    </ul>
+</p>
+
+<p>
     5.4.3 - 2006.08.09
     <ul>
         <li>Google Code Jam Registration</li>
