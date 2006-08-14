@@ -13,7 +13,7 @@
         <A href="/"><img src="/i/studio_logo.gif" alt="TopCoder Studio"/></A>
     </div>
 
-<% if (section.equals("")) {%>
+    <% if (section.equals("")) {%>
     <div class="loginBox" align="center">
         <img src="/i/layout/loginBoxN.gif" alt="" style="display:block;"/>
 
@@ -47,12 +47,18 @@
                                             <input type="image" src="/i/layout/btn_login.gif" onmouseover="this.src='/i/layout/btn_login_on.gif'" onmouseout="this.src='/i/layout/btn_login.gif'">
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <span class="small">
+                                            <input type="checkbox" id="remember" name="<%=Login.REMEMBER_USER%>"/>Remember me
+                                            &nbsp;&nbsp;&nbsp;<A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=PasswordEmail">Forgot
+                                                your password?</A>
+                                            </span>
+                                        </td>
+                                    </tr>
+
                                 </tbody>
                             </table>
-<span class="small">
-<input type="checkbox" id="remember" name="<%=Login.REMEMBER_USER%>"/>Remember me
-&nbsp;&nbsp;&nbsp;<A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=PasswordEmail">Forgot your password?</A>
-</span>
                         </form>
 
                     </c:when>
@@ -68,5 +74,5 @@
         </div>
         <img src="/i/layout/loginBoxS.gif" alt="" style="display:block;"/>
     </div>
-<% } %>
+    <% } %>
 </div>
