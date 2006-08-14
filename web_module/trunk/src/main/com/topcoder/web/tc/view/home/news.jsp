@@ -19,7 +19,7 @@
   in research circles, with the added twist of a scoring formula which required
   a fine balance between runtime and quality of the solution.
       </td>
-      <td class="newsPhoto"><img src="/i/m/battyone_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7504863" context="algorithm"/></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/battyone_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7504863" /></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
