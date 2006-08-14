@@ -120,10 +120,10 @@ function toggleTabs(anchor,id) {
 <tc-webtag:hiddenInput name="<%=ForumConstants.SETTINGS_SECTION%>" value="gen"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.SETTINGS_STATUS%>" value="save"/>
 <table cellpadding="0" cellspacing="0" class="rtTable">
-   <tr id="bodyGen1">
+   <tr style="display:none;" id="bodyGen1">
         <td class="rtHeader" colspan="2">General Settings</td>
    </tr>
-   <tr id="bodyGen2">
+   <tr style="display:none;" id="bodyGen2">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Forums per Category page:</strong></td>
       <td class="rtThreadCell" style="width:100%;">
       <select size="1" name="forumsPerPage">
@@ -142,7 +142,7 @@ function toggleTabs(anchor,id) {
       </select>
       </td>
    </tr>
-   <tr id="bodyGen3">
+   <tr style="display:none;" id="bodyGen3">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Threads per Forum page:</strong></td>
       <td class="rtThreadCell">
       <select size="1" name="threadsPerPage">
@@ -162,7 +162,7 @@ function toggleTabs(anchor,id) {
       </select>
       </td>
    </tr>
-   <tr id="bodyGen4">
+   <tr style="display:none;" id="bodyGen4">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Messages per Thread page:</strong></td>
       <td class="rtThreadCell">
       <select size="1" name="messagesPerPage">
@@ -182,7 +182,7 @@ function toggleTabs(anchor,id) {
       </select>
       </td>
    </tr>
-   <tr id="bodyGen5">
+   <tr style="display:none;" id="bodyGen5">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Messages per Post History page:</strong></td>
       <td class="rtThreadCell">
       <select size="1" name="messagesPerHistoryPage">
@@ -201,7 +201,7 @@ function toggleTabs(anchor,id) {
       </select>
       </td>
    </tr>
-   <tr id="bodyGen6">
+   <tr style="display:none;" id="bodyGen6">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Results per Search page:</strong></td>
       <td class="rtThreadCell">
         <select size="1" name="resultsPerSearchPage">
@@ -220,7 +220,7 @@ function toggleTabs(anchor,id) {
         </select>
       </td>
    </tr>
-   <tr id="bodyGen7">
+   <tr style="display:none;" id="bodyGen7">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Default thread page view:</strong></td>
       <td class="rtThreadCell">
       <select size="1" name="threadMode">
@@ -239,7 +239,7 @@ function toggleTabs(anchor,id) {
       </select>
       </td>
    </tr>
-   <tr id="bodyGen8">
+   <tr style="display:none;" id="bodyGen8">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Default flat page view:</strong></td>
       <td class="rtThreadCell">
       <select size="1" name="flatMode">
@@ -258,7 +258,7 @@ function toggleTabs(anchor,id) {
       </select>
       </td>
    </tr>
-   <tr id="bodyGen9">
+   <tr style="display:none;" id="bodyGen9">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Show previous/next threads:</strong></td>
       <td class="rtThreadCell">
         <input name="showPrevNextThreads" value="true" id="showPrevNextThreadsYes" type="radio"
@@ -270,7 +270,7 @@ function toggleTabs(anchor,id) {
         <label for="jiveShowPrevNextThreadsNo">No</label>
       </td>
    </tr>
-   <tr id="bodyGen10">
+   <tr style="display:none;" id="bodyGen10">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Display my member photo:</strong></td>
       <td class="rtThreadCell">
       <input name="displayMemberPhoto" value="true" id="displayMemberPhotoYes" type="radio"
@@ -282,7 +282,7 @@ function toggleTabs(anchor,id) {
       <label for="jiveDisplayMemberPhotoNo">No</label>
       </td>
    </tr>
-   <tr id="bodyGen11">
+   <tr style="display:none;" id="bodyGen11">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Display member photos:</strong></td>
       <td class="rtThreadCell">
       <input name="displayAllMemberPhotos" value="true" id="displayAllMemberPhotosYes" type="radio"
@@ -294,10 +294,10 @@ function toggleTabs(anchor,id) {
       <label for="jiveDisplayAllMemberPhotosNo">No</label>
       </td>
    </tr>
-   <tr id="bodyWatch1">
+   <tr style="display:none;" id="bodyWatch1">
       <td class="rtHeader" colspan="2">Watch Preferences</td>
    </tr>
-   <tr id="bodyWatch2">
+   <tr style="display:none;" id="bodyWatch2">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Always watch threads I create:</strong></td>
       <td class="rtThreadCell" style="width:100%;">
       <input name="autoWatchNewTopics" value="true" id="autoWatchNewTopicsYes" type="radio"
@@ -309,7 +309,7 @@ function toggleTabs(anchor,id) {
       <label for="autoWatchNewTopicsNo">No</label>
       </td>
    </tr>
-   <tr id="bodyWatch3">
+   <tr style="display:none;" id="bodyWatch3">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Always watch threads I reply to:</strong></td>
       <td class="rtThreadCell">
       <input name="autoWatchReplies" value="true" id="autoWatchRepliesYes" type="radio"
@@ -321,7 +321,7 @@ function toggleTabs(anchor,id) {
       <label for="autoWatchRepliesNo">No</label>
       </td>
    </tr>
-   <tr id="bodyWatch4">
+   <tr style="display:none;" id="bodyWatch4">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Mark watched threads as read:</strong></td>
       <td class="rtThreadCell">
       <input name="markWatchesRead" value="true" id="markWatchesReadYes" type="radio"
@@ -333,7 +333,7 @@ function toggleTabs(anchor,id) {
       <label for="markWatchesReadNo">No</label>
       </td>
    </tr>
-   <tr id="bodyWatch5">
+   <tr style="display:none;" id="bodyWatch5">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Send watch emails:</strong></td>
       <td class="rtThreadCell">
          <select size=1 name="watchFrequency">
@@ -351,10 +351,10 @@ function toggleTabs(anchor,id) {
          (<%= user.getEmail() %>)
       </td>
    </tr>
-   <tr id="bodyRate1">
+   <tr style="display:none;" id="bodyRate1">
         <td class="rtHeader" colspan="2">Rating Preferences</td>
    </tr>
-   <tr id="bodyRate2">
+   <tr style="display:none;" id="bodyRate2">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Show ratings:</strong></td>
       <td class="rtThreadCell" style="width:100%;">
       <input name="showRatings" value="true" id="showRatingsYes" type="radio"
@@ -366,7 +366,7 @@ function toggleTabs(anchor,id) {
       <label for="showRatingsNo">No</label>
       </td>
    </tr>
-   <tr id="bodyRate3">
+   <tr style="display:none;" id="bodyRate3">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Highlight posts:</strong></td>
       <td class="rtThreadCell" valign="top">
       <select size="1" name="ratingHighlightThreshold">
@@ -401,7 +401,7 @@ function toggleTabs(anchor,id) {
       or more votes
       </td>
    </tr>
-   <tr id="bodyRate4">
+   <tr style="display:none;" id="bodyRate4">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Collapse posts:</strong></td>
       <td class="rtThreadCell" valign="top">
       <select size="1" name="ratingCollapseThreshold">
