@@ -158,7 +158,7 @@
 
 
 <tr>
-    <td class="sidebarText" align="right" colspan="2">
+    <td class="sidebarText" align="center" colspan="2">
         <input type="hidden" name="q49" value="Personal Considerations/Special Requests"/>Personal
         Considerations/Special Requests: (Physical requirements or Medical needs)</td>
 </tr>
