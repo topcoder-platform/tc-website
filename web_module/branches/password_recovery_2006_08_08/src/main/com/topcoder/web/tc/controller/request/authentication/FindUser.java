@@ -27,73 +27,66 @@ public class FindUser extends ShortHibernateProcessor {
 	public static final String GOOD_EMAIL = "ge";
 	public static final String NEEDS_HANDLE = "nh";
 	public static final String SECRET_QUESTION = "sq";
+	public static final String HAS_MAIL_ACCESS = "ma";
+ 	public static final String ERROR_HANDLE = "errha";
+	public static final String ERROR_INFO = "errin";
+	
 	
     protected void dbProcessing() throws TCWebException {
     	String handle = StringUtils.checkNull(getRequest().getParameter(Constants.HANDLE));
         String firstName = StringUtils.checkNull(getRequest().getParameter(Constants.FIRST_NAME));
         String lastName = StringUtils.checkNull(getRequest().getParameter(Constants.LAST_NAME));
-        String regEmail = StringUtils.checkNull(getRequest().getParameter(Constants.REGISTERED_EMAIL));
-        String currEmail = StringUtils.checkNull(getRequest().getParameter(Constants.CURRENT_EMAIL));
+        String email = StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL));
+        boolean hasMailAccess = "true".equals(getRequest().getParameter(HAS_MAIL_ACCESS));
         
-        // If the user still has access to the email he used for registering
-        if (currEmail.length() > 0) {
-        	List l = DAOUtil.getFactory().getUserDAO().find(handle, null, null, currEmail);
-       	        	
-        	if(l.size() == 1) {
-        		// Exactly one user found, so send him an email with the key
-        		User u = (User) l.get(0);
-        		
-                SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-
-                setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=RecoverEmail&"
-                		+ Constants.CODER_ID + "=" + u.getId());
-                setIsNextPageInContext(false);
-        	} else {   
-        		// zero or more than one users found. Display error.        		
-         	    if(l.size() == 0) { 
-	        	    addError(GOOD_EMAIL, "No user found with that email address."); 
-	        	} else {
-		     		addError(GOOD_EMAIL, "More than one user found with this email address.  Please provide the handle.");
-		     		getRequest().setAttribute(NEEDS_HANDLE, "true");
-	        	}
-         	    setDefault(Constants.CURRENT_EMAIL, currEmail);
-         	    setNextPage(Constants.RECOVER_PASSWORD);
-                setIsNextPageInContext(true);
+        User user = null;
+        
+        if (handle.length() > 0) {
+        	user = DAOUtil.getFactory().getUserDAO().find(handle, true, false);
+        	if (user == null) {
+        		addError(ERROR_HANDLE, "Handle not found");
         	}
-
-        } else {  // the user doesn't have access anymore to his email address
-        	List l = DAOUtil.getFactory().getUserDAO().find(handle, firstName, lastName, regEmail);
-
-        	if(l.size() == 1) {
-        		User u = (User) l.get(0);
-
-        		if (u.getSecretQuestion() == null) {
-	        	    addError(LOST_EMAIL, "You don't have a secret question. Password recovery is not possible."); 
-                    setNextPage(Constants.RECOVER_PASSWORD);
-                    setIsNextPageInContext(true);
-                    return;
-        		}
-        		getRequest().setAttribute(SECRET_QUESTION, u.getSecretQuestion().getQuestion());
-        		getRequest().setAttribute(Constants.CODER_ID, u.getId().toString());
-                setNextPage(Constants.SECRET_QUESTION);
-                setIsNextPageInContext(true);
-        	} else {       	
-         	    if(l.size() == 0) { 
-	        	    addError(LOST_EMAIL, "No user found."); 
-	        	} else {		     
-	        		addError(LOST_EMAIL, "More than one user found. Please provide additional data.");
-	        	}
-         	    
-         	    setDefault(Constants.HANDLE, handle);
-         	    setDefault(Constants.FIRST_NAME, firstName);
-         	    setDefault(Constants.LAST_NAME, lastName);
-         	    setDefault(Constants.REGISTERED_EMAIL, regEmail);
-
-                setNextPage(Constants.RECOVER_PASSWORD);
-                setIsNextPageInContext(true);
-
+        } else {
+        	List l = DAOUtil.getFactory().getUserDAO().find(handle, firstName, lastName, email);
+        	
+        	if (l.size() == 0) {
+        		addError(ERROR_INFO, "No user was found with that information");
+        	} else if (l.size() > 1) {
+        		addError(ERROR_INFO, "More than one user found.  Please provide additional information.");
+        	} else {
+        		user = (User) l.get(0);
         	}
+        }
+        
+        if (!hasMailAccess && user != null && user.getSecretQuestion() == null) {
+        	addError(ERROR_INFO, "You don't have a secret question. Password recovery is not possible.");
+        }
+        
+        if (hasErrors()) {
+     	    setDefault(Constants.HANDLE, handle);
+     	    setDefault(Constants.FIRST_NAME, firstName);
+     	    setDefault(Constants.LAST_NAME, lastName);
+     	    setDefault(Constants.EMAIL, email);
+     	    setDefault(HAS_MAIL_ACCESS, hasMailAccess);
+     	    
+     	    setNextPage(Constants.RECOVER_PASSWORD);
+            setIsNextPageInContext(true);
+            return;
+        }
+        
+        if (hasMailAccess) {
+            SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
 
+            setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=RecoverEmail&"
+            		+ Constants.CODER_ID + "=" + user.getId());
+
+            setIsNextPageInContext(false);
+            
+        } else {
+    		getRequest().setAttribute(SECRET_QUESTION, user.getSecretQuestion().getQuestion());
+    		getRequest().setAttribute(Constants.CODER_ID, user.getId().toString());
+            setNextPage(Constants.SECRET_QUESTION);
+            setIsNextPageInContext(true);        	
         }
     }
 
