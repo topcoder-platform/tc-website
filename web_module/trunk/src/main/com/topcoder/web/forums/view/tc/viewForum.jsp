@@ -238,8 +238,8 @@
     <% } else { %>
         <td class="rtThreadCell"></td>
     <% } %>
-   <td class="rtThreadCell" align="right"><%=thread.getMessageCount()-1%>&#160;</td>
-   <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%>&#160;</td>
+   <td class="rtThreadCell" align="right"><%=thread.getMessageCount()-1%></td>
+   <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%></td>
    <td class="rtThreadCell"><b><A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=lastPost.getID()%>" class="rtLinkNew"><tc-webtag:beanWrite name="thread" property="modificationDate" format="EEE, MMM d yyyy 'at' h:mm a"/></A></b></td>
    <% if (lastPost.getUser() != null) { %>
         <td class="rtThreadCell"><tc-webtag:handle coderId="<%=lastPost.getUser().getID()%>"/></td>
