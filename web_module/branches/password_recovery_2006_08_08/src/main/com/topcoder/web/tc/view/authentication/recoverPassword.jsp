@@ -10,6 +10,17 @@
 <head>
 <title>Password Recovery</title>
 
+<SCRIPT type="text/javascript">
+function send() {
+	if (document.frm.mailAccess.value != "true" && document.frm.mailAccess.value != "false" ) {
+		alert("Please reply whether you have access or not to your email account.");
+		return;
+	}
+	document.frm.submit();
+}
+</SCRIPT>
+
+
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
 <jsp:param name="key" value="tc_reg"/>
@@ -17,27 +28,30 @@
 </head>
 
 <body>
-<form method="post" name="frm1" action="/tc">
+<form method="post" name="frm" action="/tc">
 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="FindUser"/>
-If you still have access to the email address you used when registering, please enter it here:
-
 <div align="center">
 
 <table cellpadding="0" cellspacing="0" border="0" class="regFields">
    <tr>
-      <td colspan="2"><span class="bigRed">
-         <tc-webtag:errorIterator id="err" name="<%=FindUser.GOOD_EMAIL%>"><%=err%></tc-webtag:errorIterator></span>
-      </td>
-   </tr>
-   <tr>
       <td class="name">
-         E-mail:
+		Do you still have access to the account used when registering?
       </td>
       <td class="value">
-         <tc-webtag:textInput name="<%=Constants.CURRENT_EMAIL%>" size="30" maxlength="30"/>
+		<input type="radio" value="true" name="<%= FindUser.HAS_MAIL_ACCESS %>" <%= "true".equals(request.getAttribute(FindUser.HAS_MAIL_ACCESS))? "checked" : "" %> >Yes</input>
+		<input type="radio" value="false" name="<%= FindUser.HAS_MAIL_ACCESS %>" <%= "false".equals(request.getAttribute(FindUser.HAS_MAIL_ACCESS))? "checked" : "" %> >No</input>
+	  </td>
+	</tr>
+</table>		  
+
+If you remember your handle, please enter it:
+
+<table cellpadding="0" cellspacing="0" border="0" class="regFields">
+	<tr>
+      <td colspan="2"><span class="bigRed">
+         <tc-webtag:errorIterator id="err" name="<%= FindUser.ERROR_HANDLE %>"><%=err%></tc-webtag:errorIterator></span>
       </td>
-   </tr>
-<% if (request.getAttribute(FindUser.NEEDS_HANDLE) != null) { %>
+    </tr>
    <tr>
       <td class="name">
          Handle:
@@ -46,41 +60,17 @@ If you still have access to the email address you used when registering, please 
          <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/>
       </td>
    </tr>
-   <% } %>
-   <tr>
-      <td class="value">
-         &#160;
-      </td>
-      <td class="value">
-         <a href="JavaScript:document.frm1.submit()" class="bodyText">Submit</a>
-      </td>
-   </tr>
-   
 </table>
-</div>
-</form>
 
-<form method="post" name="frm2" action="/tc">
-<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="FindUser"/>
-
-If you don't have access any more to the address you used when registering, please provide as much information as possible:
-
-<div align="center">
+If you don't remember your handle, please enter as much information as posible in order to indentify you:
 
 <table cellpadding="0" cellspacing="0" border="0" class="regFields">
-   <tr>
+	<tr>
       <td colspan="2"><span class="bigRed">
-         <tc-webtag:errorIterator id="err" name="<%=FindUser.LOST_EMAIL%>"><%=err%></tc-webtag:errorIterator></span>
+         <tc-webtag:errorIterator id="err" name="<%= FindUser.ERROR_INFO %>"><%=err%></tc-webtag:errorIterator></span>
       </td>
-   </tr>
-   <tr>
-      <td class="name">
-         Handle:
-      </td>
-      <td class="value">
-         <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/>
-      </td>
-   </tr>
+    </tr>
+
    <tr>
       <td class="name">
          First Name:
@@ -102,7 +92,7 @@ If you don't have access any more to the address you used when registering, plea
          Email Address:
       </td>
       <td class="value">
-         <tc-webtag:textInput name="<%=Constants.REGISTERED_EMAIL%>" size="30" maxlength="100" onKeyPress="submitEnter(event)"/>
+         <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="30" maxlength="100" onKeyPress="submitEnter(event)"/>
       </td>
    </tr>
    <tr>
@@ -110,7 +100,7 @@ If you don't have access any more to the address you used when registering, plea
          &#160;
       </td>
       <td class="value">
-         <a href="JavaScript:document.frm2.submit()" class="bodyText">Submit</a>
+         <a href="JavaScript:send()" class="bodyText">Submit</a>
       </td>
    </tr>
 </table>

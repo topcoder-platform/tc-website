@@ -67,7 +67,7 @@ public class FindUser extends ShortHibernateProcessor {
      	    setDefault(Constants.FIRST_NAME, firstName);
      	    setDefault(Constants.LAST_NAME, lastName);
      	    setDefault(Constants.EMAIL, email);
-     	    setDefault(HAS_MAIL_ACCESS, hasMailAccess);
+     	    setDefault(HAS_MAIL_ACCESS, String.valueOf(hasMailAccess));
      	    
      	    setNextPage(Constants.RECOVER_PASSWORD);
             setIsNextPageInContext(true);
