@@ -45,6 +45,7 @@ public class User extends Base {
     private boolean agreedToSiteTerms;
 
     public User() {
+        super();
         status = new Character(WebConstants.UNACTIVE_STATI[1]);
         addresses = new HashSet();
         emailAddresses = new HashSet();
