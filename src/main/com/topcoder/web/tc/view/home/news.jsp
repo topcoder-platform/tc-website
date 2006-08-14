@@ -8,6 +8,19 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>08.14.06<br>10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="http://studio.topcoder.com/">Introducing TopCoder Studio</A>
+      </span><br><br>
+      We have been so impressed with the quality of the creative talents within our community that we are providing a venue for beginning and experienced Graphic Designers and artists to demonstrate their skills.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://studio.topcoder.com/">details</A>&#160;|&#160;
+         <A href="http://studio.topcoder.com/forums">discuss this</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>08.12.06<br>11:40 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -162,19 +175,6 @@ pi to two decimal places, putting it quite exclusive company -- only SRM 3
          <tc-webtag:forumLink forumID="506081" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>08.01.06<br>10:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=TCCC06StudentReps">Student Rep Referral Leaderboard</A></span><br><br>
-      The results of the TCCC06 Referral Program are now posted. Check back often to view updates.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=TCCC06StudentReps">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="506074" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
 
 </table>
 <br><br>
