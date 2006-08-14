@@ -21,6 +21,17 @@ import java.util.Set;
 public class Main extends Base {
 
     protected void registrationProcessing() throws Exception {
+
+        if (log.isDebugEnabled()) {
+            if (getRegUser() == null) {
+                log.debug("user is null");
+            } else if (getRegUser().isNew()) {
+                log.debug("user is new");
+            } else {
+                log.debug("handle : " + getRegUser().getHandle());
+                log.debug("name: " + getRegUser().getFirstName() + " " + getRegUser().getLastName());
+            }
+        }
         if (getRegUser() == null || getRegUser().isNew() || userLoggedIn()) {
             RegistrationTypeDAO regTypeDAO = getFactory().getRegistrationTypeDAO();
             List types = regTypeDAO.getRegistrationTypes();
