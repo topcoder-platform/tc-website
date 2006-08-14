@@ -99,7 +99,6 @@ function rate(messageID, voteValue) {
 function callback() {
     if (req.readyState == 4) {
         if (req.status == 200) {
-            var resp = req.responseXML.getElementsByTagName("response")[0];
             var messageID = req.responseXML.getElementsByTagName("messageID")[0].firstChild.nodeValue;
             var posRatings = req.responseXML.getElementsByTagName("posRatings")[0].firstChild.nodeValue;
             var negRatings = req.responseXML.getElementsByTagName("negRatings")[0].firstChild.nodeValue;
