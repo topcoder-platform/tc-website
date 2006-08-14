@@ -14,7 +14,6 @@ import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
-import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.StudioForumsAuthentication;
 import com.topcoder.web.common.security.TCForumsAuthentication;
@@ -29,7 +28,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Constructor;
-import java.util.Set;
 
 /**
  * @author mtong
@@ -144,11 +142,11 @@ public class ForumsServlet extends BaseServlet {
                         log.debug("caught PermissionException");
                     }
                     if (authentication.getUser().isAnonymous()) {
-                    	if (authentication instanceof TCForumsAuthentication) {
-                    		handleLogin(request, response, info, ApplicationServer.SERVER_NAME);
-                    	} else if (authentication instanceof StudioForumsAuthentication) {
-                    		handleLogin(request, response, info, request.getServerName());
-                    	}
+                        if (authentication instanceof TCForumsAuthentication) {
+                            handleLogin(request, response, info, ApplicationServer.SERVER_NAME);
+                        } else if (authentication instanceof StudioForumsAuthentication) {
+                            handleLogin(request, response, info, request.getServerName());
+                        }
                         return;
                     } else {
                         if (log.isDebugEnabled()) {
@@ -184,10 +182,10 @@ public class ForumsServlet extends BaseServlet {
     }
 
     protected void handleLogin(HttpServletRequest request, HttpServletResponse response,
-    		SessionInfo info, String serverName) throws Exception {
+                               SessionInfo info, String serverName) throws Exception {
         /* forward to the login page, with a message and a way back */
         StringBuffer nextPage = new StringBuffer("http://").append(serverName).append(LOGIN_SERVLET).
-        	append("?module=").append(LOGIN_PROCESSOR);
+                append("?module=").append(LOGIN_PROCESSOR);
         String fromPage = StringUtils.replace(StringUtils.checkNull(info.getRequestString()), "&", "%26");
         nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(fromPage);
         nextPage.append("&").append(Login.STATUS).append("=").append(Login.STATUS_START);
@@ -222,12 +220,14 @@ public class ForumsServlet extends BaseServlet {
         return rp;
     }
 
+/*
     protected SessionInfo createSessionInfo(TCRequest request,
                                             WebAuthentication auth, Set groups) throws Exception {
         CoderSessionInfo ret = null;
         ret = new CoderSessionInfo(request, auth, groups);
         return ret;
     }
+*/
 
     protected WebAuthentication createAuthentication(TCRequest request,
                                                      TCResponse response) throws Exception {
