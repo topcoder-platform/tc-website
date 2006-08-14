@@ -27,7 +27,7 @@
 <span class=bodySubtitle>Please read all instructions carefully before proceeding.</span><br/>
 
 
-<h2>Travel Information - must be submitted by 5:00 PM EDT (GMT/UTC -4) on Tuesday, October 3, 2006 (we apprecient a
+<h2>Travel Information - must be submitted by 5:00 PM EDT (GMT/UTC -4) on Tuesday, October 3, 2006 (we appreciate a
     quick response)</h2>
 
 <p>
