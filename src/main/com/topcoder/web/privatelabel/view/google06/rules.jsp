@@ -81,8 +81,8 @@
             otherwise prohibited. The Google Code Jam 2006 is void where prohibited by applicable law. Cash and
             prizes, including t-shirts, will not be provided to residents of Iran, Iraq, Libya, Sudan or Syria.
             <br><br>
-            Full and part-time employees of Google and TopCoder as well as those who are performing internships at
-            Google from August 14 through October 27, 2006 and those involved in the production (including prize
+            Full and part-time employees of Google and TopCoder, as well as those who are performing internships at 
+            Google from September 5 through October 27, 2006, and those involved in the production (including prize
             suppliers), implementation and distribution of this tournament and their advertising or promotion
             agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any
             other persons or entities directly associated with the tournament and members of the immediate families
