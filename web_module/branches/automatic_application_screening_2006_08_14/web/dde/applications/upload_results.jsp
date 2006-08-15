@@ -8,20 +8,15 @@ import="com.topcoder.dde.util.Constants" %>
 %>
 
 <HTML>
-<HEAD><TITLE>Resume Uploaded Successfully</TITLE></HEAD>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-
-  <BODY BGCOLOR="#CCCCCC">
-    <TABLE WIDTH="100%" HEIGHT="100%" BACKGROUND="/i/steel_darkblue_bg.gif">
+<HEAD><TITLE>Upload results</TITLE></HEAD>
+  <BODY>
+    <TABLE WIDTH="100%" HEIGHT="100%">
       <TR>
-        <TD class="statTextBig" align="center">
-         Upload successful!
+        <TD class="statTextBig">
+         Upload successful:
          <br/>
          <br/>
-         <br/>
-         <br/>
-         <a href="javascript:window.close();" class="statTextBig">close window</a>
+         <%=filename%>
         </TD>
       </TR>
     </TABLE>
