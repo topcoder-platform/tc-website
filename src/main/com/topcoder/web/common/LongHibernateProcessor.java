@@ -78,13 +78,14 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
      * Either begin a conversation, or resume an existing one.
      */
     protected void beginCommunication() {
-        log.debug("being communication");
+        log.debug("bgin communication");
         if (String.valueOf(true).equals(getRequest().getAttribute(ACTIVE_CONVERSATION_FLAG))) {
             throw new RuntimeException("Active conversation exists, can not start another");
         } else {
             Session hibernateSession =
                     (Session) getRequest().getSession().getAttribute(HIBERNATE_SESSION_KEY);
             if (hibernateSession != null) {
+                log.debug("create and bind new hibernate session");
                 ExtendedThreadLocalSessionContext.bind(hibernateSession);
             }
 
