@@ -63,7 +63,7 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm315">SRM 315 - Problem Set & Analysis</A></span><br><br>
-In <b>Division 1</b> Slovaks did good as <tc-webtag:handle coderId="8357090" context="algorithm"/> breezed through the problems, finishing the whole set in 22 minutes and winning the SRM with a comfortable 80 points lead.
+In <b>Division 1</b> Slovaks did well as <tc-webtag:handle coderId="8357090" context="algorithm"/> breezed through the problems, finishing the whole set in 22 minutes and winning the SRM with a comfortable 80 points lead.
       </td>
       <td class="newsPhoto"><img src="/i/m/Cosmin.ro_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303185" context="algorithm"/></td></tr></table>
       </td>
