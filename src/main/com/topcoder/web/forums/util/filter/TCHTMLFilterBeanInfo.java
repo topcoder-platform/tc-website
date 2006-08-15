@@ -16,7 +16,9 @@ public class TCHTMLFilterBeanInfo extends JiveBeanInfo  {
         "allowedTagsString",
         "disallowedTagsString",
         "allowedAttributesString",
-        "disallowedKeywordsString"
+        "disallowedKeywordsString",
+        "restrictImageWidth",
+        "maxImageWidth"
     };
 
     public TCHTMLFilterBeanInfo() {
