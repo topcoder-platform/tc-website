@@ -92,10 +92,10 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_warehouseMgmtReport">Warehouse Management Phase 1 Reporting</A>
       </td>
       <td class="valueC">
-      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Warehouse Management Phase 1 Reporting">register</A>
       <%--
-      registration closed
+      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Warehouse Management Phase 1 Reporting">register</A>
       --%>
+      registration closed
       </td>
       <td class="valueC">
       &#160;

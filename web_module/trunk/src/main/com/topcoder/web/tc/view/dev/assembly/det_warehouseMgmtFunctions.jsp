@@ -101,19 +101,19 @@ All submissions are required to be submitted by the end of Competition Phase. Th
       <td><strong>Phase</strong></td><td align="right"><strong>Start</strong></td><td align="right"><strong>End</strong></td>
    </tr>
    <tr>
-      <td>Team Creation:</td><td align="right">08.14.2006</td><td align="right">08.21.2006</td>
+      <td>Team Creation:</td><td align="right">08.16.2006</td><td align="right">08.23.2006</td>
    </tr>
    <tr>
-      <td>Competition Phase:</td><td align="right">08.22.2006</td><td align="right">09.04.2006</td>
+      <td>Competition Phase:</td><td align="right">08.24.2006</td><td align="right">09.06.2006</td>
    </tr>
    <tr>
-      <td>Test Challenge Phase:</td><td align="right">09.05.2006</td><td align="right">09.06.2006</td>
+      <td>Test Challenge Phase:</td><td align="right">09.07.2006</td><td align="right">09.08.2006</td>
    </tr>
    <tr>
-      <td>Review Phase:</td><td align="right">09.07.2006</td><td align="right">09.14.2006</td>
+      <td>Review Phase:</td><td align="right">09.09.2006</td><td align="right">09.16.2006</td>
    </tr>
    <tr>
-      <td>Feedback Phase:</td><td align="right">09.15.2006</td><td align="right">09.16.2006</td>
+      <td>Feedback Phase:</td><td align="right">09.17.2006</td><td align="right">09.18.2006</td>
    </tr>
 </table>
 </div>
