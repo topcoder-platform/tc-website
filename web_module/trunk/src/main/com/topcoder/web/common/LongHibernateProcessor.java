@@ -32,9 +32,9 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
             dbProcessing();
 
             // End or continue the long-running conversation?
-            if (getRequest().getAttribute(END_OF_CONVERSATION_FLAG) != null) {
+            if (String.valueOf(true).equals(getRequest().getAttribute(END_OF_CONVERSATION_FLAG))) {
                 closeConversation();
-            } else if (getRequest().getAttribute(ACTIVE_CONVERSATION_FLAG) != null) {
+            } else if (String.valueOf(true).equals(getRequest().getAttribute(ACTIVE_CONVERSATION_FLAG))) {
                 endCommunication();
             }
 
@@ -49,8 +49,6 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
             throw staleEx;
 */
         } catch (Exception e) {
-//            log.debug("printing the stack from base");
-            //e.printStackTrace();
             exceptionCallBack();
             handleException(e);
             throw e;
@@ -70,6 +68,7 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
      * End a single exchange in a long running conversation of exchanges
      */
     protected void endCommunication() {
+        log.debug("end communication");
         HibernateUtils.commit();
         Session hibernateSession = ExtendedThreadLocalSessionContext.unbind(HibernateUtils.getFactory());
         getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, hibernateSession);
@@ -79,6 +78,7 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
      * Either begin a conversation, or resume an existing one.
      */
     protected void beginCommunication() {
+        log.debug("being communication");
         if (String.valueOf(true).equals(getRequest().getAttribute(ACTIVE_CONVERSATION_FLAG))) {
             throw new RuntimeException("Active conversation exists, can not start another");
         } else {
@@ -99,6 +99,7 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
      * End a conversation.  This will persist changes to the db, and wrap things up.
      */
     protected void closeConversation() {
+        log.debug("close conversation");
         //only close if there is something to close
         if (String.valueOf(true).equals(getRequest().getAttribute(ACTIVE_CONVERSATION_FLAG))) {
             HibernateUtils.getSession().flush();
@@ -125,6 +126,7 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
     }
 
     private void cleanup() {
+        log.debug("cleanup");
         getRequest().removeAttribute(END_OF_CONVERSATION_FLAG);
         getRequest().removeAttribute(ACTIVE_CONVERSATION_FLAG);
         getRequest().getSession().removeAttribute(HIBERNATE_SESSION_KEY);
