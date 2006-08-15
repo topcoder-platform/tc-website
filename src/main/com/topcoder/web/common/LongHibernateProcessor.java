@@ -31,13 +31,6 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
             // Do the work...
             dbProcessing();
 
-            // End or continue the long-running conversation?
-            if (String.valueOf(true).equals(getRequest().getAttribute(END_OF_CONVERSATION_FLAG))) {
-                closeConversation();
-            } else if (String.valueOf(true).equals(getRequest().getAttribute(ACTIVE_CONVERSATION_FLAG))) {
-                endCommunication();
-            }
-
 /*
         } catch (StaleObjectStateException staleEx) {
             log.error("This interceptor does not implement optimistic concurrency control!");
@@ -56,6 +49,15 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
             exceptionCallBack();
             handleException(ex);
             throw new Exception(ex);
+        }
+    }
+
+    public void postProcessing() throws Exception {
+        // End or continue the long-running conversation?
+        if (String.valueOf(true).equals(getRequest().getAttribute(END_OF_CONVERSATION_FLAG))) {
+            closeConversation();
+        } else if (String.valueOf(true).equals(getRequest().getAttribute(ACTIVE_CONVERSATION_FLAG))) {
+            endCommunication();
         }
     }
 
@@ -85,7 +87,7 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
             Session hibernateSession =
                     (Session) getRequest().getSession().getAttribute(HIBERNATE_SESSION_KEY);
             if (hibernateSession != null) {
-                log.debug("create and bind new hibernate session");
+                log.debug("bind existing hibernate session");
                 ExtendedThreadLocalSessionContext.bind(hibernateSession);
             }
 
