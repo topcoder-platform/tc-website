@@ -61,14 +61,7 @@
     <tr>
         <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
         <td class="BIGPromoBox" align="center">
-<%-- STUDIO & TCCC06 CDDC REG & DIGITAL RUN --%>
-
-<map name="studio_tccc06_dr">
-<area shape="rect" alt="" coords="1,1,300,149" href="http://studio.topcoder.com/" />
-<area shape="rect" alt="" coords="305,1,500,90" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
-<area shape="rect" alt="" coords="305,95,500,149" href="/tc?module=Static&d1=digital_run&d2=description" />
-</map>
-<IMG SRC="/i/home/studio_tccc06_dr.gif" border="0" alt="TopCoder Studio, TCCC06 CDDC Registration Open, and The Digital Run" usemap="#studio_tccc06_dr" />
+<A href="http://studio.topcoder.com"><IMG SRC="/i/home/studio.gif" border="0" alt="TopCoder Studio" /></A>
         </td>
         <td width="50%" class="homeLogo" align="right">&#160;</td>
     </tr>
@@ -201,47 +194,21 @@
 <td class="homeRightCol">
     <table border="0" cellpadding="0" cellspacing="0">
         <tr><td class="homeBigPromo">
-            <%-- CNN
-                        <A href="/movies/press/cnn_072405.mp4"><img src="/i/home/mov_cnn_072405.jpg" alt="TopCoder Movies" border="0" /></A>
-            --%>
-            <%-- WSJ --%>
+            <%-- WSJ 
             <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0" style="display:block;" /></A>
-            
+            --%>   
+            <%-- TCCC & DR --%>
+<map name="tccc_cddc_dr">
+<area shape="rect" alt="" coords="1,1,130,139" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
+<area shape="rect" alt="" coords="140,1,269,139" href="/tc?module=Static&d1=digital_run&d2=description" />
+</map>
+<IMG SRC="/i/home/tccc06_digrun_sm.gif" border="0" alt="TCCC06 CDDC REGISTRATION OPEN & THE DIGITAL RUN" usemap="#tccc_cddc_dr" />
             <%-- Intel MTCS
                         <A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0"  style="display:block;" /></A>
-            --%>
-            <%-- employee referral 
-            <img src="/i/home/emp_ref_062806_sm.gif" alt="TopCoder Employee Referral Program" border="0" style="display:block;"  usemap="#"/>
             --%>
         </td></tr>
     </table>
     <table border="0" cellpadding="0" cellspacing="0">
-        <tr>
-            <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">August
-                Events:</A></td>
-        </tr>
-        <tr>
-            <td class="homeArrow">&#160;</td>
-            <td class="homeText"><br>
-                <b>08/03</b> - SRM 314 - 7 AM<br><br>
-                <b>08/07</b> - TCHS SRM 10 - 2 PM<br><br>
-                <b>08/09</b> - Marathon Match 4 - 12 NOON<br><br>
-                <b>08/09</b> - SRM 315 - AOL - 9 PM<br><br>
-                <b>08/14</b> - TCHS SRM 11 - 10 AM<br><br>
-                <b>08/16</b> - Intel Multi-Threading Competition 8 - 12 NOON<br><br>
-                <b>08/17</b> - CDDC Week 1 Projects Posted - 9 AM<br><br>
-                <b>08/19</b> - SRM 316 - UBS - 12 NOON<br><br>
-                <b>08/21</b> - TCHS SRM 12 - 6 AM<br><br>
-                <b>08/24</b> - CDDC Week 2 Projects Posted - 9 AM<br><br>
-                <b>08/24</b> - SRM 317 - Bloomberg - 11 AM<br><br>
-                <b>08/28</b> - Algorithm Competition Registration Begins - 9 AM<br><br>
-                <b>08/28</b> - TCHS SRM 13 - 7 PM<br><br>
-                <b>08/29</b> - SRM 318 - NSA - 9 PM<br><br>
-                <b>08/31</b> - CDDC Week 3 Projects Posted - 9 AM<br><br>
-            </td>
-        </tr>
-
         <%-- Press Room --%>
         <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
@@ -281,6 +248,32 @@
 --%>                
             </td>
         </tr>
+        <tr>
+            <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
+            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">August
+                Events:</A></td>
+        </tr>
+        <tr>
+            <td class="homeArrow">&#160;</td>
+            <td class="homeText"><br>
+                <b>08/03</b> - SRM 314 - 7 AM<br><br>
+                <b>08/07</b> - TCHS SRM 10 - 2 PM<br><br>
+                <b>08/09</b> - Marathon Match 4 - 12 NOON<br><br>
+                <b>08/09</b> - SRM 315 - AOL - 9 PM<br><br>
+                <b>08/14</b> - TCHS SRM 11 - 10 AM<br><br>
+                <b>08/16</b> - Intel Multi-Threading Competition 8 - 12 NOON<br><br>
+                <b>08/17</b> - CDDC Week 1 Projects Posted - 9 AM<br><br>
+                <b>08/19</b> - SRM 316 - UBS - 12 NOON<br><br>
+                <b>08/21</b> - TCHS SRM 12 - 6 AM<br><br>
+                <b>08/24</b> - CDDC Week 2 Projects Posted - 9 AM<br><br>
+                <b>08/24</b> - SRM 317 - Bloomberg - 11 AM<br><br>
+                <b>08/28</b> - Algorithm Competition Registration Begins - 9 AM<br><br>
+                <b>08/28</b> - TCHS SRM 13 - 7 PM<br><br>
+                <b>08/29</b> - SRM 318 - NSA - 9 PM<br><br>
+                <b>08/31</b> - CDDC Week 3 Projects Posted - 9 AM<br><br>
+            </td>
+        </tr>
+
     </table>
 </td>
 </tr>
