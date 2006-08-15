@@ -38,8 +38,8 @@
 </jsp:include>
 
 <div style="float: right;" align="right"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">Archive</A><br>
-<tc-webtag:forumLink forumID="506032" message="Discuss this match" /></div>
-<span class="bodySubtitle">TCHS SRM 10</span><br>Monday, August 7, 2006
+<tc-webtag:forumLink forumID="506033" message="Discuss this match" /></div>
+<span class="bodySubtitle">TCHS SRM 11</span><br>Monday, August 14, 2006
 <br><br>
 
 <h2>Match summary</h2>
