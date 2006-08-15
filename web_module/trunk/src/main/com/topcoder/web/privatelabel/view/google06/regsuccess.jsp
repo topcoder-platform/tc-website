@@ -8,6 +8,31 @@
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/google06.css"/>
     <title>Google Code Jam 2006, Powered by TopCoder</title>
     <jsp:include page="../script.jsp"/>
+
+
+
+<!-- Google Code for LEAD Conversion Page --> 
+<script language="JavaScript" type="text/javascript">
+<!--
+var google_conversion_id = 1070712876;
+var google_conversion_language = "en_US";
+var google_conversion_format = "1"; 
+var google_conversion_color = "666666";
+if (1) {
+  var google_conversion_value = 1;
+}
+var google_conversion_label = "LEAD";
+//-->
+</script>
+<script language="JavaScript" src=" http://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<img height=1 width=1 border=0 src=" http://www.googleadservices.com/pagead/conversion/1070712876/?value=1&label=LEAD&script=0">
+</noscript>
+
+
+
+
 </head>
 
 <body>
