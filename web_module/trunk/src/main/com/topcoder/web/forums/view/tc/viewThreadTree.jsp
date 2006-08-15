@@ -210,9 +210,9 @@ function displayVotes(messageID, posVotes, negVotes) {
          <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
             <%  int editCount = historyBean.getEditCount(activeMessage.getID(), DBMS.FORUMS_DATASOURCE_NAME);
             if (editCount > 0) { %> 
-                <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:beanWrite name="activeMessage" property="modificationDate" format="EEE, MMM d, yyyy 'at' h:mm a z"/>"><%=ForumsUtil.display(editCount, "edit")%></a> | 
+                <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:format object="${activeMessage.modificationDate}" format="EEE, MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/><%=ForumsUtil.display(editCount, "edit")%></a> | 
             <%  } %>
-            <a name=<jsp:getProperty name="activeMessage" property="ID"/>><tc-webtag:beanWrite name="activeMessage" property="creationDate" format="EEE, MMM d, yyyy 'at' h:mm a z"/>
+            <a name=<jsp:getProperty name="activeMessage" property="ID"/>><tc-webtag:format object="${activeMessage.creationDate}" format="EEE, MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/>
          </div>
 
          <jsp:getProperty name="activeMessage" property="subject"/></a>
@@ -271,7 +271,7 @@ function displayVotes(messageID, posVotes, negVotes) {
          <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink"><jsp:getProperty name="message" property="subject"/></A></td>
       <% } %>
          <td class="rtThreadCell"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
-         <td class="rtThreadCell"><strong><tc-webtag:beanWrite name="message" property="creationDate" format="MMM d, yyyy 'at' h:mm a z"/></strong></td>
+         <td class="rtThreadCell"><strong><tc-webtag:format object="${message.creationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></strong></td>
     </tr>
    </tc-webtag:iterator>
 </table>

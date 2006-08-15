@@ -88,7 +88,7 @@
    <tr>
       <td class="rtHeader" colspan="2">
          <div style="float: right; padding-left: 5px; white-space: nowrap;">
-            <a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/>       
+            <a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:format object="${message.modificationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/> 
          </div>
          <jsp:getProperty name="message" property="subject"/></a>
          <%  if (message.getParentMessage() != null) { %>
@@ -115,7 +115,7 @@
    <tr>
       <td class="rtHeader" colspan="2">
          <div style="float: right; padding-left: 5px; white-space: nowrap;">
-            <a name=<jsp:getProperty name="revision" property="ID"/>><tc-webtag:beanWrite name="revision" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/>
+            <a name=<jsp:getProperty name="revision" property="ID"/>><tc-webtag:format object="${revision.modificationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/>
          </div>
          <jsp:getProperty name="revision" property="subject"/></a>
          <%  if (message.getParentMessage() != null) { %>
