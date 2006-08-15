@@ -89,12 +89,11 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
         }
 
         public void valueBound(HttpSessionBindingEvent event) {
-            //whoopie, we're in the session!!
-            log.debug("value bound!!!!");
+            //log.debug("value bound!!!!");
         }
 
         public void valueUnbound(HttpSessionBindingEvent event) {
-            log.debug("value unbound: " + session);
+            //log.debug("value unbound");
         }
 
         public Session getSession() {
