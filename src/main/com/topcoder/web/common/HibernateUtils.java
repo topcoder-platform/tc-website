@@ -23,7 +23,6 @@ public class HibernateUtils {
     private static Configuration configuration;
     private static SessionFactory sessionFactory;
 
-
     static {
         // Create the initial SessionFactory from the default configuration files
         try {
@@ -92,28 +91,11 @@ public class HibernateUtils {
      * If the session doesn't exist in the currently executing thread,
      * create it and begin a transaction, hang onto it in case the
      * current thread needs it again and return it.
-     * <p/>
-     * If for some reason the hibernate factory failed to initialize
-     * properly and we're still executing the application, then
-     * we'll throw a runtime exception.
      *
      * @return the session for this thread.
      */
     public static Session getSession() {
         return getFactory().getCurrentSession();
-/*
-        try {
-            Session ret = (Session) tSession.get();
-            if (ret == null) {
-                ret = getFactory().openSession(new TCInterceptor());
-                begin(ret);
-            }
-            tSession.set(ret);
-            return ret;
-        } catch (HibernateInitializationException e) {
-            throw new RuntimeException(e);
-        }
-*/
     }
 
     /**
@@ -121,7 +103,7 @@ public class HibernateUtils {
      *
      * @return the session factory
      */
-    public static SessionFactory getFactory() {
+    public static synchronized SessionFactory getFactory() {
         SessionFactory ret = null;
         String sfName = configuration.getProperty(Environment.SESSION_FACTORY_NAME);
         if (sessionFactory != null) {
@@ -144,24 +126,18 @@ public class HibernateUtils {
      * Close the session if it exists in the currently executing thread.
      */
     public static void closeSession() {
+        log.debug("close session");
         Session s = getFactory().getCurrentSession();
         if (s.isOpen()) {
             getFactory().getCurrentSession().close();
         }
-/*
-        Session session = (Session) tSession.get();
-        if (session != null) {
-            commit();
-            session.close();
-            tSession.set(null);
-        }
-*/
     }
 
     /**
      * Close the factory.
      */
     public static void closeFactory() {
+        log.debug("close factory");
         SessionFactory f = getFactory();
         if (f != null) {
             f.close();
@@ -178,9 +154,14 @@ public class HibernateUtils {
 
     public static void begin() {
         log.debug("begin transaction");
+        Session s = getSession();
+        if (log.isDebugEnabled()) {
+            if (s.isOpen()) {
+                log.debug("session is open");
+            }
+        }
         getSession().beginTransaction();
         log.debug("transasction started");
-
     }
 
     public static void commit() {
