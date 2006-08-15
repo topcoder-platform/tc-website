@@ -30,6 +30,8 @@ public class ServerMonitorBot {
     public boolean fiveone = true;
     public boolean fivetwo = true;
     public boolean software = true;
+    public boolean studio = true;
+    public boolean forums = true;
 
     public void run() {
 
@@ -123,38 +125,89 @@ public class ServerMonitorBot {
                     
                 }
 
-                /*String[] callAndArgs2 = {"wget",
-                                         "http://192.168.12.52:7030",
-                                         "--header=Host: www.topcoder.com",
+                String[] callAndArgs3 = {"wget",
+                                         "http://192.168.12.61:8080",
                                          "--timeout=30",
                                          "-t1",
-                                         "--spider"};
+                                         ""};
 
-                p = r.exec(callAndArgs2);
+                p = r.exec(callAndArgs3);
                 p.waitFor();
 
                 ret = getData(p.getErrorStream());
+                p.destroy();
+                
                 System.out.println("2:" + ret);
                 System.out.println(p.exitValue());
 
                 if (ret.indexOf("failed") != -1) {
-                    if (fivetwo) {
-                        fivetwo = false;
+                    if (forums) {
+                        forums = false;
                         System.out.println("FAILED, SENDING MAIL");
-                        addError("connection to 12.52 failed");
+                        addError("connection to forums failed");
                         sendError();
                     }
                 } else if (ret.indexOf("200 OK") == -1) {
-                    if (fivetwo) {
-                        fivetwo = false;
+                    if (forums) {
+                        forums = false;
                         System.out.println("FAILED, SENDING MAIL");
-                        addError("response from 12.51 failed");
+                        addError("response from forums failed");
                         addError(ret);
                         sendError();
                     }
                 } else {
-                    fivetwo = true;
-                }*/
+                    forums = true;
+                }
+                
+                try {
+                    File f = new File("index.html?module=Main");
+                    f.delete();
+                } catch (Exception e) {
+                    
+                }
+                
+                String[] callAndArgs4 = {"wget",
+                                         "http://192.168.10.93",
+                                         "--timeout=30",
+                                         "-t1",
+                                         ""};
+
+                p = r.exec(callAndArgs4);
+                p.waitFor();
+
+                ret = getData(p.getErrorStream());
+                p.destroy();
+                
+                System.out.println("2:" + ret);
+                System.out.println(p.exitValue());
+
+                if (ret.indexOf("failed") != -1) {
+                    if (studio) {
+                        studio = false;
+                        System.out.println("FAILED, SENDING MAIL");
+                        addError("connection to studio failed");
+                        sendError();
+                    }
+                } else if (ret.indexOf("200 OK") == -1) {
+                    if (studio) {
+                        studio = false;
+                        System.out.println("FAILED, SENDING MAIL");
+                        addError("response from studio failed");
+                        addError(ret);
+                        sendError();
+                    }
+                } else {
+                    studio = true;
+                }
+                
+                try {
+                    File f = new File("index.html");
+                    f.delete();
+                } catch (Exception e) {
+                    
+                }
+
+                
 
             } catch (Exception e) {
                 e.printStackTrace();
