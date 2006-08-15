@@ -203,7 +203,7 @@ function displayVotes(messageID, posVotes, negVotes) {
 <div style="padding:0px 0px 0px <%=width%>px;">
 <table cellpadding="0" cellspacing="0" class="rtTable">
       <tr>
-          <td class="rtHeader" colspan="2" width="100%">
+          <td class="rtHeader" colspan="2">
             <%  String msgBodyID = "msgBody" + message.getID();
                 String ratingsID = "ratings" + message.getID(); 
                 int ratingCount = -1;
@@ -212,7 +212,7 @@ function displayVotes(messageID, posVotes, negVotes) {
             <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
                   <%  int editCount = historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME);
                   if (editCount > 0) { %> 
-                      <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/><%=ForumsUtil.display(editCount, "edit")%></a> | 
+                      <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/>"><%=ForumsUtil.display(editCount, "edit")%></a> | 
                   <%  } %>
                <a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:format object="${message.creationDate}" format="EEE, MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></a>
             </div>
