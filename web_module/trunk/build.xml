@@ -1559,14 +1559,14 @@
     </target>
 
 
-    <target name="build-tc-forums" depends="">
-        <antcall target="war-tc-forums"/>
+    <target name="build-forums" depends="">
+        <antcall target="war-forums"/>
     	<antcall target="package-TCJive"/>
         <antcall target="package-EJB-MessageHistoryBean"/>
         <antcall target="package-EJB-ForumsBean"/>
     </target>
 
-    <target name="war-tc-forums" depends="compile_forums">
+    <target name="war-forums" depends="compile_forums">
         <war warfile="${war.dir}/forums.war" webxml="${resources}/forums/tc/web.xml">
             <fileset dir="${java}/com/topcoder/web/forums/view/tc">
                 <include name="*.*"/>
