@@ -112,6 +112,8 @@ to 20% of the prize. The following is an example of payouts based on the member'
                                
             </table>
 
+<p>Please note: reliability bonuses do not apply to Digital Run winnings.</p>
+
             <p><br/></p>
         </td>
 <!-- Center Column Ends -->
