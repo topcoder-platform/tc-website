@@ -1,5 +1,4 @@
 <%@ page language="java"%>
-<jsp:useBean id="ViewUploadTask" scope="request" class="com.topcoder.web.tc.controller.request.resume.ViewUploadTask" />
 
 <HTML>
 <HEAD><TITLE>Resume Upload</TITLE></HEAD>
