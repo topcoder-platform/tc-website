@@ -158,9 +158,11 @@ public class HibernateUtils {
         if (log.isDebugEnabled()) {
             if (s.isOpen()) {
                 log.debug("session is open");
+            } else {
+                log.debug("session is closed");
             }
         }
-        getSession().beginTransaction();
+        s.beginTransaction();
         log.debug("transasction started");
     }
 
