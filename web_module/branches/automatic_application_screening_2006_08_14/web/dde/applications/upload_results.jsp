@@ -1,5 +1,10 @@
-<%@ page language="java"%>
-<%@ page errorPage="/errorPage.jsp"%>
+<%@ page language="java"
+import="com.topcoder.dde.util.Constants" %>
+
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
+
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
 <%
     String filename = (String)request.getAttribute("file_name");
 %>

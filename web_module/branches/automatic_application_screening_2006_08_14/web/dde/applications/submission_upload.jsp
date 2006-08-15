@@ -1,9 +1,12 @@
-<%@ page language="java"%>
+<%@ page language="java"
+import="com.topcoder.dde.util.Constants" %>
+
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
+
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <HTML>
-<HEAD><TITLE>Resume Upload</TITLE></HEAD>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
+<HEAD><TITLE>Upload</TITLE></HEAD>
   <BODY BGCOLOR="#CCCCCC">
     <TABLE WIDTH="100%" HEIGHT="100%" BACKGROUND="/i/steel_darkblue_bg.gif">
       <TR>
