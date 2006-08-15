@@ -129,7 +129,7 @@ public class HibernateUtils {
         log.debug("close session");
         Session s = getFactory().getCurrentSession();
         if (s.isOpen()) {
-            getFactory().getCurrentSession().close();
+            s.close();
         }
     }
 
