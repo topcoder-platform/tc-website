@@ -100,7 +100,7 @@
             <td class="rtThreadCell"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
             <td class="rtThreadCell" align="right"><%=message.getForumThread().getTreeWalker().getChildCount(message)%></td>
             <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(message.getForumThread())%></td>
-        	<td class="rtThreadCell"><b><%=formatter.format(DateUtils.getConvertedDate((Date)message.getModificationDate(), sessionInfo.getTimezone()))%></b></td>
+        	<td class="rtThreadCell"><b><tc-webtag:format object="${result.message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></b></td>
         </tr>
    </tc-webtag:iterator>
 </table>

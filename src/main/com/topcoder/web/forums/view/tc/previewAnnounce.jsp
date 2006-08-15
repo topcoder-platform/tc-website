@@ -126,7 +126,7 @@ function AllowTabCharacter() {
    <tr>
         <td class="rtHeader" colspan="2">
             <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
-               <a name=<jsp:getProperty name="announcement" property="ID"/>><tc-webtag:beanWrite name="announcement" property="startDate" format="MMM d, yyyy 'at' h:mm a z"/></a>
+               <a name=<jsp:getProperty name="announcement" property="ID"/>><tc-webtag:format object="${announcement.startDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></a>
             </div>
             <jsp:getProperty name="announcement" property="subject"/>
         </td>
