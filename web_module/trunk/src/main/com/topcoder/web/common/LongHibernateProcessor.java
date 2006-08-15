@@ -3,10 +3,6 @@ package com.topcoder.web.common;
 import com.topcoder.shared.util.logging.Logger;
 import org.hibernate.Session;
 
-import javax.servlet.http.HttpSessionBindingEvent;
-import javax.servlet.http.HttpSessionBindingListener;
-import java.io.Serializable;
-
 /**
  * This implementation uses the session-per-conversation strategy.
  * Therefore, it's appropriate when you have a conversation, or a series
@@ -77,9 +73,11 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
         log.debug("end communication");
         HibernateUtils.commit();
         Session hibernateSession = ExtendedThreadLocalSessionContext.unbind(HibernateUtils.getFactory());
-        getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, new HibernateSessionHouse(hibernateSession));
+//        getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, new HibernateSessionHouse(hibernateSession));
+        getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, hibernateSession);
     }
 
+/*
     private final class HibernateSessionHouse implements Serializable, HttpSessionBindingListener {
 
         private Session session;
@@ -89,11 +87,11 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
         }
 
         public void valueBound(HttpSessionBindingEvent event) {
-            //log.debug("value bound!!!!");
+            log.debug("value bound!!!!");
         }
 
         public void valueUnbound(HttpSessionBindingEvent event) {
-            //log.debug("value unbound");
+            log.debug("value unbound");
         }
 
         public Session getSession() {
@@ -105,6 +103,7 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
         }
 
     }
+*/
 
 
     /**
@@ -115,11 +114,19 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
         if (String.valueOf(true).equals(getRequest().getAttribute(ACTIVE_CONVERSATION_FLAG))) {
             throw new RuntimeException("Active conversation exists, can not start another");
         } else {
+/*
             HibernateSessionHouse house =
                     (HibernateSessionHouse) getRequest().getSession().getAttribute(HIBERNATE_SESSION_KEY);
             if (house != null) {
                 log.debug("bind existing hibernate session");
                 ExtendedThreadLocalSessionContext.bind(house.getSession());
+            }
+*/
+            Session session =
+                    (Session) getRequest().getSession().getAttribute(HIBERNATE_SESSION_KEY);
+            if (session != null) {
+                log.debug("bind existing hibernate session");
+                ExtendedThreadLocalSessionContext.bind(session);
             }
 
             //log.debug("Starting a database transaction");
