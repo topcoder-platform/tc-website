@@ -82,7 +82,7 @@ function noenter(e)
 <b><a href="?module=Main" class="rtbcLink">Forums</a> > Search</b><br><br>
 
 <% if ("search".equals(status)) { %>
-    <jsp:include page="searchResults.jsp"></jsp:include>
+    <jsp:include page="searchResults.jsp"/>
 <% } %>
 
          </div>

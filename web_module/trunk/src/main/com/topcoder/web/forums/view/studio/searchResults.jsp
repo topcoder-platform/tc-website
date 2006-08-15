@@ -5,13 +5,15 @@
                  com.jivesoftware.forum.action.util.Paginator,
                  com.jivesoftware.forum.stats.ViewCountManager,
                  com.jivesoftware.util.StringUtils,
+                 com.topcoder.web.common.DateUtils,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
                  java.text.SimpleDateFormat,
-                 java.util.Iterator"
+                 java.util.*"
         %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <% Paginator paginator = (Paginator) request.getAttribute("paginator");
     Query query = (Query) request.getAttribute("query");

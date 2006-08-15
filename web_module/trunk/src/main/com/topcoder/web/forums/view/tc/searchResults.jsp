@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.common.BaseProcessor,
+                 com.topcoder.web.common.DateUtils,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
                  com.jivesoftware.base.JiveGlobals,
@@ -13,6 +14,7 @@
                  java.text.SimpleDateFormat"
 %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%  Paginator paginator = (Paginator)request.getAttribute("paginator");
     Query query = (Query)request.getAttribute("query");
@@ -23,7 +25,7 @@
     Iterator results = (Iterator)request.getAttribute("results"); 
     
     int numResults = paginator.getPageable().getResultFilter().getNumResults(); 
-    SimpleDateFormat formatter = new SimpleDateFormat("EEE, MMM d yyyy 'at' h:mm a"); 
+    SimpleDateFormat formatter = new SimpleDateFormat("EEE, MMM d yyyy 'at' h:mm a z"); 
     boolean displayPerThread = JiveGlobals.getJiveBooleanProperty("search.results.groupByThread", true); 
     int resultCount = (displayPerThread) ? query.getResultByThreadCount() : query.getResultCount(); 
     
@@ -98,7 +100,7 @@
             <td class="rtThreadCell"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
             <td class="rtThreadCell" align="right"><%=message.getForumThread().getTreeWalker().getChildCount(message)%></td>
             <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(message.getForumThread())%></td>
-        	<td class="rtThreadCell"><b><%=formatter.format(message.getModificationDate())%></b></td>
+        	<td class="rtThreadCell"><b><%=formatter.format(DateUtils.getConvertedDate((Date)message.getModificationDate(), sessionInfo.getTimezone()))%></b></td>
         </tr>
    </tc-webtag:iterator>
 </table>
