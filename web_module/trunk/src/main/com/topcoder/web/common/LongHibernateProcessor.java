@@ -130,7 +130,8 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
         log.debug("cleanup");
         getRequest().removeAttribute(END_OF_CONVERSATION_FLAG);
         getRequest().removeAttribute(ACTIVE_CONVERSATION_FLAG);
-        getRequest().getSession().removeAttribute(HIBERNATE_SESSION_KEY);
+        //getRequest().getSession().removeAttribute(HIBERNATE_SESSION_KEY);
+        getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, null);
     }
 
     /**
