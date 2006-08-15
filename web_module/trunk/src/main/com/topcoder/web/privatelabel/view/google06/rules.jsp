@@ -173,6 +173,15 @@ The competition is available in five programming languages - Java, C++, C#, VB.N
 to force submissions to be of a certain complexity.  Because the inherent speed differences between Python and the other 
 offered languages is large, some problems may require extra optimization or not be solvable using the Python language.
 <br><br>
+<b>Code Obfuscation</b><br>
+Intentional obfuscation of code submissions is not allowed. Any code submission that contains obvious and deliberate code 
+obfuscation will be rejected and any points received for that submission would not count towards your final score. For the 
+purpose of this policy obfuscation is defined as "An obvious and deliberate attempt to disguise the true behavior or nature 
+of the code." In ALL cases, TopCoder / Google will make the final decision as to whether or not a code submission has been 
+intentionally obfuscated. In some cases, TopCoder / Google may decide to "nullify" any unsuccessful challenges that have 
+been applied against a code submission that is determined to be obfuscated. We encourage any competitor to notify us in the 
+event that you feel that a code submission violates this policy.
+<br><br>
 <b>Online Elimination Rounds</b><br>
 Everyone who competes in the online elimination rounds must log in to the TopCoder Competition Arena no later than ten
 minutes prior to the start of the online round. All start times will be communicated as EDT (GMT/UTC -4), so contestants
