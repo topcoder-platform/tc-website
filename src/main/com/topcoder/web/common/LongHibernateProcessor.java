@@ -116,11 +116,11 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
         if (String.valueOf(true).equals(getRequest().getAttribute(ACTIVE_CONVERSATION_FLAG))) {
             throw new RuntimeException("Active conversation exists, can not start another");
         } else {
-            Session hibernateSession =
-                    ((HibernateSessionHouse) getRequest().getSession().getAttribute(HIBERNATE_SESSION_KEY)).getSession();
-            if (hibernateSession != null) {
+            HibernateSessionHouse house =
+                    (HibernateSessionHouse) getRequest().getSession().getAttribute(HIBERNATE_SESSION_KEY);
+            if (house != null) {
                 log.debug("bind existing hibernate session");
-                ExtendedThreadLocalSessionContext.bind(hibernateSession);
+                ExtendedThreadLocalSessionContext.bind(house.getSession());
             }
 
             //log.debug("Starting a database transaction");
