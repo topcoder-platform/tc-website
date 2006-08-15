@@ -169,7 +169,7 @@ function AllowTabCharacter() {
 </table>
 
 <%  if (postMode.equals("Edit") || postMode.equals("Reply")) { %>
-        <span class="bodySubtitle">Original Message</span><br/>
+        <h3>Original Message</h3>
         <table cellpadding="0" cellspacing="0" class="rtTable">
         <tr><td class="rtHeader" colspan="2"><a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:format object="${message.modificationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/> | <jsp:getProperty name="message" property="subject"/>
         <%  if (message.getParentMessage() != null) { %>
