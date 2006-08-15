@@ -154,10 +154,10 @@
 <tr><td class="newsText"><A href="http://www.informationweek.com/story/IWK20021018S0027" target="_blank">FBI Tries E-Recruiting</A> [October 21 - InformationWeek]</td></tr>
 <tr><td class="newsText"><A href="http://www.informationweek.com/story/IWK20021014S0002" target="_blank">A Chance To Win A Contest And A Job</A> [October 14 - InformationWeek]</td></tr>
 <tr><td class="newsText"><A href="http://www.business2.com/articles/mag/0,1640,42225,00.html">Show Me the C++</A>[August 7 - Business2.0]</td></tr>
-<tr><td class="newsText"><A href="/index?t=news_events&c=article_drdobbs2">And the winner is...</A> [May 1 - Dr. Dobb's]</td></tr>
-<tr><td class="newsText"><A href="/index?t=news_events&c=article_contratimes">Computer wiz takes on high on-line stakes</A> [April 10 - Contra Costa Times]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_050102">And the winner is&#8230;</A> [May 1 - Dr. Dobb's]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_041002">Computer wiz takes on high on-line stakes</A> [April 10 - Contra Costa Times]</td></tr>
 <tr><td class="newsText"><A href="http://www.stanforddaily.com/tempo?page=content&id=7865&repository=0001_article" target="_blank">Students advance to TopCoders finals</A> [April 8 - The Stanford Daily]</td></tr>
-<tr><td class="newsText"><A href="/index?t=news_events&c=article_marietta">Georgia Tech computer science major to compete in TopCoder . . .</A> [April 6 - Marietta Daily Journal]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_040602">Georgia Tech computer science major to compete in TopCoder . . .</A> [April 6 - Marietta Daily Journal]</td></tr>
 <tr><td class="newsText"><A href="/index?t=news_events&c=article_dnvrbizjrnl2">Coder wins big in contests</A> [April 5 - Denver Business Journal]</td></tr>
 <tr><td class="newsText"><A href="/index?t=news_events&c=article_clevplain">Digital Playground</A> [April 1 - The Plain Dealer]</td></tr>
 <tr><td class="newsText"><A href="http://www.informationweek.com/story/IWK20020228S0016" target="_blank">Software Jocks Vie For The Prize</A> [March 4 - InformationWeek]</td></tr>
