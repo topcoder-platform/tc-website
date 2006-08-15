@@ -57,10 +57,14 @@ abstract class Base extends LongHibernateProcessor {
                     log.debug("not logged in and user is null");
                 }
             } else {
-                log.debug("got user from session");
+                if (log.isDebugEnabled()) {
+                    log.debug("got id: " + user.getId() + " handle: " + user.getHandle() + " user from session");
+                }
             }
         } else {
-            log.debug("got user from processor");
+            if (log.isDebugEnabled()) {
+                log.debug("got id: " + user.getId() + " handle: " + user.getHandle() + " user from processor");
+            }
         }
         return user;
     }
