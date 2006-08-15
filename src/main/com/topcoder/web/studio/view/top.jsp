@@ -18,7 +18,7 @@
         <img src="/i/layout/loginBoxN.gif" alt="" style="display:block;"/>
 
         <div style="width:250px; background: #E7E5BC;" align="left">
-            <div style="padding: 4px 10px 4px 10px;">
+            <div style="padding: 0px 10px 0px 10px;">
 
                 <c:choose>
                     <c:when test="${sessionInfo.anonymous}">
@@ -34,7 +34,7 @@
                                 <tbody>
                                     <tr>
                                         <td class="small">Handle:</td>
-                                        <td class="small">Password:</td>
+                                        <td class="small" colspan="2">Password:</td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -48,7 +48,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2">
+                                        <td colspan="3">
                                             <span class="small">
                                             <input type="checkbox" id="remember" name="<%=Login.REMEMBER_USER%>"/>Remember me
                                             &nbsp;&nbsp;&nbsp;<A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=PasswordEmail">Forgot
