@@ -107,7 +107,7 @@
                 <studio:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
             <td class="rtThreadCell" align="right"><%=message.getForumThread().getTreeWalker().getChildCount(message)%></td>
             <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(message.getForumThread())%></td>
-            <td class="rtThreadCell"><b><%=formatter.format(message.getModificationDate())%></b></td>
+            <td class="rtThreadCell"><b><tc-webtag:format object="${result.message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" ifNull="xnull" timeZone="${sessionInfo.timezone}"/></b></td>
         </tr>
     </tc-webtag:iterator>
 </table>
