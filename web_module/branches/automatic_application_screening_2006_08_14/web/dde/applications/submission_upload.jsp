@@ -5,8 +5,7 @@ import="com.topcoder.dde.util.Constants" %>
 
 <HTML>
 <HEAD><TITLE>Upload</TITLE></HEAD>
-  <BODY BGCOLOR="#CCCCCC">
-    <TABLE WIDTH="100%" HEIGHT="100%" BACKGROUND="/i/steel_darkblue_bg.gif">
+    <TABLE WIDTH="100%" HEIGHT="100%">
       <TR>
         <TD class="statText">
           <form name="upload_form" enctype="multipart/form-data" method="POST" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
@@ -17,5 +16,4 @@ import="com.topcoder.dde.util.Constants" %>
         </TD>
       </TR>
     </TABLE>
-  </BODY>
 </HTML>
