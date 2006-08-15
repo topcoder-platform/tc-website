@@ -171,9 +171,7 @@
 
         <jar destfile="forums.jar" update="true">
             <fileset dir=".">
-                <include name="lib/jars/tcuser.jar"/>
-                <include name="lib/jars/tcauth.jar"/>
-                <include name="lib/jars/tcfilters.jar"/>
+                <include name="lib/jars/tcjive.jar"/>
                 <include name="build/wars/forums.war"/>
                 <include name="build/ejb_jars/messagehistory.jar"/>
                 <include name="build/ejb_jars/forums.jar"/>
