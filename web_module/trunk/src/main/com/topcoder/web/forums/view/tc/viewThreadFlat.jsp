@@ -222,45 +222,45 @@ function displayVotes(messageID, posVotes, negVotes) {
 <%-------------POSTS---------------%>
 <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
 <table cellpadding="0" cellspacing="0" class="rtTable">
-   <tr>
-      <td class="rtHeader" colspan="2">
-      <%  String msgBodyID = "msgBody" + message.getID(); 
-          String ratingsID = "ratings" + message.getID(); 
-          int ratingCount = -1;
-          int posRatings = -1;
-          int negRatings = -1; %>  
-         <div style="float: right; padding-left: 5px; white-space: nowrap;">
-            <%  int editCount = historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME);
-            if (editCount > 0) { %> 
-                <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/><%=ForumsUtil.display(editCount, "edit")%></a> | 
-            <%  } %>
-            <a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:format object="${message.creationDate}" format="EEE, MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></a>
-         </div>
-         <%  if (ratingManager.isRatingsEnabled() && user != null && ForumsUtil.showRatings(user)) { %>
-             <a class="pointer" onMouseOver="this.style.color='#FF0000'"; onMouseOut="this.style.color='#333'"; onclick="toggle('<%=msgBodyID%>')";><jsp:getProperty name="message" property="subject"/></a>
-         <%  } else { %>
-             <jsp:getProperty name="message" property="subject"/>
-         <%  } %>
-         <%  if (message.getParentMessage() != null) { %>
-         (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
-         <%  } %>
-         <%  if (ratingManager.isRatingsEnabled() && user != null && ForumsUtil.showRatings(user)) {
-                int[] ratings = ForumsUtil.getRatings(ratingManager, message);
-                posRatings = ratings[0];
-                negRatings = ratings[1];
-                ratingCount = posRatings+negRatings; %>
-            | Feedback: <span id="<%=ratingsID%>">(+<%=posRatings%>/-<%=negRatings%>)</span> | <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','2')" class="rtbcLink">[+]</a> <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','1')" class="rtbcLink">[-]</a>
-        <%  } %>
+   	<tr>
+      	<td class="rtHeader" colspan="2">
+      	<%  String msgBodyID = "msgBody" + message.getID(); 
+       		String ratingsID = "ratings" + message.getID(); 
+          	int ratingCount = -1;
+          	int posRatings = -1;
+          	int negRatings = -1; %>  
+         	<div style="float: right; padding-left: 5px; white-space: nowrap;">
+            	<%  int editCount = historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME);
+            	if (editCount > 0) { %> 
+                	<a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/>"><%=ForumsUtil.display(editCount, "edit")%></a> | 
+            	<%  } %>
+            	<a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:format object="${message.creationDate}" format="EEE, MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></a>
+         	</div>
+         	<%  if (ratingManager.isRatingsEnabled() && user != null && ForumsUtil.showRatings(user)) { %>
+             	<a class="pointer" onMouseOver="this.style.color='#FF0000'"; onMouseOut="this.style.color='#333'"; onclick="toggle('<%=msgBodyID%>')";><jsp:getProperty name="message" property="subject"/></a>
+         	<%  } else { %>
+            	<jsp:getProperty name="message" property="subject"/>
+         	<%  } %>
+         	<%  if (message.getParentMessage() != null) { %>
+         		(response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
+         	<%  } %>
+         	<%  if (ratingManager.isRatingsEnabled() && user != null && ForumsUtil.showRatings(user)) {
+					int[] ratings = ForumsUtil.getRatings(ratingManager, message);
+					posRatings = ratings[0];
+					negRatings = ratings[1];
+					ratingCount = posRatings+negRatings; %>
+				| Feedback: <span id="<%=ratingsID%>">(+<%=posRatings%>/-<%=negRatings%>)</span> | <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','2')" class="rtbcLink">[+]</a> <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','1')" class="rtbcLink">[-]</a>
+        	<%  } %>
          | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">Reply</A>
          <%  if (message.getUser() != null && message.getUser().equals(user)) { %>
          | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">Edit</A>
          <%  } %>
       </td>
-   </tr>
-   <%   double pct = ratingCount<=0 ? 0 : 100*(double)(posRatings)/(double)(ratingCount);
+   	</tr>
+   	<%   double pct = ratingCount<=0 ? 0 : 100*(double)(posRatings)/(double)(ratingCount);
         String msgBodyDisplay = ForumsUtil.collapsePost(user, pct, ratingCount, thread.getMessageCount())?"display:none":"";
-   %>
-   <tr id="<%=msgBodyID%>" style="<%=msgBodyDisplay%>">
+   	%>
+   	<tr id="<%=msgBodyID%>" style="<%=msgBodyDisplay%>">
       <td class="rtPosterCell">
          <div class="rtPosterSpacer">
             <%  if (ForumsUtil.displayMemberPhoto(user, message.getUser())) { %>
@@ -274,7 +274,11 @@ function displayVotes(messageID, posVotes, negVotes) {
       <%   } else { %>
       <td class="rtTextCell" width="100%"><jsp:getProperty name="message" property="body"/></td>
       <%   } %>
-   </tr>
+   	</tr>
+	<tr>
+		<td></td>
+		<td width="100%"></td>
+	</tr>
 </table>
 </tc-webtag:iterator>
 <%-------------POSTS END---------------%>
