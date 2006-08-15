@@ -500,13 +500,9 @@ public class RegFieldHelper {
                     {
                         if (required) {
                             ret.addAll(requiredSecondaryCompProFields);
-                            ret.remove(Constants.REFERRAL);
                         } else {
                             ret.addAll(secondaryCompProFields);
                             ret.add(Constants.PHOTO);
-                            ret.remove(Constants.REFERRAL);
-                            ret.remove(Constants.REFERRAL_CODER);
-                            ret.remove(Constants.REFERRAL_OTHER);
                         }
                         if (regTypes.contains(corp) || regTypes.contains(tcs)) {
                             //remove these because if they are registering for competitions as a pro
@@ -519,13 +515,9 @@ public class RegFieldHelper {
                     {
                         if (required) {
                             ret.addAll(requiredSecondaryCompStudentFields);
-                            ret.remove(Constants.REFERRAL);
                         } else {
                             ret.addAll(secondaryCompStudentFields);
                             ret.add(Constants.PHOTO);
-                            ret.remove(Constants.REFERRAL);
-                            ret.remove(Constants.REFERRAL_CODER);
-                            ret.remove(Constants.REFERRAL_OTHER);
                         }
                     } else {
                         throw new RuntimeException("Invalid coder type " + user.getCoder().getCoderType().getId());
@@ -671,6 +663,11 @@ public class RegFieldHelper {
                 //high school people have to show their school
                 ret.remove(Constants.VISIBLE_SCHOOL);
             }
+        }
+        if (!user.isNew()) {
+            ret.remove(Constants.REFERRAL);
+            ret.remove(Constants.REFERRAL_CODER);
+            ret.remove(Constants.REFERRAL_OTHER);
         }
         log.debug("returning " + ret.size() + " items " + ret.toString());
 
