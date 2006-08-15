@@ -47,6 +47,7 @@
     <ul>
         <li>Add TCCC06 forms</li>
         <li>Add automatic monitoring of review board eligibility</li>
+        <li>Modify the Google Registration process to allow for non-competition TC users to convert their account.</li>
     </ul>
 </p>
 
