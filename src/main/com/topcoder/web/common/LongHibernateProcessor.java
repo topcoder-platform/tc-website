@@ -3,6 +3,10 @@ package com.topcoder.web.common;
 import com.topcoder.shared.util.logging.Logger;
 import org.hibernate.Session;
 
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionBindingListener;
+import java.io.Serializable;
+
 /**
  * This implementation uses the session-per-conversation strategy.
  * Therefore, it's appropriate when you have a conversation, or a series
@@ -73,19 +77,47 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
         log.debug("end communication");
         HibernateUtils.commit();
         Session hibernateSession = ExtendedThreadLocalSessionContext.unbind(HibernateUtils.getFactory());
-        getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, hibernateSession);
+        getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, new HibernateSessionHouse(hibernateSession));
     }
+
+    private final class HibernateSessionHouse implements Serializable, HttpSessionBindingListener {
+
+        private Session session;
+
+        public HibernateSessionHouse(Session session) {
+            this.session = session;
+        }
+
+        public void valueBound(HttpSessionBindingEvent event) {
+            //whoopie, we're in the session!!
+            log.debug("value bound!!!!");
+        }
+
+        public void valueUnbound(HttpSessionBindingEvent event) {
+            log.debug("value unbound: " + session);
+        }
+
+        public Session getSession() {
+            return session;
+        }
+
+        public void setSession(Session session) {
+            this.session = session;
+        }
+
+    }
+
 
     /**
      * Either begin a conversation, or resume an existing one.
      */
     protected void beginCommunication() {
-        log.debug("bgin communication");
+        log.debug("begin communication");
         if (String.valueOf(true).equals(getRequest().getAttribute(ACTIVE_CONVERSATION_FLAG))) {
             throw new RuntimeException("Active conversation exists, can not start another");
         } else {
             Session hibernateSession =
-                    (Session) getRequest().getSession().getAttribute(HIBERNATE_SESSION_KEY);
+                    ((HibernateSessionHouse) getRequest().getSession().getAttribute(HIBERNATE_SESSION_KEY)).getSession();
             if (hibernateSession != null) {
                 log.debug("bind existing hibernate session");
                 ExtendedThreadLocalSessionContext.bind(hibernateSession);
