@@ -94,7 +94,9 @@ public abstract class FullLogin extends FullReg {
             info.setUserId(getUser().getId());
             info.setAccountConversion(true);
 
-            info.setCoderType(coder.getCoderTypeId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME));
+            if (coder.exists(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) {
+                info.setCoderType(coder.getCoderTypeId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME));
+            }
 
             //load up the demographic information
             Response response = (Response) createEJB(getInitialContext(), Response.class);
