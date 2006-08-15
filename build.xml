@@ -194,8 +194,6 @@
             <include name="com/topcoder/web/tc/**"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
-            <include name="com/topcoder/web/studio/Constants.java"/>
-            <include name="com/topcoder/web/studio/view/tag/**"/>
         </javac>
     </target>
 
@@ -212,8 +210,8 @@
             <include name="com/topcoder/utilities/forumConvert/**"/>
         </javac>
     </target>
-
-    <target name="compile_TCUser" depends="init,jar_shared">
+	
+	<target name="compile_TCJive" depends="init,jar_shared">
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -223,36 +221,11 @@
                 source="1.4"
                 target="1.4"
                 >
-            <include name="com/topcoder/web/forums/model/TCUser.java"/>
-            <include name="com/topcoder/web/forums/model/TCUserManager.java"/>
-        </javac>
-    </target>
-
-    <target name="compile_TCAuth" depends="init,jar_shared">
-        <javac
-                srcdir="${java}"
-                destdir="${classes}"
-                classpathref="class.path"
-                deprecation="${deprecation}"
-                debug="${debug}"
-                source="1.4"
-                target="1.4"
-                >
-            <include name="com/topcoder/web/forums/model/TCAuthFactory.java"/>
-            <include name="com/topcoder/web/forums/model/TCAuthToken.java"/>
-        </javac>
-    </target>
-
-    <target name="compile_TCFilters" depends="init,jar_shared">
-        <javac
-                srcdir="${java}"
-                destdir="${classes}"
-                classpathref="class.path"
-                deprecation="${deprecation}"
-                debug="${debug}"
-                source="1.4"
-                target="1.4"
-                >
+        	<include name="com/topcoder/web/forums/model/TCUser.java"/>
+        	<include name="com/topcoder/web/forums/model/TCUserManager.java"/>
+        	<include name="com/topcoder/web/forums/model/Common.java"/>
+        	<include name="com/topcoder/web/forums/model/TCAuthFactory.java"/>
+        	<include name="com/topcoder/web/forums/model/TCAuthToken.java"/>
             <include name="com/topcoder/web/forums/util/filter/*.java"/>
         </javac>
     </target>
@@ -1199,30 +1172,15 @@
         <unwar src="${war.dir}/reg.war" dest="${jboss_home}/server/all/deploy/reg.war/" overwrite="yes"/>
         <delete dir="${jboss_home}/server/all/deploy/reg.war/META-INF"/>
     </target>
-
-
-    <target name="package-TCUser" depends="compile_TCUser">
-        <jar jarfile="${jars.dir}/tcuser.jar">
+	
+	<target name="package-TCJive" depends="compile_TCJive">
+        <jar jarfile="${jars.dir}/tcjive.jar">
             <fileset dir="${classes}/">
-                <include name="com/topcoder/web/forums/model/TCUser.class"/>
-                <include name="com/topcoder/web/forums/model/TCUserManager.class"/>
-                <include name="com/topcoder/web/forums/model/Common.class"/>
-            </fileset>
-        </jar>
-    </target>
-
-    <target name="package-TCAuth" depends="compile_TCAuth">
-        <jar jarfile="${jars.dir}/tcauth.jar">
-            <fileset dir="${classes}/">
-                <include name="com/topcoder/web/forums/model/TCAuthFactory.class"/>
-                <include name="com/topcoder/web/forums/model/TCAuthToken.class"/>
-            </fileset>
-        </jar>
-    </target>
-
-    <target name="package-TCFilters" depends="compile_TCFilters">
-        <jar jarfile="${jars.dir}/tcfilters.jar">
-            <fileset dir="${classes}/">
+            	<include name="com/topcoder/web/forums/model/TCUser.class"/>
+            	<include name="com/topcoder/web/forums/model/TCUserManager.class"/>
+            	<include name="com/topcoder/web/forums/model/Common.class"/>
+            	<include name="com/topcoder/web/forums/model/TCAuthFactory.class"/>
+            	<include name="com/topcoder/web/forums/model/TCAuthToken.class"/>
                 <include name="com/topcoder/web/forums/util/filter/*.class"/>
             </fileset>
             <fileset dir="${resources}/forums/filter">
@@ -1603,9 +1561,7 @@
 
     <target name="build-tc-forums" depends="">
         <antcall target="war-tc-forums"/>
-        <antcall target="package-TCUser"/>
-        <antcall target="package-TCAuth"/>
-        <antcall target="package-TCFilters"/>
+    	<antcall target="package-TCJive"/>
         <antcall target="package-EJB-MessageHistoryBean"/>
         <antcall target="package-EJB-ForumsBean"/>
     </target>
@@ -1673,9 +1629,8 @@
         <antcall target="explode-forums"/>
 
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcauth.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcuser.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcfilters.jar"/>
+    	<copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
+    	<copy todir="${jboss_lib}" file="${jars.dir}/tcjive.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
