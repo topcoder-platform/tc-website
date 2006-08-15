@@ -61,7 +61,11 @@
     <tr>
         <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
         <td class="BIGPromoBox" align="center">
-<A href="http://studio.topcoder.com"><IMG SRC="/i/home/studio.gif" border="0" alt="TopCoder Studio" /></A>
+<map name="tccc_studio">
+<area shape="rect" alt="" coords="30,1,220,149" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
+<area shape="rect" alt="" coords="280,1,460,149" href="http://studio.topcoder.com" />
+</map>
+<IMG SRC="/i/home/tccc_studio.png" border="0" alt="TCCC & TopCoder Studio" usemap="#tccc_studio"/>
         </td>
         <td width="50%" class="homeLogo" align="right">&#160;</td>
     </tr>
@@ -88,29 +92,33 @@
 <td class="homeLeftCol">
     <table border="0" cellpadding="0" cellspacing="0">
         <tr><td class="homeBigPromo">
+            <%-- INTEL MTCS
             <A href="/longcontest/?module=Static&d1=intel_overview"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0" style="display:block;"/></A>
+            --%>
+            <%-- DIGITAL RUN --%>
+            <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/dig_run_20060815.png" alt="The Digital Run" border="0" style="display:block;"/></A>
         </td></tr>
     </table>
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-            <td class="homeTitle"><A href="/tc" class="homeTitleLink">Algorithm Competitions</A></td>
+            <td class="homeTitle"><A href="/tc" class="homeTitleLink">Algorithm & High School Competitions</A></td>
         </tr>
         <tr>
             <td class="homeArrow">&#160;</td>
-            <td class="homeText">How do you stand up among your peers? <A href="/tc">Compete</A> in our algorithm
-                competitions.</td>
+            <td class="homeText">How do you stand up among your peers? <A href="/tc">Compete</A> in our algorithm competitions.</td>
         </tr>
 
         <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-            <td class="homeTitle">Software Competitions</td>
+            <td class="homeTitle"><A href="/tc" class="homeTitleLink">Software Competitions</A></td>
         </tr>
         <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText">Compete in Software <A href="/tc?module=ViewActiveContests&ph=112">Design</A>,
-                <A href="/tc?module=ViewActiveContests&ph=113">Development</A> and
-                <A href="/tc?module=Static&d1=dev&d2=assembly&d3=overview">Assembly</A> Competitions and get paid for
+                <A href="/tc?module=ViewActiveContests&ph=113">Development</A>,
+                <A href="/tc?module=Static&d1=dev&d2=assembly&d3=overview">Assembly</A>, and
+                <A href="/tc?module=Static&d1=dev&d2=testing&d3=overview">Testing</A> Competitions and get paid for
                 what you build!</td>
         </tr>
         <tr>
@@ -150,7 +158,7 @@
 <td class="homeCentCol">
     <table border="0" cellpadding="0" cellspacing="0">
         <tr><td class="homeBigPromo">
-            <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>"><img src="/i/home/tcs.jpg" alt="TopCoder Software" border="0" style="display:block;" /></A>
+            <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol"><img src="/i/home/tcs_client_aol.png" alt="TopCoder Software & AOL" border="0" style="display:block;" /></A>
         </td></tr>
     </table>
     <table border="0" cellpadding="0" cellspacing="0">
@@ -194,15 +202,16 @@
 <td class="homeRightCol">
     <table border="0" cellpadding="0" cellspacing="0">
         <tr><td class="homeBigPromo">
-            <%-- WSJ 
+            <%-- WSJ --%>   
             <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0" style="display:block;" /></A>
-            --%>   
-            <%-- TCCC & DR --%>
+            
+            <%-- TCCC & DR 
 <map name="tccc_cddc_dr">
 <area shape="rect" alt="" coords="1,1,130,139" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
 <area shape="rect" alt="" coords="140,1,269,139" href="/tc?module=Static&d1=digital_run&d2=description" />
 </map>
 <IMG SRC="/i/home/tccc06_digrun_sm.gif" border="0" alt="TCCC06 CDDC REGISTRATION OPEN & THE DIGITAL RUN" usemap="#tccc_cddc_dr" />
+            --%>
             <%-- Intel MTCS
                         <A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0"  style="display:block;" /></A>
             --%>

@@ -293,13 +293,13 @@ public int bestPosition (String[] board) {
    for (int i = 0; i < board.length; i++) for (int j = 0; j < board[i].length(); j++)
       if (board[i].charAt(j) == 'X')
          for (int x = 0; x < board.length; x++) for (int y = 0; y < board[x].length(); y++)
-            if (i == x || j == y /*|| Math.abs(i - x) == Math.abs(j - y)*/)
+            if (i == x || j == y)
                unsafe[x][y] = true;
    for (int i = 0; i < board.length; i++) for (int j = 0; j < board[i].length(); j++)
       if (!unsafe[i][j]) {
          int test = 0;
          for (int x = 0; x < board.length; x++) for (int y = 0; y < board[x].length(); y++)
-            if (i != x && j != y /*&& Math.abs(i - x) != Math.abs(j - y)*/ && !unsafe[x][y])
+            if (i != x && j != y && !unsafe[x][y])
                test++;
          best = Math.min(best, test);
       }

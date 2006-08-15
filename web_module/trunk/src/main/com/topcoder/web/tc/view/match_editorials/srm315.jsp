@@ -47,7 +47,7 @@
 <p>
  This match had 720 registrants &ndash; a little above average, but not as high as one would expect from a money SRM. One  reason may have been the schedule, and another could be that the International Olympiad in Informatics takes place in the next week in Mexico and some competitors may be on the way there.<br>
  <br>
- In <b>Division 1</b> Slovaks did good as <tc-webtag:handle coderId="8357090" context="algorithm"/> breezed through the problems, finishing the whole set in 22 minutes and winning the SRM with a comfortable 80 points lead. <tc-webtag:handle coderId="7479769" context="algorithm"/> came in second with the help of two challenges of invalid boards in the SillySudoku problem, and <tc-webtag:handle coderId="19929536" context="algorithm"/> rounded up top three.<br>
+ In <b>Division 1</b> Slovaks did well as <tc-webtag:handle coderId="8357090" context="algorithm"/> breezed through the problems, finishing the whole set in 22 minutes and winning the SRM with a comfortable 80 point lead. <tc-webtag:handle coderId="7479769" context="algorithm"/> came in second with the help of two challenges of invalid boards in the SillySudoku problem, and <tc-webtag:handle coderId="19929536" context="algorithm"/> rounded out the top three.<br>
  <br>
  <b>Division 2</b> had a easier than usual problem set, with a 900 point problem. Newcomer <tc-webtag:handle coderId="22630491" context="algorithm"/> finished the problems in 12 minutes and had four successful challenges, followed by <tc-webtag:handle coderId="20287357" context="algorithm"/> with two successful challenges. <tc-webtag:handle coderId="13298470" context="algorithm"/>, also with two successful challenges, came in third.
 </p>
@@ -122,6 +122,7 @@ public class RosePetals {
 }
 </pre>
 </p>
+
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=6630&amp;rd=9995" name="6630">DigitsSum</a></b>
 </font>
@@ -214,7 +215,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
   </tr>
 </table></blockquote>
 <p>
-This was one of the simplest div 1 tasks of all time, as people solved it in less than 1 minute. To solve this problem we just code what the problem asks us to. First we need a function to get the sum of digits of a number, and then we need a loop to repeat this until the result is a digit. So here it goes:
+This was one of the simplest div 1 tasks of all time, as people solved it in less than a minute. To solve this problem we just code what the problem asks us to. First we need a function to get the sum of digits of a number, and then we need a loop to repeat this until the result is a digit. So here it goes:
 <pre>
 public class DigitsSum {
         int sumOfDigits(int n) {
@@ -252,23 +253,30 @@ public class DigitsSum {
 }
 </pre>
 
-<tc-webtag:handle coderId="8416646" context="algorithm"/> has a nicer solution which uses the behavior of % for negative numbers, and which is language dependent.
-public class DigitsSum {
-  public int lastDigit(int n) { return (n-1)%9 + 1; }
-}
+<tc-webtag:handle coderId="8416646" context="algorithm"/> 
+<p>has a nicer solution, which uses the behavior of % for negative numbers and is language dependent.  </p>
+<pre>public class DigitsSum {
+      public int lastDigit(int n) { return (n-1)%9 + 1; }
+    }  </pre>
+<p>Some people who took this approach failed the case when n = 0 or when n was a multiple of 9. Let's prove the property used above: say X = a<sub>n</sub>...a<sub>1</sub>a<sub>0</sub> is a number with digits a<sub>i</sub> and an is the most significant digit, while a0 is the least significant digit. We can write a<sub>n</sub>...a<sub>1</sub>a<sub>0</sub> = a<sub>n</sub> * 10<sup>n</sup> + ... + a<sub>i</sub> * 10<sup>i</sup> + ... + a<sub>1</sub> * 10 + a<sub>0</sub>. <br>
+  <br>
+  If we subtract and then add to this number the sum of its digits we get:<br>
+  <br> 
+  a<sub>n</sub> * 10<sup>n</sup> + ... + a<sub>i</sub> * 10<sup>i</sup> + ... + a<sub>1</sub> * 10 + a<sub>0</sub> - (a<sub>n</sub> + ... + a<sub>i</sub> + ... + a<sub>1</sub> + a<sub>0</sub>) + (a<sub>n</sub> + ... + a<sub>i</sub> + ... + a<sub>1</sub> + a<sub>0</sub>) = a<sub>n</sub> * (10<sup>n</sup> - 1) + ... + a<sub>i</sub> * (10<sup>i</sup> - 1) + ... + a<sub>1</sub> * (10 - 1) + (a<sub>n</sub> + ... + a<sub>i</sub> + ... + a<sub>1</sub> + a<sub>0</sub>). Now ( a<sub>n</sub> * (10<sup>n</sup> - 1) + ... + a<sub>i</sub> * (10<sup>i</sup> - 1) + ... + a<sub>1</sub> * (10 - 1) ) % 9 = 0<br>
+  <br>
+  Because (10<sup>i</sup> - 1) % 9 = 0 (10<sup>i</sup> - 1 is a number with all digits equal to 9), we get  X % 9 = (a<sub>n</sub> + ... + a<sub>i</sub> + ... + a<sub>1</sub> + a<sub>0</sub>) % 9.<br>
+  <br>
+  </p>
+  </p>
 
-
-Some people who took this approach failed the case when n = 0 or when n was a multiple of 9. Let's prove the property used above: say X = a<sub>n</sub>...a<sub>1</sub>a<sub>0</sub> is a number with a<sub>i</sub> it's digits and an is the most significant digit, while a0 is the least significant digit. We can write a<sub>n</sub>...a<sub>1</sub>a<sub>0</sub> = a<sub>n</sub> * 10<sup>n</sup> + ... + a<sub>i</sub> * 10<sup>i</sup> + ... + a<sub>1</sub> * 10 + a<sub>0</sub>. If we subtract and the add to this number the sum of it's digits we get a<sub>n</sub> * 10<sup>n</sup> + ... + a<sub>i</sub> * 10<sup>i</sup> + ... + a<sub>1</sub> * 10 + a<sub>0</sub> - (a<sub>n</sub> + ... + a<sub>i</sub> + ... + a<sub>1</sub> + a<sub>0</sub>) + (a<sub>n</sub> + ... + a<sub>i</sub> + ... + a<sub>1</sub> + a<sub>0</sub>) = a<sub>n</sub> * (10<sup>n</sup> - 1) + ... + a<sub>i</sub> * (10<sup>i</sup> - 1) + ... + a<sub>1</sub> * (10 - 1) + (a<sub>n</sub> + ... + a<sub>i</sub> + ... + a<sub>1</sub> + a<sub>0</sub>). Now ( a<sub>n</sub> * (10<sup>n</sup> - 1) + ... + a<sub>i</sub> * (10<sup>i</sup> - 1) + ... + a<sub>1</sub> * (10 - 1) ) % 9 = 0, because (10<sup>i</sup> - 1) % 9 = 0 (10<sup>i</sup> - 1 is a number with all digits equal to 9), so we get that X % 9 = (a<sub>n</sub> + ... + a<sub>i</sub> + ... + a<sub>1</sub> + a<sub>0</sub>) % 9.<br>
-<br>
-</p>
-</p>
-<font size="+2">
-<b><a href="/stat?c=problem_statement&amp;pm=6628&amp;rd=9995" name="6628">KidsGame</a></b>
-</font>
-<A href="Javascript:openProblemRating(6628)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A>
-<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505990" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
-<br>
-Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
+<font size="+2">      
+  <b><a href="/stat?c=problem_statement&amp;pm=6628&amp;rd=9995" name="6628">KidsGame</a></b>
+  </font>
+  <A href="Javascript:openProblemRating(6628)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A>
+  <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505990" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
+  <br>
+  Used as: Division Two - Level Three: </p>
+<blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Value</b>
@@ -311,7 +319,7 @@ Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
   </tr>
 </table></blockquote>
 <p>
-This task is a variation of the classical Josephus problem, as the original problem had m = 2 and asked for the last kid eliminated. The task is a interesting one as it has many different solutions.
+This task is a variation of the classical Josephus problem, as the original problem had m = 2 and asked for the last kid eliminated. The task is an interesting one as it has many different solutions.
   <br>
   <br>
   Naive solutions which just simulated the game and use a vector or a linked list to keep the kids have timed out. The vector solution times out because deleting an element from a vector takes on average n/2 operations &ndash; so  we get an algorithm that needs about n * m steps, which is too big to work in two seconds. The linked list solution had a fast deletion but walking around the circle was slow as we needed to do m - 1 steps, so again we have a solution that did about n * m steps. 
@@ -319,7 +327,7 @@ This task is a variation of the classical Josephus problem, as the original prob
   <br>
   More efficient solutions follow: 
 <p>
-We think of the circle as a line of kids. We ignore the labels of the kids as we are interested only in the kid labeled k. At each step we keep a count of how many kids are left, of how many kids with labels in the set {1, 2, ... k - 1} were eliminated (for this we use the indentifier beforeK), and we also keep the currentIndex, which is the spot where we will eliminate a kid at the current step. It's easy to see that if currentIndex < beforeK + 1. Then we will eliminate a kid with a label smaller than k. Now at each step we update n, beforeK if needed and currentIndex, when currentIndex = beforeK + 1 it means that we are about to delete the kid labeled with k. Here we have some code which does what we just said.
+We think of the circle as a line of kids. We ignore the labels of the kids as we are interested only in the kid labeled k. At each step we keep a count of how many kids are left, of how many kids with labels in the set {1, 2, ... k - 1} were eliminated (for this we use the indentifier beforeK), and we also keep the currentIndex, which is the spot where we will eliminate a kid at the current step. It is easy to see that if currentIndex < beforeK + 1. Then we will eliminate a kid with a label smaller than k. Now at each step we update n, beforeK if needed and currentIndex, when currentIndex = beforeK + 1 it means that we are about to delete the kid labeled with k. Here we have some code which does what we just said.
 </p>
 <pre>
     public int kthKid(int n, int m, int k) {
@@ -337,25 +345,25 @@ We think of the circle as a line of kids. We ignore the labels of the kids as we
         return nr;
     }    
 </pre>
-This solution does O(n) steps. For another short solution that took this approach you can check <tc-webtag:handle coderId="299177" context="algorithm"/>'s <a href="/stat?c=problem_solution&rm=249397&rd=9995&pm=6628&cr=22630491">solution</a>
+This solution does O(n) steps. For another short solution that took this approach you can check <tc-webtag:handle coderId="299177" context="algorithm"/>'s <a href="http://www.topcoder.com/stat?c=problem_solution&rm=249397&rd=9995&pm=6628&cr=22630491">solution</a>
 or <tc-webtag:handle coderId="13298470" context="algorithm"/>'s <a
-href="/stat?c=problem_solution&rm=249387&rd=9995&pm=6628&cr=13298470">solution</a>,
+href="http://www.topcoder.com/stat?c=problem_solution&rm=249387&rd=9995&pm=6628&cr=13298470">solution</a>,
 which has intuitive variable names.
 <p>
-We get another linear time solution not by walking around the circle of kids but moving the circle itself around. First we start counting from the kid labeled 1, and then we need to eliminate the mth kid, and we start again counting from the next kid. We can relabel the circle of kids so that we start again to count for the kid labeled 1 and kids are labeled in a clockwise order, and keeping track at every step of the new label of the kid we are interested in. For example if n = 5, m = 2, and k = 3 at the first step we have the kids labeled: 1 2 3 4 5, when we have to eliminate 2 and get 1 3 4 5 and start counting from 3, by relabeling them we get 4 1 2 3 so the kid labeled 3, was relabeled with 1. Now we must eliminate 3 and start counting again from 4, so relabeling 4 1 2, we get 1 2 3, and the kid we are interested in, who before had the label 1 gets the label 2. Again we eliminate the 3rd kid and relabel, kid 2 gets the same label, then we eliminate 1, and the kid labeled 2 gets the label 1. So now we know that the kid labeled with 3 at the start of the game is eliminated at the 5th step. <tc-webtag:handle coderId="10233638" context="algorithm"/>'s <a href="/stat?c=problem_solution&rm=249390&rd=9995&pm=6628&cr=10233638">solution</a>
+We get another linear time solution not by walking around the circle of kids but moving the circle itself around. First we start counting from the kid labeled 1, and then we need to eliminate the mth kid, and we start again counting from the next kid. We can relabel the circle of kids so that we start again to count for the kid labeled 1 and kids are labeled in a clockwise order, and keeping track at every step of the new label of the kid we are interested in. For example if n = 5, m = 2, and k = 3 at the first step we have the kids labeled: 1 2 3 4 5, when we have to eliminate 2 and get 1 3 4 5 and start counting from 3, by relabeling them we get 4 1 2 3 so the kid labeled 3, was relabeled with 1. Now we must eliminate 3 and start counting again from 4, so relabeling 4 1 2, we get 1 2 3, and the kid we are interested in, who before had the label 1 gets the label 2. Again we eliminate the 3rd kid and relabel, kid 2 gets the same label, then we eliminate 1, and the kid labeled 2 gets the label 1. So now we know that the kid labeled with 3 at the start of the game is eliminated at the 5th step. <tc-webtag:handle coderId="10233638" context="algorithm"/>'s <a href="http://www.topcoder.com/stat?c=problem_solution&rm=249390&rd=9995&pm=6628&cr=10233638">solution</a>
 implemented in C# is based on this idea. The solution can be easily adapted to finding the last eliminated kid, while the first idea explained above can't be used for that.
 </p>
 <p>
 In the first two solutions the problem was that we didn't have a efficient data structure that quickly found an element at a specified index (this was a problem for the linked list structure) or couldn't delete an element at a specified index fast enough (this was a problem for the vector structure). A data structure that does both operations quickly can be constructed. One idea would be to split the kids into buckets of size x each, so we would have a total of n/x buckets in total. If we want to find the pth kid in this data structure we can just go over the buckets and find the bucket that contains the pth kid, so knowing the number of kids in each bucket we can find the pth kid bucket in n/x steps, and then for finding the kid in the bucket we need at most x steps. So one eliminating step of our algorithm takes at most n/x + x steps, to minimize this formula we find that x = sqrt(n), so a operation will take O(sqrt(n)) time, thus the algorithm using this data structure will take O(n sqrt(n)) steps in total. <tc-webtag:handle coderId="20287357" context="algorithm"/> took this approach <a
-href="/stat?c=problem_solution&rm=249385&rd=9995&pm=6628&cr=20287357">here</a>.
+href="http://www.topcoder.com/stat?c=problem_solution&rm=249385&rd=9995&pm=6628&cr=20287357">here</a>.
 </p>
 <p>
 Another data structure that could have worked was a <a
-href="/tc?module=Static&d1=match_editorials&d2=srm310">segment
+href="http://www.topcoder.com/tc?module=Static&d1=match_editorials&d2=srm310">segment
 tree</a> (explained by <tc-webtag:handle coderId="8357090" context="algorithm"/>in
 the FloatingMedian solution) each node in the segment tree has an associated interval of numbers, and for that interval it keeps count of how many kids in that interval haven't yet been eliminated. Finding the pth kid not deleted yet will take O(log n) steps, and it's very similar to the binary search algorithm. For deleting a kid we need to decrease the count of active kids in all the nodes that have associated intervals which contain the current kid. This step is also O(log n). You can see a solution that works along these lines in <tc-webtag:handle coderId="21609248" context="algorithm"/>'s
 <a
-href="/stat?c=problem_solution&rm=249395&rd=9995&pm=6628&cr=21609248">code</a>. The time complexity of this solution is O(n log n).
+href="http://www.topcoder.com/stat?c=problem_solution&rm=249395&rd=9995&pm=6628&cr=21609248">code</a>. The time complexity of this solution is O(n log n).
 </p>
 These two data structure solutions are a bit more complicated than the first two, but using any of them we get the step of the elimination for each kid not for just one specified kid.
 </p>
@@ -506,7 +514,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
   </tr>
 </table></blockquote>
 <p>
-This problem was a interesting combination of geometry and dynamic programming.  <tc-webtag:handle coderId="8357090" context="algorithm"/>'s <a href="/stat?c=problem_solution&rm=249367&rd=9995&pm=6625&cr=8357090">solution </a> is one of the most clear solutions, as well as being the fastest submission.<br>
+This problem was a interesting combination of geometry and dynamic programming.  <tc-webtag:handle coderId="8357090" context="algorithm"/>'s <a href="http://www.topcoder.com/stat?c=problem_solution&rm=249367&rd=9995&pm=6625&cr=8357090">solution </a> is one of the most clear solutions, as well as being the fastest submission.<br>
 <br>
 His solution uses memoisation to find memo[r1][c1][r2][c2][cnt], which represents the best profit we can get if we place cnt non-overlapping rectangles in the rectangle defined by corners (r1, c1) and (r2, c2).<br>
 <br>
@@ -546,9 +554,7 @@ We can think of this subproblem as one that works on finding a maximum sum conti
   }
   return best;
 </pre>
-
 We have O(n^2) regions in our algorithm and as we shown above each region can be solved in O(n), thus we have a O(n^3) time algorithm.
- 
 </p>
 
   <img src="/i/m/Cosmin.ro_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
