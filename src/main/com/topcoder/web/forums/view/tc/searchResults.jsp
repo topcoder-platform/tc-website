@@ -58,10 +58,10 @@
 <%  if (resultCount > 0) { %>
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>
-        <td class="rtbc">Search Results (<%=numResults*paginator.getPageIndex()+1%> - <%=Math.min(resultCount,numResults*(paginator.getPageIndex()+1))%> of <%=resultCount%>) <a href="<%=sortFieldLink%>" class="rtbcLink">(<%=sortFieldLabel%>)</a></td>
+        <td class="rtbc" style="padding-bottom:2px;">Search Results (<%=numResults*paginator.getPageIndex()+1%> - <%=Math.min(resultCount,numResults*(paginator.getPageIndex()+1))%> of <%=resultCount%>) <a href="<%=sortFieldLink%>" class="rtbcLink">(<%=sortFieldLabel%>)</a></td>
         <% Page[] pages; %>
         <% if (paginator.getNumPages() > 1) { %>
-       <td class="rtbc" align="right"><b>
+       	<td class="rtbc" align="right"><b>
            <%  if (paginator.getPreviousPage()) { %>
                <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
                    << PREV</A>&#160;&#160;&#160;

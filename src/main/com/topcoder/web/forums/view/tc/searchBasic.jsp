@@ -67,25 +67,29 @@ function noenter(e)
                 <jsp:param name="title" value="Forum Search"/>
             </jsp:include>
 
-<span class="rtbcLink"><a href="?module=Main" class="rtbcLink">Forums</a> > Search</span><br><br>
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
 	<td class="categoriesBox" style="padding-right: 20px;">
-      <jsp:include page="categoriesHeader.jsp" />
+		<jsp:include page="categoriesHeader.jsp" />
 	</td>
-    <td nowrap="nowrap" valign="top">
-       <jsp:include page="searchHeader.jsp" >
-            <jsp:param name="queryTerms" value="<%=query.getQueryString()%>"/>
-       </jsp:include>
+    <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
+		<jsp:include page="searchHeader.jsp" >
+			<jsp:param name="queryTerms" value="<%=query.getQueryString()%>"/>
+		</jsp:include>
     </td>
     <td align="right" nowrap="nowrap" valign="top">   
-       <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+		<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+	</td>
+</tr>
+<tr>
+	<td colspan="3" style="padding-top:3px;padding-bottom:9px;">
+		<b><a href="?module=Main" class="rtbcLink">Forums</a> > Search</b>
 	</td>
 </tr>
 </table>
 
 <% if ("search".equals(status)) { %>
-    <jsp:include page="searchResults.jsp"></jsp:include>
+    <jsp:include page="searchResults.jsp"/>
 <% } %>
 
 </td>
