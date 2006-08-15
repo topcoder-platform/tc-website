@@ -42,13 +42,13 @@ public class Submit extends Base {
             securityStuff(newUser, u);
 
             markForCommit();
+            closeConversation();
+            beginCommunication();
             if (newUser) {
                 try {
                     Long newUserId = u.getId();
-                    closeConversation();
                     //have to wrap up the last stuff, and get into new stuff.  we don't want
                     //sending email to be in the transaction
-                    beginCommunication();
                     User newUserObj = getFactory().getUserDAO().find(newUserId);
 
                     String activationCode = StringUtils.getActivationCode(newUserId.longValue());
