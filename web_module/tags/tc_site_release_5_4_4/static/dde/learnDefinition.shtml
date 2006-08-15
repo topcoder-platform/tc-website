@@ -1,0 +1,146 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+ 
+<script language="JavaScript" src="scripts/javascript.js">
+</script>
+
+</head>
+
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+
+<body class="body" marginheight="0" marginwidth="0">
+
+<form action="#" method="#">
+
+<!--#include virtual="includes/headerNotLogged.shtml" -->
+<!--#include virtual="includes/navLearn.shtml" -->
+
+<!-- breadcrumb begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td valign="middle" width="1%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td valign="middle" width="1%" class="breadcrumb" nowrap><a href="learnIndex.shtml" class="breadcrumbLinks">Learn About Components</a> > <strong>Definition</strong></td>
+		<td valign="middle" width="98%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+</table>
+<!-- breadcrumb ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+	<tr valign="top">
+
+<!-- Left Column begins -->
+		<td width="165" class="leftColumn">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- About Us Catagories -->
+				<tr valign="top">
+					<td class="leftNav">
+						<table border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="5" class="leftHead"><img src="images/clear.gif" alt="" width="5" height="10" border="0"></td>
+								<td width="155" class="leftHead" colspan="2"></td>
+								<td width="10" class="leftHead" valign="top"><img src="images/leftNavHead.gif" alt="" width="10" height="22" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="learnIndex.shtml">How software will be built</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="learnDefinition.shtml">Definition</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="learnPurchasing.shtml">Purchasing</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="learnSubscriptions.shtml">Subcriptions</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="learnDistributed.shtml">Distributed Development</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr><td colspan="4"><img src="images/leftNavFooter.gif" alt="" width="165" height="11" border="0" /></td></tr>
+						</table>
+					</td>
+				</tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Collaboration promo -->
+				<tr valign="top"><td><a href="collabEventEngine.shtml"><img src="images/promoCollaborate.gif" alt="Collaborate!" width="165" height="120" border="0"></a></td></tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Viewpoint 
+				<tr valign="top"><td><img src="images/promoViewPlattner.gif" alt="Viewpoint" width="165" height="157" border="0" /></td></tr>
+				<tr><td height="20"><img src="images/clear.gif" alt="" width="10" height="20" border="0" /></td></tr> -->
+			</table>
+		</td>
+		<td width="5" class="leftColumn"><img src="images/clear.gif" alt="" width="5" height="10" border="0"></td>
+<!-- Left Column ends -->
+
+<!-- Gutter 1 begins -->
+		<td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0"></td>
+<!-- Gutter 1 ends -->
+
+<!-- Middle Column begins -->
+		<td width="100%">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+				<tr><td class="normal"><img src="images/headLearnComponents.gif" alt="Learn About Components" width="545" height="32" border="0" /></td></tr>
+				<tr><td class="subhead">What is a component?</td></tr>
+				<tr><td class="normal">
+						<p>This seemingly simple question is not answered as easily as one might think.  The technical definition of a component 
+						is an encapsulated set of logic accessed through strictly defined interfaces.  The commercial definition is more complicated.</p>
+						
+						<div>
+							<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+								<tr>
+									<td valign="top" align="left" class="normal"><img src="images/compAnatomy.gif" alt="" width="200" height="350" border="0"/></td>
+									<td valign="top" align="left" class="normal">
+										<p>TopCoder Software defines a commercial component as a definitive set of business or technical logic that 
+										performs a discrete function for customers.  From a business perspective, components are not useful standing 
+										by themselves.  They become useful when combined with other components to form component assemblies.  
+										Component assemblies are combinations of components that together perform a specific business function.</p>
+										
+										<p>As an example, TopCoder Software has in its software catalog a Configuration Manager component. The 
+										Configuration Manager component manages the contents and caching of properties files for software applications.  
+										When bundled together with a few other standard TopCoder Software Components namely event engine, email 
+										engine and document generator they together form the Notification Component Assembly.  This becomes a very 
+										useful tool for scheduling and sending form emails. </p>
+
+										<p><strong>Interested in components?</strong><br/>
+										Weigh in with ideas and suggestions by <a href="/login.shtml">collaborating</a> with others.</p>
+										
+										<p>See what is available today. Visti our <a href="catalogIndex.shtml">Component Sales Catalog</a></p></td>
+								</tr>
+							</table></td>
+						</div></td>
+				</tr>
+				<tr><td><img src="images/clear.gif" alt="" width="10" height="40" border="0"/></td></tr>
+			</table>
+		</td>
+
+<!-- Middle Column ends -->
+
+<!-- Gutter 3 begins -->
+		<td width="10"><img src="images/clear.gif" alt="" width="10" height="10" border="0"></td></form>
+<!-- Gutter 3 ends -->
+	</tr>
+</table>
+	
+<!-- Footer begins -->
+<!--#include virtual="includes/footer.shtml" -->
+<!-- Footer ends -->
+
+</body>
+</html>
