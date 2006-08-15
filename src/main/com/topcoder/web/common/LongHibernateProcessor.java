@@ -105,7 +105,7 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
         if (String.valueOf(true).equals(getRequest().getAttribute(ACTIVE_CONVERSATION_FLAG))) {
             HibernateUtils.getSession().flush();
             HibernateUtils.commit();
-            HibernateUtils.getSession().close(); // Unbind is automatic here
+            HibernateUtils.closeSession(); // Unbind is automatic here
             cleanup();
 
         } else if (HibernateUtils.getSession().isOpen()) {
@@ -120,7 +120,7 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
                 HibernateUtils.rollback();
             }
         } finally {
-            HibernateUtils.getSession().close(); // Unbind is automatic here
+            HibernateUtils.closeSession(); // Unbind is automatic here
             cleanup();
         }
 
