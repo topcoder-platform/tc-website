@@ -56,6 +56,9 @@ public class Login extends Base {
                             sub = login.login(username, password, DBMS.JTS_OLTP_DATASOURCE_NAME);
                             log.debug("correct user name and password");
                         } catch (Exception e) {
+                            if (log.isDebugEnabled()) {
+                                e.printStackTrace();
+                            }
                             throw new LoginException("Handle or password incorrect.");
                         }
                         char status = getStatus(sub.getUserId());
