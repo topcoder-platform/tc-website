@@ -104,16 +104,8 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
             HibernateUtils.getSession().flush();
             HibernateUtils.commit();
             HibernateUtils.getSession().close(); // Unbind is automatic here
+            cleanup();
 
-            //we're creating a new session to handle the case that the request processing invalidated the session
-            //there's no way to check, so this is what we're doing.
-            getRequest().removeAttribute(END_OF_CONVERSATION_FLAG);
-            getRequest().removeAttribute(ACTIVE_CONVERSATION_FLAG);
-            try {
-                getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, null);
-            } catch (Exception e) {
-                log.error("problem nulling out the hibernate session key: " + e.getMessage());
-            }
         } else if (HibernateUtils.getSession().isOpen()) {
             log.error("we're not closing a conversation that has an open session");
         }
@@ -123,21 +115,19 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
     protected void handleException(Throwable e) {
         try {
             if (HibernateUtils.getSession().getTransaction().isActive()) {
-//                log.debug("Trying to rollback database transaction after exception");
                 HibernateUtils.rollback();
             }
         } finally {
-//            log.error("Cleanup after exception!");
-
-            // Cleanup
-//            log.debug("Closing and unbinding Session from thread");
             HibernateUtils.getSession().close(); // Unbind is automatic here
-
-//            log.debug("Removing Session from HttpSession");
-            getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, null);
-
+            cleanup();
         }
 
+    }
+
+    private void cleanup() {
+        getRequest().removeAttribute(END_OF_CONVERSATION_FLAG);
+        getRequest().removeAttribute(ACTIVE_CONVERSATION_FLAG);
+        getRequest().getSession().removeAttribute(HIBERNATE_SESSION_KEY);
     }
 
     /**
