@@ -203,8 +203,8 @@
     <td class="sidebarText" colspan="2">
         <br/><br/>
         <font color="#ff0000">PLEASE NOTE:</font>
-        Guests are invited to attend the TCCC06 and TopCoder can help make travel and lodging arrangements. However,
-        all costs (hotel, travel, meals, etc.) are at the guest's own expense.
+        Guests are invited to attend the TCCC06. However, all
+        costs (hotel, travel, meals, etc.) are at the guest's own expense.
         <br/><br/>
     </td>
 </tr>
