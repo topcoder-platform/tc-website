@@ -49,35 +49,34 @@
       <td class="tableHeader" align="center" nowrap="nowrap">Forums</td>
    </tr>
    <% boolean even = false; %>
-   <%--
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_warehouseMgmtFunctions">Warehouse Management Phase 1 Warehouse Functions</A>
       </td>
       <td class="valueC">
       <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Warehouse Management Phase 1 Warehouse Functions">register</A>
-      <!--
+      <%--
       registration closed
-      -->
+      --%>
       </td>
       <td class="valueC">
       &#160;
-      <!-- 
+      <%-- 
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_warehouseMgmtFunctions">results</A>
-      -->
+      --%>
       </td>
       <td class="valueC">
       &#160;
-      <!-- 
+      <%-- 
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_warehouseMgmtFunctions">standings</A>
-      -->
+      --%>
       </td>
       <td class="valueC">$4,000</td>
       <td class="valueC">
-      08.21.2006 9:00 AM EST
+      08.23.2006 9:00 AM EST
       </td>
       <td class="valueC">
-      09.04.2006 9:00 AM EST
+      09.06.2006 9:00 AM EST
       </td>
       <td class="valueC" nowrap="nowrap">
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506090">join a team</A>
@@ -86,7 +85,6 @@
       </td>
    </tr>
    <% even = !even;%>
-   --%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_warehouseMgmtReport">Warehouse Management Phase 1 Reporting</A>
