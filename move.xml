@@ -141,6 +141,16 @@
         </jar>
     </target>
 
+	<target name="package-forums-full" depends="">
+		<antcall target="package-forums"/>
+
+        <jar destfile="forums.jar" update="true">
+            <fileset dir=".">
+            	<include name="lib/jars/jive/**"/>
+            </fileset>
+        </jar>
+    </target>
+	
     <target name="package-forums" depends="">
         <!--
                 <delete dir="src"/>
@@ -172,7 +182,6 @@
         <jar destfile="forums.jar" update="true">
             <fileset dir=".">
                 <include name="lib/jars/tcjive.jar"/>
-            	<include name="lib/jars/jive/**"/>
                 <include name="build/wars/forums.war"/>
                 <include name="build/ejb_jars/messagehistory.jar"/>
                 <include name="build/ejb_jars/forums.jar"/>
@@ -181,10 +190,7 @@
                 <include name="build.xml"/>
             </fileset>
         </jar>
-
-
     </target>
-
 
     <target name="package-studio" depends="">
 

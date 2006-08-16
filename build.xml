@@ -1626,12 +1626,9 @@
         <delete dir="${jboss_deploy}/forums.war/META-INF"/>
     </target>
 
-    <target name="deploy-forums" depends="">
-        <antcall target="explode-forums"/>
+    <target name="deploy-forums-full" depends="">
+    	<antcall target="deploy-forums"/>
 
-        <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
-    	<copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
-    	<copy todir="${jboss_lib}" file="${jars.dir}/tcjive.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
@@ -1640,6 +1637,15 @@
 
         <copy todir="${jboss_deploy}" file="${jive.dir}/EditWAR.jar"/>
         <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
+    </target>
+	
+	<target name="deploy-forums" depends="">
+        <antcall target="explode-forums"/>
+
+        <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
+    	<copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
+    	<copy todir="${jboss_lib}" file="${jars.dir}/tcjive.jar"/>
+
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
     </target>
