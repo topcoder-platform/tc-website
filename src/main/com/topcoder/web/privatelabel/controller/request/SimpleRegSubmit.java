@@ -10,19 +10,18 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.phone.Phone;
 import com.topcoder.web.ejb.rating.Rating;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserAddress;
-import com.topcoder.web.ejb.phone.Phone;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
-import javax.transaction.TransactionManager;
 import javax.transaction.Status;
+import javax.transaction.TransactionManager;
 
 
 /**
- *
  * @author gpaul 06.26.2003
  */
 public class SimpleRegSubmit extends SimpleRegBase {
@@ -70,7 +69,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
             try {
                 PrincipalMgrRemote mgr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
                 if (regInfo.isNew()) {
-                    if (regInfo.getUserId()>0) {
+                    if (regInfo.getUserId() > 0) {
                         newUser = mgr.createUser(regInfo.getUserId(), regInfo.getHandle(), regInfo.getPassword(), CREATE_USER, db);
                     } else {
                         newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER, db);
@@ -80,16 +79,16 @@ public class SimpleRegSubmit extends SimpleRegBase {
                     UserPrincipal myUser = mgr.getUser(regInfo.getUserId(), db);
                     mgr.editPassword(myUser, regInfo.getPassword(), CREATE_USER, db);
                 }
-                tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+                tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 tm.begin();
                 store(regInfo);
                 tm.commit();
             } catch (Exception e) {
-                if (regInfo.isNew()&&!regInfo.isAccountConversion()) {
+                if (regInfo.isNew() && !regInfo.isAccountConversion()) {
                     regInfo.setUserId(0);
                 }
                 try {
-                    if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                    if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
                         tm.rollback();
                     }
                 } catch (Exception te) {
@@ -120,7 +119,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
 
         long userId = regInfo.getUserId();
         if (regInfo.isNew()) {
-            if (userId>0) {
+            if (userId > 0) {
                 user.createUser(regInfo.getUserId(), regInfo.getHandle(), getNewUserStatus(), transDb);
             } else {
                 userId = user.createNewUser(regInfo.getHandle(), getNewUserStatus(), transDb, db);
@@ -131,7 +130,6 @@ public class SimpleRegSubmit extends SimpleRegBase {
         user.setLastName(userId, regInfo.getLastName(), transDb);
         user.setActivationCode(userId, StringUtils.getActivationCode(userId), transDb);
         user.setPassword(userId, regInfo.getPassword(), transDb);
-
 
         //create address
         long addressId = 0;
@@ -159,7 +157,6 @@ public class SimpleRegSubmit extends SimpleRegBase {
         }
         address.setZip(addressId, regInfo.getZip(), transDb);
 
-
         //create email
         long emailId = 0;
         if (regInfo.isNew()) {
@@ -172,12 +169,10 @@ public class SimpleRegSubmit extends SimpleRegBase {
         email.setEmailTypeId(emailId, EMAIL_TYPE, transDb);
         email.setPrimaryEmailId(userId, emailId, transDb);
 
-        if (!(regInfo.getPhoneNumber()==null||regInfo.getPhoneNumber().trim().length()==0)) {
-            long phoneId;
-            if (regInfo.isNew()) {
+        if (!(regInfo.getPhoneNumber() == null || regInfo.getPhoneNumber().trim().length() == 0)) {
+            long phoneId = phone.getPrimaryPhoneId(userId, transDb);
+            if (phoneId == 0) {
                 phoneId = phone.createPhone(userId, transDb, db);
-            } else {
-                phoneId = phone.getPrimaryPhoneId(userId, transDb);
             }
             phone.setNumber(phoneId, regInfo.getPhoneNumber(), transDb);
             phone.setPrimaryPhoneId(userId, phoneId, transDb);
@@ -191,6 +186,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
     /**
      * Store all the data in the database.  This method is called within a transaction by the commit
      * method.  Everything that is transactional should be done in here.
+     *
      * @param regInfo
      * @return
      * @throws Exception
@@ -213,7 +209,6 @@ public class SimpleRegSubmit extends SimpleRegBase {
     }
 
     /**
-     *
      * @return
      * @throws Exception if the status isn't present in the db, or some other error
      */
@@ -229,6 +224,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
     /**
      * get the job id they implicitly applied to by registering for the event
      * if it doesn't exist, return -1
+     *
      * @return
      * @throws Exception
      */
@@ -241,7 +237,6 @@ public class SimpleRegSubmit extends SimpleRegBase {
     }
 
     /**
-     *
      * @return
      * @throws Exception if the data is not in the db, or some other problem
      */
