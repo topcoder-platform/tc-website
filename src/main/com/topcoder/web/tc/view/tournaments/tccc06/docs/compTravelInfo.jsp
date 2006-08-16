@@ -47,20 +47,21 @@
 
 <p>
     <b>At the TCCC06, you will be sharing a hotel room with another competitor.</b> Please fill in the appropriate space
-    with your roommate preference if you have one. We will do our best to accommodate your request</p>
+    with your roommate preference if you have one. We will do our best to accommodate your request.</p>
 
 <B><U>AIRLINE INFORMATION:</U></B>
 
 <p>
     As soon as you send in this form, TopCoder will secure airline reservations based upon your registration information
     and will email a travel itinerary to you by Thursday, November 9, 2006. Please be advised that once airlines tickets
-    are confirmed, any changes are subject to penalty fees at your own expense. TopCoder will provide travel
-    arrangements for each competitor up to a cost of $1,500 per person. (That is, if a contestant's airfare is greater
-    than $1,500, the difference between the cost of the airfare and $1,500 will be deducted from the contestant's total
-    TCCC prize money won. If the contestant's total TCCC prize money is not sufficient to cover the additional costs,
-    the contestant will be responsible for remitting to TopCoder the remainder of the cost.) The flight reserved by and
-    paid for by TopCoder is for arrival on November 14, 2006 and departure on November 18, 2006. Extended flights and/or
-    hotel room nights are the responsibility of the competitor to coordinate.
+    are confirmed, any changes are subject to penalty fees at your own expense. We will provide air travel arrangements
+    for you up to a cost of $1,500. That is, if your airfare is greater than $1,500, the difference between the cost of
+    the airfare and $1,500 will be deducted from your total TCCC prize money won. If your total TCCC prize money is not
+    sufficient to cover the additional costs, you will be responsible for remitting to TopCoder the remainder of the
+    cost by November 30, 2006. The flight reserved by and paid for by TopCoder is for arrival on November 14, 2006 and
+    departure on November 18, 2006. Unless there are extenuating circumstances, which DO NOT include personal
+    holiday/vacation, flights will not be booked for dates other than those stated. Extended flights and/or hotel room
+    nights are your responsibility to coordinate.
 </p>
 <B><U>AIRPORT TRANSPORTATION:</U></B>
 
@@ -149,15 +150,17 @@
 </tr>
 
 <tr>
-    <td class="sidebarText" align="right"><input type="hidden" name="q44" value="May 2, 2006 - Preferred arrival time"/>
-        May 2, 2006 - Preferred arrival time:</td>
+    <td class="sidebarText" align="right">
+        <input type="hidden" name="q44" value="November 14, 2006 - Preferred arrival time"/>
+        November 14, 2006 - Preferred arrival time:</td>
     <td class="sidebarText" align="left"><select name="a44"><option value="AM">AM</option><option value="PM">PM</option>
     </select></td>
 </tr>
 
 <tr>
     <td class="sidebarText" align="right">
-        <input type="hidden" name="q45" value="May 6, 2006 - preferred departure time"/>May 6, 2006 - preferred
+        <input type="hidden" name="q45" value="November 18, 2006 - preferred departure time"/>November 18, 2006 -
+        preferred
         departure time:</td>
     <td class="sidebarText" align="left"><select name="a45"><option value="AM">AM</option><option value="PM">PM</option>
     </select></td>
@@ -227,8 +230,8 @@
     <td class="sidebarText" colspan="2">
         <br/><br/>
         <font color="#ff0000">PLEASE NOTE:</font>
-        Guests are invited to attend the TCCC06. However, all costs (hotel, travel, meals, etc.) are at the guest's own
-        expense.
+        Guests are invited to attend the TCCC06 and TopCoder can help make travel and lodging arrangements. However, all
+        costs (hotel, travel, meals, etc.) are at the guest's own expense.
         <br/><br/>
     </td>
 </tr>

@@ -44,7 +44,7 @@
         <p>
             <span class=bodySubtitle>QUESTIONNAIRE</span> - View the <a href="/tc?module=ViewSurvey&sid=218">2006
             TopCoder Collegiate Challenge Questionnaire</a>. NOTE: All questions are mandatory. The answers to
-            1-15 may be included in the 2006 TCO Program or
+            1-15 may be included in the 2006 TCCC Program or
             used in onsite introductions, at TopCoder's sole discretion. The answers to questions 16 - 21 will
             be provided to AOL.
         </p>
@@ -61,7 +61,7 @@
 
     <li>
         <% if (info.getIntItem(0, "has_tax_form") == 0) {%>
-        <p><strong>TAX FORM</strong> - must be faxed (to 860.657.4276), scanned and
+        <p><span class=bodySubtitle>TAX FORM</span> - must be faxed (to 860.657.4276), scanned and
             sent via email (<a href="mailto:payments@topcoder.com">payments@topcoder.com</a>), or
             postmarked on or before October 3. If sent by mail,
             it must be received at TopCoder by October 20, 2006.</p>
@@ -78,29 +78,34 @@
             Form W-9 <a href="/contest/fw9.pdf">here (W9)</a><br/>
             Form W-8BEN <a href="/contest/fw8ben.pdf">here (W8)</a></p>
         <% } else { %>
-        <p><strong>TAX FORM</strong></p>
-        We already have your tax form on file. You do NOT need to complete and return another form.
+        <p><span class=bodySubtitle>TAX FORM</span>
+            We already have your tax form on file. You do NOT need to complete and return another form.</p>
         <% }%>
     </li>
     <li>
-        Letter from your college/university on official stationary that states you are a current
-        full time student. The letter must be signed by an official university staff member.
-        Alternatively, you can submit a photocopy of your ISIC card. Either the letter or
-        the ISIC must be sent directly to TopCoder, Inc., Attn: Jessie D'Amato Ford, 703 Hebron Avenue,
-        Glastonbury, CT, USA 06033.
-        Please revisit the
-        <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_rules" target="_blank">component
-            rules</a> for more information.
+        <p>
+            <span class=bodySubtitle>Letter</span> from your college/university on official stationary that states you
+            are a current
+            full time student. The letter must be signed by an official university staff member.
+            Alternatively, you can submit a photocopy of your ISIC card. Either the letter or
+            the ISIC must be sent directly to TopCoder, Inc., Attn: Jessie D'Amato Ford, 703 Hebron Avenue,
+            Glastonbury, CT, USA 06033.
+            Please revisit the
+            <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_rules" target="_blank">component
+                rules</a> for more information.
+        </p>
     </li>
 
     <li>
-        <strong>TRAVEL FORM</strong> - View the
-        <a href="${sessionInfo.secureAbsoluteServletPath}?module=TourneyInfo&d1=tournaments&d2=tccc06&d3=docs&d4=compTravelInfo">Travel
-            Information Page.</a>
+        <p>
+            <span class=bodySubtitle>TRAVEL FORM</span> - View the
+            <a href="${sessionInfo.secureAbsoluteServletPath}?module=TourneyInfo&d1=tournaments&d2=tccc06&d3=docs&d4=compTravelInfo">Travel
+                Information Page.</a>
+        </p>
     </li>
 
     <li>
-        <p><strong>MEMBER PHOTO</strong></p>
+        <p><span class=bodySubtitle>MEMBER PHOTO</span></p>
 
         <p>
             <% if (info.getIntItem(0, "has_image") == 0) {%>
