@@ -1,6 +1,5 @@
-<%@ page language="java" %>
-<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
-
+<%@ page import="com.topcoder.web.tc.controller.request.tournament.tccc06.SubmitAlgoRegistration" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -8,6 +7,10 @@
 
     <title>2006 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
     <link type="text/css" rel="stylesheet" href="/css/TCCC06style.css"/>
+    <c:set value="<%=SubmitAlgoRegistration.AOL_SURVEY%>" var="aolSurvey"/>
+    <c:if test="${request[aolSurvey]}">
+        <META HTTP-EQUIV="refresh" content="10;url=http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=1">
+    </c:if>
 </head>
 
 <body>
@@ -28,8 +31,14 @@
 
                 <p align="left">
                     You have successfully registered for the 2006 TopCoder Collegiate Challenge.</p>
-
-
+                <c:if test="${request[aolSurvey]}">
+                    <p>
+                        You have chosen to take part in AOL's survey. This page will automatically load the survey in 10
+                        seconds.
+                        If it does not, you make click
+                        <a href="http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=1">here</a> .
+                    </p>
+                </c:if>
             </div>
         </td>
 
