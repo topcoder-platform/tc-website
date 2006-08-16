@@ -59,7 +59,8 @@
                 <%--
                 The Google Code Jam 2006 Arena is not available yet.
                 --%>
-                <A href="/pl/?module=Google06Credentials&<%=Constants.COMPANY_ID%>=1865">Forgot your password?</A>
+                <A href="/pl/?module=Google06Credentials&<%=Constants.COMPANY_ID%>=1865">Forgot your Google Code Jam
+                    2006 password?</A>
 
                 <br><br>
                 You need at least <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version
