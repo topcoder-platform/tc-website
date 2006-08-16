@@ -60,7 +60,7 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
         // End or continue the long-running conversation?
         if (String.valueOf(true).equals(getRequest().getAttribute(END_OF_CONVERSATION_FLAG))) {
             closeConversation();
-        } else if (String.valueOf(true).equals(getRequest().getAttribute(ACTIVE_CONVERSATION_FLAG))) {
+        } else {
             endCommunication();
         }
     }
@@ -149,7 +149,6 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
             HibernateUtils.commit();
             HibernateUtils.closeSession(); // Unbind is automatic here
             cleanup();
-
         } else if (HibernateUtils.getSession().isOpen()) {
             log.error("we're not closing a conversation that has an open session");
         }
