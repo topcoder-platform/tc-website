@@ -16,10 +16,12 @@ import java.util.Iterator;
  *          Create Date: Aug 3, 2006
  */
 public class SubmitAlgoRegistration extends ViewAlgoRegistration {
+    public static final String AOL_SURVEY = "aolsur";
 
     protected void regProcessing() throws Exception {
 
         String termsAgree = getRequest().getParameter(Constants.TERMS_AGREE);
+        String aolSurvey = getRequest().getParameter(Constants.TERMS_AGREE);
 
         PreferenceGroup group = (PreferenceGroup) getRequest().getAttribute("group");
         HashSet values = new HashSet();
@@ -69,6 +71,7 @@ public class SubmitAlgoRegistration extends ViewAlgoRegistration {
                     }
                     user.addTerms(DAOUtil.getFactory().getTermsOfUse().find(new Integer(getTermsId())));
                     userDAO.saveOrUpdate(user);
+                    getRequest().setAttribute(AOL_SURVEY, Boolean.valueOf("on".equals(aolSurvey)));
                 }
             } else {
                 addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
