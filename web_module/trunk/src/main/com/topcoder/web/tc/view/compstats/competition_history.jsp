@@ -3,7 +3,6 @@
         import="com.topcoder.shared.dataAccess.DataAccessConstants,
                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                 com.topcoder.shared.util.ApplicationServer,
-                com.topcoder.web.common.BaseServlet,
                 com.topcoder.web.common.model.SoftwareComponent,
                 com.topcoder.web.tc.Constants" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
@@ -89,10 +88,6 @@
 <TR valign="top">
 
 <%
-    String nextpage = (String) request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
-    if (nextpage == null) nextpage = request.getParameter(BaseServlet.NEXT_PAGE_KEY);
-    if (nextpage == null) nextpage = request.getHeader("Referer");
-    if (nextpage == null) nextpage = "http://" + request.getServerName();
     ResultSetContainer rsc2 = (ResultSetContainer) request.getAttribute(Constants.HISTORY_LIST_KEY);
     String type = (String) request.getAttribute(Constants.TYPE_KEY);
     String phaseId = (String) request.getParameter(Constants.PHASE_ID);
@@ -101,15 +96,15 @@
 
 <TD WIDTH="180">
     <!-- Left nav begins -->
-<% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) { %>
+    <% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) { %>
     <jsp:include page="/includes/global_left.jsp">
         <jsp:param name="node" value="m_dev_competitions"/>
     </jsp:include>
-<% } else { %>
+    <% } else { %>
     <jsp:include page="/includes/global_left.jsp">
         <jsp:param name="node" value="m_des_competitions"/>
     </jsp:include>
-<% } %>
+    <% } %>
     <!-- Left nav ends -->
 </TD>
 
