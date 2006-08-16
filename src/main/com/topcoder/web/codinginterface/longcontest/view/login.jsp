@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="com.topcoder.web.codinginterface.longcontest.Constants,
                  com.topcoder.web.common.BaseServlet" %>
+<%@ page import="com.topcoder.web.common.StringUtils" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%
@@ -11,10 +12,10 @@
 <html>
 <head>
     <title>TopCoder</title>
-<jsp:include page="/script.jsp" />
-<jsp:include page="/style.jsp">
-<jsp:param name="key" value="tc_stats"/>
-</jsp:include>
+    <jsp:include page="/script.jsp"/>
+    <jsp:include page="/style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <SCRIPT type="text/javascript">
         function submitEnter(e) {
@@ -44,12 +45,12 @@
     <tr valign="top">
         <%-- Left Column Begins--%>
         <td width="180">
-         <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="m_long_contests"/>
-         </jsp:include>
-        <%-- Left Column Ends --%>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_long_contests"/>
+            </jsp:include>
+            <%-- Left Column Ends --%>
 
-        <%-- Center Column Begins --%>
+            <%-- Center Column Begins --%>
         <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 
             <jsp:include page="page_title.jsp">
@@ -76,7 +77,7 @@
                 </tr>
                 <tr valign="middle">
                     <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>">
-                        <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
+                        <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>">
                         <input type="hidden" name="module" value="Login">
                         <td class="bodyText" align="center">
                             <table border="0" cellpadding="3" cellspacing="0">
