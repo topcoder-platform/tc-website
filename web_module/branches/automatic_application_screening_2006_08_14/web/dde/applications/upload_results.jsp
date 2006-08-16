@@ -4,7 +4,7 @@ import="com.topcoder.dde.util.Constants" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
 <%
-    String filename = (String)request.getAttribute("file_name");
+    String filename = (String)request.getAttribute("file_nanme");
 %>
 
 <HTML>
