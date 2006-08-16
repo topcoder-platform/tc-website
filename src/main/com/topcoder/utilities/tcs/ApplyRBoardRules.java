@@ -133,6 +133,7 @@ public class ApplyRBoardRules extends DBUtility {
                 boolean disqualify = true;
                 long daysToBeDisqualified = 0;
                 long daysToBeDisqualified2 = 0;
+                String logMsg = "";
 
                 psSelDetails.clearParameters();
                 psSelDetails.setInt(1, DAYS_THREE_MONTHS);  // Days to analyze
@@ -143,10 +144,14 @@ public class ApplyRBoardRules extends DBUtility {
 
                 String possibleDisqualificationReason = " (no submission in the last " + DAYS_THREE_MONTHS + " days.";
 
-                log.debug("Analyzing " + ((rsUsers.getInt("status_id") == DISQUALIFIED_STATUS) ? "Inactive" : "Active") +
+                /*log.debug("Analyzing " + ((rsUsers.getInt("status_id") == DISQUALIFIED_STATUS) ? "Inactive" : "Active") +
                         " user " + rsUsers.getLong("user_id") + "("+ rsUsers.getString("handle") + ")" +
                         " Project Type: " + rsUsers.getString("project_type_name") +
-                        " Catalog Id: " + rsUsers.getString("catalog_name"));
+                        " Catalog Id: " + rsUsers.getString("catalog_name"));*/
+
+                logMsg = " - <" + rsUsers.getString("handle") + "> <" + rsUsers.getString("project_type_name") + "> <" +
+                    rsUsers.getString("catalog_name") + ">";
+
 
                 rsDetails90 = psSelDetails.executeQuery();
 
@@ -192,7 +197,8 @@ public class ApplyRBoardRules extends DBUtility {
                         qualifiedReviewersCount++;
                         updateReviewerStatus(QUALIFIED_STATUS, rsUsers.getLong("user_id"),
                             rsUsers.getInt("project_type_id"), rsUsers.getLong("catalog_id"));
-                        log.debug("... activated!!! ");
+                        //log.debug("... activated!!! ");
+                        log.debug("ACT" + logMsg);
 
                         // send mail.
                         sendActivationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
@@ -206,7 +212,8 @@ public class ApplyRBoardRules extends DBUtility {
                         disqualifiedReviewersCount++;
                         updateReviewerStatus(DISQUALIFIED_STATUS, rsUsers.getLong("user_id"),
                             rsUsers.getInt("project_type_id"), rsUsers.getLong("catalog_id"));
-                        log.debug("... disqualified " + possibleDisqualificationReason);
+                        //log.debug("... disqualified " + possibleDisqualificationReason);
+                        log.debug("DISQ" + logMsg);
 
                         // send mail.
                         sendDisqualificationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
@@ -216,7 +223,9 @@ public class ApplyRBoardRules extends DBUtility {
                         // near to be disqualified.
                         if (daysToBeDisqualified <= daysBeforeWarning) {
                             warnedReviewersCount++;
-                            log.debug("... will be disqualified in " + daysToBeDisqualified + " days  < ------------------------- WARNING!! ");
+                            //log.debug("... will be disqualified in " + daysToBeDisqualified + " days  < ------------------------- WARNING!! ");
+                            log.debug("WARN" + logMsg);
+
                             // send mail.
                             if (daysToBeDisqualified % firstWarningInterval == 0 || daysToBeDisqualified == 1 ||
                                 (daysToBeDisqualified < firstWarningInterval && daysToBeDisqualified % secondWarningInterval == 0)) {
@@ -225,7 +234,8 @@ public class ApplyRBoardRules extends DBUtility {
                                         daysToBeDisqualified);
                             }
                         } else {
-                            log.debug("... ok");
+                            log.debug("OK" + logMsg);
+//                            log.debug("... ok");
                         }
                     }
                 }
