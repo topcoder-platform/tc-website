@@ -118,7 +118,8 @@
                     </tr>
                     <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
                     <tr><td colspan="3" class="bodyText" align="center">
-                        <A href="/pl/?module=Google06Credentials&<%=Constants.COMPANY_ID%>=1865">Forgot your
+                        <A href="/pl/?module=Google06Credentials&<%=Constants.COMPANY_ID%>=1865">Forgot your Google Code
+                            Jam 2006
                             password?</A></td>
                     </tr>
                 </table>
