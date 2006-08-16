@@ -32,8 +32,8 @@ function setPassword() {
 
 <form method="post" name="frmPwd" action="/tc">
 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ResetPassword"/>
-<input type="hidden" name="<%= ResetPassword.PASSWORD_RECOVERY_ID %>" value='<%= request.getParameter(ResetPassword.PASSWORD_RECOVERY_ID)%>'/>
-<input type="hidden" name="<%= ResetPassword.HASH_CODE %>" value='<%= request.getParameter(ResetPassword.HASH_CODE)%>'/>
+<input type="hidden" name="<%= ResetPassword.PASSWORD_RECOVERY_ID %>" value='<c:out value="${param.pr}" escapeXML="true"/>' />
+<input type="hidden" name="<%= ResetPassword.HASH_CODE %>" value='<c:out value="${param.hc}" escapeXML="true"/>'/>
 
          <tc-webtag:errorIterator id="err" name="error"><%=err%></tc-webtag:errorIterator></span>
 <br>

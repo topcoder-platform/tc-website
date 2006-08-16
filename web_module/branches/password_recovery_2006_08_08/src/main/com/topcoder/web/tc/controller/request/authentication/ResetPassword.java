@@ -27,7 +27,8 @@ import com.topcoder.web.tc.Constants;
 
 
 /**
- * Changes the password for a user.
+ * If PASSWORD_RECOVERY_ID parameter is not passed, it just redirects to the reset password page.
+ * If it is passed, it changes the password for a user.
  * It receives the id for a row in password_recovery table, as well as it hash code, and if this is
  * ok and the new password is valid, then is changed.
  *  
@@ -47,7 +48,13 @@ public class ResetPassword extends ShortHibernateProcessor {
 	        String rowHashCode = StringUtils.checkNull(getRequest().getParameter(HASH_CODE));
 	        String password = StringUtils.checkNull(getRequest().getParameter(PASSWORD)); 
 	        String passwordVerif = StringUtils.checkNull(getRequest().getParameter(PASSWORD_VERIF));
-	
+		        
+	        if (passwordRecoveryId == null) {
+		        setNextPage(Constants.RESET_PASSWORD);
+		        setIsNextPageInContext(true);
+		        return;
+	        }
+	        
 	        PasswordRecovery passwordRecovery = DAOUtil.getFactory().getPasswordRecoveryDAO().find(new Long(passwordRecoveryId));
 	        
 	        if (passwordRecovery == null) {

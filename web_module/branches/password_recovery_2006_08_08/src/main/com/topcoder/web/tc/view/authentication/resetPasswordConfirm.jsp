@@ -8,9 +8,9 @@
 
 <body>
 Your password has been reseted.
-<% if (request.getParameter(Constants.EMAIL) != null) { %>
-Your email address has ben set to <%= request.getParameter(Constants.EMAIL) %>.
-<% } %>
+<c:if test="${not empty param.em}" >
+	Your email address has been set to <c:out value="${request.em}" escapeXML="true"/>.
+</c:if>
 <a href="/tc?module=Login">Login</a>
 </body>
 </html>
