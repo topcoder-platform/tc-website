@@ -39,6 +39,8 @@ public class FindUser extends ShortHibernateProcessor {
         String email = StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL));
         boolean hasMailAccess = "true".equals(getRequest().getParameter(HAS_MAIL_ACCESS));
         
+         log.info("first name: " +firstName);
+         log.info("first name encoded: " +StringUtils.htmlEncode(firstName));
         User user = null;
         
         if (handle.length() > 0) {
