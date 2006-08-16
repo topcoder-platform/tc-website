@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=ISO-8859-1"
+<%@ page contentType="text/html; charset=utf-8"
          import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.tc.controller.request.authentication.Login,
                  com.topcoder.web.tc.controller.request.authentication.FindUser,                 
