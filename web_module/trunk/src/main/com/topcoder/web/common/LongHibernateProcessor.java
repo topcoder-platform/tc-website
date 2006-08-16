@@ -77,6 +77,17 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
         log.debug("end communication");
         HibernateUtils.commit();
         Session hibernateSession = ExtendedThreadLocalSessionContext.unbind(HibernateUtils.getFactory());
+        if (log.isDebugEnabled()) {
+            if (hibernateSession == null) {
+                log.debug("unbinding session it is null");
+            } else {
+                if (hibernateSession.isOpen()) {
+                    log.debug("unbinding session it is open we're putting in the session now");
+                } else {
+                    log.debug("unbinding session it is closed we're putting in the session now");
+                }
+            }
+        }
         getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, new HibernateSessionHouse(hibernateSession));
         //getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, hibernateSession);
     }
