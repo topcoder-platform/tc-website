@@ -41,6 +41,12 @@
     <jsp:param name="image1" value="white"/>
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
+<p>
+    5.4.5 - 2006.08.15
+    <ul>
+        <li>Attempt to fix up some strange behavior in the registration process</li>
+    </ul>
+</p>
 
 <p>
     5.4.4 - 2006.08.14
