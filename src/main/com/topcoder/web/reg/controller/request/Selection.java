@@ -7,8 +7,6 @@ import com.topcoder.web.common.model.RegistrationType;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.reg.Constants;
 
-import javax.servlet.http.HttpSessionBindingEvent;
-import javax.servlet.http.HttpSessionBindingListener;
 import java.util.Iterator;
 
 /**
@@ -16,7 +14,7 @@ import java.util.Iterator;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2006
  */
-public class Selection extends Base implements HttpSessionBindingListener {
+public class Selection extends Base {
 
     protected void registrationProcessing() throws Exception {
 
@@ -56,11 +54,4 @@ public class Selection extends Base implements HttpSessionBindingListener {
         }
     }
 
-    public void valueBound(HttpSessionBindingEvent httpSessionBindingEvent) {
-        Thread.dumpStack();
-    }
-
-    public void valueUnbound(HttpSessionBindingEvent httpSessionBindingEvent) {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
 }
