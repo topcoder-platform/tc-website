@@ -166,45 +166,45 @@
 <tr><td ><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
 <!-- 2001 -->
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2001</font></td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_122001">Whiz cracks contest code</A> [December 20]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_121801">Sun Sponsors Collegiate Developer Tournament</A> [December 18]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_121701">Sun Microsystems Launches New Way to Reach Java Community . . .</A> [December 17]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_121001">Students to compete in Java, C++</A> [December 10]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_121001b">Sun Microsystems Named Exclusive Sponsor of Computer Challenge</A> [December 10]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_121001c">Five Thoughts about Hiring IT Professionals</A> [December 10]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_112601">College student outpaces rivals to win contest</A> [November 26]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_111201">Chips &amp; Drivers: It's a digital shootout at Java corral . . .</A> [November 12]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_111201b">Wright second in TopCoder event</A> [November 12]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_122001">Whiz cracks contest code</A> [December 20 - Rocky Mountain News]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_121801">Sun Sponsors Collegiate Developer Tournament</A> [December 18 - Web Services Report]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_121701">Sun Microsystems Launches New Way to Reach Java Community . . .</A> [December 17 - Java Boutique]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_121001">Students to compete in Java, C++</A> [December 10 - CNET]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_121001b">Sun Microsystems Named Exclusive Sponsor of Computer Challenge</A> [December 10 - BrandWeek]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_121001c">Five Thoughts about Hiring IT Professionals</A> [December 10 - Darwin]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_112601">College student outpaces rivals to win contest</A> [November 26 - Houston Chronicle]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_111201">Chips &amp; Drivers: It's a digital shootout at Java corral&#8230;</A> [November 12 - Mass High Tech]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_111201b">Wright second in TopCoder event</A> [November 12 - Lafayette News]</td></tr>
 <tr><td class="newsText"><A href="http://www.informationweek.com/story/IWK20011111S0004" target="_blank">Programmer Wows 'Em</A> [November 12 - InformationWeek]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_110901">Tech student makes TopCoder semifinals</A> [November 9]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_110901b">In Depth: High tech survivors</A> [November 9]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_110901">Tech student makes TopCoder semifinals</A> [November 9 - Technique]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_110901b">In Depth: High tech survivors</A> [November 9 - The Business Journal]</td></tr>
 <tr><td class="newsText"><A href="http://www.informationweek.com/story/IWK20011108S0013" target="_blank">College Junior Wins Programming Contest--And $100K</A> [November 8 - InformationWeek]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_110701">TopCoders return rich, triumphant</A> [November 7]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_110601">Grad Student Emerges at TopCoder '01</A> [November 6]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_110401">'TopCoder' Outwits His Rivals</A> [November 4]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_110101">Performance Metrics - Code for Cash</A> [November 1]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_103101">Computer Wizard a Finalist for $100,000 Prize</A> [October 31]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_102601">Colorado native among nation's top programmers</A> [October 26]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_102401">TopCoders battle for top prize</A> [October 24]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_101801">Oberlin College Student Competes in TopCoder Tournament</A> [October 18]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_101201">Geekletes descend upon programming contest</A> [October 12]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_092601">Students compute, compete for dollars on Web site</A> [September 26]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_091201">'Not a typical computer nerd'</A> [September 12]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_091001">The new rules</A> [September 10]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_090401">TopCoder Inc. offers challenge to top programmers</A> [September 4]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_090101">If You Build It, They Will Come&#8230;</A> [September 1]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_083001">Coding competition for cash</A> [August 30]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_082401">Programmers Compete For Cash and Recognition</A> [August 24]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_072701">EECS students excel in computing competitions</A> [July 27]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_071601">Virginia Tech student places 5th in national computer programming&#8230;</A> [July 16]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_071201">Marut Competes in Top Coder Contest</A> [July 12]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_070201">Gladiator geeks&#8230;</A> [July 2]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_062601">Test your mettle at TopCoder.com</A> [June 26]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_062501">EECS Students Winners in TopCoder Collegiate Challenge</A> [June 25]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_061801">Code warrior hits big time</A> [June 18]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_060801">Erin native wins $100,000 in contest</A> [June 8]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_052901">You Are the Fastest Coder</A> [May 29]</td></tr>
-<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_042401">A Game Of Their Own</A> [April 24]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_110701">TopCoders return rich, triumphant</A> [November 7 - Stanford Daily]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_110601">Grad Student Emerges at TopCoder '01</A> [November 6 - Cornell Daily Sun]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_110401">'TopCoder' Outwits His Rivals</A> [November 4 - Hartford Courant]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_110101">Performance Metrics - Code for Cash</A> [November 1 - CIO]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_103101">Computer Wizard a Finalist for $100,000 Prize</A> [October 31 - University of Central Florida]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_102601">Colorado native among nation's top programmers</A> [October 26 - The Denver Business Journal]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_102401">TopCoders battle for top prize</A> [October 24 - Stanford Daily]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_101801">Oberlin College Student Competes in TopCoder Tournament</A> [October 18 - Oberlin Online]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_101201">Geekletes descend upon programming contest</A> [October 12 - San Francisco Business Times]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_092601">Students compute, compete for dollars on Web site</A> [September 26 - Daily Nebraskan]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_091201">'Not a typical computer nerd'</A> [September 12 - The Wenatchee World]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_091001">The new rules</A> [September 10 - The Boston Globe]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_090401">TopCoder Inc. offers challenge to top programmers</A> [September 4 - Mass High Tech]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_090101">If You Build It, They Will Come&#8230;</A> [September 1 - Software Development]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_083001">Coding competition for cash</A> [August 30 - Geek.com]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_082401">Programmers Compete For Cash and Recognition</A> [August 24 - Idea Marketers]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_072701">EECS students excel in computing competitions</A> [July 27 - Michigan Engineering]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_071601">Virginia Tech student places 5th in national computer programming&#8230;</A> [July 16 - Virginia Tech]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_071201">Marut Competes in Top Coder Contest</A> [July 12 - WPI]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_070201">Gladiator geeks&#8230;</A> [July 2 - Avid ProNet]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_062601">Test your mettle at TopCoder.com</A> [June 26 - TechRepublic]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_062501">EECS Students Winners in TopCoder Collegiate Challenge</A> [June 25 - University of Michigan]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_061801">Code warrior hits big time</A> [June 18 - Mass High Tech]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_060801">Erin native wins $100,000 in contest</A> [June 8 - Star-Gazette]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_052901">You Are the Fastest Coder</A> [May 2 - PC Magazine]</td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_042401">A Game Of Their Own</A> [April 24 - Hartfore Courant]</td></tr>
 </table>
             </td>
          </tr>
