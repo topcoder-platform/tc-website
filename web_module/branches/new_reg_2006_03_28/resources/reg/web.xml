@@ -38,7 +38,7 @@
 
     <listener>
         <listener-class>
-            com.topcoder.web.reg.controller.TestSessionListener
+            com.topcoder.web.common.SessionWatcher
         </listener-class>
     </listener>
 
