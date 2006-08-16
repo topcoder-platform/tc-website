@@ -217,7 +217,7 @@ public class ConfigHelper implements ConfigManagerInterface {
      *
      * @throws Exception propagate any exceptions
      */
-    static String getSubmissionPathPrefix() throws Exception {
+    public static String getSubmissionPathPrefix() throws Exception {
         String sufix = EJBHelper.isTestMode() ? "_test" : "";
         String s = ConfigManager.getInstance().getString(NAMESPACE, SUBMISSION_PATH_PREFIX + sufix);
 

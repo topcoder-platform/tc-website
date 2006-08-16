@@ -11,12 +11,13 @@ public class UploadApplicationSubmission extends BaseProcessor {
 
     protected void businessProcessing() throws TCWebException {
         try {
-            log.debug("Upload Application request");
+            log.info("Upload Application request");
             if (getUser().isAnonymous()) {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             } else {
-                log.debug("forwarding to upload page");
+                log.info("forwarding to upload page");
                 setNextPage("/applications/submission_upload.jsp");
+                setIsNextPageInContext(true);
             }
         } catch (TCWebException e) {
             throw e;
