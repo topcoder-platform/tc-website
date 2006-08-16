@@ -46,6 +46,7 @@
     <ul>
         <li>Fix bug in privatelabel registration process where one could not update the phone number on an account that
             did not already contain a phone number</li>
+        <li>Fix the password reminder email for private label events so that doesn't munge non ascii characters</li>
     </ul>
 </p>
 
