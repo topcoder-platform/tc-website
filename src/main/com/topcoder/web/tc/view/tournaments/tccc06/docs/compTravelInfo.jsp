@@ -170,12 +170,14 @@
         Aisle</option></select></td>
 </tr>
 
+<%--
 <tr>
     <td class="sidebarText" align="right"><input type="hidden" name="q47" value="Preference for your hotel room"/>
         Preference for your hotel room :</td>
     <td class="sidebarText" align="left"><select name="a47"><option value="Smoking">Smoking</option>
         <option value="Non Smoking">Non Smoking</option></select></td>
 </tr>
+--%>
 
 <tr>
     <td class="sidebarText" align="right"><input type="hidden" name="q48" value="Roommate preference"/>Roommate
