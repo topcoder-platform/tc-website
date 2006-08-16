@@ -9,7 +9,7 @@
 <body>
 Your password has been reseted.
 <c:if test="${not empty param.em}" >
-	Your email address has been set to <c:out value="${request.em}" escapeXML="true"/>.
+	Your email address has been set to <c:out value="${request.em}" escapeXml="true"/>.
 </c:if>
 <a href="/tc?module=Login">Login</a>
 </body>
