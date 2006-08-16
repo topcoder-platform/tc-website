@@ -118,6 +118,7 @@ public class HibernateUtils {
         }
         if (ret == null)
             throw new IllegalStateException("SessionFactory not available.");
+        log.debug("factory hash code: " + ret.hashCode());
         return ret;
 
     }
