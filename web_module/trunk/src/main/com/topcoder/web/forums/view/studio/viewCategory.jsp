@@ -192,11 +192,11 @@
             <% if (message.getUser() != null) { %>
             <td class="rtThreadCell"><studio:handle coderId="<%=message.getUser().getID()%>"/></td>
             <% } else { %>
-            <td class="rtThreadCell"></td>
+            <td class="rtThreadCell">&nbsp;</td>
             <% } %>
             <% } else { %>
-            <td class="rtThreadCell"></td>
-            <td class="rtThreadCell"></td>
+            <td class="rtThreadCell">&nbsp;</td>
+            <td class="rtThreadCell">&nbsp;</td>
             <% } %>
         </tr>
     </tc-webtag:iterator>
@@ -248,11 +248,11 @@
             <% if (message.getUser() != null) { %>
             <td class="rtThreadCell"><studio:handle coderId="<%=message.getUser().getID()%>"/></td>
             <% } else { %>
-            <td class="rtThreadCell"></td>
+            <td class="rtThreadCell">&nbsp;</td>
             <% } %>
             <% } else { %>
-            <td class="rtThreadCell"></td>
-            <td class="rtThreadCell"></td>
+            <td class="rtThreadCell">&nbsp;</td>
+            <td class="rtThreadCell">&nbsp;</td>
             <% } %>
         </tr>
     </tc-webtag:iterator>

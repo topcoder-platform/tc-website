@@ -179,8 +179,8 @@
         <div><A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtLinkBold"><img src="/i/interface/announcement.gif" alt="" border="0" /> <%=announcement.getSubject()%></A></div>
     </td>
     <td class="rtThreadCell"><tc-webtag:handle coderId="<%=announcement.getUser().getID()%>"/></td>
-    <td class="rtThreadCell"></td>
-    <td class="rtThreadCell"></td>
+    <td class="rtThreadCell">&nbsp;</td>
+    <td class="rtThreadCell">&nbsp;</td>
     <td class="rtThreadCell"><b><A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtLinkNew"><tc-webtag:format object="${announcement.startDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></A></b></td>
     <td class="rtThreadCell"><tc-webtag:handle coderId="<%=announcement.getUser().getID()%>"/></td>
     </tr>
@@ -236,7 +236,7 @@
     <% if (thread.getRootMessage().getUser() != null) { %>
        <td class="rtThreadCell"><tc-webtag:handle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
     <% } else { %>
-        <td class="rtThreadCell"></td>
+        <td class="rtThreadCell">&nbsp;</td>
     <% } %>
    <td class="rtThreadCell" align="right"><%=thread.getMessageCount()-1%></td>
    <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%></td>
@@ -244,7 +244,7 @@
    <% if (lastPost.getUser() != null) { %>
         <td class="rtThreadCell"><tc-webtag:handle coderId="<%=lastPost.getUser().getID()%>"/></td>
     <% } else { %>
-        <td class="rtThreadCell"></td>
+        <td class="rtThreadCell">&nbsp;</td>
     <% } %>
    </tr>
 </tc-webtag:iterator>
