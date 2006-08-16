@@ -244,11 +244,13 @@
         <location>/errorPage.jsp</location>
     </error-page>
 
-    <listener>
-        <listener-class>
-            com.topcoder.web.common.SessionWatcher
-        </listener-class>
-    </listener>
+    <!--
+        <listener>
+            <listener-class>
+                com.topcoder.web.common.SessionWatcher
+            </listener-class>
+        </listener>
+    -->
 
 
 </web-app>
