@@ -8,7 +8,7 @@
 </head>
 
 <body>
-An email has been sent to <c:out value="${param.em}" escapeXML="true"/>.
+An email has been sent to <c:out value="${param.em}" escapeXml="true"/>.
   Please check your email and follow the link to reset your password.
 You must do that in the next <%= Constants.PASSWORD_RECOVERY_EXPIRE %> minutes or your key will expire.
 
