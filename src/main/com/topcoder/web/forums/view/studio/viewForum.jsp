@@ -181,8 +181,8 @@
                     </A></div>
             </td>
             <td class="rtThreadCell"><studio:handle coderId="<%=announcement.getUser().getID()%>"/></td>
-            <td class="rtThreadCell"></td>
-            <td class="rtThreadCell"></td>
+            <td class="rtThreadCell">&nbsp;</td>
+            <td class="rtThreadCell">&nbsp;</td>
             <td class="rtThreadCell">
                 <b><A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>" class="rtLinkNew">
                     <tc-webtag:format object="${announcement.startDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></A></b>
@@ -242,7 +242,7 @@
             <% if (thread.getRootMessage().getUser() != null) { %>
             <td class="rtThreadCell"><studio:handle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
             <% } else { %>
-            <td class="rtThreadCell"></td>
+            <td class="rtThreadCell">&nbsp;</td>
             <% } %>
             <td class="rtThreadCell" align="right"><%=thread.getMessageCount() - 1%></td>
             <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%></td>
@@ -253,7 +253,7 @@
             <% if (lastPost.getUser() != null) { %>
             <td class="rtThreadCell"><studio:handle coderId="<%=lastPost.getUser().getID()%>"/></td>
             <% } else { %>
-            <td class="rtThreadCell"></td>
+            <td class="rtThreadCell">&nbsp;</td>
             <% } %>
         </tr>
     </tc-webtag:iterator>

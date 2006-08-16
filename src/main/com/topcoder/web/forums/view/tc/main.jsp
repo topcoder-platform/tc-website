@@ -99,7 +99,7 @@
                             <% if (message.getUser() != null) { %>
                                 <td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
                             <% } else { %>
-                                <td class="rtThreadCell"></td>
+                                <td class="rtThreadCell">&nbsp;</td>
                             <% } %>
                         <% } else { %>
                             <td class="rtThreadCell">&nbsp;</td>
@@ -134,7 +134,7 @@
                             <% if (message.getUser() != null) { %>
                                 <td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
                             <% } else { %>
-                                <td class="rtThreadCell"></td>
+                                <td class="rtThreadCell">&nbsp;</td>
                             <% } %>
                         <% } else { %>
                             <td class="rtThreadCell">&nbsp;</td>

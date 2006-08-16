@@ -197,8 +197,8 @@
             <%  if (forumCategory.getForumCount() > 0) { %><br><% } %>
             <table cellpadding="0" cellspacing="0" class="rtTable">
                 <tr>
-                    <td class="rtHeader" width="80%">Category</td>
-                    <td class="rtHeader" width="20%"><%  if (forumCategory.getID() != 1) { %>T./M.<%  } %></td>
+                    <td class="rtHeader" width="100%">Category</td>
+                    <td class="rtHeader"><%  if (forumCategory.getID() != 1) { %>T./M.<%  } %></td>
                     <td class="rtHeader" align="center" colspan="2">Last Post</td>
                 </tr>
                 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categories")%>'>
@@ -224,11 +224,11 @@
                             <% if (message.getUser() != null) { %>
                                 <td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
                             <% } else { %>
-                                <td class="rtThreadCell"></td>
+                                <td class="rtThreadCell">&nbsp;</td>
                             <% } %>
                         <% } else { %>
-                            <td class="rtThreadCell"></td>
-                            <td class="rtThreadCell"></td>
+                            <td class="rtThreadCell">&nbsp;</td>
+                            <td class="rtThreadCell">&nbsp;</td>
                         <% } %>
                     </tr>
                 </tc-webtag:iterator>
