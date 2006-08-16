@@ -22,6 +22,8 @@ public class SubmitAlgoRegistration extends ViewAlgoRegistration {
 
         String termsAgree = getRequest().getParameter(Constants.TERMS_AGREE);
         String aolSurvey = getRequest().getParameter(Constants.TERMS_AGREE);
+        //set this just in case there is an error
+        setDefault(AOL_SURVEY, String.valueOf("on".equals(aolSurvey)));
 
         PreferenceGroup group = (PreferenceGroup) getRequest().getAttribute("group");
         HashSet values = new HashSet();
