@@ -44,7 +44,7 @@ public class SponsorTermsAgree extends BaseProcessor {
                     tm.begin();
                     if (!ut.hasTermsOfUse(getUser().getId(), Constants.TCCC06_SPONSOR_TERMS_ID, DBMS.JTS_OLTP_DATASOURCE_NAME))
                     {
-                        ut.createUserTermsOfUse(getUser().getId(), Constants.TCO06_SPONSOR_TERMS_ID, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                        ut.createUserTermsOfUse(getUser().getId(), Constants.TCCC06_SPONSOR_TERMS_ID, DBMS.JTS_OLTP_DATASOURCE_NAME);
                     }
                     if (!response.exists(getUser().getId(), Constants.TCCC06_SPONSOR_COMPANY_QUESTION_ID)) {
                         response.createResponse(getUser().getId(), Constants.TCCC06_SPONSOR_COMPANY_QUESTION_ID, companyName);
