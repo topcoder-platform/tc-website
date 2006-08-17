@@ -29,13 +29,13 @@ public class RecoverEmail extends ShortHibernateProcessor {
 	
     protected void dbProcessing() throws TCWebException {
         String userId = StringUtils.checkNull(getRequest().getParameter(Constants.CODER_ID));
-        String email = StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL));
+        String email = getRequest().getParameter(Constants.EMAIL);
         String response = StringUtils.checkNull(getRequest().getParameter(SECRET_QUESTION_RESPONSE)); 
 
         User u = DAOUtil.getFactory().getUserDAO().find(new Long(userId));
         
         // if different mail, check that email is valid and the secret question.
-    	if (email.length() > 0) {
+    	if (email != null) {
         	if (!u.getSecretQuestion().getResponse().equalsIgnoreCase(response)) {
         		addError("error", "Incorrect response");
         	}
