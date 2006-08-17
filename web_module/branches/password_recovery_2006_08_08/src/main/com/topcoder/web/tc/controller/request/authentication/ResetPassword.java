@@ -87,6 +87,9 @@ public class ResetPassword extends ShortHibernateProcessor {
 	        }
 	       
 	        if (hasErrors()) {
+				getRequest().setAttribute(PASSWORD_RECOVERY_ID, StringUtils.htmlEncode(passwordRecoveryId));
+				getRequest().setAttribute(HASH_CODE, StringUtils.htmlEncode(rowHashCode));
+	        	
 	            setNextPage(Constants.RESET_PASSWORD);
 	            setIsNextPageInContext(true);
 	        	return;        	
