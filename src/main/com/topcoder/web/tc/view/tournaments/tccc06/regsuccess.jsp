@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.tc.controller.request.tournament.tccc06.SubmitAlgoRegistration" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -9,7 +10,7 @@
     <link type="text/css" rel="stylesheet" href="/css/TCCC06style.css"/>
     <c:set value="<%=SubmitAlgoRegistration.AOL_SURVEY%>" var="aolSurvey"/>
     <c:if test="${requestScope[aolSurvey]}">
-        <META HTTP-EQUIV="refresh" content="10;url=http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=1">
+        <META HTTP-EQUIV="refresh" content="10;url=<tc-webtag:linkTracking link="http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=1"/>">
     </c:if>
 </head>
 
@@ -36,7 +37,8 @@
                         You have chosen to take part in AOL's survey. This page will automatically load the survey in 10
                         seconds.
                         If it does not, you may click
-                        <a href="http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=1">here</a> .
+                        <a href="<tc-webtag:linkTracking link="http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=1"/>">here</a>
+                        .
                     </p>
                 </c:if>
             </div>
