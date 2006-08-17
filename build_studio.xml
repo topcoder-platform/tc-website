@@ -289,7 +289,7 @@
     </target>
 	
 	<target name="package-TCJive" depends="compile">
-        <jar jarfile="${jars.dir}/tcjive.jar">
+        <jar jarfile="${bin}/tcjive.jar">
             <fileset dir="${classes}/">
             	<include name="com/topcoder/web/forums/model/TCUser.class"/>
             	<include name="com/topcoder/web/forums/model/TCUserManager.class"/>
