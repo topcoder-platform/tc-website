@@ -11,6 +11,12 @@
         <Value>java_dev</Value>
         <Value>csharp_design</Value>
         <Value>csharp_dev</Value>
+        <Value>application</Value>
+    </Property>
+    <Property name="application_rule">
+        <Value>com.topcoder.apps.screening.rules.JarFileRule</Value>
+        <Value>com.topcoder.apps.screening.rules.DesignDirRule</Value>
+        <Value>com.topcoder.apps.screening.rules.PoseidonFileRule</Value>
     </Property>
     <Property name="java_design_rule">
         <Value>com.topcoder.apps.screening.rules.JarFileRule</Value>
