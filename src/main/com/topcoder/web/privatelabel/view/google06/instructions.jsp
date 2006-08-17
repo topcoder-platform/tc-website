@@ -159,69 +159,70 @@
          servers to have access to your class members and invoke the appropriate methods. Below you will find code
          templates for Java, C++, C#, VB.NET and Python*:
          <br><br>
-         <b>Java Code Template</b><br>
-         <pre>import &lt;necessary classes&gt;
 
-             public class &lt;class-name&gt; {
-             public &lt;return-type&gt; &lt;method-name&gt;(&lt;argument-type&gt; arg1) {
-             //your source here
-             return &lt;result&gt;;
-             }
-             }
-         </pre>
+<b>Java Code Template</b><br>
+<pre>import &lt;necessary classes&gt;
 
-         <b>C++ Code Template</b><br>
-         <pre>#include &lt;necessary classes&gt;
+public class &lt;class-name&gt; {
+    public &lt;return-type&gt; &lt;method-name&gt;(&lt;argument-type&gt; arg1) {
+        //your source here
+        return &lt;result&gt;;
+    }
+}
+</pre>
 
-             using namespace std; //Required for TopCoder gcc compiler
+<b>C++ Code Template</b><br>
+<pre>#include &lt;necessary classes&gt;
 
-             class &lt;class-name&gt;
-             {
-             public:
-             &lt;return-type&gt; &lt;method-name&gt; (&lt;argument-type&gt; arg1)
-             {
-             //your source here
-             return &lt;result&gt;;
-             };
-             };
-         </pre>
+using namespace std; //Required for TopCoder gcc compiler
 
-         <b>C# Code Template</b><br>
-         <pre>using &lt;necessary classes&gt;;
+class &lt;class-name&gt;
+{
+    public:
+    &lt;return-type&gt; &lt;method-name&gt; (&lt;argument-type&gt; arg1)
+    {
+        //your source here
+        return &lt;result&gt;;
+    };
+};
+</pre>
 
-             public class &lt;class-name&gt; {
-             public &lt;return-type&gt; &lt;method-name&gt;(&lt;argument-type&gt; arg1) {
-             //your source here
-             return &lt;result&gt;;
-             }
-             }
-         </pre>
+<b>C# Code Template</b><br>
+<pre>using &lt;necessary classes&gt;;
 
-
-         <b>VB.NET Code Template</b><br>
-         <pre>
-             Imports &lt;necessary classes&gt;;
-
-             Public Class &lt;class-name&gt;
-             Public Function &lt;method-name&gt;(ByVal arg1 As &lt;argument-type&gt;) As &lt;return-type&gt;
-
-             //your source here
-             Return &lt;result&gt;
-             End Function
-             End Class
-         </pre>
+public class &lt;class-name&gt; {
+    public &lt;return-type&gt; &lt;method-name&gt;(&lt;argument-type&gt; arg1) {
+        //your source here
+        return &lt;result&gt;;
+    }
+}
+</pre>
 
 
-         <b>Python* Template</b><br>
-         <pre>
-             import &lt;necessary-classes&gt;
-             class &lt;class-name&gt;:
-             def &lt;method-name&gt;(self, arg1):
-             #your code here
-             return &lt;result&gt;
-         </pre>
-         <br>
+<b>Visual Basic Code Template</b><br>
+<pre>
+Imports &lt;necessary classes&gt;;
 
+Public Class &lt;class-name&gt;
+    Public Function &lt;method-name&gt;(ByVal arg1 As &lt;argument-type&gt;) As &lt;return-type&gt;
+
+        //your source here
+        Return &lt;result&gt;
+    End Function
+End Class
+</pre>
+
+
+<b>Python Template</b><br>
+<pre>
+import &lt;necessary-classes&gt
+class &lt;class-name&gt:
+    def &lt;method-name&gt(self, arg1):
+        #your code here
+        return &lt;result&gt
+</pre>
+
+<br>
          A wizard with C but rusty with C++? Don't worry! We've got it covered. Check out the
          <A href="/pl/?&module=Static&d1=google06&d2=cpp">C++ for C Programmers page</A> that shows you the basics of
          learning C++ for the competition. Also, be sure to spend time in the Practice Rooms by clicking on the
