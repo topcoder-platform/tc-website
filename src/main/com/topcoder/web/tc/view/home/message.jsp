@@ -15,8 +15,7 @@
         font-size: 11px;
         font-weight: normal;
         padding: 5px;
-        background: #003333 url( /i/tournament/tccc06/message_bg.gif ) top center repeat-x;
-    );
+        background: #003333 url(/i/tournament/tccc06/message_bg.gif) top center repeat-x;
     }
 
     A.tccc06MessageLink:link {
