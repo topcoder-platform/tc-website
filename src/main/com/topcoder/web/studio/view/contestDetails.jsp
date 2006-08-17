@@ -22,7 +22,7 @@
 <div align="center">
 <div class="contentOut">
 
-<jsp:include page="top.jsp" />
+<jsp:include page="top.jsp"/>
 <jsp:include page="topNav.jsp">
     <jsp:param name="node" value="contests"/>
 </jsp:include>
@@ -49,13 +49,17 @@
         <div class="header">Project Overview</div>
         ${contest.overview.value}
         <br><br>
-        <strong>Documentation</strong><br>
-        <c:forEach items="${contest.documents}" var="document">
-            ${document.type.description}:
-            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
-                    ${document.originalFileName}</a> <br/>
-        </c:forEach>
-        <br><br>
+
+        <c:if test="${fn:length(contest.documents)>0}">
+            <strong>Documentation</strong><br>
+            <c:forEach items="${contest.documents}" var="document">
+                ${document.type.description}:
+                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
+                        ${document.originalFileName}</a> <br/>
+            </c:forEach>
+            <br><br>
+        </c:if>
+
 
         <div class="header">Payment</div>
         ${contest.prizeDescription.value}
