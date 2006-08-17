@@ -43,7 +43,7 @@ function popHide(){
 <STYLE TYPE="text/css">
 .popUp
 {
-width: 140px;
+width: 150px;
 font-size: 10px;
 text-align: center;
 background-color: #FFFFCC;
