@@ -156,16 +156,16 @@ public class Constants implements WebConstants {
 
     public static String MEMBER_CONTACT_ENABLE_SUCCEEDED;
     public static String MEMBER_CONTACT_ENABLE;
-    
+
     public static String MEMBER_CONTACT_FROM_ADDRESS;
     public static String MEMBER_CONTACT_SUBJECT;
     public static String MEMBER_CONTACT_SUBJECT_COPY;
-    
+
     public static String VALIDATE_HANDLE;
 
     public static String BLACK_LIST;
     public static String BLOCK_HANDLE;
-    
+
     //dev pages
     public static String REVIEW_PROJECT_DETAIL;
     public static String REVIEW_PROJECTS;
@@ -198,6 +198,8 @@ public class Constants implements WebConstants {
     public static final int TCO06_SPONSOR_TERMS_ID = 20388;
     public static final int TCCC06_ALGORITHM_TERMS_OF_USE_ID = 20504;
     public static final int TCCC06_COMPONENT_TERMS_OF_USE_ID = 20503;
+    public static final int TCCC06_SPONSOR_TERMS_ID = 20523;
+    public static final int TCCC06_SPONSOR_COMPANY_QUESTION_ID = 136;
     public static int UNLOCK_CARD_PREFERENCE_ID;
     public static int JAVA_CATALOG_ID;
     public static int DOT_NET_CATALOG_ID;
