@@ -25,10 +25,13 @@ public class TCHTMLFilter implements Filter {
     private boolean onlyFilterBlocksEnabled = false;
     private boolean stripDisallowedTags = false;
     private boolean allowSymbols = true;
+    private boolean restrictImageWidth = false;
+    
     private String allowedTagsString = "";
     private String disallowedTagsString = "";
     private String allowedAttributesString = "";
     private String disallowedKeywordsString = "";
+    private int maxImageWidth = 0;
 
     private Hashtable allowedAttributes = new Hashtable();
     private List disallowedKeywords = new ArrayList();
@@ -45,6 +48,7 @@ public class TCHTMLFilter implements Filter {
     public static String[] DEFAULT_DISALLOWED_TAGS = {"o:~","st1:~"};
     public static String[] DEFAULT_ALLOWED_ATTRIBUTES = {"a:href","img:src,height,width"};
     public static String[] DEFAULT_DISALLOWED_KEYWORDS = {"javascript"};
+    public static int DEFAULT_MAX_IMAGE_WIDTH = 500;
     
     /**
      * Creates a new default HTML filter.
@@ -92,7 +96,7 @@ public class TCHTMLFilter implements Filter {
             }
         }
         
-        Log.info("allowedAttributesString: "+allowedAttributesString);
+        maxImageWidth = DEFAULT_MAX_IMAGE_WIDTH;
     }
 
     public String getName() {
@@ -170,6 +174,26 @@ public class TCHTMLFilter implements Filter {
 
     public void setAllowSymbols(boolean allowSymbols) {
         this.allowSymbols = allowSymbols;
+    }
+    
+    public boolean isRestrictImageWidth() {
+    	return restrictImageWidth;
+    }
+    
+    public void setRestrictImageWidth(boolean restrictImageWidth) {
+    	this.restrictImageWidth = restrictImageWidth;
+    }
+    
+    public String getMaxImageWidth() {
+    	return String.valueOf(maxImageWidth);
+    }
+    
+    public void setMaxImageWidth(String maxImageWidth) {
+    	try {
+    		this.maxImageWidth = Integer.parseInt(maxImageWidth);
+    	} catch (NumberFormatException nfe) {
+    		this.maxImageWidth = DEFAULT_MAX_IMAGE_WIDTH;
+    	}
     }
 
     public String getAllowedTagsString() {
@@ -653,6 +677,18 @@ public class TCHTMLFilter implements Filter {
                         Attribute attr = tag.getAttributeEx("src");
                         attr.setValue("#");
                     }
+                }
+                // todo: limit width
+                String widthStr = tag.getAttribute("width");
+                try {
+                	int width = Integer.parseInt(widthStr);
+                	if (width > maxImageWidth) {
+	                	
+	                } else {
+	                	
+	                }	
+                } catch (NumberFormatException nfe) {
+                	
                 }
             }
             else {
