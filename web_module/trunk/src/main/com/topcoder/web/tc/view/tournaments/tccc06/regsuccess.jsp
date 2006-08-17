@@ -7,9 +7,19 @@
 
     <title>2006 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
     <link type="text/css" rel="stylesheet" href="/css/TCCC06style.css"/>
+    <script type="text/javascript">
+        function doit() {
+            var newin = window.open('http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=1');
+        }
+    </script>
+
+
     <c:set value="<%=SubmitAlgoRegistration.AOL_SURVEY%>" var="aolSurvey"/>
     <c:if test="${requestScope[aolSurvey]}">
-        <META HTTP-EQUIV="refresh" content="10;url=http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=1">
+        <%--
+                <META HTTP-EQUIV="refresh" content="10;url=http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=1">
+        --%>
+        <META HTTP-EQUIV="refresh" content="10;url=javascript:doit();">
     </c:if>
 </head>
 
