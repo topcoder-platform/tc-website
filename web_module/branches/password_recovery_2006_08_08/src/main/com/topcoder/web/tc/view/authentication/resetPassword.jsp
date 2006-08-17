@@ -11,17 +11,6 @@
 <head>
 <title>Password Reset</title>
 
-<SCRIPT type="text/javascript">
-function setPassword() {
-	if (document.frmPwd.password.value != document.frmPwd.passwordVerif.value) {
-		alert("Password confirmation does not match password");
-		return;
-	}
-	document.frmPwd.submit();
-}
-</SCRIPT>
-
-
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
 <jsp:param name="key" value="tc_reg"/>

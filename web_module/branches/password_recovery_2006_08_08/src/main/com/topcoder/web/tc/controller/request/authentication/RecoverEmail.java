@@ -64,7 +64,7 @@ public class RecoverEmail extends ShortHibernateProcessor {
     	
     	PasswordRecovery pr = new PasswordRecovery();
     	pr.setUser(u);
-    	pr.setRecoveryAddress(email.length() > 0 ? email : u.getPrimaryEmailAddress().getAddress());
+    	pr.setRecoveryAddress(email != null ? email : u.getPrimaryEmailAddress().getAddress());
     	pr.setExpireDate(expire.getTime());
     	DAOUtil.getFactory().getPasswordRecoveryDAO().saveOrUpdate(pr);
     	
