@@ -75,7 +75,12 @@ public class TCCC06ComponentTermsAgree extends TermsAgreeBase {
                     //dont' have anything to do really
                 }
             }
-            setSuccessPage();
+            if (hasErrors()) {
+                setNextPage("/tournaments/tccc06/terms.jsp");
+                setIsNextPageInContext(true);
+            } else {
+                setSuccessPage();
+            }
         }
     }
 
