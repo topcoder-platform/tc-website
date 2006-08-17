@@ -84,13 +84,17 @@ public class ScreeningLogger {
      * <strong>Purpose</strong>:
      * Submission version id.
      */
-    private long submissionVId = -1;
+    private long taskId = -1;
 
     /**
      * <strong>Purpose</strong>:
      * The id generator to generate the screening result ids.
      */
     private IdGen idGen;
+
+
+    private IScreeningRequest request = null;
+
 
     /**
      * <strong>Purpose</strong>:
@@ -156,10 +160,10 @@ public class ScreeningLogger {
      * @param userId The user for audit purposes.
      * @param submissionVId The submission id to log.
      */
-    public ScreeningLogger(long userId, long submissionVId) {
+    public ScreeningLogger(long userId, long taskId) {
         this();
         this.userId = userId;
-        setSubmissionVId(submissionVId);
+        setTaskId(taskId);
     }
 
     /**
@@ -201,13 +205,13 @@ public class ScreeningLogger {
             conn = DbHelper.getConnection();
             stmt = conn.prepareStatement("INSERT INTO screening_results" +
                 "(screening_results_id, dynamic_response_text, screening_response_id, create_user, " +
-                " create_date, submission_v_id) VALUES(?, ?, ?, ?, ?, ?)");
+                " create_date, screening_task_id) VALUES(?, ?, ?, ?, ?, ?)");
             stmt.setLong(1, idGen.nextId());
             stmt.setString(2, message.getResponseText());
             stmt.setLong(3, message.getResponseId());
             stmt.setLong(4, this.userId);
             stmt.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
-            stmt.setLong(6, this.submissionVId);
+            stmt.setLong(6, this.taskId);
 
             if (!executeUpdate(stmt, maxRetries, retrySleepTime)) {
                 throw new DatabaseException("Log result failed after " + maxRetries + " retries.");
@@ -234,6 +238,10 @@ public class ScreeningLogger {
      * @throws DatabaseException if logging fails.
      */
     public void log(ScreeningResult message) {
+        if (!(this.request instanceof SubmissionScreeningRequest)) {
+            return;
+        }
+
         if (message == null) {
             throw new NullPointerException("message should not be null.");
         }
@@ -243,7 +251,7 @@ public class ScreeningLogger {
             conn = DbHelper.getConnection();
             stmt = conn.prepareStatement("UPDATE submission SET passed_auto_screening = ? WHERE submission_v_id = ?");
             stmt.setBoolean(1, message.isSuccess());
-            stmt.setLong(2, this.submissionVId);
+            stmt.setLong(2, this.request.getSubmissionVId());
 
             if (!executeUpdate(stmt, maxRetries, retrySleepTime)) {
                 throw new DatabaseException("Log result failed after " + maxRetries + " retries.");
@@ -264,8 +272,8 @@ public class ScreeningLogger {
      *
      * @return The database identifier of the submitter.
      */
-    public long getSubmissionVId() {
-        return this.submissionVId;
+    public long getTaskId() {
+        return this.taskId;
     }
 
     /**
@@ -277,25 +285,19 @@ public class ScreeningLogger {
      *
      * @param submissionId The database identifier of the submitter.
      */
-    public void setSubmissionVId(long submissionVId) {
-/*        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        try {
-            conn = DbHelper.getConnection();
-            stmt = conn.prepareStatement("SELECT submission_v_id FROM submission WHERE submission_id = ? AND cur_version = 1");
-            stmt.setLong(1, submissionId);
-            rs = stmt.executeQuery();
-            rs.next();
-            this.submissionVId = rs.getLong(1);
-        } catch (SQLException sqle) {
-            throw new DatabaseException("Unable to get version id.", sqle);
-        } finally {
-            DbHelper.dispose(conn, stmt, rs);
-        }
-        this.submissionId = submissionId;*/
-        this.submissionVId = submissionVId;
+    public void setTaskId(long taskId) {
+        this.taskId = taskId;
     }
+
+
+    public IScreeningRequest getRequest() {
+        return this.request;
+    }
+
+    public void setRequest(IScreeningRequest request) {
+        this.request = request;
+    }
+
 
     /**
      * <strong>Purpose</strong>:

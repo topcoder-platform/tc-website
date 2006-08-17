@@ -103,31 +103,25 @@ public class ScreeningTool {
      *
      * @return true if screening process succedeed.
      */
-    public boolean screen(Logger log, File file, ProjectType type, long submissionVId) {
+    public boolean screen(IScreeningRequest request, Logger log) {
         boolean retVal = true;
         if (log == null) {
             throw new NullPointerException("log should not be null.");
         }
-        if (file == null) {
-            throw new NullPointerException("file should not be null.");
-        }
-        if (type == null) {
-            throw new NullPointerException("type should not be null.");
-        }
-        if (!this.rules.containsKey(type)) {
-            return true;
+        if (request == null) {
+            throw new NullPointerException("request should not be null.");
         }
 
-        File root = new File(tempFolder, String.valueOf(submissionVId));
+        File root = new File(tempFolder, String.valueOf(request.getProjectType().getName() + request.getSubmissionVId()));
         ScreeningLogger logger = new ScreeningLogger();
-        logger.setSubmissionVId(submissionVId);
+        logger.setRequest(request);
 
         try {
             boolean success = true;
-            for (Iterator itr = ((List) this.rules.get(type)).iterator(); itr.hasNext();) {
+            for (Iterator itr = ((List) this.rules.get(request.getProjectType())).iterator(); itr.hasNext();) {
                 ScreeningRule rule = (ScreeningRule) itr.next();
                 long start = System.currentTimeMillis();
-                boolean result = rule.screen(file, root, logger);
+                boolean result = rule.screen(new File(request.getSubmissionPath()), root, logger);
                 long end = System.currentTimeMillis();
                 log.info(rule.getClass().getName() + ": " + (result ? "pass" : "fail") + " with " + (end - start) + "ms.");
                 if (!result) {

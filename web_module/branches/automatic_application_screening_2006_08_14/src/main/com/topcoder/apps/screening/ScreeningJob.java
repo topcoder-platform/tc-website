@@ -601,8 +601,7 @@ public class ScreeningJob extends TimerTask {
             log.info("Current load " + getCurrentLoad() + "/" + num);
 
             // runs screening, if succeded, completes the request, otherwise, rolbacks it to be reprocessed.
-            boolean successfullScreen = tool.screen(log, new File(request.getSubmissionPath()),
-                request.getProjectType(), request.getSubmissionVId());
+            boolean successfullScreen = tool.screen(request, log);
             if (successfullScreen) {
                 log.info("tool.screen completed successfully.");
                 completeRequest(request.getTaskId());
