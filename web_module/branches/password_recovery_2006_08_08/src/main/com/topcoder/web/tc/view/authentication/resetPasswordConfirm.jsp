@@ -1,6 +1,6 @@
-<%@ page contentType="text/html; charset=ISO-8859-1"%>
+<%@ page contentType="text/html; charset=utf-8"
+         import="com.topcoder.web.tc.Constants" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -9,9 +9,9 @@
 
 <body>
 Your password has been reseted.
-<c:if test="${not empty param.em}" >
-	Your email address has been set to <c:out value="${param.em}" escapeXml="true"/>.
-</c:if>
+<% if (request.getAttribute(Constants.EMAIL) != null) { %>
+	Your email address has been set to <%= request.getAttribute(Constants.EMAIL) %>.
+<% } %>
 <a href="/tc?module=Login">Login</a>
 </body>
 </html>

@@ -11,6 +11,9 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.PasswordRecovery;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.validation.StringInput;
+import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.reg.validation.EmailValidator;
 import com.topcoder.web.tc.Constants;
 
 /**
@@ -31,12 +34,20 @@ public class RecoverEmail extends ShortHibernateProcessor {
 
         User u = DAOUtil.getFactory().getUserDAO().find(new Long(userId));
         
-        // if different mail, check secret question.
+        // if different mail, check that email is valid and the secret question.
     	if (email.length() > 0) {
         	if (!u.getSecretQuestion().getResponse().equalsIgnoreCase(response)) {
         		addError("error", "Incorrect response");
-        		
-        		getRequest().setAttribute(FindUser.SECRET_QUESTION, u.getSecretQuestion().getQuestion());
+        	}
+        	
+        	ValidationResult vr = new EmailValidator().validate(new StringInput(email));
+        	
+        	if (!vr.isValid()) {
+        		addError("error", vr.getMessage());
+        	}
+        	
+        	if (hasErrors()) {
+        		getRequest().setAttribute(FindUser.SECRET_QUESTION, StringUtils.htmlEncode(u.getSecretQuestion().getQuestion()));
         		getRequest().setAttribute(Constants.CODER_ID, userId);
         		
                 setNextPage(Constants.SECRET_QUESTION);

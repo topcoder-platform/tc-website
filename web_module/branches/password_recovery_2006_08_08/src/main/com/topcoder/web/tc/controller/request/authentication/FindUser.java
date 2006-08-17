@@ -39,8 +39,6 @@ public class FindUser extends ShortHibernateProcessor {
         String email = StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL));
         boolean hasMailAccess = "true".equals(getRequest().getParameter(HAS_MAIL_ACCESS));
         
-         log.info("first name: " +firstName);
-         log.info("first name encoded: " +StringUtils.htmlEncode(firstName));
         User user = null;
         
         if (handle.length() > 0) {
@@ -85,7 +83,7 @@ public class FindUser extends ShortHibernateProcessor {
             setIsNextPageInContext(false);
             
         } else {
-    		getRequest().setAttribute(SECRET_QUESTION, user.getSecretQuestion().getQuestion());
+    		getRequest().setAttribute(SECRET_QUESTION, StringUtils.htmlEncode(user.getSecretQuestion().getQuestion()));
     		getRequest().setAttribute(Constants.CODER_ID, user.getId().toString());
             setNextPage(Constants.SECRET_QUESTION);
             setIsNextPageInContext(true);        	

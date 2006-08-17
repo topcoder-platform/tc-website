@@ -1,11 +1,10 @@
-<%@ page contentType="text/html; charset=ISO-8859-1"
+<%@ page contentType="text/html; charset=utf-8"
          import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.tc.controller.request.authentication.Login,
                  com.topcoder.web.tc.controller.request.authentication.FindUser,                 
                  com.topcoder.web.tc.controller.request.authentication.ResetPassword,                 
                  com.topcoder.web.tc.Constants" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -33,8 +32,8 @@ function setPassword() {
 
 <form method="post" name="frmPwd" action="/tc">
 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ResetPassword"/>
-<input type="hidden" name="<%= ResetPassword.PASSWORD_RECOVERY_ID %>" value='<c:out value="${param.pr}" escapeXml="true"/>' />
-<input type="hidden" name="<%= ResetPassword.HASH_CODE %>" value='<c:out value="${param.hc}" escapeXml="true"/>'/>
+<input type="hidden" name="<%= ResetPassword.PASSWORD_RECOVERY_ID %>" value='<%= request.getAttribute(ResetPassword.PASSWORD_RECOVERY_ID) %>' />
+<input type="hidden" name="<%= ResetPassword.HASH_CODE %>" value='<%= request.getAttribute(ResetPassword.HASH_CODE) %>'/>
 
          <tc-webtag:errorIterator id="err" name="error"><%=err%></tc-webtag:errorIterator></span>
 <br>

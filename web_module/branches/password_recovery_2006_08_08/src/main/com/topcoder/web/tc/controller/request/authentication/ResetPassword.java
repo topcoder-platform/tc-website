@@ -116,12 +116,13 @@ public class ResetPassword extends ShortHibernateProcessor {
 		            }
 				}
 				u.setEmailAddresses(s);
-				getRequest().setAttribute("email", passwordRecovery.getRecoveryAddress());
+				getRequest().setAttribute(Constants.EMAIL, passwordRecovery.getRecoveryAddress());
 			}
 			
 			
 			DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
 	
+			
 	        setNextPage(Constants.RESET_PASSWORD_CONFIRM);
 	        setIsNextPageInContext(true);
     	} catch (Exception e) {
