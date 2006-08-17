@@ -4,11 +4,25 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Connection;
 import java.util.Date;
 
 import com.topcoder.apps.review.ConfigHelper;
 import com.topcoder.apps.review.EJBHelper;
+import com.topcoder.apps.review.FailureResult;
+import com.topcoder.apps.review.ScreeningRetrieval;
 import com.topcoder.apps.review.SubmissionDownload;
+import com.topcoder.apps.review.document.DocumentManagerLocal;
+import com.topcoder.apps.review.document.InitialSubmission;
+import com.topcoder.apps.review.persistence.Common;
+import com.topcoder.apps.review.projecttracker.Project;
+import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
+import com.topcoder.apps.review.projecttracker.UserProjectInfo;
+import com.topcoder.apps.screening.ProjectType;
+import com.topcoder.apps.screening.ScreeningJob;
+import com.topcoder.apps.screening.SpecificationScreeningRequest;
+import com.topcoder.apps.screening.ScreeningResponse;
+import com.topcoder.security.TCSubject;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
@@ -42,7 +56,8 @@ public class UploadApplicationSubmissionTask extends BaseProcessor {
                     InputStream is = file.getInputStream();
                     String remoteName = file.getRemoteFileName();
 
-                    String destFilename = "Application_" + remoteName;
+                    String destFilename = "Application_" + getUser().getId() + "_" + FormatMethodFactory.getDefaultDateFormatMethod("yyyy-MM-dd-HH-mm-ss-SSS").format(new Date());
+
                     log.info("Dest: " + ConfigHelper.getSubmissionPathPrefix() + destFilename);
 
                     try {
@@ -52,6 +67,38 @@ public class UploadApplicationSubmissionTask extends BaseProcessor {
                     }
 
                     getRequest().setAttribute("file_nanme", remoteName);
+
+                    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    // Added by WishingBone - Automated Screening
+                    ProjectType type = ProjectType.APPLICATION;
+                    Connection conn = null;
+                    long versionId = 1;
+
+//                    try {
+                        conn = Common.getDataSource().getConnection();
+
+//                        initialSubmissions[0].setURL(new File(ConfigHelper.getSubmissionPathPrefix() + destFilename).toURL());
+//                        documentManager.saveInitialSubmission(initialSubmissions[0], tcsUser);
+
+//                        versionId = ScreeningJob.getVersionId(initialSubmissions[0].getId(), conn);
+                        ScreeningJob.placeRequest(new SpecificationScreeningRequest(-1, 0,
+                                versionId,
+                                ConfigHelper.getSubmissionPathPrefix() + destFilename,
+                                type),
+                                conn);
+
+                        log.info("Task saved");
+
+
+/*                    } finally {
+                        try {
+                            conn.close();
+                        } catch (Exception e) {
+                            // ignore
+                        }
+                    }*/
+
+//                    return new ScreeningRetrieval(versionId);
 
                     setNextPage("/applications/upload_results.jsp");
                     setIsNextPageInContext(true);
