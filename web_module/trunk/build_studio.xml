@@ -228,9 +228,7 @@
     </target>
 
     <target name="deploy-studio" depends="war-studio,build-security">
-        <antcall target="package-TCUser"/>
-        <antcall target="package-TCAuth"/>
-        <antcall target="package-TCFilters"/>
+        <antcall target="package-TCJive"/>
         <antcall target="package-EJB-MessageHistoryBean"/>
         <antcall target="package-EJB-ForumsBean"/>
 
@@ -241,15 +239,7 @@
 
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
-        <copy todir="${jboss_lib}" file="${bin}/tcauth.jar"/>
-        <copy todir="${jboss_lib}" file="${bin}/tcuser.jar"/>
-        <copy todir="${jboss_lib}" file="${bin}/tcfilters.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/velocity-dep.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/webwork.jar"/>
+        <copy todir="${jboss_lib}" file="${bin}/tcjive.jar"/>
         <copy todir="${jboss_lib}" file="${ejb_jars}/security.jar"/>
 
         <copy todir="${jboss_lib}" file="${jive.dir}/webwork.jar"/>
@@ -258,8 +248,16 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/object_formatter.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/upload.jar"/>
 
-
+    	<!-- uncomment for new Jive releases, or when deploying on a new machine
         <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/velocity-dep.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/webwork.jar"/>
+        -->
+        	
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
         <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
@@ -289,30 +287,15 @@
         </copy>
 
     </target>
-
-
-    <target name="package-TCUser" depends="compile">
-        <jar jarfile="${bin}/tcuser.jar">
+	
+	<target name="package-TCJive" depends="compile">
+        <jar jarfile="${jars.dir}/tcjive.jar">
             <fileset dir="${classes}/">
-                <include name="com/topcoder/web/forums/model/TCUser.class"/>
-                <include name="com/topcoder/web/forums/model/TCUserManager.class"/>
-                <include name="com/topcoder/web/forums/model/Common.class"/>
-            </fileset>
-        </jar>
-    </target>
-
-    <target name="package-TCAuth" depends="compile">
-        <jar jarfile="${bin}/tcauth.jar">
-            <fileset dir="${classes}/">
-                <include name="com/topcoder/web/forums/model/TCAuthFactory.class"/>
-                <include name="com/topcoder/web/forums/model/TCAuthToken.class"/>
-            </fileset>
-        </jar>
-    </target>
-
-    <target name="package-TCFilters" depends="compile">
-        <jar jarfile="${bin}/tcfilters.jar">
-            <fileset dir="${classes}/">
+            	<include name="com/topcoder/web/forums/model/TCUser.class"/>
+            	<include name="com/topcoder/web/forums/model/TCUserManager.class"/>
+            	<include name="com/topcoder/web/forums/model/Common.class"/>
+            	<include name="com/topcoder/web/forums/model/TCAuthFactory.class"/>
+            	<include name="com/topcoder/web/forums/model/TCAuthToken.class"/>
                 <include name="com/topcoder/web/forums/util/filter/*.class"/>
             </fileset>
             <fileset dir="${resources}/forums/filter">
