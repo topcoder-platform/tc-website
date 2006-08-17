@@ -42,7 +42,7 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 <p>
-    5.4.6 - 2006.08.xx
+    5.4.6 - 2006.08.17
     <ul>
         <li>Fix bug in member contact that enabled non rated members to send messages.</li>
         <li>Fix bug in privatelabel registration process where one could not update the phone number on an account that
