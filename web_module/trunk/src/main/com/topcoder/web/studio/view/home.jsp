@@ -54,17 +54,105 @@
          <h2>Contests will be posted soon!</h2>
          <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</A> as a Studio member so you can receive emails when new contests arrive.
 
-<%--
-         <div align="center">
-         <table cellpadding="0" cellspacing="0">
+         <%--
+         <br><br>
+         <table cellpadding="0" cellspacing="0" class="stat" style="width:505px;">
+         <tbody>
             <tr>
-               <td><A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/home/register_now.gif" alt="Register now" /></A></td>
-               <td><A href="/?module=Static&d1=support&d2=getStarted"><img src="/i/home/need_help.gif" alt="Need help?" /></A></td>
-               <td><A href="/?module=Static&d1=contactUs"><img src="/i/home/post_project.gif" alt="Post a project" /></A></td>
+               <td class="NW">&nbsp;</td>
+               <td class="title" colspan="3">
+               Recent Winners
+               </td>
+               <td class="NE">&nbsp;</td>
             </tr>
+            <tr>
+               <td class="headerW"><div>&nbsp;</div></td>
+               <td class="header">
+               Winner
+               </td>
+               <td class="headerC">
+               Contest
+               </td>
+               <td class="headerR">
+               Prize
+               </td>
+               <td class="headerE"><div>&nbsp;</div></td>
+            </tr>
+            <% boolean even = true;%>
+            <tr class="<%=even?"light":"dark"%>">
+               <td class="valueW"><div>&nbsp;</div></td>
+               <td class="value">
+               <studio:handle coderId="119676"/>
+               </td>
+               <td class="valueC">
+               TCHS 07 Logo Contest
+               </td>
+               <td class="valueR">
+               $500.00
+               </td>
+               <td class="valueE"><div>&nbsp;</div></td>
+            </tr>
+            <% even = !even;%>
+            <tr class="<%=even?"light":"dark"%>">
+               <td class="valueW"><div>&nbsp;</div></td>
+               <td class="value">
+               <studio:handle coderId="119676"/>
+               </td>
+               <td class="valueC">
+               TCHS 07 Logo Contest
+               </td>
+               <td class="valueR">
+               $500.00
+               </td>
+               <td class="valueE"><div>&nbsp;</div></td>
+            </tr>
+            <% even = !even;%>
+            <tr class="<%=even?"light":"dark"%>">
+               <td class="valueW"><div>&nbsp;</div></td>
+               <td class="value">
+               <studio:handle coderId="119676"/>
+               </td>
+               <td class="valueC">
+               TCHS 07 Logo Contest
+               </td>
+               <td class="valueR">
+               $500.00
+               </td>
+               <td class="valueE"><div>&nbsp;</div></td>
+            </tr>
+            <% even = !even;%>
+            <tr class="<%=even?"light":"dark"%>">
+               <td class="valueW"><div>&nbsp;</div></td>
+               <td class="value">
+               <studio:handle coderId="119676"/>
+               </td>
+               <td class="valueC">
+               TCHS 07 Logo Contest
+               </td>
+               <td class="valueR">
+               $500.00
+               </td>
+               <td class="valueE"><div>&nbsp;</div></td>
+            </tr>
+            <% even = !even;%>
+            <tr class="<%=even?"light":"dark"%>">
+               <td class="valueW"><div>&nbsp;</div></td>
+               <td class="value">
+               <studio:handle coderId="119676"/>
+               </td>
+               <td class="valueC">
+               TCHS 07 Logo Contest
+               </td>
+               <td class="valueR">
+               $500.00
+               </td>
+               <td class="valueE"><div>&nbsp;</div></td>
+            </tr>
+            <% even = !even;%>
+         </tbody>
          </table>
-         </div>
---%>
+         --%>
+
       </td>
    </tr>
 </tbody>
