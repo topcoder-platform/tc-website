@@ -227,7 +227,7 @@
         </war>
     </target>
 
-	<target name="deploy-studio-full" depends="war-studio,build-security">
+	<target name="deploy-studio-full" depends="">
         <antcall target="deploy-studio"/>
 		
 		<copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
