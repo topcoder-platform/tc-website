@@ -70,11 +70,11 @@
                     </p>
 
                     <p align="center">
+                        <tc-webtag:chkBox name="<%=SubmitAlgoRegistration.AOL_SURVEY%>"/>
                         Yes, I would like to participate in an AOL&#174; research survey. By participating in the survey
                         and
                         providing my TopCoder handle, I understand that I will be entered into a raffle for a 60GB Apple
                         iPod.
-                        <INPUT TYPE="checkbox" NAME="<%=SubmitAlgoRegistration.AOL_SURVEY%>"/>I agree
                     </p>
 
                     <button name="submit" value="submit" type="submit">Submit</button>

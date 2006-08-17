@@ -2,6 +2,7 @@
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.web.tc.controller.request.tournament.tccc06.SubmitAlgoRegistration" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -36,10 +37,10 @@
                 </div>
 
                 <p align="center">
-                    Yes, I would like to participate in an AOL&#174; research survey. By participating in the survey and
+                    <tc-webtag:chkBox name="<%=SubmitAlgoRegistration.AOL_SURVEY%>"/> Yes, I would like to participate
+                    in an AOL&#174; research survey. By participating in the survey and
                     providing my TopCoder handle, I understand that I will be entered into a raffle for a 60GB Apple
                     iPod.
-                    <INPUT TYPE="checkbox" NAME="<%=SubmitAlgoRegistration.AOL_SURVEY%>"/>I agree
                 </p>
 
 
