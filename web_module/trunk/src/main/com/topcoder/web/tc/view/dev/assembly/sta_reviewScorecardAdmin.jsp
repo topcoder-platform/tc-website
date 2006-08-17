@@ -70,7 +70,7 @@
       <br><tc-webtag:handle coderId="22498968" />
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;
+      Winner
       </td>
    </tr>
    <% even = !even;%>
