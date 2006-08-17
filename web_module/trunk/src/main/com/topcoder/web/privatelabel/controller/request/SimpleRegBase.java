@@ -124,9 +124,6 @@ public abstract class SimpleRegBase extends RegistrationBase {
         if (!info.getPassword().equals(info.getPasswordConfirm())) {
             addError(Constants.PASSWORD_CONFIRM, getBundle().getProperty("error_password_mismatch"));
         }
-        if (!StringUtils.containsOnly(info.getHandle(), Constants.HANDLE_ALPHABET, false)) {
-            addError(Constants.PASSWORD, getBundle().getProperty("error_password_chars"));
-        }
 
         //check email
         if (info.getEmail().length() > Constants.MAX_EMAIL_LENGTH) {
