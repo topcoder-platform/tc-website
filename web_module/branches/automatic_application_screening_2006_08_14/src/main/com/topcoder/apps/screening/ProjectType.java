@@ -51,6 +51,12 @@ public class ProjectType extends Enum {
 
     /**
      * <strong>Purpose</strong>:
+     * Enum access for applications.
+     */
+    public static final ProjectType APPLICATION = new ProjectType("application", 5);
+
+    /**
+     * <strong>Purpose</strong>:
      * Construct with name and id.
      *
      * @param name the project type name.
@@ -101,6 +107,9 @@ public class ProjectType extends Enum {
         if (CSHARP_DEV.name.equals(name)) {
             return CSHARP_DEV;
         }
+        if (APPLICATION.name.equals(name)) {
+            return APPLICATION;
+        }
         return null;
     }
 
@@ -123,6 +132,9 @@ public class ProjectType extends Enum {
         }
         if (CSHARP_DEV.id == id) {
             return CSHARP_DEV;
+        }
+        if (APPLICATION.id == id) {
+            return APPLICATION;
         }
         return null;
     }

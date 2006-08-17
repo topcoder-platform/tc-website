@@ -10,7 +10,12 @@ package com.topcoder.apps.screening;
  * @author WishingBone
  * @version 1.0
  */
-public class ScreeningRequest {
+public abstract class ScreeningRequest implements IScreeningRequest {
+
+    /**
+     * The task id.
+     */
+    private long taskId = -1;
 
     /**
      * The submitter id.
@@ -40,44 +45,44 @@ public class ScreeningRequest {
      * @param submissionPath the submission path on file system.
      * @param projectType the project type.
      */
-    public ScreeningRequest(long submitterId, long submissionVId, String submissionPath, ProjectType projectType) {
+    public ScreeningRequest(long taskId, long submitterId, long submissionVId, String submissionPath, ProjectType projectType) {
+        this.taskId = taskId;
         this.submitterId = submitterId;
         this.submissionVId = submissionVId;
         this.submissionPath = submissionPath;
         this.projectType = projectType;
     }
 
-    /**
-     * Get the submitter id.
-     *
-     * @return the submitter id.
+    /* (non-Javadoc)
+     * @see com.topcoder.apps.screening.IScreeningRequest#getTaskId()
+     */
+    public long getTaskId() {
+        return this.taskId;
+    }
+
+    /* (non-Javadoc)
+     * @see com.topcoder.apps.screening.IScreeningRequest#getSubmitterId()
      */
     public long getSubmitterId() {
         return this.submitterId;
     }
 
-    /**
-     * Get the submission version id.
-     *
-     * @return the submission version id.
+    /* (non-Javadoc)
+     * @see com.topcoder.apps.screening.IScreeningRequest#getSubmissionVId()
      */
     public long getSubmissionVId() {
         return this.submissionVId;
     }
 
-    /**
-     * Get the submission path on file system.
-     *
-     * @return the submission path on file system.
+    /* (non-Javadoc)
+     * @see com.topcoder.apps.screening.IScreeningRequest#getSubmissionPath()
      */
     public String getSubmissionPath() {
         return this.submissionPath;
     }
 
-    /**
-     * Get the project type.
-     *
-     * @return the project type.
+    /* (non-Javadoc)
+     * @see com.topcoder.apps.screening.IScreeningRequest#getProjectType()
      */
     public ProjectType getProjectType() {
         return this.projectType;
