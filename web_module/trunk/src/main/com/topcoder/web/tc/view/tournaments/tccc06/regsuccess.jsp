@@ -35,7 +35,7 @@
                     <p>
                         You have chosen to take part in AOL's survey. This page will automatically load the survey in 10
                         seconds.
-                        If it does not, you make click
+                        If it does not, you may click
                         <a href="http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=1">here</a> .
                     </p>
                 </c:if>
