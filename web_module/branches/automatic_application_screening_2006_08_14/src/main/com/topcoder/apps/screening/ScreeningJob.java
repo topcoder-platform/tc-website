@@ -275,7 +275,7 @@ public class ScreeningJob extends TimerTask {
 
             stmt = conn.prepareStatement(
                     "SELECT st.screening_task_id, sp.specification_uploader_id, st.submission_v_id, st.submission_path, st.screening_project_type_id " +
-                    "FROM specification sp, screening_task st " +
+                    "FROM specifications sp, screening_task st " +
                     "WHERE sp.specification_id = st.specification_id AND st.screener_id IS NULL " +
                     "AND st.screening_attempts < ?");
 
