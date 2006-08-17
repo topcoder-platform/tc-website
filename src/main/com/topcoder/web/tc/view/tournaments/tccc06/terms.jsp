@@ -27,27 +27,36 @@
     <tr valign=top>
         <td valign=top align=center>
             <div class=bodySpacer>
-                <p class=bigTitle>Registration</p>
 
-                <p align="left">To complete your registration for the 2006 TopCoder Collegiate Challenge you must <b>read
-                    and agree to</b> the terms listed below.</p>
+                <form name="terms" method="POST" action="${sessionInfo.servletPath}">
+                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCCC06ComponentTermsAgree"/>
 
-                <div align="center">
-                    <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tccc06&d3=terms_content&<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.TCCC06_COMPONENT_TERMS_OF_USE_ID%>"></iframe>
-                </div>
+                    <p class=bigTitle>Registration</p>
 
-                <p align="center">
-                    <tc-webtag:chkBox name="<%=SubmitAlgoRegistration.AOL_SURVEY%>"/> Yes, I would like to participate
-                    in an AOL&#174; research survey. By participating in the survey and
-                    providing my TopCoder handle, I understand that I will be entered into a raffle for a 60GB Apple
-                    iPod.
-                </p>
+                    <p align="left">To complete your registration for the 2006 TopCoder Collegiate Challenge you must
+                        <b>read
+                            and agree to</b> the terms listed below.</p>
 
+                    <div align="center">
+                        <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tccc06&d3=terms_content&<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.TCCC06_COMPONENT_TERMS_OF_USE_ID%>"></iframe>
+                    </div>
 
-                <p align="center">
-                    <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=TCCC06ComponentTermsAgree">I
-                        agree</a> to these terms and wish to participate in the 2006 TopCoder Collegiate Challenge.
-                </p>
+                    <p align="center">
+                        <tc-webtag:chkBox name="<%=SubmitAlgoRegistration.AOL_SURVEY%>"/> Yes, I would like to
+                        participate
+                        in an AOL&#174; research survey. By participating in the survey and
+                        providing my TopCoder handle, I understand that I will be entered into a raffle for a 60GB Apple
+                        iPod.
+                    </p>
+
+                    <p align="center">
+                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">${err}
+                        <br></tc-webtag:errorIterator></span>
+                        <INPUT TYPE="checkbox" NAME="<%=Constants.TERMS_AGREE%>"/>I agree
+                    </p>
+
+                    <button name="submit" value="submit" type="submit">Submit</button>
+                </form>
             </div>
         </td>
 
