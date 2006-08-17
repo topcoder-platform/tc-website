@@ -61,11 +61,18 @@
     <tr>
         <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
         <td class="BIGPromoBox" align="center">
+<%--
 <map name="tccc_studio">
 <area shape="rect" alt="" coords="30,1,220,149" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
 <area shape="rect" alt="" coords="280,1,460,149" href="http://studio.topcoder.com" />
 </map>
-<IMG SRC="/i/home/tccc_studio.png" border="0" alt="TCCC & TopCoder Studio" usemap="#tccc_studio"/>
+<IMG SRC="/i/home/tccc06_20060817.png" border="0" alt="TCCC & TopCoder Studio" usemap="#tccc_studio"/>
+--%>
+<map name="tccc">
+<area shape="rect" alt="" coords="1,1,260,149" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
+<area shape="rect" alt="" coords="265,1,499,149" href="/tc?module=TCCC06ComponentTerms" />
+</map>
+<IMG SRC="/i/home/tccc06_20060817.png" border="0" alt="TCCC & TopCoder Studio" usemap="#tccc"/>
         </td>
         <td width="50%" class="homeLogo" align="right">&#160;</td>
     </tr>
