@@ -227,6 +227,18 @@
         </war>
     </target>
 
+	<target name="deploy-studio-full" depends="war-studio,build-security">
+        <antcall target="deploy-studio"/>
+		
+		<copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/velocity-dep.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/webwork.jar"/>
+    </target>
+	
     <target name="deploy-studio" depends="war-studio,build-security">
         <antcall target="package-TCJive"/>
         <antcall target="package-EJB-MessageHistoryBean"/>
@@ -234,9 +246,8 @@
 
         <antcall target="expand-studio"/>
     </target>
-
+	
     <target name="expand-studio" depends="">
-
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcjive.jar"/>
@@ -247,16 +258,6 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/object_formatter.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/upload.jar"/>
-
-    	<!-- uncomment for new Jive releases, or when deploying on a new machine
-        <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/velocity-dep.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/webwork.jar"/>
-        -->
         	
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
@@ -276,7 +277,6 @@
         <copy todir="${jboss_conf}/com/topcoder/servlet/request/"
               file="${resources}/com/topcoder/servlet/request/FileUpload.xml"/>
 
-
         <delete file="${jboss_home}/server/default/deploy/studio.war"/>
         <unwar src="${war.dir}/studio.war" dest="${jboss_home}/server/default/deploy/studio.war/" overwrite="yes"/>
         <delete dir="${jboss_home}/server/default/deploy/studio.war/META-INF"/>
@@ -285,7 +285,6 @@
                 <include name="Studio.properties"/>
             </fileset>
         </copy>
-
     </target>
 	
 	<target name="package-TCJive" depends="compile">
