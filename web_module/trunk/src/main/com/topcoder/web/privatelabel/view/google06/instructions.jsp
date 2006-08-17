@@ -217,12 +217,13 @@ End Class
 <pre>
 import &lt;necessary-classes&gt
 class &lt;class-name&gt:
-    def &lt;method-name&gt(self, arg1):
-        #your code here
-        return &lt;result&gt
+	def &lt;method-name&gt(self, arg1):
+		#your code here
+		return &lt;result&gt
 </pre>
 
 <br>
+
          A wizard with C but rusty with C++? Don't worry! We've got it covered. Check out the
          <A href="/pl/?&module=Static&d1=google06&d2=cpp">C++ for C Programmers page</A> that shows you the basics of
          learning C++ for the competition. Also, be sure to spend time in the Practice Rooms by clicking on the
