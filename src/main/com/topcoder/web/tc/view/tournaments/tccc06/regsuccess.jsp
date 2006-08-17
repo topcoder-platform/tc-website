@@ -8,7 +8,7 @@
     <title>2006 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
     <link type="text/css" rel="stylesheet" href="/css/TCCC06style.css"/>
     <c:set value="<%=SubmitAlgoRegistration.AOL_SURVEY%>" var="aolSurvey"/>
-    <c:if test="${request[aolSurvey]}">
+    <c:if test="${requestScope[aolSurvey]}">
         <META HTTP-EQUIV="refresh" content="10;url=http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=1">
     </c:if>
 </head>
@@ -31,7 +31,7 @@
 
                 <p align="left">
                     You have successfully registered for the 2006 TopCoder Collegiate Challenge.</p>
-                <c:if test="${request[aolSurvey]}">
+                <c:if test="${requestScope[aolSurvey]}">
                     <p>
                         You have chosen to take part in AOL's survey. This page will automatically load the survey in 10
                         seconds.
