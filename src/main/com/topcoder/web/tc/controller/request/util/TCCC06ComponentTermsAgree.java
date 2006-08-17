@@ -1,16 +1,20 @@
 package com.topcoder.web.tc.controller.request.util;
 
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCResponse;
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.ejb.user.UserEvent;
+import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.tournament.tccc06.SubmitAlgoRegistration;
 
+import javax.transaction.Status;
+import javax.transaction.TransactionManager;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @author dok
@@ -21,27 +25,60 @@ public class TCCC06ComponentTermsAgree extends TermsAgreeBase {
     //dammit, my kingdom for some multiple inheritance!!!
     private TCCC06ComponentTerms helper = new TCCC06ComponentTerms();
 
-    //overload this event, will throw exception if unsuccessful
-    protected void businessProcessing() throws TCWebException {
-        try {
-            super.businessProcessing();
+    protected void businessProcessing() throws Exception {
+        if (getUser().isAnonymous()) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        } else {
+            Calendar now = Calendar.getInstance();
+            now.setTime(new Date());
+            if (now.after(getEnd())) {
+                throw new NavigationException("The registration period for the " + getEventName() + " is over.");
+            } else if (now.before(getBeginning())) {
+                throw new NavigationException("The registration period for the " + getEventName() + " has not yet begun.");
+            } else {
+                UserTermsOfUse userTerms = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
+                if (!isRegistered()) {
+                    if (isEligible()) {
+                        String aolSurvey = getRequest().getParameter(SubmitAlgoRegistration.AOL_SURVEY);
+                        //set this just in case there is an error
+                        setDefault(SubmitAlgoRegistration.AOL_SURVEY, String.valueOf("on".equals(aolSurvey)));
+                        getRequest().setAttribute(SubmitAlgoRegistration.AOL_SURVEY, Boolean.valueOf("on".equals(aolSurvey)));
+
+                        String termsAgree = getRequest().getParameter(Constants.TERMS_AGREE);
+                        if ("on".equals(termsAgree)) {
+                            TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+                            tm.begin();
+                            try {
+                                UserEvent userEvent = (UserEvent) createEJB(getInitialContext(), UserEvent.class);
+                                userEvent.createUserEvent(getUser().getId(), Constants.TCCC06_EVENT_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
+                                log.info("registering " + getUser().getId() + " for the " + getEventName());
+                                userTerms.createUserTermsOfUse(getUser().getId(), getTermsId(), DBMS.OLTP_DATASOURCE_NAME);
+                            } catch (Exception e) {
+                                if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                                    tm.rollback();
+                                }
+                                throw new TCWebException(e);
+                            }
+                            tm.commit();
+
+                            refreshCache();
+
+                        } else {
+                            addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
+                        }
 
 
-            String aolSurvey = getRequest().getParameter(SubmitAlgoRegistration.AOL_SURVEY);
-            //set this just in case there is an error
-            setDefault(SubmitAlgoRegistration.AOL_SURVEY, String.valueOf("on".equals(aolSurvey)));
-            getRequest().setAttribute(SubmitAlgoRegistration.AOL_SURVEY, Boolean.valueOf("on".equals(aolSurvey)));
-
-            //if we're here, this is successful
-            //todo this should really get wrapped in a transaction with the parent class
-            UserEvent userEvent = (UserEvent) createEJB(getInitialContext(), UserEvent.class);
-            userEvent.createUserEvent(getUser().getId(), Constants.TCCC06_EVENT_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
-        } catch (TCWebException e) {
-            throw e;
-        } catch (Exception e) {
-            throw new TCWebException(e);
+                    } else {
+                        throw new NavigationException("You are not eligible to register for the " + getEventName());
+                    }
+                } else {
+                    //dont' have anything to do really
+                }
+            }
+            setSuccessPage();
         }
     }
+
 
     /**
      * We need this method so that we can set the request on our
