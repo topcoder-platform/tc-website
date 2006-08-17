@@ -252,10 +252,10 @@ public class ScreeningJob extends TimerTask {
         try {
             conn = DbHelper.getConnection();
             stmt = conn.prepareStatement(
-                "SELECT st.screening_task_id, submitter_id, screening_task.submission_v_id, submission_path, screening_project_type_id " +
-                "FROM submission, screening_task " +
-                "WHERE submission.submission_v_id = screening_task.submission_v_id AND screener_id IS NULL " +
-                "AND screening_attempts < ?");
+                "SELECT st.screening_task_id, su.submitter_id, st.submission_v_id, st.submission_path, st.screening_project_type_id " +
+                "FROM submission su, screening_task st " +
+                "WHERE su.submission_v_id = st.submission_v_id AND st.screener_id IS NULL " +
+                "AND st.screening_attempts < ?");
 
             stmt.setLong(1, maxScreeningAttempts);
             rs = stmt.executeQuery();
@@ -274,10 +274,10 @@ public class ScreeningJob extends TimerTask {
             stmt.close();
 
             stmt = conn.prepareStatement(
-                "SELECT st.screening_task_id, sp.specification_uploader_id, st.submission_v_id, st.submission_path, st.screening_project_type_id " +
-                "FROM specification sp, screening_task st" +
-                "WHERE sp.specification_id = st.specification_id AND screener_id IS NULL " +
-                "AND screening_attempts < ?");
+                    "SELECT st.screening_task_id, sp.specification_uploader_id, st.submission_v_id, st.submission_path, st.screening_project_type_id " +
+                    "FROM specification sp, screening_task st " +
+                    "WHERE sp.specification_id = st.specification_id AND st.screener_id IS NULL " +
+                    "AND st.screening_attempts < ?");
 
             stmt.setLong(1, maxScreeningAttempts);
             rs = stmt.executeQuery();
