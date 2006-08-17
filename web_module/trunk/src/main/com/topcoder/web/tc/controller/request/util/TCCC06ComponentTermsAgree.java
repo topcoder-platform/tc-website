@@ -27,7 +27,7 @@ public class TCCC06ComponentTermsAgree extends TermsAgreeBase {
             super.businessProcessing();
 
 
-            String aolSurvey = getRequest().getParameter(Constants.TERMS_AGREE);
+            String aolSurvey = getRequest().getParameter(SubmitAlgoRegistration.AOL_SURVEY);
             //set this just in case there is an error
             setDefault(SubmitAlgoRegistration.AOL_SURVEY, String.valueOf("on".equals(aolSurvey)));
             getRequest().setAttribute(SubmitAlgoRegistration.AOL_SURVEY, Boolean.valueOf("on".equals(aolSurvey)));

@@ -21,7 +21,7 @@ public class SubmitAlgoRegistration extends ViewAlgoRegistration {
     protected void regProcessing() throws Exception {
 
         String termsAgree = getRequest().getParameter(Constants.TERMS_AGREE);
-        String aolSurvey = getRequest().getParameter(Constants.TERMS_AGREE);
+        String aolSurvey = getRequest().getParameter(AOL_SURVEY);
         //set this just in case there is an error
         setDefault(AOL_SURVEY, String.valueOf("on".equals(aolSurvey)));
         getRequest().setAttribute(AOL_SURVEY, Boolean.valueOf("on".equals(aolSurvey)));
