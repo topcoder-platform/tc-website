@@ -50,6 +50,8 @@ public class RecoverEmail extends ShortHibernateProcessor {
         		getRequest().setAttribute(FindUser.SECRET_QUESTION, StringUtils.htmlEncode(u.getSecretQuestion().getQuestion()));
         		getRequest().setAttribute(Constants.CODER_ID, userId);
         		
+        		setDefault(Constants.EMAIL, email);
+        		setDefault(SECRET_QUESTION_RESPONSE, response);
                 setNextPage(Constants.SECRET_QUESTION);
                 setIsNextPageInContext(true);
                 return;

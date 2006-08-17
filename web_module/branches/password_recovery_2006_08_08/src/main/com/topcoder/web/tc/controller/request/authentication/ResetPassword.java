@@ -50,6 +50,9 @@ public class ResetPassword extends ShortHibernateProcessor {
 	        String passwordVerif = StringUtils.checkNull(getRequest().getParameter(PASSWORD_VERIF));
 		        
 	        if (passwordRecoveryId == null) {
+				getRequest().setAttribute(PASSWORD_RECOVERY_ID, StringUtils.htmlEncode(passwordRecoveryId));
+				getRequest().setAttribute(HASH_CODE, StringUtils.htmlEncode(rowHashCode));
+
 		        setNextPage(Constants.RESET_PASSWORD);
 		        setIsNextPageInContext(true);
 		        return;
@@ -122,8 +125,6 @@ public class ResetPassword extends ShortHibernateProcessor {
 			
 			DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
 	
-			getRequest().setAttribute(PASSWORD_RECOVERY_ID, StringUtils.htmlEncode(passwordRecoveryId));
-			getRequest().setAttribute(HASH_CODE, StringUtils.htmlEncode(rowHashCode));
 	        setNextPage(Constants.RESET_PASSWORD_CONFIRM);
 	        setIsNextPageInContext(true);
     	} catch (Exception e) {
