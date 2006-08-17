@@ -36,9 +36,9 @@ public class Helper {
 		ResultSetContainer ratings = (ResultSetContainer) dai.getData(r).get("coder_all_ratings");
 
 		return ratings.getIntItem(0, "algorithm_rating") > 0 ||
-				ratings.getIntItem(0, "design_rating") <= 0 ||
-				ratings.getIntItem(0, "development_rating") <= 0 ||
-				ratings.getIntItem(0, "hs_algorithm_rating") <= 0;
+				ratings.getIntItem(0, "design_rating") > 0 ||
+				ratings.getIntItem(0, "development_rating") > 0 ||
+				ratings.getIntItem(0, "hs_algorithm_rating") > 0;
 		}
 
 }
