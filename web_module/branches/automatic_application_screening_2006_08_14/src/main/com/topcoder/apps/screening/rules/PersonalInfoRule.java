@@ -53,7 +53,7 @@ public class PersonalInfoRule implements ScreeningRule {
      */
     public boolean screen(File file, File root, ScreeningLogger logger) {
         try {
-            Map infos = fetchInfos(logger.getSubmissionVId());
+            Map infos = fetchInfos(logger.getRequest().getSubmissionVId());
             matchFile(root, infos, logger);
         } catch (DatabaseException dbe) {
             // propagate database exception so submission would be rescreened.
