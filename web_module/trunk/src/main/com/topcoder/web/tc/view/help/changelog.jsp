@@ -48,6 +48,7 @@
             did not already contain a phone number</li>
         <li>Fix the password reminder email for private label events so that doesn't munge non ascii characters</li>
         <li>fix XSS hole in all login pages</li>
+        <li>Allow private label event users the ability to use any character in their password</li>
     </ul>
 </p>
 
