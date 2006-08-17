@@ -17,13 +17,12 @@ import com.topcoder.shared.util.logging.Logger;
 public class ViewMyOpenProjects implements Model {
 
     static private Logger log = Logger.getLogger(ViewMyOpenProjects.class);
-    
+
     /**
      * Retrieves all the opened projects associated with a user (is which the user has any role - submitted, reviewer,
      * product manager).
      *
      * @param data an OnlineReviewData object with the populated user
-     *
      * @return a ProjectsRetrieval object populated with an array of the requested projects
      *         a FailureResult object if the data object is not populated correctly
      *         a FailureResult containing an exception in case one is thrown
@@ -52,51 +51,13 @@ public class ViewMyOpenProjects implements Model {
 
             // strip closed projects
             int j = 0;
+            boolean isAdmin = PermissionHelper.isAdmin(user);
             for (int i = 0; i < projects.length; i++) {
                 if (!PhaseHelper.isClosed(projects[i])) {
-
-                    // in non-submit phase we have to filter projects for 'fake' submitters
-/*
-                    if (!PhaseHelper.canSubmit(projects[i])) {
-                        // determine if the user has only the role of submitter
-                        boolean isSubmitterOnly = false;
-                        UserRole[] roles = projects[i].getUserRoles();
-                        for (int k = 0; k < roles.length; k++) {
-                            if (roles[k].getUser().equals(user)) {
-                                if (RoleHelper.isSubmitter(roles[k])) {
-                                    // found the submitter role
-                                    isSubmitterOnly = true;
-                                } else {
-                                    // the user is something else than submitter, so break
-                                    isSubmitterOnly = false;
-                                    break;
-                                }
-                            }
-                        }
-
-                        // Commented out / FatClimber
-                        // if the user has only submitter role, check if he did submit
-//                        if (isSubmitterOnly) {
-//                            Project project = projectTracker.getProject(projects[i], user.getTCSubject());
-//                            InitialSubmission[] submissions =
-//                                documentManager.getInitialSubmissions(project, user.getTCSubject());
-//                            if (submissions == null
-//                                    || submissions.length != 1
-//                                    || submissions[0].getSubmitter().getId() != user.getId()
-//                                    || !submissions[0].isSubmitted()) {
-//                                // if he did not submit then we skip this project
-//                                LogHelper.log("Stripped project " + project.getName()
-//                                              + " for 'fake' submitter " + user.getHandle());
-//                                continue;
-//                            }
-//                        }
-                    }
-*/
-
                     // for admins the project tracker returns all projects so we have to retain only those for which
                     // the admin is a product manager
                     boolean isPM = RoleHelper.isProductManager(user, projects[i]);
-                    if (!PermissionHelper.isAdmin(user) || isPM) {
+                    if (!isAdmin || isPM) {
                         projects[j++] = projects[i];
                     }
                 }
