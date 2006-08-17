@@ -27,7 +27,7 @@ import com.topcoder.web.tc.Constants;
 
 
 /**
- * If PASSWORD_RECOVERY_ID parameter is not passed, it just redirects to the reset password page.
+ * If password is not passed, it just redirects to the reset password page.
  * If it is passed, it changes the password for a user.
  * It receives the id for a row in password_recovery table, as well as it hash code, and if this is
  * ok and the new password is valid, then is changed.
@@ -44,12 +44,12 @@ public class ResetPassword extends ShortHibernateProcessor {
 
     protected void dbProcessing() throws TCWebException {
     	try {
-	        String passwordRecoveryId = StringUtils.checkNull(getRequest().getParameter(PASSWORD_RECOVERY_ID));
-	        String rowHashCode = StringUtils.checkNull(getRequest().getParameter(HASH_CODE));
-	        String password = StringUtils.checkNull(getRequest().getParameter(PASSWORD)); 
-	        String passwordVerif = StringUtils.checkNull(getRequest().getParameter(PASSWORD_VERIF));
+	        String passwordRecoveryId = getRequest().getParameter(PASSWORD_RECOVERY_ID);
+	        String rowHashCode = getRequest().getParameter(HASH_CODE);
+	        String password = getRequest().getParameter(PASSWORD); 
+	        String passwordVerif = getRequest().getParameter(PASSWORD_VERIF);
 		        
-	        if (passwordRecoveryId == null) {
+	        if (password == null) {
 				getRequest().setAttribute(PASSWORD_RECOVERY_ID, StringUtils.htmlEncode(passwordRecoveryId));
 				getRequest().setAttribute(HASH_CODE, StringUtils.htmlEncode(rowHashCode));
 
