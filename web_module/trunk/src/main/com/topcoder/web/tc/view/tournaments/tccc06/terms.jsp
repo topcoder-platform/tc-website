@@ -1,5 +1,6 @@
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
+<%@ page import="com.topcoder.web.tc.controller.request.tournament.tccc06.SubmitAlgoRegistration" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -35,9 +36,17 @@
                 </div>
 
                 <p align="center">
+                    Yes, I would like to participate in an AOL&#174; research survey. By participating in the survey and
+                    providing my TopCoder handle, I understand that I will be entered into a raffle for a 60GB Apple
+                    iPod.
+                    <INPUT TYPE="checkbox" NAME="<%=SubmitAlgoRegistration.AOL_SURVEY%>"/>I agree
+                </p>
+
+
+                <p align="center">
                     <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=TCCC06ComponentTermsAgree">I
                         agree</a> to these terms and wish to participate in the 2006 TopCoder Collegiate Challenge.
-
+                </p>
             </div>
         </td>
 

@@ -8,6 +8,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.ejb.user.UserEvent;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.tournament.tccc06.SubmitAlgoRegistration;
 
 import java.util.Calendar;
 
@@ -24,6 +25,12 @@ public class TCCC06ComponentTermsAgree extends TermsAgreeBase {
     protected void businessProcessing() throws TCWebException {
         try {
             super.businessProcessing();
+
+
+            String aolSurvey = getRequest().getParameter(Constants.TERMS_AGREE);
+            //set this just in case there is an error
+            setDefault(SubmitAlgoRegistration.AOL_SURVEY, String.valueOf("on".equals(aolSurvey)));
+            getRequest().setAttribute(SubmitAlgoRegistration.AOL_SURVEY, Boolean.valueOf("on".equals(aolSurvey)));
 
             //if we're here, this is successful
             //todo this should really get wrapped in a transaction with the parent class
