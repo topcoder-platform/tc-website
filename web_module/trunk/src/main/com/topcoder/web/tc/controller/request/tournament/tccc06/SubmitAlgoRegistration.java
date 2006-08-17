@@ -24,6 +24,7 @@ public class SubmitAlgoRegistration extends ViewAlgoRegistration {
         String aolSurvey = getRequest().getParameter(Constants.TERMS_AGREE);
         //set this just in case there is an error
         setDefault(AOL_SURVEY, String.valueOf("on".equals(aolSurvey)));
+        getRequest().setAttribute(AOL_SURVEY, Boolean.valueOf("on".equals(aolSurvey)));
 
         PreferenceGroup group = (PreferenceGroup) getRequest().getAttribute("group");
         HashSet values = new HashSet();
@@ -73,7 +74,6 @@ public class SubmitAlgoRegistration extends ViewAlgoRegistration {
                     }
                     user.addTerms(DAOUtil.getFactory().getTermsOfUse().find(new Integer(getTermsId())));
                     userDAO.saveOrUpdate(user);
-                    getRequest().setAttribute(AOL_SURVEY, Boolean.valueOf("on".equals(aolSurvey)));
                 }
             } else {
                 addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
