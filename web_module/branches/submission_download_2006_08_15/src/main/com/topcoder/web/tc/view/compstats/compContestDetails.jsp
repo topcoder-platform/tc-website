@@ -93,7 +93,8 @@
         imgName = "/i/development/smNetCustom.gif";
     }
 
-	boolean isCompleted = projectInfo.getIntItem(0, "status_id") == 4;
+	boolean canDownloadSubm = (projectInfo.getIntItem(0, "status_id") == 4) 
+			&& (projectInfo.getStringItem(0, "winner_id") != null);
 %>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -221,7 +222,7 @@
 </td>
 <td width="75%" valign="top">
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-<tr><td class="tableTitle" colspan="11">
+<tr><td class="tableTitle" colspan="<%= canDownloadSubm? 12 : 11 %>">
     Competitors
 </td></tr>
 <tr>
@@ -240,7 +241,7 @@
         Points
     </TD>
     <TD CLASS="tableHeader" colspan="3" align="center">Reviewers</TD>
-<% if (isCompleted) { %>
+<% if (canDownloadSubm) { %>
     <TD CLASS="tableHeader" rowspan="2" align="center">Download Submission</TD>
 <% } %>    
     
