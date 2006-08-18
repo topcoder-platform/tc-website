@@ -8,6 +8,22 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>08.18.06<br>1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">A banner week for Component Competitions</span><br><br>
+      It's a great time to get involved with components -- for this week's design competitions alone, TopCoder has posted a record prize pool of $36,750 
+      for first- and second-place prizes. Plus, competitors can earn even more through the Digital Run, and possibly win a trip to San Diego for the 
+      Collegiate Championship! If you've been waiting, now is the perfect time to get in the game.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=ViewActiveContests&ph=112">design contests</A>&#160;|&#160;
+         <A href="/tc?module=ViewActiveContests&ph=113">development contests</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="506094" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>08.15.06<br>10:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -188,22 +204,6 @@ pi to two decimal places, putting it quite exclusive company -- only SRM 3
        <tc-webtag:forumLink forumID="505989" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>08.04.06<br>10:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512394">Python now supported in Marathon Matches</A> 
-      </span><br><br>
-      Starting with Marathon Match 4 we will be adding Python 2.4.3 as a supported language.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512394">details</A>&#160;|&#160;
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512394">discuss this</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
-   </td></tr>
-
 
 
 </table>
