@@ -50,8 +50,6 @@ public class AppSpecificationBean extends BaseEJB {
             }
         } catch (Exception e) {
             throw new EJBException(e);
-        } finally {
-            close(conn);
         }
     }
 
@@ -94,8 +92,6 @@ public class AppSpecificationBean extends BaseEJB {
             throw new EJBException(sqle);
         } catch (Exception e) {
             throw new EJBException(e);
-        } finally {
-            close(conn);
         }
     }
 
