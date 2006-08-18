@@ -11,6 +11,8 @@ import com.topcoder.apps.review.projecttracker.UserManagerLocal;
 import com.topcoder.apps.review.projecttracker.UserManagerLocalHome;
 import com.topcoder.apps.review.rboard.RBoardPayment;
 import com.topcoder.apps.review.rboard.RBoardPaymentHome;
+import com.topcoder.apps.screening.application.AppSpecification;
+import com.topcoder.apps.screening.application.AppSpecificationHome;
 import com.topcoder.security.admin.PolicyMgrRemote;
 import com.topcoder.security.admin.PolicyMgrRemoteHome;
 import com.topcoder.security.admin.PrincipalMgrRemote;
@@ -114,9 +116,14 @@ public class EJBHelper {
     private static UserManagerLocal userManager = null;
 
     /**
-     * The user manager instance.
+     * The rboard payment instance.
      */
     private static RBoardPayment rBoardPayment = null;
+
+    /**
+     * The app specification instance.
+     */
+    private static AppSpecification appSpecification = null;
 
 
     /**
@@ -370,6 +377,25 @@ public class EJBHelper {
             rBoardPayment = home.create();
         }
         return rBoardPayment;
+    }
+
+    /**
+     * Get an instance of the RBoard Payment EJB.
+     *
+     * @return the RBoardPayment instance
+     *
+     * @throws NamingException thrown from the EJB lookup code
+     * @throws RemoteException thrown from the EJB lookup code
+     * @throws CreateException thrown from the EJB lookup code
+     */
+    public static synchronized AppSpecification getAppSpecification() throws NamingException, RemoteException, CreateException {
+        if (appSpecification == null) {
+            Context initial = new InitialContext();
+            Object objref = initial.lookup(AppSpecification.EJB_REF_NAME);
+            AppSpecificationHome home = (AppSpecificationHome) PortableRemoteObject.narrow(objref, AppSpecificationHome.class);
+            appSpecification = home.create();
+        }
+        return appSpecification;
     }
 }
 

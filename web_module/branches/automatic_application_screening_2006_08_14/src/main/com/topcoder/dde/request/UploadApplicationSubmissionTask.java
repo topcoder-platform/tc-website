@@ -7,6 +7,11 @@ import java.io.InputStream;
 import java.sql.Connection;
 import java.util.Date;
 
+import javax.ejb.CreateException;
+import javax.ejb.EJBException;
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
+
 import com.topcoder.apps.review.ConfigHelper;
 import com.topcoder.apps.review.EJBHelper;
 import com.topcoder.apps.review.FailureResult;
@@ -22,11 +27,16 @@ import com.topcoder.apps.screening.ProjectType;
 import com.topcoder.apps.screening.ScreeningJob;
 import com.topcoder.apps.screening.SpecificationScreeningRequest;
 import com.topcoder.apps.screening.ScreeningResponse;
+import com.topcoder.apps.screening.application.AppSpecification;
+import com.topcoder.apps.screening.application.ApplicationSpecification;
 import com.topcoder.security.TCSubject;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.format.FormatMethodFactory;
+import com.topcoder.util.idgenerator.bean.IdGen;
+import com.topcoder.util.idgenerator.bean.IdGenHome;
 import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
@@ -69,36 +79,27 @@ public class UploadApplicationSubmissionTask extends BaseProcessor {
                     getRequest().setAttribute("file_nanme", remoteName);
 
                     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-                    // Added by WishingBone - Automated Screening
-                    ProjectType type = ProjectType.APPLICATION;
-                    Connection conn = null;
-                    long versionId = 1;
+                    Connection conn = Common.getDataSource().getConnection();
 
-//                    try {
-                        conn = Common.getDataSource().getConnection();
+                    log.info("Generating new task ID...");
+                    IdGen idGen = createIDGen();
 
-//                        initialSubmissions[0].setURL(new File(ConfigHelper.getSubmissionPathPrefix() + destFilename).toURL());
-//                        documentManager.saveInitialSubmission(initialSubmissions[0], tcsUser);
+                    AppSpecification appSpecification = EJBHelper.getAppSpecification();
 
-//                        versionId = ScreeningJob.getVersionId(initialSubmissions[0].getId(), conn);
-                        ScreeningJob.placeRequest(new SpecificationScreeningRequest(-1, 0,
-                                versionId,
-                                ConfigHelper.getSubmissionPathPrefix() + destFilename,
-                                type),
-                                conn);
+                    ApplicationSpecification applicationSpecification = new ApplicationSpecification(
+                            -1, getUser().getId(), ApplicationSpecification.APPLICATION_SPECIFICATION);
 
-                        log.info("Task saved");
+                    appSpecification.insertSpecification(conn, applicationSpecification);
 
+                    ScreeningJob.placeRequest(new SpecificationScreeningRequest(
+                            idGen.nextId(), getUser().getId(),
+                            applicationSpecification.getSpecificationId(),
+                            ConfigHelper.getSubmissionPathPrefix() + destFilename,
+                            ProjectType.APPLICATION),
+                            conn);
 
-/*                    } finally {
-                        try {
-                            conn.close();
-                        } catch (Exception e) {
-                            // ignore
-                        }
-                    }*/
+                    log.info("Task saved");
 
-//                    return new ScreeningRetrieval(versionId);
 
                     setNextPage("/applications/upload_results.jsp");
                     setIsNextPageInContext(true);
@@ -106,6 +107,8 @@ public class UploadApplicationSubmissionTask extends BaseProcessor {
                     throw new TCWebException("Empty file uploaded");
                 }
             }
+        } catch (CreateException e) {
+            throw (new TCWebException("Couldn't create IDGenerator", e));
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
@@ -134,4 +137,24 @@ public class UploadApplicationSubmissionTask extends BaseProcessor {
 
     }
 
+    /**
+     * Creates IdGenerator EJB
+     *
+     * @param dataSource the current datasource
+     * @return the IdGenerator
+     * @throws CreateException if bean creation fails.
+     */
+    private IdGen createIDGen() throws CreateException {
+        try {
+            InitialContext context = new InitialContext();
+
+            Object o = context.lookup("idgenerator/IdGenEJB");
+            IdGenHome idGenHome = (IdGenHome) PortableRemoteObject.narrow(o,
+                    IdGenHome.class);
+            return idGenHome.create();
+
+        } catch (Exception e) {
+            throw new CreateException("Could not find bean!" + e);
+        }
+    }
 }

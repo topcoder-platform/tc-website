@@ -78,13 +78,13 @@ public class ScreeningLogger {
      * <strong>Valid Args</strong>:
      * A non-null String.
      */
-    private long userId = 1;
+    //private long userId = 1;
 
     /**
      * <strong>Purpose</strong>:
      * Submission version id.
      */
-    private long taskId = -1;
+    //private long taskId = -1;
 
     /**
      * <strong>Purpose</strong>:
@@ -160,11 +160,11 @@ public class ScreeningLogger {
      * @param userId The user for audit purposes.
      * @param submissionVId The submission id to log.
      */
-    public ScreeningLogger(long userId, long taskId) {
+/*    public ScreeningLogger(long userId, long taskId) {
         this();
         this.userId = userId;
         setTaskId(taskId);
-    }
+    }*/
 
     /**
      * <strong>Purpose</strong>:
@@ -209,9 +209,11 @@ public class ScreeningLogger {
             stmt.setLong(1, idGen.nextId());
             stmt.setString(2, message.getResponseText());
             stmt.setLong(3, message.getResponseId());
-            stmt.setLong(4, this.userId);
+//            stmt.setLong(4, this.userId);
+            stmt.setLong(4, 1);
             stmt.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
-            stmt.setLong(6, this.taskId);
+//            stmt.setLong(6, this.taskId);
+            stmt.setLong(6, request.getTaskId());
 
             if (!executeUpdate(stmt, maxRetries, retrySleepTime)) {
                 throw new DatabaseException("Log result failed after " + maxRetries + " retries.");
@@ -272,9 +274,9 @@ public class ScreeningLogger {
      *
      * @return The database identifier of the submitter.
      */
-    public long getTaskId() {
+/*    public long getTaskId() {
         return this.taskId;
-    }
+    }*/
 
     /**
      * <strong>Purpose</strong>:
@@ -285,9 +287,9 @@ public class ScreeningLogger {
      *
      * @param submissionId The database identifier of the submitter.
      */
-    public void setTaskId(long taskId) {
+/*    public void setTaskId(long taskId) {
         this.taskId = taskId;
-    }
+    }*/
 
 
     public IScreeningRequest getRequest() {
