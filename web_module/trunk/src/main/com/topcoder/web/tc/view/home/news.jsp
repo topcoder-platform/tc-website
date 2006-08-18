@@ -8,11 +8,11 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>08.18.06<br>1:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>08.18.06<br>2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">A banner week for Component Competitions</span><br><br>
-      It's a great time to get involved with components -- for this week's design competitions alone, TopCoder has posted a record prize pool of $36,750 
-      for first- and second-place prizes. Plus, competitors can earn even more through the Digital Run, and possibly win a trip to San Diego for the 
-      Collegiate Championship! If you've been waiting, now is the perfect time to get in the game.
+      It's a great week for components -- for this week's design competitions alone, TopCoder has posted a record prize pool of $36,750 
+      for first- and second-place prizes. Plus, you can earn even more through the Digital Run, and this week's contests count toward the TCCC! 
+      If you've been waiting, now is the perfect time to get in the game.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
