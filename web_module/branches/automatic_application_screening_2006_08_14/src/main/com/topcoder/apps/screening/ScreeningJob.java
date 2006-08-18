@@ -4,6 +4,9 @@
 package com.topcoder.apps.screening;
 
 import com.topcoder.util.config.ConfigManager;
+import com.topcoder.util.idgenerator.bean.IdGen;
+import com.topcoder.util.idgenerator.bean.IdGenHome;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.shared.util.logging.Logger;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -17,6 +20,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import javax.ejb.CreateException;
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
 
 /**
  * <strong>Purpose</strong>:
@@ -346,7 +353,7 @@ public class ScreeningJob extends TimerTask {
      * @param taskId the task id.
      */
     private void completeRequest(long taskId) {
-        Connection conn = null;
+/*        Connection conn = null;
         PreparedStatement stmt = null;
         try {
             conn = DbHelper.getConnection();
@@ -357,7 +364,7 @@ public class ScreeningJob extends TimerTask {
             log.error(sqle.toString());
         } finally {
             DbHelper.dispose(conn, stmt, null);
-        }
+        }*/
     }
 
     /**
@@ -542,6 +549,13 @@ public class ScreeningJob extends TimerTask {
     public static void placeRequest(SpecificationScreeningRequest request, Connection conn) {
         PreparedStatement stmt = null;
         try {
+
+            IdGen idGen = createIDGen();
+
+            if (request.getTaskId() == -1) {
+                request.setTaskId(idGen.nextId("SCREENING_TASK_SEQ"));
+            }
+
             stmt = conn.prepareStatement("INSERT INTO screening_task(screening_task_id, submission_path, " +
                 "screening_project_type_id, screening_attempts, specification_id) VALUES(?, ?, ?, ?, ?)");
             stmt.setLong(1, request.getTaskId());
@@ -552,6 +566,8 @@ public class ScreeningJob extends TimerTask {
             stmt.executeUpdate();
         } catch (SQLException sqle) {
             throw new DatabaseException("placeRequest() fails.", sqle);
+        } catch (Exception e) {
+            throw new DatabaseException("inserting task failed.", e);
         } finally {
             DbHelper.dispose(null, stmt, null);
         }
@@ -677,4 +693,24 @@ public class ScreeningJob extends TimerTask {
         new Timer(false).schedule(new ScreeningJob(num, screener, maxScreeningAttempts), 0, interval * 1000);
     }
 
+    /**
+     * Creates IdGenerator EJB
+     *
+     * @param dataSource the current datasource
+     * @return the IdGenerator
+     * @throws CreateException if bean creation fails.
+     */
+    private static IdGen createIDGen() throws CreateException {
+        try {
+            InitialContext context = new InitialContext();
+
+            Object o = context.lookup("idgenerator/IdGenEJB");
+            IdGenHome idGenHome = (IdGenHome) PortableRemoteObject.narrow(o,
+                    IdGenHome.class);
+            return idGenHome.create();
+
+        } catch (Exception e) {
+            throw new CreateException("Could not find bean!" + e);
+        }
+    }
 }

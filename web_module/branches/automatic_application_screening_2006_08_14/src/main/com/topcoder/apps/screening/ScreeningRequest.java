@@ -61,6 +61,13 @@ public abstract class ScreeningRequest implements IScreeningRequest {
     }
 
     /* (non-Javadoc)
+     * @see com.topcoder.apps.screening.IScreeningRequest#getTaskId()
+     */
+    public void setTaskId(long taskId) {
+        this.taskId = taskId;
+    }
+
+    /* (non-Javadoc)
      * @see com.topcoder.apps.screening.IScreeningRequest#getSubmitterId()
      */
     public long getSubmitterId() {
