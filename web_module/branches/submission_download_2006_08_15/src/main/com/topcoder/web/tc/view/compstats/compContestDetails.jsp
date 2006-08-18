@@ -345,7 +345,7 @@
         <% } else { %>
         <TD class="<%=even?"statLt":"statDk"%>" align="center" colspan="5">&nbsp;</TD>
         <% } %>
-<% if (isCompleted) { %>
+<% if (canDownloadSubm) { %>
         <TD class="<%=even?"statLt":"statDk"%>" align="center">
         	<a href='/tc?module=DownloadSubmission&cr=<%= resultRow.getLongItem("user_id") %>&pj=<%= projectId %>&st=1'>Submission</a>
         </TD>
