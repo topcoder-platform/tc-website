@@ -93,7 +93,7 @@
         imgName = "/i/development/smNetCustom.gif";
     }
 
-
+	boolean isCompleted = projectInfo.getIntItem(0, "status_id") == 4;
 %>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -240,6 +240,10 @@
         Points
     </TD>
     <TD CLASS="tableHeader" colspan="3" align="center">Reviewers</TD>
+<% if (isCompleted) { %>
+    <TD CLASS="tableHeader" rowspan="2" align="center">Download Submission</TD>
+<% } %>    
+    
 </tr>
 <tr>
     <%
@@ -340,6 +344,11 @@
         <% } else { %>
         <TD class="<%=even?"statLt":"statDk"%>" align="center" colspan="5">&nbsp;</TD>
         <% } %>
+<% if (isCompleted) { %>
+        <TD class="<%=even?"statLt":"statDk"%>" align="center">
+        	<a href='/tc?module=DownloadSubmission&cr=<%= resultRow.getLongItem("user_id") %>&pj=<%= projectId %>&st=1'>Submission</a>
+        </TD>
+<% } %>    
 
 
     </tr>
