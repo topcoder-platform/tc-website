@@ -3,6 +3,10 @@ package com.topcoder.web.forums.util.filter;
 import com.jivesoftware.base.*;
 import com.jivesoftware.base.filter.*;
 
+import java.awt.Frame;
+import java.awt.MediaTracker;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.*;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -48,7 +52,7 @@ public class TCHTMLFilter implements Filter {
     public static String[] DEFAULT_DISALLOWED_TAGS = {"o:~","st1:~"};
     public static String[] DEFAULT_ALLOWED_ATTRIBUTES = {"a:href","img:src,height,width"};
     public static String[] DEFAULT_DISALLOWED_KEYWORDS = {"javascript"};
-    public static int DEFAULT_MAX_IMAGE_WIDTH = 500;
+    public static int DEFAULT_MAX_IMAGE_WIDTH = 600;
     
     /**
      * Creates a new default HTML filter.
@@ -678,17 +682,31 @@ public class TCHTMLFilter implements Filter {
                         attr.setValue("#");
                     }
                 }
-                // todo: limit width
-                String widthStr = tag.getAttribute("width");
-                try {
-                	int width = Integer.parseInt(widthStr);
-                	if (width > maxImageWidth) {
-	                	
+
+                if (restrictImageWidth) {
+	                String widthStr = tag.getAttribute("width");
+	                if (widthStr != null) {
+		                try {
+		                	int width = Integer.parseInt(widthStr);
+		                	if (width > maxImageWidth) {
+		                		Attribute attrWidth = tag.getAttributeEx("width");
+		                		attrWidth.setValue(String.valueOf(maxImageWidth));
+			                }	
+		                } catch (NumberFormatException nfe) {}
 	                } else {
-	                	
-	                }	
-                } catch (NumberFormatException nfe) {
-                	
+	                	try {
+	                		Image im = Toolkit.getDefaultToolkit().getImage(src); 
+	                		MediaTracker tracker = new MediaTracker(new Frame()); 
+	                		tracker.addImage(im, 0); 
+	                		tracker.waitForAll();
+	                		if (im.getWidth(null) > maxImageWidth) {
+	                			Attribute attrWidth = tag.getAttributeEx("width");
+		                		attrWidth.setValue(String.valueOf(maxImageWidth));
+	                		}
+	                	} catch (InterruptedException ie) {
+	                		Log.error("TCHTMLFilter: InterruptedException encountered while retrieving image");
+	                	}
+	                }
                 }
             }
             else {
