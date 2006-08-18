@@ -92,7 +92,7 @@ public class UploadApplicationSubmissionTask extends BaseProcessor {
                     appSpecification.insertSpecification(conn, applicationSpecification);
 
                     ScreeningJob.placeRequest(new SpecificationScreeningRequest(
-                            idGen.nextId(), getUser().getId(),
+                            idGen.nextId("SCREENING_TASK_SEQ"), getUser().getId(),
                             applicationSpecification.getSpecificationId(),
                             ConfigHelper.getSubmissionPathPrefix() + destFilename,
                             ProjectType.APPLICATION),
