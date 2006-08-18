@@ -260,7 +260,7 @@ public class ScreeningJob extends TimerTask {
                 "SELECT st.screening_task_id, su.submitter_id, st.submission_v_id, st.submission_path, st.screening_project_type_id " +
                 "FROM submission su, screening_task st " +
                 "WHERE su.submission_v_id = st.submission_v_id AND st.screener_id IS NULL " +
-                "AND st.screening_attempts < ?");
+                "AND st.screened_ind = 0 AND st.screening_attempts < ?");
 
             stmt.setLong(1, maxScreeningAttempts);
             rs = stmt.executeQuery();
@@ -282,7 +282,7 @@ public class ScreeningJob extends TimerTask {
                     "SELECT st.screening_task_id, sp.specification_uploader_id, sp.specification_id, st.submission_path, st.screening_project_type_id " +
                     "FROM specifications sp, screening_task st " +
                     "WHERE sp.specification_id = st.specification_id AND st.screener_id IS NULL " +
-                    "AND st.screening_attempts < ?");
+                    "AND st.screened_ind = 0 AND st.screening_attempts < ?");
 
             stmt.setLong(1, maxScreeningAttempts);
             rs = stmt.executeQuery();
@@ -351,18 +351,18 @@ public class ScreeningJob extends TimerTask {
      * @param taskId the task id.
      */
     private void completeRequest(long taskId) {
-/*        Connection conn = null;
+        Connection conn = null;
         PreparedStatement stmt = null;
         try {
             conn = DbHelper.getConnection();
-            stmt = conn.prepareStatement("DELETE FROM screening_task WHERE screening_task_id = ?");
+            stmt = conn.prepareStatement("UPDATE screening_task SET screened_ind = 1 WHERE screening_task_id = ?");
             stmt.setLong(1, taskId);
             stmt.executeUpdate();
         } catch (SQLException sqle) {
             log.error(sqle.toString());
         } finally {
             DbHelper.dispose(conn, stmt, null);
-        }*/
+        }
     }
 
     /**
@@ -524,7 +524,7 @@ public class ScreeningJob extends TimerTask {
         PreparedStatement stmt = null;
         try {
             stmt = conn.prepareStatement("INSERT INTO screening_task(screening_task_id, submission_path, " +
-                "screening_project_type_id, screening_attempts, submission_v_id) VALUES(?, ?, ?, ?, ?)");
+                "screening_project_type_id, screening_attempts, submission_v_id, screened_ind) VALUES(?, ?, ?, ?, ?, 0)");
             stmt.setLong(1, request.getTaskId());
             stmt.setString(2, request.getSubmissionPath());
             stmt.setLong(3, request.getProjectType().getId());
@@ -555,7 +555,7 @@ public class ScreeningJob extends TimerTask {
             }
 
             stmt = conn.prepareStatement("INSERT INTO screening_task(screening_task_id, submission_path, " +
-                "screening_project_type_id, screening_attempts, specification_id) VALUES(?, ?, ?, ?, ?)");
+                "screening_project_type_id, screening_attempts, specification_id, screened_ind) VALUES(?, ?, ?, ?, ?, 0)");
             stmt.setLong(1, request.getTaskId());
             stmt.setString(2, request.getSubmissionPath());
             stmt.setLong(3, request.getProjectType().getId());
