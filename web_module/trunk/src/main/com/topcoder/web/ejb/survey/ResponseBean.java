@@ -86,6 +86,7 @@ public class ResponseBean extends BaseEJB {
         Context ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
+        ResultSet rs = null;
 
         try {
             conn = DBMS.getConnection(DBMS.JTS_OLTP_DATASOURCE_NAME);
@@ -94,7 +95,7 @@ public class ResponseBean extends BaseEJB {
             ps.setLong(1, userId);
             ps.setLong(2, questionId);
 
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             return rs.next();
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
@@ -102,6 +103,7 @@ public class ResponseBean extends BaseEJB {
         } catch (Exception e) {
             throw new EJBException("Exception exists user_id=" + userId + " questionId=" + questionId + ":\n" + e.getMessage());
         } finally {
+            close(rs);
             close(ps);
             close(conn);
             close(ctx);
