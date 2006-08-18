@@ -8,7 +8,7 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>08.18.06<br>2:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>08.18.06<br>2:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">A banner week for Component Competitions</span><br><br>
       It's a great week for components -- for this week's design competitions alone, TopCoder has posted a record prize pool of $36,750 
       for first- and second-place prizes. Plus, you can earn even more through the Digital Run, and this week's contests count toward the TCCC! 
