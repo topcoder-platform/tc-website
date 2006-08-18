@@ -284,8 +284,6 @@
             <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/logging/Logger.class"/>
             <zipfileset dir="${classes.dir}"
                         includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/util/idgenerator/bean/IdGen.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/util/idgenerator/bean/IdGenHome.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/apps/screening/application/*.class"/>
             <metainf dir="${java.dir}/com/topcoder/apps/screening/application" includes="*.xml"/>
         </jar>

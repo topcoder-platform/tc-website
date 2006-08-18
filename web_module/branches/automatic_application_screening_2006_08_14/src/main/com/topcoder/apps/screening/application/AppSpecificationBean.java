@@ -6,17 +6,14 @@ package com.topcoder.apps.screening.application;
 
 import java.rmi.RemoteException;
 import java.sql.Connection;
-import java.sql.SQLException;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.util.idgenerator.bean.IdGen;
-import com.topcoder.util.idgenerator.bean.IdGenHome;
+import com.topcoder.util.idgenerator.IDGenerationException;
+import com.topcoder.util.idgenerator.IDGenerator;
+import com.topcoder.util.idgenerator.IDGeneratorFactory;
 
 import com.topcoder.shared.util.logging.Logger;
 
@@ -65,19 +62,22 @@ public class AppSpecificationBean extends BaseEJB {
      * @param rRoleId the role Id to insert
      * @param paymentInfoId the payment information Id to insert
      */
-    public void insertSpecification(Connection conn, ApplicationSpecification appSpec) throws RemoteException {
+    public void insertSpecification(Connection conn, ApplicationSpecification appSpec)  throws RemoteException {
         try {
 
             if (appSpec.getSpecificationId() == ApplicationSpecification.UNDEFINED_ID) {
                 log.debug("Generating new specification ID...");
 
-                IdGen idGen = null;
+/*                IdGen idGen = null;
                 try {
                     idGen = createIDGen();
                 } catch (CreateException e) {
                     throw (new EJBException("Couldn't create IDGenerator", e));
-                }
-                appSpec.setSpecificationId(idGen.nextId("STUDIO_SUBMISSION_SEQ"));
+                }*/
+
+                appSpec.setSpecificationId(generateNewID());
+
+                //appSpec.setSpecificationId(idGen.nextId("STUDIO_SUBMISSION_SEQ"));
                 //appSpec.setSpecificationId(idGen.nextId("SPECIFICATION_SEQ"));
             }
 
@@ -88,9 +88,6 @@ public class AppSpecificationBean extends BaseEJB {
                     new String[]{String.valueOf(appSpec.getSpecificationId()),
                         String.valueOf(appSpec.getSpecificationUploaderId()),
                         String.valueOf(appSpec.getSpecificationTypeId())});
-        } catch (SQLException sqle) {
-            DBMS.printSqlException(true, sqle);
-            throw new EJBException(sqle);
         } catch (Exception e) {
             throw new EJBException(e);
         }
@@ -104,7 +101,7 @@ public class AppSpecificationBean extends BaseEJB {
      * @return the IdGenerator
      * @throws CreateException if bean creation fails.
      */
-    private IdGen createIDGen() throws CreateException {
+/*    private IdGen createIDGen() throws CreateException {
         try {
             InitialContext context = new InitialContext();
 
@@ -116,5 +113,17 @@ public class AppSpecificationBean extends BaseEJB {
         } catch (Exception e) {
             throw new CreateException("Could not find bean!" + e);
         }
+    }*/
+
+    /**
+     * Creates IdGenerator EJB
+     *
+     * @param dataSource the current datasource
+     * @return the IdGenerator
+     * @throws CreateException if bean creation fails.
+     */
+    private static long generateNewID() throws IDGenerationException {
+        IDGenerator gen = IDGeneratorFactory.getIDGenerator("SPECIFICATION_SEQ");
+        return gen.getNextID();
     }
 }

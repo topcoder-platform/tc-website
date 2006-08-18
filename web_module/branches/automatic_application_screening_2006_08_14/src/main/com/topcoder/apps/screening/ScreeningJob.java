@@ -4,9 +4,10 @@
 package com.topcoder.apps.screening;
 
 import com.topcoder.util.config.ConfigManager;
-import com.topcoder.util.idgenerator.bean.IdGen;
-import com.topcoder.util.idgenerator.bean.IdGenHome;
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.util.idgenerator.IDGenerationException;
+import com.topcoder.util.idgenerator.IDGenerator;
+import com.topcoder.util.idgenerator.IDGeneratorFactory;
+
 import com.topcoder.shared.util.logging.Logger;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -15,15 +16,12 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Date;
-import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.ejb.CreateException;
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
 
 /**
  * <strong>Purpose</strong>:
@@ -550,11 +548,10 @@ public class ScreeningJob extends TimerTask {
         PreparedStatement stmt = null;
         try {
 
-            IdGen idGen = createIDGen();
+            //IdGen idGen = createIDGen();
 
             if (request.getTaskId() == -1) {
-//                request.setTaskId(idGen.nextId("SCREENING_TASK_SEQ"));
-                request.setTaskId(idGen.nextId("STUDIO_CONTEST_SEQ"));
+                request.setTaskId(generateNewID());
             }
 
             stmt = conn.prepareStatement("INSERT INTO screening_task(screening_task_id, submission_path, " +
@@ -701,17 +698,8 @@ public class ScreeningJob extends TimerTask {
      * @return the IdGenerator
      * @throws CreateException if bean creation fails.
      */
-    private static IdGen createIDGen() throws CreateException {
-        try {
-            InitialContext context = new InitialContext();
-
-            Object o = context.lookup("idgenerator/IdGenEJB");
-            IdGenHome idGenHome = (IdGenHome) PortableRemoteObject.narrow(o,
-                    IdGenHome.class);
-            return idGenHome.create();
-
-        } catch (Exception e) {
-            throw new CreateException("Could not find bean!" + e);
-        }
+    private static long generateNewID() throws IDGenerationException {
+        IDGenerator gen = IDGeneratorFactory.getIDGenerator("SCREENING_TASK_SEQ");
+        return gen.getNextID();
     }
 }
