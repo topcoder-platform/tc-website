@@ -38,7 +38,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<tr class="bodyText"><td nowrap="nowrap">08.18.06 2:00 PM - </td><td width="100%">A banner week for Component Competitions <br>
+<tr class="bodyText"><td nowrap="nowrap">08.18.06 2:30 PM - </td><td width="100%">A banner week for Component Competitions <br>
 <A href="/tc?module=ViewActiveContests&ph=112">design contests</A>&#160;|&#160;<A href="/tc?module=ViewActiveContests&ph=113">development contests</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.03.06 12:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=activeContests">Assembly Competition prizes top five figures</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.26.06 1:30 PM - </td><td width="100%">New guidelines for component competitors and reviewers<br>
