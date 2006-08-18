@@ -77,7 +77,8 @@ public class AppSpecificationBean extends BaseEJB {
                 } catch (CreateException e) {
                     throw (new EJBException("Couldn't create IDGenerator", e));
                 }
-                appSpec.setSpecificationId(idGen.nextId("SPECIFICATION_SEQ"));
+                appSpec.setSpecificationId(idGen.nextId("STUDIO_SUBMISSION_SEQ"));
+                //appSpec.setSpecificationId(idGen.nextId("SPECIFICATION_SEQ"));
             }
 
             log.debug("Inserting specifications...");

@@ -553,7 +553,8 @@ public class ScreeningJob extends TimerTask {
             IdGen idGen = createIDGen();
 
             if (request.getTaskId() == -1) {
-                request.setTaskId(idGen.nextId("SCREENING_TASK_SEQ"));
+//                request.setTaskId(idGen.nextId("SCREENING_TASK_SEQ"));
+                request.setTaskId(idGen.nextId("STUDIO_CONTEST_SEQ"));
             }
 
             stmt = conn.prepareStatement("INSERT INTO screening_task(screening_task_id, submission_path, " +
