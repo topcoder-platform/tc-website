@@ -227,10 +227,10 @@
         </war>
     </target>
 
-	<target name="deploy-studio-full" depends="">
+    <target name="deploy-studio-full" depends="">
         <antcall target="deploy-studio"/>
-		
-		<copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
+
+        <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
@@ -238,7 +238,7 @@
         <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/webwork.jar"/>
     </target>
-	
+
     <target name="deploy-studio" depends="war-studio,build-security">
         <antcall target="package-TCJive"/>
         <antcall target="package-EJB-MessageHistoryBean"/>
@@ -246,7 +246,7 @@
 
         <antcall target="expand-studio"/>
     </target>
-	
+
     <target name="expand-studio" depends="">
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
@@ -258,7 +258,10 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/object_formatter.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/upload.jar"/>
-        	
+        <copy todir="${jboss_lib}" file="${jars.dir}/ifxjdbc.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/jive/jivebase.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/jive/jiveforums.jar"/>
+
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
         <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
@@ -286,15 +289,15 @@
             </fileset>
         </copy>
     </target>
-	
-	<target name="package-TCJive" depends="compile">
+
+    <target name="package-TCJive" depends="compile">
         <jar jarfile="${bin}/tcjive.jar">
             <fileset dir="${classes}/">
-            	<include name="com/topcoder/web/forums/model/TCUser.class"/>
-            	<include name="com/topcoder/web/forums/model/TCUserManager.class"/>
-            	<include name="com/topcoder/web/forums/model/Common.class"/>
-            	<include name="com/topcoder/web/forums/model/TCAuthFactory.class"/>
-            	<include name="com/topcoder/web/forums/model/TCAuthToken.class"/>
+                <include name="com/topcoder/web/forums/model/TCUser.class"/>
+                <include name="com/topcoder/web/forums/model/TCUserManager.class"/>
+                <include name="com/topcoder/web/forums/model/Common.class"/>
+                <include name="com/topcoder/web/forums/model/TCAuthFactory.class"/>
+                <include name="com/topcoder/web/forums/model/TCAuthToken.class"/>
                 <include name="com/topcoder/web/forums/util/filter/*.class"/>
             </fileset>
             <fileset dir="${resources}/forums/filter">
