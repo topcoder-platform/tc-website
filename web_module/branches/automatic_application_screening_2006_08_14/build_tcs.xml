@@ -272,7 +272,23 @@
         </jar>
 
         <antcall target="package-EJB-RBoard"/>
+        <antcall target="package-EJB-Specification"/>
 
+    </target>
+
+    <target name="package-EJB-Specification" depends="compile">
+        <jar jarfile="${ejb.jars.dir}/Specification.jar">
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/DBMS.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/logging/Logger.class"/>
+            <zipfileset dir="${classes.dir}"
+                        includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/util/idgenerator/bean/IdGen.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/util/idgenerator/bean/IdGenHome.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/apps/screening/application/*.class"/>
+            <metainf dir="${java.dir}/com/topcoder/apps/screening/application" includes="*.xml"/>
+        </jar>
     </target>
 
     <target name="package-EJB-RBoard" depends="compile">
@@ -485,6 +501,7 @@
                 <include name="*.jar"/>
                 <exclude name="Project.jar"/>
                 <exclude name="RBoard.jar"/>
+                <exclude name="Specification.jar"/>
             </fileset>
             <fileset dir="${jars.dir}">
                 <include name="idgenerator.jar"/>
@@ -509,6 +526,7 @@
             <fileset dir="${ejb.jars.dir}">
                 <include name="Project.jar"/>
                 <include name="RBoard.jar"/>
+                <include name="Specification.jar"/>
             </fileset>
         </copy>
 
