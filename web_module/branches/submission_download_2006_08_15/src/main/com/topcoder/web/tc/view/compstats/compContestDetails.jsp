@@ -93,8 +93,7 @@
         imgName = "/i/development/smNetCustom.gif";
     }
 
-	boolean canDownloadSubm = (projectInfo.getIntItem(0, "status_id") == 4) 
-			&& (projectInfo.getStringItem(0, "winner_id") != null);
+	boolean canDownloadSubm = projectInfo.getIntItem(0, "status_id") == 4;
 %>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
