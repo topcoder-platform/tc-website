@@ -51,12 +51,12 @@ Saturday, October 14 at 1:00PM EDT</li>
 
 <br><br>
 <b>Already a TopCoder Member?</b><br>
-Click <A href="">here</A><%--link ryan provides--%> to register for the TCCC Sponsor Track Competition
+Click <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=spon_reg">here</A> to register for the TCCC Sponsor Track Competition
 <br><br>
 <b>Not Yet a TopCoder Member?</b><br>
 Click <A href="/reg">here</A> to sign up as a TopCoder member<br>
 Check your email and activate your new TopCoder account<br>
-Click <A href="">here</A><%--link ryan provides--%> to register for the TCCC Sponsor Track Competition
+Click <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=spon_reg">here</A> to register for the TCCC Sponsor Track Competition
 <br><br>
 The competition is free and you must be a registered TopCoder member who is at least 18 years old to be eligible. 
 <br><br>
