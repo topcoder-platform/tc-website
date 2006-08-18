@@ -14,7 +14,7 @@
     <STYLE TYPE="text/css">
         html.termsHTML, body.termsBody {
             color: #FFFFFF;
-            background: #032F6B;
+            background: #083A3A
             padding: 0px;
             margin: 0px;
         }
