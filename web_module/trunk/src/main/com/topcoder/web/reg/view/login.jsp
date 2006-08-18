@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.BaseServlet" %>
+<%@ page import="com.topcoder.web.common.StringUtils" %>
 <%@ page import="com.topcoder.web.reg.controller.request.Login" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
