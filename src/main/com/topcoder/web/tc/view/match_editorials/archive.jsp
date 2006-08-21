@@ -42,6 +42,7 @@
    
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>August</strong></td></tr>
+   <tr><td class="bodyText">08.19.06</td><td class="bodyText" nowrap="0" width="100%">SRM 316 - <a href="/tc?module=Static&d1=match_editorials&d2=srm316">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">08.09.06</td><td class="bodyText" nowrap="0" width="100%">SRM 315 - <a href="/tc?module=Static&d1=match_editorials&d2=srm315">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">08.03.06</td><td class="bodyText" nowrap="0" width="100%">SRM 314 - <a href="/tc?module=Static&d1=match_editorials&d2=srm314">Problem Set & Analysis</a></td></tr>
 
