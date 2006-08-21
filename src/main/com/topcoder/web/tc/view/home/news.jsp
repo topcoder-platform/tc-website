@@ -8,6 +8,21 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Survey" border="0" /><br>08.28.06<br>9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="<tc-webtag:linkTracking link='http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=1'/>" refer="news_item">AOL Developer Community Survey</A>
+      </span><br><br>
+      Complete this server presented by AOL to help them better meet the needs of the developer community.  Taking part in the survey will also enter you in a raffle to win a <strong>60GB iPod</strong>!
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="<tc-webtag:linkTracking link='http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=1'/>" refer="news_item">view</A>&#160;|&#160;
+      <tc-webtag:forumLink forumID="506075" message="discuss this" />&#160;|&#160;
+      <A href="/tc?&module=SurveyList">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>08.21.06<br>12:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -189,22 +204,6 @@ so one could say it was a regular "chipmunk day" on TopCoder.
        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm10">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506032" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>08.07.06<br>1:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=080706">The Intricate Art of Testing</A></span><br><br>
-      At some point, every coder experiences the intense feeling of disappointment that comes when you are told your carefully written solution has "Failed System Test." How can you keep from repeating such a mishap? The answer is quite simple: learn the art of testing.</td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&amp;d1=features&amp;d2=080706">article</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506087" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 
 
