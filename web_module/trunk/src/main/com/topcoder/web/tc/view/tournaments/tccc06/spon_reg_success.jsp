@@ -26,8 +26,8 @@
 
 <span class="bigTitle">Registration</span>
 <br><br>
-You have successfully registered for the sponsor track of the 2006 TopCoder Collegiate Challenge.
-
+You have successfully registered for the Sponsor Track of the 2006 TopCoder Collegiate Challenge.
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>
 		</td>
 
