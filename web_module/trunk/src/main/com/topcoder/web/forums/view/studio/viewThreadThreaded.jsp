@@ -199,7 +199,7 @@
 <%-------------POSTS---------------%>
 <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
     <% int depth = thread.getTreeWalker().getMessageDepth(message);
-        int width = Math.round((int) (.8 * Math.min(500, 500 - ((depth - 50) * (depth - 50)) / 5))); %>
+        int width = Math.round((int) (.6 * Math.min(500, 500 - ((depth - 50) * (depth - 50)) / 5))); %>
     <div style="padding:0px 0px 0px <%=width%>px;">
         <table cellpadding="0" cellspacing="0" class="rtTable">
             <tr>
