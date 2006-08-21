@@ -73,12 +73,14 @@
 <tr><td class="sidebarText" colspan="2"><U><B>COMPETITOR INFORMATION:</B></U><br/></td></tr>
 
 
+<%--
 <tr>
     <td class="sidebarText" align="right"><input type="hidden" name="q32" value="Social Security #"/>Social Security #:
     </td>
     <td class="sidebarText" align="left"><input type="text" name="a32" size="10"/></td>
     <td></td>
 </tr>
+--%>
 
 <tr>
     <td class="sidebarText" align="right"><input type="hidden" name="q33" value="Date of Birth"/>Date of Birth: </td>
