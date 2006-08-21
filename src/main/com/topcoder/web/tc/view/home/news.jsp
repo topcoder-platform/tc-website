@@ -25,15 +25,13 @@
 
 <%--------------------------------------------------------%>
 <tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/><br>08.21.06<br>2:30 PM</td>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/><br>08.21.06<br>5:00 PM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=082106">The
-                Digital Run: Highlights from Stage 1</A></span><br><br>
-                As the first stage draws to an end for the Digital Run, it's time to take stock of this great new
-                competition format. And a great competition it was,
-                with veterans and newbies alike withstanding the challenges of a 13-week marathon and racking up some
-                surprising results.</td>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=082106">The Digital Run: Highlights from Stage 1</A></span><br><br>
+                As the first stage draws to an end for the Digital Run, it's time to take stock of this great new competition format. 
+                And a great competition it was, with veterans and newbies alike withstanding the challenges of a 13-week marathon and 
+                racking up some surprising results.</td>
         </tr></table>
     </td>
 </tr>
