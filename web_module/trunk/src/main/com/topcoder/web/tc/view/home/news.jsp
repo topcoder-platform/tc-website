@@ -49,7 +49,7 @@
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm316">SRM 316 -
                 Problem Set & Analysis</A></span><br><br>
                 SRM 316 proved to be an exciting event with an active challenge phase that some coders will find hard to
-                forget. Notably, this was <tc-webtag:handle coderId="144400" context="algorithm"/>�s first rated event
+                forget. Notably, this was <tc-webtag:handle coderId="144400" context="algorithm"/>'s first rated event
                 after the TCO06 Finals.
             </td>
             <td class="newsPhoto"><img src="/i/m/_efer__big.jpg" alt="" width="55" height="61"/><br>by
