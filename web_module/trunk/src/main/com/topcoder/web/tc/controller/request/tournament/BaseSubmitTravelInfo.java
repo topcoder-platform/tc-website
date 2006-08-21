@@ -124,7 +124,7 @@ public abstract class BaseSubmitTravelInfo extends Base {
                     fullEmail.append(":\n");
                     fullEmail.append(answers.get(me.getKey()));
                     fullEmail.append("\n\n");
-                    if (travelAgentQuestions.contains(me.getKey())) {
+                    if (travelAgentQuestions.contains(me.getKey().toString())) {
                         travelAgentEmail.append(me.getValue());
                         travelAgentEmail.append(":\n");
                         travelAgentEmail.append(answers.get(me.getKey()));
