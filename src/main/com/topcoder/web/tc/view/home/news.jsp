@@ -25,6 +25,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>08.21.06<br>11:25 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm316">SRM 316 - Problem Set & Analysis</A></span><br><br>
+SRM 316 proved to be an exciting event with an active challenge phase that some coders will find hard to forget. Notably, this was <tc-webtag:handle coderId="144400" context="algorithm"/>’s first rated event after the TCO06 Finals.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/_efer__big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8593420" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=match_editorials&d2=srm316">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505991" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>08.18.06<br>2:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">A banner week for Component Competitions</span><br><br>
       It's a great week for components -- for this week's design competitions alone, TopCoder has posted a record prize pool of $36,750 
