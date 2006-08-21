@@ -6,7 +6,7 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
-<%--------------------------------------------------------%>
+<%------------------------------------------------------ for 08.28 at 9:00 AM
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Survey" border="0"/><br>08.28.06<br>9:00 AM</td>
     <td class="newsTextCell"><span class="newsTitle">
@@ -21,6 +21,7 @@
     <tc-webtag:forumLink forumID="506075" message="discuss this"/>&#160;|&#160;
     <A href="/tc?&module=SurveyList">archive</A>
 </td></tr>
+--%>
 
 <%--------------------------------------------------------%>
 <tr>
