@@ -109,8 +109,9 @@ public abstract class BaseSubmitTravelInfo extends Base {
             travelAgentEmail.append(user.getFirstName(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME));
             travelAgentEmail.append(" ");
             travelAgentEmail.append(user.getLastName(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME));
-            travelAgentEmail.append("\n");
+            fullEmail.append("\n\n");
             travelAgentEmail.append("Email ").append(emailAddress);
+            fullEmail.append("\n\n");
 
 
             TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
