@@ -24,6 +24,7 @@ public class SurveyList extends Base {
             int endRank = Integer.parseInt(startRank) + Integer.parseInt(Constants.DEFAULT_SURVEY_SCROLL_SIZE) - 1;
 
             ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("survey_list");
+            setDefault(DataAccessConstants.START_RANK, startRank);
 
             getRequest().setAttribute("surveyList", rsc.subList(Integer.parseInt(startRank) - 1, endRank));
         } catch (Exception e) {
