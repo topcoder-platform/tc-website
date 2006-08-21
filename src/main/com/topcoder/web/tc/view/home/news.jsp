@@ -8,6 +8,23 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>08.21.06<br>12:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=082106">The Digital Run: Highlights from Stage 1</A></span><br><br>
+      As the first stage draws to an end for the Digital Run, I am going to take stock of this great new competition format. And a great competition it was, 
+      with veterans and newbies alike withstanding the challenges of a 13-week marathon and racking up some surprising results.</td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&amp;d1=features&amp;d2=082106">article</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506095" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>08.18.06<br>2:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">A banner week for Component Competitions</span><br><br>
       It's a great week for components -- for this week's design competitions alone, TopCoder has posted a record prize pool of $36,750 
@@ -183,26 +200,6 @@ so one could say it was a regular "chipmunk day" on TopCoder.
    <tr><td class="newsLinksCell">
          <tc-webtag:forumLink forumID="506086" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>08.04.06<br>4:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm314">SRM 314 - Problem Set & Analysis</A></span><br><br>
-This match was SRM number 314, which is the truncated decimal expansion of
-pi to two decimal places, putting it quite exclusive company -- only SRM 3
-(May 2001) and SRM 31 (September 2001) also start the decimal expansion of pi.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/antimatter_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="275071" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=match_editorials&d2=srm314">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505989" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 
