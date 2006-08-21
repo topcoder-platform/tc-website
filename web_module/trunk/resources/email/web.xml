@@ -447,7 +447,7 @@
 
     <servlet-mapping>
         <servlet-name>emailServlet</servlet-name>
-        <url-pattern>emailServlet</url-pattern>
+        <url-pattern>/emailServlet</url-pattern>
     </servlet-mapping>
 
 </web-app>
