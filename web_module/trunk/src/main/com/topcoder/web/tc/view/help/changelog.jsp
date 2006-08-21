@@ -42,6 +42,13 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 <p>
+    5.4.7 - 2006.08.21
+    <ul>
+        <li>Add previous/next links to the survey list page</li>
+    </ul>
+</p>
+
+<p>
     5.4.6 - 2006.08.17
     <ul>
         <li>Fix bug in member contact that enabled non rated members to send messages.</li>
