@@ -668,7 +668,6 @@ public class TCHTMLFilter implements Filter {
      * @return the cleansed tag or null if all required attributes of the tag are invalid.
      */
     private String cleanseTag(TagNode tag) {
-    	Log.info("---> in cleanseTag()");
         String tagName = tag.getTagName();
 
         if ("IMG".equalsIgnoreCase(tagName) || "A".equalsIgnoreCase(tagName)) {
@@ -676,7 +675,6 @@ public class TCHTMLFilter implements Filter {
             if ("IMG".equalsIgnoreCase(tagName)) {
                 String src = tag.getAttribute("src");
                 if (src != null) {
-                	Log.info("---> SRC: " + src);
                     src = src.trim().toLowerCase();
                     // If there is a scheme but it's not http:// or https://, set the src to #
                     if (!src.startsWith("http://") && !src.startsWith("https://") &&
@@ -687,39 +685,38 @@ public class TCHTMLFilter implements Filter {
                     }
                 }
 
-                Log.info("---> restrictImageWidth: " + restrictImageWidth);
                 if (restrictImageWidth) {
 	                String widthStr = tag.getAttribute("width");
 	                if (widthStr != null) {
-	                	Log.info("---> widthStr: " + widthStr);
 		                if (widthStr.endsWith("/")) {
 		                	widthStr = widthStr.substring(0,widthStr.length()-1);
 		                }
 		                try {
 		                	int width = Integer.parseInt(widthStr);
-		                	Log.info("---> width: " + width);
-		                	Log.info("---> maxImageWidth: " + maxImageWidth);
 		                	if (width > maxImageWidth) {
 		                		Attribute attrWidth = tag.getAttributeEx("width");
 		                		attrWidth.setValue(String.valueOf(maxImageWidth));
-		                		Log.info("---> values set");
 			                }	
-		                } catch (NumberFormatException nfe) {
-		                	Log.info("---> !!!ERROR: " + nfe.toString());
-		                }
+		                } catch (NumberFormatException nfe) {}
 	                } else {
 	                	try {
-	                		Log.info("---> creating Image");
 	                		Image im = Toolkit.getDefaultToolkit().getImage(new URL(src)); 
 	                		MediaTracker tracker = new MediaTracker(new Frame()); 
 	                		tracker.addImage(im, 0); 
 	                		tracker.waitForAll();
-	                		Log.info("---> im.getWidth(null): " + im.getWidth(null));
-	                		Log.info("---> maxImageWidth: " + maxImageWidth);
-	                		if (im.getWidth(null) > maxImageWidth) {
+	                		
+	                		int width = im.getWidth(null);
+			                String heightStr = tag.getAttribute("height");
+			                if (heightStr != null && heightStr.endsWith("/")) {
+			                	heightStr = heightStr.substring(0,heightStr.length()-1);
+			                }
+			                try {
+			                	int height = Integer.parseInt(heightStr);
+			                	width = width * (height / im.getHeight(null)); 
+			                } catch (NumberFormatException nfe) {}
+	                		if (width > maxImageWidth) {
 	                			Attribute attrWidth = tag.getAttributeEx("width");
 		                		attrWidth.setValue(String.valueOf(maxImageWidth));
-		                		Log.info("---> values set");
 	                		}
 	                	} catch (InterruptedException ie) {
 	                		Log.error("TCHTMLFilter: InterruptedException encountered while retrieving image");
