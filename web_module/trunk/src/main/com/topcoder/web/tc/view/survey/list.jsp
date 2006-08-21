@@ -22,12 +22,12 @@
     <script type="text/javascript">
         function next() {
             var myForm = document.surveyListForm;
-            myForm.<%=DataAccessConstants.START_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) + parseInt(myForm.<%=Constants.DEFAULT_SURVEY_SCROLL_SIZE%>.value);
+            myForm.<%=DataAccessConstants.START_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) + <%=Constants.DEFAULT_SURVEY_SCROLL_SIZE%>;
             myForm.submit();
         }
         function previous() {
             var myForm = document.surveyListForm;
-            myForm.<%=DataAccessConstants.START_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - parseInt(myForm.<%=Constants.DEFAULT_SURVEY_SCROLL_SIZE%>.value);
+            myForm.<%=DataAccessConstants.START_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - <%=Constants.DEFAULT_SURVEY_SCROLL_SIZE%>;
             myForm.submit();
         }
     </script>
