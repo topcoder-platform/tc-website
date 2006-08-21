@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<server>
+	<mbean code="com.topcoder.apps.review.cacherefresher.CacheRefresher"
+		name="topcoder.startup:name=CacheRefresher">
+<!--
+		<attribute name="Initialized"></attribute>
+-->
+        <attribute name="InitStatus"/>
+	</mbean>
+</server>
