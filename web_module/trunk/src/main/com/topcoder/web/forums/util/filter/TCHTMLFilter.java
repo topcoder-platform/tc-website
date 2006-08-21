@@ -10,6 +10,8 @@ import java.awt.Toolkit;
 import java.util.*;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import org.htmlparser.*;
 import org.htmlparser.lexer.Lexer;
@@ -690,6 +692,9 @@ public class TCHTMLFilter implements Filter {
 	                String widthStr = tag.getAttribute("width");
 	                if (widthStr != null) {
 	                	Log.info("---> widthStr: " + widthStr);
+		                if (widthStr.endsWith("/")) {
+		                	widthStr = widthStr.substring(0,widthStr.length()-1);
+		                }
 		                try {
 		                	int width = Integer.parseInt(widthStr);
 		                	Log.info("---> width: " + width);
@@ -705,7 +710,7 @@ public class TCHTMLFilter implements Filter {
 	                } else {
 	                	try {
 	                		Log.info("---> creating Image");
-	                		Image im = Toolkit.getDefaultToolkit().getImage(src); 
+	                		Image im = Toolkit.getDefaultToolkit().getImage(new URL(src)); 
 	                		MediaTracker tracker = new MediaTracker(new Frame()); 
 	                		tracker.addImage(im, 0); 
 	                		tracker.waitForAll();
@@ -718,6 +723,8 @@ public class TCHTMLFilter implements Filter {
 	                		}
 	                	} catch (InterruptedException ie) {
 	                		Log.error("TCHTMLFilter: InterruptedException encountered while retrieving image");
+	                	} catch (MalformedURLException mue) {
+	                		Log.error("TCHTMLFilter: MalformedURLException encountered while retrieving image (SRC = " + src + ")");
 	                	}
 	                }
                 }
