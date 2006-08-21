@@ -105,8 +105,8 @@
                 </form>
             </table>
             <div class="pagingBox">
-                <%=(surveyList.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
-                | <%=(surveyList.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+                <%=(surveyList.croppedDataBefore() ? "<a href=\"#\" onclick=\"previous();return false;\"class=\"bcLink\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+                | <%=(surveyList.croppedDataAfter() ? "<a href=\"#\" onclick=\"next();return false;\"class=\"bcLink\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
             </div>
 
             <p><br/></p>
