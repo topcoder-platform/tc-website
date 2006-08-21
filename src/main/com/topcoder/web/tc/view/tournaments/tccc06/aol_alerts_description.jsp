@@ -1,3 +1,5 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.tc.controller.request.tournament.tccc06.AOLAlertsDescription" %>
 <%@ page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -28,8 +30,20 @@
 
                 <p>
                     Click
-                    <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=7ba606d0-e8f0-4adb-815a-f755fc768de9&GetUserId=true&PartnerContext=fakecontext">here</a>
-                    to sign up.
+                    <% if (ApplicationServer.ENVIRONMENT == ApplicationServer.PROD) { %>
+                    <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=7ba63042-e8f0-4adb-815a-f755fc768de9&GetUserId=true&PartnerContext=<%=AOLAlertsDescription.AOL_GROUP_ALERT%>">here</a>
+                    <% } else { %>
+                    <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=7ba606d0-e8f0-4adb-815a-f755fc768de9&GetUserId=true&PartnerContext=<%=AOLAlertsDescription.AOL_GROUP_ALERT%>">here</a>
+                    <% } %>
+                    to sign up for group alerts.
+
+                    Click
+                    <% if (ApplicationServer.ENVIRONMENT == ApplicationServer.PROD) { %>
+                    <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=268e2e1d-6d09-4c8e-a78c-f755fc768de9&GetUserId=true&PartnerContext=<%=AOLAlertsDescription.AOL_INDIVIDUAL_ALERT%>">here</a>
+                    <% } else { %>
+                    <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=9244f24a-3c7c-40a9-abb2-f755fc768de9&GetUserId=true&PartnerContext=<%=AOLAlertsDescription.AOL_INDIVIDUAL_ALERT%>">here</a>
+                    <% } %>
+                    to sign up for individual alerts.
                 </p>
 
 
