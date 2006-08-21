@@ -18,10 +18,7 @@ import com.topcoder.web.tc.controller.request.Base;
 
 import javax.transaction.Status;
 import javax.transaction.TransactionManager;
-import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * @author dok
@@ -29,6 +26,17 @@ import java.util.TreeMap;
  *          Create Date: Feb 1, 2005
  */
 public abstract class BaseSubmitTravelInfo extends Base {
+    private static Set travelAgentQuestions;
+
+    static {
+        travelAgentQuestions = new HashSet();
+        travelAgentQuestions.add(String.valueOf(34));
+        travelAgentQuestions.add(String.valueOf(42));
+        travelAgentQuestions.add(String.valueOf(44));
+        travelAgentQuestions.add(String.valueOf(45));
+        travelAgentQuestions.add(String.valueOf(46));
+        travelAgentQuestions.add(String.valueOf(49));
+    }
 
     protected void businessProcessing() throws TCWebException {
         try {
@@ -51,9 +59,9 @@ public abstract class BaseSubmitTravelInfo extends Base {
                     answers.put(new Integer(index), parameterValue);
                 }
             }
-            StringBuffer buf = new StringBuffer(1000);
-            buf.append(getUser().getUserName());
-            buf.append(" has answered your questions thusly\n\n");
+            StringBuffer fullEmail = new StringBuffer(1000);
+            fullEmail.append(getUser().getUserName());
+            fullEmail.append(" has answered your questions thusly\n\n");
 
             User user = (User) createEJB(getInitialContext(), User.class);
             UserAddress userAddress = (UserAddress) createEJB(getInitialContext(), UserAddress.class);
@@ -65,36 +73,44 @@ public abstract class BaseSubmitTravelInfo extends Base {
 
             long addressId = rsc.getLongItem(0, "address_id");
 
-            buf.append(user.getFirstName(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME));
-            buf.append(" ");
-            buf.append(user.getLastName(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME));
-            buf.append("\n");
-            buf.append(address.getAddress1(addressId, DBMS.COMMON_OLTP_DATASOURCE_NAME));
-            buf.append("\n");
-            buf.append(address.getAddress2(addressId, DBMS.COMMON_OLTP_DATASOURCE_NAME));
-            buf.append("\n");
-            buf.append(address.getCity(addressId, DBMS.COMMON_OLTP_DATASOURCE_NAME));
-            buf.append(", ");
+            fullEmail.append(user.getFirstName(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME));
+            fullEmail.append(" ");
+            fullEmail.append(user.getLastName(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME));
+            fullEmail.append("\n");
+            fullEmail.append(address.getAddress1(addressId, DBMS.COMMON_OLTP_DATASOURCE_NAME));
+            fullEmail.append("\n");
+            fullEmail.append(address.getAddress2(addressId, DBMS.COMMON_OLTP_DATASOURCE_NAME));
+            fullEmail.append("\n");
+            fullEmail.append(address.getCity(addressId, DBMS.COMMON_OLTP_DATASOURCE_NAME));
+            fullEmail.append(", ");
             String countryCode = address.getCountryCode(addressId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
             if ("840".equals(countryCode)) {
-                buf.append(address.getStateCode(addressId, DBMS.COMMON_OLTP_DATASOURCE_NAME));
+                fullEmail.append(address.getStateCode(addressId, DBMS.COMMON_OLTP_DATASOURCE_NAME));
             }
-            buf.append(" ");
-            buf.append(address.getZip(addressId, DBMS.COMMON_OLTP_DATASOURCE_NAME));
-            buf.append(" ");
-            buf.append(address.getCountryName(countryCode, DBMS.COMMON_OLTP_DATASOURCE_NAME));
-            buf.append("\n");
-            buf.append("\n");
+            fullEmail.append(" ");
+            fullEmail.append(address.getZip(addressId, DBMS.COMMON_OLTP_DATASOURCE_NAME));
+            fullEmail.append(" ");
+            fullEmail.append(address.getCountryName(countryCode, DBMS.COMMON_OLTP_DATASOURCE_NAME));
+            fullEmail.append("\n");
+            fullEmail.append("\n");
             Email email = (Email) createEJB(getInitialContext(), Email.class);
             String emailAddress = email.getAddress(email.getPrimaryEmailId(getUser().getId(),
                     DBMS.COMMON_OLTP_DATASOURCE_NAME), DBMS.COMMON_OLTP_DATASOURCE_NAME);
-            buf.append("Email ").append(emailAddress);
-            buf.append("\n");
+            fullEmail.append("Email ").append(emailAddress);
+            fullEmail.append("\n");
             Phone phone = (Phone) createEJB(getInitialContext(), Phone.class);
-            buf.append("Phone ").append(phone.getNumber(phone.getPrimaryPhoneId(getUser().getId(),
+            fullEmail.append("Phone ").append(phone.getNumber(phone.getPrimaryPhoneId(getUser().getId(),
                     DBMS.COMMON_OLTP_DATASOURCE_NAME), DBMS.COMMON_OLTP_DATASOURCE_NAME));
-            buf.append("\n");
-            buf.append("\n");
+            fullEmail.append("\n");
+            fullEmail.append("\n");
+
+            StringBuffer travelAgentEmail = new StringBuffer(1000);
+            travelAgentEmail.append("Name ");
+            travelAgentEmail.append(user.getFirstName(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME));
+            travelAgentEmail.append(" ");
+            travelAgentEmail.append(user.getLastName(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME));
+            travelAgentEmail.append("\n");
+            travelAgentEmail.append("Email ").append(emailAddress);
 
 
             TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
@@ -104,10 +120,16 @@ public abstract class BaseSubmitTravelInfo extends Base {
                 Response response = (Response) createEJB(getInitialContext(), Response.class);
                 for (Iterator it = questions.entrySet().iterator(); it.hasNext();) {
                     me = (Map.Entry) it.next();
-                    buf.append(me.getValue());
-                    buf.append(":\n");
-                    buf.append(answers.get(me.getKey()));
-                    buf.append("\n\n");
+                    fullEmail.append(me.getValue());
+                    fullEmail.append(":\n");
+                    fullEmail.append(answers.get(me.getKey()));
+                    fullEmail.append("\n\n");
+                    if (travelAgentQuestions.contains(me.getKey())) {
+                        travelAgentEmail.append(me.getValue());
+                        travelAgentEmail.append(":\n");
+                        travelAgentEmail.append(answers.get(me.getKey()));
+                        travelAgentEmail.append("\n\n");
+                    }
 
                     if (response.exists(getUser().getId(), Long.parseLong(me.getKey().toString()))) {
                         throw new NavigationException("You have already filled out this form.");
@@ -127,7 +149,7 @@ public abstract class BaseSubmitTravelInfo extends Base {
             TCSEmailMessage mail = new TCSEmailMessage();
             mail.setSubject("Travel Info Response - " + getUser().getUserName());
 
-            mail.setBody(buf.toString());
+            mail.setBody(fullEmail.toString());
             String[] recipients = getRecipients();
             for (int i = 0; i < recipients.length; i++) {
                 mail.addToAddress(recipients[i], TCSEmailMessage.TO);
@@ -135,6 +157,20 @@ public abstract class BaseSubmitTravelInfo extends Base {
 
             mail.setFromAddress(emailAddress);
             EmailEngine.send(mail);
+
+            TCSEmailMessage agentMail = new TCSEmailMessage();
+            agentMail.setSubject("TopCoder Travel Info Response - " + getUser().getUserName());
+
+            agentMail.setBody(travelAgentEmail.toString());
+            String[] agentRecipients = getRecipients();
+            for (int i = 0; i < agentRecipients.length; i++) {
+                agentMail.addToAddress(agentRecipients[i], TCSEmailMessage.TO);
+            }
+
+            agentMail.setFromAddress(emailAddress);
+            EmailEngine.send(agentMail);
+
+
             setNextPage(getSuccessPage());
             setIsNextPageInContext(false);
 
@@ -152,5 +188,9 @@ public abstract class BaseSubmitTravelInfo extends Base {
     //abstract protected String getTravelPage();
 
     abstract protected String[] getRecipients();
+
+    protected String[] getTravelAgentRecipients() {
+        return new String[0];
+    }
 
 }
