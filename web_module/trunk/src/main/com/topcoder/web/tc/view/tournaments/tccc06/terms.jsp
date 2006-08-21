@@ -1,6 +1,5 @@
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
-<%@ page import="com.topcoder.web.tc.controller.request.tournament.tccc06.SubmitAlgoRegistration" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
@@ -41,13 +40,15 @@
                         <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tccc06&d3=terms_content&<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.TCCC06_COMPONENT_TERMS_OF_USE_ID%>"></iframe>
                     </div>
 
-                    <p align="center">
-                        <tc-webtag:chkBox name="<%=SubmitAlgoRegistration.AOL_SURVEY%>"/> Yes, I would like to
-                        participate
-                        in an AOL&#174; research survey. By participating in the survey and
-                        providing my TopCoder handle, I understand that I will be entered into a raffle for a 60GB Apple
-                        iPod.
-                    </p>
+                    <%--
+                                        <p align="center">
+                                            <tc-webtag:chkBox name="<%=SubmitAlgoRegistration.AOL_SURVEY%>"/> Yes, I would like to
+                                            participate
+                                            in an AOL&#174; research survey. By participating in the survey and
+                                            providing my TopCoder handle, I understand that I will be entered into a raffle for a 60GB Apple
+                                            iPod.
+                                        </p>
+                    --%>
 
                     <p align="center">
                     <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">${err}
