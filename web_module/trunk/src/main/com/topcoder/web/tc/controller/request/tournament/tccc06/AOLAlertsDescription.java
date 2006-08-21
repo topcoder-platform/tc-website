@@ -17,7 +17,7 @@ public class AOLAlertsDescription extends BaseProcessor {
     protected static final Logger log = Logger.getLogger(AOLAlertsDescription.class);
 
     static String AOL_COOKIE = "aolcind";
-    static String AOL_ALIAS = "lkjadf933jkadf";
+    static String AOL_ALIAS = "users";
     public static String AOL_GROUP_ALERT = "group";
     public static String AOL_INDIVIDUAL_ALERT = "ind";
 
