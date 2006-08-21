@@ -195,7 +195,7 @@
             <include name="com/topcoder/web/ejb/forums/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
         </javac>
-    	<antcall target="jar_common"/>
+        <antcall target="jar_common"/>
     </target>
 
     <target name="compile_forumData" depends="init,jar_shared">
@@ -211,8 +211,8 @@
             <include name="com/topcoder/utilities/forumConvert/**"/>
         </javac>
     </target>
-	
-	<target name="compile_TCJive" depends="init,jar_shared">
+
+    <target name="compile_TCJive" depends="init,jar_shared">
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -222,11 +222,11 @@
                 source="1.4"
                 target="1.4"
                 >
-        	<include name="com/topcoder/web/forums/model/TCUser.java"/>
-        	<include name="com/topcoder/web/forums/model/TCUserManager.java"/>
-        	<include name="com/topcoder/web/forums/model/Common.java"/>
-        	<include name="com/topcoder/web/forums/model/TCAuthFactory.java"/>
-        	<include name="com/topcoder/web/forums/model/TCAuthToken.java"/>
+            <include name="com/topcoder/web/forums/model/TCUser.java"/>
+            <include name="com/topcoder/web/forums/model/TCUserManager.java"/>
+            <include name="com/topcoder/web/forums/model/Common.java"/>
+            <include name="com/topcoder/web/forums/model/TCAuthFactory.java"/>
+            <include name="com/topcoder/web/forums/model/TCAuthToken.java"/>
             <include name="com/topcoder/web/forums/util/filter/*.java"/>
         </javac>
     </target>
@@ -926,6 +926,9 @@
             <webinf dir="${resources}/email">
                 <include name="email-taglib.tld"/>
             </webinf>
+            <webinf dir="${resources}/taglib">
+                <include name="tc-webtags.tld"/>
+            </webinf>
             <zipfileset dir="${java}/com/topcoder/web/email/servlet/jsp">
                 <include name="**/*.jpg"/>
             </zipfileset>
@@ -1173,15 +1176,15 @@
         <unwar src="${war.dir}/reg.war" dest="${jboss_home}/server/all/deploy/reg.war/" overwrite="yes"/>
         <delete dir="${jboss_home}/server/all/deploy/reg.war/META-INF"/>
     </target>
-	
-	<target name="package-TCJive" depends="compile_TCJive">
+
+    <target name="package-TCJive" depends="compile_TCJive">
         <jar jarfile="${jars.dir}/tcjive.jar">
             <fileset dir="${classes}/">
-            	<include name="com/topcoder/web/forums/model/TCUser.class"/>
-            	<include name="com/topcoder/web/forums/model/TCUserManager.class"/>
-            	<include name="com/topcoder/web/forums/model/Common.class"/>
-            	<include name="com/topcoder/web/forums/model/TCAuthFactory.class"/>
-            	<include name="com/topcoder/web/forums/model/TCAuthToken.class"/>
+                <include name="com/topcoder/web/forums/model/TCUser.class"/>
+                <include name="com/topcoder/web/forums/model/TCUserManager.class"/>
+                <include name="com/topcoder/web/forums/model/Common.class"/>
+                <include name="com/topcoder/web/forums/model/TCAuthFactory.class"/>
+                <include name="com/topcoder/web/forums/model/TCAuthToken.class"/>
                 <include name="com/topcoder/web/forums/util/filter/*.class"/>
             </fileset>
             <fileset dir="${resources}/forums/filter">
@@ -1562,7 +1565,7 @@
 
     <target name="build-forums" depends="">
         <antcall target="war-forums"/>
-    	<antcall target="package-TCJive"/>
+        <antcall target="package-TCJive"/>
         <antcall target="package-EJB-MessageHistoryBean"/>
         <antcall target="package-EJB-ForumsBean"/>
     </target>
@@ -1627,7 +1630,7 @@
     </target>
 
     <target name="deploy-forums-full" depends="">
-    	<antcall target="deploy-forums"/>
+        <antcall target="deploy-forums"/>
 
         <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
@@ -1638,13 +1641,13 @@
         <copy todir="${jboss_deploy}" file="${jive.dir}/EditWAR.jar"/>
         <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
     </target>
-	
-	<target name="deploy-forums" depends="">
+
+    <target name="deploy-forums" depends="">
         <antcall target="explode-forums"/>
 
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
-    	<copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
-    	<copy todir="${jboss_lib}" file="${jars.dir}/tcjive.jar"/>
+        <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcjive.jar"/>
 
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
