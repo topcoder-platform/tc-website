@@ -305,6 +305,8 @@ public class Constants implements WebConstants {
     public static String HS_RATING_HISTORY;
 
 
+    public static String DEFAULT_SURVEY_SCROLL_SIZE;
+
     static {
         initialize();
     }
