@@ -28,4 +28,12 @@ public class TCCC06TravelInfoSubmit extends BaseSubmitTravelInfo {
             return new String[]{"gpaul@topcoder.com"};
         }
     }
+
+    protected String[] getAgentRecipients() {
+        if (ApplicationServer.ENVIRONMENT == ApplicationServer.PROD) {
+            return new String[]{"claudiau@globetvl.com"};
+        } else {
+            return new String[]{"gpaul@topcoder.com"};
+        }
+    }
 }
