@@ -8,13 +8,11 @@
 </tr>
 <%--------------------------------------------------------%>
 <tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Survey" border="0"/><br>08.28.06<br>
-        9:00 AM</td>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Survey" border="0"/><br>08.28.06<br>9:00 AM</td>
     <td class="newsTextCell"><span class="newsTitle">
-      <A href="<tc-webtag:linkTracking link='http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=1' refer="news_item"/>">AOL
-          Developer Community Survey</A>
+      <A href="<tc-webtag:linkTracking link='http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=1' refer="news_item"/>">AOL Developer Community Survey</A>
       </span><br><br>
-        Complete this server presented by AOL to help them better meet the needs of the developer community. Taking part
+        Complete this survey presented by AOL to help them better meet the needs of the developer community. Taking part
         in the survey will also enter you in a raffle to win a <strong>60GB iPod</strong>!
     </td>
 </tr>
@@ -26,8 +24,7 @@
 
 <%--------------------------------------------------------%>
 <tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>08.21.06<br>12:30 PM</td>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/><br>08.21.06<br>12:30 PM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=082106">The
@@ -47,8 +44,7 @@
 
 <%--------------------------------------------------------%>
 <tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
-        <br>08.21.06<br>11:25 AM</td>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>08.21.06<br>11:25 AM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm316">SRM 316 -
@@ -69,8 +65,7 @@
 
 <%--------------------------------------------------------%>
 <tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0"/>
-        <br>08.18.06<br>2:30 PM</td>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0"/><br>08.18.06<br>2:30 PM</td>
     <td class="newsTextCell"><span class="newsTitle">A banner week for Component Competitions</span><br><br>
         It's a great week for components -- for this week's design competitions alone, TopCoder has posted a record
         prize pool of $36,750
@@ -88,8 +83,7 @@
 
 <%--------------------------------------------------------%>
 <tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
-        <br>08.15.06<br>10:30 AM</td>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>08.15.06<br>10:30 AM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm11">TCHS
@@ -109,8 +103,7 @@
 
 <%--------------------------------------------------------%>
 <tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
-        <br>08.14.06<br>3:30 PM</td>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>08.14.06<br>3:30 PM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle">
@@ -134,8 +127,7 @@
 
 <%--------------------------------------------------------%>
 <tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>08.14.06<br>12:00 Noon</td>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/><br>08.14.06<br>12:00 Noon</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=081406">The art
@@ -155,8 +147,7 @@
 
 <%--------------------------------------------------------%>
 <tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0"/><br>
-        08.14.06<br>10:00 AM</td>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0"/><br>08.14.06<br>10:00 AM</td>
     <td class="newsTextCell"><span class="newsTitle">
       <A href="http://studio.topcoder.com/">Introducing TopCoder Studio</A>
       </span><br><br>
@@ -170,8 +161,7 @@
 </td></tr>
 <%--------------------------------------------------------%>
 <tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
-        <br>08.12.06<br>11:40 AM</td>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>08.12.06<br>11:40 AM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm315">SRM 315 -
@@ -192,8 +182,7 @@
 
 <%--------------------------------------------------------%>
 <tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>
-        08.09.06<br>4:45 PM</td>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>08.09.06<br>4:45 PM</td>
     <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_080906">AOL SRM 315 chat session transcript</A>
       </span><br><br>
@@ -209,8 +198,7 @@
 
 <%--------------------------------------------------------%>
 <tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0"/>
-        <br>08.08.06<br>3:50 PM</td>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0"/><br>08.08.06<br>3:50 PM</td>
     <td class="newsTextCell"><span class="newsTitle">
       <A href="/longcontest/?module=ViewOverview&rd=10087">Intel&#174; Multi-Threading Competition 7 Results</A>
       </span><br><br>
@@ -225,8 +213,7 @@
 
 <%--------------------------------------------------------%>
 <tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
-        <br>08.08.06<br>3:45 PM</td>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>08.08.06<br>3:45 PM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm10">TCHS
