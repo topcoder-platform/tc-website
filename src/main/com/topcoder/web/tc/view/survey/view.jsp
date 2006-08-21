@@ -84,23 +84,16 @@
 </td>
 <!-- Left Column Ends -->
 
-<!-- Gutter Begins -->
-<td width="10"><img src="/i/clear.gif" width="10" height="1"></td>
-<!-- Gutter Ends -->
+<td width="100%" align="center" class="bodyColumn">
 
-<!-- Center Column Begins -->
-<td width="100%" class="bodyText" valign="top">
-<table width="100%" border="0" cellpadding="10" cellspacing="0" class="bodyText">
-    <tr>
-        <td class="bodyText" width="100%"><img src="/i/header_questions.gif" width="210" height="26" border="0">
-            <br/>
+<div class="fixedWidthBody">
 
-            <p align="right" class="bodyText"><a href="/tc?module=SurveyList">Archive</a></p></td>
-    </tr>
-</table>
+            <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="surveys"/>
+            <jsp:param name="title" value="&nbsp;"/>
+            </jsp:include>
+            <p align="right" class="bodyText"><a href="/tc?module=SurveyList">Archive</a></p>
 
-<div align="center">
-    <div align="left" style="width: 600px;">
 
         <% if (surveyInfo.getText() != null) { %>
         <p class="bodyTitle">
@@ -188,15 +181,11 @@
                 </tr>
             </table>
         </form>
-    </div>
-</div>
 
+</div>
 </td>
 <!-- Center Column Ends -->
 
-<!-- Gutter -->
-<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-<!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
 <td width="170">

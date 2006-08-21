@@ -15,7 +15,7 @@
 
     <jsp:include page="/script.jsp"/>
     <jsp:include page="/style.jsp">
-        <jsp:param name="key" value="tc_main"/>
+        <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
 
 
@@ -52,19 +52,16 @@
         </td>
         <!-- Left Column Ends -->
 
-        <!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1"></td>
-        <!-- Gutter Ends -->
+<td width="100%" align="center" class="bodyColumn">
 
-        <!-- Center Column Begins -->
-        <td width="100%" class="bodyText" valign="top">
-            <table width="100%" border="0" cellpadding="10" cellspacing="0" class="bodyText">
-                <tr>
-                    <td class="bodyText" width="100%">
-                        <img src="/i/header_questions.gif" width="210" height="26" border="0"></td>
-                </tr>
-            </table>
-            <p>Each week, we poll TopCoder competitors to find out answers to questions that are important to the coding
+<div class="fixedWidthBody">
+
+            <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="surveys"/>
+            <jsp:param name="title" value="Archive"/>
+            </jsp:include>
+
+            <p>We occasionally poll TopCoder competitors to find out answers to questions that are important to the coding
                 community.
                 The following is a list of those questions. Feel free to click "Results" next to any question to see how
                 the TopCoder member
@@ -72,10 +69,11 @@
                 will not have a "Vote"
                 button next to it.</p>
 
-            <table border="0" cellpadding="5" cellspacing="0" width="100%">
-                <tr><td class="header">Archive</td></tr>
-            </table>
 
+            <div class="pagingBox">
+                <%=(surveyList.croppedDataBefore() ? "<a href=\"#\" onclick=\"previous();return false;\"class=\"bcLink\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+                | <%=(surveyList.croppedDataAfter() ? "<a href=\"#\" onclick=\"next();return false;\"class=\"bcLink\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+            </div>
             <table border="0" cellpadding="5" cellspacing="0" class="bodyText" width="500" align="center">
                 <form name="surveyListForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SurveyList"/>
@@ -109,13 +107,9 @@
                 | <%=(surveyList.croppedDataAfter() ? "<a href=\"#\" onclick=\"next();return false;\"class=\"bcLink\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
             </div>
 
-            <p><br/></p>
-        </td>
-        <!-- Center Column Ends -->
+</div>
 
-        <!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-        <!-- Gutter Ends -->
+</td>
 
         <!-- Right Column Begins -->
         <td width="170">
