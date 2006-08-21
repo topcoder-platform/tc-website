@@ -490,7 +490,7 @@ I want to thank TopCoder for creating such an awesome contest, and I hope to see
       <td class="valueR">205</td>
    </tr>
    <tr class="light">
-      <td class="valueC"><tc-webtag:handle coderId="12006665" context="development" /></td>
+      <td class="value"><tc-webtag:handle coderId="12006665" context="development" /></td>
       <td class="valueC">605</td>
       <td class="valueC">4</td>
       <td class="valueR">$252</td>
