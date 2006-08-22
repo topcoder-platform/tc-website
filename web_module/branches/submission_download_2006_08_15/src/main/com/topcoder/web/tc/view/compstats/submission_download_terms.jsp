@@ -22,7 +22,7 @@
 
 <c:import url="${sessionInfo.servletPath}">
     <c:param name="<%=Constants.MODULE_KEY%>" value="Terms"/>
-    <c:param name="<%=Constants.TERMS_OF_USE_ID%>" value="<%=Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID%>"/>
+    <c:param name="<%=Constants.TERMS_OF_USE_ID%>" value="<%=Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID+""%>"/>
 </c:import>
 
 </body>
