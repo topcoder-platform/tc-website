@@ -10,7 +10,7 @@
     <link type="text/css" rel="stylesheet" href="/css/TCCC06style.css"/>
     <c:set value="<%=SubmitAlgoRegistration.AOL_SURVEY%>" var="aolSurvey"/>
     <c:if test="${requestScope[aolSurvey]}">
-        <META HTTP-EQUIV="refresh" content="10;url=<tc-webtag:linkTracking link="http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=1"/>">
+        <META HTTP-EQUIV="refresh" content="10;url=<tc-webtag:linkTracking link="http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=1" refer="reg"/>">
     </c:if>
 </head>
 
@@ -37,7 +37,7 @@
                         You have chosen to take part in AOL's survey. This page will automatically load the survey in 10
                         seconds.
                         If it does not, you may click
-                        <a href="<tc-webtag:linkTracking link="http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=1"/>">here</a>
+                        <a href="<tc-webtag:linkTracking link="http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=1" refer="reg"/>">here</a>
                         .
                     </p>
                 </c:if>
