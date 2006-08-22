@@ -65,6 +65,9 @@ public class ViewUploadResults extends BaseProcessor {
                 ScreeningResponse[] warArr = (ScreeningResponse[]) warnings.toArray(new ScreeningResponse[warnings.size()]);
                 ScreeningResponse[] fatArr = (ScreeningResponse[]) fatalErrors.toArray(new ScreeningResponse[fatalErrors.size()]);
 
+                log.info("warArr.length: " + warArr.length);
+                log.info("fatArr.length: " + fatArr.length);
+
                 if (warArr.length > 0) {
                     getRequest().setAttribute(Constants.WARNING_LIST_KEY, warArr);
                 }
