@@ -55,6 +55,43 @@ public class XmlQuery implements QueryInterface {
         }
     }
 
+    public ScreeningResponse[] getSpecificationDetails(long specId) {
+        Connection conn = null;
+        try {
+            conn = DbHelper.getConnection();
+            return getSpecificationDetails(specId, conn);
+        } finally {
+            DbHelper.dispose(conn, null, null);
+        }
+    }
+
+    public ScreeningResponse[] getSpecificationDetails(long specId, Connection conn) {
+        List responses = null;
+
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = conn.prepareStatement(
+                    "SELECT severity_text, response_code, response_text, dynamic_response_text, screening_results_id " +
+                    "FROM response_severity_lu, screening_response_lu, screening_results, screening_task st " +
+                    "WHERE response_severity_lu.response_severity_id = screening_response_lu.response_severity_id " +
+                    "AND screening_response_lu.screening_response_id = screening_results.screening_response_id " +
+                    "AND st.specification_id = ? " +
+                    "AND st.screening_task_id = screening_results.screening_task_id " +
+                    "AND (st.screened_ind = 1) " +
+                    "ORDER BY response_code ASC, screening_results_id ASC");
+            stmt.setLong(1, specId);
+            rs = stmt.executeQuery();
+            responses = buildResult(rs);
+        } catch (SQLException sqle) {
+            throw new DatabaseException("getSpecificationDetails() fails.", sqle);
+        } finally {
+            DbHelper.dispose(null, stmt, rs);
+        }
+
+        return (ScreeningResponse[]) responses.toArray(new ScreeningResponse[responses.size()]);
+    }
+
     /**
      * <strong>Purpose</strong>:
      * Obtains details about the screening process that was run for a particular submission. Each response code
@@ -80,7 +117,7 @@ public class XmlQuery implements QueryInterface {
         try {
             stmt = conn.prepareStatement(
                     "SELECT severity_text, response_code, response_text, dynamic_response_text, screening_results_id " +
-                    "FROM response_severity_lu, screening_response_lu, screening_results, submission " +
+                    "FROM response_severity_lu, screening_response_lu, screening_results, submission, screening_task st " +
                     "WHERE response_severity_lu.response_severity_id = screening_response_lu.response_severity_id " +
                     "AND screening_response_lu.screening_response_id = screening_results.screening_response_id " +
                     "AND submission.submission_v_id = ? " +
@@ -108,7 +145,7 @@ public class XmlQuery implements QueryInterface {
         try {
             stmt = conn.prepareStatement(
                     "SELECT severity_text, response_code, response_text, dynamic_response_text, screening_results_id " +
-                    "FROM response_severity_lu, screening_response_lu, screening_results, submission " +
+                    "FROM response_severity_lu, screening_response_lu, screening_results, submission, screening_task st " +
                     "WHERE response_severity_lu.response_severity_id = screening_response_lu.response_severity_id " +
                     "AND screening_response_lu.screening_response_id = screening_results.screening_response_id " +
                     "AND submission.submission_v_id = st.submission_v_id " +

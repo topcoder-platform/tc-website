@@ -79,8 +79,10 @@ public class UploadApplicationSubmissionTask extends BaseProcessor {
 
                     ScreeningJob.placeRequest(specificationScreeningRequest, conn);
 
+
                     log.info("Task saved");
 
+                    getRequest().setAttribute("spec_id", String.valueOf(applicationSpecification.getSpecificationId()));
 
                     setNextPage("/applications/upload_results.jsp");
                     setIsNextPageInContext(true);
