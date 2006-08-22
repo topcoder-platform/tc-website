@@ -44,17 +44,9 @@ public class DownloadSubmission extends Base {
             			Constants.PROJECT_ID + "=" + projId + "&");
             	setIsNextPageInContext(false);
             } else {
-            	/*
-                setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=ViewTerms&" + 
-                		Constants.PROJECT_ID + "=" + projId + "&" +
-                		Constants.CODER_ID + "=" + coderId + "&" +
-                		"st=" + submissionTypeId  + "&" +
-                		"tu=" + Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID + "&" + 
-                		"rm=DownloadSubmission"
-                		*/
             	getRequest().setAttribute(Constants.PROJECT_ID, projId);
             	getRequest().setAttribute(Constants.CODER_ID, coderId);            	
-            	setNextPage("/compstats/submission_download_terms.jsp");
+            	setNextPage("/compstats/download_submission_terms.jsp");
                 setIsNextPageInContext(true);
             }
 

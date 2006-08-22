@@ -342,7 +342,7 @@
         <% } %>
 
         <% } else { %>
-        <TD class="<%=even?"statLt":"statDk"%>" align="center" colspan="5">&nbsp;</TD>
+        <TD class="<%=even?"statLt":"statDk"%>" align="center" colspan="6">&nbsp;</TD>
         <% } %>
 <% if (canDownloadSubm) { %>
         <TD class="<%=even?"statLt":"statDk"%>" align="center">

@@ -33,7 +33,7 @@ public class DownloadSubmissionAgreeTerms extends Base {
 
             SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
 
-            setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=DownloadSubmission&" + 
+            setNextPage(info.getServletPath() + "?" +  
             		Constants.PROJECT_ID + "=" + projId + "&" +
             		Constants.CODER_ID + "=" + coderId);
             		
