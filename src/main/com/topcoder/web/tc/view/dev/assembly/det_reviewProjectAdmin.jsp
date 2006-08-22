@@ -113,7 +113,7 @@ All submissions are required to be submitted by the end of Competition Phase. Th
       <td>Competition Phase:</td><td align="right">08.11.2006</td><td align="right">08.25.2006</td>
    </tr>
    <tr>
-      <td>&#160;</td><td align="right">&#160;</td><td align="right">12:00 PM EST</td>
+      <td>&#160;</td><td align="right">&#160;</td><td align="right">12:00 Noon EST</td>
    </tr>
    <tr>
       <td>Test Challenge Phase:</td><td align="right">08.25.2006</td><td align="right">08.28.2006</td>
