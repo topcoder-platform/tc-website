@@ -123,7 +123,7 @@ function AllowTabCharacter() {
        </td>
     </tr>
 </table>
-<br/><div id="Options">Allowed tags: <%=ForumsUtil.getAllowedTagsDisplay()%>. Allowed attributes: <%=ForumsUtil.getAllowedAttributesDisplay()%>. Syntax highlighting is applied to text within [code][/code], [cpp][/cpp], [java][/java], [c#][/c#], and [vb][/vb] blocks. Usernames within [handle][/handle] blocks are converted into color-coded links.</div>
+<br/><div id="Options">Allowed tags: <%=ForumsUtil.getAllowedTagsDisplay()%>. Allowed attributes: <%=ForumsUtil.getAllowedAttributesDisplay()%>. Syntax highlighting is applied to text within [code][/code], [cpp][/cpp], [java][/java], [c#][/c#], [vb][/vb], and [py][/py] blocks. Usernames within [handle][/handle] blocks are converted into color-coded links.</div>
 <br>
 <span class="bodySubtitle">Message Preview</span><br/>
 <table cellpadding="0" cellspacing="0" class="rtTable">
