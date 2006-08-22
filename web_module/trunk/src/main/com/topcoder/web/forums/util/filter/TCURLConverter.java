@@ -246,12 +246,7 @@ public class TCURLConverter implements Filter {
 
             last = block.getEnd() + 1;
 
-            String url = block.getUrl();
-            if (isShortenLinks() && url.length() > longLinkLen) {
-            	url = url.substring(0, charsBeforeEllipsis) + "....." + 
-            		url.substring(url.length() - charsAfterEllipsis);
-            }
-            filtered.append("<a href=\"").append(url).append('\"');
+            filtered.append("<a href=\"").append(block.getUrl()).append('\"');
             if (newWindowEnabled) {
                 filtered.append(" target=\"_blank\"");
             }
@@ -260,7 +255,12 @@ public class TCURLConverter implements Filter {
                 filtered.append(chain.applyFilters(currentIndex, block.getDescription()));
             }
             else {
-                filtered.append(block.getUrl());
+                String url = block.getUrl();
+                if (isShortenLinks() && url.length() > longLinkLen) {
+                	url = url.substring(0, charsBeforeEllipsis) + "....." + 
+                		url.substring(url.length() - charsAfterEllipsis);
+                }
+                filtered.append(url);
             }
             filtered.append("</a>");
         }
