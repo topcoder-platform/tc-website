@@ -29,7 +29,7 @@ import java.util.ArrayList;
 public class ShowScreening implements Model {
 
     private static Logger log = Logger.getLogger(ShowScreening.class);
-    
+
     /**
      * Method for retrieving the screening responses.
      *
@@ -83,7 +83,7 @@ public class ShowScreening implements Model {
             Connection conn = null;
             try {
                 conn = Common.getDataSource().getConnection();
-                
+
                 if (submissionDownloadData.getVersionId() > 0) {
                     AbstractSubmission submission =
                             documentManager.getSubmissionByVersion(project, submissionDownloadData.getVersionId(), user.getTCSubject());

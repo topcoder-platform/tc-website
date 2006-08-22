@@ -7,36 +7,18 @@ import java.io.InputStream;
 import java.sql.Connection;
 import java.util.Date;
 
-import javax.ejb.CreateException;
-import javax.ejb.EJBException;
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
-
 import com.topcoder.apps.review.ConfigHelper;
 import com.topcoder.apps.review.EJBHelper;
-import com.topcoder.apps.review.FailureResult;
-import com.topcoder.apps.review.ScreeningRetrieval;
-import com.topcoder.apps.review.SubmissionDownload;
-import com.topcoder.apps.review.document.DocumentManagerLocal;
-import com.topcoder.apps.review.document.InitialSubmission;
 import com.topcoder.apps.review.persistence.Common;
-import com.topcoder.apps.review.projecttracker.Project;
-import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
-import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 import com.topcoder.apps.screening.ProjectType;
 import com.topcoder.apps.screening.ScreeningJob;
 import com.topcoder.apps.screening.SpecificationScreeningRequest;
-import com.topcoder.apps.screening.ScreeningResponse;
 import com.topcoder.apps.screening.application.AppSpecification;
 import com.topcoder.apps.screening.application.ApplicationSpecification;
-import com.topcoder.security.TCSubject;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.format.FormatMethodFactory;
-import com.topcoder.util.idgenerator.bean.IdGen;
-import com.topcoder.util.idgenerator.bean.IdGenHome;
 import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
@@ -81,9 +63,6 @@ public class UploadApplicationSubmissionTask extends BaseProcessor {
                     //////////////////////////////////////////////////////////////////////////////////////////////////////////
                     Connection conn = Common.getDataSource().getConnection();
 
-                    log.info("Generating new task ID...");
-                    IdGen idGen = createIDGen();
-
                     AppSpecification appSpecification = EJBHelper.getAppSpecification();
 
                     ApplicationSpecification applicationSpecification = new ApplicationSpecification(
@@ -109,8 +88,6 @@ public class UploadApplicationSubmissionTask extends BaseProcessor {
                     throw new TCWebException("Empty file uploaded");
                 }
             }
-        } catch (CreateException e) {
-            throw (new TCWebException("Couldn't create IDGenerator", e));
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
@@ -137,26 +114,5 @@ public class UploadApplicationSubmissionTask extends BaseProcessor {
         }
         fos.close();
 
-    }
-
-    /**
-     * Creates IdGenerator EJB
-     *
-     * @param dataSource the current datasource
-     * @return the IdGenerator
-     * @throws CreateException if bean creation fails.
-     */
-    private IdGen createIDGen() throws CreateException {
-        try {
-            InitialContext context = new InitialContext();
-
-            Object o = context.lookup("idgenerator/IdGenEJB");
-            IdGenHome idGenHome = (IdGenHome) PortableRemoteObject.narrow(o,
-                    IdGenHome.class);
-            return idGenHome.create();
-
-        } catch (Exception e) {
-            throw new CreateException("Could not find bean!" + e);
-        }
     }
 }

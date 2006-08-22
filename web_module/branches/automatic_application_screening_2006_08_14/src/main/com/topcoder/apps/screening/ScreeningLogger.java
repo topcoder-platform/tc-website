@@ -72,22 +72,6 @@ public class ScreeningLogger {
 
     /**
      * <strong>Purpose</strong>:
-     * Identifier for the user that is performing the logging operation. This value is provided for audit purposes
-     * and will be stored in the database along with the audit information.
-     *
-     * <strong>Valid Args</strong>:
-     * A non-null String.
-     */
-    //private long userId = 1;
-
-    /**
-     * <strong>Purpose</strong>:
-     * Submission version id.
-     */
-    //private long taskId = -1;
-
-    /**
-     * <strong>Purpose</strong>:
      * The id generator to generate the screening result ids.
      */
     private IdGen idGen;
@@ -152,22 +136,6 @@ public class ScreeningLogger {
 
     /**
      * <strong>Purpose</strong>:
-     * Creates an instance of this class and initialises the attributes using the corresponding parameter values.
-     *
-     * <strong>Valid Args</strong>:
-     * Two non-null strings and an integer.
-     *
-     * @param userId The user for audit purposes.
-     * @param submissionVId The submission id to log.
-     */
-/*    public ScreeningLogger(long userId, long taskId) {
-        this();
-        this.userId = userId;
-        setTaskId(taskId);
-    }*/
-
-    /**
-     * <strong>Purpose</strong>:
      * Initialize Id Generator.
      */
     private void initializeIdGen() {
@@ -209,10 +177,8 @@ public class ScreeningLogger {
             stmt.setLong(1, idGen.nextId());
             stmt.setString(2, message.getResponseText());
             stmt.setLong(3, message.getResponseId());
-//            stmt.setLong(4, this.userId);
             stmt.setLong(4, 1);
             stmt.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
-//            stmt.setLong(6, this.taskId);
             stmt.setLong(6, request.getTaskId());
 
             if (!executeUpdate(stmt, maxRetries, retrySleepTime)) {
@@ -240,18 +206,25 @@ public class ScreeningLogger {
      * @throws DatabaseException if logging fails.
      */
     public void log(ScreeningResult message) {
-        if (!(this.request instanceof SubmissionScreeningRequest)) {
-            return;
-        }
-
         if (message == null) {
             throw new NullPointerException("message should not be null.");
         }
+
         Connection conn = null;
         PreparedStatement stmt = null;
+
         try {
             conn = DbHelper.getConnection();
-            stmt = conn.prepareStatement("UPDATE submission SET passed_auto_screening = ? WHERE submission_v_id = ?");
+
+            if (this.request instanceof SubmissionScreeningRequest) {
+                stmt = conn.prepareStatement("UPDATE submission SET passed_auto_screening = ? WHERE submission_v_id = ?");
+            } else if (request instanceof SpecificationScreeningRequest){
+                stmt = conn.prepareStatement("UPDATE specifications SET passed_auto_screening = ? WHERE specification_id = ?");
+            } else {
+                // TODO: change exception
+                throw new DatabaseException("Unknown screening request type.");
+            }
+
             stmt.setBoolean(1, message.isSuccess());
             stmt.setLong(2, this.request.getSubmissionVId());
 
@@ -264,33 +237,6 @@ public class ScreeningLogger {
             DbHelper.dispose(conn, stmt, null);
         }
     }
-
-    /**
-     * <strong>Purpose</strong>:
-     * Obtains the database identifier of the submission for which messages will be logged.
-     *
-     * <strong>Valid Return Values</strong>:
-     * An integer.
-     *
-     * @return The database identifier of the submitter.
-     */
-/*    public long getTaskId() {
-        return this.taskId;
-    }*/
-
-    /**
-     * <strong>Purpose</strong>:
-     * Sets the database identifier for the submitter for which messages will be logged.
-     *
-     * <strong>Valid Args</strong>:
-     * An integer.
-     *
-     * @param submissionId The database identifier of the submitter.
-     */
-/*    public void setTaskId(long taskId) {
-        this.taskId = taskId;
-    }*/
-
 
     public IScreeningRequest getRequest() {
         return this.request;

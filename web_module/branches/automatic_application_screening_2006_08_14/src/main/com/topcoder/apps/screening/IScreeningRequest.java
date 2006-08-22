@@ -10,6 +10,13 @@ public interface IScreeningRequest {
     public abstract long getTaskId();
 
     /**
+     * Get the task id.
+     *
+     * @return the task id.
+     */
+    public void setTaskId(long taskId);
+
+    /**
      * Get the submitter id.
      *
      * @return the submitter id.

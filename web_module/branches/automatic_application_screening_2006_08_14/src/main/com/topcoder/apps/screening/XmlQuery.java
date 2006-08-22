@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * @author WishingBone
  * @version 1.0
  */
-public class XmlQuery implements QueryInterface {
+public abstract class XmlQuery implements QueryInterface {
 
     /**
      * <strong>Purpose</strong>:
@@ -44,7 +44,7 @@ public class XmlQuery implements QueryInterface {
             DbHelper.dispose(conn, null, null);
         }
     }
-    
+
     public ScreeningResponse[] getCurrentSubmissionDetails(long submissionId) {
         Connection conn = null;
         try {
@@ -54,7 +54,7 @@ public class XmlQuery implements QueryInterface {
             DbHelper.dispose(conn, null, null);
         }
     }
-    
+
     /**
      * <strong>Purpose</strong>:
      * Obtains details about the screening process that was run for a particular submission. Each response code
@@ -83,8 +83,9 @@ public class XmlQuery implements QueryInterface {
                     "FROM response_severity_lu, screening_response_lu, screening_results, submission " +
                     "WHERE response_severity_lu.response_severity_id = screening_response_lu.response_severity_id " +
                     "AND screening_response_lu.screening_response_id = screening_results.screening_response_id " +
-                    "AND screening_results.submission_v_id = ? " +
-                    "AND submission.submission_v_id = screening_results.submission_v_id " +
+                    "AND submission.submission_v_id = ? " +
+                    "AND submission.submission_v_id = st.submission_v_id " +
+                    "AND st.screening_task_id = screening_results.screening_task_id " +
                     "AND (passed_auto_screening = 0 OR passed_auto_screening = 1) " +
                     "ORDER BY response_code ASC, screening_results_id ASC");
             stmt.setLong(1, submissionVId);
@@ -110,7 +111,8 @@ public class XmlQuery implements QueryInterface {
                     "FROM response_severity_lu, screening_response_lu, screening_results, submission " +
                     "WHERE response_severity_lu.response_severity_id = screening_response_lu.response_severity_id " +
                     "AND screening_response_lu.screening_response_id = screening_results.screening_response_id " +
-                    "AND screening_results.submission_v_id = submission.submission_v_id " +
+                    "AND submission.submission_v_id = st.submission_v_id " +
+                    "AND st.screening_task_id = screening_results.screening_task_id " +
                     "AND submission.submission_id = ? " +
                     "AND cur_version = 1 " +
                     "AND (passed_auto_screening = 0 OR passed_auto_screening = 1) " +
@@ -181,6 +183,8 @@ public class XmlQuery implements QueryInterface {
      * @throws DatabaseException if an error occured at the database level while attempting to retrieve the results.
      */
     public ScreeningRecord[] getSubmissionStatus(long projectId, long submitterId) {
+        // OK
+
         Connection conn = null;
         try {
             conn = DbHelper.getConnection();
@@ -189,7 +193,7 @@ public class XmlQuery implements QueryInterface {
             DbHelper.dispose(conn, null, null);
         }
     }
-    
+
     /**
      * <strong>Purpose</strong>:
      * Obtains details about the screening processes run for all submission by a given submitter to a given project.
@@ -211,6 +215,8 @@ public class XmlQuery implements QueryInterface {
      * @throws DatabaseException if an error occured at the database level while attempting to retrieve the results.
      */
     public ScreeningRecord[] getSubmissionStatus(long projectId, long submitterId, Connection conn) {
+        // OK
+
         List submissions = new ArrayList();
 
         PreparedStatement stmt = null;
@@ -219,10 +225,11 @@ public class XmlQuery implements QueryInterface {
             List warnings = new ArrayList();
             stmt = conn.prepareStatement(
                     "SELECT UNIQUE submission.submission_v_id " +
-                    "FROM submission, screening_results, screening_response_lu, response_severity_lu " +
+                    "FROM submission, screening_results, screening_response_lu, response_severity_lu, screening_task st " +
                     "WHERE passed_auto_screening = 1 " +
                     "AND project_id = ? AND submitter_id = ? " +
-                    "AND submission.submission_v_id = screening_results.submission_v_id " +
+                    "AND submission.submission_v_id = st.submission_v_id " +
+                    "AND st.screening_task_id = screening_results.screening_task_id " +
                     "AND is_removed = 0 " +
                     "AND screening_results.screening_response_id = screening_response_lu.screening_response_id " +
                     "AND screening_response_lu.response_severity_id = response_severity_lu.response_severity_id " +
@@ -292,6 +299,7 @@ public class XmlQuery implements QueryInterface {
      * @throws DatabaseException if an error occured at the database level while attempting to retrieve the results.
      */
     public ScreeningRecord[] getAllSubmissions(long projectId) {
+        // OK
         Connection conn = null;
         try {
             conn = DbHelper.getConnection();
@@ -319,6 +327,7 @@ public class XmlQuery implements QueryInterface {
      * @throws DatabaseException if an error occured at the database level while attempting to retrieve the results.
      */
     public ScreeningRecord[] getAllSubmissions(long projectId, Connection conn) {
+        // OK
         List submissions = new ArrayList();
 
         PreparedStatement stmt = null;
@@ -327,10 +336,11 @@ public class XmlQuery implements QueryInterface {
             List warnings = new ArrayList();
             stmt = conn.prepareStatement(
                     "SELECT UNIQUE submission.submission_v_id " +
-                    "FROM submission, screening_results, screening_response_lu, response_severity_lu " +
+                    "FROM submission, screening_results, screening_response_lu, response_severity_lu, screening_task st " +
                     "WHERE passed_auto_screening = 1 " +
                     "AND project_id = ? " +
-                    "AND submission.submission_v_id = screening_results.submission_v_id " +
+                    "AND submission.submission_v_id = st.submission_v_id " +
+                    "AND st.screening_task_id = screening_results.screening_task_id " +
                     "AND is_removed = 0 " +
                     "AND screening_results.screening_response_id = screening_response_lu.screening_response_id " +
                     "AND screening_response_lu.response_severity_id = response_severity_lu.response_severity_id " +

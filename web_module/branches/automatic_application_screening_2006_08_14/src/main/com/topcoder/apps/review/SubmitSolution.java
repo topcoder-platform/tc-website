@@ -128,7 +128,7 @@ public class SubmitSolution implements Model {
 
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
             // Added by WishingBone - Automated Screening
-            long typeId = 3;
+            long typeId = solutionData.getProject().getProjectType().getId();
             String catalog = solutionData.getProject().getCatalog();
             ProjectType type = null;
             if ("Java".equals(catalog) || "Java Custom".equals(catalog)) {
@@ -148,15 +148,16 @@ public class SubmitSolution implements Model {
                 Connection conn = null;
                 long versionId;
 
+                SubmissionScreeningRequest ssr = null;
+
                 try {
                     conn = Common.getDataSource().getConnection();
 
                     versionId = ScreeningJob.getVersionId(initialSubmissions[0].getId(), conn);
-                    ScreeningJob.placeRequest(new SubmissionScreeningRequest(-1, 0,
-                            versionId,
+                    ssr = new SubmissionScreeningRequest(-1, 0, versionId,
                             ConfigHelper.getSubmissionPathPrefix() + destFilename,
-                            type),
-                            conn);
+                            type);
+                    ScreeningJob.placeRequest(ssr, conn);
                 } finally {
                     try {
                         conn.close();
@@ -196,7 +197,6 @@ public class SubmitSolution implements Model {
         if (EJBHelper.isTestMode()) {
             dest.deleteOnExit();
         }
-        //FileInputStream fis = new FileInputStream(source);
         FileOutputStream fos = new FileOutputStream(dest);
         byte[] buf = new byte[BUFSIZE];
         int read = 0;
@@ -204,10 +204,6 @@ public class SubmitSolution implements Model {
             fos.write(buf, 0, read);
         }
         fos.close();
-        //fis.close();
-        //if (EJBHelper.isTestMode()) {
-        //    dest.delete();
-        //}
     }
 
 }

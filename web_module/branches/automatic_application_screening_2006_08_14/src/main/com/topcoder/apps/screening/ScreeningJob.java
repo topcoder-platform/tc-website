@@ -84,11 +84,6 @@ public class ScreeningJob extends TimerTask {
     private static final int MAX_SCREENING_ATTEMPTS_PERMITTED = 99;
 
     /**
-     * The log name.
-     */
-    private final static String LOG_NAME = "Automated_Screening";
-
-    /**
      * The default number of screening attempts.
      *
      * @since 1.0.1
@@ -223,7 +218,8 @@ public class ScreeningJob extends TimerTask {
             stmt = conn.prepareStatement(
                     "DELETE FROM screening_results " +
                     "WHERE screening_task_id IN " +
-                    "(SELECT screening_task_id FROM screening_task WHERE screener_id = ?)");
+                    "(SELECT screening_task_id FROM screening_task " +
+                    " WHERE screened_id = 0 andscreener_id = ?)");
             stmt.setLong(1, screener);
             stmt.executeUpdate();
             stmt = null;
@@ -231,7 +227,7 @@ public class ScreeningJob extends TimerTask {
             stmt = conn.prepareStatement(
                     "UPDATE screening_task " +
                     "SET screener_id = NULL " +
-                    "WHERE screener_id = ?");
+                    "WHERE screened_id = 0 and screener_id = ?");
             stmt.setLong(1, screener);
             stmt.executeUpdate();
         } catch (SQLException sqle) {
@@ -479,6 +475,8 @@ public class ScreeningJob extends TimerTask {
      * @return the submission version id.
      */
     public static long getVersionId(long submissionId, Connection conn) {
+        // TODO: this has nothing to do here.
+
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
@@ -524,12 +522,13 @@ public class ScreeningJob extends TimerTask {
         PreparedStatement stmt = null;
         try {
             stmt = conn.prepareStatement("INSERT INTO screening_task(screening_task_id, submission_path, " +
-                "screening_project_type_id, screening_attempts, submission_v_id, screened_ind) VALUES(?, ?, ?, ?, ?, 0)");
+                "screening_project_type_id, screening_attempts, submission_v_id, screened_ind) VALUES(?, ?, ?, ?, ?, ?)");
             stmt.setLong(1, request.getTaskId());
             stmt.setString(2, request.getSubmissionPath());
             stmt.setLong(3, request.getProjectType().getId());
             stmt.setLong(4, 0);
             stmt.setLong(5, request.getSubmissionVId());
+            stmt.setLong(6, 0);
             stmt.executeUpdate();
         } catch (SQLException sqle) {
             throw new DatabaseException("placeRequest() fails.", sqle);
@@ -544,31 +543,51 @@ public class ScreeningJob extends TimerTask {
      * @param request the request to place.
      * @param conn the connection to use.
      */
-    public static void placeRequest(SpecificationScreeningRequest request, Connection conn) {
+    public static void placeRequest(IScreeningRequest request, Connection conn) {
         PreparedStatement stmt = null;
         try {
-
-            //IdGen idGen = createIDGen();
-
-            if (request.getTaskId() == -1) {
-                request.setTaskId(generateNewID());
+            if (request instanceof SubmissionScreeningRequest) {
+                stmt = conn.prepareStatement("INSERT INTO screening_task(screening_task_id, submission_path, " +
+                "screening_project_type_id, screening_attempts, submission_v_id, screened_ind) VALUES(?, ?, ?, ?, ?, ?)");
+            } else if (request instanceof SpecificationScreeningRequest){
+                stmt = conn.prepareStatement("INSERT INTO screening_task(screening_task_id, submission_path, " +
+                "screening_project_type_id, screening_attempts, specification_id, screened_ind) VALUES(?, ?, ?, ?, ?, ?)");
+            } else {
+                // TODO: change exception
+                throw new DatabaseException("Unknown screening request type.");
             }
 
-            stmt = conn.prepareStatement("INSERT INTO screening_task(screening_task_id, submission_path, " +
-                "screening_project_type_id, screening_attempts, specification_id, screened_ind) VALUES(?, ?, ?, ?, ?, 0)");
+            if (request.getTaskId() == -1) {
+                request.setTaskId(generateNewTaskID());
+            }
+
             stmt.setLong(1, request.getTaskId());
             stmt.setString(2, request.getSubmissionPath());
             stmt.setLong(3, request.getProjectType().getId());
             stmt.setLong(4, 0);
             stmt.setLong(5, request.getSubmissionVId());
+            stmt.setLong(6, 0);
             stmt.executeUpdate();
         } catch (SQLException sqle) {
             throw new DatabaseException("placeRequest() fails.", sqle);
         } catch (Exception e) {
+            // TODO: change exception
             throw new DatabaseException("inserting task failed.", e);
         } finally {
             DbHelper.dispose(null, stmt, null);
         }
+    }
+
+    /**
+     * Creates IdGenerator EJB
+     *
+     * @param dataSource the current datasource
+     * @return the IdGenerator
+     * @throws CreateException if bean creation fails.
+     */
+    private static long generateNewTaskID() throws IDGenerationException {
+        IDGenerator gen = IDGeneratorFactory.getIDGenerator("SCREENING_TASK_SEQ");
+        return gen.getNextID();
     }
 
     /**
@@ -689,17 +708,5 @@ public class ScreeningJob extends TimerTask {
 
         // Schedule it immediate and run per second.
         new Timer(false).schedule(new ScreeningJob(num, screener, maxScreeningAttempts), 0, interval * 1000);
-    }
-
-    /**
-     * Creates IdGenerator EJB
-     *
-     * @param dataSource the current datasource
-     * @return the IdGenerator
-     * @throws CreateException if bean creation fails.
-     */
-    private static long generateNewID() throws IDGenerationException {
-        IDGenerator gen = IDGeneratorFactory.getIDGenerator("SCREENING_TASK_SEQ");
-        return gen.getNextID();
     }
 }
