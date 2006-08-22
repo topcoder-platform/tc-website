@@ -55,7 +55,6 @@
          <h2><A href="/?module=ViewActiveContests">Contests available now!</A></h2>
          <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</A> as a Studio member so you can receive emails when new contests arrive.
 
-<%--
          <br><br>
          <table cellpadding="0" cellspacing="0" class="stat" style="width:485px;">
          <tbody>
@@ -121,42 +120,15 @@
                </td>
                <td class="valueE"><div>&nbsp;</div></td>
             </tr>
-            <% even = !even;%>
-            <tr class="<%=even?"light":"dark"%>">
-               <td class="valueW"><div>&nbsp;</div></td>
-               <td class="value">
-               <studio:handle coderId="119676"/>
-               </td>
-               <td class="value">
-               <A href="">TCHS 07 Logo Contest</A>
-               </td>
-               <td class="valueR">
-               $500.00
-               </td>
-               <td class="valueE"><div>&nbsp;</div></td>
-            </tr>
-            <% even = !even;%>
-            <tr class="<%=even?"light":"dark"%>">
-               <td class="valueW"><div>&nbsp;</div></td>
-               <td class="value">
-               <studio:handle coderId="119676"/>
-               </td>
-               <td class="value">
-               <A href="">TCHS 07 Logo Contest</A>
-               </td>
-               <td class="valueR">
-               $500.00
-               </td>
-               <td class="valueE"><div>&nbsp;</div></td>
-            </tr>
-            <% even = !even;%>
             <tr>
-               <td class="SW" colspan="4">&nbsp;</td>
+               <td class="SW">&nbsp;</td>
+               <td class="title" colspan="3">
+               <A href="/?module=ViewPastContests" class="small">...more</A>
+               </td>
                <td class="SE">&nbsp;</td>
             </tr>
          </tbody>
          </table>
---%>
       </td>
    </tr>
 </tbody>
