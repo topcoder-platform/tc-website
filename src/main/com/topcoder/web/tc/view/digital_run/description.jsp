@@ -55,7 +55,7 @@
 </table>
 </div>
 <br><br>
-<div align="center"><A href="/tc?module=Static&d1=features&d2=082106"><img src="/i/digital_run/stage1_feature2.gif" alt="Stage 1 Analysis" border="0" /></A></div>
+<div align="center"><A href="/tc?module=Static&d1=features&d2=082106"><img src="/i/digital_run/stage1_feature.gif" alt="Stage 1 Analysis" border="0" /></A></div>
 <br>
 The Digital Run marks another stride for TopCoder in recognizing talent through competition. The Digital Run will reward the top software designers and developers, giving them placement points based on their performance. Place well in a competition, you earn points. Accumulate lots of points over the course of a Stage (4 per year) or year, you win. It's that simple.
 <br><br>
