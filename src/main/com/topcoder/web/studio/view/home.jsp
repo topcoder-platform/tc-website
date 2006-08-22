@@ -51,10 +51,8 @@
          At the Studio, clients post their projects with definitive timelines, deliverables and payouts, and you decide which ones pique your interest. There are even advancement opportunities available into the Review Board, where a select group of competing members will evaluate all submissions before they are passed on to the client. 
          <br><br>
          So, poke around, ask questions and, above all, compete and have fun! 
-         <br><br>
-         <h2><A href="/?module=ViewActiveContests">Contests available now!</A></h2>
-         <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</A> as a Studio member so you can receive emails when new contests arrive.
 
+<%--
          <br><br>
          <table cellpadding="0" cellspacing="0" class="stat" style="width:485px;">
          <tbody>
@@ -129,6 +127,8 @@
             </tr>
          </tbody>
          </table>
+--%>
+
       </td>
    </tr>
 </tbody>
