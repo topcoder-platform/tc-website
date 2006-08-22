@@ -308,6 +308,9 @@
 
 <%--Resume--%>
 <c:if test="${cf:contains(fields, resume)}">
+    <%--
+    <tc-webtag:hiddenInput name="<%=Constants.FILE_NAME%>"/>
+    --%>
 <tr>
     <td colspan="2"><span class="bigRed">
             <tc-webtag:errorIterator id="err" name="${resume}"><%=err%><br></tc-webtag:errorIterator></span>
@@ -318,7 +321,10 @@
         <c:if test="${cf:contains(reqFields, resume)}">*</c:if> Resume:
     </td>
     <td class="value">
-        <tc-webtag:textInput name="<%=Constants.FILE_NAME%>" editable="false"/>
+            <%--there should be only one--%>
+        <c:forEach items="${regUser.coder.resumes}" var="resume">
+            <a href="${sessionInfo.servletPath}?module=DownloadResume">${resume.fileName}</a>
+        </c:forEach>
         <input type="file" name="${resume}">
     </td>
 </tr>
