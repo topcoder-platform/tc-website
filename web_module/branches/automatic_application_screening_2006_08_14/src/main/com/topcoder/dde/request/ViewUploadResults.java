@@ -45,6 +45,8 @@ public class ViewUploadResults extends BaseProcessor {
                     throw new TCWebException("parameter " + "spec_id" + " expected.");
                 }
 
+                log.info("getRequest().getParameter(spec_id):" + getRequest().getParameter("spec_id"));
+
                 Connection conn = Common.getDataSource().getConnection();
 
                 QueryInterface query = ScreeningTool.createQuery();
