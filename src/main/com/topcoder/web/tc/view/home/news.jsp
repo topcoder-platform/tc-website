@@ -32,7 +32,8 @@
                 As the first stage draws to an end for the Digital Run, it's time to take stock of this great new competition format. 
                 And a great competition it was, with veterans and newbies alike withstanding the challenges of a 13-week marathon and 
                 racking up some surprising results.</td>
-        </tr></table>
+            <td class="newsPhoto"><img src="/i/m/AleaActaEst_mug.gif" alt="" /><br>by
+                <tc-webtag:handle coderId="252022" context="design"/></td></tr></table>
     </td>
 </tr>
 <tr><td class="newsLinksCell">
@@ -135,7 +136,8 @@
                 acceleration and brakes function correctly.&#8230;In the same way, before any software is released into
                 the wild, it should first be subjected to rigorous tests to try to confirm that each section of the code
                 is bug free.</td>
-        </tr></table>
+            <td class="newsPhoto"><img src="/i/m/sql_lall_mug.gif" alt="" /><br>by
+                <tc-webtag:handle coderId="275640" /></td></tr></table>
     </td>
 </tr>
 <tr><td class="newsLinksCell">
