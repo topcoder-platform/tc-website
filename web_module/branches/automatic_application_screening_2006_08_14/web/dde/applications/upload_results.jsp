@@ -28,7 +28,9 @@ String filename = (String)request.getAttribute("file_nanme");
             <TR>
                 <td align="center">
                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        hola
                         <logic:present name="errors">
+                            chau
                             <tr>
                                 <td>Fatal Errors:</td>
                             </tr>
