@@ -13,10 +13,12 @@ package com.topcoder.web.tc.controller.request.compstats;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.membercontact.MemberContact;
 
@@ -40,17 +42,21 @@ public class DownloadSubmission extends Base {
             	//doDownload
             	setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=CompContestDetails&" +
             			Constants.PROJECT_ID + "=" + projId + "&");
+            	setIsNextPageInContext(false);
             } else {
+            	/*
                 setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=ViewTerms&" + 
                 		Constants.PROJECT_ID + "=" + projId + "&" +
                 		Constants.CODER_ID + "=" + coderId + "&" +
                 		"st=" + submissionTypeId  + "&" +
                 		"tu=" + Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID + "&" + 
                 		"rm=DownloadSubmission"
-                );
+                		*/
+            	setNextPage("/compstats/submission_download_terms.jsp");
+                setIsNextPageInContext(true);
             }
 
-            setIsNextPageInContext(false);
+            
 
         } catch (TCWebException we) {
             throw we;
@@ -60,6 +66,10 @@ public class DownloadSubmission extends Base {
     }
     
     private boolean hasAgreedTerms(String coderId) throws Exception {
+        UserTermsOfUse userTerms = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
+        return userTerms.hasTermsOfUse(getUser().getId(), Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
+
+        /*
 	    Request r = new Request();
 	    r.setContentHandle("has_agreed_terms");
 	
@@ -70,6 +80,7 @@ public class DownloadSubmission extends Base {
 	    DataAccessInt dai = getDataAccess(true);
 	    Map result = dai.getData(r);
 	    return ((ResultSetContainer) result.get("has_agreed_terms")).size() > 0;
+	    */
     }
     
 
