@@ -11,11 +11,12 @@
 <%-- STUDIO & TCCC06 CDDC REG & DIGITAL RUN --%>
 
 <map name="studio_tccc06_dr">
-<area shape="rect" alt="" coords="1,1,300,149" href="http://studio.topcoder.com/" />
+<area shape="rect" alt="" coords="1,1,300,92" href="http://studio.topcoder.com/" />
+<area shape="rect" alt="" coords="55,100,239,129" href="http://studio.topcoder.com/?module=ViewActiveContests" />
 <area shape="rect" alt="" coords="305,1,500,90" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
 <area shape="rect" alt="" coords="305,95,500,149" href="/tc?module=Static&d1=digital_run&d2=description" />
 </map>
-<IMG SRC="/i/home/studio_tccc06_dr.gif" border="0" alt="TopCoder Studio, TCCC06 CDDC Registration Open, and The Digital Run" usemap="#studio_tccc06_dr" />
+<IMG SRC="/i/home/studio_tccc06_dr_20060822.png" border="0" alt="TopCoder Studio, TCCC06 CDDC Registration Open, and The Digital Run" usemap="#studio_tccc06_dr" />
 
 <%-- TCCC06 CDDC REG & DIGITAL RUN 
 
