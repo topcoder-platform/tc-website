@@ -4,6 +4,7 @@ import com.topcoder.web.common.model.Notification;
 import com.topcoder.web.reg.TCHibernateTestCase;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -18,6 +19,16 @@ public class NotificationDAOTestCase extends TCHibernateTestCase {
     public void testGetNotificiations() {
         List l = DAOUtil.getFactory().getNotificationDAO().getNotifications();
         assertTrue("we found no notifications", l != null && !l.isEmpty());
+    }
+
+    public void testGetParticularNotificiations() {
+        List l = DAOUtil.getFactory().getNotificationDAO().getNotifications(new HashSet(DAOUtil.getFactory().getRegistrationTypeDAO().getRegistrationTypes()));
+        Set s = new HashSet();
+        for (Iterator it = l.iterator(); it.hasNext();) {
+            Object o = it.next();
+            assertFalse("duplicate notifications in return", s.contains(o));
+            s.add(o);
+        }
     }
 
     public void testFind() {
