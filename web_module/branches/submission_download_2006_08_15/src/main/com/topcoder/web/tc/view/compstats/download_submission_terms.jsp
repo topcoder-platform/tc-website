@@ -17,7 +17,7 @@
 	<tc-webtag:hiddenInput name="<%=Constants.CODER_ID %>" value="<%= request.getAttribute(Constants.CODER_ID) %>" />	
 	
      <div align="center">
-         <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=compstats&d2=download_submission_terms_content&<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID%>"></iframe>
+         <IFRAME width="590" height="300" SRC="/tc?<%=Constants.MODULE_KEY%>=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID%>" ></IFRAME>         
      </div>
     
 <a href="javascript:document.terms.submit()">I Agree</a>    
