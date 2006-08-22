@@ -83,7 +83,7 @@
         <param name="scriptable" value="false"/>
         <param name="host" value="www.topcoder.com"/>
         <param name="port" value="5001"/>
-        <param name="tunnel" value="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=5001"/>
+        <param name="tunnel" value="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=newlistener+port=5001"/>
         <param name="companyName" value="TopCoder"/>
         <embed type="application/x-java-applet;version=1.4"
                code="com.topcoder.client.contestApplet.LaunchApplet.class"
@@ -92,7 +92,7 @@
                archive="ContestApplet.jar"
                host="www.topcoder.com"
                port="5001"
-               tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=5001"
+               tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=newlistener+port=5001"
                companyName="TopCoder"
                width="239"
                height="26"
