@@ -20,7 +20,7 @@ import java.util.*;
  */
 public class TCURLConverter implements Filter {
 
-    private boolean newWindowEnabled = false;
+    private boolean newWindowEnabled = true;
     private boolean shortenLinks = false;
     private int longLinkLen = 0;
     private int charsBeforeEllipsis = 0;
