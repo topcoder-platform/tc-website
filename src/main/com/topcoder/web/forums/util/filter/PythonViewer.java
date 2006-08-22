@@ -6,12 +6,12 @@ import java.util.HashMap;
 /**
  * A class that syntax highlights code into HTML.<p>
  *
- * A VBViewer object is used to syntax highlight code. To make use of this class, first set
+ * A PythonViewer object is used to syntax highlight code. To make use of this class, first set
  * up how tokens should be highlighted by invoking the getXXX and setXXX methods, then pass in
  * "chunks" of relevant input to be filtered. Typically this will mean the section(s) of a form
- * input that has been tagged with [vb][/vb] tags.
+ * input that has been tagged with [py][/py] tags.
  */
-public class VBViewer {
+public class PythonViewer {
 
     private static HashMap reservedWords = new HashMap(150); // (not thread-safe)
     private char[] commentStart     = "<font color=\"darkgreen\">".toCharArray();
@@ -346,13 +346,17 @@ public class VBViewer {
                             state = NUMBER_BIN_INT_FLOAT_OCTAL;
                         }
                     }
-                    else if (curr_char == '\'') {  // comment
+                    else if (curr_char == '#') {  // comment
                         head_idx = i;
                         state = INLINE_IGNORE;
                     }
                     else if (curr_char == '\"') {  // string
                         head_idx = i;
                         state = STRING_ENTRY;
+                    }
+                    else if (curr_char == '\'') {  // character
+                        head_idx = i;
+                        state = CHARACTER_ENTRY;
                     }
                     else if (curr_char == '{' || curr_char == '}') {  // scope bracket
                         buffer.append(bracketStart);
@@ -376,7 +380,7 @@ public class VBViewer {
                             // 87 10 12 00-0L
                             state = NUMBER_BIN_INT_FLOAT_OCTAL;
                         }
-                        else if (curr_char == 'l' || curr_char == 'L') {  // cheating... +l +L
+                        /*else if (curr_char == 'l' || curr_char == 'L') {  // cheating... +l +L
                             tail_idx = i;
                             if (filterNumber) {
                                 buffer.append(numberStart);
@@ -386,7 +390,7 @@ public class VBViewer {
                                 buffer.append(numberEnd);
                             }
                             state = ACCEPT;
-                        }
+                        }*/
                         else {
                             //-E +f 5e 1x 34234x 7979/7897 79+897 890-7989
                             if (char_line[i-1] == '-' || char_line[i-1] == '+') {
@@ -806,7 +810,7 @@ public class VBViewer {
                             state = NUMBER_BIN_INT_FLOAT_OCTAL;
                         }
                     }
-                    else if (curr_char == '\'') {
+                    else if (curr_char == '#') {
                         head_idx = i;
                         state = INLINE_IGNORE;
                     }
@@ -821,6 +825,40 @@ public class VBViewer {
                         state = ACCEPT;
                     }
                     else {
+                        state = ENTRY;
+                        i--;
+                    }
+                    break;
+                case IGNORE_BEGIN:
+                    if (curr_char == '/') {
+                        state = INLINE_IGNORE;
+                    }
+                    else if (Character.isJavaIdentifierPart(curr_char)) {
+                        head_idx = i;
+                        if (Character.isDigit(curr_char)) {
+                            buffer.append('/');
+                            if (curr_char == '0') {
+                                state = NUMBER_HEX_BEGIN;
+                                i--;
+                            }
+                            else {
+                                state = NUMBER_BIN_INT_FLOAT_OCTAL;
+                                i--;
+                            }
+                        }
+                        else {
+                            buffer.append('/');
+                            state = ENTRY;
+                            i--;
+                        }
+                    }
+                    else if (curr_char == '\n') {
+                        buffer.append('/');
+                        state = NEWLINE_ENTRY;
+                        i--;
+                    }
+                    else {  // space, \t, etc
+                        buffer.append('/');
                         state = ENTRY;
                         i--;
                     }
@@ -896,49 +934,16 @@ public class VBViewer {
      * Reserved words
      */
     private static void loadKeywords() {
-        loadVBKeywords();
+        loadPythonKeywords();
     }
       
-    private static void loadVBKeywords() {
-        // From MSDN: http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vblr7/html/vaorivblangkeywordsall.asp
-        String[] keywordsVB = {
-                "AddHandler", "AddressOf", "Alias", "And", 
-                "AndAlso",  "Ansi", "As", "Assembly", 
-                "Auto", "Boolean", "ByRef", "Byte", 
-                "ByVal", "Call", "Case", "Catch", 
-                "CBool", "CByte", "CChar", "CDate", 
-                "CDec", "CDbl", "Char", "CInt", 
-                "Class", "CLng", "CObj", "Const", 
-                "CShort", "CSng", "CStr", "CType", 
-                "Date", "Decimal", "Declare", "Default", 
-                "Delegate", "Dim", "DirectCast", "Do", 
-                "Double", "Each", "Else", "ElseIf", 
-                "End", "Enum", "Erase", "Error", 
-                "Event", "Exit", "False", "Finally", 
-                "For", "Friend", "Function", "Get", 
-                "GetType", "GoSub", "GoTo", "Handles", 
-                "If", "Implements", "Imports", "In", 
-                "Inherits", "Integer", "Interface", "Is", 
-                "Let", "Lib", "Like", "Long", 
-                "Loop", "Me", "Mod", "Module", 
-                "MustInherit", "MustOverride", "MyBase", "MyClass", 
-                "Namespace", "New", "Next", "Not", 
-                "Nothing", "NotInheritable", "NotOverridable", "Object", 
-                "On", "Option", "Optional", "Or", 
-                "OrElse", "Overloads", "Overridable", "Overrides", 
-                "ParamArray", "Preserve", "Private", "Property", 
-                "Protected", "Public", "RaiseEvent", "ReadOnly", 
-                "ReDim", "REM", "RemoveHandler", "Resume", 
-                "Return", "Select", "Set", "Shadows", 
-                "Shared", "Short", "Single", "Static", 
-                "Step", "Stop", "String", "Structure", 
-                "Sub", "SyncLock", "Then", "Throw", 
-                "To", "True", "Try", "TypeOf", 
-                "Unicode", "Until", "Variant", "When", 
-                "While", "With", "WithEvents", "WriteOnly", 
-                "Xor"};
-        for (int i=0; i<keywordsVB.length; i++) {
-            reservedWords.put(keywordsVB[i], keywordsVB[i]);
+    private static void loadPythonKeywords() {
+    	// From: http://docs.python.org/ref/keywords.html
+        String[] keywordsPython = {"and","assert","break","class","continue","def","del","elif",
+        		"else","except","exec","finally","for","from","global","if","import","in","is",
+        		"lambda","not","or","pass","print","raise","return","try","while","yield","True","False"};
+        for (int i=0; i<keywordsPython.length; i++) {
+            reservedWords.put(keywordsPython[i], keywordsPython[i]);
         }
     }
 }

@@ -5,7 +5,7 @@ import com.jivesoftware.base.*;
 import java.io.*;
 
 /**
- * A Filter that syntax highlights code appearing between [java][/java] tags.
+ * A Filter that syntax highlights Java code appearing between [java][/java] tags.
  */
 public class JavaHighlighter implements Filter {
 
