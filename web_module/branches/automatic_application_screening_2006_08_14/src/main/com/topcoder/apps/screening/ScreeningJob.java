@@ -219,7 +219,7 @@ public class ScreeningJob extends TimerTask {
                     "DELETE FROM screening_results " +
                     "WHERE screening_task_id IN " +
                     "(SELECT screening_task_id FROM screening_task " +
-                    " WHERE screened_id = 0 andscreener_id = ?)");
+                    " WHERE screened_id = 0 and screener_id = ?)");
             stmt.setLong(1, screener);
             stmt.executeUpdate();
             stmt = null;
