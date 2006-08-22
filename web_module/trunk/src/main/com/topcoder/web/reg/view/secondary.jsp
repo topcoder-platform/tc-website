@@ -322,8 +322,8 @@
     </td>
     <td class="value">
             <%--there should be only one--%>
-        <c:forEach items="${regUser.coder.resumes}" var="resume">
-            <a href="${sessionInfo.servletPath}?module=DownloadResume" target="_blank">${resume.fileName}</a>
+        <c:forEach items="${regUser.coder.resumes}" var="res">
+            <a href="${sessionInfo.servletPath}?module=DownloadResume" target="_blank">${res.fileName}</a>
         </c:forEach>
         <input type="file" name="${resume}">
     </td>
