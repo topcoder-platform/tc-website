@@ -1,13 +1,15 @@
 package com.topcoder.web.forums.util.filter;
 
 import com.jivesoftware.base.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
 
 import java.io.*;
 
 /**
- * A Filter that syntax highlights Visual Basic code appearing between [vb][/vb] tags.
+ * A Filter that syntax highlights Python code appearing between [py][/py] tags.
  */
-public class VBHighlighter implements Filter {
+public class PythonHighlighter implements Filter {
 
     private String commentStart;
     private String commentEnd;
@@ -35,7 +37,7 @@ public class VBHighlighter implements Filter {
     private String tableCodePanelBackgroundColor;
     private String lineNumberColor;
     
-    private final static String TAG_NAME = "vb";
+    private final static String TAG_NAME = "py";
     private final static String BEGIN_TAG = "[" + TAG_NAME + "]";
     private final static String END_TAG = "[/" + TAG_NAME + "]";  
     private final static int BEGIN_TAG_LEN = BEGIN_TAG.length();
@@ -44,13 +46,13 @@ public class VBHighlighter implements Filter {
     /**
      * Much of the work of this filter is done by a CodeViewer object.
      */
-    private VBViewer viewer;
+    private PythonViewer viewer;
 
     /**
-     * Construct a new VBHighlighter filter.
+     * Construct a new PythonHighlighter filter.
      */
-    public VBHighlighter() {
-        viewer = new VBViewer();
+    public PythonHighlighter() {
+        viewer = new PythonViewer();
         commentStart = viewer.getCommentStart();
         commentEnd = viewer.getCommentEnd();
         stringStart = viewer.getStringStart();
@@ -77,7 +79,7 @@ public class VBHighlighter implements Filter {
 
 
     public String getName() {
-        return "VBHighlighter";
+        return "PythonHighlighter";
     }
 
     public String applyFilter(String string, int currentIndex, FilterChain chain) {
@@ -90,7 +92,7 @@ public class VBHighlighter implements Filter {
         int startCodeTag = 0;
         int endCodeTag = 0;
 
-        // short circuit this filter if no [vb] found
+        // short circuit this filter if no [py] found
         if (string.indexOf(BEGIN_TAG) < 0) {
             return chain.applyFilters(currentIndex, string);
         }
@@ -101,7 +103,7 @@ public class VBHighlighter implements Filter {
 
             if (end > 0) {
                 if (endCodeTag < startCodeTag) {
-                    // apply filters for content between [/vb] and [vb]
+                    // apply filters for content between [/py] and [py]
                     filtered.append(chain.applyFilters(currentIndex,
                             string.substring(endCodeTag, startCodeTag)));
                 }
@@ -109,7 +111,7 @@ public class VBHighlighter implements Filter {
                 endCodeTag = end + END_TAG_LEN;
             }
             else {
-                filtered.append(string.substring(endCodeTag, startCodeTag) + BEGIN_TAG);
+                filtered.append(string.substring(endCodeTag, startCodeTag) + "[py]");
                 endCodeTag = startCodeTag + BEGIN_TAG_LEN;
                 continue;
             }
@@ -639,19 +641,19 @@ public class VBHighlighter implements Filter {
         if (endInNewline) {
             if (startWithNewline) {
                 // get rid of initial newline
-                // [vb]\n(tokens)\n[/vb]
+                // [py]\n(tokens)\n[/py]
                 cleaned = cleaned.substring(1);
             }
         }
         else {
             if (startWithNewline) {
                 // get rid of initial newline, then append an extra newline to compensate
-                // [vb]\n(tokens)[/vb]
+                // [py]\n(tokens)[/py]
                 cleaned = cleaned.substring(1) + "\n";
             }
             else {
                 // append an extra newline to compensate
-                // [vb](tokens)[/vb]
+                // [py](tokens)[/py]
                 cleaned = cleaned + "\n";
             }
         }
