@@ -4,7 +4,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="studio.tld" prefix="studio" %>
 <% ResultSetContainer contests = (ResultSetContainer) request.getAttribute("contests");%>
 
 <html>
@@ -44,22 +43,13 @@
 <tbody>
    <tr>
       <td class="NW">&nbsp;</td>
-      <td class="title" colspan="6">Past Contests</td>
+      <td class="title" colspan="3">Past Contests</td>
       <td class="NE">&nbsp;</td>
    </tr>
    <tr>
        <td class="headerW"><div>&nbsp;</div></td>
-      <td class="header">
+      <td class="header" colspan="1">
       <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Project</a>
-      </td>
-      <td class="header">
-      <a href="">Winner</a>
-      </td>
-      <td class="headerC">
-      Winning<br>Submission
-      </td>
-      <td class="headerR">
-      <a href="">Prize</a>
       </td>
       <td class="headerC">
       <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("start_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Start
@@ -76,15 +66,6 @@
       <td class="value">
       <A href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
       <rsc:item name="name" row="<%=resultRow%>"/></A></td>
-      <td class="value">
-      <studio:handle coderId="119676"/>
-      </td>
-      <td class="valueC">
-      <A href="">view</A>
-      </td>
-      <td class="valueR">
-      $500.00
-      </td>
       <td class="valueC">
       <rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
       <td class="valueC">
@@ -94,7 +75,7 @@
    <% even = !even;%>
    </rsc:iterator>
    <tr>
-       <td class="SW" colspan="7">&nbsp;</td>
+       <td class="SW" colspan="4">&nbsp;</td>
        <td class="SE">&nbsp;</td>
    </tr>
 </tbody>

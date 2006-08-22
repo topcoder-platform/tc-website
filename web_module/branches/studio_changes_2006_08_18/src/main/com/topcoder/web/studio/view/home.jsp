@@ -53,6 +53,80 @@
          <br><br>
          <h2>Contests will be posted soon!</h2>
          <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</A> as a Studio member so you can receive emails when new contests arrive.
+         <br><br>
+         <table cellpadding="0" cellspacing="0" class="stat" style="width:485px;">
+         <tbody>
+            <tr>
+               <td class="NW">&nbsp;</td>
+               <td class="title" colspan="3">
+               Recent Winners
+               </td>
+               <td class="NE">&nbsp;</td>
+            </tr>
+            <tr>
+               <td class="headerW"><div>&nbsp;</div></td>
+               <td class="header">
+               Winner
+               </td>
+               <td class="header">
+               Contest
+               </td>
+               <td class="headerR">
+               Prize
+               </td>
+               <td class="headerE"><div>&nbsp;</div></td>
+            </tr>
+            <% boolean even = true;%>
+            <tr class="<%=even?"light":"dark"%>">
+               <td class="valueW"><div>&nbsp;</div></td>
+               <td class="value">
+               <studio:handle coderId="119676"/>
+               </td>
+               <td class="value">
+               <A href="">TCHS 07 Logo Contest</A>
+               </td>
+               <td class="valueR">
+               $500.00
+               </td>
+               <td class="valueE"><div>&nbsp;</div></td>
+            </tr>
+            <% even = !even;%>
+            <tr class="<%=even?"light":"dark"%>">
+               <td class="valueW"><div>&nbsp;</div></td>
+               <td class="value">
+               <studio:handle coderId="119676"/>
+               </td>
+               <td class="value">
+               <A href="">TCHS 07 Logo Contest</A>
+               </td>
+               <td class="valueR">
+               $500.00
+               </td>
+               <td class="valueE"><div>&nbsp;</div></td>
+            </tr>
+            <% even = !even;%>
+            <tr class="<%=even?"light":"dark"%>">
+               <td class="valueW"><div>&nbsp;</div></td>
+               <td class="value">
+               <studio:handle coderId="119676"/>
+               </td>
+               <td class="value">
+               <A href="">TCHS 07 Logo Contest</A>
+               </td>
+               <td class="valueR">
+               $500.00
+               </td>
+               <td class="valueE"><div>&nbsp;</div></td>
+            </tr>
+            <tr>
+               <td class="SW">&nbsp;</td>
+               <td class="title" colspan="3">
+               <A href="/?module=ViewPastContests" class="small">...more</A>
+               </td>
+               <td class="SE">&nbsp;</td>
+            </tr>
+         </tbody>
+         </table>
 
 
       </td>
