@@ -18,12 +18,9 @@ public class Selection extends Base {
 
     protected void registrationProcessing() throws Exception {
 
-        boolean newReg = true;
-        if (getRequest().getParameter(Constants.NEW_REG) != null) {
+        boolean newReg = !userLoggedIn();
+        if (!userLoggedIn() && getRequest().getParameter(Constants.NEW_REG) != null) {
             newReg = String.valueOf(true).equalsIgnoreCase(getRequest().getParameter(Constants.NEW_REG));
-        }
-        if (!newReg && userLoggedIn()) {
-            newReg = true;
         }
 
         //set up the user object we're gonna use
