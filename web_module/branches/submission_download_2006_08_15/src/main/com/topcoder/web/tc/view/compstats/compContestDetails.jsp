@@ -93,7 +93,7 @@
         imgName = "/i/development/smNetCustom.gif";
     }
 
-	boolean canDownloadSubm = projectInfo.getIntItem(0, "status_id") == 4;
+	boolean canDownloadSubm = ((Boolean) request.getAttribute("isComplete")).booleanValue();
 %>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
