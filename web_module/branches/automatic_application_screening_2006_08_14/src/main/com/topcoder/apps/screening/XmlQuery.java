@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * @author WishingBone
  * @version 1.0
  */
-public abstract class XmlQuery implements QueryInterface {
+public class XmlQuery implements QueryInterface {
 
     /**
      * <strong>Purpose</strong>:
