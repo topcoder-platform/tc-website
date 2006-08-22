@@ -42,6 +42,13 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 <p>
+    5.4.8 - 2006.0x.xx
+    <ul>
+        <li>Add resume download to registration process</li>
+    </ul>
+</p>
+
+<p>
     5.4.7 - 2006.08.21
     <ul>
         <li>Add previous/next links to the survey list page</li>
