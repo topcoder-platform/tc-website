@@ -52,6 +52,8 @@ public class DownloadSubmission extends Base {
                 		"tu=" + Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID + "&" + 
                 		"rm=DownloadSubmission"
                 		*/
+            	getRequest().setAttribute(Constants.PROJECT_ID, projId);
+            	getRequest().setAttribute(Constants.CODER_ID, coderId);            	
             	setNextPage("/compstats/submission_download_terms.jsp");
                 setIsNextPageInContext(true);
             }

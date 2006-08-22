@@ -6,25 +6,24 @@
 <html class="termsHTML">
 <head>
     <jsp:include page="/script.jsp"/>
-
     <title>Submission Download - Terms of Use</title>
-    <link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
-    <link type="text/css" rel="stylesheet" href="/css/TCCC06style.css"/>
-    <STYLE TYPE="text/css">
-        html.termsHTML, body.termsBody {
-            color: #FFFFFF;
-            background: #003333;
-        }
-    </STYLE>
 </head>
 
-<body class="termsBody" style="margin:5px;">
-
+<body style="margin:5px;">
+<center>
+<form name="terms" method="POST" action="${sessionInfo.servletPath}">
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY %>" value="DownloadSubmissionAgreeTerms"/>
+	<tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID %>" value="<%= request.getAttribute(Constants.PROJECT_ID) %>" />
+	<tc-webtag:hiddenInput name="<%=Constants.CODER_ID %>" value="<%= request.getAttribute(Constants.CODER_ID) %>" />	
+	
 <c:import url="${sessionInfo.servletPath}">
     <c:param name="<%=Constants.MODULE_KEY%>" value="Terms"/>
-    <c:param name="<%=Constants.TERMS_OF_USE_ID%>" value="<%=Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID+""%>"/>
+    <c:param name="<%=Constants.TERMS_OF_USE_ID%>" value='<%=Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID+""%>' />
 </c:import>
-
+    
+<a href="javascript:submit()">I Agree</a>    
+</form>
+</center>
 </body>
 
 </html>
