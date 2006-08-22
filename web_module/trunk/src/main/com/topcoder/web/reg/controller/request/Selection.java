@@ -20,10 +20,7 @@ public class Selection extends Base {
 
         boolean newReg = true;
         if (getRequest().getParameter(Constants.NEW_REG) != null) {
-            newReg = String.valueOf(true).equalsIgnoreCase(getRequest().getParameter(Constants.NEW_REG));
-        }
-        if (!newReg && userLoggedIn()) {
-            newReg = true;
+            newReg = userLoggedIn() || String.valueOf(true).equalsIgnoreCase(getRequest().getParameter(Constants.NEW_REG));
         }
 
         //set up the user object we're gonna use
