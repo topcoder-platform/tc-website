@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.web.reg.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -53,36 +53,47 @@
         <c:if test="${results!=null}">
             <c:choose>
                 <c:when test="${fn:length(results)==0}">
-                    <span class="bigRed">Your search returned no records.</span><br /><br />
+                    <span class="bigRed">Your search returned no records.</span><br/><br/>
                     You may search again or click
-                        <A href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolAdd">here</A> to add
-                        your school.
+                    <A href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolAdd">here</A>
+                    to add
+                    your school.
 
-                 </c:when>
+                </c:when>
                 <c:otherwise>
                     <strong>Results</strong><br>
-                    Lists includes only up to the first <strong><%=Constants.MAX_SCHOOL_RESULTS%></strong> schools. If you see a
-                    duplicate, please choose the school with the greatest number of associated registrants.
+                    Lists includes only up to the first <strong><%=Constants.MAX_SCHOOL_RESULTS%></strong> schools. If
+                    you see a
+                    duplicate, <strong>please choose the school with the greatest number of registrants</strong>.
                     <br><br>
-                     If any information about your school is missing or incorrect and you'd like to send us the correct information, <A href="mailto:service@topcoder.com?subject=School Information Correction">click here</A>.
+                    If any information about your school is missing or incorrect and you'd like to send us the correct
+                    information, <A href="mailto:service@topcoder.com?subject=School Information Correction">click
+                    here</A>.
                     <br><br>
                     Please <strong>select</strong> your school from list below.<br />
-                    <span id="submitMessage"></span><br />
+                    <span id="submitMessage"></span><br/>
                     <span class="small">
                         <c:forEach items="${results}" var="result">
-                         ${result[1].name}<br />
-                                <c:if test="${result[1].address.city!=null||result[1].address.state!=null||result[1].address.postalCode!=null||result[1].address.province!=null||result[1].address.country!=null}">
-                                 <c:if test="${result[1].address.city!=null}">${result[1].address.city},</c:if> <c:if test="${result[1].address.state!=null}">${result[1].address.state.code},</c:if> <c:if test="${result[1].address.postalCode!=null}">${result[1].address.postalCode},</c:if> <c:if test="${result[1].address.province!=null}">${result[1].address.province},</c:if>  <c:if test="${result[1].address.country!=null}">${result[1].address.country.name}</c:if><br />
-                                 </c:if>
-                                 Registrants: ${result[0]}<br />
-                                 <A class="small" href="#" onclick="Javascript:submit('${result[1].name}',${result[1].id});">Select</A>
-                                 <br /><br />
+                            ${result[1].name}<br/>
+                            <c:if test="${result[1].address.city!=null||result[1].address.state!=null||result[1].address.postalCode!=null||result[1].address.province!=null||result[1].address.country!=null}">
+                                <c:if test="${result[1].address.city!=null}">${result[1].address.city},</c:if>
+                                <c:if test="${result[1].address.state!=null}">${result[1].address.state.code},</c:if>
+                                <c:if test="${result[1].address.postalCode!=null}">${result[1].address.postalCode}
+                                    ,</c:if>
+                                <c:if test="${result[1].address.province!=null}">${result[1].address.province},</c:if>
+                                <c:if test="${result[1].address.country!=null}">${result[1].address.country.name}</c:if>
+                                <br/>
+                            </c:if>
+                            Registrants: ${result[0]}<br/>
+                            <A class="small" href="#" onclick="Javascript:submit('${result[1].name}',${result[1].id});">Select</A>
+                            <br/><br/>
                         </c:forEach>
                     </span>
                     <br><br>
                     <strong>OR</strong><br>
                     If your school is not in the list above, click
-                    <A href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolAdd">here</A> to add
+                    <A href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolAdd">here</A>
+                    to add
                     your school.
                 </c:otherwise>
             </c:choose>
