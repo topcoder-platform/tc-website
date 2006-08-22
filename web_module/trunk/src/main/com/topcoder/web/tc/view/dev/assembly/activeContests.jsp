@@ -145,7 +145,7 @@
       08.10.2006 9:00 AM EST
       </td>
       <td class="valueC">
-      08.21.2006 9:00 AM EST
+      08.25.2006 12:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506082">join a team</A>
@@ -178,7 +178,7 @@
       08.10.2006 9:00 AM EST
       </td>
       <td class="valueC">
-      08.21.2006 9:00 AM EST
+      08.25.2006 12:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506083">join a team</A>
