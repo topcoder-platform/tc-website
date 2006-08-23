@@ -67,7 +67,7 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="4">Reliability Detail</td>
+        <td class="title" colspan="6">Reliability Detail</td>
     </tr>
     <tr>
         <td class="headerC">
@@ -76,11 +76,11 @@
         <td class="header" width="50%">
             Component
         </td>
-        <td class="header" width="20%">
-            Reliability<br/>Before
+        <td class="headerR" width="20%">
+            Reliability Before
         </td>
-        <td class="header" width="20%">
-            Reliability<br/>After
+        <td class="headerR" width="20%">
+            Reliability After
         </td>
         <td class="headerC" width="20%">
             Reliable
@@ -121,11 +121,11 @@
                 <rsc:item name="version_text" row="<%=resultRow%>"/>
                 <% } %>
             </td>
-            <td class="value">
+            <td class="valueR">
                 <rsc:item name="old_reliability" row="<%=resultRow%>" format="0.00%" ifNull="&#160;"/>
             </td>
-            <td class="value">
-                <rsc:item name="new_reliability" row="<%=resultRow%>" format="0.00%" ifNull="&#160;"/>/>
+            <td class="valueR">
+                <rsc:item name="new_reliability" row="<%=resultRow%>" format="0.00%" ifNull="&#160;"/>
             </td>
             <td class="valueC">
                 <rsc:item name="reliable" row="<%=resultRow%>"/>
