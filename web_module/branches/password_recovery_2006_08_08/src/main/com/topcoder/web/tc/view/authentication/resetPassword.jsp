@@ -6,6 +6,8 @@
                  com.topcoder.web.tc.Constants" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<link type="text/css" rel="stylesheet" href="/css/tcStyles.css">
+<link type="text/css" rel="stylesheet" href="/css/tcReg.css">
 
 <html>
 <head>
@@ -18,24 +20,50 @@
 </head>
 
 <body>
+<div align="center" style="padding:6px 0px 6px; 0px;">
+<A href="/"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0" /></A>
+</div>
+<div align="center">
+   <div style="padding: 0px 10px 10px 10px; width: 600px; text-align: left;">
+
+<table cellspacing="0" cellpadding="0" class="pageTitleTable">
+    <tr>
+        <td width="100%" class="pageTitle"><img border="0" src="/i/header_registration_w.gif" alt="registration_w"/></td>
+        <td align=right class="pageSubtitle">&#160;&#160;</td>
+    </tr>
+</table>
+<strong>Reset Password</strong>
+<br><br>
 
 <form method="post" name="frmPwd" action="/tc">
 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ResetPassword"/>
 <input type="hidden" name="<%= ResetPassword.PASSWORD_RECOVERY_ID %>" value='<%= request.getAttribute(ResetPassword.PASSWORD_RECOVERY_ID) %>' />
 <input type="hidden" name="<%= ResetPassword.HASH_CODE %>" value='<%= request.getAttribute(ResetPassword.HASH_CODE) %>'/>
 
-         <tc-webtag:errorIterator id="err" name="error"><%=err%></tc-webtag:errorIterator></span>
-<br>
-
-Enter your password: <input type="password" name="<%= ResetPassword.PASSWORD %>">
-<br>
-Retype your password: <input type="password" name="<%= ResetPassword.PASSWORD_VERIF %>">
-         
-<a href="JavaScript:document.frmPwd.submit()" class="bodyText">Submit</a>
-
+<div align="center">
+<table cellpadding="0" cellspacing="0" border="0" class="regFields">
+   <tr>
+      <td class="name" colspan="2">
+          <span class="bidRed"><tc-webtag:errorIterator id="err" name="error"><%=err%></tc-webtag:errorIterator></span>
+       </td>
+   </tr>
+   <tr>
+      <td class="name">Enter your password: </td>
+      <td class="value"><input type="password" name="<%= ResetPassword.PASSWORD %>"></td>
+   </tr>
+   <tr>
+      <td class="name">Retype your password: </td>
+      <td class="value"><input type="password" name="<%= ResetPassword.PASSWORD_VERIF %>"></td>
+   </tr>
+   <tr>
+      <td class="value">&#160;</td>
+      <td class="value"><a href="JavaScript:document.frmPwd.submit()" class="bodyText">Submit</a></td>
+   </tr>
+</table>
 </form>
+</div>
 
-   </div>
+</div>
 </div>
 
 </body>
