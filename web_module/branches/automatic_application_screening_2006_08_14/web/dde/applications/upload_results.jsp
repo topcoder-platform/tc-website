@@ -58,7 +58,7 @@ ScreeningResponse[] errors = (ScreeningResponse[]) request.getAttribute("errors"
                                             <form name="upload_form" method="GET" action="/tcs">
                                                 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ViewUploadResults"/>
                                                 <input type="hidden" name="spec_id" value="<%=request.getAttribute("spec_id")%>"/>
-                                                <input type="refresh" value="Upload">
+                                                <input type="submit" value="refresh">
                                             </form>
                                         </table>
                                     </TD>
