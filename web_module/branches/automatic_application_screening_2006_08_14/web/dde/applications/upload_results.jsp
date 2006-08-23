@@ -49,6 +49,22 @@ ScreeningResponse[] errors = (ScreeningResponse[]) request.getAttribute(Constant
                                     </tr>
                                 </c:forEach>
                             </c:when>
+                            <c:otherwise>
+                                <tr>
+                                    <td align="center">
+                                        Screening... 
+                                        <table border="0" cellpadding="0" cellspacing="4">
+                                            <form name="upload_form" method="GET" action="/tcs">
+                                                <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ViewUploadResults"/>
+                                                <input type="hidden" name="spec_id" value="<%=request.getAttribute("spec_id")%>"/>
+                                                <input type="refresh" value="Upload">
+                                            </form>
+                                        </table>
+                                    </TD>
+                                </TR>
+                            </c:otherwise>
+                        </c:choose>
+
 <!--
                             <c:when test="${warnings != null}">
                                 <tr>
@@ -71,21 +87,7 @@ ScreeningResponse[] errors = (ScreeningResponse[]) request.getAttribute(Constant
                                 </logic:iterate>
                             </c:when>
 -->
-                            <c:otherwise>
-                                <tr>
-                                    <td align="center">
-                                        Screening... 
-                                        <table border="0" cellpadding="0" cellspacing="4">
-                                            <form name="upload_form" method="GET" action="/tcs">
-                                                <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ViewUploadResults"/>
-                                                <input type="hidden" name="spec_id" value="<%=request.getAttribute("spec_id")%>"/>
-                                                <input type="refresh" value="Upload">
-                                            </form>
-                                        </table>
-                                    </TD>
-                                </TR>
-                            </c:otherwise>
-                        </c:choose>
+
                     </table>
                 </TD>
             </tr>

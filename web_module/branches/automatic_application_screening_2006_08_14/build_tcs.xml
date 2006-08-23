@@ -210,13 +210,11 @@
             <webinf dir="${resources.dir}/taglib">
                 <include name="dde.tld"/>
             </webinf>
-            <webinf dir="${struts.lib.dir}">
-                <include name="struts.tld"/>
-                <include name="struts-bean.tld"/>
-                <include name="struts-html.tld"/>
-                <include name="struts-logic.tld"/>
-                <include name="struts-template.tld"/>
-            </webinf>
+            <lib dir="${jars.dir}">
+                <include name="jstl.jar"/>
+                <include name="standard.jar"/>
+                <include name="taconite.jar"/>
+            </lib>
         </war>
     </target>
 
