@@ -8,7 +8,10 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.FileType;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.*;
+import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.studio.model.Document;
+import com.topcoder.web.studio.model.DocumentType;
+import com.topcoder.web.studio.model.FilePath;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -92,7 +95,6 @@ public class AddDocument extends Base {
                 //root/submissions/contest_id/user_id/time.pdf
                 d.setPath(p);
                 d.setSystemFileName(System.currentTimeMillis() + ext);
-                d.setType(StudioDAOUtil.getFactory().getDocumentTypeDAO().find(SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE));
 
                 if (log.isDebugEnabled()) {
                     log.debug("creating file: " + p.getPath() + d.getSystemFileName());
