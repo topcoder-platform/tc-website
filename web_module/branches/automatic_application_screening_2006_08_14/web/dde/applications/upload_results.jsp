@@ -36,10 +36,10 @@ String filename = (String)request.getAttribute("file_nanme");
                                 <c:forEach items="${errors}" var="errorItem">
                                     <tr>
                                         <td>
-                                            <c:out value="${errorItem.code}": <c:out value="${errorItem.response}"
+                                            <c:out value="${errorItem.code}"/>: <c:out value="${errorItem.response}"/>
                                             <ul>
                                                 <c:forEach items="${errorItem.text}" var="texts">
-                                                    <li><c:out value="${texts}"</li>
+                                                    <li><c:out value="${texts}"/></li>
                                                 </c:forEach>
                                             </ul>
                                         </td>
