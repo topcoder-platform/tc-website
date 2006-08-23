@@ -56,7 +56,7 @@ Enter your information below, and we will help you get TopCoding again!
       <td class="value" colspan="2">Do you still have access to the account used when registering?</td>
    </tr>
    <tr>
-      <td class="value">%#160;</td>
+      <td class="value">&#160;</td>
       <td class="value">
 		<input type="radio" value="true" name="<%= FindUser.HAS_MAIL_ACCESS %>" <%= "true".equals(request.getAttribute(FindUser.HAS_MAIL_ACCESS))? "checked" : "" %> >Yes</input>
 		<input type="radio" value="false" name="<%= FindUser.HAS_MAIL_ACCESS %>" <%= "false".equals(request.getAttribute(FindUser.HAS_MAIL_ACCESS))? "checked" : "" %> >No</input>
