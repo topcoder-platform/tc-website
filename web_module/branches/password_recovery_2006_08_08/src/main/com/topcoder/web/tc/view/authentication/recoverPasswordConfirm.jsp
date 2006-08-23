@@ -23,9 +23,10 @@
 </table>
 <strong>Recover Password</strong>
 <br><br>
-An email has been sent to <%= request.getAttribute(Constants.EMAIL) %>
+An email has been sent to <%= request.getAttribute(Constants.EMAIL) %>.
 <br>Please check your email and follow the link to reset your password.
-<br>You must do that in the next <%= Constants.PASSWORD_RECOVERY_EXPIRE %> minutes or your key will expire.
+<br><br>
+<Span class="bigRed">You must do this in the next <%= Constants.PASSWORD_RECOVERY_EXPIRE %> minutes or your key will expire.</span>
 </div>
 </div>
 </body>
