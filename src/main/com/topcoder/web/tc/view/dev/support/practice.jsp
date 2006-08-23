@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page import="com.topcoder.web.common.WebConstants"%>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -60,10 +61,10 @@ Below are a list of six components.  Read the requirement specifications to deci
 <tbody>
    <tr>
       <td colspan="3" align="center">
-      <img src="/i/interface/dotnet.gif" alt=".NET" border="0" />
+      <img src="/i/interface/dotnet_big.jpg" alt=".NET" border="0" />
       </td>
       <td colspan="3" align="center">
-      <img src="/i/interface/java.gif" alt=".Java" border="0" />
+      <img src="/i/interface/java_big.jpg" alt=".Java" border="0" />
       </td>
    </tr>
    <tr>
@@ -137,7 +138,7 @@ The practice components are designed to allow you to take your time and get a fe
 <li><strong>Self Evaluation</strong><br>
 Although you will not receive peer review, you will be able to score yourself using our scorecard (provide link to scorecard) and the self evaluation form included with each download.  Evaluating your own work and identifying areas to improve is a key skill set in component competitions. Honing that skill now through these practice competitions will greatly improve your chances of winning.  </li>
 <li><strong>Additional questions</strong><br>
-If you still have questions about your design, or why one technique was used over another, please feel free to post questions in the Practice Competition forum (NEED LINK HERE).  Here you can interact with other TopCoder members to discuss best practices and the components in general.</li>
+If you still have questions about your design, or why one technique was used over another, please feel free to post questions in the <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=327735">Getting Started forum</A>.  Here you can interact with other TopCoder members to discuss best practices and the components in general.</li>
 </ul>
 
 
