@@ -65,30 +65,6 @@ ScreeningResponse[] errors = (ScreeningResponse[]) request.getAttribute("errors"
                                 </TR>
                             </c:otherwise>
                         </c:choose>
-
-<!--
-                            <c:when test="${warnings != null}">
-                                <tr>
-                                    <td width="5%"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
-                                    <td>Warnings:</td>
-                                </tr>
-                                <logic:iterate id="warning" indexId="warningIdx" name="warnings">
-                                    <tr>
-                                        <td width="5%"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
-                                        <td>
-                                            <span><bean:write name="warning" property="code" />: <bean:write name="warning" property="response" /></span>
-                                            <ul>
-                                                <bean:define id="texts" name="warning" property="text" />
-                                                <logic:iterate id="text" indexId="textIdx" name="texts">
-                                                    <li><bean:write name="text" /></li>
-                                                </logic:iterate>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                </logic:iterate>
-                            </c:when>
--->
-
                     </table>
                 </TD>
             </tr>
