@@ -16,7 +16,7 @@
 
 <div align="center">
     <div class="contentOut">
-      <jsp:include page="top.jsp" />
+        <jsp:include page="top.jsp"/>
         <jsp:include page="topNav.jsp">
             <jsp:param name="node" value="home"/>
         </jsp:include>
@@ -26,7 +26,14 @@
             <div class="contentSpacer">
 
                 <p>
-                    1.0.0 - 2006.08.xx
+                    1.0.1 - 2006.08.xx
+                    <ul>
+                        <li>Fix bug in admin tool where documents didn't get the selected type in the db.</li>
+                    </ul>
+                </p>
+
+                <p>
+                    1.0.0 - 2006.08.14
                     <ul>
                         <li>Launch!</li>
                     </ul>
