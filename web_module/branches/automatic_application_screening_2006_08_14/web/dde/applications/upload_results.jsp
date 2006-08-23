@@ -1,13 +1,14 @@
 <%@ page language="java"
-import="com.topcoder.dde.util.Constants" %>
+import="com.topcoder.dde.util.Constants,
+        com.topcoder.apps.screening.ScreeningResponse" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
 <%
 String filename = (String)request.getAttribute("file_nanme");
-ScreeningResponse[] warnings = (ScreeningResponse[]) request.getAttribute(Constants.WARNING_LIST_KEY);
-ScreeningResponse[] errors = (ScreeningResponse[]) request.getAttribute(Constants.ERROR_LIST_KEY);
+ScreeningResponse[] warnings = (ScreeningResponse[]) request.getAttribute("warnings");
+ScreeningResponse[] errors = (ScreeningResponse[]) request.getAttribute("errors");
 %>
 
 <HTML>
