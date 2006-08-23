@@ -27,7 +27,7 @@
 
 <div align="center">
 <div class="contentOut">
-<jsp:include page="../top.jsp" />
+<jsp:include page="../top.jsp"/>
 <jsp:include page="../topNav.jsp">
     <jsp:param name="node" value="contests"/>
 </jsp:include>
@@ -278,6 +278,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 
     <p>
         <c:forEach items="${contest.documents}" var="document">
+            ${document.type.description}
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
                     ${document.originalFileName}</a>
             <button onClick="document.removeDocForm.<%=Constants.DOCUMENT_ID%>.value ='${document.id}'">
