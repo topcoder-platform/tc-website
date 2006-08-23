@@ -53,7 +53,7 @@ Enter your information below, and we will help you get TopCoding again!
 <div align="center">
 <table cellpadding="0" cellspacing="0" border="0" class="regFields">
    <tr>
-      <td class="value" colspan="2">Do you still have access to the account used when registering?</td>
+      <td class="value" colspan="2">Do you still have access to the email account used when registering?</td>
    </tr>
    <tr>
       <td class="value">&#160;</td>
