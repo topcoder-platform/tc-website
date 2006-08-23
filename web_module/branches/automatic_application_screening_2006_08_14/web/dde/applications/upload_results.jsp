@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
 import="com.topcoder.dde.util.Constants,
+        java.util.Iterator,
+        java.util.List,
         com.topcoder.apps.screening.ScreeningResponse" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
