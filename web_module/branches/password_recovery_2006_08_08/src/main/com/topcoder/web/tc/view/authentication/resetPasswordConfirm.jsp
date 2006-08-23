@@ -31,7 +31,8 @@
 <span class="bigRed">Your password has been reset.</span>
 <br>
 <% if (request.getAttribute(Constants.EMAIL) != null) { %>
-	Your email address on record is now:&#160;<%= request.getAttribute(Constants.EMAIL) %>.
+	Your email address on record is now:<br>
+	<%= request.getAttribute(Constants.EMAIL) %>.
 <% } %>
 <br><br>
 <a href="/tc?module=Login">Login</a>
