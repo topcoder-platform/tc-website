@@ -42,11 +42,11 @@
 
 <div align="center">
 <table cellpadding="0" cellspacing="0" border="0" class="regFields">
+   <tc-webtag:errorIterator id="err" name="error">
    <tr>
-      <td class="value" colspan="2">
-          <span class="bigRed"><tc-webtag:errorIterator id="err" name="error"><%=err%></tc-webtag:errorIterator></span>
-       </td>
+      <td class="value" colspan="2"><span class="bigRed"><%=err%></span></td>
    </tr>
+   </tc-webtag:errorIterator>
    <tr>
       <td class="name">Enter your new password: </td>
       <td class="value"><input type="password" name="<%= ResetPassword.PASSWORD %>"></td>

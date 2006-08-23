@@ -21,6 +21,7 @@
         <td align=right class="pageSubtitle">&#160;&#160;</td>
     </tr>
 </table>
+<br>
 An email has been sent to <%= request.getAttribute(Constants.EMAIL) %>.
 <br>Please check your email and follow the link to reset your password.
 <br><br>
