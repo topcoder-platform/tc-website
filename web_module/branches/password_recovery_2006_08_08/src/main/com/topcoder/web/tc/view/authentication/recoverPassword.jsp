@@ -48,6 +48,11 @@ function send() {
 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="FindUser"/>
 <div align="center">
 
+<strong>Password Recovery</strong><br>
+Have you forgotten your password? No longer have access to the email account you used when you registered? 
+Enter your information below, and we will help you get TopCoding again!
+<br><br>
+
 <table cellpadding="0" cellspacing="0" border="0" class="regFields">
    <tr>
       <td class="name">
@@ -59,7 +64,7 @@ function send() {
 	  </td>
 	</tr>
    <tr>
-      <td class="value" colspan="2">If you remember your handle, please enter it:</td>
+      <td class="value" colspan="2"><br>If you remember your handle, please enter it:</td>
    </tr>
 	<tr>
       <td colspan="2"><span class="bigRed">
@@ -71,7 +76,7 @@ function send() {
       <td class="value"><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/></td>
    </tr>
    <tr>
-      <td class="value" colspan="2">If you don't remember your handle, please enter as much <br>information as posible in order to indentify you:</td>
+      <td class="value" colspan="2"><br>If you don't remember your handle, please enter as much <br>information as posible in order to indentify you:</td>
    </tr>
 	<tr>
       <td colspan="2"><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%= FindUser.ERROR_INFO %>"><%=err%></tc-webtag:errorIterator></span></td>

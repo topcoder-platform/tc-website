@@ -37,7 +37,8 @@
         <td align=right class="pageSubtitle">&#160;&#160;</td>
     </tr>
 </table>
-<strong>Reset Password - Secret Question</strong>
+<strong>Password Recovery - Secret Question</strong><br>
+Please respond to your secret question as an added measure of security.
 <br><br>
 
 <form method="post" name="frm" action="/tc">
@@ -64,7 +65,7 @@
       <td class="value"><tc-webtag:textInput name="<%= Constants.EMAIL %>" size="30" maxlength="30"/></td>
    </tr>
    <tr>
-      <td class="value" colspan="2">An email will be sent to that address with further <br>instructions to change your password.
+      <td class="value" colspan="2">An email will be sent to that address with further instructions <br>to change your password.
    <tr>
       <td class="value">&#160;</td>
       <td class="value"><a href="JavaScript:document.frm.submit()" class="bodyText">Submit</a></td>

@@ -6,7 +6,7 @@
 
 <html>
 <head>
-<title>Password Reset</title>
+<title>Change Password</title>
 
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
@@ -33,7 +33,7 @@
 <span class="bigRed">Your password has been reset.</span>
 <br>
 <% if (request.getAttribute(Constants.EMAIL) != null) { %>
-	Your email address has been set to <%= request.getAttribute(Constants.EMAIL) %>.
+	Your email address on record is now <%= request.getAttribute(Constants.EMAIL) %>.
 <% } %>
 <br>
 <a href="/tc?module=Login">Login</a>

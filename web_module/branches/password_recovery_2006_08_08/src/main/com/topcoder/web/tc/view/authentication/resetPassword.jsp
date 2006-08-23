@@ -11,7 +11,7 @@
 
 <html>
 <head>
-<title>Password Reset</title>
+<title>Change Password</title>
 
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
@@ -32,7 +32,7 @@
         <td align=right class="pageSubtitle">&#160;&#160;</td>
     </tr>
 </table>
-<strong>Reset Password</strong>
+<strong>Password Recovery - Change Password</strong>
 <br><br>
 
 <form method="post" name="frmPwd" action="/tc">
@@ -48,7 +48,7 @@
        </td>
    </tr>
    <tr>
-      <td class="name">Enter your password: </td>
+      <td class="name">Enter your new password: </td>
       <td class="value"><input type="password" name="<%= ResetPassword.PASSWORD %>"></td>
    </tr>
    <tr>
