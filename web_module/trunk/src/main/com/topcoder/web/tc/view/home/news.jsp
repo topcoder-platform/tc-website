@@ -6,9 +6,9 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
-<%------------------------------------------------------ for 08.28 at 9:00 AM
+<%------------------------------------------------------ for 08.28 at 3:00 PM
 <tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Survey" border="0"/><br>08.28.06<br>9:00 AM</td>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Survey" border="0"/><br>08.28.06<br>3:00 PM</td>
     <td class="newsTextCell"><span class="newsTitle">
       <A href="<tc-webtag:linkTracking link='http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=2' refer="news_item"/>">AOL Developer Community Survey</A>
       </span><br><br>
@@ -22,6 +22,23 @@
     <A href="/tc?&module=SurveyList">archive</A>
 </td></tr>
 --%>
+
+<%------------------------------------------------------ for 08.28 at 9:00 AM
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>08.28.06<br>9:00 AM</td>
+    <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=TCCC06ViewAlgoReg">TCCC06 Algorithm registration is now open</A>
+      </span><br><br>
+      Registration is now open.
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=TCCC06ViewAlgoReg">view</A>&#160;|&#160;
+    <tc-webtag:forumLink forumID="506074" message="discuss this"/>&#160;|&#160;
+    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+</td></tr>
+--%>
+
 
 <%--------------------------------------------------------%>
 <tr>
