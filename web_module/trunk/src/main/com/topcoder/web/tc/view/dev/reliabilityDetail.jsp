@@ -73,7 +73,7 @@
         <td class="headerC">
             Catalog
         </td>
-        <td class="header" width="50%">
+        <td class="header" width="40%">
             Component
         </td>
         <td class="headerR" width="20%">
