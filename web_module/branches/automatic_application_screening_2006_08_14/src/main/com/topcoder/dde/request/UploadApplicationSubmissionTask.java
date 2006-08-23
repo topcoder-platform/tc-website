@@ -49,6 +49,7 @@ public class UploadApplicationSubmissionTask extends BaseProcessor {
                     String remoteName = file.getRemoteFileName();
 
                     String destFilename = "Application_" + getUser().getId() + "_" + FormatMethodFactory.getDefaultDateFormatMethod("yyyy-MM-dd-HH-mm-ss-SSS").format(new Date());
+                    destFilename += ".jar";
 
                     log.info("Dest: " + ConfigHelper.getSubmissionPathPrefix() + destFilename);
 
