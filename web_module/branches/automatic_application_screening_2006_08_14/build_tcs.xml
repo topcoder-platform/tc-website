@@ -213,7 +213,6 @@
             <lib dir="${jars.dir}">
                 <include name="jstl.jar"/>
                 <include name="standard.jar"/>
-                <include name="taconite.jar"/>
             </lib>
         </war>
     </target>
