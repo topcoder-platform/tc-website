@@ -27,6 +27,7 @@
         <td align=right class="pageSubtitle">&#160;&#160;</td>
     </tr>
 </table>
+<br>
 <span class="bigRed">Your password has been reset.</span>
 <br>
 <% if (request.getAttribute(Constants.EMAIL) != null) { %>
