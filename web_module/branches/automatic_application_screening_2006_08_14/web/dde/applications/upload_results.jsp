@@ -11,6 +11,7 @@ import="com.topcoder.dde.util.Constants,
 <%
 String filename = (String)request.getAttribute("file_nanme");
 List errors = (List)request.getAttribute("errors");
+List warnings = (List)request.getAttribute("warnings");
 %>
 
 <HTML>
@@ -23,16 +24,14 @@ List errors = (List)request.getAttribute("errors");
     <BODY>
         <TABLE WIDTH="100%" HEIGHT="100%">
             <TR>
-                <TD>
-                    Upload successful:
-                    <br/>
-                    <br/>
-                    <%=filename%>
-                </TD>
-            </TR>
-            <TR>
-                <td align="center">
+                <td>
                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <%
+                            if (errors != null || warnings != null) {
+                        %>
+                            <%
+                                if (errors != null) {
+                            %>
                                 <tr>
                                     <td>Fatal Errors: (<%=errors.size()%>)</td>
                                 </tr>
@@ -58,19 +57,66 @@ List errors = (List)request.getAttribute("errors");
                                 <%
                                 }
                                 %>
-
+                            <%
+                                }
+                            %>
+                            <%
+                                if (warnings != null) {
+                            %>
                                 <tr>
-                                    <td align="center">
-                                        Screening... 
-                                        <table border="0" cellpadding="0" cellspacing="4">
-                                            <form name="upload_form" method="GET" action="/tcs">
-                                                <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ViewUploadResults"/>
-                                                <input type="hidden" name="spec_id" value="<%=request.getAttribute("spec_id")%>"/>
-                                                <input type="submit" value="refresh">
-                                            </form>
-                                        </table>
-                                    </TD>
-                                </TR>
+                                    <td>Warnings: (<%=warnings.size()%>)</td>
+                                </tr>
+
+                                <%
+                                for (Iterator it = warnings.iterator(); it.hasNext();) {
+                                    ScreeningResponse errorItem = (ScreeningResponse) it.next();
+                                %>
+                                    <tr>
+                                        <td>
+                                            <%=errorItem.getCode()%>: <%=errorItem.getResponse()%>
+                                            <ul>
+                                                <%
+                                                for (int i = 0; i < errorItem.getText().length; i++) {
+                                                %>
+                                                    <li><%=errorItem.getText()[i]%></li>
+                                                <%
+                                                }
+                                                %>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                <%
+                                }
+                                %>
+                            <%
+                                }
+                            %>                            
+                        <%
+                            } else {
+                        %>
+                            <TR>
+                                <TD>
+                                    Upload successful:
+                                    <br/>
+                                    <br/>
+                                    <%=filename%>
+                                </TD>
+                            </TR>
+                            <tr>
+                                <td>
+                                    Screening... 
+                                    <table border="0" cellpadding="0" cellspacing="4">
+                                        <form name="upload_form" method="GET" action="/tcs">
+                                            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ViewUploadResults"/>
+                                            <input type="hidden" name="spec_id" value="<%=request.getAttribute("spec_id")%>"/>
+                                            <input type="submit" value="refresh">
+                                        </form>
+                                    </table>
+                                </TD>
+                            </TR>
+                        <%
+                            }
+                        %>                            
                     </table>
                 </TD>
             </tr>
