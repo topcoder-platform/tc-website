@@ -27,10 +27,10 @@ List warnings = (List)request.getAttribute("warnings");
                 <td>
                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
                         <%
-                            if (errors != null || warnings != null) {
+                            if (errors.size() > 0 || warnings.size() > 0) {
                         %>
                             <%
-                                if (errors != null) {
+                                if (errors.size() > 0) {
                             %>
                                 <tr>
                                     <td>Fatal Errors: (<%=errors.size()%>)</td>
@@ -61,7 +61,7 @@ List warnings = (List)request.getAttribute("warnings");
                                 }
                             %>
                             <%
-                                if (warnings != null) {
+                                if (warnings.size() > 0) {
                             %>
                                 <tr>
                                     <td>Warnings: (<%=warnings.size()%>)</td>
