@@ -32,15 +32,14 @@ String filename = (String)request.getAttribute("file_nanme");
                                 <tr>
                                     <td>Fatal Errors:</td>
                                 </tr>
+
                                 <c:forEach items="${errors}" var="errorItem">
-                                    hola
                                     <tr>
-                                        <td width="5%"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
                                         <td>
-                                            ${errorItem.code}: ${errorItem.response}
+                                            <c:out value="${errorItem.code}": <c:out value="${errorItem.response}"
                                             <ul>
                                                 <c:forEach items="${errorItem.text}" var="texts">
-                                                    <li>${texts}</li>
+                                                    <li><c:out value="${texts}"</li>
                                                 </c:forEach>
                                             </ul>
                                         </td>
