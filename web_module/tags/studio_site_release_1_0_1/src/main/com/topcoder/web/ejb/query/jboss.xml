@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss>
+  <enterprise-beans>
+    <session>
+      <ejb-name>Query</ejb-name>
+      <jndi-name>com.topcoder.web.ejb.query.QueryHome</jndi-name>
+    </session>
+      <session>
+        <ejb-name>QueryInput</ejb-name>
+        <jndi-name>com.topcoder.web.ejb.query.QueryInputHome</jndi-name>
+      </session>
+      <session>
+        <ejb-name>Command</ejb-name>
+        <jndi-name>com.topcoder.web.ejb.query.CommandHome</jndi-name>
+      </session>
+      <session>
+        <ejb-name>CommandQuery</ejb-name>
+        <jndi-name>com.topcoder.web.ejb.query.CommandQueryHome</jndi-name>
+      </session>
+      <session>
+        <ejb-name>CommandGroup</ejb-name>
+        <jndi-name>com.topcoder.web.ejb.query.CommandGroupHome</jndi-name>
+      </session>
+      <session>
+        <ejb-name>Input</ejb-name>
+        <jndi-name>com.topcoder.web.ejb.query.InputHome</jndi-name>
+      </session>
+  </enterprise-beans>
+</jboss>
