@@ -49,9 +49,10 @@
          <jsp:param name="title" value="&#160;"/>
      </jsp:include>
 
-   <strong>Forgot your password?</strong><br>
-   If you cannot remember your password <A href="/tc?module=PasswordEmail" class="bodyText">click here</A> and we can send it to you via email.
-   <br><br>
+   <p><b>Forgot your password?</b><br/>
+   If you cannot remember your password <A href="/tc?module=RecoverPassword" class="bodyText">click here</A>
+   and we can help you restore your account.</p>
+   
    <strong>New to TopCoder?</strong><br>
    <A href="${sessionInfo.secureAbsoluteServletPath}">Register now</A>.  After you complete the registration process, we will send your account activation code via email.
    <br><br>
