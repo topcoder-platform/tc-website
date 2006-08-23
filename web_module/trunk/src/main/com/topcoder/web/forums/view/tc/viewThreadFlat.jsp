@@ -5,6 +5,8 @@
                 com.topcoder.web.common.StringUtils,
                 com.jivesoftware.base.User,
                 com.jivesoftware.base.JiveConstants,
+                com.jivesoftware.base.PollManager,
+                com.jivesoftware.base.Poll,
                 com.jivesoftware.forum.action.util.Page,
                 com.jivesoftware.forum.ForumMessage,
                 com.jivesoftware.forum.WatchManager,
@@ -14,6 +16,8 @@
                 com.jivesoftware.forum.ReadTracker,
                 com.jivesoftware.forum.RatingManagerFactory,
                 com.jivesoftware.forum.RatingManager,
+                java.text.NumberFormat,
+                java.text.DecimalFormat,
                 java.util.*,
                 com.topcoder.shared.util.DBMS"
 %>
@@ -27,6 +31,7 @@
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 <tc-webtag:useBean id="resultFilter" name="resultFilter" type="com.jivesoftware.forum.ResultFilter" toScope="request"/>
 <tc-webtag:useBean id="historyBean" name="historyBean" type="com.topcoder.web.ejb.messagehistory.MessageHistory" toScope="request"/>
+<tc-webtag:useBean id="pollBean" name="pollBean" type="com.topcoder.web.ejb.forumpoll.ForumPoll" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
 <%  HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
@@ -34,11 +39,14 @@
     String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW));
     RatingManager ratingManager = RatingManagerFactory.getInstance(authToken);
     ReadTracker readTracker = forumFactory.getReadTracker();
+    PollManager pollManager = forumFactory.getPollManager();
     ForumThread nextThread = (ForumThread)request.getAttribute("nextThread");
     ForumThread prevThread = (ForumThread)request.getAttribute("prevThread");
     boolean showPrevNextThreads = !(user != null && "false".equals(user.getProperty("jiveShowPrevNextThreads")));
     String prevTrackerClass = "", nextTrackerClass = "";
     ForumMessage prevPost = null, nextPost = null;
+    NumberFormat formatter = new DecimalFormat("0.00");
+    Hashtable voterCountTable = pollBean.getVoterCountByThread(thread.getID(), DBMS.FORUMS_DATASOURCE_NAME);                   	                     		
 
     String cmd = "";
     String watchMessage = "";
@@ -91,12 +99,56 @@ function rate(messageID, voteValue) {
        req = new ActiveXObject("Microsoft.XMLHTTP");
    }
    req.open("POST", url, true);
-   req.onreadystatechange = callback;
+   req.onreadystatechange = callbackRating;
    req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
    req.send("messageID="+messageID+"&voteValue="+voteValue);
 }
 
-function callback() {
+function poll(pollID, hasMultipleOptions, numOptions) {
+	var url = "?module=PollVote";
+	if (window.XMLHttpRequest) {
+		req = new XMLHttpRequest();
+	} else if (window.ActiveXObject) {
+		req = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+    
+	var reqStr = "pollID="+pollID+"&";
+	var answered = false;
+	if (hasMultipleOptions) {
+		for (var i=0; i<numOptions; i++) {
+			var el = document.getElementById("q"+pollID+","+i);
+ 			if (el.checked) {
+ 				reqStr += el.name + "=" + el.value + "&";
+ 				answered = true;
+  			}
+		}
+	} else {
+		var els = document.getElementsByName("q"+pollID);
+		for (var i=0; i<els.length; i++) {
+			if (els[i].checked) {
+				reqStr += els[i].name + "=" + els[i].value + "&";
+				answered = true;
+			}
+		}
+	}
+
+	if (answered) {
+		req.open("POST", url, true);
+		req.onreadystatechange = callbackPollVote;
+		req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		req.send(reqStr);
+	} else {
+		var pollVotingErrorID = 'pollVotingError'+pollID;
+		var pollVotingErrorEl = document.getElementById(pollVotingErrorID);
+		if (hasMultipleOptions) {
+			pollVotingErrorEl.innerHTML = 'Please select one or more answers.';
+		} else {
+			pollVotingErrorEl.innerHTML = 'Please select an answer.';
+		}
+	}
+}
+
+function callbackRating() {
     if (req.readyState == 4) {
         if (req.status == 200) {
             var messageID = req.responseXML.getElementsByTagName("messageID")[0].firstChild.nodeValue;
@@ -107,9 +159,56 @@ function callback() {
     }
 }
 
+function callbackPollVote() {
+	if (req.readyState == 4) {
+		if (req.status == 200) {
+			var pollID = req.responseXML.getElementsByTagName("pollID")[0].firstChild.nodeValue;
+			var numVoters = req.responseXML.getElementsByTagName("numVoters")[0].firstChild.nodeValue;
+			var voteCounts = req.responseXML.getElementsByTagName("voteCount");
+			for (var i=0; i<voteCounts.length; i++) {
+				var voteCount = voteCounts[i].firstChild.nodeValue;                       
+				var voteCountEl = document.getElementById("voteCount"+pollID+"_"+i);
+				voteCountEl.innerHTML = voteCount;
+				var votePctEl = document.getElementById("votePct"+pollID+"_"+i);
+				var votePct = 100.0 * voteCount / numVoters;
+				votePctEl.innerHTML = votePct.toFixed(2) + "%";
+				var votePctBarEl = document.getElementById("votePctBar"+pollID+"_"+i);
+				var votePctBarStr = "width:"+parseInt(votePct)+"px;";
+				if (parseInt(votePct) > 0) {
+					votePctBarEl.innerHTML = '<div class="resultsBar" style="' + votePctBarStr + '"><img src="/i/clear.gif" alt="bar" width="1" height="13" border="0" /></div>';
+				} else {
+					votePctBarEl.innerHTML = '';
+				}
+	            
+				displayPoll(pollID, 'results');
+				var pollResultsFooterID = 'pollResultsFooter'+pollID;
+				var pollResultsFooterEl = document.getElementById(pollResultsFooterID);
+				pollResultsFooterEl.style.display = 'none';
+			}
+		}
+	}
+}
+
 function displayVotes(messageID, posVotes, negVotes) {
     mspan = document.getElementById("ratings"+messageID);
     mspan.innerHTML = "(+"+posVotes+"/-"+negVotes+")";
+}
+
+function displayPoll(pollID, status) {
+	var pollVotingID = 'pollVoting'+pollID;
+	var pollResultsID = 'pollResults'+pollID;
+	var pollResultsFooterID = 'pollResultsFooter'+pollID;
+	var pollVotingEl = document.getElementById(pollVotingID);
+	var pollResultsEl = document.getElementById(pollResultsID);
+	var pollResultsFooterEl = document.getElementById(pollResultsFooterID);
+	if (status == 'vote') {
+		pollVotingEl.style.display = '';
+		pollResultsEl.style.display = 'none';
+	} else if (status == 'results') {
+		pollVotingEl.style.display = 'none';
+		pollResultsFooterEl.style.display = '';
+		pollResultsEl.style.display = '';
+	}
 }
 
 //-->
@@ -128,6 +227,13 @@ function displayVotes(messageID, posVotes, negVotes) {
     color: #333;
     font-size: 12px;
     vertical-align: top;
+}
+
+div.resultsBar{
+float:left;
+margin: 4px 0px 4px 0px;
+padding:0px;
+background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
 }
 -->
 </style>
@@ -269,7 +375,99 @@ function displayVotes(messageID, posVotes, negVotes) {
             <span class="bodyText"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></span><br><%if (message.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(message.getUser()), "post")%></A><%}%>
          </div>
       </td>
-      <%   if (ForumsUtil.highlightPost(user, pct, ratingCount)) { %>
+	  <%   if (pollManager.getPollCount(JiveConstants.MESSAGE, message.getID()) > 0) { %>
+      <td class="rtTextCell" width="100%">
+           <%	Iterator itPolls = pollManager.getPolls(JiveConstants.MESSAGE, message.getID());
+           		while (itPolls.hasNext()) {
+           			Poll poll = (Poll)itPolls.next(); 
+           			int numVoters = ((Integer)voterCountTable.get(new Integer(poll.getID()))).intValue();
+           			String pollVotingID = "pollVoting" + poll.getID(); 
+           			String pollResultsID = "pollResults" + poll.getID();
+           			String pollResultsFooterID = "pollResultsFooter" + poll.getID();
+        			String pollVotingErrorID = "pollVotingError" + poll.getID();
+           			String pollVotingDisplay = (user != null && !poll.hasUserVoted(user))?"":"display:none";
+           			String pollResultsDisplay = (user != null && !poll.hasUserVoted(user))?"display:none":"";
+           			String pollResultsFooterDisplay = "display:none"; 
+           			%>
+           			<table id="<%=pollVotingID%>" style="<%=pollVotingDisplay%>" width="50%" border="0" cellpadding="5" cellspacing="0" class="stat">
+                     <tr class="light">
+                        <td colspan="2" class="light" valign="top" width="100%">
+                           <span><b><%=poll.getName()%></b></span><br/><br/>
+                        </td>
+                     </tr>
+                     <%  for (int i=0; i<poll.getOptionCount(); i++) {                              
+                     		String rowStyle = (i%2==0) ? "formTextEven" : "formTextOdd"; %>
+	                     <tr class=<%=rowStyle%>>
+	                        <td width="100%">
+	                            <%=poll.getOption(i)%>
+	                        </td>
+	                        <td align="right">
+	                        	<%	if (poll.isModeEnabled(Poll.MULTIPLE_SELECTIONS_ALLOWED)) { %>
+	                        		<input type="checkbox" id="<%="q"+poll.getID()+","+i%>" name="<%="q"+poll.getID()+","+i%>"/>
+	                        	<%	} else { %>
+	                            	<input type="radio" id="<%="q"+poll.getID()%>" name="<%="q"+poll.getID()%>" value="<%=i%>"/>
+	                            <%	} %>
+	                        </td>
+	                     </tr>
+	                 <%	 } %>
+	                 <tr>
+                     	<td colspan="2">
+                     		<img style="vertical-align: middle" class="pointer" src="/i/answer.gif" alt="Vote" onclick="poll('<%=poll.getID()%>', <%=poll.isModeEnabled(Poll.MULTIPLE_SELECTIONS_ALLOWED)%>, <%=poll.getOptionCount()%>)"/>
+                     		<img style="vertical-align: middle" class="pointer" src="/i/results.gif" alt="Results" onclick="displayPoll('<%=poll.getID()%>','results')"/>
+                     		&#160;&#160;<span id="<%=pollVotingErrorID%>" class="bigRed"></span>
+                     	</td>
+                     </tr>  
+                    </table>
+           			<table id="<%=pollResultsID%>" style="<%=pollResultsDisplay%>" width="50%" border="0" cellpadding="5" cellspacing="0" class="stat">
+                     <tr class="light">
+                        <td colspan="4" class="light" valign="top" width="100%">
+                           <span><b><%=poll.getName()%></b></span><br/><br/>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="header">Answer</td>
+                        <td class="headerR">Responses</td>
+                        <td class="headerR">Percentage</td>
+                        <td class="header"><div style="width:100px;">&#160;</div></td>
+                     </tr> 
+                     <%  for (int i=0; i<poll.getOptionCount(); i++) {                             
+                     		String rowStyle = (i%2==0) ? "dark" : "light"; 
+                     		int votePctBarWidth = 0; 
+                     		String voteCountID = "voteCount" + poll.getID() + "_" + i;
+                     		String votePctID = "votePct" + poll.getID() + "_" + i;
+                     		String votePctBarID = "votePctBar" + poll.getID() + "_" + i; %>
+                     <tr class=<%=rowStyle%>>
+                        <td class="value" style="padding-bottom: 10px;">
+                        	<%=poll.getOption(i)%>
+                        </td>
+                        <td class="valueR" id="<%=voteCountID%>">
+                        	<%=poll.getUserVoteCount(i)%>
+                        </td>
+                        <td class="valueR" id="<%=votePctID%>">
+                        	<%	if (poll.getUserVoteCount() > 0) { 
+                        			double votePct = 100.0*(double)poll.getUserVoteCount(i)/(double)numVoters; 
+                        			votePctBarWidth = (int)votePct; %>
+                        			<%=formatter.format(votePct)%>%
+                        	<%	} %>
+                        </td>
+                        <td class="value" valign="top" id="<%=votePctBarID%>">
+                        	<%	String votePctBarStr = "width:"+votePctBarWidth+"px;";
+                        		if (votePctBarWidth > 0) { %>
+                        			<div class="resultsBar" style="<%=votePctBarStr%>"><img src="/i/clear.gif" alt="bar" width="1" height="13" border="0" /></div>
+                        	<%	} %>
+                        </td>
+                     </tr>
+                     <%  } %>
+                     <tr id="<%=pollResultsFooterID%>" style="<%=pollResultsFooterDisplay%>">
+                     	<td colspan="4">
+                     		<img class="pointer" src="/i/answer.gif" alt="Vote" onclick="displayPoll('<%=poll.getID()%>','vote')"/>
+                     		<img class="pointer" src="/i/results.gif" alt="Results" onclick="displayPoll('<%=poll.getID()%>','results')"/>
+                     	</td>
+                     </tr>   
+                  </table>
+           <%	} %>
+      </td>
+      <%   } else if (ForumsUtil.highlightPost(user, pct, ratingCount)) { %>
       <td class="rtTextCellHlt" width="100%"><jsp:getProperty name="message" property="body"/></td>
       <%   } else { %>
       <td class="rtTextCell" width="100%"><jsp:getProperty name="message" property="body"/></td>

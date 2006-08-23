@@ -192,6 +192,7 @@
             <include name="com/topcoder/security/**"/>
             <include name="com/topcoder/common/web/data/**"/>
             <include name="com/topcoder/web/tc/**"/>
+        	<include name="com/topcoder/web/ejb/forumpoll/**"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
         </javac>
@@ -652,20 +653,22 @@
     <target name="package-EJB-MessageHistoryBean" depends="compile_forums">
         <jar jarfile="${ejb_jars}/messagehistory.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <!--
-                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/messagehistory/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/messagehistory" includes="*.xml"/>
+        </jar>
+    </target>
+	
+	<target name="package-EJB-ForumPollBean" depends="compile_forums">
+        <jar jarfile="${ejb_jars}/forumpoll.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/forumpoll/*.class"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/forumpoll" includes="*.xml"/>
         </jar>
     </target>
 
     <target name="package-EJB-ForumsBean" depends="compile_forums">
         <jar jarfile="${ejb_jars}/forums.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <!--
-                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/forums/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/forums" includes="*.xml"/>
         </jar>
@@ -1568,6 +1571,7 @@
         <antcall target="package-TCJive"/>
         <antcall target="package-EJB-MessageHistoryBean"/>
         <antcall target="package-EJB-ForumsBean"/>
+    	<antcall target="package-EJB-ForumPollBean"/>
     </target>
 
     <target name="war-forums" depends="compile_forums">
@@ -1651,6 +1655,7 @@
 
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
+		<copy todir="${jboss_deploy}" file="${ejb_jars}/forumpoll.jar"/>
     </target>
 
     <target name="package-EJB-RoundRegistrationBean" depends="compile">
