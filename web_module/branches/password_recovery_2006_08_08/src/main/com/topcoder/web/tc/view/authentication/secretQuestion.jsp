@@ -37,7 +37,7 @@
         <td align=right class="pageSubtitle">&#160;&#160;</td>
     </tr>
 </table>
-<strong>Reset Password</strong>
+<strong>Reset Password - Secret Question</strong>
 <br><br>
 
 <form method="post" name="frm" action="/tc">
@@ -47,7 +47,7 @@
 <div align="center">
 <table cellpadding="0" cellspacing="0" border="0" class="regFields">
    <tr>
-      <td class="name" colspan="2">
+      <td class="value" colspan="2">
          <span class="bigRed"><tc-webtag:errorIterator id="err" name="error"><%=err%></tc-webtag:errorIterator></span>
       </td>
    </tr>
@@ -60,11 +60,11 @@
       <td class="value"><tc-webtag:textInput name="<%= RecoverEmail.SECRET_QUESTION_RESPONSE %>" size="30" maxlength="30"/></td>
    </tr>
    <tr>
-      <td class="name">Current email you're using: </td>
+      <td class="name">Current email address:</td>
       <td class="value"><tc-webtag:textInput name="<%= Constants.EMAIL %>" size="30" maxlength="30"/></td>
    </tr>
    <tr>
-      <td class="name" colspan="2">An email with further instructions will be sent to that address in order to change your password.
+      <td class="value" colspan="2">An email will be sent to that address with further <br>instructions to change your password.
    <tr>
       <td class="value">&#160;</td>
       <td class="value"><a href="JavaScript:document.frm.submit()" class="bodyText">Submit</a></td>

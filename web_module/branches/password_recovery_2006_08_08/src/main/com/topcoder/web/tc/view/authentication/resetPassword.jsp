@@ -43,8 +43,8 @@
 <div align="center">
 <table cellpadding="0" cellspacing="0" border="0" class="regFields">
    <tr>
-      <td class="name" colspan="2">
-          <span class="bidRed"><tc-webtag:errorIterator id="err" name="error"><%=err%></tc-webtag:errorIterator></span>
+      <td class="value" colspan="2">
+          <span class="bigRed"><tc-webtag:errorIterator id="err" name="error"><%=err%></tc-webtag:errorIterator></span>
        </td>
    </tr>
    <tr>
