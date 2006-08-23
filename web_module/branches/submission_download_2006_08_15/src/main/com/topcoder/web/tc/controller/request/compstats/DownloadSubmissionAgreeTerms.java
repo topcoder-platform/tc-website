@@ -28,12 +28,14 @@ public class DownloadSubmissionAgreeTerms extends Base {
             String projId = getRequest().getParameter(Constants.PROJECT_ID);
             String coderId = getRequest().getParameter(Constants.CODER_ID);
 
+            log.debug("will create terms of use: " +  Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID);
+            
             UserTermsOfUse userTerms = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
             userTerms.createUserTermsOfUse(getUser().getId(), Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
 
             SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
 
-            setNextPage(info.getServletPath() + "?" +  
+            setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=DownloadSubmission&" + 
             		Constants.PROJECT_ID + "=" + projId + "&" +
             		Constants.CODER_ID + "=" + coderId);
             		
