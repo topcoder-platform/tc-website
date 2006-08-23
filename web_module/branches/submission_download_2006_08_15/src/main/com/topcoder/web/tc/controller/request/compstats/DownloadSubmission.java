@@ -10,19 +10,22 @@
 
 package com.topcoder.web.tc.controller.request.compstats;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.Map;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.membercontact.MemberContact;
-
-import java.util.Map;
 
 /**
  *
@@ -40,6 +43,10 @@ public class DownloadSubmission extends Base {
 
             if (hasAgreedTerms(coderId)) {
             	//doDownload
+            	String url = getSubmissionURL(projId, coderId);
+            	log.info("will download: " + url);
+            	downloadFile("/export/home/branch2/web/lib/jars/upload.jar", "test.jar");
+            	
             	setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=CompContestDetails&" +
             			Constants.PROJECT_ID + "=" + projId + "&");
             	setIsNextPageInContext(false);
@@ -59,22 +66,42 @@ public class DownloadSubmission extends Base {
         }
     }
     
+    private void downloadFile(String systemName, String name) throws Exception {
+        getResponse().addHeader("content-disposition", "inline; filename=" + name);
+        getResponse().setContentType("application/x-java-archive");
+        ServletOutputStream sos = getResponse().getOutputStream();
+
+        FileInputStream fis = new FileInputStream(systemName);
+
+        int b;
+        while ((b = fis.read()) >= 0) {
+            sos.write(b);
+        }
+        getResponse().setStatus(HttpServletResponse.SC_OK);
+        getResponse().flushBuffer();    	
+    }
+    
+    private String getSubmissionURL(String projId, String coderId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("get_submission_url");
+
+        r.setProperty("pj", projId);
+        r.setProperty("cr", coderId);
+        r.setProperty("st", "1"); // just initiall submissions
+
+        DataAccessInt dai = getDataAccess(true);
+        Map result = dai.getData(r);
+        ResultSetContainer rsc = (ResultSetContainer) result.get("get_submission_url");
+        if (rsc.getRowCount() != 1) {
+        	throw new TCWebException("Not exaclty one sumbission url found.  Instead, found " + rsc.getRowCount());
+        }
+        
+        return rsc.getStringItem(0, "submission_url");
+    }
+
     private boolean hasAgreedTerms(String coderId) throws Exception {
         UserTermsOfUse userTerms = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
         return userTerms.hasTermsOfUse(getUser().getId(), Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
-
-        /*
-	    Request r = new Request();
-	    r.setContentHandle("has_agreed_terms");
-	
-	    // Find all the projects that match with the component id, version and phase
-	    r.setProperty(Constants.CODER_ID, coderId);
-	    r.setProperty("tu", Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID + "");
-	
-	    DataAccessInt dai = getDataAccess(true);
-	    Map result = dai.getData(r);
-	    return ((ResultSetContainer) result.get("has_agreed_terms")).size() > 0;
-	    */
     }
     
 
