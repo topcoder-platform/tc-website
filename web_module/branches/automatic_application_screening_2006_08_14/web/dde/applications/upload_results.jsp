@@ -7,8 +7,6 @@ import="com.topcoder.dde.util.Constants,
 
 <%
 String filename = (String)request.getAttribute("file_nanme");
-ScreeningResponse[] warnings = (ScreeningResponse[]) request.getAttribute("warnings");
-ScreeningResponse[] errors = (ScreeningResponse[]) request.getAttribute("errors");
 %>
 
 <HTML>
