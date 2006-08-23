@@ -1,11 +1,13 @@
 <%@ page language="java"
 import="com.topcoder.dde.util.Constants" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
 <%
 String filename = (String)request.getAttribute("file_nanme");
+ScreeningResponse[] warnings = (ScreeningResponse[]) request.getAttribute(Constants.WARNING_LIST_KEY);
+ScreeningResponse[] errors = (ScreeningResponse[]) request.getAttribute(Constants.ERROR_LIST_KEY);
 %>
 
 <HTML>
@@ -28,60 +30,65 @@ String filename = (String)request.getAttribute("file_nanme");
             <TR>
                 <td align="center">
                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                        hola
-                        <logic:present name="errors">
-                            chau
-                            <tr>
-                                <td>Fatal Errors:</td>
-                            </tr>
-                            <logic:iterate id="error" indexId="errorIdx" name="errors">
+                        <c:choose>
+                            <c:when test="${errors != null}">
+                                <tr>
+                                    <td>Fatal Errors:</td>
+                                </tr>
+                                <c:forEach items="${errors}" var="error">
+                                    <tr>
+                                        <td width="5%"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
+                                        <td>
+                                            <span>${error.code}: ${error.response}</span>
+                                            <ul>
+                                                <c:forEach items="${error.text}" var="texts">
+                                                    <li>${texts}</li>
+                                                </c:forEach>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </c:when>
+<!--
+                            <c:when test="${warnings != null}">
                                 <tr>
                                     <td width="5%"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
-                                    <td>
-                                        <span><bean:write name="error" property="code" />: <bean:write name="error" property="response" /></span>
-                                        <ul>
-                                            <bean:define id="texts" name="error" property="text" />
-                                            <logic:iterate id="text" indexId="textIdx" name="texts">
-                                                <li><bean:write name="text" /></li>
-                                            </logic:iterate>
-                                        </ul>
-                                    </td>
+                                    <td>Warnings:</td>
                                 </tr>
-                            </logic:iterate>
-                        </logic:present>
-                        <logic:present name="warnings">
-                            <tr>
-                                <td width="5%"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
-                                <td>Warnings:</td>
-                            </tr>
-                            <logic:iterate id="warning" indexId="warningIdx" name="warnings">
+                                <logic:iterate id="warning" indexId="warningIdx" name="warnings">
+                                    <tr>
+                                        <td width="5%"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
+                                        <td>
+                                            <span><bean:write name="warning" property="code" />: <bean:write name="warning" property="response" /></span>
+                                            <ul>
+                                                <bean:define id="texts" name="warning" property="text" />
+                                                <logic:iterate id="text" indexId="textIdx" name="texts">
+                                                    <li><bean:write name="text" /></li>
+                                                </logic:iterate>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </logic:iterate>
+                            </c:when>
+-->
+                            <c:otherwise>
                                 <tr>
-                                    <td width="5%"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
-                                    <td>
-                                        <span><bean:write name="warning" property="code" />: <bean:write name="warning" property="response" /></span>
-                                        <ul>
-                                            <bean:define id="texts" name="warning" property="text" />
-                                            <logic:iterate id="text" indexId="textIdx" name="texts">
-                                                <li><bean:write name="text" /></li>
-                                            </logic:iterate>
-                                        </ul>
-                                    </td>
-                                </tr>
-                            </logic:iterate>
-                        </logic:present>
-                    </TD>
-                </table>
-            </tr>
-            <tr>
-                <td align="center">
-                    <table border="0" cellpadding="0" cellspacing="4">
-                        <form name="upload_form" method="GET" action="/tcs">
-                            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ViewUploadResults"/>
-                            <input type="hidden" name="spec_id" value="<%=request.getAttribute("spec_id")%>"/>
-                        </form>
+                                    <td align="center">
+                                        Screening... 
+                                        <table border="0" cellpadding="0" cellspacing="4">
+                                            <form name="upload_form" method="GET" action="/tcs">
+                                                <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ViewUploadResults"/>
+                                                <input type="hidden" name="spec_id" value="<%=request.getAttribute("spec_id")%>"/>
+                                                <input type="refresh" value="Upload">
+                                            </form>
+                                        </table>
+                                    </TD>
+                                </TR>
+                            </c:otherwise>
+                        </c:choose>
                     </table>
                 </TD>
-            </TR>
+            </tr>
         </TABLE>
     </BODY>
 </HTML>
