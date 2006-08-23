@@ -42,18 +42,18 @@
 <!-- Center Column Begins -->
 <td class="statTableSpacer" width="100%" valign="top">
 
-    <jsp:include page="/page_title.jsp">
-        <jsp:param name="image" value="<%= String.valueOf(SoftwareComponent.DESIGN_PHASE).equals(phaseId) ? "comp_design" : "comp_development"%>"/>
-        <jsp:param name="title" value="Reliability Detail"/>
-    </jsp:include>
+<jsp:include page="/page_title.jsp">
+    <jsp:param name="image" value="<%= String.valueOf(SoftwareComponent.DESIGN_PHASE).equals(phaseId) ? "comp_design" : "comp_development"%>"/>
+    <jsp:param name="title" value="Reliability Detail"/>
+</jsp:include>
 
-    <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=coderId%>' context='<%=type%>'/></span>
-    <br>
-    <% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) { %>
-    <span class="bodySubtitle">Development Statistics&#160;>&#160;</span><br>
-    <% } else { %>
-    <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
-    <% } %>
+<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=coderId%>' context='<%=type%>'/></span>
+<br>
+<% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) { %>
+<span class="bodySubtitle">Development Statistics&#160;>&#160;</span><br>
+<% } else { %>
+<span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
+<% } %>
                 <span class="bc">
                 <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
              | <A HREF="/tc?module=CompetitionHistory&ph=<%=phaseId%>&cr=<%=coderId%>" class="bcLink">Competition
@@ -63,78 +63,90 @@
                     | Reliability Detail
             </span>
 
-    <div class="pagingBox" style="clear:both;">&nbsp;</div>
+<div class="pagingBox" style="clear:both;">&nbsp;</div>
 
-    <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-        <tr>
-            <td class="title" colspan="4">Reliability Detail</td>
-        </tr>
-        <tr>
-            <td class="headerC">
-                Catalog
-            </td>
-            <td class="header" width="50%">
-                Component
-            </td>
-            <td class="headerC" width="50%">
-                Reliable
-            </td>
-            <td class="headerC" nowrap="nowrap">
-                Registration Date
-            </td>
+<table class="stat" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td class="title" colspan="4">Reliability Detail</td>
+    </tr>
+    <tr>
+        <td class="headerC">
+            Catalog
+        </td>
+        <td class="header" width="50%">
+            Component
+        </td>
+        <td class="header" width="20%">
+            Reliability<br/>Before
+        </td>
+        <td class="header" width="20%">
+            Reliability<br/>After
+        </td>
+        <td class="headerC" width="20%">
+            Reliable
+        </td>
+        <td class="headerC" nowrap="nowrap">
+            Registration Date
+        </td>
 
-        </tr>
+    </tr>
 
-        <% boolean even = false; %>
-        <rsc:iterator list="<%=contests%>" id="resultRow">
-            <tr class="<%=even?"dark":"light"%>">
-                <td class="valueC">
-                    <% if (resultRow.getItem("aol_brand").getResultData() != null) { %>
-                    <img src="/i/development/smAOL.gif"/>
-                    <% } else if ("Java".equals(resultRow.getStringItem("catalog_name"))) { %>
-                    <img src="/i/development/smJava.gif"/>
-                    <% } else if ("Java Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
-                    <img src="/i/development/smJavaCustom.gif"/>
-                    <% } else if (".NET".equals(resultRow.getStringItem("catalog_name"))) { %>
-                    <img src="/i/development/netSm.gif"/>
-                    <% } else if (".NET Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
-                    <img src="/i/development/smNetCustom.gif"/>
-                    <% } else if ("Flash".equals(resultRow.getStringItem("catalog_name"))) { %>
-                    <img src="/i/development/flashSm.gif"/>
-                    <% } else { %>
-                    <rsc:item name="catalog_name" row="<%=resultRow%>"/>
-                    <% } %>
-                </td>
-                <td class="value">
-                    <% if (resultRow.getIntItem("viewable") == 1) { %>
-                    <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item row="<%=resultRow%>" name="component_id"/>&ver=<rsc:item row="<%=resultRow%>" name="version"/>">
-                        <rsc:item name="component_name" row="<%=resultRow%>"/>
-                        <rsc:item name="version_text" row="<%=resultRow%>"/></A>
-                    <% } else { %>
+    <% boolean even = false; %>
+    <rsc:iterator list="<%=contests%>" id="resultRow">
+        <tr class="<%=even?"dark":"light"%>">
+            <td class="valueC">
+                <% if (resultRow.getItem("aol_brand").getResultData() != null) { %>
+                <img src="/i/development/smAOL.gif"/>
+                <% } else if ("Java".equals(resultRow.getStringItem("catalog_name"))) { %>
+                <img src="/i/development/smJava.gif"/>
+                <% } else if ("Java Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
+                <img src="/i/development/smJavaCustom.gif"/>
+                <% } else if (".NET".equals(resultRow.getStringItem("catalog_name"))) { %>
+                <img src="/i/development/netSm.gif"/>
+                <% } else if (".NET Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
+                <img src="/i/development/smNetCustom.gif"/>
+                <% } else if ("Flash".equals(resultRow.getStringItem("catalog_name"))) { %>
+                <img src="/i/development/flashSm.gif"/>
+                <% } else { %>
+                <rsc:item name="catalog_name" row="<%=resultRow%>"/>
+                <% } %>
+            </td>
+            <td class="value">
+                <% if (resultRow.getIntItem("viewable") == 1) { %>
+                <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item row="<%=resultRow%>" name="component_id"/>&ver=<rsc:item row="<%=resultRow%>" name="version"/>">
                     <rsc:item name="component_name" row="<%=resultRow%>"/>
-                    <rsc:item name="version_text" row="<%=resultRow%>"/>
-                    <% } %>
-                </td>
-                <td class="valueC">
-                    <rsc:item name="reliable" row="<%=resultRow%>"/>
-                </td>
-                <td class="valueC" nowrap="nowrap">
-                    <rsc:item name="create_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
-                </td>
-            </tr>
-            <% even = !even;%>
-        </rsc:iterator>
-    </table>
-    <br>
-    <% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) { %>
-    <div class="bodySubtitle" align="center">Have a question about
-        <A href="/tc?module=Static&d1=dev&d2=support&d3=devReliability">reliability ratings</A>?</div>
-    <% } else { %>
-    <div class="bodySubtitle" align="center">Have a question about
-        <A href="/tc?module=Static&d1=dev&d2=support&d3=desReliability">reliability ratings</A>?</div>
-    <% } %>
+                    <rsc:item name="version_text" row="<%=resultRow%>"/></A>
+                <% } else { %>
+                <rsc:item name="component_name" row="<%=resultRow%>"/>
+                <rsc:item name="version_text" row="<%=resultRow%>"/>
+                <% } %>
+            </td>
+            <td class="value">
+                <rsc:item name="old_reliability" row="<%=resultRow%>" format="0.00%" ifNull="&#160;"/>
+            </td>
+            <td class="value">
+                <rsc:item name="new_reliability" row="<%=resultRow%>" format="0.00%" ifNull="&#160;"/>/>
+            </td>
+            <td class="valueC">
+                <rsc:item name="reliable" row="<%=resultRow%>"/>
+            </td>
+            <td class="valueC" nowrap="nowrap">
+                <rsc:item name="create_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
+            </td>
+        </tr>
+        <% even = !even;%>
+    </rsc:iterator>
+</table>
+<br>
+<% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) { %>
+<div class="bodySubtitle" align="center">Have a question about
+    <A href="/tc?module=Static&d1=dev&d2=support&d3=devReliability">reliability ratings</A>?</div>
+<% } else { %>
+<div class="bodySubtitle" align="center">Have a question about
+    <A href="/tc?module=Static&d1=dev&d2=support&d3=desReliability">reliability ratings</A>?</div>
+<% } %>
 
-    <p><br/></p>
+<p><br/></p>
 
 
 </td>
