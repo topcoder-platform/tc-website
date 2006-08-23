@@ -46,10 +46,9 @@ List errors = (List)request.getAttribute("errors");
                                             <%=errorItem.getCode()%>: <%=errorItem.getResponse()%>
                                             <ul>
                                                 <%
-                                                for (Iterator it2 = errorItem.getText().iterator(); it2.hasNext();) {
-                                                    String texts = (String) it2.next();
+                                                for (int i = 0; i < errorItem.getText().length; i++) {
                                                 %>
-                                                    <li><%=texts%></li>
+                                                    <li><%=errorItem.getText()[i]%></li>
                                                 <%
                                                 }
                                                 %>
