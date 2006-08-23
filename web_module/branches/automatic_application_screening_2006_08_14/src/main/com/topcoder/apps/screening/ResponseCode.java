@@ -28,4 +28,9 @@ public abstract class ResponseCode {
     public static final long PERSONAL_INFO = 14;
     public static final long SUCCESS = 15;
 
+    public static final long NO_QA_PLAN = 16;
+    public static final long NO_APP_SPEC = 17;
+    public static final long NO_ZUML = 18;
+    public static final long WRONG_ZUML = 19;
+
 }

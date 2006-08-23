@@ -100,7 +100,7 @@ List warnings = (List)request.getAttribute("warnings");
                             </TR>
                             <tr>
                                 <td>
-                                    Screening... 
+                                    Screening still in progress... 
                                     <table border="0" cellpadding="0" cellspacing="4">
                                         <form name="upload_form" method="GET" action="/tcs">
                                             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ViewUploadResults"/>
