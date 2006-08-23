@@ -1,18 +1,21 @@
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 java.util.Map,
-                 com.topcoder.shared.dataAccess.DataAccessConstants,
-                 com.topcoder.shared.util.ApplicationServer"%>
-<%@  page language="java"  %>
+<%@ page import="com.topcoder.web.common.WebConstants"%>
+<%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
 <head>
-<title>Design Tutorial</title>
+<title>Component Competition Practice</title>
 
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
+
+    <% String node = request.getParameter(WebConstants.LEFT_NAV_KEY);
+        if (node!=null&&!(node.equals("des_getting_started")||node.equals("dev_getting_started"))) {
+            node = null;
+        }
+    %>
 
 </head>
 
@@ -27,7 +30,7 @@
 <%-- Left Column Begins--%>
         <td width="180">
             <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="node" value="digital_run"/>
+                <jsp:param name="node" value="<%=node==null?"":node%>"/>
             </jsp:include>
         </td>
 <%-- Left Column Ends --%>
@@ -53,56 +56,74 @@ At the very least, looking at submissions from others and following the guided s
 Below are a list of six components.  Read the requirement specifications to decide which one you would like to practice on or complete them all!
 <br><br>
 <div align="center">
-<table cellpadding="3" cellspacing="0" border="0">
+<table cellpadding="6" cellspacing="0" border="0">
 <tbody>
    <tr>
-      <td width="50%" colspan="2" align="center">
+      <td colspan="3" align="center">
       <img src="/i/interface/dotnet.gif" alt=".NET" border="0" />
       </td>
-      <td width="50%" colspan="2" align="center">
+      <td colspan="3" align="center">
       <img src="/i/interface/java.gif" alt=".Java" border="0" />
       </td>
    </tr>
    <tr>
-      <td>
-      Set - Req Spec
-      <td>
-      <A href=""><img src="/i/interface/download.gif" alt="download" border="0" /></A>
+      <td nowrap="nowrap" width="25%" style="border-bottom: 1px solid #999999;" class="small">
+      Problem
       </td>
+      <td nowrap="nowrap" width="25%" align="center" style="border-bottom: 1px solid #999999;" class="small">
+      Requirement<br>specs
       </td>
-      <td>
-      Bloom Filter- Req Spec
+      <td nowrap="nowrap" align="center" style="border-right: 1px solid #999999; border-bottom: 1px solid #999999;" class="small">
+      Distributions
       </td>
-      <td>
-      <A href=""><img src="/i/interface/download.gif" alt="download" border="0" /></A>
+      <td nowrap="nowrap" width="25%" style="border-bottom: 1px solid #999999;" class="small">
+      Problem
       </td>
-   </tr>
-   <tr>
-      <td>
-      Object Diff - Req Spec
+      <td nowrap="nowrap" width="25%" align="center" style="border-bottom: 1px solid #999999;" class="small">
+      Requirement<br>specs
       </td>
-      <td>
-      <A href=""><img src="/i/interface/download.gif" alt="download" border="0" /></A>
-      </td>
-      <td>
-      File Event Alerter - Req Spec
-      </td>
-      <td>
-      <A href=""><img src="/i/interface/download.gif" alt="download" border="0" /></A>
+      <td nowrap="nowrap" align="center" style="border-bottom: 1px solid #999999;" class="small">
+      Distributions
       </td>
    </tr>
    <tr>
       <td>
-      Comp Name - Req Spec
+      <strong>Set</strong>
+      </td>
+      <td align="center">
+      <A href="/i/development/downloads/bla.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      </td>
+      <td align="center" style="border-right: 1px solid #999999;">
+      <A href="/i/development/downloads/bla.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
       </td>
       <td>
-      <A href=""><img src="/i/interface/download.gif" alt="download" border="0" /></A>
+      <strong>Bloom Filter</strong>
       </td>
-      <td>
-      Comp Name - Req Spec
+      <td align="center">
+      <A href="/i/development/downloads/bla.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
       </td>
-      <td>
-      <A href=""><img src="/i/interface/download.gif" alt="download" border="0" /></A>
+      <td align="center">
+      <A href="/i/development/downloads/bla.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      </td>
+   </tr>
+   <tr>
+      <td nowrap="nowrap">
+      <strong>Object Diff</strong>
+      </td>
+      <td align="center">
+      <A href="/i/development/downloads/bla.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      </td>
+      <td align="center" style="border-right: 1px solid #999999;">
+      <A href="/i/development/downloads/bla.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      </td>
+      <td nowrap="nowrap">
+      <strong>File Event Alerter</strong>
+      </td>
+      <td align="center">
+      <A href="/i/development/downloads/bla.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      </td>
+      <td align="center">
+      <A href="/i/development/downloads/bla.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
       </td>
    </tr>
 </tbody>
