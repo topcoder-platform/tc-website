@@ -88,7 +88,7 @@ public class ForumPollBean extends BaseEJB {
             
             Hashtable retTable = new Hashtable();
             while (rs.next()) {
-            	retTable.put(new Integer(rs.getInt("pollid")), new Integer(rs.getInt("votercnt")));
+            	retTable.put(new Long(rs.getLong("pollid")), new Long(rs.getLong("votercnt")));
             }
             return retTable;
         } catch (SQLException e) {
@@ -124,7 +124,7 @@ public class ForumPollBean extends BaseEJB {
             
             Hashtable retTable = new Hashtable();
             while (rs.next()) {
-            	retTable.put(new Integer(rs.getInt("pollid")), new Integer(rs.getInt("votercnt")));
+            	retTable.put(new Long(rs.getLong("pollid")), new Long(rs.getLong("votercnt")));
             }
             return retTable;
         } catch (SQLException e) {
