@@ -54,6 +54,7 @@ public class ApplicationQAPlanRule implements ScreeningRule {
                             magic = new MagicNumbers();
                         }
                         FileType type = magic.determineFileType(files[i]);
+                        System.out.println(type.getMime());
                         if (type != null && type.getMime().equals("application/doc")) {
                             return true;
                         }
