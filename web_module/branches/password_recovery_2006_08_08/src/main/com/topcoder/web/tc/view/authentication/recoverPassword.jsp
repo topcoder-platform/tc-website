@@ -43,21 +43,20 @@ function send() {
         <td align=right class="pageSubtitle">&#160;&#160;</td>
     </tr>
 </table>
-
-<form method="post" name="frm" action="/tc">
-<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="FindUser"/>
-<div align="center">
-
 <strong>Password Recovery</strong><br>
 Have you forgotten your password? No longer have access to the email account you used when you registered? 
 Enter your information below, and we will help you get TopCoding again!
 <br><br>
 
+<form method="post" name="frm" action="/tc">
+<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="FindUser"/>
+<div align="center">
 <table cellpadding="0" cellspacing="0" border="0" class="regFields">
    <tr>
-      <td class="name">
-		Do you still have access to the account used when registering?
-      </td>
+      <td class="value" colspan="2">Do you still have access to the account used when registering?</td>
+   </tr>
+   <tr>
+      <td class="value">%#160;</td>
       <td class="value">
 		<input type="radio" value="true" name="<%= FindUser.HAS_MAIL_ACCESS %>" <%= "true".equals(request.getAttribute(FindUser.HAS_MAIL_ACCESS))? "checked" : "" %> >Yes</input>
 		<input type="radio" value="false" name="<%= FindUser.HAS_MAIL_ACCESS %>" <%= "false".equals(request.getAttribute(FindUser.HAS_MAIL_ACCESS))? "checked" : "" %> >No</input>

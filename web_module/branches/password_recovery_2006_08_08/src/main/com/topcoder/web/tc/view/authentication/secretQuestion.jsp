@@ -11,7 +11,7 @@
 
 <html>
 <head>
-<title>Password Reset</title>
+<title>Password Recovery</title>
 
 <SCRIPT type="text/javascript">
 </SCRIPT>

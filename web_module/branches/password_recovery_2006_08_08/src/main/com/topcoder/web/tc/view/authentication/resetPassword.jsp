@@ -52,7 +52,7 @@
       <td class="value"><input type="password" name="<%= ResetPassword.PASSWORD %>"></td>
    </tr>
    <tr>
-      <td class="name">Retype your password: </td>
+      <td class="name">Retype new password: </td>
       <td class="value"><input type="password" name="<%= ResetPassword.PASSWORD_VERIF %>"></td>
    </tr>
    <tr>
