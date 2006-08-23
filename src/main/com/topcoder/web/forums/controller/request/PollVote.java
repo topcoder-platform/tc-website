@@ -31,25 +31,6 @@ public class PollVote extends ForumsProcessor {
 		PollManager pollManager = forumFactory.getPollManager();
 		Poll poll = pollManager.getPoll(pollID);
 		
-		if (!poll.hasUserVoted(user)) {
-			if (poll.isModeEnabled(Poll.MULTIPLE_SELECTIONS_ALLOWED)) {
-				for (int i=0; i<poll.getOptionCount(); i++) {
-					boolean isVoting = (getRequest().getParameter("q"+pollID+","+i) != null);
-					if (isVoting) {
-						poll.addUserVote(i, user);
-					}
-				}
-			} else {
-				int pollChoice = Integer.parseInt(getRequest().getParameter("q"+pollID));
-				poll.addUserVote(pollChoice, user);
-			}
-		}
-		
-		int[] voteCounts = new int[poll.getOptionCount()];
-		for (int i=0; i<voteCounts.length; i++) {
-			voteCounts[i] = poll.getUserVoteCount(i);	
-		}
-		
 		// In Jive 4.2.5, poll.getUserVoteCount() does not return the number of users who have voted, but
 		// the total number of votes. Remove the ForumPoll EJB from the build after a new Jive release updates
 		// poll.getUserVoteCount().
@@ -65,6 +46,31 @@ public class PollVote extends ForumsProcessor {
         }
  
         int numVoters = pollBean.getVoterCountByPoll(poll.getID(), DBMS.FORUMS_DATASOURCE_NAME);
+		
+        boolean hasVoted = false;
+		if (!poll.hasUserVoted(user)) {
+			if (poll.isModeEnabled(Poll.MULTIPLE_SELECTIONS_ALLOWED)) {
+				for (int i=0; i<poll.getOptionCount(); i++) {
+					boolean isVoting = (getRequest().getParameter("q"+pollID+","+i) != null);
+					if (isVoting) {
+						poll.addUserVote(i, user);
+						hasVoted = true;
+					}
+				}
+			} else {
+				int pollChoice = Integer.parseInt(getRequest().getParameter("q"+pollID));
+				poll.addUserVote(pollChoice, user);
+				hasVoted = true;
+			}
+		}
+		if (hasVoted) {
+			numVoters++;
+		}
+		
+		int[] voteCounts = new int[poll.getOptionCount()];
+		for (int i=0; i<voteCounts.length; i++) {
+			voteCounts[i] = poll.getUserVoteCount(i);	
+		}
 		
 		getResponse().setContentType("text/xml");
         getResponse().addHeader("Cache-Control", "no-cache");
