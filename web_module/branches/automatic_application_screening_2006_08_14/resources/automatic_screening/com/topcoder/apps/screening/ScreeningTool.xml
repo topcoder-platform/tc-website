@@ -16,9 +16,9 @@
     <Property name="application_rule">
         <Value>com.topcoder.apps.screening.rules.JarFileRule</Value>
         <Value>com.topcoder.apps.screening.rules.ApplicationDirRule</Value>
-        <Value>com.topcoder.apps.screening.rules.ApplicationQAPlanRule.java</Value>
-        <Value>com.topcoder.apps.screening.rules.ApplicationSpecificationRule.java</Value>
-        <Value>com.topcoder.apps.screening.rules.ApplicationZumlFileRule.java</Value>
+        <Value>com.topcoder.apps.screening.rules.ApplicationQAPlanRule</Value>
+        <Value>com.topcoder.apps.screening.rules.ApplicationSpecificationRule</Value>
+        <Value>com.topcoder.apps.screening.rules.ApplicationZumlFileRule</Value>
     </Property>
     <Property name="java_design_rule">
         <Value>com.topcoder.apps.screening.rules.JarFileRule</Value>
