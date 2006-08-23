@@ -3,12 +3,19 @@
  */
 package com.topcoder.web.forums.controller.request;
 
+import com.jivesoftware.base.Log;
 import com.jivesoftware.base.PollManager;
 import com.jivesoftware.base.Poll;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.ejb.forumpoll.ForumPoll;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
 import java.util.Iterator;
+
+import javax.naming.InitialContext;
 
 /**
  * @author mtong
@@ -20,7 +27,6 @@ public class PollVote extends ForumsProcessor {
 		super.businessProcessing();
 
 		long pollID = Long.parseLong(getRequest().getParameter(ForumConstants.POLL_ID));
-		log.info("*** Poll ID: "+pollID);
 		
 		PollManager pollManager = forumFactory.getPollManager();
 		Poll poll = pollManager.getPoll(pollID);
@@ -29,7 +35,6 @@ public class PollVote extends ForumsProcessor {
 			if (poll.isModeEnabled(Poll.MULTIPLE_SELECTIONS_ALLOWED)) {
 				for (int i=0; i<poll.getOptionCount(); i++) {
 					boolean isVoting = (getRequest().getParameter("q"+pollID+","+i) != null);
-					log.info("*** Poll option "+i+": "+isVoting+" | value: " + getRequest().getParameter("q"+pollID+","+i));
 					if (isVoting) {
 						poll.addUserVote(i, user);
 					}
@@ -46,13 +51,20 @@ public class PollVote extends ForumsProcessor {
 		}
 		
 		// In Jive 4.2.5, poll.getUserVoteCount() does not return the number of users who have voted, but
-		// the total number of votes. It should be used instead of the following block after being updated.
-		int numVoters = 0;	
-		Iterator itUserVotes = poll.getUserVotes();
-		while (itUserVotes.hasNext()) {
-			numVoters++;
-			itUserVotes.next();
-		}
+		// the total number of votes. Remove the ForumPoll EJB from the build after a new Jive release updates
+		// poll.getUserVoteCount().
+		ForumPoll pollBean = null;
+        InitialContext ctx = null;
+        try {
+            ctx = TCContext.getInitial();
+            pollBean = (ForumPoll)createEJB(ctx, ForumPoll.class);   
+        } catch (Exception e) {
+            Log.error(e);
+        } finally {
+            BaseProcessor.close(ctx);
+        }
+ 
+        int numVoters = pollBean.getVoterCountByPoll(poll.getID(), DBMS.FORUMS_DATASOURCE_NAME);
 		
 		getResponse().setContentType("text/xml");
         getResponse().addHeader("Cache-Control", "no-cache");
