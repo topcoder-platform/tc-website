@@ -52,14 +52,16 @@ public class FindUser extends ShortHibernateProcessor {
         	if (l.size() == 0) {
         		addError(ERROR_INFO, "No user was found with that information");
         	} else if (l.size() > 1) {
-        		addError(ERROR_INFO, "More than one user found.  Please provide additional information.");
+        		addError(ERROR_INFO, "More than one user found.");
+        		addError(ERROR_INFO, "Please provide additional information.");
         	} else {
         		user = (User) l.get(0);
         	}
         }
         
         if (!hasMailAccess && user != null && user.getSecretQuestion() == null) {
-        	addError(ERROR_INFO, "You don't have a secret question. Password recovery is not possible.");
+        	addError(ERROR_INFO, "You don't have a secret question. ");
+        	addError(ERROR_INFO, "Password recovery is not possible.");
         }
         
         if (hasErrors()) {
