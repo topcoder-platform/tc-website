@@ -31,8 +31,6 @@ ScreeningResponse[] errors = (ScreeningResponse[]) request.getAttribute("errors"
             <TR>
                 <td align="center">
                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                        <c:choose>
-                            <c:when test="${errors != null}">
                                 <tr>
                                     <td>Fatal Errors:</td>
                                 </tr>
@@ -49,8 +47,6 @@ ScreeningResponse[] errors = (ScreeningResponse[]) request.getAttribute("errors"
                                         </td>
                                     </tr>
                                 </c:forEach>
-                            </c:when>
-                            <c:otherwise>
                                 <tr>
                                     <td align="center">
                                         Screening... 
@@ -63,8 +59,6 @@ ScreeningResponse[] errors = (ScreeningResponse[]) request.getAttribute("errors"
                                         </table>
                                     </TD>
                                 </TR>
-                            </c:otherwise>
-                        </c:choose>
                     </table>
                 </TD>
             </tr>
