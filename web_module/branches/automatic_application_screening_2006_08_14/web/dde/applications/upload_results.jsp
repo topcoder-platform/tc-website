@@ -4,13 +4,11 @@ import="com.topcoder.dde.util.Constants,
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <%
 String filename = (String)request.getAttribute("file_nanme");
+List errors = (List)request.getAttribute("errors");
 %>
 
 <HTML>
@@ -34,23 +32,32 @@ String filename = (String)request.getAttribute("file_nanme");
                 <td align="center">
                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                 <tr>
-                                    <td>Fatal Errors:</td>
-                                    <c:out value="${errors[0].code}"/>
+                                    <td>Fatal Errors: (<%=errors.size()%>)</td>
                                 </tr>
-                                
 
-                                <c:forEach items="${errors}" var="errorItem">
+                                <%
+                                for (Iterator it = errors.iterator(); it.hasNext();) {
+                                    ScreeningResponse errorItem = (ScreeningResponse) it.next();
+                                %>
                                     <tr>
                                         <td>
-                                            <c:out value="${errorItem.code}"/>: <c:out value="${errorItem.response}"/>
+                                            <%=errorItem.getCode()%>: <%=errorItem.getResponse()%>
                                             <ul>
-                                                <c:forEach items="${errorItem.text}" var="texts">
-                                                    <li><c:out value="${texts}"/></li>
-                                                </c:forEach>
+                                                <%
+                                                for (Iterator it2 = errors.getText().iterator(); it2.hasNext();) {
+                                                    String texts = (String) it2.next();
+                                                %>
+                                                    <li><%=texts%></li>
+                                                <%
+                                                }
+                                                %>
                                             </ul>
                                         </td>
                                     </tr>
-                                </c:forEach>
+                                <%
+                                }
+                                %>
+
                                 <tr>
                                     <td align="center">
                                         Screening... 
