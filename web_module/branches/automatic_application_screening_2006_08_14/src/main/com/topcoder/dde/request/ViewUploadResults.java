@@ -37,6 +37,7 @@ public class ViewUploadResults extends BaseProcessor {
 
     protected void businessProcessing() throws TCWebException {
         try {
+            // TODO: change for a particular user role.
             if (getUser().isAnonymous()) {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             } else {

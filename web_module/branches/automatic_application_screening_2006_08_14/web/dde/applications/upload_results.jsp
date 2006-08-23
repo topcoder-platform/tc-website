@@ -9,7 +9,6 @@ import="com.topcoder.dde.util.Constants,
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <%
-String filename = (String)request.getAttribute("file_nanme");
 List errors = (List)request.getAttribute("errors");
 List warnings = (List)request.getAttribute("warnings");
 %>
@@ -97,9 +96,6 @@ List warnings = (List)request.getAttribute("warnings");
                             <TR>
                                 <TD>
                                     Upload successful:
-                                    <br/>
-                                    <br/>
-                                    <%=filename%>
                                 </TD>
                             </TR>
                             <tr>
