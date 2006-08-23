@@ -1,9 +1,13 @@
-<%@ page language="java"
+<%@ page contentType="text/html; charset=ISO-8859-1"
 import="com.topcoder.dde.util.Constants,
         com.topcoder.apps.screening.ScreeningResponse" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <%
 String filename = (String)request.getAttribute("file_nanme");
@@ -31,7 +35,9 @@ String filename = (String)request.getAttribute("file_nanme");
                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                 <tr>
                                     <td>Fatal Errors:</td>
+                                    <c:out value="${errors[0].code}"/>
                                 </tr>
+                                
 
                                 <c:forEach items="${errors}" var="errorItem">
                                     <tr>
