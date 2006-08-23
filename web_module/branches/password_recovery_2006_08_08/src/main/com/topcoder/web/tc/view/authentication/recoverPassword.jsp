@@ -65,11 +65,11 @@ Enter your information below, and we will help you get TopCoding again!
    <tr>
       <td class="value" colspan="2"><br>If you remember your handle, please enter it:</td>
    </tr>
-	<tr>
-      <td colspan="2"><span class="bigRed">
-         <tc-webtag:errorIterator id="err" name="<%= FindUser.ERROR_HANDLE %>"><%=err%></tc-webtag:errorIterator></span>
-      </td>
-    </tr>
+   <tc-webtag:errorIterator id="err" name="<%= FindUser.ERROR_HANDLE %>">
+   <tr>
+      <td colspan="2"><span class="bigRed"><%=err%></span></td>
+   </tr>
+   </tc-webtag:errorIterator>
    <tr>
       <td class="name">Handle:</td>
       <td class="value"><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/></td>
@@ -77,9 +77,11 @@ Enter your information below, and we will help you get TopCoding again!
    <tr>
       <td class="value" colspan="2"><br>If you don't remember your handle, please enter as much <br>information as posible in order to indentify you:</td>
    </tr>
-	<tr>
-      <td colspan="2"><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%= FindUser.ERROR_INFO %>"><%=err%></tc-webtag:errorIterator></span></td>
+   <tc-webtag:errorIterator id="err" name="<%= FindUser.ERROR_INFO %>">
+   <tr>
+      <td colspan="2"><span class="bigRed"><%=err%></span></td>
    </tr>
+   </tc-webtag:errorIterator>
    <tr>
       <td class="name">First Name:</td>
       <td class="value"><tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/></td>
