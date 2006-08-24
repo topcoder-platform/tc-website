@@ -24,6 +24,7 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
+import com.topcoder.web.ejb.user.UserTermsOfUseLocal;
 import com.topcoder.web.tc.Constants;
 
 /**
@@ -99,7 +100,7 @@ public class DownloadSubmission extends Base {
     }
 
     private boolean hasAgreedTerms(String coderId) throws Exception {
-        UserTermsOfUse userTerms = (UserTermsOfUse) createLocalEJB(getInitialContext(), UserTermsOfUse.class);
+        UserTermsOfUseLocal userTerms = (UserTermsOfUseLocal) createLocalEJB(getInitialContext(), UserTermsOfUse.class);
         return userTerms.hasTermsOfUse(getUser().getId(), Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
     }
     
