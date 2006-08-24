@@ -49,7 +49,7 @@ public class ApplicationSpecificationRule implements ScreeningRule {
             for (int i = 0; i < files.length; ++i) {
                 if (files[i].isFile() && files[i].length() > 0) {
                     String name = files[i].getName().toLowerCase();
-                    if (name.indexOf("Requirements") >= 0 && name.indexOf("Specification") >= 0 && name.endsWith(".doc")) {
+                    if (name.indexOf("requirements") >= 0 && name.indexOf("specification") >= 0 && name.endsWith(".doc")) {
                         if (magic == null) {
                             magic = new MagicNumbers();
                         }

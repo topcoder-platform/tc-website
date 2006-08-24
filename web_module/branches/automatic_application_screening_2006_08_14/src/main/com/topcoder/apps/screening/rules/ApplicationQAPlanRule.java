@@ -55,8 +55,8 @@ public class ApplicationQAPlanRule implements ScreeningRule {
                 if (files[i].isFile() && files[i].length() > 0) {
                     String name = files[i].getName().toLowerCase();
                     log.info("name: " + name);
-                    log.info("name.indexOf(QA): " + name.indexOf("QA"));
-                    log.info("name.indexOf(Plan): " + name.indexOf("Plan"));
+                    log.info("name.indexOf(qa): " + name.indexOf("qa"));
+                    log.info("name.indexOf(plan): " + name.indexOf("plan"));
                     log.info("name.endsWith(.doc): " + name.endsWith(".doc"));
                     if (name.indexOf("qa") >= 0 && name.indexOf("plan") >= 0 && name.endsWith(".doc")) {
                         if (magic == null) {
