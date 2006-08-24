@@ -1,7 +1,6 @@
 package com.topcoder.web.studio.model;
 
 import com.topcoder.web.common.model.Base;
-import com.topcoder.web.common.model.FileType;
 
 import java.util.Collections;
 import java.util.Set;
@@ -17,7 +16,7 @@ public class Document extends Base {
     private String originalFileName;
     private String systemFileName;
     private FilePath path;
-    private FileType fileType;
+    private StudioFileType fileType;
     private DocumentType type;
 
 
@@ -61,11 +60,11 @@ public class Document extends Base {
         this.path = path;
     }
 
-    public FileType getFileType() {
+    public StudioFileType getFileType() {
         return fileType;
     }
 
-    public void setFileType(FileType fileType) {
+    public void setFileType(StudioFileType fileType) {
         this.fileType = fileType;
     }
 

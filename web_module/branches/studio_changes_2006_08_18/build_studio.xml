@@ -309,11 +309,20 @@
     </target>
 
     <target name="compile_tests" depends="compile">
-        <javac srcdir="${testjava}" destdir="${testclasses}"
-               classpathref="class.path"
-               deprecation="${deprecation}"
-               debug="${debug}">
+
+        <javac
+                srcdir="${testjava}"
+                destdir="${testclasses}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.5"
+                target="1.5"
+                >
+            <include name="com/topcoder/web/common/**"/>
+            <include name="com/topcoder/web/studio/**"/>
         </javac>
+        <antcall target="jar_common"/>
     </target>
 
     <target name="run_studio_tests" depends="compile_tests" description="run junit tests">

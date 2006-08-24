@@ -24,7 +24,8 @@ public class Contest extends Base {
     private Set documents = new HashSet();
     private ContestStatus status;
     private Integer forumId;
-    private Set submissions;
+    private Set submissions = new HashSet();
+    private Set fileTypes = new HashSet();
 
     public Long getId() {
         return id;
@@ -141,5 +142,16 @@ public class Contest extends Base {
         this.submissions = submissions;
     }
 
+    public Set getFileTypes() {
+        return fileTypes;
+    }
+
+    public void setFileTypes(Set fileTypes) {
+        this.fileTypes = fileTypes;
+    }
+
+    public void addFileType(StudioFileType fileType) {
+        this.fileTypes.add(fileType);
+    }
 
 }
