@@ -84,7 +84,7 @@ public class ViewUploadResults extends BaseProcessor {
 
                 getRequest().setAttribute("spec_id", String.valueOf(
                         StringUtils.htmlEncode(getRequest().getParameter("spec_id"))));
-                setNextPage("/applications/upload_results.jsp");
+                setNextPage("/applications/screening_results.jsp");
                 setIsNextPageInContext(true);
             }
         } catch (TCWebException e) {
