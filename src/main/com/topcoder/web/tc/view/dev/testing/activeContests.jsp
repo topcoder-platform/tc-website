@@ -51,38 +51,6 @@
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_warehouseMgmtFunctions">Warehouse Management Phase 1 Warehouse Functions</A>
-      </td>
-      <td class="valueC">
-      <%--registration closed--%>
-      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Warehouse Management Phase 1 Warehouse Functions">register</A>
-      </td>
-      <td class="valueC">
-      &#160;
-      <%--
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_warehouseMgmtFunctions">results</A>
-      --%>
-      </td>
-      <td class="valueC">
-      &#160;
-      <%--
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_warehouseMgmtFunctions">standings</A>
-      --%>
-      </td>
-      <td class="valueC">$700</td>
-      <td class="valueC">
-      08.16.2006 9:00 AM EST
-      </td>
-      <td class="valueC">
-      08.23.2006 9:00 AM EST
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      <A href="https://software.topcoder.com/forum/c_forum.jsp?f=23219552">discuss</A>
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_reviewProjectAdmin">Online Review Project Admin and Details Tests</A>
       </td>
       <td class="valueC">
