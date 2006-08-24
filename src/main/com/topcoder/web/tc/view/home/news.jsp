@@ -39,6 +39,20 @@
 </td></tr>
 --%>
 
+<%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>08.24.06<br>10:00 AM</td>
+    <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg">Bloomberg chat session prior to SRM 317</A>
+      </span><br><br>
+       Bloomberg will host a chat session starting RIGHT NOW! The chat will be an hour long.
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg">details</A>&#160;|&#160;
+    <tc-webtag:forumLink forumID="506096" message="discuss this"/>&#160;|&#160;
+    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+</td></tr>
 
 <%--------------------------------------------------------%>
 <tr>
@@ -245,27 +259,6 @@ participants successfully solved the 250 problem, the other two problems appeare
     <A href="/longcontest/?module=ViewOverview&rd=10087">results</A>&#160;|&#160;
     <tc-webtag:forumLink forumID="506073" message="discuss this"/>&#160;|&#160;
     <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>08.08.06<br>3:45 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm10">TCHS
-                SRM 10 - Problem Set & Analysis</A></span><br><br>
-                One more match has passed under the banner "burunduk's the best."
-                Burunduk is the Russian word for chipmunk,
-                so one could say it was a regular "chipmunk day" on TopCoder.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/gevak_big2.jpg" alt="" width="55" height="61"/><br>by
-                <tc-webtag:handle coderId="7340263" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm10">full story</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506032" message="discuss this"/>&#160;|&#160;
-    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
 </td></tr>
 
 
