@@ -30,7 +30,7 @@ public class DownloadSubmissionAgreeTerms extends Base {
 
             log.debug("will create terms of use: " +  Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID);
             
-            UserTermsOfUse userTerms = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
+            UserTermsOfUse userTerms = (UserTermsOfUse) createLocalEJB(getInitialContext(), UserTermsOfUse.class);
             userTerms.createUserTermsOfUse(getUser().getId(), Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
 
             SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);

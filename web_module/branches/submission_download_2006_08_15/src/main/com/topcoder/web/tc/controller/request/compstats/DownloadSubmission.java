@@ -10,7 +10,6 @@
 
 package com.topcoder.web.tc.controller.request.compstats;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.util.Map;
 
@@ -100,7 +99,7 @@ public class DownloadSubmission extends Base {
     }
 
     private boolean hasAgreedTerms(String coderId) throws Exception {
-        UserTermsOfUse userTerms = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
+        UserTermsOfUse userTerms = (UserTermsOfUse) createLocalEJB(getInitialContext(), UserTermsOfUse.class);
         return userTerms.hasTermsOfUse(getUser().getId(), Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
     }
     
