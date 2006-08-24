@@ -28,7 +28,7 @@ boolean screeningFinished = hasErrors | hasWarnings | hasSuccess;
         <%
             }
         %>
-        <TITLE>Upload results</TITLE>
+        <TITLE>Screening results</TITLE>
     </HEAD>
     <BODY>
         <TABLE WIDTH="100%" HEIGHT="100%">
@@ -134,11 +134,6 @@ boolean screeningFinished = hasErrors | hasWarnings | hasSuccess;
                         <%
                             } else {
                         %>
-                            <TR>
-                                <TD>
-                                    Upload successful:
-                                </TD>
-                            </TR>
                             <tr>
                                 <td>
                                     Screening still in progress... 
