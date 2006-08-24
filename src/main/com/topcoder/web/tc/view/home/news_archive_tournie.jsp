@@ -40,7 +40,6 @@
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
 <%--<tr class="bodyText"><td nowrap="nowrap">08.28.06 9:00 AM - </td><td width="100%"><A href="/tc?module=TCCC06ViewAlgoReg">TCCC06 Algorithm registration is now open</A></td></tr>--%>
-<tr class="bodyText"><td nowrap="nowrap">08.24.06 10:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg">Bloomberg chat session prior to SRM 317</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.10.06 4:45 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_080906">AOL SRM 315 chat session transcript</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.01.06 10:45 AM - </td><td width="100%"><A href="/tc?module=TCCC06StudentReps">Student Rep Referral Leaderboard</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.31.06 9:00 AM - </td><td width="100%"><A href="/tc?module=TCCC06ComponentTerms">TCCC06 CDDC registration is now open</A></td></tr>

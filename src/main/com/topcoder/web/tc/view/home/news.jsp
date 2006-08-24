@@ -41,21 +41,6 @@
 
 <%--------------------------------------------------------%>
 <tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>08.24.06<br>10:00 AM</td>
-    <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg">Bloomberg chat session prior to SRM 317</A>
-      </span><br><br>
-       Bloomberg will host a chat session starting RIGHT NOW! The chat will be an hour long.
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg">details</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506096" message="discuss this"/>&#160;|&#160;
-    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>08.22.06<br>12:50 PM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
