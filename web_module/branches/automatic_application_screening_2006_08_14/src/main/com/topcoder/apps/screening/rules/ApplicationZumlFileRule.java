@@ -15,6 +15,7 @@ import com.topcoder.apps.screening.ScreeningLogger;
 import com.topcoder.apps.screening.ResponseCode;
 import com.topcoder.apps.screening.SimpleScreeningData;
 import com.topcoder.apps.screening.DatabaseException;
+import com.topcoder.apps.screening.applications.specification.ValidationManager;
 
 /**
  * <strong>Purpose</strong>:
@@ -115,10 +116,10 @@ public class ApplicationZumlFileRule implements ScreeningRule {
         }
 
         try {
-            //ValidationManager validationManager = new ValidationManager();
-            //String []outputs = validationManager.validate(file);
+            ValidationManager validationManager = new ValidationManager();
+            String []outputs = validationManager.validate(file);
             // TODO: change
-            //System.out.println(outputs[0]);
+            System.out.println(outputs[0]);
 
 //            logger.log(new SimpleScreeningData("Message1.", ResponseCode.WRONG_ZUML));
 //            logger.log(new SimpleScreeningData("Message2.", ResponseCode.WRONG_ZUML));
