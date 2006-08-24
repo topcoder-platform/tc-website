@@ -52,9 +52,12 @@
 <A href="/tc?module=RookieBoard&ph=113">Current ROTY leaderboard</A>
 </td>
 </tr>
+<tr>
+<td align="center" colspan="2"><span class="subtitle"><br><A href="/tc?module=Static&d1=digital_run&d2=2006_stage1_winners">Stage 1 Winners</A></span></td>
+</tr>
 </table>
 </div>
-<br><br>
+<br>
 <div align="center"><A href="/tc?module=Static&d1=features&d2=082106"><img src="/i/digital_run/stage1_feature.gif" alt="Stage 1 Analysis" border="0" /></A></div>
 <br>
 The Digital Run marks another stride for TopCoder in recognizing talent through competition. The Digital Run will reward the top software designers and developers, giving them placement points based on their performance. Place well in a competition, you earn points. Accumulate lots of points over the course of a Stage (4 per year) or year, you win. It's that simple.
