@@ -121,14 +121,16 @@ public class ApplicationZumlFileRule implements ScreeningRule {
         }
 
         try {
+            log.info("zuml 1");
             ValidationManager validationManager = new ValidationManager();
+            log.info("zuml 2");
             String []outputs = validationManager.validate(file);
             // TODO: change
             log.info(outputs[0]);
-
+            logger.log(new SimpleScreeningData(outputs[0], ResponseCode.WRONG_ZUML));
 //            logger.log(new SimpleScreeningData("Message1.", ResponseCode.WRONG_ZUML));
 //            logger.log(new SimpleScreeningData("Message2.", ResponseCode.WRONG_ZUML));
-//            success = false;
+            success = false;
         } catch (Exception e) {
             success = false;
         }
