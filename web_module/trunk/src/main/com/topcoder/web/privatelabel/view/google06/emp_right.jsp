@@ -24,7 +24,7 @@
             <span class="insetHeader">Important Dates</span>
             <br/><br/>
             <b>Registration Starts</b><br/>
-            Tuesday, August 22nd
+            Tuesday, August 29th
             <br/><br/>
             <b>Qualification Round</b><br/>
             Tuesday, September 5th
@@ -40,14 +40,11 @@
     </tr>
     <tr>
         <td align="center" nowrap="nowrap">
-            <span class="insetHeader">$165,000 in<br/>Cash &amp; Prizes!</span>
+            <span class="insetHeader">Prizes</span>
             <br/><br/>
       <span class="prizes">
-      <b>1st Place - $10,000</b><br/>
-      2nd - 10th Place - $5,000<br/>
-      11th - 25th Place - $2,500<br/>
-      26th - 50th Place - $1,000<br/>
-      51st - 100th Place - $750<br/>
+      <b>The Top Three Finishers <br>
+      receive Google jackets!</b><br>
       &#160;
       </span>
         </td>

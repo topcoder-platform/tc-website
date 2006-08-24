@@ -23,7 +23,7 @@
             <tr>
                 <td width="49%"></td>
                 <td valign="bottom" align="center">
-                    <img border=0 src="/i/events/google2006/codejamLogo.gif" alt="Google Code Jam logo"></td>
+                 <img border="0" src="/i/events/google2006/codejamLogo_emp.gif" alt="Google Code Jam Employee Competition"></td>
                 <td width="49%"></td>
             </tr>
         </table>
@@ -118,8 +118,7 @@
             <br><br><br><br><br><br><br><br><br><br><br><br><br>
 
             <span class="subTitle">Onsite Championship Round</span><br>
-            Up to 25 coders will compete at the onsite Championship Round at Google New York in New York City, New York, 
-            United States. Each finalist must be present onsite to compete in the Championship Round. 
+            Up to 25 coders will compete online during the Championship Round.
             <br><br>
 
             <table width="450" class="box" align="center" style="clear:right;">

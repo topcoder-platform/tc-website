@@ -22,7 +22,7 @@
             <tr>
                 <td width="49%"></td>
                 <td valign="bottom" align="center">
-                    <img border=0 src="/i/events/google2006/codejamLogo.gif" alt="Google Code Jam logo"></td>
+                    <img border="0" src="/i/events/google2006/codejamLogo_emp.gif" alt="Google Code Jam Employee Competition"></td>
                 <td width="49%"></td>
             </tr>
         </table>
@@ -61,21 +61,25 @@
             <span class="subTitle">Summary of the Tournament</span><br>
             The Google&#153; Code Jam 2006 Employee Competition will take place between September 5 and October 27, 2006. 
             This algorithm competition will consist of one (1) online qualification round, two (2) online elimination 
-            rounds and one (1) online/onsite final round.
+            rounds and one (1) online final round.
             <br><br>
 
             <b>Eligibility</b><br>
             Employees and interns of Google who are at least 18 years of age as of September 5, 2006 are eligible to 
-            compete in the Employee Competition.  Google employees and interns may register for the competition by 
-            navigating to <A href="/?t=sponsor&c=link&link=http://www.google.com/codejam2006">www.google.com/codejam2006</A> and clicking on 
-            “Register Here” button.  Employees and interns must register with an "@google.com" email address in order 
-            to be eligible to compete.
+            compete in the Employee Competition.  
             <br><br>
 
             <b>Registration</b><br>
             Registration for the Google Code Jam 2006 Employee Competition will open at 9:00 AM EDT on Tuesday, 
             August 29, 2006, and will close at 9:00 AM EDT on Tuesday, September 5, 2006.  There is no limit to the 
             number of registrants in the competition, however each individual may only register once.
+            <br><br>
+            <span class="bigRed">Employees and interns MUST register with your "@google.com" email address in order to be considered part 
+            of the employee track of the Google Code Jam. This is how you will be identified as a Google Employee. 
+            You should only use the TopCoder account conversion if your TopCoder account is currently set up with a 
+            "@google.com" email address.</span>
+            <br><br>
+            Google employees and interns may register for the competition <b><A href="/pl/?module=Static&d1=google06&d2=login">here</A></b>.
             <br><br>
 
             <b>Qualification Round</b><br>
@@ -111,7 +115,7 @@
 
             <b>The Competition Field</b><br>
             Up to 100 individuals will qualify to compete in Round 1. The top 50 scorers from Round 1 will advance 
-            to Round 2. The top 25 scorers from Round 2 will advance to the onsite/online Championship Round. 
+            to Round 2. The top 25 scorers from Round 2 will advance to the online Championship Round. 
             <br><br>
             The Rounds will be held on the following dates:
             <br><br>
@@ -184,7 +188,7 @@ structure of the online rounds is as follows:
 Up to 100 coders will compete in Round #1 and up to 50 will advance.  The highest 50 scorers from the room will advance to Online Round #2.  
 <br><br>
 <b>Online Round #2</b><br>
-Up to 50 coders will compete and up to 25 will advance.  The highest 25 scorers from the room will advance to the online/onsite Championship Round.  
+Up to 50 coders will compete and up to 25 will advance.  The highest 25 scorers from the room will advance to the online Championship Round.  
 <br><br>
 <b>Championship Round</b><br>
 Up to 25 coders will compete and the coder who finishes with the highest score will be the winner of the Employee Competition.  
@@ -221,41 +225,7 @@ of the Qualification Round.)
 </ul>
 
 <span class="subTitle">About the Prizes</span><br>
-<%--
-The top 250 scores from Round 2 will receive a "Google Code Jam" t-shirt. In addition, the 100 finalists in the
-Championship Round will receive prizes. Any and all applicable taxes on prizes are the sole responsibility of the
-prizewinner. Prizes will be distributed as follows:
-<br><br>
-<table width="250" class="box" align="center" style="clear:right;">
-    <tr valign="top">
-        <td class="boxTitle">Competitor(s)</td>
-        <td class="boxTitle">Prize*</td>
-    </tr>
-    <tr valign="top">
-        <td class="boxText" nowrap="nowrap"><b>First Place</b></td>
-        <td class="boxText"><b>$10,000</b></td>
-    </tr>
-    <tr valign="top">
-        <td class="boxText" nowrap="nowrap">2nd - 10th Place </td>
-        <td class="boxText">$5,000</td>
-    </tr>
-    <tr valign="top">
-        <td class="boxText" nowrap="nowrap">11th - 25th Place</td>
-        <td class="boxText">$2,500</td>
-    </tr>
-    <tr valign="top">
-        <td class="boxText" nowrap="nowrap">26th - 50th Place</td>
-        <td class="boxText">$1000</td>
-    </tr>
-    <tr valign="top">
-        <td class="boxText" nowrap="nowrap">51st - 100th Place</td>
-        <td class="boxText">$750</td>
-    </tr>
-    <tr valign="top">
-        <td class="boxText" colspan="2">* Winners must be present at the onsite round to receive prize.</td>
-    </tr>
-</table>
---%>
+The top 3 scorers in the Championship Round will receive a Google jacket.
 <br><br>
 <span class="subTitle">Conditions of Participation</span><br>
 By participating in the tournament, you agree to be bound by these rules and to all decisions of Google and TopCoder, which are final, binding and conclusive in all matters. 
