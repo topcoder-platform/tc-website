@@ -23,7 +23,7 @@
                 <tr>
                     <td width="49%"></td>
                     <td valign="bottom" align="center">
-                        <img border=0 src="/i/events/google2006/codejamLogo.gif" alt="Google Code Jam logo"></td>
+                    <img border="0" src="/i/events/google2006/codejamLogo_emp.gif" alt="Google Code Jam Employee Competition"></td>
                     <td width="49%"></td>
                 </tr>
             </table>
@@ -73,8 +73,8 @@
                 <A href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">here</A> to read how to
                 <A href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">configure Java</A>.
                 <br><br>
-                Click <A href="/pl/?module=Static&d1=google06&d2=instructions">here</A> to read to the
-                <A href="/pl/?module=Static&d1=google06&d2=instructions">competition instructions</A>.
+                Click <A href="/pl/?module=Static&d1=google06&d2=emp_instructions">here</A> to read to the
+                <A href="/pl/?module=Static&d1=google06&d2=emp_instructions">competition instructions</A>.
                 <br><br>
                 Click <a href="/contest/arena/ContestAppletGoogle.jnlp" target="_blank">here</a> to run the Competition
                 Arena as a

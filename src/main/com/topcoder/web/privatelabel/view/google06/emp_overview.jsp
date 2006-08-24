@@ -22,7 +22,7 @@
             <tr>
                 <td width="49%"></td>
                 <td valign="bottom" align="center">
-                    <img border=0 src="/i/events/google2006/codejamLogo.gif" alt="Google Code Jam logo"></td>
+                    <img border="0" src="/i/events/google2006/codejamLogo_emp.gif" alt="Google Code Jam Employee Competition"></td>
                 <td width="49%"></td>
             </tr>
         </table>
@@ -71,14 +71,13 @@
          <br><br><br>
          <span class="subTitle">When is the competition?</span>
          <br><br>
-         Registration for the Google Code Jam 2006 Employee Competition is open from Tuesday, August 22, 2006 at 9:00 AM EDT (GMT/UTC -4) through Tuesday, 
+         Registration for the Google Code Jam 2006 Employee Competition is open from Tuesday, August 29, 2006 at 9:00 AM EDT (GMT/UTC -4) through Tuesday, 
          September 5, 2006 at 9:00 AM EDT (GMT/UTC -4). There is no limit to the number of registrants for the competition, but only the top 100 scorers 
          from the Qualification Round will advance to Round 1 on September 14.
          <br><br>
          The competitors with the top 50 scores from Round 1 will advance to compete in Round 2.
          <br><br>
-         The competitors with the top 25 scores from Round 2 will be invited to compete for prizes at the onsite Championship Round at the Google Office 
-         in New York City, New York, United States. 
+         The competitors with the top 25 scores from Round 2 will be invited to compete online for prizes during the Championship Round on October 27, 2006.
          <br><br>
 
          <table width="500" class="box" align="center" style="clear:right;">
@@ -88,7 +87,7 @@
                  <td class="boxTitle" width="50%">Status</td>
              </tr>
              <tr valign="top">
-                 <td class="boxText">Tuesday, August 22</td>
+                 <td class="boxText">Tuesday, August 29</td>
                  <td class="boxText">9:00 AM</td>
                  <td class="boxText">Registration Opens</td>
              </tr>
@@ -138,38 +137,7 @@
          <br><br>
          <span class="subTitle">What can you win?</span>
          <br><br>
-         The top 50 participants in Round 2 will receive a "Google Code Jam 2006" t-shirt. All 25 finalists who
-         compete in the Championship Round will receive prizes as follows:
-         <br><br>
-         <table width="250" class="box" align="center" style="clear:right;">
-             <tr valign="top">
-                 <td class="boxTitle">Competitor(s)</td>
-                 <td class="boxTitle">Prize*</td>
-             </tr>
-             <tr valign="top">
-                 <td class="boxText" nowrap="nowrap"><b>First Place</b></td>
-                 <td class="boxText"><b>$10,000</b></td>
-             </tr>
-             <tr valign="top">
-                 <td class="boxText" nowrap="nowrap">2nd - 10th Place </td>
-                 <td class="boxText">$5,000</td>
-             </tr>
-             <tr valign="top">
-                 <td class="boxText" nowrap="nowrap">11th - 25th Place</td>
-                 <td class="boxText">$2,500</td>
-             </tr>
-             <tr valign="top">
-                 <td class="boxText" nowrap="nowrap">26th - 50th Place</td>
-                 <td class="boxText">$1000</td>
-             </tr>
-             <tr valign="top">
-                 <td class="boxText" nowrap="nowrap">51st - 100th Place</td>
-                 <td class="boxText">$750</td>
-             </tr>
-             <tr valign="top">
-                 <td class="boxText" colspan="2">* Winners must be present at the onsite round to receive prize.</td>
-             </tr>
-         </table>
+         The top 3 scorers in the Championship Round will receive a Google jacket.
          <br><br>
          To find out more detailed information about the Google&#153; Code Jam 2006 Employee Competition, please read the
          <a href="/pl/?&module=Static&d1=google06&d2=emp_rules">Terms and Conditions</a>.
