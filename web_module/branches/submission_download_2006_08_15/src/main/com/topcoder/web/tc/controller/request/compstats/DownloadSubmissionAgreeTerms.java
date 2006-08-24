@@ -34,13 +34,19 @@ public class DownloadSubmissionAgreeTerms extends Base {
             UserTermsOfUseLocal userTerms = (UserTermsOfUseLocal) createLocalEJB(getInitialContext(), UserTermsOfUse.class);
             userTerms.createUserTermsOfUse(getUser().getId(), Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
 
+            /*
             SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
 
             setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=DownloadSubmission&" + 
             		Constants.PROJECT_ID + "=" + projId + "&" +
             		Constants.CODER_ID + "=" + coderId);
             		
-            setIsNextPageInContext(false);
+            setIsNextPageInContext(false);*/
+            
+            setNextPage("compstats/download_submission");
+            getRequest().setAttribute(Constants.PROJECT_ID, projId);
+            getRequest().setAttribute(Constants.CODER_ID, coderId);
+            setIsNextPageInContext(true);
         } catch (TCWebException we) {
             throw we;
         } catch (Exception e) {
