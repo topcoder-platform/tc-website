@@ -19,10 +19,10 @@
 			<tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID %>" value="<%= request.getAttribute(Constants.PROJECT_ID).toString() %>" />
 			<tc-webtag:hiddenInput name="<%=Constants.CODER_ID %>" value="<%= request.getAttribute(Constants.CODER_ID).toString() %>" />	
 			<tc-webtag:hiddenInput name="st" value="1" />	
-			<input type="submit">	
+			<input type="submit" value="Download Submission">	
 		</form>
 
-<a href="/tc?module=CompContestDetail&pj=<%= request.getAttribute(Constants.PROJECT_ID).toString() %>">Back to Contest Detail page</a>
+<a href="/tc?module=CompContestDetails&pj=<%= request.getAttribute(Constants.PROJECT_ID).toString() %>">Back to Contest Detail page</a>
 </center>
 </body>
 
