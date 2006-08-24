@@ -44,28 +44,22 @@ public class PollVote extends ForumsProcessor {
         } finally {
             BaseProcessor.close(ctx);
         }
- 
-        int numVoters = pollBean.getVoterCountByPoll(poll.getID(), DBMS.FORUMS_DATASOURCE_NAME);
 		
-        boolean hasVoted = false;
 		if (!poll.hasUserVoted(user)) {
 			if (poll.isModeEnabled(Poll.MULTIPLE_SELECTIONS_ALLOWED)) {
 				for (int i=0; i<poll.getOptionCount(); i++) {
 					boolean isVoting = (getRequest().getParameter("q"+pollID+","+i) != null);
 					if (isVoting) {
 						poll.addUserVote(i, user);
-						hasVoted = true;
 					}
 				}
 			} else {
 				int pollChoice = Integer.parseInt(getRequest().getParameter("q"+pollID));
 				poll.addUserVote(pollChoice, user);
-				hasVoted = true;
 			}
 		}
-		if (hasVoted) {
-			numVoters++;
-		}
+		
+        int numVoters = pollBean.getVoterCountByPoll(poll.getID(), DBMS.FORUMS_DATASOURCE_NAME);
 		
 		int[] voteCounts = new int[poll.getOptionCount()];
 		for (int i=0; i<voteCounts.length; i++) {

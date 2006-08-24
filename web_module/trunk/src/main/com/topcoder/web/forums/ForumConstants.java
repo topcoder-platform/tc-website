@@ -119,6 +119,7 @@ public interface ForumConstants {
     public final static int MAX_SEARCH_RESULTS_PER_PAGE = 100;
     public final static int MAX_THREAD_WATCHES = 2000;
     public final static int MAX_DISPLAYED_FORUMS_PER_CATEGORY = 15;
+    public final static int MAX_POLL_CHOICES = 100;
 
     // Error messages
     public final static String ERR_EMPTY_MESSAGE_SUBJECT =
