@@ -7,7 +7,7 @@
 <HTML>
     <HEAD>
         <META HTTP-EQUIV="Refresh"
-        CONTENT="5; URL=/tcs?module=ViewUploadResults&spec_id=<%=request.getAttribute("spec_id")%>">
+        CONTENT="2; URL=/tcs?module=ViewUploadResults&spec_id=<%=request.getAttribute("spec_id")%>">
              
         <TITLE>Upload results</TITLE>
     </HEAD>
@@ -15,8 +15,8 @@
         <TABLE WIDTH="100%" HEIGHT="100%">
             <TR>
                 <td>
-                    File received, screening...
-                    <br><A href="/tcs?module=ViewUploadResults&spec_id=<%=request.getAttribute("spec_id")%>">Go to screening results</a>
+                    File received, redirecting to screening result page...
+                    <br><br>Click <A href="/tcs?module=ViewUploadResults&spec_id=<%=request.getAttribute("spec_id")%>">here</a> to go to the screening result page.
                 </TD>
             </tr>
         </TABLE>

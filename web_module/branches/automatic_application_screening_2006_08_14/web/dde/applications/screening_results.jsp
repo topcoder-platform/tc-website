@@ -142,13 +142,9 @@ boolean screeningFinished = hasErrors | hasWarnings | hasSuccess;
                             <tr>
                                 <td>
                                     Screening still in progress... 
-                                    <table border="0" cellpadding="0" cellspacing="4">
-                                        <form name="upload_form" method="GET" action="/tcs">
-                                            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ViewUploadResults"/>
-                                            <input type="hidden" name="spec_id" value="<%=request.getAttribute("spec_id")%>"/>
-                                            <input type="submit" value="refresh">
-                                        </form>
-                                    </table>
+                                    <br><br>
+                                    The page should be automatically refreshed in 10 seconds, if it is not refreshed, please click 
+                                    <A href="/tcs?module=ViewUploadResults&spec_id=<%=request.getAttribute("spec_id")%>">here</a>.
                                 </TD>
                             </TR>
                         <%
