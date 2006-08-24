@@ -6,6 +6,7 @@ package com.topcoder.apps.screening.rules;
 import com.topcoder.apps.screening.*;
 import com.topcoder.file.type.FileType;
 import com.topcoder.file.type.MagicNumbers;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.io.File;
 
@@ -25,6 +26,9 @@ import java.io.File;
  */
 public class ApplicationQAPlanRule implements ScreeningRule {
 
+    private Logger log = Logger.getLogger(ScreeningJob.class);
+
+
     /**
      * <strong>Purpose</strong>:
      * Screen the submission. Both the file and the root directory are given. Screening responses
@@ -38,7 +42,7 @@ public class ApplicationQAPlanRule implements ScreeningRule {
      */
     public boolean screen(File file, File root, ScreeningLogger logger) {
         try {
-            System.out.println("1");
+            log.info("1");
             File docs = new File(root, "docs/specification");
             if (!docs.exists() || !docs.isDirectory()) {
                 logger.log(new SimpleScreeningData(ResponseCode.NO_QA_PLAN));
@@ -47,17 +51,17 @@ public class ApplicationQAPlanRule implements ScreeningRule {
 
             File[] files = docs.listFiles();
             MagicNumbers magic = null;
-            System.out.println("files.length: " + files.length);
+            log.info("files.length: " + files.length);
             for (int i = 0; i < files.length; ++i) {
                 if (files[i].isFile() && files[i].length() > 0) {
                     String name = files[i].getName().toLowerCase();
-                    System.out.println("name: " + name);
+                    log.info("name: " + name);
                     if (name.indexOf("QA") >= 0 && name.indexOf("Plan") >= 0 && name.endsWith(".doc")) {
                         if (magic == null) {
                             magic = new MagicNumbers();
                         }
                         FileType type = magic.determineFileType(files[i]);
-                        System.out.println(type.getMime());
+                        log.info(type.getMime());
                         if (type != null && type.getMime().equals("application/doc")) {
                             return true;
                         }
