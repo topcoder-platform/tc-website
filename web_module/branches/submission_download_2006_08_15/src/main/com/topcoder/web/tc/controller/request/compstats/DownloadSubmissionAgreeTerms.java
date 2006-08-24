@@ -11,8 +11,6 @@
 package com.topcoder.web.tc.controller.request.compstats;
 
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.ejb.user.UserTermsOfUseLocal;
@@ -43,7 +41,7 @@ public class DownloadSubmissionAgreeTerms extends Base {
             		
             setIsNextPageInContext(false);*/
             
-            setNextPage("compstats/download_submission");
+            setNextPage("/compstats/download_submission.jsp");
             getRequest().setAttribute(Constants.PROJECT_ID, projId);
             getRequest().setAttribute(Constants.CODER_ID, coderId);
             setIsNextPageInContext(true);
