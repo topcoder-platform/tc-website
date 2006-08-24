@@ -26,7 +26,7 @@ import java.io.File;
  */
 public class ApplicationQAPlanRule implements ScreeningRule {
 
-    private Logger log = Logger.getLogger(ScreeningJob.class);
+    private Logger log = Logger.getLogger(ApplicationQAPlanRule.class);
 
 
     /**
