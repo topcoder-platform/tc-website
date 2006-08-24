@@ -5,6 +5,8 @@ package com.topcoder.apps.screening.rules;
 import com.topcoder.file.type.MagicNumbers;
 import com.topcoder.file.type.FileType;
 import java.io.File;
+
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.archiving.ArchiveUtility;
 import com.topcoder.util.archiving.ZipArchiver;
 import com.topcoder.util.xmi.parser.XMIParser;
@@ -33,6 +35,9 @@ import com.topcoder.apps.screening.applications.specification.ValidationManager;
  * @version 1.0.1
  */
 public class ApplicationZumlFileRule implements ScreeningRule {
+
+    private Logger log = Logger.getLogger(ApplicationZumlFileRule.class);
+
 
     /**
      * <strong>Purpose</strong>:
@@ -119,7 +124,7 @@ public class ApplicationZumlFileRule implements ScreeningRule {
             ValidationManager validationManager = new ValidationManager();
             String []outputs = validationManager.validate(file);
             // TODO: change
-            System.out.println(outputs[0]);
+            log.info(outputs[0]);
 
 //            logger.log(new SimpleScreeningData("Message1.", ResponseCode.WRONG_ZUML));
 //            logger.log(new SimpleScreeningData("Message2.", ResponseCode.WRONG_ZUML));
