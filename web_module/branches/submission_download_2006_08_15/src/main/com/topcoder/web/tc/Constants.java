@@ -96,6 +96,8 @@ public class Constants implements WebConstants {
     public static String ANSWER_PREFIX;
     public static String MESSAGE;
 
+    public static String SUBMISSION_TYPE;
+    
     /* pages */
     public static String SURVEY_RESULTS;
     public static String SCHULZE_RESULTS;
@@ -166,6 +168,9 @@ public class Constants implements WebConstants {
     public static String BLACK_LIST;
     public static String BLOCK_HANDLE;
     
+    public static String DOWNLOAD_SUBMISSION;
+    public static String DOWNLOAD_SUBMISSION_TERMS;
+    
     //dev pages
     public static String REVIEW_PROJECT_DETAIL;
     public static String REVIEW_PROJECTS;
@@ -218,6 +223,7 @@ public class Constants implements WebConstants {
     public static int PROJECT_TERMS_ID;
     public static int TOURNAMENT_COMPONENT;
     //public static int ACTIVE_REVIEWER;
+
 
     /* job posting stuff */
     public static String JOB_HIT_TYPE_PARAM;

@@ -17,7 +17,9 @@ import com.topcoder.web.ejb.user.UserTermsOfUseLocal;
 import com.topcoder.web.tc.Constants;
 
 /**
- *
+ * Updates the db to set that the user has agreed to the terms for downloading submissions.
+ * Then it redirects to download submission page.
+ *  
  * @author cucu
  */
 public class DownloadSubmissionAgreeTerms extends Base {
@@ -27,21 +29,12 @@ public class DownloadSubmissionAgreeTerms extends Base {
             String projId = getRequest().getParameter(Constants.PROJECT_ID);
             String coderId = getRequest().getParameter(Constants.CODER_ID);
 
-            log.debug("will create terms of use: " +  Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID);
             
+            // update the db
             UserTermsOfUseLocal userTerms = (UserTermsOfUseLocal) createLocalEJB(getInitialContext(), UserTermsOfUse.class);
             userTerms.createUserTermsOfUse(getUser().getId(), Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
 
-            /*
-            SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-
-            setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=DownloadSubmission&" + 
-            		Constants.PROJECT_ID + "=" + projId + "&" +
-            		Constants.CODER_ID + "=" + coderId);
-            		
-            setIsNextPageInContext(false);*/
-            
-            setNextPage("/compstats/download_submission.jsp");
+            setNextPage(Constants.DOWNLOAD_SUBMISSION);
             getRequest().setAttribute(Constants.PROJECT_ID, projId);
             getRequest().setAttribute(Constants.CODER_ID, coderId);
             setIsNextPageInContext(true);

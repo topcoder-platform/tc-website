@@ -28,7 +28,9 @@ import com.topcoder.web.ejb.user.UserTermsOfUseLocal;
 import com.topcoder.web.tc.Constants;
 
 /**
- *
+ * Downloads a submission.
+ * If the user hasn't agreed to terms, it redirects to download submission terms page, where we'll need to agree to terms.
+ *  
  * @author cucu
  */
 public class DownloadSubmission extends Base {
@@ -37,28 +39,22 @@ public class DownloadSubmission extends Base {
         try {
             String projId = getRequest().getParameter(Constants.PROJECT_ID);
             String coderId = getRequest().getParameter(Constants.CODER_ID);
-            String submissionTypeId  = getRequest().getParameter("st");
 
             SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
 
             if (hasAgreedTerms(coderId)) {
-            	//doDownload
             	String url = getSubmissionURL(projId, coderId);
-            	log.info("will download: " + url);
             	downloadFile("/export/home/branch2/web/lib/jars/upload.jar", "test.jar");
-            	
+/*            	
             	setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=CompContestDetails&" +
             			Constants.PROJECT_ID + "=" + projId + "&");
-            	setIsNextPageInContext(false);
+            	setIsNextPageInContext(false);*/
             } else {
             	getRequest().setAttribute(Constants.PROJECT_ID, projId);
             	getRequest().setAttribute(Constants.CODER_ID, coderId);            	
-            	setNextPage("/compstats/download_submission_terms.jsp");
+            	setNextPage(Constants.DOWNLOAD_SUBMISSION_TERMS);
                 setIsNextPageInContext(true);
             }
-
-            
-
         } catch (TCWebException we) {
             throw we;
         } catch (Exception e) {
@@ -66,6 +62,13 @@ public class DownloadSubmission extends Base {
         }
     }
     
+    /**
+     * Downloads the specified file.
+     * 
+     * @param systemName The actual file name stored in the server. 
+     * @param name the name of the file to retrieve.
+     * @throws Exception
+     */
     private void downloadFile(String systemName, String name) throws Exception {
         getResponse().addHeader("content-disposition", "inline; filename=" + name);
         getResponse().setContentType("application/x-java-archive");
@@ -81,13 +84,21 @@ public class DownloadSubmission extends Base {
         getResponse().flushBuffer();    	
     }
     
+    /**
+     * Get the filename of the initial submission for a specified project and user.
+     * 
+     * @param projId project id
+     * @param coderId coder id
+     * @return the filename of the specified submission
+     * @throws Exception
+     */
     private String getSubmissionURL(String projId, String coderId) throws Exception {
         Request r = new Request();
         r.setContentHandle("get_submission_url");
 
-        r.setProperty("pj", projId);
-        r.setProperty("cr", coderId);
-        r.setProperty("st", "1"); // just initiall submissions
+        r.setProperty(Constants.PROJECT_ID, projId);
+        r.setProperty(Constants.CODER_ID, coderId);
+        r.setProperty(Constants.SUBMISSION_TYPE, "1"); // just initiall submissions
 
         DataAccessInt dai = getDataAccess(true);
         Map result = dai.getData(r);
@@ -99,6 +110,13 @@ public class DownloadSubmission extends Base {
         return rsc.getStringItem(0, "submission_url");
     }
 
+    /**
+     * Returns whether the user has agreed to terms for downloading submissions.
+     * 
+     * @param coderId the coder to check
+     * @return whether the user has agreed to terms for downloading submissions.
+     * @throws Exception
+     */
     private boolean hasAgreedTerms(String coderId) throws Exception {
         UserTermsOfUseLocal userTerms = (UserTermsOfUseLocal) createLocalEJB(getInitialContext(), UserTermsOfUse.class);
         return userTerms.hasTermsOfUse(getUser().getId(), Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
