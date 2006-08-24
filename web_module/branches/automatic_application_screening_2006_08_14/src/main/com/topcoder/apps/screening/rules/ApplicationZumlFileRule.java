@@ -120,9 +120,9 @@ public class ApplicationZumlFileRule implements ScreeningRule {
             // TODO: change
             //System.out.println(outputs[0]);
 
-            logger.log(new SimpleScreeningData("Message1.", ResponseCode.WRONG_ZUML));
-            logger.log(new SimpleScreeningData("Message2.", ResponseCode.WRONG_ZUML));
-            success = false;
+//            logger.log(new SimpleScreeningData("Message1.", ResponseCode.WRONG_ZUML));
+//            logger.log(new SimpleScreeningData("Message2.", ResponseCode.WRONG_ZUML));
+//            success = false;
         } catch (Exception e) {
             success = false;
         }
