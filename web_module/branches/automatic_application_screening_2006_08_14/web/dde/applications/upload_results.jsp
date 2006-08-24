@@ -21,9 +21,12 @@ boolean screeningFinished = hasErrors | hasWarnings | hasSuccess;
 
 <HTML>
     <HEAD>
-        <!--META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
         <META HTTP-EQUIV="Expires" CONTENT="-1">
-        <META HTTP-EQUIV="Refresh" CONTENT="10" -->
+        <META HTTP-EQUIV="Refresh" CONTENT="10" 
+        <!--META HTTP-EQUIV="Refresh"
+        CONTENT="5; URL=autoforward_target.html">
+             -->
         <TITLE>Upload results</TITLE>
     </HEAD>
     <BODY>
