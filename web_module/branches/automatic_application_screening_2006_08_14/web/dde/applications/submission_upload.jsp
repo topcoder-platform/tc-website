@@ -8,7 +8,7 @@ import="com.topcoder.dde.util.Constants" %>
     <TABLE WIDTH="100%" HEIGHT="100%">
       <TR>
         <TD class="statText">
-          <form name="upload_form" enctype="multipart/form-data" method="POST" action="/tcs">
+          <form name="upload_form" enctype="multipart/form-data" method="GET" action="/tcs">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="UploadApplicationSubmissionTask">                
             <br/>Upload file: <input type=file name=file1>
             <br/><input type="submit" value="Upload">
