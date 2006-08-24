@@ -57,15 +57,15 @@ public class ApplicationQAPlanRule implements ScreeningRule {
                     log.info("name: " + name);
                     log.info("name.indexOf(qa): " + name.indexOf("qa"));
                     log.info("name.indexOf(plan): " + name.indexOf("plan"));
-                    log.info("name.endsWith(.doc): " + name.endsWith(".doc"));
-                    if (name.indexOf("qa") >= 0 && name.indexOf("plan") >= 0 && name.endsWith(".doc")) {
+                    log.info("name.endsWith(.rtf): " + name.endsWith(".rtf"));
+                    if (name.indexOf("qa") >= 0 && name.indexOf("plan") >= 0 && name.endsWith(".rtf")) {
                         if (magic == null) {
                             magic = new MagicNumbers();
                         }
                         log.info("1");
                         FileType type = magic.determineFileType(files[i]);
                         log.info(type.getMime());
-                        if (type != null && type.getMime().equals("application/doc")) {
+                        if (type != null && type.getMime().equals("application/rtf")) {
                             return true;
                         }
                     }
