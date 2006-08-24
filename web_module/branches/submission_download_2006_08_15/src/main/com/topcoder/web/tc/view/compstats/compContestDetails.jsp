@@ -69,14 +69,17 @@
     </STYLE>
 </head>
 
-<body onInit="init()">
-<form name="frmDownload" action="/tc">
-    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY %>" value="DownloadSubmission"/>
-	<tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID %>" value="<%= request.getAttribute(Constants.PROJECT_ID).toString() %>" />
-	<tc-webtag:hiddenInput name="<%=Constants.CODER_ID %>" value="<%= request.getAttribute(Constants.CODER_ID).toString() %>" />	
-	<tc-webtag:hiddenInput name="st" value="1" />	
-<input type="submit">	
-</form>
+<body onLoad="init()">
+<% if (request.getParameter("cr") != null) { %>
+
+		<form name="frmDownload" action="/tc">
+		    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY %>" value="DownloadSubmission"/>
+			<tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID %>" value="<%= request.getParameter(Constants.PROJECT_ID).toString() %>" />
+			<tc-webtag:hiddenInput name="<%=Constants.CODER_ID %>" value="<%= request.getParameter(Constants.CODER_ID).toString() %>" />	
+			<tc-webtag:hiddenInput name="st" value="1" />	
+			<input type="submit">	
+		</form>
+<% } %>
 
 <jsp:include page="/top.jsp">
     <jsp:param name="level1" value=""/>
