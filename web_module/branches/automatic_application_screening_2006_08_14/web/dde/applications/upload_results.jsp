@@ -11,6 +11,12 @@ import="com.topcoder.dde.util.Constants,
 <%
 List errors = (List)request.getAttribute("errors");
 List warnings = (List)request.getAttribute("warnings");
+List success = (List)request.getAttribute("success");
+boolean hasErrors = errors != null && errors.size() > 0;
+boolean hasWarnings = warnings != null && warnings.size() > 0;
+boolean hasSuccess = success != null && success.size() > 0;
+
+boolean screeningFinished = hasErrors | hasWarnings | hasSuccess;
 %>
 
 <HTML>
@@ -26,10 +32,10 @@ List warnings = (List)request.getAttribute("warnings");
                 <td>
                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
                         <%
-                            if ((errors != null && errors.size() > 0) || (warnings != null && warnings.size() > 0)) {
+                            if (screeningFinished) {
                         %>
                             <%
-                                if (errors != null && errors.size() > 0) {
+                                if (hasErrors) {
                             %>
                                 <tr>
                                     <td>Fatal Errors: (<%=errors.size()%>)</td>
@@ -60,7 +66,7 @@ List warnings = (List)request.getAttribute("warnings");
                                 }
                             %>
                             <%
-                                if (warnings != null && warnings.size() > 0) {
+                                if (hasWarnings) {
                             %>
                                 <tr>
                                     <td>Warnings: (<%=warnings.size()%>)</td>
@@ -90,6 +96,37 @@ List warnings = (List)request.getAttribute("warnings");
                             <%
                                 }
                             %>                            
+                            <%
+                                if (hasSuccess) {
+                            %>
+                                <tr>
+                                    <td>Messages: (<%=success.size()%>)</td>
+                                </tr>
+
+                                <%
+                                for (Iterator it = success.iterator(); it.hasNext();) {
+                                    ScreeningResponse successItem = (ScreeningResponse) it.next();
+                                %>
+                                    <tr>
+                                        <td>
+                                            <%=successItem.getCode()%>: <%=successItem.getResponse()%>
+                                            <ul>
+                                                <%
+                                                for (int i = 0; i < successItem.getText().length; i++) {
+                                                %>
+                                                    <li><%=successItem.getText()[i]%></li>
+                                                <%
+                                                }
+                                                %>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                <%
+                                }
+                                %>
+                            <%
+                                }
+                            %>
                         <%
                             } else {
                         %>

@@ -57,11 +57,14 @@ public class ViewUploadResults extends BaseProcessor {
 
                 List warnings = new ArrayList();
                 List fatalErrors = new ArrayList();
+                List success = new ArrayList();
                 for (int i = 0; i < responses.length; ++i) {
                     if ("Warning".equals(responses[i].getSeverity())) {
                         warnings.add(responses[i]);
                     } else if ("Fatal Error".equals(responses[i].getSeverity())) {
                         fatalErrors.add(responses[i]);
+                    } else if ("Success".equals(responses[i].getSeverity())) {
+                        success.add(responses[i]);
                     }
                 }
 
@@ -71,9 +74,11 @@ public class ViewUploadResults extends BaseProcessor {
 //                log.info("warArr.length: " + warArr.length);
 //                log.info("fatArr.length: " + fatArr.length);
 
+                log.info("success.size(): " + success.size());
                 log.info("warnings.size(): " + warnings.size());
                 log.info("fatalErrors.size(): " + fatalErrors.size());
 
+                getRequest().setAttribute("success", success);
                 getRequest().setAttribute("warnings", warnings);
                 getRequest().setAttribute("errors", fatalErrors);
 
