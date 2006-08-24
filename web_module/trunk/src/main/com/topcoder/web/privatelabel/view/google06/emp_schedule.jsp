@@ -117,7 +117,7 @@
             </table>
             <br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-            <span class="subTitle">Onsite Championship Round</span><br>
+            <span class="subTitle">Online Championship Round</span><br>
             Up to 25 coders will compete online during the Championship Round.
             <br><br>
 
