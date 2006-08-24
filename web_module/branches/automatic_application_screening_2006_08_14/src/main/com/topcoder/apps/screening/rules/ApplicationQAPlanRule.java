@@ -42,7 +42,6 @@ public class ApplicationQAPlanRule implements ScreeningRule {
      */
     public boolean screen(File file, File root, ScreeningLogger logger) {
         try {
-            log.info("1");
             File docs = new File(root, "docs/specification");
             if (!docs.exists() || !docs.isDirectory()) {
                 logger.log(new SimpleScreeningData(ResponseCode.NO_QA_PLAN));
@@ -56,10 +55,14 @@ public class ApplicationQAPlanRule implements ScreeningRule {
                 if (files[i].isFile() && files[i].length() > 0) {
                     String name = files[i].getName().toLowerCase();
                     log.info("name: " + name);
+                    log.info("name.indexOf(QA): " + name.indexOf("QA"));
+                    log.info("name.indexOf(Plan): " + name.indexOf("Plan"));
+                    log.info("name.endsWith(.doc): " + name.endsWith(".doc"));
                     if (name.indexOf("QA") >= 0 && name.indexOf("Plan") >= 0 && name.endsWith(".doc")) {
                         if (magic == null) {
                             magic = new MagicNumbers();
                         }
+                        log.info("1");
                         FileType type = magic.determineFileType(files[i]);
                         log.info(type.getMime());
                         if (type != null && type.getMime().equals("application/doc")) {
