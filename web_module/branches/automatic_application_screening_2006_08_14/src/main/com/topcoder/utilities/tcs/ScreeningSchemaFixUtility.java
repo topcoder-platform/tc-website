@@ -71,7 +71,8 @@ public class ScreeningSchemaFixUtility extends DBUtility{
             log.debug("-----------------------------------------------");
             long oldSubmissionVId = -1;
             long taskId = -1;
-            for (int i = 1; rs.next(); i++ ) {
+            int i;
+            for (i = 1; rs.next(); i++ ) {
                 if (rs.getLong("sro.submission_v_id") != oldSubmissionVId) {
                     oldSubmissionVId = rs.getLong("sro.submission_v_id");
                     log.debug("Moving data for submission: " + oldSubmissionVId);
@@ -101,6 +102,7 @@ public class ScreeningSchemaFixUtility extends DBUtility{
                 psInsScreeningResults.setLong(6, taskId);
                 psInsScreeningResults.executeUpdate();
             }
+            log.debug("---------------  " + i +" rows processed ---------------");
             DBMS.close(rs);
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
