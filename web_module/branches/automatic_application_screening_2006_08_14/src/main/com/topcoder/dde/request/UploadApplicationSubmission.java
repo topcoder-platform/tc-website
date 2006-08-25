@@ -1,21 +1,11 @@
 package com.topcoder.dde.request;
 
-import java.rmi.RemoteException;
-
-import javax.ejb.CreateException;
-import javax.naming.NamingException;
-
 import com.topcoder.apps.review.EJBHelper;
 import com.topcoder.apps.review.PermissionHelper;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserManagerLocal;
-import com.topcoder.apps.review.projecttracker.UserProjectInfo;
-import com.topcoder.apps.review.security.AdminPermission;
-import com.topcoder.apps.review.security.SubmitPermission;
-import com.topcoder.security.GeneralSecurityException;
-import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
-import com.topcoder.security.policy.PolicyRemote;
+import com.topcoder.security.UserPrincipal;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.PermissionException;
@@ -33,6 +23,7 @@ public class UploadApplicationSubmission extends BaseProcessor {
             } else {
 
                 TCSubject subject = new TCSubject(getUser().getId());
+                subject.addPrincipal(new UserPrincipal(getUser().getUserName(), getUser().getId()));
                 UserManagerLocal userManager = EJBHelper.getUserManager();
                 SecurityEnabledUser user = userManager.getUser(subject);
 

@@ -214,6 +214,10 @@ public class PermissionHelper {
     static public final boolean hasSpecificationSubmitPermission(SecurityEnabledUser user) throws RemoteException,
             NamingException, CreateException, GeneralSecurityException {
         PolicyRemote policy = EJBHelper.getPolicy();
+
+        System.out.println("user.getTCSubject().getUserId() :" + user.getTCSubject().getUserId());
+        System.out.println("SubmitSpecificationPermission.class.getName() :" + SubmitSpecificationPermission.class.getName());
+
         return policy.checkPermission(user.getTCSubject(), new SubmitSpecificationPermission());
     }
 }
