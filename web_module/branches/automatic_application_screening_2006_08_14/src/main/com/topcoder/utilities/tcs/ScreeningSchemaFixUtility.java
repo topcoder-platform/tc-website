@@ -74,18 +74,18 @@ public class ScreeningSchemaFixUtility extends DBUtility{
             int i;
             int j = 0;
             for (i = 1; rs.next(); i++ ) {
-                if (rs.getLong("sro.submission_v_id") != oldSubmissionVId) {
-                    oldSubmissionVId = rs.getLong("sro.submission_v_id");
+                if (rs.getLong("submission_v_id") != oldSubmissionVId) {
+                    oldSubmissionVId = rs.getLong("submission_v_id");
                     log.debug("Moving data for submission: " + oldSubmissionVId);
 
                     psInsScreeningTask.clearParameters();
                     taskId = generateNewID();
                     psInsScreeningTask.setLong(1, taskId);
-                    psInsScreeningTask.setString(2, rs.getString("s.submission_url"));
+                    psInsScreeningTask.setString(2, rs.getString("submission_url"));
 
-                    long projectTypeId = rs.getLong("p.project_type_id");
-                    if (rs.getLong("cc.root_category_id") == 5801777 ||
-                            rs.getLong("cc.root_category_id") == 5801779) {
+                    long projectTypeId = rs.getLong("project_type_id");
+                    if (rs.getLong("root_category_id") == 5801777 ||
+                            rs.getLong("root_category_id") == 5801779) {
                         projectTypeId += 2;
                     }
 
@@ -96,11 +96,11 @@ public class ScreeningSchemaFixUtility extends DBUtility{
                 }
 
                 psInsScreeningResults.clearParameters();
-                psInsScreeningResults.setLong(1, rs.getLong("sro.screening_results_id"));
-                psInsScreeningResults.setLong(2, rs.getLong("sro.dynamic_response_text"));
-                psInsScreeningResults.setLong(3, rs.getLong("sro.screening_response_id"));
-                psInsScreeningResults.setLong(4, rs.getLong("sro.create_user"));
-                psInsScreeningResults.setLong(5, rs.getLong("sro.create_date"));
+                psInsScreeningResults.setLong(1, rs.getLong("screening_results_id"));
+                psInsScreeningResults.setLong(2, rs.getLong("dynamic_response_text"));
+                psInsScreeningResults.setLong(3, rs.getLong("screening_response_id"));
+                psInsScreeningResults.setLong(4, rs.getLong("create_user"));
+                psInsScreeningResults.setLong(5, rs.getLong("create_date"));
                 psInsScreeningResults.setLong(6, taskId);
                 psInsScreeningResults.executeUpdate();
             }
