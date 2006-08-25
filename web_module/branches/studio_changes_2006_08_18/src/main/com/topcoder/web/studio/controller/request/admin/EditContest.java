@@ -96,7 +96,9 @@ public class EditContest extends Base {
             contest.setStartTime(new Timestamp(sdf.parse(startTime).getTime()));
             contest.setEndTime(new Timestamp(sdf.parse(endTime).getTime()));
             contest.setStatus(status);
-            contest.setForumId(new Integer(forumId));
+            if (forumId != null && !"".equals(StringUtils.checkNull(forumId))) {
+                contest.setForumId(new Integer(forumId));
+            }
 
             ContestConfig overviewConfig;
             ContestProperty overviewProperty =
