@@ -1,11 +1,6 @@
 package com.topcoder.web.studio;
 
-import com.topcoder.web.studio.dao.ContestDAOTestCase;
-import com.topcoder.web.studio.dao.FileTypeDAOTestCase;
-import com.topcoder.web.studio.validation.MaxHeightValidatorTestCase;
-import com.topcoder.web.studio.validation.MaxWidthValidatorTestCase;
-import com.topcoder.web.studio.validation.MinHeightValidatorTestCase;
-import com.topcoder.web.studio.validation.MinWidthValidatorTestCase;
+import com.topcoder.web.studio.validation.FileTypeValidatorTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -18,10 +13,9 @@ public class StudioTests extends TCHibernateTestCase {
     public static Test suite() {
         final TestSuite suite = new TestSuite();
 
-
+/*
         suite.addTest(new TestSuite(ContestDAOTestCase.class));
         suite.addTest(new TestSuite(FileTypeDAOTestCase.class));
-/*
         suite.addTest(new TestSuite(ContestRegistrationDAOTestCase.class));
         suite.addTest(new TestSuite(SubmissionTypeDAOTestCase.class));
         suite.addTest(new TestSuite(SubmissionDAOTestCase.class));
@@ -33,12 +27,12 @@ public class StudioTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(StartTimeValidatorTestCase.class));
         suite.addTest(new TestSuite(ContestNameValidatorTestCase.class));
         suite.addTest(new TestSuite(PlaceValidatorTestCase.class));
-*/
         suite.addTest(new TestSuite(MinWidthValidatorTestCase.class));
         suite.addTest(new TestSuite(MaxWidthValidatorTestCase.class));
         suite.addTest(new TestSuite(MinHeightValidatorTestCase.class));
         suite.addTest(new TestSuite(MaxHeightValidatorTestCase.class));
-
+*/
+        suite.addTest(new TestSuite(FileTypeValidatorTestCase.class));
         return suite;
     }
 }

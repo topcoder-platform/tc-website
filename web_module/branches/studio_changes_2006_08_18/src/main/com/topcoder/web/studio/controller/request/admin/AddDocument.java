@@ -4,8 +4,6 @@ import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.FileType;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.*;
@@ -51,7 +49,7 @@ public class AddDocument extends Base {
                 addError(Constants.DOCUMENT, "Document was empty");
             }
 
-            FileType ft = DAOUtil.getFactory().getFileTypeDAO().find(file.getContentType());
+            StudioFileType ft = StudioDAOUtil.getFactory().getFileTypeDAO().find(file.getContentType());
 
             if (ft == null) {
                 addError(Constants.SUBMISSION, "Unknown file type: " + file.getContentType());

@@ -1,7 +1,6 @@
 package com.topcoder.web.studio.dao.hibernate;
 
 import com.topcoder.web.common.dao.hibernate.Base;
-import com.topcoder.web.common.model.FileType;
 import com.topcoder.web.studio.dao.FileTypeDAO;
 import com.topcoder.web.studio.model.StudioFileType;
 import org.hibernate.Query;
@@ -25,7 +24,7 @@ public class FileTypeDAOHibernate extends Base implements FileTypeDAO {
     }
 
     public StudioFileType find(Integer id) {
-        return (StudioFileType) find(FileType.class, id);
+        return (StudioFileType) find(StudioFileType.class, id);
     }
 
     public StudioFileType find(String mimeType) {

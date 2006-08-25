@@ -14,7 +14,10 @@ import com.topcoder.web.studio.validation.*;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author dok
@@ -252,6 +255,10 @@ public class EditContest extends Base {
         if (!maxHeightResult.isValid()) {
             addError(Constants.CONTEST_PROPERTY + ContestProperty.MAX_HEIGHT, maxHeightResult.getMessage());
         }
+
+
+        List a = getRequest().getParameterValues(Constants.FILE_TYPE) == null ?
+                Collections.EMPTY_LIST : Arrays.asList(getRequest().getParameterValues(Constants.FILE_TYPE));
 
 
         int fid = 0;

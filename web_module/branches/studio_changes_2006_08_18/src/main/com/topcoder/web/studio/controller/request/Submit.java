@@ -8,15 +8,11 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.FileType;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.FilePath;
-import com.topcoder.web.studio.model.Submission;
-import com.topcoder.web.studio.model.SubmissionType;
+import com.topcoder.web.studio.model.*;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -70,9 +66,9 @@ public class Submit extends ShortHibernateProcessor {
                     addError(Constants.SUBMISSION, "Submission was empty");
                 }
 
-                FileType ft = factory.getFileTypeDAO().find(file.getContentType());
+                StudioFileType ft = cFactory.getFileTypeDAO().find(file.getContentType());
 
-                if (ft == null || !FileType.ADOBE_ACROBAT_TYPE_ID.equals(ft.getId())) {
+                if (ft == null || !StudioFileType.ADOBE_ACROBAT_TYPE_ID.equals(ft.getId())) {
                     addError(Constants.SUBMISSION, "Unknown or invalid file type submitted, you must submit an Adobe Acrobat PDF file");
                 }
 
