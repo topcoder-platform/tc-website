@@ -2,10 +2,12 @@ package com.topcoder.web.studio.controller.request.admin;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.validation.ListInput;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.ContestPropertyDAO;
+import com.topcoder.web.studio.dao.FileTypeDAO;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestConfig;
@@ -35,14 +37,6 @@ public class EditContest extends Base {
         String endTime = getRequest().getParameter(Constants.END_TIME);
         String contestStatusId = getRequest().getParameter(Constants.CONTEST_STATUS_ID);
         String forumId = getRequest().getParameter(Constants.FORUM_ID);
-/*
-        String overview = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.CONTEST_OVERVIEW_TEXT);
-        String prizeDesc = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.PRIZE_DESCRIPTION);
-        String minWidth = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MIN_WIDTH);
-        String maxWidth = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MAX_WIDTH);
-        String minHeight = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MIN_HEIGHT);
-        String maxHeight = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MAX_HEIGHT);
-*/
 
         inputValidation();
 
@@ -78,6 +72,12 @@ public class EditContest extends Base {
             setDefault(Constants.CONTEST_NAME, name);
             setDefault(Constants.START_TIME, startTime);
             setDefault(Constants.END_TIME, endTime);
+
+            List a = getRequest().getParameterValues(Constants.FILE_TYPE) == null ?
+                    Collections.EMPTY_LIST : Arrays.asList(getRequest().getParameterValues(Constants.FILE_TYPE));
+            for (Iterator it = a.iterator(); it.hasNext();) {
+                setDefault(Constants.FILE_TYPE, it.next());
+            }
 
             setNextPage("/admin/editContest.jsp");
             setIsNextPageInContext(true);
@@ -116,6 +116,14 @@ public class EditContest extends Base {
                 }
                 currConfig.setValue(getRequest().getParameter(Constants.CONTEST_PROPERTY + CONTEST_PROPS[i]));
             }
+
+            List a = getRequest().getParameterValues(Constants.FILE_TYPE) == null ?
+                    Collections.EMPTY_LIST : Arrays.asList(getRequest().getParameterValues(Constants.FILE_TYPE));
+            FileTypeDAO fDao = StudioDAOUtil.getFactory().getFileTypeDAO();
+            for (Iterator it = a.iterator(); it.hasNext();) {
+                contest.addFileType(fDao.find(new Integer((String) it.next())));
+            }
+
 
             StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
             markForCommit();
@@ -187,7 +195,10 @@ public class EditContest extends Base {
 
         List a = getRequest().getParameterValues(Constants.FILE_TYPE) == null ?
                 Collections.EMPTY_LIST : Arrays.asList(getRequest().getParameterValues(Constants.FILE_TYPE));
-
+        ValidationResult fileTypeResult = new FileTypeValidator().validate(new ListInput(a));
+        if (!fileTypeResult.isValid()) {
+            addError(Constants.FILE_TYPE, fileTypeResult.getMessage());
+        }
 
         int fid = 0;
         if (!"".equals(StringUtils.checkNull(forumId))) {

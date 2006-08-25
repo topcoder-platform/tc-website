@@ -12,8 +12,11 @@ import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestConfig;
 import com.topcoder.web.studio.model.ContestProperty;
+import com.topcoder.web.studio.model.StudioFileType;
 
 import java.text.SimpleDateFormat;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * @author dok
@@ -59,6 +62,11 @@ public abstract class Base extends ShortHibernateProcessor {
             if (temp != null) {
                 setDefault(Constants.CONTEST_PROPERTY + CONTEST_PROPS[i], temp.getValue());
             }
+        }
+
+        Set a = contest.getFileTypes();
+        for (Iterator it = a.iterator(); it.hasNext();) {
+            setDefault(Constants.FILE_TYPE, ((StudioFileType) it.next()).getId());
         }
 
         setDefault(Constants.CONTEST_STATUS_ID, contest.getStatus().getId());
