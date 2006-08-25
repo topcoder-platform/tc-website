@@ -6,6 +6,7 @@ package com.topcoder.apps.review;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 import com.topcoder.apps.review.security.*;
+import com.topcoder.apps.screening.security.*;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.policy.PolicyRemote;
 import javax.ejb.CreateException;

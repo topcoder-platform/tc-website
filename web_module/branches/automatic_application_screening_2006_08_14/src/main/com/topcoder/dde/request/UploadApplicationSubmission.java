@@ -37,7 +37,7 @@ public class UploadApplicationSubmission extends BaseProcessor {
                 SecurityEnabledUser user = userManager.getUser(subject);
 
                 if (!PermissionHelper.isAdmin(user) && !PermissionHelper.hasSpecificationSubmitPermission(user)) {
-                    throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+                    throw new TCWebException("You are not authorized to view this page");
                 }
                 log.info("forwarding to upload page");
                 setNextPage("/applications/submission_upload.jsp");
