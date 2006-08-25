@@ -1,9 +1,6 @@
 package com.topcoder.dde.request;
 
-import com.topcoder.apps.review.EJBHelper;
-import com.topcoder.apps.review.PermissionHelper;
-import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
-import com.topcoder.apps.review.projecttracker.UserManagerLocal;
+import com.topcoder.apps.screening.PermissionHelper;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.shared.security.ClassResource;
@@ -27,7 +24,7 @@ public class UploadApplicationSubmission extends BaseProcessor {
                 /*UserManagerLocal userManager = EJBHelper.getUserManager();
                 SecurityEnabledUser user = userManager.getUser(subject);*/
 
-                if (!PermissionHelper.isAdmin(user) && !PermissionHelper.hasSpecificationSubmitPermission(user)) {
+                if (!PermissionHelper.isAdmin(subject) && !PermissionHelper.hasSpecificationSubmitPermission(subject)) {
                     throw new TCWebException("You are not authorized to view this page");
                 }
                 log.info("forwarding to upload page");

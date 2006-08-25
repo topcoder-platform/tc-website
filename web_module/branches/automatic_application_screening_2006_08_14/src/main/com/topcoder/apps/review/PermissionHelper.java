@@ -197,29 +197,5 @@ public class PermissionHelper {
         return hasScreenPermission(user, project) || hasReviewPermission(user, project)
                 || hasAggregationPermission(user, project) || hasFinalReviewPermission(user, project);
     }
-
-
-    /**
-     * Checks if a user has submit permission for a project.
-     *
-     * @param user the user
-     * @param project the project to check permission for
-     *
-     * @return whether the user has submit permission or not
-     *
-     * @throws NamingException thrown from the EJB calling code
-     * @throws RemoteException thrown from the EJB calling code
-     * @throws CreateException thrown from the EJB calling code
-     * @throws GeneralSecurityException if an security manager exception occurs
-     */
-    static public final boolean hasSpecificationSubmitPermission(TCSubject subject) throws RemoteException,
-            NamingException, CreateException, GeneralSecurityException {
-        PolicyRemote policy = EJBHelper.getPolicy();
-
-        System.out.println("subject.getUserId() :" + subject.getUserId());
-        System.out.println("SubmitSpecificationPermission.class.getName() :" + SubmitSpecificationPermission.class.getName());
-
-        return policy.checkPermission(subject, new SubmitSpecificationPermission());
-    }
 }
 
