@@ -71,7 +71,7 @@
          <br><br><br>
          <span class="subTitle">When is the competition?</span>
          <br><br>
-         Registration for the Google Code Jam 2006 Employee Competition is open from Tuesday, August 29, 2006 at 9:00 AM EDT (GMT/UTC -4) through Tuesday, 
+         Registration for the Google Code Jam 2006 Employee Competition is open from Monday, August 28, 2006 at 9:00 AM EDT (GMT/UTC -4) through Tuesday, 
          September 5, 2006 at 9:00 AM EDT (GMT/UTC -4). There is no limit to the number of registrants for the competition, but only the top 100 scorers 
          from the Qualification Round will advance to Round 1 on September 14.
          <br><br>
@@ -87,7 +87,7 @@
                  <td class="boxTitle" width="50%">Status</td>
              </tr>
              <tr valign="top">
-                 <td class="boxText">Tuesday, August 29</td>
+                 <td class="boxText">Monday, August 28</td>
                  <td class="boxText">9:00 AM</td>
                  <td class="boxText">Registration Opens</td>
              </tr>

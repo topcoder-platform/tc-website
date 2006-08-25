@@ -22,15 +22,15 @@
     <% } else { %>
     <a class="navLink" href="/pl/?module=Static&d1=google06&d2=emp_rules">Rules</a> &nbsp;|&nbsp;
     <% } %>
-<%--
+
     <!-- Registration tab -->
 
     <% if (selectedTab.equals("registration")) {%>
     <span class="navOn">Registration</span> &nbsp;|&nbsp;
     <% } else { %>
-    <a class="navLink" href="/pl/?module=Static&d1=google06&d2=login">Registration</a> &nbsp;|&nbsp;
+    <a class="navLink" href="/pl/?module=Static&d1=google06&d2=emp_jump_reg" target="_blank">Registration</a> &nbsp;|&nbsp;
     <% } %>
---%>
+
     <!-- Instructions tab -->
     <% if (selectedTab.equals("instructions")) {%>
     <span class="navOn">Instructions</span> &nbsp;|&nbsp;

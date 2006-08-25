@@ -24,7 +24,7 @@
             <span class="insetHeader">Important Dates</span>
             <br/><br/>
             <b>Registration Starts</b><br/>
-            Tuesday, August 29th
+            Monday, August 28th
             <br/><br/>
             <b>Qualification Round</b><br/>
             Tuesday, September 5th
