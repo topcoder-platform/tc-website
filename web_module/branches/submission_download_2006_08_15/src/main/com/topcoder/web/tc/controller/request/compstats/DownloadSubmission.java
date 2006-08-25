@@ -40,15 +40,27 @@ public class DownloadSubmission extends Base {
             String projId = getRequest().getParameter(Constants.PROJECT_ID);
             String coderId = getRequest().getParameter(Constants.CODER_ID);
 
-            SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-
             if (hasAgreedTerms(coderId)) {
-            	String url = getSubmissionURL(projId, coderId);
-            	downloadFile("/export/home/branch2/web/lib/jars/upload.jar", "test.jar");
-/*            	
-            	setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=CompContestDetails&" +
-            			Constants.PROJECT_ID + "=" + projId + "&");
-            	setIsNextPageInContext(false);*/
+            	// get the filename
+                Request r = new Request();
+                r.setContentHandle("get_submission_url");
+
+                r.setProperty(Constants.PROJECT_ID, projId);
+                r.setProperty(Constants.CODER_ID, coderId);
+                r.setProperty(Constants.SUBMISSION_TYPE, "1"); // just initiall submissions
+
+                DataAccessInt dai = getDataAccess(true);
+                Map result = dai.getData(r);
+                ResultSetContainer rsc = (ResultSetContainer) result.get("get_submission_url");
+                if (rsc.getRowCount() != 1) {
+                	throw new TCWebException("Not exaclty one sumbission url found.  Instead, found " + rsc.getRowCount());
+                }
+                
+                String url = rsc.getStringItem(0, "submission_url");
+                String fname = createFileName(url, rsc.getStringItem(0, "handle"), 
+                		rsc.getStringItem(0, "component_name"), rsc.getStringItem(0, "version_text"));
+
+            	downloadFile("/export/home/branch2/web/lib/jars/upload.jar", fname);
             } else {
             	getRequest().setAttribute(Constants.PROJECT_ID, projId);
             	getRequest().setAttribute(Constants.CODER_ID, coderId);            	
@@ -85,29 +97,23 @@ public class DownloadSubmission extends Base {
     }
     
     /**
-     * Get the filename of the initial submission for a specified project and user.
+     * Create an appropiate filename.
      * 
-     * @param projId project id
-     * @param coderId coder id
-     * @return the filename of the specified submission
-     * @throws Exception
+     * @param url used to get the extension
+     * @param handle coder that submitted
+     * @param comp name of the component
+     * @param vers version of the component
+     * @return a file name
      */
-    private String getSubmissionURL(String projId, String coderId) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("get_submission_url");
-
-        r.setProperty(Constants.PROJECT_ID, projId);
-        r.setProperty(Constants.CODER_ID, coderId);
-        r.setProperty(Constants.SUBMISSION_TYPE, "1"); // just initiall submissions
-
-        DataAccessInt dai = getDataAccess(true);
-        Map result = dai.getData(r);
-        ResultSetContainer rsc = (ResultSetContainer) result.get("get_submission_url");
-        if (rsc.getRowCount() != 1) {
-        	throw new TCWebException("Not exaclty one sumbission url found.  Instead, found " + rsc.getRowCount());
-        }
-        
-        return rsc.getStringItem(0, "submission_url");
+    private String createFileName(String url, String handle, String comp, String vers) {
+    	int p = url.lastIndexOf(".");
+    	String ext = "";
+    	if (p >= 0) {
+    		ext = url.substring(p);
+    	}
+    	
+    	String name = "submission_" + comp + "_v" + vers + "_" + handle + ext;
+    	return name.replaceAll("[^\\w\\.]", "_");
     }
 
     /**
