@@ -123,36 +123,19 @@ public class ApplicationZumlFileRule implements ScreeningRule {
         }
 
         try {
-            String []outputs = null;
+            ValidationManager validationManager = new ValidationManager();
 
-            log.info("zuml 1");
-            try {
-                ValidationManager validationManager = new ValidationManager();
+            ValidationOutput []validationOutputs = validationManager.validateRaw(file);
 
-                log.info("zuml 2");
-
-                outputs = validationManager.validate(file);
-
-                ValidationOutput []validationOutputs = validationManager.validateRaw(file);
-
-                //              format them using text formatter
-                TextValidationOutputFormatter textFormatter = new TextValidationOutputFormatter();
-                String []formatted = textFormatter.format(validationOutputs);
-                for (int i = 0, n = formatted.length; i < n; i++) {
-                    log.info("\n" + formatted[i]);
-                }
-
-                log.info(outputs[0]);
-            } catch (Exception e) {
-                log.info(e.getMessage());
-                e.printStackTrace();
+            TextValidationOutputFormatter textFormatter = new TextValidationOutputFormatter();
+            String []formatted = textFormatter.format(validationOutputs);
+            for (int i = 0, n = formatted.length; i < n; i++) {
+                logger.log(new SimpleScreeningData(formatted[i], ResponseCode.WRONG_ZUML));
+                log.info("\n" + formatted[i]);
+                success = false;
             }
-            // TODO: change
-            logger.log(new SimpleScreeningData(outputs == null ? "null" : outputs[0], ResponseCode.WRONG_ZUML));
-//            logger.log(new SimpleScreeningData("Message1.", ResponseCode.WRONG_ZUML));
-//            logger.log(new SimpleScreeningData("Message2.", ResponseCode.WRONG_ZUML));
-            success = false;
         } catch (Exception e) {
+            logger.log(new SimpleScreeningData("Failed to validate application zuml.", ResponseCode.WRONG_ZUML));
             success = false;
         }
         return success;
