@@ -72,6 +72,7 @@ public class ScreeningSchemaFixUtility extends DBUtility{
             long oldSubmissionVId = -1;
             long taskId = -1;
             int i;
+            int j = 0;
             for (i = 1; rs.next(); i++ ) {
                 if (rs.getLong("sro.submission_v_id") != oldSubmissionVId) {
                     oldSubmissionVId = rs.getLong("sro.submission_v_id");
@@ -91,6 +92,7 @@ public class ScreeningSchemaFixUtility extends DBUtility{
                     psInsScreeningTask.setLong(3, projectTypeId);
                     psInsScreeningTask.setLong(4, oldSubmissionVId);
                     psInsScreeningTask.executeUpdate();
+                    j++;
                 }
 
                 psInsScreeningResults.clearParameters();
@@ -102,7 +104,7 @@ public class ScreeningSchemaFixUtility extends DBUtility{
                 psInsScreeningResults.setLong(6, taskId);
                 psInsScreeningResults.executeUpdate();
             }
-            log.debug("---------------  " + i +" rows processed ---------------");
+            log.debug("---------------  " + i +" rows processed (" + j + " tasks.) ---------------");
             DBMS.close(rs);
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
