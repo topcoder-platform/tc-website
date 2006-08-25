@@ -1,7 +1,11 @@
 <?xml version="1.0" ?>  
 <CMConfig>
-
-	 <Config name="com.topcoder.apps.screening.applications.specification.impl.DefaultSubmissionValidatorFactory">
+    <Config name="com.topcoder.apps.screening.applications.specification.ValidationManager">
+        <Property name="factory_class">
+            <Value>com.topcoder.apps.screening.applications.specification.impl.DefaultSubmissionValidatorFactory</Value>
+        </Property>
+    </Config>
+    <Config name="com.topcoder.apps.screening.applications.specification.impl.DefaultSubmissionValidatorFactory">
 		<Property name="validators">
 	 		<Value>activity_path</Value>
 	 		<Value>activity_naming</Value>
