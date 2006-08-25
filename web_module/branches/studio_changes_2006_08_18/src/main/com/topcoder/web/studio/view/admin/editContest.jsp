@@ -169,7 +169,7 @@
         Height Requirements:
     </td>
     <td class="value">
-        <tc-webtag:textInput name="${minHeight}"/> to <tc-webtag:textInput name="${maxHeight}"/>
+        <tc-webtag:textInput name="${minHeight}" size="4"/> to <tc-webtag:textInput name="${maxHeight}" size="4"/>
     </td>
 </tr>
 
@@ -192,7 +192,7 @@
         Width Requirements:
     </td>
     <td class="value">
-        <tc-webtag:textInput name="${minWidth}"/> to <tc-webtag:textInput name="${maxWidth}"/>
+        <tc-webtag:textInput name="${minWidth}" size="4"/> to <tc-webtag:textInput name="${maxWidth}" size="4"/>
     </td>
 </tr>
 
