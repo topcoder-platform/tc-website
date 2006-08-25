@@ -5,6 +5,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.dao.ContestPropertyDAO;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestConfig;
@@ -34,12 +35,14 @@ public class EditContest extends Base {
         String endTime = getRequest().getParameter(Constants.END_TIME);
         String contestStatusId = getRequest().getParameter(Constants.CONTEST_STATUS_ID);
         String forumId = getRequest().getParameter(Constants.FORUM_ID);
+/*
         String overview = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.CONTEST_OVERVIEW_TEXT);
         String prizeDesc = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.PRIZE_DESCRIPTION);
         String minWidth = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MIN_WIDTH);
         String maxWidth = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MAX_WIDTH);
         String minHeight = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MIN_HEIGHT);
         String maxHeight = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MAX_HEIGHT);
+*/
 
         inputValidation();
 
@@ -57,14 +60,10 @@ public class EditContest extends Base {
         if (hasErrors()) {
             loadGeneralEditContestData();
 
-            setDefault(Constants.CONTEST_PROPERTY + ContestProperty.CONTEST_OVERVIEW_TEXT, overview);
-            setDefault(Constants.CONTEST_PROPERTY + ContestProperty.PRIZE_DESCRIPTION, prizeDesc);
-
-            setDefault(Constants.CONTEST_PROPERTY + ContestProperty.MIN_WIDTH, minWidth);
-            setDefault(Constants.CONTEST_PROPERTY + ContestProperty.MAX_WIDTH, maxWidth);
-            setDefault(Constants.CONTEST_PROPERTY + ContestProperty.MIN_HEIGHT, minHeight);
-            setDefault(Constants.CONTEST_PROPERTY + ContestProperty.MAX_HEIGHT, maxHeight);
-
+            for (int i = 0; i < CONTEST_PROPS.length; i++) {
+                setDefault(Constants.CONTEST_PROPERTY + CONTEST_PROPS[i],
+                        getRequest().getParameter(Constants.CONTEST_PROPERTY + CONTEST_PROPS[i]));
+            }
 
             if (!"".equals(StringUtils.checkNull(contestId))) {
                 setDefault(Constants.CONTEST_STATUS_ID,
@@ -100,96 +99,23 @@ public class EditContest extends Base {
                 contest.setForumId(new Integer(forumId));
             }
 
-            ContestConfig overviewConfig;
-            ContestProperty overviewProperty =
-                    StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.CONTEST_OVERVIEW_TEXT);
-            if (contest.isNew() || contest.getConfig(overviewProperty) == null) {
-                overviewConfig = new ContestConfig();
-                overviewConfig.setContest(contest);
-                overviewConfig.setProperty(overviewProperty);
-                overviewConfig.getId().setContest(contest);
-                overviewConfig.getId().setProperty(overviewProperty);
-                contest.addConfig(overviewConfig);
-            } else {
-                overviewConfig = contest.getConfig(overviewProperty);
+            ContestConfig currConfig;
+            ContestPropertyDAO dao = StudioDAOUtil.getFactory().getContestPropertyDAO();
+            ContestProperty curr;
+            for (int i = 0; i < CONTEST_PROPS.length; i++) {
+                curr = StudioDAOUtil.getFactory().getContestPropertyDAO().find(CONTEST_PROPS[i]);
+                if (contest.isNew() || contest.getConfig(curr) == null) {
+                    currConfig = new ContestConfig();
+                    currConfig.setContest(contest);
+                    currConfig.setProperty(curr);
+                    currConfig.getId().setContest(contest);
+                    currConfig.getId().setProperty(curr);
+                    contest.addConfig(currConfig);
+                } else {
+                    currConfig = contest.getConfig(curr);
+                }
+                currConfig.setValue(getRequest().getParameter(Constants.CONTEST_PROPERTY + CONTEST_PROPS[i]));
             }
-            overviewConfig.setValue(overview);
-
-
-            ContestConfig prizeConfig;
-            ContestProperty prizeProperty =
-                    StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.PRIZE_DESCRIPTION);
-            if (contest.isNew() || contest.getConfig(prizeProperty) == null) {
-                prizeConfig = new ContestConfig();
-                prizeConfig.setContest(contest);
-                prizeConfig.setProperty(prizeProperty);
-                prizeConfig.getId().setContest(contest);
-                prizeConfig.getId().setProperty(prizeProperty);
-                contest.addConfig(prizeConfig);
-            } else {
-                prizeConfig = contest.getConfig(prizeProperty);
-            }
-            prizeConfig.setValue(prizeDesc);
-
-            ContestConfig minWidthConfig;
-            ContestProperty minWidthProperty =
-                    StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.MIN_WIDTH);
-            if (contest.isNew() || contest.getConfig(minWidthProperty) == null) {
-                minWidthConfig = new ContestConfig();
-                minWidthConfig.setContest(contest);
-                minWidthConfig.setProperty(minWidthProperty);
-                minWidthConfig.getId().setContest(contest);
-                minWidthConfig.getId().setProperty(minWidthProperty);
-                contest.addConfig(minWidthConfig);
-            } else {
-                minWidthConfig = contest.getConfig(minWidthProperty);
-            }
-            minWidthConfig.setValue(minWidth);
-
-            ContestConfig maxWidthConfig;
-            ContestProperty maxWidthProperty =
-                    StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.MAX_WIDTH);
-            if (contest.isNew() || contest.getConfig(maxWidthProperty) == null) {
-                maxWidthConfig = new ContestConfig();
-                maxWidthConfig.setContest(contest);
-                maxWidthConfig.setProperty(maxWidthProperty);
-                maxWidthConfig.getId().setContest(contest);
-                maxWidthConfig.getId().setProperty(maxWidthProperty);
-                contest.addConfig(maxWidthConfig);
-            } else {
-                maxWidthConfig = contest.getConfig(maxWidthProperty);
-            }
-            maxWidthConfig.setValue(maxWidth);
-
-            ContestConfig minHeightConfig;
-            ContestProperty minHeightProperty =
-                    StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.MIN_HEIGHT);
-            if (contest.isNew() || contest.getConfig(minHeightProperty) == null) {
-                minHeightConfig = new ContestConfig();
-                minHeightConfig.setContest(contest);
-                minHeightConfig.setProperty(minHeightProperty);
-                minHeightConfig.getId().setContest(contest);
-                minHeightConfig.getId().setProperty(minHeightProperty);
-                contest.addConfig(minHeightConfig);
-            } else {
-                minHeightConfig = contest.getConfig(minHeightProperty);
-            }
-            minHeightConfig.setValue(minHeight);
-
-            ContestConfig maxHeightConfig;
-            ContestProperty maxHeightProperty =
-                    StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.MAX_HEIGHT);
-            if (contest.isNew() || contest.getConfig(maxHeightProperty) == null) {
-                maxHeightConfig = new ContestConfig();
-                maxHeightConfig.setContest(contest);
-                maxHeightConfig.setProperty(maxHeightProperty);
-                maxHeightConfig.getId().setContest(contest);
-                maxHeightConfig.getId().setProperty(maxHeightProperty);
-                contest.addConfig(maxHeightConfig);
-            } else {
-                maxHeightConfig = contest.getConfig(maxHeightProperty);
-            }
-            maxHeightConfig.setValue(maxHeight);
 
             StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
             markForCommit();

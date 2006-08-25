@@ -21,6 +21,10 @@ import java.text.SimpleDateFormat;
  *          Create Date: Aug 2, 2006
  */
 public abstract class Base extends ShortHibernateProcessor {
+    protected static final Integer[] CONTEST_PROPS = {ContestProperty.MIN_HEIGHT, ContestProperty.MAX_HEIGHT, ContestProperty.MIN_WIDTH,
+            ContestProperty.MAX_WIDTH, ContestProperty.CONTEST_OVERVIEW_TEXT, ContestProperty.PRIZE_DESCRIPTION,
+            ContestProperty.VIEWABLE_SUBMISSIONS};
+
 
     protected void loadGeneralEditContestData() throws Exception {
         getRequest().setAttribute("docTypes", StudioDAOUtil.getFactory().getDocumentTypeDAO().getDocumentTypes());
@@ -49,14 +53,11 @@ public abstract class Base extends ShortHibernateProcessor {
         SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
 
         ContestPropertyDAO dao = StudioDAOUtil.getFactory().getContestPropertyDAO();
-        Integer[] props = {ContestProperty.MIN_HEIGHT, ContestProperty.MAX_HEIGHT, ContestProperty.MIN_WIDTH,
-                ContestProperty.MAX_WIDTH, ContestProperty.CONTEST_OVERVIEW_TEXT, ContestProperty.PRIZE_DESCRIPTION,
-                ContestProperty.VIEWABLE_SUBMISSIONS};
         ContestConfig temp;
-        for (int i = 0; i < props.length; i++) {
-            temp = contest.getConfig(dao.find(props[i]));
+        for (int i = 0; i < CONTEST_PROPS.length; i++) {
+            temp = contest.getConfig(dao.find(CONTEST_PROPS[i]));
             if (temp != null) {
-                setDefault(Constants.CONTEST_PROPERTY + props[i], temp.getValue());
+                setDefault(Constants.CONTEST_PROPERTY + CONTEST_PROPS[i], temp.getValue());
             }
         }
 
