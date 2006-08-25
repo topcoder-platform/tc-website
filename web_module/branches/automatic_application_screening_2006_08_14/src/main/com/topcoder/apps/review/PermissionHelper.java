@@ -8,7 +8,6 @@ import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 import com.topcoder.apps.review.security.*;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.policy.PolicyRemote;
-
 import javax.ejb.CreateException;
 import javax.naming.NamingException;
 import java.rmi.RemoteException;
@@ -19,7 +18,7 @@ import java.rmi.RemoteException;
  * @author adic
  * @version 1.0
  */
-class PermissionHelper {
+public class PermissionHelper {
 
     /**
      * Constructor (inhibits outside instantiation).
@@ -39,7 +38,7 @@ class PermissionHelper {
      * @throws CreateException thrown from the EJB calling code
      * @throws GeneralSecurityException if an security manager exception occurs
      */
-    static final boolean isAdmin(SecurityEnabledUser user) throws RemoteException, NamingException, CreateException,
+    public static final boolean isAdmin(SecurityEnabledUser user) throws RemoteException, NamingException, CreateException,
             GeneralSecurityException {
         PolicyRemote policy = EJBHelper.getPolicy();
         return policy.checkPermission(user.getTCSubject(), new AdminPermission());
@@ -197,5 +196,24 @@ class PermissionHelper {
                 || hasAggregationPermission(user, project) || hasFinalReviewPermission(user, project);
     }
 
+
+    /**
+     * Checks if a user has submit permission for a project.
+     *
+     * @param user the user
+     * @param project the project to check permission for
+     *
+     * @return whether the user has submit permission or not
+     *
+     * @throws NamingException thrown from the EJB calling code
+     * @throws RemoteException thrown from the EJB calling code
+     * @throws CreateException thrown from the EJB calling code
+     * @throws GeneralSecurityException if an security manager exception occurs
+     */
+    static public final boolean hasSpecificationSubmitPermission(SecurityEnabledUser user) throws RemoteException,
+            NamingException, CreateException, GeneralSecurityException {
+        PolicyRemote policy = EJBHelper.getPolicy();
+        return policy.checkPermission(user.getTCSubject(), new SubmitSpecificationPermission());
+    }
 }
 
