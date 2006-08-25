@@ -37,16 +37,23 @@ public class EditContest extends Base {
         String endTime = getRequest().getParameter(Constants.END_TIME);
         String contestStatusId = getRequest().getParameter(Constants.CONTEST_STATUS_ID);
         String forumId = getRequest().getParameter(Constants.FORUM_ID);
+        List fileTypes = getRequest().getParameterValues(Constants.FILE_TYPE) == null ?
+                Collections.EMPTY_LIST : Arrays.asList(getRequest().getParameterValues(Constants.FILE_TYPE));
+        if (log.isDebugEnabled()) {
+            for (Iterator it = fileTypes.iterator(); it.hasNext();) {
+                log.debug("filetype: " + it.next());
+            }
+        }
 
         inputValidation();
 
         ContestStatus status = null;
         if ("".equals(StringUtils.checkNull(contestStatusId))) {
-            addError(Constants.CONTEST_STATUS_ID, "Please choose a valid contest status.");
+            addError(Constants.CONTEST_STATUS_ID, "Please choose fileTypes valid contest status.");
         } else {
             status = StudioDAOUtil.getFactory().getContestStatusDAO().find(new Integer(contestStatusId));
             if (status == null) {
-                addError(Constants.CONTEST_STATUS_ID, "Please choose a valid contest status.");
+                addError(Constants.CONTEST_STATUS_ID, "Please choose fileTypes valid contest status.");
             }
         }
 
@@ -73,9 +80,7 @@ public class EditContest extends Base {
             setDefault(Constants.START_TIME, startTime);
             setDefault(Constants.END_TIME, endTime);
 
-            List a = getRequest().getParameterValues(Constants.FILE_TYPE) == null ?
-                    Collections.EMPTY_LIST : Arrays.asList(getRequest().getParameterValues(Constants.FILE_TYPE));
-            for (Iterator it = a.iterator(); it.hasNext();) {
+            for (Iterator it = fileTypes.iterator(); it.hasNext();) {
                 setDefault(Constants.FILE_TYPE, it.next());
             }
 
@@ -117,10 +122,8 @@ public class EditContest extends Base {
                 currConfig.setValue(getRequest().getParameter(Constants.CONTEST_PROPERTY + CONTEST_PROPS[i]));
             }
 
-            List a = getRequest().getParameterValues(Constants.FILE_TYPE) == null ?
-                    Collections.EMPTY_LIST : Arrays.asList(getRequest().getParameterValues(Constants.FILE_TYPE));
             FileTypeDAO fDao = StudioDAOUtil.getFactory().getFileTypeDAO();
-            for (Iterator it = a.iterator(); it.hasNext();) {
+            for (Iterator it = fileTypes.iterator(); it.hasNext();) {
                 contest.addFileType(fDao.find(new Integer((String) it.next())));
             }
 
