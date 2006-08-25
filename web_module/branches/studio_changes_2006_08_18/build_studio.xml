@@ -263,6 +263,7 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/object_formatter.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/upload.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/ifxjdbc.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.1/ehcache-1.2.2.jar"/>
 
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
