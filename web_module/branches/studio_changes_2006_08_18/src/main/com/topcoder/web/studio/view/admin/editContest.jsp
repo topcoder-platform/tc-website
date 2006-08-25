@@ -174,7 +174,7 @@
 </tr>
 
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.MIN_WIDTH%>" var="minWidth"/>
-<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.MIN_WIDTH%>" var="maxWidth"/>
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.MAX_WIDTH%>" var="maxWidth"/>
 
 <tr>
     <td colspan="2">
