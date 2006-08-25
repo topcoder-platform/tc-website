@@ -7,8 +7,10 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.dao.ContestPropertyDAO;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.studio.model.ContestConfig;
 import com.topcoder.web.studio.model.ContestProperty;
 
 import java.text.SimpleDateFormat;
@@ -46,17 +48,19 @@ public abstract class Base extends ShortHibernateProcessor {
 
         SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
 
-        if (contest.getOverview() != null) {
-            setDefault(Constants.CONTEST_PROPERTY + ContestProperty.CONTEST_OVERVIEW_TEXT,
-                    contest.getOverview().getValue());
+        ContestPropertyDAO dao = StudioDAOUtil.getFactory().getContestPropertyDAO();
+        Integer[] props = {ContestProperty.MIN_HEIGHT, ContestProperty.MAX_HEIGHT, ContestProperty.MIN_WIDTH,
+                ContestProperty.MAX_WIDTH, ContestProperty.CONTEST_OVERVIEW_TEXT, ContestProperty.PRIZE_DESCRIPTION,
+                ContestProperty.VIEWABLE_SUBMISSIONS};
+        ContestConfig temp;
+        for (int i = 0; i < props.length; i++) {
+            temp = contest.getConfig(dao.find(props[i]));
+            if (temp != null) {
+                setDefault(Constants.CONTEST_PROPERTY + props[i], temp.getValue());
+            }
         }
-        if (contest.getPrizeDescription() != null) {
-            setDefault(Constants.CONTEST_PROPERTY + ContestProperty.PRIZE_DESCRIPTION,
-                    contest.getPrizeDescription().getValue());
-        }
-        setDefault(Constants.CONTEST_STATUS_ID,
-                contest.getStatus().getId());
 
+        setDefault(Constants.CONTEST_STATUS_ID, contest.getStatus().getId());
         setDefault(Constants.CONTEST_ID, contest.getId());
         setDefault(Constants.CONTEST_NAME, contest.getName());
         setDefault(Constants.START_TIME, sdf.format(contest.getStartTime()));
