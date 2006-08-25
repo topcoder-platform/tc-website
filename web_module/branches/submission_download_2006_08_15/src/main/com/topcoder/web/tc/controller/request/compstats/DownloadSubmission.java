@@ -110,7 +110,7 @@ public class DownloadSubmission extends Base {
     		ext = url.substring(p);
     	}
     	
-    	String name = "submission_" + comp + "_v" + vers + "_" + handle + ext;
+    	String name = "submission_" + comp.trim() + "_v" + vers.trim() + "_" + handle.trim() + ext;
     	return name.replaceAll("[^\\w\\.]", "_");
     }
 

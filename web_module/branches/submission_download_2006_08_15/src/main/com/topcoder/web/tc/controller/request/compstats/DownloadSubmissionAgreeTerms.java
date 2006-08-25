@@ -33,6 +33,10 @@ public class DownloadSubmissionAgreeTerms extends Base {
             if (!"on".equals(termsAgree)) {
                 addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
                 setNextPage(Constants.DOWNLOAD_SUBMISSION_TERMS);;
+
+                getRequest().setAttribute(Constants.PROJECT_ID, projId);
+            	getRequest().setAttribute(Constants.CODER_ID, coderId);            	
+
                 setIsNextPageInContext(true);
                 return;
             }
