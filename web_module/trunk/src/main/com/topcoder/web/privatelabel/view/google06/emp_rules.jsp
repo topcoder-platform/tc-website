@@ -70,8 +70,8 @@
             <br><br>
 
             <b>Registration</b><br>
-            Registration for the Google Code Jam 2006 Employee Competition will open at 9:00 AM EDT on Tuesday, 
-            August 29, 2006, and will close at 9:00 AM EDT on Tuesday, September 5, 2006.  There is no limit to the 
+            Registration for the Google Code Jam 2006 Employee Competition will open at 9:00 AM EDT on Monday, 
+            August 28, 2006, and will close at 9:00 AM EDT on Tuesday, September 5, 2006.  There is no limit to the 
             number of registrants in the competition, however each individual may only register once.
             <br><br>
             <span class="bigRed">Employees and interns MUST register with your "@google.com" email address in order to be considered part 
@@ -79,7 +79,7 @@
             You should only use the TopCoder account conversion if your TopCoder account is currently set up with a 
             "@google.com" email address.</span>
             <br><br>
-            Google employees and interns may register for the competition <b><A href="/pl/?module=Static&d1=google06&d2=login">here</A></b>.
+            Google employees and interns may register for the competition <b><A href="/pl/?module=Static&d1=google06&d2=emp_jump_reg" target="_blank">here</A></b>.
             <br><br>
 
             <b>Qualification Round</b><br>
