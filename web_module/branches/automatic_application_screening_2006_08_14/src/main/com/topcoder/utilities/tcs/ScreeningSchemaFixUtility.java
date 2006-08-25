@@ -99,10 +99,10 @@ public class ScreeningSchemaFixUtility extends DBUtility{
 
                 psInsScreeningResults.clearParameters();
                 psInsScreeningResults.setLong(1, rs.getLong("screening_results_id"));
-                psInsScreeningResults.setLong(2, rs.getLong("dynamic_response_text"));
+                psInsScreeningResults.setString(2, rs.getString("dynamic_response_text"));
                 psInsScreeningResults.setLong(3, rs.getLong("screening_response_id"));
                 psInsScreeningResults.setLong(4, rs.getLong("create_user"));
-                psInsScreeningResults.setLong(5, rs.getLong("create_date"));
+                psInsScreeningResults.setDate(5, rs.getDate("create_date"));
                 psInsScreeningResults.setLong(6, taskId);
                 psInsScreeningResults.executeUpdate();
             }
