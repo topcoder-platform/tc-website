@@ -29,6 +29,14 @@ public class DownloadSubmissionAgreeTerms extends Base {
             String projId = getRequest().getParameter(Constants.PROJECT_ID);
             String coderId = getRequest().getParameter(Constants.CODER_ID);
 
+            String termsAgree = getRequest().getParameter(Constants.TERMS_AGREE);
+            if (!"on".equals(termsAgree)) {
+                addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
+                setNextPage(Constants.DOWNLOAD_SUBMISSION_TERMS);;
+                setIsNextPageInContext(true);
+                return;
+            }
+
             
             // update the db
             UserTermsOfUseLocal userTerms = (UserTermsOfUseLocal) createLocalEJB(getInitialContext(), UserTermsOfUse.class);

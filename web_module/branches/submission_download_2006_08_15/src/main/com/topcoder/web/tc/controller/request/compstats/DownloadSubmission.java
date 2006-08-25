@@ -20,8 +20,6 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.ejb.user.UserTermsOfUseLocal;
