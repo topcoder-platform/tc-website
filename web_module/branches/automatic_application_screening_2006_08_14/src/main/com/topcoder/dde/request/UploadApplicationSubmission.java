@@ -24,8 +24,8 @@ public class UploadApplicationSubmission extends BaseProcessor {
 
                 TCSubject subject = new TCSubject(getUser().getId());
                 subject.addPrincipal(new UserPrincipal(getUser().getUserName(), getUser().getId()));
-                UserManagerLocal userManager = EJBHelper.getUserManager();
-                SecurityEnabledUser user = userManager.getUser(subject);
+                /*UserManagerLocal userManager = EJBHelper.getUserManager();
+                SecurityEnabledUser user = userManager.getUser(subject);*/
 
                 if (!PermissionHelper.isAdmin(user) && !PermissionHelper.hasSpecificationSubmitPermission(user)) {
                     throw new TCWebException("You are not authorized to view this page");

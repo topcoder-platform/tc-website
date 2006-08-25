@@ -8,6 +8,7 @@ import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 import com.topcoder.apps.review.security.*;
 import com.topcoder.apps.screening.security.*;
 import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.TCSubject;
 import com.topcoder.security.policy.PolicyRemote;
 import javax.ejb.CreateException;
 import javax.naming.NamingException;
@@ -211,14 +212,14 @@ public class PermissionHelper {
      * @throws CreateException thrown from the EJB calling code
      * @throws GeneralSecurityException if an security manager exception occurs
      */
-    static public final boolean hasSpecificationSubmitPermission(SecurityEnabledUser user) throws RemoteException,
+    static public final boolean hasSpecificationSubmitPermission(TCSubject subject) throws RemoteException,
             NamingException, CreateException, GeneralSecurityException {
         PolicyRemote policy = EJBHelper.getPolicy();
 
-        System.out.println("user.getTCSubject().getUserId() :" + user.getTCSubject().getUserId());
+        System.out.println("subject.getUserId() :" + subject.getUserId());
         System.out.println("SubmitSpecificationPermission.class.getName() :" + SubmitSpecificationPermission.class.getName());
 
-        return policy.checkPermission(user.getTCSubject(), new SubmitSpecificationPermission());
+        return policy.checkPermission(subject, new SubmitSpecificationPermission());
     }
 }
 
