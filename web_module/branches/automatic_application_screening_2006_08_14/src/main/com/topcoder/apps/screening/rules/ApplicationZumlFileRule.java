@@ -18,6 +18,8 @@ import com.topcoder.apps.screening.ResponseCode;
 import com.topcoder.apps.screening.SimpleScreeningData;
 import com.topcoder.apps.screening.DatabaseException;
 import com.topcoder.apps.screening.applications.specification.ValidationManager;
+import com.topcoder.apps.screening.applications.specification.ValidationOutput;
+import com.topcoder.apps.screening.applications.specification.impl.formatters.TextValidationOutputFormatter;
 
 /**
  * <strong>Purpose</strong>:
@@ -130,6 +132,16 @@ public class ApplicationZumlFileRule implements ScreeningRule {
                 log.info("zuml 2");
 
                 outputs = validationManager.validate(file);
+
+                ValidationOutput []validationOutputs = validationManager.validateRaw(file);
+
+                //              format them using text formatter
+                TextValidationOutputFormatter textFormatter = new TextValidationOutputFormatter();
+                String []formatted = textFormatter.format(validationOutputs);
+                for (int i = 0, n = formatted.length; i < n; i++) {
+                    log.info("\n" + formatted[i]);
+                }
+
                 log.info(outputs[0]);
             } catch (Exception e) {
                 log.info(e.getMessage());
