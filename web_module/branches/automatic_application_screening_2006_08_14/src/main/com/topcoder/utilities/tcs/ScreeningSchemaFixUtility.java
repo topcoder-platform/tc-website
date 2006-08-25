@@ -76,10 +76,12 @@ public class ScreeningSchemaFixUtility extends DBUtility{
             for (i = 1; rs.next(); i++ ) {
                 if (rs.getLong("submission_v_id") != oldSubmissionVId) {
                     oldSubmissionVId = rs.getLong("submission_v_id");
-                    log.debug("Moving data for submission: " + oldSubmissionVId);
 
                     psInsScreeningTask.clearParameters();
                     taskId = generateNewID();
+
+                    log.debug("Moving data for submission: " + oldSubmissionVId + " new taskId: " + taskId);
+
                     psInsScreeningTask.setLong(1, taskId);
                     psInsScreeningTask.setString(2, rs.getString("submission_url"));
 
