@@ -56,7 +56,7 @@
          <span class="bigBluetitle">Google&#153; Code Jam 2006 Employee Competition</span>
          <br><br>
 
-         Want a chance at some cool prizes? Here's how: Google Code Jam 2006 Employee Competition. This competition is a chance for you to use your skills 
+         Introducing the Google Code Jam 2006 Employee Competition. This competition is a chance for you to use your skills 
          to compete against your co-workers, as well as see how you stack up against top programmers from all over the world.
          <br><br><br>
          <span class="subTitle">What is the Google Code Jam 2006 Employee Competition?</span>
