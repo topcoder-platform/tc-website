@@ -224,9 +224,6 @@ of the Qualification Round.)
         added to the sets of inputs for the System Testing Phase.</li>
 </ul>
 
-<span class="subTitle">About the Prizes</span><br>
-The top 3 scorers in the Championship Round will receive a Google jacket.
-<br><br>
 <span class="subTitle">Conditions of Participation</span><br>
 By participating in the tournament, you agree to be bound by these rules and to all decisions of Google and TopCoder, which are final, binding and conclusive in all matters. 
 <br><br>
@@ -234,13 +231,11 @@ By participating in the tournament, you agree to be bound by these rules and to 
 <br><br>
 Winners in each round of competition will be those competitors that are the top scorers. All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects. 
 <br><br>
-Prizewinners will be announced upon completion of the Championship Round. 
-<br><br>
 As a condition of participation in the tournament, all information provided by you upon registration must be comprehensive, accurate and up-to-date. Google and/or TopCoder may require you to complete an additional registration form to register for the tournament. In order to be eligible to participate in the tournament, you must have completed any and all registration forms required by Google and TopCoder.  Providing false information in the registration process or in the required forms described in this paragraph will disqualify a winner. 
 <br><br>
-By participating in a tournament and redeeming a prize, a winner releases and agrees to hold harmless Google and TopCoder, their affiliates, subsidiaries, advertising and promotion agencies, sponsors, and prize suppliers, and all of their respective directors, officers, employees, representatives and agents, from and against any and all liability for any loss, property damage or damage to person, including without limitation, death and injury, due in whole or in part, directly or indirectly, from or arising out of participation in this tournament, or participation in any tournament-related activity, or the receipt, use or misuse of a prize. Google and TopCoder specifically disclaim all liability associated with, and make no warranties with regard to, any prize given. 
+By participating in a tournament, a winner releases and agrees to hold harmless Google and TopCoder, their affiliates, subsidiaries, advertising and promotion agencies, sponsors, and all of their respective directors, officers, employees, representatives and agents, from and against any and all liability for any loss, property damage or damage to person, including without limitation, death and injury, due in whole or in part, directly or indirectly, from or arising out of participation in this tournament, or participation in any tournament-related activity. 
 <br><br>
-In addition, all prizewinners agree to cooperate with Google's and TopCoder's publicity efforts, without further compensation. This includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, where legal, for this or similar future tournaments, and to use the statements made by, or attributed to, the winners relating to Google and TopCoder and any and all rights to said use, without further compensation. 
+In addition, in the event any competitor wins a prize, all prizewinners agree to cooperate with Google's and TopCoder's publicity efforts, without further compensation. This includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, where legal, for this or similar future tournaments, and to use the statements made by, or attributed to, the winners relating to Google and TopCoder and any and all rights to said use, without further compensation. 
 <br><br>
 Google and TopCoder reserve the right, in their sole discretion, to revoke any and all privileges associated with competing in this tournament, and to take any other action it deems appropriate, for no reason or any reason whatsoever, including if TopCoder suspects competitors of cheating, tampering with the entry process, the operation of the Web site, or the tournament process, or otherwise being in violation of the rules. Google and TopCoder reserve the right to cancel, terminate or modify the tournament if they are not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort. 
 <br><br>
