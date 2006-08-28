@@ -6,9 +6,9 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
-<%------------------------------------------------------ for 08.28 at 3:00 PM
+<%--------------------------------------------------------%>
 <tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Survey" border="0"/><br>08.28.06<br>3:00 PM</td>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Survey" border="0"/><br>08.28.06<br>4:15 PM</td>
     <td class="newsTextCell"><span class="newsTitle">
       <A href="<tc-webtag:linkTracking link='http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=2' refer="news_item"/>">AOL Developer Community Survey</A>
       </span><br><br>
@@ -21,7 +21,7 @@
     <tc-webtag:forumLink forumID="506075" message="discuss this"/>&#160;|&#160;
     <A href="/tc?&module=SurveyList">archive</A>
 </td></tr>
---%>
+
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>08.28.06<br>2:05 PM</td>
@@ -226,26 +226,6 @@ participants successfully solved the 250 problem, the other two problems appeare
     <A href="http://studio.topcoder.com/">details</A>&#160;|&#160;
     <A href="http://studio.topcoder.com/forums">discuss this</A>&#160;|&#160;
     <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-</td></tr>
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>08.12.06<br>11:40 AM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm315">SRM 315 -
-                Problem Set & Analysis</A></span><br><br>
-                In <b>Division 1</b> Slovaks did well as <tc-webtag:handle coderId="8357090" context="algorithm"/>
-                breezed through the problems, finishing the whole set in 22 minutes and winning the SRM with a
-                comfortable 80 points lead.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/Cosmin.ro_big.jpg" alt="" width="55" height="61"/><br>by
-                <tc-webtag:handle coderId="303185" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=match_editorials&d2=srm315">full story</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="505990" message="discuss this"/>&#160;|&#160;
-    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
 
 
