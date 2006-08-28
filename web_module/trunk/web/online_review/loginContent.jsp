@@ -38,7 +38,8 @@
                 <tr valign="top">
                     <td class="bodyText" width="100%">
                         <p><strong>Forgot your password?</strong><br/>
-                        If you cannot remember your password <a href="http://www.topcoder.com/tc?&module=PasswordEmail">click here</a> and we can send it to you via email.</p>
+                        If you cannot remember your password <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" class="bodyText">click here</A>
+                        and we can help you restore your account.</p>
 
                         <p><strong>New to TopCoder?</strong><br/>
                         <a href="https://www.topcoder.com/Registration">Register now.</a> After you complete the registration process, we will send your account activation code via email.</p>

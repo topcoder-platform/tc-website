@@ -1,32 +1,33 @@
-<%@ page contentType="text/html; charset=ISO-8859-1"
+<%@ page contentType="text/html; charset=utf-8"
          import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.tc.controller.request.authentication.Login,
+                 com.topcoder.web.tc.controller.request.authentication.FindUser,                 
                  com.topcoder.web.tc.Constants" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<link type="text/css" rel="stylesheet" href="/css/tcStyles.css">
+<link type="text/css" rel="stylesheet" href="/css/tcReg.css">
 
 <html>
 <head>
-<title>TopCoder</title>
+<title>Password Recovery</title>
+
+<SCRIPT type="text/javascript">
+function send() {
+	if (!document.frm.<%= FindUser.HAS_MAIL_ACCESS %>[0].checked
+	  && !document.frm.<%= FindUser.HAS_MAIL_ACCESS %>[1].checked) {
+		alert("Please reply whether you have access or not to your email account.");
+		return;
+	}
+	document.frm.submit();
+}
+</SCRIPT>
+
 
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
 <jsp:param name="key" value="tc_reg"/>
 </jsp:include>
-
-<SCRIPT type="text/javascript">
-function submitEnter(e) {
-    var keycode;
-    if (window.event) keycode = window.event.keyCode;
-    else if (e) keycode = e.which;
-    else return true;
-    if (keycode == 13) {
-     document.frmPass.submit();
-     return false;
-    } else return true;
-  }
-</SCRIPT>
-
 </head>
 
 <body>
@@ -36,66 +37,66 @@ function submitEnter(e) {
 <div align="center">
    <div style="padding: 0px 10px 10px 10px; width: 600px; text-align: left;">
 
-     <jsp:include page="/page_title.jsp">
-         <jsp:param name="image" value="registration_w"/>
-         <jsp:param name="title" value="&#160;"/>
-     </jsp:include>
+<table cellspacing="0" cellpadding="0" class="pageTitleTable">
+    <tr>
+        <td width="100%" class="pageTitle"><img border="0" src="/i/header_registration_w.gif" alt="registration_w"/></td>
+        <td align=right class="pageSubtitle">&#160;&#160;</td>
+    </tr>
+</table>
+<strong>Password Recovery</strong><br>
+Have you forgotten your password? No longer have access to the email account you used when you registered? 
+Enter your information below, and we will help you get TopCoding again!
+<br><br>
 
-   <strong>Forgot your password?</strong><br>
-   Have you forgotten your password?  Enter the information below. This must be the <strong>same information</strong> you used when you registered. We will immediately email your password to you.
-   <br><br>
-
-<form method="post" name="frmPass" action="/tc">
-<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="PasswordEmail"/>
-
+<form method="post" name="frm" action="/tc">
+<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="FindUser"/>
 <div align="center">
 <table cellpadding="0" cellspacing="0" border="0" class="regFields">
    <tr>
-      <td colspan="2"><span class="bigRed">
-         <tc-webtag:errorIterator id="err" name="<%=Constants.FIRST_NAME%>"><%=err%></tc-webtag:errorIterator></span>
-      </td>
+      <td class="value" colspan="2">Do you still have access to the email account used when registering?</td>
    </tr>
    <tr>
-      <td class="name">
-         First Name:
-      </td>
+      <td class="value">&#160;</td>
       <td class="value">
-         <tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/>
-      </td>
+		<input type="radio" value="true" name="<%= FindUser.HAS_MAIL_ACCESS %>" <%= "true".equals(request.getAttribute(FindUser.HAS_MAIL_ACCESS))? "checked" : "" %> >Yes</input>
+		<input type="radio" value="false" name="<%= FindUser.HAS_MAIL_ACCESS %>" <%= "false".equals(request.getAttribute(FindUser.HAS_MAIL_ACCESS))? "checked" : "" %> >No</input>
+	  </td>
+	</tr>
+   <tr>
+      <td class="value" colspan="2"><br>If you remember your handle, please enter it:</td>
+   </tr>
+   <tc-webtag:errorIterator id="err" name="<%= FindUser.ERROR_HANDLE %>">
+   <tr>
+      <td colspan="2"><span class="bigRed"><%=err%></span></td>
+   </tr>
+   </tc-webtag:errorIterator>
+   <tr>
+      <td class="name">Handle:</td>
+      <td class="value"><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/></td>
    </tr>
    <tr>
-      <td colspan="2"><span class="bigRed">
-         <tc-webtag:errorIterator id="err" name="<%=Constants.LAST_NAME%>"><%=err%></tc-webtag:errorIterator></span>
-      </td>
+      <td class="value" colspan="2"><br>If you don't remember your handle, please enter as much <br>information as posible in order to indentify you:</td>
+   </tr>
+   <tc-webtag:errorIterator id="err" name="<%= FindUser.ERROR_INFO %>">
+   <tr>
+      <td colspan="2"><span class="bigRed"><%=err%></span></td>
+   </tr>
+   </tc-webtag:errorIterator>
+   <tr>
+      <td class="name">First Name:</td>
+      <td class="value"><tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/></td>
    </tr>
    <tr>
-      <td class="name">
-         Last Name:
-      </td>
-      <td class="value">
-         <tc-webtag:textInput name="<%=Constants.LAST_NAME%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/>
-      </td>
+      <td class="name">Last Name:</td>
+      <td class="value"><tc-webtag:textInput name="<%=Constants.LAST_NAME%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/></td>
    </tr>
    <tr>
-      <td colspan="2"><span class="bigRed">
-         <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%></tc-webtag:errorIterator></span>
-      </td>
+      <td class="name">Email Address:</td>
+      <td class="value"><tc-webtag:textInput name="<%=Constants.EMAIL%>" size="30" maxlength="100" onKeyPress="submitEnter(event)"/></td>
    </tr>
    <tr>
-      <td class="name">
-         Email Address:
-      </td>
-      <td class="value">
-         <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="30" maxlength="100" onKeyPress="submitEnter(event)"/>
-      </td>
-   </tr>
-   <tr>
-      <td class="value">
-         &#160;
-      </td>
-      <td class="value">
-         <a href="JavaScript:document.frmPass.submit()" class="bodyText">Submit</a>
-      </td>
+      <td class="value">&#160;</td>
+      <td class="value"><a href="JavaScript:send()" class="bodyText">Submit</a></td>
    </tr>
 </table>
 </form>

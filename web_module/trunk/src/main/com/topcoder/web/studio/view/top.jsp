@@ -51,7 +51,7 @@
                                         <td colspan="3">
                                             <span class="small">
                                             <input type="checkbox" id="remember" name="<%=Login.REMEMBER_USER%>"/>Remember me
-                                            &nbsp;&nbsp;&nbsp;<A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=PasswordEmail">Forgot
+                                            &nbsp;&nbsp;&nbsp;<A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword">Forgot
                                                 your password?</A>
                                             </span>
                                         </td>
