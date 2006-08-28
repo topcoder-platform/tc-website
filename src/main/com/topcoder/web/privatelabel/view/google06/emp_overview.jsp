@@ -135,10 +135,6 @@
          </table>
 
          <br><br>
-         <span class="subTitle">What can you win?</span>
-         <br><br>
-         The top 3 scorers in the Championship Round will receive a Google jacket.
-         <br><br>
          To find out more detailed information about the Google&#153; Code Jam 2006 Employee Competition, please read the
          <a href="/pl/?&module=Static&d1=google06&d2=emp_rules">Terms and Conditions</a>.
          <br><br>
