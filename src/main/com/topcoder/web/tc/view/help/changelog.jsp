@@ -46,6 +46,8 @@
     <ul>
         <li>Add resume download to registration process</li>
         <li>Refresh the cached value for registrants after someone registers for the tccc06 algo tournaments</li>
+        <li>Change the text of the GCJ06 activation email to more correctly identify the appropriate JRE to have
+            installed</li>
     </ul>
 </p>
 
