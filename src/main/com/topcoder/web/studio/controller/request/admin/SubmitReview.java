@@ -78,10 +78,9 @@ public class SubmitReview extends Base {
             //sending email to be in the transaction
             beginCommunication();
 
-            User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
-
-            if (!"".equals(response) && u.getPrimaryEmailAddress().getStatusId().equals(Email.STATUS_ID_ACTIVE)) {
-                sendEmail(u, response, s.getOriginalFileName(), rs, reviewer);
+            if (!"".equals(response) && s.getSubmitter().getPrimaryEmailAddress().getStatusId().equals(Email.STATUS_ID_ACTIVE))
+            {
+                sendEmail(s.getSubmitter(), response, s.getOriginalFileName(), rs, reviewer);
             }
 
             StringBuffer buf = new StringBuffer(50);
