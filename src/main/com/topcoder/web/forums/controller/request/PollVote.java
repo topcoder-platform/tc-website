@@ -6,14 +6,14 @@ package com.topcoder.web.forums.controller.request;
 import com.jivesoftware.base.Log;
 import com.jivesoftware.base.PollManager;
 import com.jivesoftware.base.Poll;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.ejb.forumpoll.ForumPoll;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
-import java.util.Iterator;
 
 import javax.naming.InitialContext;
 
@@ -25,7 +25,10 @@ import javax.naming.InitialContext;
 public class PollVote extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
-
+		if (isGuest()) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        }
+		
 		long pollID = Long.parseLong(getRequest().getParameter(ForumConstants.POLL_ID));
 		
 		PollManager pollManager = forumFactory.getPollManager();
