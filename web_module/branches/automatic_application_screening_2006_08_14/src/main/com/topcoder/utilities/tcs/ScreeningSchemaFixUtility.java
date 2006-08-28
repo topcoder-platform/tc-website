@@ -47,7 +47,7 @@ public class ScreeningSchemaFixUtility extends DBUtility{
             query.append(" where sro.submission_v_id = s.submission_v_id and p.project_id = s.project_id ");
             query.append(" and p.cur_version = 1 and cv.comp_vers_id = p.comp_vers_id ");
             query.append(" and cv.component_id = cc.component_id ");
-            query.append(" and sro.submission_v_id > 25200 ");
+            //query.append(" and sro.submission_v_id > 25200 ");
             query.append(" order by sro.submission_v_id asc ");
             psSelOldScreeningResults = prepareStatement("tcs_catalog", query.toString());
 
