@@ -163,7 +163,7 @@ public abstract class BaseSubmitTravelInfo extends Base {
             agentMail.setSubject("TopCoder Travel Info Response - " + getUser().getUserName());
 
             agentMail.setBody(travelAgentEmail.toString());
-            String[] agentRecipients = getRecipients();
+            String[] agentRecipients = getTravelAgentRecipients();
             for (int i = 0; i < agentRecipients.length; i++) {
                 agentMail.addToAddress(agentRecipients[i], TCSEmailMessage.TO);
             }
