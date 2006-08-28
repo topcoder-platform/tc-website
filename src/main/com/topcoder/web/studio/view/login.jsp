@@ -57,12 +57,10 @@
 
                 <div align="center">
                     <div align="left" style="width:500px;">
-                        <strong>Forgot your password?</strong>
-                        If you cannot remember your password
-                        <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=PasswordEmail" class="bodyText">click
-                            here</A> and we can
-                        send it
-                        to you via email.
+                        <p><b>Forgot your password?</b><br/>
+                        If you cannot remember your password <A href="/tc?module=RecoverPassword" class="bodyText">click here</A>
+                        and we can help you restore your account.</p>
+
                         <br><br>
                         <strong>New to TopCoder Studio?</strong><br>
                         <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register now</A>. After you complete

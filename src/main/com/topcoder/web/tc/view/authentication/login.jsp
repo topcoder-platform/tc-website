@@ -70,9 +70,8 @@
                         <img src="/i/clear.gif" alt="" width="380" height="1" border="0"/><br/>
 
                         <p><b>Forgot your password?</b><br/>
-                            If you cannot remember your password <A href="/tc?module=PasswordEmail" class="bodyText">click
-                            here</A>
-                            and we can send it to you via email.</p>
+                        If you cannot remember your password <A href="/tc?module=RecoverPassword" class="bodyText">click here</A>
+                        and we can help you restore your account.</p>
 
                         <p><b>New to TopCoder?</b><br/>
                             <A class="bodyText" href="https://<jsp:getProperty name="sessionInfo" property="serverName"/>/reg/">Register
