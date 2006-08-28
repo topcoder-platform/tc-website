@@ -119,8 +119,8 @@ All submissions are required to be submitted by the end of Competition Phase. Th
 </div>
 <br><br>
 <div class="sectionHeader">Registration</div>
-<%-- Registration is closed. --%>
-
+ Registration is closed. 
+<%--
 To sign up as a Team Captain or a Free Agent, send an email to <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Warehouse Management Phase 1 Warehouse Functions">AssemblyCompetitions@topcoder.com</A>.  In the email, include the following information:
 <ul>
 <li>Handle</li>
@@ -133,7 +133,7 @@ To sign up as a Team Captain or a Free Agent, send an email to <A href="mailto:A
    <li>Note that for the Warehouse Management Phase 1 Warehouse Functions competition, all team members, including the Team Captain, will receive an equal percentage of the prize money.</li>
    </ul>
 </ul>
-
+--%>
 <br><br>
 <div class="sectionHeader">Submission</div>
 Once your team has working code you are ready to submit, you can do so by emailing your source code to <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Submission: Warehouse Management Phase 1 Warehouse Functions">AssemblySubmissions@topcoder.com</A> before the end of the Competition Phase.  Your team can submit code as many times as you wish before the submission deadline without any penalties.  The last code submitted prior to the deadline will be used as your final submission.
