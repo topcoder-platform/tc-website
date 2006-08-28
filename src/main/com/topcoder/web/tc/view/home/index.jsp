@@ -70,6 +70,7 @@
 </map>
 <IMG SRC="/i/home/tccc_studio_20060822.png" border="0" alt="TCCC & TopCoder Studio" usemap="#tccc_studio"/>
 --%>
+<%--
 <map name="tccc_studio">
 <area shape="rect" alt="" coords="30,1,220,120" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
 <area shape="rect" alt="" coords="35,123,210,137" href="/tc?module=TCCC06ViewAlgoReg" />
@@ -77,6 +78,14 @@
 <area shape="rect" alt="" coords="285,113,467,143" href="http://studio.topcoder.com/?module=ViewActiveContests" />
 </map>
 <IMG SRC="/i/home/tccc_studio_20060828.png" border="0" alt="TCCC & TopCoder Studio" usemap="#tccc_studio"/>
+--%>
+<map name="tccc_dr">
+<area shape="rect" alt="" coords="30,1,220,120" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
+<area shape="rect" alt="" coords="35,123,210,137" href="/tc?module=TCCC06ViewAlgoReg" />
+<area shape="rect" alt="" coords="258,30,498,80" href="/tc?module=Static&d1=digital_run&d2=description" />
+<area shape="rect" alt="" coords="300,82,445,113" href="/tc?module=Static&d1=digital_run&d2=2006_stage1_winners" />
+</map>
+<IMG SRC="/i/home/tccc_dig_run_20060828.gif" border="0" alt="TCCC Algorithm Registration Open, the Digital Run Stage 1 Winners" usemap="#tccc_dr"/>
 
         </td>
         <td width="50%" class="homeLogo" align="right">&#160;</td>
@@ -107,8 +116,9 @@
             <%-- INTEL MTCS
             <A href="/longcontest/?module=Static&d1=intel_overview"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0" style="display:block;"/></A>
             --%>
-            <%-- DIGITAL RUN --%>
+            <%-- DIGITAL RUN 
             <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/dig_run_20060815.png" alt="The Digital Run" border="0" style="display:block;"/></A>
+            --%>
             <%-- bloomberg 
             <map name="bbg_srm">
             <area shape="rect" alt="" coords="88,2,265,92" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg" />
@@ -117,6 +127,14 @@
             </map>
             <img src="/i/home/bloomberg_srm317.gif" alt="Bloomberg TCCC Sponsor of SRM 317" border="0" style="display:block;" usemap="#bbg_srm"/>
             --%>
+            <%-- NSA --%>
+            <map name="nsa_srm">
+            <area shape="rect" alt="" coords="88,2,265,92" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa" />
+            <area shape="rect" alt="" coords="12,10,80,84" href="/tc?module=MatchDetails&rd=9998" />
+            <area shape="rect" alt="" coords="0,93,269,138" href="/tc?module=MatchDetails&rd=9998" />
+            </map>
+            <img src="/i/home/nsa_srm318.gif" alt="NSA TCCC Sponsor of SRM 318" border="0" style="display:block;" usemap="#nsa_srm"/>
+            
 
         </td></tr>
     </table>
