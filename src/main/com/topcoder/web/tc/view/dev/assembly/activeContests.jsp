@@ -54,10 +54,10 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_warehouseMgmtFunctions">Warehouse Management Phase 1 Warehouse Functions</A>
       </td>
       <td class="valueC">
-      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Warehouse Management Phase 1 Warehouse Functions">register</A>
       <%--
-      registration closed
+      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Warehouse Management Phase 1 Warehouse Functions">register</A>
       --%>
+      registration closed
       </td>
       <td class="valueC">
       &#160;
