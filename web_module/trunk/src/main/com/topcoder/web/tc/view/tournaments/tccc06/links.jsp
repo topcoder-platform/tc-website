@@ -21,47 +21,30 @@
 <!-- LEVEL 1 TABS -->
 <% if (tabLev1.equals("overview")) {%>
 <tr>
-    <td width="50%">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tccc06_logo_aol.gif" border="0"/></A>
-    </td>
+    <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tccc06_logo_aol.gif" border="0"/></A></td>
     <%--<td valign="middle" align="center"><img src="/i/tournament/tccc06/headline_onsite.gif" border="0" alt="" usemap="#headline" /></td>--%>
-    <td valign="top" align="right" width="50%"><a href="/"><img src="/i/tournament/tccc06/tc_logo.gif" border="0"/></a>
-    </td>
+    <td valign="top" align="right" width="50%"><a href="/"><img src="/i/tournament/tccc06/tc_logo.gif" border="0"/></a></td>
 </tr>
-<tr><td class="topNavBox" colspan="3">
-    <img src="/i/tournament/tccc06/tabs/L1_overviewOn.gif" alt="" border="0" usemap="#L1_tabs"/></td></tr>
+<tr><td class="topNavBox" colspan="3"><img src="/i/tournament/tccc06/tabs/L1_overviewOn.gif" alt="" border="0" usemap="#L1_tabs"/></td></tr>
 <% } else if (tabLev1.equals("algorithm")) { %>
 <tr>
-    <td width="50%">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tccc06_logo_aol.gif" border="0"/></A>
-    </td>
+    <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tccc06_logo_aol.gif" border="0"/></A></td>
     <td valign="middle" align="center"><A href="/tc?module=TCCC06ViewAlgoReg"><img src="/i/tournament/tccc06/bnr_register_now.gif" border="0" alt="" /></A></td>
-    <td valign="top" align="right" width="50%"><a href="/"><img src="/i/tournament/tccc06/tc_logo.gif" border="0"/></a>
-    </td>
+    <td valign="top" align="right" width="50%"><a href="/"><img src="/i/tournament/tccc06/tc_logo.gif" border="0"/></a></td>
 </tr>
-<tr><td class="topNavBox" colspan="3">
-    <img src="/i/tournament/tccc06/tabs/L1_algOn.gif" alt="" border="0" usemap="#L1_tabs"/></td></tr>
+<tr><td class="topNavBox" colspan="3"><img src="/i/tournament/tccc06/tabs/L1_algOn.gif" alt="" border="0" usemap="#L1_tabs"/></td></tr>
 <% } else if (tabLev1.equals("component")) { %>
 <tr>
-    <td width="50%">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tccc06_logo_aol.gif" border="0"/></A>
-    </td>
-    <td valign="middle" align="center">
-        <A href="/tc?module=TCCC06ComponentTerms"><img src="/i/tournament/tccc06/bnr_register_now.gif" border="0" alt=""/></A>
-    </td>
-    <td valign="top" align="right" width="50%"><a href="/"><img src="/i/tournament/tccc06/tc_logo.gif" border="0"/></a>
-    </td>
+    <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tccc06_logo_aol.gif" border="0"/></A></td>
+    <td valign="middle" align="center"><A href="/tc?module=TCCC06ComponentTerms"><img src="/i/tournament/tccc06/bnr_register_now.gif" border="0" alt=""/></A></td>
+    <td valign="top" align="right" width="50%"><a href="/"><img src="/i/tournament/tccc06/tc_logo.gif" border="0"/></a></td>
 </tr>
-<tr><td class="topNavBox" colspan="3">
-    <img src="/i/tournament/tccc06/tabs/L1_compOn.gif" alt="" border="0" usemap="#L1_tabs"/></td></tr>
+<tr><td class="topNavBox" colspan="3"><img src="/i/tournament/tccc06/tabs/L1_compOn.gif" alt="" border="0" usemap="#L1_tabs"/></td></tr>
 <% } else if (tabLev1.equals("ccip")) { %>
 <tr>
-    <td width="50%">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tccc06_logo_aol.gif" border="0"/></A>
-    </td>
+    <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tccc06_logo_aol.gif" border="0"/></A></td>
     <%--<td valign="middle" align="center"><img src="/i/tournament/tccc06/headline_onsite.gif" border="0" alt="" usemap="#headline" /></td>--%>
-    <td valign="top" align="right" width="50%"><a href="/"><img src="/i/tournament/tccc06/tc_logo.gif" border="0"/></a>
-    </td>
+    <td valign="top" align="right" width="50%"><a href="/"><img src="/i/tournament/tccc06/tc_logo.gif" border="0"/></a></td>
 </tr>
 <%--<tr><td class="topNavBox" colspan="3"><img src="/i/tournament/tccc06/tabs/L1_ccipOn.gif" alt="" border="0" usemap="#L1_tabs"/></td></tr>--%>
 <% } %>
@@ -76,22 +59,14 @@
 
 <% if (tabLev1.equals("overview")) { %>
 <% if (tabLev2.equals("details")) {%>
-<td class="nav">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tabs/L2_detailsOn.gif" alt="" border="0"/></A>
-</td>
+<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tabs/L2_detailsOn.gif" alt="" border="0"/></A></td>
 <% } else { %>
-<td class="nav">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tabs/L2_detailsOff.gif" alt="" border="0"/></A>
-</td>
+<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tabs/L2_detailsOff.gif" alt="" border="0"/></A></td>
 <% } %>
 <% if (tabLev2.equals("join_us")) {%>
-<td class="nav">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=onsite_schedule"><img src="/i/tournament/tccc06/tabs/L2_joinusOn.gif" alt="" border="0"/></A>
-</td>
+<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=onsite_schedule"><img src="/i/tournament/tccc06/tabs/L2_joinusOn.gif" alt="" border="0"/></A></td>
 <% } else { %>
-<td class="nav">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=onsite_schedule"><img src="/i/tournament/tccc06/tabs/L2_joinusOff.gif" alt="" border="0"/></A>
-</td>
+<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=onsite_schedule"><img src="/i/tournament/tccc06/tabs/L2_joinusOff.gif" alt="" border="0"/></A></td>
 <% } %>
 <%--
 <% if (tabLev2.equals("onsite_events")) {%>
@@ -103,41 +78,25 @@
 <%--
 --%>
 <% if (tabLev2.equals("student_reps")) {%>
-<td class="nav">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps"><img src="/i/tournament/tccc06/tabs/L2_studentRepsOn.gif" alt="" border="0"/></A>
-</td>
+<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps"><img src="/i/tournament/tccc06/tabs/L2_studentRepsOn.gif" alt="" border="0"/></A></td>
 <% } else { %>
-<td class="nav">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps"><img src="/i/tournament/tccc06/tabs/L2_studentRepsOff.gif" alt="" border="0"/></A>
-</td>
+<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps"><img src="/i/tournament/tccc06/tabs/L2_studentRepsOff.gif" alt="" border="0"/></A></td>
 <% } %>
 <% if (tabLev2.equals("sponsors")) {%>
-<td class="nav">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol"><img src="/i/tournament/tccc06/tabs/L2_sponsorsOn.gif" alt="" border="0"/></A>
-</td>
+<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol"><img src="/i/tournament/tccc06/tabs/L2_sponsorsOn.gif" alt="" border="0"/></A></td>
 <% } else { %>
-<td class="nav">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol"><img src="/i/tournament/tccc06/tabs/L2_sponsorsOff.gif" alt="" border="0"/></A>
-</td>
+<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol"><img src="/i/tournament/tccc06/tabs/L2_sponsorsOff.gif" alt="" border="0"/></A></td>
 <% } %>
 <% if (tabLev2.equals("eventPatrons")) {%>
-<td class="nav">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa"><img src="/i/tournament/tccc06/tabs/L2_eventpatronsOn.gif" alt="" border="0"/></A>
-</td>
+<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa"><img src="/i/tournament/tccc06/tabs/L2_eventpatronsOn.gif" alt="" border="0"/></A></td>
 <% } else { %>
-<td class="nav">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa"><img src="/i/tournament/tccc06/tabs/L2_eventpatronsOff.gif" alt="" border="0"/></A>
-</td>
+<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa"><img src="/i/tournament/tccc06/tabs/L2_eventpatronsOff.gif" alt="" border="0"/></A></td>
 <% } %>
 <% } else if (tabLev1.equals("algorithm")) { %>
 <% if (tabLev2.equals("details")) {%>
-<td class="nav">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_description"><img src="/i/tournament/tccc06/tabs/L2_detailsOn.gif" alt="" border="0"/></A>
-</td>
+<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_description"><img src="/i/tournament/tccc06/tabs/L2_detailsOn.gif" alt="" border="0"/></A></td>
 <% } else { %>
-<td class="nav">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_description"><img src="/i/tournament/tccc06/tabs/L2_detailsOff.gif" alt="" border="0"/></A>
-</td>
+<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_description"><img src="/i/tournament/tccc06/tabs/L2_detailsOff.gif" alt="" border="0"/></A></td>
 <% } %>
 
 <% if (tabLev2.equals("registrants")) {%>
@@ -159,21 +118,17 @@
 --%>
 <% } else if (tabLev1.equals("component")) { %>
 <% if (tabLev2.equals("details")) {%>
-<td class="nav">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_description"><img src="/i/tournament/tccc06/tabs/L2_detailsOn.gif" alt="" border="0"/></A>
-</td>
+<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_description"><img src="/i/tournament/tccc06/tabs/L2_detailsOn.gif" alt="" border="0"/></A></td>
 <% } else { %>
-<td class="nav">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_description"><img src="/i/tournament/tccc06/tabs/L2_detailsOff.gif" alt="" border="0"/></A>
-</td>
+<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_description"><img src="/i/tournament/tccc06/tabs/L2_detailsOff.gif" alt="" border="0"/></A></td>
 <% } %>
-<%--
-            <% if (tabLev2.equals("registrants")) {%>
-               <td class="nav"><A href="/tc?module=TCCC06CompRegistrants"><img src="/i/tournament/tccc06/tabs/L2_registrantsOn.gif" alt="" border="0" /></A></td>
-            <% } else { %>
-               <td class="nav"><A href="/tc?module=TCCC06CompRegistrants"><img src="/i/tournament/tccc06/tabs/L2_registrantsOff.gif" alt="" border="0" /></A></td>
-            <% } %>
---%>
+
+<% if (tabLev2.equals("registrants")) {%>
+<td class="nav"><A href="/tc?module=TCCC06CompRegistrants"><img src="/i/tournament/tccc06/tabs/L2_registrantsOn.gif" alt="" border="0" /></A></td>
+<% } else { %>
+<td class="nav"><A href="/tc?module=TCCC06CompRegistrants"><img src="/i/tournament/tccc06/tabs/L2_registrantsOff.gif" alt="" border="0" /></A></td>
+<% } %>
+
 <%--
 <% if (tabLev2.equals("design")) {%>
    <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_bracket"><img src="/i/tournament/tccc06/tabs/L2_designOn.gif" alt="" border="0" /></A></td>
@@ -215,22 +170,14 @@
                 <td class="subNavBG">&#160;&#160;&#160;</td>
                 <% if (tabLev1.equals("overview")) { %>
                 <% if (tabLev2.equals("join_us")) {%>
-                <td class="subnav">
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=onsite_schedule"><% if (tabLev3.equals("schedule")) {%><img src="/i/tournament/tccc06/tabs/L3_scheduleOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_scheduleOff.gif" border="0"/><% } %>
-                    </a></td>
+                <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=onsite_schedule"><% if (tabLev3.equals("schedule")) {%><img src="/i/tournament/tccc06/tabs/L3_scheduleOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_scheduleOff.gif" border="0"/><% } %></a></td>
                 <%--
                 <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=dev_forums"><% if (tabLev3.equals("dev_forums")) {%><img src="/i/tournament/tccc06/tabs/L3_devforumsOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_devforumsOff.gif" border="0" /><% } %></a></td>
                 <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=pickme_contest"><% if (tabLev3.equals("pickme")) {%><img src="/i/tournament/tccc06/tabs/L3_pickmeOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_pickmeOff.gif" border="0" /><% } %></a></td>
                 --%>
-                <td class="subnav">
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=transportation"><% if (tabLev3.equals("transportation")) {%><img src="/i/tournament/tccc06/tabs/L3_transportationOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_transportationOff.gif" border="0"/><% } %>
-                    </a></td>
-                <td class="subnav">
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=hotels"><% if (tabLev3.equals("hotels")) {%><img src="/i/tournament/tccc06/tabs/L3_hotelsOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_hotelsOff.gif" border="0"/><% } %>
-                    </a></td>
-                <td class="subnav">
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=what_to_do"><% if (tabLev3.equals("to_do")) {%><img src="/i/tournament/tccc06/tabs/L3_whatToDoOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_whatToDoOff.gif" border="0"/><% } %>
-                    </a></td>
+                <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=transportation"><% if (tabLev3.equals("transportation")) {%><img src="/i/tournament/tccc06/tabs/L3_transportationOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_transportationOff.gif" border="0"/><% } %></a></td>
+                <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=hotels"><% if (tabLev3.equals("hotels")) {%><img src="/i/tournament/tccc06/tabs/L3_hotelsOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_hotelsOff.gif" border="0"/><% } %></a></td>
+                <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=what_to_do"><% if (tabLev3.equals("to_do")) {%><img src="/i/tournament/tccc06/tabs/L3_whatToDoOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_whatToDoOff.gif" border="0"/><% } %></a></td>
                 <%--
                 <% } else if (tabLev2.equals("onsite_events")) {%>
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=photos"><% if (tabLev3.equals("photos")) {%><img src="/i/tournament/tccc06/tabs/L3_photosOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_photosOff.gif" border="0" /><% } %></a></td>
@@ -238,41 +185,23 @@
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogger_winners"><% if (tabLev3.equals("blogs")) {%><img src="/i/tournament/tccc06/tabs/L3_blogsOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_blogsOff.gif" border="0" /><% } %></a></td>
                 --%>
                 <% } else if (tabLev2.equals("student_reps")) {%>
-                <td class="subnav">
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps"><% if (tabLev3.equals("details")) {%><img src="/i/tournament/tccc06/tabs/L3_detailsOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_detailsOff.gif" border="0"/><% } %>
-                    </a></td>
-                <td class="subnav">
-                    <a href="/tc?module=TCCC06StudentReps"><% if (tabLev3.equals("results")) {%><img src="/i/tournament/tccc06/tabs/L3_resultsOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_resultsOff.gif" border="0"/><% } %>
-                    </a></td>
+                <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps"><% if (tabLev3.equals("details")) {%><img src="/i/tournament/tccc06/tabs/L3_detailsOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_detailsOff.gif" border="0"/><% } %></a></td>
+                <td class="subnav"><a href="/tc?module=TCCC06StudentReps"><% if (tabLev3.equals("results")) {%><img src="/i/tournament/tccc06/tabs/L3_resultsOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_resultsOff.gif" border="0"/><% } %></a></td>
                 <% } else if (tabLev2.equals("sponsors")) {%>
-                <td class="subnav">
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol"><% if (tabLev3.equals("aol")) {%><img src="/i/tournament/tccc06/tabs/L3_aolOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_aolOff.gif" border="0"/><% } %>
-                    </a></td>
-                <td class="subnav">
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg"><% if (tabLev3.equals("bloomberg")) {%><img src="/i/tournament/tccc06/tabs/L3_bloombergOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_bloombergOff.gif" border="0"/><% } %>
-                    </a></td>
-                <td class="subnav">
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=ubs"><% if (tabLev3.equals("ubs")) {%><img src="/i/tournament/tccc06/tabs/L3_ubsOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_ubsOff.gif" border="0"/><% } %>
-                    </a></td>
+                <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol"><% if (tabLev3.equals("aol")) {%><img src="/i/tournament/tccc06/tabs/L3_aolOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_aolOff.gif" border="0"/><% } %></a></td>
+                <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg"><% if (tabLev3.equals("bloomberg")) {%><img src="/i/tournament/tccc06/tabs/L3_bloombergOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_bloombergOff.gif" border="0"/><% } %></a></td>
+                <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=ubs"><% if (tabLev3.equals("ubs")) {%><img src="/i/tournament/tccc06/tabs/L3_ubsOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_ubsOff.gif" border="0"/><% } %></a></td>
                 <% } else if (tabLev2.equals("eventPatrons")) {%>
-                <td class="subnav">
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa"><% if (tabLev3.equals("nsa")) {%><img src="/i/tournament/tccc06/tabs/L3_nsaOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_nsaOff.gif" border="0"/><% } %>
-                    </a></td>
+                <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa"><% if (tabLev3.equals("nsa")) {%><img src="/i/tournament/tccc06/tabs/L3_nsaOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_nsaOff.gif" border="0"/><% } %></a></td>
                 <% } else {%>
                 <td class="subNavBG"><img src="/i/clear.gif" height="35" width="1" border="0"/></td>
 
                 <% } %>
                 <% } else if (tabLev1.equals("algorithm")) { %>
                 <% if (tabLev2.equals("details")) {%>
-                <td class="subnav">
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_description"><% if (tabLev3.equals("description")) {%><img src="/i/tournament/tccc06/tabs/L3_descriptionOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_descriptionOff.gif" border="0"/><% } %>
-                    </a></td>
-                <td class="subnav">
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_schedule"><% if (tabLev3.equals("schedule")) {%><img src="/i/tournament/tccc06/tabs/L3_scheduleOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_scheduleOff.gif" border="0"/><% } %>
-                    </a></td>
-                <td class="subnav">
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_rules"><% if (tabLev3.equals("rules")) {%><img src="/i/tournament/tccc06/tabs/L3_rulesOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_rulesOff.gif" border="0"/><% } %>
-                    </a></td>
+                <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_description"><% if (tabLev3.equals("description")) {%><img src="/i/tournament/tccc06/tabs/L3_descriptionOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_descriptionOff.gif" border="0"/><% } %></a></td>
+                <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_schedule"><% if (tabLev3.equals("schedule")) {%><img src="/i/tournament/tccc06/tabs/L3_scheduleOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_scheduleOff.gif" border="0"/><% } %></a></td>
+                <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_rules"><% if (tabLev3.equals("rules")) {%><img src="/i/tournament/tccc06/tabs/L3_rulesOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_rulesOff.gif" border="0"/><% } %></a></td>
                 <% } else if (tabLev2.equals("registrants")) {%>
                 <td class="subNavBG"><img src="/i/clear.gif" height="35" width="1" border="0"/></td>
 
@@ -299,15 +228,9 @@
                 <% } %>
                 <% } else if (tabLev1.equals("component")) { %>
                 <% if (tabLev2.equals("details")) {%>
-                <td class="subnav">
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_description"><% if (tabLev3.equals("description")) {%><img src="/i/tournament/tccc06/tabs/L3_descriptionOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_descriptionOff.gif" border="0"/><% } %>
-                    </a></td>
-                <td class="subnav">
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_schedule"><% if (tabLev3.equals("schedule")) {%><img src="/i/tournament/tccc06/tabs/L3_scheduleOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_scheduleOff.gif" border="0"/><% } %>
-                    </a></td>
-                <td class="subnav">
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_rules"><% if (tabLev3.equals("rules")) {%><img src="/i/tournament/tccc06/tabs/L3_rulesOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_rulesOff.gif" border="0"/><% } %>
-                    </a></td>
+                <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_description"><% if (tabLev3.equals("description")) {%><img src="/i/tournament/tccc06/tabs/L3_descriptionOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_descriptionOff.gif" border="0"/><% } %></a></td>
+                <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_schedule"><% if (tabLev3.equals("schedule")) {%><img src="/i/tournament/tccc06/tabs/L3_scheduleOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_scheduleOff.gif" border="0"/><% } %></a></td>
+                <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_rules"><% if (tabLev3.equals("rules")) {%><img src="/i/tournament/tccc06/tabs/L3_rulesOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_rulesOff.gif" border="0"/><% } %></a></td>
                 <% } else if (tabLev2.equals("registrants")) {%>
                 <td class="subNavBG"><img src="/i/clear.gif" height="35" width="1" border="0"/></td>
 
@@ -328,9 +251,7 @@
                 <% } %>
                 <% } else if (tabLev1.equals("ccip")) { %>
                 <% if (tabLev2.equals("details")) {%>
-                <td class="subnav">
-                    <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=ccip_description"><% if (tabLev3.equals("description")) {%><img src="/i/tournament/tccc06/tabs/L3_descriptionOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_descriptionOff.gif" border="0"/><% } %>
-                    </a></td>
+                <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=ccip_description"><% if (tabLev3.equals("description")) {%><img src="/i/tournament/tccc06/tabs/L3_descriptionOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_descriptionOff.gif" border="0"/><% } %></a></td>
                 <% } else {%>
                 <td class="subNavBG"><img src="/i/clear.gif" height="35" width="1" border="0"/></td>
                 <% } %>

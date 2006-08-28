@@ -61,6 +61,7 @@
     <tr>
         <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
         <td class="BIGPromoBox" align="center">
+<%--
 <map name="tccc_studio">
 <area shape="rect" alt="" coords="30,1,220,120" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
 <area shape="rect" alt="" coords="35,123,210,137" href="/tc?module=TCCC06ComponentTerms" />
@@ -68,7 +69,7 @@
 <area shape="rect" alt="" coords="285,113,467,143" href="http://studio.topcoder.com/?module=ViewActiveContests" />
 </map>
 <IMG SRC="/i/home/tccc_studio_20060822.png" border="0" alt="TCCC & TopCoder Studio" usemap="#tccc_studio"/>
-<%-- FOR MONDAY 8/28
+--%>
 <map name="tccc_studio">
 <area shape="rect" alt="" coords="30,1,220,120" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
 <area shape="rect" alt="" coords="35,123,210,137" href="/tc?module=TCCC06ViewAlgoReg" />
@@ -76,7 +77,7 @@
 <area shape="rect" alt="" coords="285,113,467,143" href="http://studio.topcoder.com/?module=ViewActiveContests" />
 </map>
 <IMG SRC="/i/home/tccc_studio_20060828.png" border="0" alt="TCCC & TopCoder Studio" usemap="#tccc_studio"/>
---%>
+
         </td>
         <td width="50%" class="homeLogo" align="right">&#160;</td>
     </tr>
@@ -106,16 +107,16 @@
             <%-- INTEL MTCS
             <A href="/longcontest/?module=Static&d1=intel_overview"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0" style="display:block;"/></A>
             --%>
-            <%-- DIGITAL RUN 
+            <%-- DIGITAL RUN --%>
             <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/dig_run_20060815.png" alt="The Digital Run" border="0" style="display:block;"/></A>
-            --%>
-            <%-- bloomberg --%>
+            <%-- bloomberg 
             <map name="bbg_srm">
             <area shape="rect" alt="" coords="88,2,265,92" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg" />
             <area shape="rect" alt="" coords="12,10,80,84" href="/tc?module=MatchDetails&rd=9997" />
             <area shape="rect" alt="" coords="17,108,63,128" href="/tc?module=MatchDetails&rd=9997" />
             </map>
             <img src="/i/home/bloomberg_srm317.gif" alt="Bloomberg TCCC Sponsor of SRM 317" border="0" style="display:block;" usemap="#bbg_srm"/>
+            --%>
 
         </td></tr>
     </table>
