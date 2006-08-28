@@ -7,18 +7,18 @@ import java.util.GregorianCalendar;
 
 /**
  * Class holding data for each password recovery event.
- * 
+ *
  * @author cucu
  *
  */
 public class PasswordRecovery extends Base {
-	
+
 	private Long id = null;
 	private User user = null;
 	private String recoveryAddress = null;
 	private Date expireDate = null;
 	private boolean used = false;
-	
+
 	public Date getExpireDate() {
 		return expireDate;
 	}
@@ -49,10 +49,10 @@ public class PasswordRecovery extends Base {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
 	/**
 	 * Return a md5 hashcode for the password_recovery row.
-	 * 
+	 *
 	 * @return a md5 hashcode for the password_recovery row.
 	 */
 	public String hash() {
@@ -63,10 +63,10 @@ public class PasswordRecovery extends Base {
 	        StringBuffer hex = new StringBuffer();
 	        for (int i = 0; i < raw.length; i++)
 	            hex.append(Integer.toHexString(raw[i] & 0xff));
-	        
+
 	        return hex.toString();
 		} catch(NoSuchAlgorithmException e) {
-			throw new IllegalArgumentException("Can't do an MD5 hash.", e);
+			throw new IllegalArgumentException("Can't do an MD5 hash." + e);
 		}
 
 	}
