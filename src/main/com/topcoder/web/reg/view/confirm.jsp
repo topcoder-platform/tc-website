@@ -314,7 +314,7 @@
             Secret Question:
         </td>
         <td class="value">
-           ${regUser.secretQuestion}
+           ${regUser.secretQuestion.question}
         </td>
     </tr>
 </c:if>
