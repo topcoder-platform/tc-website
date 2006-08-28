@@ -30,23 +30,7 @@
             Tuesday, September 5th
             <br/><br/>
             <b>Championship Round</b><br/>
-            Friday, October 27th
-        </td>
-    </tr>
-    <tr>
-        <td align="center">
-            <img src="/i/events/google2006/blue_rule.gif" alt="" border="0"/>
-        </td>
-    </tr>
-    <tr>
-        <td align="center" nowrap="nowrap">
-            <span class="insetHeader">Prizes</span>
-            <br/><br/>
-      <span class="prizes">
-      <b>The Top Three Finishers <br>
-      receive Google jackets!</b><br>
-      &#160;
-      </span>
+            Friday, October 27th<br>&#160;
         </td>
     </tr>
 </table>
