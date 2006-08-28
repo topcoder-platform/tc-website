@@ -358,4 +358,12 @@ public class User extends Base {
         return up == null ? false : String.valueOf(true).equals(up.getValue());
     }
 
+	public SecretQuestion getSecretQuestion() {
+		return secretQuestion;
+	}
+
+	public void setSecretQuestion(SecretQuestion secretQuestion) {
+		this.secretQuestion = secretQuestion;
+	}
+
 }
