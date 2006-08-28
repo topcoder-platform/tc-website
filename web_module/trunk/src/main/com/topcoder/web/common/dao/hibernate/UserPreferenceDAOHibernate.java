@@ -1,10 +1,12 @@
 package com.topcoder.web.common.dao.hibernate;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+
 import com.topcoder.web.common.dao.UserPreferenceDAO;
 import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.UserPreference;
-import org.hibernate.Query;
 
 /**
  * @author cucu
@@ -13,7 +15,14 @@ import org.hibernate.Query;
  */
 public class UserPreferenceDAOHibernate extends Base implements UserPreferenceDAO {
 
+	public UserPreferenceDAOHibernate() {
+		super();
+	}
 
+	public UserPreferenceDAOHibernate(Session session) {
+		super(session);
+	}
+	
     public UserPreference find(User user, Preference preference) {
         return (UserPreference) find(UserPreference.class, new UserPreference.Identifier(user, preference));
     }
