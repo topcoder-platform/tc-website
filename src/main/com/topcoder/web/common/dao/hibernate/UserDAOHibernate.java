@@ -1,17 +1,23 @@
 package com.topcoder.web.common.dao.hibernate;
 
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
+import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.criterion.Expression;
+import org.hibernate.criterion.Restrictions;
+
 import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.reg.Constants;
-import org.hibernate.Query;
-import org.hibernate.Session;
-
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
 
 /**
  * @author dok

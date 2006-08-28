@@ -34,6 +34,7 @@ public class User extends Base {
     private Coder coder;
     private Contact contact;
     private Set terms;
+    private SecretQuestion secretQuestion;
     /**
      * hoke: used for making changes
      */
