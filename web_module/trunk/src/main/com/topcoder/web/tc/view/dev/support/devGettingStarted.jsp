@@ -79,9 +79,12 @@ Complete all of the necessary elements to the project as specified in the Member
 
 <p><span class="bodySubtitle">Step 10 - Submit</span><br/>
 <a href="http://software.topcoder.com/review/login.jsp">Login</a> to Project Submit and Review and submit your submission.</p>
-            <p><br/></p>
+<br>
+<div align="center"><A href="/tc?module=Static&d1=dev&d2=support&d3=devPractice"><img src="/i/support/practice.gif" valign="top" border="0" alt="Ready to start practicing?" /></A></div>
+<br><br>
    </div>
 </div>
+
 
         </td>
 <!-- Center Column Ends -->
