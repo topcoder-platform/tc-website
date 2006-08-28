@@ -29,7 +29,7 @@ public class SubmitEmailActivate extends Base {
         String email = StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL));
 
         if (username.equals("") || password.equals("")) {
-            getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "You must enter a handle and a password.");
+            getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "You must enter a username and a password.");
             setNextPage(Constants.EMAIL_ACTIVATE);
             setIsNextPageInContext(true);
         } else if (invalidEmail(email)) {
@@ -46,7 +46,7 @@ public class SubmitEmailActivate extends Base {
                 }
             } catch (Exception e) {
                 log.info("login failed", e);
-                getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "Handle or password incorrect.");
+                getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "Username or password incorrect.");
                 setNextPage(Constants.EMAIL_ACTIVATE);
                 setIsNextPageInContext(true);
                 return;

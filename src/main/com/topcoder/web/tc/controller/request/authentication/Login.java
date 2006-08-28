@@ -48,7 +48,7 @@ public class Login extends Base {
 
             password = StringUtils.checkNull(password);
             if (username.equals("") || password.equals("")) {
-                getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "You must enter a handle and a password.");
+                getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "You must enter a username and a password.");
 
             } else {
                 try {
@@ -62,7 +62,7 @@ public class Login extends Base {
                                 log.debug("correct user name and password");
                             }
                         } catch (Exception e) {
-                            throw new LoginException("Handle or password incorrect.");
+                            throw new LoginException("Username or password incorrect.");
                         }
                         char status = getStatus(sub.getUserId());
                         if (log.isDebugEnabled()) {
