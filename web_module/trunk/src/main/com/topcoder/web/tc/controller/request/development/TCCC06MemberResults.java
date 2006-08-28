@@ -22,7 +22,7 @@ public class TCCC06MemberResults extends StatBase {
     }
 
     String getDataSourceName() {
-        return DBMS.DW_DATASOURCE_NAME;
+        return DBMS.TCS_DW_DATASOURCE_NAME;
     }
 
     String getPageName() {
@@ -52,7 +52,7 @@ public class TCCC06MemberResults extends StatBase {
                 dataRequest.setProperty("ct", getRequest().getParameter("ct"));
                 dataRequest.setProperty("pj", String.valueOf(rsc.getIntItem(i, "project_id")));
 
-                DataAccessInt dai = getDataAccess(DBMS.DW_DATASOURCE_NAME, true);
+                DataAccessInt dai = getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, true);
                 result = dai.getData(dataRequest);
 
             } catch (Exception e) {

@@ -56,7 +56,7 @@ public class TCCC06ContestDetails extends StatBase {
                 dataRequest.setProperty("ct", getRequest().getParameter("ct"));
                 dataRequest.setProperty("pj", String.valueOf(rsc.getIntItem(i, "project_id")));
 
-                DataAccessInt dai = getDataAccess(DBMS.DW_DATASOURCE_NAME, true);
+                DataAccessInt dai = getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, true);
                 result = dai.getData(dataRequest);
 
             } catch (Exception e) {
@@ -93,7 +93,7 @@ public class TCCC06ContestDetails extends StatBase {
             dataRequest.setContentHandle("tccc06_contest_prizes");
             dataRequest.setProperty("ct", getRequest().getParameter("ct"));
 
-            DataAccessInt dai = getDataAccess(DBMS.DW_DATASOURCE_NAME, true);
+            DataAccessInt dai = getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, true);
             result = dai.getData(dataRequest);
 
         } catch (Exception e) {
