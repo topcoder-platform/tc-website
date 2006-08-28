@@ -35,6 +35,8 @@ public class Constants implements WebConstants {
     public static final String REG_TYPES = "regTypes";
     public static final String SCHOOL_TYPE = "scht";
     public static final String SCHOOL_NAME = "schn";
+    public static final String SECRET_QUESTION = "sq";
+    public static final String SECRET_QUESTION_RESPONSE = "sqr";
 
     public static final String SCHOOL_CITY = "schc";
     public static final String SCHOOL_STATE = "schs";
@@ -73,6 +75,10 @@ public class Constants implements WebConstants {
     public static int MAX_HANDLE_LENGTH;
     public static int MIN_PASSWORD_LENGTH;
     public static int MAX_PASSWORD_LENGTH;
+    public static int MIN_SECRET_QUESTION_LENGTH;
+    public static int MAX_SECRET_QUESTION_LENGTH;
+    public static int MIN_SECRET_QUESTION_RESPONSE_LENGTH;
+    public static int MAX_SECRET_QUESTION_RESPONSE_LENGTH;
     public static int MAX_GIVEN_NAME_LENGTH;
     public static int MAX_SURNAME_LENGTH;
     public static int MAX_MIDDLE_NAME_LENGTH;

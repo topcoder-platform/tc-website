@@ -458,6 +458,40 @@
     </tr>
 </c:if>
 
+<c:set value="<%=Constants.SECRET_QUESTION%>" var="secretQuestion"/>
+<c:if test="${cf:contains(fields, secretQuestion)}">
+    <tr>
+        <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.SECRET_QUESTION%>"><%=err%><br></tc-webtag:errorIterator></span>
+        </td>
+    </tr>
+    <tr>
+        <td class="name">
+            <c:if test="${cf:contains(reqFields, secretQuestion)}">*</c:if> Secret Question:
+        </td>
+        <td class="value">
+            <tc-webtag:textInput name="<%=Constants.SECRET_QUESTION%>" size="30"  editable="true"/>
+        </td>
+    </tr>
+</c:if>
+
+<c:set value="<%=Constants.SECRET_QUESTION_RESPONSE%>" var="secretQuestionResponse"/>
+<c:if test="${cf:contains(fields, secretQuestionResponse)}">
+    <tr>
+        <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.SECRET_QUESTION_RESPONSE%>"><%=err%><br></tc-webtag:errorIterator></span>
+        </td>
+    </tr>
+    <tr>
+        <td class="name">
+            <c:if test="${cf:contains(reqFields, secretQuestionResponse)}">*</c:if> Secret Question Response:
+        </td>
+        <td class="value">
+            <tc-webtag:textInput name="<%=Constants.SECRET_QUESTION_RESPONSE%>" size="15"  editable="true"/>
+        </td>
+    </tr>
+</c:if>
+
 <c:set value="<%=Constants.QUOTE%>" var="quote"/>
 <c:if test="${cf:contains(fields, quote)}">
     <tr>
