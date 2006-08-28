@@ -103,7 +103,7 @@ public class Submit extends ResumeRegSubmit {
                 buf.append("LAUNCHING THE ARENA\n");
                 buf.append("You can launch and login to the competition arena at the appropriate time by navigating to http://").append(getSessionInfo().getServerName()).append("/codejam2006 and clicking on the Competition Arena tab.\n\n");
 
-                buf.append("You will need to have the Java 1.4.x runtime installed in order to launch the arena.\n\n");
+                buf.append("You will need to have at least Java Runtime version 1.4 installed in order to launch the arena.\n\n");
 
                 buf.append("We also suggest that you read up on the competition process by navigating to http://").append(getSessionInfo().getServerName()).append("/codejam2006 and clicking the Instructions link at the top.\n\n");
 
