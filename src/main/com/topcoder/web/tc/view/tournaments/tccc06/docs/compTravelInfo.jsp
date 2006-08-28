@@ -58,10 +58,15 @@
     for you up to a cost of $1,500. That is, if your airfare is greater than $1,500, the difference between the cost of
     the airfare and $1,500 will be deducted from your total TCCC prize money won. If your total TCCC prize money is not
     sufficient to cover the additional costs, you will be responsible for remitting to TopCoder the remainder of the
-    cost by November 30, 2006. The flight reserved by and paid for by TopCoder is for arrival on November 14, 2006 and
-    departure on November 18, 2006. Unless there are extenuating circumstances, which DO NOT include personal
+    cost by November 30, 2006. The flight reserved by and paid for by TopCoder is for arrival on Tuesday, November 14,
+    2006 and
+    departure on Saturday, November 18, 2006 (or Sunday, November 19, 2006 if ticket cost is significantly less due to a
+    Saturday night stay).
+    Unless there are extenuating circumstances, which DO NOT include personal
     holiday/vacation, flights will not be booked for dates other than those stated. Extended flights and/or hotel room
-    nights are your responsibility to coordinate.
+    nights are your responsibility to coordinate with Globe Travel direct and TopCoder will only reimburse you the cost
+    of a flight for
+    the dates stated above or $1,500 whichever is lower. Please be sure to state any requests below for Globe Travel.
 </p>
 <B><U>AIRPORT TRANSPORTATION:</U></B>
 
