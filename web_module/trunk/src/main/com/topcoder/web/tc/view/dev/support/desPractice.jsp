@@ -12,12 +12,6 @@
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 
-    <% String node = request.getParameter(WebConstants.LEFT_NAV_KEY);
-        if (node!=null&&!(node.equals("des_getting_started")||node.equals("dev_getting_started"))) {
-            node = null;
-        }
-    %>
-
 </head>
 
 <body>
@@ -31,7 +25,7 @@
 <%-- Left Column Begins--%>
         <td width="180">
             <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="node" value="<%=node==null?"":node%>"/>
+                <jsp:param name="node" value="des_getting_started"/>
             </jsp:include>
         </td>
 <%-- Left Column Ends --%>
@@ -135,28 +129,6 @@ Below is a list of components, with two more arriving soon.  Read the requiremen
       --%>
       </td>
    </tr>
-<%--
-   <tr>
-      <td>
-      <strong>Set</strong>
-      </td>
-      <td align="center">
-      <A href="/i/development/downloads/bla.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
-      </td>
-      <td align="center" style="border-right: 1px solid #999999;">
-      <A href="/i/development/downloads/bla.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
-      </td>
-      <td>
-      <strong>Bloom Filter</strong>
-      </td>
-      <td align="center">
-      <A href="/i/development/downloads/bla.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
-      </td>
-      <td align="center">
-      <A href="/i/development/downloads/bla.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
-      </td>
-   </tr>
---%>
 </tbody>
 </table>
 <br><br>
