@@ -55,7 +55,6 @@
 
          <span class="bigBluetitle">Google&#153; Code Jam 2006 Employee Competition</span>
          <br><br>
-
          Introducing the Google Code Jam 2006 Employee Competition. This competition is a chance for you to use your skills 
          to compete against your co-workers, as well as see how you stack up against top programmers from all over the world.
          <br><br><br>
@@ -77,7 +76,7 @@
          <br><br>
          The competitors with the top 50 scores from Round 1 will advance to compete in Round 2.
          <br><br>
-         The competitors with the top 25 scores from Round 2 will be invited to compete online for prizes during the Championship Round on October 27, 2006.
+         The competitors with the top 25 scores from Round 2 will be invited to compete online during the Championship Round on October 27, 2006.
          <br><br>
 
          <table width="500" class="box" align="center" style="clear:right;">
