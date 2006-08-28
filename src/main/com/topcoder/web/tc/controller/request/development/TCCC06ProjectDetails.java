@@ -21,7 +21,7 @@ public class TCCC06ProjectDetails extends StatBase {
     }
 
     String getDataSourceName() {
-        return DBMS.DW_DATASOURCE_NAME;
+        return DBMS.TCS_DW_DATASOURCE_NAME;
     }
 
     String getPageName() {
