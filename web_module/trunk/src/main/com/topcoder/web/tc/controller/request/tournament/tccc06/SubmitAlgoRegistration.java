@@ -1,5 +1,8 @@
 package com.topcoder.web.tc.controller.request.tournament.tccc06;
 
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.distCache.CacheClient;
+import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.PreferenceValueDAO;
@@ -74,6 +77,7 @@ public class SubmitAlgoRegistration extends ViewAlgoRegistration {
                     }
                     user.addTerms(DAOUtil.getFactory().getTermsOfUse().find(new Integer(getTermsId())));
                     userDAO.saveOrUpdate(user);
+                    refreshCache();
                 }
             } else {
                 addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
@@ -92,5 +96,15 @@ public class SubmitAlgoRegistration extends ViewAlgoRegistration {
         }
     }
 
+    protected void refreshCache() {
+        try {
+            CacheClient cc = CacheClientFactory.createCacheClient();
+            Request r = new Request();
+            r.setContentHandle("tccc06_alg_registrants");
+            cc.remove(r.getCacheKey());
+        } catch (Exception ignore) {
+            ignore.printStackTrace();
+        }
+    }
 
 }
