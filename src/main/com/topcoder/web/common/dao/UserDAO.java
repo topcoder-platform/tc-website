@@ -1,5 +1,7 @@
 package com.topcoder.web.common.dao;
 
+import java.util.List;
+
 import com.topcoder.web.common.model.User;
 
 
@@ -15,5 +17,7 @@ public interface UserDAO {
 
     User find(String userName, boolean ignoreCase, boolean activeRequired);
 
+    List find(String handle, String firstName, String lastName, String email);
+    
     void saveOrUpdate(User u);
 }
