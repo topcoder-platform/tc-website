@@ -14,12 +14,12 @@
 
 <SCRIPT type="text/javascript">
 function send() {
-	if (!document.frm.<%= FindUser.HAS_MAIL_ACCESS %>[0].checked
-	  && !document.frm.<%= FindUser.HAS_MAIL_ACCESS %>[1].checked) {
-		alert("Please reply whether you have access or not to your email account.");
-		return;
-	}
-	document.frm.submit();
+    if (!document.frm.<%= FindUser.HAS_MAIL_ACCESS %>[0].checked
+      && !document.frm.<%= FindUser.HAS_MAIL_ACCESS %>[1].checked) {
+        alert("Please reply whether you have access or not to your email account.");
+        return;
+    }
+    document.frm.submit();
 }
 </SCRIPT>
 
@@ -58,10 +58,10 @@ Enter your information below, and we will help you get TopCoding again!
    <tr>
       <td class="value">&#160;</td>
       <td class="value">
-		<input type="radio" value="true" name="<%= FindUser.HAS_MAIL_ACCESS %>" <%= "true".equals(request.getAttribute(FindUser.HAS_MAIL_ACCESS))? "checked" : "" %> >Yes</input>
-		<input type="radio" value="false" name="<%= FindUser.HAS_MAIL_ACCESS %>" <%= "false".equals(request.getAttribute(FindUser.HAS_MAIL_ACCESS))? "checked" : "" %> >No</input>
-	  </td>
-	</tr>
+        <input type="radio" value="true" name="<%= FindUser.HAS_MAIL_ACCESS %>" <%= "true".equals(request.getAttribute(FindUser.HAS_MAIL_ACCESS))? "checked" : "" %> >Yes</input>
+        <input type="radio" value="false" name="<%= FindUser.HAS_MAIL_ACCESS %>" <%= "false".equals(request.getAttribute(FindUser.HAS_MAIL_ACCESS))? "checked" : "" %> >No</input>
+      </td>
+    </tr>
    <tr>
       <td class="value" colspan="2"><br>If you remember your handle, please enter it:</td>
    </tr>
@@ -75,7 +75,7 @@ Enter your information below, and we will help you get TopCoding again!
       <td class="value"><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/></td>
    </tr>
    <tr>
-      <td class="value" colspan="2"><br>If you don't remember your handle, please enter as much <br>information as posible in order to indentify you:</td>
+      <td class="value" colspan="2"><br>If you don't remember your handle, please enter as much <br>information as posible in order to identify you:</td>
    </tr>
    <tc-webtag:errorIterator id="err" name="<%= FindUser.ERROR_INFO %>">
    <tr>
