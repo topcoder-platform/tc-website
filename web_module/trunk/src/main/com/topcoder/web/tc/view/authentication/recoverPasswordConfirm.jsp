@@ -24,7 +24,7 @@
             </tr>
         </table>
         <br>
-        An email has been sent to the email address on your account.
+        An email has been sent to the email address associated with your TopCoder account.
         <br>Please check your email and follow the link to reset your password.
         <br><br>
         <Span class="bigRed">You must do this in the next <%= Constants.PASSWORD_RECOVERY_EXPIRE %> minutes or your key will expire.</span>
