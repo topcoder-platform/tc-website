@@ -45,6 +45,7 @@
     5.4.8 - 2006.0x.xx
     <ul>
         <li>Add resume download to registration process</li>
+        <li>Refresh the cached value for registrants after someone registers for the tccc06 algo tournaments</li>
     </ul>
 </p>
 
