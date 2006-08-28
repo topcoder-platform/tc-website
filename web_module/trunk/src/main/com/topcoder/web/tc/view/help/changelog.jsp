@@ -68,12 +68,9 @@
         <li>Fix the password reminder email for private label events so that doesn't munge non ascii characters</li>
         <li>fix XSS hole in all login pages</li>
         <li>Allow private label event users the ability to use any character in their password</li>
-
-        <%--
-                <li>Add TCCC06 sponsor track registration</li>
-                <li>Add AOL survey to tccc06 component registration</li>
-                <li>Add AOL survey to tccc06 algorithm registration</li>
-        --%>
+        <li>Add TCCC06 sponsor track registration</li>
+        <li>Add AOL survey to tccc06 component registration</li>
+        <li>Add AOL survey to tccc06 algorithm registration</li>
     </ul>
 </p>
 
