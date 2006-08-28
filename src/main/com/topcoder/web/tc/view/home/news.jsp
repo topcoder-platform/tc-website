@@ -22,6 +22,24 @@
     <A href="/tc?&module=SurveyList">archive</A>
 </td></tr>
 --%>
+<%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>08.28.06<br>2:05 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm317">SRM 317 - Problem Set & Analysis</A></span><br><br>
+                SRM 317 started with a record number of 1,134 registrants. Also, many top ranked coders had signed in, so the table was set for a great match. 
+                But just a couple of minutes after the start of the match, some technical problems stopped the competition.
+            </td>
+            <td class="newsPhoto"><img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61"/><br>by
+                <tc-webtag:handle coderId="15231364" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=match_editorials&d2=srm317">full story</A>&#160;|&#160;
+    <tc-webtag:forumLink forumID="505992" message="discuss this"/>&#160;|&#160;
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+</td></tr>
 
 <%--------------------------------------------------------%>
 <tr>
@@ -228,22 +246,6 @@ participants successfully solved the 250 problem, the other two problems appeare
     <A href="/tc?module=Static&d1=match_editorials&d2=srm315">full story</A>&#160;|&#160;
     <tc-webtag:forumLink forumID="505990" message="discuss this"/>&#160;|&#160;
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>08.09.06<br>4:45 PM</td>
-    <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_080906">AOL SRM 315 chat session transcript</A>
-      </span><br><br>
-        AOL recently spoke with competitors in the arena just prior to SRM 315. Here's the transcript of that chat
-        session.
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_080906">view</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506075" message="discuss this"/>&#160;|&#160;
-    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
 
 
