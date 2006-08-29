@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2005 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.screening;
 
@@ -97,9 +97,7 @@ public class ScreeningTool {
      * Screen a submission with file and project type.
      *
      * @param log the logger to use.
-     * @param file the file to screen.
-     * @param type the project type of this submission.
-     * @param submissionId the submission id of the submission.
+     * @param request the request to screen.
      *
      * @return true if screening process succedeed.
      */
@@ -112,7 +110,7 @@ public class ScreeningTool {
             throw new NullPointerException("request should not be null.");
         }
 
-        File root = new File(tempFolder, String.valueOf(request.getProjectType().getName() + request.getSubmissionVId()));
+        File root = new File(tempFolder, String.valueOf(request.getProjectType().getName() + request.getArtifactId()));
         ScreeningLogger logger = new ScreeningLogger();
         logger.setRequest(request);
 
@@ -121,7 +119,7 @@ public class ScreeningTool {
             for (Iterator itr = ((List) this.rules.get(request.getProjectType())).iterator(); itr.hasNext();) {
                 ScreeningRule rule = (ScreeningRule) itr.next();
                 long start = System.currentTimeMillis();
-                boolean result = rule.screen(new File(request.getSubmissionPath()), root, logger);
+                boolean result = rule.screen(new File(request.getArtifactPath()), root, logger);
                 long end = System.currentTimeMillis();
                 log.info(rule.getClass().getName() + ": " + (result ? "pass" : "fail") + " with " + (end - start) + "ms.");
                 if (!result) {

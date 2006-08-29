@@ -1,89 +1,69 @@
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ */
+
 package com.topcoder.dde.request;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import com.topcoder.apps.review.ConfigHelper;
-import com.topcoder.apps.review.Constants;
-import com.topcoder.apps.review.EJBHelper;
 import com.topcoder.apps.review.persistence.Common;
-import com.topcoder.apps.screening.ProjectType;
+import com.topcoder.apps.screening.PermissionHelper;
 import com.topcoder.apps.screening.QueryInterface;
-import com.topcoder.apps.screening.ScreeningJob;
 import com.topcoder.apps.screening.ScreeningResponse;
 import com.topcoder.apps.screening.ScreeningTool;
-import com.topcoder.apps.screening.SpecificationScreeningRequest;
-import com.topcoder.apps.screening.application.AppSpecification;
-import com.topcoder.apps.screening.application.ApplicationSpecification;
-import com.topcoder.servlet.request.UploadedFile;
+import com.topcoder.dde.util.ConstantsInt;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.util.format.FormatMethodFactory;
-import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.BaseProcessor;
 
+/**
+ * <strong>Purpose</strong>:
+ * A processor to show the application specification screening results.
+ *
+ * @author pulky
+ * @version 1.0.0
+ */
 public class ViewUploadResults extends BaseProcessor {
 
-    private static Logger log = Logger.getLogger(ViewUploadResults.class);
-
+    /**
+     * Process the dr upload application specification request.
+     * Validates user to be an admin or have special specification submit permission and queries the DB
+     * to search for the screening results.
+     *
+     * @throws TCWebException when errors occur.
+     */
     protected void businessProcessing() throws TCWebException {
         try {
-            // TODO: change for a particular user role.
             if (getUser().isAnonymous()) {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             } else {
-
-                if (!hasParameter("spec_id")) {
-                    throw new TCWebException("parameter " + "spec_id" + " expected.");
+                if (!PermissionHelper.isAdmin(getUser())
+                        && !PermissionHelper.hasSpecificationSubmitPermission(getUser())) {
+                    throw new TCWebException("You are not authorized to view this page");
                 }
 
-                log.info("getRequest().getParameter(spec_id):" + getRequest().getParameter("spec_id"));
-
-                Connection conn = Common.getDataSource().getConnection();
-
-                QueryInterface query = ScreeningTool.createQuery();
-
-                ScreeningResponse[] responses = query.getSpecificationDetails(
-                        Long.parseLong(getRequest().getParameter("spec_id")), conn);
-
-                List warnings = new ArrayList();
-                List fatalErrors = new ArrayList();
-                List success = new ArrayList();
-                for (int i = 0; i < responses.length; ++i) {
-                    if ("Warning".equals(responses[i].getSeverity())) {
-                        warnings.add(responses[i]);
-                    } else if ("Fatal Error".equals(responses[i].getSeverity())) {
-                        fatalErrors.add(responses[i]);
-                    } else if ("Success".equals(responses[i].getSeverity())) {
-                        success.add(responses[i]);
-                    }
+                // validates request's parameters.
+                if (!hasParameter(ConstantsInt.SPECIFICATION_KEY)) {
+                    throw new TCWebException("Parameter " + ConstantsInt.SPECIFICATION_KEY + " expected.");
                 }
 
-                //ScreeningResponse[] warArr = (ScreeningResponse[]) warnings.toArray(new ScreeningResponse[warnings.size()]);
-                //ScreeningResponse[] fatArr = (ScreeningResponse[]) fatalErrors.toArray(new ScreeningResponse[fatalErrors.size()]);
+                long specId = -1;
+                try {
+                    specId = Long.parseLong(getRequest().getParameter(ConstantsInt.SPECIFICATION_KEY));
+                } catch (NumberFormatException nfe) {
+                    throw new TCWebException("Invalid " + ConstantsInt.SPECIFICATION_KEY + " value.");
+                }
 
-//                log.info("warArr.length: " + warArr.length);
-//                log.info("fatArr.length: " + fatArr.length);
+                // queries the DB for the screening results.
+                getScreeningResults(specId);
 
-                log.info("success.size(): " + success.size());
-                log.info("warnings.size(): " + warnings.size());
-                log.info("fatalErrors.size(): " + fatalErrors.size());
-
-                getRequest().setAttribute("success", success);
-                getRequest().setAttribute("warnings", warnings);
-                getRequest().setAttribute("errors", fatalErrors);
-
-                getRequest().setAttribute("spec_id", String.valueOf(
-                        StringUtils.htmlEncode(getRequest().getParameter("spec_id"))));
+                getRequest().setAttribute(ConstantsInt.SPECIFICATION_KEY, String.valueOf(
+                    StringUtils.htmlEncode(getRequest().getParameter(ConstantsInt.SPECIFICATION_KEY))));
                 setNextPage("/applications/screening_results.jsp");
                 setIsNextPageInContext(true);
             }
@@ -92,5 +72,48 @@ public class ViewUploadResults extends BaseProcessor {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+    }
+
+    /**
+     * Retrieves screening results
+     *
+     * Gets the screening responses for a particular specification from the DB.
+     *
+     * @param specId The specification's ID to be retrieved.
+     *
+     * @throws TCWebException when errors occur.
+     */
+    private void getScreeningResults(long specId) throws TCWebException {
+        Connection conn = null;
+        try {
+            conn = Common.getDataSource().getConnection();
+        } catch (SQLException sqle) {
+            throw new TCWebException("Internal error. Please inform TC.", sqle);
+        }
+
+        QueryInterface query = ScreeningTool.createQuery();
+        ScreeningResponse[] responses = query.getSpecificationDetails(specId, conn);
+
+        // populates warnings, fatal errors and success messages.
+        List warnings = new ArrayList();
+        List fatalErrors = new ArrayList();
+        List success = new ArrayList();
+        for (int i = 0; i < responses.length; ++i) {
+            if ("Warning".equals(responses[i].getSeverity())) {
+                warnings.add(responses[i]);
+            } else if ("Fatal Error".equals(responses[i].getSeverity())) {
+                fatalErrors.add(responses[i]);
+            } else if ("Success".equals(responses[i].getSeverity())) {
+                success.add(responses[i]);
+            }
+        }
+
+        log.debug("success.size(): " + success.size());
+        log.debug("warnings.size(): " + warnings.size());
+        log.debug("fatalErrors.size(): " + fatalErrors.size());
+
+        getRequest().setAttribute(ConstantsInt.SUCCESS_KEY, success);
+        getRequest().setAttribute(ConstantsInt.WARNINGS_KEY, warnings);
+        getRequest().setAttribute(ConstantsInt.ERRORS_KEY, fatalErrors);
     }
 }

@@ -1,6 +1,7 @@
 /*
- * Copyright (c) 2005 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
+
 package com.topcoder.apps.screening.rules;
 
 import com.topcoder.apps.screening.*;
@@ -11,17 +12,10 @@ import java.io.File;
 
 /**
  * <strong>Purpose</strong>:
- * Checks if a component specification exists.
- * <p/>
- * Version 1.0.1 Change notes:
- * <ol>
- * <li>
- * DatabaseException is catched and propagated to the ScreeningTool class.
- * </li>
- * </ol>
+ * Checks if the application specification has the specification docs.
  *
- * @author WishingBone, pulky
- * @version 1.0.1
+ * @author pulky
+ * @version 1.0.0
  */
 public class ApplicationSpecificationRule implements ScreeningRule {
 
@@ -54,7 +48,6 @@ public class ApplicationSpecificationRule implements ScreeningRule {
                             magic = new MagicNumbers();
                         }
                         FileType type = magic.determineFileType(files[i]);
-                        System.out.println(type.getMime());
                         if (type != null && type.getMime().equals("application/rtf")) {
                             return true;
                         }

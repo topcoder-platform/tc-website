@@ -1,6 +1,7 @@
 /*
- * Copyright (c) 2005 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
+
 package com.topcoder.apps.screening.rules;
 import com.topcoder.file.directoryvalidator.DirectoryManager;
 import com.topcoder.file.directoryvalidator.XmlFileLoader;
@@ -12,10 +13,10 @@ import com.topcoder.apps.screening.SimpleScreeningData;
 
 /**
  * <strong>Purpose</strong>:
- * Checks if the submission conforms to proper directory structure.
+ * Checks if the application specification submission conforms to proper directory structure.
  *
  * @author pulky
- * @version 1.0
+ * @version 1.0.0
  */
 public class ApplicationDirRule implements ScreeningRule {
 

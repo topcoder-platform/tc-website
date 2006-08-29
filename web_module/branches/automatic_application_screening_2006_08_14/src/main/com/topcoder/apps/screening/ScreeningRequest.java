@@ -1,14 +1,15 @@
 /*
- * Copyright (c) 2005 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
+
 package com.topcoder.apps.screening;
 
 /**
  * <strong>Purpose</strong>:
- * This is much of a data class that will be used for selection in case multiple tasks exist.
+ * Abstract class for a screening request
  *
- * @author WishingBone
- * @version 1.0
+ * @author WishingBone, pulky
+ * @version 1.0.1
  */
 public abstract class ScreeningRequest implements IScreeningRequest {
 
@@ -23,14 +24,14 @@ public abstract class ScreeningRequest implements IScreeningRequest {
     private long submitterId = -1;
 
     /**
-     * The submission version id.
+     * The artifact id.
      */
-    private long submissionVId = -1;
+    private long artifactId = -1;
 
     /**
-     * The submission path on file system.
+     * The artifact path on file system.
      */
-    private String submissionPath = null;
+    private String artifactPath = null;
 
     /**
      * The project type.
@@ -41,56 +42,38 @@ public abstract class ScreeningRequest implements IScreeningRequest {
      * Create a request with all variables.
      *
      * @param submitterId the submitter id.
-     * @param submissionVId submission version id.
-     * @param submissionPath the submission path on file system.
+     * @param artifactId artifact id.
+     * @param artifactPath the artifact path on file system.
      * @param projectType the project type.
      */
-    public ScreeningRequest(long taskId, long submitterId, long submissionVId, String submissionPath, ProjectType projectType) {
+    public ScreeningRequest(long taskId, long submitterId, long artifactId, String artifactPath, ProjectType projectType) {
         this.taskId = taskId;
         this.submitterId = submitterId;
-        this.submissionVId = submissionVId;
-        this.submissionPath = submissionPath;
+        this.artifactId = artifactId;
+        this.artifactPath = artifactPath;
         this.projectType = projectType;
     }
 
-    /* (non-Javadoc)
-     * @see com.topcoder.apps.screening.IScreeningRequest#getTaskId()
-     */
     public long getTaskId() {
         return this.taskId;
     }
 
-    /* (non-Javadoc)
-     * @see com.topcoder.apps.screening.IScreeningRequest#getTaskId()
-     */
     public void setTaskId(long taskId) {
         this.taskId = taskId;
     }
 
-    /* (non-Javadoc)
-     * @see com.topcoder.apps.screening.IScreeningRequest#getSubmitterId()
-     */
     public long getSubmitterId() {
         return this.submitterId;
     }
 
-    /* (non-Javadoc)
-     * @see com.topcoder.apps.screening.IScreeningRequest#getSubmissionVId()
-     */
-    public long getSubmissionVId() {
-        return this.submissionVId;
+    public long getArtifactId() {
+        return this.artifactId;
     }
 
-    /* (non-Javadoc)
-     * @see com.topcoder.apps.screening.IScreeningRequest#getSubmissionPath()
-     */
-    public String getSubmissionPath() {
-        return this.submissionPath;
+    public String getArtifactPath() {
+        return this.artifactPath;
     }
 
-    /* (non-Javadoc)
-     * @see com.topcoder.apps.screening.IScreeningRequest#getProjectType()
-     */
     public ProjectType getProjectType() {
         return this.projectType;
     }

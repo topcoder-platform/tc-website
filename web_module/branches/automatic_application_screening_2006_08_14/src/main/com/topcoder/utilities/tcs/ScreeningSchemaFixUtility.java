@@ -15,21 +15,16 @@ import com.topcoder.util.idgenerator.IDGeneratorFactory;
 
 /**
  * <strong>Purpose</strong>:
- * Utility to fix payment columns.
+ * Utility to adjust the new screening schema
  *
- * This utility analyzes and fixes the payments in both OR and PACTS due to a misscalculation.
+ * This utility loads the old data and transforms it to fit the new schema.
  *
  * @author pulky
  * @version 1.0.0
  */
 public class ScreeningSchemaFixUtility extends DBUtility{
     /**
-     * Runs the PaymentFixUtility.
-     *
-     * First of all it will search for those projects that has advanced to review participants
-     * who got less than 75 in screening, and will check for those project payment in both OR
-     * and PACTS tables. If there are inconsistencies, they will be corrected.
-     *
+     * Runs the ScreeningSchemaFixUtility.
      */
     public void runUtility() throws Exception {
         PreparedStatement psSelOldScreeningResults = null;
@@ -41,14 +36,16 @@ public class ScreeningSchemaFixUtility extends DBUtility{
         try {
             query = new StringBuffer(200);
             query.append(" select ");
-            query.append(" sro.screening_results_id, sro.dynamic_response_text, sro.screening_response_id, sro.create_user, ");
+            query.append(" sro.screening_result_id, sro.dynamic_response_text, sro.screening_response_id, sro.create_user, ");
             query.append(" sro.create_date,  sro.submission_v_id, s.submission_url, p.project_type_id, cc.root_category_id ");
-            query.append(" from screening_results_old sro, submission s, project p, comp_versions cv, comp_catalog cc ");
+            query.append(" from screening_result_old sro, submission s, project p, comp_versions cv, comp_catalog cc ");
             query.append(" where sro.submission_v_id = s.submission_v_id and p.project_id = s.project_id ");
             query.append(" and p.cur_version = 1 and cv.comp_vers_id = p.comp_vers_id ");
             query.append(" and cv.component_id = cc.component_id ");
-            //query.append(" and sro.submission_v_id > 25200 ");
-            query.append(" order by sro.submission_v_id asc ");
+            query.append(" and sro.submission_v_id in ( ");
+            query.append(" select distinct submission_v_id from screening_result_old where ");
+            query.append(" (DATE(current) - DATE(create_date)) > 180 ");
+            query.append(" ) order by sro.submission_v_id asc ");
             psSelOldScreeningResults = prepareStatement("tcs_catalog", query.toString());
 
             query = new StringBuffer(200);
@@ -59,8 +56,8 @@ public class ScreeningSchemaFixUtility extends DBUtility{
             psInsScreeningTask = prepareStatement("tcs_catalog", query.toString());
 
             query = new StringBuffer(200);
-            query.append(" insert into screening_results ");
-            query.append(" (screening_results_id, dynamic_response_text, screening_response_id, ");
+            query.append(" insert into screening_result ");
+            query.append(" (screening_result_id, dynamic_response_text, screening_response_id, ");
             query.append(" create_user, create_date, screening_task_id) ");
             query.append(" values (?, ?, ?, ?, ?, ?)");
             psInsScreeningResults = prepareStatement("tcs_catalog", query.toString());
@@ -98,7 +95,7 @@ public class ScreeningSchemaFixUtility extends DBUtility{
                 }
 
                 psInsScreeningResults.clearParameters();
-                psInsScreeningResults.setLong(1, rs.getLong("screening_results_id"));
+                psInsScreeningResults.setLong(1, rs.getLong("screening_result_id"));
                 psInsScreeningResults.setString(2, rs.getString("dynamic_response_text"));
                 psInsScreeningResults.setLong(3, rs.getLong("screening_response_id"));
                 psInsScreeningResults.setLong(4, rs.getLong("create_user"));
@@ -127,11 +124,10 @@ public class ScreeningSchemaFixUtility extends DBUtility{
     }
 
     /**
-     * Creates IdGenerator EJB
+     * Gets next Id
      *
-     * @param dataSource the current datasource
-     * @return the IdGenerator
-     * @throws CreateException if bean creation fails.
+     * @return the next Id
+     * @throws IDGenerationException if id generation fails.
      */
     private static long generateNewID() throws IDGenerationException {
         IDGenerator gen = IDGeneratorFactory.getIDGenerator("SPECIFICATION_SEQ");
@@ -139,7 +135,7 @@ public class ScreeningSchemaFixUtility extends DBUtility{
     }
 
     /**
-     * Show usage of the PaymentFixUtility.
+     * Show usage of the ScreeningSchemaFixUtility.
      *
      * @param msg The error message.
      */

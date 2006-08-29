@@ -5,7 +5,7 @@
 package com.topcoder.apps.screening.application;
 
 /**
- * AppSpecification EJB remote interface.
+ * ApplicationSpecification Bean.
  *
  * @author pulky
  * @version 1.0.0
@@ -29,7 +29,6 @@ public class ApplicationSpecification {
      */
     public ApplicationSpecification(long specificationId, long specificationUploaderId, long specificationTypeId) {
         super();
-        // TODO Auto-generated constructor stub
         this.specificationId = specificationId;
         this.specificationUploaderId = specificationUploaderId;
         this.specificationTypeId = specificationTypeId;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2005 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.screening;
 
@@ -20,8 +20,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import javax.ejb.CreateException;
 
 /**
  * <strong>Purpose</strong>:
@@ -45,7 +43,7 @@ import javax.ejb.CreateException;
  * </ol>
  *
  * @author WishingBone, pulky
- * @version 1.0.1
+ * @version 1.0.2
  */
 public class ScreeningJob extends TimerTask {
 
@@ -147,6 +145,7 @@ public class ScreeningJob extends TimerTask {
         this.screener = screener;
         this.maxScreeningAttempts = maxScreeningAttempts;
         this.threads = new Thread[num];
+        cleanOldResults();
         resetPendingTasks();
         log = Logger.getLogger(ScreeningJob.class);
     }
@@ -210,13 +209,33 @@ public class ScreeningJob extends TimerTask {
     /**
      * Reset all screenings not finished by this screener.
      */
+    private void cleanOldResults() {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try {
+            conn = DbHelper.getConnection();
+            stmt = conn.prepareStatement(
+                    "DELETE FROM screening_result " +
+                    "WHERE (DATE(current) - DATE(create_date)) > 180");
+            int cnt = stmt.executeUpdate();
+            log.info(cnt + " old results cleaned.");
+        } catch (SQLException sqle) {
+            log.error("Could not clean old results: " + sqle.toString());
+        } finally {
+            DbHelper.dispose(conn, stmt, null);
+        }
+    }
+
+    /**
+     * Reset all screenings not finished by this screener.
+     */
     private void resetPendingTasks() {
         Connection conn = null;
         PreparedStatement stmt = null;
         try {
             conn = DbHelper.getConnection();
             stmt = conn.prepareStatement(
-                    "DELETE FROM screening_results " +
+                    "DELETE FROM screening_result " +
                     "WHERE screening_task_id IN " +
                     "(SELECT screening_task_id FROM screening_task " +
                     " WHERE screened_ind = 0 and screener_id = ?)");
@@ -276,7 +295,7 @@ public class ScreeningJob extends TimerTask {
 
             stmt = conn.prepareStatement(
                     "SELECT st.screening_task_id, sp.specification_uploader_id, sp.specification_id, st.submission_path, st.screening_project_type_id " +
-                    "FROM specifications sp, screening_task st " +
+                    "FROM specification sp, screening_task st " +
                     "WHERE sp.specification_id = st.specification_id AND st.screener_id IS NULL " +
                     "AND st.screened_ind = 0 AND st.screening_attempts < ?");
 
@@ -286,11 +305,11 @@ public class ScreeningJob extends TimerTask {
             while (rs.next()) {
                 long taskId = rs.getLong(1);
                 long submitterId = rs.getLong(2);
-                long submissionVId = rs.getLong(3);
-                String submissionPath = rs.getString(4);
+                long specificationId = rs.getLong(3);
+                String specificationPath = rs.getString(4);
                 ProjectType projectType = ProjectType.getProjectType(rs.getLong(5));
 
-                requests.add(new SpecificationScreeningRequest(taskId, submitterId, submissionVId, submissionPath, projectType));
+                requests.add(new SpecificationScreeningRequest(taskId, submitterId, specificationId, specificationPath, projectType));
             }
 
             rs.close();
@@ -336,7 +355,6 @@ public class ScreeningJob extends TimerTask {
             } finally {
                 DbHelper.dispose(conn, stmt, null);
             }
-            return null;
         }
         return null;
     }
@@ -364,7 +382,7 @@ public class ScreeningJob extends TimerTask {
     /**
      * Rolls back a request so it can be reprocessed.
      *
-     * @param submissionVId the submission version id.
+     * @param taskId the task id.
      *
      * @since 1.0.1
      */
@@ -374,7 +392,7 @@ public class ScreeningJob extends TimerTask {
         try {
             conn = DbHelper.getConnection();
             stmt = conn.prepareStatement(
-                    "DELETE FROM screening_results " +
+                    "DELETE FROM screening_result " +
                     "WHERE screening_task_id = ?");
             stmt.setLong(1, taskId);
             try {
@@ -475,8 +493,6 @@ public class ScreeningJob extends TimerTask {
      * @return the submission version id.
      */
     public static long getVersionId(long submissionId, Connection conn) {
-        // TODO: this has nothing to do here.
-
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
@@ -524,10 +540,10 @@ public class ScreeningJob extends TimerTask {
             stmt = conn.prepareStatement("INSERT INTO screening_task(screening_task_id, submission_path, " +
                 "screening_project_type_id, screening_attempts, submission_v_id, screened_ind) VALUES(?, ?, ?, ?, ?, ?)");
             stmt.setLong(1, request.getTaskId());
-            stmt.setString(2, request.getSubmissionPath());
+            stmt.setString(2, request.getArtifactPath());
             stmt.setLong(3, request.getProjectType().getId());
             stmt.setLong(4, 0);
-            stmt.setLong(5, request.getSubmissionVId());
+            stmt.setLong(5, request.getArtifactId());
             stmt.setLong(6, 0);
             stmt.executeUpdate();
         } catch (SQLException sqle) {
@@ -552,9 +568,6 @@ public class ScreeningJob extends TimerTask {
             } else if (request instanceof SpecificationScreeningRequest){
                 stmt = conn.prepareStatement("INSERT INTO screening_task(screening_task_id, submission_path, " +
                 "screening_project_type_id, screening_attempts, specification_id, screened_ind) VALUES(?, ?, ?, ?, ?, ?)");
-            } else {
-                // TODO: change exception
-                throw new DatabaseException("Unknown screening request type.");
             }
 
             if (request.getTaskId() == -1) {
@@ -562,28 +575,25 @@ public class ScreeningJob extends TimerTask {
             }
 
             stmt.setLong(1, request.getTaskId());
-            stmt.setString(2, request.getSubmissionPath());
+            stmt.setString(2, request.getArtifactPath());
             stmt.setLong(3, request.getProjectType().getId());
             stmt.setLong(4, 0);
-            stmt.setLong(5, request.getSubmissionVId());
+            stmt.setLong(5, request.getArtifactId());
             stmt.setLong(6, 0);
             stmt.executeUpdate();
         } catch (SQLException sqle) {
             throw new DatabaseException("placeRequest() fails.", sqle);
-        } catch (Exception e) {
-            // TODO: change exception
-            throw new DatabaseException("inserting task failed.", e);
+        } catch (IDGenerationException e) {
+            throw new DatabaseException("Unable to generate ID.", e);
         } finally {
             DbHelper.dispose(null, stmt, null);
         }
     }
 
     /**
-     * Creates IdGenerator EJB
+     * Generates tasks Ids
      *
-     * @param dataSource the current datasource
-     * @return the IdGenerator
-     * @throws CreateException if bean creation fails.
+     * @return the next Id
      */
     private static long generateNewTaskID() throws IDGenerationException {
         IDGenerator gen = IDGeneratorFactory.getIDGenerator("SCREENING_TASK_SEQ");
@@ -623,11 +633,11 @@ public class ScreeningJob extends TimerTask {
             buffer.append("screening submitter ");
             buffer.append(request.getSubmitterId());
             buffer.append(" submission ");
-            buffer.append(request.getSubmissionVId());
+            buffer.append(request.getArtifactId());
             buffer.append(" of type ");
             buffer.append(request.getProjectType().getName());
             buffer.append(" from ");
-            buffer.append(request.getSubmissionPath());
+            buffer.append(request.getArtifactPath());
             buffer.append(" at ");
 
             log.info("Thread " + id + ": start " + buffer.toString() + new Date());

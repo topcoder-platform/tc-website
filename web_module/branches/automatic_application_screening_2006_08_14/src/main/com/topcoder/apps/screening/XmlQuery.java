@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2005 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.screening;
 
@@ -14,8 +14,8 @@ import java.util.ArrayList;
  * <strong>Purpose</strong>:
  * Implementation of the query interface.
  *
- * @author WishingBone
- * @version 1.0
+ * @author WishingBone, pulky
+ * @version 1.0.1
  */
 public class XmlQuery implements QueryInterface {
 
@@ -72,14 +72,14 @@ public class XmlQuery implements QueryInterface {
         ResultSet rs = null;
         try {
             stmt = conn.prepareStatement(
-                    "SELECT severity_text, response_code, response_text, dynamic_response_text, screening_results_id " +
-                    "FROM response_severity_lu, screening_response_lu, screening_results, screening_task st " +
+                    "SELECT severity_text, response_code, response_text, dynamic_response_text, screening_result_id " +
+                    "FROM response_severity_lu, screening_response_lu, screening_result, screening_task st " +
                     "WHERE response_severity_lu.response_severity_id = screening_response_lu.response_severity_id " +
-                    "AND screening_response_lu.screening_response_id = screening_results.screening_response_id " +
+                    "AND screening_response_lu.screening_response_id = screening_result.screening_response_id " +
                     "AND st.specification_id = ? " +
-                    "AND st.screening_task_id = screening_results.screening_task_id " +
+                    "AND st.screening_task_id = screening_result.screening_task_id " +
                     "AND (st.screened_ind = 1) " +
-                    "ORDER BY response_code ASC, screening_results_id ASC");
+                    "ORDER BY response_code ASC, screening_result_id ASC");
             stmt.setLong(1, specId);
             rs = stmt.executeQuery();
             responses = buildResult(rs);
@@ -116,15 +116,15 @@ public class XmlQuery implements QueryInterface {
         ResultSet rs = null;
         try {
             stmt = conn.prepareStatement(
-                    "SELECT severity_text, response_code, response_text, dynamic_response_text, screening_results_id " +
-                    "FROM response_severity_lu, screening_response_lu, screening_results, submission, screening_task st " +
+                    "SELECT severity_text, response_code, response_text, dynamic_response_text, screening_result_id " +
+                    "FROM response_severity_lu, screening_response_lu, screening_result, submission, screening_task st " +
                     "WHERE response_severity_lu.response_severity_id = screening_response_lu.response_severity_id " +
-                    "AND screening_response_lu.screening_response_id = screening_results.screening_response_id " +
+                    "AND screening_response_lu.screening_response_id = screening_result.screening_response_id " +
                     "AND submission.submission_v_id = ? " +
                     "AND submission.submission_v_id = st.submission_v_id " +
-                    "AND st.screening_task_id = screening_results.screening_task_id " +
+                    "AND st.screening_task_id = screening_result.screening_task_id " +
                     "AND (passed_auto_screening = 0 OR passed_auto_screening = 1) " +
-                    "ORDER BY response_code ASC, screening_results_id ASC");
+                    "ORDER BY response_code ASC, screening_result_id ASC");
             stmt.setLong(1, submissionVId);
             rs = stmt.executeQuery();
             responses = buildResult(rs);
@@ -144,16 +144,16 @@ public class XmlQuery implements QueryInterface {
         ResultSet rs = null;
         try {
             stmt = conn.prepareStatement(
-                    "SELECT severity_text, response_code, response_text, dynamic_response_text, screening_results_id " +
-                    "FROM response_severity_lu, screening_response_lu, screening_results, submission, screening_task st " +
+                    "SELECT severity_text, response_code, response_text, dynamic_response_text, screening_result_id " +
+                    "FROM response_severity_lu, screening_response_lu, screening_result, submission, screening_task st " +
                     "WHERE response_severity_lu.response_severity_id = screening_response_lu.response_severity_id " +
-                    "AND screening_response_lu.screening_response_id = screening_results.screening_response_id " +
+                    "AND screening_response_lu.screening_response_id = screening_result.screening_response_id " +
                     "AND submission.submission_v_id = st.submission_v_id " +
-                    "AND st.screening_task_id = screening_results.screening_task_id " +
+                    "AND st.screening_task_id = screening_result.screening_task_id " +
                     "AND submission.submission_id = ? " +
                     "AND cur_version = 1 " +
                     "AND (passed_auto_screening = 0 OR passed_auto_screening = 1) " +
-                    "ORDER BY response_code ASC, screening_results_id ASC");
+                    "ORDER BY response_code ASC, screening_result_id ASC");
             stmt.setLong(1, submissionId);
             rs = stmt.executeQuery();
             responses = buildResult(rs);
@@ -220,8 +220,6 @@ public class XmlQuery implements QueryInterface {
      * @throws DatabaseException if an error occured at the database level while attempting to retrieve the results.
      */
     public ScreeningRecord[] getSubmissionStatus(long projectId, long submitterId) {
-        // OK
-
         Connection conn = null;
         try {
             conn = DbHelper.getConnection();
@@ -252,8 +250,6 @@ public class XmlQuery implements QueryInterface {
      * @throws DatabaseException if an error occured at the database level while attempting to retrieve the results.
      */
     public ScreeningRecord[] getSubmissionStatus(long projectId, long submitterId, Connection conn) {
-        // OK
-
         List submissions = new ArrayList();
 
         PreparedStatement stmt = null;
@@ -262,13 +258,13 @@ public class XmlQuery implements QueryInterface {
             List warnings = new ArrayList();
             stmt = conn.prepareStatement(
                     "SELECT UNIQUE submission.submission_v_id " +
-                    "FROM submission, screening_results, screening_response_lu, response_severity_lu, screening_task st " +
+                    "FROM submission, screening_result, screening_response_lu, response_severity_lu, screening_task st " +
                     "WHERE passed_auto_screening = 1 " +
                     "AND project_id = ? AND submitter_id = ? " +
                     "AND submission.submission_v_id = st.submission_v_id " +
-                    "AND st.screening_task_id = screening_results.screening_task_id " +
+                    "AND st.screening_task_id = screening_result.screening_task_id " +
                     "AND is_removed = 0 " +
-                    "AND screening_results.screening_response_id = screening_response_lu.screening_response_id " +
+                    "AND screening_result.screening_response_id = screening_response_lu.screening_response_id " +
                     "AND screening_response_lu.response_severity_id = response_severity_lu.response_severity_id " +
                     "AND (response_severity_lu.severity_text = 'Warning' OR response_severity_lu.severity_text = 'Fatal Error')");
             stmt.setLong(1, projectId);
@@ -336,7 +332,6 @@ public class XmlQuery implements QueryInterface {
      * @throws DatabaseException if an error occured at the database level while attempting to retrieve the results.
      */
     public ScreeningRecord[] getAllSubmissions(long projectId) {
-        // OK
         Connection conn = null;
         try {
             conn = DbHelper.getConnection();
@@ -364,7 +359,6 @@ public class XmlQuery implements QueryInterface {
      * @throws DatabaseException if an error occured at the database level while attempting to retrieve the results.
      */
     public ScreeningRecord[] getAllSubmissions(long projectId, Connection conn) {
-        // OK
         List submissions = new ArrayList();
 
         PreparedStatement stmt = null;
@@ -373,13 +367,13 @@ public class XmlQuery implements QueryInterface {
             List warnings = new ArrayList();
             stmt = conn.prepareStatement(
                     "SELECT UNIQUE submission.submission_v_id " +
-                    "FROM submission, screening_results, screening_response_lu, response_severity_lu, screening_task st " +
+                    "FROM submission, screening_result, screening_response_lu, response_severity_lu, screening_task st " +
                     "WHERE passed_auto_screening = 1 " +
                     "AND project_id = ? " +
                     "AND submission.submission_v_id = st.submission_v_id " +
-                    "AND st.screening_task_id = screening_results.screening_task_id " +
+                    "AND st.screening_task_id = screening_result.screening_task_id " +
                     "AND is_removed = 0 " +
-                    "AND screening_results.screening_response_id = screening_response_lu.screening_response_id " +
+                    "AND screening_result.screening_response_id = screening_response_lu.screening_response_id " +
                     "AND screening_response_lu.response_severity_id = response_severity_lu.response_severity_id " +
                     "AND (response_severity_lu.severity_text = 'Warning' OR response_severity_lu.severity_text = 'Fatal Error')");
             stmt.setLong(1, projectId);

@@ -1,6 +1,7 @@
 /*
- * Copyright (c) 2005 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
+
 package com.topcoder.apps.screening.rules;
 import com.topcoder.file.type.MagicNumbers;
 import com.topcoder.file.type.FileType;
@@ -16,27 +17,17 @@ import com.topcoder.apps.screening.SimpleScreeningData;
 import com.topcoder.apps.screening.DatabaseException;
 import com.topcoder.apps.screening.applications.specification.ValidationManager;
 import com.topcoder.apps.screening.applications.specification.ValidationOutput;
+import com.topcoder.apps.screening.applications.specification.ValidationOutputType;
 import com.topcoder.apps.screening.applications.specification.impl.formatters.TextValidationOutputFormatter;
 
 /**
  * <strong>Purpose</strong>:
- * Checks if a poseidon file exists. If it does, it further verifies it contains use case diagram,
- * class diagram and sequence diagram.
+ * Checks the application specification zuml.
  *
- * Version 1.0.1 Change notes:
- * <ol>
- * <li>
- * DatabaseException is catched and propagated to the ScreeningTool class.
- * </li>
- * </ol>
- *
- * @author WishingBone, pulky
- * @version 1.0.1
+ * @author pulky
+ * @version 1.0.0
  */
 public class ApplicationZumlFileRule implements ScreeningRule {
-
-    private Logger log = Logger.getLogger(ApplicationZumlFileRule.class);
-
 
     /**
      * <strong>Purpose</strong>:
@@ -89,7 +80,7 @@ public class ApplicationZumlFileRule implements ScreeningRule {
 
     /**
      * <strong>Purpose</strong>:
-     * Verifies if the pos file contains valid use case diagram, class diagram and sequence diagrams.
+     * Verifies if the pos file contains valid diagrams.
      *
      * @param file the pos file to validate.
      * @param root the folder to extract uml package.
@@ -120,18 +111,21 @@ public class ApplicationZumlFileRule implements ScreeningRule {
         }
 
         try {
-            ValidationManager validationManager = new ValidationManager();
 
+            // calls application screening validation
+            ValidationManager validationManager = new ValidationManager();
             ValidationOutput []validationOutputs = validationManager.validateRaw(file);
 
             TextValidationOutputFormatter textFormatter = new TextValidationOutputFormatter();
             String []formatted = textFormatter.format(validationOutputs);
             for (int i = 0, n = formatted.length; i < n; i++) {
                 logger.log(new SimpleScreeningData(formatted[i], ResponseCode.WRONG_ZUML));
-                log.info("\n" + formatted[i]);
-                success = false;
+                if (validationOutputs[i].getType().equals(ValidationOutputType.ERROR)) {
+                    success = false;
+                }
             }
         } catch (Exception e) {
+            e.printStackTrace();
             logger.log(new SimpleScreeningData("Failed to validate application zuml.", ResponseCode.WRONG_ZUML));
             success = false;
         }

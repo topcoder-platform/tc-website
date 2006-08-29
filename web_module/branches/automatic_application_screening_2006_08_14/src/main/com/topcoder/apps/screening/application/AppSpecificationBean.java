@@ -29,10 +29,16 @@ public class AppSpecificationBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(AppSpecificationBean.class);
 
+    /**
+     * gets a particular specification
+     *
+     * @param conn the connection being used
+     * @param specificationId the aplication specification Id
+     */
     public ApplicationSpecification getSpecification(Connection conn, long specificationId) throws RemoteException {
         try {
             log.debug("Retrieving specifications...");
-            ResultSetContainer rsc = selectSet("specifications",
+            ResultSetContainer rsc = selectSet("specification",
                     new String[] {"specification_id", "specification_uploader_id", "specification_type_id"},
                     new String[] {"specification_id"},
                     new String[] {String.valueOf(specificationId)},
@@ -54,13 +60,7 @@ public class AppSpecificationBean extends BaseEJB {
      * Inserts a specified user role
      *
      * @param conn the connection being used
-     * @param rUserRoleVId the existing userRoleVId
-     * @param userId the user to insert
-     * @param projectId the related project Id
-     * @param reviewRespId the reviewer's responsibility
-     * @param rUserRoleId the user role Id to insert
-     * @param rRoleId the role Id to insert
-     * @param paymentInfoId the payment information Id to insert
+     * @param appSpec the aplication specification bean
      */
     public void insertSpecification(Connection conn, ApplicationSpecification appSpec)  throws RemoteException {
         try {
@@ -68,22 +68,12 @@ public class AppSpecificationBean extends BaseEJB {
             if (appSpec.getSpecificationId() == ApplicationSpecification.UNDEFINED_ID) {
                 log.debug("Generating new specification ID...");
 
-/*                IdGen idGen = null;
-                try {
-                    idGen = createIDGen();
-                } catch (CreateException e) {
-                    throw (new EJBException("Couldn't create IDGenerator", e));
-                }*/
-
                 appSpec.setSpecificationId(generateNewID());
-
-                //appSpec.setSpecificationId(idGen.nextId("STUDIO_SUBMISSION_SEQ"));
-                //appSpec.setSpecificationId(idGen.nextId("SPECIFICATION_SEQ"));
             }
 
             log.debug("Inserting specifications...");
 
-            insert(conn, "specifications",
+            insert(conn, "specification",
                     new String[]{"specification_id", "specification_uploader_id", "specification_type_id"},
                     new String[]{String.valueOf(appSpec.getSpecificationId()),
                         String.valueOf(appSpec.getSpecificationUploaderId()),
@@ -93,34 +83,11 @@ public class AppSpecificationBean extends BaseEJB {
         }
     }
 
-
     /**
-     * Creates IdGenerator EJB
+     * Generate Ids for specification table
      *
-     * @param dataSource the current datasource
-     * @return the IdGenerator
-     * @throws CreateException if bean creation fails.
-     */
-/*    private IdGen createIDGen() throws CreateException {
-        try {
-            InitialContext context = new InitialContext();
-
-            Object o = context.lookup("idgenerator/IdGenEJB");
-            IdGenHome idGenHome = (IdGenHome) PortableRemoteObject.narrow(o,
-                    IdGenHome.class);
-            return idGenHome.create();
-
-        } catch (Exception e) {
-            throw new CreateException("Could not find bean!" + e);
-        }
-    }*/
-
-    /**
-     * Creates IdGenerator EJB
-     *
-     * @param dataSource the current datasource
-     * @return the IdGenerator
-     * @throws CreateException if bean creation fails.
+     * @return the next Id
+     * @throws IDGenerationException if bean creation fails.
      */
     private static long generateNewID() throws IDGenerationException {
         IDGenerator gen = IDGeneratorFactory.getIDGenerator("SPECIFICATION_SEQ");

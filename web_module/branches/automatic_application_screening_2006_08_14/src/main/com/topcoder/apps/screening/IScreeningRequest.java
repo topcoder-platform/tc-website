@@ -1,5 +1,16 @@
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ */
+
 package com.topcoder.apps.screening;
 
+/**
+ * <strong>Purpose</strong>:
+ * Interface for screening artifacts
+ *
+ * @author pulky
+ * @version 1.0.1
+ */
 public interface IScreeningRequest {
 
     /**
@@ -24,18 +35,18 @@ public interface IScreeningRequest {
     public abstract long getSubmitterId();
 
     /**
-     * Get the submission version id.
+     * Get the artifact id.
      *
-     * @return the submission version id.
+     * @return the artifact id.
      */
-    public abstract long getSubmissionVId();
+    public abstract long getArtifactId();
 
     /**
-     * Get the submission path on file system.
+     * Get the artifact path on file system.
      *
-     * @return the submission path on file system.
+     * @return the artifact path on file system.
      */
-    public abstract String getSubmissionPath();
+    public abstract String getArtifactPath();
 
     /**
      * Get the project type.

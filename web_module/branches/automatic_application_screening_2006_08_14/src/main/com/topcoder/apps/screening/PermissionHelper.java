@@ -1,6 +1,7 @@
-/**
- * Copyright � 2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
+
 package com.topcoder.apps.screening;
 
 import com.topcoder.apps.review.EJBHelper;
@@ -8,16 +9,18 @@ import com.topcoder.apps.review.security.*;
 import com.topcoder.apps.screening.security.*;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.TCSubject;
+import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.policy.PolicyRemote;
 import javax.ejb.CreateException;
 import javax.naming.NamingException;
 import java.rmi.RemoteException;
+import com.topcoder.shared.security.User;
 
 /**
  * Helper class for checking permissions.
  *
- * @author adic
- * @version 1.0
+ * @author pulky
+ * @version 1.0.0
  */
 public class PermissionHelper {
 
@@ -33,39 +36,41 @@ public class PermissionHelper {
      * @param user the user
      *
      * @return whether the user has admin permission or not
-     *
-     * @throws NamingException thrown from the EJB calling code
-     * @throws RemoteException thrown from the EJB calling code
-     * @throws CreateException thrown from the EJB calling code
-     * @throws GeneralSecurityException if an security manager exception occurs
-     */
-    public static final boolean isAdmin(TCSubject subject) throws RemoteException, NamingException, CreateException,
+=    */
+    public static final boolean isAdmin(User user) throws RemoteException, NamingException, CreateException,
             GeneralSecurityException {
+        TCSubject subject = getSubject(user.getUserName(), user.getId());
         PolicyRemote policy = EJBHelper.getPolicy();
         return policy.checkPermission(subject, new AdminPermission());
     }
 
     /**
-     * Checks if a user has submit permission for a project.
+     * Checks if a user has application specification submit permission.
      *
      * @param user the user
-     * @param project the project to check permission for
      *
-     * @return whether the user has submit permission or not
-     *
-     * @throws NamingException thrown from the EJB calling code
-     * @throws RemoteException thrown from the EJB calling code
-     * @throws CreateException thrown from the EJB calling code
-     * @throws GeneralSecurityException if an security manager exception occurs
-     */
-    static public final boolean hasSpecificationSubmitPermission(TCSubject subject) throws RemoteException,
+     * @return whether the user has specification submit permission or not
+=    */
+    static public final boolean hasSpecificationSubmitPermission(User user) throws RemoteException,
             NamingException, CreateException, GeneralSecurityException {
+        TCSubject subject = getSubject(user.getUserName(), user.getId());
         PolicyRemote policy = EJBHelper.getPolicy();
-
-        System.out.println("subject.getUserId() :" + subject.getUserId());
-        System.out.println("SubmitSpecificationPermission.class.getName() :" + SubmitSpecificationPermission.class.getName());
-
         return policy.checkPermission(subject, new SubmitSpecificationPermission());
+    }
+
+    /**
+     * Helper method to get a TCSubject from the username and userid.
+     *
+     * @param userName the username
+     * @param userId the userid
+     *
+     * @return TCSubject representing the user.
+=    */
+    private static TCSubject getSubject(String userName, long userId) {
+        TCSubject subject = new TCSubject(userId);
+        subject.addPrincipal(new UserPrincipal(userName, userId));
+
+        return subject;
     }
 }
 

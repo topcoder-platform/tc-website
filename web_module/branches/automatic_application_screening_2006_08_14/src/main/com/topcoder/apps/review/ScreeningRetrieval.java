@@ -19,7 +19,7 @@ public class ScreeningRetrieval extends SuccessResult {
     private boolean done = true;
 
     /**
-     * The task id.
+     * The submission version id.
      */
     private long versionId = -1;
 
@@ -36,7 +36,7 @@ public class ScreeningRetrieval extends SuccessResult {
     /**
      * Constructor.
      *
-     * @param taskId the task id.
+     * @param versionId the version id.
      */
     ScreeningRetrieval(long versionId) {
         this.versionId = versionId;
@@ -54,29 +54,37 @@ public class ScreeningRetrieval extends SuccessResult {
         this.fatalErrors = fatalErrors;
     }
 
-    /* (non-Javadoc)
-     * @see com.topcoder.apps.review.IScreeningRetrieval#getTaskId()
+    /**
+     * Get the version id.
+     *
+     * @return the version id.
      */
     public long getVersionId() {
         return this.versionId;
     }
 
-    /* (non-Javadoc)
-     * @see com.topcoder.apps.review.IScreeningRetrieval#isDone()
+    /**
+     * Whether the screening is done.
+     *
+     * @return whether the screening is done.
      */
     public boolean isDone() {
         return this.done;
     }
 
-    /* (non-Javadoc)
-     * @see com.topcoder.apps.review.IScreeningRetrieval#getWarnings()
+    /**
+     * Get the warning responses.
+     *
+     * @return the warning responses
      */
     public ScreeningResponse[] getWarnings() {
         return warnings;
     }
 
-    /* (non-Javadoc)
-     * @see com.topcoder.apps.review.IScreeningRetrieval#getFatalErrors()
+    /**
+     * Get the fatal error responses.
+     *
+     * @return the fatal error responses
      */
     public ScreeningResponse[] getFatalErrors() {
         return fatalErrors;

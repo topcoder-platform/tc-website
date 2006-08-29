@@ -1,21 +1,20 @@
-/**
- * Copyright � 2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
+
 package com.topcoder.apps.screening.security;
 
 import com.topcoder.security.policy.TCPermission;
 
 /**
- * This class implements the submit permission for the security manager.
+ * This class implements the Application specification submit permission for the security manager.
  *
  * @author pulky
- * @version 1.0
+ * @version 1.0.0
  */
 public class SubmitSpecificationPermission extends TCPermission {
     /**
      * Constructor.
-     *
-     * @param projectId the ID of the project
      */
     public SubmitSpecificationPermission() {
         super(SubmitSpecificationPermission.class.getName());

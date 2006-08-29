@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2005 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.screening;
 
@@ -171,8 +171,8 @@ public class ScreeningLogger {
         ResultSet rs = null;
         try {
             conn = DbHelper.getConnection();
-            stmt = conn.prepareStatement("INSERT INTO screening_results" +
-                "(screening_results_id, dynamic_response_text, screening_response_id, create_user, " +
+            stmt = conn.prepareStatement("INSERT INTO screening_result" +
+                "(screening_result_id, dynamic_response_text, screening_response_id, create_user, " +
                 " create_date, screening_task_id) VALUES(?, ?, ?, ?, ?, ?)");
             stmt.setLong(1, idGen.nextId());
             stmt.setString(2, message.getResponseText());
@@ -219,14 +219,11 @@ public class ScreeningLogger {
             if (this.request instanceof SubmissionScreeningRequest) {
                 stmt = conn.prepareStatement("UPDATE submission SET passed_auto_screening = ? WHERE submission_v_id = ?");
             } else if (request instanceof SpecificationScreeningRequest){
-                stmt = conn.prepareStatement("UPDATE specifications SET passed_auto_screening = ? WHERE specification_id = ?");
-            } else {
-                // TODO: change exception
-                throw new DatabaseException("Unknown screening request type.");
+                stmt = conn.prepareStatement("UPDATE specification SET passed_auto_screening = ? WHERE specification_id = ?");
             }
 
             stmt.setBoolean(1, message.isSuccess());
-            stmt.setLong(2, this.request.getSubmissionVId());
+            stmt.setLong(2, this.request.getArtifactId());
 
             if (!executeUpdate(stmt, maxRetries, retrySleepTime)) {
                 throw new DatabaseException("Log result failed after " + maxRetries + " retries.");

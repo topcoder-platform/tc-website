@@ -9,8 +9,8 @@ import com.topcoder.util.collection.typesafeenum.Enum;
  * <strong>Purpose</strong>:
  * It holds enumeration to the project types the application will handle.
  *
- * @author WishingBone
- * @version 1.0
+ * @author WishingBone, pulky
+ * @version 1.0.1
  */
 public class ProjectType extends Enum {
 
@@ -52,6 +52,8 @@ public class ProjectType extends Enum {
     /**
      * <strong>Purpose</strong>:
      * Enum access for applications.
+     *
+     * @since 1.0.1
      */
     public static final ProjectType APPLICATION = new ProjectType("application", 5);
 

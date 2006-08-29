@@ -1,6 +1,7 @@
-/**
- * Copyright � 2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
+
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.DocumentManagerLocal;
@@ -13,8 +14,6 @@ import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 import com.topcoder.util.format.FormatMethodFactory;
 
 import com.topcoder.apps.screening.ProjectType;
-import com.topcoder.apps.screening.ScreeningTool;
-import com.topcoder.apps.screening.QueryInterface;
 import com.topcoder.apps.screening.ScreeningResponse;
 import com.topcoder.apps.screening.ScreeningJob;
 import com.topcoder.apps.screening.SubmissionScreeningRequest;
@@ -25,15 +24,20 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
-import java.util.List;
-import java.util.ArrayList;
 import java.util.Date;
 
 /**
  * This Model provides business logic through which users submit solution files.
  *
- * @author adic
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Class updated due to the addition of other screening artifacts.
+ * </li>
+ * </ol>
+ *
+ * @author adic, pulky
+ * @version 1.0.1
  */
 public class SubmitSolution implements Model {
 
@@ -155,8 +159,7 @@ public class SubmitSolution implements Model {
 
                     versionId = ScreeningJob.getVersionId(initialSubmissions[0].getId(), conn);
                     ssr = new SubmissionScreeningRequest(-1, 0, versionId,
-                            ConfigHelper.getSubmissionPathPrefix() + destFilename,
-                            type);
+                            ConfigHelper.getSubmissionPathPrefix() + destFilename, type);
                     ScreeningJob.placeRequest(ssr, conn);
                 } finally {
                     try {

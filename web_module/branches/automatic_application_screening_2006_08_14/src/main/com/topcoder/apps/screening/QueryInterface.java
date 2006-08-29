@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2005 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.screening;
 
@@ -10,15 +10,16 @@ import java.sql.Connection;
  * The interface that defines the contract to be met by classes used to obtain details about auto-screening
  * run for a particular submission, or a project.
  *
+ * @author pulky
  * @author TheCois
  * @author WishingBone
- * @version 1.0
+ * @version 1.0.1
  */
 public interface QueryInterface {
 
     /**
      * <strong>Purpose</strong>:
-     * Obtains details about the screening process that was run for a particular submission. Each response code
+     * Obtains details about the screening process that was run for a particular application specification. Each response code
      * and dynamic response text will be returned. This version of the method uses a specified connection.
      *
      * <strong>Valid Args</strong>:
@@ -27,7 +28,7 @@ public interface QueryInterface {
      * <strong>Valid Return Values</strong>:
      * A String.
      *
-     * @param submissionVId The database identifier of the submission.
+     * @param specId The database identifier of the specification.
      * @param conn The connection to use.
      * @return An XML String containing the results of the query.
      * @throws InvalidSubmissionIdException if the parameter does not correspond to any submission.
