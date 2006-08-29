@@ -23,6 +23,7 @@ public class UserContestResult implements Serializable {
     private Date submitTimestamp;
     private boolean complete;
     private long projectId;
+    private boolean viewable;
 
     /**
      * Creates a new instance of TC04OverallResult
@@ -37,9 +38,10 @@ public class UserContestResult implements Serializable {
         submitTimestamp = null;
         complete = false;
         projectId = 0;
+        viewable = false;
     }
 
-    public UserContestResult(String h, int pts, String pl, String sc, int u, String pay, Date sub, boolean complete, long projectId) {
+    public UserContestResult(String h, int pts, String pl, String sc, int u, String pay, Date sub, boolean complete, long projectId, boolean viewable) {
         component = h;
         points = pts;
         placed = pl;
@@ -49,6 +51,7 @@ public class UserContestResult implements Serializable {
         submitTimestamp = sub;
         this.complete = complete;
         this.projectId = projectId;
+        this.viewable = viewable;
     }
 
     public boolean isComplete() {
@@ -128,6 +131,14 @@ public class UserContestResult implements Serializable {
 
     public void setProjectId(long projectId) {
         this.projectId = projectId;
+    }
+
+    public boolean isViewable() {
+        return viewable;
+    }
+
+    public void setViewable(boolean viewable) {
+        this.viewable = viewable;
     }
 
 

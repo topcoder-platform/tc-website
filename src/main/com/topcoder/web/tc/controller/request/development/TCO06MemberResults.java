@@ -1,14 +1,14 @@
 package com.topcoder.web.tc.controller.request.development;
 
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.model.UserContestResult;
 
-import java.util.*;
 import java.text.DecimalFormat;
+import java.util.*;
 
 /**
  * @author dok
@@ -96,7 +96,8 @@ public class TCO06MemberResults extends StatBase {
 
                     arr.add(new UserContestResult(rsc.getStringItem(i, "component_name"), pts,
                             place, score,
-                            rsc.getIntItem(i, "component_id"), prz, sub, bComplete, rscDetails.getLongItem(j, "project_id")));
+                            rsc.getIntItem(i, "component_id"), prz, sub, bComplete,
+                            rscDetails.getLongItem(j, "project_id"), rscDetails.getIntItem(i, "viewable_category_ind") == 1));
                 }
             }
         }
