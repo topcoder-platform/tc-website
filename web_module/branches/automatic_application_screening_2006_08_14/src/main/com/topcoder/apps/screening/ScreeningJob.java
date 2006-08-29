@@ -534,31 +534,6 @@ public class ScreeningJob extends TimerTask {
      * @param request the request to place.
      * @param conn the connection to use.
      */
-    public static void placeRequest(SubmissionScreeningRequest request, Connection conn) {
-        PreparedStatement stmt = null;
-        try {
-            stmt = conn.prepareStatement("INSERT INTO screening_task(screening_task_id, submission_path, " +
-                "screening_project_type_id, screening_attempts, submission_v_id, screened_ind) VALUES(?, ?, ?, ?, ?, ?)");
-            stmt.setLong(1, request.getTaskId());
-            stmt.setString(2, request.getArtifactPath());
-            stmt.setLong(3, request.getProjectType().getId());
-            stmt.setLong(4, 0);
-            stmt.setLong(5, request.getArtifactId());
-            stmt.setLong(6, 0);
-            stmt.executeUpdate();
-        } catch (SQLException sqle) {
-            throw new DatabaseException("placeRequest() fails.", sqle);
-        } finally {
-            DbHelper.dispose(null, stmt, null);
-        }
-    }
-
-    /**
-     * Place a request in the database queue, using a specific connection. Initializes screening_attempts with 0.
-     *
-     * @param request the request to place.
-     * @param conn the connection to use.
-     */
     public static void placeRequest(IScreeningRequest request, Connection conn) {
         PreparedStatement stmt = null;
         try {
