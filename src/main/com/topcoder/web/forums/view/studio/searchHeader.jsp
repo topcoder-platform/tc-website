@@ -13,7 +13,7 @@
 <div style="margin-bottom:6px;">
 <form name="formSearch" method="post" action="${sessionInfo.servletPath}">
 <tc-webtag:hiddenInput name="module" value="Search"/>
-<tc-webtag:hiddenInput name="<%=ForumConstants.SEARCH_STATUS%>" value="search"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>" value="search"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.SEARCH_SCOPE%>" value="all"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.SEARCH_DATE_RANGE%>" value="all"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.SEARCH_MODE%>" value="<%=ForumConstants.SEARCH_MODE_BASIC%>"/>

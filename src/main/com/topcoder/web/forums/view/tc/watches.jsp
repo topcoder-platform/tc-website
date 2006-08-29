@@ -71,7 +71,7 @@ Watches on content that hasn't been updated for more than 90 days will be automa
 To prevent any watch from being automatically deleted, toggle the "save" option.
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
 <tc-webtag:hiddenInput name="module" value="Watches"/>
-<tc-webtag:hiddenInput name="<%=ForumConstants.WATCHLIST_STATUS%>"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>"/>
 <table cellpadding="0" cellspacing="0" class="rtTable">
 <tr>
 <td class="rtHeader" width="70%">Thread</td>
@@ -102,7 +102,7 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
 </table>
 
 <div align="right">
-<input type="image" src="/i/roundTables/update.gif" alt="Update" onclick="form1.<%=ForumConstants.WATCHLIST_STATUS%>.value='<%=ForumConstants.WATCHES_UPDATE%>'" />
+<input type="image" src="/i/roundTables/update.gif" alt="Update" onclick="form1.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.WATCHES_UPDATE%>'" />
 </div>
 
 </form>

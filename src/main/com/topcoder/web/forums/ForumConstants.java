@@ -31,10 +31,8 @@ public interface ForumConstants {
     public final static String ANNOUNCEMENT_COMMAND = "cmd";
 	
 	public final static String START_IDX = "start";
-    
 	public final static String POST_MODE = "mode";
     
-    public final static String SETTINGS_STATUS = "status";
     public final static String SETTINGS_SECTION = "section";
     public final static String MARK_READ = "markRead";
 
@@ -63,7 +61,6 @@ public interface ForumConstants {
     public final static String ADMIN_MATCH = "match";
 
     // Search
-    public final static String SEARCH_STATUS = "status";
     public final static String SEARCH_QUERY = "query";
     public final static String SEARCH_SCOPE = "scope";
     public final static String SEARCH_DATE_RANGE = "dateRange";
@@ -88,7 +85,6 @@ public interface ForumConstants {
     };
 
     // Watches
-    public final static String WATCHLIST_STATUS = "status";
     public final static String WATCH_TYPE = "type";
     public final static String WATCH_ID = "ID";
     public final static String WATCH_COMMAND = "cmd";
@@ -98,6 +94,13 @@ public interface ForumConstants {
     public final static String WATCHES_SAVE_THREAD = "save";
     public final static String WATCHES_DELETE_THREAD = "delete";
 
+    // Statuses
+	public final static String STATUS = "status";
+	public final static String STATUS_CREATE = "create";
+	public final static String STATUS_DELETE = "delete";
+	public final static String STATUS_SAVE = "save";
+	public final static String STATUS_UPDATE = "update";
+    
     // Defaults
     public final static int DEFAULT_SEARCH_RANGE = 20;
     public final static int DEFAULT_MESSAGE_RANGE = 15;
