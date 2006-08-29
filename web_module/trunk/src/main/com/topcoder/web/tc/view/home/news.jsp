@@ -9,16 +9,16 @@
 <%--------------------------------------------------------%>
 </tr>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>08.29.06<br>12:00 Noon</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>08.29.06<br>12:20 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_082906">NSA continues TopCoder patronage with 2006 TCCC</A></span><br><br>
-      TopCoder has announced the National Security Agency’s continued patronage of the 2006 TopCoder Collegiate Challenge, which will involve advance online 
+      TopCoder has announced the National Security Agency's continued patronage of the 2006 TopCoder Collegiate Challenge, which will involve advance online 
       interactive sessions as well as an onsite presence at the tournament finals in San Diego, CA.
       <br><br>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
        <A href="/tc?module=Static&d1=pressroom&d2=pr_082906">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505831" message="discuss this" />&#160;|&#160;
+       <tc-webtag:forumLink forumID="506100" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
@@ -218,29 +218,6 @@ participants successfully solved the 250 problem, the other two problems appeare
     <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
 </td></tr>
 
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>08.14.06<br>3:30 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle">
-      <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_7">Intel&#174; Multi-Threading Competition
-          7 - Analysis</A>
-      </span><br><br>
-                In this contest we were faced with a problem that has been the subject of
-                numerous research papers, known as the &quot;multi-source Weber problem&quot;
-                in research circles, with the added twist of a scoring formula which required
-                a fine balance between runtime and quality of the solution.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/battyone_big.jpg" alt="" width="55" height="61"/><br>by
-                <tc-webtag:handle coderId="7504863"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_7">full story</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506073" message="discuss this"/>&#160;|&#160;
-    <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
 
 
 </table>

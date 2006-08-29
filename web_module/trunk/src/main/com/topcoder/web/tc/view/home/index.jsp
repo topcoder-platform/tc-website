@@ -266,6 +266,9 @@
         <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            
+                NSA Continues TopCoder Patronage with Support of 2006 TopCoder Collegiate Challenge in San Diego
+                <A href="/tc?module=Static&d1=pressroom&d2=pr_082906">...more</A><br>[August 29]<br><br>
 
                 <div style="float: right; padding-left: 5px;">
                     <img src="/i/pressroom/mht_logo.gif" width="68" height="38" alt="Java Posse" border="0"/></div>
@@ -288,12 +291,6 @@
                 AOL Named Title Sponsor of 2006 TopCoder Collegiate Challenge
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_061906">...more</A><br>[June 19]<br><br>
 
-                Science Museum of Minnesota Partners with TopCoder High School Competitions
-                <A href="/tc?module=Static&d1=pressroom&d2=pr_060706">...more</A><br>[June 7]<br><br>
-<%--                
-                AOL, Bloomberg, UBS and NSA Announced as Sponsors/Patrons of 2006 TopCoder Collegiate Challenge
-                <A href="/tc?module=Static&d1=pressroom&d2=pr_060606">...more</A><br>[June 6]<br><br>
---%>                
             </td>
         </tr>
         <tr>
