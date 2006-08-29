@@ -47,6 +47,7 @@
       <td class="value" colspan="2"><span class="bigRed"><%=err%></span></td>
    </tr>
    </tc-webtag:errorIterator>
+<% if (String.valueOf("true").equals(request.getAttribute(ResetPassword.PASSWORD_EXPIRED))) { %>
    <tr>
       <td class="name">Enter your new password: </td>
       <td class="value"><input type="password" name="<%= ResetPassword.PASSWORD %>"></td>
@@ -59,6 +60,7 @@
       <td class="value">&#160;</td>
       <td class="value"><a href="JavaScript:document.frmPwd.submit()" class="bodyText">Submit</a></td>
    </tr>
+<% } %>   
 </table>
 </form>
 </div>

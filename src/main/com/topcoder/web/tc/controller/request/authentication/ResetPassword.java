@@ -40,6 +40,7 @@ public class ResetPassword extends ShortHibernateProcessor {
     public static final String HASH_CODE = "hc";
     public static final String PASSWORD = "pwd";
     public static final String PASSWORD_VERIF = "pwdv";
+    public static final String PASSWORD_EXPIRED = "pwexp";
 
 
     protected void dbProcessing() throws TCWebException {
@@ -49,14 +50,8 @@ public class ResetPassword extends ShortHibernateProcessor {
             String password = getRequest().getParameter(PASSWORD);
             String passwordVerif = getRequest().getParameter(PASSWORD_VERIF);
 
-            if (password == null) {
-                getRequest().setAttribute(PASSWORD_RECOVERY_ID, StringUtils.htmlEncode(passwordRecoveryId));
-                getRequest().setAttribute(HASH_CODE, StringUtils.htmlEncode(rowHashCode));
-
-                setNextPage(Constants.RESET_PASSWORD);
-                setIsNextPageInContext(true);
-                return;
-            }
+            getRequest().setAttribute(PASSWORD_RECOVERY_ID, StringUtils.htmlEncode(passwordRecoveryId));
+            getRequest().setAttribute(HASH_CODE, StringUtils.htmlEncode(rowHashCode));
 
             PasswordRecovery passwordRecovery = DAOUtil.getFactory().getPasswordRecoveryDAO().find(new Long(passwordRecoveryId));
 
@@ -69,12 +64,26 @@ public class ResetPassword extends ShortHibernateProcessor {
             }
 
 
-            if (passwordRecovery.isUsed()) {
-                addError("error", "The password was already changed.");
-            }
-
             if (passwordRecovery.getExpireDate().before(new Date())) {
                 addError("error", "The time for changing the password has expired. Please require password change again.");
+                getRequest().setAttribute(PASSWORD_EXPIRED, "true");
+
+                setNextPage(Constants.RESET_PASSWORD);
+                setIsNextPageInContext(true);
+                return;
+            }
+
+
+            if (password == null) {
+                setNextPage(Constants.RESET_PASSWORD);
+                setIsNextPageInContext(true);
+                return;
+            }
+
+
+
+            if (passwordRecovery.isUsed()) {
+                addError("error", "The password was already changed.");
             }
 
             if (!password.equals(passwordVerif)) {
@@ -87,9 +96,6 @@ public class ResetPassword extends ShortHibernateProcessor {
             }
 
             if (hasErrors()) {
-                getRequest().setAttribute(PASSWORD_RECOVERY_ID, StringUtils.htmlEncode(passwordRecoveryId));
-                getRequest().setAttribute(HASH_CODE, StringUtils.htmlEncode(rowHashCode));
-
                 setNextPage(Constants.RESET_PASSWORD);
                 setIsNextPageInContext(true);
                 return;
