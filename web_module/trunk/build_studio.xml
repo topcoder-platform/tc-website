@@ -121,7 +121,7 @@
             <include name="com/topcoder/security/**"/>
             <include name="com/topcoder/web/common/**"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
-        	<include name="com/topcoder/web/ejb/forumpoll/**"/>
+            <include name="com/topcoder/web/ejb/forumpoll/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
             <include name="com/topcoder/web/forums/**"/>
             <include name="com/topcoder/web/studio/**"/>
@@ -174,8 +174,8 @@
             <metainf dir="${java}/com/topcoder/web/ejb/messagehistory" includes="*.xml"/>
         </jar>
     </target>
-	
-	<target name="package-EJB-ForumPollBean" depends="compile">
+
+    <target name="package-EJB-ForumPollBean" depends="compile">
         <jar jarfile="${ejb_jars}/forumpoll.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/forumpoll/*.class"/>
@@ -230,42 +230,36 @@
         </war>
     </target>
 
-	<target name="deploy-studio-full" depends="">
-        <antcall target="deploy-studio"/>
-		
-		<copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
+    <target name="deploy-studio" depends="war-studio,build-security">
+        <antcall target="package-TCJive"/>
+        <antcall target="package-EJB-MessageHistoryBean"/>
+        <antcall target="package-EJB-ForumsBean"/>
+        <antcall target="package-EJB-ForumPollBean"/>
+
+        <antcall target="expand-studio"/>
+    </target>
+
+    <target name="expand-studio" depends="">
+        <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
+        <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
+        <copy todir="${jboss_lib}" file="${bin}/tcjive.jar"/>
+        <copy todir="${jboss_lib}" file="${ejb_jars}/security.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/velocity-dep.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/webwork.jar"/>
-    </target>
-	
-    <target name="deploy-studio" depends="war-studio,build-security">
-        <antcall target="package-TCJive"/>
-        <antcall target="package-EJB-MessageHistoryBean"/>
-        <antcall target="package-EJB-ForumsBean"/>
-    	<antcall target="package-EJB-ForumPollBean"/>
-
-        <antcall target="expand-studio"/>
-    </target>
-	
-    <target name="expand-studio" depends="">
-        <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
-        <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
-        <copy todir="${jboss_lib}" file="${bin}/tcjive.jar"/>
-        <copy todir="${jboss_lib}" file="${ejb_jars}/security.jar"/>
 
         <copy todir="${jboss_lib}" file="${jive.dir}/webwork.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_manager/2.1.3/configuration_manager.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/object_formatter.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/upload.jar"/>
-        	
+
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
-    	<copy todir="${jboss_deploy}" file="${ejb_jars}/forumpoll.jar"/>
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/forumpoll.jar"/>
         <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
 
         <copy todir="${jboss_conf}" file="${resources}/forums/studio/jive_init.xml"/>
@@ -291,15 +285,15 @@
             </fileset>
         </copy>
     </target>
-	
-	<target name="package-TCJive" depends="compile">
+
+    <target name="package-TCJive" depends="compile">
         <jar jarfile="${bin}/tcjive.jar">
             <fileset dir="${classes}/">
-            	<include name="com/topcoder/web/forums/model/TCUser.class"/>
-            	<include name="com/topcoder/web/forums/model/TCUserManager.class"/>
-            	<include name="com/topcoder/web/forums/model/Common.class"/>
-            	<include name="com/topcoder/web/forums/model/TCAuthFactory.class"/>
-            	<include name="com/topcoder/web/forums/model/TCAuthToken.class"/>
+                <include name="com/topcoder/web/forums/model/TCUser.class"/>
+                <include name="com/topcoder/web/forums/model/TCUserManager.class"/>
+                <include name="com/topcoder/web/forums/model/Common.class"/>
+                <include name="com/topcoder/web/forums/model/TCAuthFactory.class"/>
+                <include name="com/topcoder/web/forums/model/TCAuthToken.class"/>
                 <include name="com/topcoder/web/forums/util/filter/*.class"/>
             </fileset>
             <fileset dir="${resources}/forums/filter">
