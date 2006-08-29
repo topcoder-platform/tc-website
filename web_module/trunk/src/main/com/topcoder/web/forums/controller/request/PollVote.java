@@ -11,7 +11,6 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.ejb.forumpoll.ForumPoll;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
 
@@ -34,20 +33,6 @@ public class PollVote extends ForumsProcessor {
 		PollManager pollManager = forumFactory.getPollManager();
 		Poll poll = pollManager.getPoll(pollID);
 		
-		// In Jive 4.2.5, poll.getUserVoteCount() does not return the number of users who have voted, but
-		// the total number of votes. Remove the ForumPoll EJB from the build after a new Jive release updates
-		// poll.getUserVoteCount().
-		ForumPoll pollBean = null;
-        InitialContext ctx = null;
-        try {
-            ctx = TCContext.getInitial();
-            pollBean = (ForumPoll)createEJB(ctx, ForumPoll.class);   
-        } catch (Exception e) {
-            Log.error(e);
-        } finally {
-            BaseProcessor.close(ctx);
-        }
-		
 		if (!poll.hasUserVoted(user)) {
 			if (poll.isModeEnabled(Poll.MULTIPLE_SELECTIONS_ALLOWED)) {
 				for (int i=0; i<poll.getOptionCount(); i++) {
@@ -62,17 +47,19 @@ public class PollVote extends ForumsProcessor {
 			}
 		}
 		
-        int numVoters = pollBean.getVoterCountByPoll(poll.getID(), DBMS.FORUMS_DATASOURCE_NAME);
-		
 		int[] voteCounts = new int[poll.getOptionCount()];
 		for (int i=0; i<voteCounts.length; i++) {
 			voteCounts[i] = poll.getUserVoteCount(i);	
 		}
 		
+		// In Jive 4.2.5, poll.getUserVoteCount() does not return the number of users who have voted, but
+		// the total number of votes. We have added a new method, poll.getUserCount(), to jivebase.jar as 
+		// a temporary solution. Replace this call, jivebase.jar, jiveforums.jar, and jive4.war when 
+		// Jive 4.2.6 is released.
 		getResponse().setContentType("text/xml");
         getResponse().addHeader("Cache-Control", "no-cache");
         getResponse().getOutputStream().write(ForumsUtil.asciiGetBytes
-                (getXML(pollID, numVoters, voteCounts)));
+                (getXML(pollID, poll.getUserCount(), voteCounts)));
         getResponse().flushBuffer();
 	}
 	

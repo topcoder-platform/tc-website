@@ -31,7 +31,6 @@
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 <tc-webtag:useBean id="resultFilter" name="resultFilter" type="com.jivesoftware.forum.ResultFilter" toScope="request"/>
 <tc-webtag:useBean id="historyBean" name="historyBean" type="com.topcoder.web.ejb.messagehistory.MessageHistory" toScope="request"/>
-<tc-webtag:useBean id="pollBean" name="pollBean" type="com.topcoder.web.ejb.forumpoll.ForumPoll" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
 <%  HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
@@ -45,8 +44,7 @@
     boolean showPrevNextThreads = !(user != null && "false".equals(user.getProperty("jiveShowPrevNextThreads")));
     String prevTrackerClass = "", nextTrackerClass = "";
     ForumMessage prevPost = null, nextPost = null;
-    NumberFormat formatter = new DecimalFormat("0.00");
-    Hashtable voterCountTable = pollBean.getVoterCountByThread(thread.getID(), DBMS.FORUMS_DATASOURCE_NAME);                   	                     		
+    NumberFormat formatter = new DecimalFormat("0.00");                  	                     		
 
     String cmd = "";
     String watchMessage = "";
@@ -445,7 +443,7 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
                         </td>
                         <td class="valueR" id="<%=votePctID%>">
                         	<%	if (poll.getUserVoteCount() > 0) { 
-                        			double votePct = 100.0*(double)poll.getUserVoteCount(i)/(double)numVoters; 
+                        			double votePct = 100.0*(double)poll.getUserVoteCount(i)/(double)poll.getUserCount(); 
                         			votePctBarWidth = (int)votePct; %>
                         			<%=formatter.format(votePct)%>%
                         	<%	} %>
