@@ -5,7 +5,44 @@
 <table border="0" cellspacing="0" cellpadding="0" width="525">
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
+
+<%--------------------------------------------------------%>
 </tr>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>08.29.06<br>12:00 Noon</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_082906">NSA continues TopCoder patronage with 2006 TCCC</A></span><br><br>
+      TopCoder has announced the National Security Agency’s continued patronage of the 2006 TopCoder Collegiate Challenge, which will involve advance online 
+      interactive sessions as well as an onsite presence at the tournament finals in San Diego, CA.
+      <br><br>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_082906">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505831" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/><br>08.29.06<br>11:40 AM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=082906">TopCoder @ Work: Introduction to upselling</A></span><br><br>
+                In this article, we'll describe how you can "sell" projects to both internal clients (if you're salaried), and external clients 
+                (if you consult), using a model we call UPSELL: Understand, Plan, Story, Estimate, Lock, and Leverage.</td>
+            <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" alt="" /><br>by
+                <tc-webtag:handle coderId="10407399" context="design"/></td>
+            <td class="newsPhoto"><img src="/i/m/rhudson_mug.gif" alt="" /><br>&amp;
+                <tc-webtag:handle coderId="22627518" context="design"/></td></tr>
+        </table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&amp;d1=features&amp;d2=082906">article</A>&#160;|&#160;
+    <tc-webtag:forumLink forumID="506099" message="discuss this"/>&#160;|&#160;
+    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+</td></tr>
+
 <%--------------------------------------------------------%>
 <tr>
   <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>08.29.06<br>9:45 AM</td>
@@ -203,27 +240,6 @@ participants successfully solved the 250 problem, the other two problems appeare
     <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_7">full story</A>&#160;|&#160;
     <tc-webtag:forumLink forumID="506073" message="discuss this"/>&#160;|&#160;
     <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/><br>08.14.06<br>12:00 Noon</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=081406">The art
-                of testing C++ code: An introduction to cppUnit</A></span><br><br>
-                Before a motor company releases a new car, it must first be tested to make sure the steering,
-                acceleration and brakes function correctly.&#8230;In the same way, before any software is released into
-                the wild, it should first be subjected to rigorous tests to try to confirm that each section of the code
-                is bug free.</td>
-            <td class="newsPhoto"><img src="/i/m/sql_lall_mug.gif" alt="" /><br>by
-                <tc-webtag:handle coderId="275640" /></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&amp;d1=features&amp;d2=081406">article</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506092" message="discuss this"/>&#160;|&#160;
-    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 
 
