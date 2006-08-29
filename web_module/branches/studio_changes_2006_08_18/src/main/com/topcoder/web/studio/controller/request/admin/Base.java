@@ -15,6 +15,7 @@ import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.StudioFileType;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -65,9 +66,11 @@ public abstract class Base extends ShortHibernateProcessor {
         }
 
         Set a = contest.getFileTypes();
+        ArrayList fileTypes = new ArrayList(a.size());
         for (Iterator it = a.iterator(); it.hasNext();) {
-            setDefault(Constants.FILE_TYPE, ((StudioFileType) it.next()).getId());
+            fileTypes.add(((StudioFileType) it.next()).getId().toString());
         }
+        setDefault(Constants.FILE_TYPE, fileTypes);
 
         setDefault(Constants.CONTEST_STATUS_ID, contest.getStatus().getId());
         setDefault(Constants.CONTEST_ID, contest.getId());
