@@ -49,6 +49,7 @@
         <li>Change the text of the GCJ06 activation email to more correctly identify the appropriate JRE to have
             installed</li>
         <li>Fix emails when travel information is submitted for the TCCC</li>
+        <li>Add new password recovery system using secret question and password resetting.</li>
     </ul>
 </p>
 
