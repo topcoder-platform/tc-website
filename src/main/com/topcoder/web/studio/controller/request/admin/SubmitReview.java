@@ -71,6 +71,10 @@ public class SubmitReview extends Base {
             sr.setStatus(rs);
             sr.setText(getRequest().getParameter(Constants.SUBMISSION_REVIEW_TEXT));
             StudioDAOUtil.getFactory().getSubmissionReviewDAO().saveOrUpdate(sr);
+
+            User submitter = s.getSubmitter();
+            Email submitterEmail = submitter.getPrimaryEmailAddress();
+
             markForCommit();
 
             closeConversation();
@@ -78,9 +82,8 @@ public class SubmitReview extends Base {
             //sending email to be in the transaction
             beginCommunication();
 
-            if (!"".equals(response) && s.getSubmitter().getPrimaryEmailAddress().getStatusId().equals(Email.STATUS_ID_ACTIVE))
-            {
-                sendEmail(s.getSubmitter(), response, s.getOriginalFileName(), rs, reviewer);
+            if (!"".equals(response) && submitterEmail.getStatusId().equals(Email.STATUS_ID_ACTIVE)) {
+                sendEmail(submitter, response, s.getOriginalFileName(), rs, reviewer);
             }
 
             StringBuffer buf = new StringBuffer(50);
