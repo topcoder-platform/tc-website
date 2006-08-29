@@ -23,19 +23,19 @@ public class MemberContactMessageDAOHibernate extends Base implements MemberCont
         super(session);
     }
 
-	public MemberContactMessage find(Long id) {
-		return (MemberContactMessage) find(MemberContactMessage.class, id);
-	}
+    public MemberContactMessage find(Long id) {
+        return (MemberContactMessage) find(MemberContactMessage.class, id);
+    }
 
-	public void saveOrUpdate(MemberContactMessage m) {
-		super.saveOrUpdate(m);
-	}
+    public void saveOrUpdate(MemberContactMessage m) {
+        super.saveOrUpdate(m);
+    }
 
-	public List getAllSendersToUser(Long userId) {
-    	Query q = session.createQuery("select distinct mcm.sender from MemberContactMessage mcm" +
-		  				" where mcm.recipient=" + userId);
-		return q.list();
-	}
+    public List getAllSendersToUser(Long userId) {
+        Query q = session.createQuery("select distinct mcm.sender from MemberContactMessage mcm" +
+                        " where mcm.recipient=" + userId);
+        return q.list();
+    }
 
 
 

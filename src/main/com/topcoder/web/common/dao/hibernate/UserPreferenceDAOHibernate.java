@@ -15,14 +15,14 @@ import com.topcoder.web.common.model.UserPreference;
  */
 public class UserPreferenceDAOHibernate extends Base implements UserPreferenceDAO {
 
-	public UserPreferenceDAOHibernate() {
-		super();
-	}
+    public UserPreferenceDAOHibernate() {
+        super();
+    }
 
-	public UserPreferenceDAOHibernate(Session session) {
-		super(session);
-	}
-	
+    public UserPreferenceDAOHibernate(Session session) {
+        super(session);
+    }
+
     public UserPreference find(User user, Preference preference) {
         return (UserPreference) find(UserPreference.class, new UserPreference.Identifier(user, preference));
     }

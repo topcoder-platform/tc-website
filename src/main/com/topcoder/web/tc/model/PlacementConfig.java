@@ -42,12 +42,12 @@ public class PlacementConfig implements Serializable {
     private Language lang;
     private String submissionText;
     private String numContests;
-    
+
     private GeneralStats algorithm;
-    
+
     private ComponentCompetitionStats design;
     private ComponentCompetitionStats development;
-    
+
     private ComponentContestDetails designExample;
     private ComponentContestDetails developmentExample;
 
@@ -303,43 +303,43 @@ public class PlacementConfig implements Serializable {
         return userID;
     }
 
-	public void setDesign(ComponentCompetitionStats design) {
-		this.design = design;
-	}
+    public void setDesign(ComponentCompetitionStats design) {
+        this.design = design;
+    }
 
-	public ComponentCompetitionStats getDesign() {
-		return design;
-	}
+    public ComponentCompetitionStats getDesign() {
+        return design;
+    }
 
-	public void setDevelopment(ComponentCompetitionStats development) {
-		this.development = development;
-	}
+    public void setDevelopment(ComponentCompetitionStats development) {
+        this.development = development;
+    }
 
-	public ComponentCompetitionStats getDevelopment() {
-		return development;
-	}
+    public ComponentCompetitionStats getDevelopment() {
+        return development;
+    }
 
-	public void setDesignExample(ComponentContestDetails designExample) {
-		this.designExample = designExample;
-	}
+    public void setDesignExample(ComponentContestDetails designExample) {
+        this.designExample = designExample;
+    }
 
-	public ComponentContestDetails getDesignExample() {
-		return designExample;
-	}
+    public ComponentContestDetails getDesignExample() {
+        return designExample;
+    }
 
-	public void setDevelopmentExample(ComponentContestDetails developmentExample) {
-		this.developmentExample = developmentExample;
-	}
+    public void setDevelopmentExample(ComponentContestDetails developmentExample) {
+        this.developmentExample = developmentExample;
+    }
 
-	public ComponentContestDetails getDevelopmentExample() {
-		return developmentExample;
-	}
+    public ComponentContestDetails getDevelopmentExample() {
+        return developmentExample;
+    }
 
-	public void setAlgorithm(GeneralStats algorithm) {
-		this.algorithm = algorithm;
-	}
+    public void setAlgorithm(GeneralStats algorithm) {
+        this.algorithm = algorithm;
+    }
 
-	public GeneralStats getAlgorithm() {
-		return algorithm;
-	}
+    public GeneralStats getAlgorithm() {
+        return algorithm;
+    }
 }

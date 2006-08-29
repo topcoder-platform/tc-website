@@ -20,49 +20,49 @@ import com.topcoder.web.common.validation.Validator;
  * - the handler must have the preference for member contact enabled
  * - the status of the primary address for the user must be active
  * - the receipt must not have blocked the user.
- * 
+ *
  * If any of those fails, the validation fail.
- * 
+ *
  * @author Owner
  *
  */
 public class HandleValidator implements Validator {
-	private User sender;
-	
-	public HandleValidator(User sender) {
-		this.sender = sender;
-	}
-	
+    private User sender;
+
+    public HandleValidator(User sender) {
+        this.sender = sender;
+    }
+
     public ValidationResult validate(ValidationInput input) {
-        
+
         ValidationResult nret = new NonEmptyValidator("Please enter a user name.").validate(input);
-        
+
         if (!nret.isValid()) {
             return nret;
         }
         User user = DAOUtil.getFactory().getUserDAO().find((String) input.getInput(), true, true);
-        
+
         if (user == null) {
             return new BasicResult(false, "User not found");
         }
-        
+
         String canReceive = DAOUtil.getFactory().getUserPreferenceDAO().find(
                     user.getId(), Preference.MEMBER_CONTACT_PREFERENCE_ID).getValue();
 
         if (!"true".equals(canReceive)) {
             return new BasicResult(false, "The user can't receive emails via Member Contact.");
         }
-        
+
         if (!user.getPrimaryEmailAddress().getStatusId().equals(Email.STATUS_ID_ACTIVE)) {
-        	return new BasicResult(false, "The user doesn't have a valid email address.");
+            return new BasicResult(false, "The user doesn't have a valid email address.");
         }
-        
+
         MemberContactBlackListDAO memberContactDAO = DAOUtil.getFactory().getMemberContactBlackListDAO();
-		MemberContactBlackList m = memberContactDAO.findOrCreate(user, sender);
-		if (m.isBlocked()) {
-			return new BasicResult(false, "The user has blocked your messages.");
-		}
-		
+        MemberContactBlackList m = memberContactDAO.findOrCreate(user, sender);
+        if (m.isBlocked()) {
+            return new BasicResult(false, "The user has blocked your messages.");
+        }
+
         return BasicResult.SUCCESS;
     }
 }

@@ -13,7 +13,7 @@ public class SecretQuestionValidator implements Validator {
     public ValidationResult validate(ValidationInput input) {
         ValidationResult ret = new NonEmptyValidator("Please enter your secret question.").validate(input);
         if (!ret.isValid()) {
-        	return ret;
+            return ret;
         }
         return  new SizeValidator(Constants.MIN_SECRET_QUESTION_LENGTH,
                     Constants.MAX_SECRET_QUESTION_LENGTH, "secret question").validate(input);

@@ -35,12 +35,12 @@ public class SendMail extends ShortHibernateProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
-		if (!Helper.isRated(getUser().getId())) {
-			getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(false));
-	        setNextPage(Constants.MEMBER_CONTACT);
-	        setIsNextPageInContext(true);
-	        return;
-		}
+        if (!Helper.isRated(getUser().getId())) {
+            getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(false));
+            setNextPage(Constants.MEMBER_CONTACT);
+            setIsNextPageInContext(true);
+            return;
+        }
 
 
         String toHandle = getRequest().getParameter(TO_HANDLE);
@@ -48,8 +48,8 @@ public class SendMail extends ShortHibernateProcessor {
         boolean sendCopy = getRequest().getParameter(SEND_COPY) != null;
         User sender  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
-    	// Check again that the user is valid, in case that someone has tweaked the jsp
-    	// or some kind of hack
+        // Check again that the user is valid, in case that someone has tweaked the jsp
+        // or some kind of hack
         ValidationResult result = new HandleValidator(sender).validate(new StringInput(toHandle));
         if (!result.isValid()) {
             throw new Exception("Can't contact that user.");
@@ -75,12 +75,12 @@ public class SendMail extends ShortHibernateProcessor {
             EmailEngine.send(mail);
         }
 
-    	MemberContactMessage m = new MemberContactMessage();
-    	m.setSender(sender);
-    	m.setRecipient(recipient);
-    	m.setText(message);
-    	m.setCopy(sendCopy);
-    	m.setSentDate(new Date());
+        MemberContactMessage m = new MemberContactMessage();
+        m.setSender(sender);
+        m.setRecipient(recipient);
+        m.setText(message);
+        m.setCopy(sendCopy);
+        m.setSentDate(new Date());
 
         DAOUtil.getFactory().getMemberContactMessageDAO().saveOrUpdate(m);
 

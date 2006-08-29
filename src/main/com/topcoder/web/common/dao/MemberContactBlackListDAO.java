@@ -2,7 +2,7 @@ package com.topcoder.web.common.dao;
 
 import java.util.List;
 
-import com.topcoder.web.common.model.MemberContactBlackList; 
+import com.topcoder.web.common.model.MemberContactBlackList;
 import com.topcoder.web.common.model.User;
 
 /**
@@ -12,14 +12,14 @@ import com.topcoder.web.common.model.User;
  */
 public interface MemberContactBlackListDAO {
 
-	MemberContactBlackList find(User user, User blockedUser);
-	
-	MemberContactBlackList findOrCreate(User user, User blockedUser);
+    MemberContactBlackList find(User user, User blockedUser);
 
-	List getBlockedUsers(Long userId);
-	
-	List getPreviouslyBlockedUsers(Long userId);
-    
+    MemberContactBlackList findOrCreate(User user, User blockedUser);
+
+    List getBlockedUsers(Long userId);
+
+    List getPreviouslyBlockedUsers(Long userId);
+
     void saveOrUpdate(MemberContactBlackList u);
 
 }

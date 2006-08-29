@@ -69,12 +69,12 @@ public class RoomStats extends Base {
             if (hasParameter("rm")) {
                 rm = Integer.parseInt(getRequest().getParameter("rm"));
             } else {
-				for (int i = 0; i < indResult.getRowCount(); i++)
-				{
-                	if (indResult.getIntItem(i, "coder_id") == cr) {
-                	    rm = indResult.getIntItem(i, "room_id");
-                	    break;
-					}
+                for (int i = 0; i < indResult.getRowCount(); i++)
+                {
+                    if (indResult.getIntItem(i, "coder_id") == cr) {
+                        rm = indResult.getIntItem(i, "room_id");
+                        break;
+                    }
                 }
             }
 

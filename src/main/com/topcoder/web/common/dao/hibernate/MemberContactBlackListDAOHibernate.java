@@ -27,41 +27,41 @@ public class MemberContactBlackListDAOHibernate extends Base implements MemberCo
     }
 
 
-	public void saveOrUpdate(MemberContactBlackList m) {
-		super.saveOrUpdate(m);
-	}
+    public void saveOrUpdate(MemberContactBlackList m) {
+        super.saveOrUpdate(m);
+    }
 
-	public MemberContactBlackList find(User user, User blockedUser) {
-		return (MemberContactBlackList) find(MemberContactBlackList.class, 
-				new MemberContactBlackList.Identifier(user, blockedUser));
-	}
+    public MemberContactBlackList find(User user, User blockedUser) {
+        return (MemberContactBlackList) find(MemberContactBlackList.class,
+                new MemberContactBlackList.Identifier(user, blockedUser));
+    }
 
-	public MemberContactBlackList findOrCreate(User user, User blockedUser) {
-		MemberContactBlackList m = find (user, blockedUser);
-		
-		if (m == null) {
-			m = new MemberContactBlackList();
-			m.setId(new MemberContactBlackList.Identifier(user, blockedUser));
-			m.setBlocked(false);
-		}
-		
-		return m;		
-	}
+    public MemberContactBlackList findOrCreate(User user, User blockedUser) {
+        MemberContactBlackList m = find (user, blockedUser);
 
-	public List getBlockedUsers(Long userId) {
-    	Query q = session.createQuery("select m.id.blockedUser from MemberContactBlackList m" +
-				  " where m.id.user=" + userId + 
-				  " and m.blocked=true");
-    	
-    	return q.list();
-	}
+        if (m == null) {
+            m = new MemberContactBlackList();
+            m.setId(new MemberContactBlackList.Identifier(user, blockedUser));
+            m.setBlocked(false);
+        }
 
-	public List getPreviouslyBlockedUsers(Long userId) {
-    	Query q = session.createQuery("select m.id.blockedUser from MemberContactBlackList m" +
-				  " where m.id.user=" + userId + 
-				  " and m.blocked=false");
-    	return q.list();
-	}
+        return m;
+    }
+
+    public List getBlockedUsers(Long userId) {
+        Query q = session.createQuery("select m.id.blockedUser from MemberContactBlackList m" +
+                  " where m.id.user=" + userId +
+                  " and m.blocked=true");
+
+        return q.list();
+    }
+
+    public List getPreviouslyBlockedUsers(Long userId) {
+        Query q = session.createQuery("select m.id.blockedUser from MemberContactBlackList m" +
+                  " where m.id.user=" + userId +
+                  " and m.blocked=false");
+        return q.list();
+    }
 
 
 
