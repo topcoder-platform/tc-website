@@ -101,7 +101,7 @@ public class TCO05MemberResults extends StatBase {
                     arr.add(new UserContestResult(rsc.getStringItem(i, "component_name"), pts,
                             place, score,
                             rsc.getIntItem(i, "component_id"), prz, sub, bComplete,
-                            rscDetails.getLongItem(j, "project_id"), rscDetails.getIntItem(i, "viewable_category_ind") == 1));
+                            rscDetails.getLongItem(j, "project_id"), rscDetails.getIntItem(j, "viewable_category_ind") == 1));
                 }
             }
         }
