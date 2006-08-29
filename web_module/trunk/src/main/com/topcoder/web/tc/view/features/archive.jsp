@@ -44,6 +44,11 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=082906"><strong>TopCoder @ Work: Introduction to upselling</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Aug 29, 2006</td>
+            </tr>
+            <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="252022" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=082106"><strong>The Digital Run: Highlights from Stage 1</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Aug 21, 2006</td>
