@@ -70,10 +70,10 @@
                                     <rsc:item name="component_name" row="<%=resultRow%>"/></A>
                                 <% } else { %>
                                 <rsc:item name="component_name" row="<%=resultRow%>"/>
+                                <% } %>
                                 <% if (resultRow.getIntItem("is_complete") == 0) {
                                     isComplete = false;%>
                                 *
-                                <% } %>
                                 <% } %>
 
                                 <br>
