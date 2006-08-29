@@ -3,6 +3,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -18,7 +19,7 @@
 
 <div align="center">
     <div class="contentOut">
-      <jsp:include page="top.jsp" />
+        <jsp:include page="top.jsp"/>
         <jsp:include page="topNav.jsp">
             <jsp:param name="node" value="contests"/>
         </jsp:include>
@@ -39,11 +40,22 @@
 
                 <div align="center">
                     <div align="left" style="width:500px;">
-                        Thank you for accepting the terms of the contest. Please use the form below to upload your
-                        submission:
-                        <br><br>
-                        The maximum file size per submission is 2MB and it must be a PDF.
-                        <br><br>
+                        <p>Thank you for accepting the terms of the contest. Please use the form below to upload your
+                            submission:</p>
+
+                        <p>The maximum file size per submission is 2MB.</p>
+
+                        <p>
+                            Only the following file types will be accepted:
+                            <ul>
+                                <c:forEach items="${contest.fileTypes}" var="fileType">
+                                    <li>
+                                            ${fileType.description}
+                                    </li>
+                                </c:forEach>
+                            </ul>
+
+                        </p>
 
                         <div align="center">
                             <form action="${sessionInfo.servletPath}" method="POST" name="submission" enctype="multipart/form-data">
