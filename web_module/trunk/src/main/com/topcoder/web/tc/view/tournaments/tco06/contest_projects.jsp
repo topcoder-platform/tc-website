@@ -1,12 +1,11 @@
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 java.util.Map,
-                 com.topcoder.shared.dataAccess.DataAccessConstants,
-                 com.topcoder.shared.util.ApplicationServer" %>
+                 com.topcoder.shared.util.ApplicationServer,
+                 java.util.Map" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<jsp:include page="/script.jsp" />
+    <jsp:include page="/script.jsp"/>
 
     <title>2006 TopCoder Open - Computer Programming Tournament</title>
     <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
@@ -51,9 +50,9 @@
             <div class="bodySpacer">
                 <br/>
                   <span class="bigTitle"><a href="/tc?module=TCO06ContestDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />">
-                  <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></a> -
+                      <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></a> -
                   Components</span>
-                  <br><br>
+                <br><br>
 
                 <table width="510" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                     <tr>
@@ -66,17 +65,24 @@
                     <rsc:iterator list="<%=rsc%>" id="resultRow">
                         <tr>
                             <td class="sidebarText" nowrap="nowrap">
+                                <% if (resultRow.getIntItem("viewable") == 1) { %>
                                 <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>">
                                     <rsc:item name="component_name" row="<%=resultRow%>"/></A>
+                                <% } else { %>
+                                <rsc:item name="component_name" row="<%=resultRow%>"/>
+                                <% } %>
                                 <% if (resultRow.getIntItem("is_complete") == 0) {
                                     isComplete = false;%>
                                 *
                                 <% } %>
-                                 <br>
-                                 <A href="/tc?module=TCO06ProjectDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">results</A>
+                                <br>
+                                <A href="/tc?module=TCCC06ProjectDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">results</A>
                                 <% if (isComplete) { %>
-                                  | <A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">contest details</A>
+                                |
+                                <A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">contest
+                                    details</A>
                                 <% } %>
+
                             </td>
                             <td class="sidebarText" align=center nowrap=nowrap>
                                 <rsc:item name="start_date" format="MM.dd.yyyy" row="<%=resultRow%>"/> 9:00AM</td>
@@ -89,10 +95,10 @@
                         </tr>
                     </rsc:iterator>
                 </table>
-               <br><br>
+                <br><br>
                 <%if (!isComplete) {%>
-                  * This project is still in progress, results subject to change
-               <br><br>
+                * This project is still in progress, results subject to change
+                <br><br>
                 <% } %>
 
             </div>
