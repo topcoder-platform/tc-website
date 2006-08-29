@@ -42,6 +42,11 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 <p>
+    5.4.9 - 2006.0x.xx
+    <ul>
+        <li>Fix in password reset page: if the key has expired, it doesn't let the user even enter the new password.</li>
+    </ul>
+    
     5.4.8 - 2006.0x.xx
     <ul>
         <li>Add resume download to registration process</li>
