@@ -39,17 +39,17 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
-<li><A href="/tc?module=Static&amp;d1=features&amp;d2=080706"><strong>The Intricate Art of Testing</strong></A>, by <tc-webtag:handle coderId="9927526" /><br>
-At some point, every coder experiences the intense feeling of disappointment that comes when you are told your carefully written solution has "Failed System Test." How can you keep from repeating such a mishap? The answer is quite simple: learn the art of testing.
-<li><A href="/tc?module=Static&d1=tutorials&d2=prototypePattern"><strong>Prototype Pattern</strong></A>, by <tc-webtag:handle coderId="119676" /><br>
-It's Friday afternoon, about an hour before the end of the day. Monday morning is a national holiday, so there is a long weekend in your future &mdash; until the hot coffee breath on the back of your neck makes you think otherwise. It's the boss.</li>
-<li><A href="/tc?module=Static&amp;d1=features&amp;d2=072406"><strong>How long will this take, anyway?</strong></A>, by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /><br>
-It's Friday afternoon, about an hour before the end of the day. Monday morning is a national holiday, so there is a long weekend in your future &mdash; until the hot coffee breath on the back of your neck makes you think otherwise. It's the boss.</li>
+<li><A href="/tc?module=Static&amp;d1=features&amp;d2=082906"><strong>TopCoder @ Work: Introduction to upselling</strong></A>, by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /><br>
+In this article, we'll describe how you can "sell" projects to both internal clients (if you're salaried), and external clients (if you consult), using a model we call UPSELL: Understand, Plan, Story, Estimate, Lock, and Leverage.
+<li><A href="/tc?module=Static&amp;d1=features&amp;d2=082106"><strong>The Digital Run: Highlights from Stage 1</strong></A>, by <tc-webtag:handle coderId="252022" /><br>
+As the first stage draws to an end for The Digital Run, I am going to take stock of this great new competition format. And a great competition it was, with veterans and newbies alike withstanding the challenges of a 13-week marathon and racking up some surprising results.
+<li><A href="/tc?module=Static&amp;d1=features&amp;d2=081406"><strong>The art of testing C++ code: An introduction to cppUnit</strong></A>, by <tc-webtag:handle coderId="275640" /><br>
+Before a motor company releases a new car, it must first be tested to make sure the steering, acceleration and brakes function correctly.&#8230;In the same way, before any software is released into the wild, it should first be subjected to rigorous tests to try to confirm that each section of the code is bug free.
 </ul>
 <span class="bodySubtitle">From the archives:</span><br>
 <ul>
-<li><A href="/tc?module=Static&d1=features&d2=040104"><strong>Dynamic Programming</strong></A>, by <tc-webtag:handle coderId="299177" /><br>
-If you were to survey the reds, you would probably find that 9 out of 10 of them recommend the study of dynamic programming as one of the best ways to improve your rating&#8230; and the 10th doesn't only because he makes it a policy never to help future competitors!</li>
+<li><A href="/tc?module=Static&d1=features&d2=021004"><strong>The 5 Most Common Design Mistakes</strong></A>, by <tc-webtag:handle coderId="119676" /><br>
+Being on the review board, I see designs that are first attempts, those that are well polished and everything in-between. After seeing so many, a few mistakes seem to be made over and over.&#8230;I've attempted to summarize their and my experiences in a compilation of the most 5 common mistakes and how to avoid them.</li>
 </ul>
 <br>
 <span class="bodySubtitle">Tell us what you'd like to learn!</span><br>

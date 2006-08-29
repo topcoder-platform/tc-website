@@ -68,8 +68,8 @@
 <span class="bigTitle">How long will this take, anyway?</span>
 
       <p>
-      <img src="/i/m/timmac_mug.gif" alt="" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/>&#160;
-      <img src="/i/m/rhudson_mug.gif" alt="" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+      <img src="/i/m/timmac_mug.gif" alt="" border="0" align="left" class="myStatsPhoto"/>
+      <img src="/i/m/rhudson_mug.gif" alt="" border="0" align="left" class="myStatsPhoto"/><br />
       By&#160;<tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /><br>
       <span class="smallText"><em>TopCoder Members</em></span><br clear="all" />
       </p>
