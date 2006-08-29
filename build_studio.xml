@@ -256,6 +256,7 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/object_formatter.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/upload.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/ifxjdbc.jar"/>
 
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
