@@ -8,6 +8,19 @@
 </tr>
 <%--------------------------------------------------------%>
 <tr>
+  <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>08.29.06<br>9:45 AM</td>
+    <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA chat session scheduled for SRM 318</A></span><br><br>
+      The chat session will start at 8pm, and last an hour until the start of tonight's SRM.
+  </td>
+</tr>
+<tr><td class="newsLinksCell">
+	 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">view</A>&#160;|&#160;
+	 <tc-webtag:forumLink forumID="506098" message="discuss this" />&#160;|&#160;
+	 <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Survey" border="0"/><br>08.28.06<br>4:15 PM</td>
     <td class="newsTextCell"><span class="newsTitle">
       <A href="<tc-webtag:linkTracking link='http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=2' refer="news_item"/>">AOL Developer Community Survey</A>
@@ -211,21 +224,6 @@ participants successfully solved the 250 problem, the other two problems appeare
     <A href="/tc?module=Static&amp;d1=features&amp;d2=081406">article</A>&#160;|&#160;
     <tc-webtag:forumLink forumID="506092" message="discuss this"/>&#160;|&#160;
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0"/><br>08.14.06<br>10:00 AM</td>
-    <td class="newsTextCell"><span class="newsTitle">
-      <A href="http://studio.topcoder.com/">Introducing TopCoder Studio</A>
-      </span><br><br>
-        We have been so impressed with the quality of the creative talents within our community that we are providing a
-        venue for beginning and experienced Graphic Designers and artists to demonstrate their skills.
-    </tr>
-<tr><td class="newsLinksCell">
-    <A href="http://studio.topcoder.com/">details</A>&#160;|&#160;
-    <A href="http://studio.topcoder.com/forums">discuss this</A>&#160;|&#160;
-    <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
 </td></tr>
 
 
