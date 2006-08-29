@@ -81,7 +81,8 @@
                             <% } %>
 
                         </td>
-                        <td class="sidebarText" align="center" nowrap=nowrap><%=result.getSubmitTimestamp()%></td>
+                        <td class="sidebarText" align=center nowrap=nowrap>
+                            <tc-webtag:format object="${result.submitTimestamp}" format="MM.dd.yyyy HH:mm z"/></td>
                         <td class="sidebarText" align="center"><%=result.getScore()%></td>
                         <td class="sidebarText" align=right><%=result.getPayment()%></td>
                         <td class="sidebarText" align="center"><%=result.getPlaced()%></td>
