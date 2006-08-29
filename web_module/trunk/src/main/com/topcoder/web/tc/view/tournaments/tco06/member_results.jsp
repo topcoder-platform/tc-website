@@ -70,7 +70,11 @@
                     <tr>
                         <% UserContestResult result = (UserContestResult) lst.get(i); %>
                         <td class="sidebarText" nowrap="nowrap">
+                            <% if (result.isViewable()) { %>
                             <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=result.getCompID()%>"><%=result.getComponent()%></A>
+                            <% } else { %>
+                            <%=result.getComponent()%>
+                            <% }%>
                             <% if (!result.isComplete()) {
                                 isComplete = false;%>
                             *
