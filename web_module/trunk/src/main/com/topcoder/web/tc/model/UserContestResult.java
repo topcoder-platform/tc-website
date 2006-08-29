@@ -7,11 +7,9 @@
 package com.topcoder.web.tc.model;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- *
  * @author rfairfax
  */
 public class UserContestResult implements Serializable {
@@ -26,9 +24,9 @@ public class UserContestResult implements Serializable {
     private boolean complete;
     private long projectId;
 
-    SimpleDateFormat dtfmt = new SimpleDateFormat("MM.dd.yyyy hh:mma");
-
-    /** Creates a new instance of TC04OverallResult */
+    /**
+     * Creates a new instance of TC04OverallResult
+     */
     public UserContestResult() {
         component = "";
         points = 0;
@@ -57,11 +55,8 @@ public class UserContestResult implements Serializable {
         return complete;
     }
 
-    public String getSubmitTimestamp() {
-        if (submitTimestamp == null)
-            return "";
-
-        return dtfmt.format(submitTimestamp);
+    public Date getSubmitTimestamp() {
+        return submitTimestamp;
     }
 
     public void setSubmitTimestamp(Date s) {

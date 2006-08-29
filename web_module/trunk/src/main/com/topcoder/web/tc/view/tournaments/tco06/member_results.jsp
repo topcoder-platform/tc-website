@@ -1,14 +1,13 @@
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 java.util.Map,
-                 com.topcoder.shared.dataAccess.DataAccessConstants,
                  com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.tc.model.UserContestResult,
-                 java.util.List" %>
+                 java.util.List,
+                 java.util.Map" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<jsp:include page="/script.jsp" />
+    <jsp:include page="/script.jsp"/>
 
     <title>2006 TopCoder Open - Computer Programming Tournament</title>
     <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
@@ -53,11 +52,11 @@
     <tr>
         <td valign="top" align="center">
             <div class="bodySpacer">
-               <br>
+                <br>
                 <span class="bigTitle"><A href="/tc?module=TCO06ContestDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>" class=usdcTitle>
                     <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></A> -
                 <tc-webtag:handle context='<%=tab%>' coderId='<%=rscUser.getIntItem(0, "coder_id")%>' darkBG='true'/></span>
-               <br><br>
+                <br><br>
                 <table width="510" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                     <tr>
                         <td class="sidebarTitle" nowrap="nowrap">Component Name</td>
@@ -76,13 +75,14 @@
                                 isComplete = false;%>
                             *
                             <% } %>
-                           <br>
-                                <% if (isComplete) { %>
+                            <br>
+                            <% if (isComplete) { %>
                             <A href="/tc?module=CompContestDetails&pj=<%=result.getProjectId()%>">contest details</A>
-                                <% } %>
+                            <% } %>
 
                         </td>
-                        <td class="sidebarText" align="center" nowrap=nowrap><%=result.getSubmitTimestamp()%></td>
+                        <td class="sidebarText" align=center nowrap=nowrap>
+                            <tc-webtag:format object="${result.submitTimestamp}" format="MM.dd.yyyy HH:mm z"/></td>
                         <td class="sidebarText" align="center"><%=result.getScore()%></td>
                         <td class="sidebarText" align=right><%=result.getPayment()%></td>
                         <td class="sidebarText" align="center"><%=result.getPlaced()%></td>
@@ -90,10 +90,10 @@
                     </tr>
                     <% } %>
                 </table>
-                  <br><br>
+                <br><br>
                 <%if (!isComplete) {%>
-                  * This project is still in progress, results subject to change
-                  <br><br>
+                * This project is still in progress, results subject to change
+                <br><br>
                 <% } %>
 
             </div>
