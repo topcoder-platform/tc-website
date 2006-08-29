@@ -49,11 +49,11 @@ public class EditContest extends Base {
 
         ContestStatus status = null;
         if ("".equals(StringUtils.checkNull(contestStatusId))) {
-            addError(Constants.CONTEST_STATUS_ID, "Please choose fileTypes valid contest status.");
+            addError(Constants.CONTEST_STATUS_ID, "Please choose a valid contest status.");
         } else {
             status = StudioDAOUtil.getFactory().getContestStatusDAO().find(new Integer(contestStatusId));
             if (status == null) {
-                addError(Constants.CONTEST_STATUS_ID, "Please choose fileTypes valid contest status.");
+                addError(Constants.CONTEST_STATUS_ID, "Please choose a valid contest status.");
             }
         }
 
@@ -79,10 +79,7 @@ public class EditContest extends Base {
             setDefault(Constants.CONTEST_NAME, name);
             setDefault(Constants.START_TIME, startTime);
             setDefault(Constants.END_TIME, endTime);
-
-            for (Iterator it = fileTypes.iterator(); it.hasNext();) {
-                setDefault(Constants.FILE_TYPE, it.next());
-            }
+            setDefault(Constants.FILE_TYPE, fileTypes);
 
             setNextPage("/admin/editContest.jsp");
             setIsNextPageInContext(true);
@@ -108,7 +105,7 @@ public class EditContest extends Base {
             ContestPropertyDAO dao = StudioDAOUtil.getFactory().getContestPropertyDAO();
             ContestProperty curr;
             for (int i = 0; i < CONTEST_PROPS.length; i++) {
-                curr = StudioDAOUtil.getFactory().getContestPropertyDAO().find(CONTEST_PROPS[i]);
+                curr = dao.find(CONTEST_PROPS[i]);
                 if (contest.isNew() || contest.getConfig(curr) == null) {
                     currConfig = new ContestConfig();
                     currConfig.setContest(contest);
@@ -124,6 +121,7 @@ public class EditContest extends Base {
 
             FileTypeDAO fDao = StudioDAOUtil.getFactory().getFileTypeDAO();
             for (Iterator it = fileTypes.iterator(); it.hasNext();) {
+                log.debug("add a file type");
                 contest.addFileType(fDao.find(new Integer((String) it.next())));
             }
 
