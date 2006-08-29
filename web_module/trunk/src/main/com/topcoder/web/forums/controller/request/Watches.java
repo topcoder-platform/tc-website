@@ -28,7 +28,7 @@ public class Watches extends ForumsProcessor {
 
         WatchManager watchManager = forumFactory.getWatchManager();
 
-        String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SETTINGS_STATUS));
+        String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.STATUS));
 		if (status.equals(ForumConstants.WATCHES_UPDATE)) {
 			Iterator threads = watchManager.getAllWatches(user, JiveConstants.THREAD);
             while (threads.hasNext()) {

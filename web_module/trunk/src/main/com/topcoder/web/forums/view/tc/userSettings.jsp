@@ -97,7 +97,7 @@ function toggleTabs(id) {
 
 <%   if (status.equals("error")) { %>
 <br><br><span class="rtHeader"><span class="bigRed">Settings updated with errors:</span></span>
-<tc-webtag:errorIterator id="errSettings" name="<%=ForumConstants.SETTINGS_STATUS%>"><%=errSettings%></tc-webtag:errorIterator><br/><br/>
+<tc-webtag:errorIterator id="errSettings" name="<%=ForumConstants.STATUS%>"><%=errSettings%></tc-webtag:errorIterator><br/><br/>
 <%  } %>
 
 <table cellpadding="0" cellspacing="0" border="0" class="tabTable" style="clear:both;">
@@ -132,7 +132,7 @@ function toggleTabs(id) {
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
 <tc-webtag:hiddenInput name="module" value="Settings"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.SETTINGS_SECTION%>" value="gen"/>
-<tc-webtag:hiddenInput name="<%=ForumConstants.SETTINGS_STATUS%>" value="save"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>" value="save"/>
 <table cellpadding="0" cellspacing="0" class="rtTable" style="width:100%;">
    <tr id="bodyGen1">
         <td class="rtHeader" colspan="2">General Settings</td>

@@ -87,7 +87,7 @@ function noenter(e)
 <table cellpadding="0" cellspacing="0" class="rtTable">
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
 <tc-webtag:hiddenInput name="module" value="Search"/>
-<tc-webtag:hiddenInput name="<%=ForumConstants.SEARCH_STATUS%>" value="search"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>" value="search"/>
    <tr>
       <td class="rtHeader" colspan="2">Search Criteria</td>
    </tr>

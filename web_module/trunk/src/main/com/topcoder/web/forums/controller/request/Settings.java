@@ -33,7 +33,7 @@ public class Settings extends ForumsProcessor {
         }
 
         int watchFrequency = -1;
-        String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SETTINGS_STATUS));
+        String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.STATUS));
         if (status.equals("save")) {
             int forumsPerPage = Integer.parseInt(getRequest().getParameter("forumsPerPage"));
             int threadsPerPage = Integer.parseInt(getRequest().getParameter("threadsPerPage"));
@@ -178,7 +178,7 @@ public class Settings extends ForumsProcessor {
         if (value <= maxValue) {
             user.setProperty((property), String.valueOf(value));
         } else {
-            addError(ForumConstants.SETTINGS_STATUS, error);
+            addError(ForumConstants.STATUS, error);
         }
     }
 }

@@ -33,7 +33,7 @@
     if (mode != null) {
         linkBuffer.append("&").append(ForumConstants.SEARCH_MODE).append("=").append(mode);
     }
-    linkBuffer.append("&").append(ForumConstants.SEARCH_STATUS).append("=").append(status);
+    linkBuffer.append("&").append(ForumConstants.STATUS).append("=").append(status);
     linkBuffer.append("&").append(ForumConstants.SEARCH_QUERY).append("=").append(StringUtils.URLEncode(query.getQueryString(), JiveGlobals.getCharacterEncoding()));
     linkBuffer.append("&").append(ForumConstants.SEARCH_SCOPE).append("=").append(searchScope);
     linkBuffer.append("&").append(ForumConstants.SEARCH_DATE_RANGE).append("=").append(dateRange);

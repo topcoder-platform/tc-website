@@ -378,7 +378,6 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
            <%	Iterator itPolls = pollManager.getPolls(JiveConstants.MESSAGE, message.getID());
            		while (itPolls.hasNext()) {
            			Poll poll = (Poll)itPolls.next(); 
-           			long numVoters = ((Long)voterCountTable.get(new Long(poll.getID()))).longValue();
            			String pollVotingID = "pollVoting" + poll.getID(); 
            			String pollResultsID = "pollResults" + poll.getID();
            			String pollResultsFooterID = "pollResultsFooter" + poll.getID();
