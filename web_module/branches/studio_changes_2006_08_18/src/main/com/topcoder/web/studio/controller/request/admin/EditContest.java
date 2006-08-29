@@ -17,10 +17,7 @@ import com.topcoder.web.studio.validation.*;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author dok
@@ -120,10 +117,12 @@ public class EditContest extends Base {
             }
 
             FileTypeDAO fDao = StudioDAOUtil.getFactory().getFileTypeDAO();
+            HashSet fts = new HashSet();
             for (Iterator it = fileTypes.iterator(); it.hasNext();) {
                 log.debug("add a file type");
-                contest.addFileType(fDao.find(new Integer((String) it.next())));
+                fts.add(fDao.find(new Integer((String) it.next())));
             }
+            contest.setFileTypes(fts);
 
 
             StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
