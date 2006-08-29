@@ -68,16 +68,18 @@
                     </tr>
                     <rsc:iterator list="<%=rsc%>" id="resultRow">
                         <tr>
-                            <% if (resultRow.getIntItem("viewable") == 1) { %>
-                            <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>">
-                                <rsc:item name="component_name" row="<%=resultRow%>"/></A>
-                            <% } else { %>
-                            <rsc:item name="component_name" row="<%=resultRow%>"/>
-                            <% } %>
-                            <% if (resultRow.getIntItem("is_complete") == 0) {
-                                isComplete = false;%>
-                            *
-                            <% } %>
+                            <td class="sidebarText">
+                                <% if (resultRow.getIntItem("viewable") == 1) { %>
+                                <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>">
+                                    <rsc:item name="component_name" row="<%=resultRow%>"/></A>
+                                <% } else { %>
+                                <rsc:item name="component_name" row="<%=resultRow%>"/>
+                                <% } %>
+                                <% if (resultRow.getIntItem("is_complete") == 0) {
+                                    isComplete = false;%>
+                                *
+                                <% } %>
+                            </td>
                             <td class="sidebarText" align=center>
                                 <A href="/tc?module=TCCC05ProjectDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">results</A>
                             </td>
