@@ -3,18 +3,12 @@
  */
 package com.topcoder.web.forums.controller.request;
 
-import com.jivesoftware.base.Log;
 import com.jivesoftware.base.PollManager;
 import com.jivesoftware.base.Poll;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
-
-import javax.naming.InitialContext;
 
 /**
  * @author mtong
