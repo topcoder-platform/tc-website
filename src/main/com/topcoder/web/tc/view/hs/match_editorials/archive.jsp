@@ -43,6 +43,7 @@
    
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>August</strong></td></tr>
+   <tr><td class="bodyText">08.28.06</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 13 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm13">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">08.21.06</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 12 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm12">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">08.14.06</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 11 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm11">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">08.07.06</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 10 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm10">Problem Set & Analysis</a></td></tr>
