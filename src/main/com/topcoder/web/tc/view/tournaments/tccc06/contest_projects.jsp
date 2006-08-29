@@ -65,12 +65,17 @@
                     <rsc:iterator list="<%=rsc%>" id="resultRow">
                         <tr>
                             <td class="sidebarText" nowrap="nowrap">
+                                <% if (resultRow.getIntItem("viewable") == 1) { %>
                                 <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>">
                                     <rsc:item name="component_name" row="<%=resultRow%>"/></A>
+                                <% } else { %>
+                                <rsc:item name="component_name" row="<%=resultRow%>"/>
                                 <% if (resultRow.getIntItem("is_complete") == 0) {
                                     isComplete = false;%>
                                 *
                                 <% } %>
+                                <% } %>
+
                                 <br>
                                 <A href="/tc?module=TCCC06ProjectDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">results</A>
                                 <% if (isComplete) { %>
@@ -80,9 +85,9 @@
                                 <% } %>
                             </td>
                             <td class="sidebarText" align=center nowrap=nowrap>
-                                <rsc:item name="start_date" format="MM.dd.yyyy" row="<%=resultRow%>"/> 9:00AM</td>
+                                <rsc:item name="start_date" format="MM.dd.yyyy HH:mm z" row="<%=resultRow%>"/></td>
                             <td class="sidebarText" align=center nowrap=nowrap>
-                                <rsc:item name="end_date" format="MM.dd.yyyy" row="<%=resultRow%>"/> 9:00AM</td>
+                                <rsc:item name="end_date" format="MM.dd.yyyy HH:mm z" row="<%=resultRow%>"/></td>
                             <td class="sidebarText" align=right>$
                                 <rsc:item name="first_prize" format="#,##0" row="<%=resultRow%>"/></td>
                             <td class="sidebarText" align=right>$
