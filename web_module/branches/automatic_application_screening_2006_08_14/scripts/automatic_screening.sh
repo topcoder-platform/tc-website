@@ -6,6 +6,7 @@
   CLASSPATH=$CLASSPATH:../lib/bin/screening.jar
   CLASSPATH=$CLASSPATH:../lib/bin/shared.jar
   CLASSPATH=$CLASSPATH:../lib/jars/idgenerator.jar
+  CLASSPATH=$CLASSPATH:../lib/jars/tcs/id_generator/3.0/id_generator.jar
   CLASSPATH=$CLASSPATH:../lib/jars/ifxjdbc.jar
   CLASSPATH=$CLASSPATH:../lib/jars/jboss/jbossall-client.jar
   CLASSPATH=$CLASSPATH:../lib/jars/log4j-1.2.7.jar

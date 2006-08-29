@@ -145,9 +145,9 @@ public class ScreeningJob extends TimerTask {
         this.screener = screener;
         this.maxScreeningAttempts = maxScreeningAttempts;
         this.threads = new Thread[num];
+        log = Logger.getLogger(ScreeningJob.class);
         cleanOldResults();
         resetPendingTasks();
-        log = Logger.getLogger(ScreeningJob.class);
     }
 
     /**
