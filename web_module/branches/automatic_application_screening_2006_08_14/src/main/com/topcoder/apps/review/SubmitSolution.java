@@ -13,6 +13,7 @@ import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 import com.topcoder.util.format.FormatMethodFactory;
 
+import com.topcoder.apps.screening.IScreeningRequest;
 import com.topcoder.apps.screening.ProjectType;
 import com.topcoder.apps.screening.ScreeningResponse;
 import com.topcoder.apps.screening.ScreeningJob;
@@ -152,7 +153,7 @@ public class SubmitSolution implements Model {
                 Connection conn = null;
                 long versionId;
 
-                SubmissionScreeningRequest ssr = null;
+                IScreeningRequest ssr = null;
 
                 try {
                     conn = Common.getDataSource().getConnection();
