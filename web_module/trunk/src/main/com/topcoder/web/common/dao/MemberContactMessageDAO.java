@@ -11,10 +11,10 @@ import com.topcoder.web.common.model.MemberContactMessage;
  */
 public interface MemberContactMessageDAO {
 
-	MemberContactMessage find(Long id);
-    
-	List getAllSendersToUser(Long userId);
-	
+    MemberContactMessage find(Long id);
+
+    List getAllSendersToUser(Long userId);
+
     void saveOrUpdate(MemberContactMessage u);
 
 }

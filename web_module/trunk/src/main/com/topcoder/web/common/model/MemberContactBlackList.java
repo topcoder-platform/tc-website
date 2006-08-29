@@ -12,64 +12,64 @@ import java.io.Serializable;
  */
 public class MemberContactBlackList extends Base {
 
-	private Identifier id;
+    private Identifier id;
     private boolean blocked;
-    
-	public Identifier getId() {
-		return id;
-	}
-	
-	public boolean isBlocked() {
-		return blocked;
-	}
 
-	public void setBlocked(boolean blocked) {
-		this.blocked = blocked;
-	}
+    public Identifier getId() {
+        return id;
+    }
 
-	public void setId(Identifier id) {
-		this.id = id;
-	}
-	
+    public boolean isBlocked() {
+        return blocked;
+    }
+
+    public void setBlocked(boolean blocked) {
+        this.blocked = blocked;
+    }
+
+    public void setId(Identifier id) {
+        this.id = id;
+    }
+
 
     public static class Identifier implements Serializable {
-    	private User user = null;
-    	private User blockedUser = null;
-     	
+        private User user = null;
+        private User blockedUser = null;
+
         public User getBlockedUser() {
-			return blockedUser;
-		}
-		public void setBlockedUser(User blockedUser) {
-			this.blockedUser = blockedUser;
-		}
-		public User getUser() {
-			return user;
-		}
-		public void setUser(User user) {
-			this.user = user;
-		}
-		
-		public Identifier() {			
-		}
-		
-		public Identifier(User user, User blockedUser) {
-			super();
-			this.user = user;
-			this.blockedUser = blockedUser;
-		}
-		
-		public boolean equals(Object o) {
+            return blockedUser;
+        }
+        public void setBlockedUser(User blockedUser) {
+            this.blockedUser = blockedUser;
+        }
+        public User getUser() {
+            return user;
+        }
+        public void setUser(User user) {
+            this.user = user;
+        }
+
+        public Identifier() {
+        }
+
+        public Identifier(User user, User blockedUser) {
+            super();
+            this.user = user;
+            this.blockedUser = blockedUser;
+        }
+
+        public boolean equals(Object o) {
             if (o == null) {
                 return false;
-            } 
+            }
             try {
                 MemberContactBlackList.Identifier up = (MemberContactBlackList.Identifier) o;
                 return (up.getBlockedUser().equals(getBlockedUser()) &&
-                		up.getUser().equals(getUser()));
+                        up.getUser().equals(getUser()));
             } catch (ClassCastException e) {
                 return false;
             }
-            
+
         }
         public int hashCode() {
             return (user.getId() + " " + blockedUser.getId()).hashCode();

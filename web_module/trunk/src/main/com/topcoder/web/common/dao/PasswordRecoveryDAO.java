@@ -7,8 +7,8 @@ import com.topcoder.web.common.model.PasswordRecovery;
  */
 public interface PasswordRecoveryDAO {
 
-	PasswordRecovery find(Long id);
-    	
+    PasswordRecovery find(Long id);
+
     void saveOrUpdate(PasswordRecovery pr);
 
 }

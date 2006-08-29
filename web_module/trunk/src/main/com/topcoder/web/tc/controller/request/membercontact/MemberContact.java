@@ -25,15 +25,15 @@ public class MemberContact extends ShortHibernateProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
-		if (!Helper.isRated(getUser().getId())) {
-			getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(false));
-		} else {
-	        User sender  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
-	
-	        if (!sender.isMemberContactEnabled()) {
-	        	getRequest().setAttribute(CAN_RECEIVE, String.valueOf(true));
-	        }
-		}
+        if (!Helper.isRated(getUser().getId())) {
+            getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(false));
+        } else {
+            User sender  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+
+            if (!sender.isMemberContactEnabled()) {
+                getRequest().setAttribute(CAN_RECEIVE, String.valueOf(true));
+            }
+        }
 
         setNextPage(Constants.MEMBER_CONTACT);
         setIsNextPageInContext(true);

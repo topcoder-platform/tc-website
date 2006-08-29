@@ -68,28 +68,28 @@ public class UserDAOHibernate extends Base implements UserDAO {
     }
 
     public List find(String handle, String firstName, String lastName, String email) {
-    	Criteria crit = session.createCriteria(User.class);
+        Criteria crit = session.createCriteria(User.class);
         if (handle != null && handle.length() > 0) {
-        	crit.add(Restrictions.sqlRestriction("lower({alias}.handle)=lower(?)", handle, Hibernate.STRING));
+            crit.add(Restrictions.sqlRestriction("lower({alias}.handle)=lower(?)", handle, Hibernate.STRING));
         }
 
         if (email != null && email.length() > 0) {
-	    	crit.createCriteria("emailAddresses")
-	    		.add(Restrictions.sqlRestriction("lower({alias}.address)=lower(?)", email, Hibernate.STRING))
-	    		.add(Restrictions.eq("primary", Boolean.TRUE));
+            crit.createCriteria("emailAddresses")
+                .add(Restrictions.sqlRestriction("lower({alias}.address)=lower(?)", email, Hibernate.STRING))
+                .add(Restrictions.eq("primary", Boolean.TRUE));
         }
-        
+
         if (firstName != null && firstName.length() > 0) {
-        	crit.add(Restrictions.sqlRestriction("lower({alias}.first_name)=lower(?)", firstName, Hibernate.STRING));
+            crit.add(Restrictions.sqlRestriction("lower({alias}.first_name)=lower(?)", firstName, Hibernate.STRING));
         }
 
         if (lastName != null && lastName.length() > 0) {
-        	crit.add(Restrictions.sqlRestriction("lower({alias}.last_name)=lower(?)", lastName, Hibernate.STRING));
+            crit.add(Restrictions.sqlRestriction("lower({alias}.last_name)=lower(?)", lastName, Hibernate.STRING));
         }
 
-    	return crit.list();
+        return crit.list();
     }
-    
+
     public void saveOrUpdate(User u) {
 //        boolean isNew = u.isNew();
 

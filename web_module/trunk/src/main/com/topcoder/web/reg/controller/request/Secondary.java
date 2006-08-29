@@ -168,22 +168,22 @@ public class Secondary extends Base {
         }
 
         if (fields.contains(Constants.SECRET_QUESTION) || fields.contains(Constants.SECRET_QUESTION_RESPONSE)) {
-        	SecretQuestion sc = u.getSecretQuestion();
-        	if (sc == null) {
-        		sc = new SecretQuestion();
-        		sc.setUser(u);
-        		u.setSecretQuestion(sc);
-        	}
-        	
-        	if (fields.contains(Constants.SECRET_QUESTION)) {
-        		sc.setQuestion((String) params.get(Constants.SECRET_QUESTION));
-        	}
-        	
-        	if (fields.contains(Constants.SECRET_QUESTION_RESPONSE)) {
-        		sc.setResponse((String) params.get(Constants.SECRET_QUESTION_RESPONSE));
-        	}
+            SecretQuestion sc = u.getSecretQuestion();
+            if (sc == null) {
+                sc = new SecretQuestion();
+                sc.setUser(u);
+                u.setSecretQuestion(sc);
+            }
+
+            if (fields.contains(Constants.SECRET_QUESTION)) {
+                sc.setQuestion((String) params.get(Constants.SECRET_QUESTION));
+            }
+
+            if (fields.contains(Constants.SECRET_QUESTION_RESPONSE)) {
+                sc.setResponse((String) params.get(Constants.SECRET_QUESTION_RESPONSE));
+            }
         }
-        
+
         if (fields.contains(Constants.COMPANY_NAME)) {
             String name = (String) params.get(Constants.COMPANY_NAME);
 
