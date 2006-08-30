@@ -91,7 +91,7 @@
                     <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
 
                     Place:
-                    <tc-webtag:objectSelect name="<%=Constants.PRIZE_ID%>" list="${s.contest.prizes}" valueField="id" textField="place"/>
+                    <tc-webtag:objectSelect name="<%=Constants.PRIZE_ID%>" list="${submission.contest.prizes}" valueField="id" textField="place"/>
                     <button name="submit" value="submit" type="submit">Submit</button>
                 </form>
 
