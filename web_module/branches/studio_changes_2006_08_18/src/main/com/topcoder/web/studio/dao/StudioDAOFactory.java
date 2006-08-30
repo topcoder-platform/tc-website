@@ -31,4 +31,6 @@ public interface StudioDAOFactory {
 
     FileTypeDAO getFileTypeDAO();
 
+    MimeTypeDAO getMimeTypeDAO();
+
 }

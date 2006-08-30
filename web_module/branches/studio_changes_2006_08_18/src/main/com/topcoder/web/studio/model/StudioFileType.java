@@ -2,6 +2,10 @@ package com.topcoder.web.studio.model;
 
 import com.topcoder.web.common.model.Base;
 
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -11,7 +15,7 @@ public class StudioFileType extends Base {
     public static final Integer ADOBE_ACROBAT_TYPE_ID = new Integer(3);
     private Integer id;
     private String description;
-    private String mimeType;
+    private Set mimeTypes = new HashSet();
     private Integer sort;
     private Boolean imageFile;
 
@@ -31,12 +35,12 @@ public class StudioFileType extends Base {
         this.description = description;
     }
 
-    public String getMimeType() {
-        return mimeType;
+    public Set getMimeTypes() {
+        return Collections.unmodifiableSet(mimeTypes);
     }
 
-    public void setMimeType(String mimeType) {
-        this.mimeType = mimeType;
+    public void setMimeTypes(Set mimeTypes) {
+        this.mimeTypes = mimeTypes;
     }
 
     public Integer getSort() {

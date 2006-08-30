@@ -9,7 +9,7 @@ import com.topcoder.web.studio.dao.ContestPropertyDAO;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestProperty;
-import com.topcoder.web.studio.model.StudioFileType;
+import com.topcoder.web.studio.model.MimeType;
 
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageInputStream;
@@ -49,16 +49,16 @@ public class SubmissionValidator implements Validator {
         } catch (IOException e) {
             return new BasicResult(false, "Communication error when receiving submission.");
         }
-        StudioFileType ft = StudioDAOUtil.getFactory().getFileTypeDAO().find(submission.getContentType());
+        MimeType mt = StudioDAOUtil.getFactory().getMimeTypeDAO().find(submission.getContentType());
 
         if (ret == 0) {
             return new BasicResult(false, "Submission was empty");
-        } else if (ft == null || !contest.getFileTypes().contains(ft)) {
+        } else if (mt == null || !contest.getFileTypes().contains(mt.getFileType())) {
             return new BasicResult(false, "Unknown or invalid file type submitted: " + submission.getContentType());
         } else {
             //at this point we have an actual submission file that's not empty and it's a file type we know
 
-            if (ft.isImageFile()) {
+            if (mt.getFileType().isImageFile()) {
                 ContestPropertyDAO dao = StudioDAOUtil.getFactory().getContestPropertyDAO();
                 String minWidth = contest.getConfig(dao.find(ContestProperty.MIN_WIDTH)).getValue();
                 String maxWidth = contest.getConfig(dao.find(ContestProperty.MAX_WIDTH)).getValue();

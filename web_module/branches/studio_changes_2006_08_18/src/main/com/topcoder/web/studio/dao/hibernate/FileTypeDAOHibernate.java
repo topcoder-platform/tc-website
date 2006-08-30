@@ -29,8 +29,8 @@ public class FileTypeDAOHibernate extends Base implements FileTypeDAO {
 
     public StudioFileType find(String mimeType) {
         StringBuffer query = new StringBuffer(100);
-        query.append("from StudioFileType");
-        query.append(" where LOWER(mimeType) = LOWER(?)");
+        query.append("from StudioFileType f");
+        query.append(" where LOWER(f.mimeTypes.description) = LOWER(?)");
         Query q = session.createQuery(query.toString());
         q.setString(0, mimeType);
         return (StudioFileType) q.uniqueResult();

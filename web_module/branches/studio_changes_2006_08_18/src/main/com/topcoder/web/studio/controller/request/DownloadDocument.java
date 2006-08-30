@@ -30,7 +30,7 @@ public class DownloadDocument extends ShortHibernateProcessor {
 
         //stream it out via the response
         getResponse().addHeader("content-disposition", "inline; filename=" + d.getOriginalFileName());
-        getResponse().setContentType(d.getFileType().getMimeType());
+        getResponse().setContentType(d.getMimeType().getDescription());
         ServletOutputStream sos = getResponse().getOutputStream();
 
         FileInputStream fis = new FileInputStream(d.getPath().getPath() + d.getSystemFileName());

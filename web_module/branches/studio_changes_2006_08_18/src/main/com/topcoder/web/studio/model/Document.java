@@ -17,6 +17,7 @@ public class Document extends Base {
     private String systemFileName;
     private FilePath path;
     private StudioFileType fileType;
+    private MimeType mimeType;
     private DocumentType type;
 
 
@@ -76,4 +77,13 @@ public class Document extends Base {
         this.type = type;
     }
 
+    public MimeType getMimeType() {
+        return mimeType;
+    }
+
+    public void setMimeType(MimeType mimeType) {
+        this.mimeType = mimeType;
+    }
+
 }
+

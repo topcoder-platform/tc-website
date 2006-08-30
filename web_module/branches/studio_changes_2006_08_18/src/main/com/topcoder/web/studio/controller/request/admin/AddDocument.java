@@ -49,7 +49,7 @@ public class AddDocument extends Base {
                 addError(Constants.DOCUMENT, "Document was empty");
             }
 
-            StudioFileType ft = StudioDAOUtil.getFactory().getFileTypeDAO().find(file.getContentType());
+            StudioFileType ft = StudioDAOUtil.getFactory().getMimeTypeDAO().find(file.getContentType()).getFileType();
 
             if (ft == null) {
                 addError(Constants.SUBMISSION, "Unknown file type: " + file.getContentType());

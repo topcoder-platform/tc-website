@@ -17,6 +17,7 @@ public class Submission extends Base {
     private FilePath path;
     private SubmissionType type;
     private StudioFileType fileType;
+    private MimeType mimeType;
 
     public Long getId() {
         return id;
@@ -82,5 +83,12 @@ public class Submission extends Base {
         this.fileType = fileType;
     }
 
+    public MimeType getMimeType() {
+        return mimeType;
+    }
+
+    public void setMimeType(MimeType mimeType) {
+        this.mimeType = mimeType;
+    }
 
 }
