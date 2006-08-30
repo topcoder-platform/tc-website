@@ -31,7 +31,8 @@ public class MaxWidthValidator implements Validator {
                 ValidationResult maxNumResult =
                         new IntegerValidator("Please enter a valid number.").validate(input);
                 if (maxNumResult.isValid()) {
-                    if (new Integer(minWidth).compareTo(new Integer((String) input.getInput())) > 0) {
+                    if (!"".equals(StringUtils.checkNull(minWidth)) && new Integer(minWidth).compareTo(new Integer((String) input.getInput())) > 0)
+                    {
                         return new BasicResult(false, "Max width must be greater than or equal min width");
                     } else {
                         return ValidationResult.SUCCESS;

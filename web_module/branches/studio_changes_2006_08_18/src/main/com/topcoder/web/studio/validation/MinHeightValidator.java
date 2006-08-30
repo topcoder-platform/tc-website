@@ -32,7 +32,8 @@ public class MinHeightValidator implements Validator {
                 ValidationResult minNumResult =
                         new IntegerValidator("Please enter a valid number.").validate(input);
                 if (minNumResult.isValid()) {
-                    if (new Integer(maxHeight).compareTo(new Integer((String) input.getInput())) < 0) {
+                    if (!"".equals(StringUtils.checkNull(maxHeight)) && new Integer(maxHeight).compareTo(new Integer((String) input.getInput())) < 0)
+                    {
                         return new BasicResult(false, "Min height must be less than or equal max height");
                     } else {
                         return ValidationResult.SUCCESS;
