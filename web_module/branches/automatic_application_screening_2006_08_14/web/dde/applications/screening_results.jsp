@@ -25,9 +25,7 @@ boolean screeningFinished = hasErrors | hasWarnings | hasSuccess;
             <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
             <META HTTP-EQUIV="Expires" CONTENT="-1">
             <META HTTP-EQUIV="Refresh" CONTENT="10">
-        <%
-            }
-        %>
+        <%}%>
         <TITLE>Screening results</TITLE>
     </HEAD>
     <BODY>
@@ -35,105 +33,65 @@ boolean screeningFinished = hasErrors | hasWarnings | hasSuccess;
             <TR>
                 <td>
                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                        <%
-                            if (screeningFinished) {
-                        %>
-                            <%
-                                if (hasErrors) {
-                            %>
+                        <%if (screeningFinished) {%>
+                            <%if (hasErrors) {%>
                                 <tr>
                                     <td>Fatal Errors: (<%=errors.size()%>)</td>
                                 </tr>
 
-                                <%
-                                for (Iterator it = errors.iterator(); it.hasNext();) {
-                                    ScreeningResponse errorItem = (ScreeningResponse) it.next();
-                                %>
+                                <%for (Iterator it = errors.iterator(); it.hasNext();) {
+                                    ScreeningResponse errorItem = (ScreeningResponse) it.next();%>
                                     <tr>
                                         <td>
                                             <%=errorItem.getCode()%>: <%=errorItem.getResponse()%>
                                             <ul>
-                                                <%
-                                                for (int i = 0; i < errorItem.getText().length; i++) {
-                                                %>
+                                                <%for (int i = 0; i < errorItem.getText().length; i++) {%>
                                                     <li><%=errorItem.getText()[i]%></li>
-                                                <%
-                                                }
-                                                %>
+                                                <%}%>
                                             </ul>
                                         </td>
                                     </tr>
-                                <%
-                                }
-                                %>
-                            <%
-                                }
-                            %>
-                            <%
-                                if (hasWarnings) {
-                            %>
+                                <%}%>
+                            <%}%>
+                            <%if (hasWarnings) {%>
                                 <tr>
                                     <td>Warnings: (<%=warnings.size()%>)</td>
                                 </tr>
 
-                                <%
-                                for (Iterator it = warnings.iterator(); it.hasNext();) {
-                                    ScreeningResponse errorItem = (ScreeningResponse) it.next();
-                                %>
+                                <%for (Iterator it = warnings.iterator(); it.hasNext();) {
+                                    ScreeningResponse errorItem = (ScreeningResponse) it.next();%>
                                     <tr>
                                         <td>
                                             <%=errorItem.getCode()%>: <%=errorItem.getResponse()%>
                                             <ul>
-                                                <%
-                                                for (int i = 0; i < errorItem.getText().length; i++) {
-                                                %>
+                                                <%for (int i = 0; i < errorItem.getText().length; i++) {%>
                                                     <li><%=errorItem.getText()[i]%></li>
-                                                <%
-                                                }
-                                                %>
+                                                <%}%>
                                             </ul>
                                         </td>
                                     </tr>
-                                <%
-                                }
-                                %>
-                            <%
-                                }
-                            %>                            
-                            <%
-                                if (hasSuccess) {
-                            %>
+                                <%}%>
+                            <%}%>                            
+                            <%if (hasSuccess) {%>
                                 <tr>
                                     <td>Messages: (<%=success.size()%>)</td>
                                 </tr>
 
-                                <%
-                                for (Iterator it = success.iterator(); it.hasNext();) {
-                                    ScreeningResponse successItem = (ScreeningResponse) it.next();
-                                %>
+                                <%for (Iterator it = success.iterator(); it.hasNext();) {
+                                    ScreeningResponse successItem = (ScreeningResponse) it.next();%>
                                     <tr>
                                         <td>
                                             <%=successItem.getCode()%>: <%=successItem.getResponse()%>
                                             <ul>
-                                                <%
-                                                for (int i = 0; i < successItem.getText().length; i++) {
-                                                %>
+                                                <%for (int i = 0; i < successItem.getText().length; i++) {%>
                                                     <li><%=successItem.getText()[i]%></li>
-                                                <%
-                                                }
-                                                %>
+                                                <%}%>
                                             </ul>
                                         </td>
                                     </tr>
-                                <%
-                                }
-                                %>
-                            <%
-                                }
-                            %>
-                        <%
-                            } else {
-                        %>
+                                <%}%>
+                            <%}%>
+                        <%} else {%>
                             <tr>
                                 <td>
                                     Screening still in progress... 
@@ -142,9 +100,7 @@ boolean screeningFinished = hasErrors | hasWarnings | hasSuccess;
                                     <A href="/tcs?module=ViewUploadResults&spec_id=<%=request.getAttribute("spec_id")%>">here</a>.
                                 </TD>
                             </TR>
-                        <%
-                            }
-                        %>                            
+                        <%}%>                            
                     </table>
                 </TD>
             </tr>
