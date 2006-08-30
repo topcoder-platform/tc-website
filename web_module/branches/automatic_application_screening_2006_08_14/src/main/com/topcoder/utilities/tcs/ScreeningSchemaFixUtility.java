@@ -42,10 +42,7 @@ public class ScreeningSchemaFixUtility extends DBUtility{
             query.append(" where sro.submission_v_id = s.submission_v_id and p.project_id = s.project_id ");
             query.append(" and p.cur_version = 1 and cv.comp_vers_id = p.comp_vers_id ");
             query.append(" and cv.component_id = cc.component_id ");
-            query.append(" and sro.submission_v_id in ( ");
-            query.append(" select distinct submission_v_id from screening_result_old where ");
-            query.append(" (DATE(current) - DATE(create_date)) > 180 ");
-            query.append(" ) order by sro.submission_v_id asc ");
+            query.append(" order by sro.submission_v_id asc ");
             psSelOldScreeningResults = prepareStatement("tcs_catalog", query.toString());
 
             query = new StringBuffer(200);
@@ -130,7 +127,7 @@ public class ScreeningSchemaFixUtility extends DBUtility{
      * @throws IDGenerationException if id generation fails.
      */
     private static long generateNewID() throws IDGenerationException {
-        IDGenerator gen = IDGeneratorFactory.getIDGenerator("SPECIFICATION_SEQ");
+        IDGenerator gen = IDGeneratorFactory.getIDGenerator("SCREENING_TASK_SEQ");
         return gen.getNextID();
     }
 
