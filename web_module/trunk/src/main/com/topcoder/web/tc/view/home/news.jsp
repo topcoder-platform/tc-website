@@ -48,9 +48,9 @@
                 In this article, we'll describe how you can "sell" projects to both internal clients (if you're salaried), and external clients 
                 (if you consult), using a model we call UPSELL: Understand, Plan, Story, Estimate, Lock, and Leverage.</td>
             <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" alt="" /><br>by
-                <tc-webtag:handle coderId="10407399" context="design"/></td>
+                <tc-webtag:handle coderId="10407399" /></td>
             <td class="newsPhoto"><img src="/i/m/rhudson_mug.gif" alt="" /><br>&amp;
-                <tc-webtag:handle coderId="22627518" context="design"/></td></tr>
+                <tc-webtag:handle coderId="22627518" /></td></tr>
         </table>
     </td>
 </tr>
