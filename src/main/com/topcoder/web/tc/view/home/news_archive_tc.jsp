@@ -39,6 +39,7 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">08.30.06 4:00 PM - </td><td width="100%"><A href="http://studio.topcoder.com/">gojohnie wins the first TopCoder Studio contest</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.14.06 10:00 AM - </td><td width="100%"><A href="http://studio.topcoder.com/">Introducing TopCoder Studio</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.06.06 9:00 AM - </td><td width="100%">Downtime for scheduled maintenance: 08.03</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.31.06 7:30 PM - </td><td width="100%"><A href="/tc?module=MemberContact">Member Contacting now available</A></td></tr>

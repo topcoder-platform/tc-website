@@ -7,6 +7,20 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 
 <%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>08.30.06<br>4:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="http://studio.topcoder.com/">gojohnie wins the first TopCoder Studio contest</A>
+      </span><br><br>
+      Congratulations to <span class="coderTextBlack">gojohnie</span> for winning the first TopCoder Studio contest and the $500 prize!
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://studio.topcoder.com/">view</A>&#160;|&#160;
+         <A href="http://studio.topcoder.com/forums">discuss this</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>08.29.06<br>6:00 PM</td>
     <td class="newsTextCell">
@@ -197,23 +211,6 @@ participants successfully solved the 250 problem, the other two problems appeare
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
 
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0"/><br>08.18.06<br>2:30 PM</td>
-    <td class="newsTextCell"><span class="newsTitle">A banner week for Component Competitions</span><br><br>
-        It's a great week for components -- for this week's design competitions alone, TopCoder has posted a record
-        prize pool of $36,750
-        for first- and second-place prizes. Plus, you can earn even more through the Digital Run, and this week's
-        contests count toward the TCCC!
-        If you've been waiting, now is the perfect time to get in the game.
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=ViewActiveContests&ph=112">design contests</A>&#160;|&#160;
-    <A href="/tc?module=ViewActiveContests&ph=113">development contests</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506094" message="discuss this"/>&#160;|&#160;
-    <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-</td></tr>
 
 
 </table>
