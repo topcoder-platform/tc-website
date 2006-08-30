@@ -1,5 +1,5 @@
-<%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -53,7 +53,9 @@
 
         <c:if test="${fn:length(contest.documents)>0}">
             <strong>Documentation</strong><br>
-            To view this project's documentation, you must be a registered TopCoder Studio member.  If you are <strong>already a registered TopCoder member</strong> you still need to add TopCoder Studio to your registration by <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">updating your profile</A>.
+            To view this project's documentation, you must be a registered TopCoder Studio member. If you are <strong>
+            already a registered TopCoder member</strong> you still need to add TopCoder Studio to your registration by
+            <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">updating your profile</A>.
             <br><br>
             <c:forEach items="${contest.documents}" var="document">
                 ${document.type.description}:
@@ -71,14 +73,15 @@
         <c:choose>
             <c:when test="${fn:length(contest.prizes)==1}">
                 <c:forEach items="${contest.prizes}" var="prize">
-                    <strong>Winning Designer: <fmt:formatNumber value="${prize.amount}" type="currency"/></strong>
+                    <strong>Winning Designer: <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/></strong>
                 </c:forEach>
                 <br><br>
             </c:when>
             <c:otherwise>
                 <% int i = 1;%>
                 <c:forEach items="${contest.prizes}" var="prize">
-                    <strong>Prize <%=i++%>: <fmt:formatNumber value="${prize.amount}" type="currency"/></strong><br>
+                    <strong>Prize <%=i++%>: <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/></strong>
+                    <br>
                 </c:forEach>
                 <br><br>
             </c:otherwise>
