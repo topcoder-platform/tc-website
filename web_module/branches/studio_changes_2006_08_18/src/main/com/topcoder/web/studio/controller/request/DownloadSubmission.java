@@ -35,7 +35,7 @@ public class DownloadSubmission extends Base {
         ContestResult curr;
         for (Iterator it = s.getContest().getResults().iterator(); it.hasNext() && !isWinner;) {
             curr = (ContestResult) it.next();
-            isWinner = s.equals(curr) && curr.getPrize().getPlace().intValue() == 1;
+            isWinner = s.getId().equals(curr.getId()) && curr.getPrize().getPlace().intValue() == 1;
         }
 
         if (isWinner || "true".equals(s.getContest().getConfig(
