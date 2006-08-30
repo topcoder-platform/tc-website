@@ -33,6 +33,9 @@ public class SetPlace extends Base {
         } catch (NumberFormatException e) {
             throw new NavigationException("Invalid prize Specified");
         }
+        if (log.isDebugEnabled()) {
+            log.debug("got prize: " + prizeId);
+        }
 
         StudioDAOFactory factory = StudioDAOUtil.getFactory();
         Submission s = factory.getSubmissionDAO().find(submissionId);
