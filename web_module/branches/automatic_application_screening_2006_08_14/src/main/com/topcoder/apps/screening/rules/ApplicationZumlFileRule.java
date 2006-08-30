@@ -119,7 +119,16 @@ public class ApplicationZumlFileRule implements ScreeningRule {
             TextValidationOutputFormatter textFormatter = new TextValidationOutputFormatter();
             String []formatted = textFormatter.format(validationOutputs);
             for (int i = 0, n = formatted.length; i < n; i++) {
-                logger.log(new SimpleScreeningData(formatted[i], ResponseCode.WRONG_ZUML));
+                String errorMessage = formatted[i] + " - " +
+                validationOutputs[i].getDiagram() != null ?
+                    validationOutputs[i].getDiagram().getDiagramType() +
+                    validationOutputs[i].getDiagram().getDiagramName() : "No diagram info. - " +
+                validationOutputs[i].getElement() != null ?
+                    validationOutputs[i].getDiagram().getDiagramType() +
+                    validationOutputs[i].getDiagram().getDiagramName() : "No element info.";
+
+                logger.log(new SimpleScreeningData(errorMessage, ResponseCode.WRONG_ZUML));
+
                 if (validationOutputs[i].getType().equals(ValidationOutputType.ERROR)) {
                     success = false;
                 }
