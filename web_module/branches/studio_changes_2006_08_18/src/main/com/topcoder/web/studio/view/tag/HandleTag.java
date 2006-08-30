@@ -25,6 +25,11 @@ public class HandleTag extends TagSupport {
         this.cssclass = cssclass;
     }
 
+    public void setIfNull(String ifNull) {
+        this.ifNull = ifNull;
+    }
+
+
     public int doStartTag() throws JspException {
         try {
 
