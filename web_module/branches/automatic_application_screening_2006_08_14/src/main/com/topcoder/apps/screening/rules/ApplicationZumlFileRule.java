@@ -119,13 +119,22 @@ public class ApplicationZumlFileRule implements ScreeningRule {
             TextValidationOutputFormatter textFormatter = new TextValidationOutputFormatter();
             String []formatted = textFormatter.format(validationOutputs);
             for (int i = 0, n = formatted.length; i < n; i++) {
-                String errorMessage = formatted[i] + " - " +
-                validationOutputs[i].getDiagram() != null ?
-                    validationOutputs[i].getDiagram().getDiagramType() +
-                    validationOutputs[i].getDiagram().getDiagramName() : "No diagram info. - " +
-                validationOutputs[i].getElement() != null ?
-                    validationOutputs[i].getDiagram().getDiagramType() +
-                    validationOutputs[i].getDiagram().getDiagramName() : "No element info.";
+                String diagramInfo = validationOutputs[i].getDiagram() != null ?
+                    validationOutputs[i].getDiagram().getDiagramType() != null ?
+                        validationOutputs[i].getDiagram().getDiagramType() : "" +
+                    validationOutputs[i].getDiagram().getDiagramName() != null ?
+                        validationOutputs[i].getDiagram().getDiagramName() : ""
+                        : "No diagram info.";
+
+                String elementInfo = validationOutputs[i].getElement() != null ?
+                        validationOutputs[i].getElement().getElementType() != null ?
+                            validationOutputs[i].getElement().getElementType() : "" +
+                        validationOutputs[i].getElement().getElementName() != null ?
+                            validationOutputs[i].getElement().getElementName() : ""
+                            : "No element info.";
+
+
+                String errorMessage = formatted[i] + " - " + diagramInfo + " - " + elementInfo;
 
                 logger.log(new SimpleScreeningData(errorMessage, ResponseCode.WRONG_ZUML));
 
