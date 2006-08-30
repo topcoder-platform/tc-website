@@ -35,13 +35,6 @@
                 <h1>Active Contests</h1>
 
 
-                <c:choose>
-                    <c:when test="${fn:length(contests)==0}">
-                        <div align="center" style="margin: 50px 0px 100px 0px;">
-                            There are currently no active contests, but check back soon.
-                        </div>
-                    </c:when>
-                    <c:otherwise>
                         <h2 align="right">Need help? Learn how to <strong>
                             <A href="/?module=Static&d1=support&d2=getStarted">get
                                 started</A></strong></h2>
@@ -79,6 +72,20 @@
                                     <td class="header">&nbsp;</td>
                                     <td class="headerE"><div>&nbsp;</div></td>
                                 </tr>
+                <c:choose>
+                    <c:when test="${fn:length(contests)==0}">
+                                 <tr class="light">
+                                     <td class="valueW"><div>&nbsp;</div></td>
+                                    <td class="valueC" colspan="5">
+                                    <div align="center" style="margin: 40px 0px 40px 0px;">
+                                    There are currently no active contests, but check back soon.
+                                    </div>
+                                    </td>
+                                     <td class="valueE"><div>&nbsp;</div></td>
+                                 </tr>
+                            
+                    </c:when>
+                    <c:otherwise>
                                 <% boolean even = true;%>
                                 <rsc:iterator list="<%=contests%>" id="resultRow">
                                     <tr class="<%=even?"light":"dark"%>">
@@ -101,14 +108,14 @@
                                     </tr>
                                     <% even = !even;%>
                                 </rsc:iterator>
+                    </c:otherwise>
+                </c:choose>
                                 <tr>
                                     <td class="SW" colspan="6">&nbsp;</td>
                                     <td class="SE">&nbsp;</td>
                                 </tr>
                             </tbody>
                         </table>
-                    </c:otherwise>
-                </c:choose>
 
 
             </div>
