@@ -12,6 +12,7 @@
     </jsp:include>
 </head>
 
+<body>
 <div align="center">
     <div class="contentOut">
         <jsp:include page="top.jsp"/>
