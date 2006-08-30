@@ -87,6 +87,7 @@
         <mapping resource="com/topcoder/web/studio/model/Document.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/DocumentType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/FilePath.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/model/MimeType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/Prize.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/PrizeType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ReviewStatus.hbm.xml"/>
