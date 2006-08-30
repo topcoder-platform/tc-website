@@ -19,6 +19,6 @@
         <many-to-one name="type" column="submission_type_id" class="SubmissionType" access="field"/>
         <many-to-one name="mimeType" column="mime_type_id" class="MimeType" access="field"
                      cascade="none"/>
-        <one-to-one name="review" class="SubmissionReview" constrained="true"/>
+        <one-to-one name="review" class="SubmissionReview"/>
     </class>
 </hibernate-mapping>

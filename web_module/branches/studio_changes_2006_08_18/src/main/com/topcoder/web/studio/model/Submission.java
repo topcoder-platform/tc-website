@@ -17,6 +17,7 @@ public class Submission extends Base {
     private FilePath path;
     private SubmissionType type;
     private MimeType mimeType;
+    private SubmissionReview review;
 
     public Long getId() {
         return id;
@@ -70,6 +71,14 @@ public class Submission extends Base {
         return type;
     }
 
+    public SubmissionReview getReview() {
+        return review;
+    }
+
+    public void setReview(SubmissionReview review) {
+        this.review = review;
+    }
+
     public void setType(SubmissionType type) {
         this.type = type;
     }
@@ -81,5 +90,6 @@ public class Submission extends Base {
     public void setMimeType(MimeType mimeType) {
         this.mimeType = mimeType;
     }
+
 
 }
