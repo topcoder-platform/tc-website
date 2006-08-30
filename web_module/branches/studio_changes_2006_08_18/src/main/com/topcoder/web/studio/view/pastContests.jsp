@@ -86,7 +86,7 @@
                             <A href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
                                 <rsc:item name="name" row="<%=resultRow%>"/></A></td>
                         <td class="value">
-                            <% if (resultRow.getItem("winning_id").getResultData() != null) { %>
+                            <% if (resultRow.getItem("winner_id").getResultData() != null) { %>
                             <studio:handle coderId="<%=resultRow.getLongItem("winner_id")%>"/>
                             <% } else {%>
                             &#160;
