@@ -1,7 +1,6 @@
 package com.topcoder.web.studio.dao;
 
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.FileType;
 import com.topcoder.web.studio.TCHibernateTestCase;
 import com.topcoder.web.studio.model.*;
 
@@ -144,7 +143,7 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         c.setStatus(StudioDAOUtil.getFactory().getContestStatusDAO().find(ContestStatus.UNACTIVE));
 
         Document d = new Document();
-        d.setFileType(StudioDAOUtil.getFactory().getFileTypeDAO().find(FileType.ADOBE_ACROBAT_TYPE_ID));
+        d.setMimeType(StudioDAOUtil.getFactory().getMimeTypeDAO().find(new Integer(1)));
         d.setOriginalFileName("somecrap.pdf");
         FilePath p = new FilePath();
         p.setPath("stuff");

@@ -19,7 +19,7 @@ public class SubmissionReviewDAOTestCase extends TCHibernateTestCase {
         Contest c = (Contest) StudioDAOUtil.getFactory().getContestDAO().getContests().get(0);
         s.setContest(c);
         s.setSubmitter(dok);
-        s.setFileType(StudioDAOUtil.getFactory().getFileTypeDAO().find(StudioFileType.ADOBE_ACROBAT_TYPE_ID));
+        s.setMimeType(StudioDAOUtil.getFactory().getMimeTypeDAO().find(new Integer(1)));
         s.setOriginalFileName("kickin");
         s.setSystemFileName("kicking it");
         FilePath p = new FilePath();

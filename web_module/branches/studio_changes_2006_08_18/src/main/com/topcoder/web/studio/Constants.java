@@ -32,6 +32,7 @@ public class Constants implements WebConstants {
     public static final String PRIZE_DESCRIPTION = "przdesc";
     public static final String PRIZE_PLACE = "prpl";
     public static final String PRIZE_VALUE = "prvl";
+    public static final String PRIZE_ID = "prid";
     public static final String DOCUMENT_ID = "docid";
     public static final String DOCUMENT_TYPE_ID = "doctid";
     public static final String DOCUMENT = "doc";

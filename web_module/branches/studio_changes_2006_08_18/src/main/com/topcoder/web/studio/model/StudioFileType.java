@@ -12,7 +12,6 @@ import java.util.Set;
  *          Create Date: Aug 23, 2006
  */
 public class StudioFileType extends Base {
-    public static final Integer ADOBE_ACROBAT_TYPE_ID = new Integer(3);
     private Integer id;
     private String description;
     private Set mimeTypes = new HashSet();

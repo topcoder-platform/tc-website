@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.studio.model">
+
+    <class name="ContestResult" table="contest_result">
+        <composite-id name="id" class="ContestResult$Identifier">
+            <key-many-to-one name="contest" class="Contest" column="contest_id"/>
+            <key-many-to-one name="submission" class="Submission" column="submission_id"/>
+        </composite-id>
+
+        <many-to-one name="contest" column="contest_id" class="Contest" access="field" insert="false" cascade="none"
+                     update="false"/>
+        <many-to-one name="submission" column="submission_id" class="Submission" access="field" cascade="none"
+                     insert="false"
+                     update="false"/>
+        <many-to-one name="prize" column="prize_id" class="Prize" access="field"/>
+    </class>
+
+
+</hibernate-mapping>

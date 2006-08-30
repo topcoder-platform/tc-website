@@ -18,14 +18,33 @@ public class SubmissionDAOTestCase extends TCHibernateTestCase {
         Contest c = (Contest) StudioDAOUtil.getFactory().getContestDAO().getContests().get(0);
         s.setContest(c);
         s.setSubmitter(dok);
-        s.setFileType(StudioDAOUtil.getFactory().getFileTypeDAO().find(StudioFileType.ADOBE_ACROBAT_TYPE_ID));
+        s.setMimeType(StudioDAOUtil.getFactory().getMimeTypeDAO().find(new Integer(1)));
         s.setOriginalFileName("kickin");
         s.setSystemFileName("kicking it");
         FilePath p = new FilePath();
         p.setPath("stuff");
         s.setPath(p);
         s.setType(StudioDAOUtil.getFactory().getSubmissionTypeDAO().find(SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE));
+
         StudioDAOUtil.getFactory().getSubmissionDAO().saveOrUpdate(s);
+
+        ContestResult cr = new ContestResult();
+        cr.setContest(c);
+        cr.setSubmission(s);
+        Prize pr = new Prize();
+        pr.setAmount(new Float(100));
+        pr.setPlace(new Integer(1));
+        pr.setType(StudioDAOUtil.getFactory().getPrizeTypeDAO().find(PrizeType.CONTEST));
+        c.addPrize(pr);
+        StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(c);
+        tearDown();
+        setUp();
+        c = (Contest) StudioDAOUtil.getFactory().getContestDAO().getContests().get(0);
+        cr.setPrize((Prize) c.getPrizes().iterator().next());
+        cr.getId().setContest(cr.getContest());
+        cr.getId().setSubmission(cr.getSubmission());
+        c.addResult(cr);
+        StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(c);
 
         tearDown();
         setUp();

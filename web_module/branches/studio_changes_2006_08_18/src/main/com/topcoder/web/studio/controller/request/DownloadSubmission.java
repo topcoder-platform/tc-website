@@ -29,8 +29,8 @@ public class DownloadSubmission extends Base {
 
         Submission s = StudioDAOUtil.getFactory().getSubmissionDAO().find(submissionId);
 
-        if ("true".equals(s.getContest().getConfig(StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.VIEWABLE_SUBMISSIONS))))
-        {
+        if ("true".equals(s.getContest().getConfig(
+                StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.VIEWABLE_SUBMISSIONS)))) {
             //stream it out via the response
             getResponse().addHeader("content-disposition", "inline; filename=" + s.getOriginalFileName());
             getResponse().setContentType(s.getMimeType().getDescription());

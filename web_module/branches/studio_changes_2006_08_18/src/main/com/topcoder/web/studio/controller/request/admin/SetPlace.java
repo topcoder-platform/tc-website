@@ -1,0 +1,69 @@
+package com.topcoder.web.studio.controller.request.admin;
+
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.dao.StudioDAOFactory;
+import com.topcoder.web.studio.dao.StudioDAOUtil;
+import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.studio.model.ContestResult;
+import com.topcoder.web.studio.model.Prize;
+import com.topcoder.web.studio.model.Submission;
+
+import java.util.Iterator;
+import java.util.Set;
+
+/**
+ * @author dok
+ * @version $Revision$ Date: 2005/01/01 00:00:00
+ *          Create Date: Aug 29, 2006
+ */
+public class SetPlace extends Base {
+    protected void dbProcessing() throws Exception {
+
+        Long submissionId;
+        try {
+            submissionId = new Long(getRequest().getParameter(Constants.SUBMISSION_ID));
+        } catch (NumberFormatException e) {
+            throw new NavigationException("Invalid Submission Specified");
+        }
+
+        Long prizeId;
+        try {
+            prizeId = new Long(getRequest().getParameter(Constants.PRIZE_ID));
+        } catch (NumberFormatException e) {
+            throw new NavigationException("Invalid prize Specified");
+        }
+
+        StudioDAOFactory factory = StudioDAOUtil.getFactory();
+        Submission s = factory.getSubmissionDAO().find(submissionId);
+        if (s == null) {
+            throw new NavigationException("Invalid Submission Specified");
+        } else {
+            Set prizes = s.getContest().getPrizes();
+            boolean found = false;
+            Prize p = null;
+            for (Iterator it = prizes.iterator(); it.hasNext() && !found;) {
+                p = (Prize) it.next();
+                found = prizeId.equals(p.getId());
+            }
+            if (p == null) {
+                throw new NavigationException("Invalid Prize Specified");
+            } else {
+                Contest c = s.getContest();
+                ContestResult cr = new ContestResult();
+                cr.setContest(c);
+                cr.setPrize(p);
+                cr.setSubmission(s);
+                cr.getId().setContest(cr.getContest());
+                cr.getId().setSubmission(cr.getSubmission());
+                c.addResult(cr);
+                factory.getContestDAO().saveOrUpdate(c);
+            }
+        }
+
+        setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
+                "=AdminViewSubmissionDetail&" + Constants.SUBMISSION_ID + "=" + s.getId());
+        setIsNextPageInContext(false);
+
+    }
+}

@@ -35,8 +35,10 @@
             <key column="contest_id" not-null="true"/>
             <one-to-many class="Submission"/>
         </set>
-        <many-to-one name="status" column="contest_status_id" class="ContestStatus" access="field"/>
-
+        <set name="results" cascade="save-update" inverse="true" access="field" sort="natural">
+            <key column="contest_id" not-null="true"/>
+            <one-to-many class="ContestResult"/>
+        </set>
 
     </class>
 </hibernate-mapping>
