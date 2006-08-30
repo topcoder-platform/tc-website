@@ -32,7 +32,7 @@
                 <div class="linkBox"><studio:forumLink forumID="${contest.forumId}"/></div>
 
                 <div class="breadcrumb">
-                    <A href="${sessionInfo.servletPath}?module=Static&d1=activeContests">Active Contests</A> &gt;
+                    <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A> &gt;
                     ${contest.name}
                 </div>
 
