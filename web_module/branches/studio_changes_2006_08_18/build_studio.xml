@@ -274,6 +274,7 @@
         <copy todir="${jboss_conf}" file="${resources}/ApplicationServer.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/DBMS.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/DataAccess.properties"/>
+        <copy todir="${jboss_conf}" file="${resources}/EmailEngineConfig.properties"/>
 
         <copy todir="${jboss_conf}/com/topcoder/db/connectionfactory/"
               file="${resources}/com/topcoder/db/connectionfactory/DBConnectionFactoryImpl.xml"/>
