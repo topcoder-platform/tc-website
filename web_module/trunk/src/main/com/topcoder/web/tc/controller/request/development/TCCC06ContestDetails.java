@@ -66,7 +66,7 @@ public class TCCC06ContestDetails extends StatBase {
             ResultSetContainer rscDetails = (ResultSetContainer) result.get("tccc06_project_results_all");
             ResultSetContainer rscComplete = (ResultSetContainer) result.get("project_details");
             boolean isComplete = false;
-            if (rscComplete.getIntItem(0, "complete_status") == 1) {
+            if (!rsc.isEmpty() && rscComplete.getIntItem(0, "complete_status") == 1) {
                 isComplete = true;
             }
 
