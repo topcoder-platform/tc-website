@@ -4,10 +4,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.ContestResult;
-import com.topcoder.web.studio.model.Prize;
-import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.studio.model.*;
 
 import java.util.Iterator;
 import java.util.Set;
@@ -39,9 +36,15 @@ public class SetPlace extends Base {
 
         StudioDAOFactory factory = StudioDAOUtil.getFactory();
         Submission s = factory.getSubmissionDAO().find(submissionId);
+
         if (s == null) {
             throw new NavigationException("Invalid Submission Specified");
+        } else if (s.getReview() == null) {
+            throw new NavigationException("Submission not reviewed, it can not place.");
+        } else if (!s.getReview().getStatus().equals(factory.getReviewStatusDAO().find(ReviewStatus.PASSED))) {
+            throw new NavigationException("Submission did not pass, it can not place.");
         } else {
+
             Set prizes = s.getContest().getPrizes();
             boolean found = false;
             Prize p = null;
