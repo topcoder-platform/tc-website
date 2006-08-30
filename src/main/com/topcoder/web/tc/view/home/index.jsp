@@ -273,7 +273,9 @@
         <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-
+            
+                <div style="float: right; padding-left: 5px;">
+                <A href="http://studio.topcoder.com/"><img src="/i/pressroom/studio_logo.gif" width="86" height="42" alt="TopCoder Studio" border="0"/></A></div>
                 TopCoder Studio launches creative contests
                 <A href="http://studio.topcoder.com/">...more</A><br>[August 30]<br><br>
             
@@ -281,7 +283,7 @@
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_082906">...more</A><br>[August 29]<br><br>
 
                 <div style="float: right; padding-left: 5px;">
-                    <img src="/i/pressroom/mht_logo.gif" width="68" height="38" alt="Java Posse" border="0"/></div>
+                    <img src="/i/pressroom/mht_logo.gif" width="68" height="38" alt="Mass High Tech" border="0"/></div>
                 <i>Mass High Tech</i> features TopCoder staff<br>
                 <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus1.html">Code Commanders</A><br>
        <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus6.html">TheFaxman Codeth</A><br>
