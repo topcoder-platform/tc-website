@@ -40,12 +40,16 @@ public class DownloadSubmission extends Base {
 
         if (isWinner || "true".equals(s.getContest().getConfig(
                 StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.VIEWABLE_SUBMISSIONS)))) {
-            //stream it out via the response
-            getResponse().addHeader("content-disposition", "inline; filename=" + s.getOriginalFileName());
-            getResponse().setContentType(s.getMimeType().getDescription());
-            ServletOutputStream sos = getResponse().getOutputStream();
+            //create the file input stream first so that if there is a problem, we'll get the error and be able to go
+            //to an error page.  if we work with the output stream, we won't be able to do that.
 
             FileInputStream fis = new FileInputStream(s.getPath().getPath() + s.getSystemFileName());
+
+            getResponse().addHeader("content-disposition", "inline; filename=" + s.getOriginalFileName());
+            getResponse().setContentType(s.getMimeType().getDescription());
+
+            ServletOutputStream sos = getResponse().getOutputStream();
+
 
             int b;
             while ((b = fis.read()) >= 0) {
