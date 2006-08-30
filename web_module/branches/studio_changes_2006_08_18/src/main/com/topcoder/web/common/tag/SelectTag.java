@@ -1,11 +1,14 @@
 package com.topcoder.web.common.tag;
 
+import com.topcoder.shared.util.logging.Logger;
+
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import java.util.Collection;
 import java.util.Iterator;
 
 public abstract class SelectTag extends BaseTag {
+    protected static final Logger log = Logger.getLogger(SelectTag.class);
     private String styleClass = null;
     private String onChange = null;
     private String selectedValue = null;
@@ -164,10 +167,16 @@ public abstract class SelectTag extends BaseTag {
             if (selectedValue == null) {
                 selectedValue = defaultValue == null ? null : defaultValue.toString();
             }
+            if (log.isDebugEnabled()) {
+                log.debug("selected value: " + selectedValue);
+            }
             Iterator it = options.iterator();
             for (; it.hasNext();) {
                 Object option = it.next();
                 String optionValue = getOptionValue(option);
+                if (log.isDebugEnabled()) {
+                    log.debug("option value: " + optionValue);
+                }
                 String optionText = getOptionText(option);
                 s.append("<option value=\"");
                 s.append(optionValue);
