@@ -39,6 +39,7 @@
             <key column="contest_id" not-null="true"/>
             <one-to-many class="ContestResult"/>
         </set>
+        <many-to-one name="status" column="contest_status_id" class="ContestStatus" access="field"/>
 
     </class>
 </hibernate-mapping>
