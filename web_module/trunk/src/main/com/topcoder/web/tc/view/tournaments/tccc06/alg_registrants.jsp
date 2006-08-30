@@ -37,13 +37,13 @@
                         <td class="advTitle" colspan="3" width="100%">Registrants (<%=rsc.size()%>)</td>
                     </tr>
                         <tr class="advHeader">
-                            <td align="left" width="50%">
+                            <td align="left">
                                 <a href="/tc?module=TCCC06AlgRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("rank")%>"/>">Rank</a>
                             </td>
-                            <td align="left" width="50%">
+                            <td align="left" width="100%">
                                 <a href="/tc?module=TCCC06AlgRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
                             </td>
-                            <td align="right" width="50%">
+                            <td align="right">
                                 <a href="/tc?module=TCCC06AlgRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
                             </td>
                         </tr>
