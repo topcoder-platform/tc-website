@@ -9,9 +9,6 @@ import com.topcoder.web.reg.TCHibernateTestCase;
  *          Create Date: Aug 23, 2006
  */
 public class MaxHeightValidatorTestCase extends TCHibernateTestCase {
-    public void testNullMin() {
-        assertFalse("validated a max height with a null min", new MaxHeightValidator(null).validate(new StringInput("1")).isValid());
-    }
 
     public void testBigMin() {
         assertFalse("validated a max height with a larger min", new MaxHeightValidator("300").validate(new StringInput("100")).isValid());
