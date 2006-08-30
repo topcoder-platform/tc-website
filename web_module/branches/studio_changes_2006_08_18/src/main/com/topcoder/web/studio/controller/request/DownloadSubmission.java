@@ -5,11 +5,13 @@ import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.controller.request.admin.Base;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.ContestProperty;
+import com.topcoder.web.studio.model.ContestResult;
 import com.topcoder.web.studio.model.Submission;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
+import java.util.Iterator;
 
 /**
  * @author dok
@@ -29,7 +31,14 @@ public class DownloadSubmission extends Base {
 
         Submission s = StudioDAOUtil.getFactory().getSubmissionDAO().find(submissionId);
 
-        if ("true".equals(s.getContest().getConfig(
+        boolean isWinner = false;
+        ContestResult curr;
+        for (Iterator it = s.getContest().getResults().iterator(); it.hasNext() && !isWinner;) {
+            curr = (ContestResult) it.next();
+            isWinner = s.equals(curr) && curr.getPrize().getPlace().intValue() == 1;
+        }
+
+        if (isWinner || "true".equals(s.getContest().getConfig(
                 StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.VIEWABLE_SUBMISSIONS)))) {
             //stream it out via the response
             getResponse().addHeader("content-disposition", "inline; filename=" + s.getOriginalFileName());
