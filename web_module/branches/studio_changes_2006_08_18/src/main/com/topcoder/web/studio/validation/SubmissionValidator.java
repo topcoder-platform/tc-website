@@ -75,30 +75,30 @@ public class SubmissionValidator implements Validator {
                             BufferedImage image = ImageIO.read(iis);
                             if (minWidth != null && image.getWidth() < Integer.parseInt(minWidth)) {
                                 if (minWidth.equals(maxWidth)) {
-                                    return new BasicResult(false, "Submission width is too small, it must be " + minWidth);
+                                    return new BasicResult(false, "Submission width is too small, it must be " + minWidth + " pixels wide.");
                                 } else {
-                                    return new BasicResult(false, "Submission width is too small, it must be at least " + minWidth);
+                                    return new BasicResult(false, "Submission width is too small, it must be at least " + minWidth + " pixels wide.");
                                 }
                             }
                             if (maxWidth != null && image.getWidth() > Integer.parseInt(maxWidth)) {
                                 if (maxWidth.equals(minWidth)) {
-                                    return new BasicResult(false, "Submission width is too large, it must be " + maxWidth);
+                                    return new BasicResult(false, "Submission width is too large, it must be " + maxWidth + " pixels wide.");
                                 } else {
-                                    return new BasicResult(false, "Submission width is too large, it must be at most " + maxWidth);
+                                    return new BasicResult(false, "Submission width is too large, it must be at most " + maxWidth + " pixels wide.");
                                 }
                             }
                             if (minHeight != null && image.getHeight() < Integer.parseInt(minHeight)) {
                                 if (minHeight.equals(maxHeight)) {
-                                    return new BasicResult(false, "Submission height is too small, it must be " + minHeight);
+                                    return new BasicResult(false, "Submission height is too small, it must be " + minHeight + " pixels high.");
                                 } else {
-                                    return new BasicResult(false, "Submission height is too small, it must be at least " + minHeight);
+                                    return new BasicResult(false, "Submission height is too small, it must be at least " + minHeight + " pixels high.");
                                 }
                             }
                             if (maxHeight != null && image.getHeight() > Integer.parseInt(maxHeight)) {
                                 if (maxHeight.equals(minHeight)) {
-                                    return new BasicResult(false, "Submission height is too large, it must be " + maxHeight);
+                                    return new BasicResult(false, "Submission height is too large, it must be " + maxHeight + " pixels high.");
                                 } else {
-                                    return new BasicResult(false, "Submission height is too large, it must be at most " + maxHeight);
+                                    return new BasicResult(false, "Submission height is too large, it must be at most " + maxHeight + " pixels high.");
                                 }
                             }
                         } else {
