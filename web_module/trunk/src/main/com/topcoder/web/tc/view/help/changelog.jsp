@@ -42,12 +42,16 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 <p>
-    5.4.9 - 2006.0x.xx
+    5.4.9 - 2006.08.29
     <ul>
-        <li>Fix in password reset page: if the key has expired, it doesn't let the user even enter the new password.</li>
+        <li>Fix in password reset page: if the key has expired, it doesn't let the user even enter the new
+            password.</li>
+        <li>Add TCCC06 Component results site</li>
+        <li>In all tournament sites, the components should not link to the catalog if they are not public
+            components.</li>
     </ul>
-    
-    5.4.8 - 2006.0x.xx
+
+    5.4.8 - 2006.08.28
     <ul>
         <li>Add resume download to registration process</li>
         <li>Refresh the cached value for registrants after someone registers for the tccc06 algo tournaments</li>
