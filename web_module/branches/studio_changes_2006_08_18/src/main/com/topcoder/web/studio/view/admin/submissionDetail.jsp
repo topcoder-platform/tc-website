@@ -86,6 +86,8 @@
                     <button name="submit" value="submit" type="submit">Submit</button>
                 </form>
 
+                <br/> <br/>
+
                 <div class="header">Contest Results</div>
 
                 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="placedForm">
