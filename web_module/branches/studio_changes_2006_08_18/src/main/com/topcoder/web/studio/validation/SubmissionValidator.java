@@ -14,6 +14,7 @@ import com.topcoder.web.studio.model.StudioFileType;
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageInputStream;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.Iterator;
 
@@ -65,7 +66,7 @@ public class SubmissionValidator implements Validator {
                 String maxHeight = contest.getConfig(dao.find(ContestProperty.MAX_HEIGHT)).getValue();
                 try {
 
-                    ImageInputStream iis = ImageIO.createImageInputStream(arr);
+                    ImageInputStream iis = ImageIO.createImageInputStream(new ByteArrayInputStream(arr));
                     if (iis == null) {
                         throw new RuntimeException("Could not find an appropriate reader for the file");
                     } else {
