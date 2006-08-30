@@ -4,7 +4,10 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.*;
+import com.topcoder.web.studio.model.ContestResult;
+import com.topcoder.web.studio.model.Prize;
+import com.topcoder.web.studio.model.ReviewStatus;
+import com.topcoder.web.studio.model.Submission;
 
 import java.util.Iterator;
 import java.util.Set;
@@ -55,13 +58,12 @@ public class SetPlace extends Base {
             if (p == null) {
                 throw new NavigationException("Invalid Prize Specified");
             } else {
-                Contest c = s.getContest();
                 ContestResult cr = new ContestResult();
-                cr.setContest(c);
+                cr.setContest(s.getContest());
                 cr.setPrize(p);
                 cr.setSubmission(s);
-                c.addResult(cr);
-                factory.getContestDAO().saveOrUpdate(c);
+                s.setResult(cr);
+                factory.getSubmissionDAO().saveOrUpdate(s);
             }
         }
 
