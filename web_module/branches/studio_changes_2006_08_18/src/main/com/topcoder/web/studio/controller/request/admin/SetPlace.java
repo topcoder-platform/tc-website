@@ -60,8 +60,6 @@ public class SetPlace extends Base {
                 cr.setContest(c);
                 cr.setPrize(p);
                 cr.setSubmission(s);
-                cr.getId().setContest(cr.getContest());
-                cr.getId().setSubmission(cr.getSubmission());
                 c.addResult(cr);
                 factory.getContestDAO().saveOrUpdate(c);
             }

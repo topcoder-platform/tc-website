@@ -18,6 +18,7 @@ public class Submission extends Base {
     private SubmissionType type;
     private MimeType mimeType;
     private SubmissionReview review;
+    private ContestResult result;
 
     public Long getId() {
         return id;
@@ -91,5 +92,12 @@ public class Submission extends Base {
         this.mimeType = mimeType;
     }
 
+    public ContestResult getResult() {
+        return result;
+    }
+
+    public void setResult(ContestResult result) {
+        this.result = result;
+    }
 
 }
