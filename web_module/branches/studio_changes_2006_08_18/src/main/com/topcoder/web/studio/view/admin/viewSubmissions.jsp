@@ -18,7 +18,7 @@
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    <script language="JavaScript"><!--
+    <script type="text/javascript"><!--
     function next() {
         document.subForm.<%=DataAccessConstants.START_RANK%>.value =<%=submissions.getStartRow()+Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
         document.subForm.<%=DataAccessConstants.END_RANK%>.value =<%=submissions.getEndRow()+Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
@@ -214,6 +214,7 @@ Show submissions by (Enter Handle):
     | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
 </div>
 
+</form>
 </div>
 <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
 </div>
