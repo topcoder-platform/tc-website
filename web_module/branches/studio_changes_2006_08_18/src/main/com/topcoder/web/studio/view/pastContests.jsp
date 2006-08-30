@@ -5,6 +5,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% ResultSetContainer contests = (ResultSetContainer) request.getAttribute("contests");%>
 
 <html>
@@ -93,11 +94,14 @@
                             <% } %>
                         </td>
                         <td class="valueC">
-                            <% if (resultRow.getItem("winning_submission_id").getResultData() != null) { %>
-                            <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="winning_submission_id" row="<%=resultRow%>"/>">view</A>
-                            <% } else {%>
-                            &#160;
-                            <% } %>
+                            <c:choose>
+                                <c:when test="<%=resultRow.getBooleanItem("viewable_submissions") && resultRow.getItem("winning_submission_id").getResultData() != null%>">
+                                    <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="winning_submission_id" row="<%=resultRow%>"/>">view</A>
+                                </c:when>
+                                <c:otherwise>
+                                    &#160;
+                                </c:otherwise>
+                            </c:choose>
                         </td>
                         <td class="valueR">
                             <rsc:item name="submission_count" row="<%=resultRow%>"/>
