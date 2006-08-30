@@ -86,19 +86,19 @@ Below is a list of six components.  Read the requirement specifications to decid
       <strong>Set</strong>
       </td>
       <td align="center">
-      <A href="/i/development/downloads/SetDevelopmentPracticeTasks.pdf"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      <A href="/i/development/downloads/SetDevelopmentPracticeTasks.pdf"><img src="/i/interface/emblem/disk.gif" alt="download" border="0" /></A>
       </td>
       <td align="center" style="border-right: 1px solid #999999;">
-      <A href="/i/development/downloads/set.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      <A href="/i/development/downloads/set.zip"><img src="/i/interface/emblem/disk.gif" alt="download" border="0" /></A>
       </td>
       <td>
       <strong>Bloom Filter</strong>
       </td>
       <td align="center">
-      <A href="/i/development/downloads/BloomFilterDevelopmentPracticeTasks.pdf"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      <A href="/i/development/downloads/BloomFilterDevelopmentPracticeTasks.pdf"><img src="/i/interface/emblem/disk.gif" alt="download" border="0" /></A>
       </td>
       <td align="center">
-      <A href="/i/development/downloads/bloom_filter.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      <A href="/i/development/downloads/bloom_filter.zip"><img src="/i/interface/emblem/disk.gif" alt="download" border="0" /></A>
       </td>
    </tr>
    <tr>
@@ -106,19 +106,19 @@ Below is a list of six components.  Read the requirement specifications to decid
       <strong>MathMatrix</strong>
       </td>
       <td align="center">
-      <A href="/i/development/downloads/MathMatrixDevelopmentPracticeTasks.pdf"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      <A href="/i/development/downloads/MathMatrixDevelopmentPracticeTasks.pdf"><img src="/i/interface/emblem/disk.gif" alt="download" border="0" /></A>
       </td>
       <td align="center" style="border-right: 1px solid #999999;">
-      <A href="/i/development/downloads/matrix_math.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      <A href="/i/development/downloads/matrix_math.zip"><img src="/i/interface/emblem/disk.gif" alt="download" border="0" /></A>
       </td>
       <td nowrap="nowrap">
       <strong>String Filter</strong>
       </td>
       <td align="center">
-      <A href="/i/development/downloads/StringFilterDevelopmentPracticeTasks.pdf"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      <A href="/i/development/downloads/StringFilterDevelopmentPracticeTasks.pdf"><img src="/i/interface/emblem/disk.gif" alt="download" border="0" /></A>
       </td>
       <td align="center">
-      <A href="/i/development/downloads/string_filter.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      <A href="/i/development/downloads/string_filter.zip"><img src="/i/interface/emblem/disk.gif" alt="download" border="0" /></A>
       </td>
    </tr>
    <tr>
@@ -126,19 +126,19 @@ Below is a list of six components.  Read the requirement specifications to decid
       <strong>ImageManipulation</strong>
       </td>
       <td align="center">
-      <A href="/i/development/downloads/ImageManipulationDevelopmentPracticeTasks.pdf"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      <A href="/i/development/downloads/ImageManipulationDevelopmentPracticeTasks.pdf"><img src="/i/interface/emblem/disk.gif" alt="download" border="0" /></A>
       </td>
       <td align="center" style="border-right: 1px solid #999999;">
-      <A href="/i/development/downloads/image_manipulation.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      <A href="/i/development/downloads/image_manipulation.zip"><img src="/i/interface/emblem/disk.gif" alt="download" border="0" /></A>
       </td>
       <td nowrap="nowrap">
       <strong>Rounding Factory</strong>
       </td>
       <td align="center">
-      <A href="/i/development/downloads/RoundingFactoryDevelopmentPracticeTasks.pdf"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      <A href="/i/development/downloads/RoundingFactoryDevelopmentPracticeTasks.pdf"><img src="/i/interface/emblem/disk.gif" alt="download" border="0" /></A>
       </td>
       <td align="center">
-      <A href="/i/development/downloads/rounding_factory.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      <A href="/i/development/downloads/rounding_factory.zip"><img src="/i/interface/emblem/disk.gif" alt="download" border="0" /></A>
       </td>
    </tr>
 </tbody>

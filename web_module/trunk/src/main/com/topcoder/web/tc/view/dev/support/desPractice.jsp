@@ -86,19 +86,19 @@ Below is a list of components, with two more arriving soon.  Read the requiremen
       <strong>Object Diff</strong>
       </td>
       <td align="center">
-      <A href="/i/development/downloads/ObjectDiffObjectives.pdf"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      <A href="/i/development/downloads/ObjectDiffObjectives.pdf"><img src="/i/interface/emblem/disk.gif" alt="download" border="0" /></A>
       </td>
       <td align="center" style="border-right: 1px solid #999999;">
-      <A href="/i/development/downloads/ObjectDiffTutorial.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      <A href="/i/development/downloads/ObjectDiffTutorial.zip"><img src="/i/interface/emblem/disk.gif" alt="download" border="0" /></A>
       </td>
       <td nowrap="nowrap">
       <strong>File Event Alerter</strong>
       </td>
       <td align="center">
-      <A href="/i/development/downloads/FileEventAlerterObjectives.pdf"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      <A href="/i/development/downloads/FileEventAlerterObjectives.pdf"><img src="/i/interface/emblem/disk.gif" alt="download" border="0" /></A>
       </td>
       <td align="center">
-      <A href="/i/development/downloads/FileEventAlerterTutorial.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      <A href="/i/development/downloads/FileEventAlerterTutorial.zip"><img src="/i/interface/emblem/disk.gif" alt="download" border="0" /></A>
       </td>
    </tr>
    <tr>
@@ -107,12 +107,12 @@ Below is a list of components, with two more arriving soon.  Read the requiremen
       </td>
       <td align="center">&#160;
       <%--
-      <A href="/i/development/downloads/ObjectDiffObjectives.pdf"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      <A href="/i/development/downloads/ObjectDiffObjectives.pdf"><img src="/i/interface/emblem/disk.gif" alt="download" border="0" /></A>
       --%>
       </td>
       <td align="center" style="border-right: 1px solid #999999;">&#160;
       <%--
-      <A href="/i/development/downloads/ObjectDiffTutorial.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      <A href="/i/development/downloads/ObjectDiffTutorial.zip"><img src="/i/interface/emblem/disk.gif" alt="download" border="0" /></A>
       --%>
       </td>
       <td nowrap="nowrap">
@@ -120,12 +120,12 @@ Below is a list of components, with two more arriving soon.  Read the requiremen
       </td>
       <td align="center">
       <%--
-      <A href="/i/development/downloads/FileEventAlerterObjectives.pdf"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      <A href="/i/development/downloads/FileEventAlerterObjectives.pdf"><img src="/i/interface/emblem/disk.gif" alt="download" border="0" /></A>
       --%>
       </td>
       <td align="center">
       <%--
-      <A href="/i/development/downloads/FileEventAlerterTutorial.zip"><img src="/i/interface//emblem/disk.gif" alt="download" border="0" /></A>
+      <A href="/i/development/downloads/FileEventAlerterTutorial.zip"><img src="/i/interface/emblem/disk.gif" alt="download" border="0" /></A>
       --%>
       </td>
    </tr>
