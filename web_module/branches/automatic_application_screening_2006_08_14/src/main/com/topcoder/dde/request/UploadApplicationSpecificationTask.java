@@ -29,6 +29,7 @@ import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.util.format.FormatMethodFactory;
 import com.topcoder.web.common.MultipartRequest;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.BaseProcessor;
@@ -61,7 +62,7 @@ public class UploadApplicationSpecificationTask extends BaseProcessor {
             } else {
                 if (!PermissionHelper.isAdmin(getUser())
                         && !PermissionHelper.hasSpecificationSubmitPermission(getUser())) {
-                    throw new TCWebException("You are not authorized to view this page");
+                    throw new NavigationException("You are not authorized to view this page");
                 }
 
                 // process the uploaded file.
@@ -117,7 +118,7 @@ public class UploadApplicationSpecificationTask extends BaseProcessor {
 
             return pathPrefix + destFilename;
         } else {
-            throw new TCWebException("Empty file uploaded");
+            throw new NavigationException("Empty file uploaded");
         }
     }
 

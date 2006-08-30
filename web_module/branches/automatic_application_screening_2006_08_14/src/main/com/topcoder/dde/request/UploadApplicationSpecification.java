@@ -6,6 +6,7 @@ package com.topcoder.dde.request;
 
 import com.topcoder.apps.screening.PermissionHelper;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.BaseProcessor;
@@ -30,7 +31,7 @@ public class UploadApplicationSpecification extends BaseProcessor {
             } else {
                 if (!PermissionHelper.isAdmin(getUser())
                         && !PermissionHelper.hasSpecificationSubmitPermission(getUser())) {
-                    throw new TCWebException("You are not authorized to view this page");
+                    throw new NavigationException("You are not authorized to view this page");
                 }
 
                 setNextPage("/applications/specification_upload.jsp");

@@ -16,6 +16,7 @@ import com.topcoder.apps.screening.ScreeningResponse;
 import com.topcoder.apps.screening.ScreeningTool;
 import com.topcoder.dde.util.ConstantsInt;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -44,7 +45,7 @@ public class ViewUploadResults extends BaseProcessor {
             } else {
                 if (!PermissionHelper.isAdmin(getUser())
                         && !PermissionHelper.hasSpecificationSubmitPermission(getUser())) {
-                    throw new TCWebException("You are not authorized to view this page");
+                    throw new NavigationException("You are not authorized to view this page");
                 }
 
                 // validates request's parameters.
