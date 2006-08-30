@@ -113,7 +113,8 @@ public class EditContest extends Base {
                 } else {
                     currConfig = contest.getConfig(curr);
                 }
-                currConfig.setValue(getRequest().getParameter(Constants.CONTEST_PROPERTY + CONTEST_PROPS[i]));
+                String val = getRequest().getParameter(Constants.CONTEST_PROPERTY + CONTEST_PROPS[i]);
+                currConfig.setValue(StringUtils.checkNull(val).trim().length() == 0 ? null : val.trim());
             }
 
             FileTypeDAO fDao = StudioDAOUtil.getFactory().getFileTypeDAO();
