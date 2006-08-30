@@ -62,12 +62,16 @@
                                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
                                 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
-                                <b>My design:</b><br><input type="file" name="<%=Constants.SUBMISSION%>">
-                                <br><br>
-                                <input type="image" src="/i/layout/btn_submit.gif" onmouseover="this.src='/i/layout/btn_submit_on.gif'" onmouseout="this.src='/i/layout/btn_submit.gif'">
-                                <br><br>
-                        <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>">${err}
-                            <br></tc-webtag:errorIterator></span>
+                                <p>
+                                    <b>My design:</b><br/>
+                                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>">${err}
+                                        <br></tc-webtag:errorIterator></span>
+                                    <input type="file" name="<%=Constants.SUBMISSION%>">
+                                </p>
+
+                                <p>
+                                    <input type="image" src="/i/layout/btn_submit.gif" onmouseover="this.src='/i/layout/btn_submit_on.gif'" onmouseout="this.src='/i/layout/btn_submit.gif'">
+                                </p>
                             </form>
                         </div>
 
