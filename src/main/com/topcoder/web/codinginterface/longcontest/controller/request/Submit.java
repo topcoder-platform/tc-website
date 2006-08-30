@@ -42,7 +42,7 @@ public class Submit extends Base {
 
     private static final String NEAR_END =
             "Note: There are less than " + Constants.SUBMISSION_RATE / 60 + " hours remaining in this event.  " +
-                    "If you make\na full submission at any point between now and the event of the event\nyou will " +
+                    "If you make\na full submission at any point between now and the end of the event\nyou will " +
                     "not be able to make any further full subimssions for\nthe duration of the event.";
 
     protected void longContestProcessing() throws TCWebException {
