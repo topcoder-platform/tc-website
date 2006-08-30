@@ -41,8 +41,6 @@ public class SubmissionDAOTestCase extends TCHibernateTestCase {
         setUp();
         c = (Contest) StudioDAOUtil.getFactory().getContestDAO().getContests().get(0);
         cr.setPrize((Prize) c.getPrizes().iterator().next());
-        cr.getId().setContest(cr.getContest());
-        cr.getId().setSubmission(cr.getSubmission());
         c.addResult(cr);
         StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(c);
 
