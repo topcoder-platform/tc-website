@@ -85,7 +85,7 @@
 
                         <ul>
                             <span class="listSubtitle"><a href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=market_conference">Conference Events</a></span><br>
-                            <li>For designated developers (conference attendees, emloyees, etc.)</li>
+                            <li>For designated developers (conference attendees, employees, etc.)</li>
                             <li>Customized for your business needs</li>
                             <li>Online and/or onsite</li>
 
