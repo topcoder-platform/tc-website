@@ -12,8 +12,9 @@ import java.util.Map;
 
 public class HandleTag extends TagSupport {
     private static final Logger log = Logger.getLogger(HandleTag.class);
-    private long coderId;
+    private long coderId = 0;
     private String cssclass = "coderText";
+    private String ifNull = "";
 
 
     public void setCoderId(long coderId) {
@@ -26,33 +27,38 @@ public class HandleTag extends TagSupport {
 
     public int doStartTag() throws JspException {
         try {
-            //lookup ratings from cache
-            CachedDataAccess da = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-            da.setExpireTime(24 * 60 * 60 * 1000);
-
-            Request r = new Request();
-            r.setContentHandle("coder_all_ratings");
-            r.setProperty("cr", String.valueOf(coderId));
-
-            Map m = da.getData(r);
 
             StringBuffer output = new StringBuffer();
-
-            ResultSetContainer rsc = (ResultSetContainer) m.get("coder_all_ratings");
-            if (rsc.isEmpty()) {
-                output.append("UNKNOWN USER");
-            } else if (rsc.getItem(0, "coder_id").getResultData() == null) {
-                output.append(rsc.getStringItem(0, "handle"));
+            if (coderId == 0) {
+                output.append(ifNull);
             } else {
-                output.append("<span class=\"");
-                if (rsc.getIntItem(0, "algorithm_rating") == -1) {
-                    output.append("coderTextOrange");
+                //lookup ratings from cache
+                CachedDataAccess da = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+                da.setExpireTime(24 * 60 * 60 * 1000);
+
+                Request r = new Request();
+                r.setContentHandle("coder_all_ratings");
+                r.setProperty("cr", String.valueOf(coderId));
+
+                Map m = da.getData(r);
+
+
+                ResultSetContainer rsc = (ResultSetContainer) m.get("coder_all_ratings");
+                if (rsc.isEmpty()) {
+                    output.append("UNKNOWN USER");
+                } else if (rsc.getItem(0, "coder_id").getResultData() == null) {
+                    output.append(rsc.getStringItem(0, "handle"));
                 } else {
-                    output.append(cssclass);
+                    output.append("<span class=\"");
+                    if (rsc.getIntItem(0, "algorithm_rating") == -1) {
+                        output.append("coderTextOrange");
+                    } else {
+                        output.append(cssclass);
+                    }
+                    output.append("\">");
+                    output.append(rsc.getStringItem(0, "handle"));
+                    output.append("</span>");
                 }
-                output.append("\">");
-                output.append(rsc.getStringItem(0, "handle"));
-                output.append("</span>");
             }
             pageContext.getOut().print(output.toString());
         } catch (Exception e) {
@@ -70,6 +76,7 @@ public class HandleTag extends TagSupport {
     public int doEndTag() throws JspException {
         coderId = 0;
         cssclass = "coderText";
+        ifNull = "";
         return super.doEndTag();
     }
 
