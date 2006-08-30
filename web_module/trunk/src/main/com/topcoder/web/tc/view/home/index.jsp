@@ -79,6 +79,7 @@
 </map>
 <IMG SRC="/i/home/tccc_studio_20060828.png" border="0" alt="TCCC & TopCoder Studio" usemap="#tccc_studio"/>
 --%>
+<%--
 <map name="tccc_dr">
 <area shape="rect" alt="" coords="30,1,220,120" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
 <area shape="rect" alt="" coords="35,123,210,137" href="/tc?module=TCCC06ViewAlgoReg" />
@@ -86,6 +87,13 @@
 <area shape="rect" alt="" coords="300,82,445,113" href="/tc?module=Static&d1=digital_run&d2=2006_stage1_winners" />
 </map>
 <IMG SRC="/i/home/tccc_dig_run_20060828.gif" border="0" alt="TCCC Algorithm Registration Open, the Digital Run Stage 1 Winners" usemap="#tccc_dr"/>
+--%>
+<map name="tccc06_algoReg">
+<area shape="rect" alt="" coords="1,1,230,150" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
+<area shape="rect" alt="" coords="260,35,478,113" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_description" />
+</map>
+<IMG SRC="/i/home/tccc06_algoReg_promo.gif" border="0" alt="Algorithm Registration Open" usemap="#tccc06_algoReg" />
+
 
         </td>
         <td width="50%" class="homeLogo" align="right">&#160;</td>
@@ -116,9 +124,9 @@
             <%-- INTEL MTCS
             <A href="/longcontest/?module=Static&d1=intel_overview"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0" style="display:block;"/></A>
             --%>
-            <%-- DIGITAL RUN 
+            <%-- DIGITAL RUN --%>
             <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/dig_run_20060815.png" alt="The Digital Run" border="0" style="display:block;"/></A>
-            --%>
+            
             <%-- bloomberg 
             <map name="bbg_srm">
             <area shape="rect" alt="" coords="88,2,265,92" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg" />
@@ -127,14 +135,14 @@
             </map>
             <img src="/i/home/bloomberg_srm317.gif" alt="Bloomberg TCCC Sponsor of SRM 317" border="0" style="display:block;" usemap="#bbg_srm"/>
             --%>
-            <%-- NSA --%>
+            <%-- NSA 
             <map name="nsa_srm">
             <area shape="rect" alt="" coords="88,2,265,92" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa" />
             <area shape="rect" alt="" coords="12,10,80,84" href="/tc?module=MatchDetails&rd=9998" />
             <area shape="rect" alt="" coords="0,93,269,138" href="/tc?module=MatchDetails&rd=9998" />
             </map>
             <img src="/i/home/nsa_srm318.gif" alt="NSA TCCC Sponsor of SRM 318" border="0" style="display:block;" usemap="#nsa_srm"/>
-            
+            --%>
 
         </td></tr>
     </table>
@@ -260,14 +268,16 @@
         <%-- Press Room --%>
         <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=pressroom&d2=index" class="homeTitleLink">Press Room
-                Highlights</A></td>
+            <td class="homeTitle">Highlights</td>
         </tr>
         <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+
+                TopCoder Studio launches creative contests
+                <A href="http://studio.topcoder.com/">...more</A><br>[August 30]<br><br>
             
-                NSA Continues TopCoder Patronage with Support of 2006 TopCoder Collegiate Challenge in San Diego
+                NSA Continues TopCoder Patronage with Support of 2006 TCCC in San Diego
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_082906">...more</A><br>[August 29]<br><br>
 
                 <div style="float: right; padding-left: 5px;">
@@ -287,9 +297,6 @@
 
                 TopCoder Announces Bloomberg L.P. As Premier Sponsor of TCCC06
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_062606">...more</A><br>[June 26]<br><br>
-
-                AOL Named Title Sponsor of 2006 TopCoder Collegiate Challenge
-                <A href="/tc?module=Static&d1=pressroom&d2=pr_061906">...more</A><br>[June 19]<br><br>
 
             </td>
         </tr>
