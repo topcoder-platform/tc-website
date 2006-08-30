@@ -1,5 +1,6 @@
 package com.topcoder.web.studio.validation;
 
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.validation.*;
 
 /**
@@ -20,8 +21,10 @@ public class MaxHeightValidator implements Validator {
             //its ok, it's optional
             return ValidationResult.SUCCESS;
         } else {
-            ValidationResult minNumResult =
-                    new IntegerValidator("Could not validate the max height because the min height was invalid.").validate(new StringInput(minHeight));
+            ValidationResult minNumResult = ValidationResult.SUCCESS;
+            if (!"".equals(StringUtils.checkNull(minHeight))) {
+                minNumResult = new IntegerValidator("Could not validate the max height because the min height was invalid.").validate(new StringInput(minHeight));
+            }
             if (!minNumResult.isValid()) {
                 return minNumResult;
             } else {

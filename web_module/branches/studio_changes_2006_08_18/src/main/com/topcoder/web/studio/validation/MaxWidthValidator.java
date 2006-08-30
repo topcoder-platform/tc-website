@@ -1,5 +1,6 @@
 package com.topcoder.web.studio.validation;
 
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.validation.*;
 
 /**
@@ -20,8 +21,10 @@ public class MaxWidthValidator implements Validator {
             //its ok, it's optional
             return ValidationResult.SUCCESS;
         } else {
-            ValidationResult minNumResult =
-                    new IntegerValidator("Could not validate the max width because the min width was invalid.").validate(new StringInput(minWidth));
+            ValidationResult minNumResult = ValidationResult.SUCCESS;
+            if (!"".equals(StringUtils.checkNull(minWidth))) {
+                minNumResult = new IntegerValidator("Could not validate the max width because the min width was invalid.").validate(new StringInput(minWidth));
+            }
             if (!minNumResult.isValid()) {
                 return minNumResult;
             } else {
