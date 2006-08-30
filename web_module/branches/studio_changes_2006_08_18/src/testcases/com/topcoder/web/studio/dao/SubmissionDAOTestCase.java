@@ -41,14 +41,15 @@ public class SubmissionDAOTestCase extends TCHibernateTestCase {
         setUp();
         c = (Contest) StudioDAOUtil.getFactory().getContestDAO().getContests().get(0);
         cr.setPrize((Prize) c.getPrizes().iterator().next());
-        c.addResult(cr);
-        StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(c);
+        s.setResult(cr);
+        StudioDAOUtil.getFactory().getSubmissionDAO().saveOrUpdate(s);
 
         tearDown();
         setUp();
 
         Submission new1 = StudioDAOUtil.getFactory().getSubmissionDAO().find(s.getId());
         assertFalse("new submission entry not created", new1 == null);
+        assertTrue("failed to associate result", new1.getResult() != null);
 
 
     }

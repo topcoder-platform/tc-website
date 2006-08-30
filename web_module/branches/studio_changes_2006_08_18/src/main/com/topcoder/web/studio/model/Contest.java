@@ -163,8 +163,4 @@ public class Contest extends Base {
         this.results = results;
     }
 
-    public void addResult(ContestResult contestResult) {
-        this.results.add(contestResult);
-    }
-
 }

@@ -35,7 +35,7 @@
             <key column="contest_id" not-null="true"/>
             <one-to-many class="Submission"/>
         </set>
-        <set name="results" cascade="save-update" inverse="true" access="field" sort="natural">
+        <set name="results" cascade="all" inverse="true" access="field" sort="natural">
             <key column="contest_id" not-null="true"/>
             <one-to-many class="ContestResult"/>
         </set>

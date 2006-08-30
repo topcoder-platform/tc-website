@@ -20,5 +20,6 @@
         <many-to-one name="mimeType" column="mime_type_id" class="MimeType" access="field"
                      cascade="none"/>
         <one-to-one name="review" class="SubmissionReview"/>
+        <one-to-one name="result" class="ContestResult" cascade="save-update" access="field"/>
     </class>
 </hibernate-mapping>

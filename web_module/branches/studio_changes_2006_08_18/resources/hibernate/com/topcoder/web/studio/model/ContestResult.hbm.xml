@@ -13,7 +13,7 @@
         </id>
 
         <one-to-one name="submission" class="Submission" constrained="true"/>
-        <many-to-one name="contest" column="contest_id" class="Contest" access="field" cascade="none"/>
+        <many-to-one name="contest" column="contest_id" class="Contest" access="field"/>
         <many-to-one name="prize" column="prize_id" class="Prize" access="field"/>
     </class>
 
