@@ -54,6 +54,59 @@
          <br><br>
          <h2><A href="/?module=ViewActiveContests">Contests available now!</A></h2>
          <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</A> as a Studio member so you can receive emails when new contests arrive.
+
+         <br><br>
+         <h2>Winners!</h2>
+         <table cellpadding="0" cellspacing="0" class="stat" style="width:485px;">
+         <tbody>
+            <tr>
+               <td class="NW">&nbsp;</td>
+               <td class="title" colspan="4">
+               Recent Winners
+               </td>
+               <td class="NE">&nbsp;</td>
+            </tr>
+            <tr>
+               <td class="headerW"><div>&nbsp;</div></td>
+               <td class="header">
+               Winner
+               </td>
+               <td class="header">
+               Contest
+               </td>
+               <td class="headerR">
+               Prize
+               </td>
+               <td class="headerR">
+               &nbsp;
+               </td>
+               <td class="headerE"><div>&nbsp;</div></td>
+            </tr>
+            <% boolean even = true;%>
+            <tr class="<%=even?"light":"dark"%>">
+               <td class="valueW"><div>&nbsp;</div></td>
+               <td class="value">
+               <studio:handle coderId="22636292"/>
+               </td>
+               <td class="value">
+               <a href="/?module=ViewContestDetails&amp;ct=2011">TopCoder Generic Application Icons</a>
+               </td>
+               <td class="valueR">
+               $500.00
+               </td>
+               <td class="valueR">
+               <A href="/pdfs/downloads/TopCoder_Generic_Application_Icons.pdf"><img src="/i/layout/disk.gif" alt="Download submission" /></A>
+               </td>
+               <td class="valueE"><div>&nbsp;</div></td>
+            </tr>
+            <% even = !even;%>
+            <tr>
+               <td class="SW" colspan="5">&nbsp;</td>
+               <td class="SE">&nbsp;</td>
+            </tr>
+         </tbody>
+         </table>
+
       </td>
    </tr>
 </tbody>
