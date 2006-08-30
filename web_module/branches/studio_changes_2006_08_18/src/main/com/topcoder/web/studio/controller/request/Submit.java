@@ -72,12 +72,12 @@ public class Submit extends ShortHibernateProcessor {
                     setNextPage("/submit.jsp");
                     setIsNextPageInContext(true);
                 } else {
-                    StudioFileType ft = cFactory.getMimeTypeDAO().find(submissionFile.getContentType()).getFileType();
+                    MimeType mt = cFactory.getMimeTypeDAO().find(submissionFile.getContentType());
                     Submission s = new Submission();
                     s.setContest(c);
                     s.setOriginalFileName(submissionFile.getRemoteFileName());
                     s.setSubmitter(u);
-                    s.setFileType(ft);
+                    s.setMimeType(mt);
 
                     StringBuffer buf = new StringBuffer(80);
                     buf.append(Constants.ROOT_STORAGE_PATH);

@@ -49,9 +49,9 @@ public class AddDocument extends Base {
                 addError(Constants.DOCUMENT, "Document was empty");
             }
 
-            StudioFileType ft = StudioDAOUtil.getFactory().getMimeTypeDAO().find(file.getContentType()).getFileType();
+            MimeType mt = StudioDAOUtil.getFactory().getMimeTypeDAO().find(file.getContentType());
 
-            if (ft == null) {
+            if (mt == null) {
                 addError(Constants.SUBMISSION, "Unknown file type: " + file.getContentType());
             }
 
@@ -66,7 +66,7 @@ public class AddDocument extends Base {
             } else {
                 Document d = new Document();
                 d.setOriginalFileName(file.getRemoteFileName());
-                d.setFileType(ft);
+                d.setMimeType(mt);
                 d.setType(docType);
 
                 StringBuffer buf = new StringBuffer(80);

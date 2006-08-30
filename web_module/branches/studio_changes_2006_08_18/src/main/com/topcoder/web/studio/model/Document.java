@@ -16,7 +16,6 @@ public class Document extends Base {
     private String originalFileName;
     private String systemFileName;
     private FilePath path;
-    private StudioFileType fileType;
     private MimeType mimeType;
     private DocumentType type;
 
@@ -59,14 +58,6 @@ public class Document extends Base {
 
     public void setPath(FilePath path) {
         this.path = path;
-    }
-
-    public StudioFileType getFileType() {
-        return fileType;
-    }
-
-    public void setFileType(StudioFileType fileType) {
-        this.fileType = fileType;
     }
 
     public DocumentType getType() {
