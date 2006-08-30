@@ -95,7 +95,7 @@
                         </td>
                         <td class="valueC">
                             <c:choose>
-                                <c:when test="<%=resultRow.getBooleanItem("viewable_submissions") && resultRow.getItem("winning_submission_id").getResultData() != null%>">
+                                <c:when test="<%=resultRow.getItem("winning_submission_id").getResultData() != null%>">
                                     <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="winning_submission_id" row="<%=resultRow%>"/>">view</A>
                                 </c:when>
                                 <c:otherwise>
