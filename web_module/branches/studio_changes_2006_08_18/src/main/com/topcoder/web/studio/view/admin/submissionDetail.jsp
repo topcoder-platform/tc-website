@@ -86,13 +86,17 @@
                     <button name="submit" value="submit" type="submit">Submit</button>
                 </form>
 
+                <div class="header">Contest Results</div>
+
                 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="placedForm">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSetPlace"/>
                     <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
 
-                    Place:
-                    <tc-webtag:objectSelect name="<%=Constants.PRIZE_ID%>" list="${submission.contest.prizes}" valueField="id" textField="place"/>
-                    <button name="submit" value="submit" type="submit">Submit</button>
+                    <p>
+                        Place:
+                        <tc-webtag:objectSelect name="<%=Constants.PRIZE_ID%>" list="${submission.contest.prizes}" valueField="id" textField="place"/>
+                        <button name="submit" value="submit" type="submit">Save</button>
+                    </p>
                 </form>
 
             </div>
