@@ -63,7 +63,7 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         }
 
         if (!"".equals(col) && !"".equals(dir)) {
-            submissions.sortByColumn(col, dir.trim().toLowerCase().equals("asc"));
+            submissions.sortByColumn(Integer.parseInt(col), dir.trim().toLowerCase().equals("asc"));
         }
 
         String start = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
