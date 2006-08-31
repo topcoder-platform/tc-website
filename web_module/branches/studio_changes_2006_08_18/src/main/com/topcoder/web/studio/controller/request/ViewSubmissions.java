@@ -35,6 +35,7 @@ public class ViewSubmissions extends ShortHibernateProcessor {
             throw new NavigationException("Invalid contest specified.");
         }
         getRequest().setAttribute("contest", c);
+        setDefault(Constants.CONTEST_ID, c.getId());
 
         boolean isOver = new Date().after(c.getEndTime());
         if (!String.valueOf(true).equals(c.getViewableSubmissions().getValue())) {
