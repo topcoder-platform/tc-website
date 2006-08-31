@@ -64,13 +64,11 @@
             <param-value>com.topcoder.dde.request.</param-value>
             <description>the path to the processors for this app</description>
         </init-param>
-<!--
         <init-param>
             <param-name>error_page</param-name>
-            <param-value>/error.jsp</param-value>
+            <param-value>/errorPage.jsp</param-value>
             <description>where to forward for errors</description>
         </init-param>
--->
         <!-- end  parameters required by BaseServlet -->
 
     </servlet>
