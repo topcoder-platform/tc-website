@@ -125,7 +125,7 @@ div.popUp div {
                                 </tr>
                                 <tr>
                                     <td class="headerW"><div>&nbsp;</div></td>
-                                    <td class="header" width="20%">
+                                    <td class="header" width="20%" colspan="2">
                                         Winner
                                     </td>
                                     <td class="header" width="60%">
@@ -133,9 +133,6 @@ div.popUp div {
                                     </td>
                                     <td class="headerR" width="20%">
                                         Prize
-                                    </td>
-                                    <td class="headerR">
-                                    &nbsp;
                                     </td>
                                     <td class="headerE"><div>&nbsp;</div></td>
                                 </tr>
@@ -148,6 +145,12 @@ div.popUp div {
                                              <%--<A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">view
                                                 submission</A>--%>
                                         </td>
+                                       <td class="valueR">
+                                        <div class="container">
+                                            <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>"><img src="/i/layout/magnify.gif" alt="Download submission" class="emblem" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()" /></a>
+                                            <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
+                                        </div>
+                                       </td>
                                         <td class="value">
                                             <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
                                                 <rsc:item name="name" row="<%=resultRow%>"/></A>
@@ -155,12 +158,6 @@ div.popUp div {
                                         <td class="valueR">
                                             <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
                                         </td>
-                                       <td class="valueR">
-                                        <div class="container">
-                                            <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>"><img src="/i/layout/disk.gif" alt="Download submission" class="emblem" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()" /></a>
-                                            <div id="pop<%=i%>" class="popUp"><div>Download submission</div></div>
-                                        </div>
-                                       </td>
                                         <td class="valueE"><div>&nbsp;</div></td>
                                     </tr>
                                     <% even = !even; i++; %>

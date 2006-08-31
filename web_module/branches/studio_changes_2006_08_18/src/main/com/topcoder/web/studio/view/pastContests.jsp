@@ -16,6 +16,52 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
+<script language="javascript" type="text/javascript">
+<!--
+var objPopUp = null;
+function popUp(objectID) {
+   objPopUp = document.getElementById(objectID);
+   objPopUp.style.visibility = 'visible';
+}
+function popHide() {
+   objPopUp.style.visibility = 'hidden';
+   objPopUp = null;
+}
+// -->
+</script>
+<STYLE TYPE="text/css">
+img.emblem {
+   float: left;
+   margin: 0px 0px 0px 0px;
+}
+
+div.container {
+   display: block;
+   text-align: center;
+   position: relative;
+   margin: 0px;
+   padding: 0px;
+}
+
+div.popUp {
+   visibility: hidden;
+   position: absolute;
+   top: 20px;
+   left: 20px;
+   z-index: 1;
+}
+
+div.popUp div {
+   float:left;
+   font-size: 11px;
+   line-height: normal;
+   background: #FFFFCC;
+   border: 1px solid #999999;
+   padding: 6px;
+   text-align: left;
+   white-space: nowrap;
+}
+</STYLE>
 </head>
 
 <body>
@@ -60,11 +106,8 @@
             <td class="header">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Project</a>
             </td>
-            <td class="header">
+            <td class="header" colspan="2">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Winner</a>
-            </td>
-            <td class="headerC">
-                Winning<br>Submission
             </td>
             <td class="headerR">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("submission_count")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">#
@@ -81,7 +124,7 @@
                     Date</a></td>
             <td class="headerE"><div>&nbsp;</div></td>
         </tr>
-        <% boolean even = true;%>
+        <% boolean even = true; int i = 0; %>
         <rsc:iterator list="<%=contests%>" id="resultRow">
             <tr class="<%=even?"light":"dark"%>">
                 <td class="valueW"><div>&nbsp;</div></td>
@@ -98,7 +141,10 @@
                 <td class="valueC">
                     <c:choose>
                         <c:when test="<%=resultRow.getItem("winning_submission_id").getResultData() != null%>">
-                            <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="winning_submission_id" row="<%=resultRow%>"/>">view</A>
+                         <div class="container">
+                             <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="winning_submission_id" row="<%=resultRow%>"/>"><img src="/i/layout/magnify.gif" alt="Download submission" class="emblem" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()" /></a>
+                             <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
+                         </div>
                         </c:when>
                         <c:otherwise>
                             &#160;
@@ -126,7 +172,7 @@
                     <rsc:item name="end_time" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}"/></td>
                 <td class="valueE"><div>&nbsp;</div></td>
             </tr>
-            <% even = !even;%>
+            <% even = !even; i++; %>
         </rsc:iterator>
         <tr>
             <td class="SW" colspan="8">&nbsp;</td>
