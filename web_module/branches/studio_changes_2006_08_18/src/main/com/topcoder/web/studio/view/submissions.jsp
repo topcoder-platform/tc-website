@@ -56,7 +56,7 @@
                 <h1>Submissions</h1>
 
 
-                <form action="${sessionInfo.secureAbsoluteServletPath}" method="GET" name="subForm">
+                <form action="${sessionInfo.servletPath}" method="GET" name="subForm">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewSubmissions"/>
                     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
                     <input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
