@@ -26,7 +26,9 @@
         document.subForm.<%=DataAccessConstants.END_RANK%>.value =<%=submissions.getStartRow()-2+Constants.VIEW_SUBMISSIONS_SCROLL_SIZE*2%>;
         document.subForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
         document.subForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+    <c:if test="${isOver}">
         document.subForm.<%=Constants.HANDLE%>.value = '<%=request.getParameter(Constants.HANDLE)==null?"":request.getParameter(Constants.HANDLE)%>';
+    </c:if>
         document.subForm.submit();
     }
     function previous() {
@@ -34,7 +36,9 @@
         document.subForm.<%=DataAccessConstants.END_RANK%>.value =<%=submissions.getStartRow()-2%>;
         document.subForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
         document.subForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+    <c:if test="${isOver}">
         document.subForm.<%=Constants.HANDLE%>.value = '<%=request.getParameter(Constants.HANDLE)==null?"":request.getParameter(Constants.HANDLE)%>';
+    </c:if>
         document.subForm.submit();
     }
     //--></script>
