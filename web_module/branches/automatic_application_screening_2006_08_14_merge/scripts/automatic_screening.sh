@@ -1,6 +1,6 @@
 #!/usr/local/bin/bash
 
-  JAVA=/usr/bin/java
+  JAVA=${JAVA_HOME}/bin/java
 
   CLASSPATH="."
   CLASSPATH=$CLASSPATH:../lib/bin/screening.jar
