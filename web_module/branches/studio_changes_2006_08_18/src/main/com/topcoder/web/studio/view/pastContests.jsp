@@ -83,7 +83,7 @@
         </tr>
         <% boolean even = true;%>
         <rsc:iterator list="<%=contests%>" id="resultRow">
-            <tr class="<%=even?"dark":"light"%>">
+            <tr class="<%=even?"light":"dark"%>">
                 <td class="valueW"><div>&nbsp;</div></td>
                 <td class="value">
                     <A href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">

@@ -91,7 +91,7 @@
                 <tbody>
                     <tr>
                         <td class="NW">&nbsp;</td>
-                        <td class="title" colspan="5">Submissions</td>
+                        <td class="title" colspan="2">Submissions</td>
                         <td class="NE">&nbsp;</td>
                     </tr>
                     <tr>
@@ -102,28 +102,28 @@
                                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submitter</a>
                             </td>
                         </c:if>
-                        <td class="headerC">
+                        <td class="header" nowrap="nowrap">
                             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("create_date")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submit
                                 Date</a>
                         </td>
-                        <td class="header">
+                        <td class="headerC" width="100%">
                             Submission
                         </td>
-                        <td class="headerC">&nbsp;</td>
+                        <td class="headerE"><div>&nbsp;</div></td>
                     </tr>
+                    <% boolean even = true;%>
                     <rsc:iterator list="<%=submissions%>" id="resultRow">
-
-                        <tr class="light">
+                        <tr class="<%=even?"light":"dark"%>">
                             <td class="valueW"><div>&nbsp;</div></td>
                             <c:if test="${isOver}">
                                 <td class="value">
                                     <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
                                 </td>
                             </c:if>
-                            <td class="valueC">
+                            <td class="valueC" nowrap="nowrap">
                                 <rsc:item name="create_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}"/>
                             </td>
-                            <td class="value">
+                            <td class="valueC">
 
                                 <c:choose>
                                     <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
@@ -137,9 +137,10 @@
                             </td>
                             <td class="valueE"><div>&nbsp;</div></td>
                         </tr>
+                    <% even = !even;%>
                     </rsc:iterator>
                     <tr>
-                        <td class="SW" colspan="8">&nbsp;</td>
+                        <td class="SW" colspan="3">&nbsp;</td>
                         <td class="SE">&nbsp;</td>
                     </tr>
                 </tbody>
