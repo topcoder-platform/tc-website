@@ -129,15 +129,17 @@
 
         <br><br>
 
+        <c:if test="${currentTime<=contest.endTime && currentTime>=contest.startTime}">
+            <div class="header">Upload Your Submission</div>
+            If you are ready to submit your design for this contest, click the button below.
+            <br><br>
 
-        <div class="header">Upload Your Submission</div>
-        If you are ready to submit your design for this contest, click the button below.
-        <br><br>
+            <div align="center">
+                <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="btn_submit">
+                    &nbsp;</A>
+            </div>
+        </c:if>
 
-        <div align="center">
-            <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="btn_submit">
-                &nbsp;</A>
-        </div>
     </div>
 </div>
 
