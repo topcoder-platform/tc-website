@@ -85,7 +85,7 @@ public class RegFieldHelper {
         requiredMainCompFields.add(Constants.PASSWORD);
         requiredMainCompFields.add(Constants.PASSWORD_CONFIRM);
         requiredMainCompFields.add(Constants.SECRET_QUESTION);
-        requiredMainCompFields.add(Constants.SECRET_QUESTION_RESPONSE);        
+        requiredMainCompFields.add(Constants.SECRET_QUESTION_RESPONSE);
         requiredMainCompFields.add(Constants.EMAIL);
         requiredMainCompFields.add(Constants.EMAIL_CONFIRM);
         requiredMainCompFields.add(Constants.COMP_COUNTRY_CODE);
@@ -140,7 +140,7 @@ public class RegFieldHelper {
         mainHSFields.add(Constants.PASSWORD);
         mainHSFields.add(Constants.PASSWORD_CONFIRM);
         mainHSFields.add(Constants.SECRET_QUESTION);
-        mainHSFields.add(Constants.SECRET_QUESTION_RESPONSE);        
+        mainHSFields.add(Constants.SECRET_QUESTION_RESPONSE);
         mainHSFields.add(Constants.EMAIL);
         mainHSFields.add(Constants.EMAIL_CONFIRM);
         mainHSFields.add(Constants.QUOTE);
@@ -155,7 +155,7 @@ public class RegFieldHelper {
         requiredMainHSFields.add(Constants.PASSWORD);
         requiredMainHSFields.add(Constants.PASSWORD_CONFIRM);
         requiredMainHSFields.add(Constants.SECRET_QUESTION);
-        requiredMainHSFields.add(Constants.SECRET_QUESTION_RESPONSE);        
+        requiredMainHSFields.add(Constants.SECRET_QUESTION_RESPONSE);
         requiredMainHSFields.add(Constants.EMAIL);
         requiredMainHSFields.add(Constants.EMAIL_CONFIRM);
         requiredMainHSFields.add(Constants.TIMEZONE);
@@ -195,7 +195,7 @@ public class RegFieldHelper {
         mainCorpFields.add(Constants.PASSWORD);
         mainCorpFields.add(Constants.PASSWORD_CONFIRM);
         mainCorpFields.add(Constants.SECRET_QUESTION);
-        mainCorpFields.add(Constants.SECRET_QUESTION_RESPONSE);                       
+        mainCorpFields.add(Constants.SECRET_QUESTION_RESPONSE);
         mainCorpFields.add(Constants.EMAIL);
         mainCorpFields.add(Constants.EMAIL_CONFIRM);
         mainCorpFields.add(Constants.TIMEZONE);
@@ -212,7 +212,7 @@ public class RegFieldHelper {
         requiredMainCorpFields.add(Constants.PASSWORD);
         requiredMainCorpFields.add(Constants.PASSWORD_CONFIRM);
         requiredMainCorpFields.add(Constants.SECRET_QUESTION);
-        requiredMainCorpFields.add(Constants.SECRET_QUESTION_RESPONSE);                               
+        requiredMainCorpFields.add(Constants.SECRET_QUESTION_RESPONSE);
         requiredMainCorpFields.add(Constants.EMAIL);
         requiredMainCorpFields.add(Constants.EMAIL_CONFIRM);
         requiredMainCorpFields.add(Constants.TIMEZONE);
@@ -237,7 +237,7 @@ public class RegFieldHelper {
         mainSoftwareFields.add(Constants.PASSWORD);
         mainSoftwareFields.add(Constants.PASSWORD_CONFIRM);
         mainSoftwareFields.add(Constants.SECRET_QUESTION);
-        mainSoftwareFields.add(Constants.SECRET_QUESTION_RESPONSE);                                       
+        mainSoftwareFields.add(Constants.SECRET_QUESTION_RESPONSE);
         mainSoftwareFields.add(Constants.EMAIL);
         mainSoftwareFields.add(Constants.EMAIL_CONFIRM);
         mainSoftwareFields.add(Constants.NOTIFICATION);
@@ -255,7 +255,7 @@ public class RegFieldHelper {
         requiredMainSoftwareFields.add(Constants.PASSWORD);
         requiredMainSoftwareFields.add(Constants.PASSWORD_CONFIRM);
         requiredMainSoftwareFields.add(Constants.SECRET_QUESTION);
-        requiredMainSoftwareFields.add(Constants.SECRET_QUESTION_RESPONSE);                                               
+        requiredMainSoftwareFields.add(Constants.SECRET_QUESTION_RESPONSE);
         requiredMainSoftwareFields.add(Constants.EMAIL);
         requiredMainSoftwareFields.add(Constants.EMAIL_CONFIRM);
         requiredMainSoftwareFields.add(Constants.TIMEZONE);
@@ -270,7 +270,7 @@ public class RegFieldHelper {
         mainMinFields.add(Constants.PASSWORD);
         mainMinFields.add(Constants.PASSWORD_CONFIRM);
         mainMinFields.add(Constants.SECRET_QUESTION);
-        mainMinFields.add(Constants.SECRET_QUESTION_RESPONSE);                                               
+        mainMinFields.add(Constants.SECRET_QUESTION_RESPONSE);
         mainMinFields.add(Constants.EMAIL);
         mainMinFields.add(Constants.EMAIL_CONFIRM);
         mainMinFields.add(Constants.TIMEZONE);
@@ -294,7 +294,7 @@ public class RegFieldHelper {
         mainStudioFields.add(Constants.PASSWORD);
         mainStudioFields.add(Constants.PASSWORD_CONFIRM);
         mainStudioFields.add(Constants.SECRET_QUESTION);
-        mainStudioFields.add(Constants.SECRET_QUESTION_RESPONSE);                                                       
+        mainStudioFields.add(Constants.SECRET_QUESTION_RESPONSE);
         mainStudioFields.add(Constants.EMAIL);
         mainStudioFields.add(Constants.EMAIL_CONFIRM);
         mainStudioFields.add(Constants.NOTIFICATION);
@@ -311,7 +311,7 @@ public class RegFieldHelper {
         requiredMainStudioFields.add(Constants.PASSWORD);
         requiredMainStudioFields.add(Constants.PASSWORD_CONFIRM);
         requiredMainStudioFields.add(Constants.SECRET_QUESTION);
-        requiredMainStudioFields.add(Constants.SECRET_QUESTION_RESPONSE);                                                                       
+        requiredMainStudioFields.add(Constants.SECRET_QUESTION_RESPONSE);
         requiredMainStudioFields.add(Constants.EMAIL);
         requiredMainStudioFields.add(Constants.EMAIL_CONFIRM);
         requiredMainStudioFields.add(Constants.COMP_COUNTRY_CODE);
@@ -327,6 +327,10 @@ public class RegFieldHelper {
         secondaryStudioStudentFields.add(Constants.SCHOOL_STATE);
         secondaryStudioStudentFields.add(Constants.SCHOOL_COUNTRY);
         secondaryStudioStudentFields.add(Constants.SCHOOL_TYPE);
+        secondaryStudioStudentFields.add(Constants.REFERRAL);
+        secondaryStudioStudentFields.add(Constants.REFERRAL_CODER);
+        secondaryStudioStudentFields.add(Constants.REFERRAL_OTHER);
+
 
         requiredSecondaryStudioStudentFields.add(Constants.VISIBLE_SCHOOL);
         requiredSecondaryStudioStudentFields.add(Constants.SCHOOL_NAME);
@@ -334,13 +338,18 @@ public class RegFieldHelper {
         requiredSecondaryStudioStudentFields.add(Constants.SCHOOL_ID);
         requiredSecondaryStudioStudentFields.add(Constants.SCHOOL_COUNTRY);
         requiredSecondaryStudioStudentFields.add(Constants.SCHOOL_TYPE);
+        requiredSecondaryStudioStudentFields.add(Constants.REFERRAL);
 
         secondaryStudioProFields.add(Constants.DEMOG_PREFIX);
         secondaryStudioProFields.add(Constants.TITLE);
         secondaryStudioProFields.add(Constants.COMPANY_NAME);
+        secondaryStudioProFields.add(Constants.REFERRAL);
+        secondaryStudioProFields.add(Constants.REFERRAL_CODER);
+        secondaryStudioProFields.add(Constants.REFERRAL_OTHER);
 
         requiredSecondaryStudioProFields.add(Constants.TITLE);
         requiredSecondaryStudioProFields.add(Constants.COMPANY_NAME);
+        requiredSecondaryStudioProFields.add(Constants.REFERRAL);
 
 
     }
