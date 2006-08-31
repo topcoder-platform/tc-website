@@ -58,7 +58,7 @@
     <td class="name">
         Contest Name:
     </td>
-    <td class="value">
+    <td class="value" width="100%">
         <tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>"/>
     </td>
 </tr>
@@ -148,9 +148,11 @@
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.MAX_HEIGHT%>" var="maxHeight"/>
 <tr>
     <td colspan="2">
-        Leave blank for no requirements. Make the same if they have to be exact. If you allow non image file submission
+        <div style="padding: 10px 0px 10px 0px;">
+        <strong>Size Requirements:</strong> Leave blank for no requirements. Enter the same value for the min and max to require an exact size. If you allow non image file submission
         (pdf)
-        they will not be heald to these requirements.
+        they will not be held to these requirements.
+        </div>
     </td>
 </tr>
 <tr>
@@ -166,7 +168,7 @@
     </td>
 </tr>        <tr>
     <td class="name">
-        Height Requirements:
+        Height Requirements (px):
     </td>
     <td class="value">
         <tc-webtag:textInput name="${minHeight}" size="4"/> to <tc-webtag:textInput name="${maxHeight}" size="4"/>
@@ -189,7 +191,7 @@
     </td>
 </tr>        <tr>
     <td class="name">
-        Width Requirements:
+        Width Requirements (px):
     </td>
     <td class="value">
         <tc-webtag:textInput name="${minWidth}" size="4"/> to <tc-webtag:textInput name="${maxWidth}" size="4"/>
