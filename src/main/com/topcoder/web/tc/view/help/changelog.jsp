@@ -49,6 +49,7 @@
         <li>Add TCCC06 Component results site</li>
         <li>In all tournament sites, the components should not link to the catalog if they are not public
             components.</li>
+        <li>Include referral information in studio registration</li>
     </ul>
 
     5.4.8 - 2006.08.28
