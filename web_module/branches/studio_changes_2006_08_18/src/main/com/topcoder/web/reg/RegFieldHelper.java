@@ -305,6 +305,10 @@ public class RegFieldHelper {
         secondaryStudioStudentFields.add(Constants.SCHOOL_STATE);
         secondaryStudioStudentFields.add(Constants.SCHOOL_COUNTRY);
         secondaryStudioStudentFields.add(Constants.SCHOOL_TYPE);
+        secondaryStudioStudentFields.add(Constants.REFERRAL);
+        secondaryStudioStudentFields.add(Constants.REFERRAL_CODER);
+        secondaryStudioStudentFields.add(Constants.REFERRAL_OTHER);
+
 
         requiredSecondaryStudioStudentFields.add(Constants.VISIBLE_SCHOOL);
         requiredSecondaryStudioStudentFields.add(Constants.SCHOOL_NAME);
@@ -312,13 +316,18 @@ public class RegFieldHelper {
         requiredSecondaryStudioStudentFields.add(Constants.SCHOOL_ID);
         requiredSecondaryStudioStudentFields.add(Constants.SCHOOL_COUNTRY);
         requiredSecondaryStudioStudentFields.add(Constants.SCHOOL_TYPE);
+        requiredSecondaryStudioStudentFields.add(Constants.REFERRAL);
 
         secondaryStudioProFields.add(Constants.DEMOG_PREFIX);
         secondaryStudioProFields.add(Constants.TITLE);
         secondaryStudioProFields.add(Constants.COMPANY_NAME);
+        secondaryStudioProFields.add(Constants.REFERRAL);
+        secondaryStudioProFields.add(Constants.REFERRAL_CODER);
+        secondaryStudioProFields.add(Constants.REFERRAL_OTHER);
 
         requiredSecondaryStudioProFields.add(Constants.TITLE);
         requiredSecondaryStudioProFields.add(Constants.COMPANY_NAME);
+        requiredSecondaryStudioProFields.add(Constants.REFERRAL);
 
 
     }
