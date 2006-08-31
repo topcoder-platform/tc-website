@@ -47,6 +47,7 @@ public class Constants implements WebConstants {
     public static String SUBMISSIONS_DIRECTORY_NAME;
     public static String DOCUMENTS_DIRECTORY_NAME;
     public static int VIEW_SUBMISSIONS_SCROLL_SIZE;
+    public static int ADMIN_VIEW_SUBMISSIONS_SCROLL_SIZE;
 
     static {
         initialize();
