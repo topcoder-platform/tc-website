@@ -149,8 +149,8 @@
 <tr>
     <td colspan="2">
         <div style="padding: 10px 0px 10px 0px;">
-        <strong>Size Requirements:</strong> Leave blank for no requirements. Enter the same value for the min and max to require an exact size. If you allow non image file submission
-        (pdf)
+        <strong>Size Requirements:</strong> Leave blank for no requirements. Enter the same value for the min and max to require an exact size. If you allow non-image file submissions
+        (pdf, txt, html)
         they will not be held to these requirements.
         </div>
     </td>
