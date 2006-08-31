@@ -53,106 +53,105 @@
     <jsp:param name="node" value="contests"/>
 </jsp:include>
 <div class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
+    <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
 
-<div class="contentSpacer">
-    <div class="linkBox"><studio:forumLink forumID="${contest.forumId}"/></div>
+    <div class="contentSpacer">
+        <div class="linkBox"><studio:forumLink forumID="${contest.forumId}"/></div>
 
-    <div class="breadcrumb">
-        <c:choose>
-            <c:when test="${isOver}">
-                <A href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</A> &gt;
-            </c:when>
-            <c:otherwise>
-                <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A> &gt;
-            </c:otherwise>
-        </c:choose>
-        <c:if test="${isOver}">
+        <div class="breadcrumb">
+            <c:choose>
+                <c:when test="${isOver}">
+                    <A href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</A> &gt;
+                </c:when>
+                <c:otherwise>
+                    <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A> &gt;
+                </c:otherwise>
+            </c:choose>
             ${contest.name}
-    </div>
-
-    <h1>Submissions</h1>
-
-
-    <form action="${sessionInfo.servletPath}" method="GET" name="subForm">
-            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewSubmissions"/>
-            <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-        <input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
-        <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
-        <input type="hidden" name="<%=DataAccessConstants.SORT_COLUMN%>" value=""/>
-        <input type="hidden" name="<%=DataAccessConstants.SORT_DIRECTION%>" value=""/>
-        <c:if test="${isOver}">
-        You can enter a handle here to see only submissions by that competitor:
-            <tc-webtag:textInput name="<%=Constants.HANDLE%>"/>
-        <button name="submit" value="submit" type="submit">Submit</button>
-        </c:if>
-
-
-        <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
-            <tbody>
-                <tr>
-                    <td class="NW">&nbsp;</td>
-                    <td class="title" colspan="5">Submissions</td>
-                    <td class="NE">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="headerW"><div>&nbsp;</div></td>
-                    <% String exclude = Constants.MODULE_KEY + " " + DataAccessConstants.START_RANK + " " + DataAccessConstants.END_RANK;%>
-                    <c:if test="${isOver}">
-                        <td class="header">
-                            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submitter</a>
-                        </td>
-                    </c:if>
-                    <td class="headerC">
-                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("create_date")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submit
-                            Date</a>
-                    </td>
-                    <td class="header">
-                        Submission
-                    </td>
-                    <td class="headerC">&nbsp;</td>
-                </tr>
-                <rsc:iterator list="<%=submissions%>" id="resultRow">
-
-                    <tr class="light">
-                        <td class="valueW"><div>&nbsp;</div></td>
-                        <c:if test="${isOver}">
-                            <td class="value">
-                                <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
-                            </td>
-                        </c:if>
-                        <td class="valueC">
-                            <rsc:item name="create_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}"/>
-                        </td>
-                        <td class="value">
-
-                            <c:choose>
-                                <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
-                                    <img src="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>" alt=""/>
-                                </c:when>
-                                <c:otherwise>
-                                    <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">view
-                                        submission</A>
-                                </c:otherwise>
-                            </c:choose>
-                        </td>
-                        <td class="valueE"><div>&nbsp;</div></td>
-                    </tr>
-                </rsc:iterator>
-                <tr>
-                    <td class="SW" colspan="8">&nbsp;</td>
-                    <td class="SE">&nbsp;</td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="pagingBox">
-            <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
-            | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
         </div>
 
+        <h1>Submissions</h1>
 
-</div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
+
+        <form action="${sessionInfo.servletPath}" method="GET" name="subForm">
+            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewSubmissions"/>
+            <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+            <input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
+            <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
+            <input type="hidden" name="<%=DataAccessConstants.SORT_COLUMN%>" value=""/>
+            <input type="hidden" name="<%=DataAccessConstants.SORT_DIRECTION%>" value=""/>
+            <c:if test="${isOver}">
+            You can enter a handle here to see only submissions by that competitor:
+                <tc-webtag:textInput name="<%=Constants.HANDLE%>"/>
+            <button name="submit" value="submit" type="submit">Submit</button>
+            </c:if>
+
+
+            <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
+                <tbody>
+                    <tr>
+                        <td class="NW">&nbsp;</td>
+                        <td class="title" colspan="5">Submissions</td>
+                        <td class="NE">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="headerW"><div>&nbsp;</div></td>
+                        <% String exclude = Constants.MODULE_KEY + " " + DataAccessConstants.START_RANK + " " + DataAccessConstants.END_RANK;%>
+                        <c:if test="${isOver}">
+                            <td class="header">
+                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submitter</a>
+                            </td>
+                        </c:if>
+                        <td class="headerC">
+                            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("create_date")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submit
+                                Date</a>
+                        </td>
+                        <td class="header">
+                            Submission
+                        </td>
+                        <td class="headerC">&nbsp;</td>
+                    </tr>
+                    <rsc:iterator list="<%=submissions%>" id="resultRow">
+
+                        <tr class="light">
+                            <td class="valueW"><div>&nbsp;</div></td>
+                            <c:if test="${isOver}">
+                                <td class="value">
+                                    <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
+                                </td>
+                            </c:if>
+                            <td class="valueC">
+                                <rsc:item name="create_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                            </td>
+                            <td class="value">
+
+                                <c:choose>
+                                    <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
+                                        <img src="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>" alt=""/>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">view
+                                            submission</A>
+                                    </c:otherwise>
+                                </c:choose>
+                            </td>
+                            <td class="valueE"><div>&nbsp;</div></td>
+                        </tr>
+                    </rsc:iterator>
+                    <tr>
+                        <td class="SW" colspan="8">&nbsp;</td>
+                        <td class="SE">&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagingBox">
+                <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+                | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+            </div>
+
+
+    </div>
+    <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
 </div>
 <jsp:include page="foot.jsp"/>
 <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
