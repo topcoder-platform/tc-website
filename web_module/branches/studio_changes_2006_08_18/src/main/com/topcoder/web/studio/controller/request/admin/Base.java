@@ -6,6 +6,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.ContestPropertyDAO;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
@@ -54,6 +55,11 @@ public abstract class Base extends ShortHibernateProcessor {
         loadGeneralEditContestData();
         getRequest().setAttribute("contest", contest);
 
+        ArrayList viewSubmissionAnswers = new ArrayList();
+        viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(true), String.valueOf(true)));
+        viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(false), String.valueOf(false)));
+        getRequest().setAttribute("viewSubmissionAnswers", viewSubmissionAnswers);
+
         SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
 
         ContestPropertyDAO dao = StudioDAOUtil.getFactory().getContestPropertyDAO();
@@ -77,6 +83,7 @@ public abstract class Base extends ShortHibernateProcessor {
         setDefault(Constants.CONTEST_NAME, contest.getName());
         setDefault(Constants.START_TIME, sdf.format(contest.getStartTime()));
         setDefault(Constants.END_TIME, sdf.format(contest.getEndTime()));
+
 
     }
 }
