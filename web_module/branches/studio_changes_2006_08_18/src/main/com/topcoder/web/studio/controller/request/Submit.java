@@ -19,6 +19,7 @@ import com.topcoder.web.studio.validation.SubmissionValidator;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.Date;
 
 /**
  * @author dok
@@ -42,6 +43,12 @@ public class Submit extends ShortHibernateProcessor {
             DAOFactory factory = DAOUtil.getFactory();
 
             Contest c = cFactory.getContestDAO().find(contestId);
+            Date now = new Date();
+            if (now.before(c.getStartTime()) ||
+                    now.after(c.getEndTime()) ||
+                    !ContestStatus.ACTIVE.equals(c.getStatus().getId())) {
+                throw new NavigationException("Inactive contest specified.");
+            }
             User u = factory.getUserDAO().find(new Long(getUser().getId()));
 
             if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
