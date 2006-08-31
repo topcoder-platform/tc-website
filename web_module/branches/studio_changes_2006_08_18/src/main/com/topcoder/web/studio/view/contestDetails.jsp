@@ -38,7 +38,7 @@
 
 <div class="breadcrumb">
     <c:choose>
-        <c:when test="${currentTime>contest.endTime}">}">
+        <c:when test="${currentTime>contest.endTime}">
             <A href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</A> &gt;
         </c:when>
         <c:otherwise>
