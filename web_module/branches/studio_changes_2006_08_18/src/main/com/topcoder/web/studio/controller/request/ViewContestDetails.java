@@ -33,6 +33,10 @@ public class ViewContestDetails extends ShortHibernateProcessor {
             }
             Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(cid);
 
+            boolean isOver = new Date().after(contest.getEndTime());
+            getRequest().setAttribute("isOver", String.valueOf(isOver));
+
+
             if (isAdmin()) {
                 getRequest().setAttribute("contest", contest);
             } else {

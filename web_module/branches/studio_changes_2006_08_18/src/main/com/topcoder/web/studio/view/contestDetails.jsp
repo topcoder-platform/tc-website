@@ -37,8 +37,15 @@
 <div class="linkBox"><studio:forumLink forumID="${contest.forumId}"/></div>
 
 <div class="breadcrumb">
-    <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A>
-    &gt; ${contest.name}
+    <c:choose>
+        <c:when test="${isOver}">
+            <A href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</A> &gt;
+        </c:when>
+        <c:otherwise>
+            <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A> &gt;
+        </c:otherwise>
+    </c:choose>
+    ${contest.name}
 </div>
 
 <h1>Contest Details</h1>
