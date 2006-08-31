@@ -37,6 +37,10 @@ public abstract class Base extends ShortHibernateProcessor {
         getRequest().setAttribute("fileTypes", StudioDAOUtil.getFactory().getFileTypeDAO().getFileTypes());
 
         getRequest().setAttribute("forums", getForumList());
+        ArrayList viewSubmissionAnswers = new ArrayList();
+        viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
+        viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(false), "No"));
+        getRequest().setAttribute("viewSubmissionAnswers", viewSubmissionAnswers);
 
     }
 
@@ -54,11 +58,6 @@ public abstract class Base extends ShortHibernateProcessor {
         }
         loadGeneralEditContestData();
         getRequest().setAttribute("contest", contest);
-
-        ArrayList viewSubmissionAnswers = new ArrayList();
-        viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
-        viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(false), "No"));
-        getRequest().setAttribute("viewSubmissionAnswers", viewSubmissionAnswers);
 
         SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
 
