@@ -24,114 +24,115 @@
 <body>
 
 <div align="center">
-    <div class="contentOut">
-        <jsp:include page="top.jsp"/>
-        <jsp:include page="topNav.jsp">
-            <jsp:param name="node" value="home"/>
-        </jsp:include>
-        <div class="contentIn">
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
+<div class="contentOut">
+<jsp:include page="top.jsp"/>
+<jsp:include page="topNav.jsp">
+    <jsp:param name="node" value="home"/>
+</jsp:include>
+<div class="contentIn">
+    <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
 
-            <div class="contentSpacer">
+    <div class="contentSpacer">
 
-                <table cellpadding="0" cellspacing="0" style="width:740px;">
-                    <tbody>
-                        <tr>
-                            <td style="padding: 0px 10px 0px 0px; border-right: 1px dashed #999999;">
-                                <div>
-                                    <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/home/register_now.gif" alt="Register now"/></A>
-                                </div>
+        <table cellpadding="0" cellspacing="0" style="width:740px;">
+            <tbody>
+                <tr>
+                    <td style="padding: 0px 10px 0px 0px; border-right: 1px dashed #999999;">
+                        <div>
+                            <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/home/register_now.gif" alt="Register now"/></A>
+                        </div>
 
-                                <div>
-                                    <A href="/?module=Static&d1=support&d2=getStarted"><img src="/i/home/need_help.gif" alt="Need help?"/></A>
-                                </div>
+                        <div>
+                            <A href="/?module=Static&d1=support&d2=getStarted"><img src="/i/home/need_help.gif" alt="Need help?"/></A>
+                        </div>
 
-                                <div>
-                                    <A href="/?module=Static&d1=contactUs"><img src="/i/home/post_project.gif" alt="Post a project"/></A>
-                                </div>
-                            </td>
-                            <td valign="top" style="padding-left: 10px;">
+                        <div>
+                            <A href="/?module=Static&d1=contactUs"><img src="/i/home/post_project.gif" alt="Post a project"/></A>
+                        </div>
+                    </td>
+                    <td valign="top" style="padding-left: 10px;">
 
-                                <h1>Welcome to TopCoder Studio</h1>
-                                Welcome to TopCoder Studio - the best place on the web for showing off your creative
-                                skills in a competitive environment and getting paid for being the best!
-                                <br><br>
-                                At the Studio, clients post their projects with definitive timelines, deliverables and
-                                payouts, and you decide which ones pique your interest. There are even advancement
-                                opportunities available into the Review Board, where a select group of competing members
-                                will evaluate all submissions before they are passed on to the client.
-                                <br><br>
-                                So, poke around, ask questions and, above all, compete and have fun!
-                                <br><br>
+                        <h1>Welcome to TopCoder Studio</h1>
+                        Welcome to TopCoder Studio - the best place on the web for showing off your creative
+                        skills in a competitive environment and getting paid for being the best!
+                        <br><br>
+                        At the Studio, clients post their projects with definitive timelines, deliverables and
+                        payouts, and you decide which ones pique your interest. There are even advancement
+                        opportunities available into the Review Board, where a select group of competing members
+                        will evaluate all submissions before they are passed on to the client.
+                        <br><br>
+                        So, poke around, ask questions and, above all, compete and have fun!
+                        <br><br>
 
-                                <h2>Contests will be posted soon!</h2>
-                                <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</A> as a Studio
-                                member so you can receive emails when new contests arrive.
-                                <br><br>
-                                <table cellpadding="0" cellspacing="0" class="stat" style="width:485px;">
-                                    <tbody>
-                                        <tr>
-                                            <td class="NW">&nbsp;</td>
-                                            <td class="title" colspan="3">
-                                                Recent Winners
-                                            </td>
-                                            <td class="NE">&nbsp;</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="headerW"><div>&nbsp;</div></td>
-                                            <td class="header">
-                                                Winner
-                                            </td>
-                                            <td class="header">
-                                                Contest
-                                            </td>
-                                            <td class="headerR">
-                                                Prize
-                                            </td>
-                                            <td class="headerE"><div>&nbsp;</div></td>
-                                        </tr>
-                                        <% boolean even = true;%>
-                                        <rsc:iterator list="<%=recentWinners%>" id="resultRow">
-                                            <tr class="<%=even?"light":"dark"%>">
-                                                <td class="valueW"><div>&nbsp;</div></td>
-                                                <td class="value">
-                                                    <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
-                                                    <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">view
-                                                        submission</A>
-                                                </td>
-                                                <td class="value">
-                                                    <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
-                                                        <rsc:item name="name" row="<%=resultRow%>"/></A>
-                                                </td>
-                                                <td class="valueR">
-                                                    <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
-                                                </td>
-                                                <td class="valueE"><div>&nbsp;</div></td>
-                                            </tr>
-                                            <% even = !even;%>
-                                        </rsc:iterator>
-                                        <tr>
-                                            <td class="SW">&nbsp;</td>
-                                            <td class="title" colspan="3">
-                                                <A href="/?module=ViewPastContests" class="small">...more</A>
-                                            </td>
-                                            <td class="SE">&nbsp;</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <h2>Contests will be posted soon!</h2>
+                        <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</A> as a Studio
+                        member so you can receive emails when new contests arrive.
+                        <br><br>
+                        <table cellpadding="0" cellspacing="0" class="stat" style="width:485px;">
+                            <tbody>
+                                <tr>
+                                    <td class="NW">&nbsp;</td>
+                                    <td class="title" colspan="3">
+                                        Recent Winners
+                                    </td>
+                                    <td class="NE">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td class="headerW"><div>&nbsp;</div></td>
+                                    <td class="header">
+                                        Winner
+                                    </td>
+                                    <td class="header">
+                                        Contest
+                                    </td>
+                                    <td class="headerR">
+                                        Prize
+                                    </td>
+                                    <td class="headerE"><div>&nbsp;</div></td>
+                                </tr>
+                                <% boolean even = true;%>
+                                <rsc:iterator list="<%=recentWinners%>" id="resultRow">
+                                    <tr class="<%=even?"light":"dark"%>">
+                                        <td class="valueW"><div>&nbsp;</div></td>
+                                        <td class="value">
+                                            <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
+                                            <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">view
+                                                submission</A>
+                                        </td>
+                                        <td class="value">
+                                            <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
+                                                <rsc:item name="name" row="<%=resultRow%>"/></A>
+                                        </td>
+                                        <td class="valueR">
+                                            <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
+                                        </td>
+                                        <td class="valueE"><div>&nbsp;</div></td>
+                                    </tr>
+                                    <% even = !even;%>
+                                </rsc:iterator>
+                                <%--commented out until we actually have "more"
+                                <tr>
+                                    <td class="SW">&nbsp;</td>
+                                    <td class="title" colspan="3">
+                                        <A href="/?module=ViewPastContests" class="small">...more</A>
+                                    </td>
+                                    <td class="SE">&nbsp;</td>
+                                </tr>--%>
+                            </tbody>
+                        </table>
 
 
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
-            </div>
-            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-        </div>
-        <jsp:include page="foot.jsp"/>
-        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
     </div>
+    <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
+</div>
+<jsp:include page="foot.jsp"/>
+<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
+</div>
 </div>
 
 </body>
