@@ -147,8 +147,7 @@
             <jsp:include page="searchHeader.jsp"/>
         </td>
         <td align="right" nowrap="nowrap" valign="top">
-            <A href="?module=Watch&<%=ForumConstants.WATCH_TYPE%>=<%=JiveConstants.THREAD%>&<%=ForumConstants.WATCH_ID%>=<%=thread.getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>&<%=ForumConstants.WATCH_COMMAND%>=<%=cmd%>"
-               class="rtbcLink"><%=watchMessage%></A> | <A href="?module=History" class="rtbcLink">My
+            <A href="?module=History" class="rtbcLink">My
             Post History</A> | <A href="?module=Watches" class="rtbcLink">My Watches</A> | <A href="?module=Settings" class="rtbcLink">User
             Settings</A><br>
             View:
@@ -160,6 +159,9 @@
             first</A>)<% } %>&#160;&#160;|
             <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>&<%=ForumConstants.THREAD_VIEW%>=threaded" class="rtbcLink">Threaded</A>&#160;&#160;|
             <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>&<%=ForumConstants.THREAD_VIEW%>=tree" class="rtbcLink">Tree</A>
+            <br>
+            <A href="?module=Watch&<%=ForumConstants.WATCH_TYPE%>=<%=JiveConstants.THREAD%>&<%=ForumConstants.WATCH_ID%>=<%=thread.getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>&<%=ForumConstants.WATCH_COMMAND%>=<%=cmd%>"
+               class="rtbcLink"><%=watchMessage%></A>
             <% if (errors.get(ForumConstants.WATCH_THREAD) != null) { %><br>
             <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.WATCH_THREAD%>"><%=err%>
             </tc-webtag:errorIterator></span><% } %>
