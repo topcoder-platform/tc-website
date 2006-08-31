@@ -56,8 +56,8 @@ public abstract class Base extends ShortHibernateProcessor {
         getRequest().setAttribute("contest", contest);
 
         ArrayList viewSubmissionAnswers = new ArrayList();
-        viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(true), String.valueOf(true)));
-        viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(false), String.valueOf(false)));
+        viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
+        viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(false), "No"));
         getRequest().setAttribute("viewSubmissionAnswers", viewSubmissionAnswers);
 
         SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
