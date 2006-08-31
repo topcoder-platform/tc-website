@@ -41,6 +41,7 @@
                         <li>Remove submit link from contest details page if the contest is over</li>
                         <li>Provide detailed error message if one attempts to submit on an inactive contest</li>
                         <li>Add recent winners to home page</li>
+                        <li>Add submissions page</li>
                     </ul>
                 </p>
 
