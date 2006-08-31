@@ -1,9 +1,11 @@
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -17,6 +19,24 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
+    <script type="text/javascript"><!--
+    function next() {
+        document.subForm.<%=DataAccessConstants.START_RANK%>.value =<%=submissions.getStartRow()+Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
+        document.subForm.<%=DataAccessConstants.END_RANK%>.value =<%=submissions.getEndRow()+Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
+        document.subForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+        document.subForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+        document.subForm.<%=Constants.HANDLE%>.value = '<%=request.getParameter(Constants.HANDLE)==null?"":request.getParameter(Constants.HANDLE)%>';
+        document.subForm.submit();
+    }
+    function previous() {
+        document.subForm.<%=DataAccessConstants.START_RANK%>.value =<%=submissions.getStartRow()-Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
+        document.subForm.<%=DataAccessConstants.END_RANK%>.value =<%=submissions.getEndRow()-Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
+        document.subForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+        document.subForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+        document.subForm.<%=Constants.HANDLE%>.value = '<%=request.getParameter(Constants.HANDLE)==null?"":request.getParameter(Constants.HANDLE)%>';
+        document.subForm.submit();
+    }
+    //--></script>
 </head>
 
 <body>
@@ -35,67 +55,73 @@
                 <h1>Submissions</h1>
 
 
-                <c:choose>
-                    <c:when test="${fn:length(contests)==0}">
-                        <div align="center" style="margin: 50px 0px 100px 0px;">
-                            There are currently no submissions, but check back soon.
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                        <table class="stat" cellpadding="0" cellspacing="0" style="width:740px">
-                            <tbody>
-                                <tr>
-                                    <td class="NW">&nbsp;</td>
-                                    <td class="title" colspan="5">Submissions</td>
-                                    <td class="NE">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td class="headerW"><div>&nbsp;</div></td>
+                <form action="${sessionInfo.secureAbsoluteServletPath}" method="GET" name="subForm">
+                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewSubmissions"/>
+                    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+                    <input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
+                    <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
+                    <input type="hidden" name="<%=DataAccessConstants.SORT_COLUMN%>" value=""/>
+                    <input type="hidden" name="<%=DataAccessConstants.SORT_DIRECTION%>" value=""/>
+                    <input type="hidden" name="<%=Constants.HANDLE%>" value=""/>
+
+
+                    <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
+                        <tbody>
+                            <tr>
+                                <td class="NW">&nbsp;</td>
+                                <td class="title" colspan="5">Submissions</td>
+                                <td class="NE">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="headerW"><div>&nbsp;</div></td>
+                                <% String exclude = Constants.MODULE_KEY + " " + DataAccessConstants.START_RANK + " " + DataAccessConstants.END_RANK;%>
+                                <c:if test="${isOver}">
                                     <td class="header">
-                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Project</a>
+                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submitter</a>
                                     </td>
-                                    <td class="headerC">
-                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("start_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Start
-                                            Date</a></td>
-                                    <td class="headerC">
-                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">End
-                                            Date</a></td>
-                                    <td class="headerR">
-                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("amount")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Payment</a>
-                                    </td>
-                                    <td class="header">&nbsp;</td>
-                                    <td class="headerE"><div>&nbsp;</div></td>
-                                </tr>
-                                <% boolean even = true;%>
-                                <rsc:iterator list="<%=contests%>" id="resultRow">
-                                    <tr class="<%=even?"light":"dark"%>">
-                                        <td class="valueW"><div>&nbsp;</div></td>
+                                </c:if>
+                                <td class="headerC">
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submit_date")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submit
+                                        Date</a>
+                                </td>
+                                <td class="header">
+                                    Submission
+                                </td>
+                                <td class="headerC">&nbsp;</td>
+                            </tr>
+                            <rsc:iterator list="<%=submissions%>" id="resultRow">
+
+                                <tr class="light">
+                                    <td class="valueW"><div>&nbsp;</div></td>
+                                    <c:if test="${isOver}">
                                         <td class="value">
-                                            <A href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
-                                                <rsc:item name="name" row="<%=resultRow%>"/></A></td>
-                                        <td class="valueC">
-                                            <rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
-                                        <td class="valueC">
-                                            <rsc:item name="end_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
-                                        <td class="valueR">
-                                            <rsc:item name="amount" row="<%=resultRow%>" format="$0.00" ifNull="&nbsp;"/></td>
-                                        <td class="valueC">
-                                            <div align="right">
-                                                <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" class="btn_submit">
-                                                    &nbsp;</A></div>
+                                            <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
                                         </td>
-                                        <td class="valueE"><div>&nbsp;</div></td>
-                                    </tr>
-                                    <% even = !even;%>
-                                </rsc:iterator>
-                                <tr>
-                                    <td class="SW" colspan="6">&nbsp;</td>
-                                    <td class="SE">&nbsp;</td>
+                                    </c:if>
+                                    <td class="valueC">
+                                        <rsc:item name="create_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                                    </td>
+                                    <td class="value">
+
+                                        <c:choose>
+                                            <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
+                                                <img src="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>" alt=""/>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">view
+                                                    submission</A>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </td>
+                                    <td class="valueE"><div>&nbsp;</div></td>
                                 </tr>
-                            </tbody>
-                        </table>
-                    </c:otherwise>
-                </c:choose>
+                            </rsc:iterator>
+                            <tr>
+                                <td class="SW" colspan="8">&nbsp;</td>
+                                <td class="SE">&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
 
             </div>

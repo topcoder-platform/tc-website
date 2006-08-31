@@ -87,7 +87,7 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         SortInfo s = new SortInfo();
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
-        setNextPage("/activeContests.jsp");
+        setNextPage("/submissions.jsp");
         setIsNextPageInContext(true);
 
 

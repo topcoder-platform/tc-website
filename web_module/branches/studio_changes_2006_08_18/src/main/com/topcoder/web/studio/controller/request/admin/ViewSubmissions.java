@@ -143,7 +143,7 @@ public class ViewSubmissions extends Base {
         }
         getRequest().setAttribute("unMarkedOnly", Boolean.valueOf(unMarkedOnly));
 
-        setNextPage("/admin/viewSubmissions.jsp");
+        setNextPage("/admin/submissions.jsp");
         setIsNextPageInContext(true);
 
     }

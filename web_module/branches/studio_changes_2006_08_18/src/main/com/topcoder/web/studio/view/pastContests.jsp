@@ -112,9 +112,9 @@
                         <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
                     </td>
                     <td class="valueC">
-                        <rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
+                        <rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}"/></td>
                     <td class="valueC">
-                        <rsc:item name="end_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
+                        <rsc:item name="end_time" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}"/></td>
                     <td class="valueE"><div>&nbsp;</div></td>
                 </tr>
                 <% even = !even;%>

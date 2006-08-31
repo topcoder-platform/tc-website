@@ -116,12 +116,12 @@
                     <tr>
                         <td valign="top" nowrap="nowrap"><strong>Start Date:</strong></td>
                         <td>
-                            <tc-webtag:format object="${contest.startTime}" format="EEEE, MMMM d, yyyy 'at' hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
+                            <tc-webtag:format object="${contest.startTime}" format="EEEE, MMMM d, yyyy 'at' HH:mm z" timeZone="${sessionInfo.timezone}"/></td>
                     </tr>
                     <tr>
                         <td valign="top" nowrap="nowrap"><strong>End Date:</strong></td>
                         <td>
-                            <tc-webtag:format object="${contest.endTime}" format="EEEE, MMMM d, yyyy 'at' hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
+                            <tc-webtag:format object="${contest.endTime}" format="EEEE, MMMM d, yyyy 'at' HH:mm z" timeZone="${sessionInfo.timezone}"/></td>
                     </tr>
                 </tbody>
             </table>
