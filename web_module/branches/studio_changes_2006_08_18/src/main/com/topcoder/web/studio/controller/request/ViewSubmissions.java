@@ -68,7 +68,7 @@ public class ViewSubmissions extends ShortHibernateProcessor {
 
         String start = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
         if (start.equals("")) {
-            start = "1";
+            start = "0";
         }
 
         String end = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
