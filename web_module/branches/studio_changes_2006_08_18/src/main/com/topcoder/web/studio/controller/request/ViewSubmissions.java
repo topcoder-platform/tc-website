@@ -23,9 +23,6 @@ import java.util.Date;
  *          Create Date: Aug 31, 2006
  */
 public class ViewSubmissions extends ShortHibernateProcessor {
-    protected void businessProcessing() throws Exception {
-
-    }
 
     protected void dbProcessing() throws Exception {
 
