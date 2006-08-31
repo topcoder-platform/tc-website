@@ -63,7 +63,9 @@
                     <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
                     <input type="hidden" name="<%=DataAccessConstants.SORT_COLUMN%>" value=""/>
                     <input type="hidden" name="<%=DataAccessConstants.SORT_DIRECTION%>" value=""/>
-                    <input type="hidden" name="<%=Constants.HANDLE%>" value=""/>
+                    You can enter a handle here to see only submissions by that competitor:
+                    <tc-webtag:textInput name="<%=Constants.HANDLE%>"/>
+                    <button name="submit" value="submit" type="submit">Submit</button>
 
 
                     <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
