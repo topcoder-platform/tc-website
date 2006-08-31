@@ -197,6 +197,23 @@
 </tr>
 
 
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.VIEWABLE_SUBMISSIONS%>" var="viewSubmissions"/>
+
+<tr>
+    <td colspan="2">
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${viewSubmissions}">${err}
+                    <br></tc-webtag:errorIterator></span>
+    </td>
+</tr>        <tr>
+    <td class="name">
+        Are submissions viewable?:
+    </td>
+    <td class="value">
+        <tc-webtag:listSelect name="${viewSubmissions}" useTopValue="false" list="${viewSubmissionAnswers}"/>
+    </td>
+</tr>
+
+
 </tbody>
 </table>
 
