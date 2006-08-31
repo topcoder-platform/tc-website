@@ -4,7 +4,6 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.controller.request.admin.Base;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.ContestResult;
 import com.topcoder.web.studio.model.Submission;
 
@@ -38,8 +37,7 @@ public class DownloadSubmission extends Base {
             isWinner = s.equals(curr.getSubmission()) && curr.getPrize().getPlace().intValue() == 1;
         }
 
-        if (isWinner || "true".equals(s.getContest().getConfig(
-                StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.VIEWABLE_SUBMISSIONS)))) {
+        if (isWinner || "true".equals(s.getContest().getViewableSubmissions().getValue())) {
             //create the file input stream first so that if there is a problem, we'll get the error and be able to go
             //to an error page.  if we work with the output stream, we won't be able to do that.
 
