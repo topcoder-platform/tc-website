@@ -87,6 +87,10 @@
             </c:if>
 
 
+            <div class="pagingBox">
+                <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+                | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+            </div>
             <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
                 <tbody>
                     <tr>
