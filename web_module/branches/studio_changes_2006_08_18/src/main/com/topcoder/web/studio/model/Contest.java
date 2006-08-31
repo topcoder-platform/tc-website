@@ -106,6 +106,10 @@ public class Contest extends Base {
         return getConfig(StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.PRIZE_DESCRIPTION));
     }
 
+    public ContestConfig getViewableSubmissions() {
+        return getConfig(StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.VIEWABLE_SUBMISSIONS));
+    }
+
     public Set getDocuments() {
         return documents;
     }
