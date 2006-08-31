@@ -175,7 +175,7 @@ Show submissions by (Enter Handle):
                     &#160;
                 </c:when>
                 <c:otherwise>
-                    <rsc:item name="review_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                    <rsc:item name="review_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}" ifNull="&#160;"/>
                 </c:otherwise>
             </c:choose>
         </td>
@@ -185,7 +185,7 @@ Show submissions by (Enter Handle):
                     &#160;
                 </c:when>
                 <c:otherwise>
-                    <rsc:item name="reviewer_handle" row="<%=resultRow%>"/>
+                    <rsc:item name="reviewer_handle" row="<%=resultRow%>" ifNull="&#160;"/>
                 </c:otherwise>
             </c:choose>
         </td>
@@ -195,7 +195,7 @@ Show submissions by (Enter Handle):
                     &#160;
                 </c:when>
                 <c:otherwise>
-                    <rsc:item name="review_status_desc" row="<%=resultRow%>"/>
+                    <rsc:item name="review_status_desc" row="<%=resultRow%>" ifNull="&#160;"/>
                 </c:otherwise>
             </c:choose>
         </td>
