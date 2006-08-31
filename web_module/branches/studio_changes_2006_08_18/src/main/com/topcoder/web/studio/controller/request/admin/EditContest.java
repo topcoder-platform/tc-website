@@ -146,6 +146,7 @@ public class EditContest extends Base {
         String maxWidth = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MAX_WIDTH);
         String minHeight = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MIN_HEIGHT);
         String maxHeight = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MAX_HEIGHT);
+        String viewableSubmissions = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.VIEWABLE_SUBMISSIONS);
         String forumId = getRequest().getParameter(Constants.FORUM_ID);
 
         //validate
@@ -191,6 +192,12 @@ public class EditContest extends Base {
         ValidationResult maxHeightResult = new MaxHeightValidator(minHeight).validate(new StringInput(maxHeight));
         if (!maxHeightResult.isValid()) {
             addError(Constants.CONTEST_PROPERTY + ContestProperty.MAX_HEIGHT, maxHeightResult.getMessage());
+        }
+
+        ValidationResult viewableSubmissionsResult =
+                new ViewableSubmissionsValidator().validate(new StringInput(viewableSubmissions));
+        if (!viewableSubmissionsResult.isValid()) {
+            addError(Constants.CONTEST_PROPERTY + ContestProperty.VIEWABLE_SUBMISSIONS, viewableSubmissionsResult.getMessage());
         }
 
 
