@@ -1,4 +1,5 @@
-<%@ page contentType="text/html; charset=ISO-8859-1"%>
+<%@ page contentType="text/html; charset=ISO-8859-1"
+import="com.topcoder.dde.util.Constants" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
@@ -7,7 +8,7 @@
 <HTML>
     <HEAD>
         <META HTTP-EQUIV="Refresh"
-        CONTENT="2; URL=/tcs?module=ViewUploadResults&spec_id=<%=request.getAttribute("spec_id")%>">
+        CONTENT="2; URL=/tcs?module=ViewUploadResults&<%=Constants.SPECIFICATION_KEY%>=<%=request.getAttribute(Constants.SPECIFICATION_KEY)%>">
              
         <TITLE>Upload results</TITLE>
     </HEAD>
@@ -16,7 +17,7 @@
             <TR>
                 <td>
                     File received, redirecting to screening result page...
-                    <br><br>Click <A href="/tcs?module=ViewUploadResults&spec_id=<%=request.getAttribute("spec_id")%>">here</a> to go to the screening result page.
+                    <br><br>Click <A href="/tcs?module=ViewUploadResults&<%=Constants.SPECIFICATION_KEY%>=<%=request.getAttribute(Constants.SPECIFICATION_KEY)%>">here</a> to go to the screening result page.
                 </TD>
             </tr>
         </TABLE>

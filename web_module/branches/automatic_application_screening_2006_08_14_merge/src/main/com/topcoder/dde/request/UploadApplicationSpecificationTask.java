@@ -25,6 +25,7 @@ import com.topcoder.apps.screening.ScreeningJob;
 import com.topcoder.apps.screening.SpecificationScreeningRequest;
 import com.topcoder.apps.screening.application.AppSpecification;
 import com.topcoder.apps.screening.application.ApplicationSpecification;
+import com.topcoder.dde.util.Constants;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.util.format.FormatMethodFactory;
@@ -100,12 +101,10 @@ public class UploadApplicationSpecificationTask extends BaseProcessor {
         }
 
         if (file != null && file.getContentType() != null) {
-            String remoteName = "";
             String destFilename = "";
 
             try {
                 InputStream is = file.getInputStream();
-                remoteName = file.getRemoteFileName();
 
                 destFilename = "Application_" + getUser().getId() + "_" +
                     FormatMethodFactory.getDefaultDateFormatMethod("yyyy-MM-dd-HH-mm-ss-SSS").format(new Date()) + ".jar";
@@ -114,7 +113,6 @@ public class UploadApplicationSpecificationTask extends BaseProcessor {
             } catch (IOException ioe) {
                 throw new TCWebException("Couldn't read uploaded file.", ioe);
             }
-            getRequest().setAttribute("file_nanme", remoteName);
 
             return pathPrefix + destFilename;
         } else {
@@ -158,7 +156,7 @@ public class UploadApplicationSpecificationTask extends BaseProcessor {
             throw new TCWebException("Could not create the specification screening request.", sqle);
         }
 
-        getRequest().setAttribute("spec_id", String.valueOf(applicationSpecification.getSpecificationId()));
+        getRequest().setAttribute(Constants.SPECIFICATION_KEY, String.valueOf(applicationSpecification.getSpecificationId()));
     }
 
     /**

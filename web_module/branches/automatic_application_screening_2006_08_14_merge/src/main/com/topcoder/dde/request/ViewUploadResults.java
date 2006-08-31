@@ -14,7 +14,7 @@ import com.topcoder.apps.screening.PermissionHelper;
 import com.topcoder.apps.screening.QueryInterface;
 import com.topcoder.apps.screening.ScreeningResponse;
 import com.topcoder.apps.screening.ScreeningTool;
-import com.topcoder.dde.util.ConstantsInt;
+import com.topcoder.dde.util.Constants;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
@@ -49,22 +49,22 @@ public class ViewUploadResults extends BaseProcessor {
                 }
 
                 // validates request's parameters.
-                if (!hasParameter(ConstantsInt.SPECIFICATION_KEY)) {
-                    throw new TCWebException("Parameter " + ConstantsInt.SPECIFICATION_KEY + " expected.");
+                if (!hasParameter(Constants.SPECIFICATION_KEY)) {
+                    throw new TCWebException("Parameter " + Constants.SPECIFICATION_KEY + " expected.");
                 }
 
                 long specId = -1;
                 try {
-                    specId = Long.parseLong(getRequest().getParameter(ConstantsInt.SPECIFICATION_KEY));
+                    specId = Long.parseLong(getRequest().getParameter(Constants.SPECIFICATION_KEY));
                 } catch (NumberFormatException nfe) {
-                    throw new TCWebException("Invalid " + ConstantsInt.SPECIFICATION_KEY + " value.");
+                    throw new TCWebException("Invalid " + Constants.SPECIFICATION_KEY + " value.");
                 }
 
                 // queries the DB for the screening results.
                 getScreeningResults(specId);
 
-                getRequest().setAttribute(ConstantsInt.SPECIFICATION_KEY, String.valueOf(
-                    StringUtils.htmlEncode(getRequest().getParameter(ConstantsInt.SPECIFICATION_KEY))));
+                getRequest().setAttribute(Constants.SPECIFICATION_KEY, String.valueOf(
+                    StringUtils.htmlEncode(getRequest().getParameter(Constants.SPECIFICATION_KEY))));
                 setNextPage("/applications/screening_results.jsp");
                 setIsNextPageInContext(true);
             }
@@ -113,8 +113,8 @@ public class ViewUploadResults extends BaseProcessor {
         log.debug("warnings.size(): " + warnings.size());
         log.debug("fatalErrors.size(): " + fatalErrors.size());
 
-        getRequest().setAttribute(ConstantsInt.SUCCESS_KEY, success);
-        getRequest().setAttribute(ConstantsInt.WARNINGS_KEY, warnings);
-        getRequest().setAttribute(ConstantsInt.ERRORS_KEY, fatalErrors);
+        getRequest().setAttribute(Constants.SUCCESS_KEY, success);
+        getRequest().setAttribute(Constants.WARNINGS_KEY, warnings);
+        getRequest().setAttribute(Constants.ERRORS_KEY, fatalErrors);
     }
 }
