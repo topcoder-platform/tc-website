@@ -21,16 +21,17 @@
     </jsp:include>
     <script type="text/javascript"><!--
     function next() {
-        document.subForm.<%=DataAccessConstants.START_RANK%>.value =<%=submissions.getStartRow()+Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
-        document.subForm.<%=DataAccessConstants.END_RANK%>.value =<%=submissions.getEndRow()+Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
+    <%--we're using sublist on the back end, so we need to work with 0 based indexes rather than 1 --%>
+        document.subForm.<%=DataAccessConstants.START_RANK%>.value =<%=submissions.getStartRow()-1+Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
+        document.subForm.<%=DataAccessConstants.END_RANK%>.value =<%=submissions.getEndRow()-1+Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
         document.subForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
         document.subForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
         document.subForm.<%=Constants.HANDLE%>.value = '<%=request.getParameter(Constants.HANDLE)==null?"":request.getParameter(Constants.HANDLE)%>';
         document.subForm.submit();
     }
     function previous() {
-        document.subForm.<%=DataAccessConstants.START_RANK%>.value =<%=submissions.getStartRow()-Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
-        document.subForm.<%=DataAccessConstants.END_RANK%>.value =<%=submissions.getEndRow()-Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
+        document.subForm.<%=DataAccessConstants.START_RANK%>.value =<%=submissions.getStartRow()-1-Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
+        document.subForm.<%=DataAccessConstants.END_RANK%>.value =<%=submissions.getEndRow()-1-Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
         document.subForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
         document.subForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
         document.subForm.<%=Constants.HANDLE%>.value = '<%=request.getParameter(Constants.HANDLE)==null?"":request.getParameter(Constants.HANDLE)%>';
