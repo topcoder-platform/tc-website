@@ -1,3 +1,10 @@
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.ContractHeader" %>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants"%>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.TCData"%>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader"%>
+
 <html>
 
 <head>
@@ -10,10 +17,6 @@
 
 <body>
 
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.ContractHeader" %>
-
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants"%><%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.TCData"%><%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader"%>
 <%
 	String contract_id_string = request.getParameter(PactsConstants.CONTRACT_ID);
 	boolean payment_is_for_contract = true;
@@ -33,6 +36,8 @@
 	}
 	UserProfileHeader user = null;
 	ContractHeader contract = null;
+
+	long userId;
 	if (payment_is_for_contract) {
 		contract = (ContractHeader)
 		  request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT);
@@ -40,6 +45,7 @@
 			out.println("no contract!!!</br>");
 			contract = new ContractHeader();
 		}
+		userId = contract.getUser().getId();
 	}
 	else {
 		user = (UserProfileHeader)
@@ -48,6 +54,7 @@
 			out.println("no user!!!<br>");
 			user = new UserProfileHeader();
 		}
+		userId = user.getId();
 	}
 	int status = -1;
 	try { status = Integer.parseInt(request.getParameter("status_id")); } catch (Exception e) {}
@@ -75,7 +82,19 @@
     <% out.print(message); %>
 </font>
 
-<% out.print("<form action=\""+PactsConstants.INTERNAL_SERVLET_URL+"\" method=\"post\">");
+<form action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
+   <input type="hidden" name="<%= PactsConstants.TASK_STRING %>" value="<%=PactsConstants.ADD_TASK%>" >
+   <input type="hidden" name="<%= PactsConstants.CMD_STRING %>" value="<%=PactsConstants.PAYMENT_CMD%>" >
+
+<%  if (payment_is_for_contract) { %>
+   <input type="hidden" name="<%= PactsConstants.CONTRACT_ID %>" value="<%=contract_id%>" >
+<% } %>	   
+
+   <input type="hidden" name="<%= PactsConstants.USER_ID %>" value="<%=userId %>" >
+   
+<%
+/*
+out.print("<form action=\""+PactsConstants.INTERNAL_SERVLET_URL+"\" method=\"post\">");
    out.print("<input type=\"hidden\" name=\""+PactsConstants.TASK_STRING+"\" value=\"");
    out.print(PactsConstants.ADD_TASK+"\">");
    out.print("<input type=\"hidden\" name=\""+PactsConstants.CMD_STRING+"\" value=\"");
@@ -90,10 +109,34 @@
 	   out.print("<input type=\"hidden\" name=\""+PactsConstants.USER_ID+"\" value=\"");
 	   out.print(""+user.getId()+"\">");
    }
+   */
 %>
 		<table border="0" cellpadding="5" cellspacing="5">
 		<tr>
-		<td>
+			<td><b>User:</b></td>
+			<td><a href='<%= PactsConstants.INTERNAL_SERVLET_URL + "?" + 
+							   PactsConstants.TASK_STRING + "=" + PactsConstants.VIEW_TASK + "&" +
+							   PactsConstants.CMD_STRING + "=" + PactsConstants.USER_CMD + "&" +
+							   PactsConstants.USER_ID + "=" + userId  %>'>
+				<%= payment_is_for_contract? contract.getUser().getHandle() :  user.getHandle() %>
+				</a>
+			</td>
+		</tr>
+<%		if (payment_is_for_contract) { %>
+		<tr>
+			<td><b>Contract:</b></td>
+			<td><a href='<%= PactsConstants.INTERNAL_SERVLET_URL + "?" + 
+							   PactsConstants.TASK_STRING + "=" + PactsConstants.VIEW_TASK + "&" +
+							   PactsConstants.CMD_STRING + "=" + PactsConstants.CONTRACT_CMD + "&" +
+							   PactsConstants.CONTRACT_ID + "=" + contract.getId()  %>'>
+					<%= contract.getName() %>
+				</a>
+			</td>
+		</tr>
+
+<% } %>
+
+
 <%		if (payment_is_for_contract) {
 			out.print("<b>User:</b></td>");
  			out.print("<td><a href=\"");
@@ -189,6 +232,10 @@
 		</tr>
 		<tr>
 			<td><b>Method:</b></td><td>
+<!--  to do default -->
+			<tc-webtag:rscSelect name="payment_method_id_new" list="<%=paymentMethods%>" 
+			fieldText="paymentMethods" fieldValue="payment_method_id"  useTopValue="false" />
+			
 			<select name="payment_method_id">
 	<%		if (paymentMethods != null) {
 				rowCount = paymentMethods.getRowCount();
@@ -210,15 +257,15 @@
 		</tr>
 		<tr>
 			<td><b>Net Amount:</b></td><td>
-			<input type=text width=25 name="net_amount" value="<% out.print(net); %>">
+			<input type=text width=25 name="net_amount" value="<%= net %>">
 			</td></tr>
 			<tr>
 			<td><b>Gross Amount:</b></td><td>
-			<input type=text width=25 name="gross_amount" value="<% out.print(gross); %>">
+			<input type=text width=25 name="gross_amount" value="<%= gross %>">
 			</td></tr>
 			<tr>
 			<td><b>Date Due:</b></td><td>
-			<input type=text width=25 name="date_due" value="<% out.print(due); %>">
+			<input type=text width=25 name="date_due" value="<%= due %>">
 			</td>
 		</tr>
 </table>
