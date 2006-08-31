@@ -48,13 +48,6 @@
         </tr>
     </table>
 
-    <c:choose>
-        <c:when test="${fn:length(contests)==0}">
-            <div align="center" style="margin: 50px 0px 100px 0px;">
-                There are currently no active contests, but check back soon.
-            </div>
-        </c:when>
-        <c:otherwise>
             <table class="stat" cellpadding="0" cellspacing="0" style="width:740px">
                 <tbody>
                     <tr>
@@ -77,12 +70,25 @@
                             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("amount")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Payment</a>
                         </td>
                         <td class="headerR">
-                            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("submission_count")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">#
-                                Submissions</a>
+                            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("submission_count")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submissions</a>
                         </td>
                         <td class="header">&nbsp;</td>
                         <td class="headerE"><div>&nbsp;</div></td>
                     </tr>
+    <c:choose>
+        <c:when test="${fn:length(contests)==0}">
+                     <tr class="light">
+                         <td class="valueW"><div>&nbsp;</div></td>
+                         <td class="valueC" colspan="6">
+                             <div align="center" style="margin: 40px 0px 40px 0px;">
+                                 There are currently no active contests, but check back soon.
+                             </div>
+                         </td>
+                         <td class="valueE"><div>&nbsp;</div></td>
+                     </tr>
+        </c:when>
+        <c:otherwise>
+
                     <% boolean even = true;%>
                     <rsc:iterator list="<%=contests%>" id="resultRow">
                         <tr class="<%=even?"light":"dark"%>">
@@ -118,14 +124,14 @@
                         </tr>
                         <% even = !even;%>
                     </rsc:iterator>
+        </c:otherwise>
+    </c:choose>
                     <tr>
-                        <td class="SW" colspan="6">&nbsp;</td>
+                        <td class="SW" colspan="7">&nbsp;</td>
                         <td class="SE">&nbsp;</td>
                     </tr>
                 </tbody>
             </table>
-        </c:otherwise>
-    </c:choose>
 
 
 </div>

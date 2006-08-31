@@ -19,6 +19,52 @@
 
     <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
     <script type="text/javascript"> _uacct = "UA-321688-2"; urchinTracker(); </script>
+<script language="javascript" type="text/javascript">
+<!--
+var objPopUp = null;
+function popUp(objectID) {
+   objPopUp = document.getElementById(objectID);
+   objPopUp.style.visibility = 'visible';
+}
+function popHide() {
+   objPopUp.style.visibility = 'hidden';
+   objPopUp = null;
+}
+// -->
+</script>
+<STYLE TYPE="text/css">
+img.emblem {
+   float: left;
+   margin: 0px 0px 0px 0px;
+}
+
+div.container {
+   display: block;
+   text-align: center;
+   position: relative;
+   margin: 0px;
+   padding: 0px;
+}
+
+div.popUp {
+   visibility: hidden;
+   position: absolute;
+   top: 20px;
+   left: 20px;
+   z-index: 1;
+}
+
+div.popUp div {
+   float:left;
+   font-size: 11px;
+   line-height: normal;
+   background: #FFFFCC;
+   border: 1px solid #999999;
+   padding: 6px;
+   text-align: left;
+   white-space: nowrap;
+}
+</STYLE>
 </head>
 
 <body>
@@ -72,32 +118,35 @@
                             <tbody>
                                 <tr>
                                     <td class="NW">&nbsp;</td>
-                                    <td class="title" colspan="3">
+                                    <td class="title" colspan="4">
                                         Recent Winners
                                     </td>
                                     <td class="NE">&nbsp;</td>
                                 </tr>
                                 <tr>
                                     <td class="headerW"><div>&nbsp;</div></td>
-                                    <td class="header">
+                                    <td class="header" width="20%">
                                         Winner
                                     </td>
-                                    <td class="header">
+                                    <td class="header" width="60%">
                                         Contest
                                     </td>
-                                    <td class="headerR">
+                                    <td class="headerR" width="20%">
                                         Prize
+                                    </td>
+                                    <td class="headerR">
+                                    &nbsp;
                                     </td>
                                     <td class="headerE"><div>&nbsp;</div></td>
                                 </tr>
-                                <% boolean even = true;%>
+                                <% boolean even = true; int i = 0; %>
                                 <rsc:iterator list="<%=recentWinners%>" id="resultRow">
                                     <tr class="<%=even?"light":"dark"%>">
                                         <td class="valueW"><div>&nbsp;</div></td>
                                         <td class="value">
                                             <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
-                                            <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">view
-                                                submission</A>
+                                             <%--<A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">view
+                                                submission</A>--%>
                                         </td>
                                         <td class="value">
                                             <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
@@ -106,10 +155,20 @@
                                         <td class="valueR">
                                             <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
                                         </td>
+                                       <td class="valueR">
+                                        <div class="container">
+                                            <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>"><img src="/i/layout/disk.gif" alt="Download submission" class="emblem" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()" /></a>
+                                            <div id="pop<%=i%>" class="popUp"><div>Download submission</div></div>
+                                        </div>
+                                       </td>
                                         <td class="valueE"><div>&nbsp;</div></td>
                                     </tr>
-                                    <% even = !even;%>
+                                    <% even = !even; i++; %>
                                 </rsc:iterator>
+                                <tr>
+                                    <td class="SW" colspan="5">&nbsp;</td>
+                                    <td class="SE">&nbsp;</td>
+                                </tr>
                                 <%--commented out until we actually have "more"
                                 <tr>
                                     <td class="SW">&nbsp;</td>

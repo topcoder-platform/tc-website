@@ -52,7 +52,7 @@
     <tbody>
         <tr>
             <td class="NW">&nbsp;</td>
-            <td class="title" colspan="6">Past Contests</td>
+            <td class="title" colspan="7">Past Contests</td>
             <td class="NE">&nbsp;</td>
         </tr>
         <tr>
@@ -129,7 +129,7 @@
             <% even = !even;%>
         </rsc:iterator>
         <tr>
-            <td class="SW" colspan="7">&nbsp;</td>
+            <td class="SW" colspan="8">&nbsp;</td>
             <td class="SE">&nbsp;</td>
         </tr>
     </tbody>
