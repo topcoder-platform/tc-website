@@ -4692,7 +4692,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	                p.setGrossAmount(TCData.getTCDouble(winners[j].getRow(i), "paid"));
 	                p.setStatusId(userTaxFormSet.contains(new Long(userId)) ? PAYMENT_OWED_STATUS : PAYMENT_ON_HOLD_STATUS);
 	                if (j == 0) {
-	                	double reliability = TCData.getTCDouble(winners[j].getRow(i), "reliability", 1.0, false);
+	                	double reliability = TCData.getTCDouble(winners[j].getRow(i), "reliability");
 	                	p.setGrossAmount(getReliabilityPayment(p.getGrossAmount(), reliability));
 	                	String projectType = winners[j].getItem(i, 3).toString();
 	                	String placed = winners[j].getItem(i, 0).toString();
