@@ -43,6 +43,13 @@
                <td class="bodyText"><b>Title</b></td>
                <td class="bodyText"><b>Date</b></td>
             </tr>
+            <%--
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=090506"><strong>TopCoder @ Work: Introduction to upselling, Part 2</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Sept 5, 2006</td>
+            </tr>
+            --%>
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=082906"><strong>TopCoder @ Work: Introduction to upselling</strong></A></td>
