@@ -98,12 +98,11 @@ import="com.topcoder.dde.util.Constants,
                                         Screening still in progress... 
                                         <br><br>
                                         The page should be automatically refreshed in 10 seconds, if it is not refreshed, please click 
-                                        <A href="/tcs?module=ViewUploadResults&<%=Constants.SPECIFICATION_KEY%>=${Constants.SPECIFICATION_KEY}">here</a>.
+                                        <A href="/tcs?module=ViewUploadResults&<%=Constants.SPECIFICATION_KEY%>=<%=request.getAttribute(Constants.SPECIFICATION_KEY)%>">here</a>.
                                     </TD>
                                 </TR>
                             </c:otherwise>
                         </c:choose>
-
                     </table>
                 </TD>
             </tr>
