@@ -153,6 +153,9 @@ div.popUp div {
                                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submitter</a>
                             </td>
                         </c:if>
+                         <td class="header" nowrap="nowrap">
+                           <A href="">Submission ID</A>
+                        </td>
                         <td class="headerC" nowrap="nowrap">
                             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("create_date")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submit
                                 Date</a>
@@ -171,6 +174,9 @@ div.popUp div {
                                     <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
                                 </td>
                             </c:if>
+                             <td class="value">
+                                 1234
+                             </td>
                             <td class="valueC" nowrap="nowrap">
                                 <rsc:item name="create_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}"/>
                             </td>
