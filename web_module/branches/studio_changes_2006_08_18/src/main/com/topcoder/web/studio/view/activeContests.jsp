@@ -30,7 +30,7 @@
 <div class="contentIn">
 <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
 
-<div class="contentSpacer">
+<div class="contentSpacer" style="padding-bottom:100px;">
 
     <h1>Active Contests</h1>
 
