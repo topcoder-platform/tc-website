@@ -50,39 +50,6 @@ import="com.topcoder.dde.util.Constants,
                         screeningFinished: ${screeningFinished}
                         hasErrors: ${hasErrors}
                         
-                        <c:choose>
-                            <c:when test="${screeningFinished}">
-                                <c:if test="${hasErrors}">
-                                    <tr>
-                                        <td>Fatal Errors: (${errors.size})</td>
-                                    </tr>
-    
-    
-                                    <c:forEach items="${errors}" var="errorItem">
-                                        <tr>
-                                            <td>
-                                                <c:out value="${errorItem.code}"/>: <c:out value="${errorItem.response}"/>
-                                                <ul>
-                                                    <c:forEach items="${errorItem.text}" var="errorText">
-                                                        <c:out value="${errorText}"/>
-                                                    </c:forEach>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
-                                </c:if>
-                            </c:when>
-                            <c:otherwise>
-                                <tr>
-                                    <td>
-                                        Screening still in progress... 
-                                        <br><br>
-                                        The page should be automatically refreshed in 10 seconds, if it is not refreshed, please click 
-                                        <A href="/tcs?module=ViewUploadResults&<%=Constants.SPECIFICATION_KEY%>=<%=request.getAttribute(Constants.SPECIFICATION_KEY)%>">here</a>.
-                                    </TD>
-                                </TR>
-                            </c:otherwise>
-                        </c:choose>
                     </table>
                 </TD>
             </tr>
