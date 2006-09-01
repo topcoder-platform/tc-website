@@ -551,7 +551,7 @@
             </fileset>
         </copy>
     </target>
-    <target name="move-libs" depends="jar_common">
+    <target name="move-libs" depends="">
         <copy todir="${jboss_lib}">
             <fileset dir="${bin}">
                 <include name="shared.jar"/>
@@ -598,28 +598,6 @@
         </copy>
 
     </target>
-
-    <target name="move">
-        <unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/tc.war/META-INF"/>
-        <unwar src="${war.dir}/admin.war" dest="${jboss_deploy}/admin.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/admin.war/META-INF"/>
-        <unwar src="${war.dir}/query.war" dest="${jboss_deploy}/query.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/query.war/META-INF"/>
-        <unwar src="${war.dir}/email.war" dest="${jboss_deploy}/email.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/email.war/META-INF"/>
-        <unwar src="${war.dir}/corp.war" dest="${jboss_deploy}/corp.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/corp.war/META-INF"/>
-        <unwar src="${war.dir}/privatelabel.war" dest="${jboss_deploy}/privatelabel.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/privatelabel.war/META-INF"/>
-        <copy todir="${jboss_deploy}">
-            <fileset dir="${ejb_jars}">
-                <include name="*.jar"/>
-                <exclude name="security.jar"/>
-            </fileset>
-        </copy>
-    </target>
-
 
     <target name="war-query" depends="compile">
         <war warfile="${war.dir}/query.war" webxml="${resources}/query/web.xml">
