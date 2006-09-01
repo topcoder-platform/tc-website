@@ -57,11 +57,11 @@ Registration for the 2006 TopCoder Collegiate Challenge Algorithm Competition wi
 <br><br>
 <a name="qualification"></a>
 <span class="bodySubtitle">Qualification Rounds</span><br><br>
-<strong>Automatic Berths</strong> - The top 150 rated members as of September 7, 2006 who meet all of the following criteria will receive an automatic berth into Online Round #1:
+<strong>Automatic Berths</strong> - The top 150 rated members as of September 6, 2006 who meet all of the following criteria will receive an automatic berth into Online Round #1:
 <ul>
-<li>Must have competed in a TopCoder rated event between April 9 and September 7, 2006; and</li>
+<li>Must have competed in a TopCoder rated event between April 9 and September 6, 2006; and</li>
 <li>Must have competed in at least three (3) lifetime TopCoder rated events; and</li>
-<li>Must have registered for the 2006 TCCC; and</li>
+<li>Must have registered for the 2006 TCCC by Wednesday, September 6 at 12:00 PM (noon) (GMT/UTC -4); and</li>
 <li>Must have met all other tournament eligibility criteria.</li>
 </ul>
 <strong>Qualification Spots</strong> - All members who do not receive an automatic berth and who meet all of the tournament eligibility criteria can compete for one of the 1,500 qualification spots in the tournament.  Three (3) Qualification Rounds will be held and the top 450 scorers from each Qualification Round will win a spot in Online Round #1.  Please note that the top 150 rated members who receive an automatic berth will not be allowed to compete in any of the Qualification Rounds.  Also, those members who qualify for the tournament during one qualification attempt will not be allowed to compete in future Qualification Rounds.
