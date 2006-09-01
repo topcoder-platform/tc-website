@@ -48,7 +48,7 @@
 This SRM was the last chance to test coding skills before the TCCC. In a tight contest,  first place in Division 1 went to <tc-webtag:handle coderId="8547850" context="algorithm"/> with the very high score of 1622.05 points. Second and third went to <tc-webtag:handle coderId="156592" context="algorithm"/> and <tc-webtag:handle coderId="260835" context="algorithm"/> respectively.
 </p>
 <p>
-The Division 2 winner was <tc-webtag:handle coderId="10509376" context="algorithm"/> followed by <tc-webtag:handle coderId="260835" context="algorithm"/> and <tc-webtag:handle coderId="21475659" context="algorithm"/> vpj.
+The Division 2 winner was <tc-webtag:handle coderId="10509376" context="algorithm"/> followed by <tc-webtag:handle coderId="22641658" context="algorithm"/> and <tc-webtag:handle coderId="21475659" context="algorithm"/>.
 </p>
  
 <H1>
@@ -275,7 +275,7 @@ Let A(N, W) be the probability to win if N throws remained and it is required to
 To calculate A(N, W) it is necessary to choose the distance to throw the dart. 
 Throwing from the short distance will give P1*A(N - 1, W - 2) + (1 - P1)*A(N - 1, W) probability to win. Throwing from the long distance will give P2*A(N - 1, W - 3) + (1 - P2)*A(N - 1, W) probability to win. A(N, W) is the maximum of the probability for the short and the long distance.
 </p>
-<p>Here is the sample solution by <tc-webtag:handle coderId="260835" context="algorithm"/>.</p>
+<p>Here is the sample solution by <tc-webtag:handle coderId="22641658" context="algorithm"/>.</p>
 
 <pre>
 public class SimplifiedDarts {
