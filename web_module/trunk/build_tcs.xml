@@ -277,20 +277,8 @@
 
     <target name="package-EJB-RBoard" depends="compile">
         <jar jarfile="${ejb.jars.dir}/RBoard.jar">
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/common/model/SoftwareComponent.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/security/GeneralSecurityException.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/security/admin/PrincipalMgrRemoteHome.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/security/admin/PrincipalMgrRemote.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/security/TCSubject.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/security/RolePrincipal.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/security/TCPrincipal.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/security/TCSubject.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/apps/review/persistence/Common.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/DBMS.class"/>
-            <zipfileset dir="${classes.dir}"
-                        includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/util/idgenerator/bean/IdGen.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/util/idgenerator/bean/IdGenHome.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/apps/review/rboard/*.class"/>
