@@ -62,6 +62,9 @@ public class Login extends Base {
                                 log.debug("correct user name and password");
                             }
                         } catch (Exception e) {
+                            if (log.isDebugEnabled()) {
+                                e.printStackTrace();
+                            }
                             throw new LoginException("Username or password incorrect.");
                         }
                         char status = getStatus(sub.getUserId());
