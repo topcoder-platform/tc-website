@@ -1,5 +1,6 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 
 <br><br>
 <table border="0" cellspacing="0" cellpadding="0" width="525">
@@ -26,6 +27,21 @@
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 --------------------%>
+
+<%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.01.06<br>2:45 PM</td>
+    <td class="newsTextCell"><span class="newsTitle">
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512848">TCCC06 automatic berth cutoff date changed</A>
+      </span><br><br>
+      The cutoff date for the TCCC Algorithm Competition automatic berths has been moved back by one day.
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512848">details</A>&#160;|&#160;
+    <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512848">discuss this</A>&#160;|&#160;
+    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+</td></tr>
 
 <%--------------------------------------------------------%>
 <tr>
@@ -203,24 +219,6 @@
     <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
 </td></tr>
 
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>08.22.06<br>12:50 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm12">TCHS SRM 12 - Problem Set & Analysis</A></span><br><br>
-This match proved to be harder then usual. While almost all
-participants successfully solved the 250 problem, the other two problems appeared to be quite difficult.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/Pawa_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10323773" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm12">full story</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506034" message="discuss this"/>&#160;|&#160;
-    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-</td></tr>
 
 
 
