@@ -200,7 +200,7 @@
       </td>
       <td class="value">27
          <div class="tccc06">
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_schedule">Algo Online Elimination Round 1C</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_schedule">Algo Online Elimination Round 1-C</A></strong><br>
          <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=ubs">UBS</A><br>
          9:00 PM
          </div>
