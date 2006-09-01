@@ -40,20 +40,12 @@ import="com.topcoder.dde.util.Constants,
             <TR>
                 <td>
                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                        hola
-                        <c:out value="${hasErrors}"/>
-                        <c:out value="${hasWarnings}"/>
-                        <c:out value="${hasSuccess}"/>
-                        <c:out value="${screeningFinished}"/>
-                            
-                        chau
-                        screeningFinished: ${screeningFinished}
-                        hasErrors: ${hasErrors}
-
                         <c:choose>
                             <c:when test="${screeningFinished}">
                                 <c:if test="${hasErrors}">
-    
+                                    <tr>
+                                        <td>Fatal Errors:</td>
+                                    </tr>
     
                                     <c:forEach items="${errors}" var="errorItem">
                                         <tr>
@@ -61,7 +53,9 @@ import="com.topcoder.dde.util.Constants,
                                                 <c:out value="${errorItem.code}"/>: <c:out value="${errorItem.response}"/>
                                                 <ul>
                                                     <c:forEach items="${errorItem.text}" var="errorText">
-                                                        <c:out value="${errorText}"/>
+                                                        <li>
+                                                            <c:out value="${errorText}"/>
+                                                        </li>
                                                     </c:forEach>
                                                 </ul>
                                             </td>
