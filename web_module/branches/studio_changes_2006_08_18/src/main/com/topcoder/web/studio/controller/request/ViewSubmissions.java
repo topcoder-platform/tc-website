@@ -45,7 +45,7 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         getRequest().setAttribute("isOver", String.valueOf(isOver));
 
         //load up the submissions
-        DataAccess da = new CachedDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
+        DataAccess da = new CachedDataAccess(1000 * 60 * 60, DBMS.STUDIO_DATASOURCE_NAME); //1 hour
         Request r = new Request();
         r.setContentHandle("submissions");
         r.setProperty(Constants.CONTEST_ID, contestId);
