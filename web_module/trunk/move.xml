@@ -24,13 +24,13 @@
         <cvs command="update -Pd" package="src"/>
         <cvs command="update -Pd" package="resources"/>
         <cvs command="update -Pd" package="lib"/>
-        <cvs command="update -Pd" package="build.xml"/>
+        <cvs command="update -Pd" package="build_tc.xml"/>
 
         <exec dir="../shared" executable="cvs">
             <arg line="update -dP src"/>
         </exec>
 
-        <ant antfile="build.xml" target="deploy"/>
+        <ant antfile="build_tc.xml" target="deploy"/>
 
         <jar destfile="./lib/bin/classes.jar" update="true">
             <fileset dir="./build/classes">
@@ -141,16 +141,16 @@
         </jar>
     </target>
 
-	<target name="package-forums-full" depends="">
-		<antcall target="package-forums"/>
+    <target name="package-forums-full" depends="">
+        <antcall target="package-forums"/>
 
         <jar destfile="forums.jar" update="true">
             <fileset dir=".">
-            	<include name="lib/jars/jive/**"/>
+                <include name="lib/jars/jive/**"/>
             </fileset>
         </jar>
     </target>
-	
+
     <target name="package-forums" depends="">
         <!--
                 <delete dir="src"/>
