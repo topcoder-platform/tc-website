@@ -41,7 +41,7 @@
           <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus6.html">TheFaxman Codeth</A>&#160;|&#160;
           <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus8.html">Identifying Best Developers</A> [July 12 - Mass High Tech]<br/></td></tr>
 <tr><td class="newsText"><A href="http://media32b.libsyn.com/aHeceJl2a3eTdmd2bHOcq5qkZnaZ/podcasts/dickwall/JavaPosse065.mp3" target="_blank">Java Posse - Interviews from Topcoder and Java One</A> [PODCAST] [July 5 - Java Posse]<br/></td></tr>
-<tr><td class="newsText"><A href="http://biz.yahoo.com/bw/060516/20060516005941.html?.v=1" target="_blank">Gartner cites TopCoder as model for "Web 2.0" community</A> [May 16 - Gartner]<br/></td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_051606">Gartner cites TopCoder as model for "Web 2.0" community</A> [May 16 - Gartner]<br/></td></tr>
 <tr><td class="newsText"><A href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html" target="_blank">Idol or idle: which one are you?</A> [May 15 - IT Week]<br/></td></tr>
 <tr><td class="newsText"><A href="/movies/press/cnbc_051506.mov" target="_blank">CNBC's Jane's Addiction and Squawk Box at the TCO06</A> [MOVIE] [May 15 - CNBC TV]<br/></td></tr>
 <tr><td class="newsText"><A href="http://media31b.libsyn.com/bXdveMh1nHzGfGd1mHluo2%2BlkXWb/podcasts/dickwall/JavaPosse053.mp3" target="_blank">Java Posse - Listener Feedback and TopCoder Interviews</A> [PODCAST] [May 15 - Java Posse]<br/></td></tr>
