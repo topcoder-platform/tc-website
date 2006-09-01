@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="Referral" table="referral" mutable="false">
+        <id name="id" column="referral_id" access="field"/>
+        <property name="description" column="referral_desc" access="field"/>
+        <property name="sort" access="field"/>
+        <property name="statusId" column="status_id" access="field"/>
+    </class>
+</hibernate-mapping>
