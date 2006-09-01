@@ -58,10 +58,10 @@
                                 <td class="valueW"><div>&nbsp;</div></td>
                                 <td class="value"><strong>${contest.name}</strong></td>
                                 <td class="value">${contest.status.description}</td>
-                                <td class="valueC">
+                                <td class="valueC" nowrap="nowrap">
                                     <tc-webtag:format object="${contest.startTime}" format="MMMM d, yyyy 'at<br>' HH:mm z" timeZone="${sessionInfo.timezone}"/>
                                 </td>
-                                <td class="valueC">
+                                <td class="valueC" nowrap="nowrap">
                                     <tc-webtag:format object="${contest.endTime}" format="MMMM d, yyyy 'at<br>' HH:mm z" timeZone="${sessionInfo.timezone}"/>
                                 </td>
                                 <td class="valueC">
