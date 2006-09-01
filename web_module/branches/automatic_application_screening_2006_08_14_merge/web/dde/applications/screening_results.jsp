@@ -10,17 +10,6 @@ import="com.topcoder.dde.util.Constants,
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
-<%
-//List errors = (List)request.getAttribute("errors");
-//List warnings = (List)request.getAttribute("warnings");
-//List success = (List)request.getAttribute("success");
-//boolean hasErrors = errors != null && errors.size() > 0;
-//boolean hasWarnings = warnings != null && warnings.size() > 0;
-//boolean hasSuccess = success != null && success.size() > 0;
-
-//boolean screeningFinished = hasErrors | hasWarnings | hasSuccess;
-%>
-
 <HTML>
     <HEAD>
          <c:set var="hasErrors" value="${not empty errors}"/>
@@ -62,6 +51,46 @@ import="com.topcoder.dde.util.Constants,
                                         </tr>
                                     </c:forEach>
                                 </c:if>
+                                <c:if test="${hasWarnings}">
+                                    <tr>
+                                        <td>Warnings:</td>
+                                    </tr>
+    
+                                    <c:forEach items="${warnings}" var="warningItem">
+                                        <tr>
+                                            <td>
+                                                <c:out value="${warningItem.code}"/>: <c:out value="${warningItem.response}"/>
+                                                <ul>
+                                                    <c:forEach items="${warningItem.text}" var="warningText">
+                                                        <li>
+                                                            <c:out value="${warningText}"/>
+                                                        </li>
+                                                    </c:forEach>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </c:if>
+                                <c:if test="${hasSuccess}">
+                                    <tr>
+                                        <td>Messages:</td>
+                                    </tr>
+    
+                                    <c:forEach items="${success}" var="succesItem">
+                                        <tr>
+                                            <td>
+                                                <c:out value="${succesItem.code}"/>: <c:out value="${succesItem.response}"/>
+                                                <ul>
+                                                    <c:forEach items="${succesItem.text}" var="succesText">
+                                                        <li>
+                                                            <c:out value="${succesText}"/>
+                                                        </li>
+                                                    </c:forEach>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </c:if>
                             </c:when>
                             <c:otherwise>
                                 <tr>
@@ -69,7 +98,7 @@ import="com.topcoder.dde.util.Constants,
                                         Screening still in progress... 
                                         <br><br>
                                         The page should be automatically refreshed in 10 seconds, if it is not refreshed, please click 
-                                        <A href="/tcs?module=ViewUploadResults&<%=Constants.SPECIFICATION_KEY%>=<%=request.getAttribute(Constants.SPECIFICATION_KEY)%>">here</a>.
+                                        <A href="/tcs?module=ViewUploadResults&<%=Constants.SPECIFICATION_KEY%>=${Constants.SPECIFICATION_KEY}">here</a>.
                                     </TD>
                                 </TR>
                             </c:otherwise>
