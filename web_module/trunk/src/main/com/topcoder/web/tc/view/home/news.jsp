@@ -26,6 +26,23 @@
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 --------------------%>
+
+<%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>09.01.06<br>10:40 AM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm318">SRM 318 - Problem Set & Analysis</A></span><br><br>
+            This SRM was the last chance to test coding skills before the TCCC. In a tight contest,  first place in Division 1 went to <tc-webtag:handle coderId="8547850" context="algorithm"/> with the very high score of 1622.05 points.            </td>
+            <td class="newsPhoto"><img src="/i/m/Andrew_Lazarev_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7485898" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=match_editorials&d2=srm318">full story</A>&#160;|&#160;
+    <tc-webtag:forumLink forumID="505993" message="discuss this"/>&#160;|&#160;
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+</td></tr>
+
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0"/><br>08.31.06<br>3:15 PM</td>
@@ -203,25 +220,6 @@ participants successfully solved the 250 problem, the other two problems appeare
     <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm12">full story</A>&#160;|&#160;
     <tc-webtag:forumLink forumID="506034" message="discuss this"/>&#160;|&#160;
     <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/><br>08.21.06<br>5:00 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=082106">The Digital Run: Highlights from Stage 1</A></span><br><br>
-                As the first stage draws to an end for the Digital Run, it's time to take stock of this great new competition format. 
-                And a great competition it was, with veterans and newbies alike withstanding the challenges of a 13-week marathon and 
-                racking up some surprising results.</td>
-            <td class="newsPhoto"><img src="/i/m/AleaActaEst_mug.gif" alt="" /><br>by
-                <tc-webtag:handle coderId="252022" context="design"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&amp;d1=features&amp;d2=082106">article</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506095" message="discuss this"/>&#160;|&#160;
-    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 
 
