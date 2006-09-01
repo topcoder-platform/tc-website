@@ -181,10 +181,12 @@ div.popUp div {
                                         <img src="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>" alt=""/>
                                     </c:when>
                                     <c:otherwise>
+                                       <div align="center">
                                         <div class="container">
                                             <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>"><img src="/i/layout/magnify.gif" alt="Download submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()" /></a>
                                             <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
                                         </div>
+                                       </div>
                                     </c:otherwise>
                                 </c:choose>
                             </td>
