@@ -831,9 +831,9 @@
     </target>
 
     <target name="expand-reg" depends="">
-        <delete file="${jboss_home}/server/all/deploy/reg.war"/>
-        <unwar src="${war.dir}/reg.war" dest="${jboss_home}/server/all/deploy/reg.war/" overwrite="yes"/>
-        <delete dir="${jboss_home}/server/all/deploy/reg.war/META-INF"/>
+        <delete file="${jboss_deploy}/reg.war"/>
+        <unwar src="${war.dir}/reg.war" dest="${jboss_deploy}/reg.war/" overwrite="yes"/>
+        <delete dir="${jboss_deploy}/reg.war/META-INF"/>
     </target>
 
     <target name="compile_tests" depends="compile">
@@ -1248,9 +1248,9 @@
                 <include name="LongCompResult.jar"/>
             </fileset>
         </copy>
-        <unwar src="${war.dir}/longcontest.war" dest="${jboss_home}/server/all/deploy/longcontest.war/"
+        <unwar src="${war.dir}/longcontest.war" dest="${jboss_deploy}/longcontest.war/"
                overwrite="yes"/>
-        <delete dir="${jboss_home}/server/all/deploy/longcontest.war/META-INF"/>
+        <delete dir="${jboss_deploy}/longcontest.war/META-INF"/>
     </target>
 
 
