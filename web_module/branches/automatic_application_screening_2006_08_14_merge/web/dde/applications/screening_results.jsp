@@ -23,7 +23,7 @@ boolean screeningFinished = hasErrors | hasWarnings | hasSuccess;
 
 <HTML>
     <HEAD>
-        <c:if test="!screeningFinished">
+        <c:if test="${!screeningFinished}">
             <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
             <META HTTP-EQUIV="Expires" CONTENT="-1">
             <META HTTP-EQUIV="Refresh" CONTENT="10">
@@ -36,8 +36,8 @@ boolean screeningFinished = hasErrors | hasWarnings | hasSuccess;
                 <td>
                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
                         <c:choose>
-                            <c:when test="screeningFinished">
-                                <c:if test="hasErrors">
+                            <c:when test="${screeningFinished}">
+                                <c:if test="${hasErrors}">
                                     <tr>
                                         <td>Fatal Errors: (<%=errors.size()%>)</td>
                                     </tr>
@@ -56,7 +56,7 @@ boolean screeningFinished = hasErrors | hasWarnings | hasSuccess;
                                         </tr>
                                     </c:forEach>
                                 </c:if>
-                                <c:if test="hasWarnings">
+                                <c:if test="${hasWarnings}">
                                     <tr>
                                         <td>Warnings: (<%=warnings.size()%>)</td>
                                     </tr>
@@ -75,7 +75,7 @@ boolean screeningFinished = hasErrors | hasWarnings | hasSuccess;
                                         </tr>
                                     <%}%>
                                 </c:if>
-                                <c:if test="hasSuccess">
+                                <c:if test="${hasSuccess}">
                                     <tr>
                                         <td>Messages: (<%=success.size()%>)</td>
                                     </tr>
