@@ -36,8 +36,8 @@ boolean screeningFinished = hasErrors | hasWarnings | hasSuccess;
                 <td>
                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
                         hola
-                        screeningFinished: ${screeningFinished}
-                        hasErrors: ${hasErrors}
+                        screeningFinished: ${screeningFinished} / <%=screeningFinished%>
+                        hasErrors: ${hasErrors} / <%=hasErrors%>
                         
                         <c:choose>
                             <c:when test="${screeningFinished}">
