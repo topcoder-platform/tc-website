@@ -47,8 +47,8 @@ import="com.topcoder.dde.util.Constants,
                         <c:out value="${screeningFinished}"/>
                             
                         chau
-                        screeningFinished: ${screeningFinished} / <%=screeningFinished%>
-                        hasErrors: ${hasErrors} / <%=hasErrors%>
+                        screeningFinished: ${screeningFinished}
+                        hasErrors: ${hasErrors}
                         
                         <c:choose>
                             <c:when test="${screeningFinished}">
@@ -70,44 +70,6 @@ import="com.topcoder.dde.util.Constants,
                                             </td>
                                         </tr>
                                     </c:forEach>
-                                </c:if>
-                                <c:if test="${hasWarnings}">
-                                    <tr>
-                                        <td>Warnings: (<%=warnings.size()%>)</td>
-                                    </tr>
-    
-                                    <%for (Iterator it = warnings.iterator(); it.hasNext();) {
-                                        ScreeningResponse errorItem = (ScreeningResponse) it.next();%>
-                                        <tr>
-                                            <td>
-                                                <%=errorItem.getCode()%>: <%=errorItem.getResponse()%>
-                                                <ul>
-                                                    <%for (int i = 0; i < errorItem.getText().length; i++) {%>
-                                                        <li><%=errorItem.getText()[i]%></li>
-                                                    <%}%>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                    <%}%>
-                                </c:if>
-                                <c:if test="${hasSuccess}">
-                                    <tr>
-                                        <td>Messages: (<%=success.size()%>)</td>
-                                    </tr>
-    
-                                    <%for (Iterator it = success.iterator(); it.hasNext();) {
-                                        ScreeningResponse successItem = (ScreeningResponse) it.next();%>
-                                        <tr>
-                                            <td>
-                                                <%=successItem.getCode()%>: <%=successItem.getResponse()%>
-                                                <ul>
-                                                    <%for (int i = 0; i < successItem.getText().length; i++) {%>
-                                                        <li><%=successItem.getText()[i]%></li>
-                                                    <%}%>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                    <%}%>
                                 </c:if>
                             </c:when>
                             <c:otherwise>
