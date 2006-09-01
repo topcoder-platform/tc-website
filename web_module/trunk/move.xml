@@ -59,7 +59,7 @@
                 <include name="resources/DataAccess.properties"/>
                 <include name="resources/problem.xsd"/>
                 <include name="move.xml"/>
-                <include name="build.xml"/>
+                <include name="build_tc.xml"/>
                 <include name="lib/bin/shared.jar"/>
                 <include name="lib/bin/tcwebcommon.jar"/>
                 <include name="lib/bin/classes.jar"/>
