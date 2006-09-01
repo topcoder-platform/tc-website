@@ -49,7 +49,24 @@ import="com.topcoder.dde.util.Constants,
                         chau
                         screeningFinished: ${screeningFinished}
                         hasErrors: ${hasErrors}
-                        
+
+                        <c:choose>
+                            <c:when test="${screeningFinished}">
+                                
+                                finished!
+                            </c:when>
+                            <c:otherwise>
+                                <tr>
+                                    <td>
+                                        Screening still in progress... 
+                                        <br><br>
+                                        The page should be automatically refreshed in 10 seconds, if it is not refreshed, please click 
+                                        <A href="/tcs?module=ViewUploadResults&<%=Constants.SPECIFICATION_KEY%>=<%=request.getAttribute(Constants.SPECIFICATION_KEY)%>">here</a>.
+                                    </TD>
+                                </TR>
+                            </c:otherwise>
+                        </c:choose>
+
                     </table>
                 </TD>
             </tr>
