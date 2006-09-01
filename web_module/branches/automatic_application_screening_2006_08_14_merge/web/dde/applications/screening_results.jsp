@@ -59,7 +59,11 @@ import="com.topcoder.dde.util.Constants,
                                         <tr>
                                             <td>
                                                 <c:out value="${errorItem.code}"/>: <c:out value="${errorItem.response}"/>
-
+                                                <ul>
+                                                    <c:forEach items="${errorItem.text}" var="errorText">
+                                                        <c:out value="${errorText}"/>
+                                                    </c:forEach>
+                                                </ul>
                                             </td>
                                         </tr>
                                     </c:forEach>
