@@ -212,6 +212,10 @@
             <webinf dir="${resources.dir}/taglib">
                 <include name="dde.tld"/>
             </webinf>
+            <lib dir="${jars.dir}">
+                <include name="jstl.jar"/>
+                <include name="standard.jar"/>
+            </lib>
         </war>
     </target>
 
