@@ -52,8 +52,18 @@ import="com.topcoder.dde.util.Constants,
 
                         <c:choose>
                             <c:when test="${screeningFinished}">
-                                
-                                finished!
+                                <c:if test="${hasErrors}">
+    
+    
+                                    <c:forEach items="${errors}" var="errorItem">
+                                        <tr>
+                                            <td>
+                                                <c:out value="${errorItem.code}"/>: <c:out value="${errorItem.response}"/>
+
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </c:if>
                             </c:when>
                             <c:otherwise>
                                 <tr>
