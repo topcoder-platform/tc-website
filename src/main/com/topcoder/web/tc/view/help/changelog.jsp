@@ -42,7 +42,7 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 <p>
-    5.4.9 - 2006.08.29
+    5.4.9 - 2006.08.31
     <ul>
         <li>Fix in password reset page: if the key has expired, it doesn't let the user even enter the new
             password.</li>
