@@ -34,16 +34,16 @@ public class AppSpecificationBean extends BaseEJB {
      * gets specifications
      *
      * @param conn the connection being used
-     * @param submitterId the aplication specification submitter Id
+     * @param specificationUploaderId the aplication specification submitter Id
      */
-    public ApplicationSpecification[] getSpecifications(Connection conn, long submitterId) throws RemoteException {
+    public ApplicationSpecification[] getSpecifications(Connection conn, long specificationUploaderId) throws RemoteException {
         try {
             log.debug("Retrieving specifications...");
             ResultSetContainer rsc = selectSet("specification",
                     new String[] {"specification_id", "specification_uploader_id",
                     "specification_type_id", "passed_auto_screening", "specification_url"},
-                    submitterId == -1 ? new String[] {} : new String[] {"submitter_id"},
-                    submitterId == -1 ? new String[] {} : new String[] {String.valueOf(submitterId)},
+                    specificationUploaderId == -1 ? new String[] {} : new String[] {"specification_uploader_id"},
+                    specificationUploaderId == -1 ? new String[] {} : new String[] {String.valueOf(specificationUploaderId)},
                     conn);
 
             if (rsc.size() < 1) {
@@ -52,11 +52,11 @@ public class AppSpecificationBean extends BaseEJB {
                 ApplicationSpecification[] appSpecs = new ApplicationSpecification[rsc.size()];
                 for (int i = 0; i < rsc.size(); i++) {
                     appSpecs[i] = new ApplicationSpecification(rsc.getLongItem(i, "specification_id"),
-                            rsc.getLongItem(i, "specification_uploader_id"),
-                            rsc.getLongItem(i, "specification_type_id"),
-                            rsc.getItem(i, "passed_auto_screening") == null ? false : true,
-                            rsc.getItem(i, "passed_auto_screening") == null ? 0 : rsc.getIntItem(i, "passed_auto_screening"),
-                            new URL(rsc.getStringItem(i, "specification_url")));
+                        rsc.getLongItem(i, "specification_uploader_id"),
+                        rsc.getLongItem(i, "specification_type_id"),
+                        rsc.getItem(i, "passed_auto_screening") == null ? false : true,
+                        rsc.getItem(i, "passed_auto_screening") == null ? 0 : rsc.getIntItem(i, "passed_auto_screening"),
+                        new URL(rsc.getStringItem(i, "specification_url")));
                 }
                 return appSpecs;
             }
