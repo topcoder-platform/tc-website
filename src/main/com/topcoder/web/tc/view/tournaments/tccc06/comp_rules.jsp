@@ -330,11 +330,6 @@ All contestants who submit components that pass screening during at least one we
       <td class="sidebarText" align="right">$270</td>
    </tr>
    <tr valign="top">
-      <td class="sidebarText">Highest debut score**</td>
-      <td class="sidebarText" align="right">$2,000</td>
-      <td class="sidebarText" align="right">$1,000</td>
-   </tr>
-   <tr valign="top">
       <td class="sidebarText">Online participants who pass screening for at least one component</td>
       <td class="sidebarText">Limited edition 2006 TopCoder Collegiate Challenge t-shirt</td>
       <td class="sidebarText">Limited edition 2006 TopCoder Collegiate Challenge t-shirt</td>
