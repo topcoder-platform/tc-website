@@ -60,11 +60,13 @@ return false;
                <td align="center" class="bodyText">
                <A href="/tc?module=ContractingPreferences"><img src="/i/contracting/register.gif" alt="Register here" border=0/></A>
                <hr noshade="noshade" size="1" />
-               <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa"><img src="/i/contracting/nsa_logo.gif" alt="NSA" border=0/></A>
+               <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol"><img src="/i/contracting/aol_logo.gif" alt="AOL" border=0/></A>
                <hr noshade="noshade" size="1" />
-               <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs"><img src="/i/contracting/ubs_logo.gif" alt="UBS" border=0/></A>
+               <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg"><img src="/i/contracting/bloomberg_logo.gif" alt="Bloomberg" border=0/></A>
                <hr noshade="noshade" size="1" />
-               <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign"><img src="/i/contracting/verisign_logo.gif" alt="VeriSign" border=0/></A>
+               <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa"><img src="/i/contracting/nsa_logo.gif" alt="NSA" border=0/></A>
+               <hr noshade="noshade" size="1" />
+               <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=ubs"><img src="/i/contracting/ubs_logo.gif" alt="UBS" border=0/></A>
                <hr noshade="noshade" size="1" />
                <i>Click one of the<br>companies above for more info<br>on their job openings,<br>and be sure to check out <br>the careers available at<br>
                <A href="/tc?module=Static&d1=about&d2=jobs"><img src="/i/contracting/topcoder_logo.gif" alt="TopCoder" border=0/></A>
