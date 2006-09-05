@@ -3,6 +3,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <html>
 <head>
@@ -32,6 +33,10 @@
                 <br/><br/>
 
                 The registration period is from August 28, 2006 9:00 AM EDT to September 12, 2006 6:00 PM EDT.
+                <c:if test="${sessionInfo.anonymous}">
+                    In order to register, you must first
+                    <a href="/tc?module=Login&amp;nextpage=/tc?module=Static%26d1=tournaments%26d2=tccc06%26d3=spon_reg">login</a>.
+                </c:if>
                 <br><br>
 
                 <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
