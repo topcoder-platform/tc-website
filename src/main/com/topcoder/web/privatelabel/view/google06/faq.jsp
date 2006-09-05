@@ -75,10 +75,6 @@
                 GCC 4.0.2<br>
                 Python 2.3.4
                 <br><br>
-                You can refer to the full competition <A href="/tc?module=Static&d1=help&d2=index" target="_blank">support guide</A> 
-                for more information. You might also find the <A href="/tc?module=Static&d1=help&d2=generalFaq" target="_blank">Software and hardware specifications</A>
-                FAQ helpful.
-                <br><br>
                 <b>I've submitted a solution for a problem, but the time has not run out. Can I submit again?</b><br>
                 Yes. However, if you've already submitted a problem and you choose to submit again, your score for that
                 submission will be adjusted to account for the additional lapsed time since your last submission, as
