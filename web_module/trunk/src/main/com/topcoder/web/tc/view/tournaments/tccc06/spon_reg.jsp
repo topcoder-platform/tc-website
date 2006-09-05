@@ -54,7 +54,7 @@
                         <c:choose>
                             <c:when test="${sessionInfo.anonymous}">
                                 In order to register, you must first
-                                <a href="/tc?module=Login&amp;nextpage=/tc?module=Static%26d1=tournaments%26d2=tccc06%26d3=spon_reg">login</a>.
+                                <a href="/tc?module=Login&amp;nextpage=/tc?module=Static&amp;d1=tournaments&amp;d2=tccc06&amp;d3=spon_reg">login</a>.
                             </c:when>
                             <c:otherwise>
                                 <button name="submit" value="submit" type="submit">Submit</button>
