@@ -33,10 +33,6 @@
                 <br/><br/>
 
                 The registration period is from August 28, 2006 9:00 AM EDT to September 12, 2006 6:00 PM EDT.
-                <c:if test="${sessionInfo.anonymous}">
-                    In order to register, you must first
-                    <a href="/tc?module=Login&amp;nextpage=/tc?module=Static%26d1=tournaments%26d2=tccc06%26d3=spon_reg">login</a>.
-                </c:if>
                 <br><br>
 
                 <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
@@ -55,8 +51,15 @@
     <br></tc-webtag:errorIterator></span>
                             <tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>I agree
                         </p>
-
-                        <button name="submit" value="submit" type="submit">Submit</button>
+                        <c:choose>
+                            <c:when test="${sessionInfo.anonymous}">
+                                In order to register, you must first
+                                <a href="/tc?module=Login&amp;nextpage=/tc?module=Static%26d1=tournaments%26d2=tccc06%26d3=spon_reg">login</a>.
+                            </c:when>
+                            <c:otherwise>
+                                <button name="submit" value="submit" type="submit">Submit</button>
+                            </c:otherwise>
+                        </c:choose>
                         <br/><br/>
                     </div>
                 </form>
