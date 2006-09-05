@@ -31,7 +31,6 @@
                 <span class="bigTitle">Registration</span>
                 <br/><br/>
 
-                Registration is not currently open.<br>
                 The registration period is from August 28, 2006 9:00 AM EDT to September 12, 2006 6:00 PM EDT.
                 <br><br>
 
