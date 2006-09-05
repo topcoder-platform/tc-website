@@ -6,7 +6,7 @@
 <table border="0" cellspacing="0" cellpadding="0" width="525">
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
-<%------------------------------------post TUES SEPT 5
+<%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/><br>09.05.06<br>9:00 AM</td>
     <td class="newsTextCell">
@@ -26,7 +26,7 @@
     <tc-webtag:forumLink forumID="506099" message="discuss this"/>&#160;|&#160;
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
---------------------%>
+
 
 <%--------------------------------------------------------%>
 <tr>
@@ -203,22 +203,6 @@
     <tc-webtag:forumLink forumID="506074" message="discuss this"/>&#160;|&#160;
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
-
-<%--------------------------------------------------------%>
-
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0"/><br>08.24.06<br>1:25 PM</td>
-    <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=digital_run&d2=2006_stage1_winners">Announcing the Digital Run: Stage 1 winners</A></span><br><br>
-        While a few potential points remain to be officially awarded, aubergineanode and minhu have emerged as the Design and Development winners 
-        of Stage 1 of the Digital Run. Congratulations to the winners, and all the competitors!
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=digital_run&d2=2006_stage1_winners">full story</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506097" message="discuss this"/>&#160;|&#160;
-    <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-</td></tr>
-
 
 
 
