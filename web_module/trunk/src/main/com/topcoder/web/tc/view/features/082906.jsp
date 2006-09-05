@@ -150,7 +150,7 @@ As with all sales, upselling is still a game of chance. You won't always win: bu
 <br><br>
 Even with a losing proposal, you've gained both presentation experience and a "toolbox" of upselling techniques and templates that you can reuse. Judging from what we've seen in the world of IT sales, a professional presentation with the elements we've mentioned is extremely rare; you might win business on presentation alone!
 <br><br>
-<i>Watch for the second part of the article, coming soon, featuring some cases and a walkthrough on implementing the upsell approach.</i>
+<i>Watch for the <A href="/tc?module=Static&d1=features&d2=090506"><b>second part</b></A> of the article, coming soon, featuring some cases and a walkthrough on implementing the upsell approach.</i>
 <br><br>
 
         </td>

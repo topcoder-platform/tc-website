@@ -97,6 +97,8 @@ Upselling won't always work, and since you're on your own time, in a sense, at l
 <br><br>
 Don't let these warnings dissuade you.  Building relationships and creating future business opportunities with clients can be an exciting process. As a software developer, you gain an understanding of the actual impact of technology on real people. This experience translates directly into better work and a better job experience. Your client also gains familiarity with the abilities and constraints of software to solve problems. Ultimately, you both will grow from the cooperative engagement of creating a solution to a problem; you'll gain experience and cash, and your client will save time and money.
 <br><br>
+<A href="/tc?module=Static&d1=features&d2=082906"><b>Part 1</b></A>
+<br><br>
 
         </td>
 <!-- Center Column Ends -->
