@@ -15,5 +15,19 @@ import="com.topcoder.dde.util.Constants" %>
             </form>
         </TD>
       </TR>
+      <TR>
+        <TD class="statText">
+            <c:forEach items="${old_specs}" var="specItem">
+            <tr>
+                <td><c:out value="${specItem.specificationId}"/></td>
+                <td><c:out value="${specItem.specificationUrl}"/></td>
+                <td><c:out value="${specItem.screened}"/></td>
+                <td><c:out value="${specItem.passedAutoScreening}"/></td>
+                <td><c:out value="${specItem.specificationUploaderId}"/></td>
+                <td><c:out value="${specItem.specificationTypeId}"/></td>
+            </tr>
+            </c:forEach>
+        </TD>
+      </TR>
     </TABLE>
 </HTML>
