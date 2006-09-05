@@ -301,23 +301,23 @@ All contestants who submit components that pass screening during at least one we
    </tr>
    <tr valign="top">
       <td class="sidebarText">5th place finisher* in the Championship Round</td>
-      <td class="sidebarText" align="right">$1,500</td>
-      <td class="sidebarText" align="right">$1,000</td>
+      <td class="sidebarText" align="right">$2,000</td>
+      <td class="sidebarText" align="right">$1,200</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">6th place finisher* in the Championship Round</td>
-      <td class="sidebarText" align="right">$1,500</td>
-      <td class="sidebarText" align="right">$1,000</td>
+      <td class="sidebarText" align="right">$2,000</td>
+      <td class="sidebarText" align="right">$1,200</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">7th place finisher* in the Championship Round</td>
-      <td class="sidebarText" align="right">$1,500</td>
-      <td class="sidebarText" align="right">$1,000</td>
+      <td class="sidebarText" align="right">$2,000</td>
+      <td class="sidebarText" align="right">$1,200</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">8th place finisher* in the Championship Round</td>
-      <td class="sidebarText" align="right">$1,500</td>
-      <td class="sidebarText" align="right">$1,000</td>
+      <td class="sidebarText" align="right">$2,000</td>
+      <td class="sidebarText" align="right">$1,200</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Weekly 1st Place finishers</td>
