@@ -19,6 +19,6 @@ public interface AppSpecification extends EJBObject {
     public static final String EJB_REF_NAME = "com.topcoder.apps.screening.application.AppSpecificationHome";
 
     void insertSpecification(Connection conn, ApplicationSpecification appSpec) throws  RemoteException;
-    ApplicationSpecification getSpecification(Connection conn, long specificationId) throws RemoteException;
+    ApplicationSpecification[] getSpecifications(Connection conn, long submitterId) throws RemoteException;
 }
 

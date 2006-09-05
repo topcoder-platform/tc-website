@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -123,19 +124,22 @@ public class UploadApplicationSpecificationTask extends BaseProcessor {
     /**
      * Process the Application specification upload
      *
-     * @param submissionPath the uploaded file's local path.
+     * @param specificationPath the uploaded file's local path.
      *
      * @throws TCWebException when errors occur.
      */
-    private void processApplicationSpecification(String submissionPath) throws TCWebException {
+    private void processApplicationSpecification(String specificationPath) throws TCWebException {
         ApplicationSpecification applicationSpecification = null;
         try {
             Connection conn = Common.getDataSource().getConnection();
             AppSpecification appSpecification = EJBHelper.getAppSpecification();
 
+
+
             // saves the new specification to DB.
             applicationSpecification = new ApplicationSpecification(
-                    -1, getUser().getId(), ApplicationSpecification.APPLICATION_SPECIFICATION);
+                    -1, getUser().getId(), ApplicationSpecification.APPLICATION_SPECIFICATION,
+                    false, 0, (new File(specificationPath)).toURL());
             appSpecification.insertSpecification(conn, applicationSpecification);
 
             // places a screening request so the specification will be screened asynchronously.
@@ -143,7 +147,7 @@ public class UploadApplicationSpecificationTask extends BaseProcessor {
                 new SpecificationScreeningRequest(
                 -1, getUser().getId(),
                 applicationSpecification.getSpecificationId(),
-                submissionPath,
+                specificationPath,
                 ProjectType.APPLICATION);
             ScreeningJob.placeRequest(specificationScreeningRequest, conn);
         } catch (NamingException ne) {
@@ -154,6 +158,8 @@ public class UploadApplicationSpecificationTask extends BaseProcessor {
             throw new TCWebException("Internal error. Please inform TC.", ce);
         } catch (SQLException sqle) {
             throw new TCWebException("Could not create the specification screening request.", sqle);
+        } catch (MalformedURLException murle) {
+            throw new TCWebException("Could not create the remote file.", murle);
         }
 
         getRequest().setAttribute(Constants.SPECIFICATION_KEY, String.valueOf(applicationSpecification.getSpecificationId()));
