@@ -4,7 +4,14 @@
 
 package com.topcoder.dde.request;
 
+import java.sql.Connection;
+import java.util.Arrays;
+
+import com.topcoder.apps.review.persistence.Common;
+import com.topcoder.apps.screening.EJBHelper;
 import com.topcoder.apps.screening.PermissionHelper;
+import com.topcoder.apps.screening.application.AppSpecification;
+import com.topcoder.apps.screening.application.ApplicationSpecification;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
@@ -33,6 +40,15 @@ public class UploadApplicationSpecification extends BaseProcessor {
                         && !PermissionHelper.hasSpecificationSubmitPermission(getUser())) {
                     throw new NavigationException("You are not authorized to view this page");
                 }
+
+                Connection conn = Common.getDataSource().getConnection();
+                AppSpecification appSpecification = EJBHelper.getAppSpecification();
+
+                ApplicationSpecification[] oldSpecs =
+                    appSpecification.getSpecifications(conn, getUser().getId());
+
+                log.debug("oldSpecs.length: " + oldSpecs.length);
+                getRequest().setAttribute("old_specs", Arrays.asList(oldSpecs));
 
                 setNextPage("/applications/specification_upload.jsp");
                 setIsNextPageInContext(true);
