@@ -171,6 +171,7 @@
                 <% if (tabLev1.equals("overview")) { %>
                 <% if (tabLev2.equals("join_us")) {%>
                 <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=onsite_schedule"><% if (tabLev3.equals("schedule")) {%><img src="/i/tournament/tccc06/tabs/L3_scheduleOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_scheduleOff.gif" border="0"/><% } %></a></td>
+
                 <%--
                 <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=dev_forums"><% if (tabLev3.equals("dev_forums")) {%><img src="/i/tournament/tccc06/tabs/L3_devforumsOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_devforumsOff.gif" border="0" /><% } %></a></td>
                 <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=pickme_contest"><% if (tabLev3.equals("pickme")) {%><img src="/i/tournament/tccc06/tabs/L3_pickmeOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_pickmeOff.gif" border="0" /><% } %></a></td>

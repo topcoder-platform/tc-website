@@ -65,7 +65,7 @@ versus traditional business techniques.  There may also be a light
 amount of discussion on how the TopCoder Software process was utilized
 to implement each of these projects.
 <br><br>
-<span class="bodySubtitle">Friday, May 5th</span>
+<span class="bodySubtitle">Friday, November 17</span>
 <br><br>
 <b>1:00PM - 2:00PM<br>
 Estimating Project Size</b><br>
