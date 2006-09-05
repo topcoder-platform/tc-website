@@ -132,6 +132,26 @@ div.popUp div {
             <tr class="<%=even?"light":"dark"%>">
                <td class="valueW"><div>&nbsp;</div></td>
                <td class="value" nowrap="nowrap">
+               <studio:handle coderId="13372886"/>
+               </td>
+               <td class="value">
+               <a href="/?module=ViewContestDetails&amp;ct=2012">NexGen Heritage Clothing Labels</a>
+               </td>
+               <td class="valueR">
+               $500.00
+               </td>
+               <td class="valueR">
+                <div class="container">
+                    <a href="/pdfs/downloads/NexGen_Heritage_Clothing_Labels.pdf"><img src="/i/layout/disk.gif" alt="Download submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()" /></a>
+                    <div id="pop<%=i%>" class="popUp"><div>Download submission</div></div>
+                </div>
+               </td>
+               <td class="valueE"><div>&nbsp;</div></td>
+            </tr>
+            <% even = !even; i++; %>
+            <tr class="<%=even?"light":"dark"%>">
+               <td class="valueW"><div>&nbsp;</div></td>
+               <td class="value" nowrap="nowrap">
                <studio:handle coderId="22636292"/>
                </td>
                <td class="value">
