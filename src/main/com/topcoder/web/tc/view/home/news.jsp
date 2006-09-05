@@ -8,6 +8,25 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 <%--------------------------------------------------------%>
 <tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>09.05.06<br>11:15 AM</td>
+    <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_4">Marathon Match 4 - Analysis</A></span><br><br>
+Most of us have played the classic game of Battleship.  I'd always viewed
+it as mostly a game of luck but, while the element of luck can't be denied,
+this competition proved that some strategies are much better than others.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="159052" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_4">full story</A>&#160;|&#160;
+    <tc-webtag:forumLink forumID="506088" message="discuss this"/>&#160;|&#160;
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/><br>09.05.06<br>9:00 AM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -187,21 +206,6 @@
     <A href="/tc?module=Static&d1=match_editorials&d2=srm317">full story</A>&#160;|&#160;
     <tc-webtag:forumLink forumID="505992" message="discuss this"/>&#160;|&#160;
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>08.28.06<br>9:00 AM</td>
-    <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=TCCC06ViewAlgoReg">TCCC06 Algorithm registration is now open</A>
-      </span><br><br>
-      Registration is now open.
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=TCCC06ViewAlgoReg">view</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506074" message="discuss this"/>&#160;|&#160;
-    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
 
 
