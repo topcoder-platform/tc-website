@@ -38,6 +38,7 @@
     </jsp:include>
 
 <table class="bodyText" cellpadding="3" cellspacing="0" border="0">
+<tr><td>08.16.2006</td><td><strong>Marathon Match 4</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_4">Analysis</A></td></tr>
 <tr><td>08.02.2006</td><td><strong>Intel&#174; Multi-Threading Competion 7</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_7">Analysis</A></td></tr>
 <tr><td>06.28.2006</td><td><strong>Intel&#174; Multi-Threading Competion 6</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_6">Analysis</A></td></tr>
 <tr><td>06.14.2006</td><td><strong>Marathon Match 2</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_2">Analysis</A></td></tr>
