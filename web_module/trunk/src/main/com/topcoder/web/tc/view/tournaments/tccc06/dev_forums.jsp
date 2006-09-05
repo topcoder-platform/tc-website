@@ -24,23 +24,59 @@
             
 <span class="bigTitle">Developer Forums</span>
 <br><br>
-Three reasons to join us at the Aladdin Resort and Casino for the 2006 TopCoder Collegiate Challenge:
+Three reasons to join us at the 2006 TopCoder Collegiate Challenge:
 <br><br>
-<span class="bodySubtitle">Thursday, May 4th</span>
+
+<span class="bodySubtitle">Wednesday, November 15</span>
 <br><br>
-<b>10:00AM - 10:45AM<br>
-Secondhand Shopping:  Efficient Component Reuse</b><br>
-Component based software engineering only works if the components developed are reused on a regular basis.  When a library grows very large and diverse it becomes increasingly difficult for designers and developers to locate relevant components.  If it becomes too difficult they are likely to decide to redesign / redevelop the functionality themselves, or duplicate it in a similar component, thus negating the advantages of component based software engineering and reuse.  The search feature then becomes key, and raises the question: what to search on?  Utilizing reuse metric information by tracking who is downloading what components in what applications will provide access to hardened assets to improve quality and time to market.
+<b>3:00PM - 4:00PM<br>
+Applying the TopCoder Philosophy to New Frontiers</b><br>
+Two TopCoder clients have utilized the core TopCoder philosophies of
+competition-based business models and objective rating systems as means
+of assessing performance and reducing risk.  In the first part of the
+forum, there will be a discussion of how Aizling's competition model
+works in the nursing field as well as the feedback system and shift
+matching logic.  Continuing, the next topic will be Equitrader's
+simulated trading competitions, how the rating system was tweaked, and
+the new Equitrader Scripting language which enables members to create
+autonomous trading bots.  The discussion will compare and contrast each
+project with the TopCoder methodologies and the results of these
+projects to date, with a focus on the benefits of these unique models
+versus traditional business techniques.  There may also be a light
+amount of discussion on how the TopCoder Software process was utilized
+to implement each of these projects.
+<br><br>
+<span class="bodySubtitle">Thursday, November 16</span>
+<br><br>
+<b>3:00PM - 4:00PM<br>
+Overview of Recent TopCoder Projects</b><br>
+Two TopCoder clients have utilized the core TopCoder philosophies of
+competition-based business models and objective rating systems as means
+of assessing performance and reducing risk.  In the first part of the
+forum, there will be a discussion of how Aizling's competition model
+works in the nursing field as well as the feedback system and shift
+matching logic.  Continuing, the next topic will be Equitrader's
+simulated trading competitions, how the rating system was tweaked, and
+the new Equitrader Scripting language which enables members to create
+autonomous trading bots.  The discussion will compare and contrast each
+project with the TopCoder methodologies and the results of these
+projects to date, with a focus on the benefits of these unique models
+versus traditional business techniques.  There may also be a light
+amount of discussion on how the TopCoder Software process was utilized
+to implement each of these projects.
 <br><br>
 <span class="bodySubtitle">Friday, May 5th</span>
 <br><br>
-<b>11:00AM - 11:45AM<br>
-Bringing It All Together Using SOA Architectures</b><br>
-In today's IT environments, it is rare that an organization has the opportunity to reinvent itself from the ground up. Often we find ourselves saddled with stovepipe systems, a plethora of technologies, and software purchased but not implemented (shelfware) thanks to our "if it isn't broken, don't fix it" rationale. The conventional wisdom has been to either continue to exist disconnected or to invest heavily in cross-system enterprise integration platforms. The first is inefficient and the second frightens CEOs and CIOs equally due to the risk, scope, cost, and complexity of such endeavors.  Both new and legacy solutions, from internal and external sources, are being hidden behind a SOA architecture.  This discussion will address the various ways to properly utilize SOA to solve these types of problems.
-<br><br>
-<b>2:00PM - 2:45PM<br>
-Next Generation Development Round Table Discussion</b><br>
-This round table discussion will discuss the implications of next generation development. Find out how the paradigm of User Interfaces changes when considering how to design and build systems using next generation software. 
+<b>1:00PM - 2:00PM<br>
+Estimating Project Size</b><br>
+Use Case Points is a methodology to estimate the amount of effort
+required to implement a project.  It is based on an evaluation of the
+Use Cases and Actors from a Use Case model, the Technical Complexity
+Factors of a project (such as language complexity and target
+infrastructure), Environmental Complexity Factors (such as the
+experience of the participating members), and Productivity Factor (PF)
+obtained from historical project data (such as historical LOC/hour
+efficiency for TopCoder assemblers).
 <br><br>
         </div>
       </td>
