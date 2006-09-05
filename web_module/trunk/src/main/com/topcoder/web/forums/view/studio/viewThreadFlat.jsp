@@ -220,8 +220,12 @@
                 </tc-webtag:iterator>
                 <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink">
                     <%=forum.getName()%>
-                </A> >
-                <%=thread.getName()%>
+                </A>
+                <%	String linkStr = ForumsUtil.createLinkString(forum);
+			   		if (!linkStr.equals("")) { %>
+			   			<%=linkStr%>
+			   	<% 	} %> 
+                > <%=thread.getName()%>
             </b>
         </td>
     </tr></table>
@@ -347,8 +351,12 @@
 </tc-webtag:iterator>
 <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink">
     <%=forum.getName()%>
-</A> >
-<%=thread.getName()%>
+</A>
+<%	linkStr = ForumsUtil.createLinkString(forum);
+   	if (!linkStr.equals("")) { %>
+   		<%=linkStr%>
+<% 	} %> 
+> <%=thread.getName()%>
 </b>
 <% if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br>
 <% if (prevThread != null) { %>
