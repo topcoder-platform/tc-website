@@ -51,15 +51,19 @@
     <br></tc-webtag:errorIterator></span>
                             <tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>I agree
                         </p>
-                        <c:choose>
-                            <c:when test="${sessionInfo.anonymous}">
-                                In order to register, you must first
-                                <a href="/tc?module=Login&amp;nextpage=/tc?module=Static&amp;d1=tournaments&amp;d2=tccc06&amp;d3=spon_reg">login</a>.
-                            </c:when>
-                            <c:otherwise>
-                                <button name="submit" value="submit" type="submit">Submit</button>
-                            </c:otherwise>
-                        </c:choose>
+                        <%--
+                                                <c:choose>
+                                                    <c:when test="${sessionInfo.anonymous}">
+                                                        In order to register, you must first
+                                                        <a href="/tc?module=Login&amp;nextpage=/tc?module=Static&amp;d1=tournaments&amp;d2=tccc06&amp;d3=spon_reg">login</a>.
+                                                    </c:when>
+                                                    <c:otherwise>
+                        --%>
+                        <button name="submit" value="submit" type="submit">Submit</button>
+                        <%--
+                                                    </c:otherwise>
+                                                </c:choose>
+                        --%>
                         <br/><br/>
                     </div>
                 </form>
