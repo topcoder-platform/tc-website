@@ -13,10 +13,10 @@
       <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/DmitryKorolev_big.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;" width="100%">
          <strong><A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_ALGO_COM%>" class="gMetal">Algorithm</A></strong><br>
-         <tc-webtag:handle coderId="21749340" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />:<br>
-         <span class="small">SRM 313: 2116
-         <br>SRM 312: 1925
-         <br>SRM 311: 1695
+         <tc-webtag:handle coderId="15550649" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />:<br>
+         <span class="small">SRM 318: 1157
+         <br>SRM 316: 1066
+         <br>SRM 315: 929
          </span><br><br>
       </td>
    </tr>
