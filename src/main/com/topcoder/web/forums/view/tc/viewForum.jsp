@@ -141,7 +141,11 @@
        <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
           <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >
        </tc-webtag:iterator>
-        <jsp:getProperty name="forum" property="name"/>
+       <jsp:getProperty name="forum" property="name"/>
+       <%	String linkStr = ForumsUtil.createLinkString(forum);
+       		if (!linkStr.equals("")) { %>
+       			<%=linkStr%>
+       <% 	} %>
     </td>
 <% Page[] pages; %>
 <% if (paginator.getNumPages() > 1) { %>
