@@ -39,7 +39,7 @@
 
 <div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
 <tc-webtag:forumLink forumID="505993" message="Discuss this match" /></div>
-<span class="bodySubtitle">SRM 317</span><br>Tuesday, August 29, 2006
+<span class="bodySubtitle">SRM 318</span><br>Tuesday, August 29, 2006
 <br><br>
 
 <h2>Match summary</h2> 
