@@ -212,7 +212,7 @@
 <br>
             <span class="small">
             <strong>NOTE:</strong> this page is updated hourly<br>
-            <strong>NOTE:</strong> only passing are included
+            <strong>NOTE:</strong> only passing submissions are included
             </span><br>
 
 <div class="pagingBox">
