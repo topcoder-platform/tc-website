@@ -45,6 +45,7 @@ public class AppSpecificationBean extends BaseEJB {
                     "specification_remote_filename", "specification_upload_date"},
                     specificationUploaderId == -1 ? new String[] {} : new String[] {"specification_uploader_id"},
                     specificationUploaderId == -1 ? new String[] {} : new String[] {String.valueOf(specificationUploaderId)},
+                    new String[] {"specification_upload_date"}, new String[] {"desc"},
                     conn);
 
             if (rsc.size() < 1) {

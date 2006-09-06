@@ -194,7 +194,8 @@ public abstract class BaseEJB implements SessionBean {
     }
 
     protected ResultSetContainer selectSet(String tableName, String colNames[], String[] constraintColNames,
-                                           String[] constraintColValues, Connection conn) {
+                                           String[] constraintColValues, String[] sortColumns,
+                                           String[] sortOrder, Connection conn) {
         if (constraintColNames.length != constraintColValues.length)
             throw new IllegalArgumentException("name and value arrays don't have the same number of elements.");
         else {
@@ -211,6 +212,15 @@ public abstract class BaseEJB implements SessionBean {
                 query.append(constraintColNames[i]).append(" = ?");
                 if (constraintColNames.length > 1 && i != constraintColNames.length - 1)
                     query.append(" and ");
+            }
+
+            if (sortColumns.length > 0) {
+                query.append(" order by ");
+                for (int i = 0; i < sortColumns.length; i++) {
+                    query.append(sortColumns[i]).append(" ").append(sortOrder[i]);
+                    if (sortColumns.length > 1 && i != sortColumns.length - 1)
+                        query.append(", ");
+                }
             }
 
             log.debug(query);
