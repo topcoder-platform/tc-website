@@ -67,7 +67,6 @@ public class DownloadApplicationSpecification extends BaseProcessor {
 
                 //stream it out via the response
                 getResponse().addHeader("content-disposition", "inline; filename=" + appSpec.getRemoteFilename());
-//                getResponse().setContentType(s.getFileType().getMimeType());
                 ServletOutputStream sos = getResponse().getOutputStream();
 
                 FileInputStream fis = new FileInputStream(appSpec.getSpecificationUrl().getFile());
