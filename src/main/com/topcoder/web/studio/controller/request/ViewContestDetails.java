@@ -48,6 +48,7 @@ public class ViewContestDetails extends ShortHibernateProcessor {
                 }
             }
 
+            getRequest().setAttribute("currentTime", new Date());
 
             setNextPage("/contestDetails.jsp");
             setIsNextPageInContext(true);

@@ -1,11 +1,14 @@
 package com.topcoder.web.common.tag;
 
+import com.topcoder.shared.util.logging.Logger;
+
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import java.util.Collection;
 import java.util.Iterator;
 
 public abstract class SelectTag extends BaseTag {
+    protected static final Logger log = Logger.getLogger(SelectTag.class);
     private String styleClass = null;
     private String onChange = null;
     private String selectedValue = null;
@@ -126,19 +129,19 @@ public abstract class SelectTag extends BaseTag {
         StringBuffer s = new StringBuffer(2000);
         s.append("<select");
         if (name != null) {
-            s.append(" name=\"" + name + "\"");
+            s.append(" name=\"").append(name).append("\"");
         }
         if (styleClass != null) {
-            s.append(" class=\"" + styleClass + "\"");
+            s.append(" class=\"").append(styleClass).append("\"");
         }
         if (onChange != null) {
-            s.append(" onChange=\"" + onChange + "\"");
+            s.append(" onChange=\"").append(onChange).append("\"");
         }
         if (size != null) {
-            s.append(" size=\"" + size + "\"");
+            s.append(" size=\"").append(size).append("\"");
         }
         if (multiple != null) {
-            s.append(" multiple=\"" + multiple + "\"");
+            s.append(" multiple=\"").append(multiple).append("\"");
         }
         s.append(">\n");
         if (useTopValue) {
@@ -146,7 +149,7 @@ public abstract class SelectTag extends BaseTag {
             s.append(topValue == null ? "" : topValue);
             s.append("\"");
             if (selectedValue != null && topValue != null && selectedValue.equals(topValue) ||
-                    selectedText != null && topText != null && selectedText.equals(topValue)) {
+                    selectedText != null && topText != null && selectedText.equals(topText)) {
                 s.append(" selected");
             }
             s.append(">");
@@ -154,20 +157,33 @@ public abstract class SelectTag extends BaseTag {
             s.append("</option>");
         }
         if (options != null) {
+            Object defaultValue = getDefaultValue();
+            Collection values = null;
+            if (String.valueOf(true).equalsIgnoreCase(multiple)) {
+                if (defaultValue instanceof Collection) {
+                    values = (Collection) defaultValue;
+                }
+            }
             if (selectedValue == null) {
-                selectedValue = getDefaultValue() == null ? null : getDefaultValue().toString();
+                selectedValue = defaultValue == null ? null : defaultValue.toString();
+            }
+            if (log.isDebugEnabled()) {
+                log.debug("selected value: " + selectedValue);
             }
             Iterator it = options.iterator();
             for (; it.hasNext();) {
                 Object option = it.next();
                 String optionValue = getOptionValue(option);
+                if (log.isDebugEnabled()) {
+                    log.debug("option value: " + optionValue);
+                }
                 String optionText = getOptionText(option);
                 s.append("<option value=\"");
                 s.append(optionValue);
                 s.append("\"");
                 if (selectedValue != null && selectedValue.equals(optionValue) ||
-                        selectedText != null && selectedText.equals(optionText)
-                        ) {
+                        selectedText != null && selectedText.equals(optionText) ||
+                        values != null && values.contains(optionValue)) {
                     s.append(" selected");
                 }
                 s.append(">");

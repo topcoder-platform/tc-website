@@ -79,11 +79,11 @@ public class SortTag extends TagSupport {
         }
 
         StringBuffer buf = new StringBuffer(100);
-        buf.append("&");
+        buf.append("&amp;");
         buf.append(DataAccessConstants.SORT_COLUMN);
         buf.append("=");
         buf.append(finalColumn);
-        buf.append("&");
+        buf.append("&amp;");
         buf.append(DataAccessConstants.SORT_DIRECTION);
         buf.append("=");
         buf.append(sortDir);
@@ -128,7 +128,7 @@ public class SortTag extends TagSupport {
     private void add(StringBuffer buf, String key, String val) {
         if (val != null) {
             //log.debug("adding " + key + " " + val);
-            buf.append("&");
+            buf.append("&amp;");
             buf.append(key);
             buf.append("=");
             buf.append(val);

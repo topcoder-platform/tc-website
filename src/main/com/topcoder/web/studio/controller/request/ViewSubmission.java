@@ -11,6 +11,9 @@ import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.studio.model.ContestStatus;
+
+import java.util.Date;
 
 /**
  * @author dok
@@ -34,6 +37,13 @@ public class ViewSubmission extends ShortHibernateProcessor {
             }
 
             Contest c = cFactory.getContestDAO().find(contestId);
+            Date now = new Date();
+            if (now.before(c.getStartTime()) ||
+                    now.after(c.getEndTime()) ||
+                    !ContestStatus.ACTIVE.equals(c.getStatus().getId())) {
+                throw new NavigationException("Inactive contest specified.");
+            }
+
             User u = factory.getUserDAO().find(new Long(getUser().getId()));
 
             if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
