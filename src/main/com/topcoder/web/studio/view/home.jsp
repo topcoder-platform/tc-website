@@ -189,6 +189,10 @@
 </div>
 <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
 </div>
+<jsp:include page="foot.jsp"/>
+<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
+</div>
+</div>
 
 </body>
 </html>
