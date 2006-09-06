@@ -42,7 +42,7 @@ public class Google {
             for (int i = 1; i < rounds.length; i++) {
                 submissions.addAll(getSubmissions(dataSourceName, rounds[i], componentId));
             }
-            log.debug("got submissions");
+            log.info("got " + submissions.size() + "  submissions");
             if (submissions != null && submissions.size() > 0) {
                 Submission temp = (Submission) submissions.get(0);
                 StringBuffer buf = new StringBuffer();
@@ -140,8 +140,6 @@ public class Google {
                 log.info("****************** Aggregate **************************");
                 log.info(worstBuf);
                 log.info("**********************************************************");
-
-
 
 
             }
