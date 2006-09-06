@@ -132,7 +132,7 @@
 <c:if test="${isOver}">
     You can enter a handle here to see only submissions by that competitor:
     <tc-webtag:textInput name="<%=Constants.HANDLE%>"/>
-    <button name="submit" value="submit" type="submit">Submit</button>
+    <button name="handleSubmit" value="submit" type="submit">Submit</button>
 </c:if>
 
 
