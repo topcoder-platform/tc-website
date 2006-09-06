@@ -74,9 +74,8 @@
     String statusSelectedValue=null;
     String statusSelectedText=null;
     if (status < 0)  {
-    	if (payment_is_for_contract) {
-	    	statusSelectedText = payment_is_for_contract? PactsConstants.DEFAULT_CONTRACT_PAYMENT_STATUS :
-    						 						      PactsConstants.DEFAULT_PAYMENT_STATUS;    		
+    	statusSelectedText = payment_is_for_contract? PactsConstants.DEFAULT_CONTRACT_PAYMENT_STATUS :
+   						 						      PactsConstants.DEFAULT_PAYMENT_STATUS;    		
     } else {
     	statusSelectedValue = "" + status;
     }
