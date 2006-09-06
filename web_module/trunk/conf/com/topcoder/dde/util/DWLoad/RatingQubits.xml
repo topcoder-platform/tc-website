@@ -4,7 +4,7 @@
         <Value>com.informix.jdbc.IfxDriver</Value>
     </Property>
     <Property name="ConnectionURL">
-        <Value>jdbc:informix-sqli://172.16.214.52:1526/tcs_catalog:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec</Value>
+        <Value>jdbc:informix-sqli://63.118.154.190:1526/tcs_catalog:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec</Value>
     </Property>
     <Property name="HistoryLength">
         <Value>50</Value>
