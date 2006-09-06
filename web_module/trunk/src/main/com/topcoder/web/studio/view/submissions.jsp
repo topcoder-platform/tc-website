@@ -92,6 +92,14 @@
 </head>
 
 <body>
+<form name="submissionsForm" method="get" action="${sessionInfo.servletPath}">
+<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewSubmissions"/>
+<tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+<input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
+<input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
+<input type="hidden" name="<%=DataAccessConstants.SORT_COLUMN%>" value=""/>
+<input type="hidden" name="<%=DataAccessConstants.SORT_DIRECTION%>" value=""/>
+
 
 <div align="center">
 <div class="contentOut">
@@ -119,13 +127,6 @@
 
 <h1>Submissions</h1>
 
-<form name="submissionsForm" method="get" action="${sessionInfo.servletPath}">
-<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewSubmissions"/>
-<tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-<input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
-<input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
-<input type="hidden" name="<%=DataAccessConstants.SORT_COLUMN%>" value=""/>
-<input type="hidden" name="<%=DataAccessConstants.SORT_DIRECTION%>" value=""/>
 <c:if test="${isOver}">
     You can enter a handle here to see only submissions by that competitor:
     <tc-webtag:textInput name="<%=Constants.HANDLE%>"/>
@@ -238,7 +239,6 @@
 </div>
 
 
-</form>
 </div>
 <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
 </div>
@@ -246,6 +246,7 @@
 <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
 </div>
 </div>
+</form>
 
 </body>
 </html>
