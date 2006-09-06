@@ -69,6 +69,40 @@ public class AppSpecificationBean extends BaseEJB {
     }
 
     /**
+     * gets a particular specification
+     *
+     * @param conn the connection being used
+     * @param specificationId the aplication specification Id
+     */
+    public ApplicationSpecification getSpecification(Connection conn, long specificationId) throws RemoteException {
+        try {
+            log.debug("Retrieving specifications...");
+            ResultSetContainer rsc = selectSet("specification",
+                    new String[] {"specification_id", "specification_uploader_id",
+                    "specification_type_id", "passed_auto_screening", "specification_url",
+                    "specification_remote_filename", "specification_upload_date"},
+                    new String[] {"specification_id"},
+                    new String[] {String.valueOf(specificationId)},
+                    new String[] {}, new String[] {},
+                    conn);
+
+            if (rsc.size() != 1) {
+                return null;
+            } else {
+                return new ApplicationSpecification(rsc.getLongItem(0, "specification_id"),
+                rsc.getLongItem(0, "specification_uploader_id"),
+                rsc.getLongItem(0, "specification_type_id"),
+                rsc.getItem(0, "passed_auto_screening") == null ? false : true,
+                rsc.getItem(0, "passed_auto_screening") == null ? 0 : rsc.getIntItem(0, "passed_auto_screening"),
+                new URL(rsc.getStringItem(0, "specification_url")), rsc.getStringItem(0, "specification_remote_filename"),
+                rsc.getTimestampItem(0, "specification_upload_date"));
+            }
+        } catch (Exception e) {
+            throw new EJBException(e);
+        }
+    }
+
+    /**
      * Inserts a specified user role
      *
      * @param conn the connection being used

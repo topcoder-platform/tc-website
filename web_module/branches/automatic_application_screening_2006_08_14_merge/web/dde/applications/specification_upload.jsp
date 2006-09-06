@@ -28,7 +28,11 @@ import="com.topcoder.dde.util.Constants" %>
             <c:forEach items="${old_specs}" var="specItem">
             <tr>
                 <td><c:out value="${specItem.uploadDate}"/></td>
-                <td><c:out value="${specItem.remoteFilename}"/></td>
+                <td>
+                    <A href="/tcs?module=DownloadApplicationSpecification&<%=Constants.SPECIFICATION_KEY%>=<c:out value="${specItem.specificationId}"/>">
+                        <c:out value="${specItem.remoteFilename}"/>
+                    </a>
+                </td>
                 <c:choose>
                     <c:when test="${specItem.screened}">
                         <td>
