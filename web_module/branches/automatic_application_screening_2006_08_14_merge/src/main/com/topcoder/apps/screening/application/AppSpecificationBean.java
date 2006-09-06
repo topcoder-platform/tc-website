@@ -41,7 +41,8 @@ public class AppSpecificationBean extends BaseEJB {
             log.debug("Retrieving specifications...");
             ResultSetContainer rsc = selectSet("specification",
                     new String[] {"specification_id", "specification_uploader_id",
-                    "specification_type_id", "passed_auto_screening", "specification_url"},
+                    "specification_type_id", "passed_auto_screening", "specification_url",
+                    "specification_remote_filename", "specification_upload_date"},
                     specificationUploaderId == -1 ? new String[] {} : new String[] {"specification_uploader_id"},
                     specificationUploaderId == -1 ? new String[] {} : new String[] {String.valueOf(specificationUploaderId)},
                     conn);
@@ -56,7 +57,8 @@ public class AppSpecificationBean extends BaseEJB {
                         rsc.getLongItem(i, "specification_type_id"),
                         rsc.getItem(i, "passed_auto_screening") == null ? false : true,
                         rsc.getItem(i, "passed_auto_screening") == null ? 0 : rsc.getIntItem(i, "passed_auto_screening"),
-                        new URL(rsc.getStringItem(i, "specification_url")));
+                        new URL(rsc.getStringItem(i, "specification_url")), rsc.getStringItem(i, "specification_remote_filename"),
+                        rsc.getTimestampItem(i, "specification_upload_date"));
                 }
                 return appSpecs;
             }
@@ -84,11 +86,14 @@ public class AppSpecificationBean extends BaseEJB {
 
             insert(conn, "specification",
                     new String[]{"specification_id", "specification_uploader_id",
-                    "specification_type_id", "specification_url"},
+                    "specification_type_id", "specification_url",
+                    "specification_remote_filename", "specification_upload_date"},
                     new String[]{String.valueOf(appSpec.getSpecificationId()),
                         String.valueOf(appSpec.getSpecificationUploaderId()),
                         String.valueOf(appSpec.getSpecificationTypeId()),
-                        String.valueOf(appSpec.getSpecificationUrl().toString())
+                        String.valueOf(appSpec.getSpecificationUrl().toString()),
+                        String.valueOf(appSpec.getRemoteFilename().toString()),
+                        "current"
                         });
         } catch (Exception e) {
             throw new EJBException(e);

@@ -18,14 +18,19 @@ import="com.topcoder.dde.util.Constants" %>
         </TD>
       </TR>
       <TR>
-        <TD class="statText">Previous specifications...</TD>
+        <TD class="statText">Uploaded specifications:</TD>
         <TD class="statText">
+            <tr>
+                <td>Date</td>
+                <td>Filename</td>
+                <td>Screening results</td>
+            </tr>
             <c:forEach items="${old_specs}" var="specItem">
             <tr>
-                <td><c:out value="${specItem.specificationUrl}"/></td>
+                <td><c:out value="${specItem.uploadDate}"/></td>
+                <td><c:out value="${specItem.remoteFilename}"/></td>
                 <c:choose>
                     <c:when test="${specItem.screened}">
-                        <td>Screened</td>
                         <td>
                             <A href="/tcs?module=ViewUploadResults&<%=Constants.SPECIFICATION_KEY%>=<c:out value="${specItem.specificationId}"/>">
                                 <c:choose>
@@ -40,7 +45,6 @@ import="com.topcoder.dde.util.Constants" %>
                         </td>
                     </c:when>
                     <c:otherwise>
-                        <td>Waiting for screening...</td>
                         <td>N/A</td>
                     </c:otherwise>
                 </c:choose>

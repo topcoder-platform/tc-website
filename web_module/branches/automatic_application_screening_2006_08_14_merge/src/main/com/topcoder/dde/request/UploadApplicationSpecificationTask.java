@@ -134,12 +134,12 @@ public class UploadApplicationSpecificationTask extends BaseProcessor {
             Connection conn = Common.getDataSource().getConnection();
             AppSpecification appSpecification = EJBHelper.getAppSpecification();
 
-
+            String remoteFileName = ((MultipartRequest) getRequest()).getUploadedFile("file1").getRemoteFileName();
 
             // saves the new specification to DB.
             applicationSpecification = new ApplicationSpecification(
                     -1, getUser().getId(), ApplicationSpecification.APPLICATION_SPECIFICATION,
-                    false, 0, (new File(specificationPath)).toURL());
+                    false, 0, (new File(specificationPath)).toURL(), remoteFileName, null);
             appSpecification.insertSpecification(conn, applicationSpecification);
 
             // places a screening request so the specification will be screened asynchronously.

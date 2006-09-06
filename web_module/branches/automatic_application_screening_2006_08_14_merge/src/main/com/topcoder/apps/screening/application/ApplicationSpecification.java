@@ -5,6 +5,7 @@
 package com.topcoder.apps.screening.application;
 
 import java.net.URL;
+import java.sql.Timestamp;
 
 /**
  * ApplicationSpecification Bean.
@@ -20,7 +21,7 @@ public class ApplicationSpecification {
 
     private long specificationId;
 
-    private URL specificationUrl = null;
+    private URL specificationUrl;
 
     private boolean screened;
 
@@ -30,6 +31,10 @@ public class ApplicationSpecification {
 
     private long specificationTypeId;
 
+    private String remoteFilename;
+
+    private Timestamp uploadDate;
+
     /**
      * @param specificationId
      * @param specificationUploaderId
@@ -37,9 +42,12 @@ public class ApplicationSpecification {
      * @param screened
      * @param passedAutoScreening
      * @param specificationUrl
+     * @param remoteFilename
+     * @param uploadDate
      */
     public ApplicationSpecification(long specificationId, long specificationUploaderId,
-            long specificationTypeId, boolean screened, int passedAutoScreening, URL specificationUrl) {
+            long specificationTypeId, boolean screened, int passedAutoScreening, URL specificationUrl,
+            String remoteFilename, Timestamp uploadDate) {
         super();
         this.specificationId = specificationId;
         this.specificationUploaderId = specificationUploaderId;
@@ -47,6 +55,36 @@ public class ApplicationSpecification {
         this.screened = screened;
         this.passedAutoScreening = passedAutoScreening;
         this.specificationUrl = specificationUrl;
+        this.remoteFilename = remoteFilename;
+        this.uploadDate = uploadDate;
+    }
+
+    /**
+     * @return Returns the remoteFilename.
+     */
+    public String getRemoteFilename() {
+        return remoteFilename;
+    }
+
+    /**
+     * @param remoteFilename The remoteFilename to set.
+     */
+    public void setRemoteFilename(String remoteFilename) {
+        this.remoteFilename = remoteFilename;
+    }
+
+    /**
+     * @return Returns the uploadDate.
+     */
+    public Timestamp getUploadDate() {
+        return uploadDate;
+    }
+
+    /**
+     * @param uploadDate The uploadDate to set.
+     */
+    public void setUploadDate(Timestamp uploadDate) {
+        this.uploadDate = uploadDate;
     }
 
     /**
@@ -62,6 +100,7 @@ public class ApplicationSpecification {
     public void setScreened(boolean screened) {
         this.screened = screened;
     }
+
     /**
      * @return Returns the specificationUrl.
      */
