@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
   <blobFix>
     <sourcesList>
-        <source name = "topcoder_dw" value = "jdbc:informix-sqli://172.16.214.52:1526/topcoder_dw:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec"/>
+        <source name = "topcoder_dw" value = "jdbc:informix-sqli://63.118.154.190:1526/topcoder_dw:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec"/>
     </sourcesList>  
     <blobColumn>problem_text</blobColumn>
     <table>problem</table>
