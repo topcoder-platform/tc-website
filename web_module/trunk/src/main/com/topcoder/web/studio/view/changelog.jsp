@@ -26,7 +26,7 @@
 
             <div class="contentSpacer">
                 <p>
-                    1.2.0 - 2006.08.xx
+                    1.2.0 - 2006.09.05
                     <ul>
                         <li>Add the ability for admins to specify what types of files will be allowed on a per contest
                             basis</li>
