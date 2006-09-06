@@ -4,7 +4,7 @@
 <%@ page import="java.util.Map" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<% ResultSetContainer recentWinners = (ResultSetContainer) ((Map) request.getAttribute("public_home_data")).get("recent_winners");%>
+<% ResultSetContainer recentWinners = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("recent_winners");%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <html>
