@@ -234,7 +234,7 @@ out.print("<form action=\""+PactsConstants.INTERNAL_SERVLET_URL+"\" method=\"pos
             <td><b>Method:</b></td><td>
 <!--  to do default -->
             <tc-webtag:rscSelect name="payment_method_id_new" list="<%=paymentMethods%>" 
-            fieldText="paymentMethods" fieldValue="payment_method_id"  useTopValue="false" />
+            fieldText="payment_method_desc" fieldValue="payment_method_id"  useTopValue="false" />
             
             <select name="payment_method_id">
     <%      if (paymentMethods != null) {
