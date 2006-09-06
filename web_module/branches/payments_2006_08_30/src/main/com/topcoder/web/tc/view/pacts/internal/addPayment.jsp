@@ -15,6 +15,7 @@
     <script type="text/javascript" src="/js/jscal/calendar.js"></script>
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
     <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
+    <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
     
 
 </head>
@@ -121,9 +122,9 @@
 Calendar.setup(
 {
  inputField  : "date_due",  
-                    ifFormat    : "%Y.%m.%d %H:%M",    
+                    ifFormat    : "%Y.%m.%d",    
                     button      : "trigger_date_due",     
-                    showsTime   : true,
+                    showsTime   : false,
                     singleClick  : false,
                     cache       : true
 }
@@ -195,8 +196,9 @@ Calendar.setup(
             </td></tr>
             <tr>
             <td><b>Date Due:</b></td><td>
-            <input type=text width=25 name="date_due" id="date_due" value="<%= due %>"> (if left blank, 2 weeks from now)
+            <input type=text width=25 name="date_due" id="date_due" value="<%= due %>"> 
                 <button id="trigger_date_due">Set</button>
+            (if left blank, 2 weeks from now)
             </td>
 	            
         </tr>
