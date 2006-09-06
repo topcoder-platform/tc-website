@@ -31,8 +31,9 @@
 
                 <span class="bigTitle">Registration</span>
                 <br/><br/>
-
                 The registration period is from August 28, 2006 9:00 AM EDT to September 12, 2006 6:00 PM EDT.
+                <br><br>
+                You must be logged into your TopCoder account in order to register for this competition.
                 <br><br>
 
                 <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
