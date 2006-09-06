@@ -119,11 +119,11 @@ public class ViewSubmissions extends Base {
 
         String end = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
         if (end.equals(""))
-            end = String.valueOf(Constants.VIEW_SUBMISSIONS_SCROLL_SIZE);
+            end = String.valueOf(Constants.ADMIN_VIEW_SUBMISSIONS_SCROLL_SIZE);
 
-        if (Integer.parseInt(end) - Integer.parseInt(start) > (Constants.VIEW_SUBMISSIONS_SCROLL_SIZE - 1)) {
+        if (Integer.parseInt(end) - Integer.parseInt(start) > (Constants.ADMIN_VIEW_SUBMISSIONS_SCROLL_SIZE - 1)) {
             r.setProperty("submissions" + DataAccessConstants.END_RANK,
-                    String.valueOf(Integer.parseInt(start) + Constants.VIEW_SUBMISSIONS_SCROLL_SIZE - 1));
+                    String.valueOf(Integer.parseInt(start) + Constants.ADMIN_VIEW_SUBMISSIONS_SCROLL_SIZE - 1));
         } else {
             r.setProperty("submissions" + DataAccessConstants.END_RANK, end);
         }
@@ -143,7 +143,7 @@ public class ViewSubmissions extends Base {
         }
         getRequest().setAttribute("unMarkedOnly", Boolean.valueOf(unMarkedOnly));
 
-        setNextPage("/admin/viewSubmissions.jsp");
+        setNextPage("/admin/submissions.jsp");
         setIsNextPageInContext(true);
 
     }

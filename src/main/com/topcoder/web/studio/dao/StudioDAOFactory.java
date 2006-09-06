@@ -29,4 +29,8 @@ public interface StudioDAOFactory {
 
     PrizeTypeDAO getPrizeTypeDAO();
 
+    FileTypeDAO getFileTypeDAO();
+
+    MimeTypeDAO getMimeTypeDAO();
+
 }

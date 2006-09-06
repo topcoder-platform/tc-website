@@ -51,4 +51,12 @@ public class StudioDAOFactoryHibernate implements StudioDAOFactory {
     public PrizeTypeDAO getPrizeTypeDAO() {
         return new PrizeTypeDAOHibernate();
     }
+
+    public FileTypeDAO getFileTypeDAO() {
+        return new FileTypeDAOHibernate();
+    }
+
+    public MimeTypeDAO getMimeTypeDAO() {
+        return new MimeTypeDAOHibernate();
+    }
 }

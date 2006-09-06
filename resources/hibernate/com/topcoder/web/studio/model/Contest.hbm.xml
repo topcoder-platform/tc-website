@@ -28,12 +28,19 @@
             <key column="contest_id" not-null="true"/>
             <many-to-many column="prize_id" class="Prize"/>
         </set>
+        <set name="fileTypes" table="contest_file_type_xref" cascade="all" access="field">
+            <key column="contest_id" not-null="true"/>
+            <many-to-many column="file_type_id" class="StudioFileType"/>
+        </set>
         <set name="submissions" inverse="true" access="field">
             <key column="contest_id" not-null="true"/>
             <one-to-many class="Submission"/>
         </set>
+        <set name="results" cascade="all" inverse="true" access="field" sort="natural">
+            <key column="contest_id" not-null="true"/>
+            <one-to-many class="ContestResult"/>
+        </set>
         <many-to-one name="status" column="contest_status_id" class="ContestStatus" access="field"/>
-
 
     </class>
 </hibernate-mapping>

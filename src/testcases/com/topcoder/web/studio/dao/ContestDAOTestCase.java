@@ -1,12 +1,12 @@
 package com.topcoder.web.studio.dao;
 
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.FileType;
 import com.topcoder.web.studio.TCHibernateTestCase;
 import com.topcoder.web.studio.model.*;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
@@ -17,9 +17,9 @@ import java.util.List;
  */
 public class ContestDAOTestCase extends TCHibernateTestCase {
 
-    public void testGetCountries() {
-        List countries = StudioDAOUtil.getFactory().getContestDAO().getContests();
-        assertTrue("could not find any contests in the db", countries != null && !countries.isEmpty());
+    public void testGetContests() {
+        List contests = StudioDAOUtil.getFactory().getContestDAO().getContests();
+        assertTrue("could not find any contests in the db", contests != null && !contests.isEmpty());
     }
 
     public void testSave() {
@@ -28,6 +28,9 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         c.setStartTime(new Timestamp(new Date().getTime()));
         c.setEndTime(new Timestamp(c.getStartTime().getTime() + 1000 * 60 * 60));
         c.setStatus(StudioDAOUtil.getFactory().getContestStatusDAO().find(ContestStatus.UNACTIVE));
+        c.setFileTypes(new HashSet(DAOUtil.getFactory().getFileTypeDAO().getFileTypes()));
+
+
         StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(c);
         Contest c1 = StudioDAOUtil.getFactory().getContestDAO().find(c.getId());
         assertTrue("did not create contst", c1 != null);
@@ -140,7 +143,7 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         c.setStatus(StudioDAOUtil.getFactory().getContestStatusDAO().find(ContestStatus.UNACTIVE));
 
         Document d = new Document();
-        d.setFileType(DAOUtil.getFactory().getFileTypeDAO().find(FileType.ADOBE_ACROBAT_TYPE_ID));
+        d.setMimeType(StudioDAOUtil.getFactory().getMimeTypeDAO().find(new Integer(1)));
         d.setOriginalFileName("somecrap.pdf");
         FilePath p = new FilePath();
         p.setPath("stuff");

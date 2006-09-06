@@ -11,7 +11,7 @@ public class ViewContests extends Base {
     protected void dbProcessing() throws Exception {
         //load contests
         getRequest().setAttribute("contests", StudioDAOUtil.getFactory().getContestDAO().getContests());
-        setNextPage("/admin/viewContests.jsp");
+        setNextPage("/admin/contests.jsp");
         setIsNextPageInContext(true);
 
     }

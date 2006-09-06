@@ -1,7 +1,6 @@
 package com.topcoder.web.studio.model;
 
 import com.topcoder.web.common.model.Base;
-import com.topcoder.web.common.model.FileType;
 import com.topcoder.web.common.model.User;
 
 /**
@@ -17,7 +16,9 @@ public class Submission extends Base {
     private String systemFileName;
     private FilePath path;
     private SubmissionType type;
-    private FileType fileType;
+    private MimeType mimeType;
+    private SubmissionReview review;
+    private ContestResult result;
 
     public Long getId() {
         return id;
@@ -71,17 +72,32 @@ public class Submission extends Base {
         return type;
     }
 
+    public SubmissionReview getReview() {
+        return review;
+    }
+
+    public void setReview(SubmissionReview review) {
+        this.review = review;
+    }
+
     public void setType(SubmissionType type) {
         this.type = type;
     }
 
-    public FileType getFileType() {
-        return fileType;
+    public MimeType getMimeType() {
+        return mimeType;
     }
 
-    public void setFileType(FileType fileType) {
-        this.fileType = fileType;
+    public void setMimeType(MimeType mimeType) {
+        this.mimeType = mimeType;
     }
 
+    public ContestResult getResult() {
+        return result;
+    }
+
+    public void setResult(ContestResult result) {
+        this.result = result;
+    }
 
 }

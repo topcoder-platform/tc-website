@@ -21,7 +21,7 @@
 
 <div align="center">
     <div class="contentOut">
-    <jsp:include page="../top.jsp" />
+        <jsp:include page="../top.jsp"/>
         <jsp:include page="../topNav.jsp">
             <jsp:param name="node" value="contests"/>
         </jsp:include>
@@ -38,7 +38,8 @@
                             <td class="NW">&nbsp;</td>
                             <td class="title" colspan="5">Contests</td>
                             <td class="titleR">
-                                <h2><a href="${sessionInfo.servletPath}?module=AdminViewContest">add contest</a></h2></td>
+                                <h2><a href="${sessionInfo.servletPath}?module=AdminViewContest">add contest</a></h2>
+                            </td>
                             <td class="NE">&nbsp;</td>
                         </tr>
                         <tr>
@@ -57,11 +58,11 @@
                                 <td class="valueW"><div>&nbsp;</div></td>
                                 <td class="value"><strong>${contest.name}</strong></td>
                                 <td class="value">${contest.status.description}</td>
-                                <td class="valueC">
-                                    <tc-webtag:format object="${contest.startTime}" format="MMMM d, yyyy 'at<br>' hh:mm a z" timeZone="${sessionInfo.timezone}"/>
+                                <td class="valueC" nowrap="nowrap">
+                                    <tc-webtag:format object="${contest.startTime}" format="MMMM d, yyyy 'at<br>' HH:mm z" timeZone="${sessionInfo.timezone}"/>
                                 </td>
-                                <td class="valueC">
-                                    <tc-webtag:format object="${contest.endTime}" format="MMMM d, yyyy 'at<br>' hh:mm a z" timeZone="${sessionInfo.timezone}"/>
+                                <td class="valueC" nowrap="nowrap">
+                                    <tc-webtag:format object="${contest.endTime}" format="MMMM d, yyyy 'at<br>' HH:mm z" timeZone="${sessionInfo.timezone}"/>
                                 </td>
                                 <td class="valueC">
                                     <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}">${fn:length(contest.submissions)}</a>

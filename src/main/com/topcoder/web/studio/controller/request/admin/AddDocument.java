@@ -6,10 +6,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.Document;
-import com.topcoder.web.studio.model.DocumentType;
-import com.topcoder.web.studio.model.FilePath;
+import com.topcoder.web.studio.model.*;
 
 import java.io.File;
 import java.io.FileOutputStream;
