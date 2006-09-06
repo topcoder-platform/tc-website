@@ -24,7 +24,9 @@ public class Contest extends Base {
     private Set documents = new HashSet();
     private ContestStatus status;
     private Integer forumId;
-    private Set submissions;
+    private Set submissions = new HashSet();
+    private Set fileTypes = new HashSet();
+    private Set results = new TreeSet();
 
     public Long getId() {
         return id;
@@ -87,7 +89,7 @@ public class Contest extends Base {
         ContestConfig ret = null;
         for (Iterator it = config.iterator(); it.hasNext() && !found;) {
             ret = (ContestConfig) it.next();
-            found = ret.getProperty().equals(property);
+            found = ret.getProperty() != null && ret.getProperty().equals(property);
         }
         if (found) {
             return ret;
@@ -102,6 +104,10 @@ public class Contest extends Base {
 
     public ContestConfig getPrizeDescription() {
         return getConfig(StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.PRIZE_DESCRIPTION));
+    }
+
+    public ContestConfig getViewableSubmissions() {
+        return getConfig(StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.VIEWABLE_SUBMISSIONS));
     }
 
     public Set getDocuments() {
@@ -141,5 +147,24 @@ public class Contest extends Base {
         this.submissions = submissions;
     }
 
+    public Set getFileTypes() {
+        return fileTypes;
+    }
+
+    public void setFileTypes(Set fileTypes) {
+        this.fileTypes = fileTypes;
+    }
+
+    public void addFileType(StudioFileType fileType) {
+        this.fileTypes.add(fileType);
+    }
+
+    public Set getResults() {
+        return results;
+    }
+
+    public void setResults(Set results) {
+        this.results = results;
+    }
 
 }

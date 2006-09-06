@@ -48,80 +48,176 @@
 <div class="header">Contest Details</div>
 
 <table cellpadding="0" cellspacing="0" class="input">
-    <tbody>
-        <tr>
-            <td colspan="2"><span class="bigRed">
+<tbody>
+<tr>
+    <td colspan="2"><span class="bigRed">
       <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_NAME%>">${err}<br></tc-webtag:errorIterator></span>
-            </td>
-        </tr>
-        <tr>
-            <td class="name">
-                Contest Name:
-            </td>
-            <td class="value">
-                <tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>"/>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
+    </td>
+</tr>
+<tr>
+    <td class="name">
+        Contest Name:
+    </td>
+    <td class="value" width="100%">
+        <tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>"/>
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_STATUS_ID%>">${err}
                     <br></tc-webtag:errorIterator></span>
-            </td>
-        </tr>
-        <tr>
-            <td class="name">
-                Status:
-            </td>
-            <td class="value">
-                <tc-webtag:objectSelect name="<%=Constants.CONTEST_STATUS_ID%>" list="${contestStatuses}" valueField="id" textField="description"/>
-            </td>
-        </tr>
-        <tr>
-        <tr>
-            <td colspan="2">
+    </td>
+</tr>
+<tr>
+    <td class="name">
+        Status:
+    </td>
+    <td class="value">
+        <tc-webtag:objectSelect name="<%=Constants.CONTEST_STATUS_ID%>" list="${contestStatuses}" valueField="id"
+                                textField="description"/>
+    </td>
+</tr>
+<tr>
+<tr>
+    <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.START_TIME%>">${err}
                     <br></tc-webtag:errorIterator></span>
-            </td>
-        </tr>
-        <tr>
-            <td class="name" nowrap="nowrap">
-                Contest Start<br>(Eastern Time):
-            </td>
-            <td class="value">
-                <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
-                <button id="trigger<%=Constants.START_TIME%>">Set</button>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
+    </td>
+</tr>
+<tr>
+    <td class="name" nowrap="nowrap">
+        Contest Start<br>(Eastern Time):
+    </td>
+    <td class="value">
+        <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
+        <button id="trigger<%=Constants.START_TIME%>">Set</button>
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.END_TIME%>">${err}
                     <br></tc-webtag:errorIterator></span>
-            </td>
-        </tr>
-        <tr>
-            <td class="name" nowrap="nowrap">
-                Contest End<br>(Eastern Time):
-            </td>
-            <td class="value">
-                <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
-                <button id="trigger<%=Constants.END_TIME%>">Set</button>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
+    </td>
+</tr>
+<tr>
+    <td class="name" nowrap="nowrap">
+        Contest End<br>(Eastern Time):
+    </td>
+    <td class="value">
+        <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
+        <button id="trigger<%=Constants.END_TIME%>">Set</button>
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.FORUM_ID%>">${err}
                     <br></tc-webtag:errorIterator></span>
-            </td>
-        </tr>
-        <tr>
-            <td class="name">
-                Forum:
-            </td>
-            <td class="value">
-                <tc-webtag:rscSelect name="<%=Constants.FORUM_ID%>" list="<%=(ResultSetContainer)request.getAttribute("forums")%>" fieldText="name" fieldValue="forum_id" selectedValue="${contest.forumId}"/>
-            </td>
-        </tr>
-    </tbody>
+    </td>
+</tr>
+<tr>
+    <td class="name">
+        Forum:
+    </td>
+    <td class="value">
+        <tc-webtag:rscSelect name="<%=Constants.FORUM_ID%>"
+                             list="<%=(ResultSetContainer)request.getAttribute("forums")%>" fieldText="name"
+                             fieldValue="forum_id" selectedValue="${contest.forumId}"/>
+    </td>
+</tr>
+
+<c:set value="<%=Constants.FILE_TYPE%>" var="fileType"/>
+
+<tr>
+    <td colspan="2">
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${fileType}">${err}
+                    <br></tc-webtag:errorIterator></span>
+    </td>
+</tr>
+<tr>
+    <td class="name">
+        Allowed Submission File Types:
+    </td>
+    <td class="value">
+        <tc-webtag:objectSelect name='${fileType}' size="4" useTopValue="false" multiple="true" list="${fileTypes}"
+                                valueField="id" textField="description"/>
+    </td>
+</tr>
+
+
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.MIN_HEIGHT%>" var="minHeight"/>
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.MAX_HEIGHT%>" var="maxHeight"/>
+<tr>
+    <td colspan="2">
+        <div style="padding: 10px 0px 10px 0px;">
+            <strong>Size Requirements:</strong> Leave blank for no requirements. Enter the same value for the min and
+            max to require an exact size. If you allow non-image file submissions
+            (pdf, txt, html)
+            they will not be held to these requirements.
+        </div>
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${minHeight}">${err}
+                    <br></tc-webtag:errorIterator></span>
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${maxHeight}">${err}
+                    <br></tc-webtag:errorIterator></span>
+    </td>
+</tr>        <tr>
+    <td class="name">
+        Height Requirements (px):
+    </td>
+    <td class="value">
+        <tc-webtag:textInput name="${minHeight}" size="4"/> to <tc-webtag:textInput name="${maxHeight}" size="4"/>
+    </td>
+</tr>
+
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.MIN_WIDTH%>" var="minWidth"/>
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.MAX_WIDTH%>" var="maxWidth"/>
+
+<tr>
+    <td colspan="2">
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${minWidth}">${err}
+                    <br></tc-webtag:errorIterator></span>
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${maxWidth}">${err}
+                    <br></tc-webtag:errorIterator></span>
+    </td>
+</tr>        <tr>
+    <td class="name">
+        Width Requirements (px):
+    </td>
+    <td class="value">
+        <tc-webtag:textInput name="${minWidth}" size="4"/> to <tc-webtag:textInput name="${maxWidth}" size="4"/>
+    </td>
+</tr>
+
+
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.VIEWABLE_SUBMISSIONS%>" var="viewSubmissions"/>
+
+<tr>
+    <td colspan="2">
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${viewSubmissions}">${err}
+                    <br></tc-webtag:errorIterator></span>
+    </td>
+</tr>        <tr>
+    <td class="name">
+        Are submissions viewable?:
+    </td>
+    <td class="value">
+        <tc-webtag:listSelect name="${viewSubmissions}" useTopValue="false" list="${viewSubmissionAnswers}"/>
+    </td>
+</tr>
+
+
+</tbody>
 </table>
 
 
@@ -208,7 +304,8 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 <c:if test="${contest!=null && !contest.new}">
 <p>
     Click
-    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}" target="_blank">here</a>
+    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}"
+       target="_blank">here</a>
     to see what the contest details page will look like.
 </p>
 
@@ -291,7 +388,8 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 
 <c:set value="<%=Constants.DOCUMENT%>" var="doc"/>
 <c:set value="<%=Constants.DOCUMENT_TYPE_ID%>" var="docType"/>
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="addDocumentForm" enctype="multipart/form-data">
+<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="addDocumentForm"
+      enctype="multipart/form-data">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddDocument"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 

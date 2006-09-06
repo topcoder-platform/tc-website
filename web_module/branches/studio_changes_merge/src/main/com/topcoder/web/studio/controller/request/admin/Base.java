@@ -6,12 +6,19 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.dao.ContestPropertyDAO;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.studio.model.ContestConfig;
 import com.topcoder.web.studio.model.ContestProperty;
+import com.topcoder.web.studio.model.StudioFileType;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * @author dok
@@ -19,12 +26,21 @@ import java.text.SimpleDateFormat;
  *          Create Date: Aug 2, 2006
  */
 public abstract class Base extends ShortHibernateProcessor {
+    protected static final Integer[] CONTEST_PROPS = {ContestProperty.MIN_HEIGHT, ContestProperty.MAX_HEIGHT, ContestProperty.MIN_WIDTH,
+            ContestProperty.MAX_WIDTH, ContestProperty.CONTEST_OVERVIEW_TEXT, ContestProperty.PRIZE_DESCRIPTION,
+            ContestProperty.VIEWABLE_SUBMISSIONS};
+
 
     protected void loadGeneralEditContestData() throws Exception {
         getRequest().setAttribute("docTypes", StudioDAOUtil.getFactory().getDocumentTypeDAO().getDocumentTypes());
         getRequest().setAttribute("contestStatuses", StudioDAOUtil.getFactory().getContestStatusDAO().getContestStatuses());
+        getRequest().setAttribute("fileTypes", StudioDAOUtil.getFactory().getFileTypeDAO().getFileTypes());
 
         getRequest().setAttribute("forums", getForumList());
+        ArrayList viewSubmissionAnswers = new ArrayList();
+        viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
+        viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(false), "No"));
+        getRequest().setAttribute("viewSubmissionAnswers", viewSubmissionAnswers);
 
     }
 
@@ -45,21 +61,28 @@ public abstract class Base extends ShortHibernateProcessor {
 
         SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
 
-        if (contest.getOverview() != null) {
-            setDefault(Constants.CONTEST_PROPERTY + ContestProperty.CONTEST_OVERVIEW_TEXT,
-                    contest.getOverview().getValue());
+        ContestPropertyDAO dao = StudioDAOUtil.getFactory().getContestPropertyDAO();
+        ContestConfig temp;
+        for (int i = 0; i < CONTEST_PROPS.length; i++) {
+            temp = contest.getConfig(dao.find(CONTEST_PROPS[i]));
+            if (temp != null) {
+                setDefault(Constants.CONTEST_PROPERTY + CONTEST_PROPS[i], temp.getValue());
+            }
         }
-        if (contest.getPrizeDescription() != null) {
-            setDefault(Constants.CONTEST_PROPERTY + ContestProperty.PRIZE_DESCRIPTION,
-                    contest.getPrizeDescription().getValue());
-        }
-        setDefault(Constants.CONTEST_STATUS_ID,
-                contest.getStatus().getId());
 
+        Set a = contest.getFileTypes();
+        ArrayList fileTypes = new ArrayList(a.size());
+        for (Iterator it = a.iterator(); it.hasNext();) {
+            fileTypes.add(((StudioFileType) it.next()).getId().toString());
+        }
+        setDefault(Constants.FILE_TYPE, fileTypes);
+
+        setDefault(Constants.CONTEST_STATUS_ID, contest.getStatus().getId());
         setDefault(Constants.CONTEST_ID, contest.getId());
         setDefault(Constants.CONTEST_NAME, contest.getName());
         setDefault(Constants.START_TIME, sdf.format(contest.getStartTime()));
         setDefault(Constants.END_TIME, sdf.format(contest.getEndTime()));
+
 
     }
 }

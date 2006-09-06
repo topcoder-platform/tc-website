@@ -12,9 +12,8 @@ import java.util.Map;
 
 public class HandleTag extends TagSupport {
     private static final Logger log = Logger.getLogger(HandleTag.class);
-    private long coderId;
+    private long coderId = 0;
     private String cssclass = "coderText";
-
 
     public void setCoderId(long coderId) {
         this.coderId = coderId;
@@ -26,6 +25,8 @@ public class HandleTag extends TagSupport {
 
     public int doStartTag() throws JspException {
         try {
+
+            StringBuffer output = new StringBuffer();
             //lookup ratings from cache
             CachedDataAccess da = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
             da.setExpireTime(24 * 60 * 60 * 1000);
@@ -36,7 +37,6 @@ public class HandleTag extends TagSupport {
 
             Map m = da.getData(r);
 
-            StringBuffer output = new StringBuffer();
 
             ResultSetContainer rsc = (ResultSetContainer) m.get("coder_all_ratings");
             if (rsc.isEmpty()) {

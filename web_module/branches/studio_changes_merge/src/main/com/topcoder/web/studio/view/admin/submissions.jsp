@@ -18,10 +18,10 @@
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    <script language="JavaScript"><!--
+    <script type="text/javascript"><!--
     function next() {
-        document.subForm.<%=DataAccessConstants.START_RANK%>.value =<%=submissions.getStartRow()+Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
-        document.subForm.<%=DataAccessConstants.END_RANK%>.value =<%=submissions.getEndRow()+Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
+        document.subForm.<%=DataAccessConstants.START_RANK%>.value =<%=submissions.getStartRow()+Constants.ADMIN_VIEW_SUBMISSIONS_SCROLL_SIZE%>;
+        document.subForm.<%=DataAccessConstants.END_RANK%>.value =<%=submissions.getEndRow()+Constants.ADMIN_VIEW_SUBMISSIONS_SCROLL_SIZE%>;
         document.subForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
         document.subForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
         document.subForm.<%=Constants.REVIEW_STATUS_ID%>.value = '<%=request.getParameter(Constants.REVIEW_STATUS_ID)==null?"":request.getParameter(Constants.REVIEW_STATUS_ID)%>';
@@ -29,8 +29,8 @@
         document.subForm.submit();
     }
     function previous() {
-        document.subForm.<%=DataAccessConstants.START_RANK%>.value =<%=submissions.getStartRow()-Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
-        document.subForm.<%=DataAccessConstants.END_RANK%>.value =<%=submissions.getEndRow()-Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
+        document.subForm.<%=DataAccessConstants.START_RANK%>.value =<%=submissions.getStartRow()-Constants.ADMIN_VIEW_SUBMISSIONS_SCROLL_SIZE%>;
+        document.subForm.<%=DataAccessConstants.END_RANK%>.value =<%=submissions.getEndRow()-Constants.ADMIN_VIEW_SUBMISSIONS_SCROLL_SIZE%>;
         document.subForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
         document.subForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
         document.subForm.<%=Constants.REVIEW_STATUS_ID%>.value = '<%=request.getParameter(Constants.REVIEW_STATUS_ID)==null?"":request.getParameter(Constants.REVIEW_STATUS_ID)%>';
@@ -93,8 +93,8 @@ Show submissions by (Enter Handle):
     all submissions</a>
 
 <div class="pagingBox">
-    <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
-    | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+    <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+    | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
 </div>
 
 <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
@@ -167,7 +167,7 @@ Show submissions by (Enter Handle):
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissionDetail&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">details</a>
         </td>
         <td class="valueC">
-            <rsc:item name="submit_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/>
+            <rsc:item name="submit_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}"/>
         </td>
         <td class="valueC">
             <c:choose>
@@ -175,7 +175,7 @@ Show submissions by (Enter Handle):
                     &#160;
                 </c:when>
                 <c:otherwise>
-                    <rsc:item name="review_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/>
+                    <rsc:item name="review_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}" ifNull="&#160;"/>
                 </c:otherwise>
             </c:choose>
         </td>
@@ -185,7 +185,7 @@ Show submissions by (Enter Handle):
                     &#160;
                 </c:when>
                 <c:otherwise>
-                    <rsc:item name="reviewer_handle" row="<%=resultRow%>"/>
+                    <rsc:item name="reviewer_handle" row="<%=resultRow%>" ifNull="&#160;"/>
                 </c:otherwise>
             </c:choose>
         </td>
@@ -195,7 +195,7 @@ Show submissions by (Enter Handle):
                     &#160;
                 </c:when>
                 <c:otherwise>
-                    <rsc:item name="review_status_desc" row="<%=resultRow%>"/>
+                    <rsc:item name="review_status_desc" row="<%=resultRow%>" ifNull="&#160;"/>
                 </c:otherwise>
             </c:choose>
         </td>
@@ -210,10 +210,11 @@ Show submissions by (Enter Handle):
 </table>
 
 <div class="pagingBox">
-    <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
-    | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+    <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+    | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
 </div>
 
+</form>
 </div>
 <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
 </div>

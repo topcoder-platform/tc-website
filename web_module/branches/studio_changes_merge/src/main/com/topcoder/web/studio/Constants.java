@@ -32,10 +32,12 @@ public class Constants implements WebConstants {
     public static final String PRIZE_DESCRIPTION = "przdesc";
     public static final String PRIZE_PLACE = "prpl";
     public static final String PRIZE_VALUE = "prvl";
+    public static final String PRIZE_ID = "prid";
     public static final String DOCUMENT_ID = "docid";
     public static final String DOCUMENT_TYPE_ID = "doctid";
     public static final String DOCUMENT = "doc";
     public static final long CONTEST_ADMIN_ROLE_ID = 2040;
+    public static final String FILE_TYPE = "ft_";
 
     public static int MAX_CONTEST_NAME_LENGTH;
     public static String JS_DATE_FORMAT;
@@ -45,6 +47,7 @@ public class Constants implements WebConstants {
     public static String SUBMISSIONS_DIRECTORY_NAME;
     public static String DOCUMENTS_DIRECTORY_NAME;
     public static int VIEW_SUBMISSIONS_SCROLL_SIZE;
+    public static int ADMIN_VIEW_SUBMISSIONS_SCROLL_SIZE;
 
     static {
         initialize();

@@ -8,18 +8,18 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.FileType;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.validation.ObjectInput;
+import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.FilePath;
-import com.topcoder.web.studio.model.Submission;
-import com.topcoder.web.studio.model.SubmissionType;
+import com.topcoder.web.studio.model.*;
+import com.topcoder.web.studio.validation.SubmissionValidator;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.Date;
 
 /**
  * @author dok
@@ -43,6 +43,12 @@ public class Submit extends ShortHibernateProcessor {
             DAOFactory factory = DAOUtil.getFactory();
 
             Contest c = cFactory.getContestDAO().find(contestId);
+            Date now = new Date();
+            if (now.before(c.getStartTime()) ||
+                    now.after(c.getEndTime()) ||
+                    !ContestStatus.ACTIVE.equals(c.getStatus().getId())) {
+                throw new NavigationException("Inactive contest specified.");
+            }
             User u = factory.getUserDAO().find(new Long(getUser().getId()));
 
             if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
@@ -58,23 +64,14 @@ public class Submit extends ShortHibernateProcessor {
 
                 MultipartRequest r = (MultipartRequest) getRequest();
 
-                UploadedFile file = r.getUploadedFile(Constants.SUBMISSION);
+                UploadedFile submissionFile = r.getUploadedFile(Constants.SUBMISSION);
 
-                byte[] fileBytes = null;
-                int ret = 0;
-                if (file != null && file.getContentType() != null) {
-                    fileBytes = new byte[(int) file.getSize()];
-                    ret = file.getInputStream().read(fileBytes);
-                }
-                if (ret == 0) {
-                    addError(Constants.SUBMISSION, "Submission was empty");
+                //do validation
+                ValidationResult submissionResult = new SubmissionValidator(c).validate(new ObjectInput(submissionFile));
+                if (!submissionResult.isValid()) {
+                    addError(Constants.SUBMISSION, submissionResult.getMessage());
                 }
 
-                FileType ft = factory.getFileTypeDAO().find(file.getContentType());
-
-                if (ft == null || !FileType.ADOBE_ACROBAT_TYPE_ID.equals(ft.getId())) {
-                    addError(Constants.SUBMISSION, "Unknown or invalid file type submitted, you must submit an Adobe Acrobat PDF file");
-                }
 
                 if (hasErrors()) {
                     setDefault(Constants.CONTEST_ID, contestId.toString());
@@ -82,11 +79,12 @@ public class Submit extends ShortHibernateProcessor {
                     setNextPage("/submit.jsp");
                     setIsNextPageInContext(true);
                 } else {
+                    MimeType mt = cFactory.getMimeTypeDAO().find(submissionFile.getContentType());
                     Submission s = new Submission();
                     s.setContest(c);
-                    s.setOriginalFileName(file.getRemoteFileName());
+                    s.setOriginalFileName(submissionFile.getRemoteFileName());
                     s.setSubmitter(u);
-                    s.setFileType(ft);
+                    s.setMimeType(mt);
 
                     StringBuffer buf = new StringBuffer(80);
                     buf.append(Constants.ROOT_STORAGE_PATH);
@@ -108,7 +106,7 @@ public class Submit extends ShortHibernateProcessor {
                         directory.mkdirs();
                     }
 
-                    String ext = file.getRemoteFileName().substring(file.getRemoteFileName().lastIndexOf('.'));
+                    String ext = submissionFile.getRemoteFileName().substring(submissionFile.getRemoteFileName().lastIndexOf('.'));
 
                     //root/submissions/contest_id/user_id/time.pdf
                     s.setPath(p);
@@ -121,6 +119,8 @@ public class Submit extends ShortHibernateProcessor {
                     f = new File(p.getPath() + s.getSystemFileName());
 
                     FileOutputStream fos = new FileOutputStream(f);
+                    byte[] fileBytes = new byte[(int) submissionFile.getSize()];
+                    submissionFile.getInputStream().read(fileBytes);
                     fos.write(fileBytes);
                     fos.close();
 

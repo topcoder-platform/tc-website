@@ -1,7 +1,6 @@
 package com.topcoder.web.studio.dao;
 
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.FileType;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.TCHibernateTestCase;
 import com.topcoder.web.studio.model.*;
@@ -20,7 +19,7 @@ public class SubmissionReviewDAOTestCase extends TCHibernateTestCase {
         Contest c = (Contest) StudioDAOUtil.getFactory().getContestDAO().getContests().get(0);
         s.setContest(c);
         s.setSubmitter(dok);
-        s.setFileType(DAOUtil.getFactory().getFileTypeDAO().find(FileType.ADOBE_ACROBAT_TYPE_ID));
+        s.setMimeType(StudioDAOUtil.getFactory().getMimeTypeDAO().find(new Integer(1)));
         s.setOriginalFileName("kickin");
         s.setSystemFileName("kicking it");
         FilePath p = new FilePath();

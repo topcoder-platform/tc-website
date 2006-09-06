@@ -84,13 +84,16 @@
         <mapping resource="com/topcoder/web/studio/model/ContestConfig.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestProperty.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestRegistration.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/model/ContestResult.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/Document.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/DocumentType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/FilePath.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/model/MimeType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/Prize.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/PrizeType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ReviewStatus.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/model/StudioFileType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/Submission.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/SubmissionReview.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/SubmissionType.hbm.xml"/>
