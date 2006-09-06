@@ -6,6 +6,23 @@
 <table border="0" cellspacing="0" cellpadding="0" width="525">
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
+</tr>
+
+<%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.06.06<br>12:30 PM</td>
+    <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_qualification">TCCC06 Algorithm Qualification Byes</A>
+      </span><br><br>
+      Here are the top 150 rated members who will receive an automatic berth into Online Round #1.
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_qualification">details</A>&#160;|&#160;
+    <tc-webtag:forumLink forumID="506103" message="discuss this" />&#160;|&#160;
+    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+</td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>09.06.06<br>10:50 AM</td>
@@ -186,22 +203,6 @@ this competition proved that some strategies are much better than others.
 	 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">view</A>&#160;|&#160;
 	 <tc-webtag:forumLink forumID="506098" message="discuss this" />&#160;|&#160;
 	 <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Survey" border="0"/><br>08.28.06<br>4:15 PM</td>
-    <td class="newsTextCell"><span class="newsTitle">
-      <A href="<tc-webtag:linkTracking link='http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=2' refer="news_item"/>">AOL Developer Community Survey</A>
-      </span><br><br>
-        Complete this survey presented by AOL to help them better meet the needs of the developer community. Taking part
-        in the survey will also enter you in a raffle to win a <strong>60GB iPod</strong>!
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="<tc-webtag:linkTracking link='http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=2' refer="news_item"/>">view</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506075" message="discuss this"/>&#160;|&#160;
-    <A href="/tc?&module=SurveyList">archive</A>
 </td></tr>
 
 
