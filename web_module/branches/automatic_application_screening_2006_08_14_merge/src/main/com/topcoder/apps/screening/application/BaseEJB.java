@@ -54,7 +54,11 @@ public abstract class BaseEJB implements SessionBean {
             }
             query.append(") values (");
             for (int i = 0; i < colValues.length; i++) {
-                query.append("?");
+                if (colValues[i].equals("current")) {
+                    query.append("CURRENT");
+                } else {
+                    query.append("?");
+                }
                 if (colValues.length > 1 && i != colValues.length - 1)
                     query.append(", ");
             }
@@ -65,12 +69,17 @@ public abstract class BaseEJB implements SessionBean {
             InitialContext ctx = null;
             try {
                 ps = conn.prepareStatement(query.toString());
+                int j = 1;
                 for (int i = 0; i < colNames.length; i++) {
                     if (colValues[i] != null) {
-                        ps.setString(i + 1, colValues[i]);
+                        if (!colValues[i].equals("current")) {
+                            ps.setString(j, colValues[i]);
+                            j++;
+                        }
                         log.debug(colNames[i] + " - " + colValues[i]);
                     } else {
-                        ps.setNull(i + 1, Types.OTHER);
+                        ps.setNull(j, Types.OTHER);
+                        j++;
                     }
                 }
                 int rc = ps.executeUpdate();
