@@ -71,14 +71,14 @@
     String due = request.getParameter("date_due");
     if (due == null) due = "";
     
-    String statusDefaultValue=null;
-    String statusDefaultText=null;
+    String statusSelectedValue=null;
+    String statusSelectedText=null;
     if (status < 0)  {
     	if (payment_is_for_contract) {
-	    	statusDefaultText = payment_is_for_contract? PactsConstants.DEFAULT_CONTRACT_PAYMENT_STATUS :
-    												     PactsConstants.DEFAULT_PAYMENT_STATUS;    		
+	    	statusSelectedText = payment_is_for_contract? PactsConstants.DEFAULT_CONTRACT_PAYMENT_STATUS :
+    						 						      PactsConstants.DEFAULT_PAYMENT_STATUS;    		
     } else {
-    	statusDefaultValue = "" + status;
+    	statusSelectedValue = "" + status;
     }
                       
 %>
@@ -131,7 +131,7 @@
         <td>
        <tc-webtag:rscSelect name="status_id_new" list="<%=stati%>" 
             fieldText="status_desc" fieldValue="status_id" 
-            defaultValue="<%= statusDefaultValue %>" defaultText="<%= statusDefaultText %>" 
+            selectedValue="<%= statusSelectedValue %>" selectedText="<%= statusSelectedText %>" 
             useTopValue="false" />
         
         <select name="status_id">
