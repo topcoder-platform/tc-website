@@ -223,12 +223,13 @@
 
             <td class="SE">&nbsp;</td>
         </tr>
+
+        <div class="pagingBox">
+            <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+            | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+        </div>
     </tbody>
 </table>
-<div class="pagingBox">
-    <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
-    | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
-</div>
 <br>
             <span class="small">
             <strong>NOTE:</strong> this page is updated hourly<br>
