@@ -16,7 +16,7 @@ public class Home extends BaseProcessor {
     protected void businessProcessing() throws Exception {
 
         Request r = new Request();
-        r.setContentHandle("public_home_data");
+        r.setContentHandle("studio_home_data");
         DataAccessInt dai = new CachedDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
         getRequest().setAttribute(r.getContentHandle(), dai.getData(r));
 
