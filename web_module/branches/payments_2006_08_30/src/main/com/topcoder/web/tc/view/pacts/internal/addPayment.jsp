@@ -10,8 +10,6 @@
 <head>
     <meta http-equiv="Content-Language" content="en-us">
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-    <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
-    <meta name="ProgId" content="FrontPage.Editor.Document">
     <title>PACTS</title>
 </head>
 
@@ -23,14 +21,10 @@
     long contract_id=0;
     if (contract_id_string != null)  contract_id = Long.parseLong(contract_id_string);
     else payment_is_for_contract = false;
-    ResultSetContainer stati = (ResultSetContainer)
-        request.getAttribute(PactsConstants.STATUS_CODE_LIST);
-    ResultSetContainer paymentTypes = (ResultSetContainer)
-        request.getAttribute(PactsConstants.PAYMENT_TYPE_LIST);
-    ResultSetContainer paymentMethods = (ResultSetContainer)
-        request.getAttribute(PactsConstants.PAYMENT_METHOD_LIST);
-    String message = (String)
-        request.getAttribute("message");
+    ResultSetContainer stati = (ResultSetContainer) request.getAttribute(PactsConstants.STATUS_CODE_LIST);
+    ResultSetContainer paymentTypes = (ResultSetContainer)    request.getAttribute(PactsConstants.PAYMENT_TYPE_LIST);
+    ResultSetContainer paymentMethods = (ResultSetContainer)   request.getAttribute(PactsConstants.PAYMENT_METHOD_LIST);
+    String message = (String) request.getAttribute("message");
     if (message == null) {
         message = "";
     }
@@ -71,15 +65,31 @@
     String due = request.getParameter("date_due");
     if (due == null) due = "";
     
-    String statusSelectedValue=null;
-    String statusSelectedText=null;
+    String statusSelectedValue = null;
+    String statusSelectedText = null;
     if (status < 0)  {
     	statusSelectedText = payment_is_for_contract? PactsConstants.DEFAULT_CONTRACT_PAYMENT_STATUS :
    						 						      PactsConstants.DEFAULT_PAYMENT_STATUS;    		
     } else {
     	statusSelectedValue = "" + status;
     }
-                      
+
+    String paymentTypeSelectedValue = null;
+    String paymentTypeSelectedText = null;
+    if (type < 0)  {
+    	paymentTypeSelectedText = payment_is_for_contract? PactsConstants.DEFAULT_CONTRACT_PAYMENT_TYPE :
+     						 						       PactsConstants.DEFAULT_PAYMENT_TYPE;    		
+    } else {
+    	paymentTypeSelectedValue = "" + type;
+    }
+
+    String paymentMethodSelectedValue = null;
+    String paymentMethodSelectedText = null;
+    if (method < 0)  {
+    	paymentMethodSelectedText = PactsConstants.DEFAULT_PAYMENT_METHOD;
+    } else {
+    	paymentMethodSelectedValue = "" + method;
+    }
 %>
 
 <h1>PACTS</h1>
@@ -128,99 +138,43 @@
         <tr>
         <td><b>Status:</b></td>
         <td>
-       <tc-webtag:rscSelect name="status_id_new" list="<%=stati%>" 
+       <tc-webtag:rscSelect name="status_id" list="<%=stati%>" 
             fieldText="status_desc" fieldValue="status_id" 
             selectedValue="<%= statusSelectedValue %>" selectedText="<%= statusSelectedText %>" 
-            useTopValue="false" />
-        
-        <select name="status_id">
-<%      int rowCount;
-        ResultSetContainer.ResultSetRow rsr;
-        String s;
-        int s_id;
-        if (stati != null) {
-            rowCount = stati.getRowCount();
-            for (int n = 0; n < rowCount; n++) {
-                rsr = stati.getRow(n);
-                out.print("<option value=");
-                s_id =TCData.getTCInt(rsr,"status_id",0,true);
-                out.print(s_id);
-                s = TCData.getTCString(rsr,"status_desc","default status",true);
-                if (status < 0 && payment_is_for_contract && s.equals(PactsConstants.DEFAULT_CONTRACT_PAYMENT_STATUS)) {
-                    out.print(" selected");
-                } else if (status < 0 && !payment_is_for_contract && s.equals(PactsConstants.DEFAULT_PAYMENT_STATUS)) {
-                    out.print(" selected");
-                } else if (status == s_id) out.print(" selected");
-                out.print(">" + s + "</option>\n");
-            }
-        }
-%>
-        </select>
+            useTopValue="false" />        
         </td>
         </tr>
         <tr>
         <td><b>Description:</b></td><td>
-        <input type=text width=25 name="payment_desc" value="<% out.print(desc); %>">
+        <input type=text width=25 name="payment_desc" value="<%= desc %>">
         </td></tr>
         <tr>
             <td><b>Type:</b></td><td>
-            <select name="payment_type_id">
-    <%      if (paymentTypes != null) {
-                rowCount = paymentTypes.getRowCount();
-                for (int n = 0; n < rowCount; n++) {
-                    rsr = paymentTypes.getRow(n);
-                    out.print("<option value=");
-                    s_id = TCData.getTCInt(rsr,"payment_type_id",0,true);
-                    out.print(s_id);
-                    s = TCData.getTCString(rsr,"payment_type_desc","default payment type",true);
-                    if (type < 0 && payment_is_for_contract && s.equals(PactsConstants.DEFAULT_CONTRACT_PAYMENT_TYPE)) {
-                        out.print(" selected");
-                    } else if (type < 0 && !payment_is_for_contract && s.equals(PactsConstants.DEFAULT_PAYMENT_TYPE)) {
-                        out.print(" selected");
-                    } else if (type == s_id) out.print(" selected");
-                    out.print(">" + s + "</option>\n");
-                }
-            }
-    %>
-            </select>
-            </td>
+	       <tc-webtag:rscSelect name="payment_type_id" list="<%=paymentTypes%>" 
+		            fieldText="payment_type_desc" fieldValue="payment_type_id" 
+		            selectedValue="<%= paymentTypeSelectedValue %>" selectedText="<%= paymentTypeSelectedText %>" 
+	    	        useTopValue="false" />        
+        </td>
         </tr>
         <tr>
             <td><b>Method:</b></td><td>
-<!--  to do default -->
-            <tc-webtag:rscSelect name="payment_method_id_new" list="<%=paymentMethods%>" 
-            fieldText="payment_method_desc" fieldValue="payment_method_id"  useTopValue="false" />
-            
-            <select name="payment_method_id">
-    <%      if (paymentMethods != null) {
-                rowCount = paymentMethods.getRowCount();
-                for (int n = 0; n < rowCount; n++) {
-                    rsr = paymentMethods.getRow(n);
-                    out.print("<option value=");
-                    s_id = TCData.getTCInt(rsr,"payment_method_id",0,true);
-                    out.print(s_id);
-                    s = TCData.getTCString(rsr,"payment_method_desc","default payment method",true);
-                    if (method < 0 && s.equals(PactsConstants.DEFAULT_PAYMENT_METHOD)) {
-                        out.print(" selected");
-                    } else if (method == s_id) out.print(" selected");
-                    out.print(">" + s + "</option>\n");
-                }
-            }
-    %>
-            </select>
+            <tc-webtag:rscSelect name="payment_method_id" list="<%=paymentMethods%>" 
+                        fieldText="payment_method_desc" fieldValue="payment_method_id"  
+            			selectedValue="<%= paymentMethodSelectedValue %>" selectedText="<%= paymentMethodSelectedText %>"             
+            			useTopValue="false" />
             </td>
         </tr>
         <tr>
-            <td><b>Net Amount:</b></td><td>
-            <input type=text width=25 name="net_amount" value="<%= net %>">
-            </td></tr>
-            <tr>
             <td><b>Gross Amount:</b></td><td>
             <input type=text width=25 name="gross_amount" value="<%= gross %>">
             </td></tr>
             <tr>
+            <td><b>Net Amount:</b></td><td>
+            <input type=text width=25 name="net_amount" value="<%= net %>"> (if left blank, calculated from Gross Amount)
+            </td></tr>
+            <tr>
             <td><b>Date Due:</b></td><td>
-            <input type=text width=25 name="date_due" value="<%= due %>">
+            <input type=text width=25 name="date_due" value="<%= due %>"> (if left blank, 2 weeks from now)
             </td>
         </tr>
 </table>
