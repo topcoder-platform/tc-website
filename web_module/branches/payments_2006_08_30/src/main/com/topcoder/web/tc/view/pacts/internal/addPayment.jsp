@@ -11,6 +11,26 @@
     <meta http-equiv="Content-Language" content="en-us">
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
     <title>PACTS</title>
+    <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
+    <script type="text/javascript" src="/js/jscal/calendar.js"></script>
+    <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
+    <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
+    
+<script language="javascript" type="text/javascript">
+    <!--
+Calendar.setup(
+{
+ inputField  : "date_due",  
+                    ifFormat    : "%Y.%m.%d %H:%M",    
+                    button      : "triggerdate_due",     
+                    showsTime   : true,
+                    singleClick  : false,
+                    cache       : true
+}
+);
+                -->
+</script>
+
 </head>
 
 <body>
@@ -174,8 +194,10 @@
             </td></tr>
             <tr>
             <td><b>Date Due:</b></td><td>
-            <input type=text width=25 name="date_due" value="<%= due %>"> (if left blank, 2 weeks from now)
+            <input type=text width=25 name="date_due" id="date_due" value="<%= due %>"> (if left blank, 2 weeks from now)
+                <button id="triggerdate_due">Set</button>
             </td>
+	            
         </tr>
 </table>
 
