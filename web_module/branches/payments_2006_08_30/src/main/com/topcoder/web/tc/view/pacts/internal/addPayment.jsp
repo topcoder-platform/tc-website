@@ -195,7 +195,7 @@
 Calendar.setup(
 {
  inputField  : "date_due",  
-                    ifFormat    : "%Y.%m.%d",    
+                    ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",    
                     button      : "trigger_date_due",     
                     showsTime   : false,
                     singleClick  : false,

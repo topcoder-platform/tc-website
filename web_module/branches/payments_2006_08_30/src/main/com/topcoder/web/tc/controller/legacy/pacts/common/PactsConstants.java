@@ -117,6 +117,10 @@ public interface PactsConstants {
     // in this format.  Matt and Sam - feel free to change this if you want
     // to use some other format on the front end.
     public static final String DATE_FORMAT_STRING = "MM/dd/yyyy";
+    
+    // The same date format but the way JS calendar needs it.
+    public static final String JS_DATE_FORMAT_STRING = "%m/%d/%Y";
+    
     // Front-end default for dates that are not filled in
     public static final String EMPTY_DATE_STRING = "00/00/0000";
     // dpecora - Rather than have this constant I would prefer the data classes
