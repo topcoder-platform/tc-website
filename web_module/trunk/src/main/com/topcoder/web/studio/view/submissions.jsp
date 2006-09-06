@@ -161,7 +161,8 @@
                 </td>
             </c:if>
             <td class="header" nowrap="nowrap">
-                <A href="">Submission ID</A>
+                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submission_id")%>" includeParams="true" excludeParams="<%=exclude%>"/>">
+                    Submission ID</a>
             </td>
             <td class="headerC" nowrap="nowrap">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("create_date")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submit
