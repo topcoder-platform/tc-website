@@ -13,7 +13,8 @@
     <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=dev_forums">TCCC06 Developer Forums Announced</A>
       </span><br><br>
-      Three informative Developer Forums will be featured at the TCCC in San Diego.
+      This year's TCCC will feature three informative Developer Forums. Topics will include: applying TopCoder's competition philosophy 
+      to new initiatives, a new and improved process for estimating project size, and a review of TopCoder projects and success stories.
     </td>
 </tr>
 <tr><td class="newsLinksCell">
