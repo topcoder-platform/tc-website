@@ -282,6 +282,7 @@
             <zipfileset dir="${classes.dir}" includes="com/topcoder/util/idgenerator/bean/IdGen.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/util/idgenerator/bean/IdGenHome.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/apps/review/rboard/*.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/security/GeneralSecurityException.class"/>
             <metainf dir="${java.dir}/com/topcoder/apps/review/rboard" includes="*.xml"/>
         </jar>
     </target>
