@@ -70,16 +70,25 @@
     if (gross == null) gross = "";
     String due = request.getParameter("date_due");
     if (due == null) due = "";
+    
+    String statusDefaultValue=null;
+    String statusDefaultText=null;
+    if (status < 0)  {
+    	if (payment_is_for_contract) {
+	    	statusDefaultText = payment_is_for_contract? PactsConstants.DEFAULT_CONTRACT_PAYMENT_STATUS :
+    												     PactsConstants.DEFAULT_PAYMENT_STATUS;    		
+    } else {
+    	statusDefaultValue = "" + status;
+    }
+                      
 %>
 
 <h1>PACTS</h1>
 
-<h2>Add
-    <% if (payment_is_for_contract) out.print("Contract"); %>
-    Payment</h2>
+<h2>Add <%= payment_is_for_contract? "Contract" : "" %> Payment</h2>
 
 <font color="#FF0000">
-    <% out.print(message); %>
+    <%= message %>
 </font>
 
 <form action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
@@ -92,25 +101,6 @@
 
    <input type="hidden" name="<%= PactsConstants.USER_ID %>" value="<%=userId %>" >
    
-<%
-/*
-out.print("<form action=\""+PactsConstants.INTERNAL_SERVLET_URL+"\" method=\"post\">");
-   out.print("<input type=\"hidden\" name=\""+PactsConstants.TASK_STRING+"\" value=\"");
-   out.print(PactsConstants.ADD_TASK+"\">");
-   out.print("<input type=\"hidden\" name=\""+PactsConstants.CMD_STRING+"\" value=\"");
-   out.print(PactsConstants.PAYMENT_CMD+"\">");
-   if (payment_is_for_contract) {
-       out.print("<input type=\"hidden\" name=\""+PactsConstants.CONTRACT_ID+"\" value=\"");
-       out.print(""+contract_id+"\">");
-       out.print("<input type=\"hidden\" name=\""+PactsConstants.USER_ID+"\" value=\"");
-       out.print(""+contract.getUser().getId()+"\">");
-   }
-   else {
-       out.print("<input type=\"hidden\" name=\""+PactsConstants.USER_ID+"\" value=\"");
-       out.print(""+user.getId()+"\">");
-   }
-   */
-%>
         <table border="0" cellpadding="5" cellspacing="5">
         <tr>
             <td><b>User:</b></td>
@@ -136,48 +126,14 @@ out.print("<form action=\""+PactsConstants.INTERNAL_SERVLET_URL+"\" method=\"pos
 
 <% } %>
 
-
-<%      if (payment_is_for_contract) {
-            out.print("<b>User:</b></td>");
-            out.print("<td><a href=\"");
-            out.print(PactsConstants.INTERNAL_SERVLET_URL);
-            out.print("?"+PactsConstants.TASK_STRING+"=");
-            out.print(PactsConstants.VIEW_TASK+"&");
-            out.print(PactsConstants.CMD_STRING+"=");
-            out.print(PactsConstants.USER_CMD+"&");
-            out.print(PactsConstants.USER_ID+"=");
-            out.print(contract.getUser().getId());
-            out.print("\">"+contract.getUser().getHandle()+"</a></td></tr>\n");
-
-            out.print("<tr><td><b>Contract:</b></td>");
-            out.print("<td><a href=\"");
-            out.print(PactsConstants.INTERNAL_SERVLET_URL);
-            out.print("?"+PactsConstants.TASK_STRING+"=");
-            out.print(PactsConstants.VIEW_TASK+"&");
-            out.print(PactsConstants.CMD_STRING+"=");
-            out.print(PactsConstants.CONTRACT_CMD+"&");
-            out.print(PactsConstants.CONTRACT_ID+"=");
-            out.print(contract.getId());
-            out.print("\">"+contract.getName()+"</a>\n");
-        }
-        else {
-            out.print("<b>User:</b></td>");
-            out.print("<td><a href=\"");
-            out.print(PactsConstants.INTERNAL_SERVLET_URL);
-            out.print("?"+PactsConstants.TASK_STRING+"=");
-            out.print(PactsConstants.VIEW_TASK+"&");
-            out.print(PactsConstants.CMD_STRING+"=");
-            out.print(PactsConstants.USER_CMD+"&");
-            out.print(PactsConstants.USER_ID+"=");
-            out.print(user.getId());
-            out.print("\">"+user.getHandle()+"</a>\n");
-        }
-%>
-        </td>
-        </tr>
         <tr>
         <td><b>Status:</b></td>
         <td>
+       <tc-webtag:rscSelect name="status_id_new" list="<%=stati%>" 
+            fieldText="status_desc" fieldValue="status_id" 
+            defaultValue="<%= statusDefaultValue %>" defaultText="<%= statusDefaultText %>" 
+            useTopValue="false" />
+        
         <select name="status_id">
 <%      int rowCount;
         ResultSetContainer.ResultSetRow rsr;
