@@ -7,6 +7,21 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 <%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>09.06.06<br>10:50 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/longcontest/?module=ViewOverview&rd=10089">Intel&#174; Multi-Threading Competition 8 Results</A>
+      </span><br><br>
+      Congratulations to <tc-webtag:handle coderId="7504863" /> for winning the Intel&#174; Multi-Threading Competition 8.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/longcontest/?module=ViewOverview&rd=10089">results</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="506093" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>09.05.06<br>11:15 AM</td>
     <td class="newsTextCell">
@@ -187,25 +202,6 @@ this competition proved that some strategies are much better than others.
     <A href="<tc-webtag:linkTracking link='http://www.iion.com/surveytaker100/index.cfm?surveyID=1522&source=2' refer="news_item"/>">view</A>&#160;|&#160;
     <tc-webtag:forumLink forumID="506075" message="discuss this"/>&#160;|&#160;
     <A href="/tc?&module=SurveyList">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>08.28.06<br>2:05 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm317">SRM 317 - Problem Set & Analysis</A></span><br><br>
-                SRM 317 started with a record number of 1,134 registrants. Also, many top ranked coders had signed in, so the table was set for a great match. 
-                But just a couple of minutes after the start of the match, some technical problems stopped the competition.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61"/><br>by
-                <tc-webtag:handle coderId="15231364" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=match_editorials&d2=srm317">full story</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="505992" message="discuss this"/>&#160;|&#160;
-    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
 
 
