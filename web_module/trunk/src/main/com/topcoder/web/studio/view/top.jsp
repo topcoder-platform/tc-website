@@ -28,7 +28,8 @@
                         </div>
                         <strong>Member Login:</strong><br>
 
-                        <form method="post" name="frmLogin" action="${sessionInfo.secureAbsoluteServletPath}">
+                        <%--have to use the constant because this page can be used with multiple servlets --%>
+                        <form method="post" name="frmLogin" action="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>">
                             <input type="hidden" name="module" value="Login">
                             <table cellpadding="1" cellspacing="0">
                                 <tbody>
