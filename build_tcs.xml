@@ -282,7 +282,6 @@
             <zipfileset dir="${classes.dir}" includes="com/topcoder/util/idgenerator/bean/IdGen.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/util/idgenerator/bean/IdGenHome.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/apps/review/rboard/*.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/security/GeneralSecurityException.class"/>
             <metainf dir="${java.dir}/com/topcoder/apps/review/rboard" includes="*.xml"/>
         </jar>
     </target>
@@ -342,6 +341,11 @@
     </target>
 
     <target name="copy-libs">
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${ejb.jars.dir}">
+                <include name="security.jar"/>
+            </fileset>
+        </copy>
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${jars.dir}/tcs">
                 <include name="base_exception.jar"/>
