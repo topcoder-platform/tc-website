@@ -16,20 +16,6 @@
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
     <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
     
-<script language="javascript" type="text/javascript">
-    <!--
-Calendar.setup(
-{
- inputField  : "date_due",  
-                    ifFormat    : "%Y.%m.%d %H:%M",    
-                    button      : "triggerdate_due",     
-                    showsTime   : true,
-                    singleClick  : false,
-                    cache       : true
-}
-);
-                -->
-</script>
 
 </head>
 
@@ -130,6 +116,21 @@ Calendar.setup(
 
    <input type="hidden" name="<%= PactsConstants.USER_ID %>" value="<%=userId %>" >
    
+<script language="javascript" type="text/javascript">
+    <!--
+Calendar.setup(
+{
+ inputField  : "date_due",  
+                    ifFormat    : "%Y.%m.%d %H:%M",    
+                    button      : "trigger_date_due",     
+                    showsTime   : true,
+                    singleClick  : false,
+                    cache       : true
+}
+);
+                -->
+</script>
+   
         <table border="0" cellpadding="5" cellspacing="5">
         <tr>
             <td><b>User:</b></td>
@@ -195,7 +196,7 @@ Calendar.setup(
             <tr>
             <td><b>Date Due:</b></td><td>
             <input type=text width=25 name="date_due" id="date_due" value="<%= due %>"> (if left blank, 2 weeks from now)
-                <button id="triggerdate_due">Set</button>
+                <button id="trigger_date_due">Set</button>
             </td>
 	            
         </tr>
