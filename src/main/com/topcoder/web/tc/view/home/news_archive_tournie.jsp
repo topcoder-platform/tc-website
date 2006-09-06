@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<%--<tr class="bodyText"><td nowrap="nowrap">09.11.06 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=dev_forums">TCCC06 Developer Forums Announced</A></td></tr>--%>
 <tr class="bodyText"><td nowrap="nowrap">09.06.06 12:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_qualification">TCCC06 Algorithm Qualification Byes</A></td></tr> 
 <tr class="bodyText"><td nowrap="nowrap">09.01.06 2:45 PM - </td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512848">TCCC06 automatic berth cutoff date changed</A></td></tr> 
 <tr class="bodyText"><td nowrap="nowrap">08.28.06 9:00 AM - </td><td width="100%"><A href="/tc?module=TCCC06ViewAlgoReg">TCCC06 Algorithm registration is now open</A></td></tr> 
