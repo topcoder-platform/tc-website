@@ -1,13 +1,13 @@
 package com.topcoder.web.studio.controller;
 
 import com.topcoder.shared.util.TCResourceBundle;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCResponse;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.MissingResourceException;
 
 /**
@@ -16,6 +16,7 @@ import java.util.MissingResourceException;
  *          Create Date: Jun 22, 2006
  */
 public class StudioServlet extends BaseServlet {
+    private static final Logger log = Logger.getLogger(StudioServlet.class);
 
     protected WebAuthentication createAuthentication(TCRequest request,
                                                      TCResponse response) throws Exception {
@@ -35,6 +36,26 @@ public class StudioServlet extends BaseServlet {
             }
         }
         return ret;
+    }
+
+
+    protected void handleException(HttpServletRequest request, HttpServletResponse response, Throwable e)
+            throws Exception {
+        log.error("caught exception, forwarding to error page", e);
+        if (e instanceof PermissionException) {
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            request.setAttribute(MESSAGE_KEY, "Sorry, you do not have permission to access the specified resource.  Please confirm that you are a member of TopCoder Studio.");
+        } else if (e instanceof NavigationException) {
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            request.setAttribute(MESSAGE_KEY, e.getMessage());
+            if (((NavigationException) e).hasUrl())
+                request.setAttribute(URL_KEY, ((NavigationException) e).getUrl());
+        } else {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            request.setAttribute(MESSAGE_KEY, "An error has occurred when attempting to process your request.");
+        }
+        request.setAttribute("exception", e);
+        fetchRegularPage(request, response, ERROR_PAGE, true);
     }
 
 }
