@@ -29,7 +29,7 @@
     <c:if test="${isOver}">
         document.subForm.<%=Constants.HANDLE%>.value = '<%=request.getParameter(Constants.HANDLE)==null?"":request.getParameter(Constants.HANDLE)%>';
     </c:if>
-        document.forms["subForm"].submit();
+        document.subForm.submit();
     }
     function previous() {
         document.subForm.<%=DataAccessConstants.START_RANK%>.value =<%=submissions.getStartRow()-1-Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
@@ -39,10 +39,10 @@
     <c:if test="${isOver}">
         document.subForm.<%=Constants.HANDLE%>.value = '<%=request.getParameter(Constants.HANDLE)==null?"":request.getParameter(Constants.HANDLE)%>';
     </c:if>
-        document.forms["subForm"].submit();
+        document.subForm.submit();
     }
     //--></script>
-    <script language="javascript" type="text/javascript">
+    <%--    <script language="javascript" type="text/javascript">
         <!--
         var objPopUp = null;
         function popUp(objectID) {
@@ -88,7 +88,7 @@
             text-align: left;
             white-space: nowrap;
         }
-    </STYLE>
+    </STYLE>--%>
 </head>
 
 <body>
