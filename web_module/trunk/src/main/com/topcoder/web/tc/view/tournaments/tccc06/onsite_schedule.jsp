@@ -64,7 +64,7 @@
 </table>
 
 
-<%-- WITH DEV FORUMS - POST MON SEPT 11TH 
+<%-- WITH DEV FORUMS - POST MON SEPT 11TH  
 <table border="0" cellpadding="5" cellspacing="0" width="400">
 <tr><td colspan="2" class="sidebarTitle">Tuesday, November 14, 2006</td></tr>
 <tr><td class="formTextEven" nowrap="nowrap">7:00pm - 9:00pm</td><td class="formTextEven">Welcome Reception</td></tr>
