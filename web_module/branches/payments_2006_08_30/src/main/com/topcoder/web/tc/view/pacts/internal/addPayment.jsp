@@ -117,20 +117,6 @@
 
    <input type="hidden" name="<%= PactsConstants.USER_ID %>" value="<%=userId %>" >
    
-<script language="javascript" type="text/javascript">
-    <!--
-Calendar.setup(
-{
- inputField  : "date_due",  
-                    ifFormat    : "%Y.%m.%d",    
-                    button      : "trigger_date_due",     
-                    showsTime   : false,
-                    singleClick  : false,
-                    cache       : true
-}
-);
-                -->
-</script>
    
         <table border="0" cellpadding="5" cellspacing="5">
         <tr>
@@ -203,6 +189,22 @@ Calendar.setup(
 	            
         </tr>
 </table>
+
+<script language="javascript" type="text/javascript">
+    <!--
+Calendar.setup(
+{
+ inputField  : "date_due",  
+                    ifFormat    : "%Y.%m.%d",    
+                    button      : "trigger_date_due",     
+                    showsTime   : false,
+                    singleClick  : false,
+                    cache       : true
+}
+);
+                -->
+</script>
+
 
 <input type=submit>
 </form>
