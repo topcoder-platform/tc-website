@@ -121,99 +121,99 @@
 
 
 <form action="${sessionInfo.servletPath}" method="GET" name="subForm">
-<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewSubmissions"/>
-<tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-<input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
-<input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
-<input type="hidden" name="<%=DataAccessConstants.SORT_COLUMN%>" value=""/>
-<input type="hidden" name="<%=DataAccessConstants.SORT_DIRECTION%>" value=""/>
-<c:if test="${isOver}">
-    You can enter a handle here to see only submissions by that competitor:
-    <tc-webtag:textInput name="<%=Constants.HANDLE%>"/>
-    <button name="submit" value="submit" type="submit">Submit</button>
-</c:if>
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewSubmissions"/>
+    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+    <input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
+    <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
+    <input type="hidden" name="<%=DataAccessConstants.SORT_COLUMN%>" value=""/>
+    <input type="hidden" name="<%=DataAccessConstants.SORT_DIRECTION%>" value=""/>
+    <c:if test="${isOver}">
+        You can enter a handle here to see only submissions by that competitor:
+        <tc-webtag:textInput name="<%=Constants.HANDLE%>"/>
+        <button name="submit" value="submit" type="submit">Submit</button>
+    </c:if>
 
 
-<div class="pagingBox">
-    <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
-    | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
-</div>
-<table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
-    <tbody>
-        <tr>
-            <td class="NW">&nbsp;</td>
-            <td class="title" colspan="3">Submissions</td>
-            <td class="NE">&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="headerW"><div>&nbsp;</div></td>
-            <% String exclude = Constants.MODULE_KEY + " " + DataAccessConstants.START_RANK + " " + DataAccessConstants.END_RANK;%>
-            <c:if test="${isOver}">
-                <td class="header">
-                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submitter</a>
-                </td>
-            </c:if>
-            <td class="header" nowrap="nowrap">
-                <A href="">Submission ID</A>
-            </td>
-            <td class="headerC" nowrap="nowrap">
-                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("create_date")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submit
-                    Date</a>
-            </td>
-            <td class="headerC" width="100%">
-                Submission
-            </td>
-            <td class="headerE"><div>&nbsp;</div></td>
-        </tr>
-        <% boolean even = true;
-            int i = 0; %>
-        <rsc:iterator list="<%=submissions%>" id="resultRow">
-            <tr class="<%=even?"light":"dark"%>">
-                <td class="valueW"><div>&nbsp;</div></td>
+    <div class="pagingBox">
+        <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+        | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+    </div>
+    <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
+        <tbody>
+            <tr>
+                <td class="NW">&nbsp;</td>
+                <td class="title" colspan="3">Submissions</td>
+                <td class="NE">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="headerW"><div>&nbsp;</div></td>
+                <% String exclude = Constants.MODULE_KEY + " " + DataAccessConstants.START_RANK + " " + DataAccessConstants.END_RANK;%>
                 <c:if test="${isOver}">
-                    <td class="value">
-                        <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
+                    <td class="header">
+                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submitter</a>
                     </td>
                 </c:if>
-                <td class="value">
-                    1234
+                <td class="header" nowrap="nowrap">
+                    <A href="">Submission ID</A>
                 </td>
-                <td class="valueC" nowrap="nowrap">
-                    <rsc:item name="create_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                <td class="headerC" nowrap="nowrap">
+                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("create_date")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submit
+                        Date</a>
                 </td>
-                <td class="valueC">
-
-                    <c:choose>
-                        <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
-                            <img src="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>" alt=""/>
-                        </c:when>
-                        <c:otherwise>
-                            <div align="center">
-                                <div class="container">
-                                    <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>"><img src="/i/layout/magnify.gif" alt="Download submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()"/></a>
-
-                                    <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-                                </div>
-                            </div>
-                        </c:otherwise>
-                    </c:choose>
+                <td class="headerC" width="100%">
+                    Submission
                 </td>
-                <td class="valueE"><div>&nbsp;</div></td>
+                <td class="headerE"><div>&nbsp;</div></td>
             </tr>
-            <% even = !even;
-                i++; %>
-        </rsc:iterator>
-        <tr>
-            <td class="SW" colspan="4">&nbsp;</td>
-            <td class="SE">&nbsp;</td>
-        </tr>
-    </tbody>
-</table>
-<div class="pagingBox">
-    <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
-    | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
-</div>
-<br>
+            <% boolean even = true;
+                int i = 0; %>
+            <rsc:iterator list="<%=submissions%>" id="resultRow">
+                <tr class="<%=even?"light":"dark"%>">
+                    <td class="valueW"><div>&nbsp;</div></td>
+                    <c:if test="${isOver}">
+                        <td class="value">
+                            <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
+                        </td>
+                    </c:if>
+                    <td class="value">
+                        <rsc:item name="submission_id" row="<%=resultRow%>"/>
+                    </td>
+                    <td class="valueC" nowrap="nowrap">
+                        <rsc:item name="create_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                    </td>
+                    <td class="valueC">
+
+                        <c:choose>
+                            <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
+                                <img src="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>" alt=""/>
+                            </c:when>
+                            <c:otherwise>
+                                <div align="center">
+                                    <div class="container">
+                                        <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>"><img src="/i/layout/magnify.gif" alt="Download submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()"/></a>
+
+                                        <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
+                                    </div>
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+                    <td class="valueE"><div>&nbsp;</div></td>
+                </tr>
+                <% even = !even;
+                    i++; %>
+            </rsc:iterator>
+            <tr>
+                <td class="SW" colspan="4">&nbsp;</td>
+                <td class="SE">&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="pagingBox">
+        <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+        | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+    </div>
+    <br>
             <span class="small">
             <strong>NOTE:</strong> this page is updated hourly<br>
             <strong>NOTE:</strong> only passing submissions are included
