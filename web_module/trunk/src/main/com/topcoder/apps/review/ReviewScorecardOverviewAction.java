@@ -84,7 +84,16 @@ public final class ReviewScorecardOverviewAction extends ReviewAction {
 //                    }
 //                }
 //            }
-            submission = rsr.getScorecards()[0].getSubmission();
+//            submission = rsr.getScorecards()[0].getSubmission();
+
+            if (rsr.getScorecards() != null) {
+                for (int i = 0; i < rsr.getScorecards().length; i++) {
+                    if (rsr.getScorecards()[i].getSubmission().getSubmitter().getId() == sid) {
+                        submission = rsr.getScorecards()[i].getSubmission();
+                        break;
+                    }
+                }
+            }
 
             if (submission == null) {
                 return new FailureResult("No submission found!");
