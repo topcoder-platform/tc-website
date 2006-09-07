@@ -27,7 +27,7 @@
 
 function typeChanged() {
     var ajaxRequest = new AjaxRequest('/pacts/internal/selectPaymentTypeReference.jsp');
-    ajaxRequest.addFormElementsById("payment_type_id");
+    ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.sendRequest();
 }
 
@@ -176,7 +176,7 @@ function typeChanged() {
         </td></tr>
         <tr>
             <td><b>Type:</b></td><td>
-	       <tc-webtag:rscSelect name="payment_type_id" id="payment_type_id"
+	       <tc-webtag:rscSelect name="payment_type_id" 
 	       			list="<%=paymentTypes%>" 
 		            fieldText="payment_type_desc" fieldValue="payment_type_id" 
 		            selectedValue="<%= paymentTypeSelectedValue %>" selectedText="<%= paymentTypeSelectedText %>" 
