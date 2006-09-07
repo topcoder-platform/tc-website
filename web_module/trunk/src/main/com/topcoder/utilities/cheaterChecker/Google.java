@@ -166,7 +166,7 @@ public class Google {
             query.append(" SELECT cc.coder_id ");
             query.append(" , scf.class_file ");
             query.append(" , u.handle ");
-            query.append(" , s.submission_text ");
+            query.append(" , case s.component_state_id is null then c.compilation_text else s.submission_text end");
             query.append(" , s.language_id ");
             query.append(" , co.open_time ");
             query.append(" , s.submit_time ");
@@ -176,11 +176,10 @@ public class Google {
             query.append(" , c.class_name");
             query.append(" , c.method_name");
             query.append(" FROM component_state cc ");
-            query.append(" , submission s ");
+            query.append(" , outer (submission s, submission_class_file scf)  ");
             query.append(" , room r ");
             query.append(" , room_result rr ");
             query.append(" , user u ");
-            query.append(" , submission_class_file scf ");
             query.append(" , component c");
             query.append(" , compilation co");
             query.append(" WHERE cc.round_id = ? ");
@@ -196,10 +195,8 @@ public class Google {
             query.append(" AND rr.round_id = cc.round_id ");
             query.append(" AND u.user_id = cc.coder_id ");
             query.append(" AND u.user_id = rr.coder_id ");
-//            query.append(" AND cc.submission_number = s.submission_number ");
             query.append(" AND scf.submission_number = s.submission_number ");
             query.append(" AND scf.component_state_id = s.component_state_id ");
-//            query.append(" AND scf.submission_number = cc.submission_number ");
             query.append(" AND scf.component_state_id = cc.component_state_id ");
             query.append(" AND scf.sort_order = 1");    //hoke it to be the first if there are multiple classes
             query.append(" AND cc.component_id = c.component_id");
