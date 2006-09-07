@@ -184,7 +184,11 @@ function typeChanged() {
         </td>
         </tr>
         
- <tr id="selectReference">
+ <tr>
+        <td><b>Reference:</b></td>
+ 	<td><div id="selectReference"> </div>
+ 	</td>
+ 	
  </tr>
         
         <tr>

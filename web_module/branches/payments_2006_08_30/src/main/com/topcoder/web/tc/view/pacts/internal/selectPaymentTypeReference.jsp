@@ -4,11 +4,7 @@
 <tac:taconiteRoot>
 
         <tac:replace contextNodeID="selectReference" parseOnServer="true">
-        <td><b>Reference:</b></td>
-        <td>
-			<c:out value="${param.payment_type_id}" />
-        </td>
-                
+			<c:out value="${param.payment_type_id}" />               
         </tac:replace>
 
 </tac:taconiteRoot>
