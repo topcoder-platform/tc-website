@@ -190,6 +190,7 @@ public class Google {
             query.append(" AND cc.round_id = r.round_id ");
             query.append(" AND r.room_type_id = 2 ");
             query.append(" AND cc.component_id = ? ");
+            query.append(" and cc.status_id > 120 ");
             query.append(" AND s.submission_points >= 0 ");//
             query.append(" AND s.component_state_id = cc.component_state_id ");
             query.append(" AND rr.round_id = r.round_id ");
