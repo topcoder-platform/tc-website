@@ -107,7 +107,7 @@ public class AOLAuthReply extends BaseProcessor {
                         log.info(getUser().getUserName() + " failed to sign up for group alert " +
                                 result.getUserGuid() + " " + result.getErrorCode() + " " + result.getErrorReason());
                         if (!"AlertsAPIExceptions.DuplicateSubscription(-20)".equals(result.getErrorCode())) {
-                            throw new NavigationException("Subscription failed: " + result.getErrorReason());
+                            throw new NavigationException("Subscription failed: " + result.getErrorReason() + " " + result.getErrorDetail());
                         }
                     }
 
