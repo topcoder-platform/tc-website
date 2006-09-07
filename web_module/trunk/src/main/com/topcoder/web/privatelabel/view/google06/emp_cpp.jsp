@@ -16,7 +16,6 @@
 
 <table border="0" width="100%" cellpadding="0" cellspacing="0">
 <tr>
-    <td width="49%">&#160;</td>
     <td align="center">
         <table border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
@@ -27,12 +26,11 @@
             </tr>
         </table>
     </td>
-    <td width="49%"></td>
 </tr>
 
 <!-- Tab bar links-->
 <tr>
-    <td colspan="3">
+    <td>
         <div align="center">
             <jsp:include page="emp_links.jsp">
                 <jsp:param name="selectedTab" value=""/>
@@ -42,12 +40,11 @@
     </td>
 </tr>
 
-<tr>
-<td width="49%">&#160;</td>
-
 <!-- content -->
+<tr>
 <td>
-<div class="pageLayout">
+<div align="center">
+<div class="pageLayout" align="left">
          <span valign="top">
          <jsp:include page="emp_right.jsp"/>
          </span>
@@ -274,11 +271,11 @@
          <a href="/pl/?&module=Static&d1=google06&d2=emp_rules">Terms and Conditions</a>.
          <br><br>
 </div>
+</div>
 </td>
-<td width="49%">&#160;</td>
+</tr>
 <tr>
-<tr>
-    <td colspan="3">
+    <td>
         <div align="center">
             <jsp:include page="foot.jsp"/>
         </div>

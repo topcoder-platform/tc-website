@@ -45,14 +45,9 @@
 <td>
 <div align="center">
 <div class="pageLayout" align="left">
-
-         <span valign="top">
-         <jsp:include page="right.jsp"/>
-         </span>
-
-         <span class="bigBluetitle">Google&#153; Code Jam 2006</span>
+<span valign="top"><jsp:include page="right.jsp"/></span>
+<span class="bigBluetitle">Google&#153; Code Jam 2006</span>
          <br><br>
-
          Want a chance at $165,000? Here's how: Google Code Jam 2006. This competition is a chance for you to use your
          skills and compete against top programmers from all over the world.
          <br><br><br>
@@ -193,7 +188,7 @@
 </div>
 </div>
 </td>
-<tr>
+</tr>
 <tr>
     <td>
         <div align="center">

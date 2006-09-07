@@ -33,8 +33,10 @@
                     <p class=bigTitle>Registration</p>
 
                     <p align="left">To complete your registration for the 2006 TopCoder Collegiate Challenge you must
-                        indicate
-                        your section preferences and <b>read and agree to</b> the terms listed below.</p>
+                        indicate your section preferences* and <b>read and agree to</b> the terms listed below.
+                        <br><br>
+                        <b>* Your section preferences will be final and cannot be altered in the future.</b>
+                        </p>
 
                     <c:set value="<%=Constants.PREFERENCE_PREFIX%>" var="prefPrefix"/>
                     <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prefPrefix}">${err}
