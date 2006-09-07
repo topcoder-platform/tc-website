@@ -184,9 +184,11 @@ function typeChanged() {
         </td>
         </tr>
         
-<tr id="selectReference">
+        <div  id="selectReference">
+<tr>
 <td></td><td></td>
  </tr>
+ </div>
         
         <tr>
             <td><b>Method:</b></td><td>
