@@ -1,6 +1,10 @@
 package com.topcoder.web.tc.controller.request.tournament.tccc06;
 
+import com.topcoder.alerts.aol.wrapper.MessagingRegistrationManager;
+import com.topcoder.alerts.aol.wrapper.NamedAlertRegistry;
+import com.topcoder.alerts.aol.wrapper.SubscriptionResult;
 import com.topcoder.security.Util;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.NavigationException;
@@ -33,7 +37,35 @@ import javax.servlet.http.Cookie;
 public class AOLAuthReply extends BaseProcessor {
     protected static final Logger log = Logger.getLogger(AOLAuthReply.class);
 
-    //todo handle the case where we're resubscribing to the same thing gracefully
+    private static final String GROUP_ALERT = "groupAlert";
+    private static final String IND_ALERT = "indAlert";
+    private static final String AUTH_TOKEN = "AuthToken";
+
+    private static String GROUP_ALERT_ID;
+    private static String GROUP_VALIDATION_TOKEN;
+    private static String GROUP_TOPIC;
+
+    private static String IND_ALERT_ID;
+    private static String IND_VALIDATION_TOKEN;
+    private static String IND_TOPIC;
+
+    static {
+        if (ApplicationServer.ENVIRONMENT == ApplicationServer.PROD) {
+            GROUP_ALERT_ID = "7ba63042-e8f0-4adb-815a-f755fc768de9";
+            GROUP_VALIDATION_TOKEN = "E0BF3656EBEDD16942EB8D667754FEAF878B3CAB18E7D8EC1CB9C12176A8E4A";
+            GROUP_TOPIC = "TopCoder";
+            IND_ALERT_ID = "268e2e1d-6d09-4c8e-a78c-f755fc768de9";
+            IND_VALIDATION_TOKEN = "FA7362BC7BC7C507EE6B91BC8C22284BC06527B5DB0DD7BFB9FBBBE4C6BC867";
+            IND_TOPIC = "TopCoder";
+        } else {
+            GROUP_ALERT_ID = "7ba606d0-e8f0-4adb-815a-f755fc768de9";
+            GROUP_VALIDATION_TOKEN = "95F1C56B13A2B71E65A6CB78DD09838B92A1A017BF277C6BD19524AD1EF234";
+            GROUP_TOPIC = "TopCoder-Dev";
+            IND_ALERT_ID = "9244f24a-3c7c-40a9-abb2-f755fc768de9";
+            IND_VALIDATION_TOKEN = "F4A96814585F89E11C132FE691A82F3F2A967C5BFEE225026A75825A3792764";
+            IND_TOPIC = "TopCoder";
+        }
+    }
 
     protected void businessProcessing() throws Exception {
         Cookie[] cookies = getRequest().getCookies();
@@ -58,10 +90,54 @@ public class AOLAuthReply extends BaseProcessor {
                     if (log.isDebugEnabled()) {
                         log.debug("signup " + userId + " for group alert");
                     }
+
+                    NamedAlertRegistry registry = new NamedAlertRegistry();
+                    registry.addAlertIDMapping(GROUP_ALERT, GROUP_ALERT_ID, GROUP_VALIDATION_TOKEN, GROUP_TOPIC);
+
+                    MessagingRegistrationManager man = new MessagingRegistrationManager(registry);
+                    man.setSubscriptionEndPoint("https://webservices.alerts.aol.com/api/services/AlertsSubscriptionAPIService");
+
+                    SubscriptionResult result = man.subscribe(GROUP_ALERT, getRequest().getParameter(AUTH_TOKEN));
+
+                    if (result.getSubscriptionId() != null) {
+                        //success
+                        log.info(getUser().getUserName() + " signed up for group alert " + result.getSubscriptionId() +
+                                " " + result.getUserGuid());
+                    } else {
+                        log.info(getUser().getUserName() + " failed to sign up for group alert " +
+                                result.getUserGuid() + " " + result.getErrorCode() + " " + result.getErrorReason());
+                        if (!"AlertsAPIExceptions.DuplicateSubscription(-20)".equals(result.getErrorCode())) {
+                            throw new NavigationException("Subscription failed: " + result.getErrorReason());
+                        }
+                    }
+
                 } else if (isIndividualSignup) {
                     if (log.isDebugEnabled()) {
                         log.debug("signup " + userId + " for individual alert");
                     }
+
+
+                    NamedAlertRegistry registry = new NamedAlertRegistry();
+                    registry.addAlertIDMapping(IND_ALERT, IND_ALERT_ID, IND_VALIDATION_TOKEN, IND_TOPIC);
+
+                    MessagingRegistrationManager man = new MessagingRegistrationManager(registry);
+                    man.setSubscriptionEndPoint("https://webservices.alerts.aol.com/api/services/AlertsSubscriptionAPIService");
+
+                    SubscriptionResult result = man.subscribe(IND_ALERT, getRequest().getParameter(AUTH_TOKEN));
+
+                    if (result.getSubscriptionId() != null) {
+                        //success
+                        log.info(getUser().getUserName() + " signed up for individual alert " + result.getSubscriptionId() +
+                                " " + result.getUserGuid());
+                    } else {
+                        log.info(getUser().getUserName() + " failed to sign up for individual alert " +
+                                result.getUserGuid() + " " + result.getErrorCode() + " " + result.getErrorReason());
+                        if (!"AlertsAPIExceptions.DuplicateSubscription(-20)".equals(result.getErrorCode())) {
+                            throw new NavigationException("Subscription failed: " + result.getErrorReason());
+                        }
+                    }
+
+
                 } else {
                     throw new NavigationException("Request did not include the type of alert");
                 }
@@ -70,6 +146,8 @@ public class AOLAuthReply extends BaseProcessor {
             }
         }
 
+        setNextPage("/tournaments/tccc06/aol_alerts_sub_success.jsp");
+        setIsNextPageInContext(true);
 
     }
 }
