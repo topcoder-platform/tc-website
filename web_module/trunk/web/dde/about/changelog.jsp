@@ -56,6 +56,7 @@
                             1.0.5 - 2006.xx.xx
                             <ul>
                                 <li>Tweak to my open projects page to speed it up</li>
+                                <li>Fixed admins review scorecards overview page</li>
                             </ul>
                         </p>
 
