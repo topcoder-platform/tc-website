@@ -16,7 +16,11 @@
     ResultSetContainer rsc = (ResultSetContainer) map.get(PactsInternalServlet.PROBLEM_LIST);
 %>
         <tac:replaceChildren contextNodeID="selectReference" parseOnServer="true">
-			<c:out value="${param.payment_type_id}" />               
+			<c:out value="${param.payment_type_id}" />         
+            <tc-webtag:rscSelect name="payment_method_id" list="<%=rsc%>" 
+                        fieldText="name" fieldValue="problem_id"              			
+            			useTopValue="false" />
+			      
         </tac:replaceChildren>
 
 </tac:taconiteRoot>
