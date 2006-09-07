@@ -151,7 +151,7 @@ public class Contest {
             query.append(" SELECT cc.coder_id ");
             query.append(" , scf.class_file ");
             query.append(" , u.handle ");
-            query.append(" , s.submission_text ");
+            query.append(" , case s.component_state_id is null then c.compilation_text else s.submission_text end");
             query.append(" , s.language_id ");
             query.append(" , co.open_time ");
             query.append(" , s.submit_time ");
@@ -162,11 +162,10 @@ public class Contest {
             query.append(" , c.method_name");
             query.append(" , s.submission_number");
             query.append(" FROM component_state cc ");
-            query.append(" , submission s ");
+            query.append(" , outer (submission s, submission_class_file scf)  ");
             query.append(" , room r ");
             query.append(" , room_result rr ");
             query.append(" , user u ");
-            query.append(" , submission_class_file scf ");
             query.append(" , component c");
             query.append(" , compilation co");
             query.append(" WHERE cc.round_id = ? ");
@@ -260,7 +259,7 @@ public class Contest {
                 s.setSource(cs.stripComments(DBMS.getTextString(rs, 4)));
                 s.setLanguageId(rs.getInt("language_id"));
                 s.setOpenTime(0);
-                s.setSubmitTime(1000*60*60*6);  //6 hours.  that should keep them out of the running
+                s.setSubmitTime(1000 * 60 * 60 * 6);  //6 hours.  that should keep them out of the running
                 s.setPoints(rs.getFloat("submission_points"));
                 s.setProblemId(rs.getLong("problem_id"));
                 s.setComponentId(rs.getLong("component_id"));
