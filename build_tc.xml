@@ -67,6 +67,7 @@
         <pathelement location="${jars.dir}/tcs/alerts_wrapper/1.0/java_alerts_wrapper.jar"/>
         <pathelement location="${jars.dir}/object_formatter.jar"/>
         <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
+        <pathelement location="${jars.dir}/tcs/logging_wrapper.jar"/>
         <!-- need this still cuz the new version doesn't work for everything we need -->
         <pathelement location="${jars.dir}/idgenerator.jar"/>
         <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
@@ -580,6 +581,9 @@
             </fileset>
             <fileset dir="${jars.dir}/tcs/alerts_wrapper/1.0">
                 <include name="java_alerts_wrapper.jar"/>
+            </fileset>
+            <fileset dir="${jars.dir}/tcs">
+                <include name="logging_wrapper.jar"/>
             </fileset>
         </copy>
 
