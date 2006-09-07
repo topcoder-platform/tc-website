@@ -5017,6 +5017,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public Map getProblemList() throws SQLException {
         String query = "SELECT problem_id, name FROM problem ORDER BY name";
         ResultSetContainer rsc = runSelectQuery(query, true);
+        log.debug("getProblemList size: " + rsc.size());
         HashMap hm = new HashMap();
         hm.put(PROBLEM_LIST, rsc);
         return hm;
