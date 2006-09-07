@@ -264,7 +264,7 @@ public class Contest {
                 s.setLanguageId(rs1.getInt("language_id"));
                 s.setOpenTime(0);
                 s.setSubmitTime(1000 * 60 * 60 * 6);  //6 hours.  that should keep them out of the running
-                s.setPoints(rs1.getFloat("submission_points"));
+                s.setPoints(0);
                 s.setProblemId(rs1.getLong("problem_id"));
                 s.setComponentId(rs1.getLong("component_id"));
                 s.setClassName(rs1.getString("class_name"));
