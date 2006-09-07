@@ -142,7 +142,7 @@ public class AOLAuthReply extends BaseProcessor {
                     throw new NavigationException("Request did not include the type of alert");
                 }
             } catch (Exception e) {
-                throw new NavigationException("Sorry, there was a error attempting to communicate between AOL and TopCoder.");
+                throw new NavigationException("Sorry, there was a error attempting to communicate between AOL and TopCoder.", e);
             }
         }
 
