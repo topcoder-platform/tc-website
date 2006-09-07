@@ -257,18 +257,18 @@ public class Contest {
 
             for (rs1 = ps.executeQuery(); rs1.next(); ret.add(s)) {
                 s = new Submission();
-                s.setHandle(rs.getString("handle"));
-                s.setCoderId(rs.getInt("coder_id"));
+                s.setHandle(rs1.getString("handle"));
+                s.setCoderId(rs1.getInt("coder_id"));
                 //s.setClassFile(rs.getBytes("class_file"));
-                s.setSource(cs.stripComments(DBMS.getTextString(rs, 4)));
-                s.setLanguageId(rs.getInt("language_id"));
+                s.setSource(cs.stripComments(DBMS.getTextString(rs1, 4)));
+                s.setLanguageId(rs1.getInt("language_id"));
                 s.setOpenTime(0);
                 s.setSubmitTime(1000 * 60 * 60 * 6);  //6 hours.  that should keep them out of the running
-                s.setPoints(rs.getFloat("submission_points"));
-                s.setProblemId(rs.getLong("problem_id"));
-                s.setComponentId(rs.getLong("component_id"));
-                s.setClassName(rs.getString("class_name"));
-                s.setMethodName(rs.getString("method_name"));
+                s.setPoints(rs1.getFloat("submission_points"));
+                s.setProblemId(rs1.getLong("problem_id"));
+                s.setComponentId(rs1.getLong("component_id"));
+                s.setClassName(rs1.getString("class_name"));
+                s.setMethodName(rs1.getString("method_name"));
                 s.setIncluded(true);
             }
 
