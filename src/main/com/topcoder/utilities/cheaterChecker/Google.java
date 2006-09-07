@@ -166,8 +166,10 @@ public class Google {
             query.append(" SELECT cc.coder_id ");
             query.append(" , scf.class_file ");
             query.append(" , u.handle ");
-            query.append(" , case s.component_state_id is null then c.compilation_text else s.submission_text end");
-            query.append(" , s.language_id ");
+            query.append(" , c.compilation_text");
+            query.append(" , s.submission_text");
+            query.append(" , s.language_id as submit_language");
+            query.append(" , c.language_id as compile_language");
             query.append(" , co.open_time ");
             query.append(" , s.submit_time ");
             query.append(" , s.submission_points ");
@@ -175,6 +177,7 @@ public class Google {
             query.append(" , c.problem_id");
             query.append(" , c.class_name");
             query.append(" , c.method_name");
+            query.append(" , s.submission_number");
             query.append(" FROM component_state cc ");
             query.append(" , outer (submission s, submission_class_file scf)  ");
             query.append(" , room r ");
@@ -201,7 +204,6 @@ public class Google {
             query.append(" AND scf.sort_order = 1");    //hoke it to be the first if there are multiple classes
             query.append(" AND cc.component_id = c.component_id");
             query.append(" AND co.component_state_id = s.component_state_id");
-
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, roundId);
             ps.setLong(2, roundId);
@@ -214,8 +216,13 @@ public class Google {
                 s.setHandle(rs.getString("handle"));
                 s.setCoderId(rs.getInt("coder_id"));
                 //s.setClassFile(rs.getBytes("class_file"));
-                s.setSource(cs.stripComments(DBMS.getTextString(rs, 4)));
-                s.setLanguageId(rs.getInt("language_id"));
+                if (rs.getString("submission_number") == null) {
+                    s.setSource(cs.stripComments(DBMS.getTextString(rs, 4)));
+                    s.setLanguageId(rs.getInt("compile_language"));
+                } else {
+                    s.setSource(cs.stripComments(DBMS.getTextString(rs, 5)));
+                    s.setLanguageId(rs.getInt("submit_language"));
+                }
                 s.setOpenTime(rs.getLong("open_time"));
                 s.setSubmitTime(rs.getLong("submit_time"));
                 s.setPoints(rs.getFloat("submission_points"));
@@ -223,6 +230,7 @@ public class Google {
                 s.setComponentId(rs.getLong("component_id"));
                 s.setClassName(rs.getString("class_name"));
                 s.setMethodName(rs.getString("method_name"));
+                s.setSubmissionNumber(rs.getInt("submission_number"));
                 s.setIncluded(true);
             }
         } catch (SQLException e) {

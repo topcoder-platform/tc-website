@@ -151,8 +151,10 @@ public class Contest {
             query.append(" SELECT cc.coder_id ");
             query.append(" , scf.class_file ");
             query.append(" , u.handle ");
-            query.append(" , case s.component_state_id is null then c.compilation_text else s.submission_text end");
-            query.append(" , s.language_id ");
+            query.append(" , c.compilation_text");
+            query.append(" , s.submission_text");
+            query.append(" , s.language_id as submit_language");
+            query.append(" , c.language_id as compile_language");
             query.append(" , co.open_time ");
             query.append(" , s.submit_time ");
             query.append(" , s.submission_points ");
@@ -191,10 +193,6 @@ public class Contest {
             ps.setLong(1, roundId);
             ps.setLong(2, roundId);
             ps.setLong(3, componentId);
-/*
-            ps.setLong(4, roundId);
-            ps.setLong(5, componentId);
-*/
 
             CommentStripper cs = new CommentStripper();
             ret = new ArrayList();
@@ -203,8 +201,13 @@ public class Contest {
                 s.setHandle(rs.getString("handle"));
                 s.setCoderId(rs.getInt("coder_id"));
                 //s.setClassFile(rs.getBytes("class_file"));
-                s.setSource(cs.stripComments(DBMS.getTextString(rs, 4)));
-                s.setLanguageId(rs.getInt("language_id"));
+                if (rs.getString("submission_number") == null) {
+                    s.setSource(cs.stripComments(DBMS.getTextString(rs, 4)));
+                    s.setLanguageId(rs.getInt("compile_language"));
+                } else {
+                    s.setSource(cs.stripComments(DBMS.getTextString(rs, 5)));
+                    s.setLanguageId(rs.getInt("submit_language"));
+                }
                 s.setOpenTime(rs.getLong("open_time"));
                 s.setSubmitTime(rs.getLong("submit_time"));
                 s.setPoints(rs.getFloat("submission_points"));
