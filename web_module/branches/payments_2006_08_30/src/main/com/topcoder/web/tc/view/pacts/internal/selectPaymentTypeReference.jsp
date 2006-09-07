@@ -4,7 +4,7 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean,
 com.topcoder.web.tc.controller.legacy.pacts.common.*,
 com.topcoder.web.common.*,
-com.topcoder.shared.dataAccess.resultSet.ResutSetContainer,
+com.topcoder.shared.dataAccess.resultSet.*,
 java.util.*,
 com.topcoder.web.tc.controller.legacy.pacts.servlet.*" %>
 <tac:taconiteRoot>
