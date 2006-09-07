@@ -14,7 +14,6 @@
 
 <table border="0" width="100%" cellpadding="0" cellspacing="0">
     <tr>
-        <td width="49%">&#160;</td>
         <td align="center">
             <table border="0" width="100%" cellpadding="0" cellspacing="0">
                 <tr>
@@ -25,12 +24,11 @@
                 </tr>
             </table>
         </td>
-        <td width="49%"></td>
     </tr>
 
     <!-- Tab bar links-->
     <tr>
-        <td colspan="3">
+        <td>
             <div align="center">
                 <jsp:include page="links.jsp">
                     <jsp:param name="selectedTab" value="registration"/>
@@ -41,11 +39,11 @@
     </tr>
 
     <tr>
-        <td width="49%">&#160;</td>
 
         <!-- content -->
         <td>
-            <div class="pageLayout">
+            <div align="center">
+            <div class="pageLayout" align="left">
 
                 <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
                     <tr>
@@ -81,14 +79,11 @@
                 To find out more detailed information about Google Code Jam 2006, please read the
                 <a href="/pl/?&module=Static&d1=google06&d2=rules">Terms and Conditions</a>.
             </div>
+            </div>
         </td>
     </tr>
-</table>
-</td>
-<td width="49%">&#160;</td>
-<tr>
     <tr>
-        <td colspan="3">
+        <td>
             <div align="center">
                 <jsp:include page="foot.jsp"/>
             </div>

@@ -39,7 +39,6 @@ var google_conversion_label = "LEAD";
 
 <table border="0" width="100%" cellpadding="0" cellspacing="0">
     <tr>
-        <td width="49%">&#160;</td>
         <td align="center">
             <table border="0" width="100%" cellpadding="0" cellspacing="0">
                 <tr>
@@ -50,12 +49,11 @@ var google_conversion_label = "LEAD";
                 </tr>
             </table>
         </td>
-        <td width="49%"></td>
     </tr>
 
     <!-- Tab bar links-->
     <tr>
-        <td colspan="3">
+        <td>
             <div align="center">
                 <jsp:include page="links.jsp">
                     <jsp:param name="selectedTab" value="registration"/>
@@ -66,11 +64,11 @@ var google_conversion_label = "LEAD";
     </tr>
 
     <tr>
-        <td width="49%">&#160;</td>
 
         <!-- content -->
         <td>
-            <div class="pageLayout">
+            <div align="center">
+            <div class="pageLayout" align="left">
 
                 <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
                     <tr>
@@ -120,11 +118,11 @@ var google_conversion_label = "LEAD";
                 <a href="/pl/?&module=Static&d1=google06&d2=rules">Terms and Conditions</a>.
                 <br><br>
             </div>
+            </div>
         </td>
-        <td width="49%">&#160;</td>
+    </tr>
     <tr>
-    <tr>
-        <td colspan="3">
+        <td>
             <div align="center">
                 <jsp:include page="foot.jsp"/>
             </div>
