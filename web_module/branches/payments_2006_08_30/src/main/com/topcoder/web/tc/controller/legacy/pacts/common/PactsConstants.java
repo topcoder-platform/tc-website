@@ -170,6 +170,8 @@ public interface PactsConstants {
     public static final String PROJECT_TERMINATION_STATUS_LIST = "project_termination_status_list";
     public static final String CREATION_DATE_LIST = "creation_date_list";
 
+    public static final String PROBLEM_LIST = "problem_list";
+    
     // Miscellaneous
     public static final String TEXT = "text";
     public static final String ROUND_LIST = "round_list";

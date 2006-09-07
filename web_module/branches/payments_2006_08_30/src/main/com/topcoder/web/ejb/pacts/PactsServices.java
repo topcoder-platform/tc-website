@@ -189,6 +189,6 @@ public interface PactsServices extends EJBObject {
 
     Payment getEmptyPayment(long userId) throws RemoteException, SQLException;
 
-
+    Map getProblemList() throws RemoteException, SQLException;
 }
 
