@@ -577,6 +577,9 @@
             <fileset dir="${jars.dir}/tcs/db_connection_factory/1.0">
                 <include name="db_connection_factory.jar"/>
             </fileset>
+            <fileset dir="${jars.dir}/tcs/alerts_wrapper/1.0">
+                <include name="java_alerts_wrapper.jar"/>
+            </fileset>
         </copy>
 
         <copy todir="${jboss_lib}">
