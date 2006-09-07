@@ -5,6 +5,10 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.TCData"%>
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader"%>
 
+<%@ taglib uri="common-functions" prefix="cf" %>
+<%@ taglib uri="http://taconite.sf.net/tags" prefix="tac" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 
 <head>
@@ -16,6 +20,20 @@
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
     <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
+         
+<script type="text/javascript" src="/js/taconite-client.js"></script>
+<script type="text/javascript">
+
+
+function typeChanged() {
+    var ajaxRequest = new AjaxRequest('/pacts/internal/selectPaymentTypeReference.jsp');
+    ajaxRequest.addFormElementsById("payment_type_id");
+    ajaxRequest.sendRequest();
+}
+
+
+</script>
+
     
 
 </head>
@@ -158,12 +176,16 @@
         </td></tr>
         <tr>
             <td><b>Type:</b></td><td>
-	       <tc-webtag:rscSelect name="payment_type_id" list="<%=paymentTypes%>" 
+	       <tc-webtag:rscSelect name="payment_type_id" id="payment_type_id"
+	       			list="<%=paymentTypes%>" 
 		            fieldText="payment_type_desc" fieldValue="payment_type_id" 
 		            selectedValue="<%= paymentTypeSelectedValue %>" selectedText="<%= paymentTypeSelectedText %>" 
-	    	        useTopValue="false" />        
+	    	        useTopValue="false" onChange="typeChanged()" />        
         </td>
         </tr>
+        
+<div id="selectReference"> </div>
+        
         <tr>
             <td><b>Method:</b></td><td>
             <tc-webtag:rscSelect name="payment_method_id" list="<%=paymentMethods%>" 
