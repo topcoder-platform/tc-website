@@ -14,7 +14,6 @@ import com.jivesoftware.forum.stats.ViewCountManager;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.ejb.forumpoll.ForumPoll;
 import com.topcoder.web.ejb.messagehistory.MessageHistory;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Paging;
@@ -66,12 +65,10 @@ public class Thread extends ForumsProcessor {
         Iterator itMessages = null;
 
         MessageHistory historyBean = null;
-        ForumPoll pollBean = null;
         InitialContext ctx = null;
         try {
             ctx = TCContext.getInitial();
             historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
-            pollBean = (ForumPoll)createEJB(ctx, ForumPoll.class);
         } catch (Exception e) {
             Log.error(e);
         } finally {
@@ -83,7 +80,6 @@ public class Thread extends ForumsProcessor {
 		getRequest().setAttribute("thread", thread);
 		getRequest().setAttribute("paginator", paginator);
         getRequest().setAttribute("historyBean", historyBean);
-        getRequest().setAttribute("pollBean", pollBean);
         
         ReadTracker readTracker = forumFactory.getReadTracker();
         if (user != null && !authToken.isAnonymous()) {
