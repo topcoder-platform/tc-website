@@ -195,7 +195,7 @@
 </td>
 <tr>
 <tr>
-    <td colspan="3">
+    <td>
         <div align="center">
             <jsp:include page="foot.jsp"/>
         </div>
