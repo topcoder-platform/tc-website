@@ -189,7 +189,7 @@ public class Contest {
             query.append(" AND scf.component_state_id = cc.component_state_id ");
             query.append(" AND scf.sort_order = 1");    //hoke it to be the first if there are multiple classes
             query.append(" AND cc.component_id = c.component_id");
-            query.append(" AND co.component_state_id = s.component_state_id");
+            query.append(" AND co.component_state_id = cc.component_state_id");
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, roundId);
             ps.setLong(2, roundId);
