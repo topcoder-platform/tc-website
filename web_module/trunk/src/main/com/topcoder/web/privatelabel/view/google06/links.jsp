@@ -45,14 +45,13 @@
     <% } else { %>
     <a class="navLink" href="/pl/?module=Static&d1=google06&d2=faq">FAQ</a> &nbsp;|&nbsp;
     <% } %>
-    <%--
+
     <!-- Advancers tab -->
                 <% if (selectedTab.equals("advancers")) {%>
                      <span class="navOn">Advancers</span> &nbsp;|&nbsp;
                 <% } else { %>
                       <a class="navLink" href="/pl/?module=Static&d1=google06&d2=advancers">Advancers</a> &nbsp;|&nbsp;
                 <% } %>
-    --%>
 
     <!-- Practice Arena  tab -->
     <% if (selectedTab.equals("arena")) {%>
@@ -69,3 +68,6 @@
         Jam Group</a>
     <% } %>
 </div>
+
+<br><br>
+<span class="bigRed"><A href="/pl/?module=Static&d1=google06&d2=advQual" class="bigRed">Click here</A> to see who has qualified!</span>
