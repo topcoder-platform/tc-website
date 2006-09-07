@@ -166,10 +166,10 @@ public class Google {
             query.append(" SELECT cc.coder_id ");
             query.append(" , scf.class_file ");
             query.append(" , u.handle ");
-            query.append(" , c.compilation_text");
+            query.append(" , co.compilation_text");
             query.append(" , s.submission_text");
             query.append(" , s.language_id as submit_language");
-            query.append(" , c.language_id as compile_language");
+            query.append(" , co.language_id as compile_language");
             query.append(" , co.open_time ");
             query.append(" , s.submit_time ");
             query.append(" , s.submission_points ");
