@@ -41,10 +41,6 @@ public class Similar extends FraudBase {
             for (int j = i + 1; j < tokens.size(); j++) {
                 s1 = (Submission) submissions.get(i);
                 s2 = (Submission) submissions.get(j);
-                if (log.isDebugEnabled()) {
-                    log.debug("s1: " + i + " inc " + s1.isIncluded() + " " + s1.getLanguageId() + " " + s1.getCoderId() +
-                            " s2 inc " + s2.isIncluded() + " " + s2.getLanguageId() + " " + s2.getCoderId());
-                }
                 if ((s1.isIncluded() || s2.isIncluded()) && s1.getLanguageId() == s2.getLanguageId() && s1.getCoderId() != s2.getCoderId())
                 {
                     l1 = ((TokenizedSource) tokens.get(i)).getTokens();
