@@ -27,10 +27,11 @@ public class SendAOLAlert extends ShortHibernateProcessor {
         if (getSessionInfo().isAdmin()) {
 
             String type = getRequest().getParameter(ALERT_TYPE);
-            String text = getRequest().getParameter(MESSAGE_TEXT);
             String handle = getRequest().getParameter(Constants.HANDLE);
 
             if (AOLAlertsDescription.AOL_GROUP_ALERT.equals(type)) {
+                String text = getRequest().getParameter(MESSAGE_TEXT + type);
+
                 log.debug("sending a group alert");
                 NamedAlertRegistry registry = new NamedAlertRegistry();
                 registry.addAlertIDMapping(AOLAuthReply.GROUP_ALERT, AOLAuthReply.GROUP_ALERT_ID,
@@ -50,6 +51,8 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                 setIsNextPageInContext(false);
 
             } else if (AOLAlertsDescription.AOL_INDIVIDUAL_ALERT.equals(type)) {
+                String text = getRequest().getParameter(MESSAGE_TEXT + type);
+
                 log.debug("sending a individual alert");
                 NamedAlertRegistry registry = new NamedAlertRegistry();
                 registry.addAlertIDMapping(AOLAuthReply.IND_ALERT, AOLAuthReply.IND_ALERT_ID,
@@ -58,7 +61,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                 User u = DAOUtil.getFactory().getUserDAO().find(handle, false);
                 if (u == null) {
                     addError(Constants.HANDLE, "Invalid handle");
-                    setDefault(MESSAGE_TEXT, text);
+                    setDefault(MESSAGE_TEXT + type, text);
                     setDefault(Constants.HANDLE, handle);
                     setNextPage("/tournaments/tccc06/aol_alerts_sender.jsp");
                     setIsNextPageInContext(true);
@@ -66,7 +69,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                     AOLAlertInfo info = (AOLAlertInfo) HibernateUtils.getSession().get(AOLAlertInfo.class, u.getId());
                     if (info == null) {
                         addError(Constants.HANDLE, "This user is not signed up for individual alerts");
-                        setDefault(MESSAGE_TEXT, text);
+                        setDefault(MESSAGE_TEXT + type, text);
                         setDefault(Constants.HANDLE, handle);
                         setNextPage("/tournaments/tccc06/aol_alerts_sender.jsp");
                         setIsNextPageInContext(true);
@@ -93,7 +96,6 @@ public class SendAOLAlert extends ShortHibernateProcessor {
 
             } else {
                 addError(ALERT_TYPE, "Invalid alert type specified");
-                setDefault(MESSAGE_TEXT, text);
                 setDefault(Constants.HANDLE, handle);
                 setNextPage("/tournaments/tccc06/aol_alerts_sender.jsp");
                 setIsNextPageInContext(true);
