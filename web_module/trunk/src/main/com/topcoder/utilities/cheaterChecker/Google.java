@@ -63,7 +63,6 @@ public class Google {
                     nonNormalizedSource.add(new JavaSource(((Submission) submissions.get(i)).getSource()));
                 }
 
-/*
                 fraud = new SimilarSourceSubsequences(normalizedSource, submissions, 1000);
                 log.info("****************** SIMILAR SUBSEQUENCES **************************");
                 fraud.execute();
@@ -84,7 +83,6 @@ public class Google {
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
                 allPotentialViolators.addAll(fraud.getPotentialViolators());
-*/
 
                 fraud = new Similar(nonNormalizedSource, submissions, 1000);
                 log.info("****************** SIMILAR SOURCE **************************");
@@ -93,7 +91,6 @@ public class Google {
                 log.info("**********************************************************");
                 allPotentialViolators.addAll(fraud.getPotentialViolators());
 
-/*
                 fraud = new Same(normalizedSource, submissions, 100000);
                 log.info("****************** SAME NORMALIZED SOURCE**************************");
                 fraud.execute();
@@ -127,7 +124,6 @@ public class Google {
                 log.info("****************** Aggregate **************************");
                 log.info(worstBuf);
                 log.info("**********************************************************");
-*/
 
 
             }
