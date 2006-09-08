@@ -92,7 +92,7 @@ public class AOLAuthReply extends BaseProcessor {
                     }
 
                     NamedAlertRegistry registry = new NamedAlertRegistry();
-                    registry.addAlertIDMapping(GROUP_ALERT, GROUP_ALERT_ID, GROUP_VALIDATION_TOKEN, GROUP_TOPIC);
+                    registry.addAlertIDMapping(GROUP_ALERT, GROUP_ALERT_ID, GROUP_VALIDATION_TOKEN, GROUP_TOPIC, isGroupSignup);
 
                     MessagingRegistrationManager man = new MessagingRegistrationManager(registry);
                     man.setSubscriptionEndPoint("https://webservices.alerts.aol.com/api/services/AlertsSubscriptionAPIService");
@@ -119,7 +119,7 @@ public class AOLAuthReply extends BaseProcessor {
 
 
                     NamedAlertRegistry registry = new NamedAlertRegistry();
-                    registry.addAlertIDMapping(IND_ALERT, IND_ALERT_ID, IND_VALIDATION_TOKEN, IND_TOPIC);
+                    registry.addAlertIDMapping(IND_ALERT, IND_ALERT_ID, IND_VALIDATION_TOKEN, IND_TOPIC, isGroupSignup);
 
                     MessagingRegistrationManager man = new MessagingRegistrationManager(registry);
                     man.setSubscriptionEndPoint("https://webservices.alerts.aol.com/api/services/AlertsSubscriptionAPIService");
