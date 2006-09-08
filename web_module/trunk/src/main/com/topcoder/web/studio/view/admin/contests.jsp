@@ -36,7 +36,7 @@
                     <tbody>
                         <tr>
                             <td class="NW">&nbsp;</td>
-                            <td class="title" colspan="5">Contests</td>
+                            <td class="title" colspan="6">Contests</td>
                             <td class="titleR">
                                 <h2><a href="${sessionInfo.servletPath}?module=AdminViewContest">add contest</a></h2>
                             </td>
@@ -49,6 +49,7 @@
                             <td class="headerC">Start</td>
                             <td class="headerC">End</td>
                             <td class="headerC">Submissions</td>
+                            <td class="headerC"></td>
                             <td class="headerC"></td>
                             <td class="headerE"><div>&nbsp;</div></td>
                         </tr>
@@ -70,12 +71,15 @@
                                 <td class="valueC">
                                     <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${contest.id}">edit</a>
                                 </td>
+                                <td class="valueC">
+                                    <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}">view</a>
+                                </td>
                                 <td class="valueE"><div>&nbsp;</div></td>
                             </tr>
                             <% even = !even;%>
                         </c:forEach>
                         <tr>
-                            <td class="SW" colspan="7">&nbsp;</td>
+                            <td class="SW" colspan="8">&nbsp;</td>
                             <td class="SE">&nbsp;</td>
                         </tr>
 
