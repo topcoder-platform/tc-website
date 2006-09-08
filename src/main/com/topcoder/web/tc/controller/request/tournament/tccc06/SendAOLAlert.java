@@ -31,6 +31,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
             String handle = getRequest().getParameter(Constants.HANDLE);
 
             if (AOLAlertsDescription.AOL_GROUP_ALERT.equals(type)) {
+                log.debug("sending a group alert");
                 NamedAlertRegistry registry = new NamedAlertRegistry();
                 registry.addAlertIDMapping(AOLAuthReply.GROUP_ALERT, AOLAuthReply.GROUP_ALERT_ID,
                         AOLAuthReply.GROUP_VALIDATION_TOKEN, AOLAuthReply.GROUP_TOPIC, true);
@@ -49,12 +50,13 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                 setIsNextPageInContext(false);
 
             } else if (AOLAlertsDescription.AOL_INDIVIDUAL_ALERT.equals(type)) {
+                log.debug("sending a individual alert");
                 NamedAlertRegistry registry = new NamedAlertRegistry();
                 registry.addAlertIDMapping(AOLAuthReply.IND_ALERT, AOLAuthReply.IND_ALERT_ID,
                         AOLAuthReply.IND_VALIDATION_TOKEN, AOLAuthReply.IND_TOPIC, false);
 
                 User u = DAOUtil.getFactory().getUserDAO().find(handle, false);
-                if (u==null) {
+                if (u == null) {
                     addError(Constants.HANDLE, "Invalid handle");
                     setDefault(MESSAGE_TEXT, text);
                     setDefault(Constants.HANDLE, handle);
