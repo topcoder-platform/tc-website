@@ -67,6 +67,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                         setDefault(Constants.HANDLE, handle);
                         setNextPage("/tournaments/tccc06/aol_alerts_sender.jsp");
                         setIsNextPageInContext(true);
+                        return;
                     } else {
                         AOLAlertInfo info = (AOLAlertInfo) HibernateUtils.getSession().get(AOLAlertInfo.class, u.getId());
                         if (info == null) {
@@ -75,6 +76,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                             setDefault(Constants.HANDLE, handle);
                             setNextPage("/tournaments/tccc06/aol_alerts_sender.jsp");
                             setIsNextPageInContext(true);
+                            return;
                         } else {
                             people = new String[]{info.getAolEncryptedUserId()};
                         }
@@ -88,6 +90,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                         setDefault(MESSAGE_TEXT + type, text);
                         setNextPage("/tournaments/tccc06/aol_alerts_sender.jsp");
                         setIsNextPageInContext(true);
+                        return;
                     } else {
                         people = new String[rsc.size()];
                         for (int i = 0; i < rsc.size(); i++) {
@@ -97,35 +100,29 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                 }
 
 
-                if (people == null) {
-                    throw new NavigationException("No recipients specified");
-                } else {
-                    log.debug("sending a individual alert");
-                    NamedAlertRegistry registry = new NamedAlertRegistry();
-                    registry.addAlertIDMapping(AOLAuthReply.IND_ALERT, AOLAuthReply.IND_ALERT_ID,
-                            AOLAuthReply.IND_VALIDATION_TOKEN, AOLAuthReply.IND_TOPIC, false);
+                log.debug("sending a individual alert");
+                NamedAlertRegistry registry = new NamedAlertRegistry();
+                registry.addAlertIDMapping(AOLAuthReply.IND_ALERT, AOLAuthReply.IND_ALERT_ID,
+                        AOLAuthReply.IND_VALIDATION_TOKEN, AOLAuthReply.IND_TOPIC, false);
 
-                    MessagingNotificationManager man = new MessagingNotificationManager(registry);
-                    man.setNotificationEndPoint("https://webservices.alerts.aol.com/api/services/AlertsFeedAPIService");
+                MessagingNotificationManager man = new MessagingNotificationManager(registry);
+                man.setNotificationEndPoint("https://webservices.alerts.aol.com/api/services/AlertsFeedAPIService");
 
-                    AOLAlertNotificationMessage message = new AOLAlertNotificationMessage(text, text, text, text);
-                    NotificationResult[] results = man.notify(AOLAuthReply.IND_ALERT, people, message);
+                AOLAlertNotificationMessage message = new AOLAlertNotificationMessage(text, text, text, text);
+                NotificationResult[] results = man.notify(AOLAuthReply.IND_ALERT, people, message);
 
-                    StringBuffer buf = new StringBuffer(1000);
-                    for (int i = 0; i < results.length; i++) {
-                        if (results[i].getTransactionId() == null) {
-                            buf.append("Send to ").append(people[i]).append(" failed: ").append(results[i].getErrorCode()).append(" ").append(results[i].getErrorReason()).append(" ").append(results[i].getErrorDetail());
-                        }
+                StringBuffer buf = new StringBuffer(1000);
+                for (int i = 0; i < results.length; i++) {
+                    if (results[i].getTransactionId() == null) {
+                        buf.append("Send to ").append(people[i]).append(" failed: ").append(results[i].getErrorCode()).append(" ").append(results[i].getErrorReason()).append(" ").append(results[i].getErrorDetail());
                     }
-                    if (buf.length() > 0) {
-                        throw new NavigationException(buf.toString());
-                    }
-                    setNextPage(getSessionInfo().getServletPath() + "?" +
-                            Constants.MODULE_KEY + "=Static&d1=tournaments&d2=tccc06&d3=aol_alert_sent");
-                    setIsNextPageInContext(false);
-
-
                 }
+                if (buf.length() > 0) {
+                    throw new NavigationException(buf.toString());
+                }
+                setNextPage(getSessionInfo().getServletPath() + "?" +
+                        Constants.MODULE_KEY + "=Static&d1=tournaments&d2=tccc06&d3=aol_alert_sent");
+                setIsNextPageInContext(false);
 
 
             } else {
