@@ -24,6 +24,8 @@ public class SendAOLAlert extends ShortHibernateProcessor {
     public static final String ALERT_TYPE = "aolat";
     public static final String MESSAGE_TEXT = "mtext";
     public static final String QUERY = "qtext";
+    public static String GROUP_FEED_ID = "7b9aae41-e8f0-4adb-815a-f755fc768de9";
+
 
     protected void dbProcessing() throws Exception {
         if (getSessionInfo().isAdmin()) {
@@ -36,7 +38,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
 
                 log.debug("sending a group alert");
                 NamedAlertRegistry registry = new NamedAlertRegistry();
-                registry.addAlertIDMapping(AOLAuthReply.GROUP_ALERT, AOLAuthReply.GROUP_ALERT_ID,
+                registry.addAlertIDMapping(AOLAuthReply.GROUP_ALERT, GROUP_FEED_ID,
                         AOLAuthReply.GROUP_VALIDATION_TOKEN, AOLAuthReply.GROUP_TOPIC, true);
 
                 MessagingNotificationManager man = new MessagingNotificationManager(registry);
