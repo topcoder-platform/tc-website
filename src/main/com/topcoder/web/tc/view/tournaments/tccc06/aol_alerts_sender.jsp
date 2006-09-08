@@ -51,7 +51,7 @@
 
                 </form>
 
-                <br/><br/><br/><br/><br/>
+                <br/><br/>
 
                 <form action="${sessionInfo.servletPath}" method="post" name="indSendFrom">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SendAOLAlert"/>
