@@ -32,4 +32,8 @@ public class PermissionException extends TCWebException {
     public Resource getResource() {
         return resource;
     }
+    public void printStackTrace() {
+        Thread.dumpStack();
+        super.printStackTrace();
+    }
 }
