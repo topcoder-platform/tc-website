@@ -28,7 +28,7 @@ public class ForumLinkTag extends TagSupport {
         ret.append("<A");
         StringBuffer url = new StringBuffer();
         url.append("http://").append(ApplicationServer.STUDIO_SERVER_NAME).append("/forums");
-        url.append("?module=ThreadList&").append(WebConstants.FORUM_ID).append("=").append(forumID);
+        url.append("?module=ThreadList&amp;").append(WebConstants.FORUM_ID).append("=").append(forumID);
         ret.append(" HREF=\"").append(url).append("\"");
         ret.append(">");
 
