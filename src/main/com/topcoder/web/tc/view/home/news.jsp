@@ -13,7 +13,7 @@
     <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=dev_forums">TCCC06 Developer Forums Announced</A>
       </span><br><br>
-      This year's TCCC will feature three informative Developer Forums. Topics will include: applying TopCoder's competition philosophy 
+      This year's TCCC will feature three informative Developer Forums. Topics will include: applying TopCoder's competition philosophy
       to new initiatives, a new and improved process for estimating project size, and a review of TopCoder projects and success stories.
     </td>
 </tr>
@@ -46,13 +46,13 @@
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.06.06<br>12:30 PM</td>
     <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_qualification">TCCC06 Algorithm Qualification Byes</A>
+      <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">TCCC06 Algorithm Qualification Byes</A>
       </span><br><br>
       Here are the top 150 rated members who will receive an automatic berth into Online Round #1.
     </td>
 </tr>
 <tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_qualification">details</A>&#160;|&#160;
+    <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">details</A>&#160;|&#160;
     <tc-webtag:forumLink forumID="506103" message="discuss this" />&#160;|&#160;
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
@@ -97,7 +97,7 @@ this competition proved that some strategies are much better than others.
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=090506">TopCoder @ Work: Intro to upselling, Part 2</A></span><br><br>
-                Last week we attacked a common problem -- selling new ideas and functionality to clients -- with a clever acronym (UPSELL). Today, we'll demonstrate how to apply 
+                Last week we attacked a common problem -- selling new ideas and functionality to clients -- with a clever acronym (UPSELL). Today, we'll demonstrate how to apply
                 that methodology to a realistic situation.</td>
             <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" alt="" /><br>by
                 <tc-webtag:handle coderId="10407399" /></td>
@@ -194,7 +194,7 @@ this competition proved that some strategies are much better than others.
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>08.29.06<br>12:20 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_082906">NSA continues TopCoder patronage with 2006 TCCC</A></span><br><br>
-      TopCoder has announced the National Security Agency's continued patronage of the 2006 TopCoder Collegiate Challenge, which will involve advance online 
+      TopCoder has announced the National Security Agency's continued patronage of the 2006 TopCoder Collegiate Challenge, which will involve advance online
       interactive sessions as well as an onsite presence at the tournament finals in San Diego, CA.
       <br><br>
       </td>
@@ -211,7 +211,7 @@ this competition proved that some strategies are much better than others.
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=082906">TopCoder @ Work: Introduction to upselling</A></span><br><br>
-                In this article, we'll describe how you can "sell" projects to both internal clients (if you're salaried), and external clients 
+                In this article, we'll describe how you can "sell" projects to both internal clients (if you're salaried), and external clients
                 (if you consult), using a model we call UPSELL: Understand, Plan, Story, Estimate, Lock, and Leverage.</td>
             <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" alt="" /><br>by
                 <tc-webtag:handle coderId="10407399" /></td>
