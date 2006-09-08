@@ -55,7 +55,9 @@ public class Similar extends FraudBase {
                     }
                     double similarPercentage = ((double) sim1 / (double) l1.size() + (double) sim2 / (double) l2.size()) / 2d;
                     if (log.isDebugEnabled()) {
-                        log.debug("sim1 " + sim1 + " lisize " + l1.size() + " sim2 " + sim2 + " l2size " + l2.size());
+                        if (Double.isNaN(similarPercentage)) {
+                            log.debug("sim1 " + sim1 + " lisize " + l1.size() + " sim2 " + sim2 + " l2size " + l2.size());
+                        }
                     }
                     results.add(new ComparisonResult(i, j, similarPercentage));
                 }
