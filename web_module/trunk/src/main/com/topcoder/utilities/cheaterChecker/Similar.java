@@ -53,7 +53,7 @@ public class Similar extends FraudBase {
                     for (int k = 0; k < l2.size(); k++) {
                         if (l1.contains(l2.get(k))) sim2++;
                     }
-                    double similarPercentage = ((double) sim1 / (double) l1.size() + (double) sim2 / (double) l2.size()) / 2;
+                    double similarPercentage = ((double) sim1 / (double) l1.size() + (double) sim2 / (double) l2.size()) / 2d;
                     results.add(new ComparisonResult(i, j, similarPercentage));
                 }
             }
