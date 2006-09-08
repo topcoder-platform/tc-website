@@ -48,17 +48,13 @@
                             </td>
                         </tr>
                         <%boolean even = false;%>
-                        <rsc:iterator list='<%=rsc%>' id="resultRow">
-                        <tr>
-                            <td class="<%=(even ? "advanceDk" : "advanceLt")%>">
-                                <rsc:item name="rank" row='<%=resultRow%>'/></td>
-                            <td class="<%=(even ? "advanceDk" : "advanceLt")%>">
-                                <tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="algorithm" darkBG="true"/></td>
-                            <td class="<%=(even ? "advanceDk" : "advanceLt")%>" align="right">
-                                <rsc:item format="###0" ifNull="Unrated" name="rating" row='<%=resultRow%>'/></td>
-                        </tr>
-                            <%even = !even;%>
-                        </rsc:iterator>
+<rsc:iterator list='<%=rsc%>' id="resultRow"><tr><td class="<%=(even ? "advanceDk" : "advanceLt")%>">
+<rsc:item name="rank" row='<%=resultRow%>'/></td>
+<td class="<%=(even ? "advanceDk" : "advanceLt")%>">
+<tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="algorithm" darkBG="true"/></td>
+<td class="<%=(even ? "advanceDk" : "advanceLt")%>" align="right">
+<rsc:item format="###0" ifNull="Unrated" name="rating" row='<%=resultRow%>'/></td>
+</tr><%even = !even;%></rsc:iterator>
                 </table>
                 <br><br>
             </div>
