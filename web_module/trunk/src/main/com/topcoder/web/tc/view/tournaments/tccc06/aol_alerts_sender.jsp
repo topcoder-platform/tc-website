@@ -71,7 +71,7 @@
                         <br></tc-webtag:errorIterator></span>
 
                     <p>
-                        Query: <tc-webtag:textInput name="<%=SendAOLAlert.QUERY%>"/>
+                        Query: <tc-webtag:textArea name="<%=SendAOLAlert.QUERY%>" rows="10" cols="50"/>
                     </p>
 
                     <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=SendAOLAlert.MESSAGE_TEXT+AOLAlertsDescription.AOL_INDIVIDUAL_ALERT%>">${err}
