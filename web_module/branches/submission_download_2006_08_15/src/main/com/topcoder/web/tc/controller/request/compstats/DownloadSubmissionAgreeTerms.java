@@ -10,7 +10,9 @@
 
 package com.topcoder.web.tc.controller.request.compstats;
 
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.ejb.user.UserTermsOfUseLocal;
@@ -25,6 +27,10 @@ import com.topcoder.web.tc.Constants;
 public class DownloadSubmissionAgreeTerms extends Base {
 
     protected void businessProcessing() throws TCWebException {
+        if (!userIdentified()) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        }
+    	        
         try {
             String projId = getRequest().getParameter(Constants.PROJECT_ID);
             String coderId = getRequest().getParameter(Constants.CODER_ID);
@@ -49,7 +55,7 @@ public class DownloadSubmissionAgreeTerms extends Base {
             setNextPage(Constants.DOWNLOAD_SUBMISSION);
             getRequest().setAttribute(Constants.PROJECT_ID, projId);
             getRequest().setAttribute(Constants.CODER_ID, coderId);
-            setIsNextPageInContext(true);
+            setIsNextPageInContext(false);
         } catch (TCWebException we) {
             throw we;
         } catch (Exception e) {
