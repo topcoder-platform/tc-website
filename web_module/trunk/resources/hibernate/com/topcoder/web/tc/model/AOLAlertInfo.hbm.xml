@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.topcoder.web.studio.model">
+<hibernate-mapping package="com.topcoder.web.tc.model">
 
     <class name="AOLAlertInfo" table="aol_alert_info">
         <id name="id" column="user_id" access="field">
