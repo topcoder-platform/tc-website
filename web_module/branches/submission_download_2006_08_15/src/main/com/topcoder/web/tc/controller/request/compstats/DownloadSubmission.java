@@ -73,16 +73,18 @@ public class DownloadSubmission extends Base {
     private void downloadFile(String systemName, String name) throws Exception {
         getResponse().addHeader("content-disposition", "inline; filename=" + name);
         getResponse().setContentType("application/x-java-archive");
-        ServletOutputStream sos = getResponse().getOutputStream();
 
         FileInputStream fis = new FileInputStream(systemName);
+
+        ServletOutputStream sos = getResponse().getOutputStream();
 
         int b;
         while ((b = fis.read()) >= 0) {
             sos.write(b);
         }
         getResponse().setStatus(HttpServletResponse.SC_OK);
-        getResponse().flushBuffer();    	
+        getResponse().flushBuffer();    
+        
     }
     
     /**
