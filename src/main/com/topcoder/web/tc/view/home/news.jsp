@@ -23,6 +23,25 @@
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
 ------------------------------%>
+<%--------------------------POST MONDAY SEPT 11
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/><br>09.11.06<br>9:00 AM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=091106">Introduction to OpenMP, Part 1</A></span><br><br>
+               As most people involved in programming probably know, multi-threading is going to be "the next big thing" in terms of using modern hardware to its full extent.</td>
+            <td class="newsPhoto"><img src="/i/m/nophoto.jpg" width="55" height="61" alt="" /><br>by
+                <tc-webtag:handle coderId="21464956" /></td></tr>
+        </table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&amp;d1=features&amp;d2=091106">article</A>&#160;|&#160;
+    <tc-webtag:forumLink forumID="506105" message="discuss this"/>&#160;|&#160;
+    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+</td></tr>
+------------------------------%>
+
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.06.06<br>12:30 PM</td>
