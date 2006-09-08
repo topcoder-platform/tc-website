@@ -195,10 +195,12 @@ public abstract class BaseServlet extends HttpServlet {
                         throw new NavigationException("Invalid request", e);
                     }
                 } catch (PermissionException pe) {
+/*
                     if (log.isDebugEnabled()) {
                         log.debug("caught PermissionException");
                         pe.printStackTrace();
                     }
+*/
                     if (authentication.getUser().isAnonymous()) {
                         handleLogin(request, response, info);
                         return;
