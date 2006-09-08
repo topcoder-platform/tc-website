@@ -62,20 +62,18 @@
                     </tr>
 
                     <%boolean even = false;%>
-                    <rsc:iterator list="<%=rsc%>" id="resultRow"><tr>
-                        <td class="<%=even?"advanceLt":"advanceDk"%>" align="center">
-                            <rsc:item name="seed" row="<%=resultRow%>"/></td>
-                        <td class="<%=even?"advanceLt":"advanceDk"%>" align="left">
-                            <tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="algorithm"/></td>
-                        <td class="<%=even?"advanceLt":"advanceDk"%>" align="center" nowrap="0">
-                            <rsc:item name="round_name" row="<%=resultRow%>" ifNull="Bye"/></td>
-                        <td class="<%=even?"advanceLt":"advanceDk"%>" align="right">
-                            <rsc:item name="rating" row="<%=resultRow%>"/></td>
-                        <td class="<%=even?"advanceLt":"advanceDk"%>" align="right">
-                            <rsc:item name="points" row="<%=resultRow%>" format="0.00" ifNull="Bye"/></td>
-                    </tr>
-                        <%even = !even;%>
-                    </rsc:iterator>
+<rsc:iterator list="<%=rsc%>" id="resultRow"><tr>
+<td class="<%=even?"advanceLt":"advanceDk"%>" align="center">
+<rsc:item name="seed" row="<%=resultRow%>"/></td>
+<td class="<%=even?"advanceLt":"advanceDk"%>" align="left">
+<tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="algorithm"/></td>
+<td class="<%=even?"advanceLt":"advanceDk"%>" align="center" nowrap="0">
+<rsc:item name="round_name" row="<%=resultRow%>" ifNull="Bye"/></td>
+<td class="<%=even?"advanceLt":"advanceDk"%>" align="right">
+<rsc:item name="rating" row="<%=resultRow%>"/></td>
+<td class="<%=even?"advanceLt":"advanceDk"%>" align="right">
+<rsc:item name="points" row="<%=resultRow%>" format="0.00" ifNull="Bye"/></td>
+</tr><%even = !even;%></rsc:iterator>
 
                 </table>
             </div>
