@@ -64,20 +64,31 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                     setIsNextPageInContext(true);
                 } else {
                     AOLAlertInfo info = (AOLAlertInfo) HibernateUtils.getSession().get(AOLAlertInfo.class, u.getId());
+                    if (info == null) {
+                        addError(Constants.HANDLE, "This user is not signed up for individual alerts");
+                        setDefault(MESSAGE_TEXT, text);
+                        setDefault(Constants.HANDLE, handle);
+                        setNextPage("/tournaments/tccc06/aol_alerts_sender.jsp");
+                        setIsNextPageInContext(true);
 
-                    MessagingNotificationManager man = new MessagingNotificationManager(registry);
-                    man.setNotificationEndPoint("https://webservices.alerts.aol.com/api/services/AlertsFeedAPIService");
+                    } else {
 
-                    AOLAlertNotificationMessage message = new AOLAlertNotificationMessage(text, text, text, text);
-                    NotificationResult[] results = man.notify(AOLAuthReply.IND_ALERT, new String[]{info.getAolEncryptedUserId()}, message);
+                        MessagingNotificationManager man = new MessagingNotificationManager(registry);
+                        man.setNotificationEndPoint("https://webservices.alerts.aol.com/api/services/AlertsFeedAPIService");
 
-                    if (results[0].getTransactionId() == null) {
-                        throw new NavigationException("Send to " + u.getHandle() + " failed: " + results[0].getErrorCode() + " " +
-                                results[0].getErrorReason() + " " + results[0].getErrorDetail());
+                        AOLAlertNotificationMessage message = new AOLAlertNotificationMessage(text, text, text, text);
+                        NotificationResult[] results = man.notify(AOLAuthReply.IND_ALERT, new String[]{info.getAolEncryptedUserId()}, message);
+
+                        if (results[0].getTransactionId() == null) {
+                            throw new NavigationException("Send to " + u.getHandle() + " failed: " + results[0].getErrorCode() + " " +
+                                    results[0].getErrorReason() + " " + results[0].getErrorDetail());
+                        }
+                        setNextPage(getSessionInfo().getServletPath() + "?" +
+                                Constants.MODULE_KEY + "=Static&d1=tournaments&d2=tccc06&d3=aol_alert_sent");
+                        setIsNextPageInContext(false);
                     }
-                    setNextPage(getSessionInfo().getServletPath() + "?" +
-                            Constants.MODULE_KEY + "=Static&d1=tournaments&d2=tccc06&d3=aol_alert_sent");
-                    setIsNextPageInContext(false);
+
+
                 }
 
             } else {
