@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.ejb.user.UserTermsOfUseLocal;
@@ -25,11 +27,14 @@ import com.topcoder.web.tc.Constants;
 public class DownloadSubmission extends Base {
 
     protected void businessProcessing() throws TCWebException {
+        if (!userIdentified()) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        }    	
         try {
             String projId = getRequest().getParameter(Constants.PROJECT_ID);
             String coderId = getRequest().getParameter(Constants.CODER_ID);
 
-            if (hasAgreedTerms(coderId)) {
+            if (hasAgreedTerms(getUser().getId())) {
             	// get the filename
                 Request r = new Request();
                 r.setContentHandle("get_submission_url");
@@ -131,13 +136,13 @@ public class DownloadSubmission extends Base {
     /**
      * Returns whether the user has agreed to terms for downloading submissions.
      * 
-     * @param coderId the coder to check
+     * @param id the coder to check
      * @return whether the user has agreed to terms for downloading submissions.
      * @throws Exception
      */
-    private boolean hasAgreedTerms(String coderId) throws Exception {
+    private boolean hasAgreedTerms(long id) throws Exception {
         UserTermsOfUseLocal userTerms = (UserTermsOfUseLocal) createLocalEJB(getInitialContext(), UserTermsOfUse.class);
-        return userTerms.hasTermsOfUse(getUser().getId(), Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
+        return userTerms.hasTermsOfUse(id, Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
     }
     
 
