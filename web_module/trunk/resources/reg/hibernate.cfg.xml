@@ -83,6 +83,8 @@
         <mapping resource="com/topcoder/web/common/model/User.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/UserGroup.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/UserPreference.hbm.xml"/>
+
+        <mapping resource="com/topcoder/web/tc/model/AOLAlertInfo.hbm.xml"/>
     </session-factory>
 
 </hibernate-configuration>
