@@ -45,8 +45,13 @@
     5.4.x - 2006.09.xx
     <ul>
         <li>
-            Fix score format to have 2 decimal digits in team results and individual result for high school. 
+            Fix score format to have 2 decimal digits in team results and individual result for high school.
         </li>
+<%--
+        <li>
+            Reduce some of the logging when permission exceptions are thrown.
+        </li>
+--%>
     </ul>
 
     5.4.10 - 2006.09.06
