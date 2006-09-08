@@ -44,6 +44,25 @@
 
 <%--------------------------------------------------------%>
 <tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>09.08.06<br>5:30 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+         <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc06_qual_1">TCCC06 Qualification 1 - Problem Set & Analysis</A></span><br><br>
+         Thanks to the new qualification system, a lot of non-red coders got a perfect opportunity to win a TopCoder round.
+         Newcomer <tc-webtag:handle coderId="22629359" context="algorithm"/> used this opportunity,
+          getting 5 successful challenges on the way to winning the round.
+</td>
+         <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_qual_1">full story</A>&#160;|&#160;
+    <tc-webtag:forumLink forumID="506103" message="discuss this"/>&#160;|&#160;
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.08.06<br>5:20 PM</td>
     <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">TCCC06 Algorithm Qualification Round 1 Results</A>
@@ -220,39 +239,6 @@ this competition proved that some strategies are much better than others.
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/><br>08.29.06<br>11:40 AM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=082906">TopCoder @ Work: Introduction to upselling</A></span><br><br>
-                In this article, we'll describe how you can "sell" projects to both internal clients (if you're salaried), and external clients
-                (if you consult), using a model we call UPSELL: Understand, Plan, Story, Estimate, Lock, and Leverage.</td>
-            <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" alt="" /><br>by
-                <tc-webtag:handle coderId="10407399" /></td>
-            <td class="newsPhoto"><img src="/i/m/rhudson_mug.gif" alt="" /><br>&amp;
-                <tc-webtag:handle coderId="22627518" /></td></tr>
-        </table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&amp;d1=features&amp;d2=082906">article</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506099" message="discuss this"/>&#160;|&#160;
-    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-  <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>08.29.06<br>9:45 AM</td>
-    <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA chat session scheduled for SRM 318</A></span><br><br>
-      The chat session will start at 8pm, and last an hour until the start of tonight's SRM.
-  </td>
-</tr>
-<tr><td class="newsLinksCell">
-	 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">view</A>&#160;|&#160;
-	 <tc-webtag:forumLink forumID="506098" message="discuss this" />&#160;|&#160;
-	 <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-</td></tr>
 
 
 
