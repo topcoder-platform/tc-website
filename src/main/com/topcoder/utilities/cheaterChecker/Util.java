@@ -38,7 +38,7 @@ public class Util {
      * the consecutive flag determines whether or not the items have to
      * be next to each other in the list when determining the output.
      * ie: if (consecutive) {a,b,c}, {a,e,b,c} return 2
-     *     else return 3
+     * else return 3
      *
      * @param list1
      * @param list2
@@ -103,7 +103,7 @@ public class Util {
             r = (Result) values.get(i);
             sum += (r.getValue() - avg) * (r.getValue() - avg);
         }
-        return Math.sqrt(sum / (values.size() - 1));
+        return Math.sqrt(sum / (double) (values.size() - 1));
     }
 
     public static double avg(List values) {
@@ -113,11 +113,12 @@ public class Util {
             r = (Result) values.get(i);
             sum += r.getValue();
         }
-        return sum / values.size();
+        return sum / (double) values.size();
     }
 
     /**
      * given three integers, return the largest
+     *
      * @param a
      * @param b
      * @param c
@@ -129,6 +130,7 @@ public class Util {
 
     /**
      * given three integers, return the smallest
+     *
      * @param a
      * @param b
      * @param c
@@ -143,11 +145,12 @@ public class Util {
      * you have, return how many comparisons it would
      * take to compare every item to every other item.
      * x*(x-1)/2
+     *
      * @param n
      * @return
      */
     protected static int magic(int n) {
-        return (n*(n-1))/2;
+        return (n * (n - 1)) / 2;
     }
 
     static {
