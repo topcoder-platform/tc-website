@@ -44,6 +44,21 @@
 
 <%--------------------------------------------------------%>
 <tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.08.06<br>5:20 PM</td>
+    <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">TCCC06 Algorithm Qualification Round 1 Results</A>
+      </span><br><br>
+      The results are in for the first TCCC06 Algorithm Qualification Round.
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">results</A>&#160;|&#160;
+    <tc-webtag:forumLink forumID="506103" message="discuss this" />&#160;|&#160;
+    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.06.06<br>12:30 PM</td>
     <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">TCCC06 Algorithm Qualification Byes</A>
