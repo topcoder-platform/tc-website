@@ -38,6 +38,8 @@ public class DownloadApplicationSpecification extends BaseProcessor {
      * Validates user to be an admin or have special specification submit permission
      */
     protected void businessProcessing() throws TCWebException {
+        Connection conn = null;
+        FileInputStream fis = null;
         try {
             if (getUser().isAnonymous()) {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
@@ -59,7 +61,7 @@ public class DownloadApplicationSpecification extends BaseProcessor {
                     throw new TCWebException("Invalid " + Constants.SPECIFICATION_KEY + " value.");
                 }
 
-                Connection conn = Common.getDataSource().getConnection();
+                conn = Common.getDataSource().getConnection();
                 AppSpecification appSpecification = EJBHelper.getAppSpecification();
 
                 ApplicationSpecification appSpec = appSpecification.getSpecification(conn, specId);
@@ -69,7 +71,7 @@ public class DownloadApplicationSpecification extends BaseProcessor {
                 getResponse().addHeader("content-disposition", "inline; filename=" + appSpec.getRemoteFilename());
                 ServletOutputStream sos = getResponse().getOutputStream();
 
-                FileInputStream fis = new FileInputStream(appSpec.getSpecificationUrl().getFile());
+                fis = new FileInputStream(appSpec.getSpecificationUrl().getFile());
 
                 int b;
                 while ((b = fis.read()) >= 0) {
@@ -82,6 +84,12 @@ public class DownloadApplicationSpecification extends BaseProcessor {
             throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
+        } finally {
+            Common.close(conn);
+            try {
+                fis.close();
+            } catch (Exception e) {
+            }
         }
     }
 }

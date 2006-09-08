@@ -104,8 +104,9 @@ public class UploadApplicationSpecificationTask extends BaseProcessor {
         if (file != null && file.getContentType() != null) {
             String destFilename = "";
 
+            InputStream is = null;
             try {
-                InputStream is = file.getInputStream();
+                is = file.getInputStream();
 
                 destFilename = "Application_" + getUser().getId() + "_" +
                     FormatMethodFactory.getDefaultDateFormatMethod("yyyy-MM-dd-HH-mm-ss-SSS").format(new Date()) + ".jar";
@@ -113,6 +114,11 @@ public class UploadApplicationSpecificationTask extends BaseProcessor {
                 copy(is, pathPrefix + destFilename);
             } catch (IOException ioe) {
                 throw new TCWebException("Couldn't read uploaded file.", ioe);
+            } finally {
+                try {
+                    is.close();
+                } catch (Exception e) {
+                }
             }
 
             return pathPrefix + destFilename;
@@ -130,8 +136,9 @@ public class UploadApplicationSpecificationTask extends BaseProcessor {
      */
     private void processApplicationSpecification(String specificationPath) throws TCWebException {
         ApplicationSpecification applicationSpecification = null;
+        Connection conn = null;
         try {
-            Connection conn = Common.getDataSource().getConnection();
+            conn = Common.getDataSource().getConnection();
             AppSpecification appSpecification = EJBHelper.getAppSpecification();
 
             String remoteFileName = ((MultipartRequest) getRequest()).getUploadedFile("file1").getRemoteFileName();
@@ -160,6 +167,8 @@ public class UploadApplicationSpecificationTask extends BaseProcessor {
             throw new TCWebException("Could not create the specification screening request.", sqle);
         } catch (MalformedURLException murle) {
             throw new TCWebException("Could not create the remote file.", murle);
+        } finally {
+            Common.close(conn);
         }
 
         getRequest().setAttribute(Constants.SPECIFICATION_KEY, String.valueOf(applicationSpecification.getSpecificationId()));

@@ -86,14 +86,19 @@ public class ViewUploadResults extends BaseProcessor {
      */
     private void getScreeningResults(long specId) throws TCWebException {
         Connection conn = null;
+        QueryInterface query = null;
+        ScreeningResponse[] responses = null;
         try {
             conn = Common.getDataSource().getConnection();
+
+            query = ScreeningTool.createQuery();
+            responses = query.getSpecificationDetails(specId, conn);
+
         } catch (SQLException sqle) {
             throw new TCWebException("Internal error. Please inform TC.", sqle);
+        } finally {
+            Common.close(conn);
         }
-
-        QueryInterface query = ScreeningTool.createQuery();
-        ScreeningResponse[] responses = query.getSpecificationDetails(specId, conn);
 
         // populates warnings, fatal errors and success messages.
         List warnings = new ArrayList();

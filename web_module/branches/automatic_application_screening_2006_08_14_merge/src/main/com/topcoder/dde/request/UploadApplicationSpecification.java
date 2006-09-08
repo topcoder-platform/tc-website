@@ -32,6 +32,7 @@ public class UploadApplicationSpecification extends BaseProcessor {
      * Validates user to be an admin or have special specification submit permission
      */
     protected void businessProcessing() throws TCWebException {
+        Connection conn = null;
         try {
             if (getUser().isAnonymous()) {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
@@ -41,7 +42,7 @@ public class UploadApplicationSpecification extends BaseProcessor {
                     throw new NavigationException("You are not authorized to view this page");
                 }
 
-                Connection conn = Common.getDataSource().getConnection();
+                conn = Common.getDataSource().getConnection();
                 AppSpecification appSpecification = EJBHelper.getAppSpecification();
 
                 ApplicationSpecification[] oldSpecs =
@@ -57,6 +58,8 @@ public class UploadApplicationSpecification extends BaseProcessor {
             throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
+        } finally {
+            Common.close(conn);
         }
     }
 }
