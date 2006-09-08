@@ -57,12 +57,9 @@ public class Google {
                 log.info(buf.toString());
 
                 List normalizedSource = new ArrayList(submissions.size());
-                for (int i = 0; i < submissions.size(); i++) {
-                    normalizedSource.add(new NormalizedJavaSource(((Submission) submissions.get(i)).getSource()));
-                }
-
                 List nonNormalizedSource = new ArrayList(submissions.size());
                 for (int i = 0; i < submissions.size(); i++) {
+                    normalizedSource.add(new NormalizedJavaSource(((Submission) submissions.get(i)).getSource()));
                     nonNormalizedSource.add(new JavaSource(((Submission) submissions.get(i)).getSource()));
                 }
 
