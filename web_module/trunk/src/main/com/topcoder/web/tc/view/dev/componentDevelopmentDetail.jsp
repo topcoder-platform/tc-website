@@ -58,22 +58,68 @@
 </table>
 <% } %>
 
+<table border="0" cellspacing="0" cellpadding="0" align="center" width="530">
+<tr valign="top">
+<td class="bodyText">
+
 <table cellspacing="0" class="formFrame" align="center" width="530">
     <tr>
         <td class="projectTitles" nowrap="nowrap">Development Component Project -
             <rsc:item set="<%=projectDetail%>" name="component_name"/></td>
     </tr>
+</table>
+<%-- Register at TCS --%>
+<table cellspacing="0" cellpadding="0" width="530" class="bodyText" style="margin-top: 20px; margin-bottom: 20px;">
+
+<% if (projectDetail.getStringItem(0, "project_status").equals("closed")) { %>
+   <tr>
+      <td width="50%" valign="top">
+      <h2>Registration is closed.</h2>
+      </td>
+      <td width="25%" valign="top" align="right" style="padding: 0px 5px 0px 0px;">
+      <%-- Register --%>
+         <div class="bigButton">1: Register</div>
+      </td>
+      <td width="25%" valign="top" align="right" style="padding: 0px 0px 0px 5px;">
+      <%-- Submit --%>
+      <A class="bigButton" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">2: Submit</A>
+      </td>
+   </tr>
+<% } else { %>
+   <tr>
+      <td width="35%">
+      <div class="bigRed" style="border-top: 1px solid #999999; border-bottom: 1px solid #999999;">
+         <div style="float:right; text-align:right;">
+         $<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/><br>
+         $<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br>
+         <rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/>
+         </div>
+      <strong>1st Place:<br>
+      2nd Place:<br>
+      Due date:</strong> 
+      </div>
+      </td>
+      <td width="40%" align="right" style="padding: 0px 5px 10px 0px;">
+         <A class="bigButton" href="/tc?module=ViewProjectRegistration&<%=Constants.PROJECT_ID%>=<%= request.getAttribute("projectId") %>">1: Register</A>
+      </td>
+      <td width="25%" align="right" style="padding: 0px 0px 10px 5px;">
+      <A class="bigButton" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">2: Submit</A>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="3" align="center" style="padding-top:10px;">
+         Register to get info necessary to submit a solution<br>
+         <span class="bigRed">Registering will affect your <A class="bigRed" href="/tc?module=Static&d1=dev&d2=support&d3=devReliability">Reliability Rating</A></span>
+      </td>
+   </tr>
+<% } %>
+
+
+<table cellspacing="0" class="formFrame" align="center" width="530">
     <tr>
         <td class="projectHeaders" align="left">Overview</td>
     </tr>
 </table>
-
-
-<img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-
-<table border="0" cellspacing="0" cellpadding="0" align="center" width="530">
-<tr valign="top">
-<td class="bodyText">
 
 <%-- Overview --%>
 
@@ -113,6 +159,39 @@
     <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/document?id=<rsc:item set="<%=projectDetail%>" name="document_id"/>">Requirement
         Specification</a> for this component project
 </p>
+
+<%-- Time Line --%>
+<p>
+<table cellspacing="0" class="formFrame" align="center" width="530">
+    <tr>
+        <td class="projectHeaders" align="left">Timeline</td>
+    </tr>
+</table>
+<p>
+    All submissions are required to be submitted by the Initial Submission Due Date. All questions submitted with more
+    than 24 hours before the due date will be answered. Following review from the board the winning member is given
+    until the Final Submission Due Date to modify their submission.</p>
+
+<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="250">
+    <tr>
+        <td class="bodyText">Posting Date:</td><td class="bodyText" align="right">
+        <rsc:item set="<%=projectDetail%>" name="posting_date" format="MM.dd.yyyy"/></td>
+    </tr>
+    <tr>
+        <td class="bodyText">Initial Submission Due Date:</td><td class="bodyText" align="right">
+        <rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/></td>
+    </tr>
+    <tr>
+        <td class="bodyText">Winner Announced:</td><td class="bodyText" align="right">
+        <rsc:item set="<%=projectDetail%>" name="winner_announced_date" format="MM.dd.yyyy"/></td>
+    </tr>
+    <tr>
+        <td class="bodyText">Final Submission Due Date:</td><td class="bodyText" align="right">
+        <rsc:item set="<%=projectDetail%>" name="final_submission_date" format="MM.dd.yyyy"/></td>
+    </tr>
+</table>
+</p>
+
 <%-- Payment --%>
 <table cellspacing="0" class="formFrame" align="center" width="530">
     <tr>
@@ -200,74 +279,6 @@
     </ul>
 </p>
 
-<%-- Time Line --%>
-<table cellspacing="0" class="formFrame" align="center" width="530">
-    <tr>
-        <td class="projectHeaders" align="left">Timeline</td>
-    </tr>
-</table>
-<p>
-    All submissions are required to be submitted by the Initial Submission Due Date. All questions submitted with more
-    than 24 hours before the due date will be answered. Following review from the board the winning member is given
-    until the Final Submission Due Date to modify their submission.</p>
-
-<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="250">
-    <tr>
-        <td class="bodyText">Posting Date:</td><td class="bodyText" align="right">
-        <rsc:item set="<%=projectDetail%>" name="posting_date" format="MM.dd.yyyy"/></td>
-    </tr>
-    <tr>
-        <td class="bodyText">Initial Submission Due Date:</td><td class="bodyText" align="right">
-        <rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/></td>
-    </tr>
-    <tr>
-        <td class="bodyText">Winner Announced:</td><td class="bodyText" align="right">
-        <rsc:item set="<%=projectDetail%>" name="winner_announced_date" format="MM.dd.yyyy"/></td>
-    </tr>
-    <tr>
-        <td class="bodyText">Final Submission Due Date:</td><td class="bodyText" align="right">
-        <rsc:item set="<%=projectDetail%>" name="final_submission_date" format="MM.dd.yyyy"/></td>
-    </tr>
-</table>
-<br/>
-
-<%-- Register at TCS --%>
-<table cellspacing="0" class="formFrame" align="center" width="530">
-    <tr>
-        <td class="projectHeaders" align="left">Registration</td>
-    </tr>
-</table>
-
-<p>
-    <% if (projectDetail.getStringItem(0, "project_status").equals("closed")) { %>
-    Registration is closed.
-    <% } else { %>
-    <% if (sessionInfo.isAnonymous()) { %>
-    Login required to register for this project.   <br/><br/>
-    <% } %>
-    <strong>
-        <A href="/tc?module=ViewProjectRegistration&<%=Constants.PROJECT_ID%>=<%= request.getAttribute("projectId") %>">
-            Register</A> for this Component Project to get information necessary to submit a solution</strong>
-    <br/><br/>
-    <span class=bigRed>NOTE: Registering for this component will affect your <A class=bigRed href="/tc?module=Static&d1=dev&d2=support&d3=devReliability">Reliability
-        Rating</A></span>
-    <% } %>
-</p>
-
-<table cellspacing="0" class="formFrame" align="center" width="530">
-    <tr>
-        <td class="projectHeaders" align="left">Upload Your Submission</td>
-    </tr>
-</table>
-<p>
-    Managing your projects is now easier than ever with the Project Submit &amp; Review application. After you've
-    inquired about a project,
-    use Project Submit &amp; Review to check timelines, submit solutions and final fixes, and review your
-    scorecards.</p>
-<%-- Learn more about Project Submit & Review (link to future How-to guide --%>
-
-<p align="left"><strong><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Project Submit &amp;
-    Review</A> &gt;</strong></p>
 </td>
 </tr>
 </table>
