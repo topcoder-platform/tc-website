@@ -4,8 +4,8 @@ import com.topcoder.shared.util.logging.Logger;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.HashSet;
+import java.util.List;
 
 /**
  * This fraud detection module takes the given list of tokenized
@@ -36,11 +36,17 @@ public class Similar extends FraudBase {
         List l2 = null;
         Submission s1 = null;
         Submission s2 = null;
+        log.debug("got " + tokens.size() + " tokens");
         for (int i = 0; i < tokens.size() - 1; i++) {
             for (int j = i + 1; j < tokens.size(); j++) {
                 s1 = (Submission) submissions.get(i);
                 s2 = (Submission) submissions.get(j);
-                if ((s1.isIncluded() || s2.isIncluded()) && s1.getLanguageId() == s2.getLanguageId() && s1.getCoderId() != s2.getCoderId()) {
+                if (log.isDebugEnabled()) {
+                    log.debug("s1: " + i + " inc " + s1.isIncluded() + " " + s1.getLanguageId() + " " + s1.getCoderId() +
+                            " s2 inc " + s2.isIncluded() + " " + s2.getLanguageId() + " " + s2.getCoderId());
+                }
+                if ((s1.isIncluded() || s2.isIncluded()) && s1.getLanguageId() == s2.getLanguageId() && s1.getCoderId() != s2.getCoderId())
+                {
                     l1 = ((TokenizedSource) tokens.get(i)).getTokens();
                     l2 = ((TokenizedSource) tokens.get(j)).getTokens();
                     int sim1 = 0;
@@ -56,7 +62,7 @@ public class Similar extends FraudBase {
                 }
             }
         }
-        log.debug("completed comparisons");
+        log.debug("completed comparisons " + results.size());
         double avg = Util.avg(results);
         double stddev = Util.stddev(results);
         report.append("\n");
@@ -72,7 +78,7 @@ public class Similar extends FraudBase {
                 s1 = (Submission) submissions.get(r.getIndex1());
                 s2 = (Submission) submissions.get(r.getIndex2());
                 //only add them if they're not already in there
-                if (!violateSet.contains(s1.getCoderId()+" "+s1.getCoderId())) {
+                if (!violateSet.contains(s1.getCoderId() + " " + s1.getCoderId())) {
                     report.append(r.getValue());
                     report.append("  ");
                     report.append(s1.getReportInfo());
@@ -81,7 +87,7 @@ public class Similar extends FraudBase {
                     report.append("\n");
                     potentialViolators.add(new User(s1.getCoderId(), s1.getHandle()));
                     potentialViolators.add(new User(s2.getCoderId(), s2.getHandle()));
-                    violateSet.add(s1.getCoderId()+" "+s1.getCoderId());
+                    violateSet.add(s1.getCoderId() + " " + s1.getCoderId());
                 }
             } else {
                 break;
