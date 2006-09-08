@@ -49,7 +49,7 @@ public class AppSpecificationBean extends BaseEJB {
                     conn);
 
             if (rsc.size() < 1) {
-                return null;
+                return new ApplicationSpecification[0];
             } else {
                 ApplicationSpecification[] appSpecs = new ApplicationSpecification[rsc.size()];
                 for (int i = 0; i < rsc.size(); i++) {
