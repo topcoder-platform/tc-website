@@ -47,13 +47,18 @@ public class Similar extends FraudBase {
                     l2 = ((TokenizedSource) tokens.get(j)).getTokens();
                     int sim1 = 0;
                     int sim2 = 0;
-                    for (int k = 0; k < l1.size(); k++) {
-                        if (l2.contains(l1.get(k))) sim1++;
+
+                    double similarPercentage = 0d;
+                    if (l1.size() > 0 && l2.size() > 0) {
+                        for (int k = 0; k < l1.size(); k++) {
+                            if (l2.contains(l1.get(k))) sim1++;
+                        }
+                        for (int k = 0; k < l2.size(); k++) {
+                            if (l1.contains(l2.get(k))) sim2++;
+                        }
+                        similarPercentage = ((double) sim1 / (double) l1.size() + (double) sim2 / (double) l2.size()) / 2d;
                     }
-                    for (int k = 0; k < l2.size(); k++) {
-                        if (l1.contains(l2.get(k))) sim2++;
-                    }
-                    double similarPercentage = ((double) sim1 / (double) l1.size() + (double) sim2 / (double) l2.size()) / 2d;
+
                     if (log.isDebugEnabled()) {
                         if (Double.isNaN(similarPercentage)) {
                             log.debug("sim1 " + sim1 + " lisize " + l1.size() + " sim2 " + sim2 + " l2size " + l2.size());
