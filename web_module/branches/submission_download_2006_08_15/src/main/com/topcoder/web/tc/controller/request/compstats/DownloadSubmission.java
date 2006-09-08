@@ -1,5 +1,6 @@
 package com.topcoder.web.tc.controller.request.compstats;
 
+import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.util.Map;
 
@@ -74,16 +75,25 @@ public class DownloadSubmission extends Base {
         getResponse().addHeader("content-disposition", "inline; filename=" + name);
         getResponse().setContentType("application/x-java-archive");
 
-        FileInputStream fis = new FileInputStream(systemName);
-
-        ServletOutputStream sos = getResponse().getOutputStream();
-
-        int b;
-        while ((b = fis.read()) >= 0) {
-            sos.write(b);
+        BufferedInputStream is = null;
+        try { 
+	        if (systemName.startsWith("file:/")) {
+	        	is = new BufferedInputStream(new FileInputStream(systemName));
+	        } else {
+	        	throw new TCWebException("Don't know how to handle download for protocol for file " + systemName);
+	        }
+	
+	        ServletOutputStream sos = getResponse().getOutputStream();
+	
+	        int b;
+	        while ((b = is.read()) >= 0) {
+	            sos.write(b);
+	        }
+	        getResponse().setStatus(HttpServletResponse.SC_OK);
+	        getResponse().flushBuffer();
+        } finally {
+        	if (is != null) is.close();
         }
-        getResponse().setStatus(HttpServletResponse.SC_OK);
-        getResponse().flushBuffer();    
         
     }
     
