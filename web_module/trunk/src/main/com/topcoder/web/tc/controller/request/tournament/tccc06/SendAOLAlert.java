@@ -35,6 +35,14 @@ public class SendAOLAlert extends ShortHibernateProcessor {
 
             if (AOLAlertsDescription.AOL_GROUP_ALERT.equals(type)) {
                 String text = getRequest().getParameter(MESSAGE_TEXT + type);
+                if ("".equals(StringUtils.checkNull(text))) {
+                    addError(MESSAGE_TEXT + type, "Empty message");
+                    setDefault(MESSAGE_TEXT + type, text);
+                    setDefault(Constants.HANDLE, handle);
+                    setNextPage("/tournaments/tccc06/aol_alerts_sender.jsp");
+                    setIsNextPageInContext(true);
+                    return;
+                }
 
                 log.debug("sending a group alert");
                 NamedAlertRegistry registry = new NamedAlertRegistry();
@@ -57,6 +65,15 @@ public class SendAOLAlert extends ShortHibernateProcessor {
             } else if (AOLAlertsDescription.AOL_INDIVIDUAL_ALERT.equals(type)) {
                 String text = getRequest().getParameter(MESSAGE_TEXT + type);
                 String query = StringUtils.checkNull(getRequest().getParameter(QUERY));
+
+                if ("".equals(StringUtils.checkNull(text))) {
+                    addError(MESSAGE_TEXT + type, "Empty message");
+                    setDefault(MESSAGE_TEXT + type, text);
+                    setDefault(Constants.HANDLE, handle);
+                    setNextPage("/tournaments/tccc06/aol_alerts_sender.jsp");
+                    setIsNextPageInContext(true);
+                    return;
+                }
 
                 String[] people = null;
                 if ("".equals(query)) {
