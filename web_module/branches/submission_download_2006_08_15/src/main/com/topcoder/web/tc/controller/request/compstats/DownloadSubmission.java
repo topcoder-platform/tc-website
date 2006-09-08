@@ -1,13 +1,3 @@
-/*
- * CompContestDetails.java
- *
- * Created on July 27, 2005
- *
- * To change this template, choose Tools | Options and locate the template under
- * the Source Creation and Management node. Right-click the template and choose
- * Open. You can then make changes to the template in the Source Editor.
- */
-
 package com.topcoder.web.tc.controller.request.compstats;
 
 import java.io.FileInputStream;
@@ -26,7 +16,7 @@ import com.topcoder.web.ejb.user.UserTermsOfUseLocal;
 import com.topcoder.web.tc.Constants;
 
 /**
- * Downloads a submission.
+ * Download a submission.
  * If the user hasn't agreed to terms, it redirects to download submission terms page, where we'll need to agree to terms.
  *  
  * @author cucu
@@ -58,7 +48,7 @@ public class DownloadSubmission extends Base {
                 String fname = createFileName(url, rsc.getStringItem(0, "handle"), 
                 		rsc.getStringItem(0, "component_name"), rsc.getStringItem(0, "version_text"));
 
-            	downloadFile("/export/home/branch2/web/lib/jars/upload.jar", fname);
+            	downloadFile(url, fname);
             } else {
             	getRequest().setAttribute(Constants.PROJECT_ID, projId);
             	getRequest().setAttribute(Constants.CODER_ID, coderId);            	
