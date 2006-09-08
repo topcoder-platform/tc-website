@@ -64,6 +64,17 @@ public class DownloadSubmission extends Base {
         }
     }
     
+    private String getContentType(String filename) {
+    	String ext = ""; 
+        int idxExtension = filename.lastIndexOf(".");
+        if (idxExtension != -1) {
+            ext = filename.substring(idxExtension, filename.length()).toLowerCase();
+        }
+        if (ext.equals("jar")) return "application/x-java-archive";
+        if (ext.equals("zip")) return "application/x-zip-compressed";
+        return "application";
+    }
+    
     /**
      * Downloads the specified file.
      * 
@@ -73,7 +84,7 @@ public class DownloadSubmission extends Base {
      */
     private void downloadFile(String systemName, String name) throws Exception {
         getResponse().addHeader("content-disposition", "inline; filename=" + name);
-        getResponse().setContentType("application/x-java-archive");
+        getResponse().setContentType(getContentType(name));
 
         BufferedInputStream is = null;
         try { 
