@@ -40,18 +40,18 @@ import javax.servlet.http.Cookie;
 public class AOLAuthReply extends ShortHibernateProcessor {
     protected static final Logger log = Logger.getLogger(AOLAuthReply.class);
 
-    private static final String GROUP_ALERT = "groupAlert";
-    private static final String IND_ALERT = "indAlert";
-    private static final String AUTH_TOKEN = "AuthToken";
-    private static final String AOL_USER_ID = "UserId";
+    public static final String GROUP_ALERT = "groupAlert";
+    public static final String IND_ALERT = "indAlert";
+    public static final String AUTH_TOKEN = "AuthToken";
+    public static final String AOL_USER_ID = "UserId";
 
-    private static String GROUP_ALERT_ID;
-    private static String GROUP_VALIDATION_TOKEN;
-    private static String GROUP_TOPIC;
+    public static String GROUP_ALERT_ID;
+    public static String GROUP_VALIDATION_TOKEN;
+    public static String GROUP_TOPIC;
 
-    private static String IND_ALERT_ID;
-    private static String IND_VALIDATION_TOKEN;
-    private static String IND_TOPIC;
+    public static String IND_ALERT_ID;
+    public static String IND_VALIDATION_TOKEN;
+    public static String IND_TOPIC;
 
     static {
         if (ApplicationServer.ENVIRONMENT == ApplicationServer.PROD) {
