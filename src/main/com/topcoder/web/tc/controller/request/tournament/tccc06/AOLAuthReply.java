@@ -6,8 +6,11 @@ import com.topcoder.alerts.aol.wrapper.SubscriptionResult;
 import com.topcoder.security.Util;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.tc.model.AOLAlertInfo;
 
 import javax.servlet.http.Cookie;
 
@@ -34,12 +37,13 @@ import javax.servlet.http.Cookie;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Aug 18, 2006
  */
-public class AOLAuthReply extends BaseProcessor {
+public class AOLAuthReply extends ShortHibernateProcessor {
     protected static final Logger log = Logger.getLogger(AOLAuthReply.class);
 
     private static final String GROUP_ALERT = "groupAlert";
     private static final String IND_ALERT = "indAlert";
     private static final String AUTH_TOKEN = "AuthToken";
+    private static final String AOL_USER_ID = "UserId";
 
     private static String GROUP_ALERT_ID;
     private static String GROUP_VALIDATION_TOKEN;
@@ -67,7 +71,7 @@ public class AOLAuthReply extends BaseProcessor {
         }
     }
 
-    protected void businessProcessing() throws Exception {
+    protected void dbProcessing() throws Exception {
         Cookie[] cookies = getRequest().getCookies();
 
         Cookie theOneCookie = null;
@@ -104,11 +108,13 @@ public class AOLAuthReply extends BaseProcessor {
                         log.info(getUser().getUserName() + " signed up for group alert " + result.getSubscriptionId() +
                                 " " + result.getUserGuid());
                     } else {
-                        log.info(getUser().getUserName() + " failed to sign up for group alert " +
-                                result.getUserGuid() + " " + result.getErrorCode() + " " + result.getErrorReason());
                         if (!"AlertsAPIExceptions.DuplicateSubscription(-20)".equals(result.getErrorCode())) {
+                            log.error(getUser().getUserName() + " failed to sign up for group alert " +
+                                    result.getUserGuid() + " " + result.getErrorCode() + " " + result.getErrorReason());
                             throw new NavigationException("Subscription failed: " + result.getErrorCode() + " " +
                                     result.getErrorReason() + " " + result.getErrorDetail());
+                        } else {
+                            log.info(getUser().getUserName() + " attempted to sign up for the group alert but already is signed up");
                         }
                     }
 
@@ -128,14 +134,22 @@ public class AOLAuthReply extends BaseProcessor {
 
                     if (result.getSubscriptionId() != null) {
                         //success
+
+                        AOLAlertInfo info = new AOLAlertInfo();
+                        info.setUser(DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId())));
+                        info.setAolEncryptedUserId(getRequest().getParameter(AOL_USER_ID));
+                        HibernateUtils.getSession().saveOrUpdate(info);
+
                         log.info(getUser().getUserName() + " signed up for individual alert " + result.getSubscriptionId() +
                                 " " + result.getUserGuid());
                     } else {
-                        log.info(getUser().getUserName() + " failed to sign up for individual alert " +
-                                result.getUserGuid() + " " + result.getErrorCode() + " " + result.getErrorReason());
                         if (!"AlertsAPIExceptions.DuplicateSubscription(-20)".equals(result.getErrorCode())) {
+                            log.error(getUser().getUserName() + " failed to sign up for individual alert " +
+                                    result.getUserGuid() + " " + result.getErrorCode() + " " + result.getErrorReason());
                             throw new NavigationException("Subscription failed: " + result.getErrorCode() + " " +
                                     result.getErrorReason() + " " + result.getErrorDetail());
+                        } else {
+                            log.info(getUser().getUserName() + " attempted to sign up for the individual alert but already is signed up");
                         }
                     }
 
@@ -150,6 +164,5 @@ public class AOLAuthReply extends BaseProcessor {
 
         setNextPage("/tournaments/tccc06/aol_alerts_sub_success.jsp");
         setIsNextPageInContext(true);
-
     }
 }
