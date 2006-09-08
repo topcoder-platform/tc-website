@@ -1,118 +1,100 @@
-<%@  page language="java"  %>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,java.util.Map,com.topcoder.shared.dataAccess.DataAccessConstants"%>
-<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ page language="java" %>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants,com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,java.util.Map" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<jsp:include page="/script.jsp" />
+    <jsp:include page="/script.jsp"/>
 
-<title>2006 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
-<link type="text/css" rel="stylesheet" href="/css/TCCC06style.css"/>
-<link type="text/css" rel="stylesheet" href="/css/coders.css"/>
+    <title>2006 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
+    <link type="text/css" rel="stylesheet" href="/css/TCCC06style.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 </head>
+
 <body>
 
 <!-- Tab barlinks-->
-<jsp:include page="links.jsp" >
-<jsp:param name="tabLev1" value="algorithm"/>
-<jsp:param name="tabLev2" value="advancers"/>
-<jsp:param name="tabLev3" value="qualification"/>
+<jsp:include page="links.jsp">
+    <jsp:param name="tabLev1" value="algorithm"/>
+    <jsp:param name="tabLev2" value="advancers"/>
+    <jsp:param name="tabLev3" value="qualification"/>
 </jsp:include>
-<%--
-<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tco06_alg_qual"); %>
---%>
+<% ResultSetContainer rsc = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("tccc06_alg_qual"); %>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-<!-- Body-->
-   <tr valign="top">
-      <td valign="top" align="center">
-      <div class="bodySpacer">
+    <!-- Body-->
+    <tr valign="top">
+        <td valign="top" align="center">
+            <div class="bodySpacer">
 
-        <span class="bigTitle">Advancers</span>
+                <span class="bigTitle">Advancers</span>
 
-<%--- TEMPORARY BYE LIST ----%>
-            <table width="500" border="0" cellpadding="6" cellspacing="0" class="formFrame">
-                <tr>
-                  <td class="advTitle" width="100%" colspan="5">Qualification Round - Byes (150)</td>
-               </tr>
-                <tr>
-                   <td class="advHeader" width="50%" align="left">
-                     Handle
-                   </td>
-                   <td class="advHeader" width="50%" align="right">
-                     Rating
-                   </td>
-                </tr>
+                <table width="500" border="0" cellpadding="6" cellspacing="0" class="formFrame">
+                    <tr>
+                        <td class="advTitle" width="100%" colspan="5">Qualification Round</td>
+                    </tr>
+                    <tr class="advHeader">
+                        <td width="10%" align="center">
+                            <a href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=seed&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
+                                Seed
+                            </a>
+                        </td>
+                        <td width="30%" align="left">
+                            <a href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=handle_sort&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
+                                Handle
+                            </a>
+                        </td>
+                        <td width="30%" align="center">
+                            <a href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=round_name&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
+                                Problem Set
+                            </a>
+                        </td>
+                        <td width="15%" align="right">
+                            <a href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=rating&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
+                                Rating
+                            </a>
+                        </td>
+                        <td width="15%" align="right">
+                            <a href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=points&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
+                                Points
+                            </a>
+                        </td>
+                    </tr>
 
-<tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='144400' context='algorithm'/></td><td class='advanceLt' align='right'>3572</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='8357090' context='algorithm'/></td><td class='advanceDk' align='right'>3372</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='10574855' context='algorithm'/></td><td class='advanceLt' align='right'>3366</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='251074' context='algorithm'/></td><td class='advanceDk' align='right'>3095</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='11829284' context='algorithm'/></td><td class='advanceLt' align='right'>2991</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='19849563' context='algorithm'/></td><td class='advanceDk' align='right'>2975</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='260835' context='algorithm'/></td><td class='advanceLt' align='right'>2960</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='10481120' context='algorithm'/></td><td class='advanceDk' align='right'>2914</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='9906197' context='algorithm'/></td><td class='advanceLt' align='right'>2911</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='8355516' context='algorithm'/></td><td class='advanceDk' align='right'>2892</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='7442498' context='algorithm'/></td><td class='advanceLt' align='right'>2886</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='16056363' context='algorithm'/></td><td class='advanceDk' align='right'>2873</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='8394868' context='algorithm'/></td><td class='advanceLt' align='right'>2848</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='19929536' context='algorithm'/></td><td class='advanceDk' align='right'>2741</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='8365685' context='algorithm'/></td><td class='advanceLt' align='right'>2734</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='7390224' context='algorithm'/></td><td class='advanceDk' align='right'>2712</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='310333' context='algorithm'/></td><td class='advanceLt' align='right'>2695</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='15206296' context='algorithm'/></td><td class='advanceDk' align='right'>2691</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='14970299' context='algorithm'/></td><td class='advanceLt' align='right'>2690</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='7479769' context='algorithm'/></td><td class='advanceDk' align='right'>2677</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='10157606' context='algorithm'/></td><td class='advanceLt' align='right'>2668</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='262056' context='algorithm'/></td><td class='advanceDk' align='right'>2598</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='2058177' context='algorithm'/></td><td class='advanceLt' align='right'>2595</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='301937' context='algorithm'/></td><td class='advanceDk' align='right'>2593</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='7462740' context='algorithm'/></td><td class='advanceLt' align='right'>2589</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='15231364' context='algorithm'/></td><td class='advanceDk' align='right'>2570</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='309982' context='algorithm'/></td><td class='advanceLt' align='right'>2564</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='7546048' context='algorithm'/></td><td class='advanceDk' align='right'>2548</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='15881985' context='algorithm'/></td><td class='advanceLt' align='right'>2536</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='347569' context='algorithm'/></td><td class='advanceDk' align='right'>2532</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='304031' context='algorithm'/></td><td class='advanceLt' align='right'>2530</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='309453' context='algorithm'/></td><td class='advanceDk' align='right'>2529</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='20286298' context='algorithm'/></td><td class='advanceLt' align='right'>2525</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='15094447' context='algorithm'/></td><td class='advanceDk' align='right'>2517</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='307060' context='algorithm'/></td><td class='advanceLt' align='right'>2511</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='20397185' context='algorithm'/></td><td class='advanceDk' align='right'>2509</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='8472826' context='algorithm'/></td><td class='advanceLt' align='right'>2508</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='308953' context='algorithm'/></td><td class='advanceDk' align='right'>2504</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='7390467' context='algorithm'/></td><td class='advanceLt' align='right'>2498</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='113178' context='algorithm'/></td><td class='advanceDk' align='right'>2491</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='7502813' context='algorithm'/></td><td class='advanceLt' align='right'>2491</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='263396' context='algorithm'/></td><td class='advanceDk' align='right'>2471</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='15616795' context='algorithm'/></td><td class='advanceLt' align='right'>2465</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='10676764' context='algorithm'/></td><td class='advanceDk' align='right'>2464</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='7394165' context='algorithm'/></td><td class='advanceLt' align='right'>2437</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='9906220' context='algorithm'/></td><td class='advanceDk' align='right'>2428</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='156216' context='algorithm'/></td><td class='advanceLt' align='right'>2422</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='293874' context='algorithm'/></td><td class='advanceDk' align='right'>2421</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='15485957' context='algorithm'/></td><td class='advanceLt' align='right'>2420</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='21111148' context='algorithm'/></td><td class='advanceDk' align='right'>2398</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='14946025' context='algorithm'/></td><td class='advanceLt' align='right'>2385</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='7340263' context='algorithm'/></td><td class='advanceDk' align='right'>2376</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='11899489' context='algorithm'/></td><td class='advanceLt' align='right'>2364</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='8584656' context='algorithm'/></td><td class='advanceDk' align='right'>2359</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='21749340' context='algorithm'/></td><td class='advanceLt' align='right'>2341</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='21239671' context='algorithm'/></td><td class='advanceDk' align='right'>2324</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='7459080' context='algorithm'/></td><td class='advanceLt' align='right'>2324</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='7452866' context='algorithm'/></td><td class='advanceDk' align='right'>2317</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='10597114' context='algorithm'/></td><td class='advanceLt' align='right'>2312</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='7546003' context='algorithm'/></td><td class='advanceDk' align='right'>2312</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='8493941' context='algorithm'/></td><td class='advanceLt' align='right'>2301</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='8433628' context='algorithm'/></td><td class='advanceDk' align='right'>2294</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='10519715' context='algorithm'/></td><td class='advanceLt' align='right'>2291</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='15718818' context='algorithm'/></td><td class='advanceDk' align='right'>2283</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='19721111' context='algorithm'/></td><td class='advanceLt' align='right'>2282</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='11888018' context='algorithm'/></td><td class='advanceDk' align='right'>2277</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='8511003' context='algorithm'/></td><td class='advanceLt' align='right'>2271</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='15082287' context='algorithm'/></td><td class='advanceDk' align='right'>2265</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='7389864' context='algorithm'/></td><td class='advanceLt' align='right'>2259</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='8359547' context='algorithm'/></td><td class='advanceDk' align='right'>2256</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='10270846' context='algorithm'/></td><td class='advanceLt' align='right'>2254</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='16181938' context='algorithm'/></td><td class='advanceDk' align='right'>2252</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='15657561' context='algorithm'/></td><td class='advanceLt' align='right'>2246</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='19786437' context='algorithm'/></td><td class='advanceDk' align='right'>2242</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='15805598' context='algorithm'/></td><td class='advanceLt' align='right'>2242</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='308453' context='algorithm'/></td><td class='advanceDk' align='right'>2235</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='310723' context='algorithm'/></td><td class='advanceLt' align='right'>2230</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='8362207' context='algorithm'/></td><td class='advanceDk' align='right'>2229</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='275071' context='algorithm'/></td><td class='advanceLt' align='right'>2221</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='10332088' context='algorithm'/></td><td class='advanceDk' align='right'>2216</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='7555099' context='algorithm'/></td><td class='advanceLt' align='right'>2210</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='10524748' context='algorithm'/></td><td class='advanceDk' align='right'>2203</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='20315020' context='algorithm'/></td><td class='advanceLt' align='right'>2198</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='15820587' context='algorithm'/></td><td class='advanceDk' align='right'>2182</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='15982182' context='algorithm'/></td><td class='advanceLt' align='right'>2181</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='289309' context='algorithm'/></td><td class='advanceDk' align='right'>2179</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='7360309' context='algorithm'/></td><td class='advanceLt' align='right'>2173</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='268904' context='algorithm'/></td><td class='advanceDk' align='right'>2170</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='20763521' context='algorithm'/></td><td class='advanceLt' align='right'>2168</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='7574434' context='algorithm'/></td><td class='advanceDk' align='right'>2158</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='8348794' context='algorithm'/></td><td class='advanceLt' align='right'>2158</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='22628829' context='algorithm'/></td><td class='advanceDk' align='right'>2155</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='269788' context='algorithm'/></td><td class='advanceLt' align='right'>2155</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='15056181' context='algorithm'/></td><td class='advanceDk' align='right'>2153</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='10544397' context='algorithm'/></td><td class='advanceLt' align='right'>2149</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='15543048' context='algorithm'/></td><td class='advanceDk' align='right'>2139</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='10569084' context='algorithm'/></td><td class='advanceLt' align='right'>2135</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='10651823' context='algorithm'/></td><td class='advanceDk' align='right'>2134</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='15601490' context='algorithm'/></td><td class='advanceLt' align='right'>2128</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='14848531' context='algorithm'/></td><td class='advanceDk' align='right'>2126</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='14966835' context='algorithm'/></td><td class='advanceLt' align='right'>2124</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='11919691' context='algorithm'/></td><td class='advanceDk' align='right'>2117</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='289435' context='algorithm'/></td><td class='advanceLt' align='right'>2115</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='288302' context='algorithm'/></td><td class='advanceDk' align='right'>2113</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='15803924' context='algorithm'/></td><td class='advanceLt' align='right'>2104</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='7488783' context='algorithm'/></td><td class='advanceDk' align='right'>2101</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='8527113' context='algorithm'/></td><td class='advanceLt' align='right'>2099</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='7563318' context='algorithm'/></td><td class='advanceDk' align='right'>2095</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='9998788' context='algorithm'/></td><td class='advanceLt' align='right'>2090</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='7454301' context='algorithm'/></td><td class='advanceDk' align='right'>2090</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='8593420' context='algorithm'/></td><td class='advanceLt' align='right'>2089</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='8584653' context='algorithm'/></td><td class='advanceDk' align='right'>2081</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='8583798' context='algorithm'/></td><td class='advanceLt' align='right'>2080</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='8580975' context='algorithm'/></td><td class='advanceDk' align='right'>2077</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='275640' context='algorithm'/></td><td class='advanceLt' align='right'>2072</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='13351270' context='algorithm'/></td><td class='advanceDk' align='right'>2071</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='20812309' context='algorithm'/></td><td class='advanceLt' align='right'>2068</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='21822659' context='algorithm'/></td><td class='advanceDk' align='right'>2066</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='10005564' context='algorithm'/></td><td class='advanceLt' align='right'>2060</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='8398526' context='algorithm'/></td><td class='advanceDk' align='right'>2060</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='11833324' context='algorithm'/></td><td class='advanceLt' align='right'>2057</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='310431' context='algorithm'/></td><td class='advanceDk' align='right'>2055</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='10542629' context='algorithm'/></td><td class='advanceLt' align='right'>2053</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='10185645' context='algorithm'/></td><td class='advanceDk' align='right'>2047</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='10611351' context='algorithm'/></td><td class='advanceLt' align='right'>2047</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='7360291' context='algorithm'/></td><td class='advanceDk' align='right'>2044</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='22058011' context='algorithm'/></td><td class='advanceLt' align='right'>2043</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='263379' context='algorithm'/></td><td class='advanceDk' align='right'>2041</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='21766879' context='algorithm'/></td><td class='advanceLt' align='right'>2041</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='7562337' context='algorithm'/></td><td class='advanceDk' align='right'>2040</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='9947660' context='algorithm'/></td><td class='advanceLt' align='right'>2038</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='262096' context='algorithm'/></td><td class='advanceDk' align='right'>2036</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='14769155' context='algorithm'/></td><td class='advanceLt' align='right'>2034</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='7210680' context='algorithm'/></td><td class='advanceDk' align='right'>2034</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='9927526' context='algorithm'/></td><td class='advanceLt' align='right'>2030</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='12021745' context='algorithm'/></td><td class='advanceDk' align='right'>2029</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='7295710' context='algorithm'/></td><td class='advanceLt' align='right'>2025</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='21657412' context='algorithm'/></td><td class='advanceDk' align='right'>2016</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='20156359' context='algorithm'/></td><td class='advanceLt' align='right'>2010</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='22627865' context='algorithm'/></td><td class='advanceDk' align='right'>2004</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='10540401' context='algorithm'/></td><td class='advanceLt' align='right'>1999</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='10425804' context='algorithm'/></td><td class='advanceDk' align='right'>1994</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='15329571' context='algorithm'/></td><td class='advanceLt' align='right'>1991</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='15436307' context='algorithm'/></td><td class='advanceDk' align='right'>1988</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='11771960' context='algorithm'/></td><td class='advanceLt' align='right'>1983</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='22630033' context='algorithm'/></td><td class='advanceDk' align='right'>1975</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='11888756' context='algorithm'/></td><td class='advanceLt' align='right'>1972</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='7296000' context='algorithm'/></td><td class='advanceDk' align='right'>1968</td></tr> <tr><td class='advanceLt' align='left'><tc-webtag:handle coderId='8361901' context='algorithm'/></td><td class='advanceLt' align='right'>1955</td></tr> <tr><td class='advanceDk' align='left'><tc-webtag:handle coderId='7396310' context='algorithm'/></td><td class='advanceDk' align='right'>1954</td></tr>
+                    <%boolean even = false;%>
+                    <rsc:iterator list="<%=rsc%>" id="resultRow"><tr>
+                        <td class="<%=even?"advanceLt":"advanceDk"%>" align="center">
+                            <rsc:item name="seed" row="<%=resultRow%>"/></td>
+                        <td class="<%=even?"advanceLt":"advanceDk"%>" align="left">
+                            <tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="algorithm"/></td>
+                        <td class="<%=even?"advanceLt":"advanceDk"%>" align="center" nowrap="0">
+                            <rsc:item name="round_name" row="<%=resultRow%>" ifNull="Bye"/></td>
+                        <td class="<%=even?"advanceLt":"advanceDk"%>" align="right">
+                            <rsc:item name="rating" row="<%=resultRow%>"/></td>
+                        <td class="<%=even?"advanceLt":"advanceDk"%>" align="right">
+                            <rsc:item name="points" row="<%=resultRow%>" format="0.00" ifNull="Bye"/></td>
+                    </tr>
+                        <%even = !even;%>
+                    </rsc:iterator>
 
-            </table>
-<%--
-            <table width="500" border="0" cellpadding="6" cellspacing="0" class="formFrame">
-                <tr>
-                  <td class="advTitle" width="100%" colspan="5">Qualification Round</td>
-               </tr>
-                <tr class="advHeader">
-                   <td width="10%" align="center">
-                       <a href="/tc?module=SimpleStats&d1=tournaments&d2=tco06&d3=alg_qualification&c=tco06_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=seed&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
-                           Seed
-                       </a>
-                   </td>
-                   <td width="30%" align="left">
-                       <a href="/tc?module=SimpleStats&d1=tournaments&d2=tco06&d3=alg_qualification&c=tco06_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=handle_sort&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
-                           Handle
-                       </a>
-                   </td>
-                   <td width="30%" align="center">
-                       <a href="/tc?module=SimpleStats&d1=tournaments&d2=tco06&d3=alg_qualification&c=tco06_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=round_name&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
-                           Problem Set
-                       </a>
-                   </td>
-                   <td width="15%" align="right">
-                       <a href="/tc?module=SimpleStats&d1=tournaments&d2=tco06&d3=alg_qualification&c=tco06_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=rating&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
-                           Rating
-                       </a>
-                   </td>
-                   <td width="15%" align="right">
-                       <a href="/tc?module=SimpleStats&d1=tournaments&d2=tco06&d3=alg_qualification&c=tco06_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=points&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
-                           Points
-                       </a>
-                   </td>
-                </tr>
-
-                                <%boolean even = false;%>
-                <rsc:iterator list="<%=rsc%>" id="resultRow"><tr>
-                <td class="<%=even?"advanceLt":"advanceDk"%>" align="center"><rsc:item name="seed" row="<%=resultRow%>"/></td>
-                <td class="<%=even?"advanceLt":"advanceDk"%>" align="left"><tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="algorithm"/></td>
-                <td class="<%=even?"advanceLt":"advanceDk"%>" align="center" nowrap="0"><rsc:item name="round_name" row="<%=resultRow%>" ifNull="Bye"/></td>
-                <td class="<%=even?"advanceLt":"advanceDk"%>" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
-                <td class="<%=even?"advanceLt":"advanceDk"%>" align="right"><rsc:item name="points" row="<%=resultRow%>" format="0.00" ifNull="Bye"/></td>
-                </tr>
-                   <%even=!even;%>
-                </rsc:iterator>
-
-            </table>
---%>
-        </div>
-      </td>
+                </table>
+            </div>
+        </td>
 
 
-<!-- Right Column-->
+        <!-- Right Column-->
         <td width="170" align="right">
             <jsp:include page="right.jsp">
-            <jsp:param name="level1" value="all"/>
+                <jsp:param name="level1" value="all"/>
             </jsp:include>
-         </td>
+        </td>
 
-   </tr>
+    </tr>
 
 </table>
 
 
-
-
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../../foot.jsp"/>
 
 </body>
 
