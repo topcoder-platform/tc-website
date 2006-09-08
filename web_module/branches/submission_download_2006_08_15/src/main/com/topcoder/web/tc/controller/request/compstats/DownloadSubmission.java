@@ -89,7 +89,7 @@ public class DownloadSubmission extends Base {
         BufferedInputStream is = null;
         try { 
 	        if (systemName.startsWith("file:/")) {
-	        	is = new BufferedInputStream(new FileInputStream(systemName));
+	        	is = new BufferedInputStream(new FileInputStream(systemName.substring(5)));
 	        } else {
 	        	throw new TCWebException("Don't know how to handle download for protocol for file " + systemName);
 	        }
