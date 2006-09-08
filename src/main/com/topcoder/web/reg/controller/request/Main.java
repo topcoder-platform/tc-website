@@ -1,6 +1,7 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.RegistrationTypeDAO;
 import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
@@ -32,7 +33,9 @@ public class Main extends Base {
                 log.debug("name: " + getRegUser().getFirstName() + " " + getRegUser().getLastName());
             }
         }
-        if (getRegUser() == null || getRegUser().isNew() || userLoggedIn()) {
+        if (getRegUser() == null) {
+            throw new NavigationException("Sorry, your session has expired.");
+        } else if (getRegUser().isNew() || userLoggedIn()) {
             RegistrationTypeDAO regTypeDAO = getFactory().getRegistrationTypeDAO();
             List types = regTypeDAO.getRegistrationTypes();
 
