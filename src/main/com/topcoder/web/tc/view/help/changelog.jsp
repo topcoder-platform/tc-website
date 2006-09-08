@@ -42,6 +42,13 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 <p>
+    5.4.x - 2006.09.xx
+    <ul>
+        <li>
+            Fix score format to have 2 decimal digits in team results and individual result for high school. 
+        </li>
+    </ul>
+
     5.4.10 - 2006.09.06
     <ul>
         <li>
