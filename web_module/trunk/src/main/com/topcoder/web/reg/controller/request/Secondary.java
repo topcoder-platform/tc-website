@@ -21,7 +21,7 @@ public class Secondary extends Base {
     protected void registrationProcessing() throws Exception {
         User u = getRegUser();
         if (u == null) {
-            throw new NavigationException("Sorry, your session has timed out.");
+            throw new NavigationException("Sorry, your session has expired.");
         } else {
 
             Set fields = RegFieldHelper.getMainFieldSet(getRequestedTypes(), u);
