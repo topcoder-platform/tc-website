@@ -44,6 +44,9 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                     throw new NavigationException("Send failed: " + result.getErrorCode() + " " +
                             result.getErrorReason() + " " + result.getErrorDetail());
                 }
+                setNextPage(getSessionInfo().getServletPath() + "?" +
+                        Constants.MODULE_KEY + "=Static&d1=tournaments&d2=tccc06&d3=aol_alert_sent");
+                setIsNextPageInContext(false);
 
             } else if (AOLAlertsDescription.AOL_INDIVIDUAL_ALERT.equals(type)) {
                 NamedAlertRegistry registry = new NamedAlertRegistry();
@@ -51,17 +54,28 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                         AOLAuthReply.IND_VALIDATION_TOKEN, AOLAuthReply.IND_TOPIC, false);
 
                 User u = DAOUtil.getFactory().getUserDAO().find(handle, false);
-                AOLAlertInfo info = (AOLAlertInfo) HibernateUtils.getSession().get(AOLAlertInfo.class, u.getId());
+                if (u==null) {
+                    addError(Constants.HANDLE, "Invalid handle");
+                    setDefault(MESSAGE_TEXT, text);
+                    setDefault(Constants.HANDLE, handle);
+                    setNextPage("/tournaments/tccc06/aol_alerts_sender.jsp");
+                    setIsNextPageInContext(true);
+                } else {
+                    AOLAlertInfo info = (AOLAlertInfo) HibernateUtils.getSession().get(AOLAlertInfo.class, u.getId());
 
-                MessagingNotificationManager man = new MessagingNotificationManager(registry);
-                man.setNotificationEndPoint("https://webservices.alerts.aol.com/api/services/AlertsFeedAPIService");
+                    MessagingNotificationManager man = new MessagingNotificationManager(registry);
+                    man.setNotificationEndPoint("https://webservices.alerts.aol.com/api/services/AlertsFeedAPIService");
 
-                AOLAlertNotificationMessage message = new AOLAlertNotificationMessage(text, text, text, text);
-                NotificationResult[] results = man.notify(AOLAuthReply.IND_ALERT, new String[]{info.getAolEncryptedUserId()}, message);
+                    AOLAlertNotificationMessage message = new AOLAlertNotificationMessage(text, text, text, text);
+                    NotificationResult[] results = man.notify(AOLAuthReply.IND_ALERT, new String[]{info.getAolEncryptedUserId()}, message);
 
-                if (results[0].getTransactionId() == null) {
-                    throw new NavigationException("Send to " + u.getHandle() + " failed: " + results[0].getErrorCode() + " " +
-                            results[0].getErrorReason() + " " + results[0].getErrorDetail());
+                    if (results[0].getTransactionId() == null) {
+                        throw new NavigationException("Send to " + u.getHandle() + " failed: " + results[0].getErrorCode() + " " +
+                                results[0].getErrorReason() + " " + results[0].getErrorDetail());
+                    }
+                    setNextPage(getSessionInfo().getServletPath() + "?" +
+                            Constants.MODULE_KEY + "=Static&d1=tournaments&d2=tccc06&d3=aol_alert_sent");
+                    setIsNextPageInContext(false);
                 }
 
             } else {
@@ -74,9 +88,6 @@ public class SendAOLAlert extends ShortHibernateProcessor {
             }
 
 
-            setNextPage(getSessionInfo().getServletPath() + "?" +
-                    Constants.MODULE_KEY + "=Static&d1=tournaments&d2=tccc06&d3=aol_alert_sent");
-            setIsNextPageInContext(false);
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
