@@ -338,7 +338,8 @@
 <% if (canDownloadSubm) { %>
         <TD class="<%=even?"statLt":"statDk"%>" align="center">
                 <div class="container">
-                    <a href='/tc?module=DownloadSubmission&cr=<%= resultRow.getLongItem("user_id") %>&pj=<%= projectId %>&st=1'><img src="/i/interface/emblem/disk.gif" alt="Download submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()" /></a>
+                    <a href='/tc?module=DownloadSubmission&cr=<%= resultRow.getLongItem("user_id") %>&pj=<%= projectId %>&st=1&ph=<%= projectInfo.getStringItem(0, "phase_id") %>'>
+                    <img src="/i/interface/emblem/disk.gif" alt="Download submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()" /></a>
                     <div id="pop<%=i%>" class="popUp"><div>Download submission</div></div>
                 </div>
         </TD>

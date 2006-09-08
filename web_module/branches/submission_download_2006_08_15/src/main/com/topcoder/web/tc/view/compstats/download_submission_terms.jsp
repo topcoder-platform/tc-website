@@ -23,8 +23,11 @@
     <!-- Left nav begins -->
    <%-- automate des or dev --%>
     <jsp:include page="/includes/global_left.jsp">
-        <jsp:param name="node" value="des_stats"/>
+        <jsp:param name="node"
+                   value='<%="112".equals(request.getAttribute(Constants.PHASE_ID))?"des_stats":"dev_stats"%>'/>
     </jsp:include>
+
+    
     <!-- Left nav ends -->
 </TD>
 <!-- Center Column Begins -->

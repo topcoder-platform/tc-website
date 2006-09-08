@@ -51,7 +51,7 @@ public class DownloadSubmission extends Base {
                 Map result = dai.getData(r);
                 ResultSetContainer rsc = (ResultSetContainer) result.get("get_submission_url");
                 if (rsc.getRowCount() != 1) {
-                	throw new TCWebException("Not exaclty one sumbission url found.  Instead, found " + rsc.getRowCount());
+                	throw new TCWebException("Not exactly one sumbission url found.  Instead, found " + rsc.getRowCount());
                 }
                 
                 String url = rsc.getStringItem(0, "submission_url");
@@ -62,6 +62,7 @@ public class DownloadSubmission extends Base {
             } else {
             	getRequest().setAttribute(Constants.PROJECT_ID, projId);
             	getRequest().setAttribute(Constants.CODER_ID, coderId);            	
+            	getRequest().setAttribute(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));            	
             	setNextPage(Constants.DOWNLOAD_SUBMISSION_TERMS);
                 setIsNextPageInContext(true);
             }
