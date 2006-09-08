@@ -57,13 +57,21 @@
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SendAOLAlert"/>
                     <tc-webtag:hiddenInput name="<%=SendAOLAlert.ALERT_TYPE%>" value="<%=AOLAlertsDescription.AOL_INDIVIDUAL_ALERT%>"/>
 
-                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>">${err}
-                        <br></tc-webtag:errorIterator></span>
 
                     <p><span class="bigTitle">Individual Alert</span></p>
 
+                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>">${err}
+                        <br></tc-webtag:errorIterator></span>
+
                     <p>
                         Handle: <tc-webtag:textInput name="<%=Constants.HANDLE%>"/>
+                    </p>
+
+                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=SendAOLAlert.QUERY%>">${err}
+                        <br></tc-webtag:errorIterator></span>
+
+                    <p>
+                        Query: <tc-webtag:textInput name="<%=SendAOLAlert.QUERY%>"/>
                     </p>
 
                     <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=SendAOLAlert.MESSAGE_TEXT+AOLAlertsDescription.AOL_INDIVIDUAL_ALERT%>">${err}

@@ -82,7 +82,10 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                     qr.addQuery("list", query);
                     ResultSetContainer rsc = (ResultSetContainer) new QueryDataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(qr).get("list");
                     if (rsc.isEmpty()) {
-                        throw new NavigationException(query + " return no rows");
+                        addError(QUERY, "Query returned no rows");
+                        setDefault(MESSAGE_TEXT + type, text);
+                        setNextPage("/tournaments/tccc06/aol_alerts_sender.jsp");
+                        setIsNextPageInContext(true);
                     } else {
                         people = new String[rsc.size()];
                         for (int i = 0; i < rsc.size(); i++) {
