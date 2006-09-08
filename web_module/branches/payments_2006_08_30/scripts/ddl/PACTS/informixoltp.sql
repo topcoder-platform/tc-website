@@ -74,6 +74,16 @@ values(19, 'Component Tournament Bouns Payment', 5);
 insert into payment_type_lu(payment_type_id, payment_type_desc)
 values(20, 'Royalty Payment');
 
+insert into payment_type_lu(payment_type_id, payment_type_desc, payment_reference_id)
+values(21, 'Marathon Match Payment', 1);
+
+insert into payment_type_lu(payment_type_id, payment_type_desc, payment_reference_id)
+values(22, 'Algorithm Tournament Prize Payment', 1);
+
+insert into payment_type_lu(payment_type_id, payment_type_desc)
+values(23, 'Bug Fixes Payment');
+
+
 update payment_type_lu set payment_type_desc='Algorithm Contest Payment', payment_reference_id = 1
 where payment_type_id = 1;
 
