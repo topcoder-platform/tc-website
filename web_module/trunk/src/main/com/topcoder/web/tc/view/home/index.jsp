@@ -317,7 +317,7 @@
                 <b>09/11</b> - TCHS SRM 14 - 2 PM<br><br>
                 <b>09/12</b> - Algo Registration Ends - 6 PM<br><br>
                 <b>09/12</b> - Algo Qual Round 3 - AOL - 9 PM<br><br>
-                <b>09/13</b> - Intel Multi-Threading Competition 9 - 12 NOON<br><br>
+                <b>09/13</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 9 - 12 NOON<br><br>
                 <b>09/14</b> - CDDC Registration Ends - 9 AM<br><br>
                 <b>09/14</b> - CDDC Week 5 Projects Posted - 9 AM<br><br>
                 <b>09/18</b> - SRM 319 - NSA - 9 PM<br><br>
