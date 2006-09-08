@@ -42,7 +42,7 @@
                     <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=SendAOLAlert.MESSAGE_TEXT%>">${err}
                         <br></tc-webtag:errorIterator></span>
 
-                    <p>
+                    <p>Message text:<br/>
                         <tc-webtag:textArea name="<%=SendAOLAlert.MESSAGE_TEXT%>" rows="10" cols="80"/>
                     </p>
                     <button name="send" value="submit" type="submit">Send</button>
@@ -59,14 +59,14 @@
                         <br></tc-webtag:errorIterator></span>
 
                     <p>
-                        <tc-webtag:textInput name="<%=Constants.HANDLE%>"/>
+                        Handle: <tc-webtag:textInput name="<%=Constants.HANDLE%>"/>
                     </p>
 
                     <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=SendAOLAlert.MESSAGE_TEXT%>">${err}
                         <br></tc-webtag:errorIterator></span>
 
                     <p>
-
+                        Message text:<br/>
                         <tc-webtag:textArea name="<%=SendAOLAlert.MESSAGE_TEXT%>" rows="10" cols="80"/>
                     </p>
 
