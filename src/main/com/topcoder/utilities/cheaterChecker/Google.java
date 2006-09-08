@@ -10,7 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Google {
     private static Logger log = Logger.getLogger(Contest.class);
@@ -65,20 +66,7 @@ public class Google {
                     nonNormalizedSource.add(new JavaSource(((Submission) submissions.get(i)).getSource()));
                 }
 
-/* haven't come up with a use for this yet...
-
-                List classSource = new ArrayList(submissions.size());
-                for (int i = 0; i < submissions.size(); i++) {
-                    classSource.add(new ClassSource(((Submission) submissions.get(i)).getClassFile()));
-                }
-*/
-/* subsequences should be a superset, so we'll just do that one...at least for now
-                fraud = new SimilarSourceSubstrings(normalizedSource, submissions);
-                log.info("****************** SIMILAR SUBSTRINGS **************************");
-                fraud.execute();
-                log.info(fraud.getReport());
-                log.info("**********************************************************");
-*/
+/*
                 fraud = new SimilarSourceSubsequences(normalizedSource, submissions, 1000);
                 log.info("****************** SIMILAR SUBSEQUENCES **************************");
                 fraud.execute();
@@ -99,6 +87,7 @@ public class Google {
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
                 allPotentialViolators.addAll(fraud.getPotentialViolators());
+*/
 
                 fraud = new Similar(nonNormalizedSource, submissions, 1000);
                 log.info("****************** SIMILAR SOURCE **************************");
@@ -107,6 +96,7 @@ public class Google {
                 log.info("**********************************************************");
                 allPotentialViolators.addAll(fraud.getPotentialViolators());
 
+/*
                 fraud = new Same(normalizedSource, submissions, 100000);
                 log.info("****************** SAME NORMALIZED SOURCE**************************");
                 fraud.execute();
@@ -140,6 +130,7 @@ public class Google {
                 log.info("****************** Aggregate **************************");
                 log.info(worstBuf);
                 log.info("**********************************************************");
+*/
 
 
             }
