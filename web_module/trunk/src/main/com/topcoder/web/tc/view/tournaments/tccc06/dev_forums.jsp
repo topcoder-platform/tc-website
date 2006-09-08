@@ -24,58 +24,54 @@
             
 <span class="bigTitle">Developer Forums</span>
 <br><br>
-Three reasons to join us at the 2006 TopCoder Collegiate Challenge:
+Are you attending the TCCC finals as a spectator or finalist? Either way, 
+be sure to attend the Developer Forums. This year's TCCC features three 
+rewarding topics:
 <br><br>
 
 <span class="bodySubtitle">Wednesday, November 15</span>
 <br><br>
 <b>3:00PM - 4:00PM<br>
 Applying the TopCoder Philosophy to New Frontiers</b><br>
-Two TopCoder clients have utilized the core TopCoder philosophies of
-competition-based business models and objective rating systems as means
-of assessing performance and reducing risk.  In the first part of the
-forum, there will be a discussion of how Aizling's competition model
-works in the nursing field as well as the feedback system and shift
-matching logic.  Continuing, the next topic will be Equitrader's
-simulated trading competitions, how the rating system was tweaked, and
-the new Equitrader Scripting language which enables members to create
-autonomous trading bots.  The discussion will compare and contrast each
-project with the TopCoder methodologies and the results of these
-projects to date, with a focus on the benefits of these unique models
-versus traditional business techniques.  There may also be a light
-amount of discussion on how the TopCoder Software process was utilized
-to implement each of these projects.
+Two TopCoder clients have utilized the core TopCoder philosophies -- 
+competition-based business models and objective rating systems - as a 
+means of assessing performance and reducing risk. In the first part of 
+the forum, Aizling will discuss how the company based its revolutionary 
+approach to nursing and the healthcare industry on a competition model, 
+feedback system, and shift matching logic. Next up will be Equitrader, 
+which will review its simulated trading competitions, its rating system, 
+and new technology that enables members to create autonomous trading bots. 
+How does the TopCoder approach apply to staffing a medical facility or 
+trading stocks? Join in the discussion, and find out!
 <br><br>
 <span class="bodySubtitle">Thursday, November 16</span>
 <br><br>
 <b>3:00PM - 4:00PM<br>
 Overview of Recent TopCoder Projects</b><br>
-Recent projects and clients have reinforced and expanded TopCoder's
-presence in a variety of market spaces including: energy, insurance and
-manufacturing, finance, healthcare, media, and retail.  TopCoder has
-built a variety of applications for data warehousing, internal,
-integration, and mobile device systems.  These applications have been
-implemented utilizing many popular new and emerging technologies such as
-J2ME, RFID, and AJAX.  This discussion will highlight the diversity of
-technologies and applications in different vertical industries where
-TopCoder's software development methodology has been leveraged to build
-reliable, scalable solutions.  In addition, this discussion will
-illustrate through statistics and metrics how these projects have
-benefited from using the pre-build and tested code from TopCoder's
-component library.
+New clients and projects have expanded TopCoder's presence in a variety 
+of market spaces, from energy and insurance to finance, healthcare, media, 
+and retail. TopCoder has built a variety of applications - including data 
+warehousing, internal, integration, and mobile device systems - using new 
+and emerging technologies like J2ME, RFID, and AJAX. For each project, 
+TopCoder has applied its software development methodology to build 
+reliable, scalable solutions - and, by leveraging TopCoder's component 
+library, these projects have been completed for less money and with fewer 
+bugs. In this forum, learn more about the diverse array of projects 
+TopCoder is tackling, and what we've learned by applying our methods 
+to a wide range of industries. 
 <br><br>
 <span class="bodySubtitle">Friday, November 17</span>
 <br><br>
 <b>1:00PM - 2:00PM<br>
 Estimating Project Size</b><br>
-Use Case Points is a methodology to estimate the amount of effort
-required to implement a project.  It is based on an evaluation of the
-Use Cases and Actors from a Use Case model, the Technical Complexity
-Factors of a project (such as language complexity and target
-infrastructure), Environmental Complexity Factors (such as the
-experience of the participating members), and Productivity Factor (PF)
-obtained from historical project data (such as historical LOC/hour
-efficiency for TopCoder assemblers).
+How long will this take? How much money will it cost? These two simple 
+questions can be infuriatingly difficult to answer, especially when it comes 
+to an enterprise software project. But there's hope, thanks to the "Use 
+Case Points" methodology. Use Case Points can help evaluate a project's 
+scope - based on the Use Cases and Actors outlined in the Use Case model - 
+as well as a project's complexity. This forum will discuss the features of 
+the Use Case Points approach, and highlight how it has been applied to 
+TopCoder projects.
 <br><br>
         </div>
       </td>
