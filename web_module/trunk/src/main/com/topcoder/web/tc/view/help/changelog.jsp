@@ -47,6 +47,7 @@
         <li>
             Fix score format to have 2 decimal digits in team results and individual result for high school.
         </li>
+        <li>Fix bug in reg process that provide a "please login" error message when it should say "session expired"</li>
 <%--
         <li>
             Reduce some of the logging when permission exceptions are thrown.
