@@ -7,7 +7,7 @@ import="com.topcoder.dde.util.Constants" %>
 
 <HTML>
 <head>
-    <title>Find Components</title>
+    <title>TopCoder Software</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
 </head>
