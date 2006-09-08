@@ -23,7 +23,7 @@ public class HandleTag extends TagSupport {
     private boolean development = false;
     private boolean component = false;
 
-    public final static String DEFAULT_LINK = "http://" + ApplicationServer.SERVER_NAME + "/tc?module=MemberProfile&cr=";
+    public final static String DEFAULT_LINK = "http://" + ApplicationServer.SERVER_NAME + "/tc?module=MemberProfile&amp;cr=";
     public final static String ALGORITHM = "algorithm";
     public final static String HS_ALGORITHM = "hs_algorithm";
     public final static String DESIGN = "design";
