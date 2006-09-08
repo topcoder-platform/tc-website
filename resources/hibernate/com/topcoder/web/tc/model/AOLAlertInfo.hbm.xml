@@ -11,7 +11,7 @@
                 <param name="property">user</param>
             </generator>
         </id>
-        <one-to-one name="user" class="User" constrained="true"/>
+        <one-to-one name="user" class="com.topcoder.web.common.model.User" constrained="true"/>
         <property name="aolEncryptedUserId" column="aol_encrypted_user_id" access="field"/>
     </class>
 </hibernate-mapping>
