@@ -287,16 +287,16 @@
                 <rsc:item name="division_placed" row="<%=resultRow%>"/>
             </td>
             <td class="valueR">
-                <rsc:item name="submission_points" row="<%=resultRow%>"/>
+                <rsc:item name="submission_points" row="<%=resultRow%>" format="0.00"/>
             </td>
             <td class="valueR" colspan="2">
-                <rsc:item name="total_challenge_points" row="<%=resultRow%>"/>
+                <rsc:item name="total_challenge_points" row="<%=resultRow%>" format="0.00"/>
             </td>
             <td class="valueR" colspan="2">
-                <rsc:item name="system_test_points" row="<%=resultRow%>"/>
+                <rsc:item name="system_test_points" row="<%=resultRow%>" format="0.00" />
             </td>
             <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-                <rsc:item name="final_points" row="<%=resultRow%>"/>
+                <rsc:item name="final_points" row="<%=resultRow%>" format="0.00"/>
             </td>
             <td class="valueR">
                 <rsc:item name="old_rating" row="<%=resultRow%>"/>
