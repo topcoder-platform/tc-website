@@ -53,7 +53,9 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                 man.setNotificationEndPoint("https://webservices.alerts.aol.com/api/services/AlertsFeedAPIService");
 
                 AOLAlertNotificationMessage message = new AOLAlertNotificationMessage(text, text, text, text);
+                log.debug("before group send");
                 NotificationResult result = man.notify(AOLAuthReply.GROUP_ALERT, message);
+                log.debug("after group send");
                 if (result.getTransactionId() == null) {
                     throw new NavigationException("Send failed: " + result.getErrorCode() + " " +
                             result.getErrorReason() + " " + result.getErrorDetail());
