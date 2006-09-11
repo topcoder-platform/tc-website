@@ -9,6 +9,40 @@
 <jsp:include page="/style.jsp">
 <jsp:param name="key" value="tc_main"/>
 </jsp:include>
+<script language="javascript" type="text/javascript">
+<!--
+function makeInvisible(){
+   var object = document.getElementById("onTop");
+   object.className = 'invisible';
+   object = document.getElementById("onLeft");
+   object.className = 'invisible';
+   object = document.getElementById("onRight");
+   object.className = 'invisible';
+   object = document.getElementById("onBottom");
+   object.className = 'invisible';
+   object = document.getElementById("printableLink");
+   object.className = 'invisible';
+   object = document.getElementById("navigableLink");
+   object.className = '';
+   return;
+}
+function makeNavigable(){
+   var object = document.getElementById("onTop");
+   object.className = '';
+   object = document.getElementById("onLeft");
+   object.className = '';
+   object = document.getElementById("onRight");
+   object.className = '';
+   object = document.getElementById("onBottom");
+   object.className = '';
+   object = document.getElementById("printableLink");
+   object.className = '';
+   object = document.getElementById("navigableLink");
+   object.className = 'invisible';
+   return;
+}
+// -->
+</script>
 
 <style type="text/css">
 .codeBox
@@ -38,14 +72,16 @@
 
 <body>
 
+<div id="onTop">
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
+</div>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-        <td width="180">
+        <td width="180" id="onLeft">
          <jsp:include page="/includes/global_left.jsp">
             <jsp:param name="node" value="features"/>
          </jsp:include>
@@ -60,7 +96,11 @@
     <jsp:param name="title" value="&#160;"/>
 </jsp:include>
 
-<div style="float: right;"><tc-webtag:forumLink forumID="506105" message="Discuss this article" /></div>
+<div style="float: right; text-align:right;">
+<tc-webtag:forumLink forumID="506105" message="Discuss this article" />
+<div id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A></div>
+<div id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A></div>
+</div>
 <span class="bigTitle">Introduction to OpenMP, Part 1</span>
 
       <p>
@@ -459,7 +499,7 @@ At a high level it's hard to find much more to say on this construct - for somet
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-         <td width="170">
+         <td width="170" id="onRight">
             <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="defaults"/>
             </jsp:include>
@@ -472,7 +512,9 @@ At a high level it's hard to find much more to say on this construct - for somet
     </tr>
 </table>
 
+<div id="onBottom">
 <jsp:include page="../foot.jsp" />
+</div>
 
 </body>
 
