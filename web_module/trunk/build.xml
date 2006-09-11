@@ -191,7 +191,10 @@
             <include name="com/topcoder/web/common/**"/>
             <include name="com/topcoder/security/**"/>
             <include name="com/topcoder/common/web/data/**"/>
-            <include name="com/topcoder/web/tc/**"/>
+            <include name="com/topcoder/web/tc/controller/request/authentication/**"/>
+        	<include name="com/topcoder/web/tc/controller/request/*.java"/>
+        	<include name="com/topcoder/web/tc/controller/*.java"/>
+        	<include name="com/topcoder/web/tc/*.java"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
         </javac>
