@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">09.11.06 10:00 AM - </td><td width="100%"><A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2030">2007 TCHS Tournament Logo Design Contest</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.11.06 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=dev_forums">TCCC06 Developer Forums Announced</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.08.06 5:20 PM - </td><td width="100%"><A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">TCCC06 Algorithm Qualification Round 1 Results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.06.06 12:30 PM - </td><td width="100%"><A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">TCCC06 Algorithm Qualification Byes</A></td></tr>

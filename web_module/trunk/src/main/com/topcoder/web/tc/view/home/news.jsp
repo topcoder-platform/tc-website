@@ -9,6 +9,21 @@
 </tr>
 <%--------------------------------------------------------%>
 <tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.11.06<br>10:00 AM</td>
+    <td class="newsTextCell"><span class="newsTitle">
+      <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2030">2007 TCHS Tournament Logo Design Contest</A>
+      </span><br><br>
+      The first TCHS tournament needs a logo and we want you guys to design it.  Head over to the <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>">Studio</A> for all the details.
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2030">details</A>&#160;|&#160;
+    <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=14">discuss this</A>&#160;|&#160;
+    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.11.06<br>9:00 AM</td>
     <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=dev_forums">TCCC06 Developer Forums Announced</A>
@@ -192,17 +207,3 @@ this competition proved that some strategies are much better than others.
     <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
 </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>08.30.06<br>4:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="http://studio.topcoder.com/">gojohnie wins the first TopCoder Studio contest</A>
-      </span><br><br>
-      Congratulations to <span class="coderTextBlack">gojohnie</span> for winning the first TopCoder Studio contest and the $500 prize!
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://studio.topcoder.com/">view</A>&#160;|&#160;
-         <A href="http://studio.topcoder.com/forums">discuss this</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-</table>
