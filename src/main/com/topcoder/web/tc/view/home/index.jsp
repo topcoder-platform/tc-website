@@ -274,6 +274,9 @@
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
             
+                2007 TCHS Tournament Logo Design Contest
+                <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2030">...more</A><br>[September 11]<br><br>
+
                 <div style="float: right; padding-left: 5px;">
                 <A href="http://studio.topcoder.com/"><img src="/i/pressroom/studio_logo.gif" width="86" height="42" alt="TopCoder Studio" border="0"/></A></div>
                 TopCoder Studio launches creative contests
@@ -286,8 +289,8 @@
                     <img src="/i/pressroom/mht_logo.gif" width="68" height="38" alt="Mass High Tech" border="0"/></div>
                 <i>Mass High Tech</i> features TopCoder staff<br>
                 <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus1.html">Code Commanders</A><br>
-       <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus6.html">TheFaxman Codeth</A><br>
-       <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus8.html">Identifying Best Developers</A><br>[July 12]<br><br>
+                <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus6.html">TheFaxman Codeth</A><br>
+                <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus8.html">Identifying Best Developers</A><br>[July 12]<br><br>
 
                 UBS Extends Premier Sponsorship of TopCoder Events
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_071206">...more</A><br>[July 12]<br><br>
@@ -296,9 +299,6 @@
                     <img src="/i/pressroom/javaPosse_logo.gif" width="68" height="31" alt="Java Posse" border="0"/></div>
                 Java Posse - Interviews from Topcoder and Java One
                 <A href="http://media32b.libsyn.com/aHeceJl2a3eTdmd2bHOcq5qkZnaZ/podcasts/dickwall/JavaPosse065.mp3" target="_blank">...more</A><br>[July 5]<br><br>
-
-                TopCoder Announces Bloomberg L.P. As Premier Sponsor of TCCC06
-                <A href="/tc?module=Static&d1=pressroom&d2=pr_062606">...more</A><br>[June 26]<br><br>
 
             </td>
         </tr>
