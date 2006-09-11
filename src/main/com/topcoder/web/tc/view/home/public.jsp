@@ -48,11 +48,14 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-      <td width="100%" align="center">
-         <jsp:include page="big_promo.jsp" />
-           <jsp:include page="news.jsp" />
-           <jsp:include page="arena.jsp" />
-       </td>
+<td width="100%" align="center">
+   <jsp:include page="big_promo.jsp" />
+     <jsp:include page="news.jsp" />
+      <br><br>
+     <jsp:include page="news_archives.jsp" />
+      <br><br>
+     <jsp:include page="arena.jsp" />
+ </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
