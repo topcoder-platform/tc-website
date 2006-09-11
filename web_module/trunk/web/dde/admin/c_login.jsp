@@ -193,7 +193,7 @@
 						<table width="500" cellpadding="0" cellspacing="8" border="0" class="admin">
 							<tr>
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                                <td class="loginCenter" nowrap="nowrap"><a class="loginLinks" href='http://<%= com.topcoder.dde.util.ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword '>I forgot my password</a></td>
+                                <td class="loginCenter" nowrap="nowrap"><a class="loginLinks" href='http://<%= com.topcoder.shared.util.SERVER_NAME%>/tc?module=RecoverPassword '>I forgot my password</a></td>
                                 
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
