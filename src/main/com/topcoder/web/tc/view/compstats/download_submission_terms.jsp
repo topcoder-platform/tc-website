@@ -40,13 +40,11 @@
 
 You must agree to the terms below in order to download this submission.
 <br><br>
-<form name="terms" method="POST" action="${sessionInfo.servletPath}">
-    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY %>" value="DownloadSubmissionAgreeTerms"/>
-    <tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID %>" value="<%= request.getAttribute(Constants.PROJECT_ID).toString() %>" />
-    <tc-webtag:hiddenInput name="<%=Constants.CODER_ID %>" value="<%= request.getAttribute(Constants.CODER_ID).toString() %>" />    
-    <tc-webtag:hiddenInput name="<%=Constants.PHASE_ID %>" value="<%= request.getAttribute(Constants.PHASE_ID).toString() %>" />    
-    
-    
+<form name="terms" method="POST" action="${sessionInfo.servletPath}<%= "?module=DownloadSubmissionAgreeTerms&" +  
+		Constants.PROJECT_ID + "=" + request.getAttribute(Constants.PROJECT_ID).toString() + "&" + 
+		Constants.CODER_ID + "=" + request.getAttribute(Constants.CODER_ID).toString() + "&" +		
+		Constants.PHASE_ID + "=" + request.getAttribute(Constants.PHASE_ID).toString() %>">
+        
     <div align="center">
         <IFRAME width="590" height="300" SRC="/tc?<%=Constants.MODULE_KEY%>=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID%>" ></IFRAME>
             <p align="center">
