@@ -46,7 +46,7 @@ You must agree to the terms below in order to download this submission.
 		Constants.PHASE_ID + "=" + request.getAttribute(Constants.PHASE_ID).toString() %>">
         
     <div align="center">
-        <IFRAME width="590" height="300" SRC="/tc?<%=Constants.MODULE_KEY%>=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID%>" ></IFRAME>
+        <IFRAME width="590" height="150" SRC="/tc?<%=Constants.MODULE_KEY%>=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID%>" ></IFRAME>
             <p align="center">
             <span class="bigRed">
                 <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">${err}<br>
