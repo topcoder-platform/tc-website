@@ -51,7 +51,7 @@ public class DownloadSubmissionAgreeTerms extends Base {
             // update the db
             UserTermsOfUseLocal userTerms = (UserTermsOfUseLocal) createLocalEJB(getInitialContext(), UserTermsOfUse.class);
             
-            if (!userTerms.hasTermsOfUse(id, Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME)) {
+            if (!userTerms.hasTermsOfUse(getUser().getId(), Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME)) {
             	userTerms.createUserTermsOfUse(getUser().getId(), Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
             }
 
