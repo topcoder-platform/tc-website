@@ -100,6 +100,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/2000/REC-xhtml1-20000126/DTD/xhtml1-transitional.dtd">
+<%@page import="com.topcoder.shared.util.ApplicationServer"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>TopCoder Software</title>
@@ -193,7 +194,7 @@
 						<table width="500" cellpadding="0" cellspacing="8" border="0" class="admin">
 							<tr>
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                                <td class="loginCenter" nowrap="nowrap"><a class="loginLinks" href='http://<%= com.topcoder.shared.util.SERVER_NAME%>/tc?module=RecoverPassword '>I forgot my password</a></td>
+                                <td class="loginCenter" nowrap="nowrap"><a class="loginLinks" href='http://<%= ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword '>I forgot my password</a></td>
                                 
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
