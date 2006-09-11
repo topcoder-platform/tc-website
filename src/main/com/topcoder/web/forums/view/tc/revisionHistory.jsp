@@ -59,7 +59,7 @@
       <jsp:include page="categoriesHeader.jsp" />
    </td>
    <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
-       <jsp:include page="searchHeader.jsp" ></jsp:include>
+       <jsp:include page="searchHeader.jsp" />
    </td>
    <td align="right" nowrap="nowrap" valign="top">   
        <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
@@ -68,10 +68,10 @@
 <tr>
 	<td colspan="3" style="padding-bottom:3px;">
 		<b><tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
-			<A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >  
+			<A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> >  
 		</tc-webtag:iterator>
-        <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> > 
-        <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink"><jsp:getProperty name="message" property="subject"/></A> >
+        <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A> > 
+        <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>" class="rtbcLink"><%=message.getSubject()%></A> >
         Revision History 
         <%  if (revisionList.size() == 1) { %> 
                 (1 edit) 
@@ -88,9 +88,9 @@
    <tr>
       <td class="rtHeader" colspan="2">
          <div style="float: right; padding-left: 5px; white-space: nowrap;">
-            <a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:format object="${message.modificationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/> 
+            <a name=<%=message.getID()%>><tc-webtag:format object="${message.modificationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/> 
          </div>
-         <jsp:getProperty name="message" property="subject"/></a>
+         <%=message.getSubject()%></a>
          <%  if (message.getParentMessage() != null) { %>
             (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
          <%  } %>
@@ -105,7 +105,7 @@
              <span class="bodyText"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></span><br/><%if (message.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(message.getUser()), "post")%></A><%}%>
          </div>
       </td>
-      <td class="rtTextCell" width="100%"><jsp:getProperty name="message" property="body"/>
+      <td class="rtTextCell" width="100%"><%=message.getBody()%>
       </td>
    </tr>
 </table>
@@ -115,9 +115,9 @@
    <tr>
       <td class="rtHeader" colspan="2">
          <div style="float: right; padding-left: 5px; white-space: nowrap;">
-            <a name=<jsp:getProperty name="revision" property="ID"/>><tc-webtag:format object="${revision.modificationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/>
+            <a name=<%=revision.getID()%>><tc-webtag:format object="${revision.modificationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/>
          </div>
-         <jsp:getProperty name="revision" property="subject"/></a>
+         <%=revision.getSubject()%></a>
          <%  if (message.getParentMessage() != null) { %>
             (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
          <%  } %>
@@ -133,7 +133,7 @@
             <span class="bodyText"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></span><br/><%if (message.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A><%}%>
          </div>
       </td>
-      <td class="rtTextCell" width="100%"><jsp:getProperty name="revision" property="body"/>
+      <td class="rtTextCell" width="100%"><%=revision.getBody()%>
       </td>
    </tr>
 </table>

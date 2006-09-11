@@ -59,7 +59,7 @@
     
 <span class="rtbc"><a href="?module=Main" class="rtbcLink">Forums</a> > Administration</span>
 
-<form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+<form name="form1" method="post" action="${sessionInfo.servletPath}">
 <tc-webtag:hiddenInput name="module" value="Admin"/>
 <table cellpadding="0" cellspacing="0" class="rtTable">
    <tr>

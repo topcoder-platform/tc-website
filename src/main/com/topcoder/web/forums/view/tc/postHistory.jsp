@@ -126,7 +126,7 @@
 <tr>
    <td class="rtbc" align="right" nowrap="nowrap" style="padding-bottom:3px;"><b>
       <%  if (paginator.getPreviousPage()) { %>
-         <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
+         <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=paginator.getPreviousPageStart()%>" class="rtbcLink">
                << PREV</A>&#160;&#160;&#160;
         <%  } %> [
         <%  Page[] pages = paginator.getPages(5);
@@ -141,7 +141,7 @@
             <%  } %>
         <%  } %> ]
       <%  if (paginator.getNextPage()) { %>
-         &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT ></A>
+         &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=paginator.getNextPageStart()%>" class="rtbcLink">NEXT ></A>
         <%  } %>
    </b>
    </td>
@@ -159,7 +159,7 @@
     </tr>
    <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
    <tr>
-         <td class="rtThreadCellWrap"><A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink"><jsp:getProperty name="message" property="subject"/></A>
+         <td class="rtThreadCellWrap"><A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>" class="rtbcLink"><%=message.getSubject()%></A>
          <%   if (message.getParentMessage() != null) { %>
             (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/> (<A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getParentMessage().getUser().getID()%>" alt="Post history for <%=message.getParentMessage().getUser().getUsername()%>" class="rtbcLink"/>history</A>)<%}%>)
       <%   } %></td>

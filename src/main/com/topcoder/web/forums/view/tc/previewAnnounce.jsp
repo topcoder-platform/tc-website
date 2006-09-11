@@ -110,12 +110,12 @@ function AllowTabCharacter() {
                 crumbCategory = forumFactory.getRootForumCategory();
             }   %>
        <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(crumbCategory)%>'>
-            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> > 
+            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> > 
        </tc-webtag:iterator>
        <%   if (forum != null) { %>
             <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A>
        <%   } %>
-       > <jsp:getProperty name="announcement" property="subject"/>
+       > <%=announcement.getSubject()%>
        </td>
        <!--<td align="right" class="rtbc"><a href="javascript:toggle('Options')" class="rtbcLink">Options</a></td>-->
     </tr>
@@ -126,9 +126,9 @@ function AllowTabCharacter() {
    <tr>
         <td class="rtHeader" colspan="2">
             <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
-               <a name=<jsp:getProperty name="announcement" property="ID"/>><tc-webtag:format object="${announcement.startDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></a>
+               <a name=<%=announcement.getID()%>><tc-webtag:format object="${announcement.startDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></a>
             </div>
-            <jsp:getProperty name="announcement" property="subject"/>
+            <%=announcement.getSubject()%>
         </td>
     </tr>
    <tr>
@@ -137,20 +137,20 @@ function AllowTabCharacter() {
       <img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
    <%  } %>
    <span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></A></div></td>
-   <td class="rtTextCell100"><jsp:getProperty name="announcement" property="body"/></td>
+   <td class="rtTextCell100"><%=announcement.getBody()%></td>
    </tr>
 </table>
 
 <span class="bodySubtitle">Edit Announcement</span><br/>
 <table cellpadding="0" cellspacing="0" class="rtTable">
-<form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+<form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
 <tc-webtag:hiddenInput name="module"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.CATEGORY_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.FORUM_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.ANNOUNCEMENT_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
 
-<tr><td class="rtHeader" colspan="2"><jsp:getProperty name="announcement" property="subject"/></td></tr>
+<tr><td class="rtHeader" colspan="2"><%=announcement.getSubject()%></td></tr>
 <tr>
 <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
 <%  if (ForumsUtil.displayMemberPhoto(user, user)) { %>

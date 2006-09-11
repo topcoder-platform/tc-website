@@ -113,13 +113,13 @@ function AllowTabCharacter() {
 
 <tr><td colspan="2" style="padding-bottom:3px;"><b>
        <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
-            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> > 
+            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> > 
        </tc-webtag:iterator>
-         <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A>
+         <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A>
             <%   if (thread != null) { %>
-            > <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="thread" property="name"/></A>
+            > <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>" class="rtbcLink"><%=thread.getName()%></A>
             <%   } %>
-            > <jsp:getProperty name="message" property="subject"/>
+            > <%=message.getSubject()%>
        </td>
     </tr>
 </table>
@@ -130,9 +130,9 @@ function AllowTabCharacter() {
    <tr>
         <td class="rtHeader" colspan="2">
             <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
-               <a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:format object="${message.creationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></a>
+               <a name=<%=message.getID()%>><tc-webtag:format object="${message.creationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></a>
             </div>
-            <jsp:getProperty name="message" property="subject"/>
+            <%=message.getSubject()%>
          <%   if (parentMessage != null) { %>
                (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=parentMessage.getID()%>" class="rtbcLink">post</A> by <tc-webtag:handle coderId="<%=parentMessage.getUser().getID()%>"/>)
          <%   } %>
@@ -144,19 +144,19 @@ function AllowTabCharacter() {
       <img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
    <%  } %>
    <span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></A></div></td>
-   <td class="rtTextCell100"><jsp:getProperty name="message" property="body"/></td>
+   <td class="rtTextCell100"><%=message.getBody()%></td>
    </tr>
 </table>
 
 <span class="bodySubtitle">Edit Message</span><br/>
 <table cellpadding="0" cellspacing="0" class="rtTable">
-<form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+<form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
 <tc-webtag:hiddenInput name="module"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.FORUM_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.MESSAGE_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
 
-<tr><td class="rtHeader" colspan="2"><jsp:getProperty name="message" property="subject"/></td></tr>
+<tr><td class="rtHeader" colspan="2"><%=message.getSubject()%></td></tr>
 <tr>
 <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
 <%  if (ForumsUtil.displayMemberPhoto(user, user)) { %>

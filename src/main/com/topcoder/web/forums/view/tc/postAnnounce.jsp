@@ -122,7 +122,7 @@ function AllowTabCharacter() {
                 crumbCategory = forumFactory.getRootForumCategory();
             }   %>
        <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(crumbCategory)%>'>
-            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >
+            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> >
        </tc-webtag:iterator>
        <%   if (forum != null) { %>
        <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A>
@@ -135,7 +135,7 @@ function AllowTabCharacter() {
 <br><div id="Options">Allowed tags: &lt;annot&gt;, &lt;a&gt;, &lt;abbr&gt;, &lt;acronym&gt;, &lt;blockquote&gt;, &lt;b&gt;, &lt;br&gt;, &lt;div&gt;, &lt;em&gt;, &lt;font&gt;, &lt;i&gt;, &lt;img&gt;, &lt;li&gt;, &lt;ol&gt;, &lt;p&gt;, &lt;pre&gt;, &lt;s&gt;, &lt;span&gt;, &lt;strike&gt;, &lt;sub&gt;, &lt;sup&gt;, &lt;strong&gt;, &lt;tt&gt;, &lt;u&gt;, &lt;ul&gt;. Syntax highlighting is applied to text within [code][/code], [cpp][/cpp], [java][/java], [c#][/c#], [vb][/vb], and [py][/py] blocks. Usernames within [handle][/handle] blocks are converted into color-coded links.</div><br>
 
 <table cellpadding="0" cellspacing="0" class="rtTable">
-<form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+<form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
 <tc-webtag:hiddenInput name="module"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.CATEGORY_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.FORUM_ID%>"/>
@@ -166,7 +166,7 @@ function AllowTabCharacter() {
         <table cellpadding="0" cellspacing="0" class="rtTable">
 	        <tr>
 	            <td class="rtHeader" colspan="2">
-	                <a name=<jsp:getProperty name="announcement" property="ID"/>><tc-webtag:format object="${announcement.startDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/> | <jsp:getProperty name="announcement" property="subject"/></a>
+	                <a name=<%=announcement.getID()%>><tc-webtag:format object="${announcement.startDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/> | <%=announcement.getSubject()%></a>
 	            </td>
 	        </tr>
 	        <tr>
@@ -175,7 +175,7 @@ function AllowTabCharacter() {
 		            <img src="<%=announcement.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
 		        <%  } %>
 		        <span class="bodyText"><tc-webtag:handle coderId="<%=announcement.getUser().getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=announcement.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(announcement.getUser()), "post")%></A></div></td>
-		        <td class="rtTextCell100"><jsp:getProperty name="announcement" property="body"/></td>
+		        <td class="rtTextCell100"><%=announcement.getBody()%></td>
 	        </tr>
         </table>
 <%  } %>
