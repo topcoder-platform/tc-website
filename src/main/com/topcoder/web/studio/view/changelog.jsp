@@ -29,6 +29,8 @@
                     1.1.1 - 2006.09.xx
                     <ul>
                         <li>Do not allow the viewing of submissions until the contest is over</li>
+                        <li>Show image files directly on the admin submission detail page rather than requiring a
+                            click</li>
                     </ul>
                 </p>
 
