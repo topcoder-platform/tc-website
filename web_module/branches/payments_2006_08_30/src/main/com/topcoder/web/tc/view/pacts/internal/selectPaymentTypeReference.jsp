@@ -13,7 +13,7 @@
 <%
 
     DataInterfaceBean dib = new DataInterfaceBean();
-    Map map = dib.getProblemList();
+    Map map = dib.findProblems("%f%");
     ResultSetContainer rsc = (ResultSetContainer) map.get(PactsInternalServlet.PROBLEM_LIST);
 %>
         <tac:replaceChildren contextNodeID="selectReference" parseOnServer="true">
