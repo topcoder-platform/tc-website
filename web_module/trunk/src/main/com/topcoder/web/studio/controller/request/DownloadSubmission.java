@@ -10,6 +10,7 @@ import com.topcoder.web.studio.model.Submission;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
+import java.util.Date;
 import java.util.Iterator;
 
 /**
@@ -35,6 +36,12 @@ public class DownloadSubmission extends Base {
         for (Iterator it = s.getContest().getResults().iterator(); it.hasNext() && !isWinner;) {
             curr = (ContestResult) it.next();
             isWinner = s.equals(curr.getSubmission()) && curr.getPrize().getPlace().intValue() == 1;
+        }
+
+        boolean isOver = new Date().after(s.getContest().getEndTime());
+
+        if (!isOver) {
+            throw new NavigationException("Submissions are not available until the contest is over.");
         }
 
         if (isWinner || "true".equals(s.getContest().getViewableSubmissions().getValue())) {

@@ -26,7 +26,14 @@
 
             <div class="contentSpacer">
                 <p>
-                    1.2.0 - 2006.09.05
+                    1.1.1 - 2006.09.xx
+                    <ul>
+                        <li>Do not allow the viewing of submissions until the contest is over</li>
+                    </ul>
+                </p>
+
+                <p>
+                    1.1.0 - 2006.09.05
                     <ul>
                         <li>Add the ability for admins to specify what types of files will be allowed on a per contest
                             basis</li>
