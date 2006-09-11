@@ -9,6 +9,25 @@
 </tr>
 <%--------------------------------------------------------%>
 <tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>09.11.06<br>3:30 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+         <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc06_qual_2">TCCC06 Qualification 2 - Problem Set & Analysis</A></span><br><br>
+Despite the 763 registrants for qualification round 2, the competition went very smoothly.
+With 32 competitors solving the nontrivial hard problem, it is clear that the upcoming rounds will
+be exciting.
+      </td>
+         <td class="newsPhoto"><img src="/i/m/brett1479_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="251317" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_qual_2">full story</A>&#160;|&#160;
+    <tc-webtag:forumLink forumID="506103" message="discuss this"/>&#160;|&#160;
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.11.06<br>3:00 PM</td>
     <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">TCCC06 Algorithm Qualification Round 2 Results</A>
@@ -190,21 +209,5 @@ this competition proved that some strategies are much better than others.
     <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512848">details</A>&#160;|&#160;
     <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512848">discuss this</A>&#160;|&#160;
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>09.01.06<br>10:40 AM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm318">SRM 318 - Problem Set & Analysis</A></span><br><br>
-            This SRM was the last chance to test coding skills before the TCCC. In a tight contest,  first place in Division 1 went to <tc-webtag:handle coderId="8547850" context="algorithm"/> with the very high score of 1622.05 points.            </td>
-            <td class="newsPhoto"><img src="/i/m/Andrew_Lazarev_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7485898" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=match_editorials&d2=srm318">full story</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="505993" message="discuss this"/>&#160;|&#160;
-    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
 
