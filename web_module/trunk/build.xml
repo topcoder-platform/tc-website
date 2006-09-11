@@ -964,6 +964,7 @@
         <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/velocity-dep.jar"/>
+    	<copy todir="${jboss_lib}" file="${jive.dir}/webwork.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
 
         <copy todir="${jboss_deploy}" file="${jive.dir}/EditWAR.jar"/>
