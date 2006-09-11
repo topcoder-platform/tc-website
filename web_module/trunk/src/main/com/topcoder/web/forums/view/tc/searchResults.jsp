@@ -1,4 +1,4 @@
-<%@ page import="com.topcoder.web.common.BaseServlet,
+\<%@ page import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.common.BaseProcessor,
                  com.topcoder.web.common.DateUtils,
                  com.topcoder.web.forums.ForumConstants,
@@ -63,7 +63,7 @@
         <% if (paginator.getNumPages() > 1) { %>
        	<td class="rtbc" align="right"><b>
            <%  if (paginator.getPreviousPage()) { %>
-               <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
+               <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=paginator.getPreviousPageStart()%>" class="rtbcLink">
                    << PREV</A>&#160;&#160;&#160;
            <%  } %> [
            <%  pages = paginator.getPages(5);
@@ -78,7 +78,7 @@
                <%  } else { %> ... <%  } %>
            <%  } %> ]
            <%  if (paginator.getNextPage()) { %>
-               &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT ></A>
+               &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=paginator.getNextPageStart()%>" class="rtbcLink">NEXT ></A>
            <%  } %>
         </b></td>
     </tr>
@@ -110,7 +110,7 @@
         <% if (paginator.getNumPages() > 1) { %>
         <td class="rtbc" align="right"><b>
             <%  if (paginator.getPreviousPage()) { %>
-                <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
+                <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=paginator.getPreviousPageStart()%>" class="rtbcLink">
                     << PREV</A>&#160;&#160;&#160;
             <%  } %> [
             <%  pages = paginator.getPages(5);
@@ -125,7 +125,7 @@
                 <%  } else { %> ... <%  } %>
             <%  } %> ]
             <%  if (paginator.getNextPage()) { %>
-                &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT ></A>
+                &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=paginator.getNextPageStart()%>" class="rtbcLink">NEXT ></A>
             <%  } %>
         </b></td>
     </tr>

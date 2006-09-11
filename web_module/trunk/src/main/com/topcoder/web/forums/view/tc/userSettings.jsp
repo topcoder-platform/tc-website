@@ -129,7 +129,7 @@ function toggleTabs(id) {
       <td width="37%"></td>
   </tr>
 
-<form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+<form name="form1" method="post" action="${sessionInfo.servletPath}">
 <tc-webtag:hiddenInput name="module" value="Settings"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.SETTINGS_SECTION%>" value="gen"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>" value="save"/>

@@ -81,7 +81,7 @@
                     </td>
                 </tr>
                 <tr valign="middle">
-                    <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+                    <form method="post" name="frmLogin" action="${sessionInfo.servletPath}">
                         <tc-webtag:hiddenInput name="module" value="Login"/>
                         <tc-webtag:hiddenInput name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>"/>
                         <td class="bodyText" align="center">

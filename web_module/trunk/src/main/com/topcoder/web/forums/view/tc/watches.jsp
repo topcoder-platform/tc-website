@@ -66,10 +66,10 @@
 </div><br><br>
 
 <span class="bodySubtitle">Watched Threads: <%=watchManager.getTotalWatchCount(user, JiveConstants.THREAD)%></span><br/>
-All watch updates will be emailed to your email address: <b><jsp:getProperty name="user" property="email"/></b>.
+All watch updates will be emailed to your email address: <b><%=user.getEmail()%></b>.
 Watches on content that hasn't been updated for more than 90 days will be automatically removed from your list.
 To prevent any watch from being automatically deleted, toggle the "save" option.
-<form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+<form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
 <tc-webtag:hiddenInput name="module" value="Watches"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>"/>
 <table cellpadding="0" cellspacing="0" class="rtTable">
@@ -87,16 +87,16 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
 <tc-webtag:useBean id="latestMessage" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
 <tr>
    <%  String trackerClass = (user == null || readTracker.getReadStatus(user, latestMessage) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
-   <td class="rtThreadCellWrap"><a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="rootMessage" property="ID"/>" class="<%=trackerClass%>"><jsp:getProperty name="thread" property="name"/></a></td>
+   <td class="rtThreadCellWrap"><a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=rootMessage.getID()%>" class="<%=trackerClass%>"><%=thread.getName()%></a></td>
    <td class="rtThreadCell"><%if (rootMessage.getUser() != null) {%><tc-webtag:handle coderId="<%=rootMessage.getUser().getID()%>"/><%}%></td>
    <td class="rtThreadCell" align="right"><%=thread.getMessageCount()-1%>&#160;&#160;&#160;&#160;&#160;</td>
    <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%>&#160;&#160;&#160;&#160;</td>
    <td class="rtThreadCell"><b><tc-webtag:format object="${thread.modificationDate}" format="MMM d, yyyy h:mm a z" timeZone="${sessionInfo.timezone}"/></b></td>
    <td class="rtThreadCell"><%if (latestMessage.getUser() != null) {%><tc-webtag:handle coderId="<%=latestMessage.getUser().getID()%>"/><%}%></td>
-   <td class="rtThreadCell" align="center"><input name="<%=ForumConstants.WATCHES_SAVE_THREAD%><jsp:getProperty name="thread" property="ID"/>" value="<jsp:getProperty name="thread" property="ID"/>" type="checkbox"
-      <%= (watchManager.getWatch(user, thread).isExpirable()) ? "" : "checked" %> onclick="Javascript:document.form1.<%=ForumConstants.WATCHES_DELETE_THREAD%><jsp:getProperty name="thread" property="ID"/>.checked=false;"/></td>
-   <td class="rtThreadCell" align="center"><input name="<%=ForumConstants.WATCHES_DELETE_THREAD%><jsp:getProperty name="thread" property="ID"/>" value="<jsp:getProperty name="thread" property="ID"/>" type="checkbox" 
-      onclick="Javascript:document.form1.<%=ForumConstants.WATCHES_SAVE_THREAD%><jsp:getProperty name="thread" property="ID"/>.checked=false;"/></td>
+   <td class="rtThreadCell" align="center"><input name="<%=ForumConstants.WATCHES_SAVE_THREAD%><%=thread.getID()%>" value="<%=thread.getID()%>" type="checkbox"
+      <%= (watchManager.getWatch(user, thread).isExpirable()) ? "" : "checked" %> onclick="Javascript:document.form1.<%=ForumConstants.WATCHES_DELETE_THREAD%><%=thread.getID()%>.checked=false;"/></td>
+   <td class="rtThreadCell" align="center"><input name="<%=ForumConstants.WATCHES_DELETE_THREAD%><%=thread.getID()%>" value="<%=thread.getID()%>" type="checkbox" 
+      onclick="Javascript:document.form1.<%=ForumConstants.WATCHES_SAVE_THREAD%><%=thread.getID()%>.checked=false;"/></td>
 </tr>
 </tc-webtag:iterator>
 </table>

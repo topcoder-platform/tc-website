@@ -22,7 +22,7 @@
 
 <channel>
     <title><%= com.jivesoftware.forum.util.SkinUtils.getCommunityName() %> RSS Feed</title>
-    <link><jsp:getProperty name="sessionInfo" property="absoluteServletPath"/></link>
+    <link><%=sessionInfo.getAbsoluteServletPath()%></link>
     <description>Most recent forum messages</description>
     <language><%= JiveGlobals.getLocale().getLanguage() %></language>
     <pubDate><%= formatter.format(new Date()) %></pubDate>
@@ -31,7 +31,7 @@
        <%   if (category == null || category.getID() != 1 || !"true".equals(message.getForum().getForumCategory().getProperty(ForumConstants.PROPERTY_HIDE_MAIN_RSS))) { %>
        <item>
            <title><%= StringUtils.escapeForXML(message.getSubject()) %></title>
-           <link><jsp:getProperty name="sessionInfo" property="absoluteServletPath"/>?module=Message&amp;<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/></link>
+           <link><%=sessionInfo.getAbsoluteServletPath()%>?module=Message&amp;<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%></link>
            <description><![CDATA[<%= message.getBody() %>]]></description>
            <dc:creator><%= message.getUser().getUsername() %></dc:creator>
            <category><![CDATA[<%= message.getForum().getName() %>]]></category>

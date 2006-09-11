@@ -80,7 +80,7 @@ function noenter(e)
 </table>
 
 <table cellpadding="0" cellspacing="0" class="rtTable">
-<form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+<form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
 <tc-webtag:hiddenInput name="module" value="Search"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>" value="search"/>
    <tr>
@@ -108,25 +108,25 @@ function noenter(e)
 <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
 <%  String searchScopeValue = "f" + forum.getID();
     if (searchScope != null && searchScope.equals(searchScopeValue)) { %>
-        <option value="<%=searchScopeValue%>" selected>&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
+        <option value="<%=searchScopeValue%>" selected>&#149;&#160;<%=forum.getName()%></option>
     <%  } else { %>
-        <option value="<%=searchScopeValue%>">&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
+        <option value="<%=searchScopeValue%>">&#149;&#160;<%=forum.getName()%></option>
     <%  } %>
 </tc-webtag:iterator>
 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categories")%>'>
 <%  String categoryValue = "c" + category.getID();
     if (searchScope != null && searchScope.equals(categoryValue)) { %>
-        <option value="<%=categoryValue%>" selected><jsp:getProperty name="category" property="name"/></option>
+        <option value="<%=categoryValue%>" selected><%=category.getName()%></option>
     <%  } else { %>
-        <option value="<%=categoryValue%>"><jsp:getProperty name="category" property="name"/></option>
+        <option value="<%=categoryValue%>"><%=category.getName()%></option>
     <%  } %>
     <%  if (!"true".equals(category.getProperty(ForumConstants.PROPERTY_HIDE_SEARCH_FORUMS))) { %> 
     <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=category.getForums()%>'>
    <%  String forumValue = "f" + forum.getID();
        if (searchScope != null && searchScope.equals(forumValue)) { %>
-           <option value="<%=forumValue%>" selected>&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
+           <option value="<%=forumValue%>" selected>&#149;&#160;<%=forum.getName()%></option>
        <%  } else { %>
-           <option value="<%=forumValue%>">&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
+           <option value="<%=forumValue%>">&#149;&#160;<%=forum.getName()%></option>
        <%  } %>
     </tc-webtag:iterator>
     <%  } %>
