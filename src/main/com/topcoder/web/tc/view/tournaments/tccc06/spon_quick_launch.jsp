@@ -55,7 +55,7 @@
             archive="ContestApplet.jar"
             host="www.topcoder.com"
             port="5001"
-            tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=5051"
+            tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=newlistener+port=5051"
             companyName="TopCoder"
             sponsorName="TCO05Sponsor"
             width="239"
