@@ -7,7 +7,7 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
-<%--------------------------POST MONDAY SEPT 11
+<%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.11.06<br>9:00 AM</td>
     <td class="newsTextCell"><span class="newsTitle">
@@ -22,15 +22,15 @@
     <tc-webtag:forumLink forumID="506104" message="discuss this" />&#160;|&#160;
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
-------------------------------%>
-<%--------------------------POST MONDAY SEPT 11
+
+<%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/><br>09.11.06<br>9:00 AM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=091106">Introduction to OpenMP, Part 1</A></span><br><br>
                As most people involved in programming probably know, multi-threading is going to be "the next big thing" in terms of using modern hardware to its full extent.</td>
-            <td class="newsPhoto"><img src="/i/m/nophoto.jpg" width="55" height="61" alt="" /><br>by
+            <td class="newsPhoto">by
                 <tc-webtag:handle coderId="21464956" /></td></tr>
         </table>
     </td>
@@ -40,7 +40,7 @@
     <tc-webtag:forumLink forumID="506105" message="discuss this"/>&#160;|&#160;
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
-------------------------------%>
+
 
 <%--------------------------------------------------------%>
 <tr>
@@ -204,39 +204,6 @@ this competition proved that some strategies are much better than others.
          <A href="http://studio.topcoder.com/">view</A>&#160;|&#160;
          <A href="http://studio.topcoder.com/forums">discuss this</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>08.29.06<br>6:00 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm13">TCHS SRM 13 - Problem Set & Analysis</A></span><br><br>
-            Despite featuring some very fast submissions early on, HS SRM 13 was a close contest to the end.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/jmzero_mug.gif" alt="" /><br>by <tc-webtag:handle coderId="15498334" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm13">full story</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506035" message="discuss this"/>&#160;|&#160;
-    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-</tr>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>08.29.06<br>12:20 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_082906">NSA continues TopCoder patronage with 2006 TCCC</A></span><br><br>
-      TopCoder has announced the National Security Agency's continued patronage of the 2006 TopCoder Collegiate Challenge, which will involve advance online
-      interactive sessions as well as an onsite presence at the tournament finals in San Diego, CA.
-      <br><br>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_082906">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506100" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
 
