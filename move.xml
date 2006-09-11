@@ -143,6 +143,7 @@
 
     <target name="package-forums-full" depends="">
         <antcall target="package-forums"/>
+    	<ant antfile="build.xml" target="build-security"/>
 
         <jar destfile="forums.jar" update="true">
             <fileset dir=".">
