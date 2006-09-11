@@ -49,9 +49,12 @@ public class DownloadSubmissionAgreeTerms extends Base {
 
             
             // update the db
+            //just for test!!
+            if ("asd".equals(termsAgree)) throw new TCWebException("erase me");
+            /*
             UserTermsOfUseLocal userTerms = (UserTermsOfUseLocal) createLocalEJB(getInitialContext(), UserTermsOfUse.class);
             userTerms.createUserTermsOfUse(getUser().getId(), Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
-
+*/
             setNextPage(Constants.DOWNLOAD_SUBMISSION);
             getRequest().setAttribute(Constants.PROJECT_ID, projId);
             getRequest().setAttribute(Constants.CODER_ID, coderId);
