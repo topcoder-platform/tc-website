@@ -34,10 +34,11 @@
 
 Thank you for accepting the terms.
 <br><br>
-	<form name="frmDownload"  action="${sessionInfo.servletPath}<%= "?module=DownloadSubmission&" +  
-		Constants.PROJECT_ID + "=" + request.getAttribute(Constants.PROJECT_ID).toString() + "&" + 
-		Constants.CODER_ID + "=" + request.getAttribute(Constants.CODER_ID).toString() + "&" +		
-		Constants.SUBMISSION_TYPE + "=1"  %>">
+        <form name="frmDownload" action="/tc">
+            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY %>" value="DownloadSubmission"/>
+            <tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID %>" value="<%= request.getAttribute(Constants.PROJECT_ID).toString() %>" />
+            <tc-webtag:hiddenInput name="<%=Constants.CODER_ID %>" value="<%= request.getAttribute(Constants.CODER_ID).toString() %>" />    
+            <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_TYPE %>" value="1" />    
             <input type="submit" value="Download Submission">    
         </form>
 
