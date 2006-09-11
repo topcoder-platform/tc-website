@@ -34,7 +34,8 @@ public class DownloadSubmission extends Base {
             String projId = getRequest().getParameter(Constants.PROJECT_ID);
             String coderId = getRequest().getParameter(Constants.CODER_ID);
 
-            if (hasAgreedTerms(getUser().getId())) {
+//            if (hasAgreedTerms(getUser().getId())) {
+            if (projId != null) {
             	// get the filename
                 Request r = new Request();
                 r.setContentHandle("get_submission_url");
