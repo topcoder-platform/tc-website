@@ -48,11 +48,12 @@
             Fix score format to have 2 decimal digits in team results and individual result for high school.
         </li>
         <li>Fix bug in reg process that provide a "please login" error message when it should say "session expired"</li>
-<%--
-        <li>
-            Reduce some of the logging when permission exceptions are thrown.
-        </li>
---%>
+        <li>Don't allow someone to submit emtpy code in a marathon match</li>
+        <%--
+                <li>
+                    Reduce some of the logging when permission exceptions are thrown.
+                </li>
+        --%>
     </ul>
 
     5.4.10 - 2006.09.06

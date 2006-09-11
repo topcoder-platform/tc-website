@@ -200,6 +200,12 @@ public class Submit extends Base {
                     setNextPage(Constants.SUBMISSION_JSP);
                     setIsNextPageInContext(true);
                     return;
+                } else if ("".equals(StringUtils.checkNull(code).trim())) {
+                    request.setAttribute(Constants.MESSAGE, "Please include some code.");
+                    request.setAttribute(Constants.LANGUAGES, getLanguages(roundTypeID));
+                    setNextPage(Constants.SUBMISSION_JSP);
+                    setIsNextPageInContext(true);
+                    return;
                 }
 
 
