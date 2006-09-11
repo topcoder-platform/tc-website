@@ -103,6 +103,7 @@ public class AOLAuthReply extends ShortHibernateProcessor {
 
                     SubscriptionResult result = man.subscribe(GROUP_ALERT, getRequest().getParameter(AUTH_TOKEN));
 
+                    log.debug("request sent");
                     if (result.getSubscriptionId() != null) {
                         //success
                         log.info(getUser().getUserName() + " signed up for group alert " + result.getSubscriptionId() +
