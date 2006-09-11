@@ -1,15 +1,16 @@
 package com.topcoder.web.ejb.user;
 
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.ejb.BaseEJB;
-
-import javax.ejb.EJBException;
-import javax.naming.InitialContext;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import javax.ejb.EJBException;
+import javax.naming.InitialContext;
+
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.ejb.BaseEJB;
 
 public class UserTermsOfUseBean extends BaseEJB {
 

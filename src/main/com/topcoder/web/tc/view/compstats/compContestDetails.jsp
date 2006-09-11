@@ -17,53 +17,52 @@
     <script language="javascript" type="text/javascript">
         <!--
         var objPopUp = null;
-        function popUp(event, objectID) {
-            objPopTrig = document.getElementById(event);
+        function popUp(objectID) {
             objPopUp = document.getElementById(objectID);
-            xPos = objPopTrig.offsetLeft + 15;
-            yPos = objPopTrig.offsetTop + objPopTrig.offsetHeight - 5;
-            if (xPos + objPopUp.offsetWidth > document.body.clientWidth) xPos = xPos - objPopUp.offsetWidth;
-            if (yPos + objPopUp.offsetHeight > document.body.clientHeight) yPos = yPos - objPopUp.offsetHeight - objPopTrig.offsetHeight;
-            objPopUp.style.left = xPos + 'px';
-            objPopUp.style.top = yPos + 'px';
             objPopUp.style.visibility = 'visible';
         }
         function popHide() {
             objPopUp.style.visibility = 'hidden';
             objPopUp = null;
         }
-
         // -->
     </script>
     <STYLE TYPE="text/css">
-        .popper {
-            display: block;
-            margin: 0px auto 0px auto;
+        img.emblem {
+            float: left;
+            margin: 0px 0px 0px 0px;
         }
 
-        #container {
+        div.container {
+            display: block;
             text-align: center;
             position: relative;
             margin: 0px;
             padding: 0px;
         }
 
-        .popUp {
-            font-size: 10px;
-            text-align: center;
-            background-color: #FFFFCC;
+        div.popUp {
             visibility: hidden;
-            margin: 10px;
-            padding: 3px;
             position: absolute;
-            white-space: nowrap;
-            border: solid 1px black;
+            top: 20px;
+            left: 20px;
             z-index: 1;
+        }
+
+        div.popUp div {
+            float:left;
+            font-size: 11px;
+            line-height: normal;
+            background: #FFFFCC;
+            border: 1px solid #999999;
+            padding: 6px;
+            text-align: left;
+            white-space: nowrap;
         }
     </STYLE>
 </head>
 
-<body>
+<body >
 
 <jsp:include page="/top.jsp">
     <jsp:param name="level1" value=""/>
@@ -93,7 +92,7 @@
         imgName = "/i/development/smNetCustom.gif";
     }
 
-
+	boolean canDownloadSubm = ((Boolean) request.getAttribute("isComplete")).booleanValue();
 %>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -221,7 +220,7 @@
 </td>
 <td width="75%" valign="top">
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-<tr><td class="tableTitle" colspan="11">
+<tr><td class="tableTitle" colspan="<%= canDownloadSubm? 12 : 11 %>">
     Competitors
 </td></tr>
 <tr>
@@ -232,22 +231,24 @@
     <TD CLASS="tableHeader" rowspan="2" align="center">Initial Score</TD>
     <TD CLASS="tableHeader" rowspan="2" align="center">Final Score</TD>
     <TD CLASS="tableHeader" rowspan="2" align="center">
-        <div id="container">
-            <A href="/tc?module=Static&d1=digital_run&d2=description"><img class="popper" src="/i/interface/emblem/digital_run.gif" alt="The Digital Run" border="0" id="popper0" onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()"/></A>
-
-            <div id="pop0" class="popUp" style="width:90px;">The Digital Run</div>
-        </div>
+       <div class="container">
+           <a href='/tc?module=Static&d1=digital_run&d2=description'><img class="popper" src="/i/interface/emblem/digital_run.gif" alt="The Digital Run" border="0" onmouseover="popUp('popDR')" onmouseout="popHide()" /></a>
+           <div id="popDR" class="popUp"><div>The Digital Run</div></div>
+       </div>
         Points
     </TD>
     <TD CLASS="tableHeader" colspan="3" align="center">Reviewers</TD>
+<% if (canDownloadSubm) { %>
+    <TD CLASS="tableHeader" rowspan="2">&nbsp;</TD>
+<% } %>
 </tr>
 <tr>
     <%
         if (reviewers.isEmpty()) {
     %>
-    <TD CLASS="tableHeader" align="center">unknown *</TD>
-    <TD CLASS="tableHeader" align="center">unknown *</TD>
-    <TD CLASS="tableHeader" align="center">unknown *</TD>
+    <TD CLASS="tableHeader" align="center">unknown*</TD>
+    <TD CLASS="tableHeader" align="center">unknown*</TD>
+    <TD CLASS="tableHeader" align="center" colspan="2">unknown*</TD>
     <% } else if (reviewers.size() == 3) {
     %>
     <TD CLASS="tableHeader" align="center"><tc-webtag:handle
@@ -263,7 +264,7 @@
 
 </tr>
 
-<%boolean even = true;%>
+<% boolean even = true; int i = 0; %>
 <rsc:iterator list="<%=submissions%>" id="resultRow">
     <tr>
         <TD class="<%=even?"statLt":"statDk"%>"><tc-webtag:handle coderId='<%= resultRow.getLongItem("user_id") %>'
@@ -273,7 +274,6 @@
                                                                          format="MM.dd.yyyy" ifNull="unknown*"/></TD>
         <TD class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="submit_timestamp" row="<%=resultRow%>"
                                                                          format="MM.dd.yyyy" ifNull="unknown*"/></TD>
-
         <TD class="<%=even?"statLt":"statDk"%>" align="right">
             <% if (resultRow.getItem("screening_score").getResultData() == null) { %>
             <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="unknown*"/>
@@ -335,15 +335,22 @@
                 <rsc:item row="<%=resultRow%>" name="score3" format="0.00"/>
             </A>
         </TD>
+<% if (canDownloadSubm) { %>
+        <TD class="<%=even?"statLt":"statDk"%>" align="center">
+                <div class="container">
+                    <a href='/tc?module=DownloadSubmission&cr=<%= resultRow.getLongItem("user_id") %>&pj=<%= projectId %>&st=1&ph=<%= projectInfo.getStringItem(0, "phase_id") %>'>
+                    <img src="/i/interface/emblem/disk.gif" alt="Download submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()" /></a>
+                    <div id="pop<%=i%>" class="popUp"><div>Download submission</div></div>
+                </div>
+        </TD>
+<% } %>
         <% } %>
 
         <% } else { %>
-        <TD class="<%=even?"statLt":"statDk"%>" align="center" colspan="5">&nbsp;</TD>
+        <TD class="<%=even?"statLt":"statDk"%>" align="center" colspan="6">&nbsp;</TD>
         <% } %>
-
-
     </tr>
-    <%even = !even;%>
+    <%even = !even; i++; %>
 </rsc:iterator>
 </table>
 </td>
