@@ -69,8 +69,19 @@
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSubmitReview"/>
                     <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
 
-                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">View
-                        Submission</a><br>
+
+                    <c:choose>
+                        <c:when test="${submission.mimeType.fileType.imageFile}">
+                            <img src="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}"/>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">View
+                                Submission</a>
+                        </c:otherwise>
+                    </c:choose>
+                    <br/>
+
+
                     Reviewer: ${submissionReview.reviewer.handle}<br>
                     Status:
                     <tc-webtag:objectSelect name="<%=Constants.REVIEW_STATUS_ID%>" list="${reviewStatuses}" valueField="id" textField="description" onChange="choose()"/>
