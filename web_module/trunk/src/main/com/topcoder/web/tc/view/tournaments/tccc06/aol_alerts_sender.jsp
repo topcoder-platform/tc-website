@@ -71,7 +71,8 @@
                         <br></tc-webtag:errorIterator></span>
 
                     <p>
-                        Query: <br/><tc-webtag:textArea name="<%=SendAOLAlert.QUERY%>" rows="10" cols="50"/>
+                        Query: <br/><tc-webtag:textArea name="<%=SendAOLAlert.QUERY%>" rows="10" cols="50"/> (The query
+                        shoud return a list of informixoltp:aol_alert_info.aol_encrypted_user_id)
                     </p>
 
                     <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=SendAOLAlert.MESSAGE_TEXT+AOLAlertsDescription.AOL_INDIVIDUAL_ALERT%>">${err}
