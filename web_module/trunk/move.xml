@@ -147,6 +147,7 @@
         <jar destfile="forums.jar" update="true">
             <fileset dir=".">
                 <include name="lib/jars/jive/**"/>
+            	<include name="build/ears/security.ear"/>
             </fileset>
         </jar>
     </target>
