@@ -55,6 +55,7 @@ public class DownloadSubmissionAgreeTerms extends Base {
             setNextPage(Constants.DOWNLOAD_SUBMISSION);
             getRequest().setAttribute(Constants.PROJECT_ID, projId);
             getRequest().setAttribute(Constants.CODER_ID, coderId);
+            getRequest().setAttribute(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
             setIsNextPageInContext(true);
         } catch (TCWebException we) {
             throw we;

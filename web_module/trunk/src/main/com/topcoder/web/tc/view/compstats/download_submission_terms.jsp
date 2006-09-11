@@ -5,7 +5,7 @@
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html class="termsHTML">
+<html>
 <head>
 <TITLE>TopCoder Statistics</TITLE>
 <jsp:include page="/script.jsp"/>
@@ -44,6 +44,7 @@ You must agree to the terms below in order to download this submission.
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY %>" value="DownloadSubmissionAgreeTerms"/>
     <tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID %>" value="<%= request.getAttribute(Constants.PROJECT_ID).toString() %>" />
     <tc-webtag:hiddenInput name="<%=Constants.CODER_ID %>" value="<%= request.getAttribute(Constants.CODER_ID).toString() %>" />    
+    <tc-webtag:hiddenInput name="<%=Constants.PHASE_ID %>" value="<%= request.getAttribute(Constants.PHASE_ID).toString() %>" />    
     
     
     <div align="center">
