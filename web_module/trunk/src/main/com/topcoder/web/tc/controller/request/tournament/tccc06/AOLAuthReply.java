@@ -136,8 +136,11 @@ public class AOLAuthReply extends ShortHibernateProcessor {
                     if (result.getSubscriptionId() != null) {
                         //success
 
-                        AOLAlertInfo info = new AOLAlertInfo();
-                        info.setUser(DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId())));
+                        AOLAlertInfo info = (AOLAlertInfo) HibernateUtils.getSession().get(AOLAlertInfo.class, new Long(getUser().getId()));
+                        if (info == null) {
+                            info = new AOLAlertInfo();
+                            info.setUser(DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId())));
+                        }
                         info.setAolEncryptedUserId(getRequest().getParameter(AOL_USER_ID));
                         HibernateUtils.getSession().saveOrUpdate(info);
 
