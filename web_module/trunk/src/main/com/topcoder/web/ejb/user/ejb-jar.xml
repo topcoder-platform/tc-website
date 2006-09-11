@@ -28,10 +28,8 @@
             <ejb-name>UserTermsOfUse</ejb-name>
             <home>com.topcoder.web.ejb.user.UserTermsOfUseHome</home>
             <remote>com.topcoder.web.ejb.user.UserTermsOfUse</remote>
-            <!--
-                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
-                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
-            -->
+            <local-home>com.topcoder.web.ejb.user.UserTermsOfUseLocalHome</local-home>
+            <local>com.topcoder.web.ejb.user.UserTermsOfUseLocal</local>
             <ejb-class>com.topcoder.web.ejb.user.UserTermsOfUseBean</ejb-class>
             <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
