@@ -5,7 +5,7 @@
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html class="termsHTML">
+<html>
 <head>
 <TITLE>TopCoder Statistics</TITLE>
 <jsp:include page="/script.jsp"/>
