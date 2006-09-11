@@ -9,6 +9,21 @@
 </tr>
 <%--------------------------------------------------------%>
 <tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.11.06<br>3:00 PM</td>
+    <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">TCCC06 Algorithm Qualification Round 2 Results</A>
+      </span><br><br>
+      The results are in for the second TCCC06 Algorithm Qualification Round.
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">results</A>&#160;|&#160;
+    <tc-webtag:forumLink forumID="506103" message="discuss this" />&#160;|&#160;
+    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.11.06<br>10:00 AM</td>
     <td class="newsTextCell"><span class="newsTitle">
       <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2030">2007 TCHS Tournament Logo Design Contest</A>
@@ -191,19 +206,5 @@ this competition proved that some strategies are much better than others.
     <A href="/tc?module=Static&d1=match_editorials&d2=srm318">full story</A>&#160;|&#160;
     <tc-webtag:forumLink forumID="505993" message="discuss this"/>&#160;|&#160;
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0"/><br>08.31.06<br>3:15 PM</td>
-    <td class="newsTextCell"><span class="newsTitle">Digital Run: Stage 1 winners finalized</span><br><br>
-        With all competitions wrapped up, the final leaderboards for Stage 1 of the Digital Run are now final. Congratulations to the winners, and all the competitors!
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=LeaderBoard&ph=112&sc=&sd=&staid=1&nr=50&sr=1">Design Stage 1 Leaderboard</A>&#160;|&#160;
-    <A href="/tc?module=LeaderBoard&ph=113&sc=&sd=&staid=1&nr=50&sr=51">Development Stage 1 Leaderboard</A><br>
-    <tc-webtag:forumLink forumID="506097" message="discuss this"/>&#160;|&#160;
-    <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
 </td></tr>
 
