@@ -36,7 +36,13 @@ public class SendMail extends ShortHibernateProcessor {
         }
 
         if (!Helper.isRated(getUser().getId())) {
-            getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(false));
+            getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(true));
+            setNextPage(Constants.MEMBER_CONTACT);
+            setIsNextPageInContext(true);
+            return;
+        }
+        if (Helper.isBanned(getUser().getId())) {
+            getRequest().setAttribute(Helper.BANNED, String.valueOf(true));
             setNextPage(Constants.MEMBER_CONTACT);
             setIsNextPageInContext(true);
             return;

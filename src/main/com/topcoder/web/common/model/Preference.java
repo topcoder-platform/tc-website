@@ -18,6 +18,7 @@ public class Preference extends Base implements Comparable {
     public static final Integer TYPE_TEXT_FIELD = new Integer(3);
 
     public static final Integer MEMBER_CONTACT_PREFERENCE_ID = new Integer(24);
+    public static final Integer MEMBER_CONTACT_BANNED = new Integer(28);
 
     private Integer id;
     private PreferenceType type;

@@ -129,10 +129,16 @@ To block specific TopCoder members from contacting you, go to the <a href='/tc?m
 <span class="bodySubtitle">Send a message:</span><br>
 
 <c:set value="<%=Helper.NOT_RATED%>" var="notRated"/>
+<c:set value="<%=Helper.BANNED%>" var="banned"/>
 <c:choose>
     <c:when test="${cf:containsMapKey(requestScope, notRated)}" >
         <span class="bigRed">
            You must be a rated member (in either algorithm or component competitions) to contact other members.
+        </span>
+     </c:when>
+    <c:when test="${cf:containsMapKey(requestScope, banned)}" >
+        <span class="bigRed">
+           You are not allowed to contact other members.
         </span>
      </c:when>
      <c:otherwise>
