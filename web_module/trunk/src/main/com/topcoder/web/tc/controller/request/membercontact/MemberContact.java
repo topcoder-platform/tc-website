@@ -26,7 +26,9 @@ public class MemberContact extends ShortHibernateProcessor {
         }
 
         if (!Helper.isRated(getUser().getId())) {
-            getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(false));
+            getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(true));
+        } else if (Helper.isBanned(getUser().getId())) {
+            getRequest().setAttribute(Helper.BANNED, String.valueOf(true));        	
         } else {
             User sender  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 

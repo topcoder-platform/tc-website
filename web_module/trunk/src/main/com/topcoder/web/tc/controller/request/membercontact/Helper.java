@@ -5,6 +5,8 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.tc.Constants;
 
 
@@ -18,6 +20,7 @@ import com.topcoder.web.tc.Constants;
 public class Helper {
 
     public static String NOT_RATED = "nr";
+    public static String BANNED = "banned";
 
     /**
      * Returns whether a user is rated in either algorithm or component competitions.
@@ -40,5 +43,21 @@ public class Helper {
                 ratings.getIntItem(0, "development_rating") > 0 ||
                 ratings.getIntItem(0, "hs_algorithm_rating") > 0;
         }
+
+    /**
+     * Returns whether a user is banned from sending Member Contact Messages.
+     * In that case, he can't send messages anymore.
+     * 
+     * @param userId the user to check.
+     * @return whether a user is banned from sending Member Contact Messages.
+     * @throws Exception
+     */
+    public static boolean isBanned(long userId) throws Exception {
+        String banned = DAOUtil.getFactory().getUserPreferenceDAO().find(
+                userId, Preference.MEMBER_CONTACT_BANNED).getValue();
+        
+        return "true".equals(banned);
+    	
+    }
 
 }
