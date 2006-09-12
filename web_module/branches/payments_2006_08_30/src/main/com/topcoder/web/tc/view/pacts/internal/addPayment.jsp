@@ -193,7 +193,11 @@ function search() {
         
  <tr>
         <td><b>Reference:</b></td>
- 	<td><div id="selectReference"> </div>
+ 	<td>
+ 				<input type="text" name="search_text" />
+			<input type="button" value="search" onClick="alert('hi');search()" />
+ 	
+ 	<div id="selectReference"> </div>
  	</td>
  	
  </tr>
