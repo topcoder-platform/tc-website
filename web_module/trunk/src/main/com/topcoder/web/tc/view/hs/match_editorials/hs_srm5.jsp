@@ -559,7 +559,7 @@ Despite the efforts of the problem statement, it wasn't clear to some people tha
 <!-- Right Column Begins -->
    <td width="170">
   <jsp:include page="/public_right.jsp">
-   <jsp:param name="level1" value="privatelabel"/>
+   <jsp:param name="level1" value="tchs"/>
   </jsp:include>
    </td>
 <!-- Right Column Ends -->

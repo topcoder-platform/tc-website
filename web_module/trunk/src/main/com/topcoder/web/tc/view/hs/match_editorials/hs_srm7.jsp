@@ -311,7 +311,7 @@ limits when N=100.</p>
 <!-- Right Column Begins -->
    <td width="170">
   <jsp:include page="/public_right.jsp">
-   <jsp:param name="level1" value="privatelabel"/>
+   <jsp:param name="level1" value="tchs"/>
   </jsp:include>
    </td>
 <!-- Right Column Ends -->
