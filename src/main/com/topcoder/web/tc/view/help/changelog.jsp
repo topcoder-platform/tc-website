@@ -45,7 +45,7 @@
     5.4.x - 2006.09.xx
     <ul>
         <li>
-            Added banning users from member contact, so they can't send messages anymore.
+            Added banning users from member contact, so they can't send messages anymore. Also inactive users can't send messages.
         </li>
         <li>
             Fix score format to have 2 decimal digits in team results and individual result for high school.

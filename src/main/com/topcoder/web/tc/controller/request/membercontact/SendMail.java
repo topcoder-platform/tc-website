@@ -43,7 +43,7 @@ public class SendMail extends ShortHibernateProcessor {
             setIsNextPageInContext(true);
             return;
         }
-        if (Helper.isBanned(getUser().getId()) || || sender.getStatus() != 'A') {
+        if (Helper.isBanned(getUser().getId()) || sender.getStatus() != 'A') {
             getRequest().setAttribute(Helper.BANNED, String.valueOf(true));
             setNextPage(Constants.MEMBER_CONTACT);
             setIsNextPageInContext(true);
