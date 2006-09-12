@@ -138,7 +138,7 @@ Below is a list of components, with two more arriving soon.  Read the requiremen
 <li><strong>Submission of the Practice Components</strong><br>
 The practice components are designed to allow you to take your time and get a feel for the tools and skills required to compete. These components are not reviewed or submitted.</li>
 <li><strong>Self Evaluation</strong><br>
-Although you will not receive peer review, you will be able to score yourself using our scorecard (provide link to scorecard) and the self evaluation form included with each download.  Evaluating your own work and identifying areas to improve is a key skill set in component competitions. Honing that skill now through these practice competitions will greatly improve your chances of winning.  </li>
+Although you will not receive peer review, you will be able to score yourself using our <A href="/tc?module=Static&d1=dev&d2=support&d3=desReviewSample">scorecard</A> and the self evaluation form included with each download.  Evaluating your own work and identifying areas to improve is a key skill set in component competitions. Honing that skill now through these practice competitions will greatly improve your chances of winning.  </li>
 <li><strong>Additional questions</strong><br>
 If you still have questions about your design, or why one technique was used over another, please feel free to post questions in the <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=327735">Getting Started forum</A>.  Here you can interact with other TopCoder members to discuss best practices and the components in general.</li>
 </ul>
