@@ -82,7 +82,7 @@ public class ServerMonitorBot {
                     File f = new File("index.html");
                     f.delete();
                 } catch (Exception e) {
-
+                    System.out.println("error deleting index.html" + e.getMessage());
                 }
 
                 String[] callAndArgs2 = {"wget",
@@ -123,7 +123,7 @@ public class ServerMonitorBot {
                     File f = new File("index.jsp");
                     f.delete();
                 } catch (Exception e) {
-
+                    System.out.println("error deleting index.jsp" + e.getMessage());
                 }
 
                 String[] callAndArgs3 = {"wget",
@@ -164,7 +164,7 @@ public class ServerMonitorBot {
                     File f = new File("index.html?module=Main");
                     f.delete();
                 } catch (Exception e) {
-
+                    System.out.println("error deleting index.html" + e.getMessage());
                 }
 
                 String[] callAndArgs4 = {"wget",
@@ -205,7 +205,7 @@ public class ServerMonitorBot {
                     File f = new File("index.html");
                     f.delete();
                 } catch (Exception e) {
-
+                    System.out.println("error deleting index.html" + e.getMessage());
                 }
 
 
