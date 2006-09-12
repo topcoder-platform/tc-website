@@ -1,4 +1,5 @@
 <%@  page language="java"  %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -51,11 +52,14 @@ AOL is where the power of the Internet and your individual potential converge to
 </ul>
 <span class="bodySubtitleAOL">Lead the race with AOL and take your place on one of AOL's many technology teams to work on some of the most cutting edge projects today.</span>
 <br><br>
+<div align="center">
 <A href="#open">Open Services</A>&#160;|&#160;
 <A href="#audience">Audience Technologies</A>&#160;|&#160;
-<A href="#wireless">AOL Wireless</A>&#160;|&#160;
+<A href="#wireless">AOL Wireless</A><br>
 <A href="#global">Global Technologies</A>&#160;|&#160;
+<A href="#bangalore">Bangalore Dev Team</A>&#160;|&#160;
 <A href="#ad">Advertising.com</A>
+</div>
 <br><br>
 
 <A name="open"></A>
@@ -110,6 +114,13 @@ The latest version of AOL's search application, 7.0 is currently under developme
 This actually represents a collection of personal investment management tools for the AOL Money and Finance channel. These products deliver company stock price and detailed information almost 1 billion times per day, and provide portfolio management tools for 12 million portfolios, used each month by over 2 million of our users.</li>
 </ul>
 
+<A name="bangalore"></A>
+<span class="bodySubtitleAOL">Team: Bangalore Development Team</span><br>
+<b>Location:</b> Bangalore, India<br>
+<A href="<tc-webtag:linkTracking link="http://developer.aol.com"/>" refer="aolsite">http://aolindia.aol.com/</A>
+<br><br>
+Every day, the work of the AOL India Teams is in evidence on AOL. It's there in the Snapshots and Web Offers. It's there in the millions of annotated video streams. It's there in the connectivity and bug-free applications that users take for granted. It's there in the efficient and friendly late-night voice that offers help over the phone. AOL India also supports MapQuest, AIM, Moviefone, Singingfish, and Netscape. And a good many back office functions-from finance to call volume forecasting for the service Centres-owe substantial improvement to the work of AOL India employees.
+<br><br>
 <A name="ad"></A>
 <span class="bodySubtitleAOL">AOL/Parent Company Name &mdash; Advertising.com</span><br>
 <b>Headquarters:</b> 1020 Hull Street, Baltimore, MD 21230<br>
