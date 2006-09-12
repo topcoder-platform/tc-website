@@ -7,7 +7,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Preference;
-import com.topcoder.web.tc.Constants;
+import com.topcoder.web.common.model.UserPreference;
 
 
 /**
@@ -53,10 +53,13 @@ public class Helper {
      * @throws Exception
      */
     public static boolean isBanned(long userId) throws Exception {
-        String banned = DAOUtil.getFactory().getUserPreferenceDAO().find(
-                userId, Preference.MEMBER_CONTACT_BANNED).getValue();
+        UserPreference up = DAOUtil.getFactory().getUserPreferenceDAO().find(
+                userId, Preference.MEMBER_CONTACT_BANNED);
         
-        return "true".equals(banned);
+        if (up == null) {
+        	return false;
+        }
+        return "true".equals(up.getValue());
     	
     }
 
