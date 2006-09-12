@@ -970,6 +970,17 @@
         <copy todir="${jboss_lib}" file="${jive.dir}/webwork.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
 
+        <copy todir="${jboss_lib}" file="${jars.dir}/ifxjdbc.jar"/>
+
+        <copy todir="${jboss_conf}" file="${resources}/forums/tc/jive_init.xml"/>
+        <copy todir="${jboss_conf}" file="${resources}/cache.properties"/>
+        <!--
+                <copy todir="${jboss_conf}" file="${resources}/ApplicationServer.properties"/>
+                <copy todir="${jboss_conf}" file="${resources}/DBMS.properties"/>
+                <copy todir="${jboss_conf}" file="${resources}/DataAccess.properties"/>
+                <copy todir="${jboss_conf}" file="${resources}/EmailEngineConfig.properties"/>
+        -->
+
         <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
         <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
     </target>
