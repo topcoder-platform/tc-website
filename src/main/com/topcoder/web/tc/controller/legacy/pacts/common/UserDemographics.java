@@ -52,14 +52,14 @@ public class UserDemographics implements PactsConstants, java.io.Serializable {
             try {
                 questions[idx] = TCData.getTCString(rRow, "demographic_question_text");
                 answers[idx] = TCData.getTCString(rRow, "demographic_response");
-                if (answers[idx].length() <= 0) {
+                if (answers[idx] == null || answers[idx].length() <= 0) {
                     answers[idx] = TCData.getTCString(rRow, "demographic_answer_text");
                     log.debug("rRow = " + rRow.toString());
                 }
                 log.debug("q = " + questions[idx]);
                 log.debug("a = " + answers[idx]);
             } catch (Exception e) {
-                log.error("ther was an exception trying to read the user demographic data");
+                log.error("there was an exception trying to read the user demographic data");
                 setDefaults();
                 e.printStackTrace();
                 return;
