@@ -90,3 +90,6 @@ where payment_type_id = 1;
 update payment_type_lu set payment_reference_id = 2
 where payment_type_id in (6,7);
 
+
+insert into security_perms (role_id, permission, create_user_id, security_status_id)
+values(2003, 'com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.SelectPaymentTypeReference', 132456,1)
