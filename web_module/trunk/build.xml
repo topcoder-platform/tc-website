@@ -974,12 +974,9 @@
 
         <copy todir="${jboss_conf}" file="${resources}/forums/tc/jive_init.xml"/>
         <copy todir="${jboss_conf}" file="${resources}/cache.properties"/>
-        <!--
-                <copy todir="${jboss_conf}" file="${resources}/ApplicationServer.properties"/>
-                <copy todir="${jboss_conf}" file="${resources}/DBMS.properties"/>
-                <copy todir="${jboss_conf}" file="${resources}/DataAccess.properties"/>
-                <copy todir="${jboss_conf}" file="${resources}/EmailEngineConfig.properties"/>
-        -->
+        <copy todir="${jboss_conf}" file="${resources}/ApplicationServer.properties"/>
+        <copy todir="${jboss_conf}" file="${resources}/DBMS.properties"/>
+        <copy todir="${jboss_conf}" file="${resources}/DataAccess.properties"/>
 
         <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
         <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
