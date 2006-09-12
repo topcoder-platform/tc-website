@@ -52,6 +52,23 @@ public interface PactsConstants {
     public static final int COMPONENT_PAYMENT = 6;
     public static final int REVIEW_BOARD_PAYMENT = 7;
     public static final int ONE_OFF_PAYMENT = 8;
+    public static final int ARTICLE_PAYMENT = 9;
+    public static final int ASSEMBLY_PAYMENT = 10;
+    public static final int TESTING_PAYMENT = 11;
+    public static final int LOGO_CONTEST_PAYMENT = 12;
+    public static final int TC_STUDIO_PAYMENT = 13;
+    public static final int PROBLEM_TESTING_PAYMENT = 14;
+    public static final int PROBLEM_WRITING_PAYMENT = 15;
+    public static final int CCIP_PAYMENT = 16;
+    public static final int DIGITAL_RUN_PAYMENT = 17;
+    public static final int DIGITAL_RUN_ROCKIE_PAYMENT = 18;
+    public static final int COMPONENT_TOURNAMENT_BONUS_PAYMENT = 19;
+    public static final int ROYALTY_PAYMENT = 20;
+    public static final int MARATHON_MATCH_PAYMENT = 21;
+    public static final int ALGORITHM_TOURNAMENT_PRIZE_PAYMENT = 22;
+    public static final int BUG_FIXES_PAYMENT = 23;
+    
+    
 
     // Contract type codes
     public static final int DEVELOPMENT_CONTRACT = 1;
@@ -428,7 +445,8 @@ public interface PactsConstants {
     // internal parameters
     public static final String OBJECT_ID = "object_id";
     public static final String OBJECT_TYPE = "object_type";
-
+    public static final String PAYMENT_TYPE_ID = "payment_type_id";
+    
     // request attributes
     public static final String PACTS_INTERNAL_RESULT = "pacts_internal_result";
     public static final String PACTS_MEMBER_RESULT = "pacts_member_result";
@@ -491,6 +509,7 @@ public interface PactsConstants {
     public static final String INTERNAL_GENERATE_PAYMENTS = INTERNAL_JSP_DIR + "/generatePayments.jsp";
     public static final String INTERNAL_GENERATE_COMPONENT_PAYMENTS = INTERNAL_JSP_DIR + "/generateComponentPayments.jsp";
     public static final String INTERNAL_CREATE_AFFIDAVIT = INTERNAL_JSP_DIR + "/createAffidavitTemplate.jsp";
+    public static final String INTERNAL_SELECT_PAYMENT_TYPE_REFERENCE = INTERNAL_JSP_DIR + "/selectPaymentTypeReference.jsp";
 
     /*
       veredox - Don't get your panties in a knot.

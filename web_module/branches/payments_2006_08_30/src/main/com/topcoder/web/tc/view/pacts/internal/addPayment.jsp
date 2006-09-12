@@ -26,8 +26,15 @@
 
 
 function typeChanged() {
-    var ajaxRequest = new AjaxRequest('/pacts/internal/selectPaymentTypeReference.jsp');
+    var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
     ajaxRequest.addNamedFormElements("payment_type_id");
+    ajaxRequest.sendRequest();
+}
+
+function search() {
+    var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
+    ajaxRequest.addNamedFormElements("payment_type_id");
+    ajaxRequest.addNamedFormElements("search_text");
     ajaxRequest.sendRequest();
 }
 

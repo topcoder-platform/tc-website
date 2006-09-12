@@ -12,15 +12,19 @@
 <tac:taconiteRoot>
 <%
 
-    DataInterfaceBean dib = new DataInterfaceBean();
-    Map map = dib.findProblems("%f%");
-    ResultSetContainer rsc = (ResultSetContainer) map.get(PactsInternalServlet.PROBLEM_LIST);
+    ResultSetContainer problems = (ResultSetContainer) request.getAttribute(PactsInternalServlet.PROBLEM_LIST);
 %>
         <tac:replaceChildren contextNodeID="selectReference" parseOnServer="true">
 			<c:out value="${param.payment_type_id}" />         
-            <tc-webtag:rscSelect name="payment_method_id" list="<%=rsc%>" 
+			
+			<input type="text" name="search_text">
+			<input type="button" onClick="search()">
+
+			<c:if test="not empty problems">			
+            	<tc-webtag:rscSelect name="payment_method_id" list="<%=problems%>" 
                         fieldText="name" fieldValue="problem_id"              			
             			useTopValue="false" />
+            </c:if>
 			      
         </tac:replaceChildren>
 
