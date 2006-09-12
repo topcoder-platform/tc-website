@@ -123,6 +123,15 @@ function search() {
     	paymentMethodSelectedValue = "" + method;
     }
 %>
+<script type="text/javascript">
+var types = new Array();
+var i = 0;
+
+<% for(int i = 0; i < paymentTypes.size(); i++) { %>
+types[i++]= <%= paymentTypes.getItem(i, "payment_reference_id") == null? -1 :  paymentTypes.getIntItem(i, "payment_reference_id") %>
+<% } %>
+
+</script>
 
 <h1>PACTS</h1>
 
