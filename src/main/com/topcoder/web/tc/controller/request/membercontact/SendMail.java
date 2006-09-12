@@ -46,7 +46,7 @@ public class SendMail extends ShortHibernateProcessor {
             return;
         }
         if (Helper.isBanned(getUser().getId())
-        	|| (Arrays.binarySearch(WebConstants.ACTIVE_STATI, sender.getStatus()) < 0)) {
+        	|| (Arrays.binarySearch(WebConstants.ACTIVE_STATI, sender.getStatus().charValue()) < 0)) {
             getRequest().setAttribute(Helper.BANNED, String.valueOf(true));
             setNextPage(Constants.MEMBER_CONTACT);
             setIsNextPageInContext(true);
