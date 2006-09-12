@@ -9,6 +9,21 @@
 </tr>
 <%--------------------------------------------------------%>
 <tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.12.06<br>1:45 PM</td>
+    <td class="newsTextCell"><span class="newsTitle">
+      TCCC Registration Ends This Week
+      </span><br><br>
+      Registration for the 2006 TopCoder Collegiate Challenge ends this week. <A href="/tc?module=TCCC06ViewAlgoReg">Algorithm competition registration</A> closes <b>TODAY</b> at 6:00 PM EDT, and <A href="/tc?module=TCCC06ComponentTerms">Component competition registration</A> ends Thursday, September 14 at 9:00 AM EDT.<br><br>Don’t delay - register now!
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=TCCC06ViewAlgoReg">Algorithm Registration</A>&#160;|&#160;
+    <A href="/tc?module=TCCC06ComponentTerms">Component Registration</A>&#160;|&#160;
+    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>09.12.06<br>12:10 PM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -190,26 +205,4 @@ this competition proved that some strategies are much better than others.
     <tc-webtag:forumLink forumID="506088" message="discuss this"/>&#160;|&#160;
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/><br>09.05.06<br>9:00 AM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=090506">TopCoder @ Work: Intro to upselling, Part 2</A></span><br><br>
-                Last week we attacked a common problem -- selling new ideas and functionality to clients -- with a clever acronym (UPSELL). Today, we'll demonstrate how to apply
-                that methodology to a realistic situation.</td>
-            <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" alt="" /><br>by
-                <tc-webtag:handle coderId="10407399" /></td>
-            <td class="newsPhoto"><img src="/i/m/rhudson_mug.gif" alt="" /><br>&amp;
-                <tc-webtag:handle coderId="22627518" /></td></tr>
-        </table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&amp;d1=features&amp;d2=090506">article</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506099" message="discuss this"/>&#160;|&#160;
-    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-</td></tr>
-
 
