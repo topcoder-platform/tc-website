@@ -24,7 +24,7 @@
     <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
     <property name="long.jar" value="${bin}/long.jar"/>
     <property name="web" value="src/main/com/topcoder/web"/>
-    <property name="jboss_home" value="../jboss-4.0.2"/>
+    <property name="jboss_home" value="../jboss-4.0.4.GA"/>
     <property name="jboss_deploy" value="${jboss_home}/server/all/deploy"/>
     <property name="jboss_lib" value="${jboss_home}/server/all/lib"/>
     <property name="jboss_conf" value="${jboss_home}/server/all/conf"/>
@@ -192,9 +192,9 @@
             <include name="com/topcoder/security/**"/>
             <include name="com/topcoder/common/web/data/**"/>
             <include name="com/topcoder/web/tc/controller/request/authentication/**"/>
-        	<include name="com/topcoder/web/tc/controller/request/*.java"/>
-        	<include name="com/topcoder/web/tc/controller/*.java"/>
-        	<include name="com/topcoder/web/tc/*.java"/>
+            <include name="com/topcoder/web/tc/controller/request/*.java"/>
+            <include name="com/topcoder/web/tc/controller/*.java"/>
+            <include name="com/topcoder/web/tc/*.java"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
         </javac>
@@ -967,11 +967,11 @@
         <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/velocity-dep.jar"/>
-    	<copy todir="${jboss_lib}" file="${jive.dir}/webwork.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/webwork.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
 
         <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
-    	<copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
+        <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
     </target>
 
     <target name="deploy-forums" depends="">
