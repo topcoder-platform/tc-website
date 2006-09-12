@@ -238,7 +238,7 @@ If |NewRating - Rating| &#62; Cap the NewRating is adjusted so it is at most Cap
 <!-- Right Column Begins -->
          <td width="170">
             <jsp:include page="../../public_right.jsp">
-               <jsp:param name="level1" value="privatelabel"/>
+               <jsp:param name="level1" value="tchs"/>
             </jsp:include>
          </td>
 <!-- Right Column Ends -->

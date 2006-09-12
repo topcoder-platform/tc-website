@@ -305,7 +305,7 @@ Wallis and Futuna Islands<br>
 <!-- Right Column Begins -->
 <td width="170">
     <jsp:include page="/public_right.jsp">
-        <jsp:param name="level1" value="default"/>
+        <jsp:param name="level1" value="tchs"/>
     </jsp:include>
 </td>
 <!-- Right Column Ends -->
