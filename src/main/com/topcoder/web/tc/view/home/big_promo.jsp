@@ -20,8 +20,4 @@
 </map>
 <IMG SRC="/i/home/studio_tccc06_dr_20060828.png" border="0" alt="TopCoder Studio, TCCC06 CDDC Registration Open, and The Digital Run" usemap="#studio_tccc06_dr" />
 --%>
-<map name="tccc06_algoReg">
-<area shape="rect" alt="" coords="1,1,230,150" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
-<area shape="rect" alt="" coords="260,35,478,113" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_description" />
-</map>
-<IMG SRC="/i/home/tccc06_algoReg_promo.gif" border="0" alt="Algorithm Registration Open" usemap="#tccc06_algoReg" />
+<A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><IMG SRC="/i/home/tccc06.gif" border="0" alt="Algorithm Registration Open" /></A>
