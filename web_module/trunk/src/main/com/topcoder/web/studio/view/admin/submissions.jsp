@@ -75,7 +75,6 @@
 <input type="hidden" name="<%=DataAccessConstants.SORT_COLUMN%>" value=""/>
 <input type="hidden" name="<%=DataAccessConstants.SORT_DIRECTION%>" value=""/>
 <input type="hidden" name="<%=Constants.REVIEW_STATUS_ID%>" value=""/>
-<input type="hidden" name="<%=Constants.HANDLE%>" value=""/>
 
 
 Showing <strong>${count}</strong> Submissions for <strong>${contest.name}</strong>
