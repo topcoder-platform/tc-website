@@ -16,6 +16,7 @@
 %>
         <tac:replaceChildren contextNodeID="selectReference" parseOnServer="true">
 			<c:out value="${param.payment_type_id}" />         
+		<%= problems==null? "null problems" : problems.size() + "elem" %>
 			
 			<input type="text" name="search_text_x" />
 			<input type="button" value="search" onClick="alert('hi');search()" />

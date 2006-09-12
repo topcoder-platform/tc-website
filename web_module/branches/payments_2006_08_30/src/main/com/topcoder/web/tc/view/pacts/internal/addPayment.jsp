@@ -195,7 +195,7 @@ function search() {
         <td><b>Reference:</b></td>
  	<td>
  				<input type="text" name="search_text" />
-			<input type="button" value="search" onClick="alert('hi');search()" />
+			<input type="button" value="search" onClick="search()" />
  	
  	<div id="selectReference"> </div>
  	</td>
