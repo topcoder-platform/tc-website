@@ -35,13 +35,15 @@ public class SendMail extends ShortHibernateProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
+        User sender  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+
         if (!Helper.isRated(getUser().getId())) {
             getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(true));
             setNextPage(Constants.MEMBER_CONTACT);
             setIsNextPageInContext(true);
             return;
         }
-        if (Helper.isBanned(getUser().getId())) {
+        if (Helper.isBanned(getUser().getId()) || || sender.getStatus() != 'A') {
             getRequest().setAttribute(Helper.BANNED, String.valueOf(true));
             setNextPage(Constants.MEMBER_CONTACT);
             setIsNextPageInContext(true);
@@ -52,7 +54,6 @@ public class SendMail extends ShortHibernateProcessor {
         String toHandle = getRequest().getParameter(TO_HANDLE);
         String message = getRequest().getParameter(TEXT);
         boolean sendCopy = getRequest().getParameter(SEND_COPY) != null;
-        User sender  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
         // Check again that the user is valid, in case that someone has tweaked the jsp
         // or some kind of hack

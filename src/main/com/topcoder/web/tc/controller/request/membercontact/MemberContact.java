@@ -25,13 +25,13 @@ public class MemberContact extends ShortHibernateProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
+        User sender  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+
         if (!Helper.isRated(getUser().getId())) {
             getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(true));
-        } else if (Helper.isBanned(getUser().getId())) {
+        } else if (Helper.isBanned(getUser().getId()) || sender.getStatus() != 'A') {
             getRequest().setAttribute(Helper.BANNED, String.valueOf(true));        	
         } else {
-            User sender  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
-
             if (!sender.isMemberContactEnabled()) {
                 getRequest().setAttribute(CAN_RECEIVE, String.valueOf(true));
             }
