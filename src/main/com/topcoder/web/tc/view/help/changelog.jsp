@@ -45,6 +45,9 @@
     5.4.x - 2006.09.xx
     <ul>
         <li>
+            Fix an error in viewing affidavits, and remove duplicate demographic fields within affidavits.
+        </li>
+        <li>
             Added banning users from member contact, so they can't send messages anymore. Also inactive users can't send messages.
         </li>
         <li>
