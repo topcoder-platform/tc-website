@@ -27,7 +27,10 @@
 
 function typeChanged() {
     var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
+alert(document.f.payment_type_id.selectedIndex);
+    document.f.reference_id.value = types[document.f.payment_type_id.selectedIndex];
     ajaxRequest.addNamedFormElements("payment_type_id");
+    ajaxRequest.addNamedFormElements("reference_id");    
     ajaxRequest.sendRequest();
 }
 
@@ -141,9 +144,10 @@ types[i++]= <%= paymentTypes.getItem(i, "payment_reference_id") == null? -1 :  p
     <%= message %>
 </font>
 
-<form action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
+<form name="f" action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
    <input type="hidden" name="<%= PactsConstants.TASK_STRING %>" value="<%=PactsConstants.ADD_TASK%>" >
    <input type="hidden" name="<%= PactsConstants.CMD_STRING %>" value="<%=PactsConstants.PAYMENT_CMD%>" >
+   <input type="hidden" name="reference_id">
 
 <%  if (payment_is_for_contract) { %>
    <input type="hidden" name="<%= PactsConstants.CONTRACT_ID %>" value="<%=contract_id%>" >

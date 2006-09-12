@@ -14,6 +14,7 @@
 <c:set var="problems" value="${requestScope.problem_list}"/>
 
         <tac:replaceChildren contextNodeID="selectReference" parseOnServer="true">
+        reference_id = <c:out value="${ param.reference_id}"/>
 <!--  
 			<input type="text" name="search_text_x" />
 			<input type="button" value="search" onClick="alert('hi');search()" />
