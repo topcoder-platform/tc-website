@@ -1,8 +1,11 @@
 package com.topcoder.web.tc.controller.request.membercontact;
 
+import java.util.Arrays;
+
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.tc.Constants;
@@ -29,7 +32,8 @@ public class MemberContact extends ShortHibernateProcessor {
 
         if (!Helper.isRated(getUser().getId())) {
             getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(true));
-        } else if (Helper.isBanned(getUser().getId()) || sender.getStatus() != 'A') {
+        } else if (Helper.isBanned(getUser().getId()) 
+            	|| (Arrays.binarySearch(WebConstants.ACTIVE_STATI, sender.getStatus()) < 0)) {
             getRequest().setAttribute(Helper.BANNED, String.valueOf(true));        	
         } else {
             if (!sender.isMemberContactEnabled()) {

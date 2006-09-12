@@ -1,5 +1,6 @@
 package com.topcoder.web.tc.controller.request.membercontact;
 
+import java.util.Arrays;
 import java.util.Date;
 
 import com.topcoder.shared.security.ClassResource;
@@ -9,6 +10,7 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.MemberContactMessage;
 import com.topcoder.web.common.model.User;
@@ -43,7 +45,8 @@ public class SendMail extends ShortHibernateProcessor {
             setIsNextPageInContext(true);
             return;
         }
-        if (Helper.isBanned(getUser().getId()) || sender.getStatus() != 'A') {
+        if (Helper.isBanned(getUser().getId())
+        	|| (Arrays.binarySearch(WebConstants.ACTIVE_STATI, sender.getStatus()) < 0)) {
             getRequest().setAttribute(Helper.BANNED, String.valueOf(true));
             setNextPage(Constants.MEMBER_CONTACT);
             setIsNextPageInContext(true);
