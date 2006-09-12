@@ -13,7 +13,7 @@
     <td class="newsTextCell"><span class="newsTitle">
       TCCC Registration Ends This Week
       </span><br><br>
-      Registration for the 2006 TopCoder Collegiate Challenge ends this week. <A href="/tc?module=TCCC06ViewAlgoReg">Algorithm competition registration</A> closes <b>TODAY</b> at 6:00 PM EDT, and <A href="/tc?module=TCCC06ComponentTerms">Component competition registration</A> ends Thursday, September 14 at 9:00 AM EDT.<br><br>Don’t delay - register now!
+      Registration for the 2006 TopCoder Collegiate Challenge ends this week. <A href="/tc?module=TCCC06ViewAlgoReg">Algorithm competition registration</A> closes September 12 at 6:00 PM EDT, and <A href="/tc?module=TCCC06ComponentTerms">Component competition registration</A> ends Thursday, September 14 at 9:00 AM EDT.<br><br>Don’t delay - register now!
     </td>
 </tr>
 <tr><td class="newsLinksCell">

@@ -61,38 +61,7 @@
     <tr>
         <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
         <td class="BIGPromoBox" align="center">
-<%--
-<map name="tccc_studio">
-<area shape="rect" alt="" coords="30,1,220,120" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
-<area shape="rect" alt="" coords="35,123,210,137" href="/tc?module=TCCC06ComponentTerms" />
-<area shape="rect" alt="" coords="280,1,460,110" href="http://studio.topcoder.com" />
-<area shape="rect" alt="" coords="285,113,467,143" href="http://studio.topcoder.com/?module=ViewActiveContests" />
-</map>
-<IMG SRC="/i/home/tccc_studio_20060822.png" border="0" alt="TCCC & TopCoder Studio" usemap="#tccc_studio"/>
---%>
-<%--
-<map name="tccc_studio">
-<area shape="rect" alt="" coords="30,1,220,120" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
-<area shape="rect" alt="" coords="35,123,210,137" href="/tc?module=TCCC06ViewAlgoReg" />
-<area shape="rect" alt="" coords="280,1,460,110" href="http://studio.topcoder.com" />
-<area shape="rect" alt="" coords="285,113,467,143" href="http://studio.topcoder.com/?module=ViewActiveContests" />
-</map>
-<IMG SRC="/i/home/tccc_studio_20060828.png" border="0" alt="TCCC & TopCoder Studio" usemap="#tccc_studio"/>
---%>
-<%--
-<map name="tccc_dr">
-<area shape="rect" alt="" coords="30,1,220,120" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
-<area shape="rect" alt="" coords="35,123,210,137" href="/tc?module=TCCC06ViewAlgoReg" />
-<area shape="rect" alt="" coords="258,30,498,80" href="/tc?module=Static&d1=digital_run&d2=description" />
-<area shape="rect" alt="" coords="300,82,445,113" href="/tc?module=Static&d1=digital_run&d2=2006_stage1_winners" />
-</map>
-<IMG SRC="/i/home/tccc_dig_run_20060828.gif" border="0" alt="TCCC Algorithm Registration Open, the Digital Run Stage 1 Winners" usemap="#tccc_dr"/>
---%>
-<map name="tccc06_algoReg">
-<area shape="rect" alt="" coords="1,1,230,150" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
-<area shape="rect" alt="" coords="260,35,478,113" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_description" />
-</map>
-<IMG SRC="/i/home/tccc06_algoReg_promo.gif" border="0" alt="Algorithm Registration Open" usemap="#tccc06_algoReg" />
+<A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><IMG SRC="/i/home/tccc06.gif" border="0" alt="Algorithm Registration Open" /></A>
 
 
         </td>
