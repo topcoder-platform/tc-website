@@ -11,7 +11,7 @@
 
 <tac:taconiteRoot>
 
-<c:set var="problems" value="${requestScope.<%=PactsConstants.PROBLEM_LIST %>}"/>
+<c:set var="problems" value="${requestScope.problem_list}"/>
 
         <tac:replaceChildren contextNodeID="selectReference" parseOnServer="true">
 <!--  
