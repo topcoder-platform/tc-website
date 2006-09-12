@@ -17,8 +17,8 @@
         <tac:replaceChildren contextNodeID="selectReference" parseOnServer="true">
 			<c:out value="${param.payment_type_id}" />         
 			
-			<input type="text" name="search_text">
-			<input type="button" onClick="search()">
+			<input type="text" name="search_text" />
+			<input type="button" onClick="search()" />
 
 			<c:if test="not empty problems">			
             	<tc-webtag:rscSelect name="payment_method_id" list="<%=problems%>" 
