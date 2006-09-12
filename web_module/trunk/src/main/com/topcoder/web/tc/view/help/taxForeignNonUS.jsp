@@ -51,12 +51,12 @@ Form W-8BEN should be completed by all foreign persons, including non-resident a
 <li><A href="/contest/iw8ben.pdf">Instructions for Form W-8BEN</A></li>
 </ul>
 <strong>Why do you need to complete Form W-8BEN?</strong><br>
-Foreign persons are not subject to U.S. income tax withholding if performing the work outside the U.S. If you receive certain types of income, including prize money won in TopCoder competitions, you must provide a Form W-8BEN to:
+If you receive certain types of income, including prize money won in TopCoder competitions, you must provide a Form W-8BEN to:
 <ul>
 <li>Establish that you are not a U.S. person</li>
 <li>Claim that you are the beneficial owner of the income for which Form W-8BEN is being provided.</li>
 </ul>
-If you are a foreign person, non-resident alien or foreign national performing work in the U.S., TopCoder will withhold taxes (currently at a rate of 29%). You may claim exemption from or reduction of your withholding due to an income tax treaty benefit by completing Form W-8ECI and Form 8233 (both available here), in addition to Form W-8BEN.
+If you are a foreign person, non-resident alien or foreign national who wins algorithm prize money, TopCoder will withhold taxes (currently at a rate of 29%). You may claim exemption from or reduction of your withholding due to an income tax treaty benefit by completing Form W-8ECI and Form 8233 (both available here), in addition to Form W-8BEN.
 <br><br>
 <strong>Do you need a tax identification number (TIN)?</strong><br>
 You are only required to provide a tax identification number if you are claiming a reduced rate of, or exemption from, withholding as a resident of a foreign country with which the U.S. has an income tax treaty and you are performing work in the U.S. (If you complete Part II of Form W-8BEN, you must provide a U.S. TIN.) If you are not claiming a reduce rate of, or exemption from, withholding, you do not need to furnish a TIN. 
