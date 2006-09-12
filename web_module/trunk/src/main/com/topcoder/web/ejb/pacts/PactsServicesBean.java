@@ -1348,8 +1348,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map getDemographicData(long userId) throws SQLException {
         StringBuffer sb = new StringBuffer(300);
-        sb.append("SELECT dq.demographic_question_text, dq.demographic_question_desc, ");
-        sb.append("dr.demographic_response, da.sort, dans.demographic_answer_text ");
+        sb.append("SELECT DISTINCT dq.demographic_question_text, dq.demographic_question_desc, ");
+        sb.append("dr.demographic_response, dans.demographic_answer_text ");
         sb.append("FROM demographic_assignment da, demographic_question dq, ");
         sb.append("OUTER (demographic_response dr, OUTER demographic_answer dans) ");
         sb.append("WHERE da.coder_type_id = ");
@@ -1360,7 +1360,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append("AND dans.demographic_question_id = dr.demographic_question_id ");
         sb.append("AND dans.demographic_answer_id = dr.demographic_answer_id ");
         sb.append("AND da.status = 'A' ");
-        sb.append("ORDER BY da.sort");
 
         ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
         HashMap hm = new HashMap();
