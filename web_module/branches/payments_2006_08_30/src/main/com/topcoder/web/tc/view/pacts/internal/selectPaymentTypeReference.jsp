@@ -12,17 +12,21 @@
 <tac:taconiteRoot>
 <%
 
-    ResultSetContainer problems = (ResultSetContainer) request.getAttribute(PactsInternalServlet.PROBLEM_LIST);
+//    ResultSetContainer problems = (ResultSetContainer) request.getAttribute(PactsInternalServlet.PROBLEM_LIST);
 %>
+<c:set var="problems" value="${requestScope.problem_list}"/>
+
         <tac:replaceChildren contextNodeID="selectReference" parseOnServer="true">
 			<c:out value="${param.payment_type_id}" />         
+			<c:if test="${empty problems}"> problems is emtpy </c:if>
+			<c:if test="${not empty problems}"> problems is NOT emtpy </c:if>			
 
 <!--  
 			<input type="text" name="search_text_x" />
 			<input type="button" value="search" onClick="alert('hi');search()" />
 -->			
 			<c:if test="${not empty problems}">
-            	<tc-webtag:rscSelect name="payment_method_id" list="<%=problems%>" 
+            	<tc-webtag:rscSelect name="payment_method_id" list="${problems}" 
                         fieldText="name" fieldValue="problem_id"              			
             			useTopValue="false" />
 			</c:if>            			
