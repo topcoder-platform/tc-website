@@ -5017,14 +5017,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-    
-    public Map findProblems(String name) throws SQLException {
-    	String filter = name.contains("%") ? "name like ?" : "name=?";
-    			
-        String query = "SELECT problem_id, name FROM problem WHERE " + filter + " ORDER BY name";
+    private String filterCondition(String fieldName, String search) {
+    	return " UPPER(" + fieldName + ") " + 
+    		(search.contains("%") ? " like UPPER(?)" : "=UPPER(?) ");
+
+    }
+    public Map findProblems(String search) throws SQLException {
+        String query = "SELECT problem_id, name FROM problem WHERE " +
+        		filterCondition("name", search) + " ORDER BY name";
 
         ArrayList param = new ArrayList();
-        param.add(name);
+        param.add(search);
         ResultSetContainer rsc = runSearchQuery(query, param, true);
         
         HashMap hm = new HashMap();
@@ -5033,17 +5036,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     public Map findProjects(String search) throws SQLException {
-    	String filter = "UPPER(component_name) " + (search.contains("%") ? " like UPPER(?)" : "=UPPER(?)");
-    	
+    /*	String filter = search != null && search.length()> 0?
+    			" and UPPER(component_name) " + (search.contains("%") ? " like UPPER(?)" : "=UPPER(?)");
+    	*/
     	StringBuffer query = new StringBuffer(1000);
     	query.append(" select project_id, ");
-    	query.append(" component_name || ' ' || trim (version_text) || ' (' || date(rating_date) || ')' as project_desc ");     			
+    	query.append(" component_name || ' ' || trim (version_text) || ' (' || trim(NVL(date(rating_date),'UNKNOWN')) || ')' as project_desc  ");
     	query.append(" from project p,");
     	query.append(" 	    comp_versions cv,");
     	query.append("      comp_catalog c");
     	query.append(" where p.comp_vers_id = cv.comp_vers_id");
     	query.append(" and cv.component_id = c.component_id");
-    	query.append(" and " + filter);
+    	query.append(" and " + filterCondition("component_name", search));
     	query.append(" and cur_version = 1");
     	
         ArrayList param = new ArrayList();
@@ -5054,7 +5058,32 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         hm.put(COMPONENT_PROJECT_LIST, rsc);
         return hm;
     }
-    
+
+    public Map findRounds(String search, int[] roundTypes) throws SQLException {
+    	StringBuffer types = new StringBuffer(100);
+    	if (roundTypes.length > 0) {
+    		types.append(" and round_type_id in(");
+    		for (int i = 0; i < roundTypes.length; i++) {
+    			types.append(roundTypes[i] + (i < (roundTypes.length -1) ? "," : ") "));
+    		}
+    	}
+    	StringBuffer query = new StringBuffer(1000);    	
+    	query.append(" select round_id, c.name || ' - ' || r.name as round_desc ");
+    	query.append(" from round r, ");
+    	query.append(" contest c ");
+    	query.append(" where r.contest_id = c.contest_id ");
+    	query.append(types);
+    	query.append(" and " + filterCondition("c.name || ' - ' || r.name", search));
+    	
+        ArrayList param = new ArrayList();
+        param.add(search);
+        ResultSetContainer rsc = runSearchQuery(query.toString(), param, true);
+        
+        HashMap hm = new HashMap();
+        hm.put(ALGORITHM_ROUND_LIST, rsc);
+        return hm;
+    }
+
     public Map getDigitalRunSeasonList() throws SQLException {
         String query = "SELECT season_id, name FROM season ORDER BY name";
 
@@ -5066,7 +5095,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     public Map getDigitalRunStageList() throws SQLException {
-
         StringBuffer query = new StringBuffer(1000);
     	query.append(" select stage_id, s.name || ' - ' || st.name as stage_desc"); 
     	query.append(" from stage st, ");

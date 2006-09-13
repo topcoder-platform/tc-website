@@ -69,7 +69,7 @@ public interface PactsConstants {
     public static final int BUG_FIXES_PAYMENT = 23;
 
     // Reference types
-    public static final int REFERENCE_ALGORITHM_ROUND = 1;
+    public static final int REFERENCE_ALGORITHM_ROUND_ID = 1;
     public static final int REFERENCE_COMPONENT_PROJECT_ID = 2;
     public static final int REFERENCE_ALGORITHM_PROBLEM_ID = 3;
     public static final int REFERENCE_STUDIO_CONTEST_ID = 4;

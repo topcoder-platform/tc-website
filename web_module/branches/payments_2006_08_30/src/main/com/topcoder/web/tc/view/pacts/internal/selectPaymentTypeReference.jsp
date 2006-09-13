@@ -15,12 +15,18 @@
 <c:set var="projects" value="${requestScope.component_project_list}"/>
 <c:set var="stages" value="${requestScope.digital_run_stage_list}"/>
 <c:set var="seasons" value="${requestScope.digital_run_season_list}"/>
+<c:set var="rounds" value="${requestScope.algorithm_round_list}"/>
 <c:set var="refId" value="${requestScope.reference_id}"/>
 
         <tac:replaceChildren contextNodeID="selectReference" parseOnServer="true">
 			<input type="text" name="search_text_x" />
 			<input type="button" value="search" onClick="alert('hi');search()" />
 		<c:choose>
+			<c:when test="${refId == 1}">
+            	<tc-webtag:rscSelect name="round_id" list="${rounds}" 
+                        fieldText="round_desc" fieldValue="round_id"              			
+            			useTopValue="false" />
+			</c:when>            			
 			<c:when test="${refId == 2}">
             	<tc-webtag:rscSelect name="project_id" list="${projects}" 
                         fieldText="project_desc" fieldValue="project_id"              			
