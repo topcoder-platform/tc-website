@@ -50,10 +50,10 @@
         <pathelement location="${jars.dir}/httpunit.jar"/>
 
         <pathelement location="${jars.dir}/idgenerator.jar"/>
-        <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
 
         <!-- tcs components -->
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+        <pathelement location="${jars.dir}/tcs/id_generator/3.0.1/id_generator.jar"/>
         <pathelement location="${jars.dir}/tcs/configuration_manager/2.1.3/configuration_manager.jar"/>
         <pathelement location="${jars.dir}/tcs/document_generation.jar"/>
         <pathelement location="${jars.dir}/tcs/email_engine.jar"/>
@@ -64,13 +64,13 @@
         <pathelement location="${jars.dir}/tcs/logging_wrapper.jar"/>
         <pathelement location="${jars.dir}/tcs/math_matrix.jar"/>
         <pathelement location="${jars.dir}/tcs/object_formatter.jar"/>
-        <pathelement location="${jars.dir}/tcs/project_phases/1.0/project_phases.jar"/>
         <pathelement location="${jars.dir}/tcs/refreshable_cache.jar"/>
         <pathelement location="${jars.dir}/tcs/searchengine.jar"/>
         <pathelement location="${jars.dir}/tcs/simple_cache.jar"/>
         <!--only need this for the old shitty forums component -->
         <pathelement location="${jars.dir}/tcs/tcsUtil.jar"/>
         <pathelement location="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
+        <pathelement location="${jars.dir}/tcs/phase_management/1.0/phase_management.jar"/>
         <pathelement location="${jars.dir}/tcs/workdays/1.0/workdays.jar"/>
         <pathelement location="${jars.dir}/tcs/compression_utility/2.0/compression_utility.jar"/>
         <pathelement location="${jars.dir}/tcs/data_validation/1.0/data_validation.jar"/>
@@ -80,6 +80,12 @@
         <pathelement location="${jars.dir}/tcs/magic_numbers/1.0/magic_numbers.jar"/>
         <pathelement location="${jars.dir}/tcs/xmi_parser/1.0/xmi_parser.jar"/>
         <pathelement location="${jars.dir}/tcs/executable_wrapper.jar"/>
+        
+        <pathelement location="${jars.dir}/tcs/project_phases/2.0/project_phases.jar"/>
+        <pathelement location="${jars.dir}/tcs/object_factory/2.0/object_factory.jar"/>
+        <pathelement location="${jars.dir}/tcs/phase_management/1.0/phase_management.jar"/>
+        <pathelement location="${jars.dir}/tcs/project_management/1.0/project_management.jar"/>
+        <pathelement location="${jars.dir}/tcs/project_phase_template/1.0/project_phase_template.jar"/>
     </path>
 
     <target name="init">
@@ -313,6 +319,7 @@
                 <include name="com/topcoder/dde/catalog/ComponentManagerBean.properties"/>
                 <include name="com/topcoder/dde/catalog/confirmationemail.xsl"/>
                 <include name="com/topcoder/message/email/EmailEngine.xml"/>
+                <include name="com/topcoder/project/phases/template/Project_Phase_Template_Config.xml"/>
                 <include name="com/topcoder/servlet/request/FileUpload.xml"/>
                 <include name="com/topcoder/apps/review/workdays.xml"/>
                 <include name="com/topcoder/apps/review/business_logic_config.properties"/>
@@ -323,6 +330,7 @@
                 <include name="com/topcoder/dde/user/UserManagerBean.properties"/>
                 <include name="com/topcoder/db/connectionfactory/DBConnectionFactoryImpl.xml"/>
                 <include name="mail_templates/*.xsl"/>
+                <include name="template/*.xml"/>
             </fileset>
             <fileset dir="${resources.dir}">
                 <include name="ApplicationServer.properties"/>
@@ -374,12 +382,32 @@
             </fileset>
         </copy>
         <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/phase_management/1.0">
+                <include name="phase_management.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/project_management/1.0">
+                <include name="project_management.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/project_phase_template/1.0">
+                <include name="project_phase_template.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/object_factory/2.0">
+                <include name="object_factory.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
             <fileset dir="${jars.dir}/tcs/configuration_manager/2.1.3">
                 <include name="configuration_manager.jar"/>
             </fileset>
         </copy>
         <copy todir="${jboss.lib.dir}">
-            <fileset dir="${jars.dir}/tcs/project_phases/1.0">
+            <fileset dir="${jars.dir}/tcs/project_phases/2.0">
                 <include name="project_phases.jar"/>
             </fileset>
         </copy>
@@ -434,7 +462,7 @@
             </fileset>
         </copy>
         <copy todir="${jboss.lib.dir}">
-            <fileset dir="${jars.dir}/tcs/id_generator/3.0">
+            <fileset dir="${jars.dir}/tcs/id_generator/3.0.1">
                 <include name="id_generator.jar"/>
             </fileset>
         </copy>
