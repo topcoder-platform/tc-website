@@ -13,6 +13,8 @@
 
 <c:set var="problems" value="${requestScope.algorithm_problem_list}"/>
 <c:set var="projects" value="${requestScope.component_project_list}"/>
+<c:set var="stages" value="${requestScope.digital_run_stage_list}"/>
+<c:set var="seasons" value="${requestScope.digital_run_season_list}"/>
 <c:set var="refId" value="${requestScope.reference_id}"/>
 
         <tac:replaceChildren contextNodeID="selectReference" parseOnServer="true">
@@ -30,6 +32,16 @@
 			<c:when test="${refId == 3}">
             	<tc-webtag:rscSelect name="problem_id" list="${problems}" 
                         fieldText="name" fieldValue="problem_id"              			
+            			useTopValue="false" />
+			</c:when>            			
+			<c:when test="${refId == 6}">
+            	<tc-webtag:rscSelect name="stage_id" list="${stages}" 
+                        fieldText="stage_desc" fieldValue="stage_id"              			
+            			useTopValue="false" />
+			</c:when>            			
+			<c:when test="${refId == 7}">
+            	<tc-webtag:rscSelect name="season_id" list="${seasons}" 
+                        fieldText="name" fieldValue="season_id"              			
             			useTopValue="false" />
 			</c:when>            			
 			      

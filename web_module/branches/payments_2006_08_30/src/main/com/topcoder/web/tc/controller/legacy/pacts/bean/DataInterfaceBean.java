@@ -1447,5 +1447,15 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.findProjects(search);
     }
 
+    public Map getDigitalRunSeasonList() throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.getDigitalRunSeasonList();
+    }
+
+    public Map getDigitalRunStageList() throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.getDigitalRunStageList();
+    }
+
 }
 

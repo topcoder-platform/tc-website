@@ -16,23 +16,34 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
         try {
         	int refId = Integer.parseInt(getRequest().getParameter("reference_id"));
         	String search = getRequest().getParameter("search_text");
-        	log.info("SelectPaymentTypeReference: reference_id=" + refId);
+
+        	DataInterfaceBean dib = new DataInterfaceBean();
+
         	if (search != null) {	            
-	            DataInterfaceBean dib = new DataInterfaceBean();
-	            
 	            Map map = null;
 	            switch (refId) {
-	            case REFERENCE_ALGORITHM_PROBLEM_ID:
-	            	map = dib.findProblems("%" + search + "%");	            
-	            	getRequest().setAttribute(ALGORITHM_PROBLEM_LIST, map.get(ALGORITHM_PROBLEM_LIST));	            	
-	            	break;
-	            case REFERENCE_COMPONENT_PROJECT_ID:
-	            	map = dib.findProjects("%" + search + "%");	            
-	            	getRequest().setAttribute(COMPONENT_PROJECT_LIST, map.get(COMPONENT_PROJECT_LIST));
-	            	break;	            	
+	            	case REFERENCE_ALGORITHM_PROBLEM_ID:
+	            		map = dib.findProblems("%" + search + "%");	            
+	            		getRequest().setAttribute(ALGORITHM_PROBLEM_LIST, map.get(ALGORITHM_PROBLEM_LIST));	            	
+	            		break;
+		            case REFERENCE_COMPONENT_PROJECT_ID:
+		            	map = dib.findProjects("%" + search + "%");	            
+		            	getRequest().setAttribute(COMPONENT_PROJECT_LIST, map.get(COMPONENT_PROJECT_LIST));
+		            	break;
 	            }
-	            
-	            
+        	} else {
+	            Map map = null;
+	            switch (refId) {
+		            case REFERENCE_DIGITAL_RUN_SEASON_ID:
+		            	map = dib.getDigitalRunSeasonList();	            
+		            	getRequest().setAttribute(DIGITAL_RUN_SEASON_LIST, map.get(DIGITAL_RUN_SEASON_LIST));
+		            	break;	            	
+		            case REFERENCE_DIGITAL_RUN_STAGE_ID:
+		            	map = dib.getDigitalRunStageList();	            
+		            	getRequest().setAttribute(DIGITAL_RUN_STAGE_LIST, map.get(DIGITAL_RUN_STAGE_LIST));
+		            	break;	            		            
+	            }
+        		
         	}
         	getRequest().setAttribute("reference_id", refId + "");
             setNextPage(INTERNAL_SELECT_PAYMENT_TYPE_REFERENCE);
