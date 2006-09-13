@@ -52,10 +52,16 @@ import com.topcoder.shared.util.logging.Logger;
  * Schema was changed to allow reviewers for particular technologies.
  * </li>
  * </ol>
+ * Version 1.0.3 Change notes:
+ * <ol>
+ * <li>
+ * Submitter role is disabled for the registering reviewer.
+ * </li>
+ * </ol>
  * </p>
  *
  * @author dok, pulky
- * @version 1.0.2
+ * @version 1.0.3
  */
 public class RBoardApplicationBean extends BaseEJB {
     private static final int FINAL_REVIEWER_ROLE_ID = 5;
@@ -394,6 +400,8 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param conn the connection being used
      * @param userId the user id to reset.
      * @param projectId the project id to reset
+     *
+     * @since 1.0.3
      */
     private void resetSubmitterRole(Connection conn, long userId, long projectId) {
         update(conn, "r_user_role",
