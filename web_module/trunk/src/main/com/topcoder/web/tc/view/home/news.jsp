@@ -9,6 +9,22 @@
 </tr>
 <%--------------------------------------------------------%>
 <tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.13.06<br>4:15 PM</td>
+    <td class="newsTextCell"><span class="newsTitle">
+      TCCC06 Algorithm Sections: <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionA">A</A>, <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionB">B</A>, and <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionC">C</A>
+      </span><br><br>
+      Here are the section assignments for Sections <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionA">A</A>, <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionB">B</A>, and <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionC">C</A>.
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionA">Section A</A> | 
+    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionB">Section B</A> | 
+    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionC">Section C</A> | 
+    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.13.06<br>11:45 AM</td>
     <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">TCCC06 Algorithm Qualification Round 3 Results</A>
@@ -17,8 +33,8 @@
     </td>
 </tr>
 <tr><td class="newsLinksCell">
-    <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">results</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506103" message="discuss this" />&#160;|&#160;
+    <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">results</A> | 
+    <tc-webtag:forumLink forumID="506103" message="discuss this" /> | 
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
 
@@ -32,8 +48,8 @@
     </td>
 </tr>
 <tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg_chat_082406">view</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506076" message="discuss this"/>&#160;|&#160;
+    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg_chat_082406">view</A> | 
+    <tc-webtag:forumLink forumID="506076" message="discuss this"/> | 
     <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
 </td></tr>
 
@@ -47,8 +63,8 @@
     </td>
 </tr>
 <tr><td class="newsLinksCell">
-    <A href="/tc?module=TCCC06ViewAlgoReg">Algorithm Registration</A>&#160;|&#160;
-    <A href="/tc?module=TCCC06ComponentTerms">Component Registration</A>&#160;|&#160;
+    <A href="/tc?module=TCCC06ViewAlgoReg">Algorithm Registration</A> | 
+    <A href="/tc?module=TCCC06ComponentTerms">Component Registration</A> | 
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
 
@@ -64,8 +80,8 @@ This problem set was a bit harder then the average High School match. Though the
     </td>
 </tr>
 <tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm14">full story</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506036" message="discuss this"/>&#160;|&#160;
+    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm14">full story</A> | 
+    <tc-webtag:forumLink forumID="506036" message="discuss this"/> | 
     <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
 </td></tr>
 
@@ -83,8 +99,8 @@ be exciting.
     </td>
 </tr>
 <tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_qual_2">full story</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506103" message="discuss this"/>&#160;|&#160;
+    <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_qual_2">full story</A> | 
+    <tc-webtag:forumLink forumID="506103" message="discuss this"/> | 
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
 
@@ -98,8 +114,8 @@ be exciting.
     </td>
 </tr>
 <tr><td class="newsLinksCell">
-    <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">results</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506103" message="discuss this" />&#160;|&#160;
+    <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">results</A> | 
+    <tc-webtag:forumLink forumID="506103" message="discuss this" /> | 
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
 
@@ -113,8 +129,8 @@ be exciting.
     </td>
 </tr>
 <tr><td class="newsLinksCell">
-    <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2030">details</A>&#160;|&#160;
-    <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=14">discuss this</A>&#160;|&#160;
+    <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2030">details</A> | 
+    <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=14">discuss this</A> | 
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
 
@@ -129,8 +145,8 @@ be exciting.
     </td>
 </tr>
 <tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=dev_forums">details</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506104" message="discuss this" />&#160;|&#160;
+    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=dev_forums">details</A> | 
+    <tc-webtag:forumLink forumID="506104" message="discuss this" /> | 
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
 
@@ -147,8 +163,8 @@ be exciting.
     </td>
 </tr>
 <tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&amp;d1=features&amp;d2=091106">article</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506105" message="discuss this"/>&#160;|&#160;
+    <A href="/tc?module=Static&amp;d1=features&amp;d2=091106">article</A> | 
+    <tc-webtag:forumLink forumID="506105" message="discuss this"/> | 
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 
@@ -167,8 +183,8 @@ be exciting.
     </td>
 </tr>
 <tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_qual_1">full story</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506103" message="discuss this"/>&#160;|&#160;
+    <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_qual_1">full story</A> | 
+    <tc-webtag:forumLink forumID="506103" message="discuss this"/> | 
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
 
@@ -182,23 +198,8 @@ be exciting.
     </td>
 </tr>
 <tr><td class="newsLinksCell">
-    <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">results</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506103" message="discuss this" />&#160;|&#160;
-    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.06.06<br>12:30 PM</td>
-    <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">TCCC06 Algorithm Qualification Byes</A>
-      </span><br><br>
-      Here are the top 150 rated members who will receive an automatic berth into Online Round #1.
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">details</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506103" message="discuss this" />&#160;|&#160;
+    <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">results</A> | 
+    <tc-webtag:forumLink forumID="506103" message="discuss this" /> | 
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
 
