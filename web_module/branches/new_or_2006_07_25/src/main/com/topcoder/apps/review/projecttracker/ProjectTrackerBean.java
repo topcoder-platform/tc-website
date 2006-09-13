@@ -1827,7 +1827,7 @@ public class ProjectTrackerBean implements SessionBean {
             for (int i = 0; i < n; i++) {
                 phases[i] = new TCPhase(project, startDate, phaseArr[i].getDefaultDuration());
                 if (i > 0) {
-                    phases[i].addDependency(phases[i - 1]);
+                    //phases[i].addDependency(phases[i - 1]);
                 }
             }
 
@@ -1835,7 +1835,7 @@ public class ProjectTrackerBean implements SessionBean {
             Date[] result = new Date [n + 1];
 
             for (int i = 0; i < n; i++) {
-                result[i] = new Date(phases[i].getStartDate().getTime());
+                result[i] = new Date(phases[i].getScheduledStartDate().getTime());
             }
             result[n] = new Date(phases[n - 1].calcEndDate().getTime());
 

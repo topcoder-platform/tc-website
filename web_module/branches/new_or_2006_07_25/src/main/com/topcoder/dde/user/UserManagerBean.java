@@ -1,7 +1,7 @@
 package com.topcoder.dde.user;
 
-import com.topcoder.apps.review.projecttracker.ProjectTracker;
-import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
+import com.topcoder.apps.review.projecttracker.ProjectTrackerV2;
+import com.topcoder.apps.review.projecttracker.ProjectTrackerV2Home;
 import com.topcoder.dde.DDEException;
 import com.topcoder.dde.catalog.ComponentManager;
 import com.topcoder.dde.catalog.ComponentManagerHome;
@@ -977,14 +977,11 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 
 
     private static final String componentInfo =
-            "select cv.component_id " +
-                " , cv.phase_id " +
-               "  , cv.version " +
-            "  from project p " +
-              "   , comp_versions cv " +
-           "  where p.project_id = ? " +
-             "  and p.cur_version = 1 " +
-             "  and p.comp_vers_id = cv.comp_vers_id";
+            "select cv.component_id , cv.phase_id , cv.version " +
+              " from project p " +
+              " inner join project_info pi_vi on p.project_id = pi_vi.project_id and pi_vi.project_info_type_id = 1 " +
+              " inner join comp_versions cv on cv.comp_vers_id = pi_vi.value " +
+              " where p.project_id = ? ";
 
     private static final String getRating =
             " select rating from user_rating where phase_id = ? and user_id = ?";
@@ -1089,10 +1086,10 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 
 
             Context homeBindings = new InitialContext();
-            ProjectTrackerHome ptHome = (ProjectTrackerHome) PortableRemoteObject.narrow(
-                    homeBindings.lookup(ProjectTrackerHome.EJB_REF_NAME),
-                    ProjectTrackerHome.class);
-            ProjectTracker pt = ptHome.create();
+            ProjectTrackerV2Home ptHome = (ProjectTrackerV2Home) PortableRemoteObject.narrow(
+                    homeBindings.lookup(ProjectTrackerV2Home.EJB_REF_NAME),
+                    ProjectTrackerV2Home.class);
+            ProjectTrackerV2 pt = ptHome.create();
             logger.debug("ProjectTracker created");
 
             pt.userInquiry(userId, projectId);

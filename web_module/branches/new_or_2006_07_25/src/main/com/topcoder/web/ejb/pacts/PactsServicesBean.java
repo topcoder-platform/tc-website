@@ -9,17 +9,15 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.web.common.IdGeneratorClient;
 import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.web.common.IdGeneratorClient;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
-import com.topcoder.apps.review.projecttracker.ProjectStatus;
-import com.topcoder.util.idgenerator.IDGenerationException;
 
 import javax.ejb.EJBException;
 import javax.jms.JMSException;
 
 import java.rmi.RemoteException;
 import java.sql.*;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
@@ -4567,7 +4565,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return generateRoundPayments(roundId, CONTEST_WINNING_AFFIDAVIT, makeChanges);
     }
 
-
+    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy hh:mm", Locale.US);
     /**
      * Generates all the payments for the people who won money for the given project (designers, developers,
      * and review board members). Returns the number of payments generated.
@@ -4618,20 +4616,39 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
             
             // Make sure the project exists; in the process, get the name and due date.
+            // to_date(pi_c.value, '%m/%d/%Y %H:%M') + " + COMPONENT_DUE_DATE_INTERVAL + " UNITS DAY AS due_date 
             StringBuffer checkExists = new StringBuffer(300);
-            checkExists.append("SELECT cc.component_name, p.complete_date + " + COMPONENT_DUE_DATE_INTERVAL + " UNITS DAY AS due_date ");
-            checkExists.append("FROM tcs_catalog:project p, tcs_catalog:comp_versions cv, tcs_catalog:comp_catalog cc ");
-            checkExists.append("WHERE p.comp_vers_id = cv.comp_vers_id ");
-            checkExists.append("AND cv.component_id = cc.component_id ");
-            checkExists.append("AND p.project_id = " + projectId + " ");
-            checkExists.append("AND p.cur_version = 1");
+            checkExists.append("SELECT pi_n.value, pi_c.value as due_date");
+            checkExists.append("FROM tcs_catalog:project p ");
+            checkExists.append("inner join tcs_catalog:project_info pi_n ");
+            checkExists.append("on p.project_id = pi_n.project_id ");
+            checkExists.append("AND pi_n.project_info_type_id = 6 ");
+            checkExists.append("inner join tcs_catalog:project_info pi_c ");
+            checkExists.append("on p.project_id = pi_c.project_id ");
+            checkExists.append("AND pi_c.project_info_type_id = 21 ");
+            checkExists.append("where p.project_id = ?");
             rsc = runSelectQuery(c, checkExists.toString(), false);
             if (rsc.getRowCount() != 1) {
                 throw new IllegalUpdateException("Project " + projectId + " does not exist or is not unique");
             }
             String componentName = rsc.getItem(0, 0).toString();
-            String dueDate = TCData.getTCDate(rsc.getRow(0), "due_date", null, true);
-            
+            // current format is mm/dd/yyyy hh:mm
+            Object temp = rsc.getRow(0).getItem("due_date");            
+            String dueDate = null;
+            if (temp == null) {
+            	dueDate = "00/00/0000";
+            } else {
+            	Calendar cal = Calendar.getInstance();
+            	try {
+            		cal.setTime(DATE_FORMAT.parse(temp.toString()));
+            		// should advance 3 days
+            		cal.add(Calendar.DATE, 3);
+            		dueDate = DATE_FORMAT.format(cal.getTime()).substring(0, 10);
+            	} catch(Exception e) {
+            		dueDate = "00/00/0000";
+            	}
+            }
+
             int[] numWinners = new int[2];
             ResultSetContainer[] winners = new ResultSetContainer[2];
             
@@ -4639,11 +4656,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (status == ProjectStatus.ID_COMPLETED) {
                 StringBuffer getWinners = new StringBuffer(300);        
                 getWinners.append("select pr.placed, pr.user_id, payment as paid, pt.project_type_name, pr.old_reliability as reliability ");
-                getWinners.append("from tcs_catalog:project_result pr, tcs_catalog:project p, tcs_catalog:project_type pt ");
+                getWinners.append("from tcs_catalog:project_result pr, tcs_catalog:project p, tcs_catalog:project_category_lu pt ");
                 getWinners.append("where pr.project_id = " + projectId + " ");
                 getWinners.append("and pr.project_id = p.project_id ");
-                getWinners.append("and p.project_type_id = pt.project_type_id ");
-                getWinners.append("and p.cur_version = 1 ");
+                getWinners.append("and p.project_category_id = pt.project_category_id ");
                 getWinners.append("and pr.placed IN (1,2) ");
                 getWinners.append("and pr.payment > 0 ");
                 getWinners.append("order by pr.placed");
@@ -4653,36 +4669,40 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             
             // Get review board members to be paid
             StringBuffer getReviewers = new StringBuffer(300);
-            getReviewers.append("select ur.login_id as user_id, sum(pi.payment) as paid, pt.project_type_name ");
-            getReviewers.append("from tcs_catalog:payment_info pi, tcs_catalog:payment_status ps, tcs_catalog:r_user_role ur, ");
-            getReviewers.append("tcs_catalog:project p, tcs_catalog:project_type pt, tcs_catalog:review_role rr ");
-            getReviewers.append("where ur.project_id = " + projectId + " ");
-            getReviewers.append("and ur.project_id = p.project_id ");
-            getReviewers.append("and p.project_type_id = pt.project_type_id ");
-            getReviewers.append("and p.cur_version = 1 ");
-            getReviewers.append("and pi.payment_info_id = ur.payment_info_id ");
-            getReviewers.append("and ur.r_role_id = rr.review_role_id ");
-            getReviewers.append("and rr.review_role_id IN (2,3,4,5) ");
-            getReviewers.append("and pi.payment_stat_id = ps.payment_stat_id ");
-            getReviewers.append("and ps.payment_stat_id = 2 ");
-            getReviewers.append("and pi.cur_version = 1 ");
-            getReviewers.append("and ur.cur_version = 1 ");
-            getReviewers.append("group by login_id, pt.project_type_name");
+            getReviewers.append("select ri_u.value as user_id, sum(round(ri_p.value)) as paid, max(pcl.name) as project_type_name ");
+            getReviewers.append("from project p ");
+            getReviewers.append("inner join resource r ");
+            getReviewers.append("on p.project_id = r.project_id ");
+            getReviewers.append("and (r.resource_role_id >= 2 and r.resource_role_id <= 9) ");
+            getReviewers.append("inner join resource_info ri_u ");
+            getReviewers.append("on r.resource_id = ri_u.resource_id ");
+            getReviewers.append("and ri_u.resource_info_type_id = 1 ");
+            getReviewers.append("and ri_u.value <> '0' ");
+            getReviewers.append("inner join resource_info ri_p ");
+            getReviewers.append("on r.resource_id = ri_p.resource_id ");
+            getReviewers.append("and ri_p.resource_info_type_id = 7 ");
+            getReviewers.append("inner join project_category_lu pcl ");
+            getReviewers.append("on pcl.project_category_id = p.project_category_id ");
+            getReviewers.append("where p.project_id = " + projectId + " ");
+            getReviewers.append("group by ri_u.value");
             winners[1] = runSelectQuery(c, getReviewers.toString(), false);
             numWinners[1] = winners[1].getRowCount();
             
             // Identify component categories            
             String category = "";
             StringBuffer getCategories = new StringBuffer(300);
-            getCategories.append("select p.project_id, cat.category_name, cv.version_text ");
-            getCategories.append("from tcs_catalog:comp_catalog cc, tcs_catalog:project p, ");
-            getCategories.append("tcs_catalog:categories cat, tcs_catalog:comp_versions cv ");
-            getCategories.append("where p.comp_vers_id = cv.comp_vers_id ");
-            getCategories.append("and cv.component_id = cc.component_id ");
-            getCategories.append("and p.project_id = " + projectId + " ");
-            getCategories.append("and p.cur_version = 1 ");
-            getCategories.append("and cc.root_category_id = cat.category_id ");
-            getCategories.append("and cat.parent_category_id is null");
+            getCategories.append("select p.project_id, cat.category_name, pi_rt.value as version_text ");
+            getCategories.append("from tcs_catalog:project p ");
+            getCategories.append("inner join tcs_catalog:project_info pi_ri ");
+            getCategories.append("on pi_ri.project_id = p.project_id ");
+            getCategories.append("and pi_ri.project_info_type_id = 5 ");
+            getCategories.append("inner join tcs_catalog:categories cat ");
+            getCategories.append("on pi_ri.value = cat.category_id ");
+            getCategories.append("and cat.parent_category_id is null ");
+            getCategories.append("inner join tcs_catalog:project_info pi_rt ");
+            getCategories.append("on pi_rt.project_id = p.project_id ");
+            getCategories.append("and pi_rt.project_info_type_id = 7 ");
+            getCategories.append("where p.project_id = " + projectId);
             ResultSetContainer categoryRsc = runSelectQuery(c, getCategories.toString(), false);
             category = "(" + categoryRsc.getItem(0, 1).toString() + ", v" + 
             	categoryRsc.getItem(0, 2).toString().trim() + ")";	

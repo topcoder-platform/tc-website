@@ -10,9 +10,6 @@ import java.util.ArrayList;
 import java.util.TreeMap;
 import java.util.Vector;
 
-//import com.topcoder.netCommon.contest.*;
-//import com.topcoder.server.common.*;
-
 public class RatingQubits {
 
     public static final String DRIVER_KEY = "DriverClass";
@@ -20,9 +17,6 @@ public class RatingQubits {
     public static final String HISTORY_LENGTH_KEY = "HistoryLength";
 
     public static void main(String[] args) {
-        int numArgs = args.length;
-        boolean isFinal = true;
-        boolean runAll = false;
         RatingQubits tmp = new RatingQubits();
 
         //Load our configuration
@@ -88,28 +82,19 @@ public class RatingQubits {
         ResultSet rs = null;
 
         try {
-
-            /*
-            //nullout existing ratings
-            String sqlStr = "update project_result set old_rating = null, new_rating = null";
-            ps = conn.prepareStatement(sqlStr);
-            ps.execute();
-        */
             //design
-            String sqlStr = "select distinct pr.project_id, " +
-                    "p.rating_date as ProjectDate, " +
-                    "p.comp_vers_id " +
-                    "from project_result pr, " +
-                    "project p, " +
-                    "outer comp_version_dates cd " +
+            String sqlStr = "select distinct pr.project_id, round(substr(pi_rd.value, 1, 2)) as month, " +
+            		"round(substr(pi_rd.value, 4, 2)) as day, round(substr(pi_rd.value, 7, 4)) as year, " +
+                    "pi_vi.value as comp_vers_id " +
+                    "from project_result pr, project p, project_info pi_vi, project_info pi_rd, outer comp_version_dates cd " +
                     "where p.project_id = pr.project_id " +
-                    "and p.cur_version = 1 " +
-                    "and p.project_stat_id in (2,4,6) " +
-                    "and p.project_type_id = 1 " +
-                    "and pr.rating_ind = 1" +
-                    "and cd.comp_vers_id = p.comp_vers_id " +
-                    "and cd.phase_id = (case when p.project_type_id = 1 then 112 else 113 end  ) " +
-                    "order by 2,1";
+                    "and p.project_status_id in (3, 4, 5, 6, 7)  " +
+                    "and p.project_category_id = 1 " +
+                    "and pr.rating_ind = 1 " +
+                    "and pi_vi.project_id = p.project_id and pi_vi.project_info_type_id = 1 " +
+                    "and pi_rd.project_id = p.project_id and pi_rd.project_info_type_id = 22 " +
+                    "and cd.comp_vers_id = pi_vi.value and cd.phase_id = 112 " +
+		            "order by year, month, day, 1";
 
             ps = conn.prepareStatement(sqlStr);
             rs = ps.executeQuery();
@@ -123,21 +108,18 @@ public class RatingQubits {
 
             //dev
 
-            sqlStr = "select distinct pr.project_id, " +
-                    "rating_date as ProjectDate, " +
-                    "p.comp_vers_id " +
-                    "from project_result pr, " +
-                    "project p, " +
-                    "outer comp_version_dates cd " +
-                    "where p.project_id = pr.project_id " +
-                    "and p.cur_version = 1 " +
-                    "and p.project_stat_id in (2,4,6) " +
-                    "and p.project_type_id = 2 " +
-                    "and pr.rating_ind = 1" +
-                    "and cd.comp_vers_id = p.comp_vers_id " +
-                    "and cd.phase_id = (case when p.project_type_id = 1 then 112 else 113 end  ) " +
-                    "order by 2,1";
-
+            sqlStr = "select distinct pr.project_id, round(substr(pi_rd.value, 1, 2)) as month, " +
+            		"round(substr(pi_rd.value, 4, 2)) as day, round(substr(pi_rd.value, 7, 4)) as year, " +
+		            "pi_vi.value as comp_vers_id " +
+		            "from project_result pr, project p, project_info pi_vi, project_info pi_rd, outer comp_version_dates cd " +
+		            "where p.project_id = pr.project_id " +
+		            "and p.project_status_id in (3, 4, 5, 6, 7)  " +
+		            "and p.project_category_id = 2 " +
+		            "and pr.rating_ind = 1 " +
+                    "and pi_vi.project_id = p.project_id and pi_vi.project_info_type_id = 1 " +
+                    "and pi_rd.project_id = p.project_id and pi_rd.project_info_type_id = 22 " +
+		            "and cd.comp_vers_id = pi_vi.value and cd.phase_id = 113 " +
+		            "order by year, month, day, 1";
 
             ps = conn.prepareStatement(sqlStr);
             rs = ps.executeQuery();
@@ -226,21 +208,6 @@ public class RatingQubits {
             }
 
             while (rs.next()) {
-                /*if(rs.getInt("level_id") != levelId)
-                {
-                    //new level
-                    levelId = rs.getInt("level_id");
-                    System.out.println("Processing new level: " + levelId);
-
-                    //clear history
-                    histories = new ArrayList();
-
-                    for(i = 0; i < Integer.parseInt(historyLength); i++)
-                    {
-                        histories.add(null);
-                    }
-                } */
-
                 //new project
                 int processed = 0;
                 namesplusprov = new Vector();

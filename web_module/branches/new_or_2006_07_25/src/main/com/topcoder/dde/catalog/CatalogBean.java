@@ -6,8 +6,8 @@ package com.topcoder.dde.catalog;
 
 import com.topcoder.apps.review.document.DocumentManager;
 import com.topcoder.apps.review.document.DocumentManagerHome;
-import com.topcoder.apps.review.projecttracker.ProjectTracker;
-import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
+import com.topcoder.apps.review.projecttracker.ProjectTrackerV2;
+import com.topcoder.apps.review.projecttracker.ProjectTrackerV2Home;
 import com.topcoder.dde.DDEException;
 import com.topcoder.dde.forum.ForumModeratePermission;
 import com.topcoder.dde.forum.ForumPostPermission;
@@ -103,7 +103,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     private UserManagerLocalHome usermanHome;
     private PrincipalMgrRemoteHome principalmgrHome;
     private PolicyMgrRemoteHome policymgrHome;
-    private ProjectTrackerHome projectTrackerHome;
+    private ProjectTrackerV2Home projectTrackerHome;
     private DocumentManagerHome documentManagerHome;
     private PolicyRemoteHome policyHome;
 
@@ -197,9 +197,9 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
             log.debug("blah");
             // Online Review
-            projectTrackerHome = (ProjectTrackerHome) PortableRemoteObject.narrow(
-                    homeBindings.lookup(ProjectTrackerHome.EJB_REF_NAME),
-                    ProjectTrackerHome.class);
+            projectTrackerHome = (ProjectTrackerV2Home) PortableRemoteObject.narrow(
+                    homeBindings.lookup(ProjectTrackerV2Home.EJB_REF_NAME),
+                    ProjectTrackerV2Home.class);
             log.debug("blah");
             documentManagerHome = (DocumentManagerHome) PortableRemoteObject.narrow(
                     homeBindings.lookup(DocumentManagerHome.EJB_REF_NAME),
@@ -2616,7 +2616,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
      */
     private long getProjectId(long projectType, long compVersId) throws CatalogException {
         try {
-            ProjectTracker pt = projectTrackerHome.create();
+            ProjectTrackerV2 pt = projectTrackerHome.create();
             return pt.getProjectIdByComponentVersionId(compVersId, projectType);
         } catch (RemoteException e) {
             ejbContext.setRollbackOnly();

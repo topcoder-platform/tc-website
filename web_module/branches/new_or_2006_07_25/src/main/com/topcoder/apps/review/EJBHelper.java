@@ -7,6 +7,8 @@ import com.topcoder.apps.review.document.DocumentManagerLocal;
 import com.topcoder.apps.review.document.DocumentManagerLocalHome;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerLocalHome;
+import com.topcoder.apps.review.projecttracker.ProjectTrackerV2Local;
+import com.topcoder.apps.review.projecttracker.ProjectTrackerV2LocalHome;
 import com.topcoder.apps.review.projecttracker.UserManagerLocal;
 import com.topcoder.apps.review.projecttracker.UserManagerLocalHome;
 import com.topcoder.security.admin.PolicyMgrRemote;
@@ -311,7 +313,7 @@ public class EJBHelper {
             } else {
                 Context initial = new InitialContext();
                 Object objref = initial.lookup(ProjectTrackerLocalHome.EJB_REF_NAME);
-                ProjectTrackerLocalHome home = (ProjectTrackerLocalHome) PortableRemoteObject.narrow(objref, ProjectTrackerLocalHome.class);
+                ProjectTrackerLocalHome home = (ProjectTrackerLocalHome) PortableRemoteObject.narrow(objref, ProjectTrackerV2LocalHome.class);
                 projectTracker = home.create();
             }
         }

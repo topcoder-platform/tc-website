@@ -1197,12 +1197,12 @@ public final class ProjectForm extends ReviewForm {
         for (int i = 0; i < n; i++) {
             phases[i] = new TCPhase(projectPhases, project.getTimeline()[i].getStartDate(), project.getTimeline()[i].getEndDate());
             if (i > 0) {
-                phases [i].addDependency(phases[i - 1]);
+               // phases [i].addDependency(phases[i - 1]);
                 adjustStartDates[i] = project.getTimeline()[i].getStartDate().equals(project.getTimeline()[i-1].getEndDate());
                 forcedStartDates[i] = adjustStartDates[i]? "" : dateFormatter.format(project.getTimeline()[i].getStartDate());
             }
 
-            phaseMinutes[i] = phases[i].getLength();
+            phaseMinutes[i] = (int) phases[i].getLength();
             phaseLengths[i] = formatLength(phaseMinutes[i]);
         }
 
@@ -1248,10 +1248,10 @@ public final class ProjectForm extends ReviewForm {
             phases[i] = new TCPhase(projectPhases, startDate, phaseMinutes[i]);
 
             if (i > 0) {
-                phases [i].addDependency(phases[i - 1]);
+                //phases [i].addDependency(phases[i - 1]);
             }
 
-            startDates[i] = dateFormatter.format(phases[i].getStartDate());
+            startDates[i] = dateFormatter.format(phases[i].getScheduledStartDate());
             endDates[i] = dateFormatter.format(phases[i].calcEndDate());
             startDate = phases[i].calcEndDate();
         }

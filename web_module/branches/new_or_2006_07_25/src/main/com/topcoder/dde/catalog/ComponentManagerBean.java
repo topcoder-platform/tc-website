@@ -116,7 +116,7 @@ public class ComponentManagerBean
     public PrincipalMgrRemoteHome principalmgrHome;
     public PolicyMgrRemoteHome policymgrHome;
     public PolicyRemoteHome policyHome;
-    public ProjectTrackerHome projectTrackerHome;
+    public ProjectTrackerV2Home projectTrackerHome;
     public DocumentManagerHome documentManagerHome;
     public long componentId;
     public long versionId;
@@ -204,9 +204,9 @@ public class ComponentManagerBean
                         PolicyRemoteHome.class);
 
         // Online Review
-        projectTrackerHome = (ProjectTrackerHome) PortableRemoteObject.narrow(
-                homeBindings.lookup(ProjectTrackerHome.EJB_REF_NAME),
-                ProjectTrackerHome.class);
+        projectTrackerHome = (ProjectTrackerV2Home) PortableRemoteObject.narrow(
+                homeBindings.lookup(ProjectTrackerV2Home.EJB_REF_NAME),
+                ProjectTrackerV2Home.class);
         documentManagerHome = (DocumentManagerHome) PortableRemoteObject.narrow(
                 homeBindings.lookup(DocumentManagerHome.EJB_REF_NAME),
                 DocumentManagerHome.class);
@@ -705,7 +705,7 @@ public class ComponentManagerBean
         // Change Online Review Security roles on component name change
         if (!compBean.getComponentName().equals(info.getName())) {
             try {
-                ProjectTracker pt = projectTrackerHome.create();
+                ProjectTrackerV2 pt = projectTrackerHome.create();
                 pt.componentRename(componentId,
                         compBean.getComponentName(),
                         info.getName());
@@ -920,7 +920,7 @@ public class ComponentManagerBean
         // Change Online Review Security roles if versionText has changed
         if (!versionBean.getVersionText().trim().equals(info.getVersionLabel())) {
             try {
-                ProjectTracker pt = projectTrackerHome.create();
+                ProjectTrackerV2 pt = projectTrackerHome.create();
                 pt.versionRename(info.getVersionId(),
                         versionBean.getVersionText().trim(),
                         info.getVersionLabel());
@@ -942,10 +942,8 @@ public class ComponentManagerBean
 
             long projectTypeId;
             if (info.getPhase() == ComponentVersionInfo.SPECIFICATION) {
-                // TODO Change to reference
                 projectTypeId = 1;
             } else {
-                // TODO Change to reference
                 projectTypeId = 2;
             }
 
@@ -954,10 +952,10 @@ public class ComponentManagerBean
 
             try {
                 Context homeBindings = new InitialContext();
-                ProjectTrackerHome ptHome = (ProjectTrackerHome) PortableRemoteObject.narrow(
-                        homeBindings.lookup(ProjectTrackerHome.EJB_REF_NAME),
-                        ProjectTrackerHome.class);
-                ProjectTracker pt = ptHome.create();
+                ProjectTrackerV2Home ptHome = (ProjectTrackerV2Home) PortableRemoteObject.narrow(
+                        homeBindings.lookup(ProjectTrackerV2Home.EJB_REF_NAME),
+                        ProjectTrackerV2Home.class);
+                ProjectTrackerV2 pt = ptHome.create();
 
                 // if component went to dev, get the winner from design to add to forum post notification.
                 if ((versionBean.getPhaseId() != ComponentVersionInfo.DEVELOPMENT) &&
@@ -965,12 +963,12 @@ public class ComponentManagerBean
                     log.debug("Project went to development. Design winner will be added to notification");
 
 
-                    Project project = pt.getProjectById(
+                    long[] winnerForumIds = pt.getProjectWinnerIdForumId(
                         pt.getProjectIdByComponentVersionId(getVersionInfo().getVersionId(), ProjectType.ID_DESIGN), requestor);
 
 
-                    if (project.getWinner() != null) {
-                        log.debug("WinnerId=" + project.getWinner().getId());
+                    if (winnerForumIds[0] != 0) {
+                        log.debug("WinnerId=" + winnerForumIds[0]);
 
                         NotificationHome notificationHome = (NotificationHome)
                                 PortableRemoteObject.narrow(
@@ -982,8 +980,8 @@ public class ComponentManagerBean
                         if (notification != null) {
                             description = createNotificationEventDescription("Forum Post");
                             notification.createNotification(
-                                    "com.topcoder.dde.forum.ForumPostEvent " + project.getForumId(),
-                                    project.getWinner().getId(),
+                                    "com.topcoder.dde.forum.ForumPostEvent " + winnerForumIds[1],
+                                    winnerForumIds[0],
                                     Notification.FORUM_POST_TYPE_ID, description);
                         } else {
                             log.debug("Can't get the notification bean.  The design winner was not added.");
@@ -2324,7 +2322,7 @@ public class ComponentManagerBean
      */
     public long getProjectId(long projectType) throws CatalogException {
         try {
-            ProjectTracker pt = projectTrackerHome.create();
+            ProjectTrackerV2 pt = projectTrackerHome.create();
             return pt.getProjectIdByComponentVersionId(getVersionInfo().getVersionId(), projectType);
         } catch (RemoteException e) {
             ejbContext.setRollbackOnly();

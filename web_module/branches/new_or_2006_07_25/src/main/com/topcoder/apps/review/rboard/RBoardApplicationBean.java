@@ -10,9 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.Map;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.text.FieldPosition;
 
@@ -29,6 +32,9 @@ import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.util.idgenerator.IDGenerationException;
+import com.topcoder.util.idgenerator.IDGenerator;
+import com.topcoder.util.idgenerator.IDGeneratorFactory;
 import com.topcoder.util.idgenerator.bean.IdGen;
 import com.topcoder.util.idgenerator.bean.IdGenHome;
 import com.topcoder.web.common.RowNotFoundException;
@@ -46,26 +52,40 @@ import com.topcoder.shared.util.logging.Logger;
  * Bean was moved from tc to tcs site and was updated to centralize all RBoard operations.
  * </li>
  * </ol>
+ * Version 1.0.2 Change notes:
+ * <ol>
+ * <li>
+ * Schema was changed to allow reviewers for particular technologies.
+ * </li>
+ * </ol>
  * </p>
  *
  * @author dok, pulky
- * @version 1.0.1
+ * @version 1.0.2
  */
 public class RBoardApplicationBean extends BaseEJB {
-    private static final int FINAL_REVIEWER_ROLE_ID = 5;
-    private static final int AGGREGATOR_ROLE_ID = 4;
-    private static final int PRIMARY_SCREENER_ROLE_ID = 2;
-    private static final int REVIEWER_ROLE_ID = 3;
     private static final int INTERNAL_ADMIN_USER = 100129;
-    private static final int JAVA_CATALOG_ID = 5801776;
-    private static final int DOT_NET_CATALOG_ID = 5801777;
-    private static final int CUSTOM_JAVA_CATALOG_ID = 5801778;
-    private static final int CUSTOM_DOT_NET_CATALOG_ID = 5801779;
-    private static final int FLASH_CATALOG_ID = 8459260;
-    private static final int APPLICATIONS_CATALOG_ID = 9926572;
     private static final int ACTIVE_REVIEWER = 100;
     private static final String LONG_DATE_FORMAT = "MM/dd/yyyy hh:mm:ss aaa";
+    
+    private static final int SCREEN_PHASE = 3;
+    private static final int REVIEW_PHASE = 4;
+    private static final int AGGREGATION_PHASE = 7;
+    private static final int FINAL_REVIEW_PHASE = 10;
 
+    private static final int PRIMARY_SCREEN_ROLE = 2;
+    private static final int REVIEWER_ROLE = 4;
+    private static final int STRESS_REVIEWER_ROLE = 7;
+    private static final int FAILURE_REVIEWER_ROLE = 6;
+    private static final int ACCURACY_REVIWER_ROLE = 5;
+    private static final int AGGREGATOR_REVIEWER_ROLE = 8;
+    private static final int FINAL_REVIEWER_ROLE = 9;
+    
+    private static final int RESOURCE_INFO_TYPE_EXTERNAL_ID = 1;
+    private static final int RESOURCE_INFO_TYPE_REGISTRATION_DATE = 6;
+    
+    private static final String RESOURCE_ID_SEQ = "resource_id_seq";
+    
     private static Logger log = Logger.getLogger(RBoardApplicationBean.class);
 
     /**
@@ -186,13 +206,23 @@ public class RBoardApplicationBean extends BaseEJB {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            ps = conn.prepareStatement("select p.project_id, cc.component_name, cv.version_text, pt.project_type_name, "
-                + "cfx.forum_id, p.cur_version, cfx.forum_type "
-                + "from project p, comp_catalog cc, comp_versions cv, project_type pt, comp_forum_xref cfx "
-                + "where cv.component_id = cc.component_id and p.comp_vers_id = cv.comp_vers_id "
-                + "and pt.project_type_id = p.project_type_id and p.cur_version = 1 "
-                + "and cfx.comp_vers_id = p.comp_vers_id and cfx.forum_type = 2 "
-                + "and p.project_id = ?");
+            ps = conn.prepareStatement("select p.project_id, pi_cn.value as component_name, pi_vt.value as version_text, "
+                + "pt.name, cfx.forum_id, cfx.forum_type from project p "
+                + "inner join project_category_lu pt "
+                + "on p.project_category_id = pt.project_category_id "
+                + "inner join project_info pi_cn "
+                + "on p.project_id = pi_cn.project_id "
+                + "and pi_cn.project_info_type_id = 6 "
+        		+ "inner join project_info pi_vt "
+        		+ "on p.project_id = pi_vt.project_id "
+        		+ "and pi_vt.project_info_type_id = 7 "
+        		+ "inner join project_info pi_vi "
+        		+ "on p.project_id = pi_vi.project_id "
+        		+ "and pi_vi.project_info_type_id = 1 "
+        		+ "inner join comp_forum_xref cfx "
+        		+ "on cfx.comp_vers_id = pi_vi.value "
+        		+ "and cfx.forum_type = 2 "
+                + "where p.project_id = ?");
             ps.setLong(1, projectId);
 
             rs = ps.executeQuery();
@@ -200,13 +230,47 @@ public class RBoardApplicationBean extends BaseEJB {
                 returnMap.put("projectName", rs.getString("component_name"));
                 returnMap.put("projectVersion", rs.getString("version_text").trim());
                 returnMap.put("projectType", rs.getString("project_type_name"));
-                returnMap.put("forumId", rs.getString("forum_id"));
+                returnMap.put("forumId", rs.getString("forum_id"));                
             } else {
                 throw (new EJBException("Couldn't find project info for pid: " + projectId));
             }
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw (new EJBException("Getting project info failed", sqle));
+        } finally {
+            close(rs);
+            close(ps);
+        }
+        return returnMap;
+    }
+
+    /**
+     * Gets specific phases information
+     *
+     * @param projectId the project id being inquired
+     * @param conn the connection being used
+     * @return Map with the phase information, key is phase type id and value is phase id
+     * @throws SQLException when DB operations fails
+     */
+    private Map getPhaseInfo(long projectId, Connection conn)
+            throws SQLException {
+        Map returnMap = new HashMap();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            ps = conn.prepareStatement("select project_phase_id, phase_type_id "
+                + " from project_phase "
+                + "where project_id = ?");
+            ps.setLong(1, projectId);
+
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                returnMap.put(rs.getString("phase_type_id"), rs.getString("project_phase_id"));  
+            }
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw (new EJBException("Getting phase info failed", sqle));
         } finally {
             close(rs);
             close(ps);
@@ -228,6 +292,8 @@ public class RBoardApplicationBean extends BaseEJB {
         return prefix;
     }
 
+    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy hh:mm", Locale.US);
+
     /**
      * Inserts a specified user role
      *
@@ -240,32 +306,58 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param rRoleId the role Id to insert
      * @param paymentInfoId the payment information Id to insert
      */
-    private void insertUserRole(Connection conn, long rUserRoleVId, long userId,
-        long projectId, int reviewRespId, long rUserRoleId, long rRoleId,
-        long paymentInfoId) {
-        // Resets current version
-        resetCurrentVersion(conn, rUserRoleVId);
+    private void insertUserRole(Connection conn, long resourceId, long resourceRoleId,
+        long projectId, String phaseId, long userId) {
+        insert(conn, "resource",
+            new String[]{"resource_id", "resource_role_id", "project_id", "project_phase_id",
+            "create_user", "create_date", "modify_user", "modify_date"},
+            new String[]{String.valueOf(resourceId), String.valueOf(resourceRoleId),
+            String.valueOf(projectId), phaseId, String.valueOf(INTERNAL_ADMIN_USER),
+            String.valueOf(new Date()), String.valueOf(INTERNAL_ADMIN_USER), String.valueOf(new Date())});
 
-        insert(conn, "r_user_role",
-            new String[]{"r_user_role_v_id", "r_user_role_id", "r_role_id", "project_id",
-            "login_id", "payment_info_id", "r_resp_id", "modify_user", "cur_version"},
-            new String[]{String.valueOf(0), String.valueOf(rUserRoleId),
-            String.valueOf(rRoleId), String.valueOf(projectId), String.valueOf(userId),
-            String.valueOf(paymentInfoId), (reviewRespId != -1) ? String.valueOf(reviewRespId) : null,
-            String.valueOf(INTERNAL_ADMIN_USER), "1"});
+        // External Reference ID
+        insert(conn, "resource_info",
+        	new String[]{"resource_id", 
+        		"resource_info_type_id", 
+        		"value", 
+        		"create_user", 
+        		"create_date", 
+        		"modify_user", 
+        		"modify_date"},
+        	new String[] {String.valueOf(resourceId), 
+        		String.valueOf(RESOURCE_INFO_TYPE_EXTERNAL_ID), 
+        		String.valueOf(userId), 
+        		String.valueOf(INTERNAL_ADMIN_USER),
+                String.valueOf(new Date()), 
+                String.valueOf(INTERNAL_ADMIN_USER), 
+                String.valueOf(new Date())});
+        
+        // Registration Date.
+        insert(conn, "resource_info",
+        	new String[]{"resource_id", 
+        		"resource_info_type_id", 
+        		"value", 
+        		"create_user", 
+        		"create_date", 
+        		"modify_user", 
+        		"modify_date"},
+        	new String[] {String.valueOf(resourceId), 
+        		String.valueOf(RESOURCE_INFO_TYPE_REGISTRATION_DATE), 
+        		String.valueOf(DATE_FORMAT.format(new Date())), 
+        		String.valueOf(INTERNAL_ADMIN_USER),
+                String.valueOf(new Date()), 
+                String.valueOf(INTERNAL_ADMIN_USER), 
+                String.valueOf(new Date())});
     }
 
-    /**
-     * Resets cur_version for the specified user role version Id
-     *
-     * @param conn the connection being used
-     * @param rUserRoleVId the user role version id to reset.
-     */
-    private void resetCurrentVersion(Connection conn, long rUserRoleVId) {
-        update(conn, "r_user_role",
-            new String[]{"cur_version"}, new String[]{"0"},
-            new String[]{"r_user_role_v_id"},
-            new String[]{String.valueOf(rUserRoleVId)});
+
+    private long nextId(String tableId) {
+    	try {
+			IDGenerator idgen = IDGeneratorFactory.getIDGenerator(tableId);
+			return idgen.getNextID();
+		} catch (IDGenerationException e) {
+			throw new RuntimeException("Failed to get id generator for " + tableId);
+		}
     }
 
     /**
@@ -301,15 +393,9 @@ public class RBoardApplicationBean extends BaseEJB {
         try {
             conn = DBMS.getConnection(dataSource);
 
-            // gets project info
+            // gets project info.
             Map projectInfo = getProjectInfo(projectId, conn);
             String prefix = buildPrefix(projectInfo);
-
-            // gets UserRole info (First reviewer)
-            ps = conn.prepareStatement("SELECT r_user_role_v_id, r_user_role_id, r_role_id, payment_info_id "
-                    + "FROM r_user_role WHERE project_id = ? and login_id is null and cur_version = 1");
-            ps.setLong(1, projectId);
-            rs = ps.executeQuery();
 
             conn.setAutoCommit(false);
 
@@ -328,41 +414,56 @@ public class RBoardApplicationBean extends BaseEJB {
                         String.valueOf(phaseId), String.valueOf(reviewRespId),
                         String.valueOf(primary ? 1 : 0)});
 
-            boolean reviewerInserted = false;
-            while (rs.next()) {
-                long rUserRoleVId = rs.getLong("r_user_role_v_id");
-                long rUserRoleId = rs.getLong("r_user_role_id");
-                long rRoleId = rs.getLong("r_role_id");
-                long paymentInfoId = rs.getLong("payment_info_id");
-
-                if (rRoleId == REVIEWER_ROLE_ID && !reviewerInserted) {
-                    // insert new UserRole
-                    insertUserRole(conn, rUserRoleVId, userId, projectId, reviewRespId,
-                            rUserRoleId, rRoleId, paymentInfoId);
-
-                    // create permissions.
-                    createPermission(dataSource, idGen, "Review " + projectId, prefix, userId);
-                    createPermission(dataSource, idGen, "View Project " + projectId, prefix, userId);
-                    createPermission(dataSource, idGen, "ForumUser "
-                        + String.valueOf(projectInfo.get("forumId")), "", userId);
-
-                    if (primary) {
-                        createPermission(dataSource, idGen, "Screen " + projectId, prefix, userId);
-                        createPermission(dataSource, idGen, "Aggregation " + projectId, prefix, userId);
-                        createPermission(dataSource, idGen, "Final Review " + projectId, prefix, userId);
-                    }
-
-                    reviewerInserted = true;
-                } else if (primary && (rRoleId == PRIMARY_SCREENER_ROLE_ID ||
-                        rRoleId == AGGREGATOR_ROLE_ID || rRoleId == FINAL_REVIEWER_ROLE_ID)) {
-                    // insert new UserRole
-                    insertUserRole(conn, rUserRoleVId, userId, projectId, -1,
-                        rUserRoleId, rRoleId, paymentInfoId);
-                }
+            // insert common review role
+            int roleId = REVIEWER_ROLE;
+            switch (reviewRespId) {
+            case 1:
+            	roleId = STRESS_REVIEWER_ROLE;
+            	break;
+            case 2:
+            	roleId = FAILURE_REVIEWER_ROLE;
+            	break;
+            case 3:
+            	roleId = ACCURACY_REVIWER_ROLE;
+            	break;
+            case 4:
+            	roleId = REVIEWER_ROLE;
+            	break;
             }
-            if (!reviewerInserted) {
-                throw (new EJBException("Couldn't find UserRole rows for pid:" + projectId));
+            Map phaseInfos = getPhaseInfo(projectId, conn);
+            String pid = (String) phaseInfos.get(String.valueOf(REVIEW_PHASE));
+            // Prepre resource for review phase
+            insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
+
+            if (primary) {
+            	// Prepare for primary screener
+            	roleId = PRIMARY_SCREEN_ROLE;
+            	pid = (String) phaseInfos.get(String.valueOf(SCREEN_PHASE));
+                insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
+
+            	// Prepare for aggregator
+            	roleId = AGGREGATOR_REVIEWER_ROLE;
+            	pid = (String) phaseInfos.get(String.valueOf(AGGREGATION_PHASE));
+                insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
+
+            	// Prepare for final review
+            	roleId = FINAL_REVIEWER_ROLE;
+            	pid = (String) phaseInfos.get(String.valueOf(FINAL_REVIEW_PHASE));
+                insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
             }
+
+            // create permissions.
+            createPermission(dataSource, idGen, "Review " + projectId, prefix, userId);
+            createPermission(dataSource, idGen, "View Project " + projectId, prefix, userId);
+            createPermission(dataSource, idGen, "ForumUser "
+                + String.valueOf(projectInfo.get("forumId")), "", userId);
+
+            if (primary) {
+                createPermission(dataSource, idGen, "Screen " + projectId, prefix, userId);
+                createPermission(dataSource, idGen, "Aggregation " + projectId, prefix, userId);
+                createPermission(dataSource, idGen, "Final Review " + projectId, prefix, userId);
+            }
+
             conn.commit();
             log.debug("Registration for project " + projectId + " completed in " + (System.currentTimeMillis() - start) + " milliseconds");
         } catch (SQLException sqle) {
@@ -488,7 +589,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param phaseId the type of the project
      * @throws RBoardRegistrationException when validations fails
      */
-    public void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, int phaseId) throws RBoardRegistrationException {
+    public void validateUser(String dataSource, int rootCategory, int reviewTypeId, long userId, int phaseId) throws RBoardRegistrationException {
 
         log.debug("validateUser called...");
 
@@ -498,13 +599,20 @@ public class RBoardApplicationBean extends BaseEJB {
             conn = DBMS.getConnection(dataSource);
 
             Map reviewRespMap = null;
-            reviewRespMap = getReviewRespInfo(conn);
+            reviewRespMap = getReviewRespInfo();
+
+            long catalogId = 0;
+            try {
+                catalogId = getCatalogId(conn, rootCategory);
+            } catch (RowNotFoundException rnfe) {
+                throw new RBoardRegistrationException("Invalid request. Unknown review category.");
+            }
 
             long status = 0;
             try {
-                status = getStatus(conn, userId, phaseId);
+                status = getStatus(conn, userId, phaseId - 111, catalogId);
             } catch (RowNotFoundException rnfe) {
-                throw new RBoardRegistrationException("Sorry, you are not a reviewer.  Please contact TopCoder if you would like to become one.");
+                throw new RBoardRegistrationException("Sorry, you are not a " + getCatalogName(conn, catalogId) + " reviewer.  Please contact TopCoder if you would like to become one.");
             }
 
             if (status != ACTIVE_REVIEWER) {
@@ -514,34 +622,6 @@ public class RBoardApplicationBean extends BaseEJB {
             if (!reviewRespMap.containsKey(new Integer(reviewTypeId)) ||
                     !reviewRespMap.get(new Integer(reviewTypeId)).equals(new Integer(phaseId))) {
                 throw new RBoardRegistrationException("Invalid request, incorrect review position specified.");
-            }
-
-            try {
-                if (catalog == JAVA_CATALOG_ID || catalog == CUSTOM_JAVA_CATALOG_ID) {
-                    if (!canReviewJava(conn, userId, phaseId)) {
-                        throw new RBoardRegistrationException("Sorry, you can not review this project because " +
-                                "you are not a Java reviewer");
-                    }
-                } else if (catalog == DOT_NET_CATALOG_ID || catalog == CUSTOM_DOT_NET_CATALOG_ID) {
-                    if (!canReviewDotNet(conn, userId, phaseId)) {
-                        throw new RBoardRegistrationException("Sorry, you can not review this project because " +
-                                "you are not a .Net reviewer");
-                    }
-                } else if (catalog == FLASH_CATALOG_ID) {
-                    if (!canReviewFlash(conn, userId, phaseId)) {
-                        throw new RBoardRegistrationException("Sorry, you can not review this project because " +
-                                "you are not a Flash reviewer");
-                    }
-                } else if (catalog == APPLICATIONS_CATALOG_ID) {
-                    if (!canReviewApplication(conn, userId, phaseId)) {
-                        throw new RBoardRegistrationException("Sorry, you can not review this project because " +
-                                "you are not a Application reviewer");
-                    }
-                } else {
-                    throw new EJBException("unknown catalog found " + catalog);
-                }
-            } catch (RowNotFoundException enfe) {
-                throw new RBoardRegistrationException("Sorry, you are not a reviewer.  Please contact TopCoder if you would like to become one.");
             }
         } catch (SQLException sqle) {
             throw (new EJBException(sqle));
@@ -685,28 +765,51 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param conn the connection being used
      * @return a map with the reviewers responsibility information
      */
-    private Map getReviewRespInfo(Connection conn) {
-        PreparedStatement ps = null;
-        ResultSet rs = null;
+    private Map getReviewRespInfo() {
+        // review_resp table is removed
         Map returnMap = new HashMap();
-
-        try {
-            ps = conn.prepareStatement("select review_resp_id, review_resp_name, phase_id " +
-                    "from review_resp");
-            rs = ps.executeQuery();
-
-            while (rs.next()) {
-                returnMap.put(new Integer(rs.getInt("review_resp_id")),
-                    new Integer(rs.getInt("phase_id")));
-            }
-        } catch (SQLException sqle) {
-            throw (new EJBException("Getting review responsibilities failed", sqle));
-        } finally {
-            close(rs);
-            close(ps);
+        int[] respIds = {1, 2, 3, 4, 5, 6};
+        int[] phaseIds = {113, 113, 113 ,112, 112, 112};
+        
+        for (int i = 0; i < respIds.length; i++) {
+                returnMap.put(new Integer(respIds[i]), new Integer(phaseIds[i]));
         }
-
         return returnMap;
+    }
+
+    /**
+     * Retrieves a particular category's catalog id.
+     *
+     * @param conn the connection being used
+     * @param catalogId the category being inspected
+     * @return the catalog's ID.
+     *
+     * @since 1.0.2
+     */
+    private long getCatalogId(Connection conn, long categoryId) {
+        return selectLong(conn,
+            "category_catalog",
+            "catalog_id",
+            new String[] { "category_id" },
+            new String[] { String.valueOf(categoryId)}).intValue();
+    }
+
+
+    /**
+     * Retrieves a particular catalog name.
+     *
+     * @param conn the connection being used
+     * @param catalogId the catalog's ID
+     * @return the catalog's name.
+     *
+     * @since 1.0.2
+     */
+    private String getCatalogName(Connection conn, long catalogId) {
+        return selectString(conn,
+            "catalog",
+            "catalog_name",
+            new String[] { "catalog_id" },
+            new String[] { String.valueOf(catalogId)});
     }
 
     /**
@@ -714,83 +817,17 @@ public class RBoardApplicationBean extends BaseEJB {
      *
      * @param conn the connection being used
      * @param userId the user id to inspect
-     * @param phaseId the project type to inspect
+     * @param projectType the project type to inspect
+     * @param projectType the catalogId to review
      * @return the status of the reviewer
      */
-    private long getStatus(Connection conn, long userId, int phaseId) {
+    private long getStatus(Connection conn, long userId, int projectType, long catalogId) {
         return selectLong(conn,
             "rboard_user",
             "status_id",
-            new String[] { "user_id", "phase_id" },
-            new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue();
-    }
-
-    /**
-     * Retrieves if a particular user can review Java
-     *
-     * @param conn the connection being used
-     * @param userId the user id to inspect
-     * @param phaseId the project type to inspect
-     * @return true if the user can review Java
-     */
-    private boolean canReviewJava(Connection conn, long userId, int phaseId) {
-        return selectLong(conn,
-            "rboard_user",
-            "java_ind",
-            new String[] { "user_id", "phase_id" },
-            new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue() == 1;
-    }
-
-    /**
-     * Retrieves if a particular user can review DotNet
-     *
-     * @param conn the connection being used
-     * @param userId the user id to inspect
-     * @param phaseId the project type to inspect
-     * @return true if the user can review DotNet
-     */
-    private boolean canReviewDotNet(Connection conn, long userId, int phaseId) {
-        return selectLong(conn,
-                "rboard_user",
-                "net_ind",
-                new String[] { "user_id", "phase_id" },
-                new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue() == 1;
-
-    }
-
-    /**
-     * Retrieves if a particular user can review Flash
-     *
-     * @param conn the connection being used
-     * @param userId the user id to inspect
-     * @param phaseId the project type to inspect
-     * @return true if the user can review Flash
-     */
-    private boolean canReviewFlash(Connection conn, long userId, int phaseId) {
-        return selectLong(conn,
-                "rboard_user",
-                "flash_ind",
-                new String[] { "user_id", "phase_id" },
-                new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue() == 1;
-
-    }
-
-    /**
-     * Retrieves if a particular user can review applications
-     *
-     * @param conn the connection being used
-     * @param userId the user id to inspect
-     * @param phaseId the project type to inspect
-     * @return true if the user can review applications
-     */
-    private boolean canReviewApplication(Connection conn, long userId,
-            int phaseId) {
-        return selectLong(conn,
-                "rboard_user",
-                "application_ind",
-                new String[] { "user_id", "phase_id" },
-                new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue() == 1;
-
+            new String[] { "user_id", "project_type_id", "catalog_id" },
+            new String[] { String.valueOf(userId), String.valueOf(projectType),
+                String.valueOf(catalogId)}).intValue();
     }
 
     /**
@@ -815,7 +852,7 @@ public class RBoardApplicationBean extends BaseEJB {
 
     private void updateForLock(Connection conn, long projectId) throws SQLException {
         log.debug("lock called on project " + projectId);
-        String query = "update project set project_id = project_id where project_id = ? and cur_version = 1";
+        String query = "update project set project_id = project_id where project_id = ?";
 
         PreparedStatement ps = null;
         try {
