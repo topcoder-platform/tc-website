@@ -342,6 +342,10 @@ public class RBoardApplicationBean extends BaseEJB {
                     insertUserRole(conn, rUserRoleVId, userId, projectId, reviewRespId,
                             rUserRoleId, rRoleId, paymentInfoId);
 
+                    // reset submitter role in case it exists
+                    resetSubmitterRole(conn, userId, projectId);
+
+
                     // create permissions.
                     createPermission(dataSource, idGen, "Review " + projectId, prefix, userId);
                     createPermission(dataSource, idGen, "View Project " + projectId, prefix, userId);
@@ -382,6 +386,20 @@ public class RBoardApplicationBean extends BaseEJB {
             close(ps);
             close(conn);
         }
+    }
+
+    /**
+     * Resets cur_version for the submitter role of the specified user Id and project
+     *
+     * @param conn the connection being used
+     * @param userId the user id to reset.
+     * @param projectId the project id to reset
+     */
+    private void resetSubmitterRole(Connection conn, long userId, long projectId) {
+        update(conn, "r_user_role",
+            new String[]{"cur_version"}, new String[]{"0"},
+            new String[]{"project_id", "login_id", "r_role_id"},
+            new String[]{String.valueOf(projectId), String.valueOf(userId), "1"});
     }
 
     /**
