@@ -57,6 +57,7 @@
                             <ul>
                                 <li>Tweak to my open projects page to speed it up</li>
                                 <li>Fixed admins review scorecards overview page</li>
+                                <li>Fixed issue for submitters that become reviewers</li>
                             </ul>
                         </p>
 
