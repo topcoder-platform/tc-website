@@ -5037,7 +5037,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     	
     	StringBuffer query = new StringBuffer(1000);
     	query.append(" select project_id, ");
-    	query.append(" component_name || ' ' || trim (version_text) || ' (' || date(rating_date || ')' as project_desc ");     			
+    	query.append(" component_name || ' ' || trim (version_text) || ' (' || date(rating_date) || ')' as project_desc ");     			
     	query.append(" from project p,");
     	query.append(" 	    comp_versions cv,");
     	query.append("      comp_catalog c");
@@ -5054,6 +5054,33 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         hm.put(COMPONENT_PROJECT_LIST, rsc);
         return hm;
     }
+    
+    public Map getDigitalRunSeasonList() throws SQLException {
+        String query = "SELECT season_id, name FROM season ORDER BY name";
+
+        ResultSetContainer rsc = runSearchQuery(DBMS.TCS_DW_DATASOURCE_NAME, query, new ArrayList(), true);
+        
+        HashMap hm = new HashMap();
+        hm.put(DIGITAL_RUN_SEASON_LIST, rsc);
+        return hm;
+    }
+
+    public Map getDigitalRunStageList() throws SQLException {
+
+        StringBuffer query = new StringBuffer(1000);
+    	query.append(" select stage_id, s.name || ' - ' || st.name as stage_desc"); 
+    	query.append(" from stage st, ");
+    	query.append(" season s ");
+    	query.append(" where s.season_id = st.season_id ");
+
+        ResultSetContainer rsc = runSearchQuery(DBMS.TCS_DW_DATASOURCE_NAME, query.toString(),
+        		new ArrayList(), true);
+        
+        HashMap hm = new HashMap();
+        hm.put(DIGITAL_RUN_STAGE_LIST, rsc);
+        return hm;
+    }
+    
 
 }
 

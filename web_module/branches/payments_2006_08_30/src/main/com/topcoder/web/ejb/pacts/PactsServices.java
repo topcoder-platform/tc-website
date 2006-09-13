@@ -1,11 +1,15 @@
 package com.topcoder.web.ejb.pacts;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 
 import javax.ejb.EJBObject;
 import javax.jms.JMSException;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -192,5 +196,10 @@ public interface PactsServices extends EJBObject {
     Map findProblems(String name) throws RemoteException, SQLException;
     
     Map findProjects(String search) throws RemoteException, SQLException;
+    
+    Map getDigitalRunSeasonList() throws RemoteException, SQLException;
+    
+    Map getDigitalRunStageList() throws RemoteException, SQLException;
+    
 }
 
