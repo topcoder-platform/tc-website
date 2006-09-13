@@ -38,7 +38,7 @@
                 <br><br>
                 <table width="500" align="center" border="0" cellpadding="2" cellspacing="0" class="formFrame">
                     <tr>
-                        <td class="advTitle" width="100%" colspan="5">Qualification Round</td>
+                        <td class="advTitle" width="100%" colspan="4">Qualification Round</td>
                     </tr>
                     <tr class="advHeader">
                         <td width="10%" align="center">
@@ -49,11 +49,6 @@
                         <td width="30%" align="left">
                             <a href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=spon_qualification&c=tccc06_spon_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=handle_sort&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
                                 Handle
-                            </a>
-                        </td>
-                        <td width="30%" align="center">
-                            <a href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=spon_qualification&c=tccc06_spon_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=round_name&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
-                                Problem Set
                             </a>
                         </td>
                         <td width="15%" align="right">
@@ -74,8 +69,6 @@
                             <rsc:item name="seed" row="<%=resultRow%>"/></td>
                         <td class="<%=even?"advanceDk":"advanceLt"%>" align="left">
                             <tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="algorithm"/></td>
-                        <td class="<%=even?"advanceDk":"advanceLt"%>" align="center" nowrap="0">
-                            <rsc:item name="round_name" row="<%=resultRow%>"/></td>
                         <td class="<%=even?"advanceDk":"advanceLt"%>" align="right">
                             <rsc:item name="rating" row="<%=resultRow%>"/></td>
                         <td class="<%=even?"advanceDk":"advanceLt"%>" align="right">
