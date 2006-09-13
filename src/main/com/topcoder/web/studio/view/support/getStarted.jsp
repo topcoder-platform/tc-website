@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<%@ page contentType="text/html;charset=utf-8" %>
+<%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %><%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -29,6 +30,8 @@
 <tbody>
    <tr>
       <td valign="top" style="padding-right: 10px;">
+
+<div class="linkBox"><studio:forumLink forumID="3"/></div>
 <h1>Getting Started</h1>
 <h3>Creative and exciting projects that pay off big.</h3>
 TopCoder Studio is the meeting place for clients who need creative work done and creative designers looking to compete for that work.  Here's how it happens:
