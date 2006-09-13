@@ -106,11 +106,13 @@ Get started now by checking out the current <A href="/?module=ViewActiveContests
 <br><br>
 Questions about the process can be directed to <A href="mailto:studioadmin@topcoder.com">studioadmin@topcoder.com</A>.
       </td>
-      <td valign="top" style="padding: 0px 0px 10px 10px; margin: 0px 0px 10px 10px; border-left: 1px dashed #CCCCCC;">
+      <td align="center" valign="top" style="padding: 0px 0px 10px 10px; margin: 0px 0px 10px 10px; border-left: 1px dashed #CCCCCC;">
       <img src="/i/layout/banner_easy.png" alt="It's easy to get started" /><br>
       <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/support/banner_register.png" alt="Register" /></A><br>
       <A href="/?module=ViewActiveContests"><img src="/i/support/banner_project.png" alt="Pick a project" style="margin-top: 10px;" /></A><br>
       <img src="/i/support/banner_creative.png" alt="Be creative :)" style="margin-top: 10px;" />
+        <br><br>
+        <strong>Be sure to check out our<br><A href="/?module=Static&d1=support&d2=generalFaq">FAQ section</A> for more help</strong>
       </td>
    </tr>
 </tbody>
