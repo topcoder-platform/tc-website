@@ -33,7 +33,7 @@
             			useTopValue="false" />
 			</c:when>            			
 			      
-		<c:choose>
+		</c:choose>
 		
         </tac:replaceChildren>
 
