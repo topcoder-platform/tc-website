@@ -130,9 +130,13 @@ function search() {
 var types = new Array();
 var i = 0;
 
-<% for(int i = 0; i < paymentTypes.size(); i++) { %>
+<% for(int i = 0; i < paymentTypes.size(); i++) { 
+try {
+%>
 types[i++]= <%= paymentTypes.getItem(i, "payment_reference_id") == null? -1 :  paymentTypes.getIntItem(i, "payment_reference_id") %>
-<% } %>
+<% 
+} catch(Exception e) { out.println(e); }
+} %>
 
 </script>
 
