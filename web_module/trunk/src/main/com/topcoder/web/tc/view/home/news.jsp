@@ -13,7 +13,7 @@
     <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">TCCC06 Algorithm Qualification Round 3 Results</A>
       </span><br><br>
-      The results are in for the second TCCC06 Algorithm Qualification Round.
+      The results are in for the third TCCC06 Algorithm Qualification Round.
     </td>
 </tr>
 <tr><td class="newsLinksCell">
