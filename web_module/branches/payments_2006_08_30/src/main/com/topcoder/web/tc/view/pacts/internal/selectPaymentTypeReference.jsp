@@ -18,11 +18,8 @@
 <c:set var="refId" value="${requestScope.reference_id}"/>
 
         <tac:replaceChildren contextNodeID="selectReference" parseOnServer="true">
-        reference_id = <c:out value="${refId}"/>
-<!--  
 			<input type="text" name="search_text_x" />
 			<input type="button" value="search" onClick="alert('hi');search()" />
--->			
 		<c:choose>
 			<c:when test="${refId == 2}">
             	<tc-webtag:rscSelect name="project_id" list="${projects}" 
