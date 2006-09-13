@@ -34,9 +34,11 @@
 
     <h1>Active Contests</h1>
 
-    <h2 align="right">Need help? Learn how to <strong>
+    <h2 align="right">Need help? Learn how to 
         <A href="/?module=Static&d1=support&d2=getStarted">get
-            started</A></strong></h2>
+            started</A>.<br>
+        Got <A href="/?module=Static&d1=support&d2=generalFaq">questions</A>?
+    </h2>
 
     <table cellpadding="0" cellspacing="0" border="0" style="clear:both; margin-left: 10px;">
         <tr>
