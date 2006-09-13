@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
@@ -25,6 +26,7 @@
          <img src="/i/layout/contentInN.gif" alt="" style="display:block;" />
          <div class="contentSpacer">
 
+<div class="linkBox"><studio:forumLink forumID="3"/></div>
 <h1>Frequently Asked Questions</h1>
 <h3>What are vector graphics?</h3>
 Vector graphics are images created using points, lines, curves and polygons rather than pixels (raster graphics).  Vector graphics can be scaled infinitely without degradation.  Most designers use Adobe Illustrator to create vector files and save them as .EPS (Encapsulated Post Script) or .AI (Adobe Illustrator) files.
@@ -60,6 +62,9 @@ There are two steps to getting paid:
 </ul>
 </ol>
 Once these requirements are satisfied, payment will be sent.  You have the option of choosing to receive payment either via check using the U.S. Postal Service to the address in your profile, via PayPal or via wire transfer.  Any questions regarding prize payments and requests for payment type should be directed to <A href="mailto:payments@topcoder.com">payments@topcoder.com</A>. 
+<br><br>
+<h3>More questions?</h3>
+If you have more questions, please send them to <A href="mailto:studioadmin@topcoder.com">studioadmin@topcoder.com</A>.
             </div>
             <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
         </div>
