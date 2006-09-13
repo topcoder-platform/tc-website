@@ -201,11 +201,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     private ResultSetContainer runSearchQuery(String query, ArrayList objects, boolean setLockTimeout) throws SQLException {
+    	return runSearchQuery(null, query, objects, setLockTimeout);    	
+    }
+    
+    private ResultSetContainer runSearchQuery(String connection, String query, ArrayList objects, boolean setLockTimeout) throws SQLException {
         Connection c = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            c = DBMS.getConnection();
+            c = connection == null? DBMS.getConnection() : DBMS.getConnection(connection); 
             if (setLockTimeout)
                 setLockTimeout(c);
             ps = c.prepareStatement(query);
@@ -5024,9 +5028,31 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         ResultSetContainer rsc = runSearchQuery(query, param, true);
         
         HashMap hm = new HashMap();
-        hm.put(PROBLEM_LIST, rsc);
+        hm.put(ALGORITHM_PROBLEM_LIST, rsc);
         return hm;
+    }
 
+    public Map findProjects(String search) throws SQLException {
+    	String filter = "UPPER(component_name) " + (search.contains("%") ? " like UPPER(?)" : "=UPPER(?)");
+    	
+    	StringBuffer query = new StringBuffer(1000);
+    	query.append(" select project_id, ");
+    	query.append(" component_name || ' ' || trim (version_text) || ' (' || date(rating_date || ')' as project_desc ");     			
+    	query.append(" from project p,");
+    	query.append(" 	    comp_versions cv,");
+    	query.append("      comp_catalog c");
+    	query.append(" where p.comp_vers_id = cv.comp_vers_id");
+    	query.append(" and cv.component_id = c.component_id");
+    	query.append(" and " + filter);
+    	query.append(" and cur_version = 1");
+    	
+        ArrayList param = new ArrayList();
+        param.add(search);
+        ResultSetContainer rsc = runSearchQuery(DBMS.TCS_OLTP_DATASOURCE_NAME, query.toString(), param, true);
+        
+        HashMap hm = new HashMap();
+        hm.put(COMPONENT_PROJECT_LIST, rsc);
+        return hm;
     }
 
 }

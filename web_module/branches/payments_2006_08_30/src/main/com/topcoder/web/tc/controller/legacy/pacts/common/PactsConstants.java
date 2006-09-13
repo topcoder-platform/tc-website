@@ -67,8 +67,16 @@ public interface PactsConstants {
     public static final int MARATHON_MATCH_PAYMENT = 21;
     public static final int ALGORITHM_TOURNAMENT_PRIZE_PAYMENT = 22;
     public static final int BUG_FIXES_PAYMENT = 23;
-    
-    
+
+    // Reference types
+    public static final int REFERENCE_ALGORITHM_ROUND = 1;
+    public static final int REFERENCE_COMPONENT_PROJECT_ID = 2;
+    public static final int REFERENCE_ALGORITHM_PROBLEM_ID = 3;
+    public static final int REFERENCE_STUDIO_CONTEST_ID = 4;
+    public static final int REFERENCE_COMPONENT_CONTEST_ID = 5;
+    public static final int REFERENCE_DIGITAL_RUN_STAGE_ID = 6;
+    public static final int REFERENCE_DIGITAL_RUN_SEASON_ID = 7;
+
 
     // Contract type codes
     public static final int DEVELOPMENT_CONTRACT = 1;
@@ -88,13 +96,13 @@ public interface PactsConstants {
 
     // How long before a contest affidavit expires, in days
     public static final int AFFIDAVIT_EXPIRE_TIME = 60;
-    
+
     // How long before a contest payment comes due, in days
     public static final int DUE_DATE_INTERVAL = 28;
-    
+
     // How long before a contest payment expires after the due date, in days
     public static final int PAYMENT_EXPIRE_TIME = 32;
-    
+
 //  How long before a component payment comes due, in days
     public static final int COMPONENT_DUE_DATE_INTERVAL = 14;
 
@@ -134,10 +142,10 @@ public interface PactsConstants {
     // in this format.  Matt and Sam - feel free to change this if you want
     // to use some other format on the front end.
     public static final String DATE_FORMAT_STRING = "MM/dd/yyyy";
-    
+
     // The same date format but the way JS calendar needs it.
     public static final String JS_DATE_FORMAT_STRING = "%m/%d/%Y";
-    
+
     // Front-end default for dates that are not filled in
     public static final String EMPTY_DATE_STRING = "00/00/0000";
     // dpecora - Rather than have this constant I would prefer the data classes
@@ -187,8 +195,14 @@ public interface PactsConstants {
     public static final String PROJECT_TERMINATION_STATUS_LIST = "project_termination_status_list";
     public static final String CREATION_DATE_LIST = "creation_date_list";
 
-    public static final String PROBLEM_LIST = "problem_list";
-    
+    public static final String ALGORITHM_ROUND_LIST = "algorithm_round_list";
+    public static final String COMPONENT_PROJECT_LIST = "component_project_list";
+    public static final String ALGORITHM_PROBLEM_LIST = "algorithm_problem_list";
+    public static final String STUDIO_CONTEST_LIST = "studio_contest_list";
+    public static final String COMPONENT_CONTEST_LIST = "component_contest_list";
+    public static final String DIGITAL_RUN_STAGE_LIST = "digital_run_stage_list";
+    public static final String DIGITAL_RUN_SEASON_LIST = "digital_run_season_list";
+
     // Miscellaneous
     public static final String TEXT = "text";
     public static final String ROUND_LIST = "round_list";
@@ -279,9 +293,9 @@ public interface PactsConstants {
 
     /* We get a "canceled" status when old affidavits expire */
     public static final int PAYMENT_CANCELED_STATUS = 65;
-    
-    /* We get an "expired" status when algorithm payments lapse 60 days without 
-     * receiving the necessary paperwork 
+
+    /* We get an "expired" status when algorithm payments lapse 60 days without
+     * receiving the necessary paperwork
      */
     public static final int PAYMENT_EXPIRED_STATUS = 68;
 
@@ -374,7 +388,7 @@ public interface PactsConstants {
     public static final String AFFIDAVIT_TYPE_ID = "aftid";
     public static final String AFFIDAVIT_TEXT = "atxt";
     public static final String PROJECT_TERMINATION_STATUS = "projts";
-    
+
     // affidavit member jsps
     public static final String AFFIDAVIT_TASK = "affidavit";
     public static final String AFFIDAVIT_HISTORY_CMD = "affidavit_history";
@@ -446,7 +460,7 @@ public interface PactsConstants {
     public static final String OBJECT_ID = "object_id";
     public static final String OBJECT_TYPE = "object_type";
     public static final String PAYMENT_TYPE_ID = "payment_type_id";
-    
+
     // request attributes
     public static final String PACTS_INTERNAL_RESULT = "pacts_internal_result";
     public static final String PACTS_MEMBER_RESULT = "pacts_member_result";

@@ -27,7 +27,6 @@
 
 function typeChanged() {
     var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
-alert(document.f.payment_type_id.selectedIndex);
     document.f.reference_id.value = types[document.f.payment_type_id.selectedIndex];
     ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.addNamedFormElements("reference_id");    
@@ -133,7 +132,7 @@ var i = 0;
 <% for(int i = 0; i < paymentTypes.size(); i++) { 
 try {
 %>
-types[i++]= <%= paymentTypes.getItem(i, "payment_reference_id") == null? -1 :  paymentTypes.getIntItem(i, "payment_reference_id") %>
+types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -1 :  paymentTypes.getIntItem(i, "payment_reference_id") %>;
 <% 
 } catch(Exception e) { out.println(e); }
 } %>

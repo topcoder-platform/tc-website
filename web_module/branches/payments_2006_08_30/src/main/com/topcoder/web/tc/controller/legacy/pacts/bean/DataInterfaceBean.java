@@ -1437,9 +1437,14 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.getEmptyPayment(userId);
     }
 
-    public Map findProblems(String name) throws RemoteException, SQLException {
+    public Map findProblems(String search) throws RemoteException, SQLException {
         PactsServices ps = getEjbHandle();
-        return ps.findProblems(name);
+        return ps.findProblems(search);
+    }
+
+    public Map findProjects(String search) throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.findProjects(search);
     }
 
 }
