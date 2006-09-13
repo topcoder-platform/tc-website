@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">09.13.06 11:30 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg_chat_082406">Bloomberg SRM 317 chat session transcript</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.12.06 1:45 PM - </td><td width="100%">TCCC Registration Ends This Week</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.11.06 10:00 AM - </td><td width="100%"><A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2030">2007 TCHS Tournament Logo Design Contest</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.11.06 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=dev_forums">TCCC06 Developer Forums Announced</A></td></tr>

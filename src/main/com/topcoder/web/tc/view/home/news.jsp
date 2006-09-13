@@ -9,6 +9,21 @@
 </tr>
 <%--------------------------------------------------------%>
 <tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.13.06<br>11:30 AM</td>
+    <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg_chat_082406">Bloomberg SRM 317 chat session transcript</A>
+      </span><br><br>
+      Bloomberg recently held a chat session just prior to SRM 317 to discuss working at Bloomberg.  Check it out.
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg_chat_082406">view</A>&#160;|&#160;
+    <tc-webtag:forumLink forumID="506076" message="discuss this"/>&#160;|&#160;
+    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.12.06<br>1:45 PM</td>
     <td class="newsTextCell"><span class="newsTitle">
       TCCC Registration Ends This Week
@@ -186,23 +201,4 @@ be exciting.
          <tc-webtag:forumLink forumID="506093" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>09.05.06<br>11:15 AM</td>
-    <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_4">Marathon Match 4 - Analysis</A></span><br><br>
-Most of us have played the classic game of Battleship.  I'd always viewed
-it as mostly a game of luck but, while the element of luck can't be denied,
-this competition proved that some strategies are much better than others.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="159052" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_4">full story</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="506088" message="discuss this"/>&#160;|&#160;
-    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
 
