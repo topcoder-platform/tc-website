@@ -14,11 +14,28 @@
       Did you miss out on making it as a TCCC finalist? Still want to see the finals in San Diego anyway? Here's your chance!
 </tr>
 <tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=pickme_contest">details</A> | 
+    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=pickme_contest">view</A> | 
     <tc-webtag:forumLink forumID="506113" message="discuss this"/> | 
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
 ----------------%>
+
+<%--------------------------------------------------------%>
+<tr>
+  <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>09.14.06<br>3:00 PM</td>
+  <td class="newsTextCell"><span class="newsTitle">
+  <A href="/tc?module=Static&d1=collegetour&d2=description">2006 TopCoder College Tour continues</A>
+  </span><br><br>
+  TopCoder will be touring college campuses during the remainder of 2006 and early 2007 to promote TopCoder competitions, both Component and 
+  Algorithm, and to grow membership. We're looking for collegiate CS students who are interested in hosting TopCoder on campus for an evening 
+  of problem solving, food, prizes and fun.
+</tr>
+<tr><td class="newsLinksCell">
+	 <A href="/tc?module=Static&d1=collegetour&d2=description">view</A>&#160;|&#160;
+	 <tc-webtag:forumLink forumID="506114" message="discuss this" />&#160;|&#160;
+	 <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+</td></tr>
+
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.13.06<br>4:15 PM</td>
