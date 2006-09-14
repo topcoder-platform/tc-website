@@ -212,7 +212,7 @@ types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -
         </tr>
         
 
-        <tr id="selectReference"> </trs>
+        <tr id="selectReference"> </tr>
         <tr>
             <td><b>Method:</b></td><td>
             <tc-webtag:rscSelect name="payment_method_id" list="<%=paymentMethods%>" 
