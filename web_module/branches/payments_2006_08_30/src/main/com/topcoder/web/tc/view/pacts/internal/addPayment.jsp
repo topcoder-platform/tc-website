@@ -21,8 +21,8 @@
     <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
          
-<script type="text/javascript" src="/pacts/internal/taconite-client.js"></script>
-<script type="text/javascript" src="/pacts/internal/taconite-parser.js"></script>
+<script type="text/javascript" src="/js/taconite-client.js"></script>
+<script type="text/javascript" src="/js/taconite-parser.js"></script>
 <script type="text/javascript">
 
 
@@ -211,17 +211,8 @@ types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -
         </td>
         </tr>
         
- <tr>
-        <td><b>Reference:</b></td>
-    <td>
-                <input type="text" name="search_text" />
-            <input type="button" value="search" onClick="search()" />
-    
-    <div id="selectReference"> </div>
-    </td>
-    
- </tr>
-        
+
+        <tr id="selectReference"> </trs>
         <tr>
             <td><b>Method:</b></td><td>
             <tc-webtag:rscSelect name="payment_method_id" list="<%=paymentMethods%>" 
@@ -247,10 +238,6 @@ types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -
                 
         </tr>
 </table>
-TEST: 
-<div id="testDiv"> 
-original
-</div>
 
 <script language="javascript" type="text/javascript">
     <!--
