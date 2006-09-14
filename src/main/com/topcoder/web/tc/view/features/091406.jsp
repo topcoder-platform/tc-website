@@ -120,7 +120,7 @@ function makeNavigable(){
       <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
       </p>
 
-In Part 1, we looked at an overview of multi-threading, introduced OpenMP, and began to review its directives. Part 2 continues with a look at the reduction directive.
+In <A href="/tc?module=Static&d1=features&d2=091106">Part 1</A>, we looked at an overview of multi-threading, introduced OpenMP, and began to review its directives. Part 2 continues with a look at the reduction directive.
 <br><br>
 
 <b>Reduction:</b> Let's imagine we want to sum the elements in an array. We might have some code which looks like this:
@@ -393,7 +393,6 @@ We've covered the basics here, and maybe some mid-level stuff too. However, whil
 <br><br>
 As I wrote this my aim was not an exhaustive guide to every facet of OpenMP, but a reasonably thorough guide to the basics. I've focussed on the areas of OpenMP that I actually find myself using, assuming that these are the areas you'll find most useful too. My aim was to give enough sufficient examples for you to start using OpenMP in your applications; once you are comfortable I would certainly recommend reading the OpenMP 2.0 specification for full details of just what you can and cannot do. You can find this and all kinds of other stuff at <a href="http://www.openmp.org" target="_blank">www.openmp.org</a> -- take a look. Good luck!
 <br><br>
-
         </td>
 <!-- Center Column Ends -->
 
