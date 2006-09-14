@@ -1865,10 +1865,10 @@ strong { font-weight: bold; }
 
 .subhead
 {
-	font-size: 20px;
-	color: #333333;
+	font-size: 18px;
+	color: #013466;
 	font-weight: bold;
-	font-style: italic;
+	font-style: normal;
 	background-image: url(../images/componentBkgd.gif);
 	background-repeat: repeat-y;
 	padding: 5px;
@@ -2144,4 +2144,64 @@ A.topLink:active
 	font-weight: bold;
 	font-style: normal;
 	text-align: left;
+}
+/* STAT TABLE */
+table.stat {
+border: 1px solid #999;
+border-bottom: 7px solid #CCCCCC;
+vertical-align: top;
+padding: 0px;
+}
+table.stat td.title {
+text-align: left;
+color: #FFFFFF;
+background: #777777;
+border: 1px solid #777777; 
+font-size: 18px;
+font-weight: bold;
+text-decoration: none;
+padding: 3px 5px 3px 5px;
+white-space: nowrap;
+}
+table.stat td.header,table.stat td.headerC,table.stat td.headerR {
+color: #FFFFFF;
+background: #999999;
+border-top: 1px solid #CCCCCC;
+font-size: 12px;
+font-weight: bold;
+line-height: normal;
+padding: 2px 5px 2px 5px;
+vertical-align: middle;
+}
+table.stat td.headerC { text-align: center }
+table.stat td.headerR { text-align: right }
+table.stat tr.light { background-color: #FFFFFF }
+table.stat tr.dark { background-color: #EEEEEE }
+table.stat td.value, table.stat td.valueC, table.stat td.valueR
+{
+font-size: 11px;
+padding: 5px;
+vertical-align: top;
+border-top: 1px solid #CCCCCC;
+}
+table.stat td.valueC { text-align: center; }
+table.stat td.valueR { text-align: right; }
+table.stat td.field {
+color: #000000;
+font-weight: bold;
+font-size: 11px;
+padding: 1px 5px 1px 5px;
+vertical-align: top;
+}
+table.stat td a:link { text-decoration: none; }
+table.stat td a:visited { text-decoration: none; }
+table.stat td a:hover { text-decoration: underline; }
+table.stat td a:active { text-decoration: none; }
+table.stat tr.highlight td.value, table.stat tr.highlight td.valueC, table.stat tr.highlight td.valueR
+{ 
+font-weight: bold;
+border-top: 1px solid #0000FF; 
+border-bottom: 1px solid #0000FF; 
+background-color: #EEEEFF
+
 }
