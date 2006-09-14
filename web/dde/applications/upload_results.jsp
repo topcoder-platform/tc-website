@@ -32,9 +32,11 @@ import="com.topcoder.dde.util.Constants" %>
 
 <%------------ORIGINAL CONTENT--------------%>
 <div align="center">
+    <div style="padding: 20px 15px 20px 15px; width: 500px; text-align:center;">
 File received, redirecting to screening result page...
 <br><br>
 Click <A href="/tcs?module=ViewUploadResults&<%=Constants.SPECIFICATION_KEY%>=<%=request.getAttribute(Constants.SPECIFICATION_KEY)%>">here</a> to go to the screening result page.
+    <div>
 <div>
 <%--------------------------%>
 
