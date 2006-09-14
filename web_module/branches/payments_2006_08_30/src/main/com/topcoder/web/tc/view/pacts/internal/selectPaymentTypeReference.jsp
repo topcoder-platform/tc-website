@@ -20,7 +20,7 @@
      
      <taconite-replace-children contextNodeID="testDiv" parseInBrowser="true">
         <div>
-                 button:<input type="button" value="test" onClick="alert('hi');search()" />
+                 Hello
         </div>    
      </taconite-replace-children>
      
