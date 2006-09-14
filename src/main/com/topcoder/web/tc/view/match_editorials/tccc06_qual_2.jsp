@@ -302,28 +302,23 @@ include entering the next character or pressing tab some number of times.  Linea
 follows:
 <pre class = "code">
     public int getFewest(String[] names, String w) {
-    Arrays.sort(names);    
-    <font color="blue">//Initialize DP Table</font>
-    int[] best = new int[51];
-    Arrays.fill(best,1000);
-    <font color="blue">//Initializing to 1 accounts for the enter key</font>
-    best[0] = 1;
-    for (int a = 0; a < w.length(); a++) {
-        <font color="blue">//Try single keystroke</font>
-        best[a+1] = Math.min(best[a+1],best[a]+1);
-        int cnt = 0;
-        String curr = w.substring(0,a);
-        <font color="blue">//Iterate through tab list</font>
-        for (String s : names) {
-        if (!s.startsWith(curr) || !w.startsWith(s)) continue;
-        cnt++;
-        best[s.length()] = Math.min(best[s.length()],best[a]+cnt);
-        }
-    } 
-    return best[w.length()];
+        Arrays.sort(names);
+        int[] best = new int[51];
+        Arrays.fill(best,1000);
+        best[0] = 1;
+        for (int a = 0; a < w.length(); a++) {
+            best[a+1] = Math.min(best[a+1],best[a]+1);
+            int cnt = 0;
+            String curr = w.substring(0,a);
+            for (String s : names) {
+               if (!s.startsWith(curr)) continue;
+               cnt++;
+               if (!w.startsWith(s)) continue;
+               best[s.length()] = Math.min(best[s.length()],best[a]+cnt);
+            }
+        } return best[w.length()];
     }
 }
-
 </pre>
 
 </p>
