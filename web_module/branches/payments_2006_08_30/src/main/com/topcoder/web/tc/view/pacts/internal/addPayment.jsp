@@ -246,7 +246,10 @@ types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -
                 
         </tr>
 </table>
-TEST: <div id="testDiv"> </div>
+TEST: 
+<div id="testDiv"> 
+original
+</div>
 
 <script language="javascript" type="text/javascript">
     <!--
