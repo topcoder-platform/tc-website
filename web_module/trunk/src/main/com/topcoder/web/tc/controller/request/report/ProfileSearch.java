@@ -62,7 +62,7 @@ public class ProfileSearch extends Base {
                             getRequest().setAttribute(Constants.REPORT_PROFILE_SEARCH_RESULTS_KEY, countResults);
                         } else {
                             if (count.getIntItem(0, "total_count") > 1000) {
-                                throw new NavigationException("Sorry, your query return more than 1000 records.  Please include more search criteria.");
+                                throw new NavigationException("Sorry, your query returns more than 1000 records.  Please include more search criteria.");
                             } else {
                                 time = System.currentTimeMillis();
                                 QueryRequest fullRequest = new QueryRequest();
