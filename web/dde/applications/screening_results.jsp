@@ -97,7 +97,6 @@ import="com.topcoder.dde.util.Constants,
                                         </div>
                                         <br>
 <h3>Screening still in progress</h3>
-                                        <br><br>
                                         The page should be automatically refreshed in 10 seconds, if it is not refreshed, please click 
                                         <A href="/tcs?module=ViewUploadResults&<%=Constants.SPECIFICATION_KEY%>=<%=request.getAttribute(Constants.SPECIFICATION_KEY)%>">here</a>.
                             </c:otherwise>

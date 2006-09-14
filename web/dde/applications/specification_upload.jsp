@@ -44,7 +44,7 @@ import="com.topcoder.dde.util.Constants" %>
 <TABLE cellpadding="0" cellspacing="0" class="stat">
 <tbody>
     <TR>
-        <TD class="title" colspan="3">Uploaded specifications</TD>
+        <TD class="title" colspan="3">Uploaded Specifications</TD>
     </tr>
     <tr>
         <td class="header">Date</td>
