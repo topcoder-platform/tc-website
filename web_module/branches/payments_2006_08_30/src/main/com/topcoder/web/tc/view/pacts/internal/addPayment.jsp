@@ -210,8 +210,6 @@ types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -
                     useTopValue="false" onChange="typeChanged()" />        
         </td>
         </tr>
-        
-
         <tr id="selectReference"> </tr>
         <tr>
             <td><b>Method:</b></td><td>
