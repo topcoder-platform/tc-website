@@ -58,23 +58,23 @@ public class ProfileSearch extends Base {
                             log.debug("got count in " + time);
                         }
                         ResultSetContainer count = (ResultSetContainer) countResults.get("results");
-                        if (count.getIntItem(0, "total_count") > 1000) {
-                            throw new NavigationException("Sorry, your query return more than 1000 records.  Please include more search criteria.");
-                        } else if (countOnly) {
+                        if (countOnly) {
                             getRequest().setAttribute(Constants.REPORT_PROFILE_SEARCH_RESULTS_KEY, countResults);
                         } else {
-                            time = System.currentTimeMillis();
-                            QueryRequest fullRequest = new QueryRequest();
-                            fullRequest.addQuery("results", fullQuery);
-                            Map fullResults = qda.getData(fullRequest);
-                            time = System.currentTimeMillis() - time;
-                            if (log.isDebugEnabled()) {
-                                log.debug("got full results in " + time);
+                            if (count.getIntItem(0, "total_count") > 1000) {
+                                throw new NavigationException("Sorry, your query return more than 1000 records.  Please include more search criteria.");
+                            } else {
+                                time = System.currentTimeMillis();
+                                QueryRequest fullRequest = new QueryRequest();
+                                fullRequest.addQuery("results", fullQuery);
+                                Map fullResults = qda.getData(fullRequest);
+                                time = System.currentTimeMillis() - time;
+                                if (log.isDebugEnabled()) {
+                                    log.debug("got full results in " + time);
+                                }
+                                getRequest().setAttribute(Constants.REPORT_PROFILE_SEARCH_RESULTS_KEY, fullResults);
                             }
-                            getRequest().setAttribute(Constants.REPORT_PROFILE_SEARCH_RESULTS_KEY, fullResults);
-
                         }
-
                         getRequest().setAttribute("column_headers", headers);
                     }
                 }
