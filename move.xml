@@ -136,6 +136,7 @@
                 <include name="build/wars/onsite.war"/>
                 <include name="build/ejb_jars/Project.jar"/>
                 <include name="build/ejb_jars/RBoard.jar"/>
+                <include name="build/ejb_jars/Specification.jar"/>
                 <include name="build_tcs.xml"/>
             </fileset>
         </jar>
@@ -143,12 +144,12 @@
 
     <target name="package-forums-full" depends="">
         <antcall target="package-forums"/>
-    	<ant antfile="build.xml" target="build-security"/>
+        <ant antfile="build.xml" target="build-security"/>
 
         <jar destfile="forums.jar" update="true">
             <fileset dir=".">
                 <include name="lib/jars/jive/**"/>
-            	<include name="build/ears/security.ear"/>
+                <include name="build/ears/security.ear"/>
             </fileset>
         </jar>
     </target>
