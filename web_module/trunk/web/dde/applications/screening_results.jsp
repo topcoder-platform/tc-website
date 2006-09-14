@@ -9,7 +9,12 @@ import="com.topcoder.dde.util.Constants,
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <HTML>
-    <HEAD>
+<head>
+    <title>TopCoder Software</title>
+    <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
+        <META HTTP-EQUIV="Refresh"
+        CONTENT="2; URL=/tcs?module=ViewUploadResults&<%=Constants.SPECIFICATION_KEY%>=<%=request.getAttribute(Constants.SPECIFICATION_KEY)%>">
+    <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
          <c:set var="hasErrors" value="${not empty errors}"/>
          <c:set var="hasWarnings" value="${not empty warnings}"/>
          <c:set var="hasSuccess" value="${not empty success}"/>
@@ -21,22 +26,34 @@ import="com.topcoder.dde.util.Constants,
             <META HTTP-EQUIV="Refresh" CONTENT="10">
         </c:if>
         <TITLE>Screening results</TITLE>
-    </HEAD>
-    <BODY>
-        <TABLE WIDTH="100%" HEIGHT="100%">
-            <TR>
-                <td>
-                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+</head>
+<body class="body">
+<jsp:include page="/includes/top.jsp"/>
+<jsp:include page="/includes/menu.jsp" >
+    <jsp:param name="isSoftwarePage" value="true"/>
+</jsp:include>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+    <tr valign="top">
+
+<!-- Left Column begins -->
+        <td width="180" class="leftColumn">
+            <jsp:include page="/includes/left.jsp" >
+                <jsp:param name="level1" value=""/>
+                <jsp:param name="level2" value=""/>
+            </jsp:include>
+        </td>
+        <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+        <td width="100%">
+
+<%------------ORIGINAL CONTENT--------------%>
+<div align="center">
+    <div style="padding: 20px 15px 20px 15px; width: 500px; text-align:left;">
                         <c:choose>
                             <c:when test="${screeningFinished}">
                                 <c:if test="${hasErrors}">
-                                    <tr>
-                                        <td>Fatal Errors:</td>
-                                    </tr>
-    
+<h3>Fatal Errors:</h3>
                                     <c:forEach items="${errors}" var="errorItem">
-                                        <tr>
-                                            <td>
                                                 <c:out value="${errorItem.code}"/>: <c:out value="${errorItem.response}"/>
                                                 <ul>
                                                     <c:forEach items="${errorItem.text}" var="errorText">
@@ -45,18 +62,11 @@ import="com.topcoder.dde.util.Constants,
                                                         </li>
                                                     </c:forEach>
                                                 </ul>
-                                            </td>
-                                        </tr>
                                     </c:forEach>
                                 </c:if>
                                 <c:if test="${hasWarnings}">
-                                    <tr>
-                                        <td>Warnings:</td>
-                                    </tr>
-    
+<h3>Warnings:</h3>
                                     <c:forEach items="${warnings}" var="warningItem">
-                                        <tr>
-                                            <td>
                                                 <c:out value="${warningItem.code}"/>: <c:out value="${warningItem.response}"/>
                                                 <ul>
                                                     <c:forEach items="${warningItem.text}" var="warningText">
@@ -65,18 +75,11 @@ import="com.topcoder.dde.util.Constants,
                                                         </li>
                                                     </c:forEach>
                                                 </ul>
-                                            </td>
-                                        </tr>
                                     </c:forEach>
                                 </c:if>
                                 <c:if test="${hasSuccess}">
-                                    <tr>
-                                        <td>Messages:</td>
-                                    </tr>
-    
+<h3>Messages:</h3>
                                     <c:forEach items="${success}" var="succesItem">
-                                        <tr>
-                                            <td>
                                                 <c:out value="${succesItem.code}"/>: <c:out value="${succesItem.response}"/>
                                                 <ul>
                                                     <c:forEach items="${succesItem.text}" var="succesText">
@@ -85,25 +88,40 @@ import="com.topcoder.dde.util.Constants,
                                                         </li>
                                                     </c:forEach>
                                                 </ul>
-                                            </td>
-                                        </tr>
                                     </c:forEach>
                                 </c:if>
                             </c:when>
                             <c:otherwise>
-                                <tr>
-                                    <td>
+                                        <div align="center">
+                                        <img src="/images/interface/processing.gif" alt="Processing..." />
+                                        </div>
+                                        <br>
                                         Screening still in progress... 
                                         <br><br>
                                         The page should be automatically refreshed in 10 seconds, if it is not refreshed, please click 
                                         <A href="/tcs?module=ViewUploadResults&<%=Constants.SPECIFICATION_KEY%>=<%=request.getAttribute(Constants.SPECIFICATION_KEY)%>">here</a>.
-                                    </TD>
-                                </TR>
                             </c:otherwise>
                         </c:choose>
-                    </table>
-                </TD>
-            </tr>
-        </TABLE>
-    </BODY>
-</HTML>
+    <div>
+<div>
+<%--------------------------%>
+
+</td>
+<td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+<td width="170">
+<jsp:include page="/includes/right.jsp" >
+   <jsp:param name="level1" value="components"/>
+</jsp:include>
+</td>
+
+<!-- Gutter 3 begins -->
+        <td width="15"><img src="/images/clear.gif" alt="" width="10" height="10" border="0" /></td>
+
+    </tr>
+</table>
+
+<!-- Footer begins -->
+<jsp:include page="/includes/foot.jsp" flush="true" />
+
+</body>
+</html>
