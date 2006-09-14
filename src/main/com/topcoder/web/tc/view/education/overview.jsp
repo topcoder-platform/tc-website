@@ -39,16 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
-<%-- POST MONDAY SEPT 11 AND REMOVE LAST ITEM IN LIST 
+<li><A href="/tc?module=Static&amp;d1=features&amp;d2=091406"><strong>Introduction to OpenMP, Part 2</strong></A>, by <tc-webtag:handle coderId="21464956" /><br>
+In Part 1, we looked at an overview of multi-threading, introduced OpenMP, and began to review its directives. Part 2 continues with a look at the reduction directive.</li>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=091106"><strong>Introduction to OpenMP, Part 1</strong></A>, by <tc-webtag:handle coderId="21464956" /><br>
 As most people involved in programming probably know, multi-threading is going to be "the next big thing" in terms of using modern hardware to its full extent.</li>
---%>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=090506"><strong>TopCoder @ Work: Introduction to upselling, Part 2</strong></A>, by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /><br>
 Last week we attacked a common problem -- selling new ideas and functionality to clients -- with a clever acronym (UPSELL). Today, we'll demonstrate how to apply that methodology to a realistic situation.</li>
-<li><A href="/tc?module=Static&amp;d1=features&amp;d2=082906"><strong>TopCoder @ Work: Introduction to upselling</strong></A>, by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /><br>
-In this article, we'll describe how you can "sell" projects to both internal clients (if you're salaried), and external clients (if you consult), using a model we call UPSELL: Understand, Plan, Story, Estimate, Lock, and Leverage.</li>
-<li><A href="/tc?module=Static&amp;d1=features&amp;d2=082106"><strong>The Digital Run: Highlights from Stage 1</strong></A>, by <tc-webtag:handle coderId="252022" /><br>
-As the first stage draws to an end for The Digital Run, I am going to take stock of this great new competition format. And a great competition it was, with veterans and newbies alike withstanding the challenges of a 13-week marathon and racking up some surprising results.</li>
 </ul>
 <span class="bodySubtitle">From the archives:</span><br>
 <ul>
