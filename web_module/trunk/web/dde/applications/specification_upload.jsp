@@ -3,6 +3,7 @@ import="com.topcoder.dde.util.Constants" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <HTML>
@@ -53,7 +54,9 @@ import="com.topcoder.dde.util.Constants" %>
     <% boolean even = true;%>
     <c:forEach items="${old_specs}" var="specItem">
     <tr class="<%=even?"light":"dark"%>">
-        <td class="value"><c:out value="${specItem.uploadDate}"/></td>
+        <td class="value">
+            <fmt:formatDate value="${specItem.uploadDate}" pattern="MM.dd.yyyy hh:mm a z"/>
+        </td>
         <td class="value">
             <A href="/tcs?module=DownloadApplicationSpecification&<%=Constants.SPECIFICATION_KEY%>=<c:out value="${specItem.specificationId}"/>">
             <c:out value="${specItem.remoteFilename}"/>
