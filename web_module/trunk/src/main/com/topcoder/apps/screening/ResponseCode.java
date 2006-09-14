@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2005 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.screening;
 
@@ -7,8 +7,8 @@ package com.topcoder.apps.screening;
  * <strong>Purpose</strong>:
  * It holds constants to the response codes.
  *
- * @author WishingBone
- * @version 1.0
+ * @author WishingBone, pulky
+ * @version 1.0.1
  */
 public abstract class ResponseCode {
 
@@ -27,5 +27,10 @@ public abstract class ResponseCode {
     public static final long CHECKSTYLE_WARNING = 13;
     public static final long PERSONAL_INFO = 14;
     public static final long SUCCESS = 15;
+
+    public static final long NO_QA_PLAN = 16;
+    public static final long NO_APP_SPEC = 17;
+    public static final long NO_ZUML = 18;
+    public static final long WRONG_ZUML = 19;
 
 }
