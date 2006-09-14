@@ -21,6 +21,7 @@
      <taconite-replace-children contextNodeID="testDiv" parseInBrowser="true">
         <div>
                  Hello
+                 button:<input type="button" value="test" onClick="alert('hi');search()" />
         </div>    
      </taconite-replace-children>
      
