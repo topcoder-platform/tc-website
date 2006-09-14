@@ -1,6 +1,7 @@
-/**
- * Copyright � 2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
+
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.DocumentManagerLocal;
@@ -12,12 +13,11 @@ import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 import com.topcoder.util.format.FormatMethodFactory;
 
+import com.topcoder.apps.screening.IScreeningRequest;
 import com.topcoder.apps.screening.ProjectType;
-import com.topcoder.apps.screening.ScreeningTool;
-import com.topcoder.apps.screening.QueryInterface;
 import com.topcoder.apps.screening.ScreeningResponse;
 import com.topcoder.apps.screening.ScreeningJob;
-import com.topcoder.apps.screening.ScreeningRequest;
+import com.topcoder.apps.screening.SubmissionScreeningRequest;
 import com.topcoder.shared.util.logging.Logger;
 
 import java.io.File;
@@ -25,15 +25,20 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
-import java.util.List;
-import java.util.ArrayList;
 import java.util.Date;
 
 /**
  * This Model provides business logic through which users submit solution files.
  *
- * @author adic
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Class updated due to the addition of other screening artifacts.
+ * </li>
+ * </ol>
+ *
+ * @author adic, pulky
+ * @version 1.0.1
  */
 public class SubmitSolution implements Model {
 
@@ -43,7 +48,7 @@ public class SubmitSolution implements Model {
     public static final int BUFSIZE = 16384;
 
     private static Logger log = Logger.getLogger(SubmitSolution.class);
-    
+
     /**
      * This method allows the submitter to make a new submission.
      * The File submitted by the user is copied in the directory indicated in the business_logic_config.properties file
@@ -147,24 +152,24 @@ public class SubmitSolution implements Model {
             if (type != null) {
                 Connection conn = null;
                 long versionId;
-                
+
+                IScreeningRequest ssr = null;
+
                 try {
                     conn = Common.getDataSource().getConnection();
-                
+
                     versionId = ScreeningJob.getVersionId(initialSubmissions[0].getId(), conn);
-                    ScreeningJob.placeRequest(new ScreeningRequest(0,
-                            versionId,
-                            ConfigHelper.getSubmissionPathPrefix() + destFilename,
-                            type),
-                            conn);
-                } finally {    
+                    ssr = new SubmissionScreeningRequest(-1, 0, versionId,
+                            ConfigHelper.getSubmissionPathPrefix() + destFilename, type);
+                    ScreeningJob.placeRequest(ssr, conn);
+                } finally {
                     try {
                         conn.close();
                     } catch (Exception e) {
                         // ignore
                     }
                 }
-                
+
                 return new ScreeningRetrieval(versionId);
             } else {
                 return new ScreeningRetrieval(new ScreeningResponse[0], new ScreeningResponse[0]);
@@ -196,7 +201,6 @@ public class SubmitSolution implements Model {
         if (EJBHelper.isTestMode()) {
             dest.deleteOnExit();
         }
-        //FileInputStream fis = new FileInputStream(source);
         FileOutputStream fos = new FileOutputStream(dest);
         byte[] buf = new byte[BUFSIZE];
         int read = 0;
@@ -204,10 +208,6 @@ public class SubmitSolution implements Model {
             fos.write(buf, 0, read);
         }
         fos.close();
-        //fis.close();
-        //if (EJBHelper.isTestMode()) {
-        //    dest.delete();
-        //}
     }
 
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2005 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.screening.rules;
 import java.sql.Connection;
@@ -53,7 +53,7 @@ public class PersonalInfoRule implements ScreeningRule {
      */
     public boolean screen(File file, File root, ScreeningLogger logger) {
         try {
-            Map infos = fetchInfos(logger.getSubmissionVId());
+            Map infos = fetchInfos(logger.getRequest().getArtifactId());
             matchFile(root, infos, logger);
         } catch (DatabaseException dbe) {
             // propagate database exception so submission would be rescreened.
