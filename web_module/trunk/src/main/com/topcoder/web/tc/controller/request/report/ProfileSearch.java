@@ -34,26 +34,48 @@ public class ProfileSearch extends Base {
                     response_addr = Constants.REPORT_PROFILE_SEARCH_RESULTS_ADDR;
                     ArrayList headers = new ArrayList();
                     long time = System.currentTimeMillis();
-                    String query = buildQuery(getRequest(), headers);
+                    String countQuery = buildQuery(getRequest(), headers, true);
+                    String fullQuery = null;
+                    boolean countOnly = "on".equals(getRequest().getParameter("count"));
+                    if (countOnly) {
+                        getRequest().setAttribute("QUERY", countQuery);
+                    } else {
+                        fullQuery = buildQuery(getRequest(), headers, countOnly);
+                        getRequest().setAttribute("QUERY", fullQuery);
+                    }
                     time = System.currentTimeMillis() - time;
                     if (log.isDebugEnabled()) {
-                        log.debug("query constructed in " + time);
+                        log.debug("queries constructed in " + time);
                     }
-                    getRequest().setAttribute("QUERY", query);
                     if (!"on".equals(getRequest().getParameter("queryOnly"))) {
                         time = System.currentTimeMillis();
                         QueryDataAccess qda = new QueryDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-                        QueryRequest qr = new QueryRequest();
-                        qr.addQuery("results", query);
-                        Map m = qda.getData(qr);
+                        QueryRequest countRequest = new QueryRequest();
+                        countRequest.addQuery("results", countQuery);
+                        Map countResults = qda.getData(countRequest);
                         time = System.currentTimeMillis() - time;
                         if (log.isDebugEnabled()) {
-                            log.debug("data got in " + time);
+                            log.debug("got count in " + time);
+                        }
+                        ResultSetContainer count = (ResultSetContainer) countResults.get("results");
+                        if (count.getIntItem(0, "total_count") > 1000) {
+                            throw new NavigationException("Sorry, your query return more than 1000 records.  Please include more search criteria.");
+                        } else if (countOnly) {
+                            getRequest().setAttribute(Constants.REPORT_PROFILE_SEARCH_RESULTS_KEY, countResults);
+                        } else {
+                            time = System.currentTimeMillis();
+                            QueryRequest fullRequest = new QueryRequest();
+                            fullRequest.addQuery("results", fullQuery);
+                            Map fullResults = qda.getData(fullRequest);
+                            time = System.currentTimeMillis() - time;
+                            if (log.isDebugEnabled()) {
+                                log.debug("got full results in " + time);
+                            }
+                            getRequest().setAttribute(Constants.REPORT_PROFILE_SEARCH_RESULTS_KEY, fullResults);
+
                         }
 
-
                         getRequest().setAttribute("column_headers", headers);
-                        getRequest().setAttribute(Constants.REPORT_PROFILE_SEARCH_RESULTS_KEY, m);
                     }
                 }
                 setNextPage(Constants.JSP_ADDR + response_addr);
@@ -69,7 +91,7 @@ public class ProfileSearch extends Base {
 
     }
 
-    private String buildQuery(TCRequest request, List headers) {
+    private String buildQuery(TCRequest request, List headers, boolean countOnly) {
         boolean isCaseSensitive = "on".equals(request.getParameter("casesensitive"));
         ArrayList skillsHeaders = new ArrayList();
         List[] skills = buildSkillsQuery(request, skillsHeaders);
@@ -93,7 +115,7 @@ public class ProfileSearch extends Base {
                 || !"".equals(StringUtils.checkNull(request.getParameter("maxdesrating")));
 
         StringBuffer query = new StringBuffer(5000);
-        if ("on".equals(request.getParameter("count"))) {
+        if (countOnly) {
             headers.add("Count");
             headers.add("Rated");
             headers.add("Pro");
@@ -208,7 +230,7 @@ public class ProfileSearch extends Base {
 
         if (maxDaysAlgo != null && maxDaysAlgo.length() > 0) {
             query.append("    round_segment rs,\n");
-       }
+        }
 
         if (containsDesRating) {
             query.append(" tcs_catalog:user_rating desr,\n");
@@ -583,8 +605,8 @@ public class ProfileSearch extends Base {
         Map skillSetMap = new HashMap();
         Map demo = new HashMap();
         String[] textFields = {"handle", "email", "firstname", "lastname", "maxdayssincevisit", "phone", "zipcode", "city",
-                            "company", "title", "school", "maxdayssincerating", "minevents", "mindays", "maxdays", "minrating", "maxrating",
-                            "maxdayssincedes", "mindesrating", "maxdesrating", "maxdayssincedev", "mindevrating", "maxdevrating"};
+                "company", "title", "school", "maxdayssincerating", "minevents", "mindays", "maxdays", "minrating", "maxrating",
+                "maxdayssincedes", "mindesrating", "maxdesrating", "maxdayssincedev", "mindevrating", "maxdevrating"};
         String[] checkBoxes = {"count", "pro", "stud", "resume", "travel", "auth", "casesensitive"};
         boolean[] checkBoxDefaults = {false, true, true, false, false, false, false};
         boolean revise = "on".equals(request.getParameter("revise"));
