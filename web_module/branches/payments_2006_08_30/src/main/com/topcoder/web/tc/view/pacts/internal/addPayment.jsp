@@ -210,7 +210,7 @@ types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -
                     useTopValue="false" onChange="typeChanged()" />        
         </td>
         </tr>
-        <tr id="selectReference"> </tr>
+        <tr id="selectReference"> <td><b>EMPTY</b></td><td></td></tr>
         <tr>
             <td><b>Method:</b></td><td>
             <tc-webtag:rscSelect name="payment_method_id" list="<%=paymentMethods%>" 
@@ -252,6 +252,9 @@ Calendar.setup(
                 -->
 </script>
 
+<div id="testDiv">
+
+</div>
 
 <input type=submit>
 </form>
