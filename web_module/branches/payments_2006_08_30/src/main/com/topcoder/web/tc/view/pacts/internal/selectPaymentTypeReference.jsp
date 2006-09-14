@@ -58,6 +58,12 @@
           </tr>
          </c:if>
      </taconite-replace>
+
+     <taconite-replace-children contextNodeID="testDiv" parseInBrowser="true">
+     <div>
+     testing!
+     </div>
+     </taconite-replace-children>
      
  </taconite-root>
  

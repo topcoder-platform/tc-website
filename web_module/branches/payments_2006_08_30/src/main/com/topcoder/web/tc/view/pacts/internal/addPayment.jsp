@@ -253,7 +253,7 @@ Calendar.setup(
 </script>
 
 <div id="testDiv">
-
+testDiv
 </div>
 
 <input type=submit>
