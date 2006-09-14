@@ -53,7 +53,7 @@
                         <H3>TopCoder Software Web Site Change Log</H3>
 
                         <p>
-                            1.0.5 - 2006.xx.xx
+                            1.0.5 - 2006.09.14
                             <ul>
                                 <li>Tweak to my open projects page to speed it up</li>
                                 <li>Fixed admins review scorecards overview page</li>
