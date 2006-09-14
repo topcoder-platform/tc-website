@@ -32,6 +32,9 @@
  | Section C
 </strong>
 <br><br>
+<b>Round 1:</b> Wednesday, September 27 at 9:00PM EDT<br>
+<b>Round 2:</b> Wednesday, October 11 at 9:00PM EDT
+<br><br>
                 <table class="formFrame" border="0" cellpadding="6" cellspacing="0" width="500">
                     <tbody><tr>
                         <td class="advTitle" colspan="3" width="100%">Section C</td>
