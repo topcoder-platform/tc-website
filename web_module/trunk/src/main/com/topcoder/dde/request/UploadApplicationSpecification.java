@@ -34,6 +34,8 @@ public class UploadApplicationSpecification extends BaseProcessor {
     protected void businessProcessing() throws TCWebException {
         Connection conn = null;
         try {
+            setNextPage("/applications/specification_upload.jsp");
+            setIsNextPageInContext(true);
             if (getUser().isAnonymous()) {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             } else {
@@ -50,9 +52,6 @@ public class UploadApplicationSpecification extends BaseProcessor {
 
                 log.debug("oldSpecs.length: " + oldSpecs.length);
                 getRequest().setAttribute("old_specs", Arrays.asList(oldSpecs));
-
-                setNextPage("/applications/specification_upload.jsp");
-                setIsNextPageInContext(true);
             }
         } catch (TCWebException e) {
             throw e;
