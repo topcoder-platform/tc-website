@@ -42,25 +42,25 @@ public class Helper {
                 ratings.getIntItem(0, "design_rating") > 0 ||
                 ratings.getIntItem(0, "development_rating") > 0 ||
                 ratings.getIntItem(0, "hs_algorithm_rating") > 0;
-        }
+    }
 
     /**
      * Returns whether a user is banned from sending Member Contact Messages.
      * In that case, he can't send messages anymore.
-     * 
+     *
      * @param userId the user to check.
      * @return whether a user is banned from sending Member Contact Messages.
      * @throws Exception
      */
     public static boolean isBanned(long userId) throws Exception {
         UserPreference up = DAOUtil.getFactory().getUserPreferenceDAO().find(
-                userId, Preference.MEMBER_CONTACT_BANNED);
-        
+                new Long(userId), Preference.MEMBER_CONTACT_BANNED);
+
         if (up == null) {
-        	return false;
+            return false;
         }
         return "true".equals(up.getValue());
-    	
+
     }
 
 }
