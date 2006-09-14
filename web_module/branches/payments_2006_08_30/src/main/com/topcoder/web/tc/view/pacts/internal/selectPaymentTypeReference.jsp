@@ -18,38 +18,38 @@
 <c:set var="rounds" value="${requestScope.algorithm_round_list}"/>
 <c:set var="refId" value="${requestScope.reference_id}"/>
 
-        <tac:replaceChildren contextNodeID="selectReference" parseOnServer="true">
-			<input type="text" name="search_text_x" />
-			<input type="button" value="search" onClick="alert('hi');search()" />
-		<c:choose>
-			<c:when test="${refId == 1}">
-            	<tc-webtag:rscSelect name="round_id" list="${rounds}" 
-                        fieldText="round_desc" fieldValue="round_id"              			
-            			useTopValue="false" />
-			</c:when>            			
-			<c:when test="${refId == 2}">
-            	<tc-webtag:rscSelect name="project_id" list="${projects}" 
-                        fieldText="project_desc" fieldValue="project_id"              			
-            			useTopValue="false" />
-			</c:when>            			
-			<c:when test="${refId == 3}">
-            	<tc-webtag:rscSelect name="problem_id" list="${problems}" 
-                        fieldText="name" fieldValue="problem_id"              			
-            			useTopValue="false" />
-			</c:when>            			
-			<c:when test="${refId == 6}">
-            	<tc-webtag:rscSelect name="stage_id" list="${stages}" 
-                        fieldText="stage_desc" fieldValue="stage_id"              			
-            			useTopValue="false" />
-			</c:when>            			
-			<c:when test="${refId == 7}">
-            	<tc-webtag:rscSelect name="season_id" list="${seasons}" 
-                        fieldText="name" fieldValue="season_id"              			
-            			useTopValue="false" />
-			</c:when>            			
-			      
-		</c:choose>
-		
+        <tac:replaceChildren contextNodeID="selectReference" parseInBrowser="true">
+            <input type="text" name="search_text_x" />
+            <input type="button" value="search" onClick="alert('hi');search()" />
+        <c:choose>
+            <c:when test="${refId == 1}">
+                <tc-webtag:rscSelect name="round_id" list="${rounds}" 
+                        fieldText="round_desc" fieldValue="round_id"                        
+                        useTopValue="false" />
+            </c:when>                       
+            <c:when test="${refId == 2}">
+                <tc-webtag:rscSelect name="project_id" list="${projects}" 
+                        fieldText="project_desc" fieldValue="project_id"                        
+                        useTopValue="false" />
+            </c:when>                       
+            <c:when test="${refId == 3}">
+                <tc-webtag:rscSelect name="problem_id" list="${problems}" 
+                        fieldText="name" fieldValue="problem_id"                        
+                        useTopValue="false" />
+            </c:when>                       
+            <c:when test="${refId == 6}">
+                <tc-webtag:rscSelect name="stage_id" list="${stages}" 
+                        fieldText="stage_desc" fieldValue="stage_id"                        
+                        useTopValue="false" />
+            </c:when>                       
+            <c:when test="${refId == 7}">
+                <tc-webtag:rscSelect name="season_id" list="${seasons}" 
+                        fieldText="name" fieldValue="season_id"                         
+                        useTopValue="false" />
+            </c:when>                       
+                  
+        </c:choose>
+        
         </tac:replaceChildren>
 
 </tac:taconiteRoot>
