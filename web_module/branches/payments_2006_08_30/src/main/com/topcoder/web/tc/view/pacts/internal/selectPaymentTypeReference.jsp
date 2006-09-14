@@ -17,7 +17,7 @@
 <c:set var="refId" value="${requestScope.reference_id}"/>
 
 <tac:taconiteRoot>
-        <tac:replaceChildren contextNodeID="selectReference" parseInServer="false">
+        <tac:replaceChildren contextNodeID="selectReference" parseOnServer="false">
             <input type="text" name="search_text_x" />
             <input type="button" value="test" onClick="alert('hi');search()" />
         <c:choose>
