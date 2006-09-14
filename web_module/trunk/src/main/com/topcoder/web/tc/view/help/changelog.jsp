@@ -48,7 +48,8 @@
             Fix an error in viewing affidavits, and remove duplicate demographic fields within affidavits.
         </li>
         <li>
-            Added banning users from member contact, so they can't send messages anymore. Also inactive users can't send messages.
+            Added banning users from member contact, so they can't send messages anymore. Also inactive users can't send
+            messages.
         </li>
         <li>
             Fix score format to have 2 decimal digits in team results and individual result for high school.
@@ -56,6 +57,7 @@
         <li>Fix bug in reg process that provide a "please login" error message when it should say "session expired"</li>
         <li>Don't allow someone to submit emtpy code in a marathon match</li>
         <li>Added in component contest page a link to download any submission for closed projects</li>
+        <li>Allow admin search to return a maximum of 1000 records</li>
         <%--
                 <li>
                     Reduce some of the logging when permission exceptions are thrown.
