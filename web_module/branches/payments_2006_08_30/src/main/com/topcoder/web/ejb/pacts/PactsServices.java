@@ -49,7 +49,7 @@ public interface PactsServices extends EJBObject {
     Map getUserContractList(long userId) throws RemoteException, SQLException;
 
     Map getUserPaymentList(long userId) throws RemoteException, SQLException;
-    
+
     Map getUserPaymentDetailsList(long userId, int[] paymentTypes, boolean pendingOnly) throws RemoteException, SQLException;
 
     Map getUserTaxFormList(long userId) throws RemoteException, SQLException;
@@ -70,9 +70,9 @@ public interface PactsServices extends EJBObject {
     Map getNoteTypes() throws RemoteException, SQLException;
 
     Map getPaymentTypes() throws RemoteException, SQLException;
-    
+
     Map getPaymentMethods() throws RemoteException, SQLException;
-    
+
     Map getProjectTerminationStatusTypes() throws RemoteException, SQLException;
 
     Map getModificationRationales() throws RemoteException, SQLException;
@@ -86,9 +86,9 @@ public interface PactsServices extends EJBObject {
     Map getRounds() throws RemoteException, SQLException;
 
     Map getDemographicData(long userId) throws RemoteException, SQLException;
-    
+
     Map getPaymentComponentData(long[] paymentIds) throws RemoteException, SQLException;
-    
+
     Map getCreationDates(long[] paymentIds) throws RemoteException, SQLException;
 
     // Search routines
@@ -163,7 +163,7 @@ public interface PactsServices extends EJBObject {
 
     void reviewPayments(long paymentId[])
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException;
-    
+
     // Utility routines
     boolean canAffirmAffidavit(long userId, int affidavitTypeId)
             throws RemoteException, SQLException;
@@ -178,9 +178,9 @@ public interface PactsServices extends EJBObject {
 
     int[] generateComponentPayments(long projectId, long status, String client, boolean makeChanges)
     		throws IllegalUpdateException, RemoteException, SQLException;
-    
+
     int expireOldPayments() throws RemoteException, SQLException;
-    
+
     int expireOldAffidavits() throws RemoteException, SQLException;
 
     void createAffidavitTemplate(int affidavitTypeId, String text) throws RemoteException, SQLException;
@@ -196,12 +196,16 @@ public interface PactsServices extends EJBObject {
     Map findRounds(String search, int[] roundTypes) throws RemoteException, SQLException;
 
     Map findProblems(String name) throws RemoteException, SQLException;
-    
+
     Map findProjects(String search) throws RemoteException, SQLException;
-    
+
     Map getDigitalRunSeasonList() throws RemoteException, SQLException;
-    
+
     Map getDigitalRunStageList() throws RemoteException, SQLException;
-    
+
+    Map findComponentContests(String search) throws RemoteException, SQLException;
+
+    Map findStudioContests(String search) throws RemoteException, SQLException;
+
 }
 
