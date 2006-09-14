@@ -24,8 +24,8 @@ import="com.topcoder.dde.util.Constants" %>
 <!-- Left Column begins -->
         <td width="180" class="leftColumn">
             <jsp:include page="/includes/left.jsp" >
-                <jsp:param name="level1" value="components"/>
-                <jsp:param name="level2" value="find"/>
+                <jsp:param name="level1" value=""/>
+                <jsp:param name="level2" value=""/>
             </jsp:include>
         </td>
         <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
@@ -48,7 +48,7 @@ import="com.topcoder.dde.util.Constants" %>
     <tr>
         <td class="header">Date</td>
         <td class="header">Filename</td>
-        <td class="headerC">Screening results</td>
+        <td class="headerC">Screening Results</td>
     </tr>
     <% boolean even = true;%>
     <c:forEach items="${old_specs}" var="specItem">
