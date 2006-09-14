@@ -9,8 +9,6 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.servlet.*" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.*" %>
 
-<tac:taconiteRoot>
-
 <c:set var="problems" value="${requestScope.algorithm_problem_list}"/>
 <c:set var="projects" value="${requestScope.component_project_list}"/>
 <c:set var="stages" value="${requestScope.digital_run_stage_list}"/>
@@ -18,9 +16,10 @@
 <c:set var="rounds" value="${requestScope.algorithm_round_list}"/>
 <c:set var="refId" value="${requestScope.reference_id}"/>
 
-        <tac:replaceChildren contextNodeID="selectReference" parseInBrowser="true">
+<tac:taconiteRoot>
+        <tac:replaceChildren contextNodeID="selectReference" parseInServer="false">
             <input type="text" name="search_text_x" />
-            <input type="button" value="search" onClick="alert('hi');search()" />
+            <input type="button" value="test" onClick="alert('hi');search()" />
         <c:choose>
             <c:when test="${refId == 1}">
                 <tc-webtag:rscSelect name="round_id" list="${rounds}" 
