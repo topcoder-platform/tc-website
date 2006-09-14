@@ -21,9 +21,6 @@ import javax.naming.Context;
 import javax.naming.NamingException;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * User: lars
@@ -33,11 +30,6 @@ public class MainServlet extends BaseServlet {
     private final static Logger log = Logger.getLogger(MainServlet.class);
     private static QueueMessageSender sender = null;
     private static WebQueueResponseManager receiver = null;
-
-    protected void process(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ServletException {
-        super.process(request, response);
-    }
 
     public void init(ServletConfig config) throws ServletException {
         log.debug("loading up the longcontest servlet");
