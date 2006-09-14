@@ -32,56 +32,57 @@ import="com.topcoder.dde.util.Constants" %>
         <td width="100%">
 
 <%------------ORIGINAL CONTENT--------------%>
-    <TABLE>
-      <TR>
-        <TD>
-          <form name="upload_form" enctype="multipart/form-data" method="POST" action="/tcs">
-            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="UploadApplicationSpecificationTask">                
-            <br/>Upload file: <input type=file name=file1>
-            <br/><input type="submit" value="Upload">
-            </form>
-        </TD>
-      </TR>
-      <TR>
-        <TD>Uploaded specifications:</TD>
-        <TD>
-            <tr>
-                <td>Date</td>
-                <td>Filename</td>
-                <td>Screening results</td>
-            </tr>
-            <c:forEach items="${old_specs}" var="specItem">
-            <tr>
-                <td><c:out value="${specItem.uploadDate}"/></td>
-                <td>
-                    <A href="/tcs?module=DownloadApplicationSpecification&<%=Constants.SPECIFICATION_KEY%>=<c:out value="${specItem.specificationId}"/>">
-                        <c:out value="${specItem.remoteFilename}"/>
-                    </a>
-                </td>
+<div align="center" style="padding:15px;">
+<form name="upload_form" enctype="multipart/form-data" method="POST" action="/tcs">
+<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="UploadApplicationSpecificationTask">                
+<strong>Upload file:</strong><br><br><input type=file name=file1>
+<br/><input type="submit" value="Upload">
+</form>
+
+<TABLE cellpadding="0" cellspacing="0" class="stat">
+<tbody>
+    <TR>
+        <TD class="title" colspan="3">Uploaded specifications</TD>
+    </tr>
+    <tr>
+        <td class="header">Date</td>
+        <td class="header">Filename</td>
+        <td class="headerC">Screening results</td>
+    </tr>
+    <% boolean even = true;%>
+    <c:forEach items="${old_specs}" var="specItem">
+    <tr class="<%=even?"light":"dark"%>">
+        <td class="value"><c:out value="${specItem.uploadDate}"/></td>
+        <td class="value">
+            <A href="/tcs?module=DownloadApplicationSpecification&<%=Constants.SPECIFICATION_KEY%>=<c:out value="${specItem.specificationId}"/>">
+            <c:out value="${specItem.remoteFilename}"/>
+            </a>
+        </td>
+        <c:choose>
+            <c:when test="${specItem.screened}">
+        <td class="valueC">
+            <A href="/tcs?module=ViewUploadResults&<%=Constants.SPECIFICATION_KEY%>=<c:out value="${specItem.specificationId}"/>">
                 <c:choose>
-                    <c:when test="${specItem.screened}">
-                        <td>
-                            <A href="/tcs?module=ViewUploadResults&<%=Constants.SPECIFICATION_KEY%>=<c:out value="${specItem.specificationId}"/>">
-                                <c:choose>
-                                    <c:when test="${specItem.passedAutoScreening == 1}">
-                                        Passed screening
-                                    </c:when>
-                                    <c:otherwise>
-                                        Failed screening
-                                    </c:otherwise>
-                                </c:choose>
-                            </a>
-                        </td>
+                    <c:when test="${specItem.passedAutoScreening == 1}">
+            Passed screening
                     </c:when>
                     <c:otherwise>
-                        <td>N/A</td>
+            Failed screening
                     </c:otherwise>
                 </c:choose>
-            </tr>
-            </c:forEach>
-        </TD>
-      </TR>
-    </TABLE>
+            </a>
+        </td>
+            </c:when>
+            <c:otherwise>
+        <td class="valueC">N/A</td>
+            </c:otherwise>
+        </c:choose>
+    </tr>
+    <% even = !even;%>
+    </c:forEach>
+</tbody>
+</TABLE>
+</div>
 <%--------------------------%>
 
 </td>
