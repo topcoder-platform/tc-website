@@ -18,7 +18,7 @@
 
 <taconite-root xml:space="preserve">
      
-     <taconite-replace-children contextNodeID="selectReference" parseInBrowser="true">
+     <taconite-replace-children contextNodeID="testDiv" parseInBrowser="true">
         <div>
                  button:<input type="button" value="test" onClick="alert('hi');search()" />
         </div>    

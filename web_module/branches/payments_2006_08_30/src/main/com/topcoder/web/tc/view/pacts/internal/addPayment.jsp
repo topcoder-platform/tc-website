@@ -104,27 +104,27 @@ function search() {
     String statusSelectedValue = null;
     String statusSelectedText = null;
     if (status < 0)  {
-    	statusSelectedText = payment_is_for_contract? PactsConstants.DEFAULT_CONTRACT_PAYMENT_STATUS :
-   						 						      PactsConstants.DEFAULT_PAYMENT_STATUS;    		
+        statusSelectedText = payment_is_for_contract? PactsConstants.DEFAULT_CONTRACT_PAYMENT_STATUS :
+                                                      PactsConstants.DEFAULT_PAYMENT_STATUS;            
     } else {
-    	statusSelectedValue = "" + status;
+        statusSelectedValue = "" + status;
     }
 
     String paymentTypeSelectedValue = null;
     String paymentTypeSelectedText = null;
     if (type < 0)  {
-    	paymentTypeSelectedText = payment_is_for_contract? PactsConstants.DEFAULT_CONTRACT_PAYMENT_TYPE :
-     						 						       PactsConstants.DEFAULT_PAYMENT_TYPE;    		
+        paymentTypeSelectedText = payment_is_for_contract? PactsConstants.DEFAULT_CONTRACT_PAYMENT_TYPE :
+                                                           PactsConstants.DEFAULT_PAYMENT_TYPE;         
     } else {
-    	paymentTypeSelectedValue = "" + type;
+        paymentTypeSelectedValue = "" + type;
     }
 
     String paymentMethodSelectedValue = null;
     String paymentMethodSelectedText = null;
     if (method < 0)  {
-    	paymentMethodSelectedText = PactsConstants.DEFAULT_PAYMENT_METHOD;
+        paymentMethodSelectedText = PactsConstants.DEFAULT_PAYMENT_METHOD;
     } else {
-    	paymentMethodSelectedValue = "" + method;
+        paymentMethodSelectedValue = "" + method;
     }
 %>
 <script type="text/javascript">
@@ -201,31 +201,31 @@ types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -
         </td></tr>
         <tr>
             <td><b>Type:</b></td><td>
-	       <tc-webtag:rscSelect name="payment_type_id" 
-	       			list="<%=paymentTypes%>" 
-		            fieldText="payment_type_desc" fieldValue="payment_type_id" 
-		            selectedValue="<%= paymentTypeSelectedValue %>" selectedText="<%= paymentTypeSelectedText %>" 
-	    	        useTopValue="false" onChange="typeChanged()" />        
+           <tc-webtag:rscSelect name="payment_type_id" 
+                    list="<%=paymentTypes%>" 
+                    fieldText="payment_type_desc" fieldValue="payment_type_id" 
+                    selectedValue="<%= paymentTypeSelectedValue %>" selectedText="<%= paymentTypeSelectedText %>" 
+                    useTopValue="false" onChange="typeChanged()" />        
         </td>
         </tr>
         
  <tr>
         <td><b>Reference:</b></td>
- 	<td>
- 				<input type="text" name="search_text" />
-			<input type="button" value="search" onClick="search()" />
- 	
- 	<div id="selectReference"> </div>
- 	</td>
- 	
+    <td>
+                <input type="text" name="search_text" />
+            <input type="button" value="search" onClick="search()" />
+    
+    <div id="selectReference"> </div>
+    </td>
+    
  </tr>
         
         <tr>
             <td><b>Method:</b></td><td>
             <tc-webtag:rscSelect name="payment_method_id" list="<%=paymentMethods%>" 
                         fieldText="payment_method_desc" fieldValue="payment_method_id"  
-            			selectedValue="<%= paymentMethodSelectedValue %>" selectedText="<%= paymentMethodSelectedText %>"             
-            			useTopValue="false" />
+                        selectedValue="<%= paymentMethodSelectedValue %>" selectedText="<%= paymentMethodSelectedText %>"             
+                        useTopValue="false" />
             </td>
         </tr>
         <tr>
@@ -242,9 +242,10 @@ types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -
                 <button id="trigger_date_due">Set</button>
             (if left blank, 2 weeks from now)
             </td>
-	            
+                
         </tr>
 </table>
+TEST: <div id="testDiv"> </div>
 
 <script language="javascript" type="text/javascript">
     <!--
