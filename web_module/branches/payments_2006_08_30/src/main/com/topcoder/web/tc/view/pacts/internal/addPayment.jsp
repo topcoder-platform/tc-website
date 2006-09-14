@@ -21,8 +21,8 @@
     <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
          
-<script type="text/javascript" src="/js/taconite-client.js"></script>
-<script type="text/javascript" src="/js/taconite-parser.js"></script>
+<script type="text/javascript" src="/pacts/internal/taconite-client.js"></script>
+<script type="text/javascript" src="/pacts/internal/taconite-parser.js"></script>
 <script type="text/javascript">
 
 
