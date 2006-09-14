@@ -52,7 +52,7 @@ import="com.topcoder.dde.util.Constants,
                         <c:choose>
                             <c:when test="${screeningFinished}">
                                 <c:if test="${hasErrors}">
-<h3>Fatal Errors:</h3>
+<h3>Fatal Errors</h3>
                                     <c:forEach items="${errors}" var="errorItem">
                                                 <c:out value="${errorItem.code}"/>: <c:out value="${errorItem.response}"/>
                                                 <ul>
@@ -65,7 +65,7 @@ import="com.topcoder.dde.util.Constants,
                                     </c:forEach>
                                 </c:if>
                                 <c:if test="${hasWarnings}">
-<h3>Warnings:</h3>
+<h3>Warnings</h3>
                                     <c:forEach items="${warnings}" var="warningItem">
                                                 <c:out value="${warningItem.code}"/>: <c:out value="${warningItem.response}"/>
                                                 <ul>
@@ -78,7 +78,7 @@ import="com.topcoder.dde.util.Constants,
                                     </c:forEach>
                                 </c:if>
                                 <c:if test="${hasSuccess}">
-<h3>Messages:</h3>
+<h3>Messages</h3>
                                     <c:forEach items="${success}" var="succesItem">
                                                 <c:out value="${succesItem.code}"/>: <c:out value="${succesItem.response}"/>
                                                 <ul>
@@ -96,7 +96,7 @@ import="com.topcoder.dde.util.Constants,
                                         <img src="/images/interface/processing.gif" alt="Processing..." />
                                         </div>
                                         <br>
-                                        Screening still in progress... 
+<h3>Screening still in progress</h3>
                                         <br><br>
                                         The page should be automatically refreshed in 10 seconds, if it is not refreshed, please click 
                                         <A href="/tcs?module=ViewUploadResults&<%=Constants.SPECIFICATION_KEY%>=<%=request.getAttribute(Constants.SPECIFICATION_KEY)%>">here</a>.
