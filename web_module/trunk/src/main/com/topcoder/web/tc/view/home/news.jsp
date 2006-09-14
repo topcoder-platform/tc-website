@@ -19,6 +19,23 @@
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
 ----------------%>
+<%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/><br>09.14.06<br>4:15 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=091406">Introduction to OpenMP, Part 2</A></span><br><br>
+               In Part 1, we looked at an overview of multi-threading, introduced OpenMP, and began to review its directives. Part 2 continues with a look at the reduction directive.</td>
+            <td class="newsPhoto">by
+                <tc-webtag:handle coderId="21464956" /></td></tr>
+        </table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&amp;d1=features&amp;d2=091406">article</A> | 
+    <tc-webtag:forumLink forumID="506105" message="discuss this"/> | 
+    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+</td></tr>
 
 <%--------------------------------------------------------%>
 <tr>
@@ -197,23 +214,5 @@ be exciting.
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 
-
 <%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>09.08.06<br>5:30 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-         <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc06_qual_1">TCCC06 Qualification 1 - Problem Set & Analysis</A></span><br><br>
-         Thanks to the new qualification system, a lot of non-red coders got a perfect opportunity to win a TopCoder round.
-         Newcomer <tc-webtag:handle coderId="22629359" context="algorithm"/> used this opportunity,
-          getting 5 successful challenges on the way to winning the round.
-</td>
-         <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_qual_1">full story</A> | 
-    <tc-webtag:forumLink forumID="506103" message="discuss this"/> | 
-    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
-
+<tr><td>&#160;</td></tr>

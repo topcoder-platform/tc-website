@@ -492,7 +492,7 @@ When I actually tried to get this to happen, though, I did get the expected valu
 <br><br>
 At a high level it's hard to find much more to say on this construct - for something so powerful it really is amazingly simple to use. If you've done some multithreaded programming previously I'm sure you'll agree -- after messing around with thread objects in the past I simply fell in love with OpenMP! 
 <br><br>
-<i>Watch for more on OpenMP directives in Part 2, coming on Thursday, September 14.</i>
+<i>Watch for more on OpenMP directives in <A href="/tc?module=Static&d1=features&d2=091406">Part 2</A>, coming on Thursday, September 14.</i>
 <br><br>
 
         </td>
