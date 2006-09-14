@@ -15,16 +15,15 @@ import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.controller.request.RegistrationBase;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.ServletException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.MissingResourceException;
 import java.util.Set;
 
 /**
- *
  * @author gpaul 06.26.2003
  */
 public class MainServlet extends BaseServlet {
@@ -37,14 +36,14 @@ public class MainServlet extends BaseServlet {
     protected TCSubject getUser(long id, TCRequest request) throws Exception {
         String db = getDB(request);
         try {
-            if (db==null) {
+            if (db == null) {
                 return SecurityHelper.getUserSubject(id);
             } else {
                 return SecurityHelper.getUserSubject(id, db);
             }
         } catch (NoSuchUserException e) {
             log.warn("couldn't find user " + id + " gonna get a guest instead");
-            if (db==null) {
+            if (db == null) {
                 return SecurityHelper.getUserSubject(SimpleUser.createGuest().getId());
             } else {
                 return SecurityHelper.getUserSubject(SimpleUser.createGuest().getId(), db);
@@ -61,29 +60,29 @@ public class MainServlet extends BaseServlet {
         try {
             try {
 
-            request.setCharacterEncoding("utf-8");
-            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-            TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
-            //set up security objects and session info
-            authentication = createAuthentication(tcRequest, tcResponse);
-            TCSubject user = getUser(authentication.getActiveUser().getId(), tcRequest);
-            info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
-            tcRequest.setAttribute(SESSION_INFO_KEY, info);
-            //todo perhaps this should be configurable...so implementing classes
-            //todo don't have to do it if they don't want to
-            RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
+                request.setCharacterEncoding("utf-8");
+                TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+                TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
+                //set up security objects and session info
+                authentication = createAuthentication(tcRequest, tcResponse);
+                TCSubject user = getUser(authentication.getActiveUser().getId(), tcRequest);
+                info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
+                tcRequest.setAttribute(SESSION_INFO_KEY, info);
+                //todo perhaps this should be configurable...so implementing classes
+                //todo don't have to do it if they don't want to
+                RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
-            StringBuffer loginfo = new StringBuffer(100);
-            loginfo.append("[* ");
-            loginfo.append(info.getHandle());
-            loginfo.append(" * ");
-            loginfo.append(request.getRemoteAddr());
-            loginfo.append(" * ");
-            loginfo.append(request.getMethod());
-            loginfo.append(" ");
-            loginfo.append(info.getRequestString());
-            loginfo.append(" *]");
-            log.info(loginfo);
+                StringBuffer loginfo = new StringBuffer(100);
+                loginfo.append("[* ");
+                loginfo.append(info.getHandle());
+                loginfo.append(" * ");
+                loginfo.append(request.getRemoteAddr());
+                loginfo.append(" * ");
+                loginfo.append(request.getMethod());
+                loginfo.append(" ");
+                loginfo.append(info.getRequestString());
+                loginfo.append(" *]");
+                log.info(loginfo);
 
                 try {
                     String cmd = StringUtils.checkNull((String) tcRequest.getAttribute(MODULE));
@@ -113,12 +112,12 @@ public class MainServlet extends BaseServlet {
                         throw new NavigationException("Invalid request", e);
                     }
                 } catch (PermissionException pe) {
-                    log.debug("caught PermissionException");
                     if (authentication.getUser().isAnonymous()) {
+                        log.info(info.getHandle() + " does not have access to " + pe.getResource().getName() + " sending to login");
                         handleLogin(request, response, info);
                         return;
                     } else {
-                        log.debug("already logged in, rethrowing");
+                        log.info(info.getHandle() + " does not have access to " + pe.getResource().getName() + " sending to error");
                         throw pe;
                     }
                 }
@@ -150,8 +149,8 @@ public class MainServlet extends BaseServlet {
 
     protected WebAuthentication createAuthentication(TCRequest request,
                                                      TCResponse response) throws Exception {
-        String db=getDB(request);
-        if (db==null) {
+        String db = getDB(request);
+        if (db == null) {
             return new BasicAuthentication(new SessionPersistor(request.getSession()),
                     request, response, BasicAuthentication.PRIVATE_LABEL_SITE);
         } else {
@@ -160,12 +159,12 @@ public class MainServlet extends BaseServlet {
         }
     }
 
-    private String  getDB(TCRequest request) {
-        String db=null;
-        long companyId=-1;
+    private String getDB(TCRequest request) {
+        String db = null;
+        long companyId = -1;
         try {
-             companyId= Long.parseLong(request.getParameter(Constants.COMPANY_ID));
-             db = RegistrationBase.getCompanyDb(companyId, Constants.TRANSACTIONAL);
+            companyId = Long.parseLong(request.getParameter(Constants.COMPANY_ID));
+            db = RegistrationBase.getCompanyDb(companyId, Constants.TRANSACTIONAL);
         } catch (Exception e) {
             if (companyId > 0) {
                 log.warn("no db found for company " + companyId);

@@ -195,19 +195,12 @@ public abstract class BaseServlet extends HttpServlet {
                         throw new NavigationException("Invalid request", e);
                     }
                 } catch (PermissionException pe) {
-/*
-                    if (log.isDebugEnabled()) {
-                        log.debug("caught PermissionException");
-                        pe.printStackTrace();
-                    }
-*/
                     if (authentication.getUser().isAnonymous()) {
+                        log.info(info.getHandle() + " does not have access to " + pe.getResource().getName() + " sending to login");
                         handleLogin(request, response, info);
                         return;
                     } else {
-                        if (log.isDebugEnabled()) {
-                            log.debug("already logged in, rethrowing");
-                        }
+                        log.info(info.getHandle() + " does not have access to " + pe.getResource().getName() + " sending to error");
                         throw pe;
                     }
                 }

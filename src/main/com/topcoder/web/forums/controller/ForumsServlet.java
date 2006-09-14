@@ -138,10 +138,8 @@ public class ForumsServlet extends BaseServlet {
                         throw new NavigationException("Invalid request", e);
                     }
                 } catch (PermissionException pe) {
-                    if (log.isDebugEnabled()) {
-                        log.debug("caught PermissionException");
-                    }
                     if (authentication.getUser().isAnonymous()) {
+                        log.info(info.getHandle() + " does not have access to " + pe.getResource().getName() + " sending to login");
                         if (authentication instanceof TCForumsAuthentication) {
                             handleLogin(request, response, info, ApplicationServer.SERVER_NAME);
                         } else if (authentication instanceof StudioForumsAuthentication) {
@@ -149,9 +147,7 @@ public class ForumsServlet extends BaseServlet {
                         }
                         return;
                     } else {
-                        if (log.isDebugEnabled()) {
-                            log.debug("already logged in, rethrowing");
-                        }
+                        log.info(info.getHandle() + " does not have access to " + pe.getResource().getName() + " sending to error");
                         throw pe;
                     }
                 }

@@ -11,17 +11,17 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.WebAuthentication;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.ServletException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.MissingResourceException;
 
 /**
- * @author  dok
- * @version  $Revision$ $Date$
- * Create Date: Feb 3, 2005
+ * @author dok
+ * @version $Revision$ $Date$
+ *          Create Date: Feb 3, 2005
  */
 public class TCSServlet extends BaseServlet {
 
@@ -41,9 +41,9 @@ public class TCSServlet extends BaseServlet {
             TCResponse tcResponse = HttpObjectFactory.createResponse(response);
             //set up security objects and session info
             authentication = createAuthentication(request, response);
-            TCSubject user = (TCSubject)request.getSession().getAttribute("TCSUBJECT");
+            TCSubject user = (TCSubject) request.getSession().getAttribute("TCSUBJECT");
             //this isn're really useful cuz it does't have any permissions in the subject object
-            if (user==null) user = new TCSubject(GUEST.getId());
+            if (user == null) user = new TCSubject(GUEST.getId());
 
             info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
             tcRequest.setAttribute(SESSION_INFO_KEY, info);
@@ -86,12 +86,12 @@ public class TCSServlet extends BaseServlet {
                         throw new NavigationException("Invalid request", e);
                     }
                 } catch (PermissionException pe) {
-                    log.debug("caught PermissionException");
                     if (authentication.getUser().isAnonymous()) {
+                        log.info(info.getHandle() + " does not have access to " + pe.getResource().getName() + " sending to login");
                         handleLogin(request, response, info);
                         return;
                     } else {
-                        log.debug("already logged in, rethrowing");
+                        log.info(info.getHandle() + " does not have access to " + pe.getResource().getName() + " sending to error");
                         throw pe;
                     }
                 }
@@ -154,8 +154,6 @@ public class TCSServlet extends BaseServlet {
                                                      HttpServletResponse response) throws Exception {
         return new TCSAuthentication(request, response);
     }
-
-
 
 
 }
