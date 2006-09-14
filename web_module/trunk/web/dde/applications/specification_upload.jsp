@@ -35,7 +35,8 @@ import="com.topcoder.dde.util.Constants" %>
 <div align="center" style="padding:15px;">
 <form name="upload_form" enctype="multipart/form-data" method="POST" action="/tcs">
 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="UploadApplicationSpecificationTask">                
-<strong>Upload file:</strong><br><br><input type=file name=file1>
+<strong>Upload file:</strong><br>
+<input type=file name=file1>
 <br/><input type="submit" value="Upload">
 </form>
 
