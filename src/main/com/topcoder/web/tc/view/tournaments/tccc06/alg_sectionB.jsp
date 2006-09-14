@@ -32,6 +32,9 @@
  | <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionC">Section C</A>
 </strong>
 <br><br>
+<b>Round 1:</b> Saturday, September 23 at 1:00PM EDT<br>
+<b>Round 2:</b> Saturday, October 7 at 1:00PM EDT
+<br><br>
                 <table class="formFrame" border="0" cellpadding="6" cellspacing="0" width="500">
                     <tbody><tr>
                         <td class="advTitle" colspan="3" width="100%">Section B</td>
