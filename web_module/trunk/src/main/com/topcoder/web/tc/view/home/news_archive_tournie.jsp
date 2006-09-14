@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<%--<tr class="bodyText"><td nowrap="nowrap">09.18.06 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=pickme_contest">TCCC06 "Pick Me" Contest</A></td></tr>--%>
 <tr class="bodyText"><td nowrap="nowrap">09.13.06 4:15 PM - </td><td width="100%">TCCC06 Algorithm Sections: <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionA">A</A>, <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionB">B</A>, and <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionC">C</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.13.06 11:45 AM - </td><td width="100%"><A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">TCCC06 Algorithm Qualification Round 3 Results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.13.06 11:30 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg_chat_082406">Bloomberg SRM 317 chat session transcript</A></td></tr>

@@ -7,6 +7,18 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
+<%----------------------------------------POST MONDAY SEPT 18 9:00am
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.18.06<br>9:00 AM</td>
+    <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=pickme_contest">TCCC06 "Pick Me" Contest</A></span><br><br>
+      Did you miss out on making it as a TCCC finalist? Still want to see the finals in San Diego anyway? Here's your chance!
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=pickme_contest">details</A> | 
+    <tc-webtag:forumLink forumID="506113" message="discuss this"/> | 
+    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+</td></tr>
+----------------%>
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.13.06<br>4:15 PM</td>
@@ -202,4 +214,3 @@ be exciting.
     <tc-webtag:forumLink forumID="506103" message="discuss this" /> | 
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
-
