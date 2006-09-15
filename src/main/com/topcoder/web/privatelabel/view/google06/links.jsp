@@ -70,4 +70,4 @@
 </div>
 
 <br><br>
-<span class="bigRed"><A href="/pl/?module=Static&d1=google06&d2=advQual" class="bigRed">Click here</A> to see who has qualified!</span>
+<span class="bigRed"><A href="/pl/?module=Static&d1=google06&d2=advRd1" class="bigRed">Click here</A> to see who advanced in Round 1!</span>
