@@ -7,6 +7,26 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
+<%----------------------------POST MONDAY SEPT 18 11:00am
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/><br>09.18.06<br>11:00 AM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=091806">Computational geometry with complex numbers</A></span><br><br>
+               Computational geometry problems appear frequently in Topcoder contests and a series of articles has already been written on the subject. However, 
+               competitors who have tried to implement these algorithms (particularly in C++) will no doubt have been frustrated&#8230;</td>
+            <td class="newsPhoto"><img src="/i/m/bmerry_mug.gif" alt="" /><br>
+            by <tc-webtag:handle coderId="251074" /></td></tr>
+        </table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&amp;d1=features&amp;d2=091806">article</A> | 
+    <tc-webtag:forumLink forumID="506116" message="discuss this"/> | 
+    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+</td></tr>
+----------------------------%>
+
 <%----------------------------------------POST MONDAY SEPT 18 9:00am
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.18.06<br>9:00 AM</td>

@@ -39,6 +39,10 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<%-- POST MONDAY SEPT 18 11:00 
+<li><A href="/tc?module=Static&amp;d1=features&amp;d2=091806"><strong>Computational geometry with complex numbers</strong></A>, by <tc-webtag:handle coderId="251074" /><br>
+Computational geometry problems appear frequently in Topcoder contests and a series of articles has already been written on the subject. However, competitors who have tried to implement these algorithms (particularly in C++) will no doubt have been frustrated&#8230;</li>
+--%>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=091406"><strong>Introduction to OpenMP, Part 2</strong></A>, by <tc-webtag:handle coderId="21464956" /><br>
 In Part 1, we looked at an overview of multi-threading, introduced OpenMP, and began to review its directives. Part 2 continues with a look at the reduction directive.</li>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=091106"><strong>Introduction to OpenMP, Part 1</strong></A>, by <tc-webtag:handle coderId="21464956" /><br>
