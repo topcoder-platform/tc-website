@@ -536,6 +536,9 @@
         <unwar src="${war.dir}/onsite.war" dest="${jboss.deploy.dir}/onsite.war/" overwrite="yes"/>
         <delete dir="${jboss.deploy.dir}/onsite.war/META-INF"/>
 
+        <antcall target="copy-libs"/>
+        <antcall target="copy-conf"/>
+
     </target>
 
     <target name="deploy" depends="build-ear,build-screening,build-onsite">
