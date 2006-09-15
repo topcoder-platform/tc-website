@@ -43,6 +43,10 @@ public class DownloadSubmission extends Base {
                 r.setProperty(Constants.CODER_ID, coderId);
                 r.setProperty(Constants.SUBMISSION_TYPE, "1"); // just initiall submissions
 
+				// When selecting the submission row, it filters by status to be sure that the selected
+				// project is completed and avoid a user hacking a url to download a submission that
+				// shouldn't be available.
+				// If that's the case, the query won't return any rows and an exception will be thrown.
                 DataAccessInt dai = getDataAccess(true);
                 Map result = dai.getData(r);
                 ResultSetContainer rsc = (ResultSetContainer) result.get("get_submission_url");
