@@ -40,6 +40,7 @@ public class ProfileSearch extends Base {
                     if (countOnly) {
                         getRequest().setAttribute("QUERY", countQuery);
                     } else {
+                        headers.clear();
                         fullQuery = buildQuery(getRequest(), headers, countOnly);
                         getRequest().setAttribute("QUERY", fullQuery);
                     }
