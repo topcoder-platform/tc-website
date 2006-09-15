@@ -1,4 +1,4 @@
-\<%@ page import="com.topcoder.web.common.BaseServlet,
+<%@ page import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.common.BaseProcessor,
                  com.topcoder.web.common.DateUtils,
                  com.topcoder.web.forums.ForumConstants,
