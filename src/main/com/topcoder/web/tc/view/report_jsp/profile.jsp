@@ -78,7 +78,7 @@
 <%
 
     if (profiles != null && request.getParameter(Constants.TASK_NAME_KEY) != null) {
-        for (int k = 0; k < profiles.size(); k++) {
+        for (int k = 0; k < profiles.size() && k < 100; k++) {
             p = profiles.getRow(k);
             demographicList = (ResultSetContainer) ((Map) detailList.get(k)).get("coder_demographics");
             notifyList = (ResultSetContainer) ((Map) detailList.get(k)).get("notify");
