@@ -252,10 +252,6 @@ Calendar.setup(
                 -->
 </script>
 
-<div id="testDiv">
-testDiv
-</div>
-
 <input type=submit>
 </form>
 <jsp:include page="InternalFooter.jsp" flush="true"/>
