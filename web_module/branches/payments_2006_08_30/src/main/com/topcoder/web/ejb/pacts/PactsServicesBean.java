@@ -24,6 +24,7 @@ import java.text.DecimalFormat;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.Date;
 
 
 /**
@@ -5146,6 +5147,69 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return hm;
     }
 
+
+    public AlgorithmContestPayment addAlgorithmContestPayment(long coderId, double grossAmount, long roundId) throws SQLException {
+    }
+
+    ProblemPayment addProblemWritingPayment(long coderId, double grossAmount, long problemId) throws SQLException {
+    	
+    }
+
+    ProblemPayment addProblemTestingPayment(long coderId, double grossAmount, long problemId) throws SQLException {
+    	
+    }
+
+    ComponentPayment addComponentPayment(long coderId, double grossAmount, long projectId) throws SQLException {
+    	
+    }
+
+    ComponentPayment addReviewPayment(long coderId, double grossAmount, long projectId) throws SQLException {
+    	
+    }
+
+
+    void updatePayment(AlgorithmContestPayment payment) throws SQLException {
+    	
+    }
+
+    void updatePayment(ProblemPayment payment) throws SQLException {
+    	
+    }
+
+    void updatePayment(ComponentPayment payment) throws SQLException {
+    	
+    }
+
+
+    void removePayment(BasePayment payment) throws SQLException {
+    	
+    }
+
+
+    AlgorithmContestPayment findAlgorithmContestPayment(long coderId, long roundId) throws SQLException {
+    	
+    }
+
+    List findAlgorithmContestPayments(long roundId) throws SQLException {
+    	
+    }
+
+    ProblemPayment findProblemPayment(long coderId, long problemId) throws SQLException {
+    	
+    }
+
+    List findProblemPayments(long problemId) throws SQLException {
+    	
+    }
+
+    ComponentPayment findComponentPayment(long coderId, long projectId) throws SQLException {
+    	
+    }
+
+    List findComponentPayments(long projectId) throws SQLException {
+    	
+    }
+    
 
 }
 
