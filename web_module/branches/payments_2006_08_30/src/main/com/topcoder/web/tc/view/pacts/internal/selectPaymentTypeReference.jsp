@@ -28,7 +28,7 @@
                      <c:when test="${refId == 1}">
 		                  Enter search text for round name: <input type="text" name="search_text" />
 		                  <input type="button" value="search" onClick="search()" />
-		                  <br>
+		                  <br/>
 						<c:if test="${not empty rounds}">					
 	                         <tc-webtag:rscSelect name="round_id" list="${rounds}" 
 	                                 fieldText="round_desc" fieldValue="round_id"                        
