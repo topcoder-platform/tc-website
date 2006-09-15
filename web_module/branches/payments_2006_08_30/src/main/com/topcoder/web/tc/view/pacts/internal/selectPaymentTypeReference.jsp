@@ -24,15 +24,18 @@
           <tr>
               <td><b>Reference:</b></td>
               <td>
-                  <input type="text" name="search_text" />
-                  <input type="button" value="search" onClick="search()" />
-            <br/>
                  <c:choose>
                      <c:when test="${refId == 1}">
-                         <tc-webtag:rscSelect name="round_id" list="${rounds}" 
-                                 fieldText="round_desc" fieldValue="round_id"                        
-                                 useTopValue="false" />
+		                  Enter search text for round name: <input type="text" name="search_text" />
+		                  <input type="button" value="search" onClick="search()" />
+				            <br/>
+						<c:if test="${not empty rounds}">					
+	                         <tc-webtag:rscSelect name="round_id" list="${rounds}" 
+	                                 fieldText="round_desc" fieldValue="round_id"                        
+	                                 useTopValue="false" />
+	                    </c:if>	                                 
                      </c:when>                       
+                     
                      <c:when test="${refId == 2}">
                          <tc-webtag:rscSelect name="project_id" list="${projects}" 
                                  fieldText="project_desc" fieldValue="project_id"                        
@@ -59,12 +62,6 @@
           </tr>
          </c:if>
      </taconite-replace>
-
-     <taconite-replace-children contextNodeID="testDiv" parseInBrowser="true">
-     <div>
-     testing!
-     </div>
-     </taconite-replace-children>
      
  </taconite-root>
  
