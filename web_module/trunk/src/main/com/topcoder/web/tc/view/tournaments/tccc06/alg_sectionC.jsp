@@ -32,8 +32,8 @@
  | Section C
 </strong>
 <br><br>
-<b>Round 1:</b> Wednesday, September 27 at 9:00PM EDT<br>
-<b>Round 2:</b> Wednesday, October 11 at 9:00PM EDT
+<b>Round 1:</b> Wednesday, September 27 at 9:00PM EDT <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=27&year=2006&hour=21&min=0&sec=0&p1=179" target="_blank">World Clock</A><br>
+<b>Round 2:</b> Wednesday, October 11 at 9:00PM EDT <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=10&day=11&year=2006&hour=21&min=0&sec=0&p1=179" target="_blank">World Clock</A>
 <br><br>
                 <table class="formFrame" border="0" cellpadding="6" cellspacing="0" width="500">
                     <tbody><tr>
