@@ -85,13 +85,14 @@ public class Login extends Base {
                                 if (log.isDebugEnabled()) {
                                     log.debug("user active");
                                 }
-                                String dest = StringUtils.replace(StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)), "&", "%26");
                                 String forumsURL = "http://" + ApplicationServer.FORUMS_SERVER_NAME;
 
+                                String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
                                 //todo make this https
                                 SiteTest siteTest = new SiteTest();
                                 boolean forumsServerActive = siteTest.check(forumsURL);
                                 if (forumsServerActive) {
+                                    dest = StringUtils.replace(StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)), "&", "%26");
                                     StringBuffer nextPage = new StringBuffer(forumsURL).append("/?module=Login");
                                     nextPage.append("&").append(USER_ID).append("=").append(sub.getUserId());
                                     nextPage.append("&").append(USER_NAME).append("=").append(username);
