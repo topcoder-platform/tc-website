@@ -19,6 +19,18 @@
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
 ----------------%>
+<%------------------COMPONENT COMPETITIONS--------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>09.14.06<br>10:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">Design and Development Submission Downloads</span><br><br>
+            You can now download submissions from the Contest Details page for any component design or development contest.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <tc-webtag:forumLink forumID="506115" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/><br>09.14.06<br>4:25 PM</td>
@@ -195,24 +207,3 @@ be exciting.
     <tc-webtag:forumLink forumID="506104" message="discuss this" /> | 
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/><br>09.11.06<br>9:00 AM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=091106">Introduction to OpenMP, Part 1</A></span><br><br>
-               As most people involved in programming probably know, multi-threading is going to be "the next big thing" in terms of using modern hardware to its full extent.</td>
-            <td class="newsPhoto">by
-                <tc-webtag:handle coderId="21464956" /></td></tr>
-        </table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&amp;d1=features&amp;d2=091106">article</A> | 
-    <tc-webtag:forumLink forumID="506105" message="discuss this"/> | 
-    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr><td>&#160;</td></tr>

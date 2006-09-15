@@ -38,6 +38,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">09.14.06 10:30 PM - </td><td width="100%">Design and Development Submission Downloads<br>
 <tr class="bodyText"><td nowrap="nowrap">08.31.06 2:30 PM - </td><td width="100%">Digital Run: Stage 1 winners finalized<br>
 <A href="/tc?module=LeaderBoard&ph=112&sc=&sd=&staid=1&nr=50&sr=1">Design Stage 1 Leaderboard</A>&#160;|&#160;<A href="/tc?module=LeaderBoard&ph=113&sc=&sd=&staid=1&nr=50&sr=51">Development Stage 1 Leaderboard</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.24.06 1:25 PM - </td><td width="100%"><A href="/tc?module=Static&d1=digital_run&d2=2006_stage1_winners">Announcing the Digital Run: Stage 1 winners</A></td></tr>
