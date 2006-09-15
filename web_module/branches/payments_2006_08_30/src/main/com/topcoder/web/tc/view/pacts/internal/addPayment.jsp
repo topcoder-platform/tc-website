@@ -36,7 +36,6 @@ function typeChanged() {
 }
 
 function search() {
-alert("Search!");
     var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
     document.f.reference_id.value = types[document.f.payment_type_id.selectedIndex];
     ajaxRequest.setEchoDebugInfo();
