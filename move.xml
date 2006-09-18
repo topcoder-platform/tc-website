@@ -138,6 +138,9 @@
                 <include name="build/ejb_jars/RBoard.jar"/>
                 <include name="build/ejb_jars/Specification.jar"/>
                 <include name="build_tcs.xml"/>
+                <include name="resources/automatic_screening/com/topcoder/apps"/>
+                <include name="resources/automatic_screening/com/topcoder/file"/>
+                <include name="resources/automatic_screening/com/topcoder/util"/>
             </fileset>
         </jar>
     </target>
