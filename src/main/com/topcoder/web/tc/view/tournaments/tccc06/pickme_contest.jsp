@@ -30,7 +30,7 @@ Did you miss out on making it as a TCCC finalist?  Still want to see the finals 
 Write to us and tell us why you'd be a good candidate to come to San Diego and blog about the 2006 TopCoder&#174; Collegiate Challenge, Sponsored by AOL&#174;.  We want two bloggers to join us at the finals and give a member's perspective on the competition, the atmosphere, and the city.  You'll win a trip to San Diego, as well as have your blog posted on the TCCC website for everyone to read.  
 <br><br>
 <span class="bigTitle">Who can compete:</span><br/>
-In order to be eligible, you must be a registered TopCoder member who is 18 years of age or older as of November 14, 2006.  In addition, you must have competed in either three SRMs or passed review in three component competitions by October 16 to be eligible to win. 
+In order to be eligible, you must be a registered TopCoder member who is 18 years of age or older as of November 14, 2006.  In addition, you must have competed in either three (3) SRMs or passed review in one (1) component competition by October 16 to be eligible to win. 
 <br><br>
 <span class="bigTitle">How it will work:</span><br/>
 Email your story to TopCoder at <A href="mailto:pickme@topcoder.com">pickme@topcoder.com</A>.  TopCoder staff will read through the submissions and choose the two members they think are most deserving of the trip.  The winning submissions will be featured in the TCCC06 program and on the TopCoder website.  
