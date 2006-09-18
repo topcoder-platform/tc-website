@@ -9,30 +9,34 @@
 <jsp:useBean id="surveyInfo" scope="request" class="com.topcoder.web.tc.model.Survey"/>
 <%!
     protected String trimPopup(String s) {
-        StringTokenizer st = new StringTokenizer(s, " ");
-        StringBuffer ret = new StringBuffer(100);
-        ret.append("<img ");
-        String tok;
-        while (st.hasMoreTokens()) {
-            tok = st.nextToken();
-            if (tok.startsWith("src") || tok.startsWith("alt") || tok.startsWith("class")) {
-                ret.append(" ");
-                ret.append(tok);
+        if (s.startsWith("<img")) {
+            StringTokenizer st = new StringTokenizer(s, " ");
+            StringBuffer ret = new StringBuffer(100);
+            ret.append("<img ");
+            String tok;
+            while (st.hasMoreTokens()) {
+                tok = st.nextToken();
+                if (tok.startsWith("src") || tok.startsWith("alt") || tok.startsWith("class")) {
+                    ret.append(" ");
+                    ret.append(tok);
+                    if (tok.indexOf(">") >= 0) {
+                        break;
+                    }
+                }
+                //we know that it's not one of the tags we care about
+                if (tok.endsWith(">") || tok.endsWith("/>")) {
+                    break;
+                }
+                //we know that it's not one of the tags we care about
                 if (tok.indexOf(">") >= 0) {
+                    ret.append(" />");
                     break;
                 }
             }
-            //we know that it's not one of the tags we care about
-            if (tok.endsWith(">") || tok.endsWith("/>")) {
-                break;
-            }
-            //we know that it's not one of the tags we care about
-            if (tok.indexOf(">") >= 0) {
-                ret.append(" />");
-                break;
-            }
+            return ret.toString();
+        } else {
+            return s;
         }
-        return ret.toString();
     }
 %>
 
