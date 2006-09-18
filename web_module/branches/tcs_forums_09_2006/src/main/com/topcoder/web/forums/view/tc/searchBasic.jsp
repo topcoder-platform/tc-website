@@ -89,7 +89,7 @@ function noenter(e)
 </table>
 
 <% if ("search".equals(status)) { %>
-    <jsp:include page="searchResults.jsp"/>
+    <jsp:include page="searchResults.jsp" />
 <% } %>
 
 </td>
