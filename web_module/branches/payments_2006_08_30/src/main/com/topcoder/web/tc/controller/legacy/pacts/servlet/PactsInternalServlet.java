@@ -12,27 +12,76 @@ package com.topcoder.web.tc.controller.legacy.pacts.servlet;
  *
  \******************************************************************************/
 
-import com.topcoder.security.TCSubject;
-import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.*;
-import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.*;
-import com.topcoder.web.tc.controller.legacy.pacts.common.*;
-import com.topcoder.web.tc.controller.legacy.pacts.messaging.request.QueueRequest;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.StringTokenizer;
 
+import javax.naming.InitialContext;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.*;
+
+import com.topcoder.security.TCSubject;
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.RequestTracker;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.ejb.pacts.PactsClientServices;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchAffidavit;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchAffidavitList;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchContract;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchContractList;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchNote;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchNoteList;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchPactsEntryList;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchPayment;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchPaymentAuditTrail;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchPaymentList;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchTaxForm;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchTaxFormList;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchText;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchUserProfile;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchUserProfileHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchUserProfileList;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchUserTaxForm;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchUserTaxFormList;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
+import com.topcoder.web.tc.controller.legacy.pacts.common.AffidavitHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.common.AffidavitWithText;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
+import com.topcoder.web.tc.controller.legacy.pacts.common.ContractHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
+import com.topcoder.web.tc.controller.legacy.pacts.common.NoteHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PactsEntry;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TaxFormHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfile;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.messaging.request.QueueRequest;
 
 public class PactsInternalServlet extends BaseServlet implements PactsConstants {
 
@@ -1358,6 +1407,11 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     */
     private void doAddPayment(HttpServletRequest request, HttpServletResponse response) throws Exception {
         log.debug("doAddPayment<br>");
+        
+        // TESTING!! ERASE it!
+        InitialContext c = TCContext.getInitial();
+        PactsClientServices pcs = (PactsClientServices) BaseProcessor.createEJB(c, PactsClientServices.class);
+        pcs.addProblemWritingPayment(7545675, 26.78, 1228);
 
         if (request.getParameter(CONTRACT_ID) != null) {
             InternalDispatchContract bean =
