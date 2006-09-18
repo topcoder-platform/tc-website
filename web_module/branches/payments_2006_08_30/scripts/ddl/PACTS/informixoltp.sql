@@ -93,3 +93,23 @@ where payment_type_id in (6,7);
 
 insert into security_perms (role_id, permission, create_user_id, security_status_id)
 values(2003, 'com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.SelectPaymentTypeReference', 132456,1)
+
+
+
+alter table payment_detail add column algorithm_round_id DECIMAL(10,0);
+
+alter table payment_detail add constraint foreign key (algorithm_round_id)
+    references round(round_id)
+        constraint paymentdetail_algorithm_round_id_fk;
+
+alter table payment_detail add algorithm_problem_id DECIMAL(10,0)
+
+alter table payment_detail add constraint foreign key (algorithm_problem_id)
+    references problem(problem_id)
+        constraint paymentdetail_algorithm_problem_id_fk;
+
+alter table payment_detail add component_contest_id DECIMAL(10,0);
+alter table payment_detail add component_project_id DECIMAL(10,0);
+alter table payment_detail add studio_contest_id DECIMAL(10,0);
+alter table payment_detail add digital_run_stage_id DECIMAL(10,0);
+alter table payment_detail add digital_run_season_id DECIMAL(10,0);
