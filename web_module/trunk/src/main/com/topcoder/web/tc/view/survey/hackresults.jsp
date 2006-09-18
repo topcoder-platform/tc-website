@@ -187,8 +187,8 @@
     </jsp:include>
     <STYLE TYPE="text/css">
         .logoSmall {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
         }
 
         .popper {
@@ -197,7 +197,7 @@
         }
 
         #container {
-            text-align: center;
+            text-align: left;
             position: relative;
             margin: 0px;
             padding: 0px;
@@ -287,12 +287,12 @@
                 <tc-webtag:listIterator list="<%=results.getResults()%>" id="result"
                                         type="com.topcoder.web.common.voting.RankedResult">
                     <tr>
-                        <td>
+                        <td valign="top">
                             <jsp:getProperty name="result" property="rank"/>
                         </td>
                         <tc-webtag:useBean id="candidate" name="result" type="com.topcoder.web.common.voting.Candidate"
                                            toScope="page" property="candidate"/>
-                        <td>
+                        <td valign="top" align="left">
                             <div id="container">
                                     ${candidate.name}
                                     <%--
@@ -313,15 +313,15 @@
                 You can see that matrix here. Each cell (row,col) indicates how many times row was preferred over col.
                 If row beat col, the cell will be red.
             </p>
-            <table width="510" border="0" cellpadding="0" cellspacing="0" class="formFrame" align="center">
+            <table width="600" border="0" cellpadding="0" cellspacing="0" class="formFrame" align="center">
                 <% int size = results.getSumMatrix().getCandidates().length;
                 %> <tr><td></td> <%
                 for (int i = 0; i < size; i++) {
-            %><td><%=trimPopup(results.getSumMatrix().getCandidates()[i].getName())%></td><%
+            %><td valign="top" style="padding:6px;"><%=trimPopup(results.getSumMatrix().getCandidates()[i].getName())%></td><%
                 } %>
             </tr>
                 <% for (int i = 0; i < size; i++) {%>
-                <tr><td><%=trimPopup(results.getSumMatrix().getCandidates()[i].getName())%></td>
+                <tr><td valign="top" style="padding:6px;"><%=trimPopup(results.getSumMatrix().getCandidates()[i].getName())%></td>
                     <%for (int j = 0; j < size; j++) {%>
                     <td class="bodyText" align="center">
                         <%if (results.getSumMatrix().getValue(i, j) >= 0) {%>
