@@ -22,11 +22,25 @@
             <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
         </session>
+        <session>
+            <description>PACTS Client Services EJB</description>
+            <display-name>PACTS Client Services EJB</display-name>
+            <ejb-name>PactsClientServices</ejb-name>
+            <home>com.topcoder.web.ejb.pacts.PactsClientServicesHome</home>
+            <remote>com.topcoder.web.ejb.pacts.PactsClientServices</remote>
+            <ejb-class>com.topcoder.web.ejb.pacts.PactsClientServicesBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
+            <session-type>Stateless</session-type>
+        </session>
     </enterprise-beans>
     <assembly-descriptor>
         <container-transaction>
             <method>
                 <ejb-name>PactsServices</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <method>
+                <ejb-name>PactsClientServices</ejb-name>
                 <method-name>*</method-name>
             </method>
             <trans-attribute>Required</trans-attribute>

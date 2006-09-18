@@ -1,5 +1,29 @@
 package com.topcoder.web.ejb.pacts;
 
+import java.rmi.RemoteException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.sql.Types;
+import java.text.DecimalFormat;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeSet;
+
+import javax.ejb.EJBException;
+import javax.jms.JMSException;
+
 import com.topcoder.apps.review.projecttracker.ProjectStatus;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.messaging.QueueMessageSender;
@@ -8,23 +32,20 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.web.common.IdGeneratorClient;
-import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.web.common.IdGeneratorClient;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.tc.controller.legacy.pacts.common.*;
-import com.topcoder.apps.review.projecttracker.ProjectStatus;
-import com.topcoder.util.idgenerator.IDGenerationException;
-
-import javax.ejb.EJBException;
-import javax.jms.JMSException;
-
-import java.rmi.RemoteException;
-import java.sql.*;
-import java.text.DecimalFormat;
-import java.text.ParsePosition;
-import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.Date;
+import com.topcoder.web.ejb.BaseEJB;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
+import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.NoObjectFoundException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentNotReviewedException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UpdateResults;
 
 
 /**
@@ -5208,7 +5229,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }*/
 
     
-    ProblemPayment addProblemWritingPayment(long coderId, double grossAmount, long problemId) throws IllegalUpdateException, SQLException {
+    public ProblemPayment addProblemWritingPayment(long coderId, double grossAmount, long problemId) throws IllegalUpdateException, SQLException {
         Connection c = null;
         try {
             c = DBMS.getConnection();
@@ -5263,7 +5284,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new SQLException(e.getMessage());
         }
     }
-/*
+
+    /*
     ProblemPayment addProblemTestingPayment(long coderId, double grossAmount, long problemId) throws SQLException {
     	
     }
@@ -5318,7 +5340,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     List findComponentPayments(long projectId) throws SQLException {
     	
     }
-  */  
+   */
 
 }
 
