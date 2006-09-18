@@ -28,6 +28,18 @@
 
 <%--------------------------------------------------------%>
 <tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.18.06<br>11:00 AM</td>
+    <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA SRM 319 Chat Session</A></span><br><br>
+      NSA will be in the arena at 8:00 PM just prior to SRM 319 to discuss working at NSA.
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">view</A> | 
+    <tc-webtag:forumLink forumID="504999" message="discuss this"/> | 
+    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.18.06<br>9:00 AM</td>
     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=pickme_contest">TCCC06 "Pick Me" Contest</A></span><br><br>
       Did you miss out on making it as a TCCC finalist? Still want to see the finals in San Diego anyway? Here's your chance!
@@ -38,7 +50,7 @@
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
 
-<%------------------COMPONENT COMPETITIONS--------------------------------------%>
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>09.14.06<br>10:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">Design and Development Submission Downloads</span><br><br>
