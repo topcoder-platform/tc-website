@@ -24,6 +24,7 @@ import javax.ejb.EJBException;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 
+import com.topcoder.apps.review.persistence.Common;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
@@ -35,6 +36,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.util.idgenerator.IDGenerator;
 import com.topcoder.util.idgenerator.IDGeneratorFactory;
+import com.topcoder.util.idgenerator.IDGeneratorImpl;
 import com.topcoder.util.idgenerator.bean.IdGen;
 import com.topcoder.util.idgenerator.bean.IdGenHome;
 import com.topcoder.web.common.RowNotFoundException;
@@ -66,6 +68,7 @@ import com.topcoder.shared.util.logging.Logger;
 public class RBoardApplicationBean extends BaseEJB {
     private static final int INTERNAL_ADMIN_USER = 100129;
     private static final int ACTIVE_REVIEWER = 100;
+    
     private static final String LONG_DATE_FORMAT = "MM/dd/yyyy hh:mm:ss aaa";
     
     private static final int SCREEN_PHASE = 3;
@@ -207,7 +210,7 @@ public class RBoardApplicationBean extends BaseEJB {
         ResultSet rs = null;
         try {
             ps = conn.prepareStatement("select p.project_id, pi_cn.value as component_name, pi_vt.value as version_text, "
-                + "pt.name, cfx.forum_id, cfx.forum_type from project p "
+                + "pt.name as project_type_name, cfx.forum_id, cfx.forum_type from project p "
                 + "inner join project_category_lu pt "
                 + "on p.project_category_id = pt.project_category_id "
                 + "inner join project_info pi_cn "
@@ -279,19 +282,6 @@ public class RBoardApplicationBean extends BaseEJB {
         return returnMap;
     }
 
-    /**
-     * Builds the prefix for the permissions
-     *
-     * @param projectInfo the Map containing project's information.
-     * @return the prefix's string
-     */
-    private String buildPrefix(Map projectInfo) {
-        String prefix = String.valueOf(projectInfo.get("projectName")) + " "
-            + String.valueOf(projectInfo.get("projectVersion")) + " "
-            + String.valueOf(projectInfo.get("projectType")) + " ";
-        return prefix;
-    }
-
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy hh:mm", Locale.US);
 
     /**
@@ -308,52 +298,61 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     private void insertUserRole(Connection conn, long resourceId, long resourceRoleId,
         long projectId, String phaseId, long userId) {
-        insert(conn, "resource",
-            new String[]{"resource_id", "resource_role_id", "project_id", "project_phase_id",
-            "create_user", "create_date", "modify_user", "modify_date"},
-            new String[]{String.valueOf(resourceId), String.valueOf(resourceRoleId),
-            String.valueOf(projectId), phaseId, String.valueOf(INTERNAL_ADMIN_USER),
-            String.valueOf(new Date()), String.valueOf(INTERNAL_ADMIN_USER), String.valueOf(new Date())});
 
-        // External Reference ID
-        insert(conn, "resource_info",
-        	new String[]{"resource_id", 
-        		"resource_info_type_id", 
-        		"value", 
-        		"create_user", 
-        		"create_date", 
-        		"modify_user", 
-        		"modify_date"},
-        	new String[] {String.valueOf(resourceId), 
-        		String.valueOf(RESOURCE_INFO_TYPE_EXTERNAL_ID), 
-        		String.valueOf(userId), 
-        		String.valueOf(INTERNAL_ADMIN_USER),
-                String.valueOf(new Date()), 
-                String.valueOf(INTERNAL_ADMIN_USER), 
-                String.valueOf(new Date())});
-        
-        // Registration Date.
-        insert(conn, "resource_info",
-        	new String[]{"resource_id", 
-        		"resource_info_type_id", 
-        		"value", 
-        		"create_user", 
-        		"create_date", 
-        		"modify_user", 
-        		"modify_date"},
-        	new String[] {String.valueOf(resourceId), 
-        		String.valueOf(RESOURCE_INFO_TYPE_REGISTRATION_DATE), 
-        		String.valueOf(DATE_FORMAT.format(new Date())), 
-        		String.valueOf(INTERNAL_ADMIN_USER),
-                String.valueOf(new Date()), 
-                String.valueOf(INTERNAL_ADMIN_USER), 
-                String.valueOf(new Date())});
+        PreparedStatement ps = null;
+        try {
+	        ps = conn.prepareStatement("INSERT INTO resource " + 
+	        		"(resource_id, resource_role_id, project_id, project_phase_id, create_user, create_date, modify_user, modify_date) " +
+	        		"VALUES (?, ?, ?, ?, ?, CURRENT, ?, CURRENT)");
+	        
+
+            int index = 1;
+            ps.setLong(index++, resourceId);
+            ps.setLong(index++, resourceRoleId);
+            ps.setLong(index++, projectId);
+            ps.setString(index++, phaseId);
+            ps.setString(index++, String.valueOf(INTERNAL_ADMIN_USER));
+            ps.setString(index++, String.valueOf(INTERNAL_ADMIN_USER));
+            ps.executeUpdate();
+            Common.close(ps);
+
+	        // External Reference ID
+            ps = conn.prepareStatement("INSERT INTO resource_info " + 
+            		"(resource_id, resource_info_type_id, value, create_user, create_date, modify_user, modify_date) " +
+            		" VALUES (?, ?, ?, ?, CURRENT, ?, CURRENT)");
+            index = 1;
+            ps.setLong(index++, resourceId);
+            ps.setLong(index++, RESOURCE_INFO_TYPE_EXTERNAL_ID); // External Reference ID 1
+            ps.setString(index++, String.valueOf(userId));
+            ps.setString(index++, String.valueOf(INTERNAL_ADMIN_USER));
+            ps.setString(index++, String.valueOf(INTERNAL_ADMIN_USER));
+            ps.executeUpdate();	
+
+	        // Registration Date.
+            index = 1;
+            ps.setLong(index++, resourceId);
+            ps.setLong(index++, RESOURCE_INFO_TYPE_REGISTRATION_DATE); // External Reference ID 1
+            ps.setString(index++, DATE_FORMAT.format(new Date()));
+            ps.setString(index++, String.valueOf(INTERNAL_ADMIN_USER));
+            ps.setString(index++, String.valueOf(INTERNAL_ADMIN_USER));
+            ps.executeUpdate();	
+
+            Common.close(ps);
+        } catch(SQLException e) {
+        	e.printStackTrace();
+        }
     }
 
-
+    private Map ids = new HashMap();
+    private static final String ID_NAMESPACE = "com.topcoder.util.idgenerator.onlinereview";
     private long nextId(String tableId) {
     	try {
-			IDGenerator idgen = IDGeneratorFactory.getIDGenerator(tableId);
+    		
+			IDGenerator idgen = (IDGenerator) ids.get(tableId); // IDGeneratorFactory.getIDGenerator(tableId);
+			if (idgen == null) {
+				idgen = new IDGeneratorImpl(ID_NAMESPACE, tableId); 
+				ids.put(tableId, idgen);
+			}
 			return idgen.getNextID();
 		} catch (IDGenerationException e) {
 			throw new RuntimeException("Failed to get id generator for " + tableId);
@@ -395,7 +394,6 @@ public class RBoardApplicationBean extends BaseEJB {
 
             // gets project info.
             Map projectInfo = getProjectInfo(projectId, conn);
-            String prefix = buildPrefix(projectInfo);
 
             conn.setAutoCommit(false);
 
@@ -453,16 +451,8 @@ public class RBoardApplicationBean extends BaseEJB {
             }
 
             // create permissions.
-            createPermission(dataSource, idGen, "Review " + projectId, prefix, userId);
-            createPermission(dataSource, idGen, "View Project " + projectId, prefix, userId);
             createPermission(dataSource, idGen, "ForumUser "
                 + String.valueOf(projectInfo.get("forumId")), "", userId);
-
-            if (primary) {
-                createPermission(dataSource, idGen, "Screen " + projectId, prefix, userId);
-                createPermission(dataSource, idGen, "Aggregation " + projectId, prefix, userId);
-                createPermission(dataSource, idGen, "Final Review " + projectId, prefix, userId);
-            }
 
             conn.commit();
             log.debug("Registration for project " + projectId + " completed in " + (System.currentTimeMillis() - start) + " milliseconds");
@@ -610,7 +600,7 @@ public class RBoardApplicationBean extends BaseEJB {
 
             long status = 0;
             try {
-                status = getStatus(conn, userId, phaseId - 111, catalogId);
+                status = getStatus(conn, userId, phaseId, catalogId);
             } catch (RowNotFoundException rnfe) {
                 throw new RBoardRegistrationException("Sorry, you are not a " + getCatalogName(conn, catalogId) + " reviewer.  Please contact TopCoder if you would like to become one.");
             }
@@ -628,6 +618,58 @@ public class RBoardApplicationBean extends BaseEJB {
         } finally {
             close(conn);
         }
+    }
+
+    /**
+     * Retrieves a particular category's catalog id.
+     *
+     * @param conn the connection being used
+     * @param catalogId the category being inspected
+     * @return the catalog's ID.     *
+     * @since 1.0.2     
+     */
+    private long getCatalogId(Connection conn, long categoryId) {
+        return selectLong(conn,
+            "catalog_category_xref ccx",
+            "catalog_id",
+            new String[] { "category_id" },
+            new String[] { String.valueOf(categoryId)}).intValue();
+    }
+
+    /**
+     * Retrieves a particular catalog name.
+     *
+     * @param conn the connection being used
+     * @param catalogId the catalog's ID
+     * @return the catalog's name.
+     *
+     * @since 1.0.2
+     */
+    private String getCatalogName(Connection conn, long catalogId) {
+        return selectString(conn,
+            "catalog",
+            "catalog_name",
+            new String[] { "category_id" },
+            new String[] { String.valueOf(catalogId)});
+
+    }
+
+    /**
+     * Retrieves the reviewer status of a particular user
+     *
+     * @param conn the connection being used
+     * @param userId the user id to inspect
+     * @param projectType the project type to inspect
+     * @param projectType the catalogId to review
+     * @return the status of the reviewer
+     */
+    private long getStatus(Connection conn, long userId, int projectType, long catalogId) {
+        return selectLong(conn,
+            "rboard_user2",
+            "status_id",
+            new String[] { "user_id", "project_type_id", "catalog_id" },
+            new String[] { String.valueOf(userId), String.valueOf(projectType),
+                String.valueOf(catalogId)}).intValue();
     }
 
     /**
@@ -775,59 +817,6 @@ public class RBoardApplicationBean extends BaseEJB {
                 returnMap.put(new Integer(respIds[i]), new Integer(phaseIds[i]));
         }
         return returnMap;
-    }
-
-    /**
-     * Retrieves a particular category's catalog id.
-     *
-     * @param conn the connection being used
-     * @param catalogId the category being inspected
-     * @return the catalog's ID.
-     *
-     * @since 1.0.2
-     */
-    private long getCatalogId(Connection conn, long categoryId) {
-        return selectLong(conn,
-            "category_catalog",
-            "catalog_id",
-            new String[] { "category_id" },
-            new String[] { String.valueOf(categoryId)}).intValue();
-    }
-
-
-    /**
-     * Retrieves a particular catalog name.
-     *
-     * @param conn the connection being used
-     * @param catalogId the catalog's ID
-     * @return the catalog's name.
-     *
-     * @since 1.0.2
-     */
-    private String getCatalogName(Connection conn, long catalogId) {
-        return selectString(conn,
-            "catalog",
-            "catalog_name",
-            new String[] { "catalog_id" },
-            new String[] { String.valueOf(catalogId)});
-    }
-
-    /**
-     * Retrieves the reviewer status of a particular user
-     *
-     * @param conn the connection being used
-     * @param userId the user id to inspect
-     * @param projectType the project type to inspect
-     * @param projectType the catalogId to review
-     * @return the status of the reviewer
-     */
-    private long getStatus(Connection conn, long userId, int projectType, long catalogId) {
-        return selectLong(conn,
-            "rboard_user",
-            "status_id",
-            new String[] { "user_id", "project_type_id", "catalog_id" },
-            new String[] { String.valueOf(userId), String.valueOf(projectType),
-                String.valueOf(catalogId)}).intValue();
     }
 
     /**
