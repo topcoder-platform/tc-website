@@ -24,7 +24,7 @@
 
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="statistics_w"/>
-<jsp:param name="title" value="Algorithm Rating History"/>
+<jsp:param name="title" value="Recent Handle Color Changes"/>
 </jsp:include>
 
 <strong>
@@ -142,10 +142,10 @@
       <td class="value">
       <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
-      <td class="valueC">
+      <td class="valueBlue">
       <span class="coderTextBlue">1417</span
       </td>
-      <td class="valueC">
+      <td class="valueYellow">
       <span class="coderTextYellow">1525</span
       </td>
    </tr>
@@ -157,10 +157,10 @@
       <td class="value">
       <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
-      <td class="valueC">
+      <td class="valueBlue">
       <span class="coderTextBlue">1417</span
       </td>
-      <td class="valueC">
+      <td class="valueYellow">
       <span class="coderTextYellow">1525</span
       </td>
    </tr>
@@ -172,10 +172,10 @@
       <td class="value">
       <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
-      <td class="valueC">
+      <td class="valueBlue">
       <span class="coderTextBlue">1417</span
       </td>
-      <td class="valueC">
+      <td class="valueYellow">
       <span class="coderTextYellow">1525</span
       </td>
    </tr>
@@ -187,10 +187,10 @@
       <td class="value">
       <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
-      <td class="valueC">
+      <td class="valueBlue">
       <span class="coderTextBlue">1417</span
       </td>
-      <td class="valueC">
+      <td class="valueYellow">
       <span class="coderTextYellow">1525</span
       </td>
    </tr>
@@ -202,10 +202,10 @@
       <td class="value">
       <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
-      <td class="valueC">
+      <td class="valueBlue">
       <span class="coderTextBlue">1417</span
       </td>
-      <td class="valueC">
+      <td class="valueYellow">
       <span class="coderTextYellow">1525</span
       </td>
    </tr>
@@ -217,10 +217,10 @@
       <td class="value">
       <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
-      <td class="valueC">
+      <td class="valueBlue">
       <span class="coderTextBlue">1417</span
       </td>
-      <td class="valueC">
+      <td class="valueYellow">
       <span class="coderTextYellow">1525</span
       </td>
    </tr>
@@ -232,10 +232,10 @@
       <td class="value">
       <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
-      <td class="valueC">
+      <td class="valueBlue">
       <span class="coderTextBlue">1417</span
       </td>
-      <td class="valueC">
+      <td class="valueYellow">
       <span class="coderTextYellow">1525</span
       </td>
    </tr>
@@ -247,10 +247,10 @@
       <td class="value">
       <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
-      <td class="valueC">
+      <td class="valueBlue">
       <span class="coderTextBlue">1417</span
       </td>
-      <td class="valueC">
+      <td class="valueYellow">
       <span class="coderTextYellow">1525</span
       </td>
    </tr>
