@@ -12,8 +12,6 @@ import="com.topcoder.dde.util.Constants,
 <head>
     <title>TopCoder Software</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
-        <META HTTP-EQUIV="Refresh"
-        CONTENT="2; URL=/tcs?module=ViewUploadResults&<%=Constants.SPECIFICATION_KEY%>=<%=request.getAttribute(Constants.SPECIFICATION_KEY)%>">
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
          <c:set var="hasErrors" value="${not empty errors}"/>
          <c:set var="hasWarnings" value="${not empty warnings}"/>
