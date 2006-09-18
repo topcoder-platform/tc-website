@@ -28,7 +28,7 @@
             <ejb-name>PactsClientServices</ejb-name>
             <home>com.topcoder.web.ejb.pacts.PactsClientServicesHome</home>
             <remote>com.topcoder.web.ejb.pacts.PactsClientServices</remote>
-            <ejb-class>com.topcoder.web.ejb.pacts.PactsClientServicesBean</ejb-class>
+            <ejb-class>com.topcoder.web.ejb.pacts.PactsServicesBean</ejb-class>
             <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
         </session>
