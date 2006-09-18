@@ -3,7 +3,8 @@
 <html>
 <head>
 <title>TopCoder Press Room</title>
-
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:include page="../script.jsp" />
 <jsp:include page="../style.jsp">
   <jsp:param name="key" value="tc_main"/>
@@ -41,7 +42,7 @@
 <div align="center"><span class="bodyTitle">In memoriam: Victor_lxd</span><br/></div>
                         
 <p>
-We are deeply saddened to share the news that TopCoder member Xiao Dong Li - TopCoder handle: Victor_lxd - passed away last week at the age of 26, due to injuries sustained in a car accident. He is survived by his wife, Cynthia Li, and his parents.
+We are deeply saddened to share the news that TopCoder member Xiao Dong Li - <tc-webtag:handle coderId="13377493" /> - passed away last week at the age of 26, due to injuries sustained in a car accident. He is survived by his wife, Cynthia Li, and his parents.
 <br><br>
 While a member for less than two years, Victor made an extraordinary contribution during his time in the TopCoder community. Among his other accomplishments, he attended three on-site tournaments, twice as a member of the review board and once a design finalist. More importantly, he was dedicated and considerate, and a wonderful person to work with and know.
 <br><br>

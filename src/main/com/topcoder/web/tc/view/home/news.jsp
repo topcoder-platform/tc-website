@@ -8,6 +8,22 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 <%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>09.18.06<br>4:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=pressroom&d2=art_091806">In memoriam: Victor_lxd</A>
+      </span><br><br>
+      We are deeply saddened to share the news that TopCoder member Xiao Dong Li - <tc-webtag:handle coderId="13377493" /> - passed away last week 
+      at the age of 26. If you wish to send a gift to help Victor's family, you may do so directly or by donating a portion of your TopCoder 
+      winnings&#8230;
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=pressroom&d2=art_091806">view</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="506118" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.18.06<br>12:10 PM</td>
     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=219">Vote for the TCCC t-shirt quote</A></span><br><br>
@@ -168,40 +184,3 @@
     <A href="/tc?module=TCCC06ComponentTerms">Component Registration</A> | 
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>09.12.06<br>12:10 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-         <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm14">TCHS SRM 14 - Problem Set & Analysis</A></span><br><br>
-This problem set was a bit harder then the average High School match. Though the problems didn't require a knowledge of complex algorithms, all of them required some careful coding, especially when handling border cases.
-    </td>
-         <td class="newsPhoto"><img src="/i/m/slex_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8382018" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm14">full story</A> | 
-    <tc-webtag:forumLink forumID="506036" message="discuss this"/> | 
-    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>09.11.06<br>3:30 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-         <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc06_qual_2">TCCC06 Qualification 2 - Problem Set & Analysis</A></span><br><br>
-Despite the 763 registrants for qualification round 2, the competition went very smoothly.
-With 32 competitors solving the nontrivial hard problem, it is clear that the upcoming rounds will
-be exciting.
-      </td>
-         <td class="newsPhoto"><img src="/i/m/brett1479_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="251317" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_qual_2">full story</A> | 
-    <tc-webtag:forumLink forumID="506103" message="discuss this"/> | 
-    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
-
