@@ -28,7 +28,7 @@ function find(n) {
 <!-- Member Profiles, Search Pages, and Private Label Events Pages begins -->
 <% if ((level1.equals("default")) | (level1.equals("profile")) | (level1.equals("search")) | (level1.equals("tournament")) | (level1.equals("privatelabel"))) { %>
 
-<%--<jsp:include page="/calendar.jsp" />--%>
+
 <div class="rightColContent">
     <br><br>
 </div>
@@ -64,7 +64,7 @@ function find(n) {
 
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0"/><br/>
 
-<%--<jsp:include page="/calendar.jsp" />--%>
+
 <div align="center" class="bodyText"><strong><A href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
     Events</A></strong></div>
 
@@ -94,7 +94,7 @@ function find(n) {
 
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0"/><br/>
 
-<%--<jsp:include page="/calendar.jsp" />--%>
+
 <div align="center" class="bodyText"><strong><A href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
     Events</A></strong></div>
 
@@ -118,7 +118,7 @@ function find(n) {
 <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign"><img src="/i/tournament/tco05/verisign_right.gif" alt="Verisign" border="0"/></a>
 <br/>
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0"/><br/>
-<%--<jsp:include page="/calendar.jsp" />--%>
+
 <div align="center" class="bodyText"><strong><A href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
     Events</A></strong></div>
 
@@ -136,7 +136,7 @@ function find(n) {
 
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0"/><br/>
 
-<%--<jsp:include page="/calendar.jsp" />--%>
+
 <div align="center" class="bodyText"><strong><A href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
     Events</A></strong></div>
 
@@ -154,7 +154,7 @@ function find(n) {
 
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0"/><br/>
 
-<%--<jsp:include page="/calendar.jsp" />--%>
+
 <div align="center" class="bodyText"><strong><A href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
     Events</A></strong></div>
 
@@ -172,7 +172,7 @@ function find(n) {
 
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0"/><br/>
 
-<%--<jsp:include page="/calendar.jsp" />--%>
+
 <div align="center" class="bodyText"><strong><A href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
     Events</A></strong></div>
 
@@ -190,7 +190,7 @@ function find(n) {
 
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0"/><br/>
 
-<%--<jsp:include page="/calendar.jsp" />--%>
+
 <div align="center" class="bodyText"><strong><A href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
     Events</A></strong></div>
 
@@ -208,7 +208,7 @@ function find(n) {
 
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0"/><br/>
 
-<%--<jsp:include page="/calendar.jsp" />--%>
+
 <div align="center" class="bodyText"><strong><A href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
     Events</A></strong></div>
 
@@ -219,7 +219,7 @@ function find(n) {
 <!-- About Us begins -->
 <% } else if (level1.equals("about")) { %>
 
-<%--<jsp:include page="/calendar.jsp" />--%>
+
 <div class="rightColContent">
     <br><br>
 </div>
@@ -241,7 +241,7 @@ function find(n) {
 <!-- Review Board begins -->
 <% } else if (level1.equals("review_board")) { %>
 
-<%--<jsp:include page="/calendar.jsp" />--%>
+
 <div class="rightColContent">
     <br><br>
 </div>
@@ -251,9 +251,17 @@ function find(n) {
 <!-- Employment Opportunities begins -->
 <% } else if (level1.equals("employmentOpps")) { %>
 
-<%--<jsp:include page="/calendar.jsp" />--%>
+
 <div class="rightColContent">
     <br><br>
+</div>
+
+<!-- Employment Opportunities ends -->
+
+<% } else if (level1.equals("tchs")) { %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<div class="rightColContent">
+<A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>//?module=ViewContestDetails&ct=2030"><img src="/i/hs/tchs07_right.png" alt="2007 TCHS Tournament Logo Design Contest" /></A>
 </div>
 
 <!-- Employment Opportunities ends -->
