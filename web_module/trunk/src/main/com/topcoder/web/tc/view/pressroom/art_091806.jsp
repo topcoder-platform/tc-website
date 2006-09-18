@@ -44,7 +44,7 @@
 <p>
 We are deeply saddened to share the news that TopCoder member Xiao Dong Li - <tc-webtag:handle coderId="13377493" /> - passed away last week at the age of 26, due to injuries sustained in a car accident. He is survived by his wife, Cynthia Li, and his parents.
 <br><br>
-While a member for less than two years, Victor made an extraordinary contribution during his time in the TopCoder community. Among his other accomplishments, he attended three on-site tournaments, twice as a member of the review board and once a design finalist. More importantly, he was dedicated and considerate, and a wonderful person to work with and know.
+While a member for less than two years, Victor made an extraordinary contribution during his time in the TopCoder community. Among his other accomplishments, he attended three on-site tournaments, twice as a member of the review board and once as a design finalist. More importantly, he was dedicated and considerate, and a wonderful person to work with and know.
 <br><br>
 If you wish to send a gift to help Victor's family, you may direct monetary gifts to Cynthia's cousin Cindy Lee, who is managing the family finance's while Cynthia recovers from injuries she sustained in the accident. Please make checks payable to:
 <br><br>
