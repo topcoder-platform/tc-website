@@ -5147,14 +5147,123 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return hm;
     }
 
+    
+    private boolean hasTaxForm(Connection c, long coderId) throws SQLException {
+        StringBuffer query = new StringBuffer(1000);
+        query.append(" SELECT 1 ");
+        query.append(" FROM user_tax_form_xref "); 
+        query.append(" WHERE user_id = " + coderId);
+        
+        ResultSetContainer rsc = runSelectQuery(c, query.toString(), false);
+        
+        return rsc.getRowCount() > 0;        
+    }
 
+    private String getProblemName(Connection c, long problemId) throws SQLException {
+        StringBuffer query = new StringBuffer(1000);
+        query.append(" SELECT name ");
+        query.append(" FROM problem "); 
+        query.append(" WHERE problem_id = " + problemId);
+        
+        ResultSetContainer rsc = runSelectQuery(c, query.toString(), false);
+        
+        if (rsc.getRowCount() != 1) {
+        	throw new IllegalArgumentException("Not exactly 1 problem found with id " + problemId);
+        }
+        return rsc.getStringItem(0, 0);        
+    }
+
+/*
     public AlgorithmContestPayment addAlgorithmContestPayment(long coderId, double grossAmount, long roundId) throws SQLException {
-    }
+    	ResultSetContainer rsc;
+    
+        StringBuffer checkExists = new StringBuffer(300);
+        checkExists.append("SELECT con.name, r.name, ");
+        checkExists.append("con.end_date + " + DUE_DATE_INTERVAL + " UNITS DAY AS due_date ");
+        checkExists.append("FROM round r, contest con ");
+        checkExists.append("WHERE r.round_id = " + roundId + " ");
+        checkExists.append("AND con.contest_id = r.contest_id");
+        rsc = runSelectQuery(c, checkExists.toString(), false);
+        if (rsc.getRowCount() != 1) {
+            throw new IllegalUpdateException("Round " + roundId + " does not exist or is not unique");
+        }
+        String roundName = rsc.getItem(0, 0).toString() + " " + rsc.getItem(0, 1).toString();
+        String dueDate = TCData.getTCDate(rsc.getRow(0), "due_date", null, true);
 
-    ProblemPayment addProblemWritingPayment(long coderId, double grossAmount, long problemId) throws SQLException {
-    	
-    }
+        Affidavit a = new Affidavit();
+        a.setRoundId(new Long(roundId));
+        a.getHeader().getUser().setId(coderId);
+        a.getHeader().setStatusId(AFFIDAVIT_PENDING_STATUS);
+        a.getHeader().setDescription(roundName + " contest affidavit");
+        a.getHeader().setTypeId(affidavitTypeId);
 
+        Payment p = new Payment();
+        p.setGrossAmount(grossAmount);
+        p.setStatusId(userTaxFormSet.contains(new Long(userId)) ? PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);
+        p.getHeader().setDescription(roundName + " winnings");
+        p.getHeader().setTypeId(CONTEST_PAYMENT);
+        p.setDueDate(dueDate);
+        p.getHeader().getUser().setId(userId);
+
+    }*/
+
+    
+    ProblemPayment addProblemWritingPayment(long coderId, double grossAmount, long problemId) throws IllegalUpdateException, SQLException {
+        Connection c = null;
+        try {
+            c = DBMS.getConnection();
+            c.setAutoCommit(false);
+            setLockTimeout(c);
+
+            
+            Payment p = new Payment();
+            p.setGrossAmount(grossAmount);
+            p.setStatusId(hasTaxForm(c, coderId) ? PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);
+            p.getHeader().setDescription("Problem Writing " + getProblemName(c, problemId));
+            p.getHeader().setTypeId(PROBLEM_WRITING_PAYMENT);
+            //p.setDueDate(dueDate);
+            p.getHeader().getUser().setId(coderId);
+
+            long paymentId = makeNewPayment(c, p, true); // check that referrals must be created!
+
+            
+            ProblemPayment pp = new ProblemPayment(paymentId, coderId, problemId);
+            pp.setStatusId(p.getStatusId());
+            pp.setDescription(p.getHeader().getDescription());
+            //pp.setDueDate(p.getDueDate());
+            pp.setGrossAmount(p.getGrossAmount());
+            pp.setNetAmount(p.getNetAmount());
+            
+            c.commit();
+            c.setAutoCommit(true);
+            c.close();
+            c = null;
+            
+            return pp;
+        } catch (Exception e) {
+            printException(e);
+            try {
+                c.rollback();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                c.setAutoCommit(true);
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            c = null;
+            if (e instanceof IllegalUpdateException)
+                throw (IllegalUpdateException) e;
+            throw new SQLException(e.getMessage());
+        }
+    }
+/*
     ProblemPayment addProblemTestingPayment(long coderId, double grossAmount, long problemId) throws SQLException {
     	
     }
@@ -5209,7 +5318,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     List findComponentPayments(long projectId) throws SQLException {
     	
     }
-    
+  */  
 
 }
 
