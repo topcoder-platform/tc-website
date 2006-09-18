@@ -14,6 +14,7 @@ import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
+import com.topcoder.web.common.security.DDEForumsAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.StudioForumsAuthentication;
 import com.topcoder.web.common.security.TCForumsAuthentication;
@@ -54,7 +55,7 @@ public class ForumsServlet extends BaseServlet {
         RequestProcessor rp = null;
         WebAuthentication authentication = null;
         SessionInfo info = null;
-
+        
         try {
             try {
                 request.setCharacterEncoding("utf-8");
@@ -143,9 +144,10 @@ public class ForumsServlet extends BaseServlet {
                     }
                     if (authentication.getUser().isAnonymous()) {
                         if (authentication instanceof TCForumsAuthentication) {
-                            handleLogin(request, response, info, ApplicationServer.SERVER_NAME);
-                        } else if (authentication instanceof StudioForumsAuthentication) {
-                            handleLogin(request, response, info, request.getServerName());
+                            handleLogin(request, response, info, ApplicationServer.SERVER_NAME, LOGIN_PROCESSOR);
+                        } else if (authentication instanceof StudioForumsAuthentication ||
+                        		authentication instanceof DDEForumsAuthentication) {
+                            handleLogin(request, response, info, request.getServerName(), DEFAULT_PROCESSOR);
                         }
                         return;
                     } else {
@@ -182,10 +184,10 @@ public class ForumsServlet extends BaseServlet {
     }
 
     protected void handleLogin(HttpServletRequest request, HttpServletResponse response,
-                               SessionInfo info, String serverName) throws Exception {
+                               SessionInfo info, String serverName, String processor) throws Exception {
         /* forward to the login page, with a message and a way back */
         StringBuffer nextPage = new StringBuffer("http://").append(serverName).append(LOGIN_SERVLET).
-                append("?module=").append(LOGIN_PROCESSOR);
+                append("?module=").append(processor);
         String fromPage = StringUtils.replace(StringUtils.checkNull(info.getRequestString()), "&", "%26");
         nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(fromPage);
         nextPage.append("&").append(Login.STATUS).append("=").append(Login.STATUS_START);

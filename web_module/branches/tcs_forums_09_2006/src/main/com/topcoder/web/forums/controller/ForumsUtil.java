@@ -20,15 +20,24 @@ import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.RatingManager;
 import com.jivesoftware.forum.database.DbForumFactory;
 import com.jivesoftware.forum.database.DbForumMessage;
+import com.jivesoftware.util.LongList;
 import com.jivesoftware.util.StringUtils;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.forums.util.filter.TCHTMLFilter;
 import com.topcoder.web.forums.ForumConstants;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * @author mtong
@@ -38,6 +47,16 @@ public class ForumsUtil {
     private static boolean filterHTMLEnabled
         = JiveGlobals.getJiveBooleanProperty("search.filterHTMLEnabled",true);
 
+    private static final String FORUM_POST_PERMISSION_TYPE_PREFIX = "com.topcoder.dde.forum.ForumPostPermission ";
+	private static final String FORUM_MODERATE_PERMISSION_TYPE_PREFIX = "com.topcoder.dde.forum.ForumModeratePermission ";
+	
+    private static final String SELECT_USER_FORUM_PERMISSION =
+    	"SELECT permission FROM security_perms, user_role_xref "
+    	+ " WHERE user_role_xref.login_id=? AND user_role_xref.role_id = security_perms.role_id "
+    	+ " AND security_perms.permission LIKE 'com.topcoder.dde.forum.Forum%'";
+    private static final String SELECT_COMPONENTS_USING_FORUM_IDS =
+    	"SELECT comp_vers_id FROM comp_forum_xref WHERE forum_id in ()";
+    
     // use until Jive fixes its version of ForumThread.getLatestMessage()
     public static ForumMessage getLatestMessage(ForumThread thread) {
         ForumMessage lastPost = null;
@@ -438,5 +457,171 @@ public class ForumsUtil {
         	}
         }
         return linkStr.toString();
+    }
+    
+    /**
+     * Returns a Map representing the permissions a user (the session's user)
+     * has for the categories. The format of the Map is key = component version ID (Long),
+     * value = permission (Long, FORUM_*_PERMISSION constants, defined above)
+     * 
+     * @param userID The user ID to return the mapping for
+     * @return a mapping from component version ID to permission for this user
+     */
+    public static Map lookupRoleMap(long userID) {
+    	if(userID == -1) {
+    		return null;
+    	}
+    	Connection con = null;
+    	PreparedStatement pstmt = null;
+    	ResultSet rs = null;
+    	try {
+    		log.debug("getting groups from tc OLTP db for user: " + userID);
+    		con = DBMS.getConnection();
+    		pstmt = con.prepareStatement(SELECT_USER_FORUM_PERMISSION);
+    		pstmt.setLong(1, userID);
+    		rs = pstmt.executeQuery();
+    		
+			LongList forumsCanModerate = new LongList();
+			LongList forumsCanPostTo = new LongList();
+    		while (rs.next()) {
+    			// in the format "com.topcoder.dde.forum.ForumPostPermission 2500794"
+    			// or "com.topcoder.dde.forum.ForumModeratePermission 2500794",
+    			// where 2500794 is the old forum ID
+    			String permissionResult = rs.getString(1).trim();
+    			log.debug(permissionResult);
+    			if (permissionResult.startsWith(FORUM_MODERATE_PERMISSION_TYPE_PREFIX)) {
+    				long forumID = Long.parseLong(permissionResult.substring(FORUM_MODERATE_PERMISSION_TYPE_PREFIX.length()));
+    				forumsCanModerate.add(forumID);
+    			} else if (permissionResult.startsWith(FORUM_POST_PERMISSION_TYPE_PREFIX)) {
+    				long forumID = Long.parseLong(permissionResult.substring(FORUM_POST_PERMISSION_TYPE_PREFIX.length()));
+    				forumsCanPostTo.add(forumID);
+    			}
+    		}
+    		
+			Map roleMap = new HashMap();
+			
+			if (forumsCanModerate.size() > 0) {
+	    		long[] componentVersionsCanModerate
+	    				= getComponentVersionIDsFromForumIDs(forumsCanModerate.toArray());
+	    		for (int i=0; i < componentVersionsCanModerate.length; i++) {
+	    			roleMap.put(new Long(componentVersionsCanModerate[i]), ForumConstants.FORUM_MODERATE_PERMISSION);
+	    		}
+			}
+			
+			if (forumsCanPostTo.size() > 0) {
+	    		long[] componentVersionsCanPostTo
+	    				= getComponentVersionIDsFromForumIDs(forumsCanPostTo.toArray());
+	    		for (int i=0; i < componentVersionsCanPostTo.length; i++) {
+	    			if(ForumConstants.FORUM_MODERATE_PERMISSION.equals(roleMap.get(new Long(componentVersionsCanPostTo[i])))) {
+	    				roleMap.put(new Long(componentVersionsCanPostTo[i]), ForumConstants.FORUM_MODERATE_AND_POST_PERMISSION);
+	    			} else {
+	    				roleMap.put(new Long(componentVersionsCanPostTo[i]), ForumConstants.FORUM_POST_PERMISSION);
+	    			}
+	    		}
+			}
+    		
+    		return roleMap;
+    	}
+    	catch (SQLException e) {
+    		Log.error(e);
+    		return null;
+    	}
+    	finally {
+    		DBMS.close(con, pstmt, rs);
+    	}
+    }
+    
+    /**
+     * Uses the tcs_catalog database to look up the component version IDs
+     * corresponding to the old forum IDs. The order of the resulting array
+     * is not necessarily the same as that of the input array.
+     * 
+     * @param forumIDs A list of old forum IDs to look up
+     * @return The component version IDs of the old forum IDs (unordered)
+     */
+    private static long[] getComponentVersionIDsFromForumIDs(long[] forumIDs) {
+    	Connection con = null;
+    	PreparedStatement pstmt = null;
+    	ResultSet rs = null;
+    	try {
+    		log.debug("getting component ids from tcs_catalog db");
+    		con = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
+    		
+    		// construct the (1,2,3) part to go in the SQL "IN" parameter
+    		StringBuffer parenSection = new StringBuffer("(");
+    		for (int i=0; i < forumIDs.length; i++) {
+    			parenSection.append(forumIDs[i]);
+    			if (i != forumIDs.length - 1) {
+    				parenSection.append(",");
+    			}
+    		}
+    		parenSection.append(")");
+    		String statementToExecute 
+    				= SELECT_COMPONENTS_USING_FORUM_IDS.replaceAll("\\(\\)", parenSection.toString());
+    		
+    		pstmt = con.prepareStatement(statementToExecute);
+    		rs = pstmt.executeQuery();
+			LongList componentVersionIDs = new LongList();
+    		while (rs.next()) {
+    			long componentVersionID = rs.getLong(1);
+    			log.debug("componentID looked up: " + componentVersionID);
+    			componentVersionIDs.add(componentVersionID);
+    		}
+
+    		return componentVersionIDs.toArray();
+    	}
+    	catch (SQLException e) {
+    		Log.error(e);
+    		return null;
+    	}
+    	finally {
+    		DBMS.close(con, pstmt, rs);
+    	}
+    }
+    
+	public static boolean userCanAttach(Map roleMap, Forum forum) {
+		Long compVersId = new Long(forum.getForumCategory().getProperty("compVersId"));
+		log.debug("checking if roleMap has attach (moderator) permission for: " + compVersId);
+		Long permission = (Long) roleMap.get(compVersId);
+		return (ForumConstants.FORUM_MODERATE_AND_POST_PERMISSION.equals(permission)
+				|| ForumConstants.FORUM_MODERATE_PERMISSION.equals(permission));
+	}
+	
+	public static boolean userCanPost(Map roleMap, Forum forum) {
+		Long compVersId = new Long(forum.getForumCategory().getProperty("compVersId"));
+		log.debug("checking if roleMap has post permission for: " + compVersId);
+		Long permission = (Long) roleMap.get(compVersId);
+		return (ForumConstants.FORUM_MODERATE_AND_POST_PERMISSION.equals(permission)
+				|| ForumConstants.FORUM_POST_PERMISSION.equals(permission));
+	}
+    
+    public static void printRequestData(javax.servlet.http.HttpServletRequest request) {
+    	log.debug("request data:");
+    	java.util.Enumeration names = request.getParameterNames();
+    	while(names.hasMoreElements()) {
+    		String key = (String) names.nextElement();
+    		log.debug(key + ":\t" + request.getParameter(key));
+    	}
+    	log.debug("end request data");
+    }
+    
+    public static void printRequestData(TCRequest request) {
+    	log.debug("request data:");
+    	java.util.Enumeration names = request.getParameterNames();
+    	while(names.hasMoreElements()) {
+    		String key = (String) names.nextElement();
+    		log.debug(key + ":\t" + request.getParameter(key));
+    	}
+    	log.debug("end request data");
+    }
+    
+    public static void printSessionData(javax.servlet.http.HttpSession session) {
+    	log.debug("session data:");
+    	java.util.Enumeration names = session.getAttributeNames();
+    	while(names.hasMoreElements()) {
+    		String key = (String) names.nextElement();
+    		log.debug(key + ":\t" + session.getAttribute(key));
+    	}
+    	log.debug("end session data");
     }
 }
