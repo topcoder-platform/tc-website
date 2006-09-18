@@ -27,7 +27,7 @@
 </td></tr>
 ----------------------------%>
 
-<%----------------------------------------POST MONDAY SEPT 18 9:00am
+<%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.18.06<br>9:00 AM</td>
     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=pickme_contest">TCCC06 "Pick Me" Contest</A></span><br><br>
@@ -38,7 +38,7 @@
     <tc-webtag:forumLink forumID="506113" message="discuss this"/> | 
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
-----------------%>
+
 <%------------------COMPONENT COMPETITIONS--------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>09.14.06<br>10:30 PM</td>
@@ -209,21 +209,5 @@ be exciting.
 <tr><td class="newsLinksCell">
     <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2030">details</A> | 
     <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=14">discuss this</A> | 
-    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.11.06<br>9:00 AM</td>
-    <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=dev_forums">TCCC06 Developer Forums Announced</A>
-      </span><br><br>
-      This year's TCCC will feature three informative Developer Forums. Topics will include: applying TopCoder's competition philosophy
-      to new initiatives, a new and improved process for estimating project size, and a review of TopCoder projects and success stories.
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=dev_forums">details</A> | 
-    <tc-webtag:forumLink forumID="506104" message="discuss this" /> | 
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>

@@ -171,15 +171,12 @@
                 <% if (tabLev1.equals("overview")) { %>
                 <% if (tabLev2.equals("join_us")) {%>
                 <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=onsite_schedule"><% if (tabLev3.equals("schedule")) {%><img src="/i/tournament/tccc06/tabs/L3_scheduleOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_scheduleOff.gif" border="0"/><% } %></a></td>
-
                 <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=dev_forums"><% if (tabLev3.equals("dev_forums")) {%><img src="/i/tournament/tccc06/tabs/L3_devforumsOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_devforumsOff.gif" border="0" /><% } %></a></td>
-                <%-- 
                 <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=pickme_contest"><% if (tabLev3.equals("pickme")) {%><img src="/i/tournament/tccc06/tabs/L3_pickmeOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_pickmeOff.gif" border="0" /><% } %></a></td>
-                --%>
                 <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=transportation"><% if (tabLev3.equals("transportation")) {%><img src="/i/tournament/tccc06/tabs/L3_transportationOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_transportationOff.gif" border="0"/><% } %></a></td>
                 <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=hotels"><% if (tabLev3.equals("hotels")) {%><img src="/i/tournament/tccc06/tabs/L3_hotelsOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_hotelsOff.gif" border="0"/><% } %></a></td>
                 <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=what_to_do"><% if (tabLev3.equals("to_do")) {%><img src="/i/tournament/tccc06/tabs/L3_whatToDoOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_whatToDoOff.gif" border="0"/><% } %></a></td>
-                <%--
+                
                 <% } else if (tabLev2.equals("onsite_events")) {%>
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=photos"><% if (tabLev3.equals("photos")) {%><img src="/i/tournament/tccc06/tabs/L3_photosOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_photosOff.gif" border="0" /><% } %></a></td>
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies"><% if (tabLev3.equals("movies")) {%><img src="/i/tournament/tccc06/tabs/L3_moviesOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_moviesOff.gif" border="0" /><% } %></a></td>
