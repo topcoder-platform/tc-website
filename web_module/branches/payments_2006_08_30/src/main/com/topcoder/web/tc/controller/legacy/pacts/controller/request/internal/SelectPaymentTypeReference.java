@@ -32,7 +32,7 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
 		            	getRequest().setAttribute(COMPONENT_PROJECT_LIST, map.get(COMPONENT_PROJECT_LIST));
 		            	break;
 		            case REFERENCE_ALGORITHM_ROUND_ID:
-		            	if (type == CONTEST_PAYMENT) {
+		            	if (type == ALGORITHM_CONTEST_PAYMENT) {
 		            		map = dib.findRounds("%" + search + "%", new int[] {1,2,3,17,18}); // fix values
 		            	} else if (type == MARATHON_MATCH_PAYMENT) {
 		            		map = dib.findRounds("%" + search + "%", new int[] {10,11,12}); // fix values		            		

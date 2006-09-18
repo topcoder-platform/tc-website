@@ -53,6 +53,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
     private String countryCode;
     private String stateCode;
     private PaymentHeader header;
+    
 
     /**
      * this is used to set the payment when passed a result map
@@ -103,7 +104,9 @@ public class Payment implements PactsConstants, java.io.Serializable {
             method = TCData.getTCString(rRow, "payment_method_desc");
             methodId = TCData.getTCInt(rRow, "payment_method_id");
             description = TCData.getTCString(rRow, "payment_desc");
-            modifiedDate = TCData.getTCDate(rRow, "date_modified");
+            modifiedDate = TCData.getTCDate(rRow, "date_modified");            
+            
+            
             if (row == 0)
                 header = new PaymentHeader(results, row);
             else {
@@ -194,8 +197,10 @@ public class Payment implements PactsConstants, java.io.Serializable {
         stateCode = "0";
         countryCode = "0";
         dueDate = "00/00/00";
+        
     }
 
+    
     /* This contructs the payment as it will be sent to the addPayment
      *  and addAffidavit functions
      *
@@ -215,7 +220,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
     }
 
     public boolean payReferrer() {
-        return typeId == CONTEST_PAYMENT;
+        return typeId == ALGORITHM_CONTEST_PAYMENT;
     }
 
 
@@ -442,6 +447,14 @@ public class Payment implements PactsConstants, java.io.Serializable {
     public void setHeader(PaymentHeader header) {
         this.header = header;
     }
+
+	public static Logger getLog() {
+		return log;
+	}
+
+	public static void setLog(Logger log) {
+		Payment.log = log;
+	}
 
 
 }

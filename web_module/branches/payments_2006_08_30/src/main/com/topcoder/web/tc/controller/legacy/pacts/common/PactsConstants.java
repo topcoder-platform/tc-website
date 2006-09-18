@@ -44,7 +44,7 @@ public interface PactsConstants {
     public static final int TCO05_COMPONENT_AFFIDAVIT = 5;
 
     // Payment type codes
-    public static final int CONTEST_PAYMENT = 1;
+    public static final int ALGORITHM_CONTEST_PAYMENT = 1;
     public static final int CONTRACT_PAYMENT = 2;
     public static final int PROBLEM_PAYMENT = 3;
     public static final int CODER_REFERRAL_PAYMENT = 4;

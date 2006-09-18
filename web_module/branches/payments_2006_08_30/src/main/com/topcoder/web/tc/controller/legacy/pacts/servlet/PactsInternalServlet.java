@@ -21,7 +21,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import javax.naming.InitialContext;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -31,9 +30,7 @@ import javax.servlet.http.HttpSession;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.NavigationException;
@@ -44,7 +41,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.ejb.pacts.PactsClientServices;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchAffidavit;
@@ -1408,11 +1404,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     private void doAddPayment(HttpServletRequest request, HttpServletResponse response) throws Exception {
         log.debug("doAddPayment<br>");
         
-        // TESTING!! ERASE it!
-        InitialContext c = TCContext.getInitial();
-        PactsClientServices pcs = (PactsClientServices) BaseProcessor.createEJB(c, PactsClientServices.class);
-        pcs.addProblemWritingPayment(7545675, 26.78, 1228);
-
         if (request.getParameter(CONTRACT_ID) != null) {
             InternalDispatchContract bean =
                     new InternalDispatchContract(request, response);

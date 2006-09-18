@@ -47,9 +47,16 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     private int recentStatusId;
     private int typeId;
     private int methodId;
-    private long projectId;
     private String client;
     private boolean reviewed;
+
+    private long algorithmRoundId;
+    private long componentProjectId;
+    private long algorithmProblemId;
+    private long studioContestId;
+    private long componentContestId;
+    private long digitalRunStageId;
+    private long digitalRunSeasonId;
 
     /**************\
      *              *
@@ -137,9 +144,33 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         			TCData.getTCLong(rsr, "user_id", 0, true),
                     TCData.getTCString(rsr, "handle", "default handle", true));
         }
-        if (typeId == COMPONENT_PAYMENT || typeId == REVIEW_BOARD_PAYMENT) {
-        	projectId = TCData.getTCLong(rsr, "project_id", 0, false);
-        	client = TCData.getTCString(rsr, "client", "", false);
+        switch(typeId) {
+        case ALGORITHM_CONTEST_PAYMENT:
+        case MARATHON_MATCH_PAYMENT:
+        case ALGORITHM_TOURNAMENT_PRIZE_PAYMENT: 
+        	algorithmRoundId = TCData.getTCLong(rsr, "algorithm_round_id", 0, false);
+        	break;
+        case COMPONENT_PAYMENT:
+        case REVIEW_BOARD_PAYMENT:  
+        	componentProjectId = TCData.getTCLong(rsr, "component_project_id", 0, false);
+    		client = TCData.getTCString(rsr, "client", "", false);
+    		break;
+        case PROBLEM_TESTING_PAYMENT:
+        case PROBLEM_WRITING_PAYMENT:
+        	algorithmProblemId = TCData.getTCLong(rsr, "algorithm_problem_id", 0, false);
+        	break; 
+        case TC_STUDIO_PAYMENT:
+        	studioContestId = TCData.getTCLong(rsr, "studio_contest_id", 0, false);
+        	break;
+        case COMPONENT_TOURNAMENT_BONUS_PAYMENT:
+        	componentContestId = TCData.getTCLong(rsr, "component_contest_id", 0, false);
+    		break;
+        case DIGITAL_RUN_PAYMENT:
+        	digitalRunStageId = TCData.getTCLong(rsr, "digital_run_stage_id", 0, false);
+        	break;
+        case DIGITAL_RUN_ROCKIE_PAYMENT:
+        	digitalRunSeasonId = TCData.getTCLong(rsr, "digital_run_season_id", 0, false);
+        	break;
         }
         reviewed = 0 != TCData.getTCInt(rsr, "review", 0, true);
     }
@@ -242,13 +273,6 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         this.methodId = methodId;
     }
     
-    public long getProjectId() {
-        return projectId;
-    }
-
-    public void setProjectId(long projectId) {
-        this.projectId = projectId;
-    }
     
     public String getClient() {
         return client;
@@ -265,5 +289,62 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     public void setReviewed(boolean reviewed) {
         this.reviewed = reviewed;
     }
+
+	public long getAlgorithmProblemId() {
+		return algorithmProblemId;
+	}
+
+	public void setAlgorithmProblemId(long algorithmProblemId) {
+		this.algorithmProblemId = algorithmProblemId;
+	}
+
+	public long getAlgorithmRoundId() {
+		return algorithmRoundId;
+	}
+
+	public void setAlgorithmRoundId(long algorithmRoundId) {
+		this.algorithmRoundId = algorithmRoundId;
+	}
+
+	public long getComponentContestId() {
+		return componentContestId;
+	}
+
+	public void setComponentContestId(long componentContestId) {
+		this.componentContestId = componentContestId;
+	}
+
+	public long getComponentProjectId() {
+		return componentProjectId;
+	}
+
+	public void setComponentProjectId(long componentProjectId) {
+		this.componentProjectId = componentProjectId;
+	}
+
+	public long getDigitalRunSeasonId() {
+		return digitalRunSeasonId;
+	}
+
+	public void setDigitalRunSeasonId(long digitalRunSeasonId) {
+		this.digitalRunSeasonId = digitalRunSeasonId;
+	}
+
+	public long getDigitalRunStageId() {
+		return digitalRunStageId;
+	}
+
+	public void setDigitalRunStageId(long digitalRunStageId) {
+		this.digitalRunStageId = digitalRunStageId;
+	}
+
+	public long getStudioContestId() {
+		return studioContestId;
+	}
+
+	public void setStudioContestId(long studioContestId) {
+		this.studioContestId = studioContestId;
+	}
+
 
 }
