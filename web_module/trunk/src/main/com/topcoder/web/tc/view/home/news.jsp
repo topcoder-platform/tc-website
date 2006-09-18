@@ -7,7 +7,7 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
-<%----------------------------POST MONDAY SEPT 18 11:00am
+<%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/><br>09.18.06<br>11:00 AM</td>
     <td class="newsTextCell">
@@ -25,7 +25,6 @@
     <tc-webtag:forumLink forumID="506116" message="discuss this"/> | 
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
-----------------------------%>
 
 <%--------------------------------------------------------%>
 <tr>
@@ -194,20 +193,5 @@ be exciting.
 <tr><td class="newsLinksCell">
     <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">results</A> | 
     <tc-webtag:forumLink forumID="506103" message="discuss this" /> | 
-    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.11.06<br>10:00 AM</td>
-    <td class="newsTextCell"><span class="newsTitle">
-      <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2030">2007 TCHS Tournament Logo Design Contest</A>
-      </span><br><br>
-      The first TCHS tournament needs a logo and we want you guys to design it.  Head over to the <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>">Studio</A> for all the details.
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2030">details</A> | 
-    <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=14">discuss this</A> | 
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
