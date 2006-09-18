@@ -9,6 +9,18 @@
 </tr>
 <%--------------------------------------------------------%>
 <tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.18.06<br>12:10 PM</td>
+    <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=219">Vote for the TCCC t-shirt quote</A></span><br><br>
+      Rate these 5 quotes, and the winner goes on the TCCC06 t-shirt!
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=ViewSurvey&sid=219">vote</A> | 
+    <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512330">discuss this</A> | 
+    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/><br>09.18.06<br>11:00 AM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -29,7 +41,7 @@
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.18.06<br>11:00 AM</td>
-    <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA SRM 319 Chat Session</A></span><br><br>
+    <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA SRM 319 chat session</A></span><br><br>
       NSA will be in the arena at 8:00 PM just prior to SRM 319 to discuss working at NSA.
 </tr>
 <tr><td class="newsLinksCell">
@@ -193,17 +205,3 @@ be exciting.
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
 
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.11.06<br>3:00 PM</td>
-    <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">TCCC06 Algorithm Qualification Round 2 Results</A>
-      </span><br><br>
-      The results are in for the second TCCC06 Algorithm Qualification Round.
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">results</A> | 
-    <tc-webtag:forumLink forumID="506103" message="discuss this" /> | 
-    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-</td></tr>
