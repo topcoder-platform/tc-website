@@ -51,7 +51,7 @@ The Costing Engine is a generic calculation engine that is communicated with by 
 <li>Calculate the requests using the generic engine</li>
 </ul>
 
-The Admin Tool is the graphical front-end to administer the Costing Engine.  The actual inputs to the generic engine will be configured using the Admin Tool.  All calculation results are also viewable through reports (which are standard ASP.NET pages with an ‘export’ option to Microsoft Excel using a pre-built component).  Admin Tool assembly will consist most of converting parts of an HTML prototype to ASP.NET and integrating components.
+The Admin Tool is the graphical front-end to administer the Costing Engine.  The actual inputs to the generic engine will be configured using the Admin Tool.  All calculation results are also viewable through reports (which are standard ASP.NET pages with an 'export' option to Microsoft Excel using a pre-built component).  Admin Tool assembly will consist most of converting parts of an HTML prototype to ASP.NET and integrating components.
 <br><br>
 These applications are to be used by a TopCoder client.  All application documentation (including an assembly guide) will be available once registered.
 <br><br>
