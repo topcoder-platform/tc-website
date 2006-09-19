@@ -43,7 +43,7 @@
 <br><br>
 
 <h2>Match summary</h2>
-<p>SRM 319 was the first SRM hosted by TopCoder in nearly three weeks -- and it was a money SRM to boot! As
+<p>SRM 319 was the first SRM hosted by TopCoder in nearly three weeks - and it was a money SRM to boot! As
 if coders needed more incentive, this was the last SRM before TCCC round 1 and GCJ round 2 to practice 
 those skills. These reasons were enough to attract the second largest crowd ever for a TopCoder SRM, 
 with 1001 coders taking part in the match. This was only the second SRM in TC history with more 
