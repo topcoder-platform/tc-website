@@ -28,7 +28,7 @@ public class AOLHelper {
     public static final String INDIVIDUAL = "Individual";
 
 
-    public static NamedAlertRegistry registry;
+    public static NamedAlertRegistry registry = new NamedAlertRegistry();
 
     static {
         if (ApplicationServer.ENVIRONMENT == ApplicationServer.PROD) {
