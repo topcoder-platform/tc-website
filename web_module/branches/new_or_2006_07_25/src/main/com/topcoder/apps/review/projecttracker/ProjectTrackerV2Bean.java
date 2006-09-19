@@ -888,7 +888,7 @@ public class ProjectTrackerV2Bean implements SessionBean {
             index = 1;
             ps.setLong(index++, resourceId);
             ps.setLong(index++, 5);
-            ps.setString(index++, String.valueOf(oldReliability));
+            ps.setString(index++, String.valueOf(oldReliability * 100));
             ps.setString(index++, String.valueOf(userId));
             ps.setString(index++, String.valueOf(userId));
             nr = ps.executeUpdate();
