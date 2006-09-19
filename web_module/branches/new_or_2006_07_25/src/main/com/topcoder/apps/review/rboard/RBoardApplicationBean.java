@@ -60,6 +60,12 @@ import com.topcoder.shared.util.logging.Logger;
  * Schema was changed to allow reviewers for particular technologies.
  * </li>
  * </ol>
+ * Version 1.0.3 Change notes:
+ * <ol>
+ * <li>
+ * Submitter role is disabled for the registering reviewer.
+ * </li>
+ * </ol>
  * </p>
  *
  * @author dok, pulky
@@ -600,7 +606,7 @@ public class RBoardApplicationBean extends BaseEJB {
 
             long status = 0;
             try {
-                status = getStatus(conn, userId, phaseId, catalogId);
+                status = getStatus(conn, userId, phaseId - 111, catalogId);
             } catch (RowNotFoundException rnfe) {
                 throw new RBoardRegistrationException("Sorry, you are not a " + getCatalogName(conn, catalogId) + " reviewer.  Please contact TopCoder if you would like to become one.");
             }
@@ -649,9 +655,8 @@ public class RBoardApplicationBean extends BaseEJB {
         return selectString(conn,
             "catalog",
             "catalog_name",
-            new String[] { "category_id" },
+            new String[] { "catalog_id" },
             new String[] { String.valueOf(catalogId)});
-
     }
 
     /**
@@ -665,7 +670,7 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     private long getStatus(Connection conn, long userId, int projectType, long catalogId) {
         return selectLong(conn,
-            "rboard_user2",
+            "rboard_user",
             "status_id",
             new String[] { "user_id", "project_type_id", "catalog_id" },
             new String[] { String.valueOf(userId), String.valueOf(projectType),

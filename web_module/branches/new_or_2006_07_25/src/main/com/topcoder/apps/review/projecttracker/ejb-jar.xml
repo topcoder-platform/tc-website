@@ -30,6 +30,18 @@
 -->
         </session>
         <session>
+            <description>ProjectTrackerV2 EJB</description>
+            <display-name>ProjectTrackerV2 EJB</display-name>
+            <ejb-name>ProjectTrackerV2</ejb-name>
+            <local-home>com.topcoder.apps.review.projecttracker.ProjectTrackerV2LocalHome</local-home>
+            <local>com.topcoder.apps.review.projecttracker.ProjectTrackerV2Local</local>
+            <home>com.topcoder.apps.review.projecttracker.ProjectTrackerV2Home</home>
+            <remote>com.topcoder.apps.review.projecttracker.ProjectTrackerV2</remote>
+            <ejb-class>com.topcoder.apps.review.projecttracker.ProjectTrackerV2Bean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+        <session>
             <description>UserManager EJB</description>
             <display-name>UserManager EJB</display-name>
             <ejb-name>UserManager</ejb-name>
@@ -76,6 +88,13 @@
         <container-transaction>
             <method>
                 <ejb-name>ProjectTracker</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+        <container-transaction>
+            <method>
+                <ejb-name>ProjectTrackerV2</ejb-name>
                 <method-name>*</method-name>
             </method>
             <trans-attribute>Required</trans-attribute>

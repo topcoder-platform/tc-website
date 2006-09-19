@@ -76,34 +76,21 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             //repost status of the project
 
             query.append("select * ");
-            query.append("from r_user_role rur, ");
-            query.append("project p ");
-            query.append("where  ");
-            query.append("rur.r_role_id = 3  ");
-            query.append("and rur.cur_version = 1  ");
-            query.append("and p.project_id = rur.project_id  ");
-            query.append("and p.cur_version = 1  ");
-            query.append("and rur.login_id = ? ");
-            query.append("and p.project_id in (select project_id from project where comp_vers_id = (select comp_vers_id from project where project_id = ? and cur_version = 1))  ");
-            query.append("and not exists (select p2 project_id from project p2  ");
-            query.append("where p2.comp_vers_id = (select comp_vers_id from project where project_id = ?  and cur_version = 1) and p2.cur_version = 1  ");
-            query.append("and p2.project_stat_id in (5,6,7) and p2.project_type_id = (select project_type_id from project where project_id = ? and cur_version = 1) ) ");
-            //query.append("and (not exists (select p2.project_id from project p2 ");
-            //query.append("where p2.comp_vers_id = (select comp_vers_id from project where project_id = ?  and cur_version = 1) and p2.cur_version = 1  ");
-            //query.append("and p2.project_stat_id = 5 ) or ");
-            //query.append("( exists (select p2.project_id from project p2  ");
-            //query.append("where p2.comp_vers_id = (select comp_vers_id from project where project_id = ?  and cur_version = 1) and p2.cur_version = 1  ");
-            //query.append("and p2.project_stat_id = 5 ) ");
-            //query.append("and exists (select r_user_role_v_id from r_user_role where project_id = rur.project_id and r_role_id = 2 and cur_version = 1 and login_id = rur.login_id) )) ");
-
+            query.append("from resource rur, resource_info ri ");
+            query.append("where rur.resource_role_id in (4, 5, 6, 7) "); // reviewer and test case reviewer
+            query.append("and rur.resource_id = ri.resource_id and ri.resource_info_type_id = 1 and ri.value = ? ");
+            query.append("and rur.project_id = ? ");
+            query.append("and not exists (select p2.project_id from project p2, project_info pi2  ");
+            query.append("where p2.project_id = pi2.project_id and pi2.project_info_type_id = 1 ");
+            query.append("and pi2.value = (select value from project_info where project_id = ? and project_info_type_id = 1) ");
+            query.append("and p2.project_status_id in (4,5,6) ");
+            query.append("and p2.project_category_id = (select project_category_id from project where project_id = ?)) ");
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, userId);
             ps.setLong(2, projectId);
             ps.setLong(3, projectId);
             ps.setLong(4, projectId);
-            //ps.setLong(5, projectId);
-            //ps.setLong(6, projectId);
 
             rs = ps.executeQuery();
             hasReviewed = rs.next();
@@ -138,14 +125,14 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             //this checks if the user is the winning designer for the project
 
             query.append("select 1 ");
-            query.append("from project_result pr, project p ");
-            query.append("where p.project_id = pr.project_id and p.cur_version = 1 ");
+            query.append("from project_result pr, project p, project_info pi ");
+            query.append("where p.project_id = pr.project_id and p.project_id = pi.project_id and pi.project_info_type_id = 1 ");
             query.append("and pr.placed = 1 ");
             query.append("and pr.passed_review_ind = 1 ");
-            query.append("and p.project_stat_id = 3 ");
-            query.append("and p.comp_vers_id = (select comp_vers_id from project where project_id = ? and cur_version = 1) ");
+            query.append("and p.project_status_id = 1 ");
+            query.append("and pi.value = (select value from project_info where project_id = ? and project_info_type_id = 1) ");
             query.append("and pr.user_id = ? ");
-            query.append("and p.project_type_id = 1 ");
+            query.append("and p.project_category_id = 1 ");
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, projectId);
@@ -181,25 +168,21 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
 
             StringBuffer query = new StringBuffer(1024);
 
-
             query.append("select '1' ");
             query.append("from project p ");
-            query.append(", phase_instance pi1 ");
+            query.append(", project_phase pi1 ");
             query.append("where p.project_id = ? ");
-            query.append("and p.cur_version = 1 ");
             query.append("and pi1.project_id = p.project_id ");
-            query.append("and pi1.phase_id = 1 ");
-            query.append("and pi1.cur_version = 1 ");
-            query.append("and pi1.start_date + ");
-            query.append(ComponentRegistrationServices.COMPONENT_REGISTRATION_LENGTH);
-            query.append(" units day > current ");
-            query.append("and pi1.start_date < current ");
+            query.append("and pi1.phase_type_id = 1 ");
+            query.append("and pi1.scheduled_end_time > current ");
+            query.append("and pi1.scheduled_start_time < current ");
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, projectId);
 
             rs = ps.executeQuery();
             regOpen = rs.next();
+            
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
@@ -228,11 +211,9 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
 
             StringBuffer query = new StringBuffer(1024);
 
-
-            query.append("select max_unrated_registrants ");
+            query.append("select 1000 as max_unrated_registrants ");
             query.append("from project p ");
             query.append("where p.project_id = ? ");
-            query.append("and p.cur_version = 1 ");
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, projectId);
@@ -272,10 +253,9 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             StringBuffer query = new StringBuffer(1024);
 
 
-            query.append("select max_rated_registrants ");
+            query.append("select 1000 as max_rated_registrants ");
             query.append("from project p ");
             query.append("where p.project_id = ? ");
-            query.append("and p.cur_version = 1 ");
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, projectId);
@@ -472,13 +452,12 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
     private static final String reliableEnough =
             " select count(*)" +
               " from component_inquiry ci" +
-                 " , phase_instance pi" +
+                 " , project_phase pi" +
              " where ci.project_id = pi.project_id" +
-               " and pi.cur_version = 1" +
-               " and pi.phase_id = 1" +
+               " and pi.phase_type_id = 2 " +
                " and ci.phase = ?" +
                " and ci.user_id = ?" +
-               " and pi.end_date > current";
+               " and pi.scheduled_end_time > current";
 
     public boolean isUserReliableEnough(long phaseId, long userId, String dataSource) throws EJBException {
         //if their reliability is < 70 %

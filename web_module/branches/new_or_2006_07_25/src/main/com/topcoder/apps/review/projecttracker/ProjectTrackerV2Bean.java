@@ -4,7 +4,6 @@
 package com.topcoder.apps.review.projecttracker;
 
 import com.topcoder.apps.review.persistence.Common;
-import com.topcoder.apps.review.security.*;
 
 import com.topcoder.project.phases.Dependency;
 import com.topcoder.project.phases.Phase;
@@ -12,22 +11,16 @@ import com.topcoder.project.phases.template.ConfigurationException;
 import com.topcoder.project.phases.template.DefaultPhaseTemplate;
 import com.topcoder.project.phases.template.PhaseTemplate;
 
-import com.topcoder.security.NoSuchUserException;
-import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
-import com.topcoder.security.UserPrincipal;
-import com.topcoder.security.admin.PolicyMgrRemote;
-import com.topcoder.security.admin.PolicyMgrRemoteHome;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
-import com.topcoder.security.policy.PermissionCollection;
 
 import com.topcoder.shared.util.logging.Logger;
 
 import com.topcoder.util.errorhandling.BaseException;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.util.idgenerator.IDGenerator;
-import com.topcoder.util.idgenerator.IDGeneratorFactory;
+import com.topcoder.util.idgenerator.IDGeneratorImpl;
 
 import java.rmi.RemoteException;
 
@@ -307,9 +300,16 @@ public class ProjectTrackerV2Bean implements SessionBean {
         }
     }
 
+    private Map ids = new HashMap();
+    private static final String ID_NAMESPACE = "com.topcoder.util.idgenerator.onlinereview";
     private long nextId(String tableId) {
     	try {
-			IDGenerator idgen = IDGeneratorFactory.getIDGenerator(tableId);
+    		
+			IDGenerator idgen = (IDGenerator) ids.get(tableId); // IDGeneratorFactory.getIDGenerator(tableId);
+			if (idgen == null) {
+				idgen = new IDGeneratorImpl(ID_NAMESPACE, tableId); 
+				ids.put(tableId, idgen);
+			}
 			return idgen.getNextID();
 		} catch (IDGenerationException e) {
 			throw new RuntimeException("Failed to get id generator for " + tableId);
@@ -642,169 +642,14 @@ public class ProjectTrackerV2Bean implements SessionBean {
             ps.setString(index++, String.valueOf(requestor.getUserId()));
             ps.setString(index++, String.valueOf(requestor.getUserId()));
             ps.setString(index++, String.valueOf(requestor.getUserId()));
-            Common.close(rs);
+            ps.executeUpdate();
             Common.close(ps);
 
             // Clean up this variable for reuse - bblais
             ps = null;
-
-            // Create security manager roles for project
-            log.debug("Creating security manager roles");
-
-            PrincipalMgrRemote principalMgr;
-            PolicyMgrRemote policyMgr;
-
-            try {
-                Context initial = new InitialContext();
-                Object objref = initial.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-                PrincipalMgrRemoteHome home = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objref,
-                        PrincipalMgrRemoteHome.class);
-                principalMgr = home.create();
-
-                objref = initial.lookup(PolicyMgrRemoteHome.EJB_REF_NAME);
-
-                PolicyMgrRemoteHome home2 = (PolicyMgrRemoteHome) PortableRemoteObject.narrow(objref,
-                        PolicyMgrRemoteHome.class);
-                policyMgr = home2.create();
-            } catch (ClassCastException e1) {
-                throw new RuntimeException(e1);
-            } catch (EJBException e1) {
-                throw new RuntimeException(e1);
-            } catch (NamingException e1) {
-                throw new RuntimeException(e1);
-            } catch (CreateException e1) {
-                throw new RuntimeException(e1);
-            }
-
-            ProjectTypeManager projectTypeManager = (ProjectTypeManager) Common.getFromCache("ProjectTypeManager");
-
-            String prefix = projectName + " " + projectVersion + " " +
-                projectTypeManager.getProjectType(projectTypeId).getName() + " ";
-
-            try {
-                UserPrincipal userPrincipal = principalMgr.getUser(requestor.getUserId());
-                RolePrincipal rp;
-                long roleId;
-
-                String roleName = prefix + "View Project " + projectId;
-                roleId = getRoleId(roleName);
-
-                if (roleId != -1) {
-                    rp = principalMgr.getRole(roleId);
-                    principalMgr.removeRole(rp, requestor);
-                }
-
-                rp = principalMgr.createRole(roleName, requestor);
-
-                PermissionCollection pc = new PermissionCollection();
-                pc.addPermission(new ViewProjectPermission(projectId));
-                policyMgr.addPermissions(rp, pc, requestor);
-
-                // Assign View Project to pm
-                principalMgr.assignRole(userPrincipal, rp, requestor);
-
-                roleName = prefix + "Submit " + projectId;
-                roleId = getRoleId(roleName);
-
-                if (roleId != -1) {
-                    rp = principalMgr.getRole(roleId);
-                    principalMgr.removeRole(rp, requestor);
-                }
-
-                rp = principalMgr.createRole(roleName, requestor);
-                pc = new PermissionCollection();
-                pc.addPermission(new SubmitPermission(projectId));
-                policyMgr.addPermissions(rp, pc, requestor);
-
-                roleName = prefix + "Screen " + projectId;
-                roleId = getRoleId(roleName);
-
-                if (roleId != -1) {
-                    rp = principalMgr.getRole(roleId);
-                    principalMgr.removeRole(rp, requestor);
-                }
-
-                rp = principalMgr.createRole(roleName, requestor);
-                pc = new PermissionCollection();
-                pc.addPermission(new ScreenPermission(projectId));
-                policyMgr.addPermissions(rp, pc, requestor);
-
-                roleName = prefix + "Review " + projectId;
-                roleId = getRoleId(roleName);
-
-                if (roleId != -1) {
-                    rp = principalMgr.getRole(roleId);
-                    principalMgr.removeRole(rp, requestor);
-                }
-
-                rp = principalMgr.createRole(roleName, requestor);
-                pc = new PermissionCollection();
-                pc.addPermission(new ReviewPermission(projectId));
-                policyMgr.addPermissions(rp, pc, requestor);
-
-                roleName = prefix + "Aggregation " + projectId;
-                roleId = getRoleId(roleName);
-
-                if (roleId != -1) {
-                    rp = principalMgr.getRole(roleId);
-                    principalMgr.removeRole(rp, requestor);
-                }
-
-                rp = principalMgr.createRole(roleName, requestor);
-                pc = new PermissionCollection();
-                pc.addPermission(new AggregationPermission(projectId));
-                policyMgr.addPermissions(rp, pc, requestor);
-
-                roleName = prefix + "Submit Final Fix " + projectId;
-                roleId = getRoleId(roleName);
-
-                if (roleId != -1) {
-                    rp = principalMgr.getRole(roleId);
-                    principalMgr.removeRole(rp, requestor);
-                }
-
-                rp = principalMgr.createRole(roleName, requestor);
-                pc = new PermissionCollection();
-                pc.addPermission(new SubmitFinalFixPermission(projectId));
-                policyMgr.addPermissions(rp, pc, requestor);
-
-                roleName = prefix + "Final Review " + projectId;
-                roleId = getRoleId(roleName);
-
-                if (roleId != -1) {
-                    rp = principalMgr.getRole(roleId);
-                    principalMgr.removeRole(rp, requestor);
-                }
-
-                rp = principalMgr.createRole(roleName, requestor);
-                pc = new PermissionCollection();
-                pc.addPermission(new FinalReviewPermission(projectId));
-                policyMgr.addPermissions(rp, pc, requestor);
-            } catch (com.topcoder.security.GeneralSecurityException e) {
-                ejbContext.setRollbackOnly();
-
-                SQLException sqle = (SQLException) e.getCause();
-                int i = 1;
-                System.err.println("*******************************");
-
-                while (sqle != null) {
-                    System.err.println("  Error #" + i + ":");
-                    System.err.println("    SQLState = " + sqle.getSQLState());
-                    System.err.println("    Message = " + sqle.getMessage());
-                    System.err.println("    SQLCODE = " + sqle.getErrorCode());
-                    sqle.printStackTrace();
-                    sqle = sqle.getNextException();
-                    i++;
-                }
-
-                throw new RuntimeException("GeneralSecurityException: " + e.getMessage());
-            }
         } catch (SQLException e) {
             ejbContext.setRollbackOnly();
             throw new RuntimeException("SQLException: " + e.getMessage());
-        } catch (RemoteException e) {
-            ejbContext.setRollbackOnly();
-            throw new RuntimeException("RemoteException: " + e.getMessage());
         } finally {
             Common.close(conn, ps, rs);
         }
@@ -1026,7 +871,11 @@ public class ProjectTrackerV2Bean implements SessionBean {
             index = 1;
             ps.setLong(index++, resourceId);
             ps.setLong(index++, 4);
-            ps.setString(index++, String.valueOf(old_rating));
+            if (old_rating == 0) {
+            	ps.setString(index++, "Not Rated");
+            } else {
+            	ps.setString(index++, String.valueOf(old_rating));
+            }
             ps.setString(index++, String.valueOf(userId));
             ps.setString(index++, String.valueOf(userId));
             nr = ps.executeUpdate();
@@ -1051,7 +900,7 @@ public class ProjectTrackerV2Bean implements SessionBean {
             // Registration Date 6
             index = 1;
             ps.setLong(index++, resourceId);
-            ps.setLong(index++, 5);
+            ps.setLong(index++, 6);
             ps.setString(index++, DATE_FORMAT.format(new java.util.Date()));
             ps.setString(index++, String.valueOf(userId));
             ps.setString(index++, String.valueOf(userId));
@@ -1081,71 +930,8 @@ public class ProjectTrackerV2Bean implements SessionBean {
                 throw new RuntimeException(e1);
             }
 
-            Common.close(ps);
-            ps = null;
-
-            // Prepare component_name Project Name , version_text Project Version, project_type project_category_id
-            ps = conn.prepareStatement(
-                    "SELECT pi_n.value as component_name, pi_v.value as version_text, p.project_category_id as project_type_id " +
-                    "FROM project p " + 
-                    "inner join project_info pi_n on pi_n.project_id = p.project_id " +
-                    "and pi_n.project_info_type_id = 6 " + 
-                    "inner join project_info pi_v " +
-                    "on pi_v.project_id = p.project_id and pi_v.project_info_type_id = 7 " +
-                    "where p.project_id = ? and p.project_status_id = 1");
-            ps.setLong(1, projectId);
-            rs = ps.executeQuery();
-
-            String projectName = null;
-            String projectVersion = null;
-            long projectTypeId = 0;
-
-            if (rs.next()) {
-                projectName = rs.getString("component_name");
-                projectVersion = rs.getString("version_text").trim();
-                projectTypeId = rs.getLong("project_type_id");
-            } else {
-                throw new BaseException("Missing component");
-            }
-
-            ProjectTypeManager projectTypeManager = (ProjectTypeManager) Common.getFromCache("ProjectTypeManager");
-
-            String prefix = projectName + " " + projectVersion + " " +
-                projectTypeManager.getProjectType(projectTypeId).getName() + " ";
-
-            // TODO What user to assign roles?
-            TCSubject requestor = new TCSubject(userId);
-
-            try {
-                UserPrincipal userPrincipal = principalMgr.getUser(userId);
-
-                String roleName = prefix + "View Project " + projectId;
-                long roleId = getRoleId(roleName);
-
-                if (roleId == -1) {
-                    throw new RuntimeException("Can't find roleName: " + roleName);
-                }
-
-                RolePrincipal rolePrincipal = principalMgr.getRole(roleId);
-                principalMgr.unAssignRole(userPrincipal, rolePrincipal, requestor);
-                principalMgr.assignRole(userPrincipal, rolePrincipal, requestor);
-
-                roleName = prefix + "Submit " + projectId;
-                roleId = getRoleId(roleName);
-
-                if (roleId == -1) {
-                    throw new RuntimeException("Can't find roleName: " + roleName);
-                }
-
-                rolePrincipal = principalMgr.getRole(roleId);
-                principalMgr.unAssignRole(userPrincipal, rolePrincipal, requestor);
-                principalMgr.assignRole(userPrincipal, rolePrincipal, requestor);
-            } catch (NoSuchUserException e2) {
-                throw new RuntimeException(e2);
-            } catch (com.topcoder.security.GeneralSecurityException e2) {
-                throw new RuntimeException(e2);
-            }
         } catch (SQLException e) {
+        	e.printStackTrace();
             ejbContext.setRollbackOnly();
             throw new RuntimeException("SQLException: " + e.getMessage());
         } catch (RemoteException e) {
