@@ -48,7 +48,7 @@ public class AOLHelper {
                     "AB9BB052241B6C60BA4BC64E11A7E43667C0BA2F4759C1C306780BF65C3552B",
                     "TopCoder-ComponentPosting", true);
             registry.addAlertIDMapping(INDIVIDUAL, "268e2e1d-6d09-4c8e-a78c-f755fc768de9",
-                    "FA7362BC7BC7C507EE6B91BC8C22284BC06527B5DB0DD7BFB9FBBBE4C6BC867", "", false);
+                    "FA7362BC7BC7C507EE6B91BC8C22284BC06527B5DB0DD7BFB9FBBBE4C6BC867", "TopCoder", false);
         } else {
             registry.addAlertIDMapping(SRM_REMINDER, "7ba606d0-e8f0-4adb-815a-f755fc768de9",
                     "95F1C56B13A2B71E65A6CB78DD09838B92A1A017BF277C6BD19524AD1EF234",
@@ -66,7 +66,7 @@ public class AOLHelper {
                     "BCBB77FAB87CFE70907060C39B1760A674486E1CB37AA664FACE50D72FA7579",
                     "TopCoder-ComponentPosting-Dev", true);
             registry.addAlertIDMapping(INDIVIDUAL, "9244f24a-3c7c-40a9-abb2-f755fc768de9",
-                    "F4A96814585F89E11C132FE691A82F3F2A967C5BFEE225026A75825A3792764", "", false);
+                    "F4A96814585F89E11C132FE691A82F3F2A967C5BFEE225026A75825A3792764", "TopCoder", false);
         }
     }
 
