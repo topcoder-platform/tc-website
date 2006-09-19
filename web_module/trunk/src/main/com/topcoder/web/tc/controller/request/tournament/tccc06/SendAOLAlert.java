@@ -253,12 +253,16 @@ public class SendAOLAlert extends ShortHibernateProcessor {
 
     private String createGeneralMessage(ResultSetContainer data, String template) {
 
-        String ret = template;
-        boolean hasGenTag = false;
-        for (int i = 0; i < generalTags.length && !hasGenTag; i++) {
-            ret = StringUtils.replace(ret, "$" + generalTags[i], data.getStringItem(0, generalTags[i]));
+        if (data == null) {
+            return template;
+        } else {
+            String ret = template;
+            boolean hasGenTag = false;
+            for (int i = 0; i < generalTags.length && !hasGenTag; i++) {
+                ret = StringUtils.replace(ret, "$" + generalTags[i], data.getStringItem(0, generalTags[i]));
+            }
+            return ret;
         }
-        return ret;
     }
 
     private Map createTexts(ResultSetContainer data, String template, Map people) {
