@@ -26,7 +26,7 @@
 
             <div class="contentSpacer">
                 <p>
-                    1.1.1 - 2006.09.xx
+                    1.1.1 - 2006.09.19
                     <ul>
                         <li>Do not allow the viewing of submissions until the contest is over</li>
                         <li>Show image files directly on the admin submission detail page rather than requiring a
