@@ -43,13 +43,13 @@
     <p>
         TopCoder SRM reminder: <br/>
         Example: SRM 318 starts at 9:00 PM EDT (UTC/GMT -4) on Tuesday, Sept. 20.  Register between 6:00
-        PM & 8:55 PM EDT.  $5,000 prize purse.
+        PM &amp; 8:55 PM EDT. $5,000 prize purse.
     </p>
 
     <p>
         TCCC reminder: <br/>
         Example: TCCC Qual Rd. 1 starts at 9:00 PM EDT (UTC/GMT -4) on Tuesday, Sept. 12.  Register
-        between 6:00 PM & 8:55 PM EDT.
+        between 6:00 PM &amp; 8:55 PM EDT.
     </p>
 
     <p>
@@ -61,13 +61,13 @@
     <p>
         TopCoder Onsite finals:<br/>
         Example: John Dethridge and Petr have advanced from Room 1 of the TCCC finals to the
-        Championship Round.  Room 2 starts at 1:00 PM PST (UTC/GMT -4).
+        Championship Round. Room 2 starts at 1:00 PM PST (UTC/GMT -4).
     </p>
 
     <p>
         Component posting announcement:<br/>
         Example: 5 new component design projects and 4 new component development projects have been
-        posted.  Check them out now.
+        posted. Check them out now.
     </p>
 
     <p>
@@ -77,7 +77,7 @@
 
     <p>
         TopCoder SRM score and place:<br/>
-        Example: Results for SRM 315 are in.  You placed #16 in your room with 1250.87 points. Check out
+        Example: Results for SRM 315 are in. You placed #16 in your room with 1250.87 points. Check out
         the results online now.
     </p>
 
@@ -88,7 +88,7 @@
     <p>
         Component score and place:<br/>
         Example: Results for the Java Super Awesome component are in.  You placed #2 with a score of
-        85.66 and won $400.  Check out the results now.
+        85.66 and won $400. Check out the results now.
     </p>
 
 
@@ -104,22 +104,22 @@
 
     <ul>
         <li>
-            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.registry.getMappedAlertData(AOLHelper.SRM_REMINDER).getAlertId()%>&GetUserId=true">TopCoder
+            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.registry.getMappedAlertData(AOLHelper.SRM_REMINDER).getAlertId()%>&amp;GetUserId=true">TopCoder
                 SRM reminder</a></li>
         <li>
-            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.registry.getMappedAlertData(AOLHelper.TCCC_REMINDER).getAlertId()%>&GetUserId=true">TCCC
+            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.registry.getMappedAlertData(AOLHelper.TCCC_REMINDER).getAlertId()%>&amp;GetUserId=true">TCCC
                 reminder</a></li>
         <li>
-            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.registry.getMappedAlertData(AOLHelper.TCCC_ANNOUNCEMENT).getAlertId()%>&GetUserId=true">TCCC
+            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.registry.getMappedAlertData(AOLHelper.TCCC_ANNOUNCEMENT).getAlertId()%>&amp;GetUserId=true">TCCC
                 announcement</a></li>
         <li>
-            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.registry.getMappedAlertData(AOLHelper.TCCC_ONSITE_FINALS).getAlertId()%>&GetUserId=true">TopCoder
+            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.registry.getMappedAlertData(AOLHelper.TCCC_ONSITE_FINALS).getAlertId()%>&amp;GetUserId=true">TopCoder
                 Onsite finals</a></li>
         <li>
-            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.registry.getMappedAlertData(AOLHelper.COMPONENT_POSTING).getAlertId()%>&GetUserId=true">Component
+            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.registry.getMappedAlertData(AOLHelper.COMPONENT_POSTING).getAlertId()%>&amp;GetUserId=true">Component
                 posting announcement</a></li>
         <li>
-            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.registry.getMappedAlertData(AOLHelper.INDIVIDUAL).getAlertId()%>&GetUserId=true">Individual
+            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.registry.getMappedAlertData(AOLHelper.INDIVIDUAL).getAlertId()%>&amp;GetUserId=true">Individual
                 Alerts</a></li>
     </ul>
 </p>
