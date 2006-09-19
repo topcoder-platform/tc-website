@@ -59,14 +59,19 @@ public class AOLAuthReply extends ShortHibernateProcessor {
                 long userId = Long.parseLong(val);
                 String requestedAlertId = getRequest().getParameter(AOLHelper.AOL_ALERT_ID);
 
-                String[] alerts = AOLHelper.registry.getAllAlertNames();
+                AlertData individual = AOLHelper.registry.getMappedAlertData(AOLHelper.INDIVIDUAL);
+                String[] alerts = new String[]{
+                        individual.getAlertId(),
+                        AOLHelper.ALERT_ID_COMPONENT_POSTING,
+                        AOLHelper.ALERT_ID_SRM_REMINDER,
+                        AOLHelper.ALERT_ID_TCCC_ANNOUNCEMENT,
+                        AOLHelper.ALERT_ID_TCCC_ONSITE_FINALS,
+                        AOLHelper.ALERT_ID_TCCC_REMINDER
+                };
 
                 boolean found = false;
-                AlertData curr;
-                AlertData individual = AOLHelper.registry.getMappedAlertData(AOLHelper.INDIVIDUAL);
                 for (int i = 0; i < alerts.length; i++) {
-                    curr = AOLHelper.registry.getMappedAlertData(alerts[i]);
-                    if (curr.getAlertId().equals(requestedAlertId)) {
+                    if (alerts[i].equals(requestedAlertId)) {
                         found = true;
                         if (log.isDebugEnabled()) {
                             log.debug("signup " + userId + " for " + alerts[i]);
@@ -75,7 +80,7 @@ public class AOLAuthReply extends ShortHibernateProcessor {
                         man.setSubscriptionEndPoint("https://webservices.alerts.aol.com/api/services/AlertsSubscriptionAPIService");
 
                         SubscriptionResult result = man.subscribe(alerts[i], getRequest().getParameter(AOLHelper.AUTH_TOKEN));
-                        if (curr.getAlertId().equals(individual.getAlertId())) {
+                        if (alerts[i].equals(individual.getAlertId())) {
 
                             if (result.getSubscriptionId() != null) {
                                 //success
