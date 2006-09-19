@@ -115,10 +115,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
 
                     Map messageData = new HashMap();
 
-                    if (hasErrors()) {
-                        setNextPage("/tournaments/tccc06/aol_alerts_sender.jsp");
-                        setIsNextPageInContext(true);
-                    } else {
+                    if (!hasErrors()) {
                         log.debug("sending a individual alert");
 
                         if (roundId != null) {
@@ -142,10 +139,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                     }
 
 
-                    if (hasErrors()) {
-                        setNextPage("/tournaments/tccc06/aol_alerts_sender.jsp");
-                        setIsNextPageInContext(true);
-                    } else {
+                    if (!hasErrors()) {
                         MessagingNotificationManager man = new MessagingNotificationManager(AOLHelper.registry);
                         man.setNotificationEndPoint("https://webservices.alerts.aol.com/api/services/AlertsFeedAPIService");
 
@@ -224,6 +218,12 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                 setDefault(Constants.ROUND_ID, roundId);
                 setDefault(Constants.HANDLE, handle);
             }
+
+            if (hasErrors()) {
+                setNextPage("/tournaments/tccc06/aol_alerts_sender.jsp");
+                setIsNextPageInContext(true);
+            }
+
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
