@@ -804,7 +804,7 @@ public class ProjectTrackerV2Bean implements SessionBean {
             double old_rating = 0;
 
             if (rs.next()) {
-                old_rating = rs.getDouble(1);
+                old_rating = rs.getLong(1);
             }
 
             Common.close(rs);
