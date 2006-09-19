@@ -25,7 +25,7 @@ public class AOLHelper {
     public static final String TCCC_ANNOUNCEMENT = "TCCC Announcment";
     public static final String TCCC_ONSITE_FINALS = "TCCC Onsite Finals";
     public static final String COMPONENT_POSTING = "Component Posting";
-    public static final String INDIVIDUAL = "indAlert";
+    public static final String INDIVIDUAL = "Individual";
 
 
     public static NamedAlertRegistry registry;
