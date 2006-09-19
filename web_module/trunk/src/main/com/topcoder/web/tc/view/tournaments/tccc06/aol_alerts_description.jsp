@@ -104,22 +104,22 @@
 
     <ul>
         <li>
-            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.ALERT_ID_SRM_REMINDER%>&amp;GetUserId=true">TopCoder
+            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.subscriptionRegistry.getMappedAlertData(AOLHelper.SRM_REMINDER).getAlertId()%>&amp;GetUserId=true">TopCoder
                 SRM reminder</a></li>
         <li>
-            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.ALERT_ID_TCCC_REMINDER%>&amp;GetUserId=true">TCCC
+            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.subscriptionRegistry.getMappedAlertData(AOLHelper.TCCC_REMINDER).getAlertId()%>&amp;GetUserId=true">TCCC
                 reminder</a></li>
         <li>
-            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.ALERT_ID_TCCC_ANNOUNCEMENT%>&amp;GetUserId=true">TCCC
+            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.subscriptionRegistry.getMappedAlertData(AOLHelper.TCCC_ANNOUNCEMENT).getAlertId()%>&amp;GetUserId=true">TCCC
                 announcement</a></li>
         <li>
-            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.ALERT_ID_TCCC_ONSITE_FINALS%>&amp;GetUserId=true">TopCoder
+            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.subscriptionRegistry.getMappedAlertData(AOLHelper.TCCC_ONSITE_FINALS).getAlertId()%>&amp;GetUserId=true">TopCoder
                 Onsite finals</a></li>
         <li>
-            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.ALERT_ID_COMPONENT_POSTING%>&amp;GetUserId=true">Component
+            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.subscriptionRegistry.getMappedAlertData(AOLHelper.COMPONENT_POSTING).getAlertId()%>&amp;GetUserId=true">Component
                 posting announcement</a></li>
         <li>
-            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.registry.getMappedAlertData(AOLHelper.INDIVIDUAL).getAlertId()%>&amp;GetUserId=true">Individual
+            <a href="http://alerts.aol.com/ar/partner/PartnerSecurityToken.ev?AlertId=<%=AOLHelper.subscriptionRegistry.getMappedAlertData(AOLHelper.INDIVIDUAL).getAlertId()%>&amp;GetUserId=true">Individual
                 Alerts</a></li>
     </ul>
 </p>
