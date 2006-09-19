@@ -34,7 +34,7 @@
 
                 <form action="${sessionInfo.servletPath}" method="post" name="groupSendFrom">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SendAOLAlert"/>
-                    <select name="<%=AOLHelper.AOL_ALERT_ID%>">
+                    <select name="<%=AOLHelper.ALERT_NAME%>">
                         <option value="<%=AOLHelper.INDIVIDUAL%>"><%=AOLHelper.INDIVIDUAL%></option>
                         <option value="<%=AOLHelper.TCCC_ANNOUNCEMENT%>"><%=AOLHelper.TCCC_ANNOUNCEMENT%></option>
                         <option value="<%=AOLHelper.TCCC_ONSITE_FINALS%>"><%=AOLHelper.TCCC_ONSITE_FINALS%></option>
