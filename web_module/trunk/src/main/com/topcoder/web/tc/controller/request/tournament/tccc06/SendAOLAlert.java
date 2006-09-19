@@ -107,7 +107,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                             setDefault(AOLHelper.QUERY, query);
                         } else {
                             for (int i = 0; i < rsc.size(); i++) {
-                                people.put(rsc.getStringItem(i, "user_id"), rsc.getStringItem(i, ""));
+                                people.put(rsc.getStringItem(i, "user_id"), rsc.getStringItem(i, "aol_encrypted_user_id"));
                             }
                         }
                     }
@@ -289,7 +289,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
         //fill in everyone's general tag stuff.  we can do this all the same since it's "general"
         if (data == null) {
             for (Iterator it = people.entrySet().iterator(); it.hasNext();) {
-                ret.put(((Map.Entry) it.next()).getKey(), newTemplate);
+                ret.put(((Map.Entry) it.next()).getValue(), newTemplate);
             }
         } else {
             for (Iterator it = data.iterator(); it.hasNext();) {
