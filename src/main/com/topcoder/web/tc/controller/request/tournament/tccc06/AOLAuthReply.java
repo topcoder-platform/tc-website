@@ -68,18 +68,26 @@ public class AOLAuthReply extends ShortHibernateProcessor {
                         AOLHelper.ALERT_ID_TCCC_ONSITE_FINALS,
                         AOLHelper.ALERT_ID_TCCC_REMINDER
                 };
+                String[] alertNames = new String[]{
+                        AOLHelper.INDIVIDUAL,
+                        AOLHelper.COMPONENT_POSTING,
+                        AOLHelper.SRM_REMINDER,
+                        AOLHelper.TCCC_ANNOUNCEMENT,
+                        AOLHelper.TCCC_ONSITE_FINALS,
+                        AOLHelper.TCCC_REMINDER
+                };
 
                 boolean found = false;
                 for (int i = 0; i < alerts.length; i++) {
                     if (alerts[i].equals(requestedAlertId)) {
                         found = true;
                         if (log.isDebugEnabled()) {
-                            log.debug("signup " + userId + " for " + alerts[i]);
+                            log.debug("signup " + userId + " for " + alertNames[i]);
                         }
                         MessagingRegistrationManager man = new MessagingRegistrationManager(AOLHelper.registry);
                         man.setSubscriptionEndPoint("https://webservices.alerts.aol.com/api/services/AlertsSubscriptionAPIService");
 
-                        SubscriptionResult result = man.subscribe(alerts[i], getRequest().getParameter(AOLHelper.AUTH_TOKEN));
+                        SubscriptionResult result = man.subscribe(alertNames[i], getRequest().getParameter(AOLHelper.AUTH_TOKEN));
                         if (alerts[i].equals(individual.getAlertId())) {
 
                             if (result.getSubscriptionId() != null) {
@@ -102,7 +110,7 @@ public class AOLAuthReply extends ShortHibernateProcessor {
                                     throw new NavigationException("Subscription failed: " + result.getErrorCode() + " " +
                                             result.getErrorReason() + " " + result.getErrorDetail());
                                 } else {
-                                    log.info(getUser().getUserName() + " attempted to sign up for " + alerts[i] + " but already is signed up");
+                                    log.info(getUser().getUserName() + " attempted to sign up for " + alertNames[i] + " but already is signed up");
                                 }
                             }
 
@@ -118,7 +126,7 @@ public class AOLAuthReply extends ShortHibernateProcessor {
                                     throw new NavigationException("Subscription failed: " + result.getErrorCode() + " " +
                                             result.getErrorReason() + " " + result.getErrorDetail());
                                 } else {
-                                    log.info(getUser().getUserName() + " attempted to sign up for " + alerts[i] + " but already is signed up");
+                                    log.info(getUser().getUserName() + " attempted to sign up for " + alertNames[i] + " but already is signed up");
                                 }
                             }
                         }
