@@ -1,6 +1,6 @@
 <%@ page import="com.topcoder.web.tc.Constants" %>
-<%@ page import="com.topcoder.web.tc.controller.request.tournament.tccc06.AOLAlertsDescription" %>
-<%@ page import="com.topcoder.web.tc.controller.request.tournament.tccc06.SendAOLAlert" %>
+<%@ page import="com.topcoder.web.tc.controller.request.tournament.tccc06.AOLHelper" %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -32,33 +32,19 @@
 
                 <div align="center"><img src="/i/tournament/tccc06/aol_logo.gif" alt="AOL" border="0"/></div>
 
-                <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=SendAOLAlert.ALERT_TYPE%>">${err}
-                    <br></tc-webtag:errorIterator></span>
-
                 <form action="${sessionInfo.servletPath}" method="post" name="groupSendFrom">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SendAOLAlert"/>
-                    <tc-webtag:hiddenInput name="<%=SendAOLAlert.ALERT_TYPE%>" value="<%=AOLAlertsDescription.AOL_GROUP_ALERT%>"/>
+                    <select name="<%=AOLHelper.AOL_ALERT_ID%>">
+                        <option value="<%=AOLHelper.registry.getMappedAlertData(AOLHelper.INDIVIDUAL).getAlertId()%>"><%=AOLHelper.INDIVIDUAL%></option>
+                        <option value="<%=AOLHelper.registry.getMappedAlertData(AOLHelper.TCCC_ANNOUNCEMENT).getAlertId()%>"><%=AOLHelper.TCCC_ANNOUNCEMENT%></option>
+                        <option value="<%=AOLHelper.registry.getMappedAlertData(AOLHelper.TCCC_ONSITE_FINALS).getAlertId()%>"><%=AOLHelper.TCCC_ONSITE_FINALS%></option>
+                        <option value="<%=AOLHelper.registry.getMappedAlertData(AOLHelper.TCCC_REMINDER).getAlertId()%>"><%=AOLHelper.TCCC_REMINDER%></option>
+                        <option value="<%=AOLHelper.registry.getMappedAlertData(AOLHelper.COMPONENT_POSTING).getAlertId()%>"><%=AOLHelper.COMPONENT_POSTING%></option>
+                        <option value="<%=AOLHelper.registry.getMappedAlertData(AOLHelper.SRM_REMINDER).getAlertId()%>"><%=AOLHelper.SRM_REMINDER%></option>
+                    </select>
 
-                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=SendAOLAlert.MESSAGE_TEXT+AOLAlertsDescription.AOL_GROUP_ALERT%>">${err}
+                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=AOLHelper.MESSAGE_TEXT%>">${err}
                         <br></tc-webtag:errorIterator></span>
-
-                    <p><span class="bigTitle">Group Alert</span></p>
-
-                    <p>Message text:<br/>
-                        <tc-webtag:textArea name="<%=SendAOLAlert.MESSAGE_TEXT+AOLAlertsDescription.AOL_GROUP_ALERT%>" rows="10" cols="80"/>
-                    </p>
-                    <button name="send" value="submit" type="submit">Send</button>
-
-                </form>
-
-                <br/><br/>
-
-                <form action="${sessionInfo.servletPath}" method="post" name="indSendFrom">
-                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SendAOLAlert"/>
-                    <tc-webtag:hiddenInput name="<%=SendAOLAlert.ALERT_TYPE%>" value="<%=AOLAlertsDescription.AOL_INDIVIDUAL_ALERT%>"/>
-
-
-                    <p><span class="bigTitle">Individual Alert</span></p>
 
                     <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>">${err}
                         <br></tc-webtag:errorIterator></span>
@@ -66,29 +52,20 @@
                     <p>
                         Handle: <tc-webtag:textInput name="<%=Constants.HANDLE%>"/>
                     </p>
-
-                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=SendAOLAlert.QUERY%>">${err}
+                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=AOLHelper.QUERY%>">${err}
                         <br></tc-webtag:errorIterator></span>
 
                     <p>
                         Query: (The query should return a list of informixoltp:aol_alert_info.aol_encrypted_user_id)
-                        <br/><tc-webtag:textArea name="<%=SendAOLAlert.QUERY%>" rows="10" cols="50"/>
+                        <br/><tc-webtag:textArea name="<%=AOLHelper.QUERY%>" rows="10" cols="50"/>
                     </p>
 
-                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=SendAOLAlert.MESSAGE_TEXT+AOLAlertsDescription.AOL_INDIVIDUAL_ALERT%>">${err}
-                        <br></tc-webtag:errorIterator></span>
-
-                    <p>
-                        Message text:<br/>
-                        <tc-webtag:textArea name="<%=SendAOLAlert.MESSAGE_TEXT+AOLAlertsDescription.AOL_INDIVIDUAL_ALERT%>" rows="10" cols="80"/>
+                    <p>Message text:<br/>
+                        <tc-webtag:textArea name="<%=AOLHelper.MESSAGE_TEXT%>" rows="10" cols="80"/>
                     </p>
-
-                    <p>
-                        <button name="send" value="submit" type="submit">Send</button>
-                    </p>
+                    <button name="send" value="submit" type="submit">Send</button>
 
                 </form>
-
 
             </div>
         </td>
