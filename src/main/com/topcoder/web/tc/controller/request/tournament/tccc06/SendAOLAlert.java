@@ -38,7 +38,8 @@ public class SendAOLAlert extends ShortHibernateProcessor {
             String roundId = getRequest().getParameter(Constants.ROUND_ID);
             String projectId = getRequest().getParameter(Constants.PROJECT_ID);
 
-            String alertId = getRequest().getParameter(AOLHelper.AOL_ALERT_ID);
+            //String alertId = getRequest().getParameter(AOLHelper.AOL_ALERT_ID);
+            String alertName = getRequest().getParameter(AOLHelper.ALERT_NAME);
 
             ResultSetContainer roundData = null;
             if (roundId != null) {
@@ -58,7 +59,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
 
             String text = getRequest().getParameter(AOLHelper.MESSAGE_TEXT);
 
-            if (AOLHelper.registry.getMappedAlertData(AOLHelper.INDIVIDUAL).getAlertId().equals(alertId)) {
+            if (AOLHelper.INDIVIDUAL.equals(alertName)) {
 
                 String query = StringUtils.checkNull(getRequest().getParameter(AOLHelper.QUERY));
 
@@ -177,7 +178,11 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                 }
 
 
-            } else {
+            } else if (AOLHelper.TCCC_ANNOUNCEMENT.equals(alertName) ||
+                    AOLHelper.TCCC_ONSITE_FINALS.equals(alertName) ||
+                    AOLHelper.TCCC_REMINDER.equals(alertName) ||
+                    AOLHelper.SRM_REMINDER.equals(alertName) ||
+                    AOLHelper.COMPONENT_POSTING.equals(alertName)) {
                 if ("".equals(StringUtils.checkNull(text))) {
                     addError(AOLHelper.MESSAGE_TEXT, "Empty message");
                     setDefault(AOLHelper.MESSAGE_TEXT, text);
@@ -201,30 +206,23 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                     AOLAlertNotificationMessage message = new AOLAlertNotificationMessage(messageText, messageText,
                             messageText, messageText);
                     log.debug("before group send");
-                    String alertName = null;
 
-                    String[] alertNames = AOLHelper.registry.getAllAlertNames();
-                    for (int i = 0; i < alertNames.length; i++) {
-                        if (AOLHelper.registry.getMappedAlertData(alertNames[i]).getAlertId().equals(alertId)) {
-                            alertName = alertNames[i];
-                            break;
-                        }
+                    NotificationResult result = man.notify(alertName, message);
+                    log.debug("after group send");
+                    if (result.getTransactionId() == null) {
+                        throw new NavigationException("Send failed: " + result.getErrorCode() + " " +
+                                result.getErrorReason() + " " + result.getErrorDetail());
                     }
-
-                    if (alertName == null) {
-                        throw new NavigationException("Unknown alert: " + alertId);
-                    } else {
-                        NotificationResult result = man.notify(alertName, message);
-                        log.debug("after group send");
-                        if (result.getTransactionId() == null) {
-                            throw new NavigationException("Send failed: " + result.getErrorCode() + " " +
-                                    result.getErrorReason() + " " + result.getErrorDetail());
-                        }
-                        setNextPage(getSessionInfo().getServletPath() + "?" +
-                                Constants.MODULE_KEY + "=Static&d1=tournaments&d2=tccc06&d3=aol_alert_sent");
-                        setIsNextPageInContext(false);
-                    }
+                    setNextPage(getSessionInfo().getServletPath() + "?" +
+                            Constants.MODULE_KEY + "=Static&d1=tournaments&d2=tccc06&d3=aol_alert_sent");
+                    setIsNextPageInContext(false);
                 }
+            } else {
+                addError(AOLHelper.MESSAGE_TEXT, "Unknown alert specified");
+                setDefault(AOLHelper.MESSAGE_TEXT, text);
+                setDefault(Constants.PROJECT_ID, projectId);
+                setDefault(Constants.ROUND_ID, roundId);
+                setDefault(Constants.HANDLE, handle);
             }
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
