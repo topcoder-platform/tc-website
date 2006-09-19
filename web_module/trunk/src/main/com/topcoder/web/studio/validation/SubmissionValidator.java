@@ -47,6 +47,7 @@ public class SubmissionValidator implements Validator {
         try {
             ret = submission.getInputStream().read(arr);
         } catch (IOException e) {
+            e.printStackTrace();
             return new BasicResult(false, "Communication error when receiving submission.");
         }
         MimeType mt = StudioDAOUtil.getFactory().getMimeTypeDAO().find(submission.getContentType());
@@ -106,6 +107,7 @@ public class SubmissionValidator implements Validator {
                         }
                     }
                 } catch (IOException e) {
+                    e.printStackTrace();
                     return new BasicResult(false, "Communication error when receiving submission.");
                 }
             }
