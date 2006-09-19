@@ -31,6 +31,8 @@ values(7, 'digital_run_season_id');
 
 alter table payment_type_lu add payment_reference_id DECIMAL(3,0);
 alter table payment_type_lu add show_in_profile_ind DECIMAL(1,0) default 1 not null;
+alter table payment_type_lu add show_details_ind DECIMAL(1,0) default 1 not null;
+alter table payment_type_lu add due_date_interval DECIMAL(3,0) default 15 not null;
 
 
 alter table payment_type_lu add constraint foreign key 
