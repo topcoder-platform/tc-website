@@ -27,10 +27,49 @@ public class AOLHelper {
     public static final String COMPONENT_POSTING = "Component Posting";
     public static final String INDIVIDUAL = "Individual";
 
+    public static final String FEED_ID = "7b9aae41-e8f0-4adb-815a-f755fc768de9";
 
     public static NamedAlertRegistry registry = new NamedAlertRegistry();
 
     static {
+        if (ApplicationServer.ENVIRONMENT == ApplicationServer.PROD) {
+            registry.addAlertIDMapping(SRM_REMINDER, FEED_ID,
+                    "95F1C56B13A2B71E65A6CB78DD09838B92A1A017BF277C6BD19524AD1EF234",
+                    "TopCoder-SRMReminder-Dev", true);
+            registry.addAlertIDMapping(TCCC_REMINDER, FEED_ID,
+                    "50E72435EAB2FCBD164846E991B7F6D9379D0CA7E9793B229ED952440FFEDD9",
+                    "TopCoder-TCCCReminder", true);
+            registry.addAlertIDMapping(TCCC_ANNOUNCEMENT, FEED_ID,
+                    "238DBB16777942032F7390A1274CD2CBB53EA20FF3345FA8CBF5865E543092",
+                    "TopCoder-TCCCAnnouncement", true);
+            registry.addAlertIDMapping(TCCC_ONSITE_FINALS, FEED_ID,
+                    "85C0184E720ED1E4C2EE429458F9C3FD468DBF7AE8177D247BC7157ECF5C190",
+                    "TopCoder-TCCCOnsiteFinals", true);
+            registry.addAlertIDMapping(COMPONENT_POSTING, FEED_ID,
+                    "AB9BB052241B6C60BA4BC64E11A7E43667C0BA2F4759C1C306780BF65C3552B",
+                    "TopCoder-ComponentPosting", true);
+            registry.addAlertIDMapping(INDIVIDUAL, "268e2e1d-6d09-4c8e-a78c-f755fc768de9",
+                    "FA7362BC7BC7C507EE6B91BC8C22284BC06527B5DB0DD7BFB9FBBBE4C6BC867", "TopCoder", false);
+        } else {
+            registry.addAlertIDMapping(SRM_REMINDER, FEED_ID,
+                    "95F1C56B13A2B71E65A6CB78DD09838B92A1A017BF277C6BD19524AD1EF234",
+                    "TopCoder-SRMReminder-Dev", true);
+            registry.addAlertIDMapping(TCCC_REMINDER, FEED_ID,
+                    "C6FD1B96E1C345DF4E67750A9D045286832716C7617BD219EB8B43898EDB39C4",
+                    "TopCoder-TCCCReminder-Dev", true);
+            registry.addAlertIDMapping(TCCC_ANNOUNCEMENT, FEED_ID,
+                    "56511EE531811CC47F036816938D3B484B9EC1463157648675C14473ECE13095",
+                    "TopCoder-TCCCAnnouncement-Dev", true);
+            registry.addAlertIDMapping(TCCC_ONSITE_FINALS, FEED_ID,
+                    "B9C93DAD119C6603EA6A48298BCC1DCB5582C39F382CE21CB775A24AE3A326",
+                    "TopCoder-TCCCOnsiteFinals-Dev", true);
+            registry.addAlertIDMapping(COMPONENT_POSTING, FEED_ID,
+                    "BCBB77FAB87CFE70907060C39B1760A674486E1CB37AA664FACE50D72FA7579",
+                    "TopCoder-ComponentPosting-Dev", true);
+            registry.addAlertIDMapping(INDIVIDUAL, "9244f24a-3c7c-40a9-abb2-f755fc768de9",
+                    "F4A96814585F89E11C132FE691A82F3F2A967C5BFEE225026A75825A3792764", "TopCoder", false);
+        }
+/*
         if (ApplicationServer.ENVIRONMENT == ApplicationServer.PROD) {
             registry.addAlertIDMapping(SRM_REMINDER, "7ba63042-e8f0-4adb-815a-f755fc768de9",
                     "95F1C56B13A2B71E65A6CB78DD09838B92A1A017BF277C6BD19524AD1EF234",
@@ -68,6 +107,7 @@ public class AOLHelper {
             registry.addAlertIDMapping(INDIVIDUAL, "9244f24a-3c7c-40a9-abb2-f755fc768de9",
                     "F4A96814585F89E11C132FE691A82F3F2A967C5BFEE225026A75825A3792764", "TopCoder", false);
         }
+*/
     }
 
 }
