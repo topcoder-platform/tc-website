@@ -59,36 +59,23 @@ public class AOLAuthReply extends ShortHibernateProcessor {
                 long userId = Long.parseLong(val);
                 String requestedAlertId = getRequest().getParameter(AOLHelper.AOL_ALERT_ID);
 
-                AlertData individual = AOLHelper.registry.getMappedAlertData(AOLHelper.INDIVIDUAL);
-                String[] alerts = new String[]{
-                        individual.getAlertId(),
-                        AOLHelper.ALERT_ID_COMPONENT_POSTING,
-                        AOLHelper.ALERT_ID_SRM_REMINDER,
-                        AOLHelper.ALERT_ID_TCCC_ANNOUNCEMENT,
-                        AOLHelper.ALERT_ID_TCCC_ONSITE_FINALS,
-                        AOLHelper.ALERT_ID_TCCC_REMINDER
-                };
-                String[] alertNames = new String[]{
-                        AOLHelper.INDIVIDUAL,
-                        AOLHelper.COMPONENT_POSTING,
-                        AOLHelper.SRM_REMINDER,
-                        AOLHelper.TCCC_ANNOUNCEMENT,
-                        AOLHelper.TCCC_ONSITE_FINALS,
-                        AOLHelper.TCCC_REMINDER
-                };
+                String[] alerts = AOLHelper.subscriptionRegistry.getAllAlertNames();
 
                 boolean found = false;
+                AlertData curr;
+                AlertData individual = AOLHelper.subscriptionRegistry.getMappedAlertData(AOLHelper.INDIVIDUAL);
                 for (int i = 0; i < alerts.length; i++) {
-                    if (alerts[i].equals(requestedAlertId)) {
+                    curr = AOLHelper.subscriptionRegistry.getMappedAlertData(alerts[i]);
+                    if (curr.getAlertId().equals(requestedAlertId)) {
                         found = true;
                         if (log.isDebugEnabled()) {
-                            log.debug("signup " + userId + " for " + alertNames[i]);
+                            log.debug("signup " + userId + " for " + alerts[i]);
                         }
-                        MessagingRegistrationManager man = new MessagingRegistrationManager(AOLHelper.registry);
+                        MessagingRegistrationManager man = new MessagingRegistrationManager(AOLHelper.subscriptionRegistry);
                         man.setSubscriptionEndPoint("https://webservices.alerts.aol.com/api/services/AlertsSubscriptionAPIService");
 
-                        SubscriptionResult result = man.subscribe(alertNames[i], getRequest().getParameter(AOLHelper.AUTH_TOKEN));
-                        if (alerts[i].equals(individual.getAlertId())) {
+                        SubscriptionResult result = man.subscribe(alerts[i], getRequest().getParameter(AOLHelper.AUTH_TOKEN));
+                        if (curr.getAlertId().equals(individual.getAlertId())) {
 
                             if (result.getSubscriptionId() != null) {
                                 //success
@@ -110,7 +97,7 @@ public class AOLAuthReply extends ShortHibernateProcessor {
                                     throw new NavigationException("Subscription failed: " + result.getErrorCode() + " " +
                                             result.getErrorReason() + " " + result.getErrorDetail());
                                 } else {
-                                    log.info(getUser().getUserName() + " attempted to sign up for " + alertNames[i] + " but already is signed up");
+                                    log.info(getUser().getUserName() + " attempted to sign up for " + alerts[i] + " but already is signed up");
                                 }
                             }
 
@@ -126,7 +113,7 @@ public class AOLAuthReply extends ShortHibernateProcessor {
                                     throw new NavigationException("Subscription failed: " + result.getErrorCode() + " " +
                                             result.getErrorReason() + " " + result.getErrorDetail());
                                 } else {
-                                    log.info(getUser().getUserName() + " attempted to sign up for " + alertNames[i] + " but already is signed up");
+                                    log.info(getUser().getUserName() + " attempted to sign up for " + alerts[i] + " but already is signed up");
                                 }
                             }
                         }

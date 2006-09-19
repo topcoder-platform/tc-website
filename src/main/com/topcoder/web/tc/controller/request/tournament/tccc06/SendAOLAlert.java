@@ -143,7 +143,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
 
 
                     if (!hasErrors()) {
-                        MessagingNotificationManager man = new MessagingNotificationManager(AOLHelper.registry);
+                        MessagingNotificationManager man = new MessagingNotificationManager(AOLHelper.notificationRegistry);
                         man.setNotificationEndPoint("https://webservices.alerts.aol.com/api/services/AlertsFeedAPIService");
 
                         NotificationResult result;
@@ -197,7 +197,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                     }
 
 
-                    MessagingNotificationManager man = new MessagingNotificationManager(AOLHelper.registry);
+                    MessagingNotificationManager man = new MessagingNotificationManager(AOLHelper.notificationRegistry);
                     man.setNotificationEndPoint("https://webservices.alerts.aol.com/api/services/AlertsFeedAPIService");
 
                     AOLAlertNotificationMessage message = new AOLAlertNotificationMessage(messageText, messageText,
