@@ -13,11 +13,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
 
@@ -5285,29 +5285,53 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-    private ComponentPayment addComponentPayment(long coderId, double grossAmount, long problemId, boolean review) throws IllegalUpdateException, SQLException {
+    private ComponentPayment addComponentPayment(long coderId, double grossAmount, long projectId, int placed, boolean review) throws IllegalUpdateException, SQLException {
         Connection c = null;
         try {
             c = DBMS.getConnection();
             c.setAutoCommit(false);
             setLockTimeout(c);
 
-            
+            // Get project information
+            StringBuffer query = new StringBuffer(300);
+            query.append("SELECT cc.component_name, p.complete_date + ptl.due_date_interval UNITS DAY AS due_date, p.project_type_id ");
+            query.append("FROM tcs_catalog:project p, tcs_catalog:comp_versions cv, tcs_catalog:comp_catalog cc, ");
+            query.append("payment_type_lu ptl ");
+            query.append("WHERE p.comp_vers_id = cv.comp_vers_id ");
+            query.append("AND cv.component_id = cc.component_id ");
+            query.append("AND p.project_id = " + projectId + " ");
+            query.append("AND ptl.payment_type_id = " + (review? REVIEW_BOARD_PAYMENT : COMPONENT_PAYMENT));
+            query.append("AND p.cur_version = 1");
+            ResultSetContainer rsc = runSelectQuery(c, query.toString(), false);
+            if (rsc.getRowCount() != 1) {
+                throw new IllegalUpdateException("Project " + projectId + " does not exist or is not unique");
+            }
+            String componentName = rsc.getStringItem(0, "component_name");
+            Date dueDate =  rsc.getTimestampItem(0, "due_date");
+            String dueDateStr = TCData.getTCDate(rsc.getRow(0), "date_due", null, false);
+            String type = rsc.getIntItem(0, "project_type_id") == 1? "Design" : "Development";
+
+            String placedStr;
+            switch (placed) {
+            case 1: placedStr = "1st"; break;
+            case 2: placedStr = "2nd"; break;
+            case 3: placedStr = "3rd"; break;
+            default: placedStr = placed + "th"; break;
+            }
             Payment p = new Payment();
             p.setGrossAmount(grossAmount);
             p.setStatusId(hasTaxForm(c, coderId) ? PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);
-            p.getHeader().setDescription((review? "Review for " : "Component Winning for ") + "TO DO");
+            p.getHeader().setDescription(componentName + " - " + type + (review? " review board" : ", " + placedStr));
             p.getHeader().setTypeId(review? REVIEW_BOARD_PAYMENT : COMPONENT_PAYMENT );
-            //p.setDueDate(dueDate);
+            p.setDueDate(dueDateStr);
             p.getHeader().getUser().setId(coderId);
 
             long paymentId = makeNewPayment(c, p, true); 
-
             
-            ComponentPayment cp = new ComponentPayment(paymentId, coderId, problemId);
+            ComponentPayment cp = new ComponentPayment(paymentId, coderId, projectId);
             cp.setStatusId(p.getStatusId());
             cp.setDescription(p.getHeader().getDescription());
-            //pp.setDueDate(p.getDueDate());
+            cp.setDueDate(dueDate);            
             cp.setGrossAmount(p.getGrossAmount());
             cp.setNetAmount(p.getNetAmount());
             

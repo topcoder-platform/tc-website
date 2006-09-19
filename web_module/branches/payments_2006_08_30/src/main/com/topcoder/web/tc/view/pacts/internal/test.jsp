@@ -21,7 +21,7 @@ addProblemWritingPayment
         PactsClientServices pcs = (PactsClientServices) BaseProcessor.createEJB(c, PactsClientServices.class);
         ProblemPayment pp = pcs.addProblemWritingPayment(7545675,123.456, 6005);
 %>
-pp.getProblemId: <%= pp.getId() %> <br>
+pp.getId: <%= pp.getId() %> <br>
 pp.getCoderId: <%= pp.getCoderId() %> <br>
 pp.getNetAmount: <%= pp.getNetAmount() %> <br>
 pp.getGrossAmount: <%= pp.getGrossAmount() %> <br>
@@ -29,6 +29,21 @@ pp.getStatusId: <%= pp.getStatusId() %> <br>
 pp.getDescription: <%= pp.getDescription() %> <br>
 pp.getDueDate: <%= pp.getDueDate() %> <br>
 pp.getProblemId: <%= pp.getProblemId() %> <br>
+<br><br>
+addProblemTestingPayment
+<br> 
+<%
+	 pp = pcs.addProblemTestingPayment(7545675,123.456, 1228);
+%>
+pp.getId: <%= pp.getId() %> <br>
+pp.getCoderId: <%= pp.getCoderId() %> <br>
+pp.getNetAmount: <%= pp.getNetAmount() %> <br>
+pp.getGrossAmount: <%= pp.getGrossAmount() %> <br>
+pp.getStatusId: <%= pp.getStatusId() %> <br>
+pp.getDescription: <%= pp.getDescription() %> <br>
+pp.getDueDate: <%= pp.getDueDate() %> <br>
+pp.getProblemId: <%= pp.getProblemId() %> <br>
+
 
 </body>
 
