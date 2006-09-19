@@ -19,6 +19,7 @@ public class AOLHelper {
     public static final String AUTH_TOKEN = "AuthToken";
     public static final String AOL_USER_ID = "UserId";
     public static final String AOL_ALERT_ID = "AlertId";
+    public static final String ALERT_NAME = "aname";
 
     public static final String SRM_REMINDER = "SRM Reminder";
     public static final String TCCC_REMINDER = "TCCC Reminder";

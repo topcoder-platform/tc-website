@@ -35,12 +35,12 @@
                 <form action="${sessionInfo.servletPath}" method="post" name="groupSendFrom">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SendAOLAlert"/>
                     <select name="<%=AOLHelper.AOL_ALERT_ID%>">
-                        <option value="<%=AOLHelper.registry.getMappedAlertData(AOLHelper.INDIVIDUAL).getAlertId()%>"><%=AOLHelper.INDIVIDUAL%></option>
-                        <option value="<%=AOLHelper.registry.getMappedAlertData(AOLHelper.TCCC_ANNOUNCEMENT).getAlertId()%>"><%=AOLHelper.TCCC_ANNOUNCEMENT%></option>
-                        <option value="<%=AOLHelper.registry.getMappedAlertData(AOLHelper.TCCC_ONSITE_FINALS).getAlertId()%>"><%=AOLHelper.TCCC_ONSITE_FINALS%></option>
-                        <option value="<%=AOLHelper.registry.getMappedAlertData(AOLHelper.TCCC_REMINDER).getAlertId()%>"><%=AOLHelper.TCCC_REMINDER%></option>
-                        <option value="<%=AOLHelper.registry.getMappedAlertData(AOLHelper.COMPONENT_POSTING).getAlertId()%>"><%=AOLHelper.COMPONENT_POSTING%></option>
-                        <option value="<%=AOLHelper.registry.getMappedAlertData(AOLHelper.SRM_REMINDER).getAlertId()%>"><%=AOLHelper.SRM_REMINDER%></option>
+                        <option value="<%=AOLHelper.INDIVIDUAL%>"><%=AOLHelper.INDIVIDUAL%></option>
+                        <option value="<%=AOLHelper.TCCC_ANNOUNCEMENT%>"><%=AOLHelper.TCCC_ANNOUNCEMENT%></option>
+                        <option value="<%=AOLHelper.TCCC_ONSITE_FINALS%>"><%=AOLHelper.TCCC_ONSITE_FINALS%></option>
+                        <option value="<%=AOLHelper.TCCC_REMINDER%>"><%=AOLHelper.TCCC_REMINDER%></option>
+                        <option value="<%=AOLHelper.COMPONENT_POSTING%>"><%=AOLHelper.COMPONENT_POSTING%></option>
+                        <option value="<%=AOLHelper.SRM_REMINDER%>"><%=AOLHelper.SRM_REMINDER%></option>
                     </select>
 
                     <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=AOLHelper.MESSAGE_TEXT%>">${err}
