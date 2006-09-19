@@ -16,21 +16,16 @@ import javax.servlet.http.Cookie;
 public class AOLAlertsDescription extends BaseProcessor {
     protected static final Logger log = Logger.getLogger(AOLAlertsDescription.class);
 
-    static String AOL_COOKIE = "aolcind";
-    static String AOL_ALIAS = "users";
-    public static String AOL_GROUP_ALERT = "group";
-    public static String AOL_INDIVIDUAL_ALERT = "ind";
-
     protected void businessProcessing() throws Exception {
         //write a cookie with something for when they get back
         if (userIdentified()) {
             long before = System.currentTimeMillis();
-            String val = Util.encodePassword(String.valueOf(getUser().getId()), AOL_ALIAS);
+            String val = Util.encodePassword(String.valueOf(getUser().getId()), AOLHelper.AOL_ALIAS);
             long after = System.currentTimeMillis();
             if (log.isDebugEnabled()) {
                 log.debug("encrypted id is: " + val + " it took " + (after - before) + " ms");
             }
-            Cookie c = new Cookie(AOL_COOKIE, val);
+            Cookie c = new Cookie(AOLHelper.AOL_COOKIE, val);
             c.setMaxAge(60 * 60);//1 hour
             getResponse().addCookie(c);
 
