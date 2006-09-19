@@ -85,6 +85,8 @@ values(22, 'Algorithm Tournament Prize Payment', 1);
 insert into payment_type_lu(payment_type_id, payment_type_desc)
 values(23, 'Bug Fixes Payment');
 
+insert into payment_type_lu(payment_type_id, payment_type_desc)
+values(24, 'Reliability Bonus Payment');
 
 update payment_type_lu set payment_type_desc='Algorithm Contest Payment', payment_reference_id = 1
 where payment_type_id = 1;
@@ -92,6 +94,9 @@ where payment_type_id = 1;
 update payment_type_lu set payment_reference_id = 2
 where payment_type_id in (6,7);
 
+
+update payment_type_lu set due_date_interval = 60
+where payment_type_id in (19,22);
 
 insert into security_perms (role_id, permission, create_user_id, security_status_id)
 values(2003, 'com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.SelectPaymentTypeReference', 132456,1)
