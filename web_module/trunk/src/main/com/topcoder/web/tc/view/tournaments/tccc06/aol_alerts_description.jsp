@@ -42,19 +42,19 @@
 
     <p>
         TopCoder SRM reminder: <br/>
-        Example: SRM 318 starts at 9:00 PM EDT (UTC/GMT -4) on Tuesday, Sept. 20.  Register between 6:00
+        Example: SRM 318 starts at 9:00 PM EDT (UTC/GMT -4) on Tuesday, Sept. 20. Register between 6:00
         PM &amp; 8:55 PM EDT. $5,000 prize purse.
     </p>
 
     <p>
         TCCC reminder: <br/>
-        Example: TCCC Qual Rd. 1 starts at 9:00 PM EDT (UTC/GMT -4) on Tuesday, Sept. 12.  Register
+        Example: TCCC Qual Rd. 1 starts at 9:00 PM EDT (UTC/GMT -4) on Tuesday, Sept. 12. Register
         between 6:00 PM &amp; 8:55 PM EDT.
     </p>
 
     <p>
         TCCC announcement: <br/>
-        Example: TCCC Qual Rd. 1 starts at 9:00 PM EDT (UTC/GMT -4) on Tuesday, Sept. 12.  Watch the
+        Example: TCCC Qual Rd. 1 starts at 9:00 PM EDT (UTC/GMT -4) on Tuesday, Sept. 12. Watch the
         action to see who advances to Round 1.
     </p>
 
@@ -82,12 +82,12 @@
     </p>
 
     <p>TCCC round score and place:<br/>
-        Example: Results for Qual Round 1 of the TCCC are in.  You placed #213 with a score of 1000.00
+        Example: Results for Qual Round 1 of the TCCC are in. You placed #213 with a score of 1000.00
         and unfortunately did not advance to the next round.</p>
 
     <p>
         Component score and place:<br/>
-        Example: Results for the Java Super Awesome component are in.  You placed #2 with a score of
+        Example: Results for the Java Super Awesome component are in. You placed #2 with a score of
         85.66 and won $400. Check out the results now.
     </p>
 
