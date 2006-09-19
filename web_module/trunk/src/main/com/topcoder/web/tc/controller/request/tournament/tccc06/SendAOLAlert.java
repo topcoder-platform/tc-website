@@ -40,6 +40,9 @@ public class SendAOLAlert extends ShortHibernateProcessor {
 
             //String alertId = getRequest().getParameter(AOLHelper.AOL_ALERT_ID);
             String alertName = getRequest().getParameter(AOLHelper.ALERT_NAME);
+            if (log.isDebugEnabled()) {
+                log.debug("alertname is " + alertName);
+            }
 
             ResultSetContainer roundData = null;
             if (roundId != null) {
