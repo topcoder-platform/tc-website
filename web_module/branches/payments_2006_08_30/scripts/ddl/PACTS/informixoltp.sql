@@ -65,10 +65,10 @@ insert into payment_type_lu(payment_type_id, payment_type_desc)
 values(16, 'CCIP Payment');
 
 insert into payment_type_lu(payment_type_id, payment_type_desc, payment_reference_id)
-values(17, 'Digital Run Payment', 6);
+values(17, 'Digital Run Prize Payment', 6);
 
 insert into payment_type_lu(payment_type_id, payment_type_desc, payment_reference_id)
-values(18, 'Digital Run Rockie Payment', 7);
+values(18, 'Digital Run Prize Rockie Payment', 7);
 
 insert into payment_type_lu(payment_type_id, payment_type_desc, payment_reference_id)
 values(19, 'Component Tournament Bouns Payment', 5);
@@ -87,6 +87,9 @@ values(23, 'Bug Fixes Payment');
 
 insert into payment_type_lu(payment_type_id, payment_type_desc)
 values(24, 'Reliability Bonus Payment');
+
+insert into payment_type_lu(payment_type_id, payment_type_desc, payment_reference_id)
+values(25, 'Digital Run Top Third Payment', 6);
 
 update payment_type_lu set payment_type_desc='Algorithm Contest Payment', payment_reference_id = 1
 where payment_type_id = 1;
