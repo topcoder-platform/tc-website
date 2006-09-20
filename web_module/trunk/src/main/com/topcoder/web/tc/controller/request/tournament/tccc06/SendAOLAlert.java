@@ -45,7 +45,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
             }
 
             ResultSetContainer roundData = null;
-            if (roundId != null) {
+            if (!"".equals(StringUtils.checkNull(roundId))) {
                 roundData = getRoundData(roundId);
                 if (roundData.isEmpty()) {
                     throw new NavigationException("Invalid round id " + roundId);
@@ -53,7 +53,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
             }
 
             ResultSetContainer projectData = null;
-            if (projectId != null) {
+            if (!"".equals(StringUtils.checkNull(projectId))) {
                 projectData = getProjectData(projectId);
                 if (projectData.isEmpty()) {
                     throw new NavigationException("Invalid project id " + projectId);
