@@ -37,10 +37,10 @@ public class Main extends Base {
             throw new NavigationException("Sorry, your session has expired.");
         } else if (getRegUser().isNew() || userLoggedIn()) {
             User u = getRegUser();
+            RegistrationTypeDAO regTypeDAO = getFactory().getRegistrationTypeDAO();
             //if it's a post, they're coming from the selection page, and they should have selected
             //some types, so add them.
             if ("POST".equals(getRequest().getMethod())) {
-                RegistrationTypeDAO regTypeDAO = getFactory().getRegistrationTypeDAO();
                 List types = regTypeDAO.getRegistrationTypes();
 
                 RegistrationType rt;
@@ -63,7 +63,7 @@ public class Main extends Base {
             //todo give them a message saying they are not eligible to register for highschool
             //todo those that are ineligable: big age demographic question,
             //people whose current school is a college (questionable),
-            if (!u.isNew() && requestedTypes.contains(regTypeDAO.getHighSchoolType())) {
+            if (!u.isNew() && getRequestedTypes().contains(regTypeDAO.getHighSchoolType())) {
                 if (getFactory().getSecurityGroupDAO().hasInactiveHSGroup(u)) {
                     addError(Constants.REGISTRATION_TYPE, "Sorry, you are not eligible for High School Competitions");
                 } else if (u.getCoder() != null && CoderType.PROFESSIONAL.equals(u.getCoder().getCoderType().getId())) {
@@ -90,21 +90,21 @@ public class Main extends Base {
                 setIsNextPageInContext(true);
             } else {
                 if (u.getContact() == null &&
-                        (requestedTypes.contains(regTypeDAO.getCorporateType()) || requestedTypes.contains(regTypeDAO.getSoftwareType())))
+                        (getRequestedTypes().contains(regTypeDAO.getCorporateType()) || getRequestedTypes().contains(regTypeDAO.getSoftwareType())))
                 {
                     Contact c = new Contact();
                     u.setContact(c);
                     c.setUser(u);
                 }
-                if (u.getCoder() == null && (requestedTypes.contains(regTypeDAO.getCompetitionType()) ||
-                        requestedTypes.contains(regTypeDAO.getStudioType()))) {
+                if (u.getCoder() == null && (getRequestedTypes().contains(regTypeDAO.getCompetitionType()) ||
+                        getRequestedTypes().contains(regTypeDAO.getStudioType()))) {
                     //we'll make a coder record for creative people..at least for now.  perhaps in the future
                     //we'll have competitor table rather than a coder table
                     Coder c = new Coder();
                     u.setCoder(c);
                     c.setUser(u);
                 }
-                if (requestedTypes.contains(regTypeDAO.getHighSchoolType())) {
+                if (getRequestedTypes().contains(regTypeDAO.getHighSchoolType())) {
                     Coder c;
                     if (u.getCoder() == null) {
                         c = new Coder();
@@ -122,7 +122,7 @@ public class Main extends Base {
 
                 setRegUser(u);
 
-                List nots = getFactory().getNotificationDAO().getNotifications(requestedTypes);
+                List nots = getFactory().getNotificationDAO().getNotifications(getRequestedTypes());
                 if (nots != null) {
                     getRequest().setAttribute("notifications", nots);
                 }
@@ -131,8 +131,8 @@ public class Main extends Base {
                 getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
                 getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
                 getRequest().setAttribute(Constants.FIELDS,
-                        RegFieldHelper.getMainFieldSet(requestedTypes, getRegUser()));
-                Set reqFields = RegFieldHelper.getMainRequiredFieldSet(requestedTypes, getRegUser());
+                        RegFieldHelper.getMainFieldSet(getRequestedTypes(), getRegUser()));
+                Set reqFields = RegFieldHelper.getMainRequiredFieldSet(getRequestedTypes(), getRegUser());
                 getRequest().setAttribute(Constants.REQUIRED_FIELDS, reqFields);
                 getRequest().setAttribute("regTerms", getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
                 setNextPage("/main.jsp");
