@@ -280,13 +280,13 @@ public class SendAOLAlert extends ShortHibernateProcessor {
 
 
         boolean hasPersonalTag = false;
-        for (int i = 0; i < personalTags.length && !hasPersonalTag; i++) {
+        for (int i = 0; i < personalTags.length; i++) {
             $personalTags[i] = "$" + personalTags[i];
             hasPersonalTag = template.indexOf($personalTags[i]) >= 0;
         }
 
         boolean hasDateTag = false;
-        for (int i = 0; i < dateTags.length && !hasDateTag; i++) {
+        for (int i = 0; i < dateTags.length; i++) {
             $dateTags[i] = "$" + dateTags[i];
             hasDateTag = template.indexOf($dateTags[i]) >= 0;
         }
