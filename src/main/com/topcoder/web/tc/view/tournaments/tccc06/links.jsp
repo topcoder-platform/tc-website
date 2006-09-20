@@ -205,9 +205,9 @@
 
                 <% } else if (tabLev2.equals("advancers")) {%>
                    <td class="subnav"><a href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true"><% if (tabLev3.equals("qualification")) {%><img src="/i/tournament/tccc06/tabs/L3_qualificationOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_qualificationOff.gif" border="0" /><% } %></a></td>
-                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionA"><% if (tabLev3.equals("overview")) {%><img src="/i/tournament/tccc06/tabs/L3_overviewOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_overviewOff.gif" border="0" /><% } %></a></td>
+                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionA"><% if (tabLev3.equals("sections")) {%><img src="/i/tournament/tccc06/tabs/L3_sectionsOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_sectionsOff.gif" border="0" /><% } %></a></td>
                 <%--
-                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_adv_overview"><% if (tabLev3.equals("overview")) {%><img src="/i/tournament/tccc06/tabs/L3_overviewOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_overviewOff.gif" border="0" /><% } %></a></td>
+                   <td class="subnav"><a href="/tc?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview"><% if (tabLev3.equals("overview")) {%><img src="/i/tournament/tccc06/tabs/L3_overviewOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_overviewOff.gif" border="0" /><% } %></a></td>
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_bracket"><% if (tabLev3.equals("bracket")) {%><img src="/i/tournament/tccc06/tabs/L3_bracketOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_bracketOff.gif" border="0" /><% } %></a></td>
                 --%>
 
