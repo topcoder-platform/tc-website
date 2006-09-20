@@ -212,7 +212,7 @@
             <metainf dir="${resources.dir}/security/conf" includes="*.xml" excludes="application.xml"/>
         </jar>
 
-        <ear earfile="${ear.dir}/security.ear" appxml="${resources}/security/conf/application.xml">
+        <ear earfile="${ear.dir}/security.ear" appxml="${resources.dir}/security/conf/application.xml">
             <fileset dir="${jars.dir}">
                 <include name="configmanager2.jar"/>
             </fileset>
