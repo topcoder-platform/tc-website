@@ -132,8 +132,9 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                         Map.Entry me;
                         for (Iterator it = messageData.entrySet().iterator(); it.hasNext();) {
                             me = (Map.Entry) it.next();
-                            if (((String) me.getValue()).length() > 100) {
-                                addError(AOLHelper.MESSAGE_TEXT, "Text too long: " + me.getValue());
+                            int len = ((String) me.getValue()).length();
+                            if (len > 100) {
+                                addError(AOLHelper.MESSAGE_TEXT, "Text too long (" + len + "): " + me.getValue());
                                 setDefault(AOLHelper.MESSAGE_TEXT, text);
                                 setDefault(Constants.PROJECT_ID, projectId);
                                 setDefault(Constants.ROUND_ID, roundId);
