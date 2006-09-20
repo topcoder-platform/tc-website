@@ -100,7 +100,7 @@
         the AOL
         site, the alert you selected will be added to your AOL account. If you are not currently logged in
         to the AOL site, you will first be asked to login, and then the alert you selected will be added to
-        your AOL account. You can see your alert information at
+        your AOL account. You can see your AOL alerts information at
         <a href="http://alerts.aol.com">http://alerts.aol.com</a>
     </p>
 
