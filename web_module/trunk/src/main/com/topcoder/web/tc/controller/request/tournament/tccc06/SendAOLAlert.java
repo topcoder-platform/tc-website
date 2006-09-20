@@ -49,6 +49,8 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                 roundData = getRoundData(roundId);
                 if (roundData.isEmpty()) {
                     throw new NavigationException("Invalid round id " + roundId);
+                } else if (log.isDebugEnabled()) {
+                    log.debug("we got " + roundData.size() + " records of round data");
                 }
             }
 
@@ -295,20 +297,14 @@ public class SendAOLAlert extends ShortHibernateProcessor {
             throw new NavigationException("No data for the given round or project id found");
         } else {
 
-/*
-            for (Iterator it = people.entrySet().iterator(); it.hasNext();) {
-                ret.put(((Map.Entry) it.next()).getValue(), newTemplate);
-            }
-*/
-
             UserDAO dao = DAOUtil.getFactory().getUserDAO();
             User u;
             Calendar cal = Calendar.getInstance();
 
             if (hasPersonalTag || hasDateTag) {
                 ResultSetContainer.ResultSetRow row;
-                String encryptedUserId;
                 String text;
+                String encryptedUserId;
                 for (Iterator it = data.iterator(); it.hasNext();) {
                     row = (ResultSetContainer.ResultSetRow) it.next();
                     if (people.containsKey(row.getStringItem("user_id"))) {
@@ -336,6 +332,14 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                             }
                         }
                         ret.put(encryptedUserId, text);
+                    }
+                }
+            } else {
+                ResultSetContainer.ResultSetRow row;
+                for (Iterator it = data.iterator(); it.hasNext();) {
+                    row = (ResultSetContainer.ResultSetRow) it.next();
+                    if (people.containsKey(row.getStringItem("user_id"))) {
+                        ret.put(people.get(row.getStringItem("user_id")), newTemplate);
                     }
                 }
             }
