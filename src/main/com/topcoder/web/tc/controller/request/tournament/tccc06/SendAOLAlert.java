@@ -307,26 +307,28 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                 String text;
                 for (Iterator it = data.iterator(); it.hasNext();) {
                     row = (ResultSetContainer.ResultSetRow) it.next();
-                    encryptedUserId = (String) people.get(row.getStringItem("user_id"));
-                    text = (String) ret.get(encryptedUserId);
-                    if (hasPersonalTag) {
-                        for (int j = 0; j < personalTags.length; j++) {
-                            text = StringUtils.replace(text, $personalTags[j], row.getStringItem(personalTags[j]));
-                            ret.put(encryptedUserId, text);
-                        }
-                    }
-                    if (hasDateTag) {
-                        for (int j = 0; j < dateTags.length; j++) {
-                            if (text.indexOf($dateTags[j]) >= 0) {
-                                u = dao.find(new Long(row.getStringItem("user_id")));
-                                cal.setTime((Date) row.getItem(dateTags[j]).getResultData());
-                                cal.setTimeZone(TimeZone.getTimeZone(u.getTimeZone().getDescription()));
-                                if (dateTags[j].equals("date")) {
-                                    text = StringUtils.replace(text, $dateTags[j], dateFormatter.format(cal));
-                                } else {
-                                    text = StringUtils.replace(text, $dateTags[j], timeFormatter.format(cal));
-                                }
+                    if (people.containsKey(row.getStringItem("user_id"))) {
+                        encryptedUserId = (String) people.get(row.getStringItem("user_id"));
+                        text = (String) ret.get(encryptedUserId);
+                        if (hasPersonalTag) {
+                            for (int j = 0; j < personalTags.length; j++) {
+                                text = StringUtils.replace(text, $personalTags[j], row.getStringItem(personalTags[j]));
                                 ret.put(encryptedUserId, text);
+                            }
+                        }
+                        if (hasDateTag) {
+                            for (int j = 0; j < dateTags.length; j++) {
+                                if (text.indexOf($dateTags[j]) >= 0) {
+                                    u = dao.find(new Long(row.getStringItem("user_id")));
+                                    cal.setTime((Date) row.getItem(dateTags[j]).getResultData());
+                                    cal.setTimeZone(TimeZone.getTimeZone(u.getTimeZone().getDescription()));
+                                    if (dateTags[j].equals("date")) {
+                                        text = StringUtils.replace(text, $dateTags[j], dateFormatter.format(cal));
+                                    } else {
+                                        text = StringUtils.replace(text, $dateTags[j], timeFormatter.format(cal));
+                                    }
+                                    ret.put(encryptedUserId, text);
+                                }
                             }
                         }
                     }
