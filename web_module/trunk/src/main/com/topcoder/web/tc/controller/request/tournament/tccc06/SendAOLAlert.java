@@ -267,7 +267,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
         }
     }
 
-    private Map createTexts(ResultSetContainer data, String template, Map people) {
+    private Map createTexts(ResultSetContainer data, String template, Map people) throws NavigationException {
         HashMap ret = new HashMap();
 
         String[] $personalTags = new String[personalTags.length];
@@ -288,15 +288,15 @@ public class SendAOLAlert extends ShortHibernateProcessor {
 
         String newTemplate = createGeneralMessage(data, template);
 
-        //fill in everyone's general tag stuff.  we can do this all the same since it's "general"
-        if (data == null) {
+        if (data == null || data.isEmpty()) {
+            throw new NavigationException("No data for the given round or project id found");
+        } else {
+
+/*
             for (Iterator it = people.entrySet().iterator(); it.hasNext();) {
                 ret.put(((Map.Entry) it.next()).getValue(), newTemplate);
             }
-        } else {
-            for (Iterator it = data.iterator(); it.hasNext();) {
-                ret.put(people.get(((ResultSetContainer.ResultSetRow) it.next()).getStringItem("user_id")), newTemplate);
-            }
+*/
 
             UserDAO dao = DAOUtil.getFactory().getUserDAO();
             User u;
@@ -310,18 +310,17 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                     row = (ResultSetContainer.ResultSetRow) it.next();
                     if (people.containsKey(row.getStringItem("user_id"))) {
                         encryptedUserId = (String) people.get(row.getStringItem("user_id"));
-                        text = (String) ret.get(encryptedUserId);
+                        text = newTemplate;
                         if (hasPersonalTag) {
                             for (int j = 0; j < personalTags.length; j++) {
                                 if (row.isValidColumn(personalTags[j])) {
                                     text = StringUtils.replace(text, $personalTags[j], row.getStringItem(personalTags[j]));
-                                    ret.put(encryptedUserId, text);
                                 }
                             }
                         }
                         if (hasDateTag) {
                             for (int j = 0; j < dateTags.length; j++) {
-                                if (text.indexOf($dateTags[j]) >= 0 && row.isValidColumn(dateTags[j])) {
+                                if (newTemplate.indexOf($dateTags[j]) >= 0 && row.isValidColumn(dateTags[j])) {
                                     u = dao.find(new Long(row.getStringItem("user_id")));
                                     cal.setTime((Date) row.getItem(dateTags[j]).getResultData());
                                     cal.setTimeZone(TimeZone.getTimeZone(u.getTimeZone().getDescription()));
@@ -330,10 +329,10 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                                     } else {
                                         text = StringUtils.replace(text, $dateTags[j], timeFormatter.format(cal));
                                     }
-                                    ret.put(encryptedUserId, text);
                                 }
                             }
                         }
+                        ret.put(encryptedUserId, text);
                     }
                 }
             }
