@@ -94,9 +94,13 @@ abstract class Base extends LongHibernateProcessor {
      */
     protected Set getRequestedTypes() {
         Set regTypes = (Set) getRequest().getSession().getAttribute(Constants.REG_TYPES);
-        for (Iterator it = regTypes.iterator(); it.hasNext();) {
-            log.debug("getter: " + ((RegistrationType) it.next()).getName());
+/*
+        if (log.isDebugEnabled()) {
+            for (Iterator it = regTypes.iterator(); it.hasNext();) {
+                log.debug("getter: " + ((RegistrationType) it.next()).getName());
+            }
         }
+*/
         return regTypes;
     }
 
@@ -107,9 +111,13 @@ abstract class Base extends LongHibernateProcessor {
      * @param requestedTypes
      */
     protected void setRequestedTypes(Set requestedTypes) {
-        for (Iterator it = requestedTypes.iterator(); it.hasNext();) {
-            log.debug("settter: " + ((RegistrationType) it.next()).getName());
+/*
+        if (log.isDebugEnabled()) {
+            for (Iterator it = requestedTypes.iterator(); it.hasNext();) {
+                log.debug("settter: " + ((RegistrationType) it.next()).getName());
+            }
         }
+*/
         getRequest().getSession().setAttribute(Constants.REG_TYPES, requestedTypes);
     }
 
