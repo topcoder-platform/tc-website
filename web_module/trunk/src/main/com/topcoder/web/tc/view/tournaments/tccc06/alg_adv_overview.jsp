@@ -31,11 +31,9 @@
       <div class="bodySpacer">
 
         <span class="bigTitle">Advancers - Overview</span>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
-            <p>Click a column title to sort the list of advancers by that column. Click <a href="?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">here</a> to reset the list to its originally sorted format.</p>
-
+            <br><br>
+            Click a column title to sort the list of advancers by that column. Click <a href="?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">here</a> to reset the list to its originally sorted format.
+            <br><br>
             <table width="500" align="center" border="0" cellpadding="2" cellspacing="0" class="formFrame">
                 <tr class="advHeader">
                     <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&sd=asc&sc=seed&d1=tournaments&d2=tccc06&d3=alg_adv_overview">Seed</a></td>
@@ -56,7 +54,7 @@
 <td  class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="seed" row="<%=resultRow%>"/></td>
 <td  class="<%=even?"advanceDk":"advanceLt"%>"><tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' context="algorithm"/></td>
 <td  class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="section" row="<%=resultRow%>"/></td>
-<td  class="<%=even?"advanceDk":"advanceLt"%>" align="right" ><rsc:item name="rating" row="<%=resultRow%>"/>&#160;&#160;</td>
+<td  class="<%=even?"advanceDk":"advanceLt"%>" align="right" ><rsc:item name="rating" row="<%=resultRow%>"/></td>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round1")).equals("Eliminated")) { %>
 <td  class="<%=even?"eliminateDk":"eliminateLt"%>" align="center"><rsc:item name="round1" row="<%=resultRow%>"/></td>
 <% } else { %>
