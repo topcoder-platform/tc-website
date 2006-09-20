@@ -41,8 +41,19 @@
     <jsp:param name="image1" value="white"/>
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
+
+
 <p>
-    5.4.x - 2006.09.xx
+    5.4.xx - 2006.09.xx
+    <ul>
+        <li>
+            Fix bug in registration process where the registration selections can bet lost.
+        </li>
+    </ul>
+</p>
+
+<p>
+    5.4.11 - 2006.09.14
     <ul>
         <li>
             Fix an error in viewing affidavits, and remove duplicate demographic fields within affidavits.
@@ -64,14 +75,18 @@
                 </li>
         --%>
     </ul>
+</p>
 
+<p>
     5.4.10 - 2006.09.06
     <ul>
         <li>
             Fix some DB resource issues in the mass email system.
         </li>
     </ul>
+</p>
 
+<p>
     5.4.9 - 2006.08.31
     <ul>
         <li>Fix in password reset page: if the key has expired, it doesn't let the user even enter the new
@@ -81,7 +96,9 @@
             components.</li>
         <li>Include referral information in studio registration</li>
     </ul>
+</p>
 
+<p>
     5.4.8 - 2006.08.28
     <ul>
         <li>Add resume download to registration process</li>
