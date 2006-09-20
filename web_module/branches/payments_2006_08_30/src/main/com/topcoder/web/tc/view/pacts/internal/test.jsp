@@ -14,26 +14,17 @@
 
 <body>
 
-addProblemWritingPayment
 <br> 
 <%
         InitialContext c =  TCContext.getInitial();
         PactsClientServices pcs = (PactsClientServices) BaseProcessor.createEJB(c, PactsClientServices.class);
-        ProblemPayment pp = pcs.addProblemWritingPayment(7545675,123.456, 6005);
 %>
-pp.getId: <%= pp.getId() %> <br>
-pp.getCoderId: <%= pp.getCoderId() %> <br>
-pp.getNetAmount: <%= pp.getNetAmount() %> <br>
-pp.getGrossAmount: <%= pp.getGrossAmount() %> <br>
-pp.getStatusId: <%= pp.getStatusId() %> <br>
-pp.getDescription: <%= pp.getDescription() %> <br>
-pp.getDueDate: <%= pp.getDueDate() %> <br>
-pp.getProblemId: <%= pp.getProblemId() %> <br>
-<br><br>
-addProblemTestingPayment
+
+Problem Testing:
 <br> 
 <%
-	 pp = pcs.addProblemTestingPayment(7545675,123.456, 1228);
+	ProblemPayment pp=new ProblemTestingPayment(7545675,123.456, 1228);
+	 pcs.addPayment(pp);
 %>
 pp.getId: <%= pp.getId() %> <br>
 pp.getCoderId: <%= pp.getCoderId() %> <br>
@@ -44,6 +35,22 @@ pp.getDescription: <%= pp.getDescription() %> <br>
 pp.getDueDate: <%= pp.getDueDate() %> <br>
 pp.getProblemId: <%= pp.getProblemId() %> <br>
 
+Problem Testing changing description:
+<br> 
+<%
+	 pp=new ProblemTestingPayment(7545675,123.456, 1228);
+pcs.fillPaymentData(pp);
+pp.setDescription(pp.getDescription() + " modified!");
+	 pcs.addPayment(pp);
+%>
+pp.getId: <%= pp.getId() %> <br>
+pp.getCoderId: <%= pp.getCoderId() %> <br>
+pp.getNetAmount: <%= pp.getNetAmount() %> <br>
+pp.getGrossAmount: <%= pp.getGrossAmount() %> <br>
+pp.getStatusId: <%= pp.getStatusId() %> <br>
+pp.getDescription: <%= pp.getDescription() %> <br>
+pp.getDueDate: <%= pp.getDueDate() %> <br>
+pp.getProblemId: <%= pp.getProblemId() %> <br>
 
 </body>
 

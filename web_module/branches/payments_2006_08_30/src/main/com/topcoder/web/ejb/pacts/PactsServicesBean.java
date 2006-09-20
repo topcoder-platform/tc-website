@@ -5227,7 +5227,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return hm;
     }
 
-    
+/*    
     private ProblemPayment addProblemPayment(long coderId, double grossAmount, long problemId, boolean writing) throws IllegalUpdateException, SQLException {
         Connection c = null;
         try {
@@ -5364,8 +5364,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new SQLException(e.getMessage());
         }
     }
-
-    
+*/
+    /**
+     * Returns whether the user has already sent a Tax form.
+     * 
+     * @param c connection to use for db access
+     * @param coderId coder to check for tax form
+     * @return whether the user has already sent a Tax form.
+     * @throws SQLException if a problem occurs accesing DB
+     */
     private boolean hasTaxForm(Connection c, long coderId) throws SQLException {
         StringBuffer query = new StringBuffer(1000);
         query.append(" SELECT 1 ");
@@ -5377,6 +5384,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return rsc.getRowCount() > 0;        
     }
 
+    /**
+     * Get the name of a problem from its id
+     * 
+     * @param c connection to use for db access
+     * @param problemId problem to look up
+     * @return the name of a problem from its id
+     * @throws SQLException if a problem occurs accesing DB
+     * @throws IllegalArgumentException if the problem was not found with the id.
+     */
     private String getProblemName(Connection c, long problemId) throws SQLException {
         StringBuffer query = new StringBuffer(1000);
         query.append(" SELECT name ");
@@ -5426,67 +5442,96 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }*/
 
     
-    public ProblemPayment addProblemWritingPayment(long coderId, double grossAmount, long problemId) throws IllegalUpdateException, SQLException {
-    	return addProblemPayment(coderId, grossAmount, problemId, true);
-    }
-
+    private void fillPaymentData(Connection c, BasePayment payment) throws SQLException {
+    	Date eventDate = new Date();
+    	if (payment instanceof ProblemWritingPayment) {
+    		long problemId = ((ProblemWritingPayment) payment).getProblemId();
+    		payment.setDescription("Problem " + getProblemName(c, problemId) + " writing");
+    	} else if (payment instanceof ProblemTestingPayment) {
+    		long problemId = ((ProblemTestingPayment) payment).getProblemId();
+    		payment.setDescription("Problem " + getProblemName(c, problemId) + " testing");    		
+    	} else throw new IllegalArgumentException("Unknown class payment type.");
+    	
+    	payment.setStatusId(hasTaxForm(c, payment.getCoderId()) ? 
+    			PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);
     
-    public ProblemPayment addProblemTestingPayment(long coderId, double grossAmount, long problemId) throws IllegalUpdateException, SQLException {
-    	return addProblemPayment(coderId, grossAmount, problemId, false);  	
+    	payment.setDueDate(eventDate);// FIX
+    	payment.setDataFilled(true);
     }
-
-    ComponentPayment addComponentPayment(long coderId, double grossAmount, long projectId) throws IllegalUpdateException, SQLException {
-    	return addComponentPayment(coderId, grossAmount, projectId, false);
-    }
-
     
-    ComponentPayment addReviewPayment(long coderId, double grossAmount, long projectId) throws IllegalUpdateException, SQLException {
-    	return addComponentPayment(coderId, grossAmount, projectId, true);    	
-    }
-
-/*
-    void updatePayment(AlgorithmContestPayment payment) throws SQLException {
+    /**
+     * Look up and fill data in the payment object.
+     * It fills:
+     * - the description based on the type of payment.
+     * - the status (depending on whether the coder has filled the tax form or not)
+     * - the due date
+     * 
+     * @param payment the payment to fill its information
+     * @throws SQLException is a problem occurs accessing db.
+     */
+    public void fillPaymentData(BasePayment payment) throws SQLException {
+    	Connection c = null;
+    	try {
+    		c = DBMS.getConnection();
+    		fillPaymentData(c, payment);
+    	} catch (SQLException e) {
+    		printException(e);
+    		throw e;
+    	} finally {
+    		close(c);
+    	}
     	
     }
 
-    void updatePayment(ProblemPayment payment) throws SQLException {
-    	
+    public void addPayment(BasePayment payment) throws SQLException {
+        Connection c = null;
+        try {
+            c = DBMS.getConnection();
+            c.setAutoCommit(false);
+            setLockTimeout(c);
+
+            if (!payment.isDataFilled()) {
+            	fillPaymentData(c, payment);
+            }
+            
+            Payment p = payment.createPayment();
+
+            long paymentId = makeNewPayment(c, p, payment.payReferral());
+
+            payment.setId(paymentId);
+            
+            c.commit();
+    	} catch (SQLException e) {
+    		rollback(c);
+    		printException(e);
+    		throw e;
+    	} catch (Exception e) {
+    		rollback(c);
+    		printException(e);
+    		throw new SQLException(e.getMessage());
+    	} finally {
+    		setAutoCommit(c, true);
+    		close(c);
+    		c = null;
+    	}
     }
-
-    void updatePayment(ComponentPayment payment) throws SQLException {
-    	
+    
+    private void rollback(Connection c) {
+        try {
+            c.rollback();
+        } catch (Exception e1) {
+            printException(e1);
+        }
     }
+    
+    private void setAutoCommit(Connection c, boolean autoCommit) {
+        try {
+            c.setAutoCommit(autoCommit);
+        } catch (Exception e1) {
+            printException(e1);
+        }
 
-
-    void removePayment(BasePayment payment) throws SQLException {
-    	
     }
-
-
-    AlgorithmContestPayment findAlgorithmContestPayment(long coderId, long roundId) throws SQLException {
-    	
-    }
-
-    List findAlgorithmContestPayments(long roundId) throws SQLException {
-    	
-    }
-
-    ProblemPayment findProblemPayment(long coderId, long problemId) throws SQLException {
-    	
-    }
-
-    List findProblemPayments(long problemId) throws SQLException {
-    	
-    }
-
-    ComponentPayment findComponentPayment(long coderId, long projectId) throws SQLException {
-    	
-    }
-
-    List findComponentPayments(long projectId) throws SQLException {
-    	
-    }
-   */
-
+    
 }
 
