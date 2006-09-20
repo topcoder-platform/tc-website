@@ -7,7 +7,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
 
 /**
  * Represents basic payment information.
- * 
+ *
  * @author cucu
  *
  */
@@ -19,21 +19,21 @@ public abstract class BasePayment {
 	private Date dueDate;
 	private int statusId;
 	private String description;
-	
+
 	// Whether complete data is filled or not.
 	private boolean dataFilled;
-	
+
 	protected BasePayment(long coderId, double grossAmount) {
 		super();
 		this.coderId = coderId;
 		this.grossAmount = grossAmount;
 		dataFilled = false;
 	}
-	
+
 	void setId(long id) {
 		this.id = id;
 	}
-	
+
 	public String getDescription() {
 		return description;
 	}
@@ -78,15 +78,15 @@ public abstract class BasePayment {
 
 	public void setDataFilled(boolean dataFilled) {
 		this.dataFilled = dataFilled;
-	}	
-	
+	}
+
 	protected abstract void fillPaymentReference(Payment p);
-	
+
 	public abstract boolean payReferral();
-	
+
 	protected Payment createPayment() {
-		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yy");
-		
+		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+
         Payment p = new Payment();
         p.setGrossAmount(getGrossAmount());
         p.setStatusId(getStatusId());
@@ -94,10 +94,10 @@ public abstract class BasePayment {
         p.getHeader().setTypeId(getPaymentType());
         p.setDueDate(format.format(getDueDate()));
         p.getHeader().getUser().setId(getCoderId());
-        
+
         fillPaymentReference(p);
-        
+
         return p;
-		
+
 	}
 }
