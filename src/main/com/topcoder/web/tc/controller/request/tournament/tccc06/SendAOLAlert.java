@@ -66,7 +66,6 @@ public class SendAOLAlert extends ShortHibernateProcessor {
             }
 
 
-
             String text = getRequest().getParameter(AOLHelper.MESSAGE_TEXT);
 
             if (AOLHelper.INDIVIDUAL.equals(alertName)) {
@@ -172,7 +171,11 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                             }
 
                         }
-                        log.info(i + " messages sent");
+                        if (i == 0) {
+                            throw new NavigationException("no messages sent");
+                        } else {
+                            log.info(i + " messages sent");
+                        }
 
                         if (buf.length() > 0) {
                             throw new NavigationException(buf.toString());
@@ -200,13 +203,13 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                 } else {
                     log.debug("sending a group alert");
 
-                    String messageText;
-                    if (roundId != null) {
+                    String messageText = text;
+                    if (!"".equals(StringUtils.checkNull(roundId))) {
                         messageText = createGeneralMessage(roundData, text);
-                    } else {
+                    }
+                    if (!"".equals(StringUtils.checkNull(projectId))) {
                         messageText = createGeneralMessage(projectData, text);
                     }
-
 
                     MessagingNotificationManager man = new MessagingNotificationManager(AOLHelper.notificationRegistry);
                     man.setNotificationEndPoint("https://webservices.alerts.aol.com/api/services/AlertsFeedAPIService");
@@ -264,22 +267,33 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                 new CalendarDateFormatMethod("HH:mm"), true);
     }
 
-    private String createGeneralMessage(ResultSetContainer data, String template) {
+    private String createGeneralMessage(ResultSetContainer data, String template) throws NavigationException {
         String[] $dateTags = new String[dateTags.length];
+        String[] $generalTags = new String[generalTags.length];
 
+        boolean hasDateTag = false;
         for (int i = 0; i < dateTags.length; i++) {
             $dateTags[i] = "$" + dateTags[i];
+            hasDateTag |= template.indexOf(dateTags[i]) >= 0;
+        }
+
+        boolean hasGeneralTag = false;
+        for (int i = 0; i < generalTags.length; i++) {
+            $generalTags[i] = "$" + generalTags[i];
+            hasGeneralTag |= template.indexOf(generalTags[i]) >= 0;
         }
 
         Calendar cal = Calendar.getInstance();
 
-        if (data == null || data.isEmpty()) {
+        if ((hasGeneralTag || hasDateTag) && (data == null || data.isEmpty())) {
+            throw new NavigationException("you've include dynamic content, but there is no data to use to fill it in");
+        } else if (data == null || data.isEmpty()) {
             return template;
         } else {
             String ret = template;
             for (int i = 0; i < generalTags.length; i++) {
                 if (data.getRow(0).isValidColumn(generalTags[i])) {
-                    ret = StringUtils.replace(ret, "$" + generalTags[i], data.getStringItem(0, generalTags[i]));
+                    ret = StringUtils.replace(ret, $generalTags[i], data.getStringItem(0, generalTags[i]));
                 }
             }
             for (int j = 0; j < dateTags.length; j++) {
@@ -299,25 +313,25 @@ public class SendAOLAlert extends ShortHibernateProcessor {
     }
 
     private Map createTexts(ResultSetContainer data, String template, Map people) throws NavigationException {
-        HashMap ret = new HashMap();
-
-        String[] $personalTags = new String[personalTags.length];
-
-
-        boolean hasPersonalTag = false;
-        for (int i = 0; i < personalTags.length; i++) {
-            $personalTags[i] = "$" + personalTags[i];
-            hasPersonalTag = template.indexOf($personalTags[i]) >= 0;
-        }
-
-        String newTemplate = createGeneralMessage(data, template);
-        if (log.isDebugEnabled()) {
-            log.debug("new template " + newTemplate);
-        }
 
         if (data == null || data.isEmpty()) {
             throw new NavigationException("No data for the given round or project id found");
         } else {
+            HashMap ret = new HashMap();
+
+            String[] $personalTags = new String[personalTags.length];
+
+
+            boolean hasPersonalTag = false;
+            for (int i = 0; i < personalTags.length; i++) {
+                $personalTags[i] = "$" + personalTags[i];
+                hasPersonalTag = template.indexOf($personalTags[i]) >= 0;
+            }
+
+            String newTemplate = createGeneralMessage(data, template);
+            if (log.isDebugEnabled()) {
+                log.debug("new template " + newTemplate);
+            }
 
             if (hasPersonalTag) {
                 ResultSetContainer.ResultSetRow row;
@@ -347,8 +361,8 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                     }
                 }
             }
+            return ret;
         }
-        return ret;
     }
 
     private ResultSetContainer getRoundData(String roundId) throws Exception {
