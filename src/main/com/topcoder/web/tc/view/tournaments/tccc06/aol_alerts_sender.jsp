@@ -17,14 +17,14 @@
 
     <script language="javascript" type="text/javascript">
         <!--
-        var srmResults = "srm results";
-        var tcccAlgoResults = "tccc alog results";
-        var compResults = "comp results";
-        var tcccAnnouncement = "tccc announcement";
-        var tcccOnsiteFinals = "tccc onsite finals";
-        var tcccReminder = "tccc reminder";
-        var componentPosting = "component posting";
-        var srmReminder = "srm reminder";
+        var srmResults = "Results for $round_name final.  You placed #$placed with $points points. See results online. chmod 777 aol";
+        var tcccAlgoResults = "In $round_name, you placed $placed with a score of $points and did not advance to Rd. XXXXX.  chmod 777 aol ";
+        var compResults = "On $component_name you placed #$placed with a score of $points. chmod 777 aol";
+        var tcccAnnouncement = "$round_name is tomorrow.  Watch the action to see who advances. chmod 777 aol";
+        var tcccOnsiteFinals = "XXXXXXXXXXXXXXX & XXXXXXXXXXXXXXX have advanced to the XXXXXXXXXXXX in the TCCC.";
+        var tcccReminder = " $round_name starts tomorrow.  Register between $reg_start & $reg_end.  chmod 777 aol ";
+        var componentPosting = "New component design & development projects have been posted.  Check them out now. chmod 777 aol";
+        var srmReminder = "$round_name is tomorrow.  Register between $reg_start & $reg_end.  chmod 777 aol";
 
             function choose() {
                     if (getSelectedOption("document.groupSendFrom", "<%=AOLHelper.ALERT_NAME%>").text=="<%=AOLHelper.INDIVIDUAL%> - SRM Results") {
