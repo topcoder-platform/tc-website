@@ -44,7 +44,6 @@
         </init-param>
     </servlet>
 
-
     <filter>
         <filter-name>GZIPResponse</filter-name>
         <filter-class>com.topcoder.web.common.GZIPResponseFilter</filter-class>
@@ -55,7 +54,6 @@
         <servlet-name>forums</servlet-name>
     </filter-mapping>
 
-
     <servlet-mapping>
         <servlet-name>forums</servlet-name>
         <url-pattern>/</url-pattern>
@@ -65,12 +63,5 @@
         <error-code>404</error-code>
         <location>/errorPage.jsp</location>
     </error-page>
-
-
-    <error-page>
-        <error-code>404</error-code>
-        <location>/errorPage.jsp</location>
-    </error-page>
-
 
 </web-app>
