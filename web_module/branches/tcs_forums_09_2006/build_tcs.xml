@@ -25,7 +25,7 @@
     <property name="shared.src.dir" value="../shared/src/main"/>
     <property name="shared.jar" value="${bin.dir}/shared.jar"/>
     <property name="struts.lib.dir" value="${lib.dir}/jakarta-struts-1.1/lib"/>
-	<property name="common.jar" value="${bin}/tcwebcommon.jar"/>
+	<property name="common.jar" value="${bin.dir}/tcwebcommon.jar"/>
 
     <property environment="env"/>
     <property name="jboss.home.dir" value="../jboss-4.0.2"/>
@@ -598,7 +598,7 @@
     	<unwar src="${war.dir}/forums.war" dest="${jboss.deploy.dir}/dde.ear/forums.war/" overwrite="yes"/>
     	<delete dir="${jboss.deploy.dir}/dde.ear/forums.war/META-INF"/>
 
-    	<copy todir="${jboss.lib.dir}" file="${bin}/tcjive.jar"/>
+    	<copy todir="${jboss.lib.dir}" file="${bin.dir}/tcjive.jar"/>
         <copy todir="${jboss.deploy.dir}">
             <fileset dir="${ejb.jars.dir}">
                 <include name="Project.jar"/>
