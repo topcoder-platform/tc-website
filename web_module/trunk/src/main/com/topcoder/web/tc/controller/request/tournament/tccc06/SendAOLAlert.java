@@ -43,6 +43,10 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                 log.debug("alertname is " + alertName);
             }
 
+            if (!"".equals(StringUtils.checkNull(roundId)) && !"".equals(StringUtils.checkNull(projectId))) {
+                throw new NavigationException("both round id and project id should not be populated");
+            }
+            
             ResultSetContainer roundData = null;
             if (!"".equals(StringUtils.checkNull(roundId))) {
                 roundData = getRoundData(roundId);
@@ -60,6 +64,8 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                     throw new NavigationException("Invalid project id " + projectId);
                 }
             }
+
+
 
             String text = getRequest().getParameter(AOLHelper.MESSAGE_TEXT);
 
