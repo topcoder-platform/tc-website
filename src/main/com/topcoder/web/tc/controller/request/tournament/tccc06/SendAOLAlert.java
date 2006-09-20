@@ -254,7 +254,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
         dateFormatter.setFormatMethodForClass(Calendar.class,
                 new CalendarDateFormatMethod("MMM d, yyyy"), true);
         timeFormatter.setFormatMethodForClass(Calendar.class,
-                new CalendarDateFormatMethod("HH:mm z"), true);
+                new CalendarDateFormatMethod("HH:mm"), true);
     }
 
     private String createGeneralMessage(ResultSetContainer data, String template) {
