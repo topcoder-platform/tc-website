@@ -18,11 +18,11 @@
     <script language="javascript" type="text/javascript">
         <!--
         var srmResults = "Results for $round_name are final.  You placed #$placed with $points points. See results online. chmod 777 aol";
-        var tcccAlgoResults = "In $round_name, you placed $placed with a score of $points and did not advance to Rd. XXXXX.  chmod 777 aol ";
+        var tcccAlgoResults = "In $round_name, you placed $placed with a score of $points and did not advance to Rd. XXXXX.  chmod 777 aol";
         var compResults = "On $component_name you placed #$placed with a score of $points. chmod 777 aol";
         var tcccAnnouncement = "$round_name is tomorrow.  Watch the action to see who advances. chmod 777 aol";
         var tcccOnsiteFinals = "XXXXXXXXXXXXXXX &amp; XXXXXXXXXXXXXXX have advanced to the XXXXXXXXXXXX in the TCCC.";
-        var tcccReminder = "$round_name is on $date.  Register between $reg_start &amp; $reg_end EDT (UTC/GMT -4).  chmod 777 aol ";
+        var tcccReminder = "$round_name is on $date.  Register between $reg_start &amp; $reg_end EDT (UTC/GMT -4).  chmod 777 aol";
         var componentPosting = "New component design &amp; development projects have been posted.  Check them out now. chmod 777 aol";
         var srmReminder = "$round_name is on $date.  Register between $reg_start &amp; $reg_end EDT (UTC/GMT -4).  chmod 777 aol";
 
