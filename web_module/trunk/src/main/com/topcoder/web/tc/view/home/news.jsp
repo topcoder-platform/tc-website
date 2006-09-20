@@ -8,6 +8,21 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 <%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>09.20.06<br>3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_costingEngineAdminTool">New Assembly contest online: $22,500 in prizes!</A>
+        </span><br><br>
+Don't miss your chance to build a complete, fully functional piece of software for a TopCoder client. Assembly contests offer great real-world experience, the chance to work with a team, and serious prize money - check out the new contest now!
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+     <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_costingEngineAdminTool">details</A> | 
+     <A href="https://software.topcoder.com/forum/c_forum.jsp?f=23729399">discuss this</A> | 
+     <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/><br>09.19.06<br>6:00 PM</td>
     <td class="newsTextCell">
@@ -35,8 +50,8 @@ As if coders needed more incentive, this was the last SRM before TCCC round 1 an
       winnings&#8230;
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=pressroom&d2=art_091806">view</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="506118" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=pressroom&d2=art_091806">view</A> | 
+         <tc-webtag:forumLink forumID="506118" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
 </td></tr>
 
@@ -103,7 +118,7 @@ As if coders needed more incentive, this was the last SRM before TCCC round 1 an
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <tc-webtag:forumLink forumID="506115" message="discuss this" />&#160;|&#160;
+         <tc-webtag:forumLink forumID="506115" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 
@@ -136,8 +151,8 @@ As if coders needed more incentive, this was the last SRM before TCCC round 1 an
   of problem solving, food, prizes and fun.
 </tr>
 <tr><td class="newsLinksCell">
-	 <A href="/tc?module=Static&d1=collegetour&d2=description">view</A>&#160;|&#160;
-	 <tc-webtag:forumLink forumID="506114" message="discuss this" />&#160;|&#160;
+	 <A href="/tc?module=Static&d1=collegetour&d2=description">view</A> | 
+	 <tc-webtag:forumLink forumID="506114" message="discuss this" /> | 
 	 <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
 </td></tr>
 
@@ -170,20 +185,5 @@ As if coders needed more incentive, this was the last SRM before TCCC round 1 an
     <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">results</A> | 
     <tc-webtag:forumLink forumID="506103" message="discuss this" /> | 
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.13.06<br>11:30 AM</td>
-    <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg_chat_082406">Bloomberg SRM 317 chat session transcript</A>
-      </span><br><br>
-      Bloomberg recently held a chat session just prior to SRM 317 to discuss working at Bloomberg.  Check it out.
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg_chat_082406">view</A> | 
-    <tc-webtag:forumLink forumID="506076" message="discuss this"/> | 
-    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
 </td></tr>
 
