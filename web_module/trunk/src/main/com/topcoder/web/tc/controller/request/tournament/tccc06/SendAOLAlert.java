@@ -150,7 +150,8 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                         Map.Entry me;
                         String messageText;
                         StringBuffer buf = new StringBuffer(1000);
-                        for (Iterator it = messageData.entrySet().iterator(); it.hasNext();) {
+                        int i = 0;
+                        for (Iterator it = messageData.entrySet().iterator(); it.hasNext(); i++) {
                             me = (Map.Entry) it.next();
                             messageText = (String) me.getValue();
                             result = man.notify(AOLHelper.INDIVIDUAL, new String[]{(String) me.getKey()},
@@ -162,6 +163,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                             }
 
                         }
+                        log.info(i + " messages sent");
 
                         if (buf.length() > 0) {
                             throw new NavigationException(buf.toString());
@@ -210,6 +212,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                         throw new NavigationException("Send failed: " + result.getErrorCode() + " " +
                                 result.getErrorReason() + " " + result.getErrorDetail());
                     }
+                    log.info(messageText + " sent to " + alertName);
                     setNextPage(getSessionInfo().getServletPath() + "?" +
                             Constants.MODULE_KEY + "=Static&d1=tournaments&d2=tccc06&d3=aol_alert_sent");
                     setIsNextPageInContext(false);
