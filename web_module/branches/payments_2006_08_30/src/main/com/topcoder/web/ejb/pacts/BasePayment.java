@@ -1,6 +1,7 @@
 package com.topcoder.web.ejb.pacts;
 
-import java.text.DateFormat;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Date;
 
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
@@ -84,7 +85,7 @@ public abstract class BasePayment {
 	
 	public abstract boolean payReferral();
 	
-	Payment createPayment() {
+	protected Payment createPayment() {
         Payment p = new Payment();
         p.setGrossAmount(getGrossAmount());
         p.setStatusId(getStatusId());

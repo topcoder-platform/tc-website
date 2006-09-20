@@ -1,5 +1,8 @@
 package com.topcoder.web.ejb.pacts;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**

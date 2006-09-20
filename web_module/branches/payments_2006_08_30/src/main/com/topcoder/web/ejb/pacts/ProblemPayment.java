@@ -2,6 +2,7 @@ package com.topcoder.web.ejb.pacts;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Date;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
@@ -29,7 +30,7 @@ public abstract class ProblemPayment extends BasePayment {
 	}
 	
 	public boolean payReferral() {
-		return false; // check!
+		return false; 
 	}
 
 }

@@ -6,11 +6,11 @@ package com.topcoder.web.ejb.pacts;
  * @author cucu
  *
  */
-public class ComponentPayment extends BasePayment {
+public abstract class ComponentPayment extends BasePayment {
 	private long projectId;
 
-	public ComponentPayment(long id, long coderId, long projectId) {
-		super(id, coderId);
+	public ComponentPayment(long coderId, double grossAmount, long projectId) {
+		super(coderId, grossAmount);
 		this.projectId = projectId;
 	}
 

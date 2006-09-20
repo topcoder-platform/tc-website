@@ -1,20 +1,25 @@
 package com.topcoder.web.ejb.pacts;
 
+import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
+
 /**
- * Payment for an algorithm contest.  It includes a reference to a round.
+ * Payment for an algorithm contest (e.g. SRM)
  * 
  * @author cucu
  *
  */
-public class AlgorithmContestPayment extends BasePayment {
-	private long roundId;
-
-	public AlgorithmContestPayment(long id, long coderId, long roundId) {
-		super(id, coderId);
-		this.roundId = roundId;
+public class AlgorithmContestPayment extends AlgorithmPayment {
+	public AlgorithmContestPayment(long coderId, double grossAmount, long roundId) {
+		super(coderId, grossAmount, roundId);
 	}
 
-	public long getRoundId() {
-		return roundId;
+
+	public int getPaymentType() {
+		return PactsConstants.ALGORITHM_CONTEST_PAYMENT;
+	}
+
+	public boolean payReferral() {
+		return true;
 	}
 }

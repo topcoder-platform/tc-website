@@ -1,5 +1,9 @@
 package com.topcoder.web.ejb.pacts;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Date;
+
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
@@ -17,5 +21,5 @@ public class ProblemWritingPayment extends ProblemPayment {
 	public int getPaymentType() {
 		return PactsConstants.PROBLEM_WRITING_PAYMENT;
 	}
-
+		
 }

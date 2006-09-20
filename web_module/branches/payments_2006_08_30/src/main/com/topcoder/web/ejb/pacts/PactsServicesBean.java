@@ -5394,7 +5394,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws IllegalArgumentException if the problem was not found with the id.
      */
     private String getProblemName(Connection c, long problemId) throws SQLException {
-        StringBuffer query = new StringBuffer(1000);
+        StringBuffer query = new StringBuffer(100);
         query.append(" SELECT name ");
         query.append(" FROM problem "); 
         query.append(" WHERE problem_id = " + problemId);
@@ -5407,6 +5407,27 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return rsc.getStringItem(0, 0);        
     }
 
+    /**
+     * Get the interval in days from an event (srm, contest finalization...) to the payment.
+     * 
+     * @param c connection tu use for db access
+     * @param paymentTypeId type id of the payment
+     * @return the interval in days from an event (srm, contest finalization...) to the payment.
+     */
+    private int getDueDateInterval(Connection c, int paymentTypeId) throws SQLException {
+        StringBuffer query = new StringBuffer(100);
+        query.append(" SELECT due_date_interval ");
+        query.append(" FROM payment_type_lu "); 
+        query.append(" WHERE payment_type_id = " + paymentTypeId);
+        
+        ResultSetContainer rsc = runSelectQuery(c, query.toString(), false);
+
+        if (rsc.getRowCount() != 1) {
+        	throw new IllegalArgumentException("Payment type not found: " + paymentTypeId);
+        }
+        return rsc.getIntItem(0, 0);        
+    	
+    }
 /*
     public AlgorithmContestPayment addAlgorithmContestPayment(long coderId, double grossAmount, long roundId) throws SQLException {
     	ResultSetContainer rsc;
@@ -5444,18 +5465,25 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     
     private void fillPaymentData(Connection c, BasePayment payment) throws SQLException {
     	Date eventDate = new Date();
+    	
+    	
     	if (payment instanceof ProblemWritingPayment) {
     		long problemId = ((ProblemWritingPayment) payment).getProblemId();
     		payment.setDescription("Problem " + getProblemName(c, problemId) + " writing");
+    	
     	} else if (payment instanceof ProblemTestingPayment) {
     		long problemId = ((ProblemTestingPayment) payment).getProblemId();
     		payment.setDescription("Problem " + getProblemName(c, problemId) + " testing");    		
+    	
     	} else throw new IllegalArgumentException("Unknown class payment type.");
     	
-    	payment.setStatusId(hasTaxForm(c, payment.getCoderId()) ? 
-    			PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);
-    
-    	payment.setDueDate(eventDate);// FIX
+    	// Calculate the due date as the event date + an interval depending on the type
+        Calendar dueDate = Calendar.getInstance();
+        dueDate.setTime(eventDate);
+        dueDate.add(Calendar.DAY_OF_YEAR, getDueDateInterval(c, payment.getPaymentType()));
+
+    	payment.setStatusId(hasTaxForm(c, payment.getCoderId()) ? PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);    
+    	payment.setDueDate(dueDate.getTime());
     	payment.setDataFilled(true);
     }
     
@@ -5499,7 +5527,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             long paymentId = makeNewPayment(c, p, payment.payReferral());
 
             payment.setId(paymentId);
-            
+            payment.setNetAmount(p.getNetAmount());
             c.commit();
     	} catch (SQLException e) {
     		rollback(c);
@@ -5530,7 +5558,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         } catch (Exception e1) {
             printException(e1);
         }
-
+    	
     }
     
 }

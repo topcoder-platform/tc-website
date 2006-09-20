@@ -35,10 +35,13 @@ pp.getDescription: <%= pp.getDescription() %> <br>
 pp.getDueDate: <%= pp.getDueDate() %> <br>
 pp.getProblemId: <%= pp.getProblemId() %> <br>
 
-Problem Testing changing description:
+<br>
+<br>
+
+Problem Writing changing description:
 <br> 
 <%
-	 pp=new ProblemTestingPayment(7545675,123.456, 1228);
+	 pp=new ProblemWritingPayment(7545675,123.456, 1228);
 pcs.fillPaymentData(pp);
 pp.setDescription(pp.getDescription() + " modified!");
 	 pcs.addPayment(pp);
