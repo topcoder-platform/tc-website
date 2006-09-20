@@ -868,33 +868,33 @@ public class ProjectTrackerV2Bean implements SessionBean {
             }
 
             // Rating 4, 
-            index = 1;
-            ps.setLong(index++, resourceId);
-            ps.setLong(index++, 4);
-            if (old_rating == 0) {
-            	ps.setString(index++, "Not Rated");
-            } else {
-            	ps.setString(index++, String.valueOf(old_rating));
-            }
-            ps.setString(index++, String.valueOf(userId));
-            ps.setString(index++, String.valueOf(userId));
-            nr = ps.executeUpdate();
-
-            if (nr != 1) {
-                throw new RuntimeException("Could not create Rating resourceinfo !");
+            if (old_rating > 0) {
+	            index = 1;
+	            ps.setLong(index++, resourceId);
+	            ps.setLong(index++, 4);
+	            ps.setString(index++, String.valueOf(old_rating));
+	            ps.setString(index++, String.valueOf(userId));
+	            ps.setString(index++, String.valueOf(userId));
+	            nr = ps.executeUpdate();
+	
+	            if (nr != 1) {
+	                throw new RuntimeException("Could not create Rating resourceinfo !");
+	            }
             }
 
             // Reliability 5 
-            index = 1;
-            ps.setLong(index++, resourceId);
-            ps.setLong(index++, 5);
-            ps.setString(index++, String.valueOf(oldReliability * 100));
-            ps.setString(index++, String.valueOf(userId));
-            ps.setString(index++, String.valueOf(userId));
-            nr = ps.executeUpdate();
-
-            if (nr != 1) {
-                throw new RuntimeException("Could not create Reliability resourceinfo !");
+	        if (oldReliability > 0) {
+	            index = 1;
+	            ps.setLong(index++, resourceId);
+	            ps.setLong(index++, 5);
+	            ps.setString(index++, String.valueOf(oldReliability * 100));
+	            ps.setString(index++, String.valueOf(userId));
+	            ps.setString(index++, String.valueOf(userId));
+	            nr = ps.executeUpdate();
+	
+	            if (nr != 1) {
+	                throw new RuntimeException("Could not create Reliability resourceinfo !");
+	            }
             }
 
             // Registration Date 6
@@ -911,74 +911,13 @@ public class ProjectTrackerV2Bean implements SessionBean {
             }
 
             Common.close(ps);
-
-            PrincipalMgrRemote principalMgr;
-
-            try {
-                Context initial = new InitialContext();
-                Object objref = initial.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-                PrincipalMgrRemoteHome home = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objref,
-                        PrincipalMgrRemoteHome.class);
-                principalMgr = home.create();
-            } catch (ClassCastException e1) {
-                throw new RuntimeException(e1);
-            } catch (EJBException e1) {
-                throw new RuntimeException(e1);
-            } catch (NamingException e1) {
-                throw new RuntimeException(e1);
-            } catch (CreateException e1) {
-                throw new RuntimeException(e1);
-            }
-
         } catch (SQLException e) {
         	e.printStackTrace();
             ejbContext.setRollbackOnly();
             throw new RuntimeException("SQLException: " + e.getMessage());
-        } catch (RemoteException e) {
-            ejbContext.setRollbackOnly();
-            throw new RuntimeException("RemoteException: " + e.getMessage());
         } finally {
             Common.close(conn, ps, rs);
         }
-    }
-
-    /**
-     * DOCUMENT ME!
-     *
-     * @param roleName
-     *
-     * @return
-     *
-     * @throws RuntimeException DOCUMENT ME!
-     */
-    private long getRoleId(String roleName) {
-        log.debug("PT.getRoleId(), roleName: " + roleName);
-
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        long id = -1;
-
-        try {
-            conn = dataSource.getConnection();
-            ps = conn.prepareStatement("SELECT role_id " + "FROM security_roles " + "WHERE description = ?");
-            ps.setString(1, roleName);
-            rs = ps.executeQuery();
-
-            if (rs.next()) {
-                id = rs.getLong(1);
-            } else {
-                id = -1;
-            }
-        } catch (SQLException e) {
-            ejbContext.setRollbackOnly();
-            throw new RuntimeException("SQLException: " + e.getMessage());
-        } finally {
-            Common.close(conn, ps, rs);
-        }
-
-        return id;
     }
 
     /**
@@ -1005,211 +944,7 @@ public class ProjectTrackerV2Bean implements SessionBean {
 
     private void ddeRename(long componentId, long compVersId, String oldName, String newName, String oldVersion,
         String newVersion) {
-        log.debug("PT.ddeRename(), componentId: " + componentId + "compVersId: " + compVersId);
-
-        Connection conn = null;
-        PreparedStatement ps = null;
-        PreparedStatement psRoles = null;
-        ResultSet rs = null;
-
-        try {
-            conn = dataSource.getConnection();
-
-            List compVersList = new LinkedList();
-            List projectTypeList = new LinkedList();
-            List oldVersionList = new LinkedList();
-            List newVersionList = new LinkedList();
-
-            if (compVersId == -1) {
-                // given componentId
-                ps = conn.prepareStatement(
-                        "SELECT pi_vi.value as comp_vers_id, pi_vt.value as version_text, p.project_category_id as project_type_id " +
-                        "FROM project p " + 
-                        "inner join project_info pi_vi " +
-                        "on p.project_id = pi_vi.project_id and pi_vi.project_info_type_id = 1 " + // external id
-                        "inner join project_info pi_vt " +
-                        "on p.project_id = pi_vt.project_id and pi_vt.project_info_type_id = 7 " + // project_version
-                        "inner join project_info pi_ci " +
-                        "on p.project_id = pi_ci.project_id and pi_ci.project_info_type_id = 2 " + // component_id
-                        "and pi_ci.value = ? ");
-                ps.setLong(1, componentId);
-                rs = ps.executeQuery();
-
-                while (rs.next()) {
-                    long cvId = rs.getLong(1);
-                    String vText = rs.getString(2).trim();
-                    long projectTypeId = rs.getLong(3);
-
-                    compVersList.add(new Long(cvId));
-                    projectTypeList.add(new Long(projectTypeId));
-                    oldVersionList.add(vText);
-                    newVersionList.add(vText);
-                }
-
-                Common.close(rs);
-                Common.close(ps);
-                rs = null;
-                ps = null;
-            } else {
-                ps = conn.prepareStatement(
-                        "SELECT pi_cn.value as component_name, p.project_category_id as project_type_id " +
-                        "FROM project p " + 
-                        "inner join project_info pi_vi " +
-                        "on p.project_id = pi_vi.project_id and pi_vi.project_info_type_id = 1 and pi_vi.value = ? " + // external id
-                        "inner join project_info pi_cn " +
-                        "on p.project_id = pi_cn.project_id and pi_cn.project_info_type_id = 6 "); // component_name
-
-                ps.setLong(1, compVersId);
-                rs = ps.executeQuery();
-
-                long projectTypeId;
-
-                if (rs.next()) {
-                    projectTypeId = rs.getLong("project_type_id");
-                    oldName = rs.getString("component_name");
-                    newName = oldName;
-                } else {
-                    ps = conn.prepareStatement("SELECT cc.component_name " +
-                            "FROM comp_catalog cc, comp_versions cv " + 
-                            "WHERE cc.component_id = cv.component_id " +
-                            "AND cv.comp_vers_id = ?");
-
-                    ps.setLong(1, compVersId);
-                    rs = ps.executeQuery();
-
-                    if (rs.next()) {
-                        projectTypeId = 1;
-                        oldName = rs.getString(2);
-                        newName = oldName;
-                    } else {
-                        throw new RuntimeException();
-                    }
-                }
-
-                Common.close(rs);
-                Common.close(ps);
-                rs = null;
-                ps = null;
-
-                compVersList.add(new Long(compVersId));
-                projectTypeList.add(new Long(projectTypeId));
-                oldVersionList.add(oldVersion);
-                newVersionList.add(newVersion);
-            }
-
-            Iterator iterProjectType = projectTypeList.iterator();
-            Iterator iterOldVersion = oldVersionList.iterator();
-            Iterator iterNewVersion = newVersionList.iterator();
-
-            for (Iterator iter = compVersList.iterator(); iter.hasNext();) {
-                long cvId = ((Long) iter.next()).longValue();
-                long ptId = ((Long) iterProjectType.next()).longValue();
-                String oldV = (String) iterOldVersion.next();
-                String newV = (String) iterNewVersion.next();
-                log.debug("PT.ddeRename(), renaming roles for project, compVersId: " + cvId);
-
-                ProjectTypeManager projectTypeManager = (ProjectTypeManager) Common.getFromCache("ProjectTypeManager");
-                ProjectType projectType = projectTypeManager.getProjectType(ptId);
-
-                String prefixOld = oldName + " " + oldV + " " + projectType.getName() + " ";
-                String prefixNew = newName + " " + newV + " " + projectType.getName() + " ";
-
-                psRoles = conn.prepareStatement("UPDATE security_roles " + "SET description = ? " +
-                        "WHERE description = ?");
-
-                String newRoleName = prefixNew + "View Project";
-                String oldRoleName = prefixOld + "View Project";
-                psRoles.setString(1, newRoleName);
-                psRoles.setString(2, oldRoleName);
-
-                int nr = psRoles.executeUpdate();
-
-                if (nr != 1) {
-                    log.error("Could not change rolename: " + oldRoleName);
-
-                    //throw new RuntimeException("Could not change rolename: " + oldRoleName);
-                }
-
-                newRoleName = prefixNew + "Submit";
-                oldRoleName = prefixOld + "Submit";
-                psRoles.setString(1, newRoleName);
-                psRoles.setString(2, oldRoleName);
-                nr = psRoles.executeUpdate();
-
-                if (nr != 1) {
-                    log.error("Could not change rolename: " + oldRoleName);
-
-                    //throw new RuntimeException("Could not change rolename: " + oldRoleName);
-                }
-
-                newRoleName = prefixNew + "Screen";
-                oldRoleName = prefixOld + "Screen";
-                psRoles.setString(1, newRoleName);
-                psRoles.setString(2, oldRoleName);
-                nr = psRoles.executeUpdate();
-
-                if (nr != 1) {
-                    log.error("Could not change rolename: " + oldRoleName);
-
-                    //throw new RuntimeException("Could not change rolename: " + oldRoleName);
-                }
-
-                newRoleName = prefixNew + "Review";
-                oldRoleName = prefixOld + "Review";
-                psRoles.setString(1, newRoleName);
-                psRoles.setString(2, oldRoleName);
-                nr = psRoles.executeUpdate();
-
-                if (nr != 1) {
-                    log.error("Could not change rolename: " + oldRoleName);
-
-                    //throw new RuntimeException("Could not change rolename: " + oldRoleName);
-                }
-
-                newRoleName = prefixNew + "Aggregation";
-                oldRoleName = prefixOld + "Aggregation";
-                psRoles.setString(1, newRoleName);
-                psRoles.setString(2, oldRoleName);
-                nr = psRoles.executeUpdate();
-
-                if (nr != 1) {
-                    log.error("Could not change rolename: " + oldRoleName);
-
-                    //throw new RuntimeException("Could not change rolename: " + oldRoleName);
-                }
-
-                newRoleName = prefixNew + "Submit Final Fix";
-                oldRoleName = prefixOld + "Submit Final Fix";
-                psRoles.setString(1, newRoleName);
-                psRoles.setString(2, oldRoleName);
-                nr = psRoles.executeUpdate();
-
-                if (nr != 1) {
-                    log.error("Could not change rolename: " + oldRoleName);
-
-                    //throw new RuntimeException("Could not change rolename: " + oldRoleName);
-                }
-
-                newRoleName = prefixNew + "Final Review";
-                oldRoleName = prefixOld + "Final Review";
-                psRoles.setString(1, newRoleName);
-                psRoles.setString(2, oldRoleName);
-                nr = psRoles.executeUpdate();
-
-                if (nr != 1) {
-                    log.error("Could not change rolename: " + oldRoleName);
-                }
-
-                Common.close(psRoles);
-                psRoles = null;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        } finally {
-            Common.close(psRoles);
-            Common.close(conn, ps, rs);
-        }
+    	// No any role need to be created in new OR
     }
 
     /**

@@ -662,6 +662,7 @@ public class ComponentManagerBean
             throw new CatalogException(exception.toString());
         }
 
+        /*
         try {
             LocalDDEUserMaster user = userHome.findByPrimaryKey(
                     new Long(request.getUserId()));
@@ -678,7 +679,7 @@ public class ComponentManagerBean
         } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
-        }
+        }*/
 
         return nextVersion;
     }
@@ -1304,6 +1305,7 @@ public class ComponentManagerBean
 
     public Collection getTeamMemberRoles() throws CatalogException {
         List memberRoles = new ArrayList();
+        /* the user_role table does not exist
         Iterator roleIterator;
         try {
             roleIterator = userroleHome.findByCompVersId(versionId).iterator();
@@ -1329,7 +1331,7 @@ public class ComponentManagerBean
                     role.getRoles().getName(), role.getRoles().getDescription(),
                     role.getDescription()));
         }
-        Collections.sort(memberRoles, new Comparators.TeamMemberRoleSorter());
+        Collections.sort(memberRoles, new Comparators.TeamMemberRoleSorter());*/
         return memberRoles;
     }
 
@@ -1351,6 +1353,7 @@ public class ComponentManagerBean
         }
 
         //Add aggregation scorecard documents
+        /*
         if (isAggregated(1)) {
             docs.add(new Document("Aggregate Design Scorecard",
                     "/review/publicaggregation.do?id=" + getProjectId(1),
@@ -1360,7 +1363,7 @@ public class ComponentManagerBean
             docs.add(new Document("Aggregate Development Scorecard",
                     "/review/publicaggregation.do?id=" + getProjectId(2),
                     Document.OTHER));
-        }
+        }*/
 
         Collections.sort(docs, new Comparators.DocumentSorter());
         return docs;
@@ -1673,6 +1676,8 @@ public class ComponentManagerBean
 
     public TeamMemberRole addTeamMemberRole(TeamMemberRole role)
             throws CatalogException {
+    	return null;
+    	/*
         if (role == null) {
             throw new CatalogException(
                     "Null specified for team member role");
@@ -1723,7 +1728,7 @@ public class ComponentManagerBean
         } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
-        }
+        }*/
     }
 
     public Document addDocument(Document document) throws CatalogException {
@@ -2009,6 +2014,7 @@ public class ComponentManagerBean
 
     public void removeTeamMemberRole(long memberRoleId)
             throws CatalogException {
+    	/* user_role does not exist
         try {
             userroleHome.findByPrimaryKey(new Long(memberRoleId)).remove();
         } catch (ObjectNotFoundException exception) {
@@ -2020,7 +2026,7 @@ public class ComponentManagerBean
         } catch (RemoveException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
-        }
+        }*/
     }
 
     public void removeDependency(long dependeeId) throws CatalogException {
@@ -2341,8 +2347,8 @@ public class ComponentManagerBean
      * @throws CatalogException
      */
     public boolean isAggregated(long projectType) throws CatalogException {
-
-        long projectId = getProjectId(projectType);
+    	return true;
+        /*long projectId = getProjectId(projectType);
         if (projectId < 0) return false;
         try {
             DocumentManager dm = documentManagerHome.create();
@@ -2353,7 +2359,7 @@ public class ComponentManagerBean
         } catch (CreateException e) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(e.toString());
-        }
+        }*/
     }
 
     public void ejbActivate() {
