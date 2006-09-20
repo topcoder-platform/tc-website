@@ -5495,7 +5495,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     }
 
-    private long makeNewAlgorithmPayment(Connection c, Payment p, AlgorithmPayment payment) {
+    private long makeNewAlgorithmPayment(Connection c, Payment p, AlgorithmPayment payment) throws Exception{
     	// get affidavit text
 /*        StringBuffer query = new StringBuffer(500);
         query.append(" select att.text ");

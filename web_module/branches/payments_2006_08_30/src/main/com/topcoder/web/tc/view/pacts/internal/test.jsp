@@ -55,6 +55,26 @@ pp.getDescription: <%= pp.getDescription() %> <br>
 pp.getDueDate: <%= pp.getDueDate() %> <br>
 pp.getProblemId: <%= pp.getProblemId() %> <br>
 
+<br><br>
+
+Algorithm Contest
+<br> 
+<%
+	AlgorithmPayment ap=new AlgorithmContestPayment(7545675,260, 9998);
+	pcs.addPayment(ap);
+%>
+ap.getId: <%= pp.getId() %> <br>
+ap.getCoderId: <%= pp.getCoderId() %> <br>
+ap.getNetAmount: <%= pp.getNetAmount() %> <br>
+ap.getGrossAmount: <%= pp.getGrossAmount() %> <br>
+ap.getStatusId: <%= pp.getStatusId() %> <br>
+ap.getDescription: <%= pp.getDescription() %> <br>
+ap.getDueDate: <%= pp.getDueDate() %> <br>
+ap.getRoundId: <%= pp.getRoundId() %> <br>
+
+<br>
+<br>
+
 </body>
 
 </html>
