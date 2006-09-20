@@ -382,8 +382,10 @@
                 <include name="DBMS.properties"/>
                 <include name="DataAccess.properties"/>
                 <include name="TCS.properties"/>
-            	<include name="forums/dde/jive_init.xml"/>
             </fileset>
+        	<fileset dir="${resources.dir}/forums/dde">
+        		<include name="jive_init.xml"/>
+        	</fileset>
             <fileset dir="${resources.dir}/security/conf">
                 <include name="com/topcoder/security/Util.properties"/>
             </fileset>
