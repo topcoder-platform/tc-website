@@ -23,7 +23,8 @@ public class HandleTag extends TagSupport {
     private boolean development = false;
     private boolean component = false;
 
-    public final static String DEFAULT_LINK = "http://" + ApplicationServer.SERVER_NAME + "/tc?module=MemberProfile&amp;cr=";
+    public final static String DEFAULT_LINK = "/tc?module=MemberProfile&amp;cr=";
+
     public final static String ALGORITHM = "algorithm";
     public final static String HS_ALGORITHM = "hs_algorithm";
     public final static String DESIGN = "design";
@@ -102,7 +103,13 @@ public class HandleTag extends TagSupport {
                 }
                 output.append("<a href=\"");
                 if (link.equals("")) {
-                    link = DEFAULT_LINK + coderId;
+                    StringBuffer buf = new StringBuffer(100);
+                    if (pageContext.getRequest().getServerName().indexOf(ApplicationServer.SERVER_NAME) >= 0) {
+                        link = buf.append(DEFAULT_LINK).append(coderId).toString();
+                    } else {
+                        link = buf.append("http://").append(ApplicationServer.SERVER_NAME).append(DEFAULT_LINK).append(coderId).toString();
+                    }
+
                 }
                 output.append(link);
                 if (algorithm && rsc.getIntItem(0, "algorithm_rating") > 0) {
