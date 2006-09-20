@@ -27,21 +27,21 @@
         var srmReminder = "srm reminder";
 
             function choose() {
-                    if (getValue("document.groupSendFrom", "<%=AOLHelper.ALERT_NAME%>")=="<%=AOLHelper.INDIVIDUAL%> - SRM Results") {
+                    if (getSelectedOption("document.groupSendFrom", "<%=AOLHelper.ALERT_NAME%>").text=="<%=AOLHelper.INDIVIDUAL%> - SRM Results") {
                         putValue("document.groupSendFrom", "<%=AOLHelper.MESSAGE_TEXT%>", srmResults);
-                    } else if (getValue("document.groupSendFrom", "<%=AOLHelper.ALERT_NAME%>")=="<%=AOLHelper.INDIVIDUAL%> - TCCC Algo Results") {
+                    } else if (getSelectedOption("document.groupSendFrom", "<%=AOLHelper.ALERT_NAME%>").text=="<%=AOLHelper.INDIVIDUAL%> - TCCC Algo Results") {
                         putValue("document.groupSendFrom", "<%=AOLHelper.MESSAGE_TEXT%>", tcccAlgoResults);
-                    } else if (getValue("document.groupSendFrom", "<%=AOLHelper.ALERT_NAME%>")=="<%=AOLHelper.INDIVIDUAL%> - Comp Results") {
+                    } else if (getSelectedOption("document.groupSendFrom", "<%=AOLHelper.ALERT_NAME%>").text=="<%=AOLHelper.INDIVIDUAL%> - Comp Results") {
                         putValue("document.groupSendFrom", "<%=AOLHelper.MESSAGE_TEXT%>", compResults);
-                    } else if (getValue("document.groupSendFrom", "<%=AOLHelper.ALERT_NAME%>")=="<%=AOLHelper.TCCC_ANNOUNCEMENT%>") {
+                    } else if (getSelectedOption("document.groupSendFrom", "<%=AOLHelper.ALERT_NAME%>").text=="<%=AOLHelper.TCCC_ANNOUNCEMENT%>") {
                         putValue("document.groupSendFrom", "<%=AOLHelper.MESSAGE_TEXT%>", tcccAnnouncement);
-                    } else if (getValue("document.groupSendFrom", "<%=AOLHelper.ALERT_NAME%>")=="<%=AOLHelper.TCCC_ONSITE_FINALS%>") {
+                    } else if (getSelectedOption("document.groupSendFrom", "<%=AOLHelper.ALERT_NAME%>").text=="<%=AOLHelper.TCCC_ONSITE_FINALS%>") {
                         putValue("document.groupSendFrom", "<%=AOLHelper.MESSAGE_TEXT%>", tcccOnsiteFinals);
-                    } else if (getValue("document.groupSendFrom", "<%=AOLHelper.ALERT_NAME%>")=="<%=AOLHelper.TCCC_REMINDER%>") {
+                    } else if (getSelectedOption("document.groupSendFrom", "<%=AOLHelper.ALERT_NAME%>").text=="<%=AOLHelper.TCCC_REMINDER%>") {
                         putValue("document.groupSendFrom", "<%=AOLHelper.MESSAGE_TEXT%>", tcccReminder);
-                    } else if (getValue("document.groupSendFrom", "<%=AOLHelper.ALERT_NAME%>")=="<%=AOLHelper.COMPONENT_POSTING%>") {
+                    } else if (getSelectedOption("document.groupSendFrom", "<%=AOLHelper.ALERT_NAME%>").text=="<%=AOLHelper.COMPONENT_POSTING%>") {
                         putValue("document.groupSendFrom", "<%=AOLHelper.MESSAGE_TEXT%>", componentPosting);
-                    } else if (getValue("document.groupSendFrom", "<%=AOLHelper.ALERT_NAME%>")=="<%=AOLHelper.SRM_REMINDER%>") {
+                    } else if (getSelectedOption("document.groupSendFrom", "<%=AOLHelper.ALERT_NAME%>").text=="<%=AOLHelper.SRM_REMINDER%>") {
                         putValue("document.groupSendFrom", "<%=AOLHelper.MESSAGE_TEXT%>", srmReminder);
                     }
             }
