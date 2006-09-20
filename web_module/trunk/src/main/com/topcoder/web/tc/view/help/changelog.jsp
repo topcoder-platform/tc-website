@@ -44,12 +44,13 @@
 
 
 <p>
-    5.4.xx - 2006.09.xx
+    5.4.12 - 2006.09.20
     <ul>
         <li>
             Fix bug in registration process where the registration selections can bet lost.
         </li>
         <li>When handles link to profiles, only use the absolute path (including server name) when necessary</li>
+        <li>Add AOL Alerts pages</li>
     </ul>
 </p>
 
