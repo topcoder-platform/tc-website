@@ -10,22 +10,15 @@
 
 package com.topcoder.web.tc.controller.request.compstats;
 
-import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.security.ClassResource;
-import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.model.SortInfo;
-import com.topcoder.web.tc.Constants;
-import java.util.Iterator;
+
 import java.util.Map;
 
 /**
- *
  * @author cucu
  */
 public class ScorecardDetails extends Base {
@@ -55,7 +48,7 @@ public class ScorecardDetails extends Base {
             }
 
             if (rscScorecard.isEmpty()) {
-                throw new NavigationException("Sorry, the invalid information specified in request.");
+                throw new NavigationException("Sorry, invalid information specified in request.");
             }
             String scorecardId = rscScorecard.getStringItem(0, "scorecard_id");
             String scorecardTemplateId = rscScorecard.getStringItem(0, "scorecard_template_id");
@@ -68,12 +61,12 @@ public class ScorecardDetails extends Base {
 
             Map result = getDataAccess(true).getData(r);
 
-           // check if the project is completed
+            // check if the project is completed
             ResultSetContainer projectInfo = (ResultSetContainer) result.get("project_info");
             if ((projectInfo.getIntItem(0, "status_id") != 4) &&
-                (projectInfo.getIntItem(0, "status_id") != 5) &&
-                (projectInfo.getIntItem(0, "status_id") != 6)) {
-                 throw new NavigationException("The project is not finished");
+                    (projectInfo.getIntItem(0, "status_id") != 5) &&
+                    (projectInfo.getIntItem(0, "status_id") != 6)) {
+                throw new NavigationException("The project is not finished");
 
             }
 
