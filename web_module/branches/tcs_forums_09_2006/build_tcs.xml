@@ -554,24 +554,24 @@
     </target>
 
 	<target name="package-EJB-MessageHistoryBean" depends="compile">
-        <jar jarfile="${ejb_jars}/messagehistory.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/messagehistory/*.class"/>
-            <metainf dir="${java}/com/topcoder/web/ejb/messagehistory" includes="*.xml"/>
+        <jar jarfile="${ejb.jars.dir}/messagehistory.jar">
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/messagehistory/*.class"/>
+            <metainf dir="${java.dir}/com/topcoder/web/ejb/messagehistory" includes="*.xml"/>
         </jar>
     </target>
 	
     <target name="package-EJB-ForumsBean" depends="compile">
-        <jar jarfile="${ejb_jars}/forums.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/forums/*.class"/>
-            <metainf dir="${java}/com/topcoder/web/ejb/forums" includes="*.xml"/>
+        <jar jarfile="${ejb.jars.dir}/forums.jar">
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/forums/*.class"/>
+            <metainf dir="${java.dir}/com/topcoder/web/ejb/forums" includes="*.xml"/>
         </jar>
     </target>
 	
 	<target name="package-TCJive" depends="compile">
-        <jar jarfile="${bin}/tcjive.jar">
-            <fileset dir="${classes}/">
+        <jar jarfile="${bin.dir}/tcjive.jar">
+            <fileset dir="${classes.dir}/">
                 <include name="com/topcoder/web/forums/model/TCUser.class"/>
                 <include name="com/topcoder/web/forums/model/TCUserManager.class"/>
                 <include name="com/topcoder/web/forums/model/Common.class"/>
@@ -579,7 +579,7 @@
                 <include name="com/topcoder/web/forums/model/TCAuthToken.class"/>
                 <include name="com/topcoder/web/forums/util/filter/*.class"/>
             </fileset>
-            <fileset dir="${resources}/forums/filter">
+            <fileset dir="${resources.dir}/forums/filter">
                 <include name="**/*.properties"/>
             </fileset>
         </jar>
