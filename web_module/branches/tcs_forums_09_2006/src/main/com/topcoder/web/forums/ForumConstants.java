@@ -30,6 +30,11 @@ public interface ForumConstants {
     public final static String ANNOUNCEMENT_BODY = "body";
     public final static String ANNOUNCEMENT_COMMAND = "cmd";
 	
+    public final static String ATTACHMENT_ID = "attID";
+    public final static String ATTACHMENT_ERROR = "attError";
+    
+    public final static String NEW_COMPONENT_ID = "newComponentName";
+    
 	public final static String START_IDX = "start";
 	public final static String POST_MODE = "mode";
     
@@ -39,6 +44,14 @@ public interface ForumConstants {
     public final static String SORT_FIELD = "sortField";
     public final static String SORT_ORDER = "sortOrder";
 
+    public final static String FORUM_TYPE = "ft";
+    public final static String CUSTOMER_FORUM = "1";
+    public final static String DEVELOPER_FORUM = "2";
+    
+    public final static Long FORUM_MODERATE_PERMISSION = new Long(1);
+    public final static Long FORUM_POST_PERMISSION = new Long(2);
+    public final static Long FORUM_MODERATE_AND_POST_PERMISSION = new Long(3);
+    
     // Extended Properties
     public final static String PROPERTY_HIDE_EMPTY_FORUMS = "hideEmptyForums";
     public final static String PROPERTY_HIDE_SEARCH_FORUMS = "hideSearchForums";
@@ -57,8 +70,11 @@ public interface ForumConstants {
     public final static String ADMIN_COMMAND_CREATE_FORUMS_ALGO = "createForumsAlgo";
     public final static String ADMIN_COMMAND_DELETE_FORUMS_ALGO = "deleteForumsAlgo";
     public final static String ADMIN_ENABLE_RATINGS = "enableRatings";
+    public final static String ADMIN_COMMAND_CREATE_FORUMS_COMPONENT = "createForumsComponent";
 
     public final static String ADMIN_MATCH = "match";
+    public final static String ADMIN_NEW_CATEGORY_IDS = "adminNewCatIds";
+    public final static String ADMIN_NEW_CATEGORY_EXCEPTION = "adminNewCatException";
 
     // Search
     public final static String SEARCH_QUERY = "query";
@@ -156,6 +172,8 @@ public interface ForumConstants {
         "Please enter some search terms.";
     public final static String ERR_NO_SEARCH_HANDLE =
         "No user exists with the specified handle.";
+    public final static String ERR_ATTACHING =
+        "There was an error attaching a file.";
     public final static String ERR_NO_POLL_ANSWER = 
     	"Please select an answer.";
     public final static String ERR_NO_POLL_ANSWERS = 

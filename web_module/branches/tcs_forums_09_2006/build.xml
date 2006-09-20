@@ -615,14 +615,6 @@
         </jar>
     </target>
 
-    <target name="package-EJB-ForumPollBean" depends="compile_forums">
-        <jar jarfile="${ejb_jars}/forumpoll.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/forumpoll/*.class"/>
-            <metainf dir="${java}/com/topcoder/web/ejb/forumpoll" includes="*.xml"/>
-        </jar>
-    </target>
-
     <target name="package-EJB-ForumsBean" depends="compile_forums">
         <jar jarfile="${ejb_jars}/forums.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>

@@ -39,7 +39,7 @@
         <init-param>
             <param-name>module_key</param-name>
             <param-value>module</param-value>
-            <description>the url parameter that defines which processor to execute</description>
+            <description>the urlparameter that defines which processor to execute</description>
         </init-param>
         <init-param>
             <param-name>default_processor</param-name>

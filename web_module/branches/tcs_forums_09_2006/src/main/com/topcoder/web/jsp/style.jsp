@@ -42,4 +42,10 @@
 <link type="text/css" rel="stylesheet" href="/css/main.css">
 <link type="text/css" rel="stylesheet" href="/css/stats.css">
 <link type="text/css" rel="stylesheet" href="/css/forums.css">
+<% } else if (key.equals("tcs_forums")) { %>
+<link type="text/css" rel="stylesheet" href="/css/style.css">
+<link type="text/css" rel="stylesheet" href="/css/coders.css">
+<link type="text/css" rel="stylesheet" href="/css/roundTables.css">
+<link type="text/css" rel="stylesheet" href="/css/stats.css">
+<link type="text/css" rel="stylesheet" href="/css/tcStyles.css">
 <% } %>

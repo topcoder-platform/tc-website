@@ -15,6 +15,7 @@
     <property name="classes.dir" value="${build.dir}/classes"/>
     <property name="lib.dir" value="lib"/>
     <property name="jars.dir" value="${lib.dir}/jars"/>
+	<property name="jive.dir" value="lib/jars/jive"/>
     <property name="resources.dir" value="resources"/>
     <property name="web.dir" value="web"/>
     <property name="src.dir" value="src"/>
@@ -24,7 +25,7 @@
     <property name="shared.src.dir" value="../shared/src/main"/>
     <property name="shared.jar" value="${bin.dir}/shared.jar"/>
     <property name="struts.lib.dir" value="${lib.dir}/jakarta-struts-1.1/lib"/>
-
+	<property name="common.jar" value="${bin}/tcwebcommon.jar"/>
 
     <property environment="env"/>
     <property name="jboss.home.dir" value="../jboss-4.0.2"/>
@@ -52,6 +53,11 @@
         <pathelement location="${jars.dir}/idgenerator.jar"/>
         <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
 
+        <pathelement location="${jive.dir}/jivebase.jar"/>
+        <pathelement location="${jive.dir}/jiveforums.jar"/>
+      	<pathelement location="${jive.dir}/xwork.jar"/>
+        <pathelement location="${jive.dir}/htmlparser.jar"/>
+    	
         <!-- tcs components -->
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
         <pathelement location="${jars.dir}/tcs/configuration_manager/2.1.3/configuration_manager.jar"/>
@@ -117,6 +123,15 @@
             </fileset>
         </jar>
     </target>
+	
+	<target name="jar_common" depends="">
+        <jar jarfile="${common.jar}">
+            <fileset dir="${classes}">
+                <include name="com/topcoder/web/common/**/*.class"/>
+                <include name="com/topcoder/common/**/*.class"/>
+            </fileset>
+        </jar>
+    </target>
 
     <target name="compile" depends="init,jar_shared">
         <javac
@@ -146,7 +161,10 @@
                         <exclude name="com/topcoder/web/common/ExtendedThreadLocalSessionContext.java"/>
                         <exclude name="com/topcoder/web/common/model/TCInterceptor.java"/>
             -->
-
+        	<include name="com/topcoder/web/ejb/forums/**"/>
+        	<include name="com/topcoder/web/ejb/messagehistory/**"/>
+        	<include name="com/topcoder/web/forums/**"/>
+        	<antcall target="jar_common"/>
         </javac>
     </target>
 
@@ -209,7 +227,39 @@
             </classes>
             <webinf dir="${resources.dir}/taglib">
                 <include name="dde.tld"/>
+            	<include name="tc-webtags.tld"/>
             </webinf>
+        </war>
+    </target>
+	
+	<target name="war-forums" depends="compile">
+        <war warfile="${war.dir}/forums.war" webxml="${resources.dir}/forums/dde/web.xml">
+            <fileset dir="${java.dir}/com/topcoder/web/forums/view/dde">
+                <include name="*.*"/>
+            </fileset>
+            <fileset dir="${web.dir}/dde/includes">
+            	<include name="top.jsp"/>
+            	<include name="menu.jsp"/>
+            	<include name="left.jsp"/>
+            	<include name="foot.jsp"/>
+            </fileset>
+        	<fileset dir="${java.dir}/com/topcoder/web/jsp">
+        		<include name="page_title.jsp"/>
+        		<include name="style.jsp"/>
+        	</fileset>
+            <classes dir="${classes.dir}">
+                <include name="com/topcoder/web/forums/**/*.class"/>
+            </classes>
+            <webinf dir="${resources.dir}/taglib">
+                <include name="tc-webtags.tld"/>
+                <include name="nav.tld"/>
+            </webinf>
+            <webinf dir="${resources.dir}/forums/dde">
+                <include name="jboss-web.xml"/>
+            </webinf>
+            <lib dir="${jars.dir}">
+                <include name="object_formatter.jar"/>
+            </lib>
         </war>
     </target>
 
@@ -270,9 +320,8 @@
             <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/user/**"/>
             <metainf dir="${java.dir}/com/topcoder/dde/user" includes="*.xml"/>
         </jar>
-
+    	
         <antcall target="package-EJB-RBoard"/>
-
     </target>
 
     <target name="package-EJB-RBoard" depends="compile">
@@ -333,6 +382,7 @@
                 <include name="DBMS.properties"/>
                 <include name="DataAccess.properties"/>
                 <include name="TCS.properties"/>
+            	<include name="forums/dde/jive_init.xml"/>
             </fileset>
             <fileset dir="${resources.dir}/security/conf">
                 <include name="com/topcoder/security/Util.properties"/>
@@ -344,6 +394,16 @@
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${ejb.jars.dir}">
                 <include name="security.jar"/>
+            </fileset>
+        </copy>
+    	<copy todir="${jboss.lib.dir}">
+            <fileset dir="${jive.dir}">
+                <include name="htmlparser.jar"/>
+            	<include name="jivebase.jar"/>
+                <include name="jiveforums.jar"/>
+            	<include name="velocity-dep.jar"/>
+            	<include name="xwork.jar"/>
+            	<include name="webwork.jar"/>
             </fileset>
         </copy>
         <copy todir="${jboss.lib.dir}">
@@ -454,6 +514,7 @@
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${bin.dir}">
                 <include name="shared.jar"/>
+            	<include name="tcwebcommon.jar"/>
             </fileset>
         </copy>
         <copy todir="${jboss.conf.dir}">
@@ -461,7 +522,11 @@
                 <include name="onsite.properties"/>
             </fileset>
         </copy>
-
+    	<copy todir="${jboss.deploy.dir}">
+            <fileset dir="${jive.dir}">
+                <include name="jive4.war"/>
+            </fileset>
+        </copy>
     </target>
 
     <target name="build-site" depends="">
@@ -469,7 +534,7 @@
         <antcall target="build-onsite"/>
     </target>
 
-    <target name="build-ear" depends="war-dde,war-or,build-ejbs,build-sars">
+    <target name="build-ear" depends="war-dde,war-or,war-forums,build-ejbs,build-sars">
         <ear earfile="${ear.dir}/dde.ear" appxml="${resources.dir}/dde/application.xml">
             <fileset dir="${sar.dir}">
                 <include name="*.sar"/>
@@ -488,7 +553,39 @@
         </ear>
     </target>
 
-    <target name="explode" depends="">
+	<target name="package-EJB-MessageHistoryBean" depends="compile">
+        <jar jarfile="${ejb_jars}/messagehistory.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/messagehistory/*.class"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/messagehistory" includes="*.xml"/>
+        </jar>
+    </target>
+	
+    <target name="package-EJB-ForumsBean" depends="compile">
+        <jar jarfile="${ejb_jars}/forums.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/forums/*.class"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/forums" includes="*.xml"/>
+        </jar>
+    </target>
+	
+	<target name="package-TCJive" depends="compile">
+        <jar jarfile="${bin}/tcjive.jar">
+            <fileset dir="${classes}/">
+                <include name="com/topcoder/web/forums/model/TCUser.class"/>
+                <include name="com/topcoder/web/forums/model/TCUserManager.class"/>
+                <include name="com/topcoder/web/forums/model/Common.class"/>
+                <include name="com/topcoder/web/forums/model/TCAuthFactory.class"/>
+                <include name="com/topcoder/web/forums/model/TCAuthToken.class"/>
+                <include name="com/topcoder/web/forums/util/filter/*.class"/>
+            </fileset>
+            <fileset dir="${resources}/forums/filter">
+                <include name="**/*.properties"/>
+            </fileset>
+        </jar>
+    </target>
+	
+    <target name="explode" depends="">    	
         <mkdir dir="${jboss.deploy.dir}/dde.ear"/>
         <unjar src="${ear.dir}/dde.ear" dest="${jboss.deploy.dir}/dde.ear" overwrite="yes"/>
 
@@ -497,11 +594,17 @@
 
         <unwar src="${war.dir}/review.war" dest="${jboss.deploy.dir}/dde.ear/review.war/" overwrite="yes"/>
         <delete dir="${jboss.deploy.dir}/dde.ear/review.war/META-INF"/>
+    	
+    	<unwar src="${war.dir}/forums.war" dest="${jboss.deploy.dir}/dde.ear/forums.war/" overwrite="yes"/>
+    	<delete dir="${jboss.deploy.dir}/dde.ear/forums.war/META-INF"/>
 
+    	<copy todir="${jboss.lib.dir}" file="${bin}/tcjive.jar"/>
         <copy todir="${jboss.deploy.dir}">
             <fileset dir="${ejb.jars.dir}">
                 <include name="Project.jar"/>
                 <include name="RBoard.jar"/>
+            	<include name="messagehistory.jar"/>
+                <include name="forums.jar"/>
             </fileset>
         </copy>
 
@@ -510,8 +613,12 @@
 
     </target>
 
-    <target name="deploy" depends="build-ear,build-screening,build-onsite">
-        <antcall target="explode"/>
+    <target name="deploy" depends="build-ear,build-screening,build-onsite">    	
+    	<antcall target="package-TCJive"/>
+    	<antcall target="package-EJB-MessageHistoryBean"/>
+    	<antcall target="package-EJB-ForumsBean"/>
+    	
+    	<antcall target="explode"/>
     </target>
 
     <target name="build-onsite" depends="compile_onsite">

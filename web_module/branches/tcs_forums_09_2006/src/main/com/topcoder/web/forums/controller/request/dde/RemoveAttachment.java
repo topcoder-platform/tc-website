@@ -6,9 +6,6 @@
  */
 package com.topcoder.web.forums.controller.request.dde;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.Iterator;
 
 import com.jivesoftware.forum.Attachment;
@@ -19,7 +16,6 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
-import com.topcoder.web.forums.controller.ForumsUtil;
 
 /**
  * @author billy
