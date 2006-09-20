@@ -27,14 +27,24 @@
 
 <div align="center"><img src="/i/tournament/tccc06/aol_logo.gif" alt="AOL" border="0"/></div>
 
-<p>For the duration of the 2006 TopCoder&#174; Collegiate Challenge, Sponsored by AOL&#174;, we will be
-    offering
-    TopCoder members the ability to sign up for SMS (text messages), AIM and email messages from
-    TopCoder
-    about tournament, SRM and component related items. The following types of messages are
-    available:</p>
+<p>For the duration of the 2006 TopCoder&#174; Collegiate Challenge, Sponsored by AOL&#174;, we will be offering
+    TopCoder members the ability to sign up to receive tournament related messages using
+    <a href="http://alerts.aol.com" target="_blank">AOL&#174; Alerts</a>.
+</p>
 
 <p>
+    AOL Alerts is a free AOL&#174; feature that keeps you informed of important events wherever you are. Alerts can
+    notify you of breaking news, sports scores, stock quotes, TV listings, weather forecasts and more.
+    Anybody with a valid AOL or AIM&#174; screen name can register to receive Alerts via their AOL service,
+    AOL&#174; Instant Messenger&#153; (AIM), mobile phone or pager.
+</p>
+
+<p>
+    TopCoder and AOL are offering the following categories of messages:
+</p>
+
+<p>
+
 
     <p>
         <span class="bodySubtitle">Group alerts - You can sign up for any or all of the following:</span>
@@ -42,32 +52,27 @@
 
     <p>
         TopCoder SRM reminder: <br/>
-        Example: SRM 318 starts at 9:00 PM EDT (UTC/GMT -4) on Tuesday, Sept. 20. Register between 6:00
-        PM &amp; 8:55 PM EDT. $5,000 prize purse.
+        Example: SRM is on Sep 20 2006. Register between 18:00 &amp; 21:00 EDT (UTC/GMT -4).
     </p>
 
     <p>
         TCCC reminder: <br/>
-        Example: TCCC Qual Rd. 1 starts at 9:00 PM EDT (UTC/GMT -4) on Tuesday, Sept. 12. Register
-        between 6:00 PM &amp; 8:55 PM EDT.
+        Example: TCCC Qual Rd. 1 is on Sep 12, 2006. Register between 18:00 &amp; 20:55 EDT (UTC/GMT -4).
     </p>
 
     <p>
         TCCC announcement: <br/>
-        Example: TCCC Qual Rd. 1 starts at 9:00 PM EDT (UTC/GMT -4) on Tuesday, Sept. 12. Watch the
-        action to see who advances to Round 1.
+        Example: TCCC Qual Rd. 1 is tomorrow. Watch the action to see who advances.
     </p>
 
     <p>
         TopCoder Onsite finals:<br/>
-        Example: John Dethridge and Petr have advanced from Room 1 of the TCCC finals to the
-        Championship Round. Room 2 starts at 1:00 PM PST (UTC/GMT -4).
+        Example: John Dethridge &amp; Petr have advanced to the Championship Round in the TCCC.
     </p>
 
     <p>
         Component posting announcement:<br/>
-        Example: 5 new component design projects and 4 new component development projects have been
-        posted. Check them out now.
+        Example: New component design &amp; development projects have been posted. Check them out now.
     </p>
 
     <p>
@@ -77,23 +82,21 @@
 
     <p>
         TopCoder SRM score and place:<br/>
-        Example: Results for SRM 315 are in. You placed #16 in your room with 1250.87 points. Check out
-        the results online now.
+        Example: Results for SRM 315 are final. You placed #16 with $1250.87 points. See results online.
     </p>
 
     <p>TCCC round score and place:<br/>
-        Example: Results for Qual Round 1 of the TCCC are in. You placed #213 with a score of 1000.00
-        and unfortunately did not advance to the next round.</p>
+        Example: In TCCC Qual Round 1, you placed #213 with a score of 1000.00 and did not advance to Rd. 1.
+    </p>
 
     <p>
         Component score and place:<br/>
-        Example: Results for the Java Super Awesome component are in. You placed #2 with a score of
-        85.66 and won $400. Check out the results now.
+        Example: On Configuration Manager you placed #2 with a score of 85.66.
     </p>
 
 
     <p>
-        In order to sign up an alert, click the appropriate link below. If you are currently logged in to
+        In order to sign up for an alert, click the appropriate link below. If you are currently logged in to
         the AOL
         site, the alert you selected will be added to your AOL account. If you are not currently logged in
         to the AOL site, you will first be asked to login, and then the alert you selected will be added to
