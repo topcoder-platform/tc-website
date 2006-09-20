@@ -126,7 +126,7 @@
 	
 	<target name="jar_common" depends="">
         <jar jarfile="${common.jar}">
-            <fileset dir="${classes}">
+            <fileset dir="${classes.dir}">
                 <include name="com/topcoder/web/common/**/*.class"/>
                 <include name="com/topcoder/common/**/*.class"/>
             </fileset>
