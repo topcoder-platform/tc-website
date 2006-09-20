@@ -1,7 +1,6 @@
 package com.topcoder.web.ejb.pacts;
 
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
@@ -86,12 +85,14 @@ public abstract class BasePayment {
 	public abstract boolean payReferral();
 	
 	protected Payment createPayment() {
+		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yy");
+		
         Payment p = new Payment();
         p.setGrossAmount(getGrossAmount());
         p.setStatusId(getStatusId());
         p.getHeader().setDescription(getDescription());
         p.getHeader().setTypeId(getPaymentType());
-        //p.setDueDate(DateFormat.parse(getDueDate())); // TODO!!
+        p.setDueDate(format.format(getDueDate()));
         p.getHeader().getUser().setId(getCoderId());
         
         fillPaymentReference(p);

@@ -2572,7 +2572,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             insertPaymentDetail.append("  algorithm_round_id, component_project_id, algorithm_problem_id, studio_contest_id, ");
             insertPaymentDetail.append("  component_contest_id, digital_run_stage_id, digital_run_season_id) ");
             insertPaymentDetail.append(" VALUES(?,?,null,null,?,?," + addrStr + ",?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-//TODO: HOLA
+
             ps = c.prepareStatement(insertPaymentDetail.toString());
             ps.setLong(1, paymentDetailId);
             ps.setDouble(2, p.getNetAmount());
@@ -5560,6 +5560,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     	
     }
-    
+ 
 }
 
