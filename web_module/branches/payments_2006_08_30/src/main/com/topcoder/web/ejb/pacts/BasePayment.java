@@ -90,7 +90,7 @@ public abstract class BasePayment {
         p.setStatusId(getStatusId());
         p.getHeader().setDescription(getDescription());
         p.getHeader().setTypeId(getPaymentType());
-        p.setDueDate(DateFormat.parse(getDueDate()));
+        //p.setDueDate(DateFormat.parse(getDueDate())); // TODO!!
         p.getHeader().getUser().setId(getCoderId());
         
         fillPaymentReference(p);
