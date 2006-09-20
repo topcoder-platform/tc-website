@@ -283,11 +283,13 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                 }
             }
             for (int j = 0; j < dateTags.length; j++) {
-                cal.setTime((Date) data.getRow(0).getItem(dateTags[j]).getResultData());
-                if (dateTags[j].equals("date")) {
-                    ret = StringUtils.replace(ret, $dateTags[j], dateFormatter.format(cal));
-                } else {
-                    ret = StringUtils.replace(ret, $dateTags[j], timeFormatter.format(cal));
+                if (data.getRow(0).isValidColumn(dateTags[j])) {
+                    cal.setTime((Date) data.getRow(0).getItem(dateTags[j]).getResultData());
+                    if (dateTags[j].equals("date")) {
+                        ret = StringUtils.replace(ret, $dateTags[j], dateFormatter.format(cal));
+                    } else {
+                        ret = StringUtils.replace(ret, $dateTags[j], timeFormatter.format(cal));
+                    }
                 }
             }
 
