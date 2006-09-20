@@ -114,7 +114,7 @@
                         <br></tc-webtag:errorIterator></span>
 
                     <p>
-                        Query: (The query should return a list with columsn user_id, aol_encrypted_user_id)
+                        Query: (The query should return a list with columns user_id, aol_encrypted_user_id)
                         <br/><tc-webtag:textArea name="<%=AOLHelper.QUERY%>" rows="10" cols="50"/>
                     </p>
 
