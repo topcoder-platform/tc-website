@@ -292,6 +292,9 @@ public class SendAOLAlert extends ShortHibernateProcessor {
         }
 
         String newTemplate = createGeneralMessage(data, template);
+        if (log.isDebugEnabled()) {
+            log.debug("new template " + newTemplate);
+        }
 
         if (data == null || data.isEmpty()) {
             throw new NavigationException("No data for the given round or project id found");
@@ -319,6 +322,9 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                         }
                         if (hasDateTag) {
                             for (int j = 0; j < dateTags.length; j++) {
+                                if (log.isDebugEnabled()) {
+                                    log.debug("new template " + newTemplate);
+                                }
                                 if (newTemplate.indexOf($dateTags[j]) >= 0 && row.isValidColumn(dateTags[j])) {
                                     u = dao.find(new Long(row.getStringItem("user_id")));
                                     cal.setTime((Date) row.getItem(dateTags[j]).getResultData());
