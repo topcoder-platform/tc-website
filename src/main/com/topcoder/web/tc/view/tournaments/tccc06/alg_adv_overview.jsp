@@ -44,7 +44,9 @@
                     <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&sd=asc&sc=round1_sort&d1=tournaments&d2=tccc06&d3=alg_adv_overview">Round 1</a></td>
                     <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&sd=asc&sc=round2_sort&d1=tournaments&d2=tccc06&d3=alg_adv_overview">Round 2</a></td>
                     <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&sd=asc&sc=round3_sort&d1=tournaments&d2=tccc06&d3=alg_adv_overview">Round 3</a></td>
+<%--
                     <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&sd=asc&sc=round4_sort&d1=tournaments&d2=tccc06&d3=alg_adv_overview">Round 4</a></td>
+--%>
                     <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&sd=asc&sc=semi_sort&d1=tournaments&d2=tccc06&d3=alg_adv_overview">Semi</a></td>
                     <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&sd=asc&sc=wildcard_sort&d1=tournaments&d2=tccc06&d3=alg_adv_overview">Wildcard</a></td>
                     <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&sd=asc&sc=finals_sort&d1=tournaments&d2=tccc06&d3=alg_adv_overview">Final</a></td>
@@ -71,11 +73,13 @@
 <% } else { %>
 <td  class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="round3" row="<%=resultRow%>"/></td>
 <% } %>
+<%--
 <% if (StringUtils.checkNull(resultRow.getStringItem("round4")).equals("Eliminated")) { %>
 <td  class="<%=even?"eliminateDk":"eliminateLt"%>" align="center"><rsc:item name="round4" row="<%=resultRow%>"/></td>
 <% } else { %>
 <td  class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="round4" row="<%=resultRow%>"/></td>
 <% } %>
+--%>
 <% if (StringUtils.checkNull(resultRow.getStringItem("semi")).equals("Eliminated")) { %>
 <td  class="<%=even?"eliminateDk":"eliminateLt"%>" align="center"><rsc:item name="semi" row="<%=resultRow%>"/></td>
 <% } else { %>
