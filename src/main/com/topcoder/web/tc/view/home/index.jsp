@@ -61,9 +61,11 @@
     <tr>
         <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
         <td class="BIGPromoBox" align="center">
-<A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><IMG SRC="/i/home/tccc06.gif" border="0" alt="Algorithm Registration Open" /></A>
-
-
+        <map name="tccc_tshirt">
+        <area shape="rect" alt="" coords="1,1,250,149" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
+        <area shape="rect" alt="" coords="260,40,460,105" href="/tc?module=ViewSurvey&sid=219" />
+        </map>
+        <IMG SRC="/i/home/tccc_vote_20060920.png" border="0" alt="Vote for t-shirt" usemap="#tccc_tshirt"/>
         </td>
         <td width="50%" class="homeLogo" align="right">&#160;</td>
     </tr>
