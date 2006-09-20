@@ -17,7 +17,7 @@
 
     <script language="javascript" type="text/javascript">
         <!--
-        var srmResults = "Results for $round_name final.  You placed #$placed with $points points. See results online. chmod 777 aol";
+        var srmResults = "Results for $round_name are final.  You placed #$placed with $points points. See results online. chmod 777 aol";
         var tcccAlgoResults = "In $round_name, you placed $placed with a score of $points and did not advance to Rd. XXXXX.  chmod 777 aol ";
         var compResults = "On $component_name you placed #$placed with a score of $points. chmod 777 aol";
         var tcccAnnouncement = "$round_name is tomorrow.  Watch the action to see who advances. chmod 777 aol";
