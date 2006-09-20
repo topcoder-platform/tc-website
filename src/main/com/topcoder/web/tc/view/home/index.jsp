@@ -93,9 +93,9 @@
             <%-- INTEL MTCS
             <A href="/longcontest/?module=Static&d1=intel_overview"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0" style="display:block;"/></A>
             --%>
-            <%-- DIGITAL RUN 
+            <%-- DIGITAL RUN --%>
             <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/dig_run_20060815.png" alt="The Digital Run" border="0" style="display:block;"/></A>
-            --%>
+            
             <%-- bloomberg 
             <map name="bbg_srm">
             <area shape="rect" alt="" coords="88,2,265,92" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg" />
@@ -105,12 +105,12 @@
             <img src="/i/home/bloomberg_srm317.gif" alt="Bloomberg TCCC Sponsor of SRM 317" border="0" style="display:block;" usemap="#bbg_srm"/>
             --%>
             <%-- NSA 
-            --%>
             <map name="nsa_srm">
             <area shape="rect" alt="" coords="1,1,264,85" href="/tc?module=MatchDetails&rd=9999" />
             <area shape="rect" alt="" coords="1,96,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa" />
             </map>
             <img src="/i/home/nsa_srm319.gif" alt="NSA TCCC SRM 319" border="0" style="display:block;" usemap="#nsa_srm"/>
+            --%>
 
         </td></tr>
     </table>
@@ -242,6 +242,9 @@
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
             
+                New Software Assembly contest: $22,500 in prizes!
+                <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_costingEngineAdminTool">...more</A><br>[September 20]<br><br>
+
                 2007 TCHS Tournament Logo Design Contest
                 <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2030">...more</A><br>[September 11]<br><br>
 
@@ -262,11 +265,6 @@
 
                 UBS Extends Premier Sponsorship of TopCoder Events
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_071206">...more</A><br>[July 12]<br><br>
-
-                <div style="float: right; padding-left: 5px;">
-                    <img src="/i/pressroom/javaPosse_logo.gif" width="68" height="31" alt="Java Posse" border="0"/></div>
-                Java Posse - Interviews from Topcoder and Java One
-                <A href="http://media32b.libsyn.com/aHeceJl2a3eTdmd2bHOcq5qkZnaZ/podcasts/dickwall/JavaPosse065.mp3" target="_blank">...more</A><br>[July 5]<br><br>
 
             </td>
         </tr>
