@@ -36,25 +36,27 @@ public class Main extends Base {
         if (getRegUser() == null) {
             throw new NavigationException("Sorry, your session has expired.");
         } else if (getRegUser().isNew() || userLoggedIn()) {
-            RegistrationTypeDAO regTypeDAO = getFactory().getRegistrationTypeDAO();
-            List types = regTypeDAO.getRegistrationTypes();
+            User u = getRegUser();
+            //if it's a post, they're coming from the selection page, and they should have selected
+            //some types, so add them.
+            if ("POST".equals(getRequest().getMethod())) {
+                RegistrationTypeDAO regTypeDAO = getFactory().getRegistrationTypeDAO();
+                List types = regTypeDAO.getRegistrationTypes();
 
-            RegistrationType rt;
-            HashSet requestedTypes = new HashSet();
-            for (Iterator it = types.iterator(); it.hasNext();) {
-                rt = (RegistrationType) it.next();
-                if ("on".equals(getRequest().getParameter(Constants.REGISTRATION_TYPE + rt.getId()))) {
-                    //log.debug("adding type: " + rt.getName());
-                    requestedTypes.add(rt);
+                RegistrationType rt;
+                HashSet requestedTypes = new HashSet();
+                for (Iterator it = types.iterator(); it.hasNext();) {
+                    rt = (RegistrationType) it.next();
+                    if ("on".equals(getRequest().getParameter(Constants.REGISTRATION_TYPE + rt.getId()))) {
+                        //log.debug("adding type: " + rt.getName());
+                        requestedTypes.add(rt);
+                    }
                 }
+                requestedTypes.addAll(u.getRegistrationTypes());
+                setRequestedTypes(requestedTypes);
             }
 
-            User u = getRegUser();
-
-            requestedTypes.addAll(u.getRegistrationTypes());
-            setRequestedTypes(requestedTypes);
-
-            if (requestedTypes.isEmpty()) {
+            if (getRequestedTypes().isEmpty()) {
                 addError(Constants.REGISTRATION_TYPE, "You have not selected to register for any aspect of TopCoder.");
             }
             //todo if they are attempting to register for high school, and they are not eligible,
