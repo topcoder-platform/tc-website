@@ -38,6 +38,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">09.20.06 3:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_costingEngineAdminTool">New Assembly contest online: $22,500 in prizes!</A><br>
 <tr class="bodyText"><td nowrap="nowrap">09.14.06 10:30 PM - </td><td width="100%">Design and Development Submission Downloads<br>
 <tr class="bodyText"><td nowrap="nowrap">08.31.06 2:30 PM - </td><td width="100%">Digital Run: Stage 1 winners finalized<br>
 <A href="/tc?module=LeaderBoard&ph=112&sc=&sd=&staid=1&nr=50&sr=1">Design Stage 1 Leaderboard</A>&#160;|&#160;<A href="/tc?module=LeaderBoard&ph=113&sc=&sd=&staid=1&nr=50&sr=51">Development Stage 1 Leaderboard</A></td></tr>
