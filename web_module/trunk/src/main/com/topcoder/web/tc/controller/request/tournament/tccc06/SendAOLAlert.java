@@ -46,7 +46,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
             if (!"".equals(StringUtils.checkNull(roundId)) && !"".equals(StringUtils.checkNull(projectId))) {
                 throw new NavigationException("both round id and project id should not be populated");
             }
-            
+
             ResultSetContainer roundData = null;
             if (!"".equals(StringUtils.checkNull(roundId))) {
                 roundData = getRoundData(roundId);
@@ -128,9 +128,10 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                     if (!hasErrors()) {
                         log.debug("sending a individual alert");
 
-                        if (roundId != null) {
+                        if (!"".equals(StringUtils.checkNull(roundId))) {
                             messageData = createTexts(roundData, text, people);
-                        } else {
+                        }
+                        if (!"".equals(StringUtils.checkNull(projectId))) {
                             messageData = createTexts(projectData, text, people);
                         }
 
