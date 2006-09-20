@@ -68,12 +68,12 @@
                         <td class="boxText" align="right"><a href="/pl/?&module=Static&d1=google06&d2=advRd1">500</a>
                         </td>
                     </tr>
-                    <%--
                     <tr valign="top">
                         <td class="advancersRound"><a href="/pl/?&module=Static&d1=google06&d2=advRd2" class="topLink">Online Round 2</a></td>
                         <td class="boxText" align="right"><a href="/pl/?&module=Static&d1=google06&d2=advRd2">100</a>
                         </td>
                     </tr>
+                    <%--
                     <tr valign="top">
                         <td class="advancersRound">
                             <a href="/pl/?&module=Static&d1=google06&d2=advWinners" class="topLink">Final Round</a></td>
