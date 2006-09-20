@@ -43,11 +43,33 @@
                         <option value="<%=AOLHelper.SRM_REMINDER%>"><%=AOLHelper.SRM_REMINDER%></option>
                     </select>
 
+                    <p>
                     <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=AOLHelper.MESSAGE_TEXT%>">${err}
                         <br></tc-webtag:errorIterator></span>
+                    </p>
 
+                    <p>
                     <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>">${err}
                         <br></tc-webtag:errorIterator></span>
+                    </p>
+
+                    <p>
+                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.ROUND_ID%>">${err}
+                        <br></tc-webtag:errorIterator></span>
+                    </p>
+
+                    <p>
+                        Round Id: <tc-webtag:textInput name="<%=Constants.ROUND_ID%>"/>
+                    </p>
+
+                    <p>
+                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.PROJECT_ID%>">${err}
+                        <br></tc-webtag:errorIterator></span>
+                    </p>
+
+                    <p>
+                        Project Id: <tc-webtag:textInput name="<%=Constants.PROJECT_ID%>"/>
+                    </p>
 
                     <p>
                         Handle: <tc-webtag:textInput name="<%=Constants.HANDLE%>"/>
