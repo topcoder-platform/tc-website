@@ -27,7 +27,7 @@
                 <div align="center"><img src="/i/tournament/tccc06/aol_logo.gif" alt="AOL" border="0"/></div>
 
                 <p>
-                    You have successfully sent a message.
+                    Request processed. Click <a href="/tc?module=ViewAOLAlertSender">here</a> to go to the sending page.
                 </p>
 
 
