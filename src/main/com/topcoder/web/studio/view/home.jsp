@@ -165,18 +165,14 @@
                     <% even = !even;
                         i++; %>
                 </rsc:iterator>
-                <tr>
-                    <td class="SW" colspan="5">&nbsp;</td>
-                    <td class="SE">&nbsp;</td>
-                </tr>
-                <%--commented out until we actually have "more"
+                <%--commented out until we actually have "more"--%>
                 <tr>
                     <td class="SW">&nbsp;</td>
-                    <td class="title" colspan="3">
+                    <td class="title" colspan="4">
                         <A href="/?module=ViewPastContests" class="small">...more</A>
                     </td>
                     <td class="SE">&nbsp;</td>
-                </tr>--%>
+                </tr>
             </tbody>
         </table>
 
