@@ -27,8 +27,6 @@
         var srmReminder = "srm reminder";
 
             function choose() {
-               var text = getValue("document.groupSendFrom", "<%=AOLHelper.ALERT_NAME%>");
-               if ( text==null || text.length==0) {
                     if (getValue("document.groupSendFrom", "<%=AOLHelper.ALERT_NAME%>")=="<%=AOLHelper.INDIVIDUAL%> - SRM Results") {
                         putValue("document.groupSendFrom", "<%=AOLHelper.MESSAGE_TEXT%>", srmResults);
                     } else if (getValue("document.groupSendFrom", "<%=AOLHelper.ALERT_NAME%>")=="<%=AOLHelper.INDIVIDUAL%> - TCCC Algo Results") {
@@ -46,7 +44,6 @@
                     } else if (getValue("document.groupSendFrom", "<%=AOLHelper.ALERT_NAME%>")=="<%=AOLHelper.SRM_REMINDER%>") {
                         putValue("document.groupSendFrom", "<%=AOLHelper.MESSAGE_TEXT%>", srmReminder);
                     }
-                }
             }
         -->
     </script>
