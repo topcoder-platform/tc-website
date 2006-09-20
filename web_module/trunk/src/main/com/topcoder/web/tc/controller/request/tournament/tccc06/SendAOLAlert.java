@@ -14,7 +14,6 @@ import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.CalendarDateFormatMethod;
 import com.topcoder.web.tc.Constants;
@@ -259,6 +258,13 @@ public class SendAOLAlert extends ShortHibernateProcessor {
     }
 
     private String createGeneralMessage(ResultSetContainer data, String template) {
+        String[] $dateTags = new String[dateTags.length];
+
+        for (int i = 0; i < dateTags.length; i++) {
+            $dateTags[i] = "$" + dateTags[i];
+        }
+
+        Calendar cal = Calendar.getInstance();
 
         if (data == null || data.isEmpty()) {
             return template;
@@ -269,6 +275,16 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                     ret = StringUtils.replace(ret, "$" + generalTags[i], data.getStringItem(0, generalTags[i]));
                 }
             }
+            for (int j = 0; j < dateTags.length; j++) {
+                cal.setTime((Date) data.getRow(0).getItem(dateTags[j]).getResultData());
+                if (dateTags[j].equals("date")) {
+                    ret = StringUtils.replace(ret, $dateTags[j], dateFormatter.format(cal));
+                } else {
+                    ret = StringUtils.replace(ret, $dateTags[j], timeFormatter.format(cal));
+                }
+            }
+
+
             return ret;
         }
     }
@@ -277,19 +293,12 @@ public class SendAOLAlert extends ShortHibernateProcessor {
         HashMap ret = new HashMap();
 
         String[] $personalTags = new String[personalTags.length];
-        String[] $dateTags = new String[dateTags.length];
 
 
         boolean hasPersonalTag = false;
         for (int i = 0; i < personalTags.length; i++) {
             $personalTags[i] = "$" + personalTags[i];
             hasPersonalTag = template.indexOf($personalTags[i]) >= 0;
-        }
-
-        boolean hasDateTag = false;
-        for (int i = 0; i < dateTags.length; i++) {
-            $dateTags[i] = "$" + dateTags[i];
-            hasDateTag = template.indexOf($dateTags[i]) >= 0;
         }
 
         String newTemplate = createGeneralMessage(data, template);
@@ -301,11 +310,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
             throw new NavigationException("No data for the given round or project id found");
         } else {
 
-            UserDAO dao = DAOUtil.getFactory().getUserDAO();
-            User u;
-            Calendar cal = Calendar.getInstance();
-
-            if (hasPersonalTag || hasDateTag) {
+            if (hasPersonalTag) {
                 ResultSetContainer.ResultSetRow row;
                 String text;
                 String encryptedUserId;
@@ -318,23 +323,6 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                             for (int j = 0; j < personalTags.length; j++) {
                                 if (row.isValidColumn(personalTags[j])) {
                                     text = StringUtils.replace(text, $personalTags[j], row.getStringItem(personalTags[j]));
-                                }
-                            }
-                        }
-                        if (hasDateTag) {
-                            for (int j = 0; j < dateTags.length; j++) {
-                                if (log.isDebugEnabled()) {
-                                    log.debug("new template " + newTemplate);
-                                }
-                                if (newTemplate.indexOf($dateTags[j]) >= 0 && row.isValidColumn(dateTags[j])) {
-                                    u = dao.find(new Long(row.getStringItem("user_id")));
-                                    cal.setTime((Date) row.getItem(dateTags[j]).getResultData());
-                                    cal.setTimeZone(TimeZone.getTimeZone(u.getTimeZone().getDescription()));
-                                    if (dateTags[j].equals("date")) {
-                                        text = StringUtils.replace(text, $dateTags[j], dateFormatter.format(cal));
-                                    } else {
-                                        text = StringUtils.replace(text, $dateTags[j], timeFormatter.format(cal));
-                                    }
                                 }
                             }
                         }
