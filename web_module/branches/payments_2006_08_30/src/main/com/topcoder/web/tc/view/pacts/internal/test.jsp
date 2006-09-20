@@ -63,14 +63,14 @@ Algorithm Contest
 	AlgorithmPayment ap=new AlgorithmContestPayment(7545675,260, 9998);
 	pcs.addPayment(ap);
 %>
-ap.getId: <%= pp.getId() %> <br>
-ap.getCoderId: <%= pp.getCoderId() %> <br>
-ap.getNetAmount: <%= pp.getNetAmount() %> <br>
-ap.getGrossAmount: <%= pp.getGrossAmount() %> <br>
-ap.getStatusId: <%= pp.getStatusId() %> <br>
-ap.getDescription: <%= pp.getDescription() %> <br>
-ap.getDueDate: <%= pp.getDueDate() %> <br>
-ap.getRoundId: <%= pp.getRoundId() %> <br>
+ap.getId: <%= ap.getId() %> <br>
+ap.getCoderId: <%= ap.getCoderId() %> <br>
+ap.getNetAmount: <%= ap.getNetAmount() %> <br>
+ap.getGrossAmount: <%= ap.getGrossAmount() %> <br>
+ap.getStatusId: <%= ap.getStatusId() %> <br>
+ap.getDescription: <%= ap.getDescription() %> <br>
+ap.getDueDate: <%= ap.getDueDate() %> <br>
+ap.getRoundId: <%= ap.getRoundId() %> <br>
 
 <br>
 <br>

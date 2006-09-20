@@ -5409,7 +5409,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     private void fillAlgorithmPaymentData(Connection c, AlgorithmPayment payment) throws SQLException {
         StringBuffer query = new StringBuffer(100);
-        query.append(" select c.name || ' ' || r.name as round_name,  con.end_date");
+        query.append(" select c.name || ' ' || r.name as round_name,  c.end_date");
         query.append(" from round r, ");
         query.append(" contest c ");
         query.append(" where r.contest_id = c.contest_id ");
