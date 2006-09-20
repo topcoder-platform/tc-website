@@ -236,7 +236,7 @@ public class SendAOLAlert extends ShortHibernateProcessor {
             "round_name", "component_name", "catalog", "version"
     };
     private final String[] personalTags = new String[]{
-            "placed", "points", "money"
+            "placed", "points"
     };
     private final String[] dateTags = new String[]{
             "reg_start", "reg_end", "date"
@@ -254,13 +254,14 @@ public class SendAOLAlert extends ShortHibernateProcessor {
 
     private String createGeneralMessage(ResultSetContainer data, String template) {
 
-        if (data == null) {
+        if (data == null || data.isEmpty()) {
             return template;
         } else {
             String ret = template;
-            boolean hasGenTag = false;
-            for (int i = 0; i < generalTags.length && !hasGenTag; i++) {
-                ret = StringUtils.replace(ret, "$" + generalTags[i], data.getStringItem(0, generalTags[i]));
+            for (int i = 0; i < generalTags.length; i++) {
+                if (data.getRow(0).isValidColumn(generalTags[i])) {
+                    ret = StringUtils.replace(ret, "$" + generalTags[i], data.getStringItem(0, generalTags[i]));
+                }
             }
             return ret;
         }
@@ -312,13 +313,15 @@ public class SendAOLAlert extends ShortHibernateProcessor {
                         text = (String) ret.get(encryptedUserId);
                         if (hasPersonalTag) {
                             for (int j = 0; j < personalTags.length; j++) {
-                                text = StringUtils.replace(text, $personalTags[j], row.getStringItem(personalTags[j]));
-                                ret.put(encryptedUserId, text);
+                                if (row.isValidColumn(personalTags[j])) {
+                                    text = StringUtils.replace(text, $personalTags[j], row.getStringItem(personalTags[j]));
+                                    ret.put(encryptedUserId, text);
+                                }
                             }
                         }
                         if (hasDateTag) {
                             for (int j = 0; j < dateTags.length; j++) {
-                                if (text.indexOf($dateTags[j]) >= 0) {
+                                if (text.indexOf($dateTags[j]) >= 0 && row.isValidColumn(dateTags[j])) {
                                     u = dao.find(new Long(row.getStringItem("user_id")));
                                     cal.setTime((Date) row.getItem(dateTags[j]).getResultData());
                                     cal.setTimeZone(TimeZone.getTimeZone(u.getTimeZone().getDescription()));
