@@ -15,7 +15,7 @@
 <jsp:include page="links.jsp" >
 <jsp:param name="tabLev1" value="algorithm"/>
 <jsp:param name="tabLev2" value="advancers"/>
-<jsp:param name="tabLev3" value="overview"/>
+<jsp:param name="tabLev3" value="sections"/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -24,7 +24,7 @@
       <td valign="top" align="center">
       <div class="bodySpacer">
             
-<span class="bigTitle">Advancers</span>
+<span class="bigTitle">Section Assignments</span>
 <br><br>
 <strong>
 Section A
