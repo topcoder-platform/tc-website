@@ -212,7 +212,7 @@
                 --%>
 
                 <%--
-                                  <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=odds_semi" target="_blank"><% if (tabLev3.equals("odds")) {%><img src="/i/tournament/tccc06/tabs/L3_oddsOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_oddsOff.gif" border="0" /><% } %></a></td>
+                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=odds_semi" target="_blank"><% if (tabLev3.equals("odds")) {%><img src="/i/tournament/tccc06/tabs/L3_oddsOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_oddsOff.gif" border="0" /><% } %></a></td>
                 --%>
                 <%--
                 <% } else if (tabLev2.equals("summary")) {%>
