@@ -49,6 +49,7 @@
         <li>
             Fix bug in registration process where the registration selections can bet lost.
         </li>
+        <li>When handles link to profiles, only use the absolute path (including server name) when necessary</li>
     </ul>
 </p>
 
