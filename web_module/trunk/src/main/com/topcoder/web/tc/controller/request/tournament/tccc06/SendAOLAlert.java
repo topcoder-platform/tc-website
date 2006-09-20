@@ -355,6 +355,6 @@ public class SendAOLAlert extends ShortHibernateProcessor {
         r.setContentHandle("aol_project_data");
         r.setProperty(Constants.PROJECT_ID, projectId);
         DataAccess da = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
-        return (ResultSetContainer) da.getData(r).get("aol_round_data");
+        return (ResultSetContainer) da.getData(r).get("aol_project_data");
     }
 }
