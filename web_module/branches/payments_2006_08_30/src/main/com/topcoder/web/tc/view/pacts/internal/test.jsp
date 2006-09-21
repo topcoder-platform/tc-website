@@ -60,7 +60,7 @@ pp.getProblemId: <%= pp.getProblemId() %> <br>
 Algorithm Contest
 <br> 
 <%
-	AlgorithmPayment ap=new AlgorithmContestPayment(20009005,260, 9998);
+	AlgorithmPayment ap=new AlgorithmContestPayment(14810373,260, 9998);
 	pcs.addPayment(ap);
 %>
 ap.getId: <%= ap.getId() %> <br>
@@ -73,10 +73,11 @@ ap.getDueDate: <%= ap.getDueDate() %> <br>
 ap.getRoundId: <%= ap.getRoundId() %> <br>
 ap.getPaymentType: <%= ap.getPaymentType() %>
 
+<br><br>
 Algorithm Tournament Prize, second place
 <br> 
 <%
-AlgorithmTournamentPrizePayment atp=new AlgorithmTournamentPrizePayment(20009005,300, 9980, 2);
+AlgorithmTournamentPrizePayment atp=new AlgorithmTournamentPrizePayment(14810373,300, 9980, 2);
 	pcs.addPayment(atp);
 %>
 atp.getId: <%= atp.getId() %> <br>
@@ -89,10 +90,11 @@ atp.getDueDate: <%= atp.getDueDate() %> <br>
 atp.getRoundId: <%= atp.getRoundId() %> <br>
 atp.getPaymentType: <%= atp.getPaymentType() %>
 
+<br><br>
 Marathon Match, 3rd place
 <br> 
 <%
-MarathonMatchPayment mm =new MarathonMatchPayment(20009005,400, 9881, 3);
+MarathonMatchPayment mm =new MarathonMatchPayment(14810373,400, 9881, 3);
 	pcs.addPayment(mm);
 %>
 atp.getId: <%= mm.getId() %> <br>
@@ -104,7 +106,6 @@ atp.getDescription: <%= mm.getDescription() %> <br>
 atp.getDueDate: <%= mm.getDueDate() %> <br>
 atp.getRoundId: <%= mm.getRoundId() %> <br>
 atp.getPaymentType: <%= mm.getPaymentType() %>
-
 
 <br>
 <br>

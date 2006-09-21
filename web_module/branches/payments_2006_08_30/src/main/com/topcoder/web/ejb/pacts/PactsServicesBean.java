@@ -2558,6 +2558,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     referPay.getHeader().setDescription("Referral bonus for " + handle + " " + p.getHeader().getDescription());
                     referPay.getHeader().setTypeId(CODER_REFERRAL_PAYMENT);
                     referPay.getHeader().getUser().setId(referId);
+                    referPay.getHeader().setParentPaymentId(paymentId);
                 	log.debug("referrer found:" + handle);
 
                     // Recursive call
@@ -5477,7 +5478,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     private long makeNewAlgorithmPayment(Connection c, Payment p, AlgorithmPayment payment) throws Exception{
     	log.debug("makeNewAlgorithmPayment called...");
-    	log.debug("p.payReferrer = " + p.payReferrer());
 		Affidavit a = new Affidavit();
 		a.setRoundId(new Long(payment.getRoundId()));
 		a.getHeader().getUser().setId(payment.getCoderId());
