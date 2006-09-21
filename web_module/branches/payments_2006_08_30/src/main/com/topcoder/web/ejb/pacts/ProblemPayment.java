@@ -29,8 +29,4 @@ public abstract class ProblemPayment extends BasePayment {
 		p.getHeader().setAlgorithmProblemId(getProblemId());
 	}
 	
-	public boolean payReferral() {
-		return false; 
-	}
-
 }

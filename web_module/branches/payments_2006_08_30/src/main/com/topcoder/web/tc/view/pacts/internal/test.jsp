@@ -23,7 +23,7 @@
 Problem Testing:
 <br> 
 <%
-	ProblemPayment pp=new ProblemTestingPayment(7545675,123.456, 1228);
+	ProblemPayment pp=new ProblemTestingPayment(20009005,123.456, 1228);
 	 pcs.addPayment(pp);
 %>
 pp.getId: <%= pp.getId() %> <br>
@@ -41,7 +41,7 @@ pp.getProblemId: <%= pp.getProblemId() %> <br>
 Problem Writing changing description:
 <br> 
 <%
-	 pp=new ProblemWritingPayment(7545675,123.456, 1228);
+	 pp=new ProblemWritingPayment(20009005,123.456, 1228);
 pcs.fillPaymentData(pp);
 pp.setDescription(pp.getDescription() + " modified!");
 	 pcs.addPayment(pp);
@@ -60,7 +60,7 @@ pp.getProblemId: <%= pp.getProblemId() %> <br>
 Algorithm Contest
 <br> 
 <%
-	AlgorithmPayment ap=new AlgorithmContestPayment(7545675,260, 9998);
+	AlgorithmPayment ap=new AlgorithmContestPayment(20009005,260, 9998);
 	pcs.addPayment(ap);
 %>
 ap.getId: <%= ap.getId() %> <br>

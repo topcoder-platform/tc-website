@@ -16,8 +16,4 @@ public class AlgorithmContestPayment extends AlgorithmPayment {
 	public int getPaymentType() {
 		return PactsConstants.ALGORITHM_CONTEST_PAYMENT;
 	}
-
-	public boolean payReferral() {
-		return true;
-	}
 }

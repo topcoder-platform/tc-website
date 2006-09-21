@@ -82,8 +82,6 @@ public abstract class BasePayment {
 
 	protected abstract void fillPaymentReference(Payment p);
 
-	public abstract boolean payReferral();
-
 	protected Payment createPayment() {
 		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 

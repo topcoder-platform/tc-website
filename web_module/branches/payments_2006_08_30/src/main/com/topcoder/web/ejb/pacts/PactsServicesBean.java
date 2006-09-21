@@ -2167,7 +2167,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c.setAutoCommit(false);
             setLockTimeout(c);
 
-            long affidavitId = makeAffidavitPayment(c, a, affidavitText, p);
+            long affidavitId = makeAffidavitPayment(c, a, affidavitText, p).getAffidavitId();
 
             c.commit();
             c.setAutoCommit(true);
@@ -2199,17 +2199,20 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
+
     // Helper function, assumes autocommit is false
-    private long makeAffidavitPayment(Connection c, Affidavit a, String text, Payment p) throws Exception {
+    private AffidavitAndPaymentIds makeAffidavitPayment(Connection c, Affidavit a, String text, Payment p) throws Exception {
         log.debug("makeAffidavitPayment called...");
         PreparedStatement ps = null;
         try {
             // Get ID numbers.  As affidavit references payment, we must add the
             // payment first (if applicable).
             long affidavitId = (long) DBMS.getSeqId(c, DBMS.AFFIDAVIT_SEQ);
+            long paymentId = -1;
+            
             String paymentStr = "null";
             if (p != null) {
-                long paymentId = makeNewPayment(c, p, p.payReferrer());
+                paymentId = makeNewPayment(c, p, p.payReferrer());
                 paymentStr = "" + paymentId;
             }
 
@@ -2258,7 +2261,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.close();
             ps = null;
 
-            return affidavitId;
+            return new AffidavitAndPaymentIds(paymentId, affidavitId);
         } catch (Exception e) {
             try {
                 if (ps != null) ps.close();
@@ -5372,41 +5375,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
         return rsc.getIntItem(0, 0);
 
+
     }
-/*
-    public AlgorithmContestPayment addAlgorithmContestPayment(long coderId, double grossAmount, long roundId) throws SQLException {
-    	ResultSetContainer rsc;
-
-        StringBuffer checkExists = new StringBuffer(300);
-        checkExists.append("SELECT con.name, r.name, ");
-        checkExists.append("con.end_date + " + DUE_DATE_INTERVAL + " UNITS DAY AS due_date ");
-        checkExists.append("FROM round r, contest con ");
-        checkExists.append("WHERE r.round_id = " + roundId + " ");
-        checkExists.append("AND con.contest_id = r.contest_id");
-        rsc = runSelectQuery(c, checkExists.toString(), false);
-        if (rsc.getRowCount() != 1) {
-            throw new IllegalUpdateException("Round " + roundId + " does not exist or is not unique");
-        }
-        String roundName = rsc.getItem(0, 0).toString() + " " + rsc.getItem(0, 1).toString();
-        String dueDate = TCData.getTCDate(rsc.getRow(0), "due_date", null, true);
-
-        Affidavit a = new Affidavit();
-        a.setRoundId(new Long(roundId));
-        a.getHeader().getUser().setId(coderId);
-        a.getHeader().setStatusId(AFFIDAVIT_PENDING_STATUS);
-        a.getHeader().setDescription(roundName + " contest affidavit");
-        a.getHeader().setTypeId(affidavitTypeId);
-
-        Payment p = new Payment();
-        p.setGrossAmount(grossAmount);
-        p.setStatusId(userTaxFormSet.contains(new Long(userId)) ? PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);
-        p.getHeader().setDescription(roundName + " winnings");
-        p.getHeader().setTypeId(CONTEST_PAYMENT);
-        p.setDueDate(dueDate);
-        p.getHeader().getUser().setId(userId);
-
-    }*/
-
     private void fillAlgorithmPaymentData(Connection c, AlgorithmPayment payment) throws SQLException {
         StringBuffer query = new StringBuffer(100);
         query.append(" select c.name || ' ' || r.name as round_name,  c.end_date");
@@ -5435,7 +5405,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     private void fillProblemPaymentData(Connection c, ProblemPayment payment) throws SQLException {
-    	payment.setDueDate(new Date()); // TO DO fix
+    	payment.setDueDate(new Date()); 
 
 		if (payment instanceof ProblemWritingPayment) {
 			payment.setDescription("Problem " + getProblemName(c, payment.getProblemId()) + " writing");
@@ -5496,24 +5466,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     private long makeNewAlgorithmPayment(Connection c, Payment p, AlgorithmPayment payment) throws Exception{
-    	// get affidavit text
-/*        StringBuffer query = new StringBuffer(500);
-        query.append(" select att.text ");
-        query.append(" from address a, user_address_xref x, affidavit_template att, country_affidavit_template_xref cat ");
-        query.append(" where a.address_id = x.address_id ");
-        query.append(" and att.affidavit_type_id = 1 "); // TODO use constant
-        query.append(" and att.affidavit_template_id = cat.affidavit_template_id ");
-    	query.append(" and a.country_code = cat.country_code ");
-    	query.append(" and x.user_id = " + payment.getCoderId());
-
-        ResultSetContainer rsc = runSelectQuery(c, query.toString(), false);
-
-        if (rsc.getRowCount() != 1) {
-        	throw new IllegalArgumentException("Error finding the affidavit text for coder " + payment.getCoderId());
-        }
-
-		String text = rsc.getStringItem(0,0);
-*/
+    	
 		Affidavit a = new Affidavit();
 		a.setRoundId(new Long(payment.getRoundId()));
 		a.getHeader().getUser().setId(payment.getCoderId());
@@ -5521,9 +5474,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 		a.getHeader().setDescription(payment.getRoundName() + " contest affidavit");
 		a.getHeader().setTypeId(1); // TODO use constant
 
-		makeAffidavitPayment(c, a, null, p);
-
-		return -1; // TODO fix!! how to retrieve the payment id??
+		
+		return makeAffidavitPayment(c, a, null, p).getPaymentId(); 
 
     }
     public void addPayment(BasePayment payment) throws SQLException {
@@ -5544,7 +5496,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (payment instanceof AlgorithmPayment) {
             	paymentId = makeNewAlgorithmPayment(c, p, (AlgorithmPayment) payment);
             } else {
-            	paymentId = makeNewPayment(c, p, payment.payReferral());
+            	paymentId = makeNewPayment(c, p, p.payReferrer());
             }
 
             payment.setId(paymentId);
@@ -5582,6 +5534,28 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     }
 
+    /**
+     * Helper class to store a payment id and affidavit id
+     * @author Cucu
+     *
+     */
+    private static class AffidavitAndPaymentIds {
+    	private long paymentId;
+    	private long affidavitId;    	
+    	
+		public AffidavitAndPaymentIds(long paymentId, long affidavitId) {
+			this.paymentId = paymentId;
+			this.affidavitId = affidavitId;
+		}
+		
+		public long getAffidavitId() {
+			return affidavitId;
+		}
+		public long getPaymentId() {
+			return paymentId;
+		}
+    	
+    }
 
 }
 
