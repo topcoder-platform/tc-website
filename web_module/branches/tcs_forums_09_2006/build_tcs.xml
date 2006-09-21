@@ -283,12 +283,6 @@
             <fileset dir="${java.dir}/com/topcoder/web/forums/view/dde">
                 <include name="*.*"/>
             </fileset>
-            <fileset dir="${web.dir}/dde/includes">
-            	<include name="top.jsp"/>
-            	<include name="menu.jsp"/>
-            	<include name="left.jsp"/>
-            	<include name="foot.jsp"/>
-            </fileset>
         	<fileset dir="${java.dir}/com/topcoder/web/jsp">
         		<include name="page_title.jsp"/>
         		<include name="style.jsp"/>

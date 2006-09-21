@@ -78,8 +78,8 @@ function AllowTabCharacter() {
 
 <body>
 
-<jsp:include page="top.jsp"/>
-<jsp:include page="menu.jsp">
+<jsp:include page="../dde.war/includes/top.jsp"/>
+<jsp:include page="../dde.war/includes/menu.jsp">
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
 
@@ -88,7 +88,7 @@ function AllowTabCharacter() {
 
 <!-- Left Column Begins-->
       <td width="180" class="leftColumn">
-        <jsp:include page="left.jsp" >
+        <jsp:include page="../dde.war/includes/left.jsp" >
             <jsp:param name="level1" value="forum"/>
             <jsp:param name="level2" value="all"/>
         </jsp:include>
@@ -176,7 +176,7 @@ function AllowTabCharacter() {
     </tr>
 </table>
 
-<jsp:include page="foot.jsp" />
+<jsp:include page="../dde.war/includes/foot.jsp" />
 
 </body>
 
