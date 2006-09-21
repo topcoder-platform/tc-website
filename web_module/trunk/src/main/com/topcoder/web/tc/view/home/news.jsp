@@ -9,6 +9,25 @@
 </tr>
 <%--------------------------------------------------------%>
 <tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0"/><br>09.21.06<br>12:50 PM</td>
+    <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=ViewActiveContests&ph=112">Puzzled? Components offer brainy challenge</A>
+        </span><br><br>
+        We've posted some unusual component design contests this week that you should check out:
+        <a href="/tc?module=ProjectDetail&amp;pj=23853751">Jigsaw Puzzle</A>,
+        <a href="/tc?module=ProjectDetail&amp;pj=23851358">Letter Scramble Puzzle</A>,
+        <a href="/tc?module=ProjectDetail&amp;pj=23852182">Missing Letter Puzzle</A>,
+        and <a href="/tc?module=ProjectDetail&amp;pj=23851701">Sliding Tile Puzzle</A>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=ViewActiveContests&ph=112">details</A> | 
+    <tc-webtag:forumLink forumID="506121" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
         <br>09.21.06<br>11:30 AM</td>
     <td class="newsTextCell">
@@ -208,25 +227,5 @@
     <A href="/tc?module=Static&d1=collegetour&d2=description">view</A> |
     <tc-webtag:forumLink forumID="506114" message="discuss this"/> |
     <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>
-        09.13.06<br>4:15 PM</td>
-    <td class="newsTextCell"><span class="newsTitle">
-      TCCC06 Algorithm Sections: <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionA">A</A>, <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionB">B</A>, and <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionC">C</A>
-      </span><br><br>
-        Here are the section assignments for Sections
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionA">A</A>,
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionB">B</A>, and
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionC">C</A>.
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionA">Section A</A> |
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionB">Section B</A> |
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionC">Section C</A> |
-    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
 
