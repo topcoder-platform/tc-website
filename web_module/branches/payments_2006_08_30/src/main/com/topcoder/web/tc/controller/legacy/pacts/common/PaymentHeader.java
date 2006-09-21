@@ -57,6 +57,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     private long componentContestId;
     private long digitalRunStageId;
     private long digitalRunSeasonId;
+    private long parentPaymentId;
 
     /**************\
      *              *
@@ -165,11 +166,17 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         case COMPONENT_TOURNAMENT_BONUS_PAYMENT:
         	componentContestId = TCData.getTCLong(rsr, "component_contest_id", 0, false);
     		break;
-        case DIGITAL_RUN_PAYMENT:
+        case DIGITAL_RUN_PRIZE_PAYMENT:
+        case DIGITAL_RUN_TOP_THIRD_PAYMENT:
         	digitalRunStageId = TCData.getTCLong(rsr, "digital_run_stage_id", 0, false);
         	break;
-        case DIGITAL_RUN_ROCKIE_PAYMENT:
+        case DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT:
         	digitalRunSeasonId = TCData.getTCLong(rsr, "digital_run_season_id", 0, false);
+        	break;
+        case CODER_REFERRAL_PAYMENT:
+        case CHARITY_PAYMENT:
+        case RELIABILITY_BONUS_PAYMENT:
+        	parentPaymentId = TCData.getTCLong(rsr, "parent_reference_id", 0, false);
         	break;
         }
         reviewed = 0 != TCData.getTCInt(rsr, "review", 0, true);
@@ -346,5 +353,12 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 		this.studioContestId = studioContestId;
 	}
 
+	public long getParentPaymentId() {
+		return parentPaymentId;
+	}
+
+	public void setParentPaymentId(long parentReferenceId) {
+		this.parentPaymentId = parentReferenceId;
+	}
 
 }

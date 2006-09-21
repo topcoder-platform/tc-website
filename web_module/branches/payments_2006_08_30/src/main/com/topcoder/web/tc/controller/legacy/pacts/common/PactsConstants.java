@@ -61,7 +61,7 @@ public interface PactsConstants {
     public static final int PROBLEM_WRITING_PAYMENT = 15;
     public static final int CCIP_PAYMENT = 16;
     public static final int DIGITAL_RUN_PRIZE_PAYMENT = 17;
-    public static final int DIGITAL_RUN_PRIZE_ROCKIE_PAYMENT = 18;
+    public static final int DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT = 18;
     public static final int COMPONENT_TOURNAMENT_BONUS_PAYMENT = 19;
     public static final int ROYALTY_PAYMENT = 20;
     public static final int MARATHON_MATCH_PAYMENT = 21;
@@ -73,7 +73,7 @@ public interface PactsConstants {
     // Types of payment that pay to referrals
     public static final int[] PAY_REFFERAL_TYPES = {ALGORITHM_CONTEST_PAYMENT, CHARITY_PAYMENT, COMPONENT_PAYMENT, REVIEW_BOARD_PAYMENT,
     	ASSEMBLY_PAYMENT, TESTING_PAYMENT, LOGO_CONTEST_PAYMENT, TC_STUDIO_PAYMENT, CCIP_PAYMENT, DIGITAL_RUN_PRIZE_PAYMENT, 
-    	DIGITAL_RUN_PRIZE_ROCKIE_PAYMENT, COMPONENT_TOURNAMENT_BONUS_PAYMENT, MARATHON_MATCH_PAYMENT, ALGORITHM_TOURNAMENT_PRIZE_PAYMENT,
+    	DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT, COMPONENT_TOURNAMENT_BONUS_PAYMENT, MARATHON_MATCH_PAYMENT, ALGORITHM_TOURNAMENT_PRIZE_PAYMENT,
     	RELIABILITY_BONUS_PAYMENT, DIGITAL_RUN_TOP_THIRD_PAYMENT};
     
     // Reference types
@@ -84,6 +84,7 @@ public interface PactsConstants {
     public static final int REFERENCE_COMPONENT_CONTEST_ID = 5;
     public static final int REFERENCE_DIGITAL_RUN_STAGE_ID = 6;
     public static final int REFERENCE_DIGITAL_RUN_SEASON_ID = 7;
+    public static final int REFERENCE_PARENT_PAYMENT_ID = 8;
 
 
     // Contract type codes
