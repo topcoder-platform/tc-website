@@ -51,39 +51,39 @@
                 <%boolean even = false;%>
                 <rsc:iterator list="<%=rsc%>" id="resultRow">
 <tr>
-<td  class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="seed" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advanceDkC":"advanceLtC"%>"><rsc:item name="seed" row="<%=resultRow%>"/></td>
 <td  class="<%=even?"advanceDk":"advanceLt"%>"><tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' context="algorithm"/></td>
-<td  class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="section" row="<%=resultRow%>"/></td>
-<td  class="<%=even?"advanceDk":"advanceLt"%>" align="right" ><rsc:item name="rating" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advanceDkC":"advanceLtC"%>"><rsc:item name="section" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advanceDkR":"advanceLtR"%>"><rsc:item name="rating" row="<%=resultRow%>"/></td>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round1")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDk":"eliminateLt"%>" align="center"><rsc:item name="round1" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"eliminateDkC":"eliminateLtC"%>"><rsc:item name="round1" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td   class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="round1" row="<%=resultRow%>"/></td>
+<td   class="<%=even?"advanceDkC":"advanceLtC"%>"><rsc:item name="round1" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round2")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDk":"eliminateLt"%>" align="center"><rsc:item name="round2" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"eliminateDkC":"eliminateLtC"%>"><rsc:item name="round2" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td  class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="round2" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advanceDkC":"advanceLtC"%>"><rsc:item name="round2" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round3")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDk":"eliminateLt"%>" align="center"><rsc:item name="round3" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"eliminateDkC":"eliminateLtC"%>"><rsc:item name="round3" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td  class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="round3" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advanceDkC":"advanceLtC"%>"><rsc:item name="round3" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("semi")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDk":"eliminateLt"%>" align="center"><rsc:item name="semi" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"eliminateDkC":"eliminateLtC"%>"><rsc:item name="semi" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td  class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="semi" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advanceDkC":"advanceLtC"%>"><rsc:item name="semi" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("wildcard")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDk":"eliminateLt"%>" align="center"><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"eliminateDkC":"eliminateLtC"%>"><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td  class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advanceDkC":"advanceLtC"%>"><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("final")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDk":"eliminateLt"%>" align="center"><rsc:item name="final" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"eliminateDkC":"eliminateLtC"%>"><rsc:item name="final" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td  class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="final" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advanceDkC":"advanceLtC"%>"><rsc:item name="final" row="<%=resultRow%>"/></td>
 <% } %>
 </tr>
 <%even=!even;%>
