@@ -44,9 +44,11 @@ you need the best.
 <br><br>
 Are you up to the challenge?
 <br><br>
-<a href="/?t=sponsor&c=link&link=http://www.bloomberg.com" target="_blank">www.bloomberg.com</a>
-<br><br>
+Bloomberg has software development offices in the United States and the United Kingdom.<br>
 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg_confirm">Apply Now</A>
+<br><br>
+<a href="/?t=sponsor&c=link&link=http://www.bloomberg.com" target="_blank">www.bloomberg.com</a>
+
 <br><br><br><br><br><br><br><br><br><br>
 
         </div>
