@@ -57,4 +57,10 @@
         </web>
     </module>
 
+	<module>
+        <web>
+            <web-uri>forums.war</web-uri>
+            <context-root>/forums</context-root>
+        </web>
+    </module>
 </application>
