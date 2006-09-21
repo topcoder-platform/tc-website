@@ -71,7 +71,7 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_syndicatedPolls">standings</A>
       --%>
       </td>
-      <td class="valueC">$4,000</td>
+      <td class="valueC">$10,000</td>
       <td class="valueC">
       09.27.2006 9:00 AM EST
       </td>
