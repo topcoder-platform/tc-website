@@ -7,15 +7,15 @@
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.common.StringUtils,
                  com.topcoder.web.forums.controller.ForumsUtil,
+                 com.topcoder.web.forums.util.ImageMapper,
                  com.jivesoftware.base.JiveConstants,
                  com.jivesoftware.base.User,
                  com.jivesoftware.forum.Forum,
+                 com.jivesoftware.forum.ForumCategory,
                  com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.ReadTracker,
                  com.jivesoftware.forum.WatchManager,
-                 java.util.*,
-                 com.jivesoftware.forum.util.ImageMapper,
-                 com.jivesoftware.forum.ForumCategory"
+                 java.util.*"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
