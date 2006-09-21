@@ -221,7 +221,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
 
     public boolean payReferrer() {
     	for (int i = 0; i < PAY_REFFERAL_TYPES.length; i++) {
-    		if (typeId == PAY_REFFERAL_TYPES[i]) {
+    		if (header.getTypeId() == PAY_REFFERAL_TYPES[i]) {
     			return true;    			
     		}
     	}
