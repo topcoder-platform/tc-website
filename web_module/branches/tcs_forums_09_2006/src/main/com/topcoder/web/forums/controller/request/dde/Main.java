@@ -19,7 +19,6 @@ import java.util.ArrayList;
  */
 public class Main extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
-		log.info("************* dde.Main called");
         super.businessProcessing();
         
         // since .getCategories() doesn't take in a ResultFilter, we'll
@@ -44,14 +43,6 @@ public class Main extends ForumsProcessor {
         ResultFilter resultFilter = new ResultFilter();
         resultFilter.setSortField(JiveConstants.MODIFICATION_DATE);
         resultFilter.setSortOrder(ResultFilter.DESCENDING);
-
-        if (forumFactory == null) {
-        	log.info("************* forumFactory is null");
-        } else if (forumFactory.getRootForumCategory() == null) {
-        	log.info("************* forumFactory.getRootForumCategory() is null");
-        } else {
-        	log.info("************* forumFactory is normal");
-        }
         
         Iterator itCategories = forumFactory.getRootForumCategory().getCategories();
         ArrayList mainCategoryList = new ArrayList();   // forums diplayed on main page
