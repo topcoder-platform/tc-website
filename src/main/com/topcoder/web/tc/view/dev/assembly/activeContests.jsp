@@ -61,7 +61,7 @@
       </td>
       <td class="valueC">
       &#160;
-      <%-- 
+      <%--   
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_syndicatedPolls">results</A>
       --%>
       </td>
