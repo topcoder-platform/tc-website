@@ -5381,6 +5381,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Date completeDate =  rsc.getItem(0, "complete_date") == null? new Date() : rsc.getTimestampItem(0, "complete_date");
         String type = rsc.getIntItem(0, "project_type_id") == 1? "Design" : "Development";
         
+        log.debug("completeDate = " + completeDate);
         payment.setEventDate(completeDate);
         
         if (payment instanceof ComponentWinningPayment) {
@@ -5409,6 +5410,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 			throw new IllegalArgumentException("Unknown class payment type: " + payment.getPaymentType());
 		}
 
+    	if (payment.getEventDate() == null ){
+    		payment.setEventDate(new Date());
+    	}
+    	
     	// Calculate the due date as the event date + an interval depending on the type
         Calendar dueDate = Calendar.getInstance();
         dueDate.setTime(payment.getEventDate());
