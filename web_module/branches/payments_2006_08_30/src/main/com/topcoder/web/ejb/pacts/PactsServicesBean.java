@@ -5398,15 +5398,23 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         payment.setDueDate(rsc.getTimestampItem(0, "end_date"));
         payment.setRoundName(roundName);
 
-        if (payment instanceof AlgorithmContestPayment) {
+        if (payment.getPlaced() > 0) {
+        	payment.setDescription(roundName + " " + getOrdinal(payment.getPlaced()) + " place");
+        } else {        	
         	payment.setDescription(roundName + " winnings");
-		} else {
-			throw new IllegalArgumentException("Unknown class payment type: " + payment.getPaymentType());
-		}
-
+        }
     }
 
-    private void fillProblemPaymentData(Connection c, ProblemPayment payment) throws SQLException {
+    private String getOrdinal(int placed) {
+        switch (placed) {
+        case 1: return "1st";
+        case 2: return "2nd"; 
+        case 3: return  "3rd";
+        }
+        return placed + "th"; 
+	}
+
+	private void fillProblemPaymentData(Connection c, ProblemPayment payment) throws SQLException {
     	payment.setDueDate(new Date()); 
 
 		if (payment instanceof ProblemWritingPayment) {

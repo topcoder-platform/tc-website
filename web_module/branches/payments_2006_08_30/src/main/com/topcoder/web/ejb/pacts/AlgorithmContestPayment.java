@@ -13,6 +13,10 @@ public class AlgorithmContestPayment extends AlgorithmPayment {
 		super(coderId, grossAmount, roundId);
 	}
 
+	public AlgorithmContestPayment(long coderId, double grossAmount, long roundId, int placed) {
+		super(coderId, grossAmount, roundId, placed);
+	}
+
 	public int getPaymentType() {
 		return PactsConstants.ALGORITHM_CONTEST_PAYMENT;
 	}
