@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><A href="/tc?module=Static&amp;d1=features&amp;d2=092106"><strong>Creating an Intelligent Design</strong></A>, by <tc-webtag:handle coderId="299911" /><br>
+In working with software, odds are you will eventually come face-to-face with an unpleasant fact: sometimes, developers have agendas. While it's certainly not true for everyone, there are developers out there who are looking not just for a paycheck, but for a way to express who they are through code.</li>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=091806"><strong>Computational geometry with complex numbers</strong></A>, by <tc-webtag:handle coderId="251074" /><br>
 Computational geometry problems appear frequently in Topcoder contests and a series of articles has already been written on the subject. However, competitors who have tried to implement these algorithms (particularly in C++) will no doubt have been frustrated&#8230;</li>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=091406"><strong>Introduction to OpenMP, Part 2</strong></A>, by <tc-webtag:handle coderId="21464956" /><br>
 In Part 1, we looked at an overview of multi-threading, introduced OpenMP, and began to review its directives. Part 2 continues with a look at the reduction directive.</li>
-<li><A href="/tc?module=Static&amp;d1=features&amp;d2=091106"><strong>Introduction to OpenMP, Part 1</strong></A>, by <tc-webtag:handle coderId="21464956" /><br>
-As most people involved in programming probably know, multi-threading is going to be "the next big thing" in terms of using modern hardware to its full extent.</li>
 </ul>
 <span class="bodySubtitle">From the archives:</span><br>
 <ul>

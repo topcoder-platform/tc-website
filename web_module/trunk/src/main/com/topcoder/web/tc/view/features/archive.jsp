@@ -43,13 +43,11 @@
                <td class="bodyText"><b>Title</b></td>
                <td class="bodyText"><b>Date</b></td>
             </tr>
-            <%--
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="299911" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=092106"><strong>Creating an Intelligent Design</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Sep 21, 2006</td>
             </tr>
-            --%>
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="251074" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=091806"><strong>Computational geometry with complex numbers</strong></A></td>

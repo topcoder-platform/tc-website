@@ -9,6 +9,25 @@
 </tr>
 <%--------------------------------------------------------%>
 <tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
+        <br>09.21.06<br>11:30 AM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=092106">Creating an Intelligent Design</A></span><br><br>
+               Some developers are "purists" -- they want to do things in the best, most efficient, most reusable way, no matter what. 
+               Unfortunately, the world is neither pure nor patient. With an intelligent approach to design, though, both purists and realists can happily coexist.</td>
+            <td class="newsPhoto">by <tc-webtag:handle coderId="299911"/></td></tr>
+        </table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&amp;d1=features&amp;d2=092106">article</A> |
+    <tc-webtag:forumLink forumID="506120" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0"/>
         <br>09.20.06<br>3:00 PM</td>
     <td class="newsTextCell"><span class="newsTitle">
@@ -208,24 +227,6 @@
     <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionA">Section A</A> |
     <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionB">Section B</A> |
     <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionC">Section C</A> |
-    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>
-        09.13.06<br>11:45 AM</td>
-    <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">TCCC06
-          Algorithm Qualification Round 3 Results</A>
-      </span><br><br>
-        The results are in for the third TCCC06 Algorithm Qualification Round.
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">results</A>
-    |
-    <tc-webtag:forumLink forumID="506103" message="discuss this"/> |
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
 
