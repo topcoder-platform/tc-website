@@ -2558,6 +2558,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     referPay.getHeader().setDescription("Referral bonus for " + handle + " " + p.getHeader().getDescription());
                     referPay.getHeader().setTypeId(CODER_REFERRAL_PAYMENT);
                     referPay.getHeader().getUser().setId(referId);
+                    //referPay.setDueDate(p.getDueDate()); fix, is that ok?
                     referPay.getHeader().setParentPaymentId(paymentId);
                 	log.debug("referrer found:" + handle);
 
@@ -5430,6 +5431,35 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
 	}
 
+    private void fillComponentPaymentData(Connection c, ComponentPayment payment) throws SQLException {
+        StringBuffer query = new StringBuffer(300);
+        query.append("SELECT cc.component_name, p.complete_date, p.project_type_id ");
+        query.append("FROM tcs_catalog:project p, tcs_catalog:comp_versions cv, tcs_catalog:comp_catalog cc ");
+        query.append("WHERE p.comp_vers_id = cv.comp_vers_id ");
+        query.append("AND cv.component_id = cc.component_id ");
+        query.append("AND p.project_id = " + payment.getProjectId() + " ");
+        query.append("AND p.cur_version = 1");
+        ResultSetContainer rsc = runSelectQuery(c, query.toString(), false);
+        if (rsc.getRowCount() != 1) {
+            throw new IllegalArgumentException("Project " + payment.getProjectId() + " does not exist or is not unique");
+        }
+        String componentName = rsc.getStringItem(0, "component_name");
+        Date dueDate =  rsc.getTimestampItem(0, "complete_date");
+        String type = rsc.getIntItem(0, "project_type_id") == 1? "Design" : "Development";
+        
+        payment.setDueDate(dueDate);
+        
+        if (payment instanceof ComponentWinningPayment) {
+        	payment.setDescription(componentName + " - " + type + ", " + getOrdinal(((ComponentWinningPayment) payment).getPlaced()));
+       	
+        } else if (payment instanceof ReviewBoardPayment) {
+        	payment.setDescription(componentName + " - " + type + " review board");
+
+		} else {
+			throw new IllegalArgumentException("Unknown class payment type: " + payment.getPaymentType());
+		}
+    }
+
     private void fillPaymentData(Connection c, BasePayment payment) throws SQLException {
 
     	if (payment instanceof ProblemPayment) {
@@ -5437,6 +5467,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     	} else if (payment instanceof AlgorithmPayment) {
     		fillAlgorithmPaymentData(c, (AlgorithmPayment) payment);
+
+    	} else if (payment instanceof ComponentPayment) {
+    		fillComponentPaymentData(c, (ComponentPayment) payment);
 
 		} else {
 			throw new IllegalArgumentException("Unknown class payment type: " + payment.getPaymentType());
@@ -5451,6 +5484,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     	payment.setDueDate(dueDate.getTime());
     	payment.setDataFilled(true);
     }
+    
 
     /**
      * Look up and fill data in the payment object.

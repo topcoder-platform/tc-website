@@ -106,9 +106,45 @@ atp.getDescription: <%= mm.getDescription() %> <br>
 atp.getDueDate: <%= mm.getDueDate() %> <br>
 atp.getRoundId: <%= mm.getRoundId() %> <br>
 atp.getPaymentType: <%= mm.getPaymentType() %>
+<br>
+<br>
 
+Component Winning:
+<%
+ComponentPayment cp =new ComponentWinningPayment(14810373,400, 8596547, 1);
+	pcs.addPayment(cp);
+%>
+getId: <%= cp.getId() %> <br>
+getCoderId: <%= cp.getCoderId() %> <br>
+getNetAmount: <%= cp.getNetAmount() %> <br>
+getGrossAmount: <%= cp.getGrossAmount() %> <br>
+getStatusId: <%= cp.getStatusId() %> <br>
+getDescription: <%= cp.getDescription() %> <br>
+getDueDate: <%= cp.getDueDate() %> <br>
+getProjectId: <%= cp.getProjectId() %> <br>
+getPaymentType: <%= mm.getPaymentType() %>
 <br>
 <br>
+
+
+Review Board
+<%
+cp =new ReviewBoardPayment(14810373,400, 20186915);
+	pcs.addPayment(cp);
+%>
+getId: <%= cp.getId() %> <br>
+getCoderId: <%= cp.getCoderId() %> <br>
+getNetAmount: <%= cp.getNetAmount() %> <br>
+getGrossAmount: <%= cp.getGrossAmount() %> <br>
+getStatusId: <%= cp.getStatusId() %> <br>
+getDescription: <%= cp.getDescription() %> <br>
+getDueDate: <%= cp.getDueDate() %> <br>
+getProjectId: <%= cp.getProjectId() %> <br>
+getPaymentType: <%= mm.getPaymentType() %>
+<br>
+<br>
+
+
 
 </body>
 
