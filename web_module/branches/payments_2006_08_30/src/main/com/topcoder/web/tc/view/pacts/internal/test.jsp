@@ -71,6 +71,7 @@ ap.getStatusId: <%= ap.getStatusId() %> <br>
 ap.getDescription: <%= ap.getDescription() %> <br>
 ap.getDueDate: <%= ap.getDueDate() %> <br>
 ap.getRoundId: <%= ap.getRoundId() %> <br>
+ap.getPaymentType: <%= ap.getPaymentType() %>
 
 <br>
 <br>
