@@ -36,7 +36,7 @@
 <% } else if (tabLev1.equals("component")) { %>
 <tr>
     <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tccc06_logo_aol.gif" border="0"/></A></td>
-    <td valign="middle" align="center"><A href="/tc?module=TCCC06ComponentTerms"><img src="/i/tournament/tccc06/bnr_register_now.gif" border="0" alt=""/></A></td>
+    <td valign="middle" align="center"><%--<A href="/tc?module=TCCC06ComponentTerms"><img src="/i/tournament/tccc06/bnr_register_now.gif" border="0" alt=""/></A>--%></td>
     <td valign="top" align="right" width="50%"><a href="/"><img src="/i/tournament/tccc06/tc_logo.gif" border="0"/></a></td>
 </tr>
 <tr><td class="topNavBox" colspan="3"><img src="/i/tournament/tccc06/tabs/L1_compOn.gif" alt="" border="0" usemap="#L1_tabs"/></td></tr>
