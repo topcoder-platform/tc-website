@@ -27,6 +27,7 @@
             <map name="aol">
                 <area shape="rect" alt="" coords="436,442,530,455" href="<tc-webtag:linkTracking link="http://developer.aol.com"/>" target="_blank"/>
                 <area shape="rect" alt="" coords="489,515,595,527" href="<tc-webtag:linkTracking link="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_recruiting"/>"/>
+              <%--  <area shape="rect" alt="" coords="386,544,446,559" href="<tc-webtag:linkTracking link="/tc?module=AOLAlertsDescription"/>"/>--%>
 <%-- old link tracking
                 <area shape="rect" alt="" coords="436,442,530,455" href="/?t=sponsor&c=link&link=http://developer.aol.com" target="_blank"/>
                 <area shape="rect" alt="" coords="489,515,595,527" href="/?t=sponsor&c=link&link=/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_recruiting"/>
