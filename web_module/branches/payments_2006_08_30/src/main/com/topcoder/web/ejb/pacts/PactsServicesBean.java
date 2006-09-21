@@ -5444,10 +5444,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new IllegalArgumentException("Project " + payment.getProjectId() + " does not exist or is not unique");
         }
         String componentName = rsc.getStringItem(0, "component_name");
-        Date dueDate =  rsc.getTimestampItem(0, "complete_date");
+        Date completeDate =  rsc.getItem(0, "complete_date") == null? new Date() : rsc.getTimestampItem(0, "complete_date");
         String type = rsc.getIntItem(0, "project_type_id") == 1? "Design" : "Development";
         
-        payment.setDueDate(dueDate);
+        payment.setDueDate(completeDate);
         
         if (payment instanceof ComponentWinningPayment) {
         	payment.setDescription(componentName + " - " + type + ", " + getOrdinal(((ComponentWinningPayment) payment).getPlaced()));
