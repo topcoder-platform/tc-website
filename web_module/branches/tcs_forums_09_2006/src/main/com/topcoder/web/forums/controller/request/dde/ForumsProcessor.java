@@ -3,13 +3,8 @@
  */
 package com.topcoder.web.forums.controller.request.dde;
 
-import com.jivesoftware.base.AuthToken;
-import com.jivesoftware.base.User;
-import com.jivesoftware.forum.ForumFactory;
 import com.topcoder.web.forums.controller.ForumsUtil;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 /**
@@ -18,15 +13,6 @@ import java.util.Map;
  * Base class for forum-related processors, providing message and user data.
  */
 public abstract class ForumsProcessor extends com.topcoder.web.forums.controller.request.ForumsProcessor {
-    protected HttpServletRequest httpRequest;
-    protected HttpServletResponse httpResponse;
-    protected AuthToken authToken;
-    protected ForumFactory forumFactory;
-    protected User user;
-    
-    /* TODO there is redundant code stuff that seems to break the design.  hopefully this can be cleaned */
-
-
     /**
      * Subclasses should do their work by implementing this method.
      */
