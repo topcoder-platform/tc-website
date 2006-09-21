@@ -20,6 +20,9 @@ public abstract class BasePayment {
 	private int statusId;
 	private String description;
 
+	// Date when the event happened.  It is not stored in the database, but needed to know if referrals must be paid.
+	private Date eventDate;
+	
 	// Whether complete data is filled or not.
 	private boolean dataFilled;
 
@@ -90,6 +93,7 @@ public abstract class BasePayment {
         p.setStatusId(getStatusId());
         p.getHeader().setDescription(getDescription());
         p.getHeader().setTypeId(getPaymentType());
+        p.setEventDate(getEventDate());
         p.setDueDate(format.format(getDueDate()));
         p.getHeader().getUser().setId(getCoderId());
 
@@ -97,5 +101,13 @@ public abstract class BasePayment {
 
         return p;
 
+	}
+
+	public Date getEventDate() {
+		return eventDate;
+	}
+
+	public void setEventDate(Date eventDate) {
+		this.eventDate = eventDate;
 	}
 }

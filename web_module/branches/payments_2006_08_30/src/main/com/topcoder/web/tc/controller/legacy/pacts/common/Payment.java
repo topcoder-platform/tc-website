@@ -17,10 +17,11 @@
 
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
+import java.util.Date;
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
-
-import java.util.Map;
 
 public class Payment implements PactsConstants, java.io.Serializable {
     private static Logger log = Logger.getLogger(Payment.class);
@@ -54,7 +55,9 @@ public class Payment implements PactsConstants, java.io.Serializable {
     private String stateCode;
     private PaymentHeader header;
     
-
+    // When the event took place. Is not stored in the db, but is needed in order to know if referrals must be paid
+    private Date eventDate;
+    
     /**
      * this is used to set the payment when passed a result map
      * by a dipatch bean.  The dispatch bean would have gotten the
@@ -459,6 +462,14 @@ public class Payment implements PactsConstants, java.io.Serializable {
 
 	public static void setLog(Logger log) {
 		Payment.log = log;
+	}
+
+	public Date getEventDate() {
+		return eventDate;
+	}
+
+	public void setEventDate(Date eventDate) {
+		this.eventDate = eventDate;
 	}
 
 

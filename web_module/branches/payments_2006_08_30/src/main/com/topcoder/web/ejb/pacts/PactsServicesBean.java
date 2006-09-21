@@ -2457,16 +2457,32 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     // Helper function getting the referring user
-    private ResultSetContainer getReferrer(Connection c, long userId) throws SQLException {
-        StringBuffer getReferralUser = new StringBuffer(300);
-        getReferralUser.append("SELECT cr.reference_id, u.handle AS referrer_handle, ");
-        getReferralUser.append("u2.handle AS coder_handle ");
-        getReferralUser.append("FROM coder_referral cr, user u, user u2 ");
-        getReferralUser.append("WHERE cr.coder_id = " + userId + " ");
-        getReferralUser.append("AND cr.referral_id = " + CODER_REFERRAL_TYPE + " ");
-        getReferralUser.append("AND u.user_id = cr.reference_id ");
-        getReferralUser.append("AND u2.user_id = cr.coder_id");
-        return runSelectQuery(c, getReferralUser.toString(), false);
+    private ResultSetContainer getReferrer(Connection c, long userId, Date eventDate) throws Exception {
+        
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            StringBuffer getReferralUser = new StringBuffer(300);
+            getReferralUser.append("SELECT cr.reference_id, u.handle AS referrer_handle, ");
+            getReferralUser.append("u2.handle AS coder_handle ");
+            getReferralUser.append("FROM coder_referral cr, user u, user u2, coder c2 ");
+            getReferralUser.append("WHERE cr.coder_id = " + userId + " ");
+            getReferralUser.append("AND cr.referral_id = " + CODER_REFERRAL_TYPE + " ");
+            getReferralUser.append("AND u.user_id = cr.reference_id ");
+            getReferralUser.append("AND u2.user_id = cr.coder_id ");
+            getReferralUser.append("AND c2.coder_id = cr.coder_id ");
+            getReferralUser.append("AND c2.member_since + 365 UNITS DAY >= ?");
+
+            ps = c.prepareStatement(getReferralUser.toString());
+            ps.setTimestamp(1, new Timestamp(eventDate.getTime()));
+            rs = ps.executeQuery();
+            
+            return new ResultSetContainer(rs, false);
+            
+        } finally {
+        	close(ps);
+        	close(rs);
+        }               
     }
 
     private void setNullableLong(PreparedStatement ps, int n, long value) throws SQLException {
@@ -2547,7 +2563,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Create the referral payment if requested and if we can find a referring user
             if (createReferralPayment) {
             	log.debug("createReferralPayment");
-                ResultSetContainer rsc = getReferrer(c, p.getHeader().getUser().getId());
+                ResultSetContainer rsc = getReferrer(c, p.getHeader().getUser().getId(), p.getEventDate());                
                 if (rsc.getRowCount() > 0) {
                     Payment referPay = new Payment();
                     referPay.setGrossAmount(p.getGrossAmount() * REFERRAL_PERCENTAGE);
@@ -4609,7 +4625,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     pairAdd.append("Payment type ID: " + p.getHeader().getTypeId() + "\n");
                     pairAdd.append("Payment due date: " + p.getDueDate() + "\n");
                     pairAdd.append("Payment user ID: " + p.getHeader().getUser().getId() + "\n");
-                    ResultSetContainer referRsc = getReferrer(c, p.getHeader().getUser().getId());
+                    ResultSetContainer referRsc = getReferrer(c, p.getHeader().getUser().getId(), p.getEventDate());
                     pairAdd.append("Added referral payment: " + (referRsc.getRowCount() == 1 ? "yes" : "no") + "\n");
                     pairAdd.append("----------------------------------");
                     log.info(pairAdd.toString());
@@ -4817,7 +4833,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	                    paymentAdd.append("Payment type ID: " + p.getHeader().getTypeId() + "\n");
 	                    paymentAdd.append("Payment due date: " + p.getDueDate() + "\n");
 	                    paymentAdd.append("Payment user ID: " + p.getHeader().getUser().getId() + "\n");
-	                    ResultSetContainer referRsc = getReferrer(c, p.getHeader().getUser().getId());
+	                    ResultSetContainer referRsc = getReferrer(c, p.getHeader().getUser().getId(), p.getEventDate());
 	                    paymentAdd.append("Added referral payment: " + (referRsc.getRowCount() == 1 ? "yes" : "no") + "\n");
 	                    paymentAdd.append("----------------------------------");
 	                    log.info(paymentAdd.toString());
@@ -5234,88 +5250,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return hm;
     }
 
-/*
-
-    private ComponentPayment addComponentPayment(long coderId, double grossAmount, long projectId, int placed, boolean review) throws IllegalUpdateException, SQLException {
-        Connection c = null;
-        try {
-            c = DBMS.getConnection();
-            c.setAutoCommit(false);
-            setLockTimeout(c);
-
-            // Get project information
-            StringBuffer query = new StringBuffer(300);
-            query.append("SELECT cc.component_name, p.complete_date + ptl.due_date_interval UNITS DAY AS due_date, p.project_type_id ");
-            query.append("FROM tcs_catalog:project p, tcs_catalog:comp_versions cv, tcs_catalog:comp_catalog cc, ");
-            query.append("payment_type_lu ptl ");
-            query.append("WHERE p.comp_vers_id = cv.comp_vers_id ");
-            query.append("AND cv.component_id = cc.component_id ");
-            query.append("AND p.project_id = " + projectId + " ");
-            query.append("AND ptl.payment_type_id = " + (review? REVIEW_BOARD_PAYMENT : COMPONENT_PAYMENT));
-            query.append("AND p.cur_version = 1");
-            ResultSetContainer rsc = runSelectQuery(c, query.toString(), false);
-            if (rsc.getRowCount() != 1) {
-                throw new IllegalUpdateException("Project " + projectId + " does not exist or is not unique");
-            }
-            String componentName = rsc.getStringItem(0, "component_name");
-            Date dueDate =  rsc.getTimestampItem(0, "due_date");
-            String dueDateStr = TCData.getTCDate(rsc.getRow(0), "date_due", null, false);
-            String type = rsc.getIntItem(0, "project_type_id") == 1? "Design" : "Development";
-
-            String placedStr;
-            switch (placed) {
-            case 1: placedStr = "1st"; break;
-            case 2: placedStr = "2nd"; break;
-            case 3: placedStr = "3rd"; break;
-            default: placedStr = placed + "th"; break;
-            }
-            Payment p = new Payment();
-            p.setGrossAmount(grossAmount);
-            p.setStatusId(hasTaxForm(c, coderId) ? PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);
-            p.getHeader().setDescription(componentName + " - " + type + (review? " review board" : ", " + placedStr));
-            p.getHeader().setTypeId(review? REVIEW_BOARD_PAYMENT : COMPONENT_PAYMENT );
-            p.setDueDate(dueDateStr);
-            p.getHeader().getUser().setId(coderId);
-
-            long paymentId = makeNewPayment(c, p, true);
-
-            ComponentPayment cp = new ComponentPayment(paymentId, coderId, projectId);
-            cp.setStatusId(p.getStatusId());
-            cp.setDescription(p.getHeader().getDescription());
-            cp.setDueDate(dueDate);
-            cp.setGrossAmount(p.getGrossAmount());
-            cp.setNetAmount(p.getNetAmount());
-
-            c.commit();
-            c.setAutoCommit(true);
-            c.close();
-            c = null;
-
-            return cp;
-        } catch (Exception e) {
-            printException(e);
-            try {
-                c.rollback();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            try {
-                c.setAutoCommit(true);
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            try {
-                if (c != null) c.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            c = null;
-            if (e instanceof IllegalUpdateException)
-                throw (IllegalUpdateException) e;
-            throw new SQLException(e.getMessage());
-        }
-    }
-*/
     /**
      * Returns whether the user has already sent a Tax form.
      *
@@ -5397,7 +5331,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         String roundName = rsc.getStringItem(0, "round_name");
 
-        payment.setDueDate(rsc.getTimestampItem(0, "end_date"));
+        payment.setEventDate(rsc.getTimestampItem(0, "end_date"));
         payment.setRoundName(roundName);
 
         if (payment.getPlaced() > 0) {
@@ -5417,7 +5351,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	}
 
 	private void fillProblemPaymentData(Connection c, ProblemPayment payment) throws SQLException {
-    	payment.setDueDate(new Date()); 
+    	payment.setEventDate(new Date()); 
 
 		if (payment instanceof ProblemWritingPayment) {
 			payment.setDescription("Problem " + getProblemName(c, payment.getProblemId()) + " writing");
@@ -5447,7 +5381,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Date completeDate =  rsc.getItem(0, "complete_date") == null? new Date() : rsc.getTimestampItem(0, "complete_date");
         String type = rsc.getIntItem(0, "project_type_id") == 1? "Design" : "Development";
         
-        payment.setDueDate(completeDate);
+        payment.setEventDate(completeDate);
         
         if (payment instanceof ComponentWinningPayment) {
         	payment.setDescription(componentName + " - " + type + ", " + getOrdinal(((ComponentWinningPayment) payment).getPlaced()));
@@ -5477,7 +5411,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     	// Calculate the due date as the event date + an interval depending on the type
         Calendar dueDate = Calendar.getInstance();
-        dueDate.setTime(payment.getDueDate());
+        dueDate.setTime(payment.getEventDate());
         dueDate.add(Calendar.DAY_OF_YEAR, getDueDateInterval(c, payment.getPaymentType()));
 
     	payment.setStatusId(hasTaxForm(c, payment.getCoderId()) ? PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);
