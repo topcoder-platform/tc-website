@@ -39,7 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<tr class="bodyText"><td nowrap="nowrap">09.22.06 12:00 Noon - </td><td width="100%"><A href="/tc?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">Algorithm Round 1A Advancers Announced</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.22.06 11:45 AM - </td><td width="100%"><A href="/tc?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">TCCC06 Algorithm Round 1A Results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.22.06 9:00 AM - </td><td width="100%"><A href="/tc?module=AOLAlertsDescription">Announcing AOL&#174; Alerts</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.18.06 12:10 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=219">Vote for the TCCC t-shirt quote</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.18.06 11:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA SRM 319 Chat Session</A></td></tr>
