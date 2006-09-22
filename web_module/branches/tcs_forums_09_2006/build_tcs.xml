@@ -280,7 +280,7 @@
 	
 	<target name="war-forums" depends="compile">
         <war warfile="${war.dir}/forums.war" webxml="${resources.dir}/forums/dde/web.xml">
-        	<fileset dir="${web.dir}/dde" excludes="${web.dir}/dde/images"/>
+        	<fileset dir="${web.dir}/dde" excludes="${web.dir}/dde/images/**,${web.dir}/dde/*.*"/>
             <fileset dir="${java.dir}/com/topcoder/web/forums/view/dde">
                 <include name="*.*"/>
             </fileset>
