@@ -64,7 +64,7 @@ public abstract class DigitalRunSeasonReferencePayment extends BasePayment {
 			query.append(" SELECT s.name, c.date ");
 			query.append(" FROM season s, calendar c  ");
 			query.append(" WHERE c.calendar_id = s.end_calendar_id ");
-			query.append(" AND st.season_id = " + payment.getSeasonId());
+			query.append(" AND s.season_id = " + payment.getSeasonId());
 			
 			ResultSetContainer rsc = runSelectQuery(DBMS.TCS_DW_DATASOURCE_NAME, query.toString());
 			
