@@ -2344,8 +2344,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new IllegalUpdateException("Net amount cannot exceed gross amount");
         }
 
+        // cucu - now gross amount of 0 are permitted, for example for charity
+        /*
         if (p.getGrossAmount() <= 0) {
             throw new IllegalUpdateException("Gross amount must be greater than zero");
+        }
+        */
+
+        if (p.getGrossAmount() < 0) {
+            throw new IllegalUpdateException("Gross amount must be non negative");
         }
 
         if (newPayment) {
@@ -2493,12 +2500,72 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
+    /**
+     * Inserts a new row into payment_detail table.
+     * 
+     * @param c Connection to use
+     * @param p payment to insert
+     * @param addressId id of the payment_address, or 0 to insert null
+     * @return the payment_detail_id of the inserted record
+     * @throws Exception
+     */
+    private long insertPaymentDetail(Connection c, Payment p, long addressId) throws Exception {
+    	PreparedStatement ps = null;
+    	long paymentDetailId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_DETAIL_SEQ);
+    	try {
+	        StringBuffer insertPaymentDetail = new StringBuffer(300);
+	        insertPaymentDetail.append("INSERT INTO payment_detail ");
+	        insertPaymentDetail.append(" (payment_detail_id, net_amount, date_paid, date_printed, ");
+	        insertPaymentDetail.append("  gross_amount, status_id, payment_address_id, modification_rationale_id, ");
+	        insertPaymentDetail.append("  payment_desc, payment_type_id, payment_method_id, date_modified, date_due, client, ");
+	        insertPaymentDetail.append("  algorithm_round_id, component_project_id, algorithm_problem_id, studio_contest_id, ");
+	        insertPaymentDetail.append("  component_contest_id, digital_run_stage_id, digital_run_season_id, parent_payment_id) ");
+	        insertPaymentDetail.append(" VALUES(?,?,null,null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+	
+	        ps = c.prepareStatement(insertPaymentDetail.toString());
+	        ps.setLong(1, paymentDetailId);
+	        ps.setDouble(2, p.getNetAmount());
+	        ps.setDouble(3, p.getGrossAmount());
+	        ps.setInt(4, p.getStatusId());
+	        setNullableLong(ps, 5, addressId);
+	        ps.setInt(6, p.getRationaleId()); 
+	        ps.setString(7, p.getHeader().getDescription());
+	        ps.setInt(8, p.getHeader().getTypeId());
+	        ps.setInt(9, p.getHeader().getMethodId());
+	        ps.setTimestamp(10, new Timestamp(System.currentTimeMillis())); // date_modified
+	        ps.setTimestamp(11, makeTimestamp(p.getDueDate(), true, false));
+	        
+	        if (!StringUtils.checkNull(p.getHeader().getClient()).equals("")) {
+	        	ps.setString(12, p.getHeader().getClient());
+	        } else {
+	        	ps.setNull(12, Types.VARCHAR);
+	        }
+	
+	        setNullableLong(ps, 13, p.getHeader().getAlgorithmRoundId());
+	        setNullableLong(ps, 14, p.getHeader().getComponentProjectId());
+	        setNullableLong(ps, 15, p.getHeader().getAlgorithmProblemId());
+	        setNullableLong(ps, 16, p.getHeader().getStudioContestId());
+	        setNullableLong(ps, 17, p.getHeader().getComponentContestId());
+	        setNullableLong(ps, 18, p.getHeader().getDigitalRunStageId());
+	        setNullableLong(ps, 19, p.getHeader().getDigitalRunSeasonId());
+	        setNullableLong(ps, 20, p.getHeader().getParentPaymentId());
+	        
+	        ps.executeUpdate();
+	        
+	        return paymentDetailId;
+    	} finally {
+        	close(ps);
+    	}    	
+    }
+    
     // Helper function that adds the specified payment to the database
     // Assumes autocommit is false
     private long makeNewPayment(Connection c, Payment p, boolean createReferralPayment) throws Exception {
         log.debug("makeNewPayment called...");
         long paymentId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_SEQ);
-        long paymentDetailId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_DETAIL_SEQ);
+        long paymentDetailId = 0; 
+        long paymentAddressId = 0;
+        
         PreparedStatement ps = null;
 
         // Run validation checks
@@ -2512,7 +2579,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (p.getNetAmount() <= 0)
                 p.setStatusId(PAYMENT_ON_HOLD_STATUS);
 
-            String addrStr = "null";
 
             // If the user is creating the payment with Ready to Print status, we need
             // to create the payment_address entry
@@ -2533,9 +2599,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 if (rsc.getRowCount() == 0)
                     throw new NoObjectFoundException("Coder " + p.getHeader().getUser().getId() + " not found in database");
 
-                long paymentAddressId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_ADDRESS_SEQ);
-                addrStr = "" + paymentAddressId;
-
+                paymentAddressId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_ADDRESS_SEQ);
+                
                 StringBuffer addAddress = new StringBuffer(300);
                 addAddress.append("INSERT INTO payment_address ");
                 addAddress.append(" (payment_address_id, first_name, middle_name, last_name, ");
@@ -2583,45 +2648,49 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     referralStr = "" + referralId;
                 }
             }
-
-            StringBuffer insertPaymentDetail = new StringBuffer(300);
-            insertPaymentDetail.append("INSERT INTO payment_detail ");
-            insertPaymentDetail.append(" (payment_detail_id, net_amount, date_paid, date_printed, ");
-            insertPaymentDetail.append("  gross_amount, status_id, payment_address_id, modification_rationale_id, ");
-            insertPaymentDetail.append("  payment_desc, payment_type_id, payment_method_id, date_modified, date_due, client, ");
-            insertPaymentDetail.append("  algorithm_round_id, component_project_id, algorithm_problem_id, studio_contest_id, ");
-            insertPaymentDetail.append("  component_contest_id, digital_run_stage_id, digital_run_season_id, parent_payment_id) ");
-            insertPaymentDetail.append(" VALUES(?,?,null,null,?,?," + addrStr + ",?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-
-            ps = c.prepareStatement(insertPaymentDetail.toString());
-            ps.setLong(1, paymentDetailId);
-            ps.setDouble(2, p.getNetAmount());
-            ps.setDouble(3, p.getGrossAmount());
-            ps.setInt(4, p.getStatusId());
-            ps.setInt(5, MODIFICATION_NEW); // modification_rationale_id
-            ps.setString(6, p.getHeader().getDescription());
-            ps.setInt(7, p.getHeader().getTypeId());
-            ps.setInt(8, p.getHeader().getMethodId());
-            ps.setTimestamp(9, new Timestamp(System.currentTimeMillis())); // date_modified
-            ps.setTimestamp(10, makeTimestamp(p.getDueDate(), true, false));
-            if (!StringUtils.checkNull(p.getHeader().getClient()).equals("")) {
-            	ps.setString(11, p.getHeader().getClient());
-            } else {
-            	ps.setNull(11, Types.VARCHAR);
-            }
-
-            setNullableLong(ps, 12, p.getHeader().getAlgorithmRoundId());
-            setNullableLong(ps, 13, p.getHeader().getComponentProjectId());
-            setNullableLong(ps, 14, p.getHeader().getAlgorithmProblemId());
-            setNullableLong(ps, 15, p.getHeader().getStudioContestId());
-            setNullableLong(ps, 16, p.getHeader().getComponentContestId());
-            setNullableLong(ps, 17, p.getHeader().getDigitalRunStageId());
-            setNullableLong(ps, 18, p.getHeader().getDigitalRunSeasonId());
-            setNullableLong(ps, 19, p.getHeader().getParentPaymentId());
             
-            ps.executeUpdate();
-            ps.close();
-            ps = null;
+            p.setRationaleId(MODIFICATION_NEW);
+            paymentDetailId = insertPaymentDetail(c, p, paymentAddressId);
+            /*
+	        StringBuffer insertPaymentDetail = new StringBuffer(300);
+	        insertPaymentDetail.append("INSERT INTO payment_detail ");
+	        insertPaymentDetail.append(" (payment_detail_id, net_amount, date_paid, date_printed, ");
+	        insertPaymentDetail.append("  gross_amount, status_id, payment_address_id, modification_rationale_id, ");
+	        insertPaymentDetail.append("  payment_desc, payment_type_id, payment_method_id, date_modified, date_due, client, ");
+	        insertPaymentDetail.append("  algorithm_round_id, component_project_id, algorithm_problem_id, studio_contest_id, ");
+	        insertPaymentDetail.append("  component_contest_id, digital_run_stage_id, digital_run_season_id, parent_payment_id) ");
+	        insertPaymentDetail.append(" VALUES(?,?,null,null,?,?," + addrStr + ",?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+	
+	        ps = c.prepareStatement(insertPaymentDetail.toString());
+	        ps.setLong(1, paymentDetailId);
+	        ps.setDouble(2, p.getNetAmount());
+	        ps.setDouble(3, p.getGrossAmount());
+	        ps.setInt(4, p.getStatusId());
+	        ps.setInt(5, MODIFICATION_NEW); // modification_rationale_id
+	        ps.setString(6, p.getHeader().getDescription());
+	        ps.setInt(7, p.getHeader().getTypeId());
+	        ps.setInt(8, p.getHeader().getMethodId());
+	        ps.setTimestamp(9, new Timestamp(System.currentTimeMillis())); // date_modified
+	        ps.setTimestamp(10, makeTimestamp(p.getDueDate(), true, false));
+	        if (!StringUtils.checkNull(p.getHeader().getClient()).equals("")) {
+	        	ps.setString(11, p.getHeader().getClient());
+	        } else {
+	        	ps.setNull(11, Types.VARCHAR);
+	        }
+	
+	        setNullableLong(ps, 12, p.getHeader().getAlgorithmRoundId());
+	        setNullableLong(ps, 13, p.getHeader().getComponentProjectId());
+	        setNullableLong(ps, 14, p.getHeader().getAlgorithmProblemId());
+	        setNullableLong(ps, 15, p.getHeader().getStudioContestId());
+	        setNullableLong(ps, 16, p.getHeader().getComponentContestId());
+	        setNullableLong(ps, 17, p.getHeader().getDigitalRunStageId());
+	        setNullableLong(ps, 18, p.getHeader().getDigitalRunSeasonId());
+	        setNullableLong(ps, 19, p.getHeader().getParentPaymentId());
+	        
+	        ps.executeUpdate();
+	        ps.close();
+	        ps = null;
+	        */
 
             // Add the payment record
             StringBuffer insertPayment = new StringBuffer(300);
@@ -3391,7 +3460,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     // Helper function, assumes autocommit is false
     private void updatePayment(Connection c, Payment p, ResultSetContainer.ResultSetRow addressData) throws Exception {
-        String addrStr = "null";
+    	long paymentAddressId = 0;
         PreparedStatement ps = null;
 
         // Check for validity
@@ -3407,8 +3476,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             // Add address record if necessary
             if (addressData != null && p.getStatusId() != PAYMENT_ON_HOLD_STATUS) {
-                long paymentAddressId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_ADDRESS_SEQ);
-                addrStr = "" + paymentAddressId;
+                paymentAddressId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_ADDRESS_SEQ);
 
                 StringBuffer addAddress = new StringBuffer(300);
                 addAddress.append("INSERT INTO payment_address ");
@@ -3432,9 +3500,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 ps = null;
             }
 
-            long paymentDetailId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_DETAIL_SEQ);
+            long paymentDetailId = insertPaymentDetail(c, p, paymentAddressId);
 
             // Insert the detail record
+            /*
             StringBuffer insertPaymentDetail = new StringBuffer(300);
             insertPaymentDetail.append("INSERT INTO payment_detail ");
             insertPaymentDetail.append(" (payment_detail_id, net_amount, date_paid, date_printed, ");
@@ -3465,7 +3534,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
             ps.executeUpdate();
             ps.close();
-            ps = null;
+            ps = null;*/
 
             // Update the header
             StringBuffer updateHeader = new StringBuffer(300);
