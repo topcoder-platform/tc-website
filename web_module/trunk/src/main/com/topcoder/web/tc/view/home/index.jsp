@@ -95,9 +95,9 @@
             <%-- INTEL MTCS
             <A href="/longcontest/?module=Static&d1=intel_overview"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0" style="display:block;"/></A>
             --%>
-            <%-- DIGITAL RUN --%>
+            <%-- DIGITAL RUN 
             <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/dig_run_20060815.png" alt="The Digital Run" border="0" style="display:block;"/></A>
-            
+            --%>
             <%-- bloomberg 
             <map name="bbg_srm">
             <area shape="rect" alt="" coords="88,2,265,92" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg" />
@@ -106,13 +106,13 @@
             </map>
             <img src="/i/home/bloomberg_srm317.gif" alt="Bloomberg TCCC Sponsor of SRM 317" border="0" style="display:block;" usemap="#bbg_srm"/>
             --%>
-            <%-- NSA 
-            <map name="nsa_srm">
-            <area shape="rect" alt="" coords="1,1,264,85" href="/tc?module=MatchDetails&rd=9999" />
-            <area shape="rect" alt="" coords="1,96,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa" />
+            <%-- SPONSORS --%>
+            <map name="srm">
+            <area shape="rect" alt="" coords="1,1,264,85" href="/tc?module=MatchDetails&rd=10000" />
+            <area shape="rect" alt="" coords="1,96,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=ubs" />
             </map>
-            <img src="/i/home/nsa_srm319.gif" alt="NSA TCCC SRM 319" border="0" style="display:block;" usemap="#nsa_srm"/>
-            --%>
+            <img src="/i/home/ubs_srm320.png" alt="UBS" border="0" style="display:block;" usemap="#srm"/>
+            
 
         </td></tr>
     </table>
