@@ -5312,9 +5312,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         	throw new IllegalArgumentException("Payment type not found: " + paymentTypeId);
         }
         return rsc.getIntItem(0, 0);
-
-
     }
+    
     private void fillAlgorithmPaymentData(Connection c, AlgorithmPayment payment) throws SQLException {
         StringBuffer query = new StringBuffer(100);
         query.append(" select c.name || ' ' || r.name as round_name,  c.end_date");
@@ -5414,15 +5413,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     		payment.setEventDate(new Date());
     	}
     	*/
-    	payment.getProcessor().fillData(c);
     	
-    	// Calculate the due date as the event date + an interval depending on the type
+    	payment.getProcessor(c).fillData();
+    	
+    	
+/*    	// Calculate the due date as the event date + an interval depending on the type
         Calendar dueDate = Calendar.getInstance();
         dueDate.setTime(payment.getEventDate());
         dueDate.add(Calendar.DAY_OF_YEAR, getDueDateInterval(c, payment.getPaymentType()));
 
-    	payment.setStatusId(hasTaxForm(c, payment.getCoderId()) ? PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);
     	payment.setDueDate(dueDate.getTime());
+    	
+    	payment.setStatusId(hasTaxForm(c, payment.getCoderId()) ? PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);
+    	*/
     	payment.setDataFilled(true);
     }
     
