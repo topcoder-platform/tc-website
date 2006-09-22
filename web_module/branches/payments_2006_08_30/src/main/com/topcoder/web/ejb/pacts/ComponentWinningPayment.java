@@ -13,6 +13,7 @@ public class ComponentWinningPayment extends ComponentPayment {
 
 	public ComponentWinningPayment(long coderId, double grossAmount, long projectId, int placed) {
 		super(coderId, grossAmount, projectId);
+		this.placed = placed;
 	}
 
 	public int getPlaced() {

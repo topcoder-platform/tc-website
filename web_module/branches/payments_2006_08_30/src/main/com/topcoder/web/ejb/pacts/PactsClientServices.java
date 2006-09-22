@@ -12,5 +12,7 @@ public interface PactsClientServices extends EJBObject {
 
     void addPayment(BasePayment payment)  throws RemoteException, SQLException;
 
+    void updatePayment(BasePayment payment) throws RemoteException, Exception;
+
 }
 

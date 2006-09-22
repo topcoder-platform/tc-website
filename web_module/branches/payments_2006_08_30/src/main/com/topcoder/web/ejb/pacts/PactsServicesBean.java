@@ -5462,6 +5462,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 		return makeAffidavitPayment(c, a, null, p).getPaymentId(); 
 
     }
+    
+    public void updatePayment(BasePayment payment) throws Exception {
+    	if (payment.getId() <= 0) {
+    		throw new IllegalArgumentException("Payment is missing payment_id");
+    	}
+    	Payment p = payment.createPayment();
+    	
+    	updatePayment(p);
+    }
+    
     public void addPayment(BasePayment payment) throws SQLException {
         Connection c = null;
         try {

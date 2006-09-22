@@ -20,6 +20,7 @@
         PactsClientServices pcs = (PactsClientServices) BaseProcessor.createEJB(c, PactsClientServices.class);
 %>
 
+
 Problem Testing:
 <br> 
 <%
@@ -145,6 +146,13 @@ getPaymentType: <%= mm.getPaymentType() %>
 <br>
 
 
+Update review board payment:
+<%
+ cp.setGrossAmount(456);
+cp.setNetAmount(457);
+cp.setDescription(cp.getDescription() + " updated!");
+pcs.updatePayment(cp);
+%>
 
 </body>
 
