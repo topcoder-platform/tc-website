@@ -70,7 +70,7 @@ public abstract class ParentReferencePayment extends BasePayment {
 			}
 			
 			paymentDesc = rsc.getStringItem(0, "payment_desc");
-			referredCoder = rsc.getStringItem(0, "referred_coder");
+			referredCoder = rsc.getStringItem(0, "handle");
 		}
 		
 	}

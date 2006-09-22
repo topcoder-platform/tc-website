@@ -22,7 +22,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
  * @author cucu
  *
  */
-public abstract class BasePayment {
+public abstract class BasePayment implements PaymentTypes {
 	private static Logger log = Logger.getLogger(BasePayment.class);
 
 	private long id = 0;
@@ -142,6 +142,44 @@ public abstract class BasePayment {
 		this.statusDesc = statusDesc;
 	}
 	
+	public int getReferenceTypeId() {
+		switch(getPaymentType()) {
+        case ALGORITHM_CONTEST_PAYMENT:
+        case MARATHON_MATCH_PAYMENT:
+        case ALGORITHM_TOURNAMENT_PRIZE_PAYMENT: 
+        	return REFERENCE_ALGORITHM_ROUND_ID; 
+        
+        case COMPONENT_PAYMENT:
+        case REVIEW_BOARD_PAYMENT: 
+        	return REFERENCE_COMPONENT_PROJECT_ID;
+        	
+        case PROBLEM_TESTING_PAYMENT:
+        case PROBLEM_WRITING_PAYMENT: 
+        	return REFERENCE_ALGORITHM_PROBLEM_ID;
+        	
+        case TC_STUDIO_PAYMENT: 
+        	return REFERENCE_STUDIO_CONTEST_ID;
+        	
+        case COMPONENT_TOURNAMENT_BONUS_PAYMENT:
+        	return REFERENCE_COMPONENT_CONTEST_ID;
+        	
+        case DIGITAL_RUN_PRIZE_PAYMENT:
+        case DIGITAL_RUN_TOP_THIRD_PAYMENT:
+        	return REFERENCE_DIGITAL_RUN_STAGE_ID;
+
+        case DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT:
+        	return REFERENCE_DIGITAL_RUN_SEASON_ID;
+
+        case CODER_REFERRAL_PAYMENT:
+        case CHARITY_PAYMENT:
+        case RELIABILITY_BONUS_PAYMENT:
+        	return REFERENCE_PARENT_PAYMENT_ID;
+        	
+        default: 
+        	return NO_REFERENCE;
+		}
+	}
+
 	protected static abstract class Processor {
 		/**
 		 * Implementing classes must return the description of the payment.
