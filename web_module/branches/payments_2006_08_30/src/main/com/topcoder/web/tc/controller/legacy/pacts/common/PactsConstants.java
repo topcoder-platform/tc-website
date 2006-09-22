@@ -6,8 +6,9 @@
  */
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
+import com.topcoder.web.ejb.pacts.PaymentTypes;
 
-public interface PactsConstants {
+public interface PactsConstants extends PaymentTypes {
     // Object types
     // Coordinate with note_type_lu table in the DB
     public static final int USER_PROFILE_OBJ = 4;
@@ -44,6 +45,7 @@ public interface PactsConstants {
     public static final int TCO05_COMPONENT_AFFIDAVIT = 5;
 
     // Payment type codes
+    /* Moved to PaymentTypes class
     public static final int ALGORITHM_CONTEST_PAYMENT = 1;
     public static final int CONTRACT_PAYMENT = 2;
     public static final int PROBLEM_PAYMENT = 3;
@@ -69,7 +71,7 @@ public interface PactsConstants {
     public static final int BUG_FIXES_PAYMENT = 23;
     public static final int RELIABILITY_BONUS_PAYMENT = 24;
     public static final int DIGITAL_RUN_TOP_THIRD_PAYMENT = 25;
-
+*/
     // Types of payment that pay to referrals
     public static final int[] PAY_REFFERAL_TYPES = {ALGORITHM_CONTEST_PAYMENT, CHARITY_PAYMENT, COMPONENT_PAYMENT, REVIEW_BOARD_PAYMENT,
     	ASSEMBLY_PAYMENT, TESTING_PAYMENT, LOGO_CONTEST_PAYMENT, TC_STUDIO_PAYMENT, CCIP_PAYMENT, DIGITAL_RUN_PRIZE_PAYMENT, 
@@ -77,6 +79,7 @@ public interface PactsConstants {
     	RELIABILITY_BONUS_PAYMENT, DIGITAL_RUN_TOP_THIRD_PAYMENT};
     
     // Reference types
+    /* moved to PaymentTYpes
     public static final int REFERENCE_ALGORITHM_ROUND_ID = 1;
     public static final int REFERENCE_COMPONENT_PROJECT_ID = 2;
     public static final int REFERENCE_ALGORITHM_PROBLEM_ID = 3;
@@ -85,7 +88,7 @@ public interface PactsConstants {
     public static final int REFERENCE_DIGITAL_RUN_STAGE_ID = 6;
     public static final int REFERENCE_DIGITAL_RUN_SEASON_ID = 7;
     public static final int REFERENCE_PARENT_PAYMENT_ID = 8;
-
+*/
 
     // Contract type codes
     public static final int DEVELOPMENT_CONTRACT = 1;

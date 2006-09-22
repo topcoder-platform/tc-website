@@ -19,7 +19,7 @@
         InitialContext c =  TCContext.getInitial();
         PactsClientServices pcs = (PactsClientServices) BaseProcessor.createEJB(c, PactsClientServices.class);
 %>
-<!--  -->
+
 Component Tournament Bonus
 <%
 ComponentTournamentBonusPayment cp =new ComponentTournamentBonusPayment(14810373, 5000, 247);

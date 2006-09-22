@@ -1,6 +1,5 @@
 package com.topcoder.web.ejb.pacts;
 
-import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
  * Payment for a prize in a Marathon Match.
@@ -8,7 +7,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  * @author cucu
  *
  */
-public class MarathonMatchPayment extends AlgorithmPayment {
+public class MarathonMatchPayment extends AlgorithmRoundReferencePayment {
 	
 	public MarathonMatchPayment(long coderId, double grossAmount, long roundId) {
 		super(coderId, grossAmount, roundId);
@@ -19,6 +18,6 @@ public class MarathonMatchPayment extends AlgorithmPayment {
 	}
 
 	public int getPaymentType() {
-		return PactsConstants.MARATHON_MATCH_PAYMENT;
+		return PaymentTypes.MARATHON_MATCH_PAYMENT;
 	}
 }

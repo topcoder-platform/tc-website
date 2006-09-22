@@ -1,6 +1,5 @@
 package com.topcoder.web.ejb.pacts;
 
-import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
  * Payment for an algorithm contest (e.g. SRM)
@@ -8,7 +7,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  * @author cucu
  *
  */
-public class AlgorithmContestPayment extends AlgorithmPayment {
+public class AlgorithmContestPayment extends AlgorithmRoundReferencePayment {
 	public AlgorithmContestPayment(long coderId, double grossAmount, long roundId) {
 		super(coderId, grossAmount, roundId);
 	}
@@ -18,6 +17,6 @@ public class AlgorithmContestPayment extends AlgorithmPayment {
 	}
 
 	public int getPaymentType() {
-		return PactsConstants.ALGORITHM_CONTEST_PAYMENT;
+		return PaymentTypes.ALGORITHM_CONTEST_PAYMENT;
 	}
 }

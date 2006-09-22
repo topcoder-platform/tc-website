@@ -2480,8 +2480,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return new ResultSetContainer(rs, false);
             
         } finally {
-        	close(ps);
         	close(rs);
+        	close(ps);
         }               
     }
 
@@ -5313,7 +5313,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
         return rsc.getIntItem(0, 0);
     }
-    
+    /*
     private void fillAlgorithmPaymentData(Connection c, AlgorithmPayment payment) throws SQLException {
         StringBuffer query = new StringBuffer(100);
         query.append(" select c.name || ' ' || r.name as round_name,  c.end_date");
@@ -5395,7 +5395,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     private void fillPaymentData(Connection c, BasePayment payment) throws SQLException {
-/*
+
     	if (payment instanceof ProblemPayment) {
 			fillProblemPaymentData (c, (ProblemPayment) payment);
 
@@ -5412,12 +5412,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     	if (payment.getEventDate() == null ){
     		payment.setEventDate(new Date());
     	}
-    	*/
-    	
-    	payment.getProcessor(c).fillData();
     	
     	
-/*    	// Calculate the due date as the event date + an interval depending on the type
+    	
+    	
+    	// Calculate the due date as the event date + an interval depending on the type
         Calendar dueDate = Calendar.getInstance();
         dueDate.setTime(payment.getEventDate());
         dueDate.add(Calendar.DAY_OF_YEAR, getDueDateInterval(c, payment.getPaymentType()));
@@ -5425,10 +5424,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     	payment.setDueDate(dueDate.getTime());
     	
     	payment.setStatusId(hasTaxForm(c, payment.getCoderId()) ? PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);
-    	*/
-    	payment.setDataFilled(true);
     }
-    
+*/    
 
     /**
      * Look up and fill data in the payment object.
@@ -5444,7 +5441,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     	Connection c = null;
     	try {
     		c = DBMS.getConnection();
-    		fillPaymentData(c, payment);
+
+    		payment.getProcessor().fillData(payment);
+
     	} catch (SQLException e) {
     		printException(e);
     		throw e;
@@ -5454,13 +5453,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     }
 
-    private long makeNewAlgorithmPayment(Connection c, Payment p, AlgorithmPayment payment) throws Exception{
+    private long makeNewAlgorithmPayment(Connection c, Payment p, AlgorithmRoundReferencePayment payment) throws Exception{
     	log.debug("makeNewAlgorithmPayment called...");
 		Affidavit a = new Affidavit();
 		a.setRoundId(new Long(payment.getRoundId()));
 		a.getHeader().getUser().setId(payment.getCoderId());
 		a.getHeader().setStatusId(AFFIDAVIT_PENDING_STATUS);
-		a.getHeader().setDescription(payment.getRoundName() + " contest affidavit");
+		a.getHeader().setDescription(payment.getDescription() + " affidavit");
 		a.getHeader().setTypeId(1); // TODO use constant
 
 		
@@ -5484,16 +5483,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c.setAutoCommit(false);
             setLockTimeout(c);
 
-            if (!payment.isDataFilled()) {
-            	fillPaymentData(c, payment);
-            }
+            payment.getProcessor().fillData(payment);
 
             Payment p = payment.createPayment();
 
             long paymentId;
 
-            if (payment instanceof AlgorithmPayment) {
-            	paymentId = makeNewAlgorithmPayment(c, p, (AlgorithmPayment) payment);
+            if (payment instanceof AlgorithmRoundReferencePayment) {
+            	paymentId = makeNewAlgorithmPayment(c, p, (AlgorithmRoundReferencePayment) payment);
             } else {
             	paymentId = makeNewPayment(c, p, p.payReferrer());
             }
@@ -5533,6 +5530,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     }
 
+    
+    
+    
+    
     /**
      * Helper class to store a payment id and affidavit id
      * @author Cucu
@@ -5555,6 +5556,5 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 		}
     	
     }
-
 }
 

@@ -1,9 +1,6 @@
 package com.topcoder.web.ejb.pacts;
 
-import java.sql.Connection;
 import java.sql.SQLException;
-
-import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
  * Payment for a problem testing.
@@ -11,7 +8,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  * @author cucu
  *
  */
-public class ProblemTestingPayment extends ProblemPayment {
+public class ProblemTestingPayment extends AlgorithmProblemReferencePayment {
 
 	public ProblemTestingPayment(long coderId, double grossAmount, long problemId) {
 		super(coderId, grossAmount, problemId);
@@ -19,7 +16,20 @@ public class ProblemTestingPayment extends ProblemPayment {
 
 
 	public int getPaymentType() {
-		return PactsConstants.PROBLEM_TESTING_PAYMENT;
+		return PaymentTypes.PROBLEM_TESTING_PAYMENT;
 	}
 
+
+	protected BasePayment.Processor getProcessor() {
+		return new Processor();
+	}
+
+	protected static class Processor extends AlgorithmProblemReferencePayment.Processor {
+
+		public String lookupDescription(BasePayment payment) throws SQLException {
+			AlgorithmProblemReferencePayment p = (AlgorithmProblemReferencePayment) payment;
+			
+			return "Problem " + getProblemName(p) + " testing";
+		}	
+	}
 }

@@ -1,6 +1,6 @@
 package com.topcoder.web.ejb.pacts;
 
-import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import java.sql.SQLException;
 
 /**
  * Payment for a problem writing.
@@ -8,14 +8,26 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  * @author cucu
  *
  */
-public class ProblemWritingPayment extends ProblemPayment {
+public class ProblemWritingPayment extends AlgorithmProblemReferencePayment {
 
 	public ProblemWritingPayment(long coderId, double grossAmount, long problemId) {
 		super(coderId, grossAmount, problemId);
 	}
 
 	public int getPaymentType() {
-		return PactsConstants.PROBLEM_WRITING_PAYMENT;
+		return PaymentTypes.PROBLEM_WRITING_PAYMENT;
 	}
 		
+	protected BasePayment.Processor getProcessor() {
+		return new Processor();
+	}
+
+	protected class Processor extends AlgorithmProblemReferencePayment.Processor {
+		
+		public String lookupDescription(BasePayment payment) throws SQLException {
+			AlgorithmProblemReferencePayment p = (AlgorithmProblemReferencePayment) payment;
+			
+			return "Problem " + getProblemName(p) + " writing";
+		}	
+	}
 }
