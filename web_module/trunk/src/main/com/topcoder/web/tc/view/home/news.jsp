@@ -10,6 +10,20 @@
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>
+        09.22.06<br>12:00 Noon</td>
+    <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">Algorithm Round 1A Advancers Announced</A></span><br><br>
+        You can now view who advanced in Round 1 - Section A.
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">view</A> |
+    <tc-webtag:forumLink forumID="506107" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>
         09.22.06<br>9:00 AM</td>
     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=AOLAlertsDescription">Announcing AOL&#174; Alerts</A></span><br><br>
         You can now sign up for several types of TCCC06 related messages through AOL Alerts. Check it out!
@@ -200,26 +214,5 @@
 <tr><td class="newsLinksCell">
     <tc-webtag:forumLink forumID="506115" message="discuss this"/> |
     <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>09.14.06<br>4:25 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=091406">Introduction
-                to OpenMP, Part 2</A></span><br><br>
-                In Part 1, we looked at an overview of multi-threading, introduced OpenMP, and began to review its
-                directives. Part 2 continues with a look at the reduction directive.</td>
-            <td class="newsPhoto">by
-                <tc-webtag:handle coderId="21464956"/></td></tr>
-        </table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&amp;d1=features&amp;d2=091406">article</A> |
-    <tc-webtag:forumLink forumID="506105" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 
