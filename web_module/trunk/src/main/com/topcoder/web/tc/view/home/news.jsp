@@ -44,7 +44,7 @@
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>
         09.22.06<br>9:00 AM</td>
     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=AOLAlertsDescription">Announcing AOL&#174; Alerts</A></span><br><br>
-        You can now sign up for several types of TCCC06 related messages through AOL Alerts. Check it out!
+        You can now sign up for several types of TCCC06 related messages through AOL Alerts and receive them via email, IM, or SMS. Check it out!
     </td>
 </tr>
 <tr><td class="newsLinksCell">
