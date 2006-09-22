@@ -3,6 +3,7 @@ package com.topcoder.web.ejb.pacts;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.topcoder.web.ejb.pacts.ComponentTournamentBonusPayment.Processor;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
 
 /**
@@ -102,6 +103,11 @@ public abstract class BasePayment {
         return p;
 
 	}
+	// TODO make it abstract!
+	protected PaymentProcessor getProcessor() {
+		return null;
+	}	
+
 
 	public Date getEventDate() {
 		return eventDate;

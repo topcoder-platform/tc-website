@@ -3439,7 +3439,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             insertPaymentDetail.append("INSERT INTO payment_detail ");
             insertPaymentDetail.append(" (payment_detail_id, net_amount, date_paid, date_printed, ");
             insertPaymentDetail.append("  gross_amount, status_id, payment_address_id, modification_rationale_id, ");
-            insertPaymentDetail.append("  payment_desc, payment_type_id, payment_method_id, date_modified, date_due, client, ");
+            insertPaymentDetail.append("  payment_desc, payment_type_id, payment_method_id, date_modified, date_due, client ");
             insertPaymentDetail.append(" VALUES(?,?,null,null,?,?," + addrStr + ",?,?,?,?,?,?,?,?)");
 
             ps = c.prepareStatement(insertPaymentDetail.toString());
@@ -5396,7 +5396,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     private void fillPaymentData(Connection c, BasePayment payment) throws SQLException {
-
+/*
     	if (payment instanceof ProblemPayment) {
 			fillProblemPaymentData (c, (ProblemPayment) payment);
 
@@ -5413,6 +5413,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     	if (payment.getEventDate() == null ){
     		payment.setEventDate(new Date());
     	}
+    	*/
+    	payment.getProcessor().fillData(c);
     	
     	// Calculate the due date as the event date + an interval depending on the type
         Calendar dueDate = Calendar.getInstance();
