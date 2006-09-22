@@ -3,8 +3,6 @@ package com.topcoder.web.ejb.pacts;
 import java.sql.SQLException;
 import java.util.Date;
 
-import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
-
 /**
  * Payment for a Component Tournament Bonus (e.g. winning TCO 06 Design contest)
  * 
@@ -18,10 +16,6 @@ public class ComponentTournamentBonusPayment extends ComponentContestReferencePa
 
 	public ComponentTournamentBonusPayment(long coderId, double grossAmount, long contestId) {
 		this(coderId, grossAmount, contestId, 0);
-	}
-	
-	protected void fillPaymentReference(Payment p) {
-		p.getHeader().setComponentContestId(getContestId());
 	}
 	
 	protected BasePayment.Processor getProcessor() {
