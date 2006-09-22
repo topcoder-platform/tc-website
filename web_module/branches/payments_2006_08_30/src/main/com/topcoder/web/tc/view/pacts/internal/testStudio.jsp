@@ -22,10 +22,10 @@
 
 
 
-Digital Run Prize 
+Studio Payment
 <br> 
 <%
-	BasePayment p=new DigitalRunPrizePayment(7545675, 780, 4);
+BasePayment p=new StudioContestPayment(7545675,780, 2132,3);
 	pcs.addPayment(p);
 %>
 getId: <%= p.getId() %> <br>
@@ -38,42 +38,8 @@ getDescription: <%= p.getDescription() %> <br>
 getDueDate: <%= p.getDueDate() %> <br>
 getPaymentType: <%= p.getPaymentType() %>
 
-<br><br>
-
-Digital Run TopThird
-<br> 
-<%
-	p=new DigitalRunTopThirdPayment(7545675, 780, 4 ,14);
-	pcs.addPayment(p);
-%>
-getId: <%= p.getId() %> <br>
-getCoderId: <%= p.getCoderId() %> <br>
-getNetAmount: <%= p.getNetAmount() %> <br>
-getGrossAmount: <%= p.getGrossAmount() %> <br>
-getStatusId: <%= p.getStatusId() %> <br>
-getStatusDesc: <%= p.getStatusDesc() %> <br>
-getDescription: <%= p.getDescription() %> <br>
-getDueDate: <%= p.getDueDate() %> <br>
-getPaymentType: <%= p.getPaymentType() %>
-
-<br><br>
-
-Digital Run TopThird
-<br> 
-<%
-	p=new DigitalRunRockiePrizePayment(7545675, 780, 1 , 1);
-	pcs.addPayment(p);
-%>
-getId: <%= p.getId() %> <br>
-getCoderId: <%= p.getCoderId() %> <br>
-getNetAmount: <%= p.getNetAmount() %> <br>
-getGrossAmount: <%= p.getGrossAmount() %> <br>
-getStatusId: <%= p.getStatusId() %> <br>
-getStatusDesc: <%= p.getStatusDesc() %> <br>
-getDescription: <%= p.getDescription() %> <br>
-getDueDate: <%= p.getDueDate() %> <br>
-getPaymentType: <%= p.getPaymentType() %>
 
 </body>
 
 </html>
+

@@ -61,7 +61,7 @@ public abstract class DigitalRunStageReferencePayment extends BasePayment {
 		private void lookupData(DigitalRunStageReferencePayment payment) throws SQLException {
 			StringBuffer query = new StringBuffer(300);
 			
-			query.append(" SELECT s.name || ' ' || st.name, c.date ");
+			query.append(" SELECT s.name || ' ' || st.name as stage_name, c.date ");
 			query.append(" FROM stage st, season s, calendar c  ");
 			query.append(" WHERE s.season_id = st.season_id ");
 			query.append(" AND c.calendar_id = st.end_calendar_id ");
@@ -73,7 +73,7 @@ public abstract class DigitalRunStageReferencePayment extends BasePayment {
 				throw new IllegalArgumentException("Not exactly 1 row returned for stage_id=" + payment.getStageId());
 			}
 			
-			stageName = rsc.getStringItem(0, "contest_name");
+			stageName = rsc.getStringItem(0, "stage_name");
 			endDate = rsc.getTimestampItem(0, "date");
 		}
 		
