@@ -9,6 +9,20 @@
 </tr>
 <%--------------------------------------------------------%>
 <tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>
+        09.22.06<br>9:00 AM</td>
+    <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=AOLAlertsDescription">Announcing AOL&#174; Alerts</A></span><br><br>
+        You can now sign up for several types of TCCC06 related messages through AOL Alerts. Check it out!
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=AOLAlertsDescription">view</A> |
+    <tc-webtag:forumLink forumID="506122" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0"/><br>09.21.06<br>12:50 PM</td>
     <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=ViewActiveContests&ph=112">Puzzled? Components offer brainy challenge</A>
@@ -207,25 +221,5 @@
     <A href="/tc?module=Static&amp;d1=features&amp;d2=091406">article</A> |
     <tc-webtag:forumLink forumID="506105" message="discuss this"/> |
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0"/><br>
-        09.14.06<br>3:00 PM</td>
-    <td class="newsTextCell"><span class="newsTitle">
-  <A href="/tc?module=Static&d1=collegetour&d2=description">2006 TopCoder College Tour continues</A>
-  </span><br><br>
-        TopCoder will be touring college campuses during the remainder of 2006 and early 2007 to promote TopCoder
-        competitions, both Component and
-        Algorithm, and to grow membership. We're looking for collegiate CS students who are interested in hosting
-        TopCoder on campus for an evening
-        of problem solving, food, prizes and fun.
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=collegetour&d2=description">view</A> |
-    <tc-webtag:forumLink forumID="506114" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
 </td></tr>
 
