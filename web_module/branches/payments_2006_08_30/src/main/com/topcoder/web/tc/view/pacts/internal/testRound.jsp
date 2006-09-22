@@ -26,6 +26,8 @@ Algorithm Contest
 <br> 
 <%
 AlgorithmContestPayment ap=new AlgorithmContestPayment(14810373,260, 9998);
+	pcs.fillPaymentData(ap);
+	ap.setDescription(ap.getDescription() + " modified!");
 	pcs.addPayment(ap);
 %>
 getId: <%= ap.getId() %> <br>
