@@ -42,42 +42,33 @@ getRoundId: <%= ap.getRoundId() %> <br>
 getPaymentType: <%= ap.getPaymentType() %>
 
 <br><br>
-Algorithm Tournament Prize, second place (should pay referral)
+Updating the status
 <br> 
 <%
-AlgorithmTournamentPrizePayment atp=new AlgorithmTournamentPrizePayment(20009005,300, 9980, 2);
-	pcs.addPayment(atp);
+	ap.setStatusId(PactsConstants.PAYMENT_OWED_STATUS);
 %>
-atp.getId: <%= atp.getId() %> <br>
-atp.getCoderId: <%= atp.getCoderId() %> <br>
-atp.getNetAmount: <%= atp.getNetAmount() %> <br>
-atp.getGrossAmount: <%= atp.getGrossAmount() %> <br>
-atp.getStatusId: <%= atp.getStatusId() %> <br>
-getStatusDesc: <%= atp.getStatusDesc() %> <br>
-atp.getDescription: <%= atp.getDescription() %> <br>
-atp.getDueDate: <%= atp.getDueDate() %> <br>
-atp.getRoundId: <%= atp.getRoundId() %> <br>
-atp.getPaymentType: <%= atp.getPaymentType() %>
+getStatusDesc: <%= ap.getStatusDesc() %> <br>
+
+<br>
+Updating the desc and committing
+<br> 
+<%
+	ap.setDescription("hi, new description!");
+	pcs.updatePayment(ap);
+%>
+getId: <%= ap.getId() %> <br>
+getCoderId: <%= ap.getCoderId() %> <br>
+getNetAmount: <%= ap.getNetAmount() %> <br>
+getGrossAmount: <%= ap.getGrossAmount() %> <br>
+getStatusId: <%= ap.getStatusId() %> <br>
+getStatusDesc: <%= ap.getStatusDesc() %> <br>
+getDescription: <%= ap.getDescription() %> <br>
+getDueDate: <%= ap.getDueDate() %> <br>
+getRoundId: <%= ap.getRoundId() %> <br>
+getPaymentType: <%= ap.getPaymentType() %>
 
 <br><br>
-Marathon Match, 3rd place
-<br> 
-<%
-MarathonMatchPayment mm =new MarathonMatchPayment(14810373,400, 9881, 3);
-	pcs.addPayment(mm);
-%>
-atp.getId: <%= mm.getId() %> <br>
-atp.getCoderId: <%= mm.getCoderId() %> <br>
-atp.getNetAmount: <%= mm.getNetAmount() %> <br>
-atp.getGrossAmount: <%= mm.getGrossAmount() %> <br>
-atp.getStatusId: <%= mm.getStatusId() %> <br>
-getStatusDesc: <%= mm.getStatusDesc() %> <br>
-atp.getDescription: <%= mm.getDescription() %> <br>
-atp.getDueDate: <%= mm.getDueDate() %> <br>
-atp.getRoundId: <%= mm.getRoundId() %> <br>
-atp.getPaymentType: <%= mm.getPaymentType() %>
-<br>
-<br>
+
 
 </body>
 

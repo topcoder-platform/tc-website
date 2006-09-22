@@ -121,7 +121,9 @@ public abstract class BasePayment implements PaymentTypes {
         p.setEventDate(getEventDate());
         p.setDueDate(format.format(getDueDate()));
         p.getHeader().getUser().setId(getCoderId());
-
+        p.setId(getId());
+        p.getHeader().setId(getId());
+        
         fillPaymentReference(p);
 
         return p;

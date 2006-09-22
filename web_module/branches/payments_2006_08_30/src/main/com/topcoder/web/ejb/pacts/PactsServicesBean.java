@@ -5540,6 +5540,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     	if (payment.getId() <= 0) {
     		throw new IllegalArgumentException("Payment is missing payment_id");
     	}
+    	
     	Payment p = payment.createPayment();
     	p.setRationaleId(MODIFICATION_NEW); // FIX!!!
     	updatePayment(p);
@@ -5564,7 +5565,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             	paymentId = makeNewPayment(c, p, p.payReferrer());
             }
 
-            payment.setId(paymentId);
+            payment.setId(paymentId);            
             payment.setNetAmount(p.getNetAmount());
             c.commit();
     	} catch (SQLException e) {
