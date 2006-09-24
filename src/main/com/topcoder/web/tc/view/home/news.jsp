@@ -28,6 +28,19 @@
 -----------------------%>
 <%--------------------------------------------------------%>
 <tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.24.06<br>5:30 PM</td>
+    <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">TCCC06 Algorithm Round 1B Results</A></span><br><br>
+        You can now view Round 1 - Section B advancers.
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">view</A> |
+    <tc-webtag:forumLink forumID="506108" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.22.06<br>11:45 AM</td>
     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">TCCC06 Algorithm Round 1A Results</A></span><br><br>
         You can now view Round 1 - Section A advancers.
