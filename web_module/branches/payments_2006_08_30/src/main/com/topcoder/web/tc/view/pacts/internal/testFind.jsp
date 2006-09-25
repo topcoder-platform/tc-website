@@ -21,7 +21,7 @@
         PactsClientServices pcs = (PactsClientServices) BaseProcessor.createEJB(c, PactsClientServices.class);
 %>
 
-
+<br><br>
 <b>pcs.findPayments(BasePayment.CODER_REFERRAL_PAYMENT);</b><br> 
 <table>
 <%
@@ -38,6 +38,91 @@
 <td> <%= p.getGrossAmount() %> </td>
 <td> <%= p.getNetAmount() %> </td>
 <td> <%= p.getParentId() %> </td>
+</tr>
+<% } %>
+</table>
+<br><br>
+<b>pcs.findPayments(BasePayment.DIGITAL_RUN_PRIZE_PAYMENT, 4);</b><br> 
+<table>
+<%
+	l = pcs.findPayments(BasePayment.DIGITAL_RUN_PRIZE_PAYMENT, 4);
+
+	for (int i = 0; i < l.size();i++) {
+		DigitalRunStageReferencePayment p = (DigitalRunStageReferencePayment) l.get(i);
+%>
+<tr>
+<td> <%= p.getId() %></td>
+<td> <%= p.getPaymentType() %></td>
+<td> <%= p.getDescription() %> </td>
+<td> <%= p.getStatusId() %> </td>
+<td> <%= p.getStatusDesc() %> </td>
+<td> <%= p.getGrossAmount() %> </td>
+<td> <%= p.getNetAmount() %> </td>
+<td> <%= p.getStageId() %> </td>
+</tr>
+<% } %>
+</table>
+<br><br>
+<b>pcs.findCoderPayments(7545675);</b><br> 
+<table>
+<%
+	l = pcs.findCoderPayments(7545675);
+
+	for (int i = 0; i < l.size();i++) {
+	BasePayment p = (BasePayment) l.get(i);
+%>
+<tr>
+<td> <%= p.getId() %></td>
+<td> <%= p.getPaymentType() %></td>
+<td> <%= p.getDescription() %> </td>
+<td> <%= p.getStatusId() %> </td>
+<td> <%= p.getStatusDesc() %> </td>
+<td> <%= p.getGrossAmount() %> </td>
+<td> <%= p.getNetAmount() %> </td>
+</tr>
+<% } %>
+</table>
+<br><br>
+
+<b>pcs.findCoderPayments(7545675, BasePayment.ALGORITHM_CONTEST_PAYMENT);</b><br> 
+<table>
+<%
+	l = pcs.findCoderPayments(7545675, BasePayment.ALGORITHM_CONTEST_PAYMENT);
+
+	for (int i = 0; i < l.size();i++) {
+	BasePayment p = (BasePayment) l.get(i);
+%>
+<tr>
+<td> <%= p.getId() %></td>
+<td> <%= p.getPaymentType() %></td>
+<td> <%= p.getDescription() %> </td>
+<td> <%= p.getStatusId() %> </td>
+<td> <%= p.getStatusDesc() %> </td>
+<td> <%= p.getGrossAmount() %> </td>
+<td> <%= p.getNetAmount() %> </td>
+</tr>
+<% } %>
+</table>
+
+<br><br>
+
+<b>pcs.findCoderPayments(7545675, BasePayment.PROBLEM_WRITING_PAYMENT, 1228);</b><br> 
+<table>
+<%
+	l = pcs.findCoderPayments(7545675, BasePayment.PROBLEM_WRITING_PAYMENT, 1228);
+
+	for (int i = 0; i < l.size();i++) {
+	ProblemWritingPayment p = (ProblemWritingPayment) l.get(i);
+%>
+<tr>
+<td> <%= p.getId() %></td>
+<td> <%= p.getPaymentType() %></td>
+<td> <%= p.getDescription() %> </td>
+<td> <%= p.getStatusId() %> </td>
+<td> <%= p.getStatusDesc() %> </td>
+<td> <%= p.getGrossAmount() %> </td>
+<td> <%= p.getNetAmount() %> </td>
+<td> <%= p.getProblemId() %> </td>
 </tr>
 <% } %>
 </table>
