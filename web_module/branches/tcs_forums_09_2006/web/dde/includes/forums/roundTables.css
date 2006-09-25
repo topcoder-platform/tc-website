@@ -1,0 +1,126 @@
+pre { color: #990000; }
+
+.rtBody
+{
+width: 100%;
+color: #333333;
+font-size: 11px;
+font-weight: normal;
+font-style: normal;
+text-align: left;
+vertical-align: top;
+line-height: 1.4;
+padding: 0px 15px 15px 15px; 
+}
+.rtbc
+{
+font-size: 11px;
+font-weight: bold;
+font-style: normal;
+color: #333333;
+}
+
+.rtbcTable{ padding: 0px 0px 0px 0px; width: 100%; border: 0px; }
+
+.currentPage
+{ 
+color: #000000; 
+background-color: #EEEEEE; 
+border: 1px solid #999999;
+padding: 0px 2px 0px 2px; 
+}
+div.categoriesBox, td.categoriesBox
+{
+float:left;
+font-size:11px;
+line-height:1.2;
+padding:0px 20px 5px 0px;
+margin:0px;
+white-space:nowrap;
+}
+A.rtbcLink:link { color: #0000FF; text-decoration: none; }
+A.rtbcLink:visited { color: #0000FF; text-decoration: none; }
+A.rtbcLink:hover { color: #FF0000; text-decoration: none; }
+A.rtbcLink:active { color: #0000FF; text-decoration: none; }
+
+A.rtLinkNew:link { color: #0000FF; text-decoration: none; font-weight: bold; }
+A.rtLinkNew:visited { color: #0000FF; text-decoration: none; font-weight: bold; }
+A.rtLinkNew:hover { color: #FF0000; text-decoration: none; font-weight: bold; }
+A.rtLinkNew:active { color: #0000FF; text-decoration: none; font-weight: bold; }
+
+A.rtLinkOld:link { color: #0000FF; text-decoration: none; font-weight: normal; }
+A.rtLinkOld:visited { color: #0000FF; text-decoration: none; font-weight: normal; }
+A.rtLinkOld:hover { color: #FF0000; text-decoration: none; font-weight: normal; }
+A.rtLinkOld:active { color: #0000FF; text-decoration: none; font-weight: normal; }
+
+A.rtLinkBold:link { color: #0000FF; text-decoration: none; font-weight: bold; }
+A.rtLinkBold:visited { color: #0000FF; text-decoration: none; font-weight: bold; }
+A.rtLinkBold:hover { color: #FF0000; text-decoration: none; font-weight: bold; }
+A.rtLinkBold:active { color: #0000FF; text-decoration: none; font-weight: bold; }
+
+A.catLinkNew:link { color: #0000FF; text-decoration: none; }
+A.catLinkNew:visited { color: #0000FF; text-decoration: none; }
+A.catLinkNew:hover { color: #FF0000; text-decoration: none; }
+A.catLinkNew:active { color: #0000FF; text-decoration: none; }
+
+A.catLinkNew:link { color: #0000FF; text-decoration: none; }
+A.catLinkNew:visited { color: #0000FF; text-decoration: none; }
+A.catLinkNew:hover { color: #FF0000; text-decoration: none; }
+A.catLinkNew:active { color: #0000FF; text-decoration: none; }
+
+.rtDescIndent{ padding-left: 10px; font-size: 11px; }
+.rtHeader
+{
+color: #333;
+font-size: 11px;
+font-weight: bold;
+background-color: #DDDDDD;
+padding: 3px 5px 3px 5px;
+vertical-align: middle;
+}
+.rtFooter { padding: 2px 15px 5px 15px; vertical-align: bottom; }
+.rtThreadCell,.rtThreadCellWrap
+{
+color: #333;
+font-size: 12px;
+background-color: #EEEEEE;
+padding: 3px 5px 3px 5px;
+vertical-align: top;
+border-top: 1px solid #FFFFFF;
+}
+.rtThreadCell { white-space: nowrap; }
+.rtButton { border: 0px; margin-right: 2px; }
+.rtPosterCell
+{
+background-color: #EEEEEE;
+color: #333;
+font-size: 10px;
+vertical-align: top;
+}
+.rtPosterSpacer {
+width: 100px;
+padding: 10px 5px 10px 5px;
+}
+
+.rtPhoto {
+border: 1px solid #999999; 
+}
+
+.rtTextCell, .rtTextCell100
+{
+background-color: #FFFFFF;
+padding: 10px 15px 10px 15px;
+color: #333;
+font-size: 12px;
+vertical-align: top;
+}
+.rtTextCell100{ width: 100% }
+.rtTable 
+{ 
+border: 1px solid #999;
+padding: 0px;
+margin: 0px 0px 10px 0px;
+/*width: 100%;*/
+}
+.topLinksL{ float: left; white-space: nowrap; clear:left;}
+.topLinksR{ float: right; white-space: nowrap; clear:right;}
