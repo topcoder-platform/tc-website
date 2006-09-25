@@ -13,70 +13,139 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
  *
  */
 public abstract class AlgorithmRoundReferencePayment extends BasePayment {
+	// Referenced round.
 	private long roundId;
 	
 
+	/**
+	 * Create an algorithm payment.
+	 * 
+	 * @param coderId the coder being paid.
+	 * @param grossAmount amount paid.
+	 * @param roundId the round where the coder won the prize.
+	 * @param placed the place the coder had in the round, used for generating the description.
+	 */
 	public AlgorithmRoundReferencePayment(long coderId, double grossAmount, long roundId, int placed) {
 		super(coderId, grossAmount, placed);
 		this.roundId = roundId;
 	}
 	
+
+	/**
+	 * Create an algorithm payment.
+	 * 
+	 * @param coderId the coder being paid.
+	 * @param grossAmount amount paid.
+	 * @param roundId the round where the coder won the prize.
+	 */
 	public AlgorithmRoundReferencePayment(long coderId, double grossAmount, long roundId) {
 		this(coderId, grossAmount, roundId, 0);
 	}
 
+	/**
+	 * Get the id of the round where the coder won the prize.
+	 * 
+	 * @return the id of the round where the coder won the prize.
+	 */
 	public long getRoundId() {
 		return roundId;
 	}
 
+	/**
+	 * Fill the algorithm round id field in the payment
+	 */
 	protected void fillPaymentReference(Payment p) {
 		p.getHeader().setAlgorithmRoundId(getRoundId());
 	}
-	
+
+	/**
+	 * Get a processor for this type of payment.
+	 */
 	protected BasePayment.Processor getProcessor() {
 		return new Processor();
 	}	
 
 
+	/**
+	 * Processor for payments that have a reference to rounds.
+	 * It creates a description based on a round and contest name plus the placement, and uses
+	 * as the event date the end date of the round.
+	 *  
+	 * @author Cucu
+	 */
 	protected static class Processor extends BasePayment.Processor {
 		private String roundName = null;
 		private Date endDate = null;
 
+		/**
+		 * Get a description for this payment.
+		 * The description is composed by the round name plus the placement, like "SRM 190 1st place"
+		 * 
+		 * @param payment the payment to lookup the description.
+		 * @return a description for this payment.
+		 */
 		public String lookupDescription(BasePayment payment) throws SQLException {
-			return getRoundName((AlgorithmRoundReferencePayment) payment) + " " + getOrdinal(payment.getPlaced());
+			return getRoundName(((AlgorithmRoundReferencePayment) payment).getRoundId()) + " " + getOrdinal(payment.getPlaced());
 		}
 
+		/**
+		 * Get when the event took date, i.e. the round end date.
+		 * 
+		 * @param payment the payment to look for its date.
+		 * @return the end date of the round
+		 */
 		public Date lookupEventDate(BasePayment payment) throws SQLException {
-			return getEndDate((AlgorithmRoundReferencePayment) payment);
+			return getEndDate(((AlgorithmRoundReferencePayment) payment).getRoundId());
 		}
 		
-		protected String getRoundName(AlgorithmRoundReferencePayment payment) throws SQLException {
+		/**
+		 * Get the name of the round.
+		 * 
+		 * @param roundId round to lookup its name.
+		 * @return the name of the round.
+		 * @throws SQLException
+		 */
+		protected String getRoundName(long roundId) throws SQLException {
 			if (roundName == null) {
-				lookupData(payment);
+				lookupData(roundId);
 			}
 			return roundName;
 		}
 
 
-		protected Date getEndDate(AlgorithmRoundReferencePayment payment) throws SQLException {
+		/**
+		 * Get the end date of a round
+		 * 
+		 * @param roundId round id to lookup its end date
+		 * @return the end date of the round.
+		 * @throws SQLException
+		 */
+		protected Date getEndDate(long roundId) throws SQLException {
 			if (endDate == null) {
-				lookupData(payment);
+				lookupData(roundId);
 			}
 			return endDate;
 		}
 
-		private void lookupData(AlgorithmRoundReferencePayment payment) throws SQLException {
+		/**
+		 * Does the actual lookup in database, finding the round name and end date
+		 * of the round at once.
+		 * 
+		 * @param roundId round to lookup the name and end date.
+		 * @throws SQLException
+		 */
+		private void lookupData(long roundId) throws SQLException {
 	        StringBuffer query = new StringBuffer(100);
 	        query.append(" select c.name || ' ' || r.name as round_name,  c.end_date");
 	        query.append(" from round r, ");
 	        query.append(" contest c ");
 	        query.append(" where r.contest_id = c.contest_id ");
-	        query.append(" and r.round_id = " + payment.getRoundId());
+	        query.append(" and r.round_id = " + roundId);
 
 	        ResultSetContainer rsc = runSelectQuery(query.toString());
 
 	        if (rsc.getRowCount() != 1) {
-	        	throw new IllegalArgumentException("Not exactly 1 round found with id " + payment.getRoundId());
+	        	throw new IllegalArgumentException("Not exactly 1 round found with id " + roundId);
 	        }
 
 	        roundName = rsc.getStringItem(0, "round_name");

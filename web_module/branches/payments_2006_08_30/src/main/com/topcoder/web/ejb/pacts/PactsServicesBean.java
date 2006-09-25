@@ -5210,9 +5210,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     public Map findProjects(String search) throws SQLException {
-    /*	String filter = search != null && search.length()> 0?
-    			" and UPPER(component_name) " + (search.contains("%") ? " like UPPER(?)" : "=UPPER(?)");
-    	*/
     	StringBuffer query = new StringBuffer(1000);
     	query.append(" select project_id, ");
     	query.append(" component_name || ' ' || trim (version_text) || ' (' || trim(NVL(date(rating_date),'UNKNOWN')) || ')' as project_desc  ");
@@ -5328,7 +5325,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return whether the user has already sent a Tax form.
      * @throws SQLException if a problem occurs accesing DB
      */
-    private boolean hasTaxForm(Connection c, long coderId) throws SQLException {
+    private boolean hasTaxFormERASEME(Connection c, long coderId) throws SQLException {
         StringBuffer query = new StringBuffer(1000);
         query.append(" SELECT 1 ");
         query.append(" FROM user_tax_form_xref ");
@@ -5348,7 +5345,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException if a problem occurs accesing DB
      * @throws IllegalArgumentException if the problem was not found with the id.
      */
-    private String getProblemName(Connection c, long problemId) throws SQLException {
+    private String getProblemNameERASEME(Connection c, long problemId) throws SQLException {
         StringBuffer query = new StringBuffer(100);
         query.append(" SELECT name ");
         query.append(" FROM problem ");
@@ -5370,7 +5367,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @param paymentTypeId type id of the payment
      * @return the interval in days from an event (srm, contest finalization...) to the payment.
      */
-    private int getDueDateInterval(Connection c, int paymentTypeId) throws SQLException {
+    private int getDueDateIntervalERASEME(Connection c, int paymentTypeId) throws SQLException {
         StringBuffer query = new StringBuffer(100);
         query.append(" SELECT due_date_interval ");
         query.append(" FROM payment_type_lu ");
@@ -5383,119 +5380,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
         return rsc.getIntItem(0, 0);
     }
-    /*
-    private void fillAlgorithmPaymentData(Connection c, AlgorithmPayment payment) throws SQLException {
-        StringBuffer query = new StringBuffer(100);
-        query.append(" select c.name || ' ' || r.name as round_name,  c.end_date");
-        query.append(" from round r, ");
-        query.append(" contest c ");
-        query.append(" where r.contest_id = c.contest_id ");
-        query.append(" and r.round_id = " + payment.getRoundId());
-
-        ResultSetContainer rsc = runSelectQuery(c, query.toString(), false);
-
-        if (rsc.getRowCount() != 1) {
-        	throw new IllegalArgumentException("Not exactly 1 round found with id " + payment.getRoundId());
-        }
-
-        String roundName = rsc.getStringItem(0, "round_name");
-
-        payment.setEventDate(rsc.getTimestampItem(0, "end_date"));
-        payment.setRoundName(roundName);
-
-        if (payment.getPlaced() > 0) {
-        	payment.setDescription(roundName + " " + getOrdinal(payment.getPlaced()) + " place");
-        } else {        	
-        	payment.setDescription(roundName + " winnings");
-        }
-    }
-
-    private String getOrdinal(int placed) {
-        switch (placed) {
-        case 1: return "1st";
-        case 2: return "2nd"; 
-        case 3: return  "3rd";
-        }
-        return placed + "th"; 
-	}
-
-	private void fillProblemPaymentData(Connection c, ProblemPayment payment) throws SQLException {
-    	payment.setEventDate(new Date()); 
-
-		if (payment instanceof ProblemWritingPayment) {
-			payment.setDescription("Problem " + getProblemName(c, payment.getProblemId()) + " writing");
-
-		} else if (payment instanceof ProblemTestingPayment) {
-			payment.setDescription("Problem " + getProblemName(c, payment.getProblemId()) + " testing");
-
-		} else {
-			throw new IllegalArgumentException("Unknown class payment type: " + payment.getPaymentType());
-		}
-
-	}
-
-    private void fillComponentPaymentData(Connection c, ComponentPayment payment) throws SQLException {
-        StringBuffer query = new StringBuffer(300);
-        query.append("SELECT cc.component_name, p.complete_date, p.project_type_id ");
-        query.append("FROM tcs_catalog:project p, tcs_catalog:comp_versions cv, tcs_catalog:comp_catalog cc ");
-        query.append("WHERE p.comp_vers_id = cv.comp_vers_id ");
-        query.append("AND cv.component_id = cc.component_id ");
-        query.append("AND p.project_id = " + payment.getProjectId() + " ");
-        query.append("AND p.cur_version = 1");
-        ResultSetContainer rsc = runSelectQuery(c, query.toString(), false);
-        if (rsc.getRowCount() != 1) {
-            throw new IllegalArgumentException("Project " + payment.getProjectId() + " does not exist or is not unique");
-        }
-        String componentName = rsc.getStringItem(0, "component_name");
-        Date completeDate =  rsc.getItem(0, "complete_date") == null? new Date() : rsc.getTimestampItem(0, "complete_date");
-        String type = rsc.getIntItem(0, "project_type_id") == 1? "Design" : "Development";
-        
-        log.debug("completeDate = " + completeDate);
-        payment.setEventDate(completeDate);
-        
-        if (payment instanceof ComponentWinningPayment) {
-        	payment.setDescription(componentName + " - " + type + ", " + getOrdinal(((ComponentWinningPayment) payment).getPlaced()));
-       	
-        } else if (payment instanceof ReviewBoardPayment) {
-        	payment.setDescription(componentName + " - " + type + " review board");
-
-		} else {
-			throw new IllegalArgumentException("Unknown class payment type: " + payment.getPaymentType());
-		}
-    }
-
-    private void fillPaymentData(Connection c, BasePayment payment) throws SQLException {
-
-    	if (payment instanceof ProblemPayment) {
-			fillProblemPaymentData (c, (ProblemPayment) payment);
-
-    	} else if (payment instanceof AlgorithmPayment) {
-    		fillAlgorithmPaymentData(c, (AlgorithmPayment) payment);
-
-    	} else if (payment instanceof ComponentPayment) {
-    		fillComponentPaymentData(c, (ComponentPayment) payment);
-
-		} else {
-			throw new IllegalArgumentException("Unknown class payment type: " + payment.getPaymentType());
-		}
-
-    	if (payment.getEventDate() == null ){
-    		payment.setEventDate(new Date());
-    	}
-    	
-    	
-    	
-    	
-    	// Calculate the due date as the event date + an interval depending on the type
-        Calendar dueDate = Calendar.getInstance();
-        dueDate.setTime(payment.getEventDate());
-        dueDate.add(Calendar.DAY_OF_YEAR, getDueDateInterval(c, payment.getPaymentType()));
-
-    	payment.setDueDate(dueDate.getTime());
-    	
-    	payment.setStatusId(hasTaxForm(c, payment.getCoderId()) ? PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);
-    }
-*/    
 
     /**
      * Look up and fill data in the payment object.
@@ -5549,12 +5433,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     
     public void addPayment(BasePayment payment) throws SQLException {
         Connection c = null;
+
+        BasePayment.Processor processor = payment.getProcessor();
+        
+        if (processor.isDuplicated(payment)) {
+        	throw new IllegalArgumentException("Payment is already in the database.");
+        }
+        
         try {
             c = DBMS.getConnection();
             c.setAutoCommit(false);
             setLockTimeout(c);
 
-            payment.getProcessor().fillData(payment);
+            processor.fillData(payment);
 
             Payment p = payment.createPayment();
 
@@ -5663,7 +5554,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     			try {
     				reference = rsr.getLongItem(referenceFieldName);
     			} catch (Exception e) {
-    				log.warn("Missing reference " + referenceFieldName + " for coder " + coder + " in payment_id" + paymentId);    					
+    				log.warn("Missing reference " + referenceFieldName + " for coder " + coder + " in payment_id " + paymentId);    					
     			}    				
     		}
     		
