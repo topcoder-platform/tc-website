@@ -200,7 +200,7 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
 	        }
 	        
 	        componentName = rsc.getStringItem(0, "component_name");
-	        completeDate =  rsc.getItem(0, "complete_date") == null? new Date() : rsc.getTimestampItem(0, "complete_date");
+	        completeDate =  rsc.getStringItem(0, "complete_date") == null? new Date() : rsc.getTimestampItem(0, "complete_date");
 	        projectType = rsc.getIntItem(0, "project_type_id") == 1? "Design" : "Development";
 		}
 		
