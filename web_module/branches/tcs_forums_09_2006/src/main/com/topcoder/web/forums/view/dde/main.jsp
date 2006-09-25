@@ -44,8 +44,8 @@
 
 <body>
 
-<jsp:include page="../dde.war/includes/top.jsp"/>
-<jsp:include page="../dde.war/includes/menu.jsp">
+<jsp:include page="includes/top.jsp"/>
+<jsp:include page="includes/menu.jsp">
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
 
@@ -183,7 +183,7 @@
     </tr>
 </table>
 
-<jsp:include page="../dde.war/includes/foot.jsp" />
+<jsp:include page="includes/foot.jsp" />
 
 </body>
 
