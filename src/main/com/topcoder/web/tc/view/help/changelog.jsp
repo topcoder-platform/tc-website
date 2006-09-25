@@ -47,7 +47,8 @@
     5.4.13 - 2006.09.xx
     <ul>
         <li>
-            Fix bug in registration process where the registration selections can bet lost.
+            Fix bug in the technical assessment admin tool so that anyone can view the first page even if their account
+            isn't configured for access.
         </li>
         <li>Improve aol alert sending process</li>
     </ul>
