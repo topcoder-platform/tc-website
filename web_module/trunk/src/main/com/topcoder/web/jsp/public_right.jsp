@@ -4,9 +4,8 @@
     String level1 = request.getParameter("level1") == null ? "" : request.getParameter("level1");
 %>
 
-<%--
 <script type="text/javascript" language="javascript">
-<!-- HIDE FROM OLD BROWSERS
+<%-- HIDE FROM OLD BROWSERS
 function timer(last) {
   var d = document;
   var stuff = [['/i/tournament/tco03/promo_sm_revelation.gif', '/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_revelation'], ['/i/tournament/tco03/promo_sm_northface.gif', '/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_northface'], ['/i/tournament/tco03/promo_sm_artifact.gif', '/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_artifact']];
@@ -21,20 +20,19 @@ function find(n) {
     if (s[i].name==n) return s[i];
   }
 }
-// END HIDING -->
+// END HIDING --%>
 </script>
---%>
 
-<!-- Member Profiles, Search Pages, and Private Label Events Pages begins -->
+<%-- Member Profiles, Search Pages, and Private Label Events Pages begins --%>
 <% if ((level1.equals("default")) | (level1.equals("profile")) | (level1.equals("search")) | (level1.equals("tournament")) | (level1.equals("privatelabel"))) { %>
 
 
 <div class="rightColContent">
     <br><br>
 </div>
-<!-- Member Profiles, Search Pages, and Private Label Events Pages ends -->
+<%-- Member Profiles, Search Pages, and Private Label Events Pages ends --%>
 
-<!-- 2004 TCO begins -->
+<%-- 2004 TCO begins --%>
 <% } else if (level1.equals("tco04")) { %>
 
 <img src="/i/clear.gif" alt="" width="170" height="15" border="0"/><br/>
@@ -71,10 +69,10 @@ function find(n) {
 
 <p><br/></p>
 
-<!-- 2004 TCO ends -->
+<%-- 2004 TCO ends --%>
 
 
-<!-- 2005 TCCC begins -->
+<%-- 2005 TCCC begins --%>
 <% } else if (level1.equals("tccc05")) { %>
 
 <img src="/i/clear.gif" alt="" width="170" height="15" border="0"/><br/>
@@ -100,9 +98,9 @@ function find(n) {
 
 <p><br/></p>
 
-<!-- 2005 TCCC ends -->
+<%-- 2005 TCCC ends --%>
 
-<!-- 2005 TCO begins -->
+<%-- 2005 TCO begins --%>
 <% } else if (level1.equals("tco05")) { %>
 
 <img src="/i/clear.gif" alt="" width="170" height="15" border="0"/><br/>
@@ -124,9 +122,9 @@ function find(n) {
 
 <p><br/></p>
 
-<!-- 2005 TCI ends -->
+<%-- 2005 TCI ends --%>
 
-<!-- Microsoft begins -->
+<%-- Microsoft begins --%>
 <% } else if (level1.equals("microsoft")) { %>
 
 <img src="/i/clear.gif" alt="" width="170" height="15" border="0"/><br/>
@@ -142,9 +140,9 @@ function find(n) {
 
 <p><br/></p>
 
-<!-- Microsoft ends -->
+<%-- Microsoft ends --%>
 
-<!-- Motorola begins -->
+<%-- Motorola begins --%>
 <% } else if (level1.equals("motorola")) { %>
 
 <img src="/i/clear.gif" alt="" width="170" height="15" border="0"/><br/>
@@ -160,9 +158,9 @@ function find(n) {
 
 <p><br/></p>
 
-<!-- Motorola ends -->
+<%-- Motorola ends --%>
 
-<!-- NVIDIA begins -->
+<%-- NVIDIA begins --%>
 <% } else if (level1.equals("nvidia")) { %>
 
 <img src="/i/clear.gif" alt="" width="170" height="15" border="0"/><br/>
@@ -178,9 +176,9 @@ function find(n) {
 
 <p><br/></p>
 
-<!-- NVIDIA ends -->
+<%-- NVIDIA ends --%>
 
-<!-- Intel begins -->
+<%-- Intel begins --%>
 <% } else if (level1.equals("intel")) { %>
 
 <img src="/i/clear.gif" alt="" width="170" height="15" border="0"/><br/>
@@ -196,9 +194,9 @@ function find(n) {
 
 <p><br/></p>
 
-<!-- Intel ends -->
+<%-- Intel ends --%>
 
-<!-- Yahoo begins -->
+<%-- Yahoo begins --%>
 <% } else if (level1.equals("yahoo")) { %>
 
 <img src="/i/clear.gif" alt="" width="170" height="15" border="0"/><br/>
@@ -214,9 +212,9 @@ function find(n) {
 
 <p><br/></p>
 
-<!-- Yahoo ends -->
+<%-- Yahoo ends --%>
 
-<!-- About Us begins -->
+<%-- About Us begins --%>
 <% } else if (level1.equals("about")) { %>
 
 
@@ -224,7 +222,7 @@ function find(n) {
     <br><br>
 </div>
 
-<!-- About Us ends -->
+<%-- About Us ends --%>
 
 <% } else if (level1.equals("card")) { %>
 
@@ -238,7 +236,7 @@ function find(n) {
 
 <p><br/></p>
 
-<!-- Review Board begins -->
+<%-- Review Board begins --%>
 <% } else if (level1.equals("review_board")) { %>
 
 
@@ -246,9 +244,9 @@ function find(n) {
     <br><br>
 </div>
 
-<!-- Review Board ends -->
+<%-- Review Board ends --%>
 
-<!-- Employment Opportunities begins -->
+<%-- Employment Opportunities begins --%>
 <% } else if (level1.equals("employmentOpps")) { %>
 
 
@@ -256,15 +254,15 @@ function find(n) {
     <br><br>
 </div>
 
-<!-- Employment Opportunities ends -->
+<%-- TCHS ends --%>
 
 <% } else if (level1.equals("tchs")) { %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+
 <div class="rightColContent">
-<A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>//?module=ViewContestDetails&ct=2030"><img src="/i/hs/tchs07_right.png" alt="2007 TCHS Tournament Logo Design Contest" /></A>
+    <br><br>
 </div>
 
-<!-- Employment Opportunities ends -->
+<%-- Employment Opportunities ends --%>
 
 <% } else { %>
 <div class="rightColContent">
