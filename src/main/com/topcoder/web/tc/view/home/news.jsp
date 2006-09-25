@@ -31,7 +31,7 @@
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>
         09.25.06<br>2:00 PM</td>
     <td class="newsTextCell"><span class="newsTitle">
-    <A href="/tc?module=SurveyResults&sid=219">TCCC t-shirt quote vote results</A>
+    <A href="/tc?module=SurveyResults&sid=219">TCCC06 t-shirt quote vote results</A>
     </span><br><br>
         "I have not failed. I've just found 10,000 ways that won't work." - Wernie
     </td>
