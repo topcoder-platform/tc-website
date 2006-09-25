@@ -70,7 +70,7 @@ function toggleTabs(id) {
 
 <!-- Left Column Begins-->
       <td width="180" class="leftColumn">
-        <jsp:include page="../dde.war/includes/left.jsp" >
+        <jsp:include page="includes/left.jsp" >
             <jsp:param name="level1" value="forum"/>
             <jsp:param name="level2" value="all"/>
         </jsp:include>
