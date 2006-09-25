@@ -8,6 +8,7 @@
 <%@ page import="javax.naming.InitialContext"%>
 <%@ page import="com.topcoder.web.common.*"%>
 <%@ page import="com.topcoder.web.ejb.pacts.*"%>
+<%@ page import="java.util.*"%>
 
 <html>
 
@@ -21,63 +22,25 @@
 %>
 
 
-
-Algorithm Contest
-<br> 
+<b>pcs.findPayments(BasePayment.CODER_REFERRAL_PAYMENT);</b><br> 
+<table>
 <%
-AlgorithmContestPayment ap=new AlgorithmContestPayment(14810373,260, 9998);
-	pcs.fillPaymentData(ap);
-	ap.setDescription(ap.getDescription() + " modified!");
-	pcs.addPayment(ap);
-%>
-getId: <%= ap.getId() %> <br>
-getCoderId: <%= ap.getCoderId() %> <br>
-getNetAmount: <%= ap.getNetAmount() %> <br>
-getGrossAmount: <%= ap.getGrossAmount() %> <br>
-getStatusId: <%= ap.getStatusId() %> <br>
-getStatusDesc: <%= ap.getStatusDesc() %> <br>
-getDescription: <%= ap.getDescription() %> <br>
-getDueDate: <%= ap.getDueDate() %> <br>
-getRoundId: <%= ap.getRoundId() %> <br>
-getPaymentType: <%= ap.getPaymentType() %>
+	List l = pcs.findPayments(BasePayment.CODER_REFERRAL_PAYMENT);
 
-<br><br>
-Algorithm Tournament Prize, second place (should pay referral)
-<br> 
-<%
-AlgorithmTournamentPrizePayment atp=new AlgorithmTournamentPrizePayment(20009005,300, 9980, 2);
-	pcs.addPayment(atp);
+	for (int i = 0; i < l.size();i++) {
+		CoderReferralPayment p = (CoderReferralPayment) l.get(i);
 %>
-atp.getId: <%= atp.getId() %> <br>
-atp.getCoderId: <%= atp.getCoderId() %> <br>
-atp.getNetAmount: <%= atp.getNetAmount() %> <br>
-atp.getGrossAmount: <%= atp.getGrossAmount() %> <br>
-atp.getStatusId: <%= atp.getStatusId() %> <br>
-getStatusDesc: <%= atp.getStatusDesc() %> <br>
-atp.getDescription: <%= atp.getDescription() %> <br>
-atp.getDueDate: <%= atp.getDueDate() %> <br>
-atp.getRoundId: <%= atp.getRoundId() %> <br>
-atp.getPaymentType: <%= atp.getPaymentType() %>
-
-<br><br>
-Marathon Match, 3rd place
-<br> 
-<%
-MarathonMatchPayment mm =new MarathonMatchPayment(14810373,400, 9881, 3);
-	pcs.addPayment(mm);
-%>
-atp.getId: <%= mm.getId() %> <br>
-atp.getCoderId: <%= mm.getCoderId() %> <br>
-atp.getNetAmount: <%= mm.getNetAmount() %> <br>
-atp.getGrossAmount: <%= mm.getGrossAmount() %> <br>
-atp.getStatusId: <%= mm.getStatusId() %> <br>
-getStatusDesc: <%= mm.getStatusDesc() %> <br>
-atp.getDescription: <%= mm.getDescription() %> <br>
-atp.getDueDate: <%= mm.getDueDate() %> <br>
-atp.getRoundId: <%= mm.getRoundId() %> <br>
-atp.getPaymentType: <%= mm.getPaymentType() %>
-<br>
-<br>
+<tr>
+<td> <%= p.getId() %></td>
+<td> <%= p.getPaymentType() %></td>
+<td> <%= p.getDescription() %> </td>
+<td> <%= p.getDueDate() %> </td>
+<td> <%= p.getGrossAmount() %> </td>
+<td> <%= p.getNetAmount() %> </td>
+<td> <%= p.getParentId() %> </td>
+</tr>
+<% } %>
+</table>
 
 </body>
 
