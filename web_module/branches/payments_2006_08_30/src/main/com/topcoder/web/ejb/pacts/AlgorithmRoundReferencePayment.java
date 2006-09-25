@@ -69,6 +69,8 @@ public abstract class AlgorithmRoundReferencePayment extends BasePayment {
 
 	/**
 	 * Get a processor for this type of payment.
+	 * 
+	 * @return a processor for this type of payment.
 	 */
 	protected BasePayment.Processor getProcessor() {
 		return new Processor();
