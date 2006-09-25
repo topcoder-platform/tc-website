@@ -5659,7 +5659,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     		String referenceFieldName = rsr.getStringItem("reference_field_name");
     		    		
     		if (referenceFieldName != null) {
-    			long reference = rsr.getLongItem(referenceFieldName); 
+    			long reference = 0;
+    			if (rsr.getItem(referenceFieldName) == null) {
+    				log.warn("Missing reference " + referenceFieldName + " for coder " + coder + " in payment_id" + paymentId);
+    			} else {
+    				rsr.getLongItem(referenceFieldName);
+    			}
     			payment = BasePayment.createPayment(paymentType, coder, grossAmount, reference);
     		} else {
     			payment = BasePayment.createPayment(paymentType, coder, grossAmount, 0);
