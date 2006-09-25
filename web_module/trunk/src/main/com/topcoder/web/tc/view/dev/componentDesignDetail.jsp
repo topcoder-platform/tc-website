@@ -187,6 +187,12 @@
     </tr>
 </table>
 </p>
+<ul>
+<li>TopCoder may extend registration deadlines for any component that has insufficient participation.  This decision may be influenced by whether the members that are already signed up for the project are rated or have high reliability.  Registration deadlines become final 12 hours after they have expired.</li>
+<li>TopCoder may extend submission deadlines up to 48 hours before the submission deadline if evidence suggests that the extension may be necessary for the project to be completed.</li>
+<li>TopCoder may extend submission deadlines at any time if there were problems in the project that cost competitors time and therefore justify the extension.</li>
+<li>TopCoder may cancel any project when there is evidence that no competitors are going to submit.  Before this, TopCoder will send a verification email to all competitors.  If no competitors reply affirmatively within 24 hours, the project will be terminated.</li>
+</ul>
 
 <%-- Payment --%>
 <table cellspacing="0" class="formFrame" align="center" width="530">
