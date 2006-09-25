@@ -28,6 +28,21 @@
 -----------------------%>
 <%--------------------------------------------------------%>
 <tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>
+        09.25.06<br>2:00 PM</td>
+    <td class="newsTextCell"><span class="newsTitle">
+    <A href="/tc?module=SurveyResults&sid=219">TCCC t-shirt quote vote results</A>
+    </span><br><br>
+        "I have not failed. I've just found 10,000 ways that won't work." - Wernie
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=SurveyResults&sid=219">results</A> |
+    <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512330">discuss this</A> |
+    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+</td></tr>
+<%--------------------------------------------------------%>
+<tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.24.06<br>5:30 PM</td>
     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">TCCC06 Algorithm Round 1B Results</A></span><br><br>
         You can now view Round 1 - Section B advancers.
@@ -232,18 +247,5 @@
     <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=pickme_contest">view</A> |
     <tc-webtag:forumLink forumID="506113" message="discuss this"/> |
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0"/>
-        <br>09.14.06<br>10:30 PM</td>
-    <td class="newsTextCell"><span class="newsTitle">Design and Development Submission Downloads</span><br><br>
-        You can now download submissions from the Contest Details page for any component design or development contest.
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <tc-webtag:forumLink forumID="506115" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
 </td></tr>
 
