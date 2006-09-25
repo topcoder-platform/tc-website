@@ -15,23 +15,39 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
  */
 public abstract class ComponentProjectReferencePayment extends BasePayment {
 	private long projectId;
-
+	private String client = null;
+	
 	public ComponentProjectReferencePayment(long coderId, double grossAmount, long projectId) {
-		super(coderId, grossAmount);
-		this.projectId = projectId;
+		this(coderId, grossAmount, null, projectId);		
 	}
 
 	protected ComponentProjectReferencePayment(long coderId, double grossAmount, long projectId, int placed) {
+		this(coderId, grossAmount, null, projectId, placed);
+	}
+
+	public ComponentProjectReferencePayment(long coderId, double grossAmount, String client, long projectId) {
+		super(coderId, grossAmount);
+		this.projectId = projectId;
+		this.client = client;
+	}
+
+	protected ComponentProjectReferencePayment(long coderId, double grossAmount, String client, long projectId, int placed) {
 		super(coderId, grossAmount, placed);
 		this.projectId = projectId;
+		this.client = client;
 	}
 
 	protected void fillPaymentReference(Payment p) {
-		p.getHeader().setComponentProjectId(getProjectId());		
+		p.getHeader().setComponentProjectId(getProjectId());	
+		p.getHeader().setClient(getClient());
 	}
 	
 	public long getProjectId() {
 		return projectId;
+	}
+	
+	public String getClient() {
+		return client;
 	}
 	
 	protected static abstract class Processor extends BasePayment.Processor {

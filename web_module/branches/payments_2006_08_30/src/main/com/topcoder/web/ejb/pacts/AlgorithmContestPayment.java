@@ -3,6 +3,7 @@ package com.topcoder.web.ejb.pacts;
 import java.sql.SQLException;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.ejb.pacts.AlgorithmRoundReferencePayment.Processor;
 
 
 /**
@@ -45,6 +46,13 @@ public class AlgorithmContestPayment extends AlgorithmRoundReferencePayment {
 		return PaymentTypes.ALGORITHM_CONTEST_PAYMENT;
 	}
 	
+	/**
+	 * Get a processor for this type of payment.
+	 */
+	protected BasePayment.Processor getProcessor() {
+		return new Processor();
+	}	
+
 	/**
 	 * Processor for algorithm contests.  It adds the functionallity of checking for duplicate
 	 * payments for rounds.
