@@ -18,6 +18,7 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
 
@@ -5583,6 +5584,101 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     	}
     }
 
+
+    public List findPayments(int paymentTypeId) throws SQLException {
+    	return findCoderPayments(0, paymentTypeId, 0);
+    }
+
+    public List findPayments(int paymentTypeId, long referenceId) throws SQLException {
+    	return findCoderPayments(0, paymentTypeId, 0);
+    }
+    
+    public List findCoderPayments(long coderId) throws SQLException {
+    	return findCoderPayments(coderId, 0,  0);
+    }
+    
+    public List findCoderPayments(long coderId, int paymentTypeId) throws SQLException {
+    	return findCoderPayments(coderId, paymentTypeId,  0);
+    }
+    
+    public List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws SQLException {
+    	
+    	StringBuffer query = new StringBuffer(500);
+    	List list = new ArrayList();
+    	
+    	query.append(" SELECT p.payment_id, p.user_id, pd.payment_desc, pd.payment_type_id, "); 
+    	query.append("    pd.gross_amount, pd.net_amount, pd.status_id, s.status_desc, pd.date_due");
+    	query.append("    pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, "); 
+    	query.append("    pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, "); 
+    	query.append("    pd.digital_run_season_id, pd.parent_payment_id, ");
+    	query.append("    (SELECT reference_field_name   ");
+    	query.append("       FROM payment_reference_lu pr,payment_type_lu pt ");
+    	query.append("       WHERE pd.payment_type_id = pt.payment_type_id ");
+    	query.append("       AND pt.payment_reference_id = pr.payment_reference_id) as reference_field_name ");
+    	query.append(" FROM payment p, payment_detail pd, status_lu s ");
+    	query.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
+    	query.append(" AND s.status_id = pd.status_id  ");
+    	
+    	if (paymentTypeId > 0) {
+    		query.append(" AND pd.payment_type_id = " + paymentTypeId);
+    	}
+
+    	if (coderId > 0) {
+    		query.append(" AND p.user_id = " + coderId);
+    	}
+
+    	if (referenceId > 0) {
+    		query.append(" AND (");
+    		query.append("  pd.algorithm_round_id=" + referenceId + " OR ");
+    		query.append("  pd.component_project_id=" + referenceId + " OR ");
+    		query.append("  pd.algorithm_problem_id=" + referenceId + " OR ");
+    		query.append("  pd.studio_contest_id=" + referenceId + " OR ");
+    		query.append("  pd.component_contest_id=" + referenceId + " OR ");
+    		query.append("  pd.digital_run_stage_id=" + referenceId + " OR ");
+    		query.append("  pd.digital_run_season_id=" + referenceId + " OR ");
+    		query.append("  pd.parent_payment_id=" + referenceId + ")");
+    	}
+    	
+    	ResultSetContainer rsc = runSelectQuery(query.toString(), false);
+    	
+    	for (int i=0; i < rsc.getRowCount(); i++) {
+    		ResultSetContainer.ResultSetRow rsr = rsc.getRow(i);
+
+    		BasePayment payment;
+    		
+    		long paymentId = rsr.getLongItem("payment_id");
+    		long coder = rsr.getLongItem("user_id");
+    		double grossAmount = rsr.getDoubleItem("gross_amount");
+    		double netAmount = rsr.getDoubleItem("net_amount");
+    		int paymentType = rsr.getIntItem("payment_type_id");
+    		Date dueDate = rsr.getTimestampItem("date_due");
+    		int statusId = rsr.getIntItem("status_id");
+    		String statusDesc = rsr.getStringItem("status_desc");
+    		String description = rsr.getStringItem("payment_desc");
+    			
+    		String referenceFieldName = rsr.getStringItem("reference_field_name");
+    		    		
+    		if (referenceFieldName != null) {
+    			long reference = rsr.getLongItem(referenceFieldName); 
+    			payment = BasePayment.createPayment(paymentType, coder, grossAmount, reference);
+    		} else {
+    			payment = BasePayment.createPayment(paymentType, coder, grossAmount, 0);
+    		}
+    			
+    		payment.setId(paymentId);
+    		payment.setNetAmount(netAmount);
+    		payment.setDueDate(dueDate);
+    		payment.setStatusId(statusId);
+    		payment.setStatusDesc(statusDesc);
+    		payment.setDescription(description);
+    		
+    		
+    		list.add(payment);
+    	}
+    	
+    	return list;
+    }
+    
     private void rollback(Connection c) {
         try {
             c.rollback();
@@ -5599,9 +5695,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
 
     }
-
-    
-    
     
     
     /**

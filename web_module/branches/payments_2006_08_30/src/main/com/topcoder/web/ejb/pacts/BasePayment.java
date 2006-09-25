@@ -145,7 +145,11 @@ public abstract class BasePayment implements PaymentTypes {
 	}
 	
 	public int getReferenceTypeId() {
-		switch(getPaymentType()) {
+		return getReferenceTypeId(getPaymentType());
+	}
+	
+	public static int getReferenceTypeId(int paymentType) {
+		switch(paymentType) {
         case ALGORITHM_CONTEST_PAYMENT:
         case MARATHON_MATCH_PAYMENT:
         case ALGORITHM_TOURNAMENT_PRIZE_PAYMENT: 
@@ -180,6 +184,28 @@ public abstract class BasePayment implements PaymentTypes {
         default: 
         	return NO_REFERENCE;
 		}
+	}
+
+	
+	public static BasePayment createPayment(int paymentTypeId, long coderId, double grossAmount, long referenceId) {
+		switch(paymentTypeId) {
+        case ALGORITHM_CONTEST_PAYMENT: return new AlgorithmContestPayment(coderId, grossAmount, referenceId);
+        case MARATHON_MATCH_PAYMENT: return new MarathonMatchPayment(coderId, grossAmount, referenceId);
+        case ALGORITHM_TOURNAMENT_PRIZE_PAYMENT: return new AlgorithmTournamentPrizePayment(coderId, grossAmount, referenceId);
+        case COMPONENT_PAYMENT: return new ComponentWinningPayment(coderId, grossAmount, referenceId);
+        case REVIEW_BOARD_PAYMENT: return new ReviewBoardPayment(coderId, grossAmount, referenceId);
+        case PROBLEM_TESTING_PAYMENT: return new ProblemTestingPayment(coderId, grossAmount, referenceId);
+        case PROBLEM_WRITING_PAYMENT: return new ProblemWritingPayment(coderId, grossAmount, referenceId);
+        case TC_STUDIO_PAYMENT: return new StudioContestPayment(coderId, grossAmount, referenceId); 
+        case COMPONENT_TOURNAMENT_BONUS_PAYMENT: return new ComponentTournamentBonusPayment(coderId, grossAmount, referenceId);
+        case DIGITAL_RUN_PRIZE_PAYMENT: return new DigitalRunPrizePayment(coderId, grossAmount, referenceId);
+        case DIGITAL_RUN_TOP_THIRD_PAYMENT: return new DigitalRunTopThirdPayment(coderId, grossAmount, referenceId);
+        case DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT: return new DigitalRunRockiePrizePayment(coderId, grossAmount, referenceId);
+        case CODER_REFERRAL_PAYMENT: return new CoderReferralPayment(coderId, grossAmount, referenceId);
+        case CHARITY_PAYMENT: return new CharityPayment(coderId, referenceId);
+        case RELIABILITY_BONUS_PAYMENT: return new ReliabilityBonusPayment(coderId, grossAmount, referenceId);
+        default: return new NoReferencePayment(paymentTypeId, coderId, grossAmount, "");		
+        }
 	}
 
 	protected static abstract class Processor {
@@ -401,6 +427,7 @@ public abstract class BasePayment implements PaymentTypes {
 
 	    
 	}
+
 
 
 }
