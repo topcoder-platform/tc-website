@@ -44,6 +44,16 @@
 
 
 <p>
+    5.4.13 - 2006.09.xx
+    <ul>
+        <li>
+            Fix bug in registration process where the registration selections can bet lost.
+        </li>
+        <li>Improve aol alert sending process</li>
+    </ul>
+</p>
+
+<p>
     5.4.12 - 2006.09.20
     <ul>
         <li>
