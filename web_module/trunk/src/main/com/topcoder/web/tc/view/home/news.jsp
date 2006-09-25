@@ -7,7 +7,24 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
-<%---------------------------------POST MONDAY SEPT 25
+
+<%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>
+        09.25.06<br>2:00 PM</td>
+    <td class="newsTextCell"><span class="newsTitle">
+    <A href="/tc?module=SurveyResults&sid=219">TCCC06 t-shirt quote vote results</A>
+    </span><br><br>
+        "I have not failed. I've just found 10,000 ways that won't work." - Wernie
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=SurveyResults&sid=219">results</A> |
+    <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512330">discuss this</A> |
+    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
         <br>09.25.06<br>9:00 AM</td>
@@ -25,22 +42,7 @@
     <tc-webtag:forumLink forumID="506123" message="discuss this"/> |
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
------------------------%>
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>
-        09.25.06<br>2:00 PM</td>
-    <td class="newsTextCell"><span class="newsTitle">
-    <A href="/tc?module=SurveyResults&sid=219">TCCC06 t-shirt quote vote results</A>
-    </span><br><br>
-        "I have not failed. I've just found 10,000 ways that won't work." - Wernie
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=SurveyResults&sid=219">results</A> |
-    <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512330">discuss this</A> |
-    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-</td></tr>
+
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.24.06<br>5:30 PM</td>
@@ -215,37 +217,5 @@
     <A href="/tc?module=Static&amp;d1=features&amp;d2=091806">article</A> |
     <tc-webtag:forumLink forumID="506116" message="discuss this"/> |
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>
-        09.18.06<br>11:00 AM</td>
-    <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA SRM
-        319 chat session</A></span><br><br>
-        NSA will be in the arena at 8:00 PM just prior to SRM 319 to discuss working at NSA.
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">view</A> |
-    <tc-webtag:forumLink forumID="504999" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>
-        09.18.06<br>9:00 AM</td>
-    <td class="newsTextCell">
-        <span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=pickme_contest">TCCC06 "Pick Me"
-            Contest</A></span><br><br>
-        Did you miss out on making it as a TCCC finalist? Still want to see the finals in San Diego anyway? Here's your
-        chance!
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=pickme_contest">view</A> |
-    <tc-webtag:forumLink forumID="506113" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
 
