@@ -11,7 +11,7 @@
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>
-        09.25.06<br>2:00 PM</td>
+        09.25.06<br>2:30 PM</td>
     <td class="newsTextCell"><span class="newsTitle">
     <A href="/tc?module=SurveyResults&sid=219">TCCC06 t-shirt quote vote results</A>
     </span><br><br>
@@ -27,7 +27,7 @@
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>09.25.06<br>9:00 AM</td>
+        <br>09.25.06<br>2:15 PM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=092506">Understanding the Mind Game</A></span><br><br>
