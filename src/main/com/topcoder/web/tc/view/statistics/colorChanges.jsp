@@ -20,41 +20,48 @@
          </jsp:include>
        </TD>
 <!-- Center Column Begins -->
-<td width="100%" align="left" class="bodyColumn">
+<td width="100%" align="center" class="bodyColumn">
+
+<div class="fixedWidthBody">
 
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="statistics_w"/>
-<jsp:param name="title" value="Recent Handle Color Changes"/>
+<jsp:param name="title" value="Recent Handle Color Changes - Algorithm"/>
 </jsp:include>
 
+<div align="center">
 <strong>
 <A href="" class="bcLink">All changes</A>
-<br><A href="" class="coderTextRed">New reds</A>
-<br><A href="" class="coderTextYellow">New yellows</A>
-<br><A href="" class="coderTextBlue">New blues</A>
-<br><A href="" class="coderTextGreen">New greens</A>
-<br><A href="" class="coderTextGray">New grays</A>
+ | <A href="" class="coderTextRed">New reds</A>
+ | <A href="" class="coderTextYellow">New yellows</A>
+ | <A href="" class="coderTextBlue">New blues</A>
+ | <A href="" class="coderTextGreen">New greens</A>
+ | <A href="" class="coderTextGray">New grays</A>
 </strong>
+</div>
 
-<br><br>
+<div class="pagingBox">
+<< prev
+ | next >>
+</div>
 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
 <tbody>
    <tr>
-      <td class="title" colspan="4">
+      <td class="title" colspan="5">
       Recent Handle Color Changes
       </td>
    </tr>
    <tr>
-      <td class="header">
+      <td class="header" width="50%">
       <A href="">Handle</A>
       </td>
-      <td class="header">
+      <td class="header" width="50%">
       <A href="">Event</A>
       </td>
-      <td class="headerC">
+      <td class="headerC" nowrap="nowrap">
       <A href="">Old Rating</A>
       </td>
-      <td class="headerC">
+      <td class="headerC" nowrap="nowrap">
       <A href="">New Rating</A>
       </td>
    </tr>
@@ -67,12 +74,8 @@
       <td class="value">
       <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
-      <td class="valueBlue">
-      1417
-      </td>
-      <td class="valueYellow">
-      1525
-      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -82,12 +85,8 @@
       <td class="value">
       <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
-      <td class="valueBlue">
-      1417
-      </td>
-      <td class="valueYellow">
-      1525
-      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -97,12 +96,8 @@
       <td class="value">
       <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
-      <td class="valueBlue">
-      1417
-      </td>
-      <td class="valueYellow">
-      1525
-      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -112,12 +107,8 @@
       <td class="value">
       <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
-      <td class="valueGreen">
-      1417
-      </td>
-      <td class="valueYellow">
-      1525
-      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -127,12 +118,8 @@
       <td class="value">
       <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
-      <td class="valueBlue">
-      1417
-      </td>
-      <td class="valueYellow">
-      1525
-      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -142,12 +129,8 @@
       <td class="value">
       <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
-      <td class="valueBlue">
-      <span class="coderTextBlue">1417</span
-      </td>
-      <td class="valueYellow">
-      <span class="coderTextYellow">1525</span
-      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -157,12 +140,8 @@
       <td class="value">
       <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
-      <td class="valueBlue">
-      <span class="coderTextBlue">1417</span
-      </td>
-      <td class="valueYellow">
-      <span class="coderTextYellow">1525</span
-      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -172,12 +151,8 @@
       <td class="value">
       <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
-      <td class="valueBlue">
-      <span class="coderTextBlue">1417</span
-      </td>
-      <td class="valueYellow">
-      <span class="coderTextYellow">1525</span
-      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -187,12 +162,8 @@
       <td class="value">
       <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
-      <td class="valueBlue">
-      <span class="coderTextBlue">1417</span
-      </td>
-      <td class="valueYellow">
-      <span class="coderTextYellow">1525</span
-      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -202,12 +173,8 @@
       <td class="value">
       <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
-      <td class="valueBlue">
-      <span class="coderTextBlue">1417</span
-      </td>
-      <td class="valueYellow">
-      <span class="coderTextYellow">1525</span
-      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -217,12 +184,8 @@
       <td class="value">
       <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
-      <td class="valueBlue">
-      <span class="coderTextBlue">1417</span
-      </td>
-      <td class="valueYellow">
-      <span class="coderTextYellow">1525</span
-      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -232,12 +195,8 @@
       <td class="value">
       <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
-      <td class="valueBlue">
-      <span class="coderTextBlue">1417</span
-      </td>
-      <td class="valueYellow">
-      <span class="coderTextYellow">1525</span
-      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -247,17 +206,138 @@
       <td class="value">
       <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
-      <td class="valueBlue">
-      <span class="coderTextBlue">1417</span
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
+   </tr>
+<% even = !even; %>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <tc-webtag:handle coderId="7504863" context="algorithm"/>
       </td>
-      <td class="valueYellow">
-      <span class="coderTextYellow">1525</span
+      <td class="value">
+      <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
       </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
+   </tr>
+<% even = !even; %>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <tc-webtag:handle coderId="7504863" context="algorithm"/>
+      </td>
+      <td class="value">
+      <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
+      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
+   </tr>
+<% even = !even; %>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <tc-webtag:handle coderId="7504863" context="algorithm"/>
+      </td>
+      <td class="value">
+      <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
+      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
+   </tr>
+<% even = !even; %>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <tc-webtag:handle coderId="7504863" context="algorithm"/>
+      </td>
+      <td class="value">
+      <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
+      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
+   </tr>
+<% even = !even; %>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <tc-webtag:handle coderId="7504863" context="algorithm"/>
+      </td>
+      <td class="value">
+      <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
+      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
+   </tr>
+<% even = !even; %>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <tc-webtag:handle coderId="7504863" context="algorithm"/>
+      </td>
+      <td class="value">
+      <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
+      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
+   </tr>
+<% even = !even; %>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <tc-webtag:handle coderId="7504863" context="algorithm"/>
+      </td>
+      <td class="value">
+      <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
+      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
+   </tr>
+<% even = !even; %>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <tc-webtag:handle coderId="7504863" context="algorithm"/>
+      </td>
+      <td class="value">
+      <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
+      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
+   </tr>
+<% even = !even; %>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <tc-webtag:handle coderId="7504863" context="algorithm"/>
+      </td>
+      <td class="value">
+      <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
+      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
+   </tr>
+<% even = !even; %>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <tc-webtag:handle coderId="7504863" context="algorithm"/>
+      </td>
+      <td class="value">
+      <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
+      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
+   </tr>
+<% even = !even; %>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <tc-webtag:handle coderId="7504863" context="algorithm"/>
+      </td>
+      <td class="value">
+      <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
+      </td>
+      <td class="valueC"><span class="coderTextBlue">1417</span></td>
+      <td class="valueC"><span class="coderTextYellow">1525</span></td>
    </tr>
 </tbody>   
 </table>
+<div class="pagingBox">
+<< prev
+ | next >>
+</div>
  
-
+</div>
 </TD>
        <td WIDTH="180" VALIGN="top">
          <jsp:include page="../public_right.jsp" >
