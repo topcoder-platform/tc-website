@@ -3,7 +3,6 @@ package com.topcoder.web.ejb.pacts;
 import java.sql.SQLException;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.ejb.pacts.AlgorithmRoundReferencePayment.Processor;
 
 
 /**

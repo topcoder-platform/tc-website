@@ -17,86 +17,191 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
 	private long projectId;
 	private String client = null;
 	
-	public ComponentProjectReferencePayment(long coderId, double grossAmount, long projectId) {
+
+	/**
+	 * Create a payment that references a component project.
+	 * 
+	 * @param coderId coder to be paid.
+	 * @param grossAmount amount to be paid.
+	 * @param projectId project that is being paid.
+	 */
+	protected ComponentProjectReferencePayment(long coderId, double grossAmount, long projectId) {
 		this(coderId, grossAmount, null, projectId);		
 	}
 
+	/**
+	 * Create a payment that references a component project.
+	 * 
+	 * @param coderId coder to be paid.
+	 * @param grossAmount amount to be paid.
+	 * @param projectId project that is being paid.
+	 * @param placed the place of the coder in the contest.
+	 */
 	protected ComponentProjectReferencePayment(long coderId, double grossAmount, long projectId, int placed) {
 		this(coderId, grossAmount, null, projectId, placed);
 	}
 
-	public ComponentProjectReferencePayment(long coderId, double grossAmount, String client, long projectId) {
+	/**
+	 * Create a payment that references a component project.
+	 * 
+	 * @param coderId coder to be paid.
+	 * @param grossAmount amount to be paid.
+	 * @param client the client of the project.
+	 * @param projectId project that is being paid.
+	 */
+	protected ComponentProjectReferencePayment(long coderId, double grossAmount, String client, long projectId) {
 		super(coderId, grossAmount);
 		this.projectId = projectId;
 		this.client = client;
 	}
 
+	/**
+	 * Create a payment that references a component project.
+	 * 
+	 * @param coderId coder to be paid.
+	 * @param grossAmount amount to be paid.
+	 * @param client the client of the project.
+	 * @param projectId project that is being paid.
+	 * @param placed the place of the coder in the contest.
+	 */
 	protected ComponentProjectReferencePayment(long coderId, double grossAmount, String client, long projectId, int placed) {
 		super(coderId, grossAmount, placed);
 		this.projectId = projectId;
 		this.client = client;
 	}
 
+	/**
+	 * Fill the component project and client references. 
+	 */
 	protected void fillPaymentReference(Payment p) {
 		p.getHeader().setComponentProjectId(getProjectId());	
 		p.getHeader().setClient(getClient());
 	}
 	
+	/**
+	 * Get the id of the project paid.
+	 * 
+	 * @return the id of the project paid.
+	 */
 	public long getProjectId() {
 		return projectId;
 	}
-	
+
+	/**
+	 * Set the id of the project paid.
+	 * 
+	 * @param projectId the id of the project paid.
+	 */
+	public void setProjectId(long projectId) {
+		this.projectId = projectId;
+	}
+
+	/**
+	 * Get the client for the project.
+	 * 
+	 * @return the client for the project.
+	 */
 	public String getClient() {
 		return client;
 	}
-	
+
+	/**
+	 * Set the client for the project.
+	 *  
+	 * @param client the client for the project.
+	 */
+	public void setClient(String client) {
+		this.client = client;
+	}
+
+
+	/**
+	 * Processor for a payment referencing a project.
+	 * It provides methods for retrieving the name of the component, the type of project and the date of completion.
+	 * 
+	 * @author Cucu
+	 */
 	protected static abstract class Processor extends BasePayment.Processor {
 		private String componentName = null;
 		private String projectType = null;
 		private Date completeDate = null;
 
+		/**
+		 * Get the date that the event took place.
+		 * 
+		 * @param payment payment to look for its date.
+		 * @return the date that the event took place.
+		 */
 		public Date lookupEventDate(BasePayment payment) throws SQLException {
-			return getCompleteDate((ComponentProjectReferencePayment) payment);
+			return getCompleteDate(((ComponentProjectReferencePayment) payment).getProjectId());
 		}	
 
-		private void lookupData(ComponentProjectReferencePayment payment) throws SQLException {
+
+		/**
+		 * Get the date that the project was completed.
+		 * 
+		 * @param projectId project to look for.
+		 * @return the date that the project was completed.
+		 * @throws SQLException
+		 */
+		protected Date getCompleteDate(long projectId) throws SQLException {
+			if (completeDate == null) {
+				lookupData(projectId);
+			}
+			return completeDate;
+		}
+
+		/**
+		 * Get the name of the component.
+		 * 
+		 * @param projectId project to look for.
+		 * @return the name of the component. 
+		 * @throws SQLException
+		 */
+		protected String getComponentName(long projectId) throws SQLException {
+			if (componentName == null) {
+				lookupData(projectId);
+			}
+			return componentName;
+		}
+
+		/**
+		 * Get the type of project.
+		 * 
+		 * @param projectId project to look for.
+		 * @return the type of project (1-design, 2-develop)
+		 * @throws SQLException
+		 */
+		protected String getProjectType(long projectId) throws SQLException {
+			if (projectType == null) {
+				lookupData(projectId);
+			}
+			return projectType;
+		}
+		
+		/**
+		 * Do the actual lookup of data in the db.
+		 * 
+		 * @param projectId id of the project to lookup.
+		 * @throws SQLException
+		 */
+		private void lookupData(long projectId) throws SQLException {
 	        StringBuffer query = new StringBuffer(300);
 	        query.append("SELECT cc.component_name, p.complete_date, p.project_type_id ");
 	        query.append("FROM project p, comp_versions cv, comp_catalog cc ");
 	        query.append("WHERE p.comp_vers_id = cv.comp_vers_id ");
 	        query.append("AND cv.component_id = cc.component_id ");
-	        query.append("AND p.project_id = " + payment.getProjectId() + " ");
+	        query.append("AND p.project_id = " + projectId + " ");
 	        query.append("AND p.cur_version = 1");
 	        ResultSetContainer rsc = runSelectQuery(DBMS.TCS_OLTP_DATASOURCE_NAME, query.toString());
 	        
 	        if (rsc.getRowCount() != 1) {
-	            throw new IllegalArgumentException("Project " + payment.getProjectId() + " does not exist or is not unique");
+	            throw new IllegalArgumentException("Project " + projectId + " does not exist or is not unique");
 	        }
 	        
 	        componentName = rsc.getStringItem(0, "component_name");
 	        completeDate =  rsc.getItem(0, "complete_date") == null? new Date() : rsc.getTimestampItem(0, "complete_date");
 	        projectType = rsc.getIntItem(0, "project_type_id") == 1? "Design" : "Development";
-		}
-
-		protected Date getCompleteDate(ComponentProjectReferencePayment payment) throws SQLException {
-			if (completeDate == null) {
-				lookupData(payment);
-			}
-			return completeDate;
-		}
-
-		protected String getComponentName(ComponentProjectReferencePayment payment) throws SQLException {
-			if (componentName == null) {
-				lookupData(payment);
-			}
-			return componentName;
-		}
-
-		protected String getProjectType(ComponentProjectReferencePayment payment) throws SQLException {
-			if (projectType == null) {
-				lookupData(payment);
-			}
-			return projectType;
 		}
 		
 	}

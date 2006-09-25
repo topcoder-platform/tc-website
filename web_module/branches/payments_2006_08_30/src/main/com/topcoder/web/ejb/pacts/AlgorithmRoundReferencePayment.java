@@ -52,6 +52,15 @@ public abstract class AlgorithmRoundReferencePayment extends BasePayment {
 	}
 
 	/**
+	 * Set the id of the round where the coder won the prize.
+	 * 
+	 * @param roundId the id of the round where the coder won the prize.
+	 */
+	public void setRoundId(long roundId) {
+		this.roundId = roundId;
+	}
+
+	/**
 	 * Fill the algorithm round id field in the payment
 	 */
 	protected void fillPaymentReference(Payment p) {

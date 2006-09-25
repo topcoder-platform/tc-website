@@ -145,40 +145,19 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         			TCData.getTCLong(rsr, "user_id", 0, true),
                     TCData.getTCString(rsr, "handle", "default handle", true));
         }
-        switch(typeId) {
-        case ALGORITHM_CONTEST_PAYMENT:
-        case MARATHON_MATCH_PAYMENT:
-        case ALGORITHM_TOURNAMENT_PRIZE_PAYMENT: 
-        	algorithmRoundId = TCData.getTCLong(rsr, "algorithm_round_id", 0, false);
-        	break;
-        case COMPONENT_PAYMENT:
-        case REVIEW_BOARD_PAYMENT:  
-        	componentProjectId = TCData.getTCLong(rsr, "component_project_id", 0, false);
-    		client = TCData.getTCString(rsr, "client", "", false);
-    		break;
-        case PROBLEM_TESTING_PAYMENT:
-        case PROBLEM_WRITING_PAYMENT:
-        	algorithmProblemId = TCData.getTCLong(rsr, "algorithm_problem_id", 0, false);
-        	break; 
-        case TC_STUDIO_PAYMENT:
-        	studioContestId = TCData.getTCLong(rsr, "studio_contest_id", 0, false);
-        	break;
-        case COMPONENT_TOURNAMENT_BONUS_PAYMENT:
-        	componentContestId = TCData.getTCLong(rsr, "component_contest_id", 0, false);
-    		break;
-        case DIGITAL_RUN_PRIZE_PAYMENT:
-        case DIGITAL_RUN_TOP_THIRD_PAYMENT:
-        	digitalRunStageId = TCData.getTCLong(rsr, "digital_run_stage_id", 0, false);
-        	break;
-        case DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT:
-        	digitalRunSeasonId = TCData.getTCLong(rsr, "digital_run_season_id", 0, false);
-        	break;
-        case CODER_REFERRAL_PAYMENT:
-        case CHARITY_PAYMENT:
-        case RELIABILITY_BONUS_PAYMENT:
-        	parentPaymentId = TCData.getTCLong(rsr, "parent_reference_id", 0, false);
-        	break;
-        }
+        
+        client = TCData.getTCString(rsr, "client", "", false);
+        
+    	algorithmRoundId = TCData.getTCLong(rsr, "algorithm_round_id", 0, false);
+    	componentProjectId = TCData.getTCLong(rsr, "component_project_id", 0, false);
+		
+    	algorithmProblemId = TCData.getTCLong(rsr, "algorithm_problem_id", 0, false);
+    	studioContestId = TCData.getTCLong(rsr, "studio_contest_id", 0, false);
+    	componentContestId = TCData.getTCLong(rsr, "component_contest_id", 0, false);
+    	digitalRunStageId = TCData.getTCLong(rsr, "digital_run_stage_id", 0, false);
+    	digitalRunSeasonId = TCData.getTCLong(rsr, "digital_run_season_id", 0, false);
+    	parentPaymentId = TCData.getTCLong(rsr, "parent_reference_id", 0, false);
+        	
         reviewed = 0 != TCData.getTCInt(rsr, "review", 0, true);
     }
 
