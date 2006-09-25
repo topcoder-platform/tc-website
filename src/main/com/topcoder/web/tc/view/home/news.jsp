@@ -10,6 +10,27 @@
 
 <%--------------------------------------------------------%>
 <tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
+        <br>09.25.06<br>6:00 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle">
+            <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm15">TCHS SRM 15 - Problem Set & Analysis</A>
+            </span><br><br>
+In this problem set coders faced an easy first problem, an easy second - which had the same number of correct submissions as the first problem - and a not very difficult third, though it did require some accuracy in coding.
+            </td>
+            <td class="newsPhoto"><img src="/i/m/Vedensky_big2.jpg" alt="" width="55" height="61"/><br>by
+                <tc-webtag:handle coderId="9927526" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm15">full story</A> |
+    <tc-webtag:forumLink forumID="505994" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>
         09.25.06<br>2:30 PM</td>
     <td class="newsTextCell"><span class="newsTitle">
@@ -194,28 +215,5 @@
     <A href="/tc?module=ViewSurvey&sid=219">vote</A> |
     <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512330">discuss this</A> |
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>09.18.06<br>11:00 AM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=091806">Computational
-                geometry with complex numbers</A></span><br><br>
-                Computational geometry problems appear frequently in Topcoder contests and a series of articles has
-                already been written on the subject. However,
-                competitors who have tried to implement these algorithms (particularly in C++) will no doubt have been
-                frustrated&#8230;</td>
-            <td class="newsPhoto"><img src="/i/m/bmerry_mug.gif" alt=""/><br>
-                by <tc-webtag:handle coderId="251074"/></td></tr>
-        </table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&amp;d1=features&amp;d2=091806">article</A> |
-    <tc-webtag:forumLink forumID="506116" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 
