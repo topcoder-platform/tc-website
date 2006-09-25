@@ -5317,70 +5317,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return hm;
     }
 
-    /**
-     * Returns whether the user has already sent a Tax form.
-     *
-     * @param c connection to use for db access
-     * @param coderId coder to check for tax form
-     * @return whether the user has already sent a Tax form.
-     * @throws SQLException if a problem occurs accesing DB
-     */
-    private boolean hasTaxFormERASEME(Connection c, long coderId) throws SQLException {
-        StringBuffer query = new StringBuffer(1000);
-        query.append(" SELECT 1 ");
-        query.append(" FROM user_tax_form_xref ");
-        query.append(" WHERE user_id = " + coderId);
 
-        ResultSetContainer rsc = runSelectQuery(c, query.toString(), false);
-
-        return rsc.getRowCount() > 0;
-    }
-
-    /**
-     * Get the name of a problem from its id
-     *
-     * @param c connection to use for db access
-     * @param problemId problem to look up
-     * @return the name of a problem from its id
-     * @throws SQLException if a problem occurs accesing DB
-     * @throws IllegalArgumentException if the problem was not found with the id.
-     */
-    private String getProblemNameERASEME(Connection c, long problemId) throws SQLException {
-        StringBuffer query = new StringBuffer(100);
-        query.append(" SELECT name ");
-        query.append(" FROM problem ");
-        query.append(" WHERE problem_id = " + problemId);
-
-        ResultSetContainer rsc = runSelectQuery(c, query.toString(), false);
-
-        if (rsc.getRowCount() != 1) {
-        	throw new IllegalArgumentException("Not exactly 1 problem found with id " + problemId);
-        }
-        return rsc.getStringItem(0, 0);
-    }
-
-
-    /**
-     * Get the interval in days from an event (srm, contest finalization...) to the payment.
-     *
-     * @param c connection tu use for db access
-     * @param paymentTypeId type id of the payment
-     * @return the interval in days from an event (srm, contest finalization...) to the payment.
-     */
-    private int getDueDateIntervalERASEME(Connection c, int paymentTypeId) throws SQLException {
-        StringBuffer query = new StringBuffer(100);
-        query.append(" SELECT due_date_interval ");
-        query.append(" FROM payment_type_lu ");
-        query.append(" WHERE payment_type_id = " + paymentTypeId);
-
-        ResultSetContainer rsc = runSelectQuery(c, query.toString(), false);
-
-        if (rsc.getRowCount() != 1) {
-        	throw new IllegalArgumentException("Payment type not found: " + paymentTypeId);
-        }
-        return rsc.getIntItem(0, 0);
-    }
-
+    
     /**
      * Look up and fill data in the payment object.
      * It fills:

@@ -480,7 +480,7 @@ public abstract class BasePayment implements PaymentTypes {
 	     * @throws SQLException
 	     */
 		protected ResultSetContainer runSelectQuery(String query) throws SQLException {
-			return runSelectQuery(DBMS.OLTP_DATASOURCE_NAME);
+			return runSelectQuery(DBMS.OLTP_DATASOURCE_NAME, query);
 		}
 
 		/**
