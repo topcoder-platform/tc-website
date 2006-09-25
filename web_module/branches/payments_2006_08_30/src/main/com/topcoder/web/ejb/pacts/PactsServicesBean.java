@@ -5644,7 +5644,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     	for (int i=0; i < rsc.getRowCount(); i++) {
     		ResultSetContainer.ResultSetRow rsr = rsc.getRow(i);
 
-    		BasePayment payment;
     		
     		long paymentId = rsr.getLongItem("payment_id");
     		long coder = rsr.getLongItem("user_id");
@@ -5657,26 +5656,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     		String description = rsr.getStringItem("payment_desc");
     			
     		String referenceFieldName = rsr.getStringItem("reference_field_name");
+
+    		long reference = 0;
     		    		
     		if (referenceFieldName != null) {
-    			long reference = 0;
-    			if (rsr.getItem(referenceFieldName) == null) {
-    				log.warn("Missing reference " + referenceFieldName + " for coder " + coder + " in payment_id" + paymentId);
-    			} else {
-    				try {
+    			try {
     				reference = rsr.getLongItem(referenceFieldName);
-    				} catch (Exception e) {
-    					log.error("GOT EXCEPTION: " + e);
-    					log.error("reference field name=" + referenceFieldName);
-    					log.error("getItem=" + rsr.getItem(referenceFieldName));
-    					
-    				}
-    				
-    			}
-    			payment = BasePayment.createPayment(paymentType, coder, grossAmount, reference);
-    		} else {
-    			payment = BasePayment.createPayment(paymentType, coder, grossAmount, 0);
+    			} catch (Exception e) {
+    				log.warn("Missing reference " + referenceFieldName + " for coder " + coder + " in payment_id" + paymentId);    					
+    			}    				
     		}
+    		
+    		BasePayment payment = BasePayment.createPayment(paymentType, coder, grossAmount, reference);
     			
     		payment.setId(paymentId);
     		payment.setNetAmount(netAmount);
