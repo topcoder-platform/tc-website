@@ -5340,20 +5340,20 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         switch (payment.getReferenceTypeId()) {
         	case REFERENCE_ALGORITHM_ROUND_ID:
-        		p.getHeader().setAlgorithmRoundId(((AlgorithmRoundReferencePayment).payment).getRoundId());
+        		p.getHeader().setAlgorithmRoundId(((AlgorithmRoundReferencePayment) payment).getRoundId());
         		break;
         	case REFERENCE_COMPONENT_PROJECT_ID:
-				p.getHeader().setComponentProjectId(((ComponentProjectReferencePayment).payment).getProjectId());
+				p.getHeader().setComponentProjectId(((ComponentProjectReferencePayment) payment).getProjectId());
 				p.getHeader().setClient(((ComponentProjectReferencePayment) payment).getClient());
         		break;
         	case REFERENCE_ALGORITHM_PROBLEM_ID:
-				p.getHeader().setAlgorithmProblemId(((AlgorithmProblemReferencePayment).payment).getProblemId());
+				p.getHeader().setAlgorithmProblemId(((AlgorithmProblemReferencePayment) payment).getProblemId());
         		break;
         	case REFERENCE_STUDIO_CONTEST_ID:
-				p.getHeader().setStudioContestId(((StudioContestReferencePayment).payment).getContestId());
+				p.getHeader().setStudioContestId(((StudioContestReferencePayment) payment).getContestId());
         		break;
         	case REFERENCE_COMPONENT_CONTEST_ID:
-				p.getHeader().setComponentContestId(((ComponentContestReferencePayment).payment).getContestId());
+				p.getHeader().setComponentContestId(((ComponentContestReferencePayment) payment).getContestId());
         		break;
         	case REFERENCE_DIGITAL_RUN_STAGE_ID:
 				p.getHeader().setDigitalRunStageId(((DigitalRunStageReferencePayment) payment).getStageId());
@@ -5364,9 +5364,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         	case REFERENCE_PARENT_PAYMENT_ID:
         		p.getHeader().setParentPaymentId(((ParentReferencePayment) payment).getParentId());
         		break;
-
         }
-
 
         return p;
 
@@ -5385,7 +5383,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 			rationale = MODIFICATION_MULTIPLE_FIELDS;
 		}
 
-    	Payment p = payment.createPayment();
+    	Payment p = createPayment(payment);
     	p.setRationaleId(MODIFICATION_NEW);
     	updatePayment(p);
     }
@@ -5406,7 +5404,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             processor.fillData(payment);
 
-            Payment p = payment.createPayment();
+            Payment p = createPayment(payment);
 
             long paymentId;
 
