@@ -5,36 +5,36 @@ import java.util.Date;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
 
 /**
  * Payment that references a component contest.
- * 
+ *
  * @author cucu
  *
  */
 public abstract class ComponentContestReferencePayment extends BasePayment {
 	private long contestId;
 
-	public ComponentContestReferencePayment(long coderId, double grossAmount, long contestId) {
-		super(coderId, grossAmount);
+	public ComponentContestReferencePayment(int paymentTypeId, long coderId, double grossAmount, long contestId) {
+		super(paymentTypeId, coderId, grossAmount);
 		this.contestId = contestId;
 	}
 
-	public ComponentContestReferencePayment(long coderId, double grossAmount, long contestId, int placed) {
-		super(coderId, grossAmount, placed);
+	public ComponentContestReferencePayment(int paymentTypeId, long coderId, double grossAmount, long contestId, int placed) {
+		super(paymentTypeId, coderId, grossAmount, placed);
 		this.contestId = contestId;
 	}
 
 	public long getContestId() {
 		return contestId;
 	}
-	
-	protected void fillPaymentReference(Payment p) {
-		p.getHeader().setComponentContestId(getContestId());
+
+	public void setContestId(long contestId) {
+		fieldChanged(MODIFICATION_REFERENCE, contestId != this.contestId);
+		this.contestId = contestId;
 	}
-	
-	
+
+
 	protected static abstract class Processor extends BasePayment.Processor {
 		private String contestName = null;
 		private Date endDate = null;
@@ -60,6 +60,6 @@ public abstract class ComponentContestReferencePayment extends BasePayment {
 			contestName = rsc.getStringItem(0, "contest_name");
 			endDate = rsc.getTimestampItem(0, "end_date");
 		}
-		
+
 	}
 }

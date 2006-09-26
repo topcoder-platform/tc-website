@@ -4,47 +4,48 @@ import java.sql.SQLException;
 import java.util.Date;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
 
 /**
  * Payment for an algorithm that takes a refence to a round.
- * 
+ *
  * @author cucu
  *
  */
 public abstract class AlgorithmRoundReferencePayment extends BasePayment {
 	// Referenced round.
 	private long roundId;
-	
+
 
 	/**
 	 * Create an algorithm payment.
-	 * 
+	 *
+	 * @param paymentTypeId type of the payment
 	 * @param coderId the coder being paid.
 	 * @param grossAmount amount paid.
 	 * @param roundId the round where the coder won the prize.
 	 * @param placed the place the coder had in the round, used for generating the description.
 	 */
-	public AlgorithmRoundReferencePayment(long coderId, double grossAmount, long roundId, int placed) {
-		super(coderId, grossAmount, placed);
+	public AlgorithmRoundReferencePayment(int paymentTypeId, long coderId, double grossAmount, long roundId, int placed) {
+		super(paymentTypeId, coderId, grossAmount, placed);
 		this.roundId = roundId;
 	}
-	
+
 
 	/**
 	 * Create an algorithm payment.
-	 * 
+	 *
+	 * @param paymentTypeId type of the payment
 	 * @param coderId the coder being paid.
 	 * @param grossAmount amount paid.
 	 * @param roundId the round where the coder won the prize.
 	 */
-	public AlgorithmRoundReferencePayment(long coderId, double grossAmount, long roundId) {
-		this(coderId, grossAmount, roundId, 0);
+	public AlgorithmRoundReferencePayment(int paymentTypeId, long coderId, double grossAmount, long roundId) {
+		this(paymentTypeId, coderId, grossAmount, roundId, 0);
 	}
 
 	/**
 	 * Get the id of the round where the coder won the prize.
-	 * 
+	 *
 	 * @return the id of the round where the coder won the prize.
 	 */
 	public long getRoundId() {
@@ -53,35 +54,30 @@ public abstract class AlgorithmRoundReferencePayment extends BasePayment {
 
 	/**
 	 * Set the id of the round where the coder won the prize.
-	 * 
+	 *
 	 * @param roundId the id of the round where the coder won the prize.
 	 */
 	public void setRoundId(long roundId) {
+		fieldChanged(MODIFICATION_REFERENCE, roundId != this.roundId);
 		this.roundId = roundId;
 	}
 
-	/**
-	 * Fill the algorithm round id field in the payment
-	 */
-	protected void fillPaymentReference(Payment p) {
-		p.getHeader().setAlgorithmRoundId(getRoundId());
-	}
 
 	/**
 	 * Get a processor for this type of payment.
-	 * 
+	 *
 	 * @return a processor for this type of payment.
 	 */
 	protected BasePayment.Processor getProcessor() {
 		return new Processor();
-	}	
+	}
 
 
 	/**
 	 * Processor for payments that have a reference to rounds.
 	 * It creates a description based on a round and contest name plus the placement, and uses
 	 * as the event date the end date of the round.
-	 *  
+	 *
 	 * @author Cucu
 	 */
 	protected static class Processor extends BasePayment.Processor {
@@ -91,7 +87,7 @@ public abstract class AlgorithmRoundReferencePayment extends BasePayment {
 		/**
 		 * Get a description for this payment.
 		 * The description is composed by the round name plus the placement, like "SRM 190 1st place"
-		 * 
+		 *
 		 * @param payment the payment to lookup the description.
 		 * @return a description for this payment.
 		 */
@@ -101,17 +97,17 @@ public abstract class AlgorithmRoundReferencePayment extends BasePayment {
 
 		/**
 		 * Get when the event took date, i.e. the round end date.
-		 * 
+		 *
 		 * @param payment the payment to look for its date.
 		 * @return the end date of the round
 		 */
 		public Date lookupEventDate(BasePayment payment) throws SQLException {
 			return getEndDate(((AlgorithmRoundReferencePayment) payment).getRoundId());
 		}
-		
+
 		/**
 		 * Get the name of the round.
-		 * 
+		 *
 		 * @param roundId round to lookup its name.
 		 * @return the name of the round.
 		 * @throws SQLException
@@ -126,7 +122,7 @@ public abstract class AlgorithmRoundReferencePayment extends BasePayment {
 
 		/**
 		 * Get the end date of a round
-		 * 
+		 *
 		 * @param roundId round id to lookup its end date
 		 * @return the end date of the round.
 		 * @throws SQLException
@@ -141,7 +137,7 @@ public abstract class AlgorithmRoundReferencePayment extends BasePayment {
 		/**
 		 * Does the actual lookup in database, finding the round name and end date
 		 * of the round at once.
-		 * 
+		 *
 		 * @param roundId round to lookup the name and end date.
 		 * @throws SQLException
 		 */
@@ -162,7 +158,7 @@ public abstract class AlgorithmRoundReferencePayment extends BasePayment {
 	        roundName = rsc.getStringItem(0, "round_name");
 	        endDate = rsc.getTimestampItem(0, "end_date");
 		}
-		
+
 	}
 
 

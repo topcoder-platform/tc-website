@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 /**
  * Payment for a component winning.
- * 
+ *
  * @author cucu
  *
  */
@@ -12,7 +12,7 @@ public class ComponentWinningPayment extends ComponentProjectReferencePayment {
 
 	/**
 	 * Create a payment for the winner (or another place!) of a component.
-	 * 
+	 *
 	 * @param coderId coder to be paid.
 	 * @param grossAmount amount to be paid.
 	 * @param client the client of the project.
@@ -20,24 +20,24 @@ public class ComponentWinningPayment extends ComponentProjectReferencePayment {
 	 * @param placed the place of the coder in the contest.
 	 */
 	public ComponentWinningPayment(long coderId, double grossAmount, String client, long projectId, int placed) {
-		super(coderId, grossAmount, client, projectId, placed);
+		super(COMPONENT_PAYMENT, coderId, grossAmount, client, projectId, placed);
 	}
 
 	/**
 	 * Create a payment for the winner (or another place!) of a component.
-	 * 
+	 *
 	 * @param coderId coder to be paid.
 	 * @param grossAmount amount to be paid.
 	 * @param projectId project that is being paid.
 	 * @param placed the place of the coder in the contest.
 	 */
 	public ComponentWinningPayment(long coderId, double grossAmount, long projectId, int placed) {
-		super(coderId, grossAmount, projectId, placed);
+		this(coderId, grossAmount, null, projectId, placed);
 	}
-	
+
 	/**
 	 * Create a payment for the winner (or another place!) of a component.
-	 * 
+	 *
 	 * @param coderId coder to be paid.
 	 * @param grossAmount amount to be paid.
 	 * @param client the client of the project.
@@ -49,51 +49,42 @@ public class ComponentWinningPayment extends ComponentProjectReferencePayment {
 
 	/**
 	 * Create a payment for the winner (or another place!) of a component.
-	 * 
+	 *
 	 * @param coderId coder to be paid.
 	 * @param grossAmount amount to be paid.
 	 * @param projectId project that is being paid.
 	 */
 	public ComponentWinningPayment(long coderId, double grossAmount, long projectId) {
-		this(coderId, grossAmount, projectId, 0);
+		this(coderId, grossAmount, null, projectId, 0);
 	}
 
-
-	/**
-	 * Get the type for this payment.
-	 * 
-	 * @return the type for this payment.
-	 */
-	public int getPaymentType() {
-		return PaymentTypes.COMPONENT_PAYMENT;
-	}
 
 	/**
 	 * Get a processor for this type of payment.
-	 * 
+	 *
 	 * @return a processor for this type of payment.
 	 */
 	protected BasePayment.Processor getProcessor() {
-		return new Processor();		
+		return new Processor();
 	}
-	
+
 	/**
 	 * Processor for component winning payments.
 	 * It just provides a method for generating a description from component and placement data.
-	 * 
+	 *
 	 * @author Cucu
 	 */
 	protected static class Processor extends ComponentProjectReferencePayment.Processor {
 
 		/**
 		 * Get the description for the payment.
-		 * 
+		 *
 		 * @param payment payment to create its description.
 		 * @return the description for the payment.
 		 */
 		public String lookupDescription(BasePayment payment) throws SQLException {
 			ComponentProjectReferencePayment p = (ComponentProjectReferencePayment) payment;
-			
+
         	return getComponentName(p.getProjectId()) + " - " + getProjectType(p.getProjectId()) + ", " + getOrdinal(p.getPlaced());
 
 		}
