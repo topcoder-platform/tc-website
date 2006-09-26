@@ -28,6 +28,8 @@ values(6, 'digital_run_stage_id');
 insert into payment_reference_lu(payment_reference_id, reference_field_name)
 values(7, 'digital_run_season_id');
 
+insert into payment_reference_lu(payment_reference_id, reference_field_name)
+values(8, 'parent_payment_id');
 
 alter table payment_type_lu add payment_reference_id DECIMAL(3,0);
 alter table payment_type_lu add show_in_profile_ind DECIMAL(1,0) default 1 not null;
