@@ -5280,13 +5280,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @param payment the payment to fill its information
      * @throws SQLException is a problem occurs accessing db.
      */
-    public void fillPaymentData(BasePayment payment) throws SQLException {
+    public BasePayment fillPaymentData(BasePayment payment) throws SQLException {
     	Connection c = null;
     	try {
     		c = DBMS.getConnection();
 
     		payment.getProcessor().fillData(payment);
 
+    		return payment;
     	} catch (SQLException e) {
     		printException(e);
     		throw e;
@@ -5381,7 +5382,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	 * @param payment payment to update.
 	 * @throws Exception
 	 */
-    public void updatePayment(BasePayment payment) throws Exception {
+    public BasePayment updatePayment(BasePayment payment) throws Exception {
     	if (payment.getId() <= 0) {
     		throw new IllegalArgumentException("Payment is missing payment_id");
     	}
@@ -5398,6 +5399,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     	p.setRationaleId(MODIFICATION_NEW);
     	updatePayment(p);
     	payment.resetModificationRationale();
+
+    	return payment;
     }
 
     /**
@@ -5407,7 +5410,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @param payment payment to add.
      * @throws SQLException
      */
-    public void addPayment(BasePayment payment) throws SQLException {
+    public BasePayment addPayment(BasePayment payment) throws SQLException {
         Connection c = null;
 
         BasePayment.Processor processor = payment.getProcessor();
@@ -5433,11 +5436,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             } else {
             	paymentId = makeNewPayment(c, p, p.payReferrer());
             }
-            log.debug("paymentId = " + paymentId);
+
             payment.setId(paymentId);
             payment.setNetAmount(p.getNetAmount());
         	payment.resetModificationRationale();
             c.commit();
+
+            return payment;
     	} catch (SQLException e) {
     		rollback(c);
     		printException(e);

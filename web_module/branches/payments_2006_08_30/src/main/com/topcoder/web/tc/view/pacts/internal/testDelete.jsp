@@ -18,57 +18,11 @@
 <%
         InitialContext c =  TCContext.getInitial();
         PactsClientServices pcs = (PactsClientServices) BaseProcessor.createEJB(c, PactsClientServices.class);
+        
+        pcs.deletePayment(77394);
 %>
 
 
-
-Algorithm Contest
-<br> 
-<%
-AlgorithmContestPayment ap=new AlgorithmContestPayment(14810373,260, 9998);
-	pcs.fillPaymentData(ap);
-	ap.setDescription(ap.getDescription() + " modified!");
-	pcs.addPayment(ap);
-%>
-getId: <%= ap.getId() %> <br>
-getCoderId: <%= ap.getCoderId() %> <br>
-getNetAmount: <%= ap.getNetAmount() %> <br>
-getGrossAmount: <%= ap.getGrossAmount() %> <br>
-getStatusId: <%= ap.getStatusId() %> <br>
-getStatusDesc: <%= ap.getStatusDesc() %> <br>
-getDescription: <%= ap.getDescription() %> <br>
-getDueDate: <%= ap.getDueDate() %> <br>
-getRoundId: <%= ap.getRoundId() %> <br>
-getPaymentType: <%= ap.getPaymentType() %>
-
-<br><br>
-Updating the status and committing
-<br> 
-<%
-	ap.setStatusId(PactsConstants.PAYMENT_OWED_STATUS);
-		pcs.updatePayment(ap);
-%>
-getStatusDesc: <%= ap.getStatusDesc() %> <br>
-
-<br>
-Updating the desc and committing
-<br> 
-<%
-	ap.setDescription("hi, new description!");
-	pcs.updatePayment(ap);
-%>
-getId: <%= ap.getId() %> <br>
-getCoderId: <%= ap.getCoderId() %> <br>
-getNetAmount: <%= ap.getNetAmount() %> <br>
-getGrossAmount: <%= ap.getGrossAmount() %> <br>
-getStatusId: <%= ap.getStatusId() %> <br>
-getStatusDesc: <%= ap.getStatusDesc() %> <br>
-getDescription: <%= ap.getDescription() %> <br>
-getDueDate: <%= ap.getDueDate() %> <br>
-getRoundId: <%= ap.getRoundId() %> <br>
-getPaymentType: <%= ap.getPaymentType() %>
-
-<br><br>
 
 
 </body>

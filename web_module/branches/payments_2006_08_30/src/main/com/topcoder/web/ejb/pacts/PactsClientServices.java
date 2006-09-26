@@ -23,11 +23,11 @@ import javax.ejb.EJBObject;
  */
 public interface PactsClientServices extends EJBObject {
 
-    void fillPaymentData(BasePayment payment) throws RemoteException, SQLException;
+	BasePayment fillPaymentData(BasePayment payment) throws RemoteException, SQLException;
 
-    void addPayment(BasePayment payment)  throws RemoteException, SQLException;
+    BasePayment addPayment(BasePayment payment)  throws RemoteException, SQLException;
 
-    void updatePayment(BasePayment payment) throws RemoteException, Exception;
+    BasePayment updatePayment(BasePayment payment) throws RemoteException, Exception;
 
     List findPayments(int paymentTypeId) throws RemoteException, Exception;
 
