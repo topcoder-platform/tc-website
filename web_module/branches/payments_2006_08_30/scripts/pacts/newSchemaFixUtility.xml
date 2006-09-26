@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+  <newSchemaFixUtility>
+    <sourcesList>
+        <source name = "tcs_dw" value = "jdbc:informix-sqli://63.118.154.190:1526/tcs_dw:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec"/>
+        <source name = "informixoltp" value = "jdbc:informix-sqli://63.118.154.190:1526/informixoltp:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec"/>
+    </sourcesList>
+    <startDate>2006-06-05 03:15:08.000</startDate>
+    <endDate>2006-07-30 03:15:08.000</endDate>
+    <onlyAnalyze>true</onlyAnalyze>
+    <parameterList>
+    </parameterList>
+  </newSchemaFixUtility>
