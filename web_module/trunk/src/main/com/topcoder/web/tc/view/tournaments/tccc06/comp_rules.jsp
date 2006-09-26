@@ -353,7 +353,7 @@ All decisions relating to the viability of submissions, the ranking of submissio
 <br><br>
 As a condition of participation in the tournament, all information provided by you in your TopCoder member profile must be comprehensive, accurate and up-to-date. TopCoder may require you to complete an additional registration form to register for the tournament. In order to be eligible to participate in the tournament, you must have completed any and all registration forms required by TopCoder. 
 <br><br>
-Contestants who advance to the onsite Championship Round must complete the following items and submit them to TopCoder by 5:00 PM EDT on Friday, October 3, 2006: 
+Contestants who advance to the onsite Championship Round must complete the following items and submit them to TopCoder by 5:00 PM EDT on Tuesday, October 3, 2006: 
 
 <ul>
 <li>Competitor Questionnaire - the questions and responses will be published in the 2006 TopCoder Collegiate Challenge program</li>
