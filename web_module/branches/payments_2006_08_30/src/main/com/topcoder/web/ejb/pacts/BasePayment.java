@@ -192,6 +192,15 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 	}
 
 	/**
+	 * Reset the modification rationale.
+	 * This method must be called after saving or updating a payment.
+	 *
+	 */
+	protected void resetModificationRationale() {
+		modificationRationale = 0;
+	}
+	
+	/**
 	 * Get the type for this payment.
 	 *
 	 * @return the type for this payment.

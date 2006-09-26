@@ -2207,6 +2207,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 paymentId = makeNewPayment(c, p, p.payReferrer());
                 paymentStr = "" + paymentId;
             }
+            log.debug("in makeAffidavit payment, the paymentId is " + paymentId);
 
             // Add the affidavit record
             StringBuffer insertAffidavit = new StringBuffer(300);
@@ -3458,12 +3459,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             long paymentDetailId = insertPaymentDetail(c, p, paymentAddressId);
 
             String paymentDetailStr = paymentDetailId + "";
-            
+
             // If the payment is deleted, set the most recent detail to null
             if (p.getStatusId() == PAYMENT_DELETED_STATUS) {
             	paymentDetailStr = "null";
             }
-            
+
             // Update the header
             StringBuffer updateHeader = new StringBuffer(300);
             updateHeader.append("UPDATE payment SET most_recent_detail_id = " + paymentDetailStr);
@@ -5247,7 +5248,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     /**
      * Helper method to rollback a connection.
-     * 
+     *
      * @param c connection to rollback
      */
     private void rollback(Connection c) {
@@ -5297,7 +5298,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     /**
      * Create a payment for an algorithm prize, including its affidavit.
-     * 
+     *
      * @param c connection to use
      * @param p payment to save
      * @param payment payment to save
@@ -5311,17 +5312,20 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 		a.getHeader().getUser().setId(payment.getCoderId());
 		a.getHeader().setStatusId(AFFIDAVIT_PENDING_STATUS);
 		a.getHeader().setDescription(payment.getDescription() + " affidavit");
-		a.getHeader().setTypeId(ALGORITHM_AFFIDAVIT_TYPE); 
+		a.getHeader().setTypeId(ALGORITHM_AFFIDAVIT_TYPE);
 
 
-		return makeAffidavitPayment(c, a, null, p).getPaymentId();
+		long paymentId = makeAffidavitPayment(c, a, null, p).getPaymentId();
+
+		log.debug("in makeNewAlgorithmPayment, the payment id is " + paymentId);
+		return paymentId;
 
     }
 
 	/**
 	 * Create a Payment object from a BasePayment
-	 * 
-	 * @param payment the BasePayment from where to create a Payment 
+	 *
+	 * @param payment the BasePayment from where to create a Payment
 	 * @return a Payment object based on the BasePayment
 	 */
 	private Payment createPayment(BasePayment payment) {
@@ -5373,7 +5377,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	/**
 	 * Update a payment.
 	 * The payment must be already saved in the database, or an exception will be thrown.
-	 *  
+	 *
 	 * @param payment payment to update.
 	 * @throws Exception
 	 */
@@ -5393,12 +5397,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     	Payment p = createPayment(payment);
     	p.setRationaleId(MODIFICATION_NEW);
     	updatePayment(p);
+    	payment.resetModificationRationale();
     }
 
     /**
      * Add a payment in the database.
      * An instance of a subclass of BasePayment must be passed.
-     * 
+     *
      * @param payment payment to add.
      * @throws SQLException
      */
@@ -5428,9 +5433,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             } else {
             	paymentId = makeNewPayment(c, p, p.payReferrer());
             }
-
+            log.debug("paymentId = " + paymentId);
             payment.setId(paymentId);
             payment.setNetAmount(p.getNetAmount());
+        	payment.resetModificationRationale();
             c.commit();
     	} catch (SQLException e) {
     		rollback(c);
@@ -5449,7 +5455,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     /**
      * Find all the payments of a certain type.
-     * 
+     *
      * @param paymentTypeId type of payment to look for.
      * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
      * @throws SQLException
@@ -5462,7 +5468,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * Find all the payments of a certain type, referencing to a particular id.
      * For example, if the payment is for algorithm contest, in the referenceId you must pass the round_id to look for.
      * If the payment is for review board, you must pass the project_id and so on.
-     * 
+     *
      * @param paymentTypeId type of payment to look for.
      * @param referenceId reference to look for
      * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
@@ -5474,7 +5480,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     /**
      * Find all the payments for a coder, of any type.
-     * 
+     *
      * @param coderId the coder to find payments for.
      * @return a List of instances of BasePayment subclasses.
      * @throws SQLException
@@ -5485,7 +5491,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     /**
      * Find the payments of the specified type for a coder.
-     * 
+     *
      * @param coderId the coder to find payments for.
      * @param paymentTypeId type of payment to look for.
      * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
@@ -5499,7 +5505,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * Find the payments of the specified type for a coder, referencing to a particular id.
      * For example, if the payment is for algorithm contest, in the referenceId you must pass the round_id to look for.
      * If the payment is for review board, you must pass the project_id and so on.
-     * 
+     *
      * @param coderId the coder to find payments for.
      * @param paymentTypeId type of payment to look for.
      * @param referenceId reference to look for
@@ -5589,6 +5595,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
 
+    /**
+     * Delete a payment by changing its status to deleted and pointing
+     * the most_recent_detail_id to null.
+     *
+     * @param paymentId payment to delete.
+     */
     public void deletePayment(long paymentId) throws SQLException {
         Connection c = null;
         try {
@@ -5597,7 +5609,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             setLockTimeout(c);
 
             updatePaymentStatus(c, new long[] {paymentId}, PAYMENT_DELETED_STATUS);
-            
+
             c.commit();
     	} catch (SQLException e) {
     		rollback(c);
@@ -5611,12 +5623,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     		setAutoCommit(c, true);
     		close(c);
     		c = null;
-    	}    	
+    	}
     }
 
     /**
-     * Delete a payment.
-     * 
+     * Delete a payment by changing its status to deleted and pointing
+     * the most_recent_detail_id to null.
+     *
      * @param payment payment to delete.
      * @throws SQLException
      */
@@ -5626,10 +5639,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     	}
     	deletePayment(payment.getId());
     }
-    
+
     /**
      * Helper class to store a payment id and affidavit id
-     * 
+     *
      * @author Cucu
      */
     private static class AffidavitAndPaymentIds {
