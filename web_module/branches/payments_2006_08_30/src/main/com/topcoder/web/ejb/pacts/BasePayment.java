@@ -304,7 +304,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 			this.statusDesc = null;
 
 		}
-		fieldChanged(MODIFICATION_STATUS, statusDesc != this.statusDesc);
+		fieldChanged(MODIFICATION_STATUS, statusId != this.statusId);
 
 		this.statusId = statusId;
 	}

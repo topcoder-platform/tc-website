@@ -5278,6 +5278,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * - the due date
      *
      * @param payment the payment to fill its information
+     * @return the payment with the information filled.
      * @throws SQLException is a problem occurs accessing db.
      */
     public BasePayment fillPaymentData(BasePayment payment) throws SQLException {
@@ -5380,6 +5381,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	 * The payment must be already saved in the database, or an exception will be thrown.
 	 *
 	 * @param payment payment to update.
+	 * @return the updated payment.
 	 * @throws Exception
 	 */
     public BasePayment updatePayment(BasePayment payment) throws Exception {
@@ -5408,6 +5410,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * An instance of a subclass of BasePayment must be passed.
      *
      * @param payment payment to add.
+     * @return payment the payment added.
      * @throws SQLException
      */
     public BasePayment addPayment(BasePayment payment) throws SQLException {
