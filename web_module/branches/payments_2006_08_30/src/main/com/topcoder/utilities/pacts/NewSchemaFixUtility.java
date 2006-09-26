@@ -84,9 +84,9 @@ public class NewSchemaFixUtility extends DBUtility {
             
 //            buildPreparedStatements();
             
-            processRoomResultAdditions();
+            //processRoomResultAdditions();
             //processRoomResultConflicts();
-            //processRoomResultCharities();
+            processRoomResultCharities();
             
 /*            processRoyalties();
             
