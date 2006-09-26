@@ -137,3 +137,6 @@ values (10, 'Description Change');
 insert into modification_rationale_lu(modification_rationale_id, modification_rationale_desc)
 values (11, 'Multiple fields Change');
 
+
+insert into status_lu(status_id, status_desc, status_type_id)
+values(69, 'Deleted', 53);
