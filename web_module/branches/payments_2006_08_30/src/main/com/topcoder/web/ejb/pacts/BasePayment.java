@@ -22,7 +22,7 @@ import com.topcoder.shared.util.logging.Logger;
  * @author cucu
  *
  */
-public abstract class BasePayment implements Constants {
+public abstract class BasePayment implements Constants, java.io.Serializable {
 	private static Logger log = Logger.getLogger(BasePayment.class);
 
 	// payment Id

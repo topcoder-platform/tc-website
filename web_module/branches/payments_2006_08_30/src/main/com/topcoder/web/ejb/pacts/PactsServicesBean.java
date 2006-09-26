@@ -3457,43 +3457,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             long paymentDetailId = insertPaymentDetail(c, p, paymentAddressId);
 
-            // Insert the detail record
-            /*
-            StringBuffer insertPaymentDetail = new StringBuffer(300);
-            insertPaymentDetail.append("INSERT INTO payment_detail ");
-            insertPaymentDetail.append(" (payment_detail_id, net_amount, date_paid, date_printed, ");
-            insertPaymentDetail.append("  gross_amount, status_id, payment_address_id, modification_rationale_id, ");
-            insertPaymentDetail.append("  payment_desc, payment_type_id, payment_method_id, date_modified, date_due, client ");
-            insertPaymentDetail.append(" VALUES(?,?,null,null,?,?," + addrStr + ",?,?,?,?,?,?,?,?)");
-
-            ps = c.prepareStatement(insertPaymentDetail.toString());
-            ps.setLong(1, paymentDetailId);
-            ps.setDouble(2, p.getNetAmount());
-            ps.setDouble(3, p.getGrossAmount());
-            ps.setInt(4, p.getStatusId());
-            ps.setInt(5, p.getRationaleId());
-            ps.setString(6, p.getHeader().getDescription());
-            ps.setInt(7, p.getHeader().getTypeId());
-            ps.setInt(8, p.getHeader().getMethodId());
-            ps.setTimestamp(9, new Timestamp(System.currentTimeMillis())); // date_modified
-            ps.setTimestamp(10, makeTimestamp(p.getDueDate(), true, false));
-            if (p.getHeader().getComponentProjectId() != 0) {
-            	ps.setLong(11, p.getHeader().getComponentProjectId());
-            } else {
-            	ps.setNull(11, Types.DECIMAL);
+            String paymentDetailStr = paymentDetailId + "";
+            
+            // If the payment is deleted, set the most recent detail to null
+            if (p.getStatusId() == PAYMENT_DELETED_STATUS) {
+            	paymentDetailStr = "null";
             }
-            if (!StringUtils.checkNull(p.getHeader().getClient()).equals("")) {
-            	ps.setString(12, p.getHeader().getClient());
-            } else {
-            	ps.setNull(12, Types.VARCHAR);
-            }
-            ps.executeUpdate();
-            ps.close();
-            ps = null;*/
-
+            
             // Update the header
             StringBuffer updateHeader = new StringBuffer(300);
-            updateHeader.append("UPDATE payment SET most_recent_detail_id = " + paymentDetailId);
+            updateHeader.append("UPDATE payment SET most_recent_detail_id = " + paymentDetailStr);
             updateHeader.append(" WHERE payment_id = " + p.getHeader().getId());
             ps = c.prepareStatement(updateHeader.toString());
             int rowsModified = ps.executeUpdate();
@@ -5616,7 +5589,44 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
 
+    public void deletePayment(long paymentId) throws SQLException {
+        Connection c = null;
+        try {
+            c = DBMS.getConnection();
+            c.setAutoCommit(false);
+            setLockTimeout(c);
 
+            updatePaymentStatus(c, new long[] {paymentId}, PAYMENT_DELETED_STATUS);
+            
+            c.commit();
+    	} catch (SQLException e) {
+    		rollback(c);
+    		printException(e);
+    		throw e;
+    	} catch (Exception e) {
+    		rollback(c);
+    		printException(e);
+    		throw new SQLException(e.getMessage());
+    	} finally {
+    		setAutoCommit(c, true);
+    		close(c);
+    		c = null;
+    	}    	
+    }
+
+    /**
+     * Delete a payment.
+     * 
+     * @param payment payment to delete.
+     * @throws SQLException
+     */
+    public void deletePayment(BasePayment payment) throws SQLException {
+    	if (payment.getId() == 0) {
+    		throw new IllegalArgumentException("The payment has no payment_id, so it can't be deleted");
+    	}
+    	deletePayment(payment.getId());
+    }
+    
     /**
      * Helper class to store a payment id and affidavit id
      * 

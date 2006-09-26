@@ -92,6 +92,12 @@ public interface Constants {
      * receiving the necessary paperwork
      */
     public static final int PAYMENT_EXPIRED_STATUS = 68;
+    
+    /**
+     * The deleted status is used to delete the payment.
+     * Also most_recent_detail_id is set to null in the payment.
+     */
+    public static final int PAYMENT_DELETED_STATUS = 69;
 
     public static final int AFFIDAVIT_PENDING_STATUS = 57;
     public static final int AFFIDAVIT_AFFIRMED_STATUS = 58;
