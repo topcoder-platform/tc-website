@@ -169,14 +169,26 @@ public class NewSchemaFixUtility extends DBUtility {
             rs = psSelRoomResultsCharities.executeQuery();
             int i = 1;
             for (; rs.next(); i++ ) {
+                log.debug("Creating an AlgorithmContestPayment(" + 
+                        rs.getLong("coder_id") + "," +
+                        rs.getDouble("paid") + "," +
+                        rs.getLong("round_id") + "," +
+                        rs.getInt("room_placed") + ")");
+                        
                 AlgorithmContestPayment algorithmContestPayment = new AlgorithmContestPayment(
                         rs.getLong("coder_id"),
                         rs.getDouble("paid"),
                         rs.getLong("round_id"),
                         rs.getInt("room_placed"));
-                
+        
                 pcs.addPayment(algorithmContestPayment);
+
+                log.debug("Added: " + algorithmContestPayment.getId());
+                
                 pcs.addPayment(new CharityPayment(algorithmContestPayment));
+
+                log.debug("Added Charity payment");
+
                 if (i % 10 == 0) {
                     log.debug(i + "...");
                 }
