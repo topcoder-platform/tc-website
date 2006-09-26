@@ -85,8 +85,8 @@ public class NewSchemaFixUtility extends DBUtility {
 //            buildPreparedStatements();
             
             processRoomResultAdditions();
-            processRoomResultConflicts();
-            processRoomResultCharities();
+            //processRoomResultConflicts();
+            //processRoomResultCharities();
             
 /*            processRoyalties();
             
@@ -142,7 +142,7 @@ public class NewSchemaFixUtility extends DBUtility {
                     log.debug(i + "...");
                 }
             }
-            log.debug(i + "rows were processed...");
+            log.debug(i + " rows were processed...");
         } finally {
           DBMS.close(rs);
         }
@@ -169,7 +169,7 @@ public class NewSchemaFixUtility extends DBUtility {
             rs = psSelRoomResultsCharities.executeQuery();
             int i = 1;
             for (; rs.next(); i++ ) {
-/*                log.debug("Creating an AlgorithmContestPayment(" + 
+                log.debug("Creating an AlgorithmContestPayment(" + 
                         rs.getLong("coder_id") + "," +
                         rs.getDouble("paid") + "," +
                         rs.getLong("round_id") + "," +
@@ -181,19 +181,19 @@ public class NewSchemaFixUtility extends DBUtility {
                         rs.getLong("round_id"),
                         rs.getInt("room_placed"));
         
-                pcs.addPayment(algorithmContestPayment);
+                algorithmContestPayment = pcs.addPayment(algorithmContestPayment);
 
-//                log.debug("Added: " + algorithmContestPayment.getId());
+                log.debug("Added: " + algorithmContestPayment.getId());
                 
-/*                pcs.addPayment(new CharityPayment(algorithmContestPayment));
+                pcs.addPayment(new CharityPayment(algorithmContestPayment));
 
-                log.debug("Added Charity payment");*/
+                log.debug("Added Charity payment");
 
                 if (i % 10 == 0) {
                     log.debug(i + "...");
                 }
             }
-            log.debug(i + "rows were processed...");
+            log.debug(i + " rows were processed...");
         } finally {
           DBMS.close(rs);
         }
@@ -226,7 +226,7 @@ public class NewSchemaFixUtility extends DBUtility {
                     log.debug(i + "...");
                 }
             }
-            log.debug(i + "rows were processed...");
+            log.debug(i + " rows were processed...");
         } finally {
           DBMS.close(rs);
         }
