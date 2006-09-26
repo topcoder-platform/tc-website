@@ -128,3 +128,12 @@ alter table payment_detail add constraint foreign key (algorithm_problem_id)
         constraint paymentdetail_algorithm_problem_id_fk;
 
 
+insert into modification_rationale_lu(modification_rationale_id, modification_rationale_desc)
+values (9, 'Reference Change');
+
+insert into modification_rationale_lu(modification_rationale_id, modification_rationale_desc)
+values (10, 'Description Change');
+
+insert into modification_rationale_lu(modification_rationale_id, modification_rationale_desc)
+values (11, 'Multiple fields Change');
+
