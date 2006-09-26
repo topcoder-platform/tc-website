@@ -181,7 +181,7 @@ public class NewSchemaFixUtility extends DBUtility {
                         rs.getLong("round_id"),
                         rs.getInt("room_placed"));
         
-                algorithmContestPayment = pcs.addPayment(algorithmContestPayment);
+                algorithmContestPayment = (AlgorithmContestPayment) pcs.addPayment(algorithmContestPayment);
 
                 log.debug("Added: " + algorithmContestPayment.getId());
                 
