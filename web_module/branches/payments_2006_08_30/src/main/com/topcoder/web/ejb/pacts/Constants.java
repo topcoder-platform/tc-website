@@ -52,6 +52,8 @@ public interface Constants {
     public static final int MODIFICATION_DESCRIPTION = 10;
     public static final int MODIFICATION_MULTIPLE_FIELDS = 11;
 
+    // Type of affidavit to use for algorithm contests.
+    public static final int ALGORITHM_AFFIDAVIT_TYPE = 1;
 
     /* We get a "printed" status once a payment has been printed to a file
      * for use in importing into quick books
