@@ -44,8 +44,8 @@
         <p>
             <span class=bodySubtitle>QUESTIONNAIRE</span> - View the <a href="/tc?module=ViewSurvey&sid=218">2006
             TopCoder Collegiate Challenge Questionnaire</a>. NOTE: All questions are mandatory. The answers to
-            1-15 may be included in the 2006 TCCC Program or
-            used in onsite introductions, at TopCoder's sole discretion. The answers to questions 16 - 21 will
+            1-5 may be included in the 2006 TCCC Program or
+            used in onsite introductions, at TopCoder's sole discretion. The answers to questions 6 - 15 will
             be provided to AOL.
         </p>
     </li>
