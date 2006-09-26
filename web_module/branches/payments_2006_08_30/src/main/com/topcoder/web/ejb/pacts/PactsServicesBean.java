@@ -5357,7 +5357,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         		break;
         	case REFERENCE_DIGITAL_RUN_STAGE_ID:
 				p.getHeader().setDigitalRunStageId(((DigitalRunStageReferencePayment) payment).getStageId());
-        		break
+        		break;
         	case REFERENCE_DIGITAL_RUN_SEASON_ID:
         		p.getHeader().setDigitalRunSeasonId(((DigitalRunSeasonReferencePayment) payment).getSeasonId());
         		break;
