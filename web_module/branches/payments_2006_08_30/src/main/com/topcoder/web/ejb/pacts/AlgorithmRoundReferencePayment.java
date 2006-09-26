@@ -17,7 +17,7 @@ public abstract class AlgorithmRoundReferencePayment extends BasePayment {
 
 
 	/**
-	 * Create an algorithm payment.
+	 * Create an algorithm payment referencing a round.
 	 *
 	 * @param paymentTypeId type of the payment
 	 * @param coderId the coder being paid.
@@ -32,7 +32,7 @@ public abstract class AlgorithmRoundReferencePayment extends BasePayment {
 
 
 	/**
-	 * Create an algorithm payment.
+	 * Create an algorithm payment referencing a round.
 	 *
 	 * @param paymentTypeId type of the payment
 	 * @param coderId the coder being paid.

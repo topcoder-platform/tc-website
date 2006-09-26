@@ -57,6 +57,24 @@ getPaymentType: <%= cp.getPaymentType() %>
 <br>
 <br>
 
+
+Component Tournament Bonus
+<%
+ComponentTournamentBonusPayment p =new ComponentTournamentBonusPayment(7545675 ,400, 7, 5);
+	pcs.addPayment(p);
+%>
+getId: <%= p.getId() %> <br>
+getCoderId: <%= p.getCoderId() %> <br>
+getNetAmount: <%= p.getNetAmount() %> <br>
+getGrossAmount: <%= p.getGrossAmount() %> <br>
+getStatusId: <%= p.getStatusId() %> <br>
+getDescription: <%= p.getDescription() %> <br>
+getDueDate: <%= p.getDueDate() %> <br>
+getProjectId: <%= p.getProjectId() %> <br>
+getPaymentType: <%= p.getPaymentType() %>
+<br>
+<br>
+
 </body>
 
 </html>

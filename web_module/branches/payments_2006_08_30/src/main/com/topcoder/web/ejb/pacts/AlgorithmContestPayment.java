@@ -7,9 +7,10 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 /**
  * Payment for an algorithm contest (e.g. SRM)
- *
+ * The payment for an user in a round is unique, so if you try to add
+ * a payment whose (coderId, roundId) are already in payments, an exception is thrown.
+ * 
  * @author cucu
- *
  */
 public class AlgorithmContestPayment extends AlgorithmRoundReferencePayment {
 

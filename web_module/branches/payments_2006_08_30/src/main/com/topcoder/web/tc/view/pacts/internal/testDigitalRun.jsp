@@ -58,7 +58,7 @@ getPaymentType: <%= p.getPaymentType() %>
 
 <br><br>
 
-Digital Run TopThird
+Digital Run Rockie
 <br> 
 <%
 	p=new DigitalRunRockiePrizePayment(7545675, 780, 1 , 1);
