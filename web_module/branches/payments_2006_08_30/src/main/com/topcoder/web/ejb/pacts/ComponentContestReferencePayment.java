@@ -106,7 +106,7 @@ public abstract class ComponentContestReferencePayment extends BasePayment {
 		 * @throws SQLException
 		 */
 		private void lookupData(long contestId) throws SQLException {
-			String query = "SELECT contest_name, end_date FROM contest WHERE contest_id =" + contestId);
+			String query = "SELECT contest_name, end_date FROM contest WHERE contest_id=" + contestId;
 			ResultSetContainer rsc = runSelectQuery(DBMS.TCS_OLTP_DATASOURCE_NAME, query);
 			
 			if (rsc.getRowCount() != 1) {
