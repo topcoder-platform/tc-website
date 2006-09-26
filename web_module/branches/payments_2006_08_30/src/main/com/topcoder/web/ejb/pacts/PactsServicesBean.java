@@ -5396,7 +5396,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 		}
 
     	Payment p = createPayment(payment);
-    	p.setRationaleId(MODIFICATION_NEW);
+    	p.setRationaleId(rationale);
     	updatePayment(p);
     	payment.resetModificationRationale();
 

@@ -25,7 +25,7 @@
 Algorithm Contest
 <br> 
 <%
-AlgorithmProblemReferencePayment ap=new ProblemTestingPayment(20009005,123.456, 1228);
+ProblemTestingPayment ap=new ProblemTestingPayment(20009005,123.456, 1228);
 
 	pcs.addPayment(ap);
 %>
@@ -37,7 +37,6 @@ getStatusId: <%= ap.getStatusId() %> <br>
 getStatusDesc: <%= ap.getStatusDesc() %> <br>
 getDescription: <%= ap.getDescription() %> <br>
 getDueDate: <%= ap.getDueDate() %> <br>
-getRoundId: <%= ap.getRoundId() %> <br>
 getPaymentType: <%= ap.getPaymentType() %>
 
 <br><br>
@@ -64,7 +63,6 @@ getStatusId: <%= ap.getStatusId() %> <br>
 getStatusDesc: <%= ap.getStatusDesc() %> <br>
 getDescription: <%= ap.getDescription() %> <br>
 getDueDate: <%= ap.getDueDate() %> <br>
-getRoundId: <%= ap.getRoundId() %> <br>
 getPaymentType: <%= ap.getPaymentType() %>
 
 <br><br>
