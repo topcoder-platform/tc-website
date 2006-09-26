@@ -54,19 +54,14 @@
 <p>
     As soon as you send in this form, TopCoder will secure airline reservations based upon your registration information
     and will email a travel itinerary to you by Thursday, November 9, 2006. Please be advised that once airlines tickets
-    are confirmed, any changes are subject to penalty fees at your own expense. We will provide air travel arrangements
-    for you up to a cost of $1,500. That is, if your airfare is greater than $1,500, the difference between the cost of
-    the airfare and $1,500 will be deducted from your total TCCC prize money won. If your total TCCC prize money is not
-    sufficient to cover the additional costs, you will be responsible for remitting to TopCoder the remainder of the
-    cost by November 30, 2006. The flight reserved by and paid for by TopCoder is for arrival on Tuesday, November 14,
-    2006 and
-    departure on Saturday, November 18, 2006 (or Sunday, November 19, 2006 if ticket cost is significantly less due to a
-    Saturday night stay).
-    Unless there are extenuating circumstances, which DO NOT include personal
-    holiday/vacation, flights will not be booked for dates other than those stated. Extended flights and/or hotel room
-    nights are your responsibility to coordinate with Globe Travel direct and TopCoder will only reimburse you the cost
-    of a flight for
-    the dates stated above or $1,500 whichever is lower. Please be sure to state any requests below for Globe Travel.
+    are confirmed, any changes are subject to penalty fees at your own expense. TopCoder will provide air travel
+    arrangements
+    for each competitor. The flight reserved by and paid for by TopCoder is for arrival on November 14, 2006 and
+    departure on November 18, 2006 (or Sunday, November 19, 2006 if ticket cost is significantly less due to a Saturday
+    night stay). Unless there are extenuating circumstances, which DO NOT include personal holiday/vacation, flights
+    will not be booked for dates other than those stated. Extended flights and/or hotel room nights are your
+    responsibility to coordinate with Globe Travel direct and TopCoder will only reimburse you the cost of a flight
+    for the dates stated above. Please be sure to state any requests below for Globe Travel.
 </p>
 <B><U>AIRPORT TRANSPORTATION:</U></B>
 
@@ -229,7 +224,10 @@
     <td class="sidebarText" align="left"><input type="text" name="a51" size="50"/></td>
 </tr>
 
-
+<tr><td class="bigRed" colspan="2" align="center">
+    IMPORTANT: As soon as you submit this form, your flight will be booked. Please make sure you have noted any
+    special travel information in the box above pertinent to your flight.
+</td></tr>
 <tr><td class="sidebarText" colspan="2" ALIGN="center"><input type="submit" name="submit" value=" Submit "/></td></tr>
 </form>
 <tr><td class="sidebarText"><br/></td><td class="sidebarText"><br/></td></tr>
