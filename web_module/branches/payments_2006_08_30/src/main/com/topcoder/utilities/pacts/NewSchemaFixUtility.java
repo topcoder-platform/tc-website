@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Enumeration;
 
+import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
@@ -22,6 +23,7 @@ import com.topcoder.web.common.model.DefaultPriceComponent;
 import com.topcoder.web.ejb.pacts.AlgorithmContestPayment;
 import com.topcoder.web.ejb.pacts.CharityPayment;
 import com.topcoder.web.ejb.pacts.PactsClientServices;
+import com.topcoder.web.ejb.pacts.PactsClientServicesHome;
 
 /**
  * <strong>Purpose</strong>:
@@ -77,8 +79,7 @@ public class NewSchemaFixUtility extends DBUtility {
                 }
             }*/
             
-            InitialContext c =  TCContext.getInitial();
-            pcs = (PactsClientServices) createEJB(c, PactsClientServices.class);
+            pcs = (PactsClientServices) createEJB();
 
             
 //            buildPreparedStatements();
@@ -222,11 +223,18 @@ public class NewSchemaFixUtility extends DBUtility {
         }
     }
 
-    public static Object createEJB(InitialContext ctx, Class remoteclass) throws NamingException, Exception {
-        Object remotehome = ctx.lookup(remoteclass.getName() + "Home");
+    public static Object createEJB() throws NamingException, Exception {
+        /*Object remotehome = ctx.lookup(remoteclass.getName() + "Home");
         Method createmethod = PortableRemoteObject.narrow(remotehome,
                 remotehome.getClass()).getClass().getMethod("create", null);
-        return createmethod.invoke(remotehome, null);
+        return createmethod.invoke(remotehome, null);*/
+        
+        Context initial = new InitialContext();
+        Object objref = initial.lookup(PactsClientServicesHome.class.getName());
+        PactsClientServicesHome home = (PactsClientServicesHome) 
+            PortableRemoteObject.narrow(objref, PactsClientServicesHome.class);
+
+        return(home.create());
     }
 
 /*    private void buildPreparedStatements() throws SQLException {
