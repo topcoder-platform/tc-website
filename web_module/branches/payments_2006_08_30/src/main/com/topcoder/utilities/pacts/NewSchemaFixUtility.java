@@ -185,9 +185,9 @@ public class NewSchemaFixUtility extends DBUtility {
 
                 log.debug("Added: " + algorithmContestPayment.getId());
                 
-                pcs.addPayment(new CharityPayment(algorithmContestPayment));
+/*                pcs.addPayment(new CharityPayment(algorithmContestPayment));
 
-                log.debug("Added Charity payment");
+                log.debug("Added Charity payment");*/
 
                 if (i % 10 == 0) {
                     log.debug(i + "...");
