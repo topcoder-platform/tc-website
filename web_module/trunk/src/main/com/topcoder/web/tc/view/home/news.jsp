@@ -25,7 +25,7 @@ In this problem set coders faced an easy first problem, an easy second - which h
 </tr>
 <tr><td class="newsLinksCell">
     <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm15">full story</A> |
-    <tc-webtag:forumLink forumID="505994" message="discuss this"/> |
+    <tc-webtag:forumLink forumID="506037" message="discuss this"/> |
     <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
 </td></tr>
 
