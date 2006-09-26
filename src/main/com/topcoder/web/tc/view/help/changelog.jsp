@@ -44,7 +44,7 @@
 
 
 <p>
-    5.4.13 - 2006.09.xx
+    5.4.13 - 2006.09.26
     <ul>
         <li>
             Fix bug in the technical assessment admin tool so that anyone can view the first page even if their account
