@@ -237,10 +237,10 @@ public class NewSchemaFixUtility extends DBUtility {
         query.append("user_id, amount, description, royalty_date ");
         query.append("from royalty ");
 
-        psSelRoyalties = prepareStatement("tcs_dw", query.toString());*/
+        psSelRoyalties = prepareStatement("tcs_dw", query.toString());
 
 
-    }
+    }/*
 
 /*    private void processRoyalties() throws Exception {
         ResultSet rs = null; 
