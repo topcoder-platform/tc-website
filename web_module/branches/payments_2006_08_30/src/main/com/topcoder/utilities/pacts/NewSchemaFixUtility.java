@@ -173,7 +173,7 @@ public class NewSchemaFixUtility extends DBUtility {
                         rs.getLong("coder_id") + "," +
                         rs.getDouble("paid") + "," +
                         rs.getLong("round_id") + "," +
-                        rs.getInt("room_placed") + ")");*/
+                        rs.getInt("room_placed") + ")");
                         
                 AlgorithmContestPayment algorithmContestPayment = new AlgorithmContestPayment(
                         rs.getLong("coder_id"),
