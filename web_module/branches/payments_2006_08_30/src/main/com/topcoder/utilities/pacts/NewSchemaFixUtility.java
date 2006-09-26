@@ -84,7 +84,7 @@ public class NewSchemaFixUtility extends DBUtility {
             
 //            buildPreparedStatements();
             
-            processRoomResultAdditions();
+            //processRoomResultAdditions();
             processRoomResultConflicts();
             processRoomResultCharities();
             
@@ -133,14 +133,11 @@ public class NewSchemaFixUtility extends DBUtility {
             rs = psSelRoomResultsConflicts.executeQuery();
             int i = 1;
             for (; rs.next(); i++ ) {
-                AlgorithmContestPayment algorithmContestPayment = new AlgorithmContestPayment(
+                pcs.addPayment(new AlgorithmContestPayment(
                         rs.getLong("coder_id"),
                         rs.getDouble("paid"),
                         rs.getLong("round_id"),
-                        rs.getInt("room_placed"));
-                
-                pcs.addPayment(algorithmContestPayment);
-                pcs.addPayment(new CharityPayment(algorithmContestPayment));
+                        rs.getInt("room_placed")));
                 if (i % 10 == 0) {
                     log.debug(i + "...");
                 }
