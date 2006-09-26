@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 /**
  * Payment for a problem writing.
- * 
+ *
  * @author cucu
  *
  */
@@ -12,29 +12,20 @@ public class ProblemWritingPayment extends AlgorithmProblemReferencePayment {
 
 	/**
 	 * Create a new payment for problem writing.
-	 * 
+	 *
 	 * @param coderId coder to be paid.
 	 * @param grossAmount amount to be paid.
 	 * @param problemId referenced problem.
 	 */
 	public ProblemWritingPayment(long coderId, double grossAmount, long problemId) {
-		super(coderId, grossAmount, problemId);
+		super(PROBLEM_WRITING_PAYMENT, coderId, grossAmount, problemId);
 	}
 
 	/**
-	 * Get the type of this payment.
-	 * 
-	 * @return the type of this payment.
-	 */
-	public int getPaymentType() {
-		return PaymentTypes.PROBLEM_WRITING_PAYMENT;
-	}
-		
-	/**
 	 * Get a processor for this type of payment.
-	 * 
+	 *
 	 * @return a processor for this type of payment.
-	 */	
+	 */
 	protected BasePayment.Processor getProcessor() {
 		return new Processor();
 	}
@@ -42,21 +33,21 @@ public class ProblemWritingPayment extends AlgorithmProblemReferencePayment {
 	/**
 	 * A processor for problem writing payments.
 	 * It generates a payment description like "Problem MagicCube writing"
-	 *   
+	 *
 	 * @author Cucu
-	 */	
+	 */
 	protected class Processor extends AlgorithmProblemReferencePayment.Processor {
-		
+
 		/**
 		 * Get a description for the payment.
-		 * 
+		 *
 		 * @param payment payment to generate the description.
 		 * @return description for the payment.
-		 */		
+		 */
 		public String lookupDescription(BasePayment payment) throws SQLException {
 			AlgorithmProblemReferencePayment p = (AlgorithmProblemReferencePayment) payment;
-			
+
 			return "Problem " + getProblemName(p.getProblemId()) + " writing";
-		}	
+		}
 	}
 }

@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 /**
  * Payment for the review board of a component.
- * 
+ *
  * @author cucu
  *
  */
@@ -12,49 +12,41 @@ public class ReviewBoardPayment extends ComponentProjectReferencePayment {
 
 	/**
 	 * Create a payment for a member of the review board of a component.
-	 * 
+	 *
 	 * @param coderId coder to be paid.
 	 * @param grossAmount amount to be paid.
 	 * @param client the client of the project.
 	 * @param projectId project that is being paid.
-	 */	
+	 */
 	public ReviewBoardPayment(long coderId, double grossAmount, String client, long projectId) {
-		super(coderId, grossAmount, client, projectId);
+		super(REVIEW_BOARD_PAYMENT, coderId, grossAmount, client, projectId);
 	}
 
 	/**
 	 * Create a payment for a member of the review board of a component.
-	 * 
+	 *
 	 * @param coderId coder to be paid.
 	 * @param grossAmount amount to be paid.
 	 * @param projectId project that is being paid.
-	 */	
+	 */
 	public ReviewBoardPayment(long coderId, double grossAmount, long projectId) {
-		super(coderId, grossAmount, projectId);
+		this(coderId, grossAmount, null, projectId);
 	}
 
-	/**
-	 * Get the type for this payment.
-	 * 
-	 * @return the type for this payment.
-	 */
-	public int getPaymentType() {
-		return PaymentTypes.REVIEW_BOARD_PAYMENT;
-	}
 
 	/**
 	 * Get a processor for this type of payment.
-	 * 
+	 *
 	 * @return a processor for this type of payment.
 	 */
 	protected BasePayment.Processor getProcessor() {
-		return new Processor();		
+		return new Processor();
 	}
-	
+
 	/**
 	 * Processor for component review board payments.
 	 * It just provides a method for generating a description from component data.
-	 * 
+	 *
 	 * @author Cucu
 	 *
 	 */
@@ -62,13 +54,13 @@ public class ReviewBoardPayment extends ComponentProjectReferencePayment {
 
 		/**
 		 * Get the description for the payment.
-		 * 
+		 *
 		 * @param payment payment to create its description.
 		 * @return the description for the payment.
-		 */		
+		 */
 		public String lookupDescription(BasePayment payment) throws SQLException {
 			ComponentProjectReferencePayment p = (ComponentProjectReferencePayment) payment;
-			
+
         	return getComponentName(p.getProjectId()) + " - " + getProjectType(p.getProjectId()) + " review board";
 		}
 	}

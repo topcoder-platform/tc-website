@@ -5344,7 +5344,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         		break;
         	case REFERENCE_COMPONENT_PROJECT_ID:
 				p.getHeader().setComponentProjectId(((ComponentProjectReferencePayment).payment).getProjectId());
-				p.getHeader().setClient((().payment).getClient());
+				p.getHeader().setClient(((ComponentProjectReferencePayment) payment).getClient());
         		break;
         	case REFERENCE_ALGORITHM_PROBLEM_ID:
 				p.getHeader().setAlgorithmProblemId(((AlgorithmProblemReferencePayment).payment).getProblemId());
