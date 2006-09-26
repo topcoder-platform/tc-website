@@ -4,14 +4,24 @@ package com.topcoder.utilities.pacts;
  * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 
+import java.lang.reflect.Method;
+import java.rmi.RemoteException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Enumeration;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.rmi.PortableRemoteObject;
+
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.sql.DBUtility;
 import com.topcoder.web.common.model.DefaultPriceComponent;
+import com.topcoder.web.ejb.pacts.AlgorithmContestPayment;
+import com.topcoder.web.ejb.pacts.CharityPayment;
+import com.topcoder.web.ejb.pacts.PactsClientServices;
 
 /**
  * <strong>Purpose</strong>:
@@ -30,9 +40,9 @@ public class NewSchemaFixUtility extends DBUtility {
 
     PreparedStatement psUpd = null;
 
-    PreparedStatement psSelPaymentDetails = null;
-
-    PreparedStatement psSelRoyalties = null;
+    PactsClientServices pcs = null;
+    
+    //PreparedStatement psSelRoyalties = null;
 
     /**
      * Runs the PaymentFixUtility.
@@ -43,10 +53,8 @@ public class NewSchemaFixUtility extends DBUtility {
      *
      */
     public void runUtility() throws Exception {
-        ResultSet rs = null;
-
         try {            
-            StringBuffer query = null;
+/*            StringBuffer query = null;
             query = new StringBuffer(200);
             query.append("select * from user_contest_prize");
             PreparedStatement psSelRoomResult = prepareStatement("tcs_dw", query.toString());
@@ -67,11 +75,19 @@ public class NewSchemaFixUtility extends DBUtility {
                 if (i % 10 == 0) {
                     log.debug(i + "...");
                 }
-            }
+            }*/
             
-/*            buildPreparedStatements();
+            InitialContext c =  TCContext.getInitial();
+            pcs = (PactsClientServices) createEJB(c, PactsClientServices.class);
+
             
-            processRoyalties();
+//            buildPreparedStatements();
+            
+            processRoomResultAdditions();
+            processRoomResultConflicts();
+            processRoomResultCharities();
+            
+/*            processRoyalties();
             
             rs = psSelPaymentDetails.executeQuery();
             for (int i = 1; rs.next(); i++ ) {
@@ -87,38 +103,146 @@ public class NewSchemaFixUtility extends DBUtility {
             DBMS.printSqlException(true, sqle);
             throw new Exception("PaymentFixUtility failed.\n" + sqle.getMessage());
         } finally {
-            DBMS.close(psSelPaymentDetails);
-            DBMS.close(rs);
+//            DBMS.close(psSelPaymentDetails);
+            //DBMS.close(rs);
             DBMS.close(psUpd);
         }
     }
 
-    /**
-     * @throws SQLException
-     */
-    private void buildPreparedStatements() throws SQLException {
+    private void processRoomResultConflicts() throws SQLException, RemoteException {
+        StringBuffer query = new StringBuffer(200);
+        query.append("select coder_id, paid, round_id, room_placed ");
+        query.append("from room_result_dw where room_result_dw.paid > 0  ");
+        query.append("and room_result_dw.payment_type_id = 1 ");
+        query.append("and not exists ( ");
+        query.append("select pd.payment_detail_id from payment_detail pd, payment_detail_xref pdx, payment p ");
+        query.append("where pd.payment_detail_id = pdx.payment_detail_id and ");
+        query.append("p.payment_id = pdx.payment_id and pd.algorithm_round_id = room_result_dw.round_id ");
+        query.append("and p.user_id = room_result_dw.coder_id and ");
+        query.append("pd.gross_amount = room_result_dw.paid ");
+        query.append(") and exists ( ");
+        query.append("select pd.payment_detail_id from payment_detail pd ");
+        query.append("where pd.algorithm_round_id = room_result_dw.round_id) ");
+
+        PreparedStatement psSelRoomResultsConflicts = prepareStatement("informixoltp", query.toString());
+        log.debug("Processing room_result conflicts:");
+
+        ResultSet rs = null;
+        try {            
+            rs = psSelRoomResultsConflicts.executeQuery();
+            int i = 1;
+            for (; rs.next(); i++ ) {
+                AlgorithmContestPayment algorithmContestPayment = new AlgorithmContestPayment(
+                        rs.getLong("coder_id"),
+                        rs.getDouble("paid"),
+                        rs.getLong("round_id"),
+                        rs.getInt("room_placed"));
+                
+                pcs.addPayment(algorithmContestPayment);
+                pcs.addPayment(new CharityPayment(algorithmContestPayment));
+                if (i % 10 == 0) {
+                    log.debug(i + "...");
+                }
+            }
+            log.debug(i + "rows were processed...");
+        } finally {
+          DBMS.close(rs);
+        }
+    }
+
+    private void processRoomResultCharities() throws SQLException, RemoteException {
+        StringBuffer query = new StringBuffer(200);
+        query.append("select coder_id, paid, round_id, room_placed ");
+        query.append("from room_result_dw ");
+        query.append("where room_result_dw.paid > 0 and room_result_dw.payment_type_id = 5 ");
+        query.append("and not exists ( ");
+        query.append("select pd.payment_detail_id from payment_detail pd, payment_detail_xref pdx, payment p ");
+        query.append("where pd.payment_detail_id = pdx.payment_detail_id and ");
+        query.append("p.payment_id = pdx.payment_id and pd.algorithm_round_id = room_result_dw.round_id ");
+        query.append("and p.user_id = room_result_dw.coder_id and ");
+        query.append("pd.gross_amount = room_result_dw.paid) ");
+
+        PreparedStatement psSelRoomResultsCharities=  prepareStatement("informixoltp", query.toString());
+
+        log.debug("Processing room_result charities:");
+
+        ResultSet rs = null;
+        try {            
+            rs = psSelRoomResultsCharities.executeQuery();
+            int i = 1;
+            for (; rs.next(); i++ ) {
+                AlgorithmContestPayment algorithmContestPayment = new AlgorithmContestPayment(
+                        rs.getLong("coder_id"),
+                        rs.getDouble("paid"),
+                        rs.getLong("round_id"),
+                        rs.getInt("room_placed"));
+                
+                pcs.addPayment(algorithmContestPayment);
+                pcs.addPayment(new CharityPayment(algorithmContestPayment));
+                if (i % 10 == 0) {
+                    log.debug(i + "...");
+                }
+            }
+            log.debug(i + "rows were processed...");
+        } finally {
+          DBMS.close(rs);
+        }
+    }
+
+    private void processRoomResultAdditions() throws SQLException, RemoteException {
+        StringBuffer query  = new StringBuffer(200);
+        query.append("select coder_id, paid, round_id, room_placed ");
+        query.append("from room_result_dw ");
+        query.append("where room_result_dw.paid > 0 and room_result_dw.payment_type_id = 1 ");
+        query.append("and not exists ( ");
+        query.append("select pd.payment_detail_id from payment_detail pd ");
+        query.append("where pd.algorithm_round_id = room_result_dw.round_id) ");
+
+        PreparedStatement psSelRoomResultsAddittions =  prepareStatement("informixoltp", query.toString());
+
+        log.debug("Processing room_result additions:");
+
+        ResultSet rs = null;
+        try {            
+            rs = psSelRoomResultsAddittions.executeQuery();
+            int i = 1;
+            for (; rs.next(); i++ ) {
+                pcs.addPayment(new AlgorithmContestPayment(
+                    rs.getLong("coder_id"),
+                    rs.getDouble("paid"),
+                    rs.getLong("round_id"),
+                    rs.getInt("room_placed")));
+                if (i % 100 == 0) {
+                    log.debug(i + "...");
+                }
+            }
+            log.debug(i + "rows were processed...");
+        } finally {
+          DBMS.close(rs);
+        }
+    }
+
+    public static Object createEJB(InitialContext ctx, Class remoteclass) throws NamingException, Exception {
+        Object remotehome = ctx.lookup(remoteclass.getName() + "Home");
+        Method createmethod = PortableRemoteObject.narrow(remotehome,
+                remotehome.getClass()).getClass().getMethod("create", null);
+        return createmethod.invoke(remotehome, null);
+    }
+
+/*    private void buildPreparedStatements() throws SQLException {
         StringBuffer query = null;
+
         query = new StringBuffer(200);
         query.append("select ");
         query.append("user_id, amount, description, royalty_date ");
         query.append("from royalty ");
 
-        psSelRoyalties = prepareStatement("tcs_dw", query.toString());
+        psSelRoyalties = prepareStatement("tcs_dw", query.toString());*/
 
-        query = new StringBuffer(200);
-        query.append("select ");
-        query.append("payment_detail_id, payment_type_id, payment_desc ");
-        query.append("from payment_detail ");
 
-        psSelPaymentDetails = prepareStatement("informixoltp", query.toString());
-        
-        query = new StringBuffer(200);
-        query.append("update payment_detail set ? = ? ");
-        query.append("where payment_detail_id = ?");
-        psUpd = prepareStatement("informixoltp", query.toString());
     }
 
-    private void processRoyalties() throws Exception {
+/*    private void processRoyalties() throws Exception {
         ResultSet rs = null; 
         log.debug("Processing royalties:");
         try {
@@ -136,9 +260,9 @@ public class NewSchemaFixUtility extends DBUtility {
         } finally {
             DBMS.close(rs);
         }    
-    }
+    }*/
 
-    private void processContestPayment(long paymentDetailId, String paymentDesc) {
+    /*private void processContestPayment(long paymentDetailId, String paymentDesc) {
         // parse paymentDesc to get algorithm_round_id and algorithm_problem_id
         long srmId = Long.parseLong(
             paymentDesc.substring(
@@ -149,7 +273,7 @@ public class NewSchemaFixUtility extends DBUtility {
                 paymentDesc.substring(
                 paymentDesc.indexOf("Round ") + "Round ".length(),
                 paymentDesc.lastIndexOf("winnings")));
-    }
+    }*/
 
     /**
      * Process and validates the parameters.
