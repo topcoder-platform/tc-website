@@ -84,8 +84,8 @@ public class NewSchemaFixUtility extends DBUtility {
             
 //            buildPreparedStatements();
             
-            //processRoomResultAdditions();
-            //processRoomResultConflicts();
+            processRoomResultAdditions();
+            processRoomResultConflicts();
             processRoomResultCharities();
             
 /*            processRoyalties();
@@ -169,11 +169,11 @@ public class NewSchemaFixUtility extends DBUtility {
             rs = psSelRoomResultsCharities.executeQuery();
             int i = 1;
             for (; rs.next(); i++ ) {
-                log.debug("Creating an AlgorithmContestPayment(" + 
+/*                log.debug("Creating an AlgorithmContestPayment(" + 
                         rs.getLong("coder_id") + "," +
                         rs.getDouble("paid") + "," +
                         rs.getLong("round_id") + "," +
-                        rs.getInt("room_placed") + ")");
+                        rs.getInt("room_placed") + ")");*/
                         
                 AlgorithmContestPayment algorithmContestPayment = new AlgorithmContestPayment(
                         rs.getLong("coder_id"),
@@ -183,7 +183,7 @@ public class NewSchemaFixUtility extends DBUtility {
         
                 pcs.addPayment(algorithmContestPayment);
 
-                log.debug("Added: " + algorithmContestPayment.getId());
+//                log.debug("Added: " + algorithmContestPayment.getId());
                 
 /*                pcs.addPayment(new CharityPayment(algorithmContestPayment));
 
