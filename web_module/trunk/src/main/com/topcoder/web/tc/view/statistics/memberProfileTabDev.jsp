@@ -166,7 +166,7 @@
         <rsc:item name="review_percent" set="<%=rscTotalData%>" format="0.00%" ifNull="n/a"/></td>
 </tr>
 <tr>
-    <td class="catDk" nowrap="nowrap">Appeals</td>
+    <td class="catDk" nowrap="nowrap">Appeals *</td>
     <td class="statDk" align="right">
         <rsc:item name="num_appeals" set="<%=rscJavaData%>" ifNull="n/a"/></td>
     <td class="statDk" align="right">
@@ -175,7 +175,7 @@
         <rsc:item name="num_appeals" set="<%=rscTotalData%>" ifNull="n/a"/></td>
 </tr>
 <tr>
-    <td class="catLt" nowrap="nowrap">Appeal Success Rate</td>
+    <td class="catLt" nowrap="nowrap">Appeal Success Rate *</td>
     <td class="statLt" align="right">
         <rsc:item name="successful_appeal_percentage" set="<%=rscJavaData%>" format="0.00%" ifNull="n/a"/></td>
     <td class="statLt" align="right">
@@ -287,4 +287,7 @@
         </SCRIPT>
     </td>
 </tr>
+<tr><td colspan="2">* Only those appeals made on projects posted on or after March 16, 2006 are included (TopCoder did
+    not collect
+    the relevant data prior to that date)</td></tr>
 </table>
