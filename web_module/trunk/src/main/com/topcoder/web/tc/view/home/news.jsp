@@ -79,6 +79,25 @@ In this problem set coders faced an easy first problem, an easy second - which h
 
 <%--------------------------------------------------------%>
 <tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
+        <br>09.24.06<br>11:00 AM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_1b">TCCC06 Online Round 1-B -
+                Problem Set & Analysis</A></span><br><br>
+This section had the highest number of registrants among all Round 1 sections, with participants including the three most recent TCCC champions.            </td>
+            <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by
+                <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_1b">full story</A> |
+    <tc-webtag:forumLink forumID="506108" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.22.06<br>11:45 AM</td>
     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">TCCC06 Algorithm Round 1A Results</A></span><br><br>
         You can now view Round 1 - Section A advancers.
@@ -88,6 +107,27 @@ In this problem set coders faced an easy first problem, an easy second - which h
     <A href="/tc?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">view</A> |
     <tc-webtag:forumLink forumID="506107" message="discuss this"/> |
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
+        <br>09.22.06<br>11:00 AM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_1a">TCCC06 Online Round 1-A -
+                Problem Set & Analysis</A></span><br><br>
+<tc-webtag:handle coderId="10574855" context="algorithm"/> and <tc-webtag:handle coderId="19849563" context="algorithm"/>
+turned the first round of the TCCC into a close race.
+            </td>
+            <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by
+                <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_1a">full story</A> |
+    <tc-webtag:forumLink forumID="506107" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
 
 <%--------------------------------------------------------%>
@@ -180,40 +220,5 @@ In this problem set coders faced an easy first problem, an easy second - which h
     <A href="/tc?module=Static&d1=match_editorials&d2=srm319">full story</A> |
     <tc-webtag:forumLink forumID="505994" message="discuss this"/> |
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0"/><br>
-        09.18.06<br>4:00 PM</td>
-    <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=pressroom&d2=art_091806">In memoriam: Victor_lxd</A>
-      </span><br><br>
-        We are deeply saddened to share the news that TopCoder member Xiao Dong Li -
-        <tc-webtag:handle coderId="13377493"/> - passed away last week
-        at the age of 26. If you wish to send a gift to help Victor's family, you may do so directly or by donating a
-        portion of your TopCoder
-        winnings&#8230;</td>
-</tr>
-
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=pressroom&d2=art_091806">view</A> |
-    <tc-webtag:forumLink forumID="506118" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>
-        09.18.06<br>12:10 PM</td>
-    <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=219">Vote for the TCCC t-shirt
-        quote</A></span><br><br>
-        Rate these 5 quotes, and the winner goes on the TCCC06 t-shirt!
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=ViewSurvey&sid=219">vote</A> |
-    <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512330">discuss this</A> |
-    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
 
