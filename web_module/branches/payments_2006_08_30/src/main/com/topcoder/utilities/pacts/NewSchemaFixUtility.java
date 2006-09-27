@@ -63,8 +63,8 @@ public class NewSchemaFixUtility extends DBUtility {
 
             query = new StringBuffer(200);
             query.append("insert into project_result_dw values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ");
-            query.append("                                     (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ");
-            query.append("                                     (?, ?, ?)");
+            query.append("                                      ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ");
+            query.append("                                      ?, ?, ?)");
             PreparedStatement psInsRoomResult = prepareStatement("informixoltp", query.toString());
 
             log.debug("Copying table...");
