@@ -26,6 +26,14 @@
 
             <div class="contentSpacer">
                 <p>
+                    1.1.2 - 2006.09.xx
+                    <ul>
+                        <li>Cache submissions on submission page for full length. No need to only cache for 1
+                            hour since we don't show them until submission phase is closed.</li>
+                    </ul>
+                </p>
+
+                <p>
                     1.1.1 - 2006.09.19
                     <ul>
                         <li>Do not allow the viewing of submissions until the contest is over</li>
