@@ -15,6 +15,8 @@
 <c:set var="stages" value="${requestScope.digital_run_stage_list}"/>
 <c:set var="seasons" value="${requestScope.digital_run_season_list}"/>
 <c:set var="rounds" value="${requestScope.algorithm_round_list}"/>
+<c:set var="studioContests" value="${requestScope.studio_contest_list}"/>
+<c:set var="componentContests" value="${requestScope.component_contest_list}"/>
 <c:set var="refId" value="${requestScope.reference_type_id}"/>
 <c:set var="search" value="${requestScope.search}"/>
 
@@ -25,7 +27,6 @@
 <c:set var="COMPONENT_CONTEST" value="<%= PactsConstants.REFERENCE_COMPONENT_CONTEST_ID + "" %>" />
 <c:set var="DIGITAL_RUN_STAGE" value="<%= PactsConstants.REFERENCE_DIGITAL_RUN_STAGE_ID + "" %>" />
 <c:set var="DIGITAL_RUN_SEASON" value="<%= PactsConstants.REFERENCE_DIGITAL_RUN_SEASON_ID + "" %>" />
-<c:set var="PARENT_PAYMENT" value="<%= PactsConstants.REFERENCE_PARENT_PAYMENT_ID + "" %>" />
 
 <taconite-root xml:space="preserve">
 
@@ -66,13 +67,8 @@
                              <tc-webtag:rscSelect name="component_project_id" list="${projects}" 
                                      fieldText="project_desc" fieldValue="project_id"                        
                                      useTopValue="false" />
-                             <input type="button" value="do another search" onClick="typeChanged()" />
-                             <br/>
-                      </td>
-                    </tr>
-                  <td><b>Client:</b></td>
-                  <td>
-
+                             <input type="button" value="do another search" onClick="typeChanged()" />                            
+                             <br/>Client:
                              <input type="text" name="client"/>
                         </c:if>                                  
 
@@ -83,7 +79,7 @@
                         <c:if test="${empty projects}">                  
                           Enter search text for problem name: <input type="text" name="search_text" value="${search}" />
                           <input type="button" value="search" onClick="search()" />
-                            <c:if test="${not empty problems}">          
+                            <c:if test="${not empty search}">          
                                 <font color="#FF0000">No problems found containing <c:out value="${search}"/>. </font>
                             </c:if>
                           <br/>
@@ -95,6 +91,41 @@
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>                                  
                      </c:when>                       
+
+                     <c:when test="${refId == STUDIO_CONTEST}">
+                        <c:if test="${empty studioContests}">                  
+                          Enter search text for studio contest name: <input type="text" name="search_text" value="${search}" />
+                          <input type="button" value="search" onClick="search()" />
+                            <c:if test="${not empty search}">          
+                                <font color="#FF0000">No studio contests found containing <c:out value="${search}"/>. </font>
+                            </c:if>
+                          <br/>
+                        </c:if>
+                        <c:if test="${not empty studioContests}">                   
+                             <tc-webtag:rscSelect name="studio_contest_id" list="${studioContests}" 
+                                     fieldText="name" fieldValue="contest_id"                        
+                                     useTopValue="false" />
+                             <input type="button" value="do another search" onClick="typeChanged()" />
+                        </c:if>                                  
+                     </c:when>                       
+
+                     <c:when test="${refId == COMPONENT_CONTEST}">
+                        <c:if test="${empty componentContests}">                  
+                          Enter search text for component contest name: <input type="text" name="search_text" value="${search}" />
+                          <input type="button" value="search" onClick="search()" />
+                            <c:if test="${not empty search}">          
+                                <font color="#FF0000">No component contests found containing <c:out value="${search}"/>. </font>
+                            </c:if>
+                          <br/>
+                        </c:if>
+                        <c:if test="${not empty componentContests}">                   
+                             <tc-webtag:rscSelect name="component_contest_id" list="${componentContests}" 
+                                     fieldText="contest_desc" fieldValue="contest_id"                        
+                                     useTopValue="false" />
+                             <input type="button" value="do another search" onClick="typeChanged()" />
+                        </c:if>                                  
+                     </c:when>                       
+
                      
                      <c:when test="${refId == REFERENCE_DIGITAL_RUN_STAGE_ID}">
                          <tc-webtag:rscSelect name="stage_id" list="${stages}" 
