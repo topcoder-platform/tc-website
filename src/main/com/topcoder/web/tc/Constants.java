@@ -50,6 +50,7 @@ public class Constants implements WebConstants {
 
 
     /* request parameters */
+    //todo convert problem id to pm and move it to webconstants.  it is only used by problem rating right now
     public static String PROBLEM_ID;
     public static String SURVEY_ID;
     public static String FIRST_NAME;
@@ -97,7 +98,7 @@ public class Constants implements WebConstants {
     public static String MESSAGE;
 
     public static String SUBMISSION_TYPE;
-    
+
     /* pages */
     public static String SURVEY_RESULTS;
     public static String SCHULZE_RESULTS;
@@ -171,10 +172,10 @@ public class Constants implements WebConstants {
 
     public static String BLACK_LIST;
     public static String BLOCK_HANDLE;
-    
+
     public static String DOWNLOAD_SUBMISSION;
     public static String DOWNLOAD_SUBMISSION_TERMS;
-    
+
     //dev pages
     public static String REVIEW_PROJECT_DETAIL;
     public static String REVIEW_PROJECTS;
@@ -207,7 +208,7 @@ public class Constants implements WebConstants {
     public static final int TCO06_SPONSOR_TERMS_ID = 20388;
     public static final int TCCC06_ALGORITHM_TERMS_OF_USE_ID = 20504;
     public static final int TCCC06_COMPONENT_TERMS_OF_USE_ID = 20503;
-    public static int DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID; 
+    public static int DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID;
     public static final int TCCC06_SPONSOR_TERMS_ID = 20523;
     public static final int TCCC06_SPONSOR_COMPANY_QUESTION_ID = 136;
     public static int UNLOCK_CARD_PREFERENCE_ID;
