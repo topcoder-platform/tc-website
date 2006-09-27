@@ -23,7 +23,7 @@
 <taconite-root xml:space="preserve">
 
     <taconite-replace contextNodeID="selectReference" parseInBrowser="true">
-        <c:if test="${refId >= 0}">
+        <c:if test="${refId > 0}">
           <tr id="selectReference">
               <td><b>Reference:</b></td>
               <td>
@@ -69,6 +69,9 @@
                  </c:choose>
              </td>
           </tr>
+         </c:if>
+         <c:if test="${refId <= 0}">
+            <tr id="selectReference"> <td></td><td></td></tr>
          </c:if>
      </taconite-replace>
      

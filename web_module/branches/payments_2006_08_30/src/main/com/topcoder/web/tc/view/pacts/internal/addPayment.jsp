@@ -253,7 +253,7 @@ Calendar.setup(
                 -->
 </script>
 
-<input type="submit" value="Add Payment">
+<input type="submit" value="Add Payment"/>
 </form>
 <jsp:include page="InternalFooter.jsp" flush="true"/>
 </body>
