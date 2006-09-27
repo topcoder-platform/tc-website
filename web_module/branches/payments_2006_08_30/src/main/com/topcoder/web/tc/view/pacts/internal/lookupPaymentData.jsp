@@ -11,9 +11,11 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.*" %>
 
 <taconite-root xml:space="preserve">
+
+ <taconite-replace-children parseInBrowser="true"> 
    <script type="text/javascript">
         document.f.payment_desc.value = 'hi description!';
     </script>
-     
+</taconite-replace-children>      
  </taconite-root>
  
