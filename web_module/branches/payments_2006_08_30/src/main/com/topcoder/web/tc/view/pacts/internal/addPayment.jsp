@@ -190,6 +190,30 @@ types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -
 <% } %>
 
         <tr>
+            <td><b>Type:</b></td><td>
+           <tc-webtag:rscSelect name="payment_type_id" 
+                    list="<%=paymentTypes%>" 
+                    fieldText="payment_type_desc" fieldValue="payment_type_id" 
+                    selectedValue="<%= paymentTypeSelectedValue %>" selectedText="<%= paymentTypeSelectedText %>" 
+                    useTopValue="false" onChange="typeChanged()" />        
+                    
+                    <br/>
+                    <input type="radio" name="special_type" value="0" checked>Normal</radio>
+                    <input type="radio" name="special_type" value="1" checked>Charity</radio>
+                    <input type="radio" name="special_type" value="2" checked>Reliability</radio>
+                    <input type="radio" name="special_type" value="3" checked>Referral</radio>
+        </td>
+        </tr>
+        <tr id="selectReference"> <td></td><td></td></tr>
+        <tr>
+            <td><b>Method:</b></td><td>
+            <tc-webtag:rscSelect name="payment_method_id" list="<%=paymentMethods%>" 
+                        fieldText="payment_method_desc" fieldValue="payment_method_id"  
+                        selectedValue="<%= paymentMethodSelectedValue %>" selectedText="<%= paymentMethodSelectedText %>"             
+                        useTopValue="false" />
+            </td>
+        </tr>
+        <tr>
         <td><b>Status:</b></td>
         <td>
        <tc-webtag:rscSelect name="status_id" list="<%=stati%>" 
@@ -202,24 +226,6 @@ types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -
         <td><b>Description:</b></td><td>
         <input type=text width=25 name="payment_desc" value="<%= desc %>">
         </td></tr>
-        <tr>
-            <td><b>Type:</b></td><td>
-           <tc-webtag:rscSelect name="payment_type_id" 
-                    list="<%=paymentTypes%>" 
-                    fieldText="payment_type_desc" fieldValue="payment_type_id" 
-                    selectedValue="<%= paymentTypeSelectedValue %>" selectedText="<%= paymentTypeSelectedText %>" 
-                    useTopValue="false" onChange="typeChanged()" />        
-        </td>
-        </tr>
-        <tr id="selectReference"> <td></td><td></td></tr>
-        <tr>
-            <td><b>Method:</b></td><td>
-            <tc-webtag:rscSelect name="payment_method_id" list="<%=paymentMethods%>" 
-                        fieldText="payment_method_desc" fieldValue="payment_method_id"  
-                        selectedValue="<%= paymentMethodSelectedValue %>" selectedText="<%= paymentMethodSelectedText %>"             
-                        useTopValue="false" />
-            </td>
-        </tr>
         <tr>
             <td><b>Gross Amount:</b></td><td>
             <input type=text width=25 name="gross_amount" value="<%= gross %>">

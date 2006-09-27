@@ -750,11 +750,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                         if (!checkParam(NULL_STRING_TYPE, request.getParameter("text"), true))
                             message += "Required parameter missing: text.<br>\n";
                         
-                        log.debug("missing_Reference:" + request.getParameter("missing_reference"));
-                        if (request.getParameter("missing_reference") != null) {
-                        	message += request.getParameter("missing_reference");
-                        }
-                        
                         if (message.length() == 0)
                             doAddContractPost(request, response);
                         else {
@@ -801,6 +796,10 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                         if (!checkParam(DOUBLE_TYPE, request.getParameter("gross_amount"), true))
                             message += "Gross Amount was invalid.<br>\n";
 
+                        if (request.getParameter("missing_reference") != null) 
+                        	message += request.getParameter("missing_reference");
+                        
+                        
                         if (message.length() == 0)
                             doAddPaymentPost(request, response);
                         else {
