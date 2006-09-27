@@ -126,7 +126,8 @@
             Point Value
         </td>
         <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
-            <td class="statText" align="right"><rsc:item name="points" row="<%=resultRow%>" ifNull="&#160;"/></TD>
+            <td class="statText" align="right">
+                <rsc:item name="points" row="<%=resultRow%>" format="#" ifNull="&#160;"/></TD>
         </rsc:iterator>
     </tr>
     <tr>
