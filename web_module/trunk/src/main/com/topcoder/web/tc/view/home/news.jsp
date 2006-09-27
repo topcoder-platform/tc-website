@@ -9,14 +9,15 @@
 </tr>
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>09.27.06<br>9:15 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.27.06<br>10:00 AM</td>
      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=220">Vote for the TCHS logo design</A></span><br><br>
       Help choose which design will become the 2007 TopCoder High School logo.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=ViewSurvey&sid=220">view survey</A>&#160;|&#160;
-         <A href="/tc?&module=SurveyList">archive</A>
+     <A href="/tc?module=ViewSurvey&sid=220">vote</A>&#160;|&#160;
+     <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512330">discuss this</A> |
+     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>

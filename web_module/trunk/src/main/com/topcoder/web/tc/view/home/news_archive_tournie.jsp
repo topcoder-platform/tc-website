@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">09.27.06 10:00 AM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=220">Vote for the TCHS logo design</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.25.06 2:00 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=219">TCCC06 t-shirt quote vote results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.24.06 5:30 PM - </td><td width="100%"><A href="/tc?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">TCCC06 Algorithm Round 1B Results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.22.06 11:45 AM - </td><td width="100%"><A href="/tc?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">TCCC06 Algorithm Round 1A Results</A></td></tr>
