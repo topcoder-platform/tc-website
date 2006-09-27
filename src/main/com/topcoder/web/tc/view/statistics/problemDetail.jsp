@@ -2,9 +2,10 @@
         language="java"
         import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                 com.topcoder.shared.util.ApplicationServer,
-                java.text.SimpleDateFormat,
-                java.util.Map"
+                com.topcoder.web.common.tag.HandleTag,
+                java.text.SimpleDateFormat"
         %>
+<%@ page import="java.util.Map" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <% ResultSetContainer generalInfo = null;
@@ -264,14 +265,14 @@
     <rsc:iterator list="<%=div1Lang%>" id="resultRow">
         <td class="statText" align="right">
             <% if (resultRow.getItem("coder_id").getResultData() != null) { %>
-            <tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context='algorithm'/>
+            <tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
             <% } %>
         </td>
     </rsc:iterator>
     <rsc:iterator list="<%=div1Overall%>" id="resultRow">
         <td class="statText" align="right">
             <% if (resultRow.getItem("coder_id").getResultData() != null) { %>
-            <tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context='algorithm'/>
+            <tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
             <% } %>
         </td>
     </rsc:iterator>
@@ -403,14 +404,14 @@
     <rsc:iterator list="<%=div2Lang%>" id="resultRow">
         <td class="statText" align="right">
             <% if (resultRow.getItem("coder_id").getResultData() != null) { %>
-            <tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context='algorithm'/>
+            <tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
             <% } %>
         </td>
     </rsc:iterator>
     <rsc:iterator list="<%=div2Overall%>" id="resultRow">
         <td class="statText" align="right">
             <% if (resultRow.getItem("coder_id").getResultData() != null) { %>
-            <tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context='algorithm'/>
+            <tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
             <% } %>
         </td>
     </rsc:iterator>
