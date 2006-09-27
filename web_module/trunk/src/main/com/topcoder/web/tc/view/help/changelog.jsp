@@ -55,6 +55,9 @@
         <li>Show handle colors on the problem details as whichever is greater between High School and regular algorithm
             competitions.</li>
         <li>Add the point value of the problem to the problem detail page</li>
+        <li>Add link to problem details page from the problem solution page</li>
+        <li>When the problem archive page links to the round overview, go to the appropriate one based on round type (TC
+            vs. HS)</li>
 
     </ul>
 </p>
