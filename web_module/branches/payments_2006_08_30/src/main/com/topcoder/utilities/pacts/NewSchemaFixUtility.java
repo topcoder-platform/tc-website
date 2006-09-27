@@ -154,7 +154,13 @@ public class NewSchemaFixUtility extends DBUtility {
 
     private void processCompContests() throws SQLException, RemoteException {
         StringBuffer query = new StringBuffer(200);
-        query.append("select user_id, prize_payment, contest_id, place from user_contest_prize_dw");
+        query.append("select user_id, prize_payment, contest_id, place from user_contest_prize_dw ");
+        query.append("where not exists ( ");
+        query.append("select pd.payment_detail_id from payment_detail pd, payment_detail_xref pdx, payment p ");
+        query.append("where pd.payment_detail_id = pdx.payment_detail_id and ");
+        query.append("p.payment_id = pdx.payment_id and  p.most_recent_detail_id = pd.payment_detail_id ");
+        query.append("and p.user_id = user_contest_prize_dw.user_id and ");
+        query.append("pd.gross_amount = user_contest_prize_dw.prize_payment) ");
 
         PreparedStatement psSelCompCompetitions = prepareStatement("informixoltp", query.toString());
         log.debug("Processing component competitions:");
