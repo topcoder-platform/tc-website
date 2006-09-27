@@ -28,14 +28,16 @@
               <td><b>Reference:</b></td>
               <td>
                  <c:choose>
+                     <!-----------------  ROUND PAYMENTS --------------->
                      <c:when test="${refId == algorithmRound}">
                         <c:if test="${empty rounds}">                  
                           Enter search text for round name: <input type="text" name="search_text" value="${search}" />
+                          <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          
                                 <font color="#FF0000">No rounds found containing <c:out value="${search}"/>. </font>
                             </c:if>
 
-                          <input type="button" value="search" onClick="search()" />
+                          
                           <br/>
                         </c:if>
                         <c:if test="${not empty rounds}">                   
