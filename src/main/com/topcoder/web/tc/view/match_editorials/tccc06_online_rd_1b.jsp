@@ -375,15 +375,21 @@ To quickly compute the total number of <i>good</i> factories for set X, you need
 for each factory in a bitmask (instead of an array of boolean). The following C++ code implements this approach:
 </p>
 <pre>
-        vector<vector<long long> > cnk; // element cnk[i][j] contains the value C(i, j).
-        vector<int> connection; // element connection[i] contains the bitmask, representing all the factories connected to the i-th factory
-        int ones(int n) { return n ? 1 + ones(n & (n - 1)) : 0;} // computes the number of 1's in the binary code of number i.
-        long long go(int factory, int count, int assembly) { // the core method, which tries adding the current factory or skipping it.
+        // element cnk[i][j] contains the value C(i, j).
+        vector<vector<long long> > cnk; 
+        // element connection[i] contains the bitmask, representing 
+        // all the factories connected to the i-th factory
+        vector<int> connection; 
+        // computes the number of 1's in the binary code of number i.
+        int ones(int n) { return n ? 1 + ones(n & (n - 1)) : 0;} 
+        // the core method, which tries adding the current factory or skipping it.
+        long long go(int factory, int count, int assembly) { 
             if (count == m)
                 return cnk[ones(assembly)][n];
             if (factory >= N) 
                 return 0;
-            return go(factory + 1, count, assembly) + // move to the next factory
+            // move to the next factory
+            return go(factory + 1, count, assembly) + 
                 go(factory + 1, count + 1, assembly & connection[factory]); 
 // add the current factory to the list, updating the total count and connections list
         }
@@ -510,9 +516,13 @@ The first thing to notice here is that both players are independent, therefore t
 the return value for the problem can be computed in the following way (prob[i] represents the probability to a player to land on the cell <b>square</b> on the i-th turn).
 <pre>
         double ans = 0;
-        double first = 1; // the probability that the first player hasn't reached the cell <b>square</b> yet.
+        // the probability that the first player hasn't reached 
+        // the cell <b>square</b> yet.
+        double first = 1; 
         for (int i = 0; i < 22; i++) {
-        first -= prob[i]; // note that the probabilities to land on the cell <b>square</b> on the i-th turn are independent for all i
+        // note that the probabilities to land on the 
+        // cell <b>square</b> on the i-th turn are independent for all i
+        first -= prob[i]; 
         ans += prob[i] * first; // probability that the second player lands on the cell on this turn
             // and the first player hasn't landed on it yet.
         }
@@ -583,10 +593,14 @@ public class Monopolies {
             }
         }
         double ans = 0;
-        double first = 1; // the probability that the first player hasn't reached the cell <b>square</b> yet.
+        // the probability that the first player hasn't reached the cell <b>square</b> yet.
+        double first = 1; 
         for (int i = 0; i < 22; i++) {
-        first -= prob[i]; // note that the probabilities to land on the cell <b>square</b> on the i-th turn are independent for all i
-        ans += prob[i] * first; // probability that the second player lands on the cell on this turn
+        // note that the probabilities to land on the cell <b>square</b> 
+        // on the i-th turn are independent for all i
+        first -= prob[i]; 
+        // probability that the second player lands on the cell on this turn
+        ans += prob[i] * first; 
             // and the first player hasn't landed on it yet.
         }
         return ans;
