@@ -60,7 +60,7 @@ public class NewSchemaFixUtility extends DBUtility {
      */
     public void runUtility() throws Exception {
         try {            
-            StringBuffer query = null;
+/*            StringBuffer query = null;
             query = new StringBuffer(200);
             query.append("select * from project");
             PreparedStatement psSelRoomResult = prepareStatement("tcs_dw", query.toString());
@@ -83,7 +83,7 @@ public class NewSchemaFixUtility extends DBUtility {
                 if (i % 100 == 0) {
                     log.debug(i + "...");
                 }
-            }
+            }*/
             
             pcs = (PactsClientServices) createEJB();
 
