@@ -34,6 +34,8 @@
 <span class="bodyText">
 <strong>Record:</strong> Highest Appeal Success Percentage.  A higher percentage means that a competitor is more
     successful at winning disputed reviewer scores.  Only those with at least 50 appeals are included in this list.
+    Additionally, only those appeals made on projects posted on or after March 16, 2006 are included (TopCoder did not collect
+    the relevant data prior to that date).
 </span>
 
 </div>
