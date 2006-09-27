@@ -17,6 +17,6 @@ public interface PactsClientServicesHome extends EJBHome {
      *
      * @return  A new <tt>PactsClientServices</tt> object.
      */
-	PactsClientServices create() throws CreateException, RemoteException;
+    PactsClientServices create() throws CreateException, RemoteException;
 }
 

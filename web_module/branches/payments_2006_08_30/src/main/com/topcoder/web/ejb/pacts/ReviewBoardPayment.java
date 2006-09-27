@@ -10,59 +10,59 @@ import java.sql.SQLException;
  */
 public class ReviewBoardPayment extends ComponentProjectReferencePayment {
 
-	/**
-	 * Create a payment for a member of the review board of a component.
-	 *
-	 * @param coderId coder to be paid.
-	 * @param grossAmount amount to be paid.
-	 * @param client the client of the project.
-	 * @param projectId project that is being paid.
-	 */
-	public ReviewBoardPayment(long coderId, double grossAmount, String client, long projectId) {
-		super(REVIEW_BOARD_PAYMENT, coderId, grossAmount, client, projectId);
-	}
+    /**
+     * Create a payment for a member of the review board of a component.
+     *
+     * @param coderId coder to be paid.
+     * @param grossAmount amount to be paid.
+     * @param client the client of the project.
+     * @param projectId project that is being paid.
+     */
+    public ReviewBoardPayment(long coderId, double grossAmount, String client, long projectId) {
+        super(REVIEW_BOARD_PAYMENT, coderId, grossAmount, client, projectId);
+    }
 
-	/**
-	 * Create a payment for a member of the review board of a component.
-	 *
-	 * @param coderId coder to be paid.
-	 * @param grossAmount amount to be paid.
-	 * @param projectId project that is being paid.
-	 */
-	public ReviewBoardPayment(long coderId, double grossAmount, long projectId) {
-		this(coderId, grossAmount, null, projectId);
-	}
+    /**
+     * Create a payment for a member of the review board of a component.
+     *
+     * @param coderId coder to be paid.
+     * @param grossAmount amount to be paid.
+     * @param projectId project that is being paid.
+     */
+    public ReviewBoardPayment(long coderId, double grossAmount, long projectId) {
+        this(coderId, grossAmount, null, projectId);
+    }
 
 
-	/**
-	 * Get a processor for this type of payment.
-	 *
-	 * @return a processor for this type of payment.
-	 */
-	protected BasePayment.Processor getProcessor() {
-		return new Processor();
-	}
+    /**
+     * Get a processor for this type of payment.
+     *
+     * @return a processor for this type of payment.
+     */
+    protected BasePayment.Processor getProcessor() {
+        return new Processor();
+    }
 
-	/**
-	 * Processor for component review board payments.
-	 * It just provides a method for generating a description from component data.
-	 *
-	 * @author Cucu
-	 *
-	 */
-	protected class Processor extends ComponentProjectReferencePayment.Processor {
+    /**
+     * Processor for component review board payments.
+     * It just provides a method for generating a description from component data.
+     *
+     * @author Cucu
+     *
+     */
+    protected class Processor extends ComponentProjectReferencePayment.Processor {
 
-		/**
-		 * Get the description for the payment.
-		 *
-		 * @param payment payment to create its description.
-		 * @return the description for the payment.
-		 */
-		public String lookupDescription(BasePayment payment) throws SQLException {
-			ComponentProjectReferencePayment p = (ComponentProjectReferencePayment) payment;
+        /**
+         * Get the description for the payment.
+         *
+         * @param payment payment to create its description.
+         * @return the description for the payment.
+         */
+        public String lookupDescription(BasePayment payment) throws SQLException {
+            ComponentProjectReferencePayment p = (ComponentProjectReferencePayment) payment;
 
-        	return getComponentName(p.getProjectId()) + " - " + getProjectType(p.getProjectId()) + " review board";
-		}
-	}
+            return getComponentName(p.getProjectId()) + " - " + getProjectType(p.getProjectId()) + " review board";
+        }
+    }
 
 }

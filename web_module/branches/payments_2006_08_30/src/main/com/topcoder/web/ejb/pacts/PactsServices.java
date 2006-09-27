@@ -177,7 +177,7 @@ public interface PactsServices extends EJBObject {
             throws IllegalUpdateException, RemoteException, SQLException;
 
     int[] generateComponentPayments(long projectId, long status, String client, boolean makeChanges)
-    		throws IllegalUpdateException, RemoteException, SQLException;
+            throws IllegalUpdateException, RemoteException, SQLException;
 
     int expireOldPayments() throws RemoteException, SQLException;
 

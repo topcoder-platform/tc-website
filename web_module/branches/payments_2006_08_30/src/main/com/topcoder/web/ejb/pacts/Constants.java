@@ -95,7 +95,7 @@ public interface Constants {
      * receiving the necessary paperwork
      */
     public static final int PAYMENT_EXPIRED_STATUS = 68;
-    
+
     /**
      * The deleted status is used to delete the payment.
      * Also most_recent_detail_id is set to null in the payment.

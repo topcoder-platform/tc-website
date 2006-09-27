@@ -266,29 +266,29 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                         return;
                     }
                     if (command.equals(PAYMENT_CMD)) {
-                    	String[] statusValues = request.getParameterValues(STATUS_CODE);
-                    	String[] typeValues = request.getParameterValues(TYPE_CODE);
-                    	String[] methodValues = request.getParameterValues(METHOD_CODE);
+                        String[] statusValues = request.getParameterValues(STATUS_CODE);
+                        String[] typeValues = request.getParameterValues(TYPE_CODE);
+                        String[] methodValues = request.getParameterValues(METHOD_CODE);
 
-                    	boolean checked = true;
-                    	if (statusValues != null) {
-	                    	for (int i=0; i<statusValues.length; i++) {
-	                    		checked &= checkParam(LONG_TYPE, statusValues[i], false, pp);
-	                    	}
-                    	}
-                    	if (typeValues != null) {
-	                    	for (int i=0; i<typeValues.length; i++) {
-	                    		checked &= checkParam(INT_TYPE, typeValues[i], false, pp);
-	                    	}
-                    	}
-                    	if (methodValues != null) {
-	                    	for (int i=0; i<methodValues.length; i++) {
-	                    		checked &= checkParam(INT_TYPE, methodValues[i], false, pp);
-	                    	}
-                    	}
+                        boolean checked = true;
+                        if (statusValues != null) {
+                            for (int i=0; i<statusValues.length; i++) {
+                                checked &= checkParam(LONG_TYPE, statusValues[i], false, pp);
+                            }
+                        }
+                        if (typeValues != null) {
+                            for (int i=0; i<typeValues.length; i++) {
+                                checked &= checkParam(INT_TYPE, typeValues[i], false, pp);
+                            }
+                        }
+                        if (methodValues != null) {
+                            for (int i=0; i<methodValues.length; i++) {
+                                checked &= checkParam(INT_TYPE, methodValues[i], false, pp);
+                            }
+                        }
 
                         if (
-                        		checked
+                                checked
                                 && checkParam(DATE_TYPE, request.getParameter(EARLIEST_DUE_DATE), false, pp)
                                 && checkParam(DATE_TYPE, request.getParameter(LATEST_DUE_DATE), false, pp)
                                 && checkParam(DATE_TYPE, request.getParameter(EARLIEST_CREATION_DATE), false, pp)
@@ -1430,9 +1430,9 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
 
     private long getLongParam(HttpServletRequest request, String paramName) {
-    	return request.getParameter(paramName) == null? 0 : Long.parseLong(request.getParameter(paramName));
+        return request.getParameter(paramName) == null? 0 : Long.parseLong(request.getParameter(paramName));
     }
-    
+
     /*
     This method adds and links a payment.
 
@@ -1466,9 +1466,9 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         log.debug("due date: |" + request.getParameter("date_due") + "| default " + buf.toString());
 
         p.setDueDate(TCData.dateForm(request.getParameter("date_due"), buf.toString(), true));
-		p.getHeader().setAlgorithmRoundId(getLongParam(request, "algorithm_round_id"));
+        p.getHeader().setAlgorithmRoundId(getLongParam(request, "algorithm_round_id"));
 
-		DataInterfaceBean dib = new DataInterfaceBean();
+        DataInterfaceBean dib = new DataInterfaceBean();
 
         if (request.getParameter(CONTRACT_ID) != null) {
             long contract_id = Long.parseLong(request.getParameter(CONTRACT_ID));
@@ -1649,8 +1649,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     }
 
     /*
-	This method forwards to a jsp.
-	*/
+    This method forwards to a jsp.
+    */
     private void forward(String href, HttpServletRequest request, HttpServletResponse response) {
         try {
             log.debug("Forwarding to ..." + href);
@@ -2051,8 +2051,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
 
     /*
-	Forwarding JSP: "updateAffidavit.jsp"
-	*/
+    Forwarding JSP: "updateAffidavit.jsp"
+    */
     private void doUpdateAffidavit(HttpServletRequest request, HttpServletResponse response) throws Exception {
         log.debug("doUpdateAffidavit<br>");
 
@@ -2072,8 +2072,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
 
     /*
-	Forwarding JSP: "viewAffidavit.jsp"
-	*/
+    Forwarding JSP: "viewAffidavit.jsp"
+    */
     private void doUpdateAffidavitPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
         log.debug("doUpdateAffidavitPost<br>");
 
@@ -2093,27 +2093,27 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         dib.updateAffidavit(affidavit);
 
         if (!affidavit.getHeader().isAffirmed() &&
-        		affidavit.getHeader().getStatusId() == AFFIDAVIT_AFFIRMED_STATUS) {
-        	doAffirmAffidavitPost(request, response);
+                affidavit.getHeader().getStatusId() == AFFIDAVIT_AFFIRMED_STATUS) {
+            doAffirmAffidavitPost(request, response);
         } else {
-	        affidavit = bean.get();
+            affidavit = bean.get();
 
-	        request.setAttribute(PACTS_INTERNAL_RESULT, affidavit);
+            request.setAttribute(PACTS_INTERNAL_RESULT, affidavit);
 
-	        InternalDispatchNoteList notes =
-	                new InternalDispatchNoteList(request, response);
-	        Map search = new HashMap();
-	        search.put(AFFIDAVIT_ID, request.getParameter(AFFIDAVIT_ID));
-	        request.setAttribute(NOTE_HEADER_LIST, notes.get(search));
+            InternalDispatchNoteList notes =
+                    new InternalDispatchNoteList(request, response);
+            Map search = new HashMap();
+            search.put(AFFIDAVIT_ID, request.getParameter(AFFIDAVIT_ID));
+            request.setAttribute(NOTE_HEADER_LIST, notes.get(search));
 
-	        forward(INTERNAL_AFFIDAVIT_JSP, request, response);
+            forward(INTERNAL_AFFIDAVIT_JSP, request, response);
         }
     }
 
 
     /*
-	Forwarding JSP: "updateContract.jsp"
-	*/
+    Forwarding JSP: "updateContract.jsp"
+    */
     private void doUpdateContract(HttpServletRequest request, HttpServletResponse response) throws Exception {
         log.debug("doUpdateContract<br>");
 
@@ -2136,8 +2136,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
 
     /*
-	Forwarding JSP: "viewContract.jsp"
-	*/
+    Forwarding JSP: "viewContract.jsp"
+    */
     private void doUpdateContractPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
         log.debug("doUpdateContractPost<br>");
 
@@ -2171,8 +2171,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
 
     /*
-	Forwarding JSP: "updatePayment.jsp"
-	*/
+    Forwarding JSP: "updatePayment.jsp"
+    */
     private void doUpdatePayment(HttpServletRequest request, HttpServletResponse response) throws Exception {
         log.debug("doUpdatePayment<br>");
 
@@ -2192,8 +2192,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
 
     /*
-	Forwarding JSP: "viewPaymentAuditTrail.jsp"
-	*/
+    Forwarding JSP: "viewPaymentAuditTrail.jsp"
+    */
     private void doUpdatePaymentPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
         log.debug("doUpdatePaymentPost<br>");
 
@@ -2237,8 +2237,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
 
     /*
-	Forwarding JSP: "updateTaxForm.jsp"
-	*/
+    Forwarding JSP: "updateTaxForm.jsp"
+    */
     private void doUpdateTaxForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
         log.debug("doUpdateTaxForm<br>");
 
@@ -2260,8 +2260,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
 
     /*
-	Forwarding JSP: "viewTaxForm.jsp"
-	*/
+    Forwarding JSP: "viewTaxForm.jsp"
+    */
     private void doUpdateTaxFormPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
         log.debug("doUpdateTaxFormPost<br>");
 
@@ -2290,8 +2290,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
 
     /*
-	Forwarding JSP: "updateUserTaxForm.jsp"
-	*/
+    Forwarding JSP: "updateUserTaxForm.jsp"
+    */
     private void doUpdateUserTaxForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
         log.debug("doUpdateUserTaxForm<br>");
 
@@ -2308,8 +2308,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
 
     /*
-	Forwarding JSP: "viewUserTaxForm.jsp"
-	*/
+    Forwarding JSP: "viewUserTaxForm.jsp"
+    */
     private void doUpdateUserTaxFormPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
         log.debug("doUpdateUserTaxFormPost<br>");
 

@@ -11,71 +11,71 @@ import java.util.Date;
  */
 public class StudioContestPayment extends StudioContestReferencePayment {
 
-	/**
-	 * Create a new payment for a TC Studio Contest.
-	 *
-	 * @param coderId coder to be paid.
-	 * @param grossAmount amount to be paid.
-	 * @param contestId referenced studio contest.
-	 * @param placed placement of the coder in the contest.
-	 */
-	public StudioContestPayment(long coderId, double grossAmount, long contestId, int placed) {
-		super(TC_STUDIO_PAYMENT, coderId, grossAmount, contestId, placed);
-	}
+    /**
+     * Create a new payment for a TC Studio Contest.
+     *
+     * @param coderId coder to be paid.
+     * @param grossAmount amount to be paid.
+     * @param contestId referenced studio contest.
+     * @param placed placement of the coder in the contest.
+     */
+    public StudioContestPayment(long coderId, double grossAmount, long contestId, int placed) {
+        super(TC_STUDIO_PAYMENT, coderId, grossAmount, contestId, placed);
+    }
 
-	/**
-	 * Create a new payment for a TC Studio Contest.
-	 *
-	 * @param coderId coder to be paid.
-	 * @param grossAmount amount to be paid.
-	 * @param contestId referenced studio contest.
-	 */
-	public StudioContestPayment(long coderId, double grossAmount, long contestId) {
-		this(coderId, grossAmount, contestId, 0);
-	}
+    /**
+     * Create a new payment for a TC Studio Contest.
+     *
+     * @param coderId coder to be paid.
+     * @param grossAmount amount to be paid.
+     * @param contestId referenced studio contest.
+     */
+    public StudioContestPayment(long coderId, double grossAmount, long contestId) {
+        this(coderId, grossAmount, contestId, 0);
+    }
 
-	/**
-	 * Get a processor for this type of payment.
-	 *
-	 * @return a processor for this type of payment.
-	 */
-	protected BasePayment.Processor getProcessor() {
-		return new Processor();
-	}
-	
-	/**
-	 * Processor for studio contests.
-	 * It generates a payment description like "Icons Design Contest 1st place", and returns as the
-	 * event date the contest end date.
-	 *
-	 * @author Cucu
-	 */
-	protected static class Processor extends StudioContestReferencePayment.Processor {
+    /**
+     * Get a processor for this type of payment.
+     *
+     * @return a processor for this type of payment.
+     */
+    protected BasePayment.Processor getProcessor() {
+        return new Processor();
+    }
 
-		/**
-		 * Get a description for the payment.
-		 *
-		 * @param payment payment to generate a description.
-		 * @return a description for the payment.
-		 */
-		public String lookupDescription(BasePayment payment) throws SQLException {
-			StudioContestReferencePayment p = (StudioContestReferencePayment) payment;
+    /**
+     * Processor for studio contests.
+     * It generates a payment description like "Icons Design Contest 1st place", and returns as the
+     * event date the contest end date.
+     *
+     * @author Cucu
+     */
+    protected static class Processor extends StudioContestReferencePayment.Processor {
 
-			return getContestName(p.getContestId()) + " contest " + getOrdinal(p.getPlaced());
-		}
+        /**
+         * Get a description for the payment.
+         *
+         * @param payment payment to generate a description.
+         * @return a description for the payment.
+         */
+        public String lookupDescription(BasePayment payment) throws SQLException {
+            StudioContestReferencePayment p = (StudioContestReferencePayment) payment;
 
-		/**
-		 * Get the date of the contest.
-		 *
-		 * @param payment payment whose contest date is retrieved
-		 * @return the date of the contest.
-		 */
-		public Date lookupEventDate(BasePayment payment) throws SQLException {
-			StudioContestReferencePayment p = (StudioContestReferencePayment) payment;
+            return getContestName(p.getContestId()) + " contest " + getOrdinal(p.getPlaced());
+        }
 
-			return getEndDate(p.getContestId());
-		}
+        /**
+         * Get the date of the contest.
+         *
+         * @param payment payment whose contest date is retrieved
+         * @return the date of the contest.
+         */
+        public Date lookupEventDate(BasePayment payment) throws SQLException {
+            StudioContestReferencePayment p = (StudioContestReferencePayment) payment;
 
-	}
+            return getEndDate(p.getContestId());
+        }
+
+    }
 
 }

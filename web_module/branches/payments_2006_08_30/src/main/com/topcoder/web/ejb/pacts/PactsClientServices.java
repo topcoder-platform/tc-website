@@ -26,21 +26,21 @@ public interface PactsClientServices extends EJBObject {
 
     /**
      * Add a payment in the database.
-     * An instance of a subclass of BasePayment must be passed.
+     * An instance of a BasePayment sublcass must be passed.
      *
      * @param payment payment to add.
-     * @return payment the payment added.
+     * @return payment the payment added, with additional information (like id, status, description...)
      */
     BasePayment addPayment(BasePayment payment)  throws RemoteException, SQLException;
 
-	/**
-	 * Update a payment.
-	 * The payment must be already saved in the database, or an exception will be thrown.
-	 *
-	 * @param payment payment to update.
-	 * @return the updated payment.
-	 * @throws Exception
-	 */
+    /**
+     * Update a payment.
+     * The payment must be already saved in the database, or an exception will be thrown.
+     *
+     * @param payment payment to update.
+     * @return the updated payment.
+     * @throws Exception
+     */
     BasePayment updatePayment(BasePayment payment) throws RemoteException, Exception;
 
     /**
@@ -121,7 +121,7 @@ public interface PactsClientServices extends EJBObject {
      * @param payment the payment to fill its information
      * @return the payment with the information filled.
      */
-	BasePayment fillPaymentData(BasePayment payment) throws RemoteException, SQLException;
+    BasePayment fillPaymentData(BasePayment payment) throws RemoteException, SQLException;
 
 }
 

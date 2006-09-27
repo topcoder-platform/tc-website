@@ -224,7 +224,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     private ResultSetContainer runSearchQuery(String query, ArrayList objects, boolean setLockTimeout) throws SQLException {
-    	return runSearchQuery(null, query, objects, setLockTimeout);
+        return runSearchQuery(null, query, objects, setLockTimeout);
     }
 
     private ResultSetContainer runSearchQuery(String connection, String query, ArrayList objects, boolean setLockTimeout) throws SQLException {
@@ -341,9 +341,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps = c.prepareStatement("SET LOCK MODE TO WAIT " + LOCK_TIMEOUT_VALUE);
             ps.executeUpdate();
         } catch (SQLException e) {
-        	 printException(e);
+             printException(e);
         } finally {
-        	close(ps);
+            close(ps);
         }
     }
 
@@ -941,14 +941,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * Returns the list of payment details of the given type(s) for the given user.
      *
      * @param   userId  The coder ID of the payments.
-     * @param	paymentTypes  The payment type(s) to filter on.
-     * @param	pendingOnly  True if only details which are pending, owed, or on hold should be returned.
+     * @param   paymentTypes  The payment type(s) to filter on.
+     * @param   pendingOnly  True if only details which are pending, owed, or on hold should be returned.
      * @return  The payment header list.
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getUserPaymentDetailsList(long userId, int[] paymentTypes, boolean pendingOnly) throws SQLException {
-    	String paymentTypeList = makeList(paymentTypes);
-    	StringBuffer selectPaymentDetails = new StringBuffer(300);
+        String paymentTypeList = makeList(paymentTypes);
+        StringBuffer selectPaymentDetails = new StringBuffer(300);
         selectPaymentDetails.append("SELECT p.payment_id, pd.payment_detail_id, pd.net_amount, pd.gross_amount, ");
         selectPaymentDetails.append("pd.date_paid, pd.date_printed, pd.status_id, s.status_desc, ");
         selectPaymentDetails.append("pd.modification_rationale_id, mr.modification_rationale_desc, ");
@@ -972,8 +972,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("AND country.country_code = pa.country_code ");
 
         if (pendingOnly) {
-        	selectPaymentDetails.append(" AND pd.status_id IN (" + PAYMENT_ON_HOLD_STATUS + "," +
-        			PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
+            selectPaymentDetails.append(" AND pd.status_id IN (" + PAYMENT_ON_HOLD_STATUS + "," +
+                    PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
         }
 
         selectPaymentDetails.append("ORDER BY 1");
@@ -983,8 +983,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     //  Helper function to retrieve payment information for a given user.
     private Map doUserPayments(long userId, String detailsQuery, int[] paymentTypes, boolean pendingOnly) throws SQLException {
-    	String paymentTypeList = makeList(paymentTypes);
-    	StringBuffer selectPaymentHeaders = new StringBuffer(300);
+        String paymentTypeList = makeList(paymentTypes);
+        StringBuffer selectPaymentHeaders = new StringBuffer(300);
         selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, ");
         selectPaymentHeaders.append("pt.payment_type_desc, pd.payment_method_id, pm.payment_method_desc, ");
         selectPaymentHeaders.append("pd.net_amount, pd.status_id, s.status_desc, ");
@@ -1008,8 +1008,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentHeaders.append("AND country.country_code = pa.country_code ");
 
         if (pendingOnly) {
-        	selectPaymentHeaders.append(" AND pd.status_id IN (" + PAYMENT_ON_HOLD_STATUS + "," +
-        			PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
+            selectPaymentHeaders.append(" AND pd.status_id IN (" + PAYMENT_ON_HOLD_STATUS + "," +
+                    PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
         }
 
         selectPaymentHeaders.append("ORDER BY 1");
@@ -1435,20 +1435,20 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there was some error retrieving the data.
      */
     public Map getPaymentComponentData(long[] paymentIds) throws RemoteException, SQLException {
-    	String paymentList = makeList(paymentIds);
-    	StringBuffer sb = new StringBuffer(300);
-    	sb.append("SELECT pd.component_project_id, cc.component_id ");
+        String paymentList = makeList(paymentIds);
+        StringBuffer sb = new StringBuffer(300);
+        sb.append("SELECT pd.component_project_id, cc.component_id ");
         sb.append("FROM payment p, payment_detail pd, tcs_catalog:project proj, ");
-    	sb.append("tcs_catalog:comp_catalog cc, tcs_catalog:comp_versions cv ");
-    	sb.append("WHERE pd.component_project_id = proj.project_id ");
-    	sb.append("AND proj.comp_vers_id = cv.comp_vers_id ");
-    	sb.append("AND cc.component_id = cv.component_id ");
-    	sb.append("AND p.payment_id IN (" + paymentList + ") ");
-    	sb.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
-    	sb.append("AND pd.payment_type_id IN (" + COMPONENT_PAYMENT + "," + REVIEW_BOARD_PAYMENT + ") ");
-    	sb.append("AND proj.cur_version = 1");
+        sb.append("tcs_catalog:comp_catalog cc, tcs_catalog:comp_versions cv ");
+        sb.append("WHERE pd.component_project_id = proj.project_id ");
+        sb.append("AND proj.comp_vers_id = cv.comp_vers_id ");
+        sb.append("AND cc.component_id = cv.component_id ");
+        sb.append("AND p.payment_id IN (" + paymentList + ") ");
+        sb.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
+        sb.append("AND pd.payment_type_id IN (" + COMPONENT_PAYMENT + "," + REVIEW_BOARD_PAYMENT + ") ");
+        sb.append("AND proj.cur_version = 1");
 
-    	ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
+        ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
         HashMap hm = new HashMap();
         hm.put(COMPONENT_DATA, rsc);
         return hm;
@@ -1461,16 +1461,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getCreationDates(long[] paymentIds) throws RemoteException, SQLException {
-    	String paymentList = makeList(paymentIds);
-    	StringBuffer sb = new StringBuffer(300);
-    	sb.append("SELECT pdx.payment_id, min(pd.date_modified) as date_created ");
-    	sb.append("FROM payment_detail_xref pdx, payment_detail pd ");
-    	sb.append("WHERE payment_id IN (" + paymentList + ") ");
-    	sb.append("AND pdx.payment_detail_id = pd.payment_detail_id ");
-    	sb.append("GROUP BY 1 ");
-    	sb.append("ORDER BY 1 ");
+        String paymentList = makeList(paymentIds);
+        StringBuffer sb = new StringBuffer(300);
+        sb.append("SELECT pdx.payment_id, min(pd.date_modified) as date_created ");
+        sb.append("FROM payment_detail_xref pdx, payment_detail pd ");
+        sb.append("WHERE payment_id IN (" + paymentList + ") ");
+        sb.append("AND pdx.payment_detail_id = pd.payment_detail_id ");
+        sb.append("GROUP BY 1 ");
+        sb.append("ORDER BY 1 ");
 
-    	ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
+        ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
         HashMap hm = new HashMap();
         hm.put(CREATION_DATE_LIST, rsc);
         return hm;
@@ -1855,11 +1855,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     whereClauses.append(" AND UPPER(u.handle) LIKE ?");  //todo user handle_lower
                     objects.add(value);
                 } else if (key.equals(STATUS_CODE)) {
-                	whereClauses.append(" AND pd.status_id IN (" + value + ")");
+                    whereClauses.append(" AND pd.status_id IN (" + value + ")");
                 } else if (key.equals(TYPE_CODE)) {
-                	whereClauses.append(" AND pd.payment_type_id IN (" + value + ")");
+                    whereClauses.append(" AND pd.payment_type_id IN (" + value + ")");
                 } else if (key.equals(METHOD_CODE)) {
-                	whereClauses.append(" AND pd.payment_method_id IN (" + value + ")");
+                    whereClauses.append(" AND pd.payment_method_id IN (" + value + ")");
                 } else if (key.equals(PROJECT_ID)) {
                     whereClauses.append(" AND pd.project_id = " + value);
                 } else if (key.equals(LOWEST_NET_AMOUNT)) {
@@ -2382,8 +2382,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private void fillPaymentNetAmount(Connection c, Payment p) throws SQLException {
         // If the net amount is zero, fill in the appropriate net amount based on the
         // withholdings specified in the user_tax_form_xref for the payee.  If that isn't available,
-    	// we use the withholdings specified in the default tax form for the payee's country.
-    	// If that isn't available, we just set net amount = gross amount.
+        // we use the withholdings specified in the default tax form for the payee's country.
+        // If that isn't available, we just set net amount = gross amount.
 
         if (p.getNetAmount() != 0)
             return;
@@ -2396,46 +2396,46 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         boolean dataFound = false;
 
         if (p.getHeader().getTypeId() != COMPONENT_PAYMENT &&
-        		p.getHeader().getTypeId() != REVIEW_BOARD_PAYMENT) {
-	        StringBuffer getUserWithholding = new StringBuffer(300);
-	        getUserWithholding.append("SELECT utf.withholding_amount, utf.withholding_percentage, ");
-	        getUserWithholding.append("utf.use_percentage ");
-	        getUserWithholding.append("FROM user_tax_form_xref utf, user_address_xref x, address a, country ");
-	        getUserWithholding.append("WHERE x.user_id = " + p.getHeader().getUser().getId() + " ");
-	        getUserWithholding.append("AND a.country_code = country.country_code ");
-	        getUserWithholding.append("and a.address_id = x.address_id ");
-	        getUserWithholding.append("and a.address_type_id = 2 ");
-	        getUserWithholding.append("AND utf.user_id = " + p.getHeader().getUser().getId());
-	        ResultSetContainer rsc = runSelectQuery(c, getUserWithholding.toString(), false);
-	        if (rsc.getRowCount() > 0) {
-	            withholdAmount = TCData.getTCDouble(rsc.getRow(0), "withholding_amount");
-	            withholdPercent = TCData.getTCFloat(rsc.getRow(0), "withholding_percentage");
-	            usePercent = TCData.getTCInt(rsc.getRow(0), "use_percentage");
-	            dataFound = true;
-	            log.debug("Got user withholding");
-	        } else {
-	        	// country withholding removed since 6/22/2006 - mktong
-	        	/*
-	            StringBuffer getWithholding = new StringBuffer(300);
-	            getWithholding.append("SELECT tf.default_withholding_amount, tf.default_withholding_percentage,");
-	            getWithholding.append("tf.use_percentage AS default_use_percentage ");
-	            getWithholding.append("FROM tax_form tf, user_address_xref x, address a,  country ");
-	            getWithholding.append("WHERE x.user_id = " + p.getHeader().getUser().getId() + " ");
-	            getWithholding.append("AND a.country_code = country.country_code ");
-	            getWithholding.append("and x.address_id = a.address_id ");
-	            getWithholding.append("and a.address_type_id = 2 ");
-	            getWithholding.append("AND country.default_taxform_id = tf.tax_form_id");
+                p.getHeader().getTypeId() != REVIEW_BOARD_PAYMENT) {
+            StringBuffer getUserWithholding = new StringBuffer(300);
+            getUserWithholding.append("SELECT utf.withholding_amount, utf.withholding_percentage, ");
+            getUserWithholding.append("utf.use_percentage ");
+            getUserWithholding.append("FROM user_tax_form_xref utf, user_address_xref x, address a, country ");
+            getUserWithholding.append("WHERE x.user_id = " + p.getHeader().getUser().getId() + " ");
+            getUserWithholding.append("AND a.country_code = country.country_code ");
+            getUserWithholding.append("and a.address_id = x.address_id ");
+            getUserWithholding.append("and a.address_type_id = 2 ");
+            getUserWithholding.append("AND utf.user_id = " + p.getHeader().getUser().getId());
+            ResultSetContainer rsc = runSelectQuery(c, getUserWithholding.toString(), false);
+            if (rsc.getRowCount() > 0) {
+                withholdAmount = TCData.getTCDouble(rsc.getRow(0), "withholding_amount");
+                withholdPercent = TCData.getTCFloat(rsc.getRow(0), "withholding_percentage");
+                usePercent = TCData.getTCInt(rsc.getRow(0), "use_percentage");
+                dataFound = true;
+                log.debug("Got user withholding");
+            } else {
+                // country withholding removed since 6/22/2006 - mktong
+                /*
+                StringBuffer getWithholding = new StringBuffer(300);
+                getWithholding.append("SELECT tf.default_withholding_amount, tf.default_withholding_percentage,");
+                getWithholding.append("tf.use_percentage AS default_use_percentage ");
+                getWithholding.append("FROM tax_form tf, user_address_xref x, address a,  country ");
+                getWithholding.append("WHERE x.user_id = " + p.getHeader().getUser().getId() + " ");
+                getWithholding.append("AND a.country_code = country.country_code ");
+                getWithholding.append("and x.address_id = a.address_id ");
+                getWithholding.append("and a.address_type_id = 2 ");
+                getWithholding.append("AND country.default_taxform_id = tf.tax_form_id");
 
-	            rsc = runSelectQuery(c, getWithholding.toString(), false);
-	            if (rsc.getRowCount() > 0) {
-	                log.debug("Got country withholding");
-	                withholdAmount = TCData.getTCDouble(rsc.getRow(0), "default_withholding_amount");
-	                withholdPercent = TCData.getTCFloat(rsc.getRow(0), "default_withholding_percentage");
-	                usePercent = TCData.getTCInt(rsc.getRow(0), "default_use_percentage");
-	                dataFound = true;
-	            }
-	            */
-	        }
+                rsc = runSelectQuery(c, getWithholding.toString(), false);
+                if (rsc.getRowCount() > 0) {
+                    log.debug("Got country withholding");
+                    withholdAmount = TCData.getTCDouble(rsc.getRow(0), "default_withholding_amount");
+                    withholdPercent = TCData.getTCFloat(rsc.getRow(0), "default_withholding_percentage");
+                    usePercent = TCData.getTCInt(rsc.getRow(0), "default_use_percentage");
+                    dataFound = true;
+                }
+                */
+            }
         }
 
         // Calculate the amount
@@ -2483,16 +2483,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return new ResultSetContainer(rs, false);
 
         } finally {
-        	close(rs);
-        	close(ps);
+            close(rs);
+            close(ps);
         }
     }
 
     private void setNullableLong(PreparedStatement ps, int n, long value) throws SQLException {
         if (value != 0) {
-        	ps.setLong(n, value);
+            ps.setLong(n, value);
         } else {
-        	ps.setNull(n, Types.DECIMAL);
+            ps.setNull(n, Types.DECIMAL);
         }
     }
 
@@ -2506,52 +2506,52 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws Exception
      */
     private long insertPaymentDetail(Connection c, Payment p, long addressId) throws Exception {
-    	PreparedStatement ps = null;
-    	long paymentDetailId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_DETAIL_SEQ);
-    	try {
-	        StringBuffer insertPaymentDetail = new StringBuffer(300);
-	        insertPaymentDetail.append("INSERT INTO payment_detail ");
-	        insertPaymentDetail.append(" (payment_detail_id, net_amount, date_paid, date_printed, ");
-	        insertPaymentDetail.append("  gross_amount, status_id, payment_address_id, modification_rationale_id, ");
-	        insertPaymentDetail.append("  payment_desc, payment_type_id, payment_method_id, date_modified, date_due, client, ");
-	        insertPaymentDetail.append("  algorithm_round_id, component_project_id, algorithm_problem_id, studio_contest_id, ");
-	        insertPaymentDetail.append("  component_contest_id, digital_run_stage_id, digital_run_season_id, parent_payment_id) ");
-	        insertPaymentDetail.append(" VALUES(?,?,null,null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        PreparedStatement ps = null;
+        long paymentDetailId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_DETAIL_SEQ);
+        try {
+            StringBuffer insertPaymentDetail = new StringBuffer(300);
+            insertPaymentDetail.append("INSERT INTO payment_detail ");
+            insertPaymentDetail.append(" (payment_detail_id, net_amount, date_paid, date_printed, ");
+            insertPaymentDetail.append("  gross_amount, status_id, payment_address_id, modification_rationale_id, ");
+            insertPaymentDetail.append("  payment_desc, payment_type_id, payment_method_id, date_modified, date_due, client, ");
+            insertPaymentDetail.append("  algorithm_round_id, component_project_id, algorithm_problem_id, studio_contest_id, ");
+            insertPaymentDetail.append("  component_contest_id, digital_run_stage_id, digital_run_season_id, parent_payment_id) ");
+            insertPaymentDetail.append(" VALUES(?,?,null,null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
-	        ps = c.prepareStatement(insertPaymentDetail.toString());
-	        ps.setLong(1, paymentDetailId);
-	        ps.setDouble(2, p.getNetAmount());
-	        ps.setDouble(3, p.getGrossAmount());
-	        ps.setInt(4, p.getStatusId());
-	        setNullableLong(ps, 5, addressId);
-	        ps.setInt(6, p.getRationaleId());
-	        ps.setString(7, p.getHeader().getDescription());
-	        ps.setInt(8, p.getHeader().getTypeId());
-	        ps.setInt(9, p.getHeader().getMethodId());
-	        ps.setTimestamp(10, new Timestamp(System.currentTimeMillis())); // date_modified
-	        ps.setTimestamp(11, makeTimestamp(p.getDueDate(), true, false));
+            ps = c.prepareStatement(insertPaymentDetail.toString());
+            ps.setLong(1, paymentDetailId);
+            ps.setDouble(2, p.getNetAmount());
+            ps.setDouble(3, p.getGrossAmount());
+            ps.setInt(4, p.getStatusId());
+            setNullableLong(ps, 5, addressId);
+            ps.setInt(6, p.getRationaleId());
+            ps.setString(7, p.getHeader().getDescription());
+            ps.setInt(8, p.getHeader().getTypeId());
+            ps.setInt(9, p.getHeader().getMethodId());
+            ps.setTimestamp(10, new Timestamp(System.currentTimeMillis())); // date_modified
+            ps.setTimestamp(11, makeTimestamp(p.getDueDate(), true, false));
 
-	        if (!StringUtils.checkNull(p.getHeader().getClient()).equals("")) {
-	        	ps.setString(12, p.getHeader().getClient());
-	        } else {
-	        	ps.setNull(12, Types.VARCHAR);
-	        }
+            if (!StringUtils.checkNull(p.getHeader().getClient()).equals("")) {
+                ps.setString(12, p.getHeader().getClient());
+            } else {
+                ps.setNull(12, Types.VARCHAR);
+            }
 
-	        setNullableLong(ps, 13, p.getHeader().getAlgorithmRoundId());
-	        setNullableLong(ps, 14, p.getHeader().getComponentProjectId());
-	        setNullableLong(ps, 15, p.getHeader().getAlgorithmProblemId());
-	        setNullableLong(ps, 16, p.getHeader().getStudioContestId());
-	        setNullableLong(ps, 17, p.getHeader().getComponentContestId());
-	        setNullableLong(ps, 18, p.getHeader().getDigitalRunStageId());
-	        setNullableLong(ps, 19, p.getHeader().getDigitalRunSeasonId());
-	        setNullableLong(ps, 20, p.getHeader().getParentPaymentId());
+            setNullableLong(ps, 13, p.getHeader().getAlgorithmRoundId());
+            setNullableLong(ps, 14, p.getHeader().getComponentProjectId());
+            setNullableLong(ps, 15, p.getHeader().getAlgorithmProblemId());
+            setNullableLong(ps, 16, p.getHeader().getStudioContestId());
+            setNullableLong(ps, 17, p.getHeader().getComponentContestId());
+            setNullableLong(ps, 18, p.getHeader().getDigitalRunStageId());
+            setNullableLong(ps, 19, p.getHeader().getDigitalRunSeasonId());
+            setNullableLong(ps, 20, p.getHeader().getParentPaymentId());
 
-	        ps.executeUpdate();
+            ps.executeUpdate();
 
-	        return paymentDetailId;
-    	} finally {
-        	close(ps);
-    	}
+            return paymentDetailId;
+        } finally {
+            close(ps);
+        }
     }
 
     // Helper function that adds the specified payment to the database
@@ -2623,7 +2623,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             // Create the referral payment if requested and if we can find a referring user
             if (createReferralPayment) {
-            	log.debug("createReferralPayment");
+                log.debug("createReferralPayment");
                 ResultSetContainer rsc = getReferrer(c, p.getHeader().getUser().getId(), p.getEventDate());
                 if (rsc.getRowCount() > 0) {
                     Payment referPay = new Payment();
@@ -2637,7 +2637,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     referPay.getHeader().getUser().setId(referId);
                     //referPay.setDueDate(p.getDueDate()); fix, is that ok?
                     referPay.getHeader().setParentPaymentId(paymentId);
-                	log.debug("referrer found:" + handle);
+                    log.debug("referrer found:" + handle);
 
                     // Recursive call
                     long referralId = makeNewPayment(c, referPay, false);
@@ -3416,7 +3416,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     // Helper function, assumes autocommit is false
     private void updatePayment(Connection c, Payment p, ResultSetContainer.ResultSetRow addressData) throws Exception {
-    	long paymentAddressId = 0;
+        long paymentAddressId = 0;
         PreparedStatement ps = null;
 
         // Check for validity
@@ -3462,7 +3462,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             // If the payment is deleted, set the most recent detail to null
             if (p.getStatusId() == PAYMENT_DELETED_STATUS) {
-            	paymentDetailStr = "null";
+                paymentDetailStr = "null";
             }
 
             // Update the header
@@ -3711,11 +3711,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     private String makeList(int idList[]) {
-    	long[] list = new long[idList.length];
-    	for (int i=0; i<list.length; i++) {
-    		list[i] = (long)idList[i];
-    	}
-    	return makeList(list);
+        long[] list = new long[idList.length];
+        for (int i=0; i<list.length; i++) {
+            list[i] = (long)idList[i];
+        }
+        return makeList(list);
     }
 
     // This is a lot like the helper function below, but requires payment-level granularity and
@@ -4123,7 +4123,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append("  (SELECT demographic_question_id FROM demographic_response ");
         query.append("   WHERE user_id = " + userId + ") ");
         query.append(" AND da.registration_type_id = 1 ");
-    	query.append(" AND da.is_required = 1 ");
+        query.append(" AND da.is_required = 1 ");
 
         Connection c = null;
         boolean ret = false;
@@ -4686,8 +4686,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there was some error updating the data.
      */
     public int[] generateComponentPayments(long projectId, long status, String client, boolean makeChanges)
-			throws IllegalUpdateException, SQLException {
-    	log.debug("generateComponentPayments called...");
+            throws IllegalUpdateException, SQLException {
+        log.debug("generateComponentPayments called...");
         int i;
         Connection c = null;
 
@@ -4701,19 +4701,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Get list of users with taxforms
             StringBuffer getUsers = new StringBuffer(300);
             getUsers.append(" SELECT u.user_id FROM user u, user_tax_form_xref utfx ")
-            		.append(" , tcs_catalog:project_result pr where u.user_id = utfx.user_id and u.user_id = pr.user_id ")
-            		.append(" and utfx.user_id = pr.user_id and pr.project_id = " + projectId);
+                    .append(" , tcs_catalog:project_result pr where u.user_id = utfx.user_id and u.user_id = pr.user_id ")
+                    .append(" and utfx.user_id = pr.user_id and pr.project_id = " + projectId);
             ResultSetContainer rscUser = runSelectQuery(c, getUsers.toString(), false);
             HashSet userTaxFormSet = new HashSet();
             for (i = 0; i < rscUser.getRowCount(); i++) {
-            	userTaxFormSet.add(new Long(rscUser.getItem(i, 0).toString()));
+                userTaxFormSet.add(new Long(rscUser.getItem(i, 0).toString()));
             }
 
             // Make sure we haven't done this before for this project.
             StringBuffer checkNew = new StringBuffer(300);
             checkNew.append("SELECT COUNT(*) FROM payment_detail pd, payment_type_lu pt WHERE pd.component_project_id = " + projectId)
-            		.append(" AND pd.payment_type_id = pt.payment_type_id ")
-            		.append(" AND pt.payment_type_desc IN ('Component Payment', 'Review Board Payment')");
+                    .append(" AND pd.payment_type_id = pt.payment_type_id ")
+                    .append(" AND pt.payment_type_desc IN ('Component Payment', 'Review Board Payment')");
             ResultSetContainer rsc = runSelectQuery(c, checkNew.toString(), false);
             int existingAffidavits = Integer.parseInt(rsc.getItem(0, 0).toString());
             if (existingAffidavits > 0) {
@@ -4788,55 +4788,55 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getCategories.append("and cat.parent_category_id is null");
             ResultSetContainer categoryRsc = runSelectQuery(c, getCategories.toString(), false);
             category = "(" + categoryRsc.getItem(0, 1).toString() + ", v" +
-            	categoryRsc.getItem(0, 2).toString().trim() + ")";
+                categoryRsc.getItem(0, 2).toString().trim() + ")";
 
             for (int j = 0; j < numWinners.length; j++) {
-	            for (i = 0; i < numWinners[j]; i++) {
-	                long userId = Long.parseLong(winners[j].getItem(i, "user_id").toString());
+                for (i = 0; i < numWinners[j]; i++) {
+                    long userId = Long.parseLong(winners[j].getItem(i, "user_id").toString());
 
-	                Payment p = new Payment();
-	                p.setGrossAmount(TCData.getTCDouble(winners[j].getRow(i), "paid"));
-	                p.setStatusId(userTaxFormSet.contains(new Long(userId)) ? PAYMENT_OWED_STATUS : PAYMENT_ON_HOLD_STATUS);
-	                if (j == 0) {
-	                	double reliability = TCData.getTCDouble(winners[j].getRow(i), "reliability");
-	                	p.setGrossAmount(getReliabilityPayment(p.getGrossAmount(), reliability));
-	                	String projectType = winners[j].getItem(i, 3).toString();
-	                	String placed = winners[j].getItem(i, 0).toString();
-	                	if (placed.equals("1")) {
-	                		placed = "1st place";
-	                	} else if (placed.equals("2")) {
-	                		placed = "2nd place";
-	                	}
-	                	String description = category + " " + componentName + " winnings - " + projectType + ", " + placed;
-	                	p.getHeader().setDescription(description);
-	                	p.getHeader().setTypeId(COMPONENT_PAYMENT);
-	                } else if (j == 1) {
-	                	String projectType = winners[j].getItem(i, 2).toString();
-	                	String description = category + " " + componentName + " - " + projectType + " review board";
-	                	p.getHeader().setDescription(description);
-	                	p.getHeader().setTypeId(REVIEW_BOARD_PAYMENT);
-	                }
-	                p.setDueDate(dueDate);
-	                p.getHeader().getUser().setId(userId);
-	                p.getHeader().setComponentProjectId(projectId);
-	                p.getHeader().setClient(client);
+                    Payment p = new Payment();
+                    p.setGrossAmount(TCData.getTCDouble(winners[j].getRow(i), "paid"));
+                    p.setStatusId(userTaxFormSet.contains(new Long(userId)) ? PAYMENT_OWED_STATUS : PAYMENT_ON_HOLD_STATUS);
+                    if (j == 0) {
+                        double reliability = TCData.getTCDouble(winners[j].getRow(i), "reliability");
+                        p.setGrossAmount(getReliabilityPayment(p.getGrossAmount(), reliability));
+                        String projectType = winners[j].getItem(i, 3).toString();
+                        String placed = winners[j].getItem(i, 0).toString();
+                        if (placed.equals("1")) {
+                            placed = "1st place";
+                        } else if (placed.equals("2")) {
+                            placed = "2nd place";
+                        }
+                        String description = category + " " + componentName + " winnings - " + projectType + ", " + placed;
+                        p.getHeader().setDescription(description);
+                        p.getHeader().setTypeId(COMPONENT_PAYMENT);
+                    } else if (j == 1) {
+                        String projectType = winners[j].getItem(i, 2).toString();
+                        String description = category + " " + componentName + " - " + projectType + " review board";
+                        p.getHeader().setDescription(description);
+                        p.getHeader().setTypeId(REVIEW_BOARD_PAYMENT);
+                    }
+                    p.setDueDate(dueDate);
+                    p.getHeader().getUser().setId(userId);
+                    p.getHeader().setComponentProjectId(projectId);
+                    p.getHeader().setClient(client);
 
-	                if (makeChanges) {
-	                    makeNewPayment(c, p, false);
-	                } else {
-	                    StringBuffer paymentAdd = new StringBuffer(300);
-	                    paymentAdd.append("Payment gross amount: " + p.getGrossAmount() + "\n");
-	                    paymentAdd.append("Payment status ID: " + p.getStatusId() + "\n");
-	                    paymentAdd.append("Payment description: " + p.getHeader().getDescription() + "\n");
-	                    paymentAdd.append("Payment type ID: " + p.getHeader().getTypeId() + "\n");
-	                    paymentAdd.append("Payment due date: " + p.getDueDate() + "\n");
-	                    paymentAdd.append("Payment user ID: " + p.getHeader().getUser().getId() + "\n");
-	                    ResultSetContainer referRsc = getReferrer(c, p.getHeader().getUser().getId(), p.getEventDate());
-	                    paymentAdd.append("Added referral payment: " + (referRsc.getRowCount() == 1 ? "yes" : "no") + "\n");
-	                    paymentAdd.append("----------------------------------");
-	                    log.info(paymentAdd.toString());
-	                }
-	            }
+                    if (makeChanges) {
+                        makeNewPayment(c, p, false);
+                    } else {
+                        StringBuffer paymentAdd = new StringBuffer(300);
+                        paymentAdd.append("Payment gross amount: " + p.getGrossAmount() + "\n");
+                        paymentAdd.append("Payment status ID: " + p.getStatusId() + "\n");
+                        paymentAdd.append("Payment description: " + p.getHeader().getDescription() + "\n");
+                        paymentAdd.append("Payment type ID: " + p.getHeader().getTypeId() + "\n");
+                        paymentAdd.append("Payment due date: " + p.getDueDate() + "\n");
+                        paymentAdd.append("Payment user ID: " + p.getHeader().getUser().getId() + "\n");
+                        ResultSetContainer referRsc = getReferrer(c, p.getHeader().getUser().getId(), p.getEventDate());
+                        paymentAdd.append("Added referral payment: " + (referRsc.getRowCount() == 1 ? "yes" : "no") + "\n");
+                        paymentAdd.append("----------------------------------");
+                        log.info(paymentAdd.toString());
+                    }
+                }
             }
 
             if (makeChanges) {
@@ -4882,15 +4882,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there was some error updating the data.
      */
     private double getReliabilityPayment(double payment, double reliability) {
-    	double bonus = 0;
-    	if (reliability >= .95) {
-    		bonus = .2;
-    	} else if (reliability >= .9) {
-    		bonus = .15;
-    	} else if (reliability >= .8) {
-    		bonus = .1;
-    	}
-    	return payment * (1+bonus);
+        double bonus = 0;
+        if (reliability >= .95) {
+            bonus = .2;
+        } else if (reliability >= .9) {
+            bonus = .15;
+        } else if (reliability >= .8) {
+            bonus = .1;
+        }
+        return payment * (1+bonus);
     }
 
 
@@ -4914,7 +4914,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             updatePayments.append("update payment_detail ");
             updatePayments.append("set status_id = " + PAYMENT_EXPIRED_STATUS + " ");
             updatePayments.append("where payment_type_id = " + ALGORITHM_CONTEST_PAYMENT + " and status_id IN (" +
-            		PAYMENT_ON_HOLD_STATUS + "," + PAYMENT_PENDING_STATUS + ") ");
+                    PAYMENT_ON_HOLD_STATUS + "," + PAYMENT_PENDING_STATUS + ") ");
             updatePayments.append("and today - " + PAYMENT_EXPIRE_TIME + " units day > date_due");
             int rowsUpdated = runUpdateQuery(c, updatePayments.toString(), false);
 
@@ -5120,13 +5120,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     private String filterCondition(String fieldName, String search) {
-    	return " UPPER(" + fieldName + ") " +
-    		(search.contains("%") ? " like UPPER(?)" : "=UPPER(?) ");
+        return " UPPER(" + fieldName + ") " +
+            (search.contains("%") ? " like UPPER(?)" : "=UPPER(?) ");
 
     }
     public Map findProblems(String search) throws SQLException {
         String query = "SELECT problem_id, name FROM problem WHERE " +
-        		filterCondition("name", search) + " ORDER BY name";
+                filterCondition("name", search) + " ORDER BY name";
 
         ArrayList param = new ArrayList();
         param.add(search);
@@ -5138,16 +5138,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     public Map findProjects(String search) throws SQLException {
-    	StringBuffer query = new StringBuffer(1000);
-    	query.append(" select project_id, ");
-    	query.append(" component_name || ' ' || trim (version_text) || ' (' || trim(NVL(date(rating_date),'UNKNOWN')) || ')' as project_desc  ");
-    	query.append(" from project p,");
-    	query.append(" 	    comp_versions cv,");
-    	query.append("      comp_catalog c");
-    	query.append(" where p.comp_vers_id = cv.comp_vers_id");
-    	query.append(" and cv.component_id = c.component_id");
-    	query.append(" and " + filterCondition("component_name", search));
-    	query.append(" and cur_version = 1");
+        StringBuffer query = new StringBuffer(1000);
+        query.append(" select project_id, ");
+        query.append(" component_name || ' ' || trim (version_text) || ' (' || trim(NVL(date(rating_date),'UNKNOWN')) || ')' as project_desc  ");
+        query.append(" from project p,");
+        query.append("      comp_versions cv,");
+        query.append("      comp_catalog c");
+        query.append(" where p.comp_vers_id = cv.comp_vers_id");
+        query.append(" and cv.component_id = c.component_id");
+        query.append(" and " + filterCondition("component_name", search));
+        query.append(" and cur_version = 1");
 
         ArrayList param = new ArrayList();
         param.add(search);
@@ -5159,13 +5159,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     public Map findComponentContests(String search) throws SQLException {
-    	StringBuffer query = new StringBuffer(1000);
-    	query.append(" select contest_id, event_name || ' - ' || contest_name as contest_desc");
-		query.append(" from contest c,");
-     	query.append(" event e");
-		query.append(" where c.event_id = e.event_id");
-		query.append(" and " + filterCondition ("event_name || ' - ' || contest_name", search));
-		query.append(" order by c.start_date");
+        StringBuffer query = new StringBuffer(1000);
+        query.append(" select contest_id, event_name || ' - ' || contest_name as contest_desc");
+        query.append(" from contest c,");
+        query.append(" event e");
+        query.append(" where c.event_id = e.event_id");
+        query.append(" and " + filterCondition ("event_name || ' - ' || contest_name", search));
+        query.append(" order by c.start_date");
 
         ArrayList param = new ArrayList();
         param.add(search);
@@ -5177,11 +5177,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     public Map findStudioContests(String search) throws SQLException {
-    	StringBuffer query = new StringBuffer(1000);
-    	query.append(" select contest_id, name");
-		query.append(" from contest");
-		query.append(" where " + filterCondition ("name", search));
-		query.append(" order by name");
+        StringBuffer query = new StringBuffer(1000);
+        query.append(" select contest_id, name");
+        query.append(" from contest");
+        query.append(" where " + filterCondition ("name", search));
+        query.append(" order by name");
 
         ArrayList param = new ArrayList();
         param.add(search);
@@ -5195,21 +5195,21 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
 
     public Map findRounds(String search, int[] roundTypes) throws SQLException {
-    	StringBuffer types = new StringBuffer(100);
-    	if (roundTypes.length > 0) {
-    		types.append(" and round_type_id in(");
-    		for (int i = 0; i < roundTypes.length; i++) {
-    			types.append(roundTypes[i] + (i < (roundTypes.length -1) ? "," : ") "));
-    		}
-    	}
-    	StringBuffer query = new StringBuffer(1000);
-    	query.append(" select round_id, c.name || ' - ' || r.name as round_desc ");
-    	query.append(" from round r, ");
-    	query.append(" contest c ");
-    	query.append(" where r.contest_id = c.contest_id ");
-    	query.append(types);
-    	query.append(" and " + filterCondition("c.name || ' - ' || r.name", search));
-		query.append(" order by c.start_date");
+        StringBuffer types = new StringBuffer(100);
+        if (roundTypes.length > 0) {
+            types.append(" and round_type_id in(");
+            for (int i = 0; i < roundTypes.length; i++) {
+                types.append(roundTypes[i] + (i < (roundTypes.length -1) ? "," : ") "));
+            }
+        }
+        StringBuffer query = new StringBuffer(1000);
+        query.append(" select round_id, c.name || ' - ' || r.name as round_desc ");
+        query.append(" from round r, ");
+        query.append(" contest c ");
+        query.append(" where r.contest_id = c.contest_id ");
+        query.append(types);
+        query.append(" and " + filterCondition("c.name || ' - ' || r.name", search));
+        query.append(" order by c.start_date");
 
         ArrayList param = new ArrayList();
         param.add(search);
@@ -5232,13 +5232,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     public Map getDigitalRunStageList() throws SQLException {
         StringBuffer query = new StringBuffer(1000);
-    	query.append(" select stage_id, s.name || ' - ' || st.name as stage_desc");
-    	query.append(" from stage st, ");
-    	query.append(" season s ");
-    	query.append(" where s.season_id = st.season_id ");
+        query.append(" select stage_id, s.name || ' - ' || st.name as stage_desc");
+        query.append(" from stage st, ");
+        query.append(" season s ");
+        query.append(" where s.season_id = st.season_id ");
 
         ResultSetContainer rsc = runSearchQuery(DBMS.TCS_DW_DATASOURCE_NAME, query.toString(),
-        		new ArrayList(), true);
+                new ArrayList(), true);
 
         HashMap hm = new HashMap();
         hm.put(DIGITAL_RUN_STAGE_LIST, rsc);
@@ -5282,19 +5282,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException is a problem occurs accessing db.
      */
     public BasePayment fillPaymentData(BasePayment payment) throws SQLException {
-    	Connection c = null;
-    	try {
-    		c = DBMS.getConnection();
+        Connection c = null;
+        try {
+            c = DBMS.getConnection();
 
-    		payment.getProcessor().fillData(payment);
+            payment.getProcessor().fillData(payment);
 
-    		return payment;
-    	} catch (SQLException e) {
-    		printException(e);
-    		throw e;
-    	} finally {
-    		close(c);
-    	}
+            return payment;
+        } catch (SQLException e) {
+            printException(e);
+            throw e;
+        } finally {
+            close(c);
+        }
 
     }
 
@@ -5308,30 +5308,30 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws Exception
      */
     private long makeNewAlgorithmPayment(Connection c, Payment p, AlgorithmRoundReferencePayment payment) throws Exception{
-    	log.debug("makeNewAlgorithmPayment called...");
-		Affidavit a = new Affidavit();
-		a.setRoundId(new Long(payment.getRoundId()));
-		a.getHeader().getUser().setId(payment.getCoderId());
-		a.getHeader().setStatusId(AFFIDAVIT_PENDING_STATUS);
-		a.getHeader().setDescription(payment.getDescription() + " affidavit");
-		a.getHeader().setTypeId(ALGORITHM_AFFIDAVIT_TYPE);
+        log.debug("makeNewAlgorithmPayment called...");
+        Affidavit a = new Affidavit();
+        a.setRoundId(new Long(payment.getRoundId()));
+        a.getHeader().getUser().setId(payment.getCoderId());
+        a.getHeader().setStatusId(AFFIDAVIT_PENDING_STATUS);
+        a.getHeader().setDescription(payment.getDescription() + " affidavit");
+        a.getHeader().setTypeId(ALGORITHM_AFFIDAVIT_TYPE);
 
 
-		long paymentId = makeAffidavitPayment(c, a, null, p).getPaymentId();
+        long paymentId = makeAffidavitPayment(c, a, null, p).getPaymentId();
 
-		log.debug("in makeNewAlgorithmPayment, the payment id is " + paymentId);
-		return paymentId;
+        log.debug("in makeNewAlgorithmPayment, the payment id is " + paymentId);
+        return paymentId;
 
     }
 
-	/**
-	 * Create a Payment object from a BasePayment
-	 *
-	 * @param payment the BasePayment from where to create a Payment
-	 * @return a Payment object based on the BasePayment
-	 */
-	private Payment createPayment(BasePayment payment) {
-		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+    /**
+     * Create a Payment object from a BasePayment
+     *
+     * @param payment the BasePayment from where to create a Payment
+     * @return a Payment object based on the BasePayment
+     */
+    private Payment createPayment(BasePayment payment) {
+        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 
         Payment p = new Payment();
         p.setGrossAmount(payment.getGrossAmount());
@@ -5345,64 +5345,64 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         p.getHeader().setId(payment.getId());
 
         switch (payment.getReferenceTypeId()) {
-        	case REFERENCE_ALGORITHM_ROUND_ID:
-        		p.getHeader().setAlgorithmRoundId(((AlgorithmRoundReferencePayment) payment).getRoundId());
-        		break;
-        	case REFERENCE_COMPONENT_PROJECT_ID:
-				p.getHeader().setComponentProjectId(((ComponentProjectReferencePayment) payment).getProjectId());
-				p.getHeader().setClient(((ComponentProjectReferencePayment) payment).getClient());
-        		break;
-        	case REFERENCE_ALGORITHM_PROBLEM_ID:
-				p.getHeader().setAlgorithmProblemId(((AlgorithmProblemReferencePayment) payment).getProblemId());
-        		break;
-        	case REFERENCE_STUDIO_CONTEST_ID:
-				p.getHeader().setStudioContestId(((StudioContestReferencePayment) payment).getContestId());
-        		break;
-        	case REFERENCE_COMPONENT_CONTEST_ID:
-				p.getHeader().setComponentContestId(((ComponentContestReferencePayment) payment).getContestId());
-        		break;
-        	case REFERENCE_DIGITAL_RUN_STAGE_ID:
-				p.getHeader().setDigitalRunStageId(((DigitalRunStageReferencePayment) payment).getStageId());
-        		break;
-        	case REFERENCE_DIGITAL_RUN_SEASON_ID:
-        		p.getHeader().setDigitalRunSeasonId(((DigitalRunSeasonReferencePayment) payment).getSeasonId());
-        		break;
-        	case REFERENCE_PARENT_PAYMENT_ID:
-        		p.getHeader().setParentPaymentId(((ParentReferencePayment) payment).getParentId());
-        		break;
+            case REFERENCE_ALGORITHM_ROUND_ID:
+                p.getHeader().setAlgorithmRoundId(((AlgorithmRoundReferencePayment) payment).getRoundId());
+                break;
+            case REFERENCE_COMPONENT_PROJECT_ID:
+                p.getHeader().setComponentProjectId(((ComponentProjectReferencePayment) payment).getProjectId());
+                p.getHeader().setClient(((ComponentProjectReferencePayment) payment).getClient());
+                break;
+            case REFERENCE_ALGORITHM_PROBLEM_ID:
+                p.getHeader().setAlgorithmProblemId(((AlgorithmProblemReferencePayment) payment).getProblemId());
+                break;
+            case REFERENCE_STUDIO_CONTEST_ID:
+                p.getHeader().setStudioContestId(((StudioContestReferencePayment) payment).getContestId());
+                break;
+            case REFERENCE_COMPONENT_CONTEST_ID:
+                p.getHeader().setComponentContestId(((ComponentContestReferencePayment) payment).getContestId());
+                break;
+            case REFERENCE_DIGITAL_RUN_STAGE_ID:
+                p.getHeader().setDigitalRunStageId(((DigitalRunStageReferencePayment) payment).getStageId());
+                break;
+            case REFERENCE_DIGITAL_RUN_SEASON_ID:
+                p.getHeader().setDigitalRunSeasonId(((DigitalRunSeasonReferencePayment) payment).getSeasonId());
+                break;
+            case REFERENCE_PARENT_PAYMENT_ID:
+                p.getHeader().setParentPaymentId(((ParentReferencePayment) payment).getParentId());
+                break;
         }
 
         return p;
 
-	}
+    }
 
-	/**
-	 * Update a payment.
-	 * The payment must be already saved in the database, or an exception will be thrown.
-	 *
-	 * @param payment payment to update.
-	 * @return the updated payment.
-	 * @throws Exception
-	 */
+    /**
+     * Update a payment.
+     * The payment must be already saved in the database, or an exception will be thrown.
+     *
+     * @param payment payment to update.
+     * @return the updated payment.
+     * @throws Exception
+     */
     public BasePayment updatePayment(BasePayment payment) throws Exception {
-    	if (payment.getId() <= 0) {
-    		throw new IllegalArgumentException("Payment is missing payment_id");
-    	}
+        if (payment.getId() <= 0) {
+            throw new IllegalArgumentException("Payment is missing payment_id");
+        }
 
-		int rationale = payment.getModificationRationale();
+        int rationale = payment.getModificationRationale();
 
-		// if nothing seems to be changed, set the rationale to multiple fields
-		// to be in the safe side.  It won't hurt.
-		if (rationale == 0) {
-			rationale = MODIFICATION_MULTIPLE_FIELDS;
-		}
+        // if nothing seems to be changed, set the rationale to multiple fields
+        // to be in the safe side.  It won't hurt.
+        if (rationale == 0) {
+            rationale = MODIFICATION_MULTIPLE_FIELDS;
+        }
 
-    	Payment p = createPayment(payment);
-    	p.setRationaleId(rationale);
-    	updatePayment(p);
-    	payment.resetModificationRationale();
+        Payment p = createPayment(payment);
+        p.setRationaleId(rationale);
+        updatePayment(p);
+        payment.resetModificationRationale();
 
-    	return payment;
+        return payment;
     }
 
     /**
@@ -5419,7 +5419,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         BasePayment.Processor processor = payment.getProcessor();
 
         if (processor.isDuplicated(payment)) {
-        	throw new IllegalArgumentException("Payment is already in the database.");
+            throw new IllegalArgumentException("Payment is already in the database.");
         }
 
         try {
@@ -5435,30 +5435,30 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             // Special treating for algorithm payments, because they have affidavits.
             if (payment instanceof AlgorithmRoundReferencePayment) {
-            	paymentId = makeNewAlgorithmPayment(c, p, (AlgorithmRoundReferencePayment) payment);
+                paymentId = makeNewAlgorithmPayment(c, p, (AlgorithmRoundReferencePayment) payment);
             } else {
-            	paymentId = makeNewPayment(c, p, p.payReferrer());
+                paymentId = makeNewPayment(c, p, p.payReferrer());
             }
 
             payment.setId(paymentId);
             payment.setNetAmount(p.getNetAmount());
-        	payment.resetModificationRationale();
+            payment.resetModificationRationale();
             c.commit();
 
             return payment;
-    	} catch (SQLException e) {
-    		rollback(c);
-    		printException(e);
-    		throw e;
-    	} catch (Exception e) {
-    		rollback(c);
-    		printException(e);
-    		throw new SQLException(e.getMessage());
-    	} finally {
-    		setAutoCommit(c, true);
-    		close(c);
-    		c = null;
-    	}
+        } catch (SQLException e) {
+            rollback(c);
+            printException(e);
+            throw e;
+        } catch (Exception e) {
+            rollback(c);
+            printException(e);
+            throw new SQLException(e.getMessage());
+        } finally {
+            setAutoCommit(c, true);
+            close(c);
+            c = null;
+        }
     }
 
     /**
@@ -5469,7 +5469,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException
      */
     public List findPayments(int paymentTypeId) throws SQLException {
-    	return findCoderPayments(0, paymentTypeId, 0);
+        return findCoderPayments(0, paymentTypeId, 0);
     }
 
     /**
@@ -5483,7 +5483,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException
      */
     public List findPayments(int paymentTypeId, long referenceId) throws SQLException {
-    	return findCoderPayments(0, paymentTypeId, 0);
+        return findCoderPayments(0, paymentTypeId, 0);
     }
 
     /**
@@ -5494,7 +5494,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException
      */
     public List findCoderPayments(long coderId) throws SQLException {
-    	return findCoderPayments(coderId, 0,  0);
+        return findCoderPayments(coderId, 0,  0);
     }
 
     /**
@@ -5506,7 +5506,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException
      */
     public List findCoderPayments(long coderId, int paymentTypeId) throws SQLException {
-    	return findCoderPayments(coderId, paymentTypeId,  0);
+        return findCoderPayments(coderId, paymentTypeId,  0);
     }
 
     /**
@@ -5522,84 +5522,84 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws SQLException {
 
-    	StringBuffer query = new StringBuffer(500);
-    	List list = new ArrayList();
+        StringBuffer query = new StringBuffer(500);
+        List list = new ArrayList();
 
-    	query.append(" SELECT p.payment_id, p.user_id, pd.payment_desc, pd.payment_type_id, ");
-    	query.append("    pd.gross_amount, pd.net_amount, pd.status_id, s.status_desc, pd.date_due, ");
-    	query.append("    pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
-    	query.append("    pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
-    	query.append("    pd.digital_run_season_id, pd.parent_payment_id, ");
-    	query.append("    (SELECT reference_field_name   ");
-    	query.append("       FROM payment_reference_lu pr,payment_type_lu pt ");
-    	query.append("       WHERE pd.payment_type_id = pt.payment_type_id ");
-    	query.append("       AND pt.payment_reference_id = pr.payment_reference_id) as reference_field_name ");
-    	query.append(" FROM payment p, payment_detail pd, status_lu s ");
-    	query.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
-    	query.append(" AND s.status_id = pd.status_id  ");
+        query.append(" SELECT p.payment_id, p.user_id, pd.payment_desc, pd.payment_type_id, ");
+        query.append("    pd.gross_amount, pd.net_amount, pd.status_id, s.status_desc, pd.date_due, ");
+        query.append("    pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
+        query.append("    pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
+        query.append("    pd.digital_run_season_id, pd.parent_payment_id, ");
+        query.append("    (SELECT reference_field_name   ");
+        query.append("       FROM payment_reference_lu pr,payment_type_lu pt ");
+        query.append("       WHERE pd.payment_type_id = pt.payment_type_id ");
+        query.append("       AND pt.payment_reference_id = pr.payment_reference_id) as reference_field_name ");
+        query.append(" FROM payment p, payment_detail pd, status_lu s ");
+        query.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
+        query.append(" AND s.status_id = pd.status_id  ");
 
-    	if (paymentTypeId > 0) {
-    		query.append(" AND pd.payment_type_id = " + paymentTypeId);
-    	}
+        if (paymentTypeId > 0) {
+            query.append(" AND pd.payment_type_id = " + paymentTypeId);
+        }
 
-    	if (coderId > 0) {
-    		query.append(" AND p.user_id = " + coderId);
-    	}
+        if (coderId > 0) {
+            query.append(" AND p.user_id = " + coderId);
+        }
 
-    	if (referenceId > 0) {
-    		query.append(" AND (");
-    		query.append("  pd.algorithm_round_id=" + referenceId + " OR ");
-    		query.append("  pd.component_project_id=" + referenceId + " OR ");
-    		query.append("  pd.algorithm_problem_id=" + referenceId + " OR ");
-    		query.append("  pd.studio_contest_id=" + referenceId + " OR ");
-    		query.append("  pd.component_contest_id=" + referenceId + " OR ");
-    		query.append("  pd.digital_run_stage_id=" + referenceId + " OR ");
-    		query.append("  pd.digital_run_season_id=" + referenceId + " OR ");
-    		query.append("  pd.parent_payment_id=" + referenceId + ")");
-    	}
+        if (referenceId > 0) {
+            query.append(" AND (");
+            query.append("  pd.algorithm_round_id=" + referenceId + " OR ");
+            query.append("  pd.component_project_id=" + referenceId + " OR ");
+            query.append("  pd.algorithm_problem_id=" + referenceId + " OR ");
+            query.append("  pd.studio_contest_id=" + referenceId + " OR ");
+            query.append("  pd.component_contest_id=" + referenceId + " OR ");
+            query.append("  pd.digital_run_stage_id=" + referenceId + " OR ");
+            query.append("  pd.digital_run_season_id=" + referenceId + " OR ");
+            query.append("  pd.parent_payment_id=" + referenceId + ")");
+        }
 
-    	ResultSetContainer rsc = runSelectQuery(query.toString(), false);
+        ResultSetContainer rsc = runSelectQuery(query.toString(), false);
 
-    	for (int i=0; i < rsc.getRowCount(); i++) {
-    		ResultSetContainer.ResultSetRow rsr = rsc.getRow(i);
-
-
-    		long paymentId = rsr.getLongItem("payment_id");
-    		long coder = rsr.getLongItem("user_id");
-    		double grossAmount = rsr.getDoubleItem("gross_amount");
-    		double netAmount = rsr.getDoubleItem("net_amount");
-    		int paymentType = rsr.getIntItem("payment_type_id");
-    		Date dueDate = rsr.getTimestampItem("date_due");
-    		int statusId = rsr.getIntItem("status_id");
-    		String statusDesc = rsr.getStringItem("status_desc");
-    		String description = rsr.getStringItem("payment_desc");
-
-    		String referenceFieldName = rsr.getStringItem("reference_field_name");
-
-    		long reference = 0;
-
-    		if (referenceFieldName != null) {
-    			try {
-    				reference = rsr.getLongItem(referenceFieldName);
-    			} catch (Exception e) {
-    				log.warn("Missing reference " + referenceFieldName + " for coder " + coder + " in payment_id " + paymentId);
-    			}
-    		}
-
-    		BasePayment payment = BasePayment.createPayment(paymentType, coder, grossAmount, reference);
-
-    		payment.setId(paymentId);
-    		payment.setNetAmount(netAmount);
-    		payment.setDueDate(dueDate);
-    		payment.setStatusId(statusId);
-    		payment.setStatusDesc(statusDesc);
-    		payment.setDescription(description);
+        for (int i=0; i < rsc.getRowCount(); i++) {
+            ResultSetContainer.ResultSetRow rsr = rsc.getRow(i);
 
 
-    		list.add(payment);
-    	}
+            long paymentId = rsr.getLongItem("payment_id");
+            long coder = rsr.getLongItem("user_id");
+            double grossAmount = rsr.getDoubleItem("gross_amount");
+            double netAmount = rsr.getDoubleItem("net_amount");
+            int paymentType = rsr.getIntItem("payment_type_id");
+            Date dueDate = rsr.getTimestampItem("date_due");
+            int statusId = rsr.getIntItem("status_id");
+            String statusDesc = rsr.getStringItem("status_desc");
+            String description = rsr.getStringItem("payment_desc");
 
-    	return list;
+            String referenceFieldName = rsr.getStringItem("reference_field_name");
+
+            long reference = 0;
+
+            if (referenceFieldName != null) {
+                try {
+                    reference = rsr.getLongItem(referenceFieldName);
+                } catch (Exception e) {
+                    log.warn("Missing reference " + referenceFieldName + " for coder " + coder + " in payment_id " + paymentId);
+                }
+            }
+
+            BasePayment payment = BasePayment.createPayment(paymentType, coder, grossAmount, reference);
+
+            payment.setId(paymentId);
+            payment.setNetAmount(netAmount);
+            payment.setDueDate(dueDate);
+            payment.setStatusId(statusId);
+            payment.setStatusDesc(statusDesc);
+            payment.setDescription(description);
+
+
+            list.add(payment);
+        }
+
+        return list;
     }
 
 
@@ -5619,19 +5619,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             updatePaymentStatus(c, new long[] {paymentId}, PAYMENT_DELETED_STATUS);
 
             c.commit();
-    	} catch (SQLException e) {
-    		rollback(c);
-    		printException(e);
-    		throw e;
-    	} catch (Exception e) {
-    		rollback(c);
-    		printException(e);
-    		throw new SQLException(e.getMessage());
-    	} finally {
-    		setAutoCommit(c, true);
-    		close(c);
-    		c = null;
-    	}
+        } catch (SQLException e) {
+            rollback(c);
+            printException(e);
+            throw e;
+        } catch (Exception e) {
+            rollback(c);
+            printException(e);
+            throw new SQLException(e.getMessage());
+        } finally {
+            setAutoCommit(c, true);
+            close(c);
+            c = null;
+        }
     }
 
     /**
@@ -5642,10 +5642,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException
      */
     public void deletePayment(BasePayment payment) throws SQLException {
-    	if (payment.getId() == 0) {
-    		throw new IllegalArgumentException("The payment has no payment_id, so it can't be deleted");
-    	}
-    	deletePayment(payment.getId());
+        if (payment.getId() == 0) {
+            throw new IllegalArgumentException("The payment has no payment_id, so it can't be deleted");
+        }
+        deletePayment(payment.getId());
     }
 
     /**
@@ -5654,20 +5654,20 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @author Cucu
      */
     private static class AffidavitAndPaymentIds {
-    	private long paymentId;
-    	private long affidavitId;
+        private long paymentId;
+        private long affidavitId;
 
-		public AffidavitAndPaymentIds(long paymentId, long affidavitId) {
-			this.paymentId = paymentId;
-			this.affidavitId = affidavitId;
-		}
+        public AffidavitAndPaymentIds(long paymentId, long affidavitId) {
+            this.paymentId = paymentId;
+            this.affidavitId = affidavitId;
+        }
 
-		public long getAffidavitId() {
-			return affidavitId;
-		}
-		public long getPaymentId() {
-			return paymentId;
-		}
+        public long getAffidavitId() {
+            return affidavitId;
+        }
+        public long getPaymentId() {
+            return paymentId;
+        }
 
     }
 }
