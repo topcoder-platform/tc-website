@@ -35,12 +35,6 @@ function typeChanged() {
     ajaxRequest.sendRequest();
 }
 
-function referenceChanged() {
-    var ajaxRequest = new AjaxRequest('/pacts/internal/lookupPaymentData.jsp');
-    ajaxRequest.setEchoDebugInfo();
-    ajaxRequest.sendRequest();
-}
-
 function search() {
     var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
     document.f.reference_type_id.value = types[document.f.payment_type_id.selectedIndex];
@@ -48,6 +42,15 @@ function search() {
     ajaxRequest.addNamedFormElements("reference_type_id");    
     ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.addNamedFormElements("search_text");
+    ajaxRequest.sendRequest();
+}
+
+function referenceChanged(refId) {
+    var ajaxRequest = new AjaxRequest('/pacts/internal/lookupPaymentData.jsp');
+    document.f.reference_id.value = refId;
+    ajaxRequest.addNamedFormElements("payment_type_id");
+    ajaxRequest.addNamedFormElements("reference_id");
+    ajaxRequest.setEchoDebugInfo();
     ajaxRequest.sendRequest();
 }
 
@@ -137,6 +140,10 @@ function search() {
     }
 %>
 <script type="text/javascript">
+
+
+
+
 var types = new Array();
 var i = 0;
 
@@ -162,6 +169,7 @@ types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -
    <input type="hidden" name="<%= PactsConstants.TASK_STRING %>" value="<%=PactsConstants.ADD_TASK%>" >
    <input type="hidden" name="<%= PactsConstants.CMD_STRING %>" value="<%=PactsConstants.PAYMENT_CMD%>" >
    <input type="hidden" name="reference_type_id">
+   <input type="hidden" name="reference_id">
 
 <%  if (payment_is_for_contract) { %>
    <input type="hidden" name="<%= PactsConstants.CONTRACT_ID %>" value="<%=contract_id%>" >

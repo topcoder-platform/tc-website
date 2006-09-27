@@ -9,13 +9,26 @@
 <%@ page import="java.util.*" %>
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.servlet.*" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.*" %>
+<%@ page import="com.topcoder.web.ejb.pacts.*" %>
+
+<%
+    BasePayment payment = BasePayment.createPayment(
+    		Integer.parseInt(request.getParameter("payment_type_id")),
+    		7545675, 0.01, Long.parseLong(request.getParameter("reference_id")));
+
+payment.setDescription("descr");
+%>
+
+
+
+
 
 <taconite-root xml:space="preserve">
 
- <taconite-replace-children contextNodeID="runJS" parseInBrowser="true"> 
-    <
+ <taconite-replace-children contextNodeID="runJS" parseInBrowser="true">     
    <script type="text/javascript">
-        document.f.payment_desc.value = 'hi description!';
+        
+        document.f.payment_desc.value = <%= payment.getDescription() %>;
     </script>
 </taconite-replace-children>      
  </taconite-root>
