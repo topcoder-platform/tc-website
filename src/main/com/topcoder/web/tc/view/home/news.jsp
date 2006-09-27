@@ -7,6 +7,17 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>09.27.06<br>9:15 AM</td>
+     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=220">Vote for the TCHS logo design</A></span><br><br>
+      Help choose which design will become the 2007 TopCoder High School logo.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=ViewSurvey&sid=220">view survey</A>&#160;|&#160;
+         <A href="/tc?&module=SurveyList">archive</A>
+   </td></tr>
 
 <%--------------------------------------------------------%>
 <tr>
@@ -201,7 +212,7 @@ turned the first round of the TCCC into a close race.
     <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
 </td></tr>
 
-<%--------------------------------------------------------%>
+<%-------------------------------------------
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
         <br>09.19.06<br>6:00 PM</td>
@@ -221,4 +232,4 @@ turned the first round of the TCCC into a close race.
     <tc-webtag:forumLink forumID="505994" message="discuss this"/> |
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
-
+-------------%>
