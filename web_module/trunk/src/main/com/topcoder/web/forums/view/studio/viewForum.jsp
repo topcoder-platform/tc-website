@@ -1,7 +1,7 @@
-<%  response.setHeader( "Expires", "Sat, 6 May 1995 12:00:00 GMT" );
-    response.setHeader( "Cache-Control", "no-store, no-cache, must-revalidate" );
-    response.addHeader( "Cache-Control", "post-check=0, pre-check=0" );
-    response.setHeader( "Pragma", "no-cache" ); %>
+<% response.setHeader("Expires", "Sat, 6 May 1995 12:00:00 GMT");
+    response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
+    response.addHeader("Cache-Control", "post-check=0, pre-check=0");
+    response.setHeader("Pragma", "no-cache"); %>
 
 <%@ page import="com.jivesoftware.base.JiveConstants,
                  com.jivesoftware.base.JiveGlobals,
@@ -97,7 +97,7 @@
 <div class="contentOut">
 
 
-      <jsp:include page="top.jsp" />
+<jsp:include page="top.jsp"/>
 
 
 <jsp:include page="topNav.jsp">
@@ -133,7 +133,7 @@
         <% if (paginator.getNumPages() > 1) { %>
         <div style="float:right;" class="rtbc"><b>
             <% if (paginator.getPreviousPage()) { %>
-            <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
+            <A href="<%=link%>&<%=ForumConstants.START_IDX%>=${paginator.previousPageStart}" class="rtbcLink">
                 <<PREV</A>&#160;&#160;&#160;
             <% } %> [
             <% pages = paginator.getPages(5);
@@ -148,7 +148,7 @@
             <% } else { %> ... <% } %>
             <% } %> ]
             <% if (paginator.getNextPage()) { %>
-            &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT
+            &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=${paginator.nextPageStart}" class="rtbcLink">NEXT
             ></A>
             <% } %>
         </b>
@@ -161,14 +161,16 @@
         </A> >
         </tc-webtag:iterator>
         <%=forum.getName()%>
-        <%	String linkStr = ForumsUtil.createLinkString(forum);
-        		if (!linkStr.equals("")) { %>
-        			<%=linkStr%>
-        	<% 	} %>
+        <%
+        String linkStr = ForumsUtil.createLinkString(forum);
+                  if (!linkStr.equals("")) {
+        %>
+        <%=linkStr%>
+        <% 	} %>
     </td>
 </table>
 
-<%  if (forum.getThreadCount() > 0 || ((Iterator)request.getAttribute("announcements")).hasNext()) { %>
+<% if (forum.getThreadCount() > 0 || ((Iterator) request.getAttribute("announcements")).hasNext()) { %>
 <table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
         <td class="rtHeader" width="70%"><a href="<%=threadLink%>" class="rtbcLink">Thread</a></td>
