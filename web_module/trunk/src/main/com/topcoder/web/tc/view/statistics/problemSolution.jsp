@@ -167,7 +167,7 @@
             <TD CLASS="statText" VALIGN="middle" ALIGN="center">
                 <bean:write name="resultRow" property='<%= "item[" + 1 /* method name */ + "]" %>'/></TD>
             <TD CLASS="statText" VALIGN="middle" ALIGN="center">
-                <a href="/tc?<%=Constants.MODULE_KEY%>=ProblemDetail&amp;<%=Constants.ROUND_ID%>=<%=sRoundId%>&<%=Constants.PROBLEM_ID%>=<%=pageContext.getAttribute("pm")%>">problem
+                <a href="/tc?<%=Constants.MODULE_KEY%>=ProblemDetail&amp;<%=Constants.ROUND_ID%>=<%=sRoundId%>&pm=<%=pageContext.getAttribute("pm")%>" class="statText">problem
                     details</a></TD>
             <TD CLASS="statText" VALIGN="middle" ALIGN="center">
                 <bean:write name="resultRow" property='<%= "item[" + 3 /* problem level */ + "]" %>'/></TD>
