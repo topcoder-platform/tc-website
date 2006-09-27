@@ -123,6 +123,14 @@
     </tr>
     <tr>
         <td class="statText">
+            Point Value
+        </td>
+        <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
+            <td class="statText" align="right"><rsc:item name="points" row="<%=resultRow%>" ifNull="&#160;"/></TD>
+        </rsc:iterator>
+    </tr>
+    <tr>
+        <td class="statText">
             Competitors
         </td>
         <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
