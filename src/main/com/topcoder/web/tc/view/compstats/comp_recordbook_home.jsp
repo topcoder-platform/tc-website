@@ -120,6 +120,8 @@
                         <A href="/tc?module=ComponentRecordbook&c=tournament_money&type=development">development</A> |
                         <A href="/tc?module=ComponentRecordbook&c=tournament_money&type=component">overall</A>
 
+                        <br><br>
+
                         <strong>Highest Appeal Success Percentage</strong><br>
                         <A href="/tc?module=ComponentRecordbook&c=appeal_percentage&type=design">design</A> |
                         <A href="/tc?module=ComponentRecordbook&c=appeal_percentage&type=development">development</A> |
