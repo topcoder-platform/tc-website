@@ -3,8 +3,9 @@
         import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                 com.topcoder.shared.util.ApplicationServer,
                 com.topcoder.web.common.tag.HandleTag,
-                java.text.SimpleDateFormat"
+                com.topcoder.web.tc.Constants"
         %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Map" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -67,7 +68,7 @@
             Problem Name:
         </td>
         <td class="statText" width="100%" valign="top">
-            <A HREF="/stat?c=problem_statement&pm=<rsc:item set="<%=generalInfo%>" name="problem_id"/>&rd=<rsc:item set="<%=generalInfo%>" name="round_id"/>" class="statText">
+            <A HREF="/stat?c=problem_statement&amp;pm=<rsc:item set="<%=generalInfo%>" name="problem_id"/>&amp;rd=<rsc:item set="<%=generalInfo%>" name="round_id"/>" class="statText">
                 <rsc:item set="<%=generalInfo%>" name="class_name"/></A>
 
         </td>
@@ -77,8 +78,13 @@
             Used In:
         </td>
         <td class="statText">
-            <A HREF="/stat?c=round_overview&rd=<rsc:item set="<%=generalInfo%>" name="round_id" />" class="statText">
+            <% if (generalInfo.getIntItem(0, "algo_rating_type_id") == Constants.TC_ALGO_RATING_TYPE_ID) { %>
+            <A HREF="/stat?c=round_overview&amp;rd=<rsc:item set="<%=generalInfo%>" name="round_id" />" class="statText">
                 <rsc:item set="<%=generalInfo%>" name="event_name"/></A>
+            <% } else { %>
+            <A HREF="/tc?<%=Constants.MODULE_KEY%>=HSRoundOverview&amp;<%=Constants.ROUND_ID%>=<rsc:item set="<%=generalInfo%>" name="round_id" />" class="statText">
+                <rsc:item set="<%=generalInfo%>" name="event_name"/></A>
+            <% } %>
         </td>
     </tr>
     <tr>
@@ -105,7 +111,7 @@
             </div>
             <% if (!forumID.equals("")) { %>
             <div style="float:left; padding-right: 5px;">
-                <A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumID%>" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0"/></A>
+                <A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&amp;forumID=<%=forumID%>" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0"/></A>
             </div>
             <% } %>
         </td>
@@ -291,14 +297,24 @@
     <rsc:iterator list="<%=div1Lang%>" id="resultRow">
         <td class="statText" align="right">
             <% if (resultRow.getItem("coder_id").getResultData() != null) { %>
-            <a href="/stat?c=problem_solution&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>&pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>" class="statText">view</a>
+            <% if (generalInfo.getIntItem(0, "algo_rating_type_id") == Constants.TC_ALGO_RATING_TYPE_ID) { %>
+            <a href="/stat?c=problem_solution&amp;cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>&amp;rd=<rsc:item row="<%=resultRow%>" name="round_id"/>&amp;pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>" class="statText">view</a>
+            <% } else { %>
+            <a href="/tc?module=HSProblemSolution&amp;<%=Constants.CODER_ID%>=<rsc:item row="<%=resultRow%>" name="coder_id"/>&amp;<%=Constants.ROUND_ID%>=<rsc:item row="<%=resultRow%>" name="round_id"/>&amp;pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>" class="statText">view</a>
+            <% } %>
+
+
             <% } %>
         </td>
     </rsc:iterator>
     <rsc:iterator list="<%=div1Overall%>" id="resultRow">
         <td class="statText" align="right">
             <% if (resultRow.getItem("coder_id").getResultData() != null) { %>
-            <a href="/stat?c=problem_solution&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>&pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>" class="statText">view</a>
+            <% if (generalInfo.getIntItem(0, "algo_rating_type_id") == Constants.TC_ALGO_RATING_TYPE_ID) { %>
+            <a href="/stat?c=problem_solution&amp;cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>&amp;rd=<rsc:item row="<%=resultRow%>" name="round_id"/>&amp;pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>" class="statText">view</a>
+            <% } else { %>
+            <a href="/tc?module=HSProblemSolution&amp;<%=Constants.CODER_ID%>=<rsc:item row="<%=resultRow%>" name="coder_id"/>&amp;<%=Constants.ROUND_ID%>=<rsc:item row="<%=resultRow%>" name="round_id"/>&amp;pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>" class="statText">view</a>
+            <% } %>
             <% } %>
         </td>
     </rsc:iterator>
@@ -429,15 +445,19 @@
     <td class="statText">Top Submission</td>
     <rsc:iterator list="<%=div2Lang%>" id="resultRow">
         <td class="statText" align="right">
-            <% if (resultRow.getItem("coder_id").getResultData() != null) { %>
-            <a href="/stat?c=problem_solution&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>&pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>" class="statText">view</a>
+            <% if (generalInfo.getIntItem(0, "algo_rating_type_id") == Constants.TC_ALGO_RATING_TYPE_ID) { %>
+            <a href="/stat?c=problem_solution&amp;cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>&amp;rd=<rsc:item row="<%=resultRow%>" name="round_id"/>&amp;pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>" class="statText">view</a>
+            <% } else { %>
+            <a href="/tc?module=HSProblemSolution&amp;<%=Constants.CODER_ID%>=<rsc:item row="<%=resultRow%>" name="coder_id"/>&amp;<%=Constants.ROUND_ID%>=<rsc:item row="<%=resultRow%>" name="round_id"/>&amp;pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>" class="statText">view</a>
             <% } %>
         </td>
     </rsc:iterator>
     <rsc:iterator list="<%=div2Overall%>" id="resultRow">
         <td class="statText" align="right">
-            <% if (resultRow.getItem("coder_id").getResultData() != null) { %>
-            <a href="/stat?c=problem_solution&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>&pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>" class="statText">view</a>
+            <% if (generalInfo.getIntItem(0, "algo_rating_type_id") == Constants.TC_ALGO_RATING_TYPE_ID) { %>
+            <a href="/stat?c=problem_solution&amp;cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>&amp;rd=<rsc:item row="<%=resultRow%>" name="round_id"/>&amp;pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>" class="statText">view</a>
+            <% } else { %>
+            <a href="/tc?module=HSProblemSolution&amp;<%=Constants.CODER_ID%>=<rsc:item row="<%=resultRow%>" name="coder_id"/>&amp;<%=Constants.ROUND_ID%>=<rsc:item row="<%=resultRow%>" name="round_id"/>&amp;pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>" class="statText">view</a>
             <% } %>
         </td>
     </rsc:iterator>
