@@ -16,7 +16,7 @@
    </tr>
    <tr><td class="newsLinksCell">
      <A href="/tc?module=ViewSurvey&sid=220">vote</A>&#160;|&#160;
-     <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512330">discuss this</A> |
+    <tc-webtag:forumLink forumID="506125" message="discuss this"/> |
      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
