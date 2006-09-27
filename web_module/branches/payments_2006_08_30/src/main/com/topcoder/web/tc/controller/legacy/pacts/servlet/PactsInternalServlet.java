@@ -1430,7 +1430,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
 
     private long getLongParam(HttpServletRequest request, String paramName) {
-    	return request.getParameter("paramName") == null? 0 : Long.parseLong(request.getParameter("paramName"));
+    	return request.getParameter(paramName) == null? 0 : Long.parseLong(request.getParameter(paramName));
     }
     
     /*

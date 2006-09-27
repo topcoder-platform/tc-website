@@ -152,7 +152,7 @@ types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -
     <%= message %>
 </font>
 
-<form name="f" action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" >
+<form name="f" action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
    <input type="hidden" name="<%= PactsConstants.TASK_STRING %>" value="<%=PactsConstants.ADD_TASK%>" >
    <input type="hidden" name="<%= PactsConstants.CMD_STRING %>" value="<%=PactsConstants.PAYMENT_CMD%>" >
    <input type="hidden" name="reference_id">
@@ -211,8 +211,7 @@ types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -
                     useTopValue="false" onChange="typeChanged()" />        
         </td>
         </tr>
-        <tr id="selectReference"> <td>
-        <input type="hidden" name="algorithm_round_id" value="INITIAL"></td><td></td></tr>
+        <tr id="selectReference"> <td></td><td></td></tr>
         <tr>
             <td><b>Method:</b></td><td>
             <tc-webtag:rscSelect name="payment_method_id" list="<%=paymentMethods%>" 
@@ -254,7 +253,7 @@ Calendar.setup(
                 -->
 </script>
 
-<input type=submit>
+<input type="submit" value="Add Payment">
 </form>
 <jsp:include page="InternalFooter.jsp" flush="true"/>
 </body>
