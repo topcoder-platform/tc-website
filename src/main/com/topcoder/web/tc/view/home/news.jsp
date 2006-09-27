@@ -11,7 +11,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.27.06<br>10:00 AM</td>
      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=220">Vote for the TCHS logo design</A></span><br><br>
-      Help choose which design will become the 2007 TopCoder High School logo.
+      The top 10 logo designs have been chosen from the TopCoder Studio contest for the TCHS logo.  Help choose which design will become the look of the 2007 TopCoder High School tournament.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
