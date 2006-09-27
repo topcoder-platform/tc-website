@@ -1,22 +1,14 @@
-<%  response.setHeader( "Expires", "Sat, 6 May 1995 12:00:00 GMT" );
-    response.setHeader( "Cache-Control", "no-store, no-cache, must-revalidate" );
-    response.addHeader( "Cache-Control", "post-check=0, pre-check=0" );
-    response.setHeader( "Pragma", "no-cache" ); %>
-
-<%@ page import="com.topcoder.web.common.BaseServlet,
+<%@ page import="com.jivesoftware.base.JiveConstants,
+                 com.jivesoftware.base.User,
+                 com.jivesoftware.forum.ReadTracker,
+                 com.jivesoftware.forum.ResultFilter,
+                 com.jivesoftware.forum.WatchManager,
+                 com.jivesoftware.forum.action.util.Page,
                  com.topcoder.web.common.StringUtils,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
-                 com.jivesoftware.base.JiveConstants,
-                 com.jivesoftware.base.User,
-                 com.jivesoftware.forum.ResultFilter,
-                 com.jivesoftware.forum.ReadTracker,
-                 com.jivesoftware.forum.WatchManager,
-                 com.jivesoftware.forum.action.util.Page,
-                 com.jivesoftware.forum.action.util.Paginator,
-                 java.util.Iterator,
-                 java.util.Enumeration"
-%>
+                 java.util.Iterator"
+        %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
@@ -25,14 +17,14 @@
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
-<%  User user = (User)request.getAttribute("user"); 
-    ResultFilter resultFilter = (ResultFilter)request.getAttribute("resultFilter"); 
-    ReadTracker readTracker = forumFactory.getReadTracker(); 
+<% User user = (User) request.getAttribute("user");
+    ResultFilter resultFilter = (ResultFilter) request.getAttribute("resultFilter");
+    ReadTracker readTracker = forumFactory.getReadTracker();
     WatchManager watchManager = forumFactory.getWatchManager();
     String trackerClass = "";
-    String sortField = (String)request.getAttribute("sortField");
-    String sortOrder = (String)request.getAttribute("sortOrder");
-    
+    String sortField = (String) request.getAttribute("sortField");
+    String sortOrder = (String) request.getAttribute("sortOrder");
+
     StringBuffer linkBuffer = new StringBuffer("?module=Category");
     linkBuffer.append("&").append(ForumConstants.CATEGORY_ID).append("=").append(forumCategory.getID());
 
@@ -71,194 +63,213 @@
     if (!sortOrder.equals("")) {
         linkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(sortOrder);
     }
-    
+
     linkBuffer.append("&").append(ForumConstants.START_IDX).append("=");
     String link = linkBuffer.toString();
-    String prevLink = linkBuffer.toString()+String.valueOf(paginator.getPreviousPageStart());
-    String nextLink = linkBuffer.toString()+String.valueOf(paginator.getNextPageStart());
+    String prevLink = linkBuffer.toString() + String.valueOf(paginator.getPreviousPageStart());
+    String nextLink = linkBuffer.toString() + String.valueOf(paginator.getNextPageStart());
 %>
 
 <html>
 <head>
-<title>TopCoder Forums</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-    <jsp:include page="script.jsp" />
-        <jsp:include page="/style.jsp">
-          <jsp:param name="key" value="tc_forums"/>
-        </jsp:include>
+    <title>TopCoder Forums</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <jsp:include page="script.jsp"/>
+    <jsp:include page="/style.jsp">
+        <jsp:param name="key" value="tc_forums"/>
+    </jsp:include>
 
 </head>
 
 <body>
 
-<jsp:include page="top.jsp" >
+<jsp:include page="top.jsp">
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-   <tr valign="top">
+    <tr valign="top">
 
-<!-- Left Column Begins-->
+        <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="includes/global_left.jsp">
-               <jsp:param name="node" value="forums"/>
+                <jsp:param name="node" value="forums"/>
             </jsp:include>
         </td>
-<!-- Left Column Ends -->
+        <!-- Left Column Ends -->
 
 
-<!-- Center Column Begins -->
+        <!-- Center Column Begins -->
         <td width="100%" class="rtBody">
 
-            <jsp:include page="page_title.jsp" >
+            <jsp:include page="page_title.jsp">
                 <jsp:param name="image" value="forums"/>
                 <jsp:param name="title" value="&#160;"/>
             </jsp:include>
-    
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr>
-   <td class="categoriesBox" style="padding-right: 20px;">
-      <jsp:include page="categoriesHeader.jsp" />
-   </td>
-   <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
-       <jsp:include page="searchHeader.jsp" />
-    </td>
-    <td align="right" nowrap="nowrap" valign="top">
-        <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
-    </td>
-</tr>
-<tr><td colspan="2" style="padding-bottom:3px;"><b>
-    <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
-        <%  if (category.getID() != forumCategory.getID()) { %>
-            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> > 
-        <%  } else { %>
-            <%=category.getName()%>
-        <%  } %> 
-    </tc-webtag:iterator>
-    </b></td>
-   <% Page[] pages; %>
-   <% if (paginator.getNumPages() > 1) { %>
-      <td class="rtbc" align="right"><b>
-         <%  if (paginator.getPreviousPage()) { %>
-            <A href="<%=prevLink%>" class="rtbcLink">
-                  << PREV</A>&#160;&#160;&#160;
-           <%  } %> [
-           <%  pages = paginator.getPages(5);
-               for (int i=0; i<pages.length; i++) {
-           %>  <%  if (pages[i] != null) { %>
-                    <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
-                          <span class="currentPage"><%= pages[i].getNumber() %></span>
-                    <%  } else { %>
-                           <A href="<%=link%><%=pages[i].getStart()%>" class="rtbcLink">
-                            <%= pages[i].getNumber() %></A>
-                      <%  } %>
-               <%  } else { %> ... <%  } %>
-           <%  } %> ]
-         <%  if (paginator.getNextPage()) { %>
-             &#160;&#160;&#160;<A href="<%=nextLink%>" class="rtbcLink">NEXT >></A>
-         <%  } %>
-      </b></td></tr>
-   <% } %>
-</tr>
-</table>
 
-            <%  if (forumCategory.getForumCount() > 0) { %>
-            <table cellpadding="0" cellspacing="0" class="rtTable">
-                <tr>
-                    <td class="rtHeader" width="100%"><a href="<%=forumLink%>" class="rtbcLink">Forum</a></td>
-                    <td class="rtHeader">T./M.</td>
-                    <td class="rtHeader" align="center" colspan="2" nowrap="nowrap"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></td>
-                </tr>
-                <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
-                    <%  trackerClass = (user == null || forum.getLatestMessage() == null || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ
-                    || ("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, forum.getLatestMessage().getForumThread()))) ? "rtLinkOld" : "rtLinkBold"; %>
-                    <tr>
-                        <td class="rtThreadCellWrap">
-                        <%  if (user == null) { %>
-                            <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=forum.getMessageCount()%>" class="rtLinkNew"><%=forum.getName()%></A>
-                        <%  } else { %>
-                            <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="<%=trackerClass%>"><%=forum.getName()%></A>
-                        <%  } %>
-                            <% if (forum.getDescription() != null) { %><br/><div class="rtDescIndent"><%=forum.getDescription()%></div><% } %></td>
-                        <td class="rtThreadCell"><%=forum.getThreadCount()%>&#160;/&#160;<%=forum.getMessageCount()%></td>
-                        <% if (forum.getMessageCount() > 0) { %>
-                            <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
-                            <td class="rtThreadCell"><b><tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></b></td>
-                            <% if (message.getUser() != null) { %>
-                                <td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
-                            <% } else { %>
-                                <td class="rtThreadCell">&nbsp;</td>
-                            <% } %>
-                        <% } else { %>
-                            <td class="rtThreadCell">&nbsp;</td>
-                            <td class="rtThreadCell">&nbsp;</td>
-                        <% } %>
-                    </tr>
+        <table cellpadding="0" cellspacing="0" class="rtbcTable">
+            <tr>
+                <td class="categoriesBox" style="padding-right: 20px;">
+                    <jsp:include page="categoriesHeader.jsp"/>
+                </td>
+                <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
+                    <jsp:include page="searchHeader.jsp"/>
+                </td>
+                <td align="right" nowrap="nowrap" valign="top">
+                    <A href="?module=History" class="rtbcLink">My Post
+                        History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User
+                    Settings</A><br/>
+                </td>
+            </tr>
+            <tr><td colspan="2" style="padding-bottom:3px;"><b>
+                <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
+                    <% if (category.getID() != forumCategory.getID()) { %>
+                    <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
+                    >
+                    <% } else { %>
+                    <%=category.getName()%>
+                    <% } %>
                 </tc-webtag:iterator>
-            </table>
-            <%  } %>
-            
-            <%  if (forumCategory.getCategoryCount() > 0) { %>
-            <%  if (forumCategory.getForumCount() > 0) { %><br><% } %>
-            <table cellpadding="0" cellspacing="0" class="rtTable">
-                <tr>
-                    <td class="rtHeader" width="100%">Category</td>
-                    <td class="rtHeader"><%  if (forumCategory.getID() != 1) { %>T./M.<%  } %></td>
-                    <td class="rtHeader" align="center" colspan="2">Last Post</td>
-                </tr>
-                <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categories")%>'>
-                    <%  if (forumCategory.getID() == 1) {
-                            String leftNavName = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME));
-                            trackerClass = (!leftNavName.equals("") && unreadCategories.indexOf(leftNavName) == -1) ? "rtLinkOld" : "rtLinkBold";
-                        } else {
-                            trackerClass = (user == null || category.getLatestMessage() == null || readTracker.getReadStatus(user, category.getLatestMessage()) == ReadTracker.READ
-                            || ("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, category.getLatestMessage().getForumThread()))) ? "rtLinkOld" : "rtLinkBold";
-                        } %>
-                    <tr>
-                        <td class="rtThreadCellWrap">
-                        <%  if (user == null) { %>
-                            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=category.getMessageCount()%>" class="rtLinkNew"><%=category.getName()%></A>
-                        <%  } else { %>
-                            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="<%=trackerClass%>"><%=category.getName()%></A>
-                        <%  } %>
-                            <% if (category.getDescription() != null) { %><br/><div class="rtDescIndent"><%=category.getDescription()%></div><% } %></td>
-                        <td class="rtThreadCell"><%  if (forumCategory.getID() != 1) { %><%=category.getThreadCount()%>&#160;/&#160;<%=category.getMessageCount()%><%  } %></td>
-                        <% if (category.getLatestMessage() != null) { %>
-                            <tc-webtag:useBean id="message" name="category" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
-                            <td class="rtThreadCell"><b><tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></b></td>
-                            <% if (message.getUser() != null) { %>
-                                <td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
-                            <% } else { %>
-                                <td class="rtThreadCell">&nbsp;</td>
-                            <% } %>
-                        <% } else { %>
-                            <td class="rtThreadCell">&nbsp;</td>
-                            <td class="rtThreadCell">&nbsp;</td>
-                        <% } %>
-                    </tr>
-                </tc-webtag:iterator>
-            </table>
-            <%  } %>
-            
-            <table cellpadding="0" cellspacing="0" class="rtbcTable">
-                <tr>
-                    <%  if (forumCategory.getID() != 1) { %>
-                    <td>A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <%if (user!=null) {%><A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark all as read)</A><%}%></td>
-                    <%  } else { %>
-                    <td>A category with a <b>bold title</b> in the left navigation indicates it has a forum with new postings. <%if (user!=null) {%><A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark all as read)</A><%}%></td>
-                    <%  } %>
-                    <td align="right"><a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
-                </tr>
-            </table>
-
-         <br><br><br>
-        </td>
-<!-- Center Column Ends -->
-
+            </b></td>
+                <% Page[] pages; %>
+                <% if (paginator.getNumPages() > 1) { %>
+                <td class="rtbc" align="right"><b>
+                    <% if (paginator.getPreviousPage()) { %>
+                    <A href="<%=prevLink%>" class="rtbcLink">
+                        <<PREV</A>&#160;&#160;&#160;
+                    <% } %> [
+                    <% pages = paginator.getPages(5);
+                        for (int i = 0; i < pages.length; i++) {
+                    %>  <% if (pages[i] != null) { %>
+                    <% if (pages[i].getNumber() == paginator.getPageIndex() + 1) { %>
+                    <span class="currentPage"><%= pages[i].getNumber() %></span>
+                    <% } else { %>
+                    <A href="<%=link%><%=pages[i].getStart()%>" class="rtbcLink">
+                        <%= pages[i].getNumber() %></A>
+                    <% } %>
+                    <% } else { %> ... <% } %>
+                    <% } %> ]
+                    <% if (paginator.getNextPage()) { %>
+                    &#160;&#160;&#160;<A href="<%=nextLink%>" class="rtbcLink">NEXT >></A>
+                    <% } %>
+                </b></td></tr>
+            <% } %>
     </tr>
 </table>
 
-<jsp:include page="foot.jsp" />
+<% if (forumCategory.getForumCount() > 0) { %>
+<table cellpadding="0" cellspacing="0" class="rtTable">
+    <tr>
+        <td class="rtHeader" width="100%"><a href="<%=forumLink%>" class="rtbcLink">Forum</a></td>
+        <td class="rtHeader">T./M.</td>
+        <td class="rtHeader" align="center" colspan="2" nowrap="nowrap"><a href="<%=dateLink%>" class="rtbcLink">Last
+            Post</a></td>
+    </tr>
+    <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
+        <% trackerClass = (user == null || forum.getLatestMessage() == null || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ
+                || ("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, forum.getLatestMessage().getForumThread()))) ? "rtLinkOld" : "rtLinkBold"; %>
+        <tr>
+            <td class="rtThreadCellWrap">
+                <% if (user == null) { %>
+                <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=forum.getMessageCount()%>" class="rtLinkNew"><%=forum.getName()%></A>
+                <% } else { %>
+                <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="<%=trackerClass%>"><%=forum.getName()%></A>
+                <% } %>
+                <% if (forum.getDescription() != null) { %><br/>
+
+                <div class="rtDescIndent"><%=forum.getDescription()%></div><% } %></td>
+            <td class="rtThreadCell"><%=forum.getThreadCount()%>&#160;/&#160;<%=forum.getMessageCount()%></td>
+            <% if (forum.getMessageCount() > 0) { %>
+            <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
+            <td class="rtThreadCell"><b>
+                <tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></b>
+            </td>
+            <% if (message.getUser() != null) { %>
+            <td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
+            <% } else { %>
+            <td class="rtThreadCell">&nbsp;</td>
+            <% } %>
+            <% } else { %>
+            <td class="rtThreadCell">&nbsp;</td>
+            <td class="rtThreadCell">&nbsp;</td>
+            <% } %>
+        </tr>
+    </tc-webtag:iterator>
+</table>
+<% } %>
+
+<% if (forumCategory.getCategoryCount() > 0) { %>
+<% if (forumCategory.getForumCount() > 0) { %><br><% } %>
+<table cellpadding="0" cellspacing="0" class="rtTable">
+    <tr>
+        <td class="rtHeader" width="100%">Category</td>
+        <td class="rtHeader"><% if (forumCategory.getID() != 1) { %>T./M.<% } %></td>
+        <td class="rtHeader" align="center" colspan="2">Last Post</td>
+    </tr>
+    <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categories")%>'>
+        <% if (forumCategory.getID() == 1) {
+            String leftNavName = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME));
+            trackerClass = (!leftNavName.equals("") && unreadCategories.indexOf(leftNavName) == -1) ? "rtLinkOld" : "rtLinkBold";
+        } else {
+            trackerClass = (user == null || category.getLatestMessage() == null || readTracker.getReadStatus(user, category.getLatestMessage()) == ReadTracker.READ
+                    || ("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, category.getLatestMessage().getForumThread()))) ? "rtLinkOld" : "rtLinkBold";
+        } %>
+        <tr>
+            <td class="rtThreadCellWrap">
+                <% if (user == null) { %>
+                <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=category.getMessageCount()%>" class="rtLinkNew"><%=category.getName()%></A>
+                <% } else { %>
+                <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="<%=trackerClass%>"><%=category.getName()%></A>
+                <% } %>
+                <% if (category.getDescription() != null) { %><br/>
+
+                <div class="rtDescIndent"><%=category.getDescription()%></div><% } %></td>
+            <td class="rtThreadCell"><% if (forumCategory.getID() != 1) { %><%=category.getThreadCount()%>
+                &#160;/&#160;<%=category.getMessageCount()%><% } %></td>
+            <% if (category.getLatestMessage() != null) { %>
+            <tc-webtag:useBean id="message" name="category" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
+            <td class="rtThreadCell"><b>
+                <tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></b>
+            </td>
+            <% if (message.getUser() != null) { %>
+            <td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
+            <% } else { %>
+            <td class="rtThreadCell">&nbsp;</td>
+            <% } %>
+            <% } else { %>
+            <td class="rtThreadCell">&nbsp;</td>
+            <td class="rtThreadCell">&nbsp;</td>
+            <% } %>
+        </tr>
+    </tc-webtag:iterator>
+</table>
+<% } %>
+
+<table cellpadding="0" cellspacing="0" class="rtbcTable">
+    <tr>
+        <% if (forumCategory.getID() != 1) { %>
+        <td>A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new
+            postings. <%if (user != null) {%><A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
+            all as read)</A><%}%></td>
+        <% } else { %>
+        <td>A category with a <b>bold title</b> in the left navigation indicates it has a forum with new
+            postings. <%if (user != null) {%><A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
+            all as read)</A><%}%></td>
+        <% } %>
+        <td align="right">
+            <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a>
+        </td>
+    </tr>
+</table>
+
+<br><br><br>
+</td>
+<!-- Center Column Ends -->
+
+</tr>
+</table>
+
+<jsp:include page="foot.jsp"/>
 
 </body>
 
