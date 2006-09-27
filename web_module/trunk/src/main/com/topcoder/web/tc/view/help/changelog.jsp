@@ -51,6 +51,7 @@
         <li>
             Add highest appeal percentage to the record book
         </li>
+        <li>Add appeal data to member profile</li>
     </ul>
 </p>
 
