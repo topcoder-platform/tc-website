@@ -159,8 +159,8 @@ public class NewSchemaFixUtility extends DBUtility {
         query.append("select pd.payment_detail_id from payment_detail pd, payment_detail_xref pdx, payment p ");
         query.append("where pd.payment_detail_id = pdx.payment_detail_id and ");
         query.append("p.payment_id = pdx.payment_id and  p.most_recent_detail_id = pd.payment_detail_id ");
-        query.append("and p.user_id = user_contest_prize_dw.user_id and ");
-        query.append("pd.gross_amount = user_contest_prize_dw.prize_payment) ");
+        query.append("and p.user_id = user_contest_prize_dw.user_id and pd.component_contest_id = user_contest_prize_dw.contest_id ");
+        query.append("and pd.gross_amount = user_contest_prize_dw.prize_payment) ");
 
         PreparedStatement psSelCompCompetitions = prepareStatement("informixoltp", query.toString());
         log.debug("Processing component competitions:");
