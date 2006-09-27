@@ -1,8 +1,3 @@
-<%  response.setHeader( "Expires", "Sat, 6 May 1995 12:00:00 GMT" );
-    response.setHeader( "Cache-Control", "no-store, no-cache, must-revalidate" );
-    response.addHeader( "Cache-Control", "post-check=0, pre-check=0" );
-    response.setHeader( "Pragma", "no-cache" ); %>
-
 <%@ page import="com.jivesoftware.base.User,
                  com.jivesoftware.forum.Forum,
                  com.jivesoftware.forum.ReadTracker,
@@ -46,7 +41,7 @@
 
 <div align="center">
 <div class="contentOut">
-<jsp:include page="top.jsp" />
+<jsp:include page="top.jsp"/>
 <jsp:include page="topNav.jsp">
     <jsp:param name="node" value="forums"/>
 </jsp:include>
@@ -146,7 +141,7 @@
                 <% if (forum.getMessageCount() > 0) { %>
                 <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
                 <td class="rtThreadCell" style="width: 210px;"><b>
-                	<tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></b>
+                    <tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></b>
                 </td>
                 <% if (message.getUser() != null) { %>
                 <td class="rtThreadCell" style="width: 90px;">

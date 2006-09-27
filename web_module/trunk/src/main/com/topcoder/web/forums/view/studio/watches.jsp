@@ -1,8 +1,3 @@
-<%  response.setHeader( "Expires", "Sat, 6 May 1995 12:00:00 GMT" );
-    response.setHeader( "Cache-Control", "no-store, no-cache, must-revalidate" );
-    response.addHeader( "Cache-Control", "post-check=0, pre-check=0" );
-    response.setHeader( "Pragma", "no-cache" ); %>
-
 <%@ page import="com.jivesoftware.base.JiveConstants,
                  com.jivesoftware.forum.ReadTracker,
                  com.jivesoftware.forum.stats.ViewCountManager,
@@ -37,9 +32,9 @@
 
 <div align="center">
     <div class="contentOut">
-        
 
-      <jsp:include page="top.jsp" />
+
+        <jsp:include page="top.jsp"/>
 
 
         <jsp:include page="topNav.jsp">
@@ -103,7 +98,7 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
                                 <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%>
                                     &#160;&#160;&#160;&#160;</td>
                                 <td class="rtThreadCell"><b>
-                                	<tc-webtag:format object="${thread.modificationDate}" format="MMM d, yyyy h:mm a z" timeZone="${sessionInfo.timezone}"/></b>
+                                    <tc-webtag:format object="${thread.modificationDate}" format="MMM d, yyyy h:mm a z" timeZone="${sessionInfo.timezone}"/></b>
                                 </td>
                                 <td class="rtThreadCell"><%if (latestMessage.getUser() != null) {%>
                                     <studio:handle coderId="<%=latestMessage.getUser().getID()%>"/><%}%></td>
