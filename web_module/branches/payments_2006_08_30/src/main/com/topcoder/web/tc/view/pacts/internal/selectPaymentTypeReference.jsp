@@ -30,6 +30,7 @@
                         <c:if test="${empty rounds}">                  
                             <c:if test="${not empty search}">                  
                                 The search returned no rows.  Please search again
+                                <br>
                             </c:if>
                           Enter search text for round name: <input type="text" name="search_text" />
                           <input type="button" value="search" onClick="search()" />

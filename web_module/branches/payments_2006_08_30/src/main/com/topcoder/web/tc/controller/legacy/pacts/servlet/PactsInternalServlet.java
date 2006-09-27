@@ -269,7 +269,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                     	String[] statusValues = request.getParameterValues(STATUS_CODE);
                     	String[] typeValues = request.getParameterValues(TYPE_CODE);
                     	String[] methodValues = request.getParameterValues(METHOD_CODE);
-                    	
+
                     	boolean checked = true;
                     	if (statusValues != null) {
 	                    	for (int i=0; i<statusValues.length; i++) {
@@ -286,7 +286,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 	                    		checked &= checkParam(INT_TYPE, methodValues[i], false, pp);
 	                    	}
                     	}
-                    	
+
                         if (
                         		checked
                                 && checkParam(DATE_TYPE, request.getParameter(EARLIEST_DUE_DATE), false, pp)
@@ -1252,12 +1252,12 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         // Give the JSP the list of Payment Types
         map = dib.getPaymentTypes();
-        request.setAttribute(PAYMENT_TYPE_LIST, map.get(PAYMENT_TYPE_LIST));        
-        
+        request.setAttribute(PAYMENT_TYPE_LIST, map.get(PAYMENT_TYPE_LIST));
+
         // Give the JSP the list of Payment Methods
         map = dib.getPaymentMethods();
         request.setAttribute(PAYMENT_METHOD_LIST, map.get(PAYMENT_METHOD_LIST));
-        
+
         // Give the JSP the list of Affidavit Statuss
         map = dib.getStatusCodes(PactsConstants.AFFIDAVIT_OBJ);
         request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
@@ -1403,7 +1403,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     */
     private void doAddPayment(HttpServletRequest request, HttpServletResponse response) throws Exception {
         log.debug("doAddPayment<br>");
-        
+
         if (request.getParameter(CONTRACT_ID) != null) {
             InternalDispatchContract bean =
                     new InternalDispatchContract(request, response);
@@ -1429,6 +1429,10 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     }
 
 
+    private long getLongParam(HttpServletRequest request, String paramName) {
+    	return request.getParameter("paramName") == null? 0 : Long.parseLong(request.getParameter("paramName"));
+    }
+    
     /*
     This method adds and links a payment.
 
@@ -1462,6 +1466,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         log.debug("due date: |" + request.getParameter("date_due") + "| default " + buf.toString());
 
         p.setDueDate(TCData.dateForm(request.getParameter("date_due"), buf.toString(), true));
+		p.getHeader().setAlgorithmRoundId(getLongParam(request, "algorithm_round_id"));
 
         DataInterfaceBean dib = new DataInterfaceBean();
 
@@ -2087,20 +2092,20 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         DataInterfaceBean dib = new DataInterfaceBean();
         dib.updateAffidavit(affidavit);
 
-        if (!affidavit.getHeader().isAffirmed() && 
+        if (!affidavit.getHeader().isAffirmed() &&
         		affidavit.getHeader().getStatusId() == AFFIDAVIT_AFFIRMED_STATUS) {
         	doAffirmAffidavitPost(request, response);
-        } else {        
+        } else {
 	        affidavit = bean.get();
-	
+
 	        request.setAttribute(PACTS_INTERNAL_RESULT, affidavit);
-	
+
 	        InternalDispatchNoteList notes =
 	                new InternalDispatchNoteList(request, response);
 	        Map search = new HashMap();
 	        search.put(AFFIDAVIT_ID, request.getParameter(AFFIDAVIT_ID));
 	        request.setAttribute(NOTE_HEADER_LIST, notes.get(search));
-	        
+
 	        forward(INTERNAL_AFFIDAVIT_JSP, request, response);
         }
     }
