@@ -76,7 +76,9 @@
                         <option value="<%=AOLHelper.INDIVIDUAL%>"><%=AOLHelper.INDIVIDUAL%> - SRM Results</option>
                         <option value="<%=AOLHelper.INDIVIDUAL%>"><%=AOLHelper.INDIVIDUAL%> - TCCC Algo Results</option>
                         <option value="<%=AOLHelper.INDIVIDUAL%>"><%=AOLHelper.INDIVIDUAL%> - Comp Results</option>
-                        <option value="<%=AOLHelper.TCCC_ANNOUNCEMENT%>"><%=AOLHelper.TCCC_ANNOUNCEMENT%></option>
+                        <%--
+                                                <option value="<%=AOLHelper.TCCC_ANNOUNCEMENT%>"><%=AOLHelper.TCCC_ANNOUNCEMENT%></option>
+                        --%>
                         <option value="<%=AOLHelper.TCCC_ONSITE_FINALS%>"><%=AOLHelper.TCCC_ONSITE_FINALS%></option>
                         <option value="<%=AOLHelper.TCCC_REMINDER%>"><%=AOLHelper.TCCC_REMINDER%></option>
                         <option value="<%=AOLHelper.COMPONENT_POSTING%>"><%=AOLHelper.COMPONENT_POSTING%></option>
