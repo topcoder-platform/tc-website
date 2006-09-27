@@ -52,6 +52,8 @@
             Add highest appeal percentage to the record book
         </li>
         <li>Add appeal data to member profile</li>
+        <li>Show handle colors on the problem details as whichever is greater between High School and regular algorithm
+            competitions.</li>
     </ul>
 </p>
 
