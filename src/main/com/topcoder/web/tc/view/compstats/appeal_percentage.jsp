@@ -25,7 +25,7 @@
             <tr class="<%=even?"dark":"light"%>">
                 <td class="valueC"><rsc:item name="rank" row="<%=row%>"/></td>
                 <td class="value"><tc-webtag:handle coderId='<%=row.getLongItem("user_id")%>' context='<%=type%>'/></td>
-                <td class="valueR"><rsc:item name="num_appeals" row="<%=row%>" format="0.00"/></td>
+                <td class="valueR"><rsc:item name="num_appeals" row="<%=row%>"/></td>
                 <td class="valueR"><rsc:item name="success_percentage" row="<%=row%>" format="0.00%"/></td>
             </tr>
             <% even = !even;%>
