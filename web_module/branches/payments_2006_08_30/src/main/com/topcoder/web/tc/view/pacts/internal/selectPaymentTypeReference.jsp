@@ -127,12 +127,12 @@
                      </c:when>                       
 
                      
-                     <c:when test="${refId == REFERENCE_DIGITAL_RUN_STAGE_ID}">
+                     <c:when test="${refId == DIGITAL_RUN_STAGE}">
                          <tc-webtag:rscSelect name="stage_id" list="${stages}" 
                                  fieldText="stage_desc" fieldValue="stage_id"                        
                                  useTopValue="false" />
                      </c:when>                       
-                     <c:when test="${refId == REFERENCE_DIGITAL_RUN_SEASON_ID}">
+                     <c:when test="${refId == DIGITAL_RUN_SEASON}">
                          <tc-webtag:rscSelect name="season_id" list="${seasons}" 
                                  fieldText="name" fieldValue="season_id"                         
                                  useTopValue="false" />
