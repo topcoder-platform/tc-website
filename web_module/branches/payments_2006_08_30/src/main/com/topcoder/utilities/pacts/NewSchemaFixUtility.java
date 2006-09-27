@@ -62,7 +62,7 @@ public class NewSchemaFixUtility extends DBUtility {
             PreparedStatement psSelRoomResult = prepareStatement("tcs_dw", query.toString());
 
             query = new StringBuffer(200);
-            query.append("insert into project_result_dw values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ");
+            query.append("insert into project_dw values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ");
             query.append("                                      ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ");
             query.append("                                      ?, ?, ?, ?, ?, ?, ?)");
             PreparedStatement psInsRoomResult = prepareStatement("informixoltp", query.toString());
