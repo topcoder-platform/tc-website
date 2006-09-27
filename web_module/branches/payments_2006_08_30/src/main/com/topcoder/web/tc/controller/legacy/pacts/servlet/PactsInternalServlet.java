@@ -1446,7 +1446,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSPs: "viewPayment.jsp" "viewContract.jsp"
     */
     private void doAddPaymentPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        log.debug("doAddPaymentPost<br>");
+        log.debug("doAddPaymentPost");
 
         String net = request.getParameter("net_amount");
         if (net == null || net.equals("")) net = "0";

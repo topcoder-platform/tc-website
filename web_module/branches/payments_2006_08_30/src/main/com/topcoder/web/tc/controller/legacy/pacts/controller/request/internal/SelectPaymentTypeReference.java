@@ -48,6 +48,11 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                         map = dib.findComponentContests("%" + search + "%");
                         getRequest().setAttribute(COMPONENT_CONTEST_LIST, map.get(COMPONENT_CONTEST_LIST));
                         break;
+
+                    case REFERENCE_STUDIO_CONTEST_ID:
+                        map = dib.findStudioContests("%" + search + "%");
+                        getRequest().setAttribute(STUDIO_CONTEST_LIST, map.get(STUDIO_CONTEST_LIST));
+                        break;
                 }
             } else {
                 // no search, for the references that have few fields.

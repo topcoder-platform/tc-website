@@ -5162,12 +5162,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     public Map findComponentContests(String search) throws SQLException {
         StringBuffer query = new StringBuffer(1000);
-        query.append(" select contest_id, event_name || ' - ' || contest_name as contest_desc");
+        query.append(" select contest_id, event_name || ' - ' || contest_name as contest_desc, c.start_date");
         query.append(" from contest c,");
         query.append(" event e");
         query.append(" where c.event_id = e.event_id");
         query.append(" and " + filterCondition ("event_name || ' - ' || contest_name", search));
-        query.append(" order by c.start_date");
+        query.append(" union ");
+        query.append(" select contest_id,  contest_name as contest_desc, c.start_date ");
+        query.append(" from contest c ");
+        query.append(" where c.event_id is null ");
+        query.append(" and " + filterCondition ("contest_name", search));
+        query.append(" order by start_date");
 
         ArrayList param = new ArrayList();
         param.add(search);

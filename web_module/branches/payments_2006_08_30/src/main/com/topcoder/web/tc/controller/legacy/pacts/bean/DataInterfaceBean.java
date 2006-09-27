@@ -1451,7 +1451,12 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.findComponentContests(search);
     }
-    
+
+    public Map findStudioContests(String search) throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.findStudioContests(search);
+    }
+
     public Map findRounds(String search, int []roundTypes) throws RemoteException, SQLException {
         PactsServices ps = getEjbHandle();
         return ps.findRounds(search,roundTypes);
