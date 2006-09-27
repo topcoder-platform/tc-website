@@ -794,6 +794,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                             message += "Net Amount was invalid.<br>\n";
                         if (!checkParam(DOUBLE_TYPE, request.getParameter("gross_amount"), true))
                             message += "Gross Amount was invalid.<br>\n";
+
                         if (message.length() == 0)
                             doAddPaymentPost(request, response);
                         else {

@@ -15,10 +15,17 @@
 <c:set var="stages" value="${requestScope.digital_run_stage_list}"/>
 <c:set var="seasons" value="${requestScope.digital_run_season_list}"/>
 <c:set var="rounds" value="${requestScope.algorithm_round_list}"/>
-<c:set var="refId" value="${requestScope.reference_id}"/>
+<c:set var="refId" value="${requestScope.reference_type_id}"/>
 <c:set var="search" value="${requestScope.search}"/>
 
 <c:set var="ALGORITHM_ROUND" value="<%= PactsConstants.REFERENCE_ALGORITHM_ROUND_ID + "" %>" />
+<c:set var="COMPONENT_PROJECT" value="<%= PactsConstants.REFERENCE_COMPONENT_PROJECT_ID + "" %>" />
+<c:set var="ALGORITHM_PROBLEM" value="<%= PactsConstants.REFERENCE_ALGORITHM_PROBLEM_ID + "" %>" />
+<c:set var="STUDIO_CONTEST" value="<%= PactsConstants.REFERENCE_STUDIO_CONTEST_ID + "" %>" />
+<c:set var="COMPONENT_CONTEST" value="<%= PactsConstants.REFERENCE_COMPONENT_CONTEST_ID + "" %>" />
+<c:set var="DIGITAL_RUN_STAGE" value="<%= PactsConstants.REFERENCE_DIGITAL_RUN_STAGE_ID + "" %>" />
+<c:set var="DIGITAL_RUN_SEASON" value="<%= PactsConstants.REFERENCE_DIGITAL_RUN_SEASON_ID + "" %>" />
+<c:set var="PARENT_PAYMENT" value="<%= PactsConstants.REFERENCE_PARENT_PAYMENT_ID + "" %>" />
 
 <taconite-root xml:space="preserve">
 
@@ -45,10 +52,22 @@
                         </c:if>                                  
                      </c:when>                       
                      
-                     <c:when test="${refId == 2}">
-                         <tc-webtag:rscSelect name="project_id" list="${projects}" 
-                                 fieldText="project_desc" fieldValue="project_id"                        
-                                 useTopValue="false" />
+                     <c:when test="${refId == COMPONENT_PROJECT}">
+                        <c:if test="${empty projects}">                  
+                          Enter search text for component name: <input type="text" name="search_text" value="${search}" />
+                          <input type="button" value="search" onClick="search()" />
+                            <c:if test="${not empty search}">          
+                                <font color="#FF0000">No projects found containing <c:out value="${search}"/>. </font>
+                            </c:if>
+                          <br/>
+                        </c:if>
+                        <c:if test="${not empty projects}">                   
+                             <tc-webtag:rscSelect name="project_id" list="${projects}" 
+                                     fieldText="project_desc" fieldValue="project_id"                        
+                                     useTopValue="false" />
+                             <input type="button" value="do another search" onClick="typeChanged()" />
+                        </c:if>                                  
+
                      </c:when>                       
                      <c:when test="${refId == 3}">
                          <tc-webtag:rscSelect name="problem_id" list="${problems}" 
