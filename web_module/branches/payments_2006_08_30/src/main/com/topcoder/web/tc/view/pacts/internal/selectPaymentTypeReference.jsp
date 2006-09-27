@@ -75,7 +75,7 @@
                      
                      
                      <c:when test="${refId == ALGORITHM_PROBLEM}">
-                        <c:if test="${empty projects}">                  
+                        <c:if test="${empty problems}">                  
                           Enter search text for problem name: <input type="text" name="search_text" value="${search}" />
                           <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty problems}">          

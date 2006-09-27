@@ -749,6 +749,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                             message += "Invalid parameter contract_type_id = " + request.getParameter("contract_type_id") + ".<br>\n";
                         if (!checkParam(NULL_STRING_TYPE, request.getParameter("text"), true))
                             message += "Required parameter missing: text.<br>\n";
+                        
+                        log.debug("missing_Reference:" + request.getParameter("missing_reference"));
                         if (request.getParameter("missing_reference") != null) {
                         	message += request.getParameter("missing_reference");
                         }

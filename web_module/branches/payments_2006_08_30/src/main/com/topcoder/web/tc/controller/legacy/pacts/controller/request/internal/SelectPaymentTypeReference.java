@@ -29,11 +29,6 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                         getRequest().setAttribute(ALGORITHM_PROBLEM_LIST, map.get(ALGORITHM_PROBLEM_LIST));
                         break;
 
-                    case REFERENCE_COMPONENT_PROJECT_ID:
-                        map = dib.findProjects("%" + search + "%");
-                        getRequest().setAttribute(COMPONENT_PROJECT_LIST, map.get(COMPONENT_PROJECT_LIST));
-                        break;
-
                     case REFERENCE_ALGORITHM_ROUND_ID:
                         if (type == ALGORITHM_CONTEST_PAYMENT) {
                             map = dib.findRounds("%" + search + "%", new int[] {1,2,3,17,18}); // fix values
@@ -42,6 +37,16 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                             map = dib.findRounds("%" + search + "%", new int[] {10,11,12}); // fix values
                         }
                         getRequest().setAttribute(ALGORITHM_ROUND_LIST, map.get(ALGORITHM_ROUND_LIST));
+                        break;
+
+                    case REFERENCE_COMPONENT_PROJECT_ID:
+                        map = dib.findProjects("%" + search + "%");
+                        getRequest().setAttribute(COMPONENT_PROJECT_LIST, map.get(COMPONENT_PROJECT_LIST));
+                        break;
+
+                    case REFERENCE_COMPONENT_CONTEST_ID:
+                        map = dib.findComponentContests("%" + search + "%");
+                        getRequest().setAttribute(COMPONENT_CONTEST_LIST, map.get(COMPONENT_CONTEST_LIST));
                         break;
                 }
             } else {
