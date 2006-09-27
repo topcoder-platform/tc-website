@@ -48,6 +48,9 @@
         <li>
             Address address3 and province information to PACTS
         </li>
+        <li>
+            Add highest appeal percentage to the record book
+        </li>
     </ul>
 </p>
 
