@@ -14,7 +14,6 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
 
     protected void businessProcessing() throws TCWebException {
         try {
-            log.debug("reference_type_id=" + getRequest().getParameter("reference_type_id"));
             int refId = Integer.parseInt(getRequest().getParameter("reference_type_id"));
             int type = Integer.parseInt(getRequest().getParameter("payment_type_id"));
             String search = getRequest().getParameter("search_text");

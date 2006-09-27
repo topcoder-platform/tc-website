@@ -37,7 +37,7 @@
                  <c:choose>
                      <c:when test="${refId == ALGORITHM_ROUND}">
                         <c:if test="${empty rounds}">    
-                          <input type="hidden" name="missing_reference" value="Please select a round for the payment">
+                          <input type="hidden" name="missing_reference" value="Please select a round for the payment"/>
                           Enter search text for round name: <input type="text" name="search_text" value="${search}" />
                           <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          
@@ -67,6 +67,8 @@
                                      fieldText="project_desc" fieldValue="project_id"                        
                                      useTopValue="false" />
                              <input type="button" value="do another search" onClick="typeChanged()" />
+                             <br/>
+                             <input type="text" name="client"/>
                         </c:if>                                  
 
                      </c:when>               
@@ -89,12 +91,12 @@
                         </c:if>                                  
                      </c:when>                       
                      
-                     <c:when test="${refId == 6}">
+                     <c:when test="${refId == REFERENCE_DIGITAL_RUN_STAGE_ID}">
                          <tc-webtag:rscSelect name="stage_id" list="${stages}" 
                                  fieldText="stage_desc" fieldValue="stage_id"                        
                                  useTopValue="false" />
                      </c:when>                       
-                     <c:when test="${refId == 7}">
+                     <c:when test="${refId == REFERENCE_DIGITAL_RUN_SEASON_ID}">
                          <tc-webtag:rscSelect name="season_id" list="${seasons}" 
                                  fieldText="name" fieldValue="season_id"                         
                                  useTopValue="false" />
