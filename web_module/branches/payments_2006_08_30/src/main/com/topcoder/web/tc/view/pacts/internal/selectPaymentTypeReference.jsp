@@ -18,7 +18,7 @@
 <c:set var="refId" value="${requestScope.reference_id}"/>
 <c:set var="search" value="${requestScope.search}"/>
 
-<c:set var="algorithmRound" value="<%= PactsConstants.REFERENCE_ALGORITHM_ROUND_ID %>" />
+<c:set var="algorithmRound" value="<%= PactsConstants.REFERENCE_ALGORITHM_ROUND_ID + "" %>" />
 
 <taconite-root xml:space="preserve">
 
