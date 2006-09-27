@@ -22,6 +22,7 @@ public class HandleTag extends TagSupport {
     private boolean design = false;
     private boolean development = false;
     private boolean component = false;
+    private boolean hsOrAlgorithm = false;
 
     public final static String DEFAULT_LINK = "/tc?module=MemberProfile&amp;cr=";
 
@@ -30,6 +31,7 @@ public class HandleTag extends TagSupport {
     public final static String DESIGN = "design";
     public final static String DEVELOPMENT = "development";
     public final static String COMPONENT = "component";
+    public final static String HS_OR_ALGORITHM = "hs_or_algorithm";
 
     private static final String[] lightStyles =
             {"coderTextOrange", "coderTextWhite", "coderTextGray",
@@ -73,6 +75,7 @@ public class HandleTag extends TagSupport {
         if (s.toLowerCase().trim().equals(DESIGN)) design = true;
         if (s.toLowerCase().trim().equals(DEVELOPMENT)) development = true;
         if (s.toLowerCase().trim().equals(COMPONENT)) component = true;
+        if (s.toLowerCase().trim().equals(HS_OR_ALGORITHM)) hsOrAlgorithm = true;
     }
 
     public int doStartTag() throws JspException {
@@ -130,6 +133,16 @@ public class HandleTag extends TagSupport {
                             output.append("&tab=dev");
                         }
                     }
+                } else if (hsOrAlgorithm) {
+                    if (rsc.getIntItem(0, "algorithm_rating") >= rsc.getIntItem(0, "hs_algorithm_rating")) {
+                        if (rsc.getIntItem(0, "algorithm_rating") > 0) {
+                            output.append("&tab=alg");
+                        }
+                    } else {
+                        if (rsc.getIntItem(0, "hs_algorithm_rating") > 0) {
+                            output.append("&tab=hs");
+                        }
+                    }
                 }
                 output.append("\" class=\"");
 
@@ -148,6 +161,9 @@ public class HandleTag extends TagSupport {
                     } else if (component) {
                         rating = max(rsc.getIntItem(0, "design_rating"),
                                 rsc.getIntItem(0, "development_rating"));
+                    } else if (hsOrAlgorithm) {
+                        rating = max(rsc.getIntItem(0, "hs_algorithm_rating"),
+                                rsc.getIntItem(0, "algorithm_rating"));
                     } else {
                         // special case for admins
                         if (rsc.getIntItem(0, "algorithm_rating") < 0) rating = rsc.getIntItem(0, "algorithm_rating");
@@ -215,6 +231,7 @@ public class HandleTag extends TagSupport {
         design = false;
         development = false;
         component = false;
+        hsOrAlgorithm = false;
         return super.doEndTag();
     }
 
