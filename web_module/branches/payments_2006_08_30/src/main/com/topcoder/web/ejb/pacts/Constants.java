@@ -1,5 +1,8 @@
 package com.topcoder.web.ejb.pacts;
 
+/**
+ * Constants for PACTS.
+ */
 public interface Constants {
 
     public static final int ALGORITHM_CONTEST_PAYMENT = 1;
