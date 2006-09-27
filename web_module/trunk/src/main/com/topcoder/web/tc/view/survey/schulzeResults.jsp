@@ -72,7 +72,7 @@
             font-size: 10px;
             text-align: center;
             background-color: #FFFFFF;
-            visibility: hidden;
+            display: none;
             margin: 0px;
             padding: 3px;
             position: absolute;
@@ -89,10 +89,10 @@
     function popUp(event,objectID){
     objPopTrig = document.getElementById(event);
     objPopUp = document.getElementById(objectID);
-    objPopUp.style.visibility = 'visible';
+    objPopUp.style.display = 'block';
     }
     function popHide(){
-    objPopUp.style.visibility = 'hidden';
+    objPopUp.style.display = 'none';
     objPopUp = null;
     }
         -->
