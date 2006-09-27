@@ -12,7 +12,8 @@
 
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.NoteHeader" %>
 
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants"%><%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.UserProfile"%>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants" %>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.UserProfile" %>
 <%
     UserProfile user = (UserProfile)
             request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT);
@@ -75,6 +76,11 @@
     </tr>
 
     <tr>
+        <td><b>Address 3:</b></td>
+        <% out.print("<td>" + user.getAddress3() + "</td>\n");
+        %>
+    </tr>
+    <tr>
         <td><b>City:</b></td>
         <% out.print("<td>" + user.getCity() + "</td>\n");
         %>
@@ -93,6 +99,11 @@
     </tr>
 
     <tr>
+        <td><b>Province:</b></td>
+        <% out.print("<td>" + user.getProvince() + "</td>\n");
+        %>
+    </tr>
+    <tr>
         <td><b>Country:</b></td>
         <% out.print("<td>" + user.getCountry() + "</td><td>(" + user.getCountryCode() + ")</td>\n");
         %>
@@ -103,11 +114,6 @@
         <% out.print("<td>" + user.getHomePhone() + "</td>\n");
         %>
     </tr>
-
-    <td><b>Work Phone:</b></td>
-    <% out.print("<td>" + user.getWorkPhone() + "</td>\n");
-    %>
-</tr>
 
 
 </table>
@@ -127,6 +133,7 @@
 <p>
 
     <%
+
         out.println("<a href=\"" + PactsConstants.INTERNAL_SERVLET_URL + "?");
         out.print(PactsConstants.TASK_STRING + "=" + PactsConstants.LIST_TASK + "&");
         out.println(PactsConstants.CMD_STRING + "=" + PactsConstants.PAYMENT_CMD + "&");
@@ -190,6 +197,7 @@
         out.println(PactsConstants.CMD_STRING + "=" + PactsConstants.USER_TAX_FORM_CMD + "&");
         out.println(PactsConstants.USER_ID + "=" + user.getHeader().getId());
         out.println("\">Add Tax Form</a><br>");
+
     %>
 
 
