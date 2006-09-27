@@ -61,9 +61,9 @@
  
 
 <p>
-<tc-webtag:handle coderId="10574855" context="hs_algorithm"/> and <tc-webtag:handle coderId="19849563" context="hs_algorithm"/>
+<tc-webtag:handle coderId="10574855" context="algorithm"/> and <tc-webtag:handle coderId="19849563" context="algorithm"/>
 turned the first round of the TCCC into a close race. 
-<tc-webtag:handle coderId="19849563" context="hs_algorithm"/> won the coding phase with 1180 points, against <tc-webtag:handle coderId="10574855" context="hs_algorithm"/>'s 1150, and won the challenge phase with 100 points against  <tc-webtag:handle coderId="10574855" context="hs_algorithm"/>'s 75, securing the top spot and passing the 3000+ rating mark. 
+<tc-webtag:handle coderId="19849563" context="algorithm"/> won the coding phase with 1180 points, against <tc-webtag:handle coderId="10574855" context="algorithm"/>'s 1150, and won the challenge phase with 100 points against  <tc-webtag:handle coderId="10574855" context="algorithm"/>'s 75, securing the top spot and passing the 3000+ rating mark. 
 He is only the 19th coder in TopCoder history to reach this milestone.</p>
  
 
