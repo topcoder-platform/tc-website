@@ -24,6 +24,10 @@ import com.topcoder.web.ejb.pacts.AlgorithmContestPayment;
 import com.topcoder.web.ejb.pacts.CharityPayment;
 import com.topcoder.web.ejb.pacts.PactsClientServices;
 import com.topcoder.web.ejb.pacts.PactsClientServicesHome;
+import com.topcoder.web.ejb.pacts.ComponentWinningPayment;
+import com.topcoder.web.ejb.pacts.ComponentTournamentBonusPayment;
+
+
 
 /**
  * <strong>Purpose</strong>:
@@ -90,6 +94,9 @@ public class NewSchemaFixUtility extends DBUtility {
             //processRoomResultConflicts();
 //            processRoomResultCharities();
             
+            processCompCompetitions();
+            processCompContests();
+            
 /*            processRoyalties();
             
             rs = psSelPaymentDetails.executeQuery();
@@ -111,6 +118,67 @@ public class NewSchemaFixUtility extends DBUtility {
             DBMS.close(psUpd);
         }
     }
+
+    private void processCompCompetitions() throws SQLException, RemoteException {
+        StringBuffer query = new StringBuffer(200);
+        query.append("select project_result_dw.user_id, project_result_dw.payment, "); 
+        query.append("p.project_id, project_result_dw.placed from project_result_dw, project_dw p ");
+        query.append("where p.project_id = project_result_dw.project_id and payment > 0 ");
+        query.append("and p.status_id not in (1, 3) ");
+        query.append("and p.project_id not in ");
+        query.append("(select component_project_id from payment_detail ");
+        query.append("where payment_type_id = 6 and status_id <> 69 and component_project_id is not null) ");
+
+        PreparedStatement psSelCompCompetitions = prepareStatement("informixoltp", query.toString());
+        log.debug("Processing component competitions:");
+
+        ResultSet rs = null;
+        try {            
+            rs = psSelCompCompetitions.executeQuery();
+            int i = 1;
+            for (; rs.next(); i++ ) {
+                pcs.addPayment(new ComponentWinningPayment(
+                        rs.getLong("user_id"),
+                        rs.getDouble("payment"),
+                        rs.getLong("project_id"),
+                        rs.getInt("placed")));
+                if (i % 100 == 0) {
+                    log.debug(i + "...");
+                }
+            }
+            log.debug(i + " rows were processed...");
+        } finally {
+          DBMS.close(rs);
+        }
+    }
+
+    private void processCompContests() throws SQLException, RemoteException {
+        StringBuffer query = new StringBuffer(200);
+        query.append("select user_id, prize_payment, contest_id, place from user_contest_prize_dw");
+
+        PreparedStatement psSelCompCompetitions = prepareStatement("informixoltp", query.toString());
+        log.debug("Processing component competitions:");
+
+        ResultSet rs = null;
+        try {            
+            rs = psSelCompCompetitions.executeQuery();
+            int i = 1;
+            for (; rs.next(); i++ ) {
+                pcs.addPayment(new ComponentTournamentBonusPayment(
+                        rs.getLong("user_id"),
+                        rs.getDouble("prize_payment"),
+                        rs.getLong("contest_id"),
+                        rs.getInt("place")));
+                if (i % 10 == 0) {
+                    log.debug(i + "...");
+                }
+            }
+            log.debug(i + " rows were processed...");
+        } finally {
+          DBMS.close(rs);
+        }
+    }
+
 
     private void processRoomResultConflicts() throws SQLException, RemoteException {
         StringBuffer query = new StringBuffer(200);
