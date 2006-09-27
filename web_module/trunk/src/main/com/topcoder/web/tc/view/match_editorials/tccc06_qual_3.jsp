@@ -88,7 +88,7 @@ The Problems
 </font> 
 
 <A href="Javascript:openProblemRating(6719)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
-
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506103" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 <br> 
 
 Used as: Division One - Level One: <blockquote><table cellspacing="2"> 
@@ -206,7 +206,7 @@ When we found the missing element, we add it to the array, sort the resulting ar
 </font> 
 
 <A href="Javascript:openProblemRating(6682)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
-
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506103" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 <br> 
 
 Used as: Division One - Level Two: <blockquote><table cellspacing="2"> 
@@ -346,6 +346,7 @@ Having this method, the implementation becomes easy:
 </font> 
 
 <A href="Javascript:openProblemRating(6163)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506103" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 
 <br> 
 
