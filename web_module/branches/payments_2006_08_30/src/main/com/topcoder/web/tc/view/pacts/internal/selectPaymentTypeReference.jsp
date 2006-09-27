@@ -19,21 +19,24 @@
 
 <taconite-root xml:space="preserve">
 
-	<taconite-replace contextNodeID="selectReference" parseInBrowser="true">
+    <taconite-replace contextNodeID="selectReference" parseInBrowser="true">
         <c:if test="${refId >= 0}">
           <tr id="selectReference">
               <td><b>Reference:</b></td>
               <td>
                  <c:choose>
                      <c:when test="${refId == 1}">
-		                  Enter search text for round name: <input type="text" name="search_text" />
-		                  <input type="button" value="search" onClick="search()" />
-		                  <br/>
-						<c:if test="${not empty rounds}">					
-	                         <tc-webtag:rscSelect name="round_id" list="${rounds}" 
-	                                 fieldText="round_desc" fieldValue="round_id"                        
-	                                 useTopValue="false" />
-	                    </c:if>	                                 
+                        <c:if test="${empty rounds}">                  
+                          Enter search text for round name: <input type="text" name="search_text" />
+                          <input type="button" value="search" onClick="search()" />
+                          <br/>
+                        </c:if>
+                        <c:if test="${not empty rounds}">                   
+                             <tc-webtag:rscSelect name="round_id" list="${rounds}" 
+                                     fieldText="round_desc" fieldValue="round_id"                        
+                                     useTopValue="false" />
+                             <input type="button" value="do another search" onClick="typeChanged()" />
+                        </c:if>                                  
                      </c:when>                       
                      
                      <c:when test="${refId == 2}">
