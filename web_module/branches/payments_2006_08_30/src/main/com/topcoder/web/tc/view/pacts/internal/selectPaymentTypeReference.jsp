@@ -49,13 +49,14 @@
                         <c:if test="${not empty rounds}">                   
                              <tc-webtag:rscSelect name="algorithm_round_id" list="${rounds}" 
                                      fieldText="round_desc" fieldValue="round_id"                        
-                                     useTopValue="false" />
+                                     useTopValue="false" onChange="referenceChanged()" />
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>                                  
                      </c:when>                       
                      
                      <c:when test="${refId == COMPONENT_PROJECT}">
-                        <c:if test="${empty projects}">                  
+                        <c:if test="${empty projects}">           
+                        <input type="hidden" name="missing_reference" value="Please select a component for the payment"/>
                           Enter search text for component name: <input type="text" name="search_text" value="${search}" />
                           <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          
@@ -76,7 +77,8 @@
                      
                      
                      <c:when test="${refId == ALGORITHM_PROBLEM}">
-                        <c:if test="${empty projects}">                  
+                        <c:if test="${empty problems}">             
+                        <input type="hidden" name="missing_reference" value="Please select a problem for the payment"/>
                           Enter search text for problem name: <input type="text" name="search_text" value="${search}" />
                           <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          
@@ -93,7 +95,8 @@
                      </c:when>                       
 
                      <c:when test="${refId == STUDIO_CONTEST}">
-                        <c:if test="${empty studioContests}">                  
+                        <c:if test="${empty studioContests}">
+                        <input type="hidden" name="missing_reference" value="Please select a studio contest for the payment"/>                        
                           Enter search text for studio contest name: <input type="text" name="search_text" value="${search}" />
                           <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          
@@ -111,6 +114,7 @@
 
                      <c:when test="${refId == COMPONENT_CONTEST}">
                         <c:if test="${empty componentContests}">                  
+                            <input type="hidden" name="missing_reference" value="Please select a component contest for the payment"/>                        
                           Enter search text for component contest name: <input type="text" name="search_text" value="${search}" />
                           <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          

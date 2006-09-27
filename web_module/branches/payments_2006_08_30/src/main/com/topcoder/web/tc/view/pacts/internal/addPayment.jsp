@@ -35,6 +35,12 @@ function typeChanged() {
     ajaxRequest.sendRequest();
 }
 
+function referenceChanged() {
+    var ajaxRequest = new AjaxRequest('/pacts/internal/lookupPaymentData.jsp');
+    ajaxRequest.setEchoDebugInfo();
+    ajaxRequest.sendRequest();
+}
+
 function search() {
     var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
     document.f.reference_type_id.value = types[document.f.payment_type_id.selectedIndex];
@@ -52,7 +58,7 @@ function search() {
 
 </head>
 
-<body>
+<body onLoad="typeChanged()">
 
 <%
     String contract_id_string = request.getParameter(PactsConstants.CONTRACT_ID);
@@ -199,9 +205,9 @@ types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -
                     
                     <br/>
                     <input type="radio" name="special_type" value="0" checked>Normal</radio>
-                    <input type="radio" name="special_type" value="1" checked>Charity</radio>
-                    <input type="radio" name="special_type" value="2" checked>Reliability</radio>
-                    <input type="radio" name="special_type" value="3" checked>Referral</radio>
+                    <input type="radio" name="special_type" value="1">Charity</radio>
+                    <input type="radio" name="special_type" value="2">Reliability</radio>
+                    <input type="radio" name="special_type" value="3">Referral</radio>
         </td>
         </tr>
         <tr id="selectReference"> <td></td><td></td></tr>
@@ -224,19 +230,19 @@ types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -
         </tr>
         <tr>
         <td><b>Description:</b></td><td>
-        <input type=text width=25 name="payment_desc" value="<%= desc %>">
+        <input type=text width="50" name="payment_desc" value="<%= desc %>">
         </td></tr>
         <tr>
             <td><b>Gross Amount:</b></td><td>
-            <input type=text width=25 name="gross_amount" value="<%= gross %>">
+            <input type=text width="8" name="gross_amount" value="<%= gross %>">
             </td></tr>
             <tr>
             <td><b>Net Amount:</b></td><td>
-            <input type=text width=25 name="net_amount" value="<%= net %>"> (if left blank, calculated from Gross Amount)
+            <input type=text width="8" name="net_amount" value="<%= net %>"> (if left blank, calculated from Gross Amount)
             </td></tr>
             <tr>
             <td><b>Date Due:</b></td><td>
-            <input type=text width=25 name="date_due" id="date_due" value="<%= due %>"> 
+            <input type=text width="12" name="date_due" id="date_due" value="<%= due %>"> 
                 <button id="trigger_date_due">Set</button>
             (if left blank, 2 weeks from now)
             </td>
