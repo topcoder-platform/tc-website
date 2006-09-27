@@ -12,7 +12,8 @@
 
 <taconite-root xml:space="preserve">
 
- <taconite-replace-children parseInBrowser="true"> 
+ <taconite-replace-children contextNodeID="runJS" parseInBrowser="true"> 
+    <
    <script type="text/javascript">
         document.f.payment_desc.value = 'hi description!';
     </script>
