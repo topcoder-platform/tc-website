@@ -16,6 +16,7 @@
 <c:set var="seasons" value="${requestScope.digital_run_season_list}"/>
 <c:set var="rounds" value="${requestScope.algorithm_round_list}"/>
 <c:set var="refId" value="${requestScope.reference_id}"/>
+<c:set var="search" value="${requestScope.search}"/>
 
 <taconite-root xml:space="preserve">
 
@@ -27,12 +28,15 @@
                  <c:choose>
                      <c:when test="${refId == 1}">
                         <c:if test="${empty rounds}">                  
+                            <c:if test="${not empty search}">                  
+                                The search returned no rows.  Please search again
+                            </c:if>
                           Enter search text for round name: <input type="text" name="search_text" />
                           <input type="button" value="search" onClick="search()" />
                           <br/>
                         </c:if>
                         <c:if test="${not empty rounds}">                   
-                             <tc-webtag:rscSelect name="round_id" list="${rounds}" 
+                             <tc-webtag:rscSelect name="algorithm_round_id" list="${rounds}" 
                                      fieldText="round_desc" fieldValue="round_id"                        
                                      useTopValue="false" />
                              <input type="button" value="do another search" onClick="typeChanged()" />
