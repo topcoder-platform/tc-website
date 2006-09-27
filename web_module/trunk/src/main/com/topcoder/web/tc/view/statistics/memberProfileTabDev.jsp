@@ -238,6 +238,9 @@
     <td class="statLt" align="right">
         <rsc:item name="win_percent" set="<%=rscTotalData%>" format="0.00%" ifNull="n/a"/></td>
 </tr>
+<tr><td colspan="4">* Only those appeals made on projects posted on or after March 16, 2006 are included (TopCoder did
+    not collect
+    the relevant data prior to that date)</td></tr>
 </table>
 </td>
 </tr>
@@ -287,7 +290,5 @@
         </SCRIPT>
     </td>
 </tr>
-<tr><td colspan="2">* Only those appeals made on projects posted on or after March 16, 2006 are included (TopCoder did
-    not collect
-    the relevant data prior to that date)</td></tr>
+
 </table>
