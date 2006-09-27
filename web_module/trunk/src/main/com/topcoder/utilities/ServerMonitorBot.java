@@ -8,6 +8,7 @@ package com.topcoder.utilities;
 
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.io.File;
 import java.io.InputStream;
@@ -16,6 +17,7 @@ import java.io.InputStream;
  * @author rfairfax
  */
 public class ServerMonitorBot {
+    private static final Logger log = Logger.getLogger(ServerMonitorBot.class);
 
     /**
      * Creates a new instance of ServerMonitorBot
@@ -40,7 +42,7 @@ public class ServerMonitorBot {
             try {
                 Runtime r = Runtime.getRuntime();
 
-                System.out.println("STARTING");
+                log.info("STARTING");
                 String[] callAndArgs = {"wget",
                         "http://www.topcoder.com",
                         "--header=Host: www.topcoder.com",
@@ -55,20 +57,19 @@ public class ServerMonitorBot {
                 p.destroy();
 
 
-                System.out.println("1:" + ret);
-                System.out.println(p.exitValue());
+                log.info("1:" + ret + "\n" + p.exitValue());
 
                 if (ret.indexOf("failed") != -1) {
                     if (fiveone) {
                         fiveone = false;
-                        System.out.println("FAILED, SENDING MAIL");
+                        log.warn("FAILED, SENDING MAIL");
                         addError("connection to wwww.topcoder.com failed");
                         sendError();
                     }
                 } else if (ret.indexOf("200 OK") == -1) {
                     if (fiveone) {
                         fiveone = false;
-                        System.out.println("FAILED, SENDING MAIL");
+                        log.warn("FAILED, SENDING MAIL");
                         addError("response from wwww.topcoder.com failed");
                         addErrorLarge(ret);
                         sendError();
@@ -82,7 +83,7 @@ public class ServerMonitorBot {
                     File f = new File("index.html");
                     f.delete();
                 } catch (Exception e) {
-                    System.out.println("error deleting index.html" + e.getMessage());
+                    log.debug("error deleting index.html" + e.getMessage());
                 }
 
                 String[] callAndArgs2 = {"wget",
@@ -97,20 +98,19 @@ public class ServerMonitorBot {
                 ret = getData(p.getErrorStream());
                 p.destroy();
 
-                System.out.println("2:" + ret);
-                System.out.println(p.exitValue());
+                log.info("2:" + ret + "\n" + p.exitValue());
 
                 if (ret.indexOf("failed") != -1) {
                     if (software) {
                         software = false;
-                        System.out.println("FAILED, SENDING MAIL");
+                        log.warn("FAILED, SENDING MAIL");
                         addError("connection to 12.151 failed");
                         sendError();
                     }
                 } else if (ret.indexOf("200 OK") == -1) {
                     if (software) {
                         software = false;
-                        System.out.println("FAILED, SENDING MAIL");
+                        log.warn("FAILED, SENDING MAIL");
                         addError("response from 12.151 failed");
                         addError(ret);
                         sendError();
@@ -123,7 +123,7 @@ public class ServerMonitorBot {
                     File f = new File("index.jsp");
                     f.delete();
                 } catch (Exception e) {
-                    System.out.println("error deleting index.jsp" + e.getMessage());
+                    log.debug("error deleting index.jsp" + e.getMessage());
                 }
 
                 String[] callAndArgs3 = {"wget",
@@ -138,20 +138,19 @@ public class ServerMonitorBot {
                 ret = getData(p.getErrorStream());
                 p.destroy();
 
-                System.out.println("2:" + ret);
-                System.out.println(p.exitValue());
+                log.info("2:" + ret + "\n" + p.exitValue());
 
                 if (ret.indexOf("failed") != -1) {
                     if (forums) {
                         forums = false;
-                        System.out.println("FAILED, SENDING MAIL");
+                        log.warn("FAILED, SENDING MAIL");
                         addError("connection to forums failed");
                         sendError();
                     }
                 } else if (ret.indexOf("200 OK") == -1) {
                     if (forums) {
                         forums = false;
-                        System.out.println("FAILED, SENDING MAIL");
+                        log.warn("FAILED, SENDING MAIL");
                         addError("response from forums failed");
                         addError(ret);
                         sendError();
@@ -164,7 +163,7 @@ public class ServerMonitorBot {
                     File f = new File("index.html?module=Main");
                     f.delete();
                 } catch (Exception e) {
-                    System.out.println("error deleting index.html" + e.getMessage());
+                    log.debug("error deleting index.html" + e.getMessage());
                 }
 
                 String[] callAndArgs4 = {"wget",
@@ -179,20 +178,19 @@ public class ServerMonitorBot {
                 ret = getData(p.getErrorStream());
                 p.destroy();
 
-                System.out.println("2:" + ret);
-                System.out.println(p.exitValue());
+                log.info("2:" + ret + "\n" + p.exitValue());
 
                 if (ret.indexOf("failed") != -1) {
                     if (studio) {
                         studio = false;
-                        System.out.println("FAILED, SENDING MAIL");
+                        log.warn("FAILED, SENDING MAIL");
                         addError("connection to studio failed");
                         sendError();
                     }
                 } else if (ret.indexOf("200 OK") == -1) {
                     if (studio) {
                         studio = false;
-                        System.out.println("FAILED, SENDING MAIL");
+                        log.warn("FAILED, SENDING MAIL");
                         addError("response from studio failed");
                         addError(ret);
                         sendError();
@@ -205,7 +203,7 @@ public class ServerMonitorBot {
                     File f = new File("index.html");
                     f.delete();
                 } catch (Exception e) {
-                    System.out.println("error deleting index.html" + e.getMessage());
+                    log.debug("error deleting index.html" + e.getMessage());
                 }
 
 
@@ -235,7 +233,7 @@ public class ServerMonitorBot {
     private static String errorTextLarge = "";
 
     public static void addError(String message) {
-        System.out.println("ADDING ERROR");
+        log.info("ADDING ERROR");
         errorText += message + "\n";
         errorTextLarge += message + "\n";
     }
@@ -246,7 +244,7 @@ public class ServerMonitorBot {
 
     public void sendError() {
         if (!errorText.equals("")) {
-            System.out.println("SENDING ERROR LOG");
+            log.info("SENDING ERROR LOG");
             try {
                 TCSEmailMessage em = new TCSEmailMessage();
                 em.addToAddress("8609182841@mmode.com", TCSEmailMessage.TO);
@@ -279,7 +277,7 @@ public class ServerMonitorBot {
 
                 EmailEngine.send(em);
             } catch (Exception e) {
-                System.out.println("HERE" + e.getClass());
+                log.error("HERE" + e.getClass());
                 e.printStackTrace();
             }
         }
