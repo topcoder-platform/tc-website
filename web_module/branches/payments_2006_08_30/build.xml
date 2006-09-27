@@ -334,7 +334,6 @@
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/*Payment.class"/>
                         <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/Constants.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/PactsClient*.class"/>
-            <metainf dir="${java}/com/topcoder/web/ejb/pacts" includes="*.xml"/>
         </jar>
     </target>
 
