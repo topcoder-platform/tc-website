@@ -68,6 +68,11 @@
                                      useTopValue="false" />
                              <input type="button" value="do another search" onClick="typeChanged()" />
                              <br/>
+                      </td>
+                    </tr>
+                  <td><b>Client:</b></td>
+                  <td>
+
                              <input type="text" name="client"/>
                         </c:if>                                  
 
@@ -75,7 +80,7 @@
                      
                      
                      <c:when test="${refId == ALGORITHM_PROBLEM}">
-                        <c:if test="${empty problems}">                  
+                        <c:if test="${empty projects}">                  
                           Enter search text for problem name: <input type="text" name="search_text" value="${search}" />
                           <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty problems}">          
