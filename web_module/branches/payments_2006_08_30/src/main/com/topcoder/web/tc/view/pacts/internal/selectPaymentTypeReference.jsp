@@ -18,6 +18,8 @@
 <c:set var="refId" value="${requestScope.reference_id}"/>
 <c:set var="search" value="${requestScope.search}"/>
 
+<c:set var="algorithmRound" value="<%= PactsConstants.REFERENCE_ALGORITHM_ROUND_ID %>" />
+
 <taconite-root xml:space="preserve">
 
     <taconite-replace contextNodeID="selectReference" parseInBrowser="true">
@@ -26,13 +28,13 @@
               <td><b>Reference:</b></td>
               <td>
                  <c:choose>
-                     <c:when test="${refId == 1}">
+                     <c:when test="${refId == algorithmRound}">
                         <c:if test="${empty rounds}">                  
-                            <c:if test="${not empty search}">                  
-                                The search returned no rows.  Please search again
-                                <br>
+                          Enter search text for round name: <input type="text" name="search_text" value="${search}" />
+                            <c:if test="${not empty search}">          
+                                <font color="#FF0000">No rounds found containing <c:out value="${search}"/>. </font>
                             </c:if>
-                          Enter search text for round name: <input type="text" name="search_text" />
+
                           <input type="button" value="search" onClick="search()" />
                           <br/>
                         </c:if>

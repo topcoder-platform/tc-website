@@ -1468,7 +1468,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         p.setDueDate(TCData.dateForm(request.getParameter("date_due"), buf.toString(), true));
 		p.getHeader().setAlgorithmRoundId(getLongParam(request, "algorithm_round_id"));
 
-        DataInterfaceBean dib = new DataInterfaceBean();
+		DataInterfaceBean dib = new DataInterfaceBean();
 
         if (request.getParameter(CONTRACT_ID) != null) {
             long contract_id = Long.parseLong(request.getParameter(CONTRACT_ID));

@@ -211,7 +211,8 @@ types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -
                     useTopValue="false" onChange="typeChanged()" />        
         </td>
         </tr>
-        <tr id="selectReference"> <td><b></b></td><td></td></tr>
+        <tr id="selectReference"> <td>
+        <input type="hidden" name="algorithm_round_id" value="INITIAL"></td><td></td></tr>
         <tr>
             <td><b>Method:</b></td><td>
             <tc-webtag:rscSelect name="payment_method_id" list="<%=paymentMethods%>" 
