@@ -506,7 +506,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("pd.payment_method_id, pm.payment_method_desc, ");
         selectPaymentDetails.append("pa.first_name, pa.middle_name, pa.last_name, pa.address1, ");
         selectPaymentDetails.append("pa.address2, pa.city, pa.state_code, pa.zip, pa.country_code, ");
-        selectPaymentDetails.append("state.state_name, country.country_name, pd.date_modified, pd.date_due ");
+        selectPaymentDetails.append("state.state_name, country.country_name, pd.date_modified, pd.date_due, pa.address3, pa.province ");
         selectPaymentDetails.append("FROM payment p, payment_detail pd, status_lu s, ");
         selectPaymentDetails.append("modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentDetails.append("OUTER(payment_address pa, OUTER state, OUTER country) ");
@@ -542,7 +542,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("pd.payment_method_id, pm.payment_method_desc, ");
         selectPaymentDetails.append("pa.first_name, pa.middle_name, pa.last_name, pa.address1, ");
         selectPaymentDetails.append("pa.address2, pa.city, pa.state_code, pa.zip, pa.country_code, ");
-        selectPaymentDetails.append("state.state_name, country.country_name, pd.date_modified, pd.date_due ");
+        selectPaymentDetails.append("state.state_name, country.country_name, pd.date_modified, pd.date_due, pa.address3, pa.province ");
         selectPaymentDetails.append("FROM payment p, payment_detail_xref pdx, payment_detail pd, ");
         selectPaymentDetails.append("status_lu s, modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentDetails.append("OUTER(payment_address pa, OUTER state, OUTER country) ");
@@ -596,7 +596,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             StringBuffer selectCoderAddress = new StringBuffer(300);
             selectCoderAddress.append("SELECT a.country_code, a.zip, a.state_code, a.city, ");
             selectCoderAddress.append("a.address1, a.address2, u.first_name, u.middle_name, ");
-            selectCoderAddress.append("u.last_name, state.state_name, country.country_name ");
+            selectCoderAddress.append("u.last_name, state.state_name, country.country_name, a.address3, a.province ");
             selectCoderAddress.append("FROM coder c, address a, user_address_xref x, OUTER state, OUTER country, user u ");
             selectCoderAddress.append("WHERE c.coder_id = " + userId + " ");
             selectCoderAddress.append("AND state.state_code = a.state_code ");
@@ -635,7 +635,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectDetails.append("SELECT e.address as email, p.phone_number as work_phone, p.phone_number as home_phone, a.country_code, a.zip, ");
         selectDetails.append("a.state_code, a.city, a.address1, a.address2, u.first_name, u.middle_name, ");
         selectDetails.append("u.last_name, state.state_name, country.country_name, ");
-        selectDetails.append("c.coder_type_id, ct.coder_type_desc ");
+        selectDetails.append("c.coder_type_id, ct.coder_type_desc, a.address3, a.province ");
         selectDetails.append("FROM coder c, user u, email e, coder_type ct, OUTER state, OUTER country, phone p, address a, user_address_xref x ");
         selectDetails.append("WHERE c.coder_id = " + userId + " ");
         selectDetails.append("AND u.user_id = " + userId + " ");
@@ -895,11 +895,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the list of payment details of the given type(s) for the given user.
      *
-     * @param userId The coder ID of the payments.
+     * @param userId       The coder ID of the payments.
+     * @param paymentTypes The payment type(s) to filter on.
+     * @param pendingOnly  True if only details which are pending, owed, or on hold should be returned.
      * @return The payment header list.
      * @throws SQLException If there is some problem retrieving the data
-     * @param    paymentTypes The payment type(s) to filter on.
-     * @param    pendingOnly True if only details which are pending, owed, or on hold should be returned.
      */
     public Map getUserPaymentDetailsList(long userId, int[] paymentTypes, boolean pendingOnly) throws SQLException {
         String paymentTypeList = makeList(paymentTypes);
@@ -911,7 +911,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("pd.payment_method_id, pm.payment_method_desc, ");
         selectPaymentDetails.append("pa.first_name, pa.middle_name, pa.last_name, pa.address1, ");
         selectPaymentDetails.append("pa.address2, pa.city, pa.state_code, pa.zip, pa.country_code, ");
-        selectPaymentDetails.append("state.state_name, country.country_name, pd.date_modified, pd.date_due ");
+        selectPaymentDetails.append("state.state_name, country.country_name, pd.date_modified, pd.date_due, a.address3, a.province ");
         selectPaymentDetails.append("FROM payment p, payment_detail pd, status_lu s, ");
         selectPaymentDetails.append("modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentDetails.append("OUTER(payment_address pa, OUTER state, OUTER country) ");
@@ -980,7 +980,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             StringBuffer selectCoderAddress = new StringBuffer(300);
             selectCoderAddress.append("SELECT a.country_code, a.zip, a.state_code, a.city, ");
             selectCoderAddress.append("a.address1, a.address2, u.first_name, u.middle_name, ");
-            selectCoderAddress.append("u.last_name, state.state_name, country.country_name ");
+            selectCoderAddress.append("u.last_name, state.state_name, country.country_name, a.address3, a.province ");
             selectCoderAddress.append("FROM coder c, address a, user_address_xref x, OUTER state, OUTER country, user u ");
             selectCoderAddress.append("WHERE c.coder_id = " + userId + " ");
             selectCoderAddress.append("AND state.state_code = a.state_code ");
@@ -2432,7 +2432,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 StringBuffer selectAddress = new StringBuffer(300);
                 selectAddress.append("SELECT a.country_code, a.zip, a.state_code, a.city, ");
                 selectAddress.append("a.address1, a.address2, u.first_name, u.middle_name, ");
-                selectAddress.append("u.last_name, state.state_name, country.country_name ");
+                selectAddress.append("u.last_name, state.state_name, country.country_name, a.address3, a.province ");
                 selectAddress.append("FROM user u, address a, user_address_xref x, OUTER state, OUTER country ");
                 selectAddress.append("WHERE u.user_id = " + p.getHeader().getUser().getId() + " ");
                 selectAddress.append("AND state.state_code = a.state_code ");
@@ -2451,7 +2451,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 StringBuffer addAddress = new StringBuffer(300);
                 addAddress.append("INSERT INTO payment_address ");
                 addAddress.append(" (payment_address_id, first_name, middle_name, last_name, ");
-                addAddress.append("  address1, address2, city, state_code, zip, country_code) ");
+                addAddress.append("  address1, address2, city, state_code, zip, country_code,address3, province) ");
                 addAddress.append(" VALUES(?,?,?,?,?,?,?,?,?,?)");
                 ps = c.prepareStatement(addAddress.toString());
                 ps.setLong(1, paymentAddressId);
@@ -2464,6 +2464,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 ps.setString(8, (String) rsc.getItem(0, "state_code").getResultData());
                 ps.setString(9, (String) rsc.getItem(0, "zip").getResultData());
                 ps.setString(10, (String) rsc.getItem(0, "country_code").getResultData());
+                ps.setString(11, (String) rsc.getItem(0, "address3").getResultData());
+                ps.setString(12, (String) rsc.getItem(0, "province").getResultData());
 
                 ps.executeUpdate();
                 ps.close();
@@ -3234,7 +3236,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 selectAddresses.append("SELECT a.country_code, a.zip, a.state_code, a.city, ");
                 selectAddresses.append("a.address1, a.address2, u.first_name, u.middle_name, ");
                 selectAddresses.append("u.last_name, state.state_name, country.country_name, ");
-                selectAddresses.append("p.payment_id ");
+                selectAddresses.append("p.payment_id, a.address3, a.province ");
                 selectAddresses.append("FROM user u, address a, user_address_xref x, payment p, OUTER state, OUTER country ");
                 selectAddresses.append("WHERE p.payment_id = " + p.getHeader().getId() + " ");
                 selectAddresses.append("AND u.user_id = p.user_id ");
@@ -3315,7 +3317,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 StringBuffer addAddress = new StringBuffer(300);
                 addAddress.append("INSERT INTO payment_address ");
                 addAddress.append(" (payment_address_id, first_name, middle_name, last_name, ");
-                addAddress.append("  address1, address2, city, state_code, zip, country_code) ");
+                addAddress.append("  address1, address2, city, state_code, zip, country_code, address3, province) ");
                 addAddress.append(" VALUES(?,?,?,?,?,?,?,?,?,?)");
                 ps = c.prepareStatement(addAddress.toString());
                 ps.setLong(1, paymentAddressId);
@@ -3328,6 +3330,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 ps.setString(8, (String) addressData.getItem("state_code").getResultData());
                 ps.setString(9, (String) addressData.getItem("zip").getResultData());
                 ps.setString(10, (String) addressData.getItem("country_code").getResultData());
+                ps.setString(11, (String) addressData.getItem("address3").getResultData());
+                ps.setString(12, (String) addressData.getItem("province").getResultData());
 
                 ps.executeUpdate();
                 ps.close();
@@ -3652,7 +3656,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 selectAddress.append("SELECT a.country_code, a.zip, a.state_code, a.city, ");
                 selectAddress.append("a.address1, a.address2, u.first_name, u.middle_name, ");
                 selectAddress.append("u.last_name, state.state_name, country.country_name, ");
-                selectAddress.append("p.payment_id ");
+                selectAddress.append("p.payment_id, a.address3, a.province ");
                 selectAddress.append("FROM user u, address a, user_address_xref x, payment p, OUTER state, OUTER country ");
                 selectAddress.append("WHERE p.payment_id = " + paymentId[i] + " ");
                 selectAddress.append("AND u.user_id = p.user_id ");
@@ -3744,7 +3748,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             selectAddresses.append("SELECT a.country_code, a.zip, a.state_code, a.city, ");
             selectAddresses.append("a.address1, a.address2, u.first_name, u.middle_name, ");
             selectAddresses.append("u.last_name, state.state_name, country.country_name, ");
-            selectAddresses.append("p.payment_id ");
+            selectAddresses.append("p.payment_id, a.address3, a.province ");
             selectAddresses.append("FROM user u, address a, user_address_xref x, payment p, OUTER state, OUTER country ");
             selectAddresses.append("WHERE p.payment_id IN(" + paymentList + ") ");
             selectAddresses.append("AND u.user_id = p.user_id ");
@@ -4135,7 +4139,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             select.append("pa.address2, pa.city, pa.state_code, state.state_name, ");
             select.append("pa.zip, pa.country_code, country.country_name, e.address AS email, ");
             select.append("c.contract_type_id, p.print_count, p.review, pd.date_due, ");
-            select.append("utx.tax_form_id AS w9_tax_form, utx2.tax_form_id AS w8ben_tax_form ");
+            select.append("utx.tax_form_id AS w9_tax_form, utx2.tax_form_id AS w8ben_tax_form, pa.address3, pa.province ");
             select.append("FROM payment p, payment_detail pd, payment_address pa, ");
             select.append("user u, email e, OUTER state, OUTER country, ");
             select.append("OUTER(contract_payment_xref cpx, contract c), ");
@@ -4955,6 +4959,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" , a.state_code ");
         query.append(" , a.country_code ");
         query.append(" , a.zip ");
+        query.append(" , a.address3 ");
+        query.append(" , a.province ");
         query.append(" from user u ");
         query.append(" , user_address_xref x ");
         query.append(" , address a ");

@@ -184,7 +184,7 @@ public class AffidavitBean implements PactsConstants {
         a.setAffidavit(getAffidavit(affidavitId));
         a.setAffidavitText(getAffidavitText(affidavitId));
 
-        if (a.getAffidavit().getPayment()!=null && a.getAffidavit().getPayment().getId()>0) {
+        if (a.getAffidavit().getPayment() != null && a.getAffidavit().getPayment().getId() > 0) {
             a.setPayment(bean.getPayment(a.getAffidavit().getPayment().getId()));
         } else {
             try {
@@ -240,10 +240,10 @@ public class AffidavitBean implements PactsConstants {
      * used to parse the affidavit xml, placing the proper data where
      * it should go.
      *
-     * @param text the affidavit template text
+     * @param text      the affidavit template text
      * @param affidavit the affidavit in question
-     * @param payment the payment associated with the affidavit, used to get
-     * some of the contact info.
+     * @param payment   the payment associated with the affidavit, used to get
+     *                  some of the contact info.
      */
     private String parseAffidavitXml(String text, Affidavit affidavit, Payment payment) {
         try {
@@ -259,9 +259,11 @@ public class AffidavitBean implements PactsConstants {
             a.addTag(new ValueTag("last_name", payment.getLastName()));
             a.addTag(new ValueTag("address1", payment.getAddress1()));
             a.addTag(new ValueTag("address2", payment.getAddress2()));
+            a.addTag(new ValueTag("address3", payment.getAddress3()));
             a.addTag(new ValueTag("city", payment.getCity()));
             a.addTag(new ValueTag("state_name", payment.getState()));
             a.addTag(new ValueTag("zip", payment.getZip()));
+            a.addTag(new ValueTag("province", payment.getProvince()));
             a.addTag(new ValueTag("country_name", payment.getCountry()));
             a.addTag(new ValueTag("round", affidavit.getRound()));
             // dpecora - fix compile error due to affidavit field change

@@ -53,6 +53,8 @@ public class Payment implements PactsConstants, java.io.Serializable {
     private String countryCode;
     private String stateCode;
     private PaymentHeader header;
+    private String province;
+    private String address3;
 
     /**
      * this is used to set the payment when passed a result map
@@ -60,10 +62,9 @@ public class Payment implements PactsConstants, java.io.Serializable {
      * map as a result of a db query.  If an error occurs, the
      * values will fall back to defaults.
      *
-     *
      * @param results the result map from the dipatch bean
-     * @param row the row in the specific result set container for this
-     *        object.
+     * @param row     the row in the specific result set container for this
+     *                object.
      */
     public Payment(Map results, int row) {
         ResultSetContainer rsc = (ResultSetContainer)
@@ -107,23 +108,23 @@ public class Payment implements PactsConstants, java.io.Serializable {
             if (row == 0)
                 header = new PaymentHeader(results, row);
             else {
-            	boolean initFromRow = true;
-            	ResultSetContainer rscHeaders = (ResultSetContainer) results.get(PAYMENT_HEADER_LIST);
-            	if (rscHeaders == null) {
-            		initFromRow = false;
-            	}
-            	int numRows = rscHeaders.getRowCount();
-            	if (row < 0 || row >= numRows) {
-            		initFromRow = false;
-            	}
-            	
-            	if (initFromRow) {
-            		header = new PaymentHeader(results, row);
-            	} else {
-            		header = new PaymentHeader();
-            	}
+                boolean initFromRow = true;
+                ResultSetContainer rscHeaders = (ResultSetContainer) results.get(PAYMENT_HEADER_LIST);
+                if (rscHeaders == null) {
+                    initFromRow = false;
+                }
+                int numRows = rscHeaders.getRowCount();
+                if (row < 0 || row >= numRows) {
+                    initFromRow = false;
+                }
+
+                if (initFromRow) {
+                    header = new PaymentHeader(results, row);
+                } else {
+                    header = new PaymentHeader();
+                }
             }
-           
+
 
             if ((statusId != PAID_STATUS)) {
                 rsc = (ResultSetContainer) results.get(CURRENT_CODER_ADDRESS);
@@ -135,12 +136,14 @@ public class Payment implements PactsConstants, java.io.Serializable {
             middleName = TCData.getTCString(rRow, "middle_name");
             address1 = TCData.getTCString(rRow, "address1");
             address2 = TCData.getTCString(rRow, "address2");
+            address3 = TCData.getTCString(rRow, "address3");
             city = TCData.getTCString(rRow, "city");
             state = TCData.getTCString(rRow, "state_name");
             country = TCData.getTCString(rRow, "country_name");
             stateCode = TCData.getTCString(rRow, "state_code");
             countryCode = TCData.getTCString(rRow, "country_code");
             zip = TCData.getTCString(rRow, "zip");
+            province = TCData.getTCString(rRow, "province");
 
         } catch (Exception e) {
             log.error("there was an exception in the Payment contructor");
@@ -162,7 +165,6 @@ public class Payment implements PactsConstants, java.io.Serializable {
 
     /**
      * Default constructor.   builds payment with all values set to defaults
-     *
      */
     public Payment() {
         setDefaults();
@@ -194,6 +196,8 @@ public class Payment implements PactsConstants, java.io.Serializable {
         stateCode = "0";
         countryCode = "0";
         dueDate = "00/00/00";
+        address3 = "Default Address 3";
+        province = "Default Province";
     }
 
     /* This contructs the payment as it will be sent to the addPayment
@@ -234,7 +238,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
     public void setTypeId(int typeId) {
         this.typeId = typeId;
     }
-    
+
     public int getMethodId() {
         return methodId;
     }
@@ -250,7 +254,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
     public void setType(String type) {
         this.type = type;
     }
-    
+
     public String getMethod() {
         return method;
     }
@@ -443,5 +447,20 @@ public class Payment implements PactsConstants, java.io.Serializable {
         this.header = header;
     }
 
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getAddress3() {
+        return address3;
+    }
+
+    public void setAddress3(String address3) {
+        this.address3 = address3;
+    }
 
 }

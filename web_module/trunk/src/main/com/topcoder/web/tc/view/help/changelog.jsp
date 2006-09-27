@@ -42,6 +42,14 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
+<p>
+    5.4.14 - 2006.09.xx
+    <ul>
+        <li>
+            Address address3 and province information to PACTS
+        </li>
+    </ul>
+</p>
 
 <p>
     5.4.13 - 2006.09.26
@@ -50,7 +58,6 @@
             Fix bug in the technical assessment admin tool so that anyone can view the first page even if their account
             isn't configured for access.
         </li>
-        <li>Improve aol alert sending process</li>
     </ul>
 </p>
 
