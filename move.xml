@@ -11,6 +11,14 @@
     <property name="war_dir" value="${build}/wars"/>
     <property name="techassess_war_dir" value="${jboss_home}/server/default/deploy/techassess.war/"/>
 
+    <target name="jar-classes" depends="">
+        <jar destfile="./lib/bin/classes.jar" update="true">
+            <fileset dir="./build/classes">
+                <include name="**"/>
+            </fileset>
+        </jar>
+    </target>
+
     <target name="package-topcoder" depends="">
 
         <!--
@@ -32,11 +40,7 @@
 
         <ant antfile="build_tc.xml" target="deploy"/>
 
-        <jar destfile="./lib/bin/classes.jar" update="true">
-            <fileset dir="./build/classes">
-                <include name="**"/>
-            </fileset>
-        </jar>
+        <antcall target="jar-classes"/>
 
         <jar destfile="topcoder.jar" update="true">
             <fileset dir=".">
