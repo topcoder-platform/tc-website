@@ -6,7 +6,6 @@ import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.Equals;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
@@ -49,7 +48,7 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         getRequest().setAttribute("isOver", String.valueOf(isOver));
 
         //load up the submissions
-        DataAccess da = new CachedDataAccess(1000 * 60 * 60, DBMS.STUDIO_DATASOURCE_NAME); //1 hour
+        DataAccess da = new CachedDataAccess();
         Request r = new Request();
         r.setContentHandle("submissions");
         r.setProperty(Constants.CONTEST_ID, contestId);
