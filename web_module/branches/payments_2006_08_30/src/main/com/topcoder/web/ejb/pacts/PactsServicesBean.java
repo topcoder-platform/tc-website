@@ -5140,7 +5140,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public Map findProjects(String search) throws SQLException {
         StringBuffer query = new StringBuffer(1000);
         query.append(" select project_id, ");
-        query.append(" component_name || ' ' || trim (version_text) || ' (' || trim(NVL(date(rating_date),'UNKNOWN')) || ')' as project_desc  ");
+        query.append(" component_name || ' ' || trim (version_text) || ");
+        query.append("     case when p.project_type_id = 1 then ' Design' else ' Development' end || ");
+        query.append("       ' (' || trim(NVL(date(rating_date),'UNKNOWN')) || ')' as project_desc  ");
         query.append(" from project p,");
         query.append("      comp_versions cv,");
         query.append("      comp_catalog c");

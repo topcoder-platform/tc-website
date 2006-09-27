@@ -36,7 +36,8 @@
               <td>
                  <c:choose>
                      <c:when test="${refId == ALGORITHM_ROUND}">
-                        <c:if test="${empty rounds}">                  
+                        <c:if test="${empty rounds}">    
+                          <input type="hidden" name="missing_reference" value="Please select a round for the payment">
                           Enter search text for round name: <input type="text" name="search_text" value="${search}" />
                           <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          
@@ -57,23 +58,37 @@
                           Enter search text for component name: <input type="text" name="search_text" value="${search}" />
                           <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          
-                                <font color="#FF0000">No projects found containing <c:out value="${search}"/>. </font>
+                                <font color="#FF0000">No components found containing <c:out value="${search}"/>. </font>
                             </c:if>
                           <br/>
                         </c:if>
                         <c:if test="${not empty projects}">                   
-                             <tc-webtag:rscSelect name="project_id" list="${projects}" 
+                             <tc-webtag:rscSelect name="component_project_id" list="${projects}" 
                                      fieldText="project_desc" fieldValue="project_id"                        
                                      useTopValue="false" />
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>                                  
 
+                     </c:when>               
+                     
+                     
+                     <c:when test="${refId == ALGORITHM_PROBLEM}">
+                        <c:if test="${empty projects}">                  
+                          Enter search text for problem name: <input type="text" name="search_text" value="${search}" />
+                          <input type="button" value="search" onClick="search()" />
+                            <c:if test="${not empty problems}">          
+                                <font color="#FF0000">No problems found containing <c:out value="${search}"/>. </font>
+                            </c:if>
+                          <br/>
+                        </c:if>
+                        <c:if test="${not empty problems}">                   
+                             <tc-webtag:rscSelect name="algorithm_problem_id" list="${problems}" 
+                                     fieldText="name" fieldValue="problem_id"                        
+                                     useTopValue="false" />
+                             <input type="button" value="do another search" onClick="typeChanged()" />
+                        </c:if>                                  
                      </c:when>                       
-                     <c:when test="${refId == 3}">
-                         <tc-webtag:rscSelect name="problem_id" list="${problems}" 
-                                 fieldText="name" fieldValue="problem_id"                        
-                                 useTopValue="false" />
-                     </c:when>                       
+                     
                      <c:when test="${refId == 6}">
                          <tc-webtag:rscSelect name="stage_id" list="${stages}" 
                                  fieldText="stage_desc" fieldValue="stage_id"                        
