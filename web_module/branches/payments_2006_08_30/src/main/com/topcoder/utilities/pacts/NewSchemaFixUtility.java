@@ -58,20 +58,20 @@ public class NewSchemaFixUtility extends DBUtility {
         try {            
             StringBuffer query = null;
             query = new StringBuffer(200);
-            query.append("select * from project_result");
+            query.append("select * from project");
             PreparedStatement psSelRoomResult = prepareStatement("tcs_dw", query.toString());
 
             query = new StringBuffer(200);
             query.append("insert into project_result_dw values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ");
             query.append("                                      ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ");
-            query.append("                                      ?, ?, ?)");
+            query.append("                                      ?, ?, ?, ?, ?, ?, ?)");
             PreparedStatement psInsRoomResult = prepareStatement("informixoltp", query.toString());
 
             log.debug("Copying table...");
             ResultSet rs = psSelRoomResult.executeQuery();
             for (int i = 1; rs.next(); i++ ) {
                 psInsRoomResult.clearParameters();
-                for (int j = 1; j <= 23; j++) {
+                for (int j = 1; j <= 27; j++) {
                     psInsRoomResult.setObject(j, rs.getObject(j));
                 }
                 psInsRoomResult.executeUpdate();
