@@ -54,6 +54,8 @@
         <li>Add appeal data to member profile</li>
         <li>Show handle colors on the problem details as whichever is greater between High School and regular algorithm
             competitions.</li>
+        <li>Add the point value of the problem to the problem detail page</li>
+
     </ul>
 </p>
 
