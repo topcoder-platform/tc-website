@@ -56,28 +56,30 @@ public class NewSchemaFixUtility extends DBUtility {
      */
     public void runUtility() throws Exception {
         try {            
-/*            StringBuffer query = null;
+            StringBuffer query = null;
             query = new StringBuffer(200);
-            query.append("select * from user_contest_prize");
+            query.append("select * from project_result");
             PreparedStatement psSelRoomResult = prepareStatement("tcs_dw", query.toString());
 
             query = new StringBuffer(200);
-            query.append("insert into user_contest_prize_dw values (?, ?, ?, ?, ?, ?, ?) ");
+            query.append("insert into project_result_dw values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ");
+            query.append("                                     (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ");
+            query.append("                                     (?, ?, ?)");
             PreparedStatement psInsRoomResult = prepareStatement("informixoltp", query.toString());
 
             log.debug("Copying table...");
-            rs = psSelRoomResult.executeQuery();
+            ResultSet rs = psSelRoomResult.executeQuery();
             for (int i = 1; rs.next(); i++ ) {
                 psInsRoomResult.clearParameters();
-                for (int j = 1; j <= 7; j++) {
+                for (int j = 1; j <= 23; j++) {
                     psInsRoomResult.setObject(j, rs.getObject(j));
                 }
                 psInsRoomResult.executeUpdate();
 
-                if (i % 10 == 0) {
+                if (i % 100 == 0) {
                     log.debug(i + "...");
                 }
-            }*/
+            }
             
             pcs = (PactsClientServices) createEJB();
 
@@ -86,7 +88,7 @@ public class NewSchemaFixUtility extends DBUtility {
             
             //processRoomResultAdditions();
             //processRoomResultConflicts();
-            processRoomResultCharities();
+//            processRoomResultCharities();
             
 /*            processRoyalties();
             
@@ -169,11 +171,11 @@ public class NewSchemaFixUtility extends DBUtility {
             rs = psSelRoomResultsCharities.executeQuery();
             int i = 1;
             for (; rs.next(); i++ ) {
-                log.debug("Creating an AlgorithmContestPayment(" + 
+/*                log.debug("Creating an AlgorithmContestPayment(" + 
                         rs.getLong("coder_id") + "," +
                         rs.getDouble("paid") + "," +
                         rs.getLong("round_id") + "," +
-                        rs.getInt("room_placed") + ")");
+                        rs.getInt("room_placed") + ")");*/
                         
                 AlgorithmContestPayment algorithmContestPayment = new AlgorithmContestPayment(
                         rs.getLong("coder_id"),
@@ -183,11 +185,11 @@ public class NewSchemaFixUtility extends DBUtility {
         
                 algorithmContestPayment = (AlgorithmContestPayment) pcs.addPayment(algorithmContestPayment);
 
-                log.debug("Added: " + algorithmContestPayment.getId());
+                //log.debug("Added: " + algorithmContestPayment.getId());
                 
                 pcs.addPayment(new CharityPayment(algorithmContestPayment));
 
-                log.debug("Added Charity payment");
+                //log.debug("Added Charity payment");
 
                 if (i % 10 == 0) {
                     log.debug(i + "...");
