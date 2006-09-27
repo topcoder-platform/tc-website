@@ -61,11 +61,11 @@
     <tr>
         <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
         <td class="BIGPromoBox" align="center">
-        <map name="tccc_tshirt">
-        <area shape="rect" alt="" coords="1,1,250,149" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
-        <area shape="rect" alt="" coords="260,40,460,105" href="/tc?module=SurveyResults&sid=219" />
-        </map>
-        <IMG SRC="/i/home/tccc06_tshirt_winner.png" border="0" alt="T-shirt quote" usemap="#tccc_tshirt"/>
+<map name="tccc">
+<area shape="rect" alt="" coords="1,1,230,149" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
+<area shape="rect" alt="" coords="235,30,485,115" href="/tc?module=AOLAlertsDescription" />
+</map>
+<IMG SRC="/i/home/tccc06_aol_alerts.png" border="0" alt="T-shirt quote" usemap="#tccc"/>
         </td>
         <td width="50%" class="homeLogo" align="right">&#160;</td>
     </tr>
