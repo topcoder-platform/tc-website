@@ -165,12 +165,12 @@
         <rsc:item name="review_percent" set="<%=rscTotalData%>" format="0.00%" ifNull="n/a"/></td>
 </tr>
 <tr>
-    <td class="catLt" nowrap="nowrap">Appeals</td>
-    <td class="statLt" align="right">
+    <td class="catDk" nowrap="nowrap">Appeals</td>
+    <td class="statDk" align="right">
         <rsc:item name="num_appeals" set="<%=rscJavaData%>" ifNull="n/a"/></td>
-    <td class="statLt" align="right">
+    <td class="statDk" align="right">
         <rsc:item name="num_appeals" set="<%=rscNETData%>" ifNull="n/a"/></td>
-    <td class="statLt" align="right">
+    <td class="statDk" align="right">
         <rsc:item name="num_appeals" set="<%=rscTotalData%>" ifNull="n/a"/></td>
 </tr>
 <tr>
