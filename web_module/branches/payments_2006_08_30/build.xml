@@ -325,11 +325,15 @@
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/pacts/common/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/*.class"/>
-            <!--
-                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/NavigationException.class"/>
-                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/TCWebException.class"/>
-            -->
+            <metainf dir="${java}/com/topcoder/web/ejb/pacts" includes="*.xml"/>
+        </jar>
+    </target>
+
+    <target name="package-EJB-PactsClientServicesBean" depends="compile">
+        <jar jarfile="${ejb_jars}/PactsClientServices.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/*Payment.class"/>
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/Constants.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/PactsClient*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/pacts" includes="*.xml"/>
         </jar>
     </target>
@@ -656,8 +660,8 @@
             <metainf dir="${java}/com/topcoder/web/ejb/messagehistory" includes="*.xml"/>
         </jar>
     </target>
-	
-	<target name="package-EJB-ForumPollBean" depends="compile_forums">
+    
+    <target name="package-EJB-ForumPollBean" depends="compile_forums">
         <jar jarfile="${ejb_jars}/forumpoll.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/forumpoll/*.class"/>
@@ -1501,6 +1505,7 @@
              <antcall target="package-EJB-ORPersistence"/>
         -->
         <antcall target="package-EJB-PactsServicesBean"/>
+        <antcall target="package-EJB-PactsClientServicesBean"/>
         <antcall target="package-EJB-PasswordBean"/>
         <antcall target="package-EJB-PhoneBean"/>
         <antcall target="package-EJB-PreferenceLevelBean"/>
