@@ -50,6 +50,7 @@ function referenceChanged(refId) {
     document.ajaxFields.reference_id.value = refId;
     ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.addNamedFormElements("reference_id");
+    ajaxRequest.addNamedFormElements("cr");    
     ajaxRequest.setEchoDebugInfo();
     ajaxRequest.sendRequest();
 }
