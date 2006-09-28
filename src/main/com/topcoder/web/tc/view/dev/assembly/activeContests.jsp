@@ -119,9 +119,7 @@
       <td class="valueC" nowrap="nowrap">
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506119">join a team</A>
       <br>
-      <%--
-      <A href="https://software.topcoder.com/forum/c_forum.jsp?f=23729399">discuss</A>
-      --%>
+      <A href="https://software.topcoder.com/forum/c_forum.jsp?f=24017049">discuss</A>
       </td>
    </tr>
    <% even = !even;%>
