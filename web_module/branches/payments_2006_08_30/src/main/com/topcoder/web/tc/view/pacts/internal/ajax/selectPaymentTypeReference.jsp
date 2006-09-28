@@ -71,11 +71,14 @@
                         <c:if test="${not empty projects}">                   
                              <tc-webtag:rscSelect name="component_project_id" list="${projects}" 
                                      fieldText="project_desc" fieldValue="project_id"                        
-                                     useTopValue="false" />
+                                     useTopValue="false"  onChange="referenceChanged(document.f.component_project_id.value)"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />                            
                              <br/>Client:
                              <input type="text" name="client"/>
                         </c:if>                                  
+						<script type="text/javascript">
+								referenceChanged(document.f.component_project_id.value)
+				    	</script>
 
                      </c:when>               
                      
@@ -115,9 +118,12 @@
                         <c:if test="${not empty studioContests}">                   
                              <tc-webtag:rscSelect name="studio_contest_id" list="${studioContests}" 
                                      fieldText="name" fieldValue="contest_id"                        
-                                     useTopValue="false" />
+                                     useTopValue="false"  onChange="referenceChanged(document.f.studio_contest_id.value)"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />
-                        </c:if>                                  
+                        </c:if>          
+						<script type="text/javascript">
+								referenceChanged(document.f.studio_contest_id.value)
+				    	</script>                                                
                      </c:when>                       
 
                      <c:when test="${refId == COMPONENT_CONTEST}">
@@ -133,21 +139,31 @@
                         <c:if test="${not empty componentContests}">                   
                              <tc-webtag:rscSelect name="component_contest_id" list="${componentContests}" 
                                      fieldText="contest_desc" fieldValue="contest_id"                        
-                                     useTopValue="false" />
+                                     useTopValue="false"  onChange="referenceChanged(document.f.component_contest_id.value)"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />
-                        </c:if>                                  
+                        </c:if>       
+						<script type="text/javascript">
+								referenceChanged(document.f.component_contest_id.value)
+				    	</script>                                                   
                      </c:when>                       
 
                      
                      <c:when test="${refId == DIGITAL_RUN_STAGE}">
-                         <tc-webtag:rscSelect name="stage_id" list="${stages}" 
+                         <tc-webtag:rscSelect name="digital_run_stage_id" list="${stages}" 
                                  fieldText="stage_desc" fieldValue="stage_id"                        
-                                 useTopValue="false" />
+                                 useTopValue="false" onChange="referenceChanged(document.f.digital_run_stage_id.value)"/>
+						<script type="text/javascript">
+								referenceChanged(document.f.digital_run_stage_id.value)
+				    	</script>                                 
                      </c:when>                       
+                     
                      <c:when test="${refId == DIGITAL_RUN_SEASON}">
-                         <tc-webtag:rscSelect name="season_id" list="${seasons}" 
+                         <tc-webtag:rscSelect name="digital_run_season_id" list="${seasons}" 
                                  fieldText="name" fieldValue="season_id"                         
-                                 useTopValue="false" />
+                                 useTopValue="false" onChange="referenceChanged(document.f.digital_run_season_id.value)"/>
+						<script type="text/javascript">
+								referenceChanged(document.f.digital_run_season_id.value)
+				    	</script>                                 
                      </c:when>                       
 
                  </c:choose>

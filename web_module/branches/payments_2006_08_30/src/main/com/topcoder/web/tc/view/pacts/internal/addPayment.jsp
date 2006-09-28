@@ -66,7 +66,6 @@ function setDueDate(text) {
 function setStatus(id) {
     var sel = document.f.status_id;
     var i;
-alert("setStatus " + id);
     for (i = 0; i < sel.length; i++) {
         if (id == sel.options[i].value) {
         	sel.selectedIndex = i;
@@ -238,11 +237,7 @@ types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -
                     selectedValue="<%= paymentTypeSelectedValue %>" selectedText="<%= paymentTypeSelectedText %>" 
                     useTopValue="false" onChange="typeChanged()" />        
                     
-                    <br/>
-                    <input type="radio" name="special_type" value="0" checked>Normal</radio>
-                    <input type="radio" name="special_type" value="1">Charity</radio>
-                    <input type="radio" name="special_type" value="2">Reliability</radio>
-                    <input type="radio" name="special_type" value="3">Referral</radio>
+                    <input type="checkbox" name="charityInd" />Donated to Charity
         </td>
         </tr>
         <tr id="selectReference"> <td></td><td></td></tr>
