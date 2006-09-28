@@ -60,6 +60,7 @@
             High Schoo match or not.</li>
         <li>Make the problem detail page's links to round overview, problem statment and problem solution go to the
             appropriate page based on whehter it's a High Schoo match or not.</li>
+        <li>Add link on Marathon Match overview page to example history</li>
 
     </ul>
 </p>
