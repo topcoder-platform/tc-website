@@ -10,7 +10,7 @@
 		<script type="text/javascript">
 		setDescription('<c:out value="${requestScope.description}" />');
 		setDueDate('<c:out value="${requestScope.dueDate}" />');
-		setStatus(<c:out value="${payment.statusId}" />);
+		setStatus(<c:out value="${requestScope.statusId}" />);
     </script>
 </taconite-replace-children>      
  </taconite-root>
