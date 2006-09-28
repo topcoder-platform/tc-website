@@ -119,7 +119,7 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
             <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
                 <tr>
-                    <td class="tableTitle" colspan="7">Contest Overview</td>
+                    <td class="tableTitle" colspan="8">Contest Overview</td>
                 </tr>
                 <tr>
                     <td class="tableHeader" width="20%">
@@ -134,6 +134,7 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
                     <td class="tableHeader" width="15%" align="center">
                         <A href="<%=sortLinkBase%><tc-webtag:sort column="5"/>">Language</A></td>
                     <td class="tableHeader" width="10%">&#160;</td>
+                    <td class="tableHeader" width="15%">&#160;</td>
                     <td class="tableHeader" width="15%">&#160;</td>
                 </tr>
                 <%-- ITERATOR --%>
@@ -155,6 +156,9 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
                         </td>
                         <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
                             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewSubmissionHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>">submission
+                                history</A></td>
+                        <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
+                            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewExampleHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>">example
                                 history</A></td>
                     </tr>
                     <%even = !even;%>
