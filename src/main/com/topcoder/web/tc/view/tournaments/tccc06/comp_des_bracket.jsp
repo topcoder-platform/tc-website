@@ -27,32 +27,30 @@
 <span class="bigTitle">Design Finalists Bracket</span>
 <br><br>
 The finalists are sorted alphabetically.
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<%--
+<br><br>
 <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
    <tr>
-      <td align="right"><img src="/i/tournament/tco06/bracket_TL.gif" alt="" border="0" /></td>
+      <td align="right"><img src="/i/tournament/tccc06/bracket_TL.gif" alt="" border="0" /></td>
       <td rowspan="3" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
-      <td rowspan="3" valign="middle"><img src="/i/tournament/tco06/bracket_R.gif" alt="" border="0" /></td>
-      <td rowspan="3" valign="middle" align="center"><img src="/i/tournament/tco06/champion.gif" alt="" border="0" /><br><span class="bigTitle"><tc-webtag:handle coderId="119676" context="design"/></span></td>
+      <td rowspan="3" valign="middle"><img src="/i/tournament/tccc06/bracket_R.gif" alt="" border="0" /></td>
+      <td rowspan="3" valign="middle" align="center"><img src="/i/tournament/tccc06/champion.gif" alt="" border="0" /><%--<br><span class="bigTitle"><tc-webtag:handle coderId="7548200" context="design"/></span>--%></td>
    </tr>
    <tr>
       <td style="padding: 15px" valign="middle" align="center">
-      <tc-webtag:handle coderId="278342" context="design" darkBG="true" /><br><br>
-      <tc-webtag:handle coderId="252022" context="design" darkBG="true"/><br><br>
-      <tc-webtag:handle coderId="11797255" context="design" darkBG="true"/><br><br>
-      <tc-webtag:handle coderId="152342" context="design" darkBG="true"/><br><br>
+      <tc-webtag:handle coderId="275071" context="design" darkBG="true" /><br><br>
+      <tc-webtag:handle coderId="14940443" context="design" darkBG="true"/><br><br>
+      <tc-webtag:handle coderId="15247903" context="design" darkBG="true"/><br><br>
+      <tc-webtag:handle coderId="10425804" context="design" darkBG="true"/><br><br>
       <tc-webtag:handle coderId="293874" context="design" darkBG="true"/><br><br>
-      <tc-webtag:handle coderId="119676" context="design" darkBG="true"/><br><br>
-      <tc-webtag:handle coderId="15891862" context="design" darkBG="true"/><br><br>
-      <tc-webtag:handle coderId="150498" context="design" darkBG="true"/>
+      <tc-webtag:handle coderId="10028010" context="design" darkBG="true"/><br><br>
+      <tc-webtag:handle coderId="302053" context="design" darkBG="true"/><br><br>
+      <tc-webtag:handle coderId="275640" context="design" darkBG="true"/>
       </td>
    </tr>
    <tr>
-      <td align="right"><img src="/i/tournament/tco06/bracket_BL.gif" alt="" border="0" /></td>
+      <td align="right"><img src="/i/tournament/tccc06/bracket_BL.gif" alt="" border="0" /></td>
    </tr>
 </table>
---%>
 
 
 
