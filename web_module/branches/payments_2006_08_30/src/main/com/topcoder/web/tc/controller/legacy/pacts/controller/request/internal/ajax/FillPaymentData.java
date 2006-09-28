@@ -1,5 +1,7 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.ajax;
 
+import java.text.SimpleDateFormat;
+
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
@@ -12,6 +14,8 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 public class FillPaymentData extends BaseProcessor implements PactsConstants {
 
     protected void businessProcessing() throws TCWebException {
+    	SimpleDateFormat format = new SimpleDateFormat(PactsConstants.DATE_FORMAT_STRING);
+
         try {
             long refId = Long.parseLong(getRequest().getParameter("reference_id"));
             int type = Integer.parseInt(getRequest().getParameter("payment_type_id"));
@@ -23,7 +27,9 @@ public class FillPaymentData extends BaseProcessor implements PactsConstants {
 
             payment = dib.fillPaymentData(payment);
             
-            getRequest().setAttribute("payment", payment);
+            getRequest().setAttribute("description", payment.getDescription());
+            getRequest().setAttribute("dueDate", format.format(payment.getDueDate()));
+            getRequest().setAttribute("statusId", payment.getStatusId() + "");
             
             setNextPage(INTERNAL_AJAX_FILL_PAYMENT_DATA);
             setIsNextPageInContext(true);

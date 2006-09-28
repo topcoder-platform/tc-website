@@ -55,6 +55,28 @@ function referenceChanged(refId) {
     ajaxRequest.sendRequest();
 }
 
+function setDescription(text) {
+	document.f.payment_desc.value = text;
+}
+
+function setDueDate(text) {
+	document.f.date_due.value = text;
+}
+
+function setStatus(id) {
+    var sel = document.f.status_id;
+    var i;
+alert("setStatus " + id);
+    for (i = 0; i < sel.length; i++) {
+        if (id == sel.options[i].value) {
+        	sel.selectedIndex = i;
+        	break;
+        }
+    }
+
+}
+
+
 
 </script>
 
