@@ -343,14 +343,15 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
          * @throws SQLException if an error occurred trying to access db.
          */
         public Date lookupDueDate(BasePayment payment) throws SQLException {
-
-            if (payment.getEventDate() == null) {
-                throw new IllegalArgumentException("eventDate can't be null");
+        	Date eventDate = payment.getEventDate(); 
+        		
+            if (eventDate == null) {
+                eventDate = new Date();
             }
 
             // Calculate the due date as the event date + an interval depending on the type
             Calendar dueDate = Calendar.getInstance();
-            dueDate.setTime(payment.getEventDate());
+            dueDate.setTime(eventDate);
             dueDate.add(Calendar.DAY_OF_YEAR, getDueDateInterval(payment.getPaymentType()));
             return dueDate.getTime();
         }

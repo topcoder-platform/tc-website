@@ -165,11 +165,15 @@ types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -
     <%= message %>
 </font>
 
+<form name="ajaxFields">
+   <input type="hidden" name="reference_type_id">
+   <input type="hidden" name="reference_id">
+   <input type="hidden" name="cr" value="<%=userId %>" >
+</form>
+
 <form name="f" action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
    <input type="hidden" name="<%= PactsConstants.TASK_STRING %>" value="<%=PactsConstants.ADD_TASK%>" >
    <input type="hidden" name="<%= PactsConstants.CMD_STRING %>" value="<%=PactsConstants.PAYMENT_CMD%>" >
-   <input type="hidden" name="reference_type_id">
-   <input type="hidden" name="reference_id">
 
 <%  if (payment_is_for_contract) { %>
    <input type="hidden" name="<%= PactsConstants.CONTRACT_ID %>" value="<%=contract_id%>" >

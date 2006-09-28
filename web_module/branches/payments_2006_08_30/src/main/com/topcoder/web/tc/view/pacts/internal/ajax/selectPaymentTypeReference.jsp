@@ -51,7 +51,11 @@
                                      fieldText="round_desc" fieldValue="round_id"                        
                                      useTopValue="false" onChange="referenceChanged(document.f.algorithm_round_id.value)" />
                              <input type="button" value="do another search" onClick="typeChanged()" />
-                        </c:if>                                  
+                        </c:if>              
+						<script type="text/javascript">
+								referenceChanged(document.f.algorithm_round_id.value)
+				    	</script>
+                                            
                      </c:when>                       
                      
                      <c:when test="${refId == COMPONENT_PROJECT}">
@@ -89,9 +93,13 @@
                         <c:if test="${not empty problems}">                   
                              <tc-webtag:rscSelect name="algorithm_problem_id" list="${problems}" 
                                      fieldText="name" fieldValue="problem_id"                        
-                                     useTopValue="false" />
+                                     useTopValue="false" onChange="referenceChanged(document.f.algorithm_problem_id.value)"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />
-                        </c:if>                                  
+                        </c:if>               
+						<script type="text/javascript">
+								referenceChanged(document.f.algorithm_problem_id.value)
+				    	</script>
+                                           
                      </c:when>                       
 
                      <c:when test="${refId == STUDIO_CONTEST}">
@@ -150,6 +158,8 @@
             <tr id="selectReference"> <td></td><td></td></tr>
          </c:if>
      </taconite-replace>
+     
+     
      
  </taconite-root>
  

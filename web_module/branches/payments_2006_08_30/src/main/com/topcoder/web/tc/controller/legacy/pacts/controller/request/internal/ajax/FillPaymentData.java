@@ -13,10 +13,11 @@ public class FillPaymentData extends BaseProcessor implements PactsConstants {
 
     protected void businessProcessing() throws TCWebException {
         try {
-            int refId = Integer.parseInt(getRequest().getParameter("reference_id"));
+            long refId = Long.parseLong(getRequest().getParameter("reference_id"));
             int type = Integer.parseInt(getRequest().getParameter("payment_type_id"));
+            long coderId = Long.parseLong(getRequest().getParameter("cr"));
 
-            BasePayment payment = BasePayment.createPayment(type, 1, 0.01, refId);
+            BasePayment payment = BasePayment.createPayment(type, coderId, 0.01, refId);
 
             DataInterfaceBean dib = new DataInterfaceBean();
 
