@@ -223,10 +223,12 @@
     <% boolean even = true; %>
     <rsc:iterator list="<%= roomResult%>" id="resultRow">
         <%
+
         even = !even;
              if (resultRow.getIntItem("coder_id") == cr) {
                  coderName = resultRow.getStringItem("handle");
              }
+
 
         %>
     <tr class='<%= resultRow.getIntItem("coder_id") == cr? "highlight" :
@@ -324,7 +326,7 @@
         <% even = !even; %>
         <tr class="<%=even?"dark":"light"%>">
             <td class="value">
-                <A href='tc?module=HSProblemSolution&cr=<%=cr%>&rd=<%=round.getRoundId()%>&rm=<%= rm %>&pm=<%= resultRow.getIntItem("problem_id") %>'>
+                <A href='tc?module=HSProblemSolution&amp;cr=<%=cr%>&amp;rd=<%=round.getRoundId()%>&amp;pm=<%= resultRow.getIntItem("problem_id") %>'>
                     <rsc:item name="class_name" row="<%=resultRow%>"/></A></td>
             <td class="value"><rsc:item name="method_name" row="<%=resultRow%>"/></td>
             <td class="value"><rsc:item name="level_desc" row="<%=resultRow%>"/></td>
@@ -362,7 +364,7 @@
             <td class="value"><rsc:item name="succeeded" row="<%=resultRow%>"/></td>
             <td class="valueR"><rsc:item name="challenger_points" row="<%=resultRow%>" format="0.00"/></td>
             <td class="valueC">
-                <A href='tc?module=HSProblemSolution&cr=<%=resultRow.getItem("defendant_id").toString()%>&rd=<%=round.getRoundId()%>&rm=<%= rm %>&pm=<%= resultRow.getIntItem("problem_id") %>#Defenses'>
+                <A href='tc?module=HSProblemSolution&amp;cr=<%=resultRow.getItem("defendant_id").toString()%>&amp;rd=<%=round.getRoundId()%>&amp;pm=<%= resultRow.getIntItem("problem_id") %>#Defenses'>
                     details</A></td>
         </tr>
     </rsc:iterator>
