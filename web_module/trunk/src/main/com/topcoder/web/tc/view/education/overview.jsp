@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><A href="/tc?module=Static&amp;d1=features&amp;d2=092806"><strong>Writing code that writes code&#8230;</strong></A>, by <tc-webtag:handle coderId="10584406" /><br>
+Writing code that writes code can be a powerful technique for developers.  In an effort to be more productive, developers want to be able to accomplish tasks with fewer keystrokes, bugs, and headaches.</li>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=092506"><strong>Understanding the Mind Game</strong></A>, by <tc-webtag:handle coderId="22628020" /><br>
 Most TopCoder members - whether brand new or weathered veterans - would agree with the statement that algorithm competitions are primarily mind games. While other competitions have a one-on-one element, in a Single Round Match or Code Jam situation your biggest opponent is yourself.</li>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=092106"><strong>Creating an Intelligent Design</strong></A>, by <tc-webtag:handle coderId="299911" /><br>
 In working with software, odds are you will eventually come face-to-face with an unpleasant fact: sometimes, developers have agendas. While it's certainly not true for everyone, there are developers out there who are looking not just for a paycheck, but for a way to express who they are through code.</li>
-<li><A href="/tc?module=Static&amp;d1=features&amp;d2=091806"><strong>Computational geometry with complex numbers</strong></A>, by <tc-webtag:handle coderId="251074" /><br>
-Computational geometry problems appear frequently in Topcoder contests and a series of articles has already been written on the subject. However, competitors who have tried to implement these algorithms (particularly in C++) will no doubt have been frustrated&#8230;</li>
 </ul>
 <span class="bodySubtitle">From the archives:</span><br>
 <ul>
