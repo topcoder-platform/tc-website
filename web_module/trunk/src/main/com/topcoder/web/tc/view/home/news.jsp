@@ -26,13 +26,27 @@
 -----------------------%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.28.06<br>5:00 PM</td>
+     <td class="newsTextCell"><span class="newsTitle">Finalists for the TCCC06 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_bracket">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_bracket">Development</A> Competitions</span><br><br>
+      The results are in.  Here are the TCCC06 finalists brackets.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_bracket">design</A> | 
+    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_bracket">development</A> | 
+    <tc-webtag:forumLink forumID="506129" message="discuss this"/> |
+     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.27.06<br>10:00 AM</td>
      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=220">Vote for the TCHS logo design</A></span><br><br>
       The top 10 logo designs have been chosen from the TopCoder Studio contest for the TCHS logo.  Help choose which design will become the look of the 2007 TopCoder High School tournament.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-     <A href="/tc?module=ViewSurvey&sid=220">vote</A>&#160;|&#160;
+     <A href="/tc?module=ViewSurvey&sid=220">vote</A> | 
     <tc-webtag:forumLink forumID="506125" message="discuss this"/> |
      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
