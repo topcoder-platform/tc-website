@@ -27,13 +27,26 @@
 
     <tr>
         <td class="formHandleEven">Rating</td>
-        <td class="formHandleEven" align="right"><% if (coderInfo.getItem(0, "rating").getResultData() == null || coderInfo.getIntItem(0, "rating") < 1) { %>
-            Not Rated<% } else { %><rsc:item set="<%=coderInfo%>" name="rating" ifNull="Not Rated"/><% } %></td>
+        <td class="formHandleEven" align="right">
+            <% if (coderInfo.getItem(0, "rating").getResultData() == null || coderInfo.getIntItem(0, "rating") < 1) { %>
+            Not Rated
+            <% } else { %>
+            <rsc:item set="<%=coderInfo%>" name="rating" ifNull="Not Rated"/>
+            <% } %>
+        </td>
     </tr>
     <tr>
         <td class="formHandleEven">Earnings</td>
         <td class="formHandleEven" align="right">
-            <rsc:item set="<%=coderInfo%>" name="total_earnings" format="$0.00" ifNull="$0.00"/></td>
+
+            <% if (coderInfo.getItem(0, "rating").getResultData() == null || coderInfo.getIntItem(0, "rating") < 1) { %>
+            <rsc:item set="<%=coderInfo%>" name="total_earnings" format="$0.00" ifNull="$0.00"/>
+            <% } else { %>
+            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AlgoCompetitionHistory&amp;<%=Constants.CODER_ID%>=${sessionInfo.userId}" class="statText">
+                <rsc:item set="<%=coderInfo%>" name="total_earnings" format="$0.00" ifNull="$0.00"/></a>
+            <% } %>
+        </td>
+
     </tr>
     <% if (coderInfo.getItem(0, "rating").getResultData() != null && coderInfo.getIntItem(0, "rating") > 0) { %>
     <tr>
@@ -54,7 +67,7 @@
     <tr>
         <td class="formHandleEven">Earnings</td>
         <td class="formHandleEven" align="right">
-            <% if (coderInfo.getDoubleItem(0, "design_earnings") > 0f) { %>
+            <% if (coderInfo.getItem(0, "design_rating").getResultData() != null) { %>
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=CompetitionHistory&amp;<%=Constants.PHASE_ID%>=<%=SoftwareComponent.DESIGN_PHASE%>&amp;<%=Constants.CODER_ID%>=${sessionInfo.userId}" class="statText">
                 <rsc:item set="<%=coderInfo%>" name="design_earnings" format="$0.00"/></a>
             <% } else { %>
@@ -74,7 +87,7 @@
     <tr>
         <td class="formHandleEven">Earnings</td>
         <td class="formHandleEven" align="right">
-            <% if (coderInfo.getDoubleItem(0, "development_earnings") > 0f) { %>
+            <% if (coderInfo.getItem(0, "development_rating").getResultData() != null) { %>
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=CompetitionHistory&amp;<%=Constants.PHASE_ID%>=<%=SoftwareComponent.DEV_PHASE%>&amp;<%=Constants.CODER_ID%>=${sessionInfo.userId}" class="statText">
                 <rsc:item set="<%=coderInfo%>" name="development_earnings" format="$0.00"/></a>
             <% } else { %>
