@@ -2,6 +2,9 @@ package com.topcoder.web.common.tag;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
+
+import com.topcoder.web.common.StringUtils;
+
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -163,7 +166,7 @@ public abstract class SelectTag extends BaseTag {
                 String optionValue = getOptionValue(option);
                 String optionText = getOptionText(option);
                 s.append("<option value=\"");
-                s.append(optionValue);
+                s.append(StringUtils.htmlEncode(optionValue));
                 s.append("\"");
                 if (selectedValue != null && selectedValue.equals(optionValue) ||
                         selectedText != null && selectedText.equals(optionText)
@@ -171,7 +174,7 @@ public abstract class SelectTag extends BaseTag {
                     s.append(" selected");
                 }
                 s.append(">");
-                s.append(optionText);
+                s.append(StringUtils.htmlEncode(optionText));
                 s.append("</option>\n");
             }
         }

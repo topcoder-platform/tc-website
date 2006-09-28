@@ -5176,6 +5176,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         ArrayList param = new ArrayList();
         param.add(search);
+        param.add(search);
         ResultSetContainer rsc = runSearchQuery(DBMS.TCS_OLTP_DATASOURCE_NAME, query.toString(), param, true);
 
         HashMap hm = new HashMap();

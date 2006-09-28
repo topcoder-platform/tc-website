@@ -1,17 +1,25 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.ajax;
 
+import java.util.Iterator;
+import java.util.Map;
+
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCWebException;
-
-import java.util.Map;
 
 /**
  * @author  cucu
  */
 public class SelectPaymentTypeReference extends BaseProcessor implements PactsConstants {
 
+	private void formatHTMLMap(Map m) {
+		for (Iterator it = m.entrySet().iterator(); it.hasNext(); ) {
+			Map.Entry entry = (Map.Entry) it.next();
+			entry.setValue(StringUtils.htmlEncode((String) entry.getValue()));
+		}
+	}
     protected void businessProcessing() throws TCWebException {
         try {
             int refId = Integer.parseInt(getRequest().getParameter("reference_type_id"));
