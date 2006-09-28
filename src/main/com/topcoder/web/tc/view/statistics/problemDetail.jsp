@@ -68,8 +68,14 @@
             Problem Name:
         </td>
         <td class="statText" width="100%" valign="top">
+            <% if (generalInfo.getIntItem(0, "algo_rating_type_id") == Constants.TC_ALGO_RATING_TYPE_ID) { %>
             <A HREF="/stat?c=problem_statement&amp;pm=<rsc:item set="<%=generalInfo%>" name="problem_id"/>&amp;rd=<rsc:item set="<%=generalInfo%>" name="round_id"/>" class="statText">
                 <rsc:item set="<%=generalInfo%>" name="class_name"/></A>
+            <% } else { %>
+            <A HREF="/tc?module=HSProblemStatement&amp;pm=<rsc:item set="<%=generalInfo%>" name="problem_id"/>&amp;rd=<rsc:item set="<%=generalInfo%>" name="round_id"/>" class="statText">
+                <rsc:item set="<%=generalInfo%>" name="class_name"/></A>
+            <% } %>
+
 
         </td>
     </tr>
