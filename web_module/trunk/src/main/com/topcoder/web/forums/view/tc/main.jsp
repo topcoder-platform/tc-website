@@ -191,7 +191,7 @@
                 <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
             </td>
             <td class="rtHeader"><div style="width:80px;">T./M.</div></td>
-            <td class="rtHeader" align="center" colspan="2"><div style="width:300px;">Last Post</div></td>
+            <td class="rtHeader" align="center" colspan="2"><div style="width:320px;">Last Post</div></td>
         </tr>
         <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=itForumsCopy%>'>
             <% trackerClass = (user == null || forum.getMessageCount() <= 0 || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ
