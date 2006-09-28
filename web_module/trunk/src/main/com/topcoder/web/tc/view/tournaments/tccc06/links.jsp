@@ -134,14 +134,14 @@
 <% } %>
 
 <% if (tabLev2.equals("design")) {%>
-   <td class="nav"><A href="/tc?module=TCCC06ContestDetails&ct=248"><img src="/i/tournament/tccc06/tabs/L2_designOn.gif" alt="" border="0" /></A></td>
+   <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_bracket"><img src="/i/tournament/tccc06/tabs/L2_designOn.gif" alt="" border="0" /></A></td>
 <% } else { %>
-   <td class="nav"><A href="/tc?module=TCCC06ContestDetails&ct=248"><img src="/i/tournament/tccc06/tabs/L2_designOff.gif" alt="" border="0" /></A></td>
+   <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_bracket"><img src="/i/tournament/tccc06/tabs/L2_designOff.gif" alt="" border="0" /></A></td>
 <% } %>
 <% if (tabLev2.equals("development")) {%>
-   <td class="nav"><A href="/tc?module=TCCC06ContestDetails&ct=249"><img src="/i/tournament/tccc06/tabs/L2_developmentOn.gif" alt="" border="0" /></A></td>
+   <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_bracket"><img src="/i/tournament/tccc06/tabs/L2_developmentOn.gif" alt="" border="0" /></A></td>
 <% } else { %>
-   <td class="nav"><A href="/tc?module=TCCC06ContestDetails&ct=249"><img src="/i/tournament/tccc06/tabs/L2_developmentOff.gif" alt="" border="0" /></A></td>
+   <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_bracket"><img src="/i/tournament/tccc06/tabs/L2_developmentOff.gif" alt="" border="0" /></A></td>
 <% } %>
 <%--
 <% } else if (tabLev1.equals("ccip")) { %>
@@ -241,7 +241,9 @@
                 <%--
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_finals"><% if (tabLev3.equals("finals")) {%><img src="/i/tournament/tccc06/tabs/L3_finalsOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_finalsOff.gif" border="0" /><% } %></a></td>
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary"><% if (tabLev3.equals("summary")) {%><img src="/i/tournament/tccc06/tabs/L3_summaryOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_summaryOff.gif" border="0" /><% } %></a></td>
+                --%>
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_bracket"><% if (tabLev3.equals("bracket")) {%><img src="/i/tournament/tccc06/tabs/L3_bracketOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_bracketOff.gif" border="0" /><% } %></a></td>
+                <%--
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_prizes"><% if (tabLev3.equals("prizes")) {%><img src="/i/tournament/tccc06/tabs/L3_prizeWinnersOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_prizeWinnersOff.gif" border="0" /><% } %></a></td>
                 --%>
                 <% } else if (tabLev2.equals("development")) {%>
@@ -249,7 +251,9 @@
                 <%--
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_finals"><% if (tabLev3.equals("finals")) {%><img src="/i/tournament/tccc06/tabs/L3_finalsOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_finalsOff.gif" border="0" /><% } %></a></td>
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary"><% if (tabLev3.equals("summary")) {%><img src="/i/tournament/tccc06/tabs/L3_summaryOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_summaryOff.gif" border="0" /><% } %></a></td>
+                --%>
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_bracket"><% if (tabLev3.equals("bracket")) {%><img src="/i/tournament/tccc06/tabs/L3_bracketOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_bracketOff.gif" border="0" /><% } %></a></td>
+                <%--
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_prizes"><% if (tabLev3.equals("prizes")) {%><img src="/i/tournament/tccc06/tabs/L3_prizeWinnersOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_prizeWinnersOff.gif" border="0" /><% } %></a></td>
                 --%>
                 <% } %>
