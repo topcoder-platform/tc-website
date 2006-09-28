@@ -2,7 +2,6 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<br><br>
 <table border="0" cellspacing="0" cellpadding="0" width="525">
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
