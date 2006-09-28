@@ -56,8 +56,10 @@
             competitions.</li>
         <li>Add the point value of the problem to the problem detail page</li>
         <li>Add link to problem details page from the problem solution page</li>
-        <li>When the problem archive page links to the round overview, go to the appropriate one based on round type (TC
-            vs. HS)</li>
+        <li>Make the problem archive page's link to round overview go to the appropriate page based on whehter it's a
+            High Schoo match or not.</li>
+        <li>Make the problem detail page's links to round overview, problem statment and problem solution go to the
+            appropriate page based on whehter it's a High Schoo match or not.</li>
 
     </ul>
 </p>
