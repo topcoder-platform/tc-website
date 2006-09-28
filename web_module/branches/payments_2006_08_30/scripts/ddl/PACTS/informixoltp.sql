@@ -104,8 +104,10 @@ update payment_type_lu set due_date_interval = 60
 where payment_type_id in (19,22);
 
 insert into security_perms (role_id, permission, create_user_id, security_status_id)
-values(2003, 'com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.SelectPaymentTypeReference', 132456,1)
+values(2003, 'com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.ajax.SelectPaymentTypeReference', 132456,1);
 
+insert into security_perms (role_id, permission, create_user_id, security_status_id)
+values(2003, 'com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.ajax.FillPaymentData', 132456,1);
 
 
 alter table payment_detail add column algorithm_round_id DECIMAL(10,0);
