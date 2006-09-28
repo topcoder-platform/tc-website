@@ -679,7 +679,9 @@ public class PDFGenerator extends BaseProcessor {
     }
 
     private void drawPageOne(Document doc, PlacementConfig info) throws Exception {
-        Image logo = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/topcoder_logo_tagline.jpg");
+        //we're going direct to prod because of the security in dev.  if we need dev, we'll have to put the
+        //username and password into the request  http://username:password@servername...
+        Image logo = Image.getInstance("http://www.topcoder.com/i/profiles/topcoder_logo_tagline.jpg");
         logo.setAlignment(Element.ALIGN_CENTER);
         logo.scalePercent(60f);
         Paragraph p = new Paragraph(" ");
@@ -882,7 +884,9 @@ public class PDFGenerator extends BaseProcessor {
         ranking.addCell(inner);
         ranking.addCell(" ");
 
-        Image chart = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/graph?c=rating_distribution_graph_profile&width=600&height=400&rt=" + info.getRating() + "&hn=" + info.getHandle());
+        //we're going direct to prod because of the security in dev.  if we need dev, we'll have to put the
+        //username and password into the request  http://username:password@servername...
+        Image chart = Image.getInstance("http://www.topcoder.com/graph?c=rating_distribution_graph_profile&width=600&height=400&rt=" + info.getRating() + "&hn=" + info.getHandle());
 //        ranking.addCell(chart);
         //ranking.addCell(new Phrase("* line indicates " + info.getHandle() + "'s rating", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
@@ -1641,7 +1645,9 @@ public class PDFGenerator extends BaseProcessor {
         general.addCell(" ");
         top.addCell(general);
 
-        Image chart = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/graph?c=" + command + "&width=600&height=400&rt=" + gen.getRating() + "&hn=" + info.getHandle());
+        //we're going direct to prod because of the security in dev.  if we need dev, we'll have to put the
+        //username and password into the request  http://username:password@servername...
+        Image chart = Image.getInstance("http://www.topcoder.com/graph?c=" + command + "&width=600&height=400&rt=" + gen.getRating() + "&hn=" + info.getHandle());
         top.addCell(chart);
 
         page.addCell(top);
@@ -1830,7 +1836,9 @@ public class PDFGenerator extends BaseProcessor {
             try {
                 if (!inResume) {
                     //super.onEndPage(writer, document);
-                    Image footerimg = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/topcoder_logo_footer.jpg");
+                    //we're going direct to prod because of the security in dev.  if we need dev, we'll have to put the
+                    //username and password into the request  http://username:password@servername...
+                    Image footerimg = Image.getInstance("http://www.topcoder.com/i/profiles/topcoder_logo_footer.jpg");
                     footerimg.setAlignment(Element.ALIGN_LEFT);
                     footerimg.scalePercent(70f);
 
@@ -1849,7 +1857,9 @@ public class PDFGenerator extends BaseProcessor {
                 } else if (bFirstFooter) {
                     bFirstFooter = false;
 
-                    Image footerimg = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/topcoder_logo_footer.jpg");
+                    //we're going direct to prod because of the security in dev.  if we need dev, we'll have to put the
+                    //username and password into the request  http://username:password@servername...
+                    Image footerimg = Image.getInstance("http://www.topcoder.com/i/profiles/topcoder_logo_footer.jpg");
                     footerimg.setAlignment(Element.ALIGN_LEFT);
                     footerimg.scalePercent(70f);
 
