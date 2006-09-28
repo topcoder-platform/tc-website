@@ -54,8 +54,14 @@
     <tr>
         <td class="formHandleEven">Earnings</td>
         <td class="formHandleEven" align="right">
-            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=CompetitionHistory&amp;<%=Constants.PHASE_ID%>=<%=SoftwareComponent.DESIGN_PHASE%>&amp;<%=Constants.CODER_ID%>=${sessionInfo.userId}">
-                <rsc:item set="<%=coderInfo%>" name="design_earnings" format="$0.00"/></a></td>
+            <% if (coderInfo.getDoubleItem(0, "design_earnings") > 0f) { %>
+            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=CompetitionHistory&amp;<%=Constants.PHASE_ID%>=<%=SoftwareComponent.DESIGN_PHASE%>&amp;<%=Constants.CODER_ID%>=${sessionInfo.userId}" class="statText">
+                <rsc:item set="<%=coderInfo%>" name="design_earnings" format="$0.00"/></a>
+            <% } else { %>
+            <rsc:item set="<%=coderInfo%>" name="design_earnings" format="$0.00"/>
+            <% } %>
+
+        </td>
     </tr>
 
     <tr><td colspan="2" class="myStatsTitle">Development</td></tr>
@@ -68,8 +74,13 @@
     <tr>
         <td class="formHandleEven">Earnings</td>
         <td class="formHandleEven" align="right">
-            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=CompetitionHistory&amp;<%=Constants.PHASE_ID%>=<%=SoftwareComponent.DEV_PHASE%>&amp;<%=Constants.CODER_ID%>=${sessionInfo.userId}">
-                <rsc:item set="<%=coderInfo%>" name="development_earnings" format="$0.00"/></a></td>
+            <% if (coderInfo.getDoubleItem(0, "development_earnings") > 0f) { %>
+            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=CompetitionHistory&amp;<%=Constants.PHASE_ID%>=<%=SoftwareComponent.DEV_PHASE%>&amp;<%=Constants.CODER_ID%>=${sessionInfo.userId}" class="statText">
+                <rsc:item set="<%=coderInfo%>" name="development_earnings" format="$0.00"/></a>
+            <% } else { %>
+            <rsc:item set="<%=coderInfo%>" name="development_earnings" format="$0.00"/>
+            <% } %>
+        </td>
     </tr>
 </table>
 
