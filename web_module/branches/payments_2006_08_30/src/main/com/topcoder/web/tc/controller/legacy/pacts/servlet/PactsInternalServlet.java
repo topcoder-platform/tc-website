@@ -19,6 +19,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.MissingResourceException;
 import java.util.StringTokenizer;
 
 import javax.servlet.ServletConfig;
@@ -30,6 +31,7 @@ import javax.servlet.http.HttpSession;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.HttpObjectFactory;
@@ -1473,7 +1475,15 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         p.setDueDate(TCData.dateForm(request.getParameter("date_due"), buf.toString(), true));
         p.getHeader().setAlgorithmRoundId(getLongParam(request, "algorithm_round_id"));
-
+        p.getHeader().setComponentProjectId(getLongParam(request, "component_project_id"));
+/*        p.getHeader().setAlgorithmRoundId(getLongParam(request, "algorithm_round_id"));
+        p.getHeader().setAlgorithmRoundId(getLongParam(request, "algorithm_round_id"));
+        p.getHeader().setAlgorithmRoundId(getLongParam(request, "algorithm_round_id"));
+        p.getHeader().setAlgorithmRoundId(getLongParam(request, "algorithm_round_id"));
+        p.getHeader().setAlgorithmRoundId(getLongParam(request, "algorithm_round_id"));
+        p.getHeader().setAlgorithmRoundId(getLongParam(request, "algorithm_round_id"));
+        TO DO
+*/
         DataInterfaceBean dib = new DataInterfaceBean();
 
         if (request.getParameter(CONTRACT_ID) != null) {
@@ -1504,6 +1514,19 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
     }
 
+    protected String getProcessor(String key) {
+        String ret = super.getProcessor(key);
+        if (ret.equals(key)) {
+            //yuck, gonna throw errors all over the place
+            TCResourceBundle bundle = new TCResourceBundle("PactsInternalServlet");
+            try {
+                ret = bundle.getProperty(key);
+            } catch (MissingResourceException ignore) {
+                //just return what we got
+            }
+        }
+        return ret;
+    }
 
     /*
     Forwardidng JSP: "addTaxForm.jsp"
