@@ -4,6 +4,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.PactsServices;
 import com.topcoder.web.ejb.pacts.PactsServicesBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
@@ -1472,5 +1473,9 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.getDigitalRunStageList();
     }
 
+    public BasePayment fillPaymentData(BasePayment payment) throws RemoteException, SQLException {
+    	PactsServices ps = getEjbHandle();
+    	return ps.fillPaymentData(payment);
+    }
 }
 

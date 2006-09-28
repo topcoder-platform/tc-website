@@ -1,4 +1,4 @@
-package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
+package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.ajax;
 
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
@@ -72,7 +72,7 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
             }
             getRequest().setAttribute("reference_type_id", refId + "");
             getRequest().setAttribute("search", search);
-            setNextPage(INTERNAL_SELECT_PAYMENT_TYPE_REFERENCE);
+            setNextPage(INTERNAL_AJAX_SELECT_PAYMENT_TYPE_REFERENCE);
             setIsNextPageInContext(true);
         } catch (Exception e) {
             throw new TCWebException(e);

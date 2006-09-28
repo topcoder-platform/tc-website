@@ -10,6 +10,7 @@ import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -206,6 +207,28 @@ public interface PactsServices extends EJBObject {
     Map findComponentContests(String search) throws RemoteException, SQLException;
 
     Map findStudioContests(String search) throws RemoteException, SQLException;
+    
+    
+    // ================== Methods from the Client Service ================== 
+    
+    BasePayment addPayment(BasePayment payment)  throws RemoteException, SQLException;
 
+    BasePayment updatePayment(BasePayment payment) throws RemoteException, Exception;
+
+    List findPayments(int paymentTypeId) throws RemoteException, Exception;
+
+    List findPayments(int paymentTypeId, long referenceId) throws RemoteException, Exception;
+
+    List findCoderPayments(long coderId) throws RemoteException, Exception;
+
+    List findCoderPayments(long coderId, int paymentTypeId) throws RemoteException, Exception;
+
+    List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws RemoteException, Exception;
+
+    void deletePayment(long paymentId) throws RemoteException, Exception;
+
+    void deletePayment(BasePayment payment) throws RemoteException, Exception;
+
+    BasePayment fillPaymentData(BasePayment payment) throws RemoteException, SQLException;
 }
 

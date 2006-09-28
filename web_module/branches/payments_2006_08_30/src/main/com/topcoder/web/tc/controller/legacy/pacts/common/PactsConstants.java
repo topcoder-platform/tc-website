@@ -302,6 +302,7 @@ public interface PactsConstants extends Constants {
 
     // servlet and jsps
     public static final String INTERNAL_JSP_DIR = "/pacts/internal";
+    public static final String INTERNAL_AJAX_JSP_DIR = "/pacts/internal/ajax";
     public static final String MEMBER_JSP_DIR = "/pacts/client/";
     public static final String MEMBER_SERVLET_URL = "PactsMemberServlet";
 
@@ -450,7 +451,8 @@ public interface PactsConstants extends Constants {
     public static final String INTERNAL_GENERATE_PAYMENTS = INTERNAL_JSP_DIR + "/generatePayments.jsp";
     public static final String INTERNAL_GENERATE_COMPONENT_PAYMENTS = INTERNAL_JSP_DIR + "/generateComponentPayments.jsp";
     public static final String INTERNAL_CREATE_AFFIDAVIT = INTERNAL_JSP_DIR + "/createAffidavitTemplate.jsp";
-    public static final String INTERNAL_SELECT_PAYMENT_TYPE_REFERENCE = INTERNAL_JSP_DIR + "/selectPaymentTypeReference.jsp";
+    public static final String INTERNAL_AJAX_SELECT_PAYMENT_TYPE_REFERENCE = INTERNAL_AJAX_JSP_DIR + "/selectPaymentTypeReference.jsp";
+    public static final String INTERNAL_AJAX_FILL_PAYMENT_DATA = INTERNAL_AJAX_JSP_DIR + "/fillPaymentData.jsp";
 
     /*
       veredox - Don't get your panties in a knot.

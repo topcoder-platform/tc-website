@@ -46,7 +46,7 @@ function search() {
 }
 
 function referenceChanged(refId) {
-    var ajaxRequest = new AjaxRequest('/pacts/internal/lookupPaymentData.jsp');
+    var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=FillPaymentData');
     document.f.reference_id.value = refId;
     ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.addNamedFormElements("reference_id");
