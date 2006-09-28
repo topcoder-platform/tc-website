@@ -1476,14 +1476,17 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         p.setDueDate(TCData.dateForm(request.getParameter("date_due"), buf.toString(), true));
         p.getHeader().setAlgorithmRoundId(getLongParam(request, "algorithm_round_id"));
         p.getHeader().setComponentProjectId(getLongParam(request, "component_project_id"));
-/*        p.getHeader().setAlgorithmRoundId(getLongParam(request, "algorithm_round_id"));
-        p.getHeader().setAlgorithmRoundId(getLongParam(request, "algorithm_round_id"));
-        p.getHeader().setAlgorithmRoundId(getLongParam(request, "algorithm_round_id"));
-        p.getHeader().setAlgorithmRoundId(getLongParam(request, "algorithm_round_id"));
-        p.getHeader().setAlgorithmRoundId(getLongParam(request, "algorithm_round_id"));
-        p.getHeader().setAlgorithmRoundId(getLongParam(request, "algorithm_round_id"));
-        TO DO
-*/
+        p.getHeader().setAlgorithmProblemId(getLongParam(request, "algorithm_problem_id"));
+        p.getHeader().setStudioContestId(getLongParam(request, "studio_contest_id"));
+        p.getHeader().setComponentContestId(getLongParam(request, "component_contest_id"));
+        p.getHeader().setDigitalRunStageId(getLongParam(request, "digital_run_stage_id"));
+        p.getHeader().setDigitalRunSeasonId(getLongParam(request, "digital_run_season_id"));
+        p.getHeader().setParentPaymentId(getLongParam(request, "parent_reference_id"));
+        
+        if (request.getParameter("client") != null) {
+        	p.getHeader().setClient((String) request.getParameter("client"));
+        }
+        
         DataInterfaceBean dib = new DataInterfaceBean();
 
         if (request.getParameter(CONTRACT_ID) != null) {

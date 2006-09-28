@@ -12,6 +12,7 @@
 <c:set var="rounds" value="${requestScope.algorithm_round_list}"/>
 <c:set var="studioContests" value="${requestScope.studio_contest_list}"/>
 <c:set var="componentContests" value="${requestScope.component_contest_list}"/>
+<c:set var="parentPayments" value="${requestScope.parent_reference_list}"/>
 <c:set var="refId" value="${requestScope.reference_type_id}"/>
 <c:set var="search" value="${requestScope.search}"/>
 
@@ -22,6 +23,7 @@
 <c:set var="COMPONENT_CONTEST" value="<%= PactsConstants.REFERENCE_COMPONENT_CONTEST_ID + "" %>" />
 <c:set var="DIGITAL_RUN_STAGE" value="<%= PactsConstants.REFERENCE_DIGITAL_RUN_STAGE_ID + "" %>" />
 <c:set var="DIGITAL_RUN_SEASON" value="<%= PactsConstants.REFERENCE_DIGITAL_RUN_SEASON_ID + "" %>" />
+<c:set var="PARENT_PAYMENT" value="<%= PactsConstants.REFERENCE_PARENT_PAYMENT_ID + "" %>" />
 
 <taconite-root xml:space="preserve">
 
@@ -68,7 +70,7 @@
                                      fieldText="project_desc" fieldValue="project_id"                        
                                      useTopValue="false"  onChange="referenceChanged(document.f.component_project_id.value)"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />                            
-                             <br/>Client:
+                             <br/><br/>Client:
                              <input type="text" name="client"/>
                         </c:if>                                  
 						<script type="text/javascript">
@@ -141,6 +143,28 @@
 								referenceChanged(document.f.component_contest_id.value)
 				    	</script>                                                   
                      </c:when>                       
+
+                     <c:when test="${refId == PARENT_PAYMENT}">
+                        <c:if test="${empty parentPayments}">                  
+                            <input type="hidden" name="missing_reference" value="Please select a parent for the payment"/>                        
+                          Enter search text for the parent payment detail: <input type="text" name="search_text" value="${search}" />
+                          <input type="button" value="search" onClick="search()" />
+                            <c:if test="${not empty search}">          
+                                <font color="#FF0000">No payments found containing <c:out value="${search}"/>. </font>
+                            </c:if>
+                          <br/>
+                        </c:if>
+                        <c:if test="${not empty parentPayments}">                   
+                             <tc-webtag:rscSelect name="parent_reference_id" list="${parentPayments}" 
+                                     fieldText="payment_desc" fieldValue="payment_id"                        
+                                     useTopValue="false"  onChange="referenceChanged(document.f.parent_reference_id.value)"/>
+                             <input type="button" value="do another search" onClick="typeChanged()" />
+                        </c:if>       
+						<script type="text/javascript">
+								referenceChanged(document.f.parent_reference_id.value)
+				    	</script>                                                   
+                     </c:when>                       
+
 
                      
                      <c:when test="${refId == DIGITAL_RUN_STAGE}">

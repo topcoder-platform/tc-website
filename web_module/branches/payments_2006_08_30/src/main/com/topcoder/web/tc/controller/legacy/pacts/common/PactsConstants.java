@@ -171,6 +171,7 @@ public interface PactsConstants extends Constants {
     public static final String COMPONENT_CONTEST_LIST = "component_contest_list";
     public static final String DIGITAL_RUN_STAGE_LIST = "digital_run_stage_list";
     public static final String DIGITAL_RUN_SEASON_LIST = "digital_run_season_list";
+    public static final String PARENT_REFERENCE_LIST = "parent_reference_list";
 
     // Miscellaneous
     public static final String TEXT = "text";
@@ -225,6 +226,10 @@ public interface PactsConstants extends Constants {
     public static final int DATE = 4;
     public static final int STRING = 5;
 
+    public static final int[] ALGORITHM_CONTEST_ROUND_TYPES= {1, 3, 12, 17};
+    public static final int[] MARATHON_MATCH_ROUND_TYPES= {10, 13, 14, 15, 16};
+    public static final int[] ALGORITHM_TOURNAMENT_ROUND_TYPES = {2, 18};
+    
     //status_id
 
     public static final int CONTRACT_INACTIVE_STATUS = 50;

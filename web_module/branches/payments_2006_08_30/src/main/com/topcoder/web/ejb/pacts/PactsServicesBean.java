@@ -5160,6 +5160,24 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return hm;
     }
 
+    public Map findPaymentsByDescription(String search) throws SQLException {
+        StringBuffer query = new StringBuffer(1000);
+        query.append(" SELECT p.payment_id, u.handle || ' - ' || pd.payment_desc as payment_desc");
+        query.append(" FROM payment_detail pd, payment p, user u ");
+        query.append(" WHERE pd.payment_detail_id = p.most_recent_detail_id ");
+        query.append(" AND p.user_id = u.user_id ");
+        query.append(" AND " + filterCondition("'[' || u.handle || '] ' || pd.payment_desc", search));
+        query.append(" ORDER BY 2");
+
+        ArrayList param = new ArrayList();
+        param.add(search);
+        ResultSetContainer rsc = runSearchQuery(query.toString(), param, true);
+
+        HashMap hm = new HashMap();
+        hm.put(PARENT_REFERENCE_LIST, rsc);
+        return hm;
+    }
+
     public Map findComponentContests(String search) throws SQLException {
         StringBuffer query = new StringBuffer(1000);
         query.append(" select contest_id, event_name || ' - ' || contest_name as contest_desc, c.start_date");

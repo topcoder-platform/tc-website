@@ -1473,9 +1473,16 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.getDigitalRunStageList();
     }
 
+    public Map findPaymentsByDescription(String search) throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.findPaymentsByDescription(search);    	
+    }
+    
     public BasePayment fillPaymentData(BasePayment payment) throws RemoteException, SQLException {
     	PactsServices ps = getEjbHandle();
     	return ps.fillPaymentData(payment);
     }
+    
+    
 }
 

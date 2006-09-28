@@ -1,10 +1,8 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.ajax;
 
-import java.util.Iterator;
 import java.util.Map;
 
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
@@ -14,12 +12,6 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  */
 public class SelectPaymentTypeReference extends BaseProcessor implements PactsConstants {
 
-	private void formatHTMLMap(Map m) {
-		for (Iterator it = m.entrySet().iterator(); it.hasNext(); ) {
-			Map.Entry entry = (Map.Entry) it.next();
-			entry.setValue(StringUtils.htmlEncode((String) entry.getValue()));
-		}
-	}
     protected void businessProcessing() throws TCWebException {
         try {
             int refId = Integer.parseInt(getRequest().getParameter("reference_type_id"));
@@ -36,13 +28,16 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                         map = dib.findProblems("%" + search + "%");
                         getRequest().setAttribute(ALGORITHM_PROBLEM_LIST, map.get(ALGORITHM_PROBLEM_LIST));
                         break;
-
+                        
                     case REFERENCE_ALGORITHM_ROUND_ID:
                         if (type == ALGORITHM_CONTEST_PAYMENT) {
-                            map = dib.findRounds("%" + search + "%", new int[] {1,2,3,17,18}); // fix values
+                            map = dib.findRounds("%" + search + "%", ALGORITHM_CONTEST_ROUND_TYPES); 
 
                         } else if (type == MARATHON_MATCH_PAYMENT) {
-                            map = dib.findRounds("%" + search + "%", new int[] {10,11,12}); // fix values
+                            map = dib.findRounds("%" + search + "%", MARATHON_MATCH_ROUND_TYPES);
+                            
+                        }  else if (type == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT) {
+                        	  map = dib.findRounds("%" + search + "%", ALGORITHM_TOURNAMENT_ROUND_TYPES);
                         }
                         getRequest().setAttribute(ALGORITHM_ROUND_LIST, map.get(ALGORITHM_ROUND_LIST));
                         break;
@@ -61,6 +56,12 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                         map = dib.findStudioContests("%" + search + "%");
                         getRequest().setAttribute(STUDIO_CONTEST_LIST, map.get(STUDIO_CONTEST_LIST));
                         break;
+                        
+                    case REFERENCE_PARENT_PAYMENT_ID:
+                        map = dib.findPaymentsByDescription("%" + search + "%");
+                        getRequest().setAttribute(PARENT_REFERENCE_LIST, map.get(PARENT_REFERENCE_LIST));
+                        break;
+                       
                 }
             } else {
                 // no search, for the references that have few fields.

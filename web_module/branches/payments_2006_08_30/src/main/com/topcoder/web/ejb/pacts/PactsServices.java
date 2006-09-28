@@ -200,6 +200,8 @@ public interface PactsServices extends EJBObject {
 
     Map findProjects(String search) throws RemoteException, SQLException;
 
+    Map findPaymentsByDescription(String search) throws RemoteException, SQLException;
+    
     Map getDigitalRunSeasonList() throws RemoteException, SQLException;
 
     Map getDigitalRunStageList() throws RemoteException, SQLException;
