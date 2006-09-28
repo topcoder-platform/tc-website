@@ -64,6 +64,9 @@
       <td class="headerC" nowrap="nowrap">
       <A href="">New Rating</A>
       </td>
+      <td class="headerC" nowrap="nowrap">
+        <a onmouseover="document.images['up_or_down'].src = '/i/interface/up_or_down_on.png';" onmouseout="document.images['up_or_down'].src = '/i/interface/up_or_down.png';" href=""><img src="/i/interface/up_or_down.png" alt="" name="up_or_down" border="0" /></a>
+      </td>
    </tr>
 <% boolean even = true; %>
 <% even = !even; %>
@@ -76,6 +79,7 @@
       </td>
       <td class="valueC"><span class="coderTextBlue">1417</span></td>
       <td class="valueC"><span class="coderTextYellow">1525</span></td>
+      <td class="valueC" style="vertical-align: middle;"><img src="/i/interface/greenUp.gif" alt="Up" /></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -87,6 +91,7 @@
       </td>
       <td class="valueC"><span class="coderTextBlue">1417</span></td>
       <td class="valueC"><span class="coderTextYellow">1525</span></td>
+      <td class="valueC" style="vertical-align: middle;"><img src="/i/interface/greenUp.gif" alt="Up" /></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -98,6 +103,7 @@
       </td>
       <td class="valueC"><span class="coderTextBlue">1417</span></td>
       <td class="valueC"><span class="coderTextYellow">1525</span></td>
+      <td class="valueC" style="vertical-align: middle;"><img src="/i/interface/greenUp.gif" alt="Up" /></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -109,6 +115,7 @@
       </td>
       <td class="valueC"><span class="coderTextBlue">1417</span></td>
       <td class="valueC"><span class="coderTextYellow">1525</span></td>
+      <td class="valueC" style="vertical-align: middle;"><img src="/i/interface/greenUp.gif" alt="Up" /></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -120,6 +127,7 @@
       </td>
       <td class="valueC"><span class="coderTextBlue">1417</span></td>
       <td class="valueC"><span class="coderTextYellow">1525</span></td>
+      <td class="valueC" style="vertical-align: middle;"><img src="/i/interface/greenUp.gif" alt="Up" /></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -131,6 +139,7 @@
       </td>
       <td class="valueC"><span class="coderTextBlue">1417</span></td>
       <td class="valueC"><span class="coderTextYellow">1525</span></td>
+      <td class="valueC" style="vertical-align: middle;"><img src="/i/interface/greenUp.gif" alt="Up" /></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -142,6 +151,7 @@
       </td>
       <td class="valueC"><span class="coderTextBlue">1417</span></td>
       <td class="valueC"><span class="coderTextYellow">1525</span></td>
+      <td class="valueC" style="vertical-align: middle;"><img src="/i/interface/greenUp.gif" alt="Up" /></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -153,6 +163,7 @@
       </td>
       <td class="valueC"><span class="coderTextBlue">1417</span></td>
       <td class="valueC"><span class="coderTextYellow">1525</span></td>
+      <td class="valueC" style="vertical-align: middle;"><img src="/i/interface/greenUp.gif" alt="Up" /></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -164,6 +175,7 @@
       </td>
       <td class="valueC"><span class="coderTextBlue">1417</span></td>
       <td class="valueC"><span class="coderTextYellow">1525</span></td>
+      <td class="valueC" style="vertical-align: middle;"><img src="/i/interface/greenUp.gif" alt="Up" /></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -175,6 +187,7 @@
       </td>
       <td class="valueC"><span class="coderTextBlue">1417</span></td>
       <td class="valueC"><span class="coderTextYellow">1525</span></td>
+      <td class="valueC" style="vertical-align: middle;"><img src="/i/interface/greenUp.gif" alt="Up" /></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -186,6 +199,7 @@
       </td>
       <td class="valueC"><span class="coderTextBlue">1417</span></td>
       <td class="valueC"><span class="coderTextYellow">1525</span></td>
+      <td class="valueC" style="vertical-align: middle;"><img src="/i/interface/greenUp.gif" alt="Up" /></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -197,6 +211,7 @@
       </td>
       <td class="valueC"><span class="coderTextBlue">1417</span></td>
       <td class="valueC"><span class="coderTextYellow">1525</span></td>
+      <td class="valueC" style="vertical-align: middle;"><img src="/i/interface/greenUp.gif" alt="Up" /></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -208,6 +223,7 @@
       </td>
       <td class="valueC"><span class="coderTextBlue">1417</span></td>
       <td class="valueC"><span class="coderTextYellow">1525</span></td>
+      <td class="valueC" style="vertical-align: middle;"><img src="/i/interface/greenUp.gif" alt="Up" /></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -219,6 +235,7 @@
       </td>
       <td class="valueC"><span class="coderTextBlue">1417</span></td>
       <td class="valueC"><span class="coderTextYellow">1525</span></td>
+      <td class="valueC" style="vertical-align: middle;"><img src="/i/interface/greenUp.gif" alt="Up" /></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -230,6 +247,7 @@
       </td>
       <td class="valueC"><span class="coderTextBlue">1417</span></td>
       <td class="valueC"><span class="coderTextYellow">1525</span></td>
+      <td class="valueC" style="vertical-align: middle;"><img src="/i/interface/greenUp.gif" alt="Up" /></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -241,6 +259,7 @@
       </td>
       <td class="valueC"><span class="coderTextBlue">1417</span></td>
       <td class="valueC"><span class="coderTextYellow">1525</span></td>
+      <td class="valueC" style="vertical-align: middle;"><img src="/i/interface/greenUp.gif" alt="Up" /></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -252,6 +271,7 @@
       </td>
       <td class="valueC"><span class="coderTextBlue">1417</span></td>
       <td class="valueC"><span class="coderTextYellow">1525</span></td>
+      <td class="valueC" style="vertical-align: middle;"><img src="/i/interface/greenUp.gif" alt="Up" /></td>
    </tr>
 <% even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -263,72 +283,7 @@
       </td>
       <td class="valueC"><span class="coderTextBlue">1417</span></td>
       <td class="valueC"><span class="coderTextYellow">1525</span></td>
-   </tr>
-<% even = !even; %>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-      <tc-webtag:handle coderId="7504863" context="algorithm"/>
-      </td>
-      <td class="value">
-      <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
-      </td>
-      <td class="valueC"><span class="coderTextBlue">1417</span></td>
-      <td class="valueC"><span class="coderTextYellow">1525</span></td>
-   </tr>
-<% even = !even; %>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-      <tc-webtag:handle coderId="7504863" context="algorithm"/>
-      </td>
-      <td class="value">
-      <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
-      </td>
-      <td class="valueC"><span class="coderTextBlue">1417</span></td>
-      <td class="valueC"><span class="coderTextYellow">1525</span></td>
-   </tr>
-<% even = !even; %>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-      <tc-webtag:handle coderId="7504863" context="algorithm"/>
-      </td>
-      <td class="value">
-      <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
-      </td>
-      <td class="valueC"><span class="coderTextBlue">1417</span></td>
-      <td class="valueC"><span class="coderTextYellow">1525</span></td>
-   </tr>
-<% even = !even; %>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-      <tc-webtag:handle coderId="7504863" context="algorithm"/>
-      </td>
-      <td class="value">
-      <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
-      </td>
-      <td class="valueC"><span class="coderTextBlue">1417</span></td>
-      <td class="valueC"><span class="coderTextYellow">1525</span></td>
-   </tr>
-<% even = !even; %>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-      <tc-webtag:handle coderId="7504863" context="algorithm"/>
-      </td>
-      <td class="value">
-      <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
-      </td>
-      <td class="valueC"><span class="coderTextBlue">1417</span></td>
-      <td class="valueC"><span class="coderTextYellow">1525</span></td>
-   </tr>
-<% even = !even; %>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-      <tc-webtag:handle coderId="7504863" context="algorithm"/>
-      </td>
-      <td class="value">
-      <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">SRM 315</A>
-      </td>
-      <td class="valueC"><span class="coderTextBlue">1417</span></td>
-      <td class="valueC"><span class="coderTextYellow">1525</span></td>
+      <td class="valueC" style="vertical-align: middle;"><img src="/i/interface/greenUp.gif" alt="Up" /></td>
    </tr>
 </tbody>   
 </table>
