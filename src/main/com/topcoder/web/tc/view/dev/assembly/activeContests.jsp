@@ -93,9 +93,7 @@
       </td>
       <td class="valueC">
       <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Syndicated Polls">register</A>
-      <%--
-      registration closed
-      --%>
+      <%--registration closed--%>
       </td>
       <td class="valueC">
       &#160;
@@ -111,7 +109,7 @@
       </td>
       <td class="valueC">$10,000</td>
       <td class="valueC">
-      09.27.2006 9:00 AM EST
+      10.02.2006 9:00 AM EST
       </td>
       <td class="valueC">
       10.16.2006 9:00 AM EST
