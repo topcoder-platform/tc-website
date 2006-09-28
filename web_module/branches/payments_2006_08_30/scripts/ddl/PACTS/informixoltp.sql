@@ -35,6 +35,7 @@ alter table payment_type_lu add payment_reference_id DECIMAL(3,0);
 alter table payment_type_lu add show_in_profile_ind DECIMAL(1,0) default 1 not null;
 alter table payment_type_lu add show_details_ind DECIMAL(1,0) default 1 not null;
 alter table payment_type_lu add due_date_interval DECIMAL(3,0) default 15 not null;
+alter table payment_type_lu add can_manually_add_ind DECIMAL(1,0) default 1 not null;
 
 
 alter table payment_type_lu add constraint foreign key 
@@ -102,6 +103,9 @@ where payment_type_id in (6,7);
 
 update payment_type_lu set due_date_interval = 60
 where payment_type_id in (19,22);
+
+update payment_type_lu set can_manually_add_ind=0 
+where payment_type_id in (3, 5); 
 
 insert into security_perms (role_id, permission, create_user_id, security_status_id)
 values(2003, 'com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.ajax.SelectPaymentTypeReference', 132456,1);
