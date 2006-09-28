@@ -28,7 +28,7 @@ payment.setDescription("descr");
  <taconite-replace-children contextNodeID="runJS" parseInBrowser="true">     
    <script type="text/javascript">
         
-        document.f.payment_desc.value = <%= payment.getDescription() %>;
+        document.f.payment_desc.value = "<%= payment.getDescription() %>";
     </script>
 </taconite-replace-children>      
  </taconite-root>

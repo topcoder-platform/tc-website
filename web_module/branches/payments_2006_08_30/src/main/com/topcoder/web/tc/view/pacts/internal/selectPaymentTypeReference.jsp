@@ -49,8 +49,8 @@
                         <c:if test="${not empty rounds}">                   
                              <tc-webtag:rscSelect name="algorithm_round_id" list="${rounds}" 
                                      fieldText="round_desc" fieldValue="round_id"                        
-                                     useTopValue="false" onChange="referenceChanged()" />
-                             <input type="button" value="do another search" onClick="typeChanged(document.f.algorithm_round.value)" />
+                                     useTopValue="false" onChange="referenceChanged(document.f.algorithm_round_id.value)" />
+                             <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>                                  
                      </c:when>                       
                      
