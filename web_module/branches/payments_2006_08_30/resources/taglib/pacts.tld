@@ -17,7 +17,7 @@
 
     <tag>
         <name>handle</name>
-        <tag-class>com.topcoder.web.tc.view.pacts.internal.view.HandleTag</tag-class>
+        <tag-class>com.topcoder.web.tc.view.pacts.internal.tag.HandleTag</tag-class>
         <body-content>empty</body-content>
         <attribute>
             <name>coderId</name>
