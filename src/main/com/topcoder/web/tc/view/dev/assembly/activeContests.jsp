@@ -51,7 +51,7 @@
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value" nowrap>
-      <img valign="bottom" src="/i/development/smAOL_crop.gif" border="0" alt="" />
+      <img src="/i/development/smAOL_crop.gif" border="0" alt="" />
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_aolXmppGateway">AOL XMPP Gateway</A>
       </td>
       <td class="valueC">
@@ -128,6 +128,7 @@
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
+      <img src="/i/development/smAOL_crop.gif" border="0" alt="" />
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_syndicatedPolls">Syndicated Polls</A>
       </td>
       <td class="valueC">
