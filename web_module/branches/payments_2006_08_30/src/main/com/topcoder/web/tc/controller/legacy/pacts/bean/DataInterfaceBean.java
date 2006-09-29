@@ -1,25 +1,41 @@
 package com.topcoder.web.tc.controller.legacy.pacts.bean;
 
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.ejb.pacts.BasePayment;
-import com.topcoder.web.ejb.pacts.PactsServices;
-import com.topcoder.web.ejb.pacts.PactsServicesBean;
-import com.topcoder.web.tc.controller.legacy.pacts.common.*;
-
-import javax.jms.JMSException;
-import javax.naming.InitialContext;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+
+import javax.jms.JMSException;
+import javax.naming.InitialContext;
+
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.PactsServices;
+import com.topcoder.web.ejb.pacts.PactsServicesBean;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
+import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.InvalidSearchInputException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.NoObjectFoundException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentNotReviewedException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UnsupportedSearchException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UpdateResults;
 
 /**
  * This class receives incoming requests from the dispatch beans
@@ -528,6 +544,21 @@ public class DataInterfaceBean implements PactsConstants {
     public Map getCreationDates(long[] paymentIds) throws RemoteException, SQLException {
         PactsServices ps = getEjbHandle();
         return ps.getCreationDates(paymentIds);
+    }
+    
+    /**
+     * Return a Payment creation date, or null if it couldn't be found.
+     * 
+     * @param paymentId Payment to retrieve its creation date
+     * @return the Payment creation date, or null if it couldn't be found.
+     * @throws RemoteException
+     * @throws SQLException
+     */
+    public Date getCreationDate(long paymentId) throws RemoteException, SQLException {
+     	Map results = getCreationDates(new long[] {paymentId});
+     	ResultSetContainer rsc = (ResultSetContainer)results.get(CREATION_DATE_LIST);
+     	         
+         return rsc.getRowCount() > 0? rsc.getTimestampItem(0, "date_created") : null;    	
     }
 
     /*****************************************************
