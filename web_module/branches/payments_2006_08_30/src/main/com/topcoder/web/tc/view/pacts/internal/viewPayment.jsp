@@ -2,6 +2,7 @@
 <%@ page import="java.text.DecimalFormat" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%@ taglib uri="pacts.tld" prefix="pacts-tag" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -62,11 +63,37 @@
 			<td><b>Tax:</b></td>
 			<td><fmt:formatNumber value="${payment.grossAmount - payment.netAmount}" pattern="####.00" /></td>
 		</tr>
-<!-- end if -->
-		
+<!-- end if -->	
 		<tr>
 			<td><b>Net Amount:</b></td>
 			<td><fmt:formatNumber value="${payment.netAmount}" pattern="#.00" /></td>
+		</tr>
+		<tr>
+			<td><b>Date Created:</b></td>
+			<td>to do</td>
+		</tr>
+		<tr>
+			<td><b>Date Due:</b></td>
+			<td>to do</td>
+		</tr>
+		<tr>
+			<td><b>Date Paid:</b></td>
+			<td>to do</td>
+		</tr>
+<c:if test="${not payment.header.algorithmRoundId}">
+		<tr>
+			<td><b>Round ID:</b></td>
+			<td><c:out value="${payment.header.algorithmRoundId}" /></td>
+		</tr>
+</c:if>
+		<tr>
+			<td><b>Reviewed:</b></td>
+			<td>
+				<c:choose>
+					<c:when test="${payment.header.reviewed}">Yes</c:when>
+					<c:otherwise>No</c:otherwise>
+				</c:choose>
+			</td>
 		</tr>
 		
 </table>
