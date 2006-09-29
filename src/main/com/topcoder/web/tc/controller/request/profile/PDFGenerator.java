@@ -1319,10 +1319,10 @@ public class PDFGenerator extends BaseProcessor {
             PdfImportedPage page;
             PdfContentByte cb = writer.getDirectContent();
 
-            for (int i = 0; i < n; ++i) {
+            for (int i = 1; i <= n; i++) {
                 page = writer.getImportedPage(reader, i);
                 cb.addTemplate(page, 0, 0);
-                if (i == n - 1) {
+                if (i == n) {
                     includeHeaderAndFooter = true;
                 }
                 doc.newPage();
