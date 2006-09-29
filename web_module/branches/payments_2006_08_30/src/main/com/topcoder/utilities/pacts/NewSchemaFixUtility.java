@@ -90,7 +90,7 @@ public class NewSchemaFixUtility extends DBUtility {
 //            processCompCompetitions();
 //            processCompContests();
             
-            //processRoyalties();
+            processRoyalties();
             
 /*            rs = psSelPaymentDetails.executeQuery();
             for (int i = 1; rs.next(); i++ ) {
@@ -307,7 +307,7 @@ public class NewSchemaFixUtility extends DBUtility {
         query.append("select ");
         query.append("user_id, amount, description, royalty_date ");
         query.append("from royalty_dw ");
-        query.append("where not exists (");
+        query.append("where not exists ( ");
         query.append("select pd.payment_detail_id from payment_detail pd, payment_detail_xref pdx, payment p ");
         query.append("where pd.payment_detail_id = pdx.payment_detail_id and ");
         query.append("p.payment_id = pdx.payment_id ");
