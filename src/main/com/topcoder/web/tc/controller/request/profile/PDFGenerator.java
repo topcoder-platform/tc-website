@@ -92,9 +92,8 @@ public class PDFGenerator extends BaseProcessor {
             MyPageEvents events = new MyPageEvents();
             writer.setPageEvent(events);
 
-            doc.open();
-
             doc.setFooter(footer);
+            doc.open();
             drawPageOne(doc, info);
             drawInstructions(doc, writer);
             doc.setHeader(header);
@@ -259,7 +258,6 @@ public class PDFGenerator extends BaseProcessor {
 
 
     private void drawPageTwo(Document doc, PlacementConfig info) throws Exception {
-        doc.newPage();
         GeneralStats gen = info.getAlgorithm();
 
         PdfPTable t = new PdfPTable(2);
@@ -783,8 +781,9 @@ public class PDFGenerator extends BaseProcessor {
                 cb.addTemplate(page, 0, 0);
                 if (i == n) {
                     includeHeader = true;
+                } else {
+                    doc.newPage();
                 }
-                doc.newPage();
             }
 
         }
