@@ -40,6 +40,9 @@ import com.topcoder.web.tc.model.*;
 
 import javax.naming.InitialContext;
 import java.awt.*;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.rmi.RemoteException;
 import java.text.DecimalFormat;
 import java.util.Arrays;
@@ -632,6 +635,7 @@ public class PDFGenerator extends BaseProcessor {
             doc.open();
 
             drawPageOne(doc, info);
+            drawInstructions(doc, writer);
             drawPageTwo(doc, info);
             drawPageThree(doc, info);
             drawPageFour(doc, info);
@@ -748,6 +752,48 @@ public class PDFGenerator extends BaseProcessor {
 
         doc.newPage();
     }
+
+    private void drawInstructions(Document doc, PdfWriter writer) throws Exception {
+
+        String ext = "doc";
+
+        doc.resetFooter();
+        doc.resetHeader();
+        inResume = true;
+
+
+        FileInputStream fis = new FileInputStream(new File("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/instructions.doc"));
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        int ch;
+        while ((ch = fis.read()) >= 0) {
+            baos.write(ch);
+        }
+
+        byte[] result;
+        InitialContext ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.FILE_CONVERSION_PROVIDER_URL);
+        FileConversion filebean = (FileConversion) createEJB(ctx, FileConversion.class);
+        result = filebean.convertDoc(baos.toByteArray(), ext);
+
+        PdfReader reader = new PdfReader(result);
+
+        int n = reader.getNumberOfPages();
+
+        PdfImportedPage page;
+        PdfContentByte cb = writer.getDirectContent();
+
+        for (int i = 0; i < n;) {
+            ++i;
+            doc.newPage();
+
+            page = writer.getImportedPage(reader, i);
+
+            cb.addTemplate(page, 0, 0);
+
+        }
+
+
+    }
+
 
     private void drawPageTwo(Document doc, PlacementConfig info) throws Exception {
         GeneralStats gen = info.getAlgorithm();
