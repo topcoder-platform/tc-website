@@ -22,7 +22,7 @@
 		<table border="0" cellpadding="2" cellspacing="2">
 		<tr>
 			<td><b>ID:</b></td>
-			<td><c:out value="${header.id}" /></td>
+			<td><c:out value="${header.id}" />-<c:out value="${payment.header.id}" /></td>
 		</tr>
 		<tr>
 			<td><b>User</b></td>
@@ -49,6 +49,25 @@
 		<tr>		
 			<td><b>Method:</b></td>
 			<td><c:out value="${header.method}" /></td>
+		</tr>
+<!--  
+		
+		if (!payment.getHeader().getType().equals("Component Payment") &&
+				!payment.getHeader().getType().equals("Review Board Payment")) -->
+				<!--  to do format! -->
+		<tr>
+			<td><b>Gross Amount:</b></td>
+			<td><c:out value="${payment.grossAmount}" /></td>
+		</tr>
+		<tr>
+			<td><b>Tax:</b></td>
+			<td><c:out value="${payment.grossAmount - payment.netAmount}" /></td>
+		</tr>
+<!-- end if -->
+		
+		<tr>
+			<td><b>Net Amount:</b></td>
+			<td><c:out value="${payment.netAmount}" /></td>
 		</tr>
 		
 </table>
