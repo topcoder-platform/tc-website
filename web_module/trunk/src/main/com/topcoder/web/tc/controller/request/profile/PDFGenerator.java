@@ -1323,11 +1323,11 @@ public class PDFGenerator extends BaseProcessor {
 
             for (int i = 0; i < n;) {
                 ++i;
-                doc.newPage();
 
                 page = writer.getImportedPage(reader, i);
 
                 cb.addTemplate(page, 0, 0);
+                doc.newPage();
 
             }
 
