@@ -29,7 +29,6 @@
 function typeChanged() {
     var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
     document.ajaxFields.reference_type_id.value = types[document.f.payment_type_id.selectedIndex];
-    ajaxRequest.setEchoDebugInfo();
     ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.addNamedFormElements("reference_type_id");    
     ajaxRequest.sendRequest();
@@ -39,7 +38,6 @@ function search(text) {
     var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
     document.ajaxFields.reference_type_id.value = types[document.f.payment_type_id.selectedIndex];
     document.f.search_text.value = text;
-    ajaxRequest.setEchoDebugInfo();
     ajaxRequest.addNamedFormElements("reference_type_id");    
     ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.addNamedFormElements("search_text");
@@ -52,7 +50,6 @@ function referenceChanged(refId) {
     ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.addNamedFormElements("reference_id");
     ajaxRequest.addNamedFormElements("cr");    
-    ajaxRequest.setEchoDebugInfo();
     ajaxRequest.sendRequest();
 }
 
