@@ -792,7 +792,7 @@ public class PDFGenerator extends BaseProcessor {
             cb.addTemplate(page, 0, 0);
 
         }
-        doc.newPage();
+        //doc.newPage();
 
 
     }
