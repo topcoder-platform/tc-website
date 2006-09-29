@@ -41,8 +41,6 @@ public class NewSchemaFixUtility extends DBUtility {
      */
     private String onlyAnalyze = null;
 
-    PreparedStatement psUpd = null;
-
     PactsClientServices pcs = null;
     
     /**
@@ -55,7 +53,7 @@ public class NewSchemaFixUtility extends DBUtility {
      */
     public void runUtility() throws Exception {
         try {            
-            StringBuffer query = null;
+            /*StringBuffer query = null;
             query = new StringBuffer(200);
             query.append("select * from royalty");
             PreparedStatement psSelRoomResult = prepareStatement("tcs_dw", query.toString());
@@ -76,15 +74,12 @@ public class NewSchemaFixUtility extends DBUtility {
                 if (i % 100 == 0) {
                     log.debug(i + "...");
                 }
-            }
+            }*/
             
             pcs = (PactsClientServices) createEJB();
 
-            
-//            buildPreparedStatements();
-            
-            //processRoomResultAdditions();
-            //processRoomResultConflicts();
+//            processRoomResultAdditions();
+//            processRoomResultConflicts();
 //            processRoomResultCharities();
             
 //            processCompCompetitions();
@@ -92,23 +87,10 @@ public class NewSchemaFixUtility extends DBUtility {
             
             processRoyalties();
             
-/*            rs = psSelPaymentDetails.executeQuery();
-            for (int i = 1; rs.next(); i++ ) {
-                switch (rs.getInt("payment_type_id")) {
-                    case 1:
-                        processContestPayment(rs.getLong("payment_detail_id"), rs.getString("payment_desc"));
-                        break;
-                    default:
-                        throw new Exception("Unknown payment type");
-                }
-            }*/
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw new Exception("PaymentFixUtility failed.\n" + sqle.getMessage());
         } finally {
-//            DBMS.close(psSelPaymentDetails);
-            //DBMS.close(rs);
-            DBMS.close(psUpd);
         }
     }
 
@@ -141,7 +123,8 @@ public class NewSchemaFixUtility extends DBUtility {
             }
             log.debug(i + " rows were processed...");
         } finally {
-          DBMS.close(rs);
+            DBMS.close(rs);
+            DBMS.close(psSelCompCompetitions);
         }
     }
 
@@ -155,12 +138,12 @@ public class NewSchemaFixUtility extends DBUtility {
         query.append("and p.user_id = user_contest_prize_dw.user_id and pd.component_contest_id = user_contest_prize_dw.contest_id ");
         query.append("and pd.gross_amount = user_contest_prize_dw.prize_payment) ");
 
-        PreparedStatement psSelCompCompetitions = prepareStatement("informixoltp", query.toString());
+        PreparedStatement psSelCompContests = prepareStatement("informixoltp", query.toString());
         log.debug("Processing component competitions:");
 
         ResultSet rs = null;
         try {            
-            rs = psSelCompCompetitions.executeQuery();
+            rs = psSelCompContests.executeQuery();
             int i = 1;
             for (; rs.next(); i++ ) {
                 pcs.addPayment(new ComponentTournamentBonusPayment(
@@ -214,6 +197,7 @@ public class NewSchemaFixUtility extends DBUtility {
             log.debug(i + " rows were processed...");
         } finally {
           DBMS.close(rs);
+          DBMS.close(psSelRoomResultsConflicts);
         }
     }
 
@@ -265,6 +249,7 @@ public class NewSchemaFixUtility extends DBUtility {
             log.debug(i + " rows were processed...");
         } finally {
           DBMS.close(rs);
+          DBMS.close(psSelRoomResultsCharities);
         }
     }
 
@@ -298,6 +283,7 @@ public class NewSchemaFixUtility extends DBUtility {
             log.debug(i + " rows were processed...");
         } finally {
           DBMS.close(rs);
+          DBMS.close(psSelRoomResultsAddittions);
         }
     }
 
@@ -336,6 +322,7 @@ public class NewSchemaFixUtility extends DBUtility {
             log.debug(i + " rows were processed...");
         } finally {
           DBMS.close(rs);
+          DBMS.close(psSelRoyalties);
         }
     }
 
