@@ -248,16 +248,15 @@ public class PDFGenerator extends BaseProcessor {
         PdfImportedPage page;
         PdfContentByte cb = writer.getDirectContent();
 
-        for (int i = 0; i < n;) {
-            ++i;
-
+        for (int i = 1; i <= n; i++) {
             page = writer.getImportedPage(reader, i);
-
             cb.addTemplate(page, 0, 0);
+            if (i == n) {
+                includeHeader = true;
+            }
             doc.newPage();
 
         }
-        includeHeader = true;
 
     }
 
@@ -1880,7 +1879,6 @@ public class PDFGenerator extends BaseProcessor {
         public void onEndPage(PdfWriter writer, Document document) {
 
             try {
-                log.debug("end page(" + writer.getPageNumber() + ") - includeHeader: " + includeHeader);
 
                 if (!inResume) {
                     //super.onEndPage(writer, document);
