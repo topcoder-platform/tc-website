@@ -7,7 +7,6 @@ import java.util.Map;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchNoteList;
 import com.topcoder.web.tc.controller.legacy.pacts.common.NoteHeaderList;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
@@ -31,7 +30,7 @@ public class ViewPayment extends BaseProcessor implements PactsConstants {
             getRequest().setAttribute(CREATION_DATE, creationDate);
 
             Map search = new HashMap();
-            search.put(PAYMENT_ID, payment_id);
+            search.put(PAYMENT_ID, payment_id + "");
            
             Map notes = bean.findNotes(search);
             getRequest().setAttribute(NOTE_HEADER_LIST, new NoteHeaderList(notes).getHeaderList());
