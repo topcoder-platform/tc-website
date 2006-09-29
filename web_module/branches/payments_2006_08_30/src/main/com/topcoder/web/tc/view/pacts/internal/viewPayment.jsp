@@ -2,7 +2,7 @@
 <%@ page import="java.text.DecimalFormat" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="pacts.tld" prefix="pacts-tag" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -74,11 +74,11 @@
 		</tr>
 		<tr>
 			<td><b>Date Due:</b></td>
-			<td>to do</td>
+			<td><fmt:formatNumber value="${payment.dueDate}" pattern="<%= PactsConstants.DATE_FORMAT_STRING %>" /></td>
 		</tr>
 		<tr>
 			<td><b>Date Paid:</b></td>
-			<td>to do</td>
+			<td><fmt:formatNumber value="${payment.payDate}" pattern="<%= PactsConstants.DATE_FORMAT_STRING %>" /></td>
 		</tr>
 <c:if test="${not payment.header.algorithmRoundId}">
 		<tr>
