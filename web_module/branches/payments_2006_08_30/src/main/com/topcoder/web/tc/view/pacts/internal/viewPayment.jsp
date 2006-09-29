@@ -14,7 +14,6 @@
 
 
 <c:set var="payment" value="${requestScope.payment}"/>
-<c:set var="header" value="${payment.header}"/>
 
 <h1>PACTS</h1>
 <h2>View Payment</h2>
@@ -22,20 +21,20 @@
 		<table border="0" cellpadding="2" cellspacing="2">
 		<tr>
 			<td><b>ID:</b></td>
-			<td><c:out value="${header.id}" />-<c:out value="${payment.header.id}" /></td>
+			<td><c:out value="${payment.header.id}" /></td>
 		</tr>
 		<tr>
 			<td><b>User</b></td>
-			<td><pacts-tag:handle coderId="${header.user.id}" handle="${header.user.handle}"/>
+			<td><pacts-tag:handle coderId="${payment.header.user.id}" handle="${payment.header.user.handle}"/>
 		</tr>
 		<tr>		
 			<td><b>Description:</b></td>
 			<td><c:out value="${payment.header.description}" /></td>
 		</tr>
-<c:if test="${not empty header.client }">
+<c:if test="${not empty payment.header.client }">
 		<tr>		
 			<td><b>Client:</b></td>
-			<td><c:out value="${header.client}" /></td>
+			<td><c:out value="${payment.header.client}" /></td>
 		</tr>
 </c:if>
 		<tr>		
@@ -44,11 +43,11 @@
 		</tr>
 		<tr>		
 			<td><b>Type:</b></td>
-			<td><c:out value="${header.type}" /></td>
+			<td><c:out value="${payment.header.type}" /></td>
 		</tr>
 		<tr>		
 			<td><b>Method:</b></td>
-			<td><c:out value="${header.method}" /></td>
+			<td><c:out value="${payment.header.method}" /></td>
 		</tr>
 <!--  
 		
