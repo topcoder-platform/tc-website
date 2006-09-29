@@ -58,6 +58,18 @@ public class PDFGenerator extends BaseProcessor {
     PlacementConfig info;
     private boolean includeHeaderAndFooter = true;
 
+    private static HeaderFooter header = new HeaderFooter(new Phrase("  "), false);
+    private static HeaderFooter footer = new HeaderFooter(new Phrase("  "), false);
+
+    static {
+        header.setBackgroundColor(new Color(0, 51, 102)); //#cc0000
+        header.setBorder(Rectangle.NO_BORDER);
+
+        footer.setAlignment(Element.ALIGN_RIGHT);
+        footer.setBorder(Rectangle.NO_BORDER);
+        footer.setBackgroundColor(new Color(0, 0, 0)); //#cccccc
+    }
+
     private PlacementConfig getConfig() throws Exception {
         int uid = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter("uid")));
 
@@ -619,18 +631,6 @@ public class PDFGenerator extends BaseProcessor {
             MyPageEvents events = new MyPageEvents();
             writer.setPageEvent(events);
 
-            HeaderFooter header = new HeaderFooter(new Phrase("  "), false);
-            header.setBackgroundColor(new Color(0, 51, 102)); //#cc0000
-            header.setBorder(Rectangle.NO_BORDER);
-
-            HeaderFooter footer = new HeaderFooter(new Phrase("  "), false);
-            footer.setAlignment(Element.ALIGN_RIGHT);
-            footer.setBorder(Rectangle.NO_BORDER);
-            footer.setBackgroundColor(new Color(0, 0, 0)); //#cccccc
-
-            doc.setHeader(header);
-            doc.setFooter(footer);
-
             doc.open();
 
             drawPageOne(doc, info);
@@ -757,8 +757,6 @@ public class PDFGenerator extends BaseProcessor {
 
         includeHeaderAndFooter = false;
         doc.newPage();
-        doc.resetFooter();
-        doc.resetHeader();
 
         URL u = new URL("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/instructions.doc");
 
@@ -791,8 +789,6 @@ public class PDFGenerator extends BaseProcessor {
             doc.newPage();
 
         }
-        doc.setFooter(footer);
-        doc.setHeader(header);
         includeHeaderAndFooter = false;
         doc.newPage();
 
@@ -1296,8 +1292,6 @@ public class PDFGenerator extends BaseProcessor {
                 log.debug(ext);
             }
 
-            doc.resetFooter();
-            doc.resetHeader();
             includeHeaderAndFooter = false;
 
             byte[] rawBytes = resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFile();
@@ -1860,6 +1854,8 @@ public class PDFGenerator extends BaseProcessor {
                         " lastPageHadHeaderFooter " + lastPageHadHeaderFooter);
                 lastPageHadHeaderFooter = includeHeaderAndFooter;
                 if (writer.getPageNumber() > 1 && includeHeaderAndFooter) {
+                    document.setFooter(footer);
+                    document.setHeader(header);
                     cb = writer.getDirectContent();
                     cb.beginText();
                     cb.setColorFill(Color.white);
@@ -1868,6 +1864,12 @@ public class PDFGenerator extends BaseProcessor {
                     cb.setTextMatrix(200, 810);
                     cb.showText("Member Profile for [" + info.getHandle() + "]");
                     cb.endText();
+                } else if (writer.getPageNumber() == 1) {
+                    document.setFooter(footer);
+                    document.resetHeader();
+                } else {
+                    document.resetHeader();
+                    document.resetFooter();
                 }
             }
             catch (Exception e) {
