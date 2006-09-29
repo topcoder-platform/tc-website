@@ -288,33 +288,79 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
 
 </table></blockquote> 
 
-<p>
-Since the total number of pipes is very small (at most eight), we can check every possible order of the pipes in the truck.
-We are to find the minimal length of the truck for every order, and return the minimal value of this length among all orders.
-To find this, we will fix the position of the first pipe, and  place the next pipes one by one as close to the left as possible (but to the right of all already placed pipes).
-</p>
-<p>
-Let (h<sub>1</sub>, ...,h<sub>n</sub>) be the heights of the pipes.
-To specify the position of the pipes in the truck, we will store the position of the pipe as the position of its center.
-</p>
+Since the total number of pipes is very small (at most eight), we can check all the possible orderings of the pipes in the truck.
+We are to find the minimal length of the truck for every ordering, and return the minimal value of this length among all orderings.
+To find this, we will fix the position of the first pipe, and place the next pipes one by one as close to the left as possible (but to the right of all already placed pipes).
+<br><br>
+Let (h<sub>1</sub>, ...,h<sub>n</sub>) be the heights of the pipes in the ordering.
+To specify the positions of the pipes in the truck, we will store the position of the pipe as the position of its center.
+<br><br>
 <div align="center">
-<img src="/i/srm/tccc06_r1A.jpg" alt="Pipes" />
+<img src="/i/srm/tccc06_r1A_v2.jpg" alt="Pipes" />
 </div>
-<p>
-As you can see from the picture, if the height of a pipe is H (blue hexagon), the length of OA is H/2, the length of AB is H/(2 * sqrt(3)) 
-(since the angle BOA is equal to 30 degrees), and the side of the pipe has the length of H/sqrt(3) (since it is twice as long as AB).
-Similarly, if the height of the green hexagon is L, then the length of CD is L/(2 * sqrt(3)).
-The distance between the centers of the pipes, AD, is equal to the sum of AB + BC + CD. 
-As you can see, all angles in triangle BCE are equal to 60 degrees, which indicates that this triangle is right and all the sides are equal to H/sqrt(3).
-Therefore, the length of AD is equal:
+<br><br>
+As you can see from the picture, if the height of a pipe is H (blue octagon), the length of OA is H/2. 
+If the length of the side of the octagon is S, then the length of KL is S/sqrt(2).
+The height of the octagon is equal to 2*KL + LB = (2*S/(sqrt(2))) + S = S*(sqrt(2) + 1), therefore S = H/(1 + sqrt(2)).
+The length of AB is the half of the side, therefore equal AB = H/(2*(1 + sqrt(2)).
+The distance between the centers of the octagons is AE = AB + BD + DE.
+The lengths of AB and DE are known (AB = H/(2*(1 + sqrt(2)), DE = L/(2*(1 + sqrt(2)), where H and L are heights of the octagons),
+and to find the length of BD we can use the following transformations:
 <pre>
-|AD| = H/(2 * sqrt(3)) + H/sqrt(3) + L/(2 * sqrt(3)) = (H + 2 * H + L) / (2*sqrt(3)) = (3*H + L) / (2 * sqrt(3)).
+|BD| = sqrt(2) * |BC| = sqrt(2) * (|BP| + |PC|) = sqrt(2) * (|LB| + |PN| / sqrt(2)) = sqrt(2) * (S + S/sqrt(2)) = S*sqrt(2) + S = H.
 </pre>
+So, the length of BD is equal to the sum of lengths of BP and PC. BP is just the side of the octagon -- equal to S = H/(1 + sqrt(2)). The triangle PCN is an isosceles right-angled triangle (angle PCN is equal to 90 degrees), 
+therefore the length of PC is equal to |PC| = |PN| / sqrt(2), and PN itself is the side of the octagon. 
+Transforming the expression a bit more, we see that the length of BD is equal to the height of the smaller octagon.
+This also can be proved, looking at triangles BCD and BCM (where M is the vertex of the octagon, which is H units above B). 
+These triangles are both isosceles, both right-angled, and they share a common leg -- therefore they are equal, and the lengths of their hypotenuses are equal too. Therefore, the total distance between the centers of the pipes can be computed as 
+<pre>
+D = (H + H/(2*sqrt(2)) + L/(2*sqrt(2))), 
+</pre>
+where H and L are heights of the octagons, and H < L.
+<br><br>
+The pipes can not always be positioned as they are drawn on the picture. 
+This placement is valid only if the point N can be placed "under" the skew edge of the bigger octagon.
+This is possible, if the height of the point N is less than the height of the skew edge, or, in other words, if ((S + S/sqrt(2)) < L / sqrt(2)). 
+Otherwise, the pipes cannot be placed that close, and the distance between their centers is just the sum of semi-heights of the pipes (H+L)/2.
+<br><br>
 Knowing the minimal distance between two pipes, we can start calculating the positions for the centers of all pipes one by one.
 Set the position for the first pipe to 0. For each next pipe i, iterate through previous (i - 1) pipes and compute the leftmost position
-of the center of the i-th pipe that doesn't collide with any of the first pipes. 
-When you are done, the only thing left to compute is the length of the truck required. To do this, iterate through all the pipes one more time and compute the leftmost and the rightmost points of all pipes. The distance between these points will be the necessary length.
+of the center of the i-th pipe which doesn't collide with any of the first pipes. 
+When you have gone through all the pipes, the only thing left is to compute the length of the truck needed. To do this, iterate through all pipes once 
+again and compute the leftmost and the rightmost points of all pipes. The distance between these points will be the necessary length. The following method computes the minimal length of the truck needed to place all pipes from data without changing their order:
 </p>
+<pre>
+    double compute(int[] data) {
+        double[] center = new double[N];
+        for (int i = 1; i < N; i++) {
+            // the side of the i-th octagon
+            double s = data[i] / (1. + sq2); 
+            for (int j = 0; j < i; j++) {
+                // the side of the j-th octagon
+                double a = data[j] / (1. + sq2); 
+                // distance when octagons are placed side-to-side
+                double dist = (data[i] + data[j]) / 2.; 
+                // its possible to place the i-th octagon "under" the j-th one
+                if (s + s/sq2 < a) 
+            dist = Math.min(a/2. + s/2. + data[i], dist);
+                // its possible to place the j-th octagon "under" the i-th one
+                if (a + a/sq2 < s) 
+            dist = Math.min(a/2. + s/2. + data[j], dist);
+                // update the minimal position of the center of the i-th octagon
+                center[i] = Math.max(center[i], center[j] + dist); 
+            }
+        }
+        double left = 0;
+        for (int i = 0; i < N; i++) 
+        left = Math.min(left, center[i] - data[i]/2.);
+        double right = 0;
+        for (int i = 0; i < N; i++) 
+        right = Math.max(right, center[i] + data[i]/2.);
+
+        return right - left;
+    }
+</pre>
 
  
 
