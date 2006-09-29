@@ -1881,7 +1881,7 @@ public class PDFGenerator extends BaseProcessor {
         public void onEndPage(PdfWriter writer, Document document) {
 
             try {
-                if (!inResume) {
+                if (!inResume && !inInstructions) {
                     //super.onEndPage(writer, document);
                     Image footerimg = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/topcoder_logo_footer.jpg");
                     footerimg.setAlignment(Element.ALIGN_LEFT);
