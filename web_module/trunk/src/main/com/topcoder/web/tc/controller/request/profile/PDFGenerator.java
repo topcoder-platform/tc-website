@@ -57,6 +57,7 @@ public class PDFGenerator extends BaseProcessor {
 
     PlacementConfig info;
     private boolean inResume = false;
+    private boolean inInstructions = false;
 
     private PlacementConfig getConfig() throws Exception {
         int uid = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter("uid")));
@@ -635,7 +636,7 @@ public class PDFGenerator extends BaseProcessor {
             doc.open();
 
             drawPageOne(doc, info);
-            drawInstructions(doc, writer);
+            drawInstructions(doc, writer, header, footer);
             drawPageTwo(doc, info);
             drawPageThree(doc, info);
             drawPageFour(doc, info);
@@ -753,13 +754,12 @@ public class PDFGenerator extends BaseProcessor {
         doc.newPage();
     }
 
-    private void drawInstructions(Document doc, PdfWriter writer) throws Exception {
+    private void drawInstructions(Document doc, PdfWriter writer, HeaderFooter header, HeaderFooter footer) throws Exception {
 
-        String ext = "doc";
 
         doc.resetFooter();
         doc.resetHeader();
-        inResume = true;
+        inInstructions = true;
 
         URL u = new URL("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/instructions.doc");
 
@@ -774,7 +774,7 @@ public class PDFGenerator extends BaseProcessor {
         byte[] result;
         InitialContext ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.FILE_CONVERSION_PROVIDER_URL);
         FileConversion filebean = (FileConversion) createEJB(ctx, FileConversion.class);
-        result = filebean.convertDoc(baos.toByteArray(), ext);
+        result = filebean.convertDoc(baos.toByteArray(), "doc");
 
         PdfReader reader = new PdfReader(result);
 
@@ -792,7 +792,10 @@ public class PDFGenerator extends BaseProcessor {
             doc.newPage();
 
         }
+        doc.setFooter(footer);
+        doc.setHeader(header);
 //        doc.newPage();
+        inInstructions = false;
 
 
     }
@@ -1328,6 +1331,7 @@ public class PDFGenerator extends BaseProcessor {
 
             }
 
+            inResume = false;
         }
     }
 
@@ -1855,7 +1859,7 @@ public class PDFGenerator extends BaseProcessor {
 
         public void onStartPage(PdfWriter writer, Document document) {
             try {
-                if (writer.getPageNumber() > 1 && (!inResume)) {
+                if (writer.getPageNumber() > 1 && !inResume && !inInstructions) {
                     cb = writer.getDirectContent();
                     cb.beginText();
                     cb.setColorFill(Color.white);
