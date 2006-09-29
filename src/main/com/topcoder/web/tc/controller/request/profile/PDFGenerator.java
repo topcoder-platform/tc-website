@@ -56,8 +56,7 @@ import java.util.StringTokenizer;
 public class PDFGenerator extends BaseProcessor {
 
     PlacementConfig info;
-    private boolean inResume = false;
-    private boolean inInstructions = false;
+    private boolean includeHeaderAndFooter = true;
 
     private PlacementConfig getConfig() throws Exception {
         int uid = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter("uid")));
@@ -756,7 +755,7 @@ public class PDFGenerator extends BaseProcessor {
 
     private void drawInstructions(Document doc, PdfWriter writer, HeaderFooter header, HeaderFooter footer) throws Exception {
 
-        inInstructions = true;
+        includeHeaderAndFooter = false;
         doc.newPage();
         doc.resetFooter();
         doc.resetHeader();
@@ -794,9 +793,8 @@ public class PDFGenerator extends BaseProcessor {
         }
         doc.setFooter(footer);
         doc.setHeader(header);
-        inInstructions = false;
-//        doc.newPage();
-
+        includeHeaderAndFooter = false;
+        doc.newPage();
 
     }
 
@@ -1300,7 +1298,7 @@ public class PDFGenerator extends BaseProcessor {
 
             doc.resetFooter();
             doc.resetHeader();
-            inResume = true;
+            includeHeaderAndFooter = false;
 
             byte[] rawBytes = resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFile();
             //pass through the converter
@@ -1321,17 +1319,15 @@ public class PDFGenerator extends BaseProcessor {
             PdfImportedPage page;
             PdfContentByte cb = writer.getDirectContent();
 
-            for (int i = 0; i < n;) {
-                ++i;
-
+            for (int i = 0; i < n; ++i) {
                 page = writer.getImportedPage(reader, i);
-
                 cb.addTemplate(page, 0, 0);
+                if (i == n - 1) {
+                    includeHeaderAndFooter = true;
+                }
                 doc.newPage();
-
             }
 
-            inResume = false;
         }
     }
 
@@ -1856,11 +1852,14 @@ public class PDFGenerator extends BaseProcessor {
         PdfContentByte cb;
 
         boolean bFirstFooter = true;
+        boolean lastPageHadHeaderFooter = false;
 
         public void onStartPage(PdfWriter writer, Document document) {
             try {
-                log.debug("start page(" + writer.getPageNumber() + ") - in resume: " + inResume + " instructions " + inInstructions);
-                if (writer.getPageNumber() > 1 && !inResume && !inInstructions) {
+                log.debug("start page(" + writer.getPageNumber() + ") - includeHeaderAndFooter: " + includeHeaderAndFooter +
+                        " lastPageHadHeaderFooter " + lastPageHadHeaderFooter);
+                lastPageHadHeaderFooter = includeHeaderAndFooter;
+                if (writer.getPageNumber() > 1 && includeHeaderAndFooter) {
                     cb = writer.getDirectContent();
                     cb.beginText();
                     cb.setColorFill(Color.white);
@@ -1882,28 +1881,10 @@ public class PDFGenerator extends BaseProcessor {
         public void onEndPage(PdfWriter writer, Document document) {
 
             try {
-                log.debug("end page(" + writer.getPageNumber() + ") - in resume: " + inResume + " instructions " + inInstructions);
-                if (!inResume && !inInstructions) {
+                log.debug("end page(" + writer.getPageNumber() + ") - includeHeaderAndFooter: " + includeHeaderAndFooter +
+                        " lastPageHadHeaderFooter " + lastPageHadHeaderFooter);
+                if (lastPageHadHeaderFooter) {
                     //super.onEndPage(writer, document);
-                    Image footerimg = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/topcoder_logo_footer.jpg");
-                    footerimg.setAlignment(Element.ALIGN_LEFT);
-                    footerimg.scalePercent(70f);
-
-                    footerimg.setAbsolutePosition(45, 30);
-
-                    cb = writer.getDirectContent();
-                    cb.beginText();
-                    cb.setColorFill(Color.white);
-                    cb.setColorStroke(Color.white);
-                    cb.setFontAndSize(BaseFont.createFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED), 14);
-                    cb.setTextMatrix(540, 33);
-                    cb.showText("-" + writer.getPageNumber() + "-");
-                    cb.endText();
-
-                    cb.addImage(footerimg);
-                } else if (bFirstFooter) {
-                    bFirstFooter = false;
-
                     Image footerimg = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/topcoder_logo_footer.jpg");
                     footerimg.setAlignment(Element.ALIGN_LEFT);
                     footerimg.scalePercent(70f);
