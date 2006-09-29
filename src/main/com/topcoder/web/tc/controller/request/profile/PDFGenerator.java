@@ -789,7 +789,7 @@ public class PDFGenerator extends BaseProcessor {
             doc.newPage();
 
         }
-        includeHeaderAndFooter = false;
+        includeHeaderAndFooter = true;
         doc.newPage();
 
     }
@@ -1845,7 +1845,6 @@ public class PDFGenerator extends BaseProcessor {
         // This is the contentbyte object of the writer
         PdfContentByte cb;
 
-        boolean bFirstFooter = true;
         boolean lastPageHadHeaderFooter = false;
 
         public void onStartPage(PdfWriter writer, Document document) {
