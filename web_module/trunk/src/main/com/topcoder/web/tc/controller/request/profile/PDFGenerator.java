@@ -620,8 +620,6 @@ public class PDFGenerator extends BaseProcessor {
             MyPageEvents events = new MyPageEvents();
             writer.setPageEvent(events);
 
-            Phrase hp = new Phrase("-", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.black));
-
             HeaderFooter header = new HeaderFooter(new Phrase("  "), false);
             header.setBackgroundColor(new Color(0, 51, 102)); //#cc0000
             header.setBorder(Rectangle.NO_BORDER);
@@ -630,8 +628,10 @@ public class PDFGenerator extends BaseProcessor {
             footer.setAlignment(Element.ALIGN_RIGHT);
             footer.setBorder(Rectangle.NO_BORDER);
             footer.setBackgroundColor(new Color(0, 0, 0)); //#cccccc
+/*
             doc.setHeader(header);
             doc.setFooter(footer);
+*/
 
             doc.open();
 
@@ -756,10 +756,12 @@ public class PDFGenerator extends BaseProcessor {
 
     private void drawInstructions(Document doc, PdfWriter writer, HeaderFooter header, HeaderFooter footer) throws Exception {
 
+        inInstructions = true;
 
+/*
         doc.resetFooter();
         doc.resetHeader();
-        inInstructions = true;
+*/
 
         URL u = new URL("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/instructions.doc");
 
@@ -792,8 +794,10 @@ public class PDFGenerator extends BaseProcessor {
             doc.newPage();
 
         }
+/*
         doc.setFooter(footer);
         doc.setHeader(header);
+*/
 //        doc.newPage();
         inInstructions = false;
 
@@ -1298,8 +1302,10 @@ public class PDFGenerator extends BaseProcessor {
                 log.debug(ext);
             }
 
+/*
             doc.resetFooter();
             doc.resetHeader();
+*/
             inResume = true;
 
             byte[] rawBytes = resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFile();
