@@ -70,8 +70,6 @@
                                      fieldText="project_desc" fieldValue="project_id" selectedValue="${param.component_project_id}"                                             
                                      useTopValue="false"  onChange="referenceChanged(document.f.component_project_id.value)"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />                            
-                             <br/><br/>Client:
-                             <input type="text" name="client"/>
                         </c:if>                                  
 						<script type="text/javascript">
 								referenceChanged(document.f.component_project_id.value)
@@ -194,7 +192,19 @@
          </c:if>
      </taconite-replace>
      
-     
+    <taconite-replace contextNodeID="projectClient" parseInBrowser="true">
+    	<c:choose>
+			<c:when test="${refId == COMPONENT_PROJECT}">
+			<tr id="projectClient"> 
+			<td><b>Client:</b></td>
+			<td><input type="text" name="client"/></td>
+			</tr>
+			</c:when>
+    		<c:otherwise>
+	    		<tr id="projectClient"> <td></td><td></td></tr>
+    		</c:otherwise>
+    	</c:choose>   
+     </taconite-replace>     
      
  </taconite-root>
  
