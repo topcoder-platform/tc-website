@@ -1845,9 +1845,12 @@ public class PDFGenerator extends BaseProcessor {
         // This is the contentbyte object of the writer
         PdfContentByte cb;
 
+        boolean lastWasResume = false;
+
         public void onStartPage(PdfWriter writer, Document document) {
             try {
                 log.debug("start page(" + writer.getPageNumber() + ") - includeHeader: " + includeHeader);
+                lastWasResume = inResume;
                 if (writer.getPageNumber() > 1 && includeHeader) {
                     cb = writer.getDirectContent();
                     cb.beginText();
@@ -1871,7 +1874,7 @@ public class PDFGenerator extends BaseProcessor {
 
             try {
 
-                if (!inResume) {
+                if (!lastWasResume) {
                     //super.onEndPage(writer, document);
                     Image footerimg = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/topcoder_logo_footer.jpg");
                     footerimg.setAlignment(Element.ALIGN_LEFT);
