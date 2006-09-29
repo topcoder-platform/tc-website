@@ -57,6 +57,7 @@ public class PDFGenerator extends BaseProcessor {
 
     PlacementConfig info;
     private boolean includeHeader = true;
+    private boolean inResume = false;
 
     private static HeaderFooter header = new HeaderFooter(new Phrase("  "), false);
     private static HeaderFooter footer = new HeaderFooter(new Phrase("  "), false);
@@ -760,6 +761,7 @@ public class PDFGenerator extends BaseProcessor {
             }
 
             includeHeader = false;
+            inResume = true;
 
             byte[] rawBytes = resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFile();
             //pass through the converter
@@ -1853,13 +1855,9 @@ public class PDFGenerator extends BaseProcessor {
         // This is the contentbyte object of the writer
         PdfContentByte cb;
 
-        boolean lastPageHadHeaderFooter = false;
-
         public void onStartPage(PdfWriter writer, Document document) {
             try {
-                log.debug("start page(" + writer.getPageNumber() + ") - includeHeader: " + includeHeader +
-                        " lastPageHadHeaderFooter " + lastPageHadHeaderFooter);
-                lastPageHadHeaderFooter = includeHeader;
+                log.debug("start page(" + writer.getPageNumber() + ") - includeHeader: " + includeHeader);
                 if (writer.getPageNumber() > 1 && includeHeader) {
                     cb = writer.getDirectContent();
                     cb.beginText();
@@ -1882,32 +1880,27 @@ public class PDFGenerator extends BaseProcessor {
         public void onEndPage(PdfWriter writer, Document document) {
 
             try {
-                log.debug("end page(" + writer.getPageNumber() + ") - includeHeader: " + includeHeader +
-                        " lastPageHadHeaderFooter " + lastPageHadHeaderFooter);
+                log.debug("end page(" + writer.getPageNumber() + ") - includeHeader: " + includeHeader);
 
-/*
-                if (lastPageHadHeaderFooter) {
-*/
-                //super.onEndPage(writer, document);
-                Image footerimg = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/topcoder_logo_footer.jpg");
-                footerimg.setAlignment(Element.ALIGN_LEFT);
-                footerimg.scalePercent(70f);
+                if (!inResume) {
+                    //super.onEndPage(writer, document);
+                    Image footerimg = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/topcoder_logo_footer.jpg");
+                    footerimg.setAlignment(Element.ALIGN_LEFT);
+                    footerimg.scalePercent(70f);
 
-                footerimg.setAbsolutePosition(45, 30);
+                    footerimg.setAbsolutePosition(45, 30);
 
-                cb = writer.getDirectContent();
-                cb.beginText();
-                cb.setColorFill(Color.white);
-                cb.setColorStroke(Color.white);
-                cb.setFontAndSize(BaseFont.createFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED), 14);
-                cb.setTextMatrix(540, 33);
-                cb.showText("-" + writer.getPageNumber() + "-");
-                cb.endText();
+                    cb = writer.getDirectContent();
+                    cb.beginText();
+                    cb.setColorFill(Color.white);
+                    cb.setColorStroke(Color.white);
+                    cb.setFontAndSize(BaseFont.createFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED), 14);
+                    cb.setTextMatrix(540, 33);
+                    cb.showText("-" + writer.getPageNumber() + "-");
+                    cb.endText();
 
-                cb.addImage(footerimg);
-/*
+                    cb.addImage(footerimg);
                 }
-*/
             }
             catch (Exception e) {
                 e.printStackTrace();
