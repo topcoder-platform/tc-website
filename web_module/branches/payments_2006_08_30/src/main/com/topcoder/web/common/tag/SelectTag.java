@@ -171,7 +171,7 @@ public abstract class SelectTag extends BaseTag {
                 if (selectedValue != null && selectedValue.equals(optionValue) ||
                         selectedText != null && selectedText.equals(optionText)
                         ) {
-                    s.append(" selected");
+                    s.append(" selected=\"selected\"");
                 }
                 s.append(">");
                 s.append(StringUtils.htmlEncode(optionText));
