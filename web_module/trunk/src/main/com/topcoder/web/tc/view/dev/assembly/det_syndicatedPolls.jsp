@@ -38,8 +38,10 @@
 <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
 
-<span class="bigTitle">Syndicated Polls</span>
-<br><br>
+
+<div style="float:left;padding-right:8px;"><img src="/i/development/smAOL.gif" alt="" border="0" /></div>
+<div style="padding: 8px 0px 8px 0px;"><span class="bigTitle">Syndicated Polls</span></div>
+
 <div class="sectionHeader">Overview</div>
 <span class="bodySubtitle">Application Overview</span><br>
 The Syndication Framework provides a means to distribute the same content to a variety of web-sites and allow for customized styling of the content (via CSS) as well as multiple levels of access to that content.
