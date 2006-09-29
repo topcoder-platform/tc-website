@@ -74,11 +74,11 @@
 		</tr>
 		<tr>
 			<td><b>Date Due:</b></td>
-			<td><fmt:formatNumber value="${payment.dueDate}" pattern="<%= PactsConstants.DATE_FORMAT_STRING %>" /></td>
+			<td><c:out value="${payment.dueDate}" /></td>
 		</tr>
 		<tr>
 			<td><b>Date Paid:</b></td>
-			<td><fmt:formatNumber value="${payment.payDate}" pattern="<%= PactsConstants.DATE_FORMAT_STRING %>" /></td>
+			<td><c:out value="${payment.payDate}" /></td>
 		</tr>
 <c:if test="${not payment.header.algorithmRoundId}">
 		<tr>
