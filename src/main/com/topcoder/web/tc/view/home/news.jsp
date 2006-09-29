@@ -6,9 +6,9 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
-<%---------------------------------
+<%--------------------------------------------------------%>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>09.28.06<br>1:30 PM</td>
+        <br>09.29.06<br>10:15 AM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=092806">Writing code that writes code&#8230;</A></span><br><br>
@@ -23,7 +23,7 @@
     <tc-webtag:forumLink forumID="506127" message="discuss this"/> |
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
------------------------%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.28.06<br>5:00 PM</td>
@@ -244,24 +244,3 @@ turned the first round of the TCCC into a close race.
     <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
 </td></tr>
 
-<%-------------------------------------------
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
-        <br>09.19.06<br>6:00 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm319">SRM 319 -
-                Problem Set & Analysis</A></span><br><br>
-                As if coders needed more incentive, this was the last SRM before TCCC round 1 and GCJ round 2 to
-                practice those skills.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/NeverMore_big.jpg" alt="" width="55" height="61"/><br>by
-                <tc-webtag:handle coderId="287130" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=match_editorials&d2=srm319">full story</A> |
-    <tc-webtag:forumLink forumID="505994" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
--------------%>
