@@ -36,8 +36,8 @@
                      <c:when test="${refId == ALGORITHM_ROUND}">
                         <c:if test="${empty rounds}">    
                           <input type="hidden" name="missing_reference" value="Please select a round for the payment"/>
-                          Enter search text for round name: <input type="text" name="search_text" value="${search}" />
-                          <input type="button" value="search" onClick="search()" />
+                          Enter search text for round name: <input type="text" name="searchInput" value="${search}" />
+                          <input type="button" value="searchBtn" onClick="search(document.f.searchInput.text)" />
                             <c:if test="${not empty search}">          
                                 <font color="#FF0000">No rounds found containing <c:out value="${search}"/>. </font>
                             </c:if>
@@ -45,7 +45,7 @@
                         </c:if>
                         <c:if test="${not empty rounds}">                   
                              <tc-webtag:rscSelect name="algorithm_round_id" list="${rounds}" 
-                                     fieldText="round_desc" fieldValue="round_id"                        
+                                     fieldText="round_desc" fieldValue="round_id"  selectedValue="<c:out value="${param.algorithm_round_id}" />"                      
                                      useTopValue="false" onChange="referenceChanged(document.f.algorithm_round_id.value)" />
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>              
@@ -58,8 +58,8 @@
                      <c:when test="${refId == COMPONENT_PROJECT}">
                         <c:if test="${empty projects}">           
                         <input type="hidden" name="missing_reference" value="Please select a component for the payment"/>
-                          Enter search text for component name: <input type="text" name="search_text" value="${search}" />
-                          <input type="button" value="search" onClick="search()" />
+                          Enter search text for component name: <input type="text" name="searchInput" value="${search}" />
+                          <input type="button" value="searchButton" onClick="search(document.f.searchInput.text)" />
                             <c:if test="${not empty search}">          
                                 <font color="#FF0000">No components found containing <c:out value="${search}"/>. </font>
                             </c:if>
@@ -83,8 +83,8 @@
                      <c:when test="${refId == ALGORITHM_PROBLEM}">
                         <c:if test="${empty problems}">             
                         <input type="hidden" name="missing_reference" value="Please select a problem for the payment"/>
-                          Enter search text for problem name: <input type="text" name="search_text" value="${search}" />
-                          <input type="button" value="search" onClick="search()" />
+                          Enter search text for problem name: <input type="text" name="searchInput" value="${search}" />
+                          <input type="button" value="searchButton" onClick="search(document.f.searchInput.text)" />
                             <c:if test="${not empty search}">          
                                 <font color="#FF0000">No problems found containing <c:out value="${search}"/>. </font>
                             </c:if>
@@ -105,8 +105,8 @@
                      <c:when test="${refId == STUDIO_CONTEST}">
                         <c:if test="${empty studioContests}">
                         <input type="hidden" name="missing_reference" value="Please select a studio contest for the payment"/>                        
-                          Enter search text for studio contest name: <input type="text" name="search_text" value="${search}" />
-                          <input type="button" value="search" onClick="search()" />
+                          Enter search text for studio contest name: <input type="text" name="searchInput" value="${search}" />
+                          <input type="button" value="searchButton" onClick="search(document.f.searchInput.text)" />
                             <c:if test="${not empty search}">          
                                 <font color="#FF0000">No studio contests found containing <c:out value="${search}"/>. </font>
                             </c:if>
@@ -126,8 +126,8 @@
                      <c:when test="${refId == COMPONENT_CONTEST}">
                         <c:if test="${empty componentContests}">                  
                             <input type="hidden" name="missing_reference" value="Please select a component contest for the payment"/>                        
-                          Enter search text for component contest name: <input type="text" name="search_text" value="${search}" />
-                          <input type="button" value="search" onClick="search()" />
+                          Enter search text for component contest name: <input type="text" name="searchInput" value="${search}" />
+                          <input type="button" value="searchButton" onClick="search(document.f.searchInput.text)" />
                             <c:if test="${not empty search}">          
                                 <font color="#FF0000">No component contests found containing <c:out value="${search}"/>. </font>
                             </c:if>
@@ -147,8 +147,8 @@
                      <c:when test="${refId == PARENT_PAYMENT}">
                         <c:if test="${empty parentPayments}">                  
                             <input type="hidden" name="missing_reference" value="Please select a parent for the payment"/>                        
-                          Enter search text for the parent payment detail: <input type="text" name="search_text" value="${search}" />
-                          <input type="button" value="search" onClick="search()" />
+                          Enter search text for the parent payment detail: <input type="text" name="searchInput" value="${search}" />
+                          <input type="button" value="searchButton" onClick="search(document.f.searchInput.text)" />
                             <c:if test="${not empty search}">          
                                 <font color="#FF0000">No payments found containing <c:out value="${search}"/>. </font>
                             </c:if>

@@ -35,9 +35,10 @@ function typeChanged() {
     ajaxRequest.sendRequest();
 }
 
-function search() {
+function search(text) {
     var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
     document.ajaxFields.reference_type_id.value = types[document.f.payment_type_id.selectedIndex];
+    document.f.search_text.value = text;
     ajaxRequest.setEchoDebugInfo();
     ajaxRequest.addNamedFormElements("reference_type_id");    
     ajaxRequest.addNamedFormElements("payment_type_id");
@@ -75,6 +76,13 @@ function setStatus(id) {
 
 }
 
+function initialize() {
+<% if (request.getParameter("search_text") == null) { %>
+   typeChanged();
+<% } else { %>
+  search('<%= request.getParameter("search_text") %>');
+<% } %>
+}
 
 
 </script>
@@ -83,7 +91,7 @@ function setStatus(id) {
 
 </head>
 
-<body onLoad="typeChanged()">
+<body onLoad="initialize()">
 
 <%
     String contract_id_string = request.getParameter(PactsConstants.CONTRACT_ID);
@@ -196,6 +204,7 @@ types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -
 <form name="f" action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
    <input type="hidden" name="<%= PactsConstants.TASK_STRING %>" value="<%=PactsConstants.ADD_TASK%>" >
    <input type="hidden" name="<%= PactsConstants.CMD_STRING %>" value="<%=PactsConstants.PAYMENT_CMD%>" >
+   <input type="hidden" name="search_text">
 
 <%  if (payment_is_for_contract) { %>
    <input type="hidden" name="<%= PactsConstants.CONTRACT_ID %>" value="<%=contract_id%>" >
