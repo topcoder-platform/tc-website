@@ -109,7 +109,10 @@
 			out.print("<td>"+df.format(paymentList[n].getRecentGrossAmount()
 				- paymentList[n].getRecentNetAmount())+"</td>\n");
 			out.print("<td>"+df.format(paymentList[n].getRecentNetAmount())+"</td>\n");
-			String type = paymentList[n].getType().substring(0,paymentList[n].getType().indexOf("Payment"));
+            
+            int pos = paymentList[n].getType().indexOf("Payment");
+            String type = pos >= 0? paymentList[n].getType().substring(0, pos) : paymentList[n].getType();
+            
 			out.print("<td>"+type+"</td>\n");
 			out.print("<td>"+paymentList[n].getMethod()+"</td>\n");
 			out.print("<td>"+paymentList[n].getRecentStatus()+"</td>\n");
