@@ -4,12 +4,10 @@ package com.topcoder.utilities.pacts;
  * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 
-import java.lang.reflect.Method;
 import java.rmi.RemoteException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Enumeration;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -17,16 +15,15 @@ import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
 
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.sql.DBUtility;
-import com.topcoder.web.common.model.DefaultPriceComponent;
 import com.topcoder.web.ejb.pacts.AlgorithmContestPayment;
 import com.topcoder.web.ejb.pacts.CharityPayment;
 import com.topcoder.web.ejb.pacts.PactsClientServices;
 import com.topcoder.web.ejb.pacts.PactsClientServicesHome;
 import com.topcoder.web.ejb.pacts.ComponentWinningPayment;
 import com.topcoder.web.ejb.pacts.ComponentTournamentBonusPayment;
-
+import com.topcoder.web.ejb.pacts.NoReferencePayment;
+import com.topcoder.web.ejb.pacts.BasePayment;
 
 
 /**
@@ -48,8 +45,6 @@ public class NewSchemaFixUtility extends DBUtility {
 
     PactsClientServices pcs = null;
     
-    //PreparedStatement psSelRoyalties = null;
-
     /**
      * Runs the PaymentFixUtility.
      *
@@ -60,22 +55,20 @@ public class NewSchemaFixUtility extends DBUtility {
      */
     public void runUtility() throws Exception {
         try {            
-/*            StringBuffer query = null;
+            StringBuffer query = null;
             query = new StringBuffer(200);
-            query.append("select * from project");
+            query.append("select * from royalty");
             PreparedStatement psSelRoomResult = prepareStatement("tcs_dw", query.toString());
 
             query = new StringBuffer(200);
-            query.append("insert into project_dw values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ");
-            query.append("                                      ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ");
-            query.append("                                      ?, ?, ?, ?, ?, ?, ?)");
+            query.append("insert into royalty_dw values (?, ?, ?, ?)");
             PreparedStatement psInsRoomResult = prepareStatement("informixoltp", query.toString());
 
             log.debug("Copying table...");
             ResultSet rs = psSelRoomResult.executeQuery();
             for (int i = 1; rs.next(); i++ ) {
                 psInsRoomResult.clearParameters();
-                for (int j = 1; j <= 27; j++) {
+                for (int j = 1; j <= 4; j++) {
                     psInsRoomResult.setObject(j, rs.getObject(j));
                 }
                 psInsRoomResult.executeUpdate();
@@ -83,7 +76,7 @@ public class NewSchemaFixUtility extends DBUtility {
                 if (i % 100 == 0) {
                     log.debug(i + "...");
                 }
-            }*/
+            }
             
             pcs = (PactsClientServices) createEJB();
 
@@ -94,12 +87,12 @@ public class NewSchemaFixUtility extends DBUtility {
             //processRoomResultConflicts();
 //            processRoomResultCharities();
             
-            processCompCompetitions();
-            processCompContests();
+//            processCompCompetitions();
+//            processCompContests();
             
-/*            processRoyalties();
+            //processRoyalties();
             
-            rs = psSelPaymentDetails.executeQuery();
+/*            rs = psSelPaymentDetails.executeQuery();
             for (int i = 1; rs.next(); i++ ) {
                 switch (rs.getInt("payment_type_id")) {
                     case 1:
@@ -308,12 +301,45 @@ public class NewSchemaFixUtility extends DBUtility {
         }
     }
 
-    public static Object createEJB() throws NamingException, Exception {
-        /*Object remotehome = ctx.lookup(remoteclass.getName() + "Home");
-        Method createmethod = PortableRemoteObject.narrow(remotehome,
-                remotehome.getClass()).getClass().getMethod("create", null);
-        return createmethod.invoke(remotehome, null);*/
+    private void processRoyalties() throws SQLException, RemoteException {
+        StringBuffer query  = new StringBuffer(200);
+        query = new StringBuffer(200);
+        query.append("select ");
+        query.append("user_id, amount, description, royalty_date ");
+        query.append("from royalty_dw ");
+        query.append("where not exists (");
+        query.append("select pd.payment_detail_id from payment_detail pd, payment_detail_xref pdx, payment p ");
+        query.append("where pd.payment_detail_id = pdx.payment_detail_id and ");
+        query.append("p.payment_id = pdx.payment_id ");
+        query.append("and p.user_id = royalty_dw.user_id and ");
+        query.append("pd.gross_amount = royalty_dw.amount)"); 
         
+        PreparedStatement psSelRoyalties =  prepareStatement("informixoltp", query.toString());
+
+        log.debug("Processing royalties:");
+
+        ResultSet rs = null;
+        try {            
+            rs = psSelRoyalties.executeQuery();
+            int i = 1;
+            for (; rs.next(); i++ ) {
+                pcs.addPayment(new NoReferencePayment(
+                    BasePayment.ROYALTY_PAYMENT,
+                    rs.getLong("user_id"),
+                    rs.getDouble("amount"),
+                    rs.getString("description"),
+                    rs.getDate("royalty_date")));
+                if (i % 100 == 0) {
+                    log.debug(i + "...");
+                }
+            }
+            log.debug(i + " rows were processed...");
+        } finally {
+          DBMS.close(rs);
+        }
+    }
+
+    public static Object createEJB() throws NamingException, Exception {
         Context initial = new InitialContext();
         Object objref = initial.lookup(PactsClientServicesHome.class.getName());
         PactsClientServicesHome home = (PactsClientServicesHome) 
@@ -321,52 +347,6 @@ public class NewSchemaFixUtility extends DBUtility {
 
         return(home.create());
     }
-
-/*    private void buildPreparedStatements() throws SQLException {
-        StringBuffer query = null;
-
-        query = new StringBuffer(200);
-        query.append("select ");
-        query.append("user_id, amount, description, royalty_date ");
-        query.append("from royalty ");
-
-        psSelRoyalties = prepareStatement("tcs_dw", query.toString());
-
-
-    }/*
-
-/*    private void processRoyalties() throws Exception {
-        ResultSet rs = null; 
-        log.debug("Processing royalties:");
-        try {
-            rs = psSelRoyalties.executeQuery();
-            for (int i = 1; rs.next(); i++) {
-                // call payment EJB to generate the royalty payment.
-                
-                if (i % 100 == 0) {
-                    log.debug(i + "...");
-                }
-            }
-        } catch (SQLException sqle) {
-            DBMS.printSqlException(true, sqle);
-            throw new Exception("Generating royalties failed.\n" + sqle.getMessage());
-        } finally {
-            DBMS.close(rs);
-        }    
-    }*/
-
-    /*private void processContestPayment(long paymentDetailId, String paymentDesc) {
-        // parse paymentDesc to get algorithm_round_id and algorithm_problem_id
-        long srmId = Long.parseLong(
-            paymentDesc.substring(
-            paymentDesc.indexOf("Single Round Match ") + "Single Round Match ".length(),
-            paymentDesc.lastIndexOf("Round ")));
-
-        long roundId = Long.parseLong(
-                paymentDesc.substring(
-                paymentDesc.indexOf("Round ") + "Round ".length(),
-                paymentDesc.lastIndexOf("winnings")));
-    }*/
 
     /**
      * Process and validates the parameters.
