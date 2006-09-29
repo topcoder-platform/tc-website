@@ -41,8 +41,8 @@ import com.topcoder.web.tc.model.*;
 import javax.naming.InitialContext;
 import java.awt.*;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.InputStream;
+import java.net.URL;
 import java.rmi.RemoteException;
 import java.text.DecimalFormat;
 import java.util.Arrays;
@@ -761,11 +761,13 @@ public class PDFGenerator extends BaseProcessor {
         doc.resetHeader();
         inResume = true;
 
+        URL u = new URL("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/instructions.doc");
 
-        FileInputStream fis = new FileInputStream(new File("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/instructions.doc"));
+
+        InputStream is = u.openStream();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         int ch;
-        while ((ch = fis.read()) >= 0) {
+        while ((ch = is.read()) >= 0) {
             baos.write(ch);
         }
 
