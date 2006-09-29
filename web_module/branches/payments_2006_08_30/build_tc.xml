@@ -1093,6 +1093,7 @@
             </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc.tld"/>
+                <include name="pacts.tld"/>
                 <include name="taconite.tld"/>
                 <include name="rsc-taglib.tld"/>
                 <include name="tc-webtags.tld"/>
