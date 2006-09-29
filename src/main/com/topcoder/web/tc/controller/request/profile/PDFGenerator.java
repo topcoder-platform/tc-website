@@ -637,7 +637,7 @@ public class PDFGenerator extends BaseProcessor {
 
             drawPageOne(doc, info);
             doc.resetFooter();
-            drawInstructions(doc, writer, header, footer);
+            drawInstructions(doc, writer);
             doc.setHeader(header);
             doc.setFooter(footer);
             drawPageTwo(doc, info);
@@ -760,7 +760,7 @@ public class PDFGenerator extends BaseProcessor {
         //doc.newPage();
     }
 
-    private void drawInstructions(Document doc, PdfWriter writer, HeaderFooter header, HeaderFooter footer) throws Exception {
+    private void drawInstructions(Document doc, PdfWriter writer) throws Exception {
 
         includeHeaderAndFooter = false;
         doc.newPage();
