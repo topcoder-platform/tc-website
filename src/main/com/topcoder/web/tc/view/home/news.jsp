@@ -7,6 +7,26 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 <%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
+        <br>09.29.06<br>1:30 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_1c">TCCC06 Online Round 1-C -
+                Problem Set & Analysis</A></span><br><br>
+The score distribution in this round seems similar to the ones in rounds 1-A and 1-B. The problems were balanced, with the exception of the hard problem, which was solved only by two people.
+            </td>
+            <td class="newsPhoto"><img src="/i/m/Cosmin.ro_big.jpg" alt="" width="55" height="61"/><br>by
+                <tc-webtag:handle coderId="303185" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_1c">full story</A> |
+    <tc-webtag:forumLink forumID="506109" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
         <br>09.29.06<br>10:15 AM</td>
     <td class="newsTextCell">
@@ -223,24 +243,5 @@ turned the first round of the TCCC into a close race.
     <A href="/tc?module=Static&amp;d1=features&amp;d2=092106">article</A> |
     <tc-webtag:forumLink forumID="506120" message="discuss this"/> |
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0"/>
-        <br>09.20.06<br>3:00 PM</td>
-    <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_costingEngineAdminTool">New Assembly contest online:
-            $22,500 in prizes!</A>
-        </span><br><br>
-        Don't miss your chance to build a complete, fully functional piece of software for a TopCoder client. Assembly
-        contests offer great real-world experience, the chance to work with a team, and serious prize money - check out
-        the new contest now!
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_costingEngineAdminTool">details</A> |
-    <A href="https://software.topcoder.com/forum/c_forum.jsp?f=23729399">discuss this</A> |
-    <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
 </td></tr>
 
