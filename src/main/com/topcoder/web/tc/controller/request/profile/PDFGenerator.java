@@ -633,8 +633,13 @@ public class PDFGenerator extends BaseProcessor {
 
             doc.open();
 
+            doc.setFooter(footer);
+
             drawPageOne(doc, info);
+            doc.resetFooter();
             drawInstructions(doc, writer, header, footer);
+            doc.setHeader(header);
+            doc.setFooter(footer);
             drawPageTwo(doc, info);
             drawPageThree(doc, info);
             drawPageFour(doc, info);
@@ -663,6 +668,8 @@ public class PDFGenerator extends BaseProcessor {
                 }
             }
 
+            doc.resetHeader();
+            doc.resetFooter();
             drawResume(doc, info, writer);
 
             doc.close();
@@ -1853,8 +1860,6 @@ public class PDFGenerator extends BaseProcessor {
                         " lastPageHadHeaderFooter " + lastPageHadHeaderFooter);
                 lastPageHadHeaderFooter = includeHeaderAndFooter;
                 if (writer.getPageNumber() > 1 && includeHeaderAndFooter) {
-                    document.setFooter(footer);
-                    document.setHeader(header);
                     cb = writer.getDirectContent();
                     cb.beginText();
                     cb.setColorFill(Color.white);
@@ -1863,12 +1868,6 @@ public class PDFGenerator extends BaseProcessor {
                     cb.setTextMatrix(200, 810);
                     cb.showText("Member Profile for [" + info.getHandle() + "]");
                     cb.endText();
-                } else if (writer.getPageNumber() == 1) {
-                    document.setFooter(footer);
-                    document.resetHeader();
-                } else {
-                    document.resetHeader();
-                    document.resetFooter();
                 }
             }
             catch (Exception e) {
