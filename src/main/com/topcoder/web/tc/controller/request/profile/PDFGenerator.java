@@ -1865,6 +1865,7 @@ public class PDFGenerator extends BaseProcessor {
 
         public void onStartPage(PdfWriter writer, Document document) {
             try {
+                log.debug("start page(" + writer.getPageNumber() + ") - in resume: " + inResume + " instructions " + inInstructions);
                 if (writer.getPageNumber() > 1 && !inResume && !inInstructions) {
                     cb = writer.getDirectContent();
                     cb.beginText();
@@ -1887,6 +1888,7 @@ public class PDFGenerator extends BaseProcessor {
         public void onEndPage(PdfWriter writer, Document document) {
 
             try {
+                log.debug("end page(" + writer.getPageNumber() + ") - in resume: " + inResume + " instructions " + inInstructions);
                 if (!inResume && !inInstructions) {
                     //super.onEndPage(writer, document);
                     Image footerimg = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/topcoder_logo_footer.jpg");
