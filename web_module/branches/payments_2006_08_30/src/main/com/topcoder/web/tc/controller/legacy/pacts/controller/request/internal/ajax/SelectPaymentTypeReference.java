@@ -19,48 +19,53 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
             String search = getRequest().getParameter("search_text");
 
             DataInterfaceBean dib = new DataInterfaceBean();
-            
+
             Map map = null;
 
-            switch (refId) {
-                case REFERENCE_ALGORITHM_PROBLEM_ID:
-                    map = dib.findProblems("%" + search + "%");
-                    getRequest().setAttribute(ALGORITHM_PROBLEM_LIST, map.get(ALGORITHM_PROBLEM_LIST));
-                    break;
-                    
-                case REFERENCE_ALGORITHM_ROUND_ID:
-                    if (type == ALGORITHM_CONTEST_PAYMENT) {
-                        map = dib.findRounds("%" + search + "%", ALGORITHM_CONTEST_ROUND_TYPES); 
-
-                    } else if (type == MARATHON_MATCH_PAYMENT) {
-                        map = dib.findRounds("%" + search + "%", MARATHON_MATCH_ROUND_TYPES);
+            if (search != null) {
+                // If a search is being done...
+                switch (refId) {
+                    case REFERENCE_ALGORITHM_PROBLEM_ID:
+                        map = dib.findProblems("%" + search + "%");
+                        getRequest().setAttribute(ALGORITHM_PROBLEM_LIST, map.get(ALGORITHM_PROBLEM_LIST));
+                        break;
                         
-                    }  else if (type == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT) {
-                    	  map = dib.findRounds("%" + search + "%", ALGORITHM_TOURNAMENT_ROUND_TYPES);
-                    }
-                    getRequest().setAttribute(ALGORITHM_ROUND_LIST, map.get(ALGORITHM_ROUND_LIST));
-                    break;
+                    case REFERENCE_ALGORITHM_ROUND_ID:
+                        if (type == ALGORITHM_CONTEST_PAYMENT) {
+                            map = dib.findRounds("%" + search + "%", ALGORITHM_CONTEST_ROUND_TYPES); 
 
-                case REFERENCE_COMPONENT_PROJECT_ID:
-                    map = dib.findProjects("%" + search + "%");
-                    getRequest().setAttribute(COMPONENT_PROJECT_LIST, map.get(COMPONENT_PROJECT_LIST));
-                    break;
+                        } else if (type == MARATHON_MATCH_PAYMENT) {
+                            map = dib.findRounds("%" + search + "%", MARATHON_MATCH_ROUND_TYPES);
+                            
+                        }  else if (type == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT) {
+                        	  map = dib.findRounds("%" + search + "%", ALGORITHM_TOURNAMENT_ROUND_TYPES);
+                        }
+                        getRequest().setAttribute(ALGORITHM_ROUND_LIST, map.get(ALGORITHM_ROUND_LIST));
+                        break;
 
-                case REFERENCE_COMPONENT_CONTEST_ID:
-                    map = dib.findComponentContests("%" + search + "%");
-                    getRequest().setAttribute(COMPONENT_CONTEST_LIST, map.get(COMPONENT_CONTEST_LIST));
-                    break;
+                    case REFERENCE_COMPONENT_PROJECT_ID:
+                        map = dib.findProjects("%" + search + "%");
+                        getRequest().setAttribute(COMPONENT_PROJECT_LIST, map.get(COMPONENT_PROJECT_LIST));
+                        break;
 
-                case REFERENCE_STUDIO_CONTEST_ID:
-                    map = dib.findStudioContests("%" + search + "%");
-                    getRequest().setAttribute(STUDIO_CONTEST_LIST, map.get(STUDIO_CONTEST_LIST));
-                    break;
-                    
-                case REFERENCE_PARENT_PAYMENT_ID:
-                    map = dib.findPaymentsByDescription("%" + search + "%");
-                    getRequest().setAttribute(PARENT_REFERENCE_LIST, map.get(PARENT_REFERENCE_LIST));
-                    break;
+                    case REFERENCE_COMPONENT_CONTEST_ID:
+                        map = dib.findComponentContests("%" + search + "%");
+                        getRequest().setAttribute(COMPONENT_CONTEST_LIST, map.get(COMPONENT_CONTEST_LIST));
+                        break;
 
+                    case REFERENCE_STUDIO_CONTEST_ID:
+                        map = dib.findStudioContests("%" + search + "%");
+                        getRequest().setAttribute(STUDIO_CONTEST_LIST, map.get(STUDIO_CONTEST_LIST));
+                        break;
+                        
+                    case REFERENCE_PARENT_PAYMENT_ID:
+                        map = dib.findPaymentsByDescription("%" + search + "%");
+                        getRequest().setAttribute(PARENT_REFERENCE_LIST, map.get(PARENT_REFERENCE_LIST));
+                        break;
+                       
+                }
+            } 
+            switch (refId) {
                 case REFERENCE_DIGITAL_RUN_SEASON_ID:
                     map = dib.getDigitalRunSeasonList();
                     getRequest().setAttribute(DIGITAL_RUN_SEASON_LIST, map.get(DIGITAL_RUN_SEASON_LIST));
@@ -71,6 +76,7 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                     getRequest().setAttribute(DIGITAL_RUN_STAGE_LIST, map.get(DIGITAL_RUN_STAGE_LIST));
                     break;
             }
+
             getRequest().setAttribute("reference_type_id", refId + "");
             getRequest().setAttribute("search", search);
             setNextPage(INTERNAL_AJAX_SELECT_PAYMENT_TYPE_REFERENCE);
