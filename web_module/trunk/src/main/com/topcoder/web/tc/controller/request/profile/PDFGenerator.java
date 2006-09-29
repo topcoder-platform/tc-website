@@ -104,24 +104,20 @@ public class PDFGenerator extends BaseProcessor {
             ComponentCompetitionStats design = info.getDesign();
             if (design != null) {
                 drawDesignOrDevelopmentPage(doc, design, "Design", "rating_distribution_graph_design_profile");
-                doc.newPage();
 
                 ComponentContestDetails example = info.getDesignExample();
                 if (example != null) {
                     drawExampleComponentPage(doc, example, info.getUserID(), true);
-                    doc.newPage();
                 }
             }
 
             ComponentCompetitionStats development = info.getDevelopment();
             if (development != null) {
                 drawDesignOrDevelopmentPage(doc, development, "Development", "rating_distribution_graph_dev_profile");
-                doc.newPage();
 
                 ComponentContestDetails example = info.getDevelopmentExample();
                 if (example != null) {
                     drawExampleComponentPage(doc, example, info.getUserID(), false);
-                    doc.newPage();
                 }
             }
 
@@ -249,8 +245,9 @@ public class PDFGenerator extends BaseProcessor {
             cb.addTemplate(page, 0, 0);
             if (i == n) {
                 includeHeader = true;
+            } else {
+                doc.newPage();
             }
-            doc.newPage();
 
         }
 
@@ -258,6 +255,7 @@ public class PDFGenerator extends BaseProcessor {
 
 
     private void drawPageTwo(Document doc, PlacementConfig info) throws Exception {
+        doc.newPage();
         GeneralStats gen = info.getAlgorithm();
 
         PdfPTable t = new PdfPTable(2);
@@ -740,8 +738,6 @@ public class PDFGenerator extends BaseProcessor {
 
         doc.add(submission);
         doc.add(new Phrase(info.getSubmissionText(), FontFactory.getFont(FontFactory.COURIER, 8, Font.NORMAL, Color.black)));
-
-        doc.newPage();
     }
 
     public void drawResume(Document doc, PlacementConfig info, PdfWriter writer) throws Exception {
@@ -749,14 +745,13 @@ public class PDFGenerator extends BaseProcessor {
         ResumeServices resumebean = (ResumeServices) createEJB(ctx, ResumeServices.class);
 
         if (resumebean.hasResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME)) {
+            includeHeader = false;
+            inResume = true;
+            doc.newPage();
             String ext = resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFileName().substring(resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFileName().lastIndexOf('.') + 1);
             if (log.isDebugEnabled()) {
                 log.debug(ext);
             }
-
-            includeHeader = false;
-            inResume = true;
-
             byte[] rawBytes = resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFile();
             //pass through the converter
             byte[] result;
