@@ -86,7 +86,7 @@ function makeNavigable(){
 </jsp:include>
 
 <div style="float: right; text-align:right;">
-<tc-webtag:forumLink forumID="506127" message="Discuss this article" />
+<tc-webtag:forumLink forumID="506127" message="Discuss this article" /><br>
 <div id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A></div>
 <div id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A></div>
 </div>
@@ -98,6 +98,9 @@ function makeNavigable(){
       <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
       </p>
 
+<div style="float:left; padding-right:5px;"><A href="/i/education/xmi2cs.zip"><img src="/i/interface/emblem/disk.gif" alt="Download" /></A></div>
+<strong><A href="/i/education/xmi2cs.zip">Download</A> the application (ZIP 1.5mb)</strong>
+<br><br>
 Writing code that writes code can be a powerful technique for developers.  In an effort to be more productive, developers want to be able to accomplish tasks with fewer keystrokes, bugs, and headaches.  While writing a code generator can take longer than simply writing the code, the time you can save in the future will more than make up for the initial effort.  
 <br><br>
 How does this apply to TopCoder?  TopCoder component competitions consist of three main phases: specification, architecture and design, and development and testing (more information is available <A href="http://software.topcoder.com/components/methodology.jsp">here</A>).  For development competitions, the primary goal is for developers to provide an accurate implementation of the design.  This design, generated using Poseidon to build UML class diagrams for the component, is stored in an XMI file.  Because XMI is a standardized format, developers can leverage this to get a faster, more stable start on development.  
