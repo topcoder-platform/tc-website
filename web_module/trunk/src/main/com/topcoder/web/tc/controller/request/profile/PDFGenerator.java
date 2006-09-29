@@ -95,12 +95,9 @@ public class PDFGenerator extends BaseProcessor {
             doc.open();
 
             doc.setFooter(footer);
-
             drawPageOne(doc, info);
-            doc.resetFooter();
             drawInstructions(doc, writer);
             doc.setHeader(header);
-            doc.setFooter(footer);
             drawPageTwo(doc, info);
             drawPageThree(doc, info);
             drawPageFour(doc, info);
