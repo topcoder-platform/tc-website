@@ -80,7 +80,7 @@
 			<td><b>Date Paid:</b></td>
 			<td><c:out value="${payment.payDate}" /></td>
 		</tr>
-<c:if test="${not payment.header.algorithmRoundId}">
+<c:if test="${payment.header.algorithmRoundId > 0}">
 		<tr>
 			<td><b>Round ID:</b></td>
 			<td><c:out value="${payment.header.algorithmRoundId}" /></td>
