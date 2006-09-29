@@ -56,17 +56,17 @@
 				<!--  to do format! -->
 		<tr>
 			<td><b>Gross Amount:</b></td>
-			<td><c:out value="${payment.grossAmount}" /></td>
+			<td><fmt:formatNumber value="${payment.grossAmount}" pattern="###,###.00" /></td>
 		</tr>
 		<tr>
 			<td><b>Tax:</b></td>
-			<td><c:out value="${payment.grossAmount - payment.netAmount}" /></td>
+			<td><fmt:formatNumber value="${payment.grossAmount - payment.netAmount}" pattern="####.00" /></td>
 		</tr>
 <!-- end if -->
 		
 		<tr>
 			<td><b>Net Amount:</b></td>
-			<td><c:out value="${payment.netAmount}" /></td>
+			<td><fmt:formatNumber value="${payment.netAmount}" pattern="#.00" /></td>
 		</tr>
 		
 </table>
