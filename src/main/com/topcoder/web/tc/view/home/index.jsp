@@ -272,28 +272,27 @@
         </tr>
         <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">September
+            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">October
                 Events:</A></td>
         </tr>
         <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-                <b>09/06</b> - Marathon Match 5 - 12 NOON<br><br>
-                <b>09/07</b> - Algo Qual Round 1 - AOL - 7 AM<br><br>
-                <b>09/07</b> - CDDC Week 4 Projects Posted - 9 AM<br><br>
-                <b>09/09</b> - Algo Qual Round 2 - AOL - 1 PM<br><br>
-                <b>09/11</b> - TCHS SRM 14 - 2 PM<br><br>
-                <b>09/12</b> - Algo Registration Ends - 6 PM<br><br>
-                <b>09/12</b> - Algo Qual Round 3 - AOL - 9 PM<br><br>
-                <b>09/13</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 9 - 12 NOON<br><br>
-                <b>09/14</b> - CDDC Registration Ends - 9 AM<br><br>
-                <b>09/14</b> - CDDC Week 5 Projects Posted - 9 AM<br><br>
-                <b>09/18</b> - SRM 319 - NSA - 9 PM<br><br>
-                <b>09/21</b> - Algo Elim Round 1-A - NSA - 7 AM<br><br>
-                <b>09/23</b> - Algo Elim Round 1-B - Bloomberg - 1 PM<br><br>
-                <b>09/25</b> - TCHS SRM 15 - 10 AM<br><br>
-                <b>09/27</b> - Algo Elim Round 1-C - UBS - 9 PM<br><br>
-                <b>09/30</b> - SRM 320 - UBS - 12 Noon<br><br>
+                <b>10.02</b> - SRM 321 - NSA - 9 PM<br><br>
+                <b>10.05</b> - Algo Elim Round 2A - NSA - 7 AM<br><br>
+                <b>10.05</b> - CDDC Round 1 Projects Posted - 9 AM<br><br>
+                <b>10.07</b> - Algo Elim Round 2B - Bloomberg - 1 PM<br><br>
+                <b>10.09</b> - SRM 322 - AOL - 9 PM<br><br>
+                <b>10.11</b> - Marathon Match 6 - 12 NOON<br><br>
+                <b>10.11</b> - Algo Elim Round 2C - UBS - 9 PM<br><br>
+                <b>10.14</b> - Algo Elim Round 3 - AOL - 1 PM<br><br>
+                <b>10.16</b> - TCHS SRM 16 - 6 AM<br><br>
+                <b>10.18</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 10 - 12 NOON<br><br>
+                <b>10.19</b> - CDDC Round 2 Projects Posted - 9 AM<br><br>
+                <b>10.19</b> - SRM 323 - Bloomberg - 11 AM<br><br>
+                <b>10.23</b> - TCHS SRM 17 - 7 PM<br><br>
+                <b>10.25</b> - SRM 324 - 7 AM<br><br>
+                <b>10.30</b> - TCHS SRM 18 - 2 PM<br><br>
             </td>
         </tr>
 
