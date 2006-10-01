@@ -108,10 +108,10 @@
             --%>
             <%-- SPONSORS --%>
             <map name="srm">
-            <area shape="rect" alt="" coords="1,1,264,85" href="/tc?module=MatchDetails&rd=10000" />
-            <area shape="rect" alt="" coords="1,96,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=ubs" />
+            <area shape="rect" alt="" coords="1,1,264,85" href="/tc?module=MatchDetails&rd=10001" />
+            <area shape="rect" alt="" coords="1,96,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa" />
             </map>
-            <img src="/i/home/ubs_srm320.png" alt="UBS" border="0" style="display:block;" usemap="#srm"/>
+            <img src="/i/home/nsa_srm321.png" alt="NSA" border="0" style="display:block;" usemap="#srm"/>
             
 
         </td></tr>
