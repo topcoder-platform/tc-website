@@ -419,9 +419,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                     }
                     if (command.equals(PAYMENT_CMD)) {
                         if (checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true)) {
-                          //  doPayment(request, response);
-                        	log.warn("Using deprecated processor, please use module=ViewPayment insted");
-                        	forward("/PactsInternalServlet?module=ViewPayment&payment_id=" + request.getParameter(PAYMENT_ID), request, response);
+                        	doPayment(request, response);
                         } else {
                             throw new NavigationException("Invalid Payment ID or No Payment ID Specified");
                         }
@@ -1510,10 +1508,10 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         } else {
             long payment_id = dib.addPayment(p);
             
-            log.debug("charityInd param=" + request.getParameter("charityInd"));
             if (request.getParameter("charityInd") != null) {
             	dib.addPayment(new CharityPayment(Long.parseLong(request.getParameter("user_id")), payment_id));
             }
+            /*
             InternalDispatchPayment bean =
                     new InternalDispatchPayment(request, response);
             Payment results = bean.get(payment_id);
@@ -1521,6 +1519,9 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             String creationDate = bean.getCreationDate(results.getHeader());
             request.setAttribute(CREATION_DATE, creationDate);
             forward(INTERNAL_PAYMENT_JSP, request, response);
+            */
+        	forward("/PactsInternalServlet?module=ViewPayment&payment_id=" + payment_id, request, response);
+            
         }
 
     }
@@ -1821,6 +1822,9 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "viewPayment.jsp"
     */
     private void doPayment(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    	log.warn("Using deprecated processor, please use module=ViewPayment insted");
+    	forward("/PactsInternalServlet?module=ViewPayment&payment_id=" + request.getParameter(PAYMENT_ID), request, response);
+/*    	
         log.debug("doPayment<br>");
 
         InternalDispatchPayment bean =
@@ -1837,7 +1841,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
 
         forward(INTERNAL_PAYMENT_JSP, request, response);
-
+*/
     }
 
 
