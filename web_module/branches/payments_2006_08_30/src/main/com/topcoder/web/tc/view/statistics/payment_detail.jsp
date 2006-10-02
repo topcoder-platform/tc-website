@@ -94,8 +94,8 @@
     <br>
     <span class="bodySubtitle">Coder Statistics&#160;>&#160;</span><br>
     <span class="bc">
-	<A href="/tc?module=PaymentSummary&cr=<%=coderId%>" class="bcLink">Payment Summary</A>
- | <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
+	<A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
+ | <A href="/tc?module=PaymentSummary&cr=<%=coderId%>" class="bcLink">Payment Summary</A>
  | Payment Details
    </span>
 
@@ -107,7 +107,7 @@
         </td></tr>
         <tr>
             <TD CLASS="header">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Payment Desc</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Description</a>
             </TD>
             <TD CLASS="header">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Payment Type</a>
