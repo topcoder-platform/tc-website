@@ -18,7 +18,20 @@
      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 ------------------------------%>
-<%----------------MARATHON MATCH-------------------------%>
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>10.02.06<br>2:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=513341">TopCoder is turning 100!</A>
+      </span><br><br>
+      We're compiling a special feature to celebrate TopCoder's 100,000th member (coming soon), and we need your help. Answer this question: What is the one theory, term, or tactic that you most rely on, and that is most responsible for making you a better coder?
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=513341">discuss this</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>10.02.06<br>1:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -239,19 +252,5 @@ turned the first round of the TCCC into a close race.
     <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_1a">full story</A> |
     <tc-webtag:forumLink forumID="506107" message="discuss this"/> |
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>
-        09.22.06<br>9:00 AM</td>
-    <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=AOLAlertsDescription">Announcing AOL&#174; Alerts</A></span><br><br>
-        You can now sign up for several types of TCCC06 related messages through AOL Alerts and receive them via email, IM, or SMS. Check it out!
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=AOLAlertsDescription">view</A> |
-    <tc-webtag:forumLink forumID="506122" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
 
