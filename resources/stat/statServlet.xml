@@ -41,6 +41,7 @@
         <QuickStatItem url="/stat?c=best_challengers">Challenge Success</QuickStatItem>
         <QuickStatItem url="/stat?c=division_wins">Division Wins</QuickStatItem>
         <QuickStatItem url="/stat?c=rated_events">Rated Events</QuickStatItem>
+        <QuickStatItem url="/stat?c=successful_challenges">Most Successful Challenges in a Match</QuickStatItem>
 
     </QuickStatList>
     <ContentList>
@@ -79,6 +80,8 @@
         <ContentItem contentHandle="division_wins" nextPage="/statistics/division_wins.jsp" access="0"/>
         <ContentItem contentHandle="srm_division_wins" nextPage="/statistics/srm_division_wins.jsp" access="0"/>
         <ContentItem contentHandle="rated_events" nextPage="/statistics/ratedEvents.jsp" access="0"/>
+        <ContentItem contentHandle="successful_challenges" nextPage="/statistics/challengeSuccessByMatch.jsp"
+                     access="0"/>
     </ContentList>
     <GlobalError nextPage="/errorPage.jsp"/>
 </StatServlet>
