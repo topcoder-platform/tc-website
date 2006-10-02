@@ -39,6 +39,8 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<%--<li><A href="/tc?module=Static&amp;d1=features&amp;d2=100206"><strong>Design Patterns in C++</strong></A>, by <tc-webtag:handle coderId="10584406" /><br>
+This article will examine several design patterns affected by modern C++ practices and present some of their manifestations in generic C++ code, along with a few examples of how parts of some TopCoder components may look like in C++.</li>--%>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=092806"><strong>Writing code that writes code&#8230;</strong></A>, by <tc-webtag:handle coderId="10584406" /><br>
 Writing code that writes code can be a powerful technique for developers.  In an effort to be more productive, developers want to be able to accomplish tasks with fewer keystrokes, bugs, and headaches.</li>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=092506"><strong>Understanding the Mind Game</strong></A>, by <tc-webtag:handle coderId="22628020" /><br>
