@@ -118,7 +118,6 @@
             <TD class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
             <TD class="value">
             <% if (resultRow.getDoubleItem("show_details_ind") == 1) {%>
-				hola
 				<A href="/tc?module=PaymentDetail&cr=<%=coderId%>&pt=<%=resultRow.getStringItem("payment_type_id")%>">
 			<% }%>
             <rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
