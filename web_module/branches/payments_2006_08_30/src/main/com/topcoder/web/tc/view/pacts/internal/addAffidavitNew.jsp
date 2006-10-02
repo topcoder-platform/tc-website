@@ -14,7 +14,7 @@
 <body>
 
 
-<c:set var="payment" value="${requestScope.payment"/>
+<c:set var="payment" value="${requestScope.payment}"/>
 <c:set var="isNotarizedx" value="<%= request.getParameter(PactsConstants.IS_NOTARIZED) %>" />
 <c:set var="statusList" value="<%= request.getParameter(PactsConstants.STATUS_CODE_LIST) %>" />
 
