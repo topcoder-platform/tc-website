@@ -15,6 +15,7 @@
 
 
 <c:set var="payment" value="${requestScope.payment}"/>
+<c:set var="notes" value="${requestScope.note_header_list}"/>
 <c:set var="COMPONENT_PAYMENT" value="<%= PactsConstants.COMPONENT_PAYMENT + "" %>" />
 <c:set var="REVIEW_BOARD_PAYMENT" value="<%= PactsConstants.REVIEW_BOARD_PAYMENT + "" %>" />
 
@@ -52,7 +53,7 @@
 			<td><b>Method:</b></td>
 			<td><c:out value="${payment.header.method}" /></td>
 		</tr>
-<c:if test="${payment.header.typeId == COMPONENT_PAYMENT or payment.header.typeId == REVIEW_BOARD_PAYMENT}">
+<c:if test="${payment.header.typeId != COMPONENT_PAYMENT and payment.header.typeId != REVIEW_BOARD_PAYMENT}">
 		<tr>
 			<td><b>Gross Amount:</b></td>
 			<td><fmt:formatNumber value="${payment.grossAmount}" pattern="###,###.00" /></td>
@@ -134,9 +135,22 @@
 					<c:otherwise>No</c:otherwise>
 				</c:choose>
 			</td>
-		</tr>
-		
+		</tr>		
 </table>
+
+<c:if test="${notes.length > 0}">
+	<form action="<%= PactsConstants.INTERNAL_SERVLET_URL %>" method="post">
+		<input type="hidden" name="t" value="view" />
+		<input type="hidden" name="c" value="note" />
+		<input type="submit" value="View Note" />
+		
+		<select name="<%= PactsConstants.NOTE_ID %>">
+			<c:forEach var="note" items="${notes}">
+				<option value="${note.id}"><c:out value="note.creationDate"/> by <c:out value="note.user.handle"/></option>
+			</c:forEach>
+		</select>
+	</form>
+</c:if>
 
 <jsp:include page="InternalFooter.jsp" flush="true" />
 </body>
