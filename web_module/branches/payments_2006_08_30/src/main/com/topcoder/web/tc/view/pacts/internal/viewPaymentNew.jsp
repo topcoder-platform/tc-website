@@ -169,7 +169,7 @@
 </a>
 <br/>
 
-<a href="PactsInternalServlet?t=payment&c=Review Selected Payments&payment_id=${payment.header.id}&query=PactsInternalServlet%3Ft%3Dview%26c%3Dpayment%26payment_id%3d${payment.header.id}%26individual_payment%3D1">
+<a href="PactsInternalServlet?t=payments&c=Review Selected Payments&payment_id=${payment.header.id}&query=PactsInternalServlet%3Ft%3Dview%26c%3Dpayment%26payment_id%3d${payment.header.id}%26individual_payment%3D1">
 	Review Payment
 </a>
 <br/>
