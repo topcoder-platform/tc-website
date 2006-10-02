@@ -9,13 +9,6 @@
 </jsp:include>
 <jsp:include page="baseHRef.jsp" />   
 <jsp:include page="../script.jsp" />
-<style type="text/css">
-span.selected{
-background: #EFEFEF;
-border: 1px solid #CCCCCC;
-padding: 0px 4px 0px 4px;
-}
-</style>
 </HEAD>
 <BODY>
    <jsp:include page="../top.jsp" />
