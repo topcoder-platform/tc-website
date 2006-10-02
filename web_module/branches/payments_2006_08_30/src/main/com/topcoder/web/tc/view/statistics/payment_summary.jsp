@@ -98,7 +98,7 @@
  | Payment Summary
    </span>
 
-    <div class="pagingBox" style="clear:both;">&#160;</div>
+    <br>
 
     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tr><td class="title" colspan="10">
