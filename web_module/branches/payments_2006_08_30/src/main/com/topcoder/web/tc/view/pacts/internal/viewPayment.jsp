@@ -154,24 +154,16 @@
 
 <br/>
 
-<a href="PactsInternalServlet?t=view&c=payment_audit_trail&payment_id=${payment.header.id}">
-	View Audit Trail
-</a>
+<a href="PactsInternalServlet?t=view&c=payment_audit_trail&payment_id=${payment.header.id}">View Audit Trail</a>
 <br/>
 
-<a href="PactsInternalServlet?t=add&c=note&object_id=${payment.header.id}&user_id=${payment.header.user.id}&object_type=<%= PactsConstants.PAYMENT_OBJ %>">
-	Add Note
-</a>
+<a href="PactsInternalServlet?t=add&c=note&object_id=${payment.header.id}&user_id=${payment.header.user.id}&object_type=<%= PactsConstants.PAYMENT_OBJ %>">Add Note</a>
 <br/>
 
-<a href="PactsInternalServlet?t=update&c=payment&payment_id=${payment.header.id}">
-	Update Payment
-</a>
+<a href="PactsInternalServlet?t=update&c=payment&payment_id=${payment.header.id}">Update Payment</a>
 <br/>
 
-<a href="PactsInternalServlet?t=payments&c=Review Selected Payments&payment_id=${payment.header.id}&query=PactsInternalServlet%3Ft%3Dview%26c%3Dpayment%26payment_id%3d${payment.header.id}%26individual_payment%3D1">
-	Review Payment
-</a>
+<a href="PactsInternalServlet?t=payments&c=Review Selected Payments&payment_id=${payment.header.id}&query=PactsInternalServlet%3Ft%3Dview%26c%3Dpayment%26payment_id%3d${payment.header.id}%26individual_payment%3D1">Review Payment</a>
 <br/>
 
 <jsp:include page="InternalFooter.jsp" flush="true" />

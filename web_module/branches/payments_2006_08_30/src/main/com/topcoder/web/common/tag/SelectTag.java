@@ -150,7 +150,7 @@ public abstract class SelectTag extends BaseTag {
             s.append("\"");
             if (selectedValue != null && topValue != null && selectedValue.equals(topValue) ||
                     selectedText != null && topText != null && selectedText.equals(topValue)) {
-                s.append(" selected");
+                s.append(" selected=\"selected\"");
             }
             s.append(">");
             s.append(topText == null ? "" : topText);
