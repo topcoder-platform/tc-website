@@ -94,7 +94,11 @@ This member has not yet been rated in a competition.
             </td></tr>
             <tr><td class="cat" colspan="2">&#160;</td></tr>
 <% if (!registeredHS || (rscCoderData.getStringItem(0, "rating") != null) || (rscCoderData.getStringItem(0, "design_rating") != null) || (rscCoderData.getStringItem(0, "development_rating") != null)) { %>
-            <tr><td class="cat" nowrap="nowrap">Total Earnings:</td><td class="stat" align="right"><rsc:item name="overall_earnings" set="<%=rscCoderData%>" format="$#,##0.00"/></td></tr>
+            <tr><td class="cat" nowrap="nowrap">Total Earnings:</td><td class="stat" align="right">
+                <A href="/tc?module=PaymentSummary&cr=<%=rscCoderData.getStringItem(0, "coder_id")%>">
+                    <rsc:item name="overall_earnings" set="<%=rscCoderData%>" format="$#,##0.00"/>
+                </A>
+                </td></tr>
             <tr><td class="cat" nowrap="nowrap">Software Royalties:</td><td class="stat" align="right"><rsc:item name="royalties" set="<%=rscCoderData%>" format="$#,##0.00" ifNull="$0.00"/></td></tr>
 <% } %>
             <tr><td class="cat" nowrap="nowrap">Member Since:</td><td class="stat" align="right"><rsc:item name="member_since" set="<%=rscCoderData%>" format="MM.dd.yyyy"/></td></tr>
