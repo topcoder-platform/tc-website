@@ -107,7 +107,8 @@
                 </td>
                 <td>
                     <strong>Most Rated Events</strong><br/>
-                    This chart shows the coders that have participated in the most rated events.
+                    This chart shows the coders that have participated in the most rated events.<br/>
+                    <a href="/stat?c=rated_events">Overall</a>
                 </td>
             </tr>
         </table>
