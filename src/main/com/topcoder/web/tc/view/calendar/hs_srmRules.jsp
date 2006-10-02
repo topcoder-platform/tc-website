@@ -43,8 +43,6 @@
 </jsp:include>
 
 
-
-
 <span class="title">TopCoder High School <rsc:item name="contest_name" row="<%=rsr%>"/></span>
 <br><br>
 <span class="subtitle">Official Rules and Regulations</span>
@@ -66,9 +64,11 @@ No purchase necessary to enter or win. Void where prohibited.
                                                                                                       row="<%=rsr%>"/>
         to <rsc:item name="reg_end" row="<%=rsr%>"/>. To register, login
         to the TopCoder High School Arena application, click on the 'Active Contests' menu, choose the SRM to
-        register for, and select the 'Register' option. <strong><em>TCHS members from all over the world may be participating in
+        register for, and select the 'Register' option. <strong><em>TCHS members from all over the world may be
+        participating in
         this SRM, but all start times will be communicated as Eastern Time, so contestants in different time zones must
-        adjust accordingly.</em></strong> All competitors who have registered for the competition will be assigned to a specific
+        adjust accordingly.</em></strong> All competitors who have registered for the competition will be assigned to a
+        specific
         competition room. TopCoder will perform the room assignments prior to the start of the competition.
     </li>
     <li>
@@ -165,11 +165,6 @@ education and not matriculated full time at a college or university.
         <jsp:param name="level1" value="default"/>
     </jsp:include>
 </TD>
-</TR>
-</TABLE>
-<!-- Gutter Begins -->
-<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-<!-- Gutter Ends -->
 </TR>
 </TABLE>
 
