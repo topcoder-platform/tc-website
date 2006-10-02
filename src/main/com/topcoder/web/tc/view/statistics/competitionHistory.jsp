@@ -139,10 +139,10 @@
             <TD CLASS="header">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Date</a>
             </TD>
-            <TD CLASS="header" WIDTH="50%">
+            <TD CLASS="header" WIDTH="20%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Contest</a>
             </TD>
-            <TD CLASS="header" WIDTH="50%">
+            <TD CLASS="header" WIDTH="">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("division")%>" includeParams="true"/>">Division</a>
             </TD>
             <TD CLASS="headerC">
