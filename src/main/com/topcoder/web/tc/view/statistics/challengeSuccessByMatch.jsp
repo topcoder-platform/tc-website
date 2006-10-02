@@ -111,13 +111,13 @@
                                     </td>
                                     <td class="statText" width="20%">
                                         <tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=HandleTag.ALGORITHM%>'/></td>
-                                    <td class="statText" width="10%">
+                                    <td class="statText" width="10%" align="right">
                                         <rsc:item name="challenges_made_successful" row="<%=row%>"/></td>
-                                    <td class="statText" width="10%">
+                                    <td class="statText" width="10%" align="right">
                                         <rsc:item name="challenges_made_failed" row="<%=row%>"/></td>
-                                    <td class="statText" width="10%">
+                                    <td class="statText" width="10%" align="right">
                                         <rsc:item name="challenge_points" row="<%=row%>" format="#.##"/></td>
-                                    <td class="statText" width="10%">
+                                    <td class="statText" width="10%" align="right">
                                         <rsc:item name="positive_challenge_points" row="<%=row%>" format="#.##"/></td>
                                     <td class="statText" width="20%">
                                         <a href="/stat?c=round_overview&amp;rd=<rsc:item name="round_id" row="<%=row%>"/>" class="statText">
