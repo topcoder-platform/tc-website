@@ -158,7 +158,18 @@
 </a>
 <br/><br/>
 
-<a href="${"PactsInternalServlet?t=add&c=note&object_id=" + payment.header.id + "&user_id=" + payment.header.user.id + "&object_type=53" } ">
+<a href="PactsInternalServlet?t=add&c=note&object_id=${payment.header.id}&user_id=${payment.header.user.id}&object_type=<%= PactsConstants.PAYMENT_OBJ %>">
+	Add Note
+</a>
+<br/><br/>
+
+   out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
+   out.print(PactsConstants.TASK_STRING+"="+PactsConstants.UPDATE_TASK+"&");
+   out.println(PactsConstants.CMD_STRING+"="+PactsConstants.PAYMENT_CMD+"&");
+   out.println(PactsConstants.PAYMENT_ID+"="+payment.getHeader().getId());
+   out.println("\">Update Payment</a><br>");
+
+<a href="PactsInternalServlet?t=update&c=payment&payment_id=${payment.header.id}">
 	Add Note
 </a>
 <br/><br/>
