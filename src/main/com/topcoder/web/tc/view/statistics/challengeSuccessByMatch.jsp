@@ -76,15 +76,15 @@
 
                         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                             <TR>
-                                <TD COLSPAN="3" CLASS="smallFoot">
+                                <TD COLSPAN="7" CLASS="smallFoot">
                                     <IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"></TD>
                             </TR>
                             <TR>
-                                <TD background="/i/steel_gray_bg.gif" COLSPAN="3" CLASS="statTextBig" VALIGN="middle" HEIGHT="18">
+                                <TD background="/i/steel_gray_bg.gif" COLSPAN="7" CLASS="statTextBig" VALIGN="middle" HEIGHT="18">
                                     &nbsp;Challenge Success</TD>
                             </TR>
                             <TR>
-                                <TD COLSPAN="3" CLASS="smallFoot" WIDTH="1">
+                                <TD COLSPAN="7" CLASS="smallFoot" WIDTH="1">
                                     <IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                             </TR>
                             <TR VALIGN="middle">
@@ -97,7 +97,7 @@
                                 <TD class="statText">Event</TD>
                             </TR>
                             <TR>
-                                <TD COLSPAN="3" CLASS="smallFoot" WIDTH="1">
+                                <TD COLSPAN="7" CLASS="smallFoot" WIDTH="1">
                                     <IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                             </TR>
                             <rsc:iterator list="<%=rsc%>" id="row">
