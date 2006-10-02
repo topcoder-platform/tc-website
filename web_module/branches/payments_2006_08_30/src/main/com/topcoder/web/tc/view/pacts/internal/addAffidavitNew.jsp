@@ -15,8 +15,8 @@
 
 
 <c:set var="payment" value="${requestScope.payment}"/>
-<c:set var="isNotarizedx" value="<%= request.getParameter(PactsConstants.IS_NOTARIZED) %>" />
-<c:set var="statusList" value="<%= request.getParameter(PactsConstants.STATUS_CODE_LIST) %>" />
+<c:set var="user" value="${requestScope.user}"/>
+<c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />
 
 <h1>PACTS</h1>
 <h2>Add Affidavit</h2>
@@ -24,7 +24,7 @@
 		<table border="0" cellpadding="2" cellspacing="2">
 		<tr>
 			<td><b>User</b></td>
-			<td><pacts-tag:handle coderId="${payment.header.user.id}" handle="${payment.header.user.handle}"/></td>
+			<td><pacts-tag:handle coderId="${user.id}" handle="${user.handle}"/></td>
 		</tr>
 		<tr>
 			<td><b>Notarized:</b></td>

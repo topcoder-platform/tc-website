@@ -19,9 +19,14 @@ public class AddAffidavit extends PactsBaseProcessor implements PactsConstants {
     	long userId = Long.parseLong(getRequest().getParameter(USER_ID));
     	
         try {
+        	if (getRequest().getParameter("affidavit_desc") != null) {
+        		setDefault("affidavit_desc", getRequest().getParameter("affidavit_desc"));
+        		setDefault("affidavit_status_id", getRequest().getParameter("affidavit_status_id"));
+        		setDefault(IS_NOTARIZED, getRequest().getParameter(IS_NOTARIZED));
+        	} 
             DataInterfaceBean dib = new DataInterfaceBean();
 
-            getRequest().setAttribute(PACTS_INTERNAL_RESULT, getUserProfileHeader(userId));
+            getRequest().setAttribute("user", getUserProfileHeader(userId));
 
             // Give the JSP the list of Affidavit Types
             Map map = dib.getAffidavitTypes();
