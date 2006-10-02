@@ -27,15 +27,15 @@
 
 function toggleDiv(divId, state) 
 {
-    if(document.layers)	   //NN4+
+    if(document.layers)	  
     {
        document.layers[divId].visibility = state ? "show" : "hide";
     }
-    else if(document.getElementById)	  //gecko(NN6) + IE 5+
+    else if(document.getElementById)
     {
         document.getElementById(divId).style.visibility = state ? "visible" : "hidden";
     }
-    else if(document.all)	// IE 4
+    else if(document.all)
     {
         document.all[divId].style.visibility = state ? "visible" : "hidden";
     }
@@ -59,7 +59,7 @@ function typeChanged() {
     ajaxRequest.sendRequest();
 }
 
-function search(text) {
+function doSearch(text) {
     var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
     document.ajaxFields.reference_type_id.value = types[document.f.payment_type_id.selectedIndex];
     document.f.search_text.value = text;
@@ -71,7 +71,7 @@ function search(text) {
     ajaxRequest.sendRequest();
 }
 
-function referenceChanged(refId) {
+function doReferenceChanged(refId) {
     var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=FillPaymentData');
     document.ajaxFields.reference_id.value = refId;
     ajaxRequest.addNamedFormElements("payment_type_id");
@@ -106,12 +106,24 @@ function initialize() {
 <% if (request.getParameter("search_text") == null) { %>
    typeChanged();
 <% } else { %>
-  search('<%= request.getParameter("search_text") %>');
+  doSearch('<%= request.getParameter("search_text") %>');
 <% } %>
 	loaded();
 }
 
+function getElement(name) {
+	for(i=0; i < document.f.elements.length; i++) 
+	    if(document.f.elements[i].name==name)  return document.f.elements[i];
+	return undefined;
+}
 
+function search() {
+    doSearch(getElement("searchInput").value);
+}
+
+function referenceChanged(name) {
+    doReferenceChanged(getElement(name).value));
+}
 
 </script>
 
