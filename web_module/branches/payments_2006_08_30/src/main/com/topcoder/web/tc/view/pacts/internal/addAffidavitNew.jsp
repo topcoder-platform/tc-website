@@ -20,6 +20,9 @@
 <c:set var="user" value="${requestScope.user}"/>
 <c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />
 
+<div align="center">
+<div style="padding: 0px 10px 10px 10px; width: 600px; text-align: left;">
+
 <h1>PACTS</h1>
 <h2>Add Affidavit</h2>
 
@@ -47,7 +50,8 @@
 		</td></tr>
 </table>
 
-
+</div>
+</div>
 <jsp:include page="InternalFooter.jsp" flush="true" />
 </body>
 </html>
