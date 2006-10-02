@@ -85,20 +85,20 @@
 
 
     <jsp:include page="../page_title.jsp">
-        <jsp:param name="image" value="comp_development"/>
-        <jsp:param name="title" value="Component Development Current Contests"/>
+		<jsp:param name="image" value="statistics_w"/>
+		<jsp:param name="title" value="Payments"/>
     </jsp:include>
 
 
     <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=coderId%>'/></span>
     <br>
-    <span class="bodySubtitle">Developer Statistics&#160;>&#160;</span><br>
+    <span class="bodySubtitle">Coder Statistics&#160;>&#160;</span><br>
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
  | Payment Summary
    </span>
 
-    <div class="pagingBox" style="clear:both;">&#160;</div>
+    <!--div class="pagingBox" style="clear:both;">&#160;</div-->
 
     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tr><td class="title" colspan="10">
