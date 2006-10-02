@@ -51,7 +51,7 @@
 			<td class="name">Status:</td>
 			<td class="value">
             	<tc-webtag:rscSelect name="affidavit_status_id" list='${statusList}' fieldText="status_desc" 
-            		fieldValue="status_id" usetTopValue="true" topValue="-1" topValue="Select Status"/>
+            		fieldValue="status_id" useTopValue="true" topValue="-1" topValue="Select Status"/>
 			</td>
 		</tr>
 		<tr>
@@ -63,7 +63,7 @@
 			<td class="name">Type:</td>
 			<td class="value">
             	<tc-webtag:rscSelect name="affidavit_type_id" list='${typeList}' fieldText="affidavit_type_desc" 
-            		fieldValue="affidavit_type_id" usetTopValue="true" topValue="-1" topValue="Select Type"/>
+            		fieldValue="affidavit_type_id" useTopValue="true" topValue="-1" topValue="Select Type"/>
             	
 			</td>
 		</tr>
