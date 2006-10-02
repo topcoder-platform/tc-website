@@ -103,10 +103,11 @@
                             </TR>
                             <rsc:iterator list="<%=rsc%>" id="row">
                                 <tr>
-                                    <td class="statText" width="10%" align="right">
+                                    <td class="statText" align="right">
                                         <rsc:item name="rank" row="<%=row%>"/>&#160;</td>
-                                    <td class="statText" width="10%" align="right">
-                                        <A HREF="/stat?c=coder_room_stats&amp;rd=<rsc:item name="round_id" row="<%=row%>"/>&cr=<rsc:item name="coder_id" row="<%=row%>"/>" CLASS="statText"><IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"></A>
+                                    <td class="statText" align="right">
+                                        <A HREF="/stat?c=coder_room_stats&amp;rd=<rsc:item name="round_id" row="<%=row%>"/>&cr=<rsc:item name="coder_id" row="<%=row%>"/>" CLASS="statText"><IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0">&#160;
+                                        </A>
                                     </td>
                                     <td class="statText" width="20%">
                                         <tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=HandleTag.ALGORITHM%>'/></td>
@@ -119,7 +120,7 @@
                                     <td class="statText" width="10%">
                                         <rsc:item name="positive_challenge_points" row="<%=row%>" format="#.##"/></td>
                                     <td class="statText" width="20%">
-                                        <a href="/stat?c=round_overview&amp;rd=<rsc:item name="round_id" row="<%=row%>"/>">
+                                        <a href="/stat?c=round_overview&amp;rd=<rsc:item name="round_id" row="<%=row%>"/>" class="statText">
                                             <rsc:item name="contest_name" row="<%=row%>"/> &gt;
                                             <rsc:item name="round_name" row="<%=row%>"/>
                                         </a>
