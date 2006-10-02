@@ -418,9 +418,11 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                         return;
                     }
                     if (command.equals(PAYMENT_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true))
-                            doPayment(request, response);
-                        else {
+                        if (checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true)) {
+                          //  doPayment(request, response);
+                        	log.warn("Using deprecated processor, please use module=ViewPayment insted");
+                        	forward("/PactsInternalServlet?module=ViewPayment&payment_id=" + request.getParameter(PAYMENT_ID), request, response);
+                        } else {
                             throw new NavigationException("Invalid Payment ID or No Payment ID Specified");
                         }
                         return;

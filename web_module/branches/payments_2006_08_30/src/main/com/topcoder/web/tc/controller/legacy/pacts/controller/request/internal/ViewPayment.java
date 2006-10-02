@@ -24,7 +24,7 @@ public class ViewPayment extends BaseProcessor implements PactsConstants {
             DataInterfaceBean bean = new DataInterfaceBean();
 
             Payment payment = new Payment(bean.getPayment(payment_id));            
-            getRequest().setAttribute("payment", payment);
+            getRequest().setAttribute(PACTS_INTERNAL_RESULT, payment);
             
             Date creationDate = bean.getCreationDate(payment_id);
             getRequest().setAttribute(CREATION_DATE, creationDate);
@@ -36,8 +36,7 @@ public class ViewPayment extends BaseProcessor implements PactsConstants {
             getRequest().setAttribute(NOTE_HEADER_LIST, new NoteHeaderList(notes).getHeaderList());
 
         
-            //setNextPage(INTERNAL_PAYMENT_JSP);
-            setNextPage("/pacts/internal/viewPaymentNew.jsp");
+            setNextPage(INTERNAL_PAYMENT_JSP);
             setIsNextPageInContext(true);
         } catch (Exception e) {
             throw new TCWebException(e);
