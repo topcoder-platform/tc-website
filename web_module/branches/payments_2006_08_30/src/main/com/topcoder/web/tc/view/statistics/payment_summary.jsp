@@ -116,7 +116,7 @@
         <rsc:iterator list="<%=rsc%>" id="resultRow">
             <tr class="<%=even?"dark":"light"%>">
                 <TD class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
-                <TD class="valueC"><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
+                <TD class="value"><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
             </tr>
             <%even = !even;%>
         </rsc:iterator>
