@@ -29,8 +29,8 @@
 		<tr>
 			<td><b>Notarized:</b></td>
 			<td>
-				<tc-webtag:radioButton name="<%=PactsConstants.IS_NOTARIZED%>"  />Yes<br/>
-				<tc-webtag:radioButton name="<%=PactsConstants.IS_NOTARIZED%>" />No			
+				<tc-webtag:radioButton name="<%=PactsConstants.IS_NOTARIZED%>" value="true"/>Yes<br/>
+				<tc-webtag:radioButton name="<%=PactsConstants.IS_NOTARIZED%>" value="false"/>No			
 		</td></tr>
 		<tr>
 			<td><b>Status:</b></td>
