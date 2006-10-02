@@ -20,6 +20,7 @@
 <c:set var="user" value="${requestScope.user}"/>
 <c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />
 <c:set var="typeList" value="<%= request.getAttribute(PactsConstants.AFFIDAVIT_TYPE_LIST) %>" />
+<c:set var="roundList" value="<%= request.getAttribute(PactsConstants.ROUND_LIST) %>" />
 
 <div align="center">
 <div style="padding: 0px 10px 10px 10px; width: 600px; text-align: left;">
@@ -75,7 +76,7 @@
 	        </td>
 		</tr>
         <tr>
-	        <td class="name">Text <br/>If empty, it will be figured out from the ytype chosen.
+	        <td class="name">Text:<br/>(If empty, it will be figured out from the type chosen.)
 	        </td>
 	        <td class="value">        
 				<tc-webtag:textArea name="text" rows="10" cols="50"/>
