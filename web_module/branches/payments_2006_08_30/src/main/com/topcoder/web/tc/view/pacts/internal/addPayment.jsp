@@ -46,7 +46,7 @@ function loading() {
 }
 
 function loaded() {
-	toggleDiv("loading", 1);
+	toggleDiv("loading", 0);
 }
 
 function typeChanged() {
@@ -108,6 +108,7 @@ function initialize() {
 <% } else { %>
   search('<%= request.getParameter("search_text") %>');
 <% } %>
+	loaded();
 }
 
 
