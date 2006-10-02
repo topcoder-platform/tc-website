@@ -120,10 +120,10 @@
 			<td><c:out value="${payment.header.digitalRunSeasonId}" /></td>
 		</tr>
 </c:if>
-<c:if test="${payment.header.parentReferenceId > 0}">
+<c:if test="${payment.header.parentPaymentId > 0}">
 		<tr>
 			<td><b>Parent Payment ID:</b></td>
-			<td><c:out value="${payment.header.parentReferenceId}" /></td>
+			<td><c:out value="${payment.header.parentPaymentId}" /></td>
 		</tr>
 </c:if>
 		<tr>
