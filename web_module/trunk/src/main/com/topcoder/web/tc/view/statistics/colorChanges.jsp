@@ -39,11 +39,11 @@ padding: 0px 4px 0px 4px;
 <div align="center">
 <strong>
 <A href="" class="bcLink">All changes</A></span>
- | <A href="" class="coderTextRed">New reds</A>
- | <span class="selected"><A href="" class="coderTextYellow">New yellows</A></span>
- | <A href="" class="coderTextBlue">New blues</A>
- | <A href="" class="coderTextGreen">New greens</A>
  | <A href="" class="coderTextGray">New grays</A>
+ | <A href="" class="coderTextGreen">New greens</A>
+ | <A href="" class="coderTextBlue">New blues</A>
+ | <span class="selected"><A href="" class="coderTextYellow">New yellows</A></span>
+ | <A href="" class="coderTextRed">New reds</A>
 </strong>
 </div>
 
