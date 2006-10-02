@@ -19,6 +19,7 @@
 <c:set var="payment" value="${requestScope.payment}"/>
 <c:set var="user" value="${requestScope.user}"/>
 <c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />
+<c:set var="typeList" value="<%= request.getAttribute(PactsConstants.AFFIDAVIT_TYPE_LIST) %>" />
 
 <div align="center">
 <div style="padding: 0px 10px 10px 10px; width: 600px; text-align: left;">
@@ -31,6 +32,11 @@
   <input type="hidden" name="module" value="AddAffidavit"/>
 
 		<table cellpadding="0" cellspacing="0" border="0" class="regFields">
+		<tr>
+	        <td colspan="2"><span class="bigRed">
+    	    	<tc-webtag:errorIterator id="err" name="error"><%=err%><br></tc-webtag:errorIterator></span>
+        	</td>
+        </tr>
 		<tr>
 			<td class="name">User</td>
 			<td>&nbsp;&nbsp;<pacts-tag:handle coderId="${user.id}" handle="${user.handle}"/></td>
@@ -45,7 +51,7 @@
 			<td class="name">Status:</td>
 			<td class="value">
             	<tc-webtag:rscSelect name="affidavit_status_id" list='${statusList}' fieldText="status_desc" 
-            		fieldValue="status_id" useTopValue="Select a status"/>
+            		fieldValue="status_id" usetTopValue="true" topValue="-1" topValue="Select Status"/>
 			</td>
 		</tr>
 		<tr>
@@ -53,6 +59,29 @@
 		<td class="value">
 			<tc-webtag:textInput name="affidavit_desc" size="40" editable="true" />
 		</td></tr>
+		<tr>		
+			<td class="name">Type:</td>
+			<td class="value">
+            	<tc-webtag:rscSelect name="affidavit_type_id" list='${typeList}' fieldText="affidavit_type_desc" 
+            		fieldValue="affidavit_type_id" usetTopValue="true" topValue="-1" topValue="Select Type"/>
+            	
+			</td>
+		</tr>
+		<tr>
+			<td class="name">Round:</td>
+			<td class="value">
+	            <tc-webtag:rscSelect name="round_id" list='${roundList}' fieldText="name" 
+	            	fieldValue="round_id" useTopValue="true" topValue="-1" topText="No Round"/>
+	        </td>
+		</tr>
+        <tr>
+	        <td class="name">Text <br/>If empty, it will be figured out from the ytype chosen.
+	        </td>
+	        <td class="value">        
+				<tc-webtag:textArea name="text" rows="10" cols="50"/>
+			</td>
+		</tr>
+		
 </table>
 <center>
 <input type="submit" value="Save Affidavit">

@@ -20,10 +20,28 @@ public class AddAffidavit extends PactsBaseProcessor implements PactsConstants {
     	
         try {
         	if (getRequest().getParameter("affidavit_desc") != null) {
-        		setDefault("affidavit_desc", getRequest().getParameter("affidavit_desc"));
-        		setDefault("affidavit_status_id", getRequest().getParameter("affidavit_status_id"));
-        		setDefault(IS_NOTARIZED, getRequest().getParameter(IS_NOTARIZED));
-        	} 
+        		String desc = (String) getRequest().getParameter("affidavit_desc");
+        		int statusId = Integer.parseInt(getRequest().getParameter("affidavit_status_id"));
+        		
+        		if (desc.trim().length() == 0) {
+        			addError("error", "Please enter a description for the affidavit.");
+        		}
+        		
+        		if (statusId < 0) {
+        			addError("error", "Please select a status");
+        		}
+
+        		if (hasErrors()) {
+            		setDefault("affidavit_desc", getRequest().getParameter("affidavit_desc"));
+            		setDefault("affidavit_status_id", getRequest().getParameter("affidavit_status_id"));
+            		setDefault(IS_NOTARIZED, getRequest().getParameter(IS_NOTARIZED));
+            		setDefault("affidavit_type_id", getRequest().getParameter("affidavit_type_id"));
+            		setDefault("round_id", getRequest().getParameter("round_id"));
+            		setDefault("text", getRequest().getParameter("text"));        		
+            	}     	
+
+        	}
+        	
             DataInterfaceBean dib = new DataInterfaceBean();
 
             getRequest().setAttribute("user", getUserProfileHeader(userId));
@@ -51,5 +69,6 @@ public class AddAffidavit extends PactsBaseProcessor implements PactsConstants {
             throw new TCWebException(e);
         }
     }
+
 }
 
