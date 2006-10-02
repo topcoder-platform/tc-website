@@ -43,7 +43,7 @@
 </jsp:include>
 
 <p>
-    5.4.14 - 2006.09.xx
+    5.4.14 - 2006.10.02
     <ul>
         <li>
             Address address3 and province information to PACTS
