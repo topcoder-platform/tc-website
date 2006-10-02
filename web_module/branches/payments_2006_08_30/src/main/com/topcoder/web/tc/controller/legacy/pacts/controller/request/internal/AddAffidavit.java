@@ -90,6 +90,7 @@ public class AddAffidavit extends PactsBaseProcessor implements PactsConstants {
         	if (paymentId > 0) {
                 Payment payment = new Payment(dib.getPayment(paymentId));            
                 getRequest().setAttribute("payment", payment);
+                setDefault("affidavit_desc", "Affidavit for " + payment.getHeader().getDescription());
         	}
         	
             setNextPage("/pacts/internal/addAffidavitNew.jsp");
