@@ -14,7 +14,7 @@
 
 
 <c:set var="payment" value="${requestScope.payment}"/>
-<c:set var="notes" value="<%= request.getParameter(PactsConstants.NOTE_HEADER_LIST) %>" />
+<c:set var="notes" value="${requestScope.note_header_list}"/>
 <c:set var="COMPONENT_PAYMENT" value="<%= PactsConstants.COMPONENT_PAYMENT + "" %>" />
 <c:set var="REVIEW_BOARD_PAYMENT" value="<%= PactsConstants.REVIEW_BOARD_PAYMENT + "" %>" />
 
