@@ -57,12 +57,12 @@
         <li>Add the point value of the problem to the problem detail page</li>
         <li>Add link to problem details page from the problem solution page</li>
         <li>Make the problem archive page's link to round overview go to the appropriate page based on whehter it's a
-            High Schoo match or not.</li>
+            High School match or not.</li>
         <li>Make the problem detail page's links to round overview, problem statment and problem solution go to the
             appropriate page based on whehter it's a High Schoo match or not.</li>
         <li>Add link on Marathon Match overview page to example history</li>
         <li>Make the earnings totals link to the user's history on the member home page</li>
-        <li>Add instructions to recruiting member profile </li>
+        <li>Add instructions to internal recruiting member profile </li>
         <li>Fix content on srm rules page, some content was replicated</li>
         <li>On the Marathon Match overview page, make the rank column be the left most column</li>
         <li>Add division to competition history</li>
