@@ -153,7 +153,8 @@
 </c:if>
 
 <br/>
-<a href="<%= PactsConstants.INTERNAL_SERVLET_URL + "?t=view&c=payment_audit_trail&payment_id="%><c:out value="${payment.header.id}"/>">
+
+<a href="PactsInternalServlet?t=view&c=payment_audit_trail&payment_id=${payment.header.id}">
 	View Audit Trail
 </a>
 <br/><br/>
@@ -163,17 +164,14 @@
 </a>
 <br/><br/>
 
-   out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
-   out.print(PactsConstants.TASK_STRING+"="+PactsConstants.UPDATE_TASK+"&");
-   out.println(PactsConstants.CMD_STRING+"="+PactsConstants.PAYMENT_CMD+"&");
-   out.println(PactsConstants.PAYMENT_ID+"="+payment.getHeader().getId());
-   out.println("\">Update Payment</a><br>");
-
 <a href="PactsInternalServlet?t=update&c=payment&payment_id=${payment.header.id}">
-	Add Note
+	Update Payment
 </a>
 <br/><br/>
 
+<a href="PactsInternalServlet?t=Review Selected Payments&c=payment&payment_id=${payment.header.id}&query=PactsInternalServlet%3Ft%3Dview%26c%3Dpayment%26payment_id%3d${payment.header.id}%26individual_payment%3D1">
+	Review Payment
+</a>
 
 <jsp:include page="InternalFooter.jsp" flush="true" />
 </body>
