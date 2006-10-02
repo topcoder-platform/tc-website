@@ -38,13 +38,8 @@
 <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
 
-<table cellspacing="0" cellpadding="0" border="0" style="padding-bottom: 15px">
-	<tr valign="middle">
-		<td style="padding-right:20px;"><img src="/i/development/smAOL.gif" alt="" border="0" /></td>
-		<td><img src="/images/spacer.gif" alt="" width="5" height="17" border="0" /></td>
-		<td><span class="bigTitle">AOL XMPP Gateway</span></td>
-	</tr>
-</table>
+<div style="float:left;padding-right:8px;"><img src="/i/development/smAOL.gif" alt="" border="0" /></div>
+<div style="padding: 8px 0px 8px 0px;"><span class="bigTitle">AOL XMPP Gateway</span></div>
                   
 <div class="sectionHeader">Overview</div>
 <span class="bodySubtitle">Application Overview</span><br>
