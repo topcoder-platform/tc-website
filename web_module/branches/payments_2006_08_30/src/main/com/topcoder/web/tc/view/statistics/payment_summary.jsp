@@ -75,7 +75,7 @@
 <TD WIDTH="180">
     <!-- Left nav begins -->
     <jsp:include page="/includes/global_left.jsp">
-        <jsp:param name="node" value="m_dev_competitions"/>
+        <jsp:param name="node" value="m_competitions"/>
     </jsp:include>
     <!-- Left nav ends -->
 </TD>
@@ -98,7 +98,7 @@
  | Payment Summary
    </span>
 
-    <!--div class="pagingBox" style="clear:both;">&#160;</div-->
+    <div class="pagingBox" style="clear:both;">&#160;</div>
 
     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tr><td class="title" colspan="10">
@@ -117,7 +117,7 @@
             <tr class="<%=even?"dark":"light"%>">            
             <TD class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
             <TD class="value">
-            <% if (resultRow.getDoubleItem("show_details_ind") == 1) {%>
+            <% if (resultRow.getDoubleItem("show_details_ind") == 1 && resultRow.getDoubleItem("earnings") > 0) {%>
 				<A href="/tc?module=PaymentDetail&cr=<%=coderId%>&pt=<%=resultRow.getStringItem("payment_type_id")%>">
 			<% }%>
             <rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
