@@ -76,7 +76,7 @@ public class PaymentDetail extends BaseProcessor {
 
         // sets attributes for the jsp
         getRequest().setAttribute("payment_detail", details);
-        setNextPage(Constants.VIEW_PAYMENT_DETAILS_PAGE);
+        setNextPage(Constants.VIEW_PAYMENT_DETAIL_PAGE);
         setIsNextPageInContext(true);
     }
 
