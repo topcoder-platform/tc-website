@@ -1,0 +1,1 @@
+Static - This is for all static files required for the design.  Such as html mockups of a front-end.
