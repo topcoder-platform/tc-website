@@ -31,7 +31,9 @@
 <form action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
   <input type="hidden" name="<%=PactsConstants.USER_ID%>" value="${user.id}"/>
   <input type="hidden" name="module" value="AddAffidavit"/>
-
+<c:if test="${not empty payment and not empty payment.header.algorithmRoundId}">
+	<input type="hidden" name="round_id" value="${payment.header.algorithmRoundId}">
+</c:if>
 		<table cellpadding="0" cellspacing="0" border="0" class="regFields">
 		<tr>
 	        <td colspan="2"><span class="bigRed">
@@ -81,6 +83,7 @@
             	
 			</td>
 		</tr>
+<c:if test="${empty payment}">
 		<tr>
 			<td class="name">Round:</td>
 			<td class="value">
@@ -88,6 +91,7 @@
 	            	fieldValue="round_id" useTopValue="true" topValue="-1" topText="No Round"/>
 	        </td>
 		</tr>
+</c:if>		
         <tr>
 	        <td class="name">Text:
 	        </td>

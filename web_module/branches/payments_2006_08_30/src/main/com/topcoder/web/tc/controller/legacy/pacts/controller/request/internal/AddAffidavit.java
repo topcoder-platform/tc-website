@@ -29,7 +29,7 @@ public class AddAffidavit extends PactsBaseProcessor implements PactsConstants {
         		int typeId = Integer.parseInt(getRequest().getParameter("affidavit_type_id"));
         		String notarized = (String) getRequest().getParameter("is_notarized");
         		
-        		if (!notarized.equalsIgnoreCase("yes") && !notarized.equalsIgnoreCase("no")) {
+        		if (notarized == null) {
         			addError("error", "Please select whether the affidavit is notarized.");
         		}
         		if (statusId < 0) {
