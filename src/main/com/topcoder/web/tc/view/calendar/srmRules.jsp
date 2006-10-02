@@ -274,10 +274,9 @@ rated event following the rating change.
 <br>
 <ul>
     <li>
-        <b>When to start the Online Tournament Rounds</b><br>
-        TopCoder members must register for the online tournament.
-        Registration is from <rsc:item name="reg_begin" row="<%=rsr%>"/> to <rsc:item name="reg_end" row="<%=rsr%>"/>,
-        Eastern Time.
+        <b>When to start the Competition</b><br>
+        TopCoder members must register from within the TopCoder Arena for this competition.
+        Registration is from <rsc:item name="reg_begin" row="<%=rsr%>"/> to <rsc:item name="reg_end" row="<%=rsr%>"/>.
         To register, login to the TopCoder Arena application, click on the 'Active Contests' menu, choose the event to
         register for, and select the 'Register' option. TopCoder members from all over the country will be participating
         in this event, but <b><i>all start times will be communicated as Eastern Time, so contestants in different time
@@ -285,22 +284,7 @@ rated event following the rating change.
         to a specific competition room. TopCoder will perform the room assignments prior to the start of the
         competition, in a manner such that only coders in the same division are placed in the same room and the room
         assignments within each division are random.
-        The competition will begin at <rsc:item name="reg_begin" row="<%=rsr%>"/> Eastern Time.
-
-        Competition is at <rsc:item name="coding_begin" row="<%=rsr%>"/>&#160;<rsc:item name="date" row="<%=rsr%>"/>
-        Eastern Time.
-        To register, login to the Tournament Arena applet, click on the 'Main' menu, and
-        choose the option for 'Event Registration'.
-        TopCoder members from all over the country will be participating
-        in this event, but <b><i>all start times will be communicated as Eastern Time, so contestants in different time
-        zones must adjust accordingly.</i></b>
-        All competitors who have registered for the online tournament
-        round will be assigned to a specific tournament room.
-        TopCoder will perform the room assignments prior to the start of
-        a tournament round, in a manner such that only coders in the same
-        division are placed in a room and the average competitor
-        rating for each room is similar.
-        The Online Round will begin at <rsc:item name="coding_begin" row="<%=rsr%>"/> Eastern Time.
+        The competition will begin at <rsc:item name="coding_begin" row="<%=rsr%>"/> Eastern Time.
         <br/>
     </li>
     <br/>
