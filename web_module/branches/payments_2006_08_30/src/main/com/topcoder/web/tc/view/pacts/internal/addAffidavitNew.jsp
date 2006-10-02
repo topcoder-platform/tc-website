@@ -10,6 +10,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Add Affidavit</title>
+<link type="text/css" rel="stylesheet" href="/css/tcStyles.css">
+<link type="text/css" rel="stylesheet" href="/css/tcReg.css">    
 </head>
 <body>
 
@@ -21,16 +23,16 @@
 <h1>PACTS</h1>
 <h2>Add Affidavit</h2>
 
-		<table border="0" cellpadding="2" cellspacing="2">
+		<table cellpadding="0" cellspacing="0" border="0" class="regFields">
 		<tr>
-			<td><b>User</b></td>
+			<td class="name">User</td>
 			<td><pacts-tag:handle coderId="${user.id}" handle="${user.handle}"/></td>
 		</tr>
 		<tr>
-			<td><b>Notarized:</b></td>
+			<td class="value">Notarized:</td>
 			<td>
-				<tc-webtag:radioButton name="<%=PactsConstants.IS_NOTARIZED%>" value="true"/>Yes<br/>
-				<tc-webtag:radioButton name="<%=PactsConstants.IS_NOTARIZED%>" value="false"/>No			
+				<tc-webtag:radioButton name="<%=PactsConstants.IS_NOTARIZED%>" value="yes"/>Yes<br/>
+				<tc-webtag:radioButton name="<%=PactsConstants.IS_NOTARIZED%>" value="no"/>No			
 		</td></tr>
 		<tr>
 			<td><b>Status:</b></td>
