@@ -76,10 +76,12 @@
 	        </td>
 		</tr>
         <tr>
-	        <td class="name">Text:<br/>(If empty, it will be figured out from the type chosen.)
+	        <td class="name">Text:
 	        </td>
 	        <td class="value">        
-				<tc-webtag:textArea name="text" rows="10" cols="50"/>
+		        If empty, it will be figured out from the type chosen.
+		        <br/>
+				<tc-webtag:textArea name="text" rows="10" cols="70"/>
 			</td>
 		</tr>
 		
