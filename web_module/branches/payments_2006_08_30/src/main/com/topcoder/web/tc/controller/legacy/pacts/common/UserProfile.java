@@ -58,6 +58,7 @@ public class UserProfile implements PactsConstants, java.io.Serializable {
     protected String countryCode;
     protected int coderTypeId;
     protected String coderTypeDesc;
+    protected String status;
 
     /**
      * this constructor takes in a result set map, and
@@ -117,6 +118,7 @@ public class UserProfile implements PactsConstants, java.io.Serializable {
             countryCode = TCData.getTCString(rRow, "country_code");
             coderTypeId = TCData.getTCInt(rRow, "coder_type_id");
             coderTypeDesc = TCData.getTCString(rRow, "coder_type_desc");
+            status = TCData.getTCString(rRow, "status_desc");
 
             header = new UserProfileHeader(results);
         } catch (Exception e) {
@@ -153,6 +155,7 @@ public class UserProfile implements PactsConstants, java.io.Serializable {
         lastName = "Last";
         coderTypeId = -1;
         coderTypeDesc = "default coder desc";
+        status = "";
     }
 
 
@@ -292,5 +295,12 @@ public class UserProfile implements PactsConstants, java.io.Serializable {
         this.coderTypeDesc = coderTypeDesc;
     }
 
+    public String getStatus() {
+    	return status;
+    }
+
+    public void setStatus(String status) {
+    	this.status = status;
+    }
 
 }

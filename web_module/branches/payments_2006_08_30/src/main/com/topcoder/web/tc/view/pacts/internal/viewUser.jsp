@@ -39,6 +39,12 @@
     </tr>
 
     <tr>
+        <td><b>Status:</b></td>
+		<td><%= user.getStatus() %></td>
+        
+    </tr>
+
+    <tr>
         <td><b>First Name:</b></td>
         <% out.print("<td>" + user.getFirstName() + "</td>\n");
         %>
