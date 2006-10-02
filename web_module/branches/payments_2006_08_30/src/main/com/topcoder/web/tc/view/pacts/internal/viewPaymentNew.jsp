@@ -152,6 +152,18 @@
 	</form>
 </c:if>
 
+<br/>
+<a href="<%= PactsConstants.INTERNAL_SERVLET_URL + "?t=view&c=payment_audit_trail&payment_id="%><c:out value="${payment.header.id}"/>">
+	View Audit Trail
+</a>
+<br/><br/>
+
+<a href="${"PactsInternalServlet?t=add&c=note&object_id=" + payment.header.id + "&user_id=" + payment.header.user.id + "&object_type=53" } ">
+	Add Note
+</a>
+<br/><br/>
+
+
 <jsp:include page="InternalFooter.jsp" flush="true" />
 </body>
 </html>
