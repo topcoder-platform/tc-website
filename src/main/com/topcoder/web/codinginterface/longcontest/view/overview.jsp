@@ -122,6 +122,8 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
                     <td class="tableTitle" colspan="8">Contest Overview</td>
                 </tr>
                 <tr>
+                    <td class="tableHeader" width="10%" align="right">
+                        <A href="<%=sortLinkBase%><tc-webtag:sort column="4"/>">Rank</A></td>
                     <td class="tableHeader" width="20%">
                         <A href="<%=sortLinkBase%><tc-webtag:sort column="2"/>">Handle</A>
                     </td>
@@ -129,8 +131,6 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
                         <A href="<%=sortLinkBase%><tc-webtag:sort column="3"/>">Provisional Score</A></td>
                     <td class="tableHeader" width="15%" align="right">
                         <A href="<%=sortLinkBase%><tc-webtag:sort column="7"/>">Final Score</A></td>
-                    <td class="tableHeader" width="10%" align="right">
-                        <A href="<%=sortLinkBase%><tc-webtag:sort column="4"/>">Rank</A></td>
                     <td class="tableHeader" width="15%" align="center">
                         <A href="<%=sortLinkBase%><tc-webtag:sort column="5"/>">Language</A></td>
                     <td class="tableHeader" width="10%">&#160;</td>
@@ -141,14 +141,14 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
                 <%boolean even = true;%>
                 <rsc:iterator list="<%=competitors%>" id="resultRow">
                     <tr>
+                        <td class="<%=even?"statLt":"statDk"%>" align="right">
+                            <rsc:item name="placed" row="<%=resultRow%>"/></td>
                         <td class="<%=even?"statLt":"statDk"%>">
                             <tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>'/></td>
                         <td class="<%=even?"statLt":"statDk"%>" align="right">
                             <rsc:item name="point_total" row="<%=resultRow%>" format="0.00"/></td>
                         <td class="<%=even?"statLt":"statDk"%>" align="right">
                             <rsc:item name="system_point_total" row="<%=resultRow%>" format="0.00"/></td>
-                        <td class="<%=even?"statLt":"statDk"%>" align="right">
-                            <rsc:item name="placed" row="<%=resultRow%>"/></td>
                         <td class="<%=even?"statLt":"statDk"%>" align="center">
                             <rsc:item name="language_name" row="<%=resultRow%>"/></td>
                         <td class="<%=even?"statLt":"statDk"%>" align="center">
