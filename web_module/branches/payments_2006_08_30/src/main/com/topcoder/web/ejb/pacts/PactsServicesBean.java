@@ -5150,7 +5150,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" where p.comp_vers_id = cv.comp_vers_id");
         query.append(" and cv.component_id = c.component_id");
         query.append(" and " + filterCondition("component_name", search));
-        query.append(" and cur_version = 1");
+        query.append(" and cur_version = 1 ");
+        query.append(" order by rating_date ");
 
         ArrayList param = new ArrayList();
         param.add(search);

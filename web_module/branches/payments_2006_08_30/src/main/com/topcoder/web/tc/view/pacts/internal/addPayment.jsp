@@ -229,7 +229,7 @@ types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -
 
 <div id="loading">
 <p align="right">
-<font color="#FF0000">Loading...</font>
+<b><font color="#FF0000" size="+1">Loading...</font></b>
 </p>
 </div>
 <h1>PACTS</h1>

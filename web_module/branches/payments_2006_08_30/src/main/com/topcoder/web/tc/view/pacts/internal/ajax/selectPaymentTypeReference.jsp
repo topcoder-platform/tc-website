@@ -59,7 +59,7 @@
                         <c:if test="${empty projects}">           
                         <input type="hidden" name="missing_reference" value="Please select a component for the payment"/>
                           Enter search text for component name: <input type="text" name="searchInput" value="${search}" />
-                          <input type="button" value="search" onClick="search(document.f.searchInput.value)" />
+                          <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          
                                 <font color="#FF0000">No components found containing <c:out value="${search}"/>. </font>
                             </c:if>
@@ -68,11 +68,11 @@
                         <c:if test="${not empty projects}">                   
                              <tc-webtag:rscSelect name="component_project_id" list="${projects}" 
                                      fieldText="project_desc" fieldValue="project_id" selectedValue="${param.component_project_id}"                                             
-                                     useTopValue="false"  onChange="referenceChanged(document.f.component_project_id.value)"/>
+                                     useTopValue="false"  onChange="referenceChanged('component_project_id')"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />                            
                         </c:if>                                  
 						<script type="text/javascript">
-								referenceChanged(document.f.component_project_id.value)
+								referenceChanged('component_project_id')
 				    	</script>
 
                      </c:when>               
@@ -82,7 +82,7 @@
                         <c:if test="${empty problems}">             
                         <input type="hidden" name="missing_reference" value="Please select a problem for the payment"/>
                           Enter search text for problem name: <input type="text" name="searchInput" value="${search}" />
-                          <input type="button" value="search" onClick="search(document.f.searchInput.value)" />
+                          <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          
                                 <font color="#FF0000">No problems found containing <c:out value="${search}"/>. </font>
                             </c:if>
@@ -91,11 +91,11 @@
                         <c:if test="${not empty problems}">                   
                              <tc-webtag:rscSelect name="algorithm_problem_id" list="${problems}" 
                                      fieldText="name" fieldValue="problem_id" selectedValue="${param.algorithm_problem_id}"                                             
-                                     useTopValue="false" onChange="referenceChanged(document.f.algorithm_problem_id.value)"/>
+                                     useTopValue="false" onChange="referenceChanged('algorithm_problem_id')"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>               
 						<script type="text/javascript">
-								referenceChanged(document.f.algorithm_problem_id.value)
+								referenceChanged('algorithm_problem_id')
 				    	</script>
                                            
                      </c:when>                       
@@ -104,7 +104,7 @@
                         <c:if test="${empty studioContests}">
                         <input type="hidden" name="missing_reference" value="Please select a studio contest for the payment"/>                        
                           Enter search text for studio contest name: <input type="text" name="searchInput" value="${search}" />
-                          <input type="button" value="search" onClick="search(document.f.searchInput.value)" />
+                          <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          
                                 <font color="#FF0000">No studio contests found containing <c:out value="${search}"/>. </font>
                             </c:if>
@@ -113,11 +113,11 @@
                         <c:if test="${not empty studioContests}">                   
                              <tc-webtag:rscSelect name="studio_contest_id" list="${studioContests}" 
                                      fieldText="name" fieldValue="contest_id" selectedValue="${param.studio_contest_id}"                                             
-                                     useTopValue="false"  onChange="referenceChanged(document.f.studio_contest_id.value)"/>
+                                     useTopValue="false"  onChange="referenceChanged('studio_contest_id')"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>          
 						<script type="text/javascript">
-								referenceChanged(document.f.studio_contest_id.value)
+								referenceChanged('studio_contest_id')
 				    	</script>                                                
                      </c:when>                       
 
@@ -125,7 +125,7 @@
                         <c:if test="${empty componentContests}">                  
                             <input type="hidden" name="missing_reference" value="Please select a component contest for the payment"/>                        
                           Enter search text for component contest name: <input type="text" name="searchInput" value="${search}" />
-                          <input type="button" value="search" onClick="search(document.f.searchInput.value)" />
+                          <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          
                                 <font color="#FF0000">No component contests found containing <c:out value="${search}"/>. </font>
                             </c:if>
@@ -134,11 +134,11 @@
                         <c:if test="${not empty componentContests}">                   
                              <tc-webtag:rscSelect name="component_contest_id" list="${componentContests}" 
                                      fieldText="contest_desc" fieldValue="contest_id" selectedValue="${param.component_contest_id}"                                             
-                                     useTopValue="false"  onChange="referenceChanged(document.f.component_contest_id.value)"/>
+                                     useTopValue="false"  onChange="referenceChanged('component_contest_id')"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>       
 						<script type="text/javascript">
-								referenceChanged(document.f.component_contest_id.value)
+								referenceChanged('component_contest_id')
 				    	</script>                                                   
                      </c:when>                       
 
@@ -146,7 +146,7 @@
                         <c:if test="${empty parentPayments}">                  
                             <input type="hidden" name="missing_reference" value="Please select a parent for the payment"/>                        
                           Enter search text for the parent payment detail: <input type="text" name="searchInput" value="${search}" />
-                          <input type="button" value="search" onClick="search(document.f.searchInput.value)" />
+                          <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          
                                 <font color="#FF0000">No payments found containing <c:out value="${search}"/>. </font>
                             </c:if>
@@ -155,11 +155,11 @@
                         <c:if test="${not empty parentPayments}">                   
                              <tc-webtag:rscSelect name="parent_reference_id" list="${parentPayments}" 
                                      fieldText="payment_desc" fieldValue="payment_id" selectedValue="${param.parent_reference_id}"                                             
-                                     useTopValue="false"  onChange="referenceChanged(document.f.parent_reference_id.value)"/>
+                                     useTopValue="false"  onChange="referenceChanged('parent_reference_id')"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>       
 						<script type="text/javascript">
-								referenceChanged(document.f.parent_reference_id.value)
+								referenceChanged('parent_reference_id')
 				    	</script>                                                   
                      </c:when>                       
 
@@ -168,18 +168,18 @@
                      <c:when test="${refId == DIGITAL_RUN_STAGE}">
                          <tc-webtag:rscSelect name="digital_run_stage_id" list="${stages}" 
                                  fieldText="stage_desc" fieldValue="stage_id"  selectedValue="${param.digital_run_stage_id}"                                            
-                                 useTopValue="false" onChange="referenceChanged(document.f.digital_run_stage_id.value)"/>
+                                 useTopValue="false" onChange="referenceChanged('digital_run_stage_id')"/>
 						<script type="text/javascript">
-								referenceChanged(document.f.digital_run_stage_id.value)
+								referenceChanged('digital_run_stage_id')
 				    	</script>                                 
                      </c:when>                       
                      
                      <c:when test="${refId == DIGITAL_RUN_SEASON}">
                          <tc-webtag:rscSelect name="digital_run_season_id" list="${seasons}" 
                                  fieldText="name" fieldValue="season_id"  selectedValue="${param.digital_run_season_id}"                                             
-                                 useTopValue="false" onChange="referenceChanged(document.f.digital_run_season_id.value)"/>
+                                 useTopValue="false" onChange="referenceChanged('digital_run_season_id')"/>
 						<script type="text/javascript">
-								referenceChanged(document.f.digital_run_season_id.value)
+								referenceChanged('digital_run_season_id')
 				    	</script>                                 
                      </c:when>                       
 
