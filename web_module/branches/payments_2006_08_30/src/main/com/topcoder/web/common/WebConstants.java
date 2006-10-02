@@ -41,6 +41,7 @@ public interface WebConstants {
     public static final String TERMS_OF_USE_ID="tuid";
 
     public static final String CODER_ID = "cr";
+    public static final String PAYMENT_TYPE_ID = "pt";
 
 
     //secondary reg parameters
