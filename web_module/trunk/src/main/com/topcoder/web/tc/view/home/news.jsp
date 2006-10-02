@@ -6,6 +6,18 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
+<%-------------------------- 10.02 5PM
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.02.06<br>5:00 PM</td>
+     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA SRM 321 chat session</A></span><br><br>
+      NSA will be in the arena tonight at 8:00 PM, just prior to SRM 321, to discuss working there.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+    <tc-webtag:forumLink forumID="504999" message="discuss this"/> |
+     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+------------------------------%>
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
