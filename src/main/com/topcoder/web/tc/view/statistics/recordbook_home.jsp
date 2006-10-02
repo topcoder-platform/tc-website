@@ -1,5 +1,4 @@
-<%@ page language="java"
-         import="null" %>
+<%@ page language="java" %>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
