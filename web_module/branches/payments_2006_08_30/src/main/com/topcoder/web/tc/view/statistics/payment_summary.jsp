@@ -114,9 +114,13 @@
         </tr>
         <%boolean even = false;%>
         <rsc:iterator list="<%=rsc%>" id="resultRow">
-            <tr class="<%=even?"dark":"light"%>">
-                <TD class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
-                <TD class="value"><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
+            <tr class="<%=even?"dark":"light"%>">            
+            <TD class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
+			<% if (resultRow.getDoubleItem("show_details_ind") == 1) {%>
+				<A href="/tc?module=PaymentDetail&cr=<%=coderId%>&pt=<%=resultRow.getStringItem("payment_type_id")%>">
+			<% }%>
+               	<TD class="value"><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
+			<% if (resultRow.getDoubleItem("show_details_ind") == 1) {%></A><% }%>
             </tr>
             <%even = !even;%>
         </rsc:iterator>
