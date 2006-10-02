@@ -76,18 +76,19 @@
 
                         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                             <TR>
-                                <TD COLSPAN="7" CLASS="smallFoot">
+                                <TD COLSPAN="8" CLASS="smallFoot">
                                     <IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"></TD>
                             </TR>
                             <TR>
-                                <TD background="/i/steel_gray_bg.gif" COLSPAN="7" CLASS="statTextBig" VALIGN="middle" HEIGHT="18">
+                                <TD background="/i/steel_gray_bg.gif" COLSPAN="8" CLASS="statTextBig" VALIGN="middle" HEIGHT="18">
                                     &nbsp;Challenge Success</TD>
                             </TR>
                             <TR>
-                                <TD COLSPAN="7" CLASS="smallFoot" WIDTH="1">
+                                <TD COLSPAN="8" CLASS="smallFoot" WIDTH="1">
                                     <IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                             </TR>
                             <TR VALIGN="middle">
+                                <TD class="statText">&nbsp;</TD>
                                 <TD class="statText">&nbsp;</TD>
                                 <TD class="statText">Handle</TD>
                                 <TD class="statText">Successful Challenges</TD>
@@ -97,13 +98,16 @@
                                 <TD class="statText">Event</TD>
                             </TR>
                             <TR>
-                                <TD COLSPAN="7" CLASS="smallFoot" WIDTH="1">
+                                <TD COLSPAN="8" CLASS="smallFoot" WIDTH="1">
                                     <IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                             </TR>
                             <rsc:iterator list="<%=rsc%>" id="row">
                                 <tr>
                                     <td class="statText" width="10%" align="right">
                                         <rsc:item name="rank" row="<%=row%>"/>&#160;</td>
+                                    <td class="statText" width="10%" align="right">
+                                        <A HREF="/stat?c=coder_room_stats&amp;rd=<rsc:item name="round_id" row="<%=row%>"/>&cr=<rsc:item name="coder_id" row="<%=row%>"/>" CLASS="statText"><IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"></A>
+                                    </td>
                                     <td class="statText" width="20%">
                                         <tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=HandleTag.ALGORITHM%>'/></td>
                                     <td class="statText" width="10%">
@@ -115,16 +119,19 @@
                                     <td class="statText" width="10%">
                                         <rsc:item name="positive_challenge_points" row="<%=row%>" format="#.##"/></td>
                                     <td class="statText" width="20%">
-                                        <rsc:item name="contest_name" row="<%=row%>"/> &gt;
-                                        <rsc:item name="round_name" row="<%=row%>"/></td>
+                                        <a href="/stat?c=round_overview&amp;rd=<rsc:item name="round_id" row="<%=row%>"/>">
+                                            <rsc:item name="contest_name" row="<%=row%>"/> &gt;
+                                            <rsc:item name="round_name" row="<%=row%>"/>
+                                        </a>
+                                    </td>
                                 </tr>
                             </rsc:iterator>
                             <TR>
-                                <TD background="/i/steel_blue_bg.gif" CLASS="statText" COLSPAN="7">
+                                <TD background="/i/steel_blue_bg.gif" CLASS="statText" COLSPAN="8">
                                     <IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                             </TR>
                             <TR>
-                                <TD CLASS="statText" COLSPAN="7">
+                                <TD CLASS="statText" COLSPAN="8">
                                     <IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="16" BORDER="0"></TD>
                             </TR>
                         </TABLE>
