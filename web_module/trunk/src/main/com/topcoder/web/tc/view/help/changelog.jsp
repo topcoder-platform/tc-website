@@ -65,6 +65,7 @@
         <li>Add instructions to recruiting member profile </li>
         <li>Fix content on srm rules page, some content was replicated</li>
         <li>On the Marathon Match overview page, make the rank column be the left most column</li>
+        <li>Add division to competition history</li>
 
     </ul>
 </p>
