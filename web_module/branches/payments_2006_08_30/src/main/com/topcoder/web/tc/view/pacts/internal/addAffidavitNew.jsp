@@ -25,6 +25,10 @@
 
 <h1>PACTS</h1>
 <h2>Add Affidavit</h2>
+<form action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
+  <input type="hidden" name="<%=PactsConstants.USER_ID%>" value="${user.id}"/>
+  <input type="hidden" name="<%=PactsConstants.TASK_STRING%>" value="<%=PactsConstants.ADD_TASK%>"/>
+  <input type="hidden" name="<%=PactsConstants.CMD_STRING%>" value="<%=PactsConstants.AFFIDAVIT_CMD%>"/>
 
 		<table cellpadding="0" cellspacing="0" border="0" class="regFields">
 		<tr>
@@ -38,20 +42,23 @@
 				<tc-webtag:radioButton name="<%=PactsConstants.IS_NOTARIZED%>" value="no"/>No			
 		</td></tr>
 		<tr>
-			<td><b>Status:</b></td>
-			<td>
+			<td class="name">Status:</td>
+			<td class="value">
             	<tc-webtag:rscSelect name="affidavit_status_id" list='${statusList}' fieldText="status_desc" 
             		fieldValue="status_id" useTopValue="Select a status"/>
 			</td>
 		</tr>
 		<tr>
-		<td><b>Description:</b></td><td>
+		<td class="name">Description:</td>
+		<td class="value">
 			<tc-webtag:textInput name="affidavit_desc" size="40" editable="true" />
 		</td></tr>
 </table>
-
-</div>
-</div>
+<input type="submit" value="Save Affidavit">
+</form>
 <jsp:include page="InternalFooter.jsp" flush="true" />
+</div>
+</div>
+
 </body>
 </html>
