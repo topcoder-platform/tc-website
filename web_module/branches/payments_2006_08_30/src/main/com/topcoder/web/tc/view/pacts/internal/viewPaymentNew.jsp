@@ -15,8 +15,8 @@
 
 
 <c:set var="payment" value="${requestScope.payment}"/>
-<c:set var="COMPONENT_PAYMENT" value="<%= PactsConstants.COMPONENT_PAYMENT %>" />
-<c:set var="REVIEW_BOARD_PAYMENT" value="<%= PactsConstants.REVIEW_BOARD_PAYMENT %>" />
+<c:set var="COMPONENT_PAYMENT" value="<%= PactsConstants.COMPONENT_PAYMENT + "" %>" />
+<c:set var="REVIEW_BOARD_PAYMENT" value="<%= PactsConstants.REVIEW_BOARD_PAYMENT + "" %>" />
 
 <h1>PACTS</h1>
 <h2>View Payment</h2>
