@@ -677,12 +677,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectDetails.append("SELECT e.address as email, p.phone_number as work_phone, p.phone_number as home_phone, a.country_code, a.zip, ");
         selectDetails.append("a.state_code, a.city, a.address1, a.address2, u.first_name, u.middle_name, ");
         selectDetails.append("u.last_name, state.state_name, country.country_name, ");
-        selectDetails.append("c.coder_type_id, ct.coder_type_desc, s.status_desc ");
+        selectDetails.append("c.coder_type_id, ct.coder_type_desc, s.user_status_desc ");
         selectDetails.append("FROM coder c, user u, email e, coder_type ct, OUTER state, OUTER country, phone p, address a, user_address_xref x, status_lu s ");
         selectDetails.append("WHERE c.coder_id = " + userId + " ");
         selectDetails.append("AND u.user_id = " + userId + " ");
         selectDetails.append("AND u.user_id = e.user_id ");
-        selectDetails.append("AND u.status = s.status_id ");
+        selectDetails.append("AND u.status = s.user_status_id ");
         selectDetails.append("AND e.primary_ind = 1 ");
         selectDetails.append("and p.user_id = u.user_id ");
         selectDetails.append("and p.primary_ind = 1 ");

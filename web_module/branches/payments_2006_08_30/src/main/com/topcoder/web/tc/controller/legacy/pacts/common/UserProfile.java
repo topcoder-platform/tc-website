@@ -118,7 +118,7 @@ public class UserProfile implements PactsConstants, java.io.Serializable {
             countryCode = TCData.getTCString(rRow, "country_code");
             coderTypeId = TCData.getTCInt(rRow, "coder_type_id");
             coderTypeDesc = TCData.getTCString(rRow, "coder_type_desc");
-            status = TCData.getTCString(rRow, "status_desc");
+            status = TCData.getTCString(rRow, "user_status_desc");
 
             header = new UserProfileHeader(results);
         } catch (Exception e) {
