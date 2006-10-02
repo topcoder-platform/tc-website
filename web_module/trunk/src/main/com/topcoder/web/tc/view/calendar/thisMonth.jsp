@@ -38,7 +38,7 @@
 
 <div style="float:right;white-space:nowrap;">All times are <A target="_blank" href="http://www.timeanddate.com/worldclock/city.html?n=98">Eastern Time</A> unless stated otherwise.  &#160; &#160; </div>
 
-<strong><A href="/tc?module=Static&d1=calendar&d2=aug_06" class="prevNext">&lt; prev</A> | <A href="/tc?module=Static&d1=calendar&d2=oct_06" class="prevNext">next &gt;</A></strong>
+<strong><A href="/tc?module=Static&d1=calendar&d2=sep_06" class="prevNext">&lt; prev</A> | <A href="/tc?module=Static&d1=calendar&d2=nov_06" class="prevNext">next &gt;</A></strong>
 <jsp:include page="dropdown.jsp" >
 <jsp:param name="currMonth" value="oct_06"/>
 </jsp:include>
