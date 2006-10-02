@@ -122,7 +122,7 @@ function search() {
 }
 
 function referenceChanged(name) {
-    doReferenceChanged(getElement(name).value));
+    doReferenceChanged(getElement(name).value);
 }
 
 </script>

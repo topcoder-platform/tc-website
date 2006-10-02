@@ -37,7 +37,7 @@
                         <c:if test="${empty rounds}">    
                           <input type="hidden" name="missing_reference" value="Please select a round for the payment"/>
                           Enter search text for round name: <input type="text" name="searchInput" value="${search}" />
-                          <input type="button" value="search" onClick="search(document.f.searchInput.value)" />
+                          <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          
                                 <font color="#FF0000">No rounds found containing <c:out value="${search}"/>. </font>
                             </c:if>
@@ -46,11 +46,11 @@
                         <c:if test="${not empty rounds}">                   
                              <tc-webtag:rscSelect name="algorithm_round_id" list="${rounds}" 
                                      fieldText="round_desc" fieldValue="round_id"  selectedValue="${param.algorithm_round_id}"                      
-                                     useTopValue="false" onChange="referenceChanged(document.f.algorithm_round_id.value)" />
+                                     useTopValue="false" onChange="referenceChanged('algorithm_round_id')" />
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>              
 						<script type="text/javascript">
-								referenceChanged(document.f.algorithm_round_id.value)
+								referenceChanged('algorithm_round_id');
 				    	</script>
                                             
                      </c:when>                       
