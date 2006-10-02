@@ -121,8 +121,7 @@
                                         <rsc:item name="positive_challenge_points" row="<%=row%>" format="#.##"/></td>
                                     <td class="statText" width="20%">
                                         <a href="/stat?c=round_overview&amp;rd=<rsc:item name="round_id" row="<%=row%>"/>" class="statText">
-                                            <rsc:item name="contest_name" row="<%=row%>"/> &gt;
-                                            <rsc:item name="round_name" row="<%=row%>"/>
+                                            <rsc:item name="short_nmae" row="<%=row%>"/>
                                         </a>
                                     </td>
                                 </tr>
