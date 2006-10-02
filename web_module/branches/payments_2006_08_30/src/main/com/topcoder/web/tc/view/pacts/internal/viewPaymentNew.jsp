@@ -138,7 +138,7 @@
 		</tr>		
 </table>
 
-<c:if test="${notes.length > 0}">
+<c:if test="${not empty notes}">
 	<form action="<%= PactsConstants.INTERNAL_SERVLET_URL %>" method="post">
 		<input type="hidden" name="t" value="view" />
 		<input type="hidden" name="c" value="note" />
