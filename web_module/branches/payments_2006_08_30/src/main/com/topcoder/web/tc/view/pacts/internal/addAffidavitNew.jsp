@@ -40,7 +40,20 @@
         </tr>
 		<tr>
 			<td class="name">User</td>
-			<td>&nbsp;&nbsp;<pacts-tag:handle coderId="${user.id}" handle="${user.handle}"/></td>
+			<td class="value"><pacts-tag:handle coderId="${user.id}" handle="${user.handle}"/></td>
+		</tr>
+		<tr>
+			<td class="name">Associated Payment:</td>
+			<td class="value">
+				<c:choose>
+					<c:when test="${empty payment}">
+						No payment associated.  If you want the affidavit to be associated to a payment, please create or search the payment first.
+					</c:when>
+					<c:otherwise>
+						<c:out value="${payment.description}" />
+					</c:otherwise>
+				</c:choose>
+			</td>
 		</tr>
 		<tr>
 			<td class="name">Notarized:</td>
