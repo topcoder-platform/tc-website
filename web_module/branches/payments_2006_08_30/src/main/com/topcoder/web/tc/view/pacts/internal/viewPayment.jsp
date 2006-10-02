@@ -1,7 +1,9 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
-<%@ page import="java.text.DecimalFormat" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="pacts.tld" prefix="pacts-tag" %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -10,168 +12,168 @@
 </head>
 <body>
 
-<%
-	Payment payment = (Payment)
-		request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT);
-	NoteHeader[] notes = (NoteHeader[])
-		request.getAttribute(PactsConstants.NOTE_HEADER_LIST);
-	String creationDate = (String)request.getAttribute(PactsConstants.CREATION_DATE);
-	if (notes == null) {
-		notes = new NoteHeader[0];
-	}
-	if (payment == null) {
-		out.println("no payment!!!<br>");
-		payment = new Payment();
-	}
-	DecimalFormat df = new DecimalFormat(PactsConstants.DECIMAL_FORMAT_STRING);
-%>
 
-<c:set var="payment" value="${requestScope.payment}"/>
-<c:set var="notes" value="${requestScope.payment}"/>
+<c:set var="payment" value="<%= request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT) %>"/>
+<c:set var="notes" value="<%= request.getAttribute(PactsConstants.NOTE_HEADER_LIST) %>"/>
+<c:set var="COMPONENT_PAYMENT" value="<%= PactsConstants.COMPONENT_PAYMENT + "" %>" />
+<c:set var="REVIEW_BOARD_PAYMENT" value="<%= PactsConstants.REVIEW_BOARD_PAYMENT + "" %>" />
 
 <h1>PACTS</h1>
 <h2>View Payment</h2>
 
-		<table border="0" cellpadding="5" cellspacing="5">
-		<tr><td><b>ID:</b></td>
-		<td><%= payment.getHeader().getId()	%>
-		</td></tr><tr>
-		<td><b>User:</b></td>
-<% 			out.print("<td><a href=\"");
-			out.print(PactsConstants.INTERNAL_SERVLET_URL);
-			out.print("?"+PactsConstants.TASK_STRING+"=");
-			out.print(PactsConstants.VIEW_TASK+"&");
-			out.print(PactsConstants.CMD_STRING+"=");
-			out.print(PactsConstants.USER_CMD+"&");
-			out.print(PactsConstants.USER_ID+"=");
-			out.print(payment.getHeader().getUser().getId());
-			out.print("\">"+payment.getHeader().getUser().getHandle()+"</a></td>\n");
-%>
-		</tr>
-
+		<table border="0" cellpadding="2" cellspacing="2">
 		<tr>
-		<td><b>Description:</b></td><td>
-<%			out.print(payment.getHeader().getDescription());
-%>
-		</td></tr>
-<%		if (payment.getHeader().getClient() != null && !payment.getHeader().getClient().equals("")) { %>
-			<tr>
-			<td><b>Client:</b></td><td>
-				<%	out.print(payment.getHeader().getClient()); %>
-			</td></tr>
-<%		} %>
-		<tr>
-		<td><b>Status:</b></td>
-<%			out.print("<td>"+payment.getStatusDesc()+"</td>\n");
-%>
+			<td><b>ID:</b></td>
+			<td><c:out value="${payment.header.id}" /></td>
 		</tr>
 		<tr>
-		<td><b>Type:</b></td><td>
-<%			out.print(payment.getHeader().getType());
-%>
-		</td></tr>
+			<td><b>User</b></td>
+			<td><pacts-tag:handle coderId="${payment.header.user.id}" handle="${payment.header.user.handle}"/></td>
+		</tr>
+		<tr>		
+			<td><b>Description:</b></td>
+			<td><c:out value="${payment.header.description}" /></td>
+		</tr>
+<c:if test="${not empty payment.header.client }">
+		<tr>		
+			<td><b>Client:</b></td>
+			<td><c:out value="${payment.header.client}" /></td>
+		</tr>
+</c:if>
+		<tr>		
+			<td><b>Status:</b></td>
+			<td><c:out value="${payment.statusDesc}" /></td>
+		</tr>
+		<tr>		
+			<td><b>Type:</b></td>
+			<td><c:out value="${payment.header.type}" /></td>
+		</tr>
+		<tr>		
+			<td><b>Method:</b></td>
+			<td><c:out value="${payment.header.method}" /></td>
+		</tr>
+<c:if test="${payment.header.typeId != COMPONENT_PAYMENT and payment.header.typeId != REVIEW_BOARD_PAYMENT}">
 		<tr>
-		<td><b>Method:</b></td><td>
-<%			out.print(payment.getHeader().getMethod());
-%>
-		</td></tr>
-	
-		<%	if (!payment.getHeader().getType().equals("Component Payment") &&
-				!payment.getHeader().getType().equals("Review Board Payment")) { %>
-		<tr>
-		<td><b>Gross Amount:</b></td>
-<%			out.print("<td>"+df.format(payment.getGrossAmount())+"</td>\n");
-%>
+			<td><b>Gross Amount:</b></td>
+			<td><fmt:formatNumber value="${payment.grossAmount}" pattern="###,###.00" /></td>
 		</tr>
 		<tr>
-		<td><b>Tax:</b></td>
-<%			out.print("<td>"+df.format(payment.getGrossAmount()-payment.getNetAmount())+"</td>\n");
-%>
+			<td><b>Tax:</b></td>
+			<td><fmt:formatNumber value="${payment.grossAmount - payment.netAmount}" pattern="####.00" /></td>
 		</tr>
-		<%	} %>
-		
+</c:if>
 		<tr>
-		<td><b>Net Amount:</b></td>
-<%			out.print("<td>"+df.format(payment.getNetAmount())+"</td>\n");
-%>
+			<td><b>Net Amount:</b></td>
+			<td><fmt:formatNumber value="${payment.netAmount}" pattern="#.00" /></td>
 		</tr>
 		<tr>
-		<td><b>Date Created:</b></td>
-<%			out.print("<td>"+creationDate+"</td>\n");
-%>
+			<td><b>Date Created:</b></td>
+			<td><fmt:formatDate value="${requestScope.creation_date}" pattern="<%= PactsConstants.DATE_FORMAT_STRING %>"/> </td>
 		</tr>
 		<tr>
-		<td><b>Date Due:</b></td>
-<%			out.print("<td>"+payment.getDueDate()+"</td>\n");
-%>
+			<td><b>Date Due:</b></td>
+			<td><c:out value="${payment.dueDate}" /></td>
 		</tr>
 		<tr>
-		<td><b>Date Paid:</b></td>
-<%			out.print("<td>"+payment.getPayDate()+"</td>\n");
-%>
+			<td><b>Date Paid:</b></td>
+			<td><c:out value="${payment.payDate}" /></td>
 		</tr>
+<c:if test="${payment.header.algorithmRoundId > 0}">
 		<tr>
-		<td><b>Reviewed:</b></td>
-<%
-		if (payment.getHeader().isReviewed()) out.print("<td>Yes</td>\n");
-		else out.print("<td>No</td>\n");
-%>
+			<td><b>Round ID:</b></td>
+			<td><c:out value="${payment.header.algorithmRoundId}" /></td>
 		</tr>
-
+</c:if>
+<c:if test="${payment.header.componentProjectId > 0}">
+		<tr>
+			<td><b>Project ID:</b></td>
+			<td><c:out value="${payment.header.componentProjectId}" /></td>
+		</tr>
+</c:if>
+<c:if test="${payment.header.algorithmProblemId > 0}">
+		<tr>
+			<td><b>Problem ID:</b></td>
+			<td><c:out value="${payment.header.algorithmProblemId}" /></td>
+		</tr>
+</c:if>
+<c:if test="${payment.header.studioContestId > 0}">
+		<tr>
+			<td><b>Studio Contest ID:</b></td>
+			<td><c:out value="${payment.header.studioContestId}" /></td>
+		</tr>
+</c:if>
+<c:if test="${payment.header.componentContestId > 0}">
+		<tr>
+			<td><b>Contest ID:</b></td>
+			<td><c:out value="${payment.header.componentContestId}" /></td>
+		</tr>
+</c:if>
+<c:if test="${payment.header.digitalRunStageId > 0}">
+		<tr>
+			<td><b>Stage ID:</b></td>
+			<td><c:out value="${payment.header.digitalRunStageId}" /></td>
+		</tr>
+</c:if>
+<c:if test="${payment.header.digitalRunSeasonId > 0}">
+		<tr>
+			<td><b>Season ID:</b></td>
+			<td><c:out value="${payment.header.digitalRunSeasonId}" /></td>
+		</tr>
+</c:if>
+<c:if test="${payment.header.parentPaymentId > 0}">
+		<tr>
+			<td><b>Parent Payment ID:</b></td>
+			<td><c:out value="${payment.header.parentPaymentId}" /></td>
+		</tr>
+</c:if>
+		<tr>
+			<td><b>Reviewed:</b></td>
+			<td>
+				<c:choose>
+					<c:when test="${payment.header.reviewed}">Yes</c:when>
+					<c:otherwise>No</c:otherwise>
+				</c:choose>
+			</td>
+		</tr>		
 </table>
 
-<%  if (notes.length > 0) {
-	out.println("<form action=\""+PactsConstants.INTERNAL_SERVLET_URL+"\" method=\"post\">");
-	out.println("<input type=\"hidden\" name=\""+PactsConstants.TASK_STRING+"\" value=\""+PactsConstants.VIEW_TASK+"\">");
-	out.println("<input type=\"hidden\" name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.NOTE_CMD+"\">");
-	out.println("<input type=\"submit\" value=\"View Note\">");
-	out.println("<select name=\""+PactsConstants.NOTE_ID+"\">");
-	for (int n = 0; n < notes.length; n++) {
-		out.println("<option value=\""+notes[n].getId()+"\">"+notes[n].getCreationDate()+" by "+notes[n].getUser().getHandle()+"</option>");
-	}
-	out.println("</select></form>");
-    }
-%>
-<p>
+<c:if test="${not empty notes}">
+	<br/>
+	<form action="<%= PactsConstants.INTERNAL_SERVLET_URL %>" method="post">
+		<input type="hidden" name="t" value="view" />
+		<input type="hidden" name="c" value="note" />
+		<input type="submit" value="View Note" />
+		
+		<select name="<%= PactsConstants.NOTE_ID %>">
+			<c:forEach var="note" items="${notes}">
+				<option value="${note.id}"><c:out value="${note.creationDate}"/> by <c:out value="${note.user.handle}"/></option>
+			</c:forEach>
+		</select>
+	</form>
+</c:if>
 
-<%
+<br/>
 
-   out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
-   out.print(PactsConstants.TASK_STRING+"="+PactsConstants.VIEW_TASK+"&");
-   out.println(PactsConstants.CMD_STRING+"="+PactsConstants.PAYMENT_AUDIT_TRAIL_CMD+"&");
-   out.println(PactsConstants.PAYMENT_ID+"="+payment.getHeader().getId());
-   out.println("\">View Audit Trail</a><br>");
+<a href="PactsInternalServlet?t=view&c=payment_audit_trail&payment_id=${payment.header.id}">
+	View Audit Trail
+</a>
+<br/>
 
-   out.print("<br>");
+<a href="PactsInternalServlet?t=add&c=note&object_id=${payment.header.id}&user_id=${payment.header.user.id}&object_type=<%= PactsConstants.PAYMENT_OBJ %>">
+	Add Note
+</a>
+<br/>
 
-   out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
-   out.print(PactsConstants.TASK_STRING+"="+PactsConstants.ADD_TASK+"&");
-   out.println(PactsConstants.CMD_STRING+"="+PactsConstants.NOTE_CMD+"&");
-   out.println("object_id="+payment.getHeader().getId()+"&");
-   out.println("user_id="+payment.getHeader().getUser().getId()+"&");
-   out.println("object_type="+PactsConstants.PAYMENT_OBJ);
-   out.println("\">Add Note</a><br>");
+<a href="PactsInternalServlet?t=update&c=payment&payment_id=${payment.header.id}">
+	Update Payment
+</a>
+<br/>
 
-   out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
-   out.print(PactsConstants.TASK_STRING+"="+PactsConstants.UPDATE_TASK+"&");
-   out.println(PactsConstants.CMD_STRING+"="+PactsConstants.PAYMENT_CMD+"&");
-   out.println(PactsConstants.PAYMENT_ID+"="+payment.getHeader().getId());
-   out.println("\">Update Payment</a><br>");
-
-   out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
-   out.print(PactsConstants.TASK_STRING+"="+PactsConstants.PAYMENT_TASK+"&");
-   out.println(PactsConstants.CMD_STRING+"="+PactsConstants.REVIEW_CMD+"&");
-   out.println(PactsConstants.PAYMENT_ID+"="+payment.getHeader().getId()+"&");
-   out.print("query="+PactsConstants.INTERNAL_SERVLET_URL+"%3F");
-   out.print(PactsConstants.TASK_STRING+"%3D"+PactsConstants.VIEW_TASK+"%26");
-   out.print(PactsConstants.CMD_STRING+"%3D"+PactsConstants.PAYMENT_CMD+"%26");
-   out.print(PactsConstants.PAYMENT_ID+"%3D"+payment.getHeader().getId()+"%26");
-   out.print("individual_payment%3D1");
-   out.println("\">Review Payment</a><br>");
-%>
+<a href="PactsInternalServlet?t=payments&c=Review Selected Payments&payment_id=${payment.header.id}&query=PactsInternalServlet%3Ft%3Dview%26c%3Dpayment%26payment_id%3d${payment.header.id}%26individual_payment%3D1">
+	Review Payment
+</a>
+<br/>
 
 <jsp:include page="InternalFooter.jsp" flush="true" />
-
 </body>
-
 </html>
