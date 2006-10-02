@@ -25,12 +25,37 @@
 <script type="text/javascript" src="/js/taconite-parser.js"></script>
 <script type="text/javascript">
 
+function toggleDiv(divId, state) 
+{
+    if(document.layers)	   //NN4+
+    {
+       document.layers[divId].visibility = state ? "show" : "hide";
+    }
+    else if(document.getElementById)	  //gecko(NN6) + IE 5+
+    {
+        document.getElementById(divId).style.visibility = state ? "visible" : "hidden";
+    }
+    else if(document.all)	// IE 4
+    {
+        document.all[divId].style.visibility = state ? "visible" : "hidden";
+    }
+}
+
+function loading() {
+	toggleDiv("loading", 1);
+}
+
+function loaded() {
+	toggleDiv("loading", 1);
+}
 
 function typeChanged() {
     var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
     document.ajaxFields.reference_type_id.value = types[document.f.payment_type_id.selectedIndex];
     ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.addNamedFormElements("reference_type_id");    
+    ajaxRequest.setPostRequest(loaded);
+    ajaxRequest.setPreRequest(loading);    
     ajaxRequest.sendRequest();
 }
 
@@ -41,6 +66,8 @@ function search(text) {
     ajaxRequest.addNamedFormElements("reference_type_id");    
     ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.addNamedFormElements("search_text");
+    ajaxRequest.setPostRequest(loaded);
+    ajaxRequest.setPreRequest(loading);    
     ajaxRequest.sendRequest();
 }
 
@@ -50,6 +77,8 @@ function referenceChanged(refId) {
     ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.addNamedFormElements("reference_id");
     ajaxRequest.addNamedFormElements("cr");    
+    ajaxRequest.setPostRequest(loaded);
+    ajaxRequest.setPreRequest(loading);    
     ajaxRequest.sendRequest();
 }
 
@@ -80,6 +109,7 @@ function initialize() {
   search('<%= request.getParameter("search_text") %>');
 <% } %>
 }
+
 
 
 </script>
@@ -184,6 +214,11 @@ types[i++]= <%= paymentTypes.getStringItem(i, "payment_reference_id") == null? -
 
 </script>
 
+<div id="loading">
+<p align="right">
+<font color="#FF0000">Loading...</font>
+</p>
+</div>
 <h1>PACTS</h1>
 
 <h2>Add <%= payment_is_for_contract? "Contract" : "" %> Payment</h2>
