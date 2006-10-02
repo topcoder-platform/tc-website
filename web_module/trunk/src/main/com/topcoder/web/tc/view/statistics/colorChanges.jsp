@@ -9,6 +9,13 @@
 </jsp:include>
 <jsp:include page="baseHRef.jsp" />   
 <jsp:include page="../script.jsp" />
+<style type="text/css">
+span.selected{
+background: #EFEFEF;
+border: 1px solid #CCCCCC;
+padding: 0px 4px 0px 4px;
+}
+</style>
 </HEAD>
 <BODY>
    <jsp:include page="../top.jsp" />
@@ -31,9 +38,9 @@
 
 <div align="center">
 <strong>
-<A href="" class="bcLink">All changes</A>
+<A href="" class="bcLink">All changes</A></span>
  | <A href="" class="coderTextRed">New reds</A>
- | <A href="" class="coderTextYellow">New yellows</A>
+ | <span class="selected"><A href="" class="coderTextYellow">New yellows</A></span>
  | <A href="" class="coderTextBlue">New blues</A>
  | <A href="" class="coderTextGreen">New greens</A>
  | <A href="" class="coderTextGray">New grays</A>
