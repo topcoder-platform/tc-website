@@ -1,5 +1,4 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
-<%@ page import="java.text.DecimalFormat" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -15,7 +14,7 @@
 
 
 <c:set var="payment" value="${requestScope.payment}"/>
-<c:set var="notes" value="${requestScope.note_header_list}"/>
+<c:set var="notes" value="<%= request.getParameter(PactsConstants.NOTE_HEADER_LIST) %>" />
 <c:set var="COMPONENT_PAYMENT" value="<%= PactsConstants.COMPONENT_PAYMENT + "" %>" />
 <c:set var="REVIEW_BOARD_PAYMENT" value="<%= PactsConstants.REVIEW_BOARD_PAYMENT + "" %>" />
 
@@ -139,6 +138,7 @@
 </table>
 
 <c:if test="${not empty notes}">
+	<br/>
 	<form action="<%= PactsConstants.INTERNAL_SERVLET_URL %>" method="post">
 		<input type="hidden" name="t" value="view" />
 		<input type="hidden" name="c" value="note" />
@@ -146,7 +146,7 @@
 		
 		<select name="<%= PactsConstants.NOTE_ID %>">
 			<c:forEach var="note" items="${notes}">
-				<option value="${note.id}"><c:out value="note.creationDate"/> by <c:out value="note.user.handle"/></option>
+				<option value="${note.id}"><c:out value="${note.creationDate}"/> by <c:out value="${note.user.handle}"/></option>
 			</c:forEach>
 		</select>
 	</form>
