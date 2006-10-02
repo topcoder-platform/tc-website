@@ -22,13 +22,13 @@
 
 <div align="center">
 <div style="padding: 0px 10px 10px 10px; width: 600px; text-align: left;">
-
 <h1>PACTS</h1>
+<center>
 <h2>Add Affidavit</h2>
+</center>
 <form action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
   <input type="hidden" name="<%=PactsConstants.USER_ID%>" value="${user.id}"/>
-  <input type="hidden" name="<%=PactsConstants.TASK_STRING%>" value="<%=PactsConstants.ADD_TASK%>"/>
-  <input type="hidden" name="<%=PactsConstants.CMD_STRING%>" value="<%=PactsConstants.AFFIDAVIT_CMD%>"/>
+  <input type="hidden" name="module" value="AddAffidavit"/>
 
 		<table cellpadding="0" cellspacing="0" border="0" class="regFields">
 		<tr>
