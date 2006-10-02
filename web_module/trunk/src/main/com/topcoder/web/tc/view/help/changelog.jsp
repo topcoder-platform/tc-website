@@ -63,6 +63,7 @@
         <li>Add link on Marathon Match overview page to example history</li>
         <li>Make the earnings totals link to the user's history on the member home page</li>
         <li>Add instructions to recruiting member profile </li>
+        <li>Fix content on srm rules page, some content was replicated</li>
 
     </ul>
 </p>
