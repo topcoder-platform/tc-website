@@ -33,11 +33,11 @@
 		<table cellpadding="0" cellspacing="0" border="0" class="regFields">
 		<tr>
 			<td class="name">User</td>
-			<td><pacts-tag:handle coderId="${user.id}" handle="${user.handle}"/></td>
+			<td>&nbsp;&nbsp;<pacts-tag:handle coderId="${user.id}" handle="${user.handle}"/></td>
 		</tr>
 		<tr>
-			<td class="value">Notarized:</td>
-			<td>
+			<td class="name">Notarized:</td>
+			<td class="status">
 				<tc-webtag:radioButton name="<%=PactsConstants.IS_NOTARIZED%>" value="yes"/>Yes<br/>
 				<tc-webtag:radioButton name="<%=PactsConstants.IS_NOTARIZED%>" value="no"/>No			
 		</td></tr>
@@ -54,7 +54,9 @@
 			<tc-webtag:textInput name="affidavit_desc" size="40" editable="true" />
 		</td></tr>
 </table>
+<center>
 <input type="submit" value="Save Affidavit">
+</center>
 </form>
 <jsp:include page="InternalFooter.jsp" flush="true" />
 </div>
