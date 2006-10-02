@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">10.02.06 1:30 PM - </td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=10105">Intel&#174; Multi-Threading Competition 9 Results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.06.06 10:50 AM - </td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=10089">Intel&#174; Multi-Threading Competition 8 Results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.08.06 3:50 PM - </td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=10087">Intel&#174; Multi-Threading Competition 7 Results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.04.06 10:45 AM - </td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512394">Python now supported in Marathon Matches</A></td></tr>

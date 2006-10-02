@@ -18,6 +18,21 @@
      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 ------------------------------%>
+<%----------------MARATHON MATCH-------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>10.02.06<br>1:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/longcontest/?module=ViewOverview&rd=10105">Intel&#174; Multi-Threading Competition 9 Results</A>
+      </span><br><br>
+      Congratulations to <tc-webtag:handle coderId="15600321" /> for winning the Intel&#174; Multi-Threading Competition 9.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/longcontest/?module=ViewOverview&rd=10105">results</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="506106" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
@@ -238,24 +253,5 @@ turned the first round of the TCCC into a close race.
     <A href="/tc?module=AOLAlertsDescription">view</A> |
     <tc-webtag:forumLink forumID="506122" message="discuss this"/> |
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0"/><br>09.21.06<br>12:50 PM</td>
-    <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=ViewActiveContests&ph=112">Puzzled? Components offer brainy challenge</A>
-        </span><br><br>
-        We've posted some unusual component design contests this week that you should check out:
-        <a href="/tc?module=ProjectDetail&amp;pj=23853751">Jigsaw Puzzle</A>,
-        <a href="/tc?module=ProjectDetail&amp;pj=23851358">Letter Scramble Puzzle</A>,
-        <a href="/tc?module=ProjectDetail&amp;pj=23852182">Missing Letter Puzzle</A>,
-        and <a href="/tc?module=ProjectDetail&amp;pj=23851701">Sliding Tile Puzzle</A>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=ViewActiveContests&ph=112">details</A> | 
-    <tc-webtag:forumLink forumID="506121" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
 </td></tr>
 
