@@ -36,7 +36,8 @@ public class ViewPayment extends BaseProcessor implements PactsConstants {
             getRequest().setAttribute(NOTE_HEADER_LIST, new NoteHeaderList(notes).getHeaderList());
 
         
-            setNextPage(INTERNAL_PAYMENT_JSP);
+            //setNextPage(INTERNAL_PAYMENT_JSP);
+            setNextPage("/pacts/internal/viewPaymentNew.jsp");
             setIsNextPageInContext(true);
         } catch (Exception e) {
             throw new TCWebException(e);
