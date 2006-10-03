@@ -137,31 +137,31 @@
         </td></tr>
         <tr>
             <TD CLASS="header">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Date</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("date")%>" includeParams="true"/>">Date</a>
             </TD>
             <TD CLASS="header" WIDTH="20%">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Contest</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("short_name")%>" includeParams="true"/>">Contest</a>
             </TD>
             <TD CLASS="header" WIDTH="">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("division")%>" includeParams="true"/>">Division</a>
             </TD>
             <TD CLASS="headerC">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Place</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("room_placed")%>" includeParams="true"/>">Place</a>
             </TD>
             <TD CLASS="headerR">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Rating</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("new_rating")%>" includeParams="true"/>">Rating</a>
             </TD>
             <TD CLASS="headerR">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Volatility</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("vol")%>" includeParams="true"/>">Volatility</a>
             </TD>
             <TD CLASS="headerC">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Rank</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("rank")%>" includeParams="true"/>">Rank</a>
             </TD>
             <TD CLASS="headerR">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Earnings</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("paid")%>" includeParams="true"/>">Earnings</a>
             </TD>
             <TD CLASS="headerC">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true"/>">Payment
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("payment_type_desc")%>" includeParams="true"/>">Payment
                     Type</a></TD>
         </tr>
         <%boolean even = true;%>
