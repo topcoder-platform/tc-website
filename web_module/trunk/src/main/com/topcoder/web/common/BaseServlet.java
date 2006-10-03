@@ -6,6 +6,7 @@ import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.error.RequestRateExceededException;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.TCSAuthorization;
@@ -130,16 +131,18 @@ public abstract class BaseServlet extends HttpServlet {
 
                 request.setCharacterEncoding("utf-8");
 
+                TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+                TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+
                 if (throttle.throttle(request.getSession().getId())) {
-                    throw new NavigationException("Request rate has exceeded allowable limit.");
+                    authentication = createAuthentication(tcRequest, tcResponse);
+                    throw new RequestRateExceededException(request.getSession().getId(),
+                            authentication.getActiveUser().getUserName());
                 }
 
                 if (log.isDebugEnabled()) {
                     log.debug("content type: " + request.getContentType());
                 }
-                TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-
-                TCResponse tcResponse = HttpObjectFactory.createResponse(response);
                 //set up security objects and session info
                 authentication = createAuthentication(tcRequest, tcResponse);
                 TCSubject user = getUser(authentication.getActiveUser().getId());
@@ -308,10 +311,19 @@ public abstract class BaseServlet extends HttpServlet {
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             request.setAttribute(MESSAGE_KEY, "Sorry, you do not have permission to access the specified resource.");
         } else if (e instanceof NavigationException) {
-            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            if (e instanceof RequestRateExceededException) {
+                RequestRateExceededException rre = (RequestRateExceededException) e;
+                StringBuffer buf = new StringBuffer(100);
+                buf.append("session ").append(rre.getSessionId());
+                buf.append("(").append(rre.getHandle()).append(")");
+                buf.append(" exceeded the request rate limit.");
+                log.warn(buf.toString());
+            } else {
+                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+                if (((NavigationException) e).hasUrl())
+                    request.setAttribute(URL_KEY, ((NavigationException) e).getUrl());
+            }
             request.setAttribute(MESSAGE_KEY, e.getMessage());
-            if (((NavigationException) e).hasUrl())
-                request.setAttribute(URL_KEY, ((NavigationException) e).getUrl());
         } else {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             request.setAttribute(MESSAGE_KEY, "An error has occurred when attempting to process your request.");
