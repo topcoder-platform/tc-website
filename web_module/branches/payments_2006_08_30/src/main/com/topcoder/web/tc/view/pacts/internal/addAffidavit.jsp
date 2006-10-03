@@ -27,10 +27,14 @@
 <form action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
   <input type="hidden" name="<%=PactsConstants.USER_ID%>" value="${user.id}"/>
   <input type="hidden" name="module" value="AddAffidavit"/>
-<c:if test="${not empty payment and payment.header.algorithmRoundId > 0}">
-	<input type="hidden" name="round_id" value="${payment.header.algorithmRoundId}">
+<c:if test="${not empty payment}">
+	<input type="hidden" name="payment_id" value="${payment.id}">
+	<c:if test="${payment.header.algorithmRoundId > 0}">
+		<input type="hidden" name="round_id" value="${payment.header.algorithmRoundId}">
+	</c:if>
+	
 </c:if>
-		<table cellpadding=2" cellspacing="2" border="0">
+		<table cellpadding="5" cellspacing="5" border="0">
 		<tr>
 	        <td colspan="2">
     	    	<tc-webtag:errorIterator id="err" name="error">
