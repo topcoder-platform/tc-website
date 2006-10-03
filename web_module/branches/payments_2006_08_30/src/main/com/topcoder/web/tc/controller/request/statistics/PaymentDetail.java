@@ -49,6 +49,8 @@ public class PaymentDetail extends BaseProcessor {
             throw new TCWebException("parameter " + Constants.CODER_ID + " expected.");
         }
         
+        setDefault(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
+
         // Payment type ID is required.
         if (!hasParameter(Constants.PAYMENT_TYPE_ID)) {
             throw new TCWebException("parameter " + Constants.PAYMENT_TYPE_ID + " expected.");
@@ -60,7 +62,8 @@ public class PaymentDetail extends BaseProcessor {
         if (!validPaymentType(paymentType)) {
             throw new TCWebException("invalid parameter " + Constants.PAYMENT_TYPE_ID);
         }
-        
+
+        setDefault(Constants.PAYMENT_TYPE_ID, getRequest().getParameter(Constants.PAYMENT_TYPE_ID));
 
         // Gets the rest of the optional parameters.
         String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
