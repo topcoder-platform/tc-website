@@ -154,7 +154,7 @@
 
 <br/>
 
-<a href="${pacts:addAffidavitForPayment(payment.header.user.id, payment.header.id)}">Add an Affidavit for the Payment</a>
+<a href="${pacts-tag:addAffidavitForPayment(payment.header.user.id, payment.header.id)}">Add an Affidavit for the Payment</a>
 <br/>
 <a href="PactsInternalServlet?module=AddAffidavit&user_id=${payment.header.user.id}&payment_id=${payment.header.id}">Add an Affidavit for the Payment</a>
 <br/>
