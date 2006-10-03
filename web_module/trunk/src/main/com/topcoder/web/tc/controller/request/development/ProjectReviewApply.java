@@ -16,6 +16,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.error.RequestRateExceededException;
 import com.topcoder.web.common.throttle.Throttle;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
@@ -59,7 +60,7 @@ public class ProjectReviewApply extends Base {
     protected void developmentProcessing() throws TCWebException {
         try {
             if (throttle.throttle(getRequest().getSession().getId())) {
-                throw new NavigationException("Request rate has exceeded allowable limit.");
+                throw new RequestRateExceededException(getRequest().getSession().getId(), getUser().getUserName());
             }
             projectId = Long.parseLong(getRequest().getParameter(Constants.PROJECT_ID));
             phaseId = Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID));
