@@ -28,11 +28,11 @@
     <jsp:param name="tabLev3" value="overview"/>
 </jsp:include>
 
-<table width="100%" border=0 cellpadding=0 cellspacing=0>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
     <!-- Body-->
-    <tr valign=top>
-        <td valign=top align=center>
-            <div class=bodySpacer>
+    <tr valign="top">
+        <td valign="top" align="center">
+            <div class="bodySpacer">
 
                 <span class="bigTitle">Advancers - Overview</span>
                 <br><br>
@@ -100,21 +100,13 @@
         </td>
 
 
-        <!-- Right Column-->
-        <td width="170" align="right">
-            <img src="/i/clear.gif" alt="" width="170" height="15" border="0"/><br/>
-            <img src="/i/tournament/tco06/sun_right.gif" alt="Sun" border="0"/><br/>
-            <img src="/i/clear.gif" alt="" width="10" height="10" border="0"/><br/>
-            <img src="/i/tournament/tco06/nsa_right.gif" alt="NSA" border="0"/><br/>
-            <img src="/i/clear.gif" alt="" width="10" height="10" border="0"/><br/>
-            <img src="/i/tournament/tco06/yahoo_right.gif" alt="Yahoo" border="0"/><br/>
-            <img src="/i/clear.gif" alt="" width="10" height="10" border="0"/><br/>
-            <img src="/i/tournament/tco06/verisign_right.gif" alt="Verisign" border="0"/><br/>
-            <img src="/i/clear.gif" alt="" width="10" height="10" border="0"/><br/>
-
-            <div align="center" class="bodyText"><strong><A href="/tc?module=Static&d1=calendar&d2=thisMonth">More
-                TopCoder Events</A></strong></div>
-        </td>
+<!-- Right Column-->
+<td width="170" align="right">
+<img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
+<%--
+<div align="center" class="bodyText"><strong><A href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder Events</A></strong></div>
+--%>
+</td>
 
     </tr>
 
