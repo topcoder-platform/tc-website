@@ -147,3 +147,8 @@ values (11, 'Multiple fields Change');
 
 insert into status_lu(status_id, status_desc, status_type_id)
 values(69, 'Deleted', 53);
+
+
+insert into status_type_lu(status_type_id, status_type_desc) values (999, 'DEPRECATED STATUSES');
+
+update status_lu set status_type_id = 999 where status_id = 66;
