@@ -22,5 +22,9 @@ public class Links implements PactsConstants {
 	public static String viewUser(long userId) {
 		return PactsConstants.INTERNAL_SERVLET_URL + "?t=view&c=user&" + USER_ID + "=" + userId; 
 	}
-	
+
+	public static String viewAffidavit(long affidavitId) {
+		return PactsConstants.INTERNAL_SERVLET_URL + "?t=view&c=affidavit&" + AFFIDAVIT_ID + "=" + affidavitId;
+	}
+
 }

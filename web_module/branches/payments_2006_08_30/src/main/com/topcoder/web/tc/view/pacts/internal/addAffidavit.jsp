@@ -60,12 +60,6 @@
 			</td>
 		</tr>
 		<tr>
-			<td><b>Notarized:</b></td>
-			<td class="status">
-				<tc-webtag:radioButton name="is_notarized" value="yes"/>Yes<br/>
-				<tc-webtag:radioButton name="is_notarized" value="no"/>No			
-		</td></tr>
-		<tr>
 			<td><b>Status:</b></td>
 			<td>
             	<tc-webtag:rscSelect name="affidavit_status_id" list='${statusList}' fieldText="status_desc" 

@@ -6,6 +6,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
 
@@ -31,11 +32,7 @@ public class AddAffidavit extends PactsBaseProcessor implements PactsConstants {
         		String desc = (String) getRequest().getParameter("affidavit_desc");
         		int statusId = Integer.parseInt(getRequest().getParameter("affidavit_status_id"));
         		int typeId = Integer.parseInt(getRequest().getParameter("affidavit_type_id"));
-        		String notarized = (String) getRequest().getParameter("is_notarized");
         		
-        		if (notarized == null) {
-        			addError("error", "Please select whether the affidavit is notarized.");
-        		}
         		if (statusId < 0) {
         			addError("error", "Please select a status");
         		}
@@ -49,7 +46,6 @@ public class AddAffidavit extends PactsBaseProcessor implements PactsConstants {
         		if (hasErrors()) {
             		setDefault("affidavit_desc", desc);
             		setDefault("affidavit_status_id", statusId + "");
-            		setDefault("is_notarized", notarized);
             		setDefault("affidavit_type_id", typeId + "");
             		setDefault("text", getRequest().getParameter("text"));        		
             	} else {     	
@@ -57,26 +53,19 @@ public class AddAffidavit extends PactsBaseProcessor implements PactsConstants {
 
                 	// Save the Affidavit
 	                Affidavit a = new Affidavit(
-	                        // If the round id is invalid, there is no round.
 	                		roundId < 0 ? null : new Long(roundId),
-	                        userId,
-	                        statusId,
-	                        desc,
-	                        typeId,
-	                        false, notarized.equalsIgnoreCase("yes"));
+	                        userId, statusId, desc, typeId, false, false);
 	
 	                if (payment != null) {
 	                	a.setPayment(payment.getHeader());
 	                }
 	                String text = "".equals(StringUtils.checkNull(getRequest().getParameter("text"))) ? null : getRequest().getParameter("text");
 	                long affidavitId = dib.addAffidavit(a, text, null);
-	                setNextPage("/PactsInternalServlet?t=view&c=affidavit&affidavit_id="+affidavitId);
+	                setNextPage(Links.viewAffidavit(affidavitId));
 	                setIsNextPageInContext(false);
 	                return;
             	}
 
-        	} else {
-        		setDefault("is_notarized", "no");
         	}
         	
 
