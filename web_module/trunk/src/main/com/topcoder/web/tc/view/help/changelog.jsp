@@ -42,6 +42,17 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
+
+<p>
+    5.4.15 - 2006.10.xx
+    <ul>
+        <li>
+            Add throttle so that the speed as which users can use the site is limited. (It's unlikely to be relevant in
+            any normal usage scenario)
+        </li>
+    </ul>
+</p>
+
 <p>
     5.4.14 - 2006.10.02
     <ul>
