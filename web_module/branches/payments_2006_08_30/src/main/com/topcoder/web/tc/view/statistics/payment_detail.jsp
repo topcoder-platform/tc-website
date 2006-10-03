@@ -146,14 +146,12 @@
             </tr>
             
             <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
-               <div class="hideText" id="ref_<%=i%>">
-	            <tr class="<%=even?"dark":"light"%>" id="re222f_<%=i%>">            
+	            <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
 	            <TD class="value" width="5%"></TD>
 	            <TD class="value" width="55%">*- <rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
 	            <TD class="value" width="20%"><rsc:item name="ref_payment_type_desc" row="<%=resultRow%>"/></TD>
 	            <TD class="value" width="20%"><rsc:item name="ref_earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
 	            </tr>
-               </div>
 			<% }%>
             <%even = !even;%>
         </rsc:iterator>
