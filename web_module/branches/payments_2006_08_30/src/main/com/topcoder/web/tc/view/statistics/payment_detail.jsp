@@ -115,18 +115,18 @@
     <br>
 
     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-        <tr><td class="title" colspan="10">
+        <tr><td class="title" colspan="4">
 		Payment detail
         </td></tr>
         <tr class="dark">
-            <TD CLASS="header"></TD>
-            <TD CLASS="header">
+            <TD CLASS="header" width="5%"></TD>
+            <TD CLASS="header" width="55%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Description</a>
             </TD>
-            <TD CLASS="header">
+            <TD CLASS="header" width="20%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Payment Type</a>
             </TD>
-            <TD CLASS="header" width="40%">
+            <TD CLASS="header" width="20%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Earnings</a>
             </TD>
         </tr>
@@ -134,23 +134,23 @@
         <%boolean even = false;%>
         <rsc:iterator list="<%=rsc%>" id="resultRow">
             <tr class="<%=even?"dark":"light"%>">            
-            <TD class="value">
+            <TD class="value" width="5%">
             <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
                 <%i++;%>
 	            <a href="javascript:toggleDisplay('ref_<%=i%>');" class="statLink"><img src="/i/interface/open.gif" alt="open" border="0" /></a>
 			<% }%>
             </TD>
-            <TD class="value"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
-            <TD class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
-            <TD class="value"><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
+            <TD class="value" width="55%"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
+            <TD class="value" width="20%"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
+            <TD class="value" width="20%"><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
             </tr>
             
             <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
 	            <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
-	            <TD class="value"></TD>
-	            <TD class="value">*- <rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
-	            <TD class="value"><rsc:item name="ref_payment_type_desc" row="<%=resultRow%>"/></TD>
-	            <TD class="value"><rsc:item name="ref_earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
+	            <TD class="value" width="5%"></TD>
+	            <TD class="value" width="55%">*- <rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
+	            <TD class="value" width="20%"><rsc:item name="ref_payment_type_desc" row="<%=resultRow%>"/></TD>
+	            <TD class="value" width="20%"><rsc:item name="ref_earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
 	            </tr>
 			<% }%>
             <%even = !even;%>
