@@ -91,6 +91,8 @@ public class ProjectReviewApply extends Base {
             throw pe;
         } catch (RBoardRegistrationException rbre) {
             throw new NavigationException(rbre.getMessage());
+        } catch (TCWebException e) {
+            throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
         }
