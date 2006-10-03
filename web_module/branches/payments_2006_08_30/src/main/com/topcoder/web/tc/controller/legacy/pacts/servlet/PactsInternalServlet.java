@@ -69,6 +69,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.AffidavitHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.AffidavitWithText;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.ContractHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
 import com.topcoder.web.tc.controller.legacy.pacts.common.NoteHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
@@ -1249,10 +1250,18 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
      */
     private void doAddAffidavit(HttpServletRequest request, HttpServletResponse response) throws Exception {
     	log.warn("Using deprecated processor, please use module=AddAffidavit insted");
-    	forward("/PactsInternalServlet?module=AddAffidavit&user_id" + request.getParameter(USER_ID) +
+    	/*forward("/PactsInternalServlet?module=AddAffidavit&user_id" + request.getParameter(USER_ID) +
     			(request.getParameter(PAYMENT_ID) == null? "" : 
     				"&payment_id=" + request.getParameter(PAYMENT_ID)), request, response);
-    	
+    	*/
+    	if (request.getParameter(PAYMENT_ID) == null) {
+    		forward(Links.addAffidavit(Long.parseLong(request.getParameter(USER_ID))), request, response);
+    	} else {
+    		forward(Links.addAffidavitForPayment(Long.parseLong(request.getParameter(USER_ID)),
+    				Long.parseLong(request.getParameter(PAYMENT_ID))), request, response);    		
+    	}
+    		
+    		
 /*
         log.debug("doAddAffidavit<br>");
 
