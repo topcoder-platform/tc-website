@@ -117,6 +117,7 @@
 		Payment detail
         </td></tr>
         <tr>
+            <TD CLASS="header"></TD>
             <TD CLASS="header">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Description</a>
             </TD>
@@ -145,6 +146,7 @@
             <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
 	            <!--tr class="<%=even?"dark":"light"%>" id="ref_<%=i%>"-->
 	            <tr class="showText" id="ref_<%=i%>">            
+	            <TD class="value"></TD>
 	            <TD class="value">+<rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
 	            <TD class="value">+<rsc:item name="ref_payment_type_desc" row="<%=resultRow%>"/></TD>
 	            <TD class="value">+<rsc:item name="ref_earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
