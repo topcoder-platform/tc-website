@@ -33,4 +33,9 @@ public class RequestRateExceededException extends NavigationException {
     public String getHandle() {
         return handle;
     }
+
+    public void printStackTrace() {
+        Thread.dumpStack();
+        super.printStackTrace();
+    }
 }
