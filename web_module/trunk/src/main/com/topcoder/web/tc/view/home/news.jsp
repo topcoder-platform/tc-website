@@ -8,7 +8,7 @@
 </tr>
 <%--------------------------------------------------------%>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>10.03.06<br>9:30 AM</td>
+        <br>10.03.06<br>9:50 AM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=100206">Design Patterns in C++</A></span><br><br>
