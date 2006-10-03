@@ -911,7 +911,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("pd.payment_method_id, pm.payment_method_desc, ");
         selectPaymentDetails.append("pa.first_name, pa.middle_name, pa.last_name, pa.address1, ");
         selectPaymentDetails.append("pa.address2, pa.city, pa.state_code, pa.zip, pa.country_code, ");
-        selectPaymentDetails.append("state.state_name, country.country_name, pd.date_modified, pd.date_due, a.address3, a.province ");
+        selectPaymentDetails.append("state.state_name, country.country_name, pd.date_modified, pd.date_due, pa.address3, pa.province ");
         selectPaymentDetails.append("FROM payment p, payment_detail pd, status_lu s, ");
         selectPaymentDetails.append("modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentDetails.append("OUTER(payment_address pa, OUTER state, OUTER country) ");
