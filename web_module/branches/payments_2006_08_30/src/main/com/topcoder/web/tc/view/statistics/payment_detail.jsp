@@ -2,6 +2,7 @@
         language="java"
         import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                 com.topcoder.shared.util.ApplicationServer,
+                com.topcoder.shared.dataAccess.DataAccessConstants,
                 com.topcoder.web.common.model.SoftwareComponent,
                 com.topcoder.web.tc.Constants" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
@@ -18,7 +19,7 @@
     <jsp:include page="/script.jsp"/>
 
 <style type="text/css">
-.showText{ display: block }
+.showText{ display: table-row }
 .hideText{ display: none }
 </style>
 
@@ -47,6 +48,24 @@
 		   else object.className = 'light showText';
 		   return;
 		}
+        function next() {
+            var myForm = document.paymentDetailForm;
+            var oldStartRank = myForm.<%=DataAccessConstants.START_RANK%>.value;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value) + 1;
+            myForm.<%=DataAccessConstants.END_RANK%>.value = 2 * parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value) - parseInt(oldStartRank) + 1;
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+            myForm.submit();
+        }
+        function previous() {
+            var myForm = document.paymentDetailForm;
+            var oldEndRank = myForm.<%=DataAccessConstants.END_RANK%>.value;
+            myForm.<%=DataAccessConstants.END_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - 1;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = 2 * parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - parseInt(oldEndRank) - 1;
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+            myForm.submit();
+        }
     </script>
     <STYLE TYPE="text/css">
         .popper {
@@ -112,50 +131,76 @@
  | Payment Details
    </span>
 
-    <br>
+    <div class="pagingBox" style="clear:both;">
+        <% if (rsc.croppedDataBefore() || rsc.croppedDataAfter()) { %>
+        <%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+        | <%=(rsc.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+        <% } else { %>
+        &#160;
+        <% } %>
+    </div>
 
-    <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-        <tr><td class="title" colspan="4">
-		Payment detail
-        </td></tr>
-        <tr class="dark">
-            <TD CLASS="header" width="5%"></TD>
-            <TD CLASS="header" width="55%">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Description</a>
-            </TD>
-            <TD CLASS="header" width="20%">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Payment Type</a>
-            </TD>
-            <TD CLASS="header" width="20%">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Earnings</a>
-            </TD>
-        </tr>
-        <%int i = 0;%>
-        <%boolean even = false;%>
-        <rsc:iterator list="<%=rsc%>" id="resultRow">
-            <tr class="<%=even?"dark":"light"%>">            
-            <TD class="value" width="5%">
-            <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
-                <%i++;%>
-	            <a href="javascript:toggleDisplay('ref_<%=i%>');" class="statLink"><img src="/i/interface/open.gif" alt="open" border="0" /></a>
-			<% }%>
-            </TD>
-            <TD class="value" width="55%"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
-            <TD class="value" width="20%"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
-            <TD class="value" width="20%"><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
-            </tr>
-            
-            <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
-	            <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
-	            <TD class="value" width="5%"></TD>
-	            <TD class="value" width="55%">*- <rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
-	            <TD class="value" width="20%"><rsc:item name="ref_payment_type_desc" row="<%=resultRow%>"/></TD>
-	            <TD class="value" width="20%"><rsc:item name="ref_earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
+    <form name="paymentDetailForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="PaymentDetail"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.START_RANK%>"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
+        <tc-webtag:hiddenInput name="<%=Constants.CODER_ID%>"/>
+	
+	    <table class="stat" cellpadding="0" cellspacing="0" width="100%">
+	        <tr><td class="title" colspan="4">
+			Payment detail
+	        </td></tr>
+	        <tr class="dark">
+	            <TD CLASS="header" width="5%"></TD>
+	            <TD CLASS="header" width="55%">
+	                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Description</a>
+	            </TD>
+	            <TD CLASS="header" width="20%">
+	                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Payment Type</a>
+	            </TD>
+	            <TD CLASS="header" width="20%">
+	                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Earnings</a>
+	            </TD>
+	        </tr>
+	        <%int i = 0;%>
+	        <%boolean even = false;%>
+	        <rsc:iterator list="<%=rsc%>" id="resultRow">
+	            <tr class="<%=even?"dark":"light"%>">            
+	            <TD class="value" width="5%">
+	            <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
+	                <%i++;%>
+		            <a href="javascript:toggleDisplay('ref_<%=i%>');" class="statLink"><img src="/i/interface/open.gif" alt="open" border="0" /></a>
+				<% }%>
+	            </TD>
+	            <TD class="value" width="55%"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
+	            <TD class="value" width="20%"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
+	            <TD class="value" width="20%"><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
 	            </tr>
-			<% }%>
-            <%even = !even;%>
-        </rsc:iterator>
-    </TABLE>
+	            
+	            <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
+		            <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
+		            <TD class="value" width="5%"></TD>
+		            <TD class="value" width="55%">*- <rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
+		            <TD class="value" width="20%"><rsc:item name="ref_payment_type_desc" row="<%=resultRow%>"/></TD>
+		            <TD class="value" width="20%"><rsc:item name="ref_earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
+		            </tr>
+				<% }%>
+	            <%even = !even;%>
+	        </rsc:iterator>
+	    </TABLE>
+    </FORM>
+
+    <div class="pagingBox">
+        <% if (rsc.croppedDataBefore() || rsc.croppedDataAfter()) { %>
+        <%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+        | <%=(rsc.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+        <% } else { %>
+        &#160;
+        <% } %>
+    </div>
+
     <p><br></p>
     <!-- END BODY -->
 

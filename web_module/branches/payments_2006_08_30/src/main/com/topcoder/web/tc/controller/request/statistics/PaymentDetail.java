@@ -6,6 +6,7 @@ package com.topcoder.web.tc.controller.request.statistics;
 
 
 import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -14,6 +15,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 
@@ -59,8 +61,37 @@ public class PaymentDetail extends BaseProcessor {
             throw new TCWebException("invalid parameter " + Constants.PAYMENT_TYPE_ID);
         }
         
+
+        // Gets the rest of the optional parameters.
+        String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
+        String endRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
+        String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+
+
+        // Normalizes optional parameters and sets defaults
+        if ("".equals(startRank) || Integer.parseInt(startRank) <= 0) {
+            startRank = "1";
+        }
+        setDefault(DataAccessConstants.START_RANK, startRank);
+
+        if ("".equals(endRank)) {
+            endRank = String.valueOf(Integer.parseInt(startRank) + Constants.DEFAULT_HISTORY);
+        } else if (Integer.parseInt(endRank) - Integer.parseInt(startRank) > Constants.MAX_HISTORY) {
+            endRank = String.valueOf(Integer.parseInt(startRank) + Constants.MAX_HISTORY);
+        }
+        setDefault(DataAccessConstants.END_RANK, endRank);
+
+        setDefault(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+        setDefault(DataAccessConstants.SORT_COLUMN, getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+
         // Prepare request for data retrieval
         Request r = new Request();
+        if (!(sortCol.equals("") || sortDir.equals(""))) {
+            r.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
+            r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
+            r.setProperty(DataAccessConstants.SORT_QUERY, Constants.ALGO_COMPETITION_HISTORY_QUERY);
+        }
         r.setProperty(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
         r.setProperty(Constants.PAYMENT_TYPE_ID, getRequest().getParameter(Constants.PAYMENT_TYPE_ID));
         r.setContentHandle("payment_detail");
@@ -69,13 +100,16 @@ public class PaymentDetail extends BaseProcessor {
         DataAccessInt dai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
         Map m = dai.getData(r);
         ResultSetContainer details = (ResultSetContainer) m.get("payment_detail");
-
         if (log.isDebugEnabled()) {
             log.debug("Got " + details.size() + " rows for payment details");
         }
 
+        // crops data
+        ResultSetContainer rsc = new ResultSetContainer(details, Integer.parseInt(startRank),
+                Integer.parseInt(endRank));
+
         // sets attributes for the jsp
-        getRequest().setAttribute("payment_detail", details);
+        getRequest().setAttribute("payment_detail", rsc);
         setNextPage(Constants.VIEW_PAYMENT_DETAIL_PAGE);
         setIsNextPageInContext(true);
     }
