@@ -2,9 +2,6 @@ package com.topcoder.web.common.error;
 
 import com.topcoder.web.common.NavigationException;
 
-import java.io.PrintStream;
-import java.io.PrintWriter;
-
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -37,18 +34,4 @@ public class RequestRateExceededException extends NavigationException {
         return handle;
     }
 
-    public void printStackTrace() {
-        Thread.dumpStack();
-        super.printStackTrace();
-    }
-
-    public void printStackTrace(PrintStream s) {
-        Thread.dumpStack();
-        super.printStackTrace(s);
-    }
-
-    public void printStackTrace(PrintWriter s) {
-        Thread.dumpStack();
-        super.printStackTrace(s);
-    }
 }
