@@ -42,6 +42,7 @@
    
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>September</strong></td></tr>
+   <tr><td class="bodyText">09.30.06</td><td class="bodyText" nowrap="0" width="100%">SRM 320 - <a href="/tc?module=Static&d1=match_editorials&d2=srm320">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">09.27.06</td><td class="bodyText" nowrap="0" width="100%">TCCC06 - Online Round 1-C - <a href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_1c">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">09.23.06</td><td class="bodyText" nowrap="0" width="100%">TCCC06 - Online Round 1-B - <a href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_1b">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">09.21.06</td><td class="bodyText" nowrap="0" width="100%">TCCC06 - Online Round 1-A - <a href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_1a">Problem Set & Analysis</a></td></tr>
