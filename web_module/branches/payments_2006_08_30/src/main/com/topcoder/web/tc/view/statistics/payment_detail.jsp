@@ -134,23 +134,23 @@
         <%boolean even = false;%>
         <rsc:iterator list="<%=rsc%>" id="resultRow">
             <tr class="<%=even?"dark":"light"%> showText">            
-            <TD>
+            <TD class="value">
             <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
                 <%i++;%>
 	            <a href="javascript:toggleDisplay('ref_<%=i%>');" class="statLink"><img src="/i/interface/open.gif" alt="open" border="0" /></a>
 			<% }%>
             </TD>
-            <TD><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
-            <TD><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
-            <TD><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
+            <TD class="value"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
+            <TD class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
+            <TD class="value"><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
             </tr>
             
             <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
 	            <tr class="<%=even?"dark":"light"%> showText" id="ref_<%=i%>">            
-	            <TD></TD>
-	            <TD>+<rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
-	            <TD>+<rsc:item name="ref_payment_type_desc" row="<%=resultRow%>"/></TD>
-	            <TD>+<rsc:item name="ref_earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
+	            <TD class="value"></TD>
+	            <TD class="value">+--<rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
+	            <TD class="value"><rsc:item name="ref_payment_type_desc" row="<%=resultRow%>"/></TD>
+	            <TD class="value"><rsc:item name="ref_earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
 	            </tr>
 			<% }%>
             <%even = !even;%>
