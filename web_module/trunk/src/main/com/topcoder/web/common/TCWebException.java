@@ -10,6 +10,8 @@ import com.topcoder.shared.util.TCException;
  */
 public class TCWebException extends TCException {
 
+    protected boolean isVerbose = true;
+
     /**
      * Default Constructor
      */
@@ -18,7 +20,7 @@ public class TCWebException extends TCException {
     }
 
     /**
-     * <p>
+     * <p/>
      * Constructor taking a string message
      * </p>
      *
@@ -29,7 +31,7 @@ public class TCWebException extends TCException {
     }
 
     /**
-     * <p>
+     * <p/>
      * Constructor taking a nested exception
      * </p>
      *
@@ -40,11 +42,11 @@ public class TCWebException extends TCException {
     }
 
     /**
-     * <p>
+     * <p/>
      * Constructor taking a nested exception and a string
      * </p>
      *
-     * @param message the message of this exception
+     * @param message         the message of this exception
      * @param nestedException the nested exception
      */
     public TCWebException(String message, Throwable nestedException) {
