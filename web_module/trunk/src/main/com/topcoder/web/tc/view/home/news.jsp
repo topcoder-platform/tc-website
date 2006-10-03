@@ -7,6 +7,27 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 <%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
+        <br>10.03.06<br>3:30 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm321">SRM 321 -
+                Problem Set & Analysis</A></span><br><br>
+This SRM gave coders still in the running for the TCCC one more chance to practice for the second
+online round.
+            </td>
+            <td class="newsPhoto"><img src="/i/m/krijgertje_big.jpg" alt="" width="55" height="61"/><br>by
+                <tc-webtag:handle coderId="9906197" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=match_editorials&d2=srm321">full story</A> |
+    <tc-webtag:forumLink forumID="505995" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
         <br>10.03.06<br>9:50 AM</td>
     <td class="newsTextCell">
@@ -198,24 +219,5 @@ In this problem set coders faced an easy first problem, an easy second - which h
     <A href="/tc?module=SurveyResults&sid=219">results</A> |
     <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512330">discuss this</A> |
     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>09.25.06<br>2:15 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=092506">Understanding the Mind Game</A></span><br><br>
-               Most TopCoder members - whether brand new or weathered veterans - would agree with the statement that algorithm competitions are primarily mind games.
-               While other competitions have a one-on-one element, in a Single Round Match or Code Jam situation your biggest opponent is yourself.</td>
-            <td class="newsPhoto">by <tc-webtag:handle coderId="22628020"/></td></tr>
-        </table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&amp;d1=features&amp;d2=092506">article</A> |
-    <tc-webtag:forumLink forumID="506123" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 
