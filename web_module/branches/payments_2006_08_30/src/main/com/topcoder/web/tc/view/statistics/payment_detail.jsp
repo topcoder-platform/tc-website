@@ -118,7 +118,7 @@
         <tr><td class="title" colspan="10">
 		Payment detail
         </td></tr>
-        <tr class="dark showText">
+        <tr class="dark">
             <TD CLASS="header"></TD>
             <TD CLASS="header">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Description</a>
@@ -133,7 +133,7 @@
         <%int i = 0;%>
         <%boolean even = false;%>
         <rsc:iterator list="<%=rsc%>" id="resultRow">
-            <tr class="<%=even?"dark":"light"%> showText">            
+            <tr class="<%=even?"dark":"light"%>">            
             <TD class="value">
             <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
                 <%i++;%>
