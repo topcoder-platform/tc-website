@@ -93,8 +93,8 @@ function makeNavigable(){
 <span class="bigTitle">Design Patterns in C++</span>
 
       <p>
-      <img src="/i/m/XXX.gif" alt="" border="0" align="left" class="myStatsPhoto"/>
-      By&#160;<tc-webtag:handle coderId="10584406" /><br>
+      <%--<img src="/i/m/XXX.gif" alt="" border="0" align="left" class="myStatsPhoto"/>--%>
+      By&#160;<tc-webtag:handle coderId="21195715" /><br>
       <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
       </p>
 
@@ -113,7 +113,7 @@ This article assumes proficiency in C++ and knowledge of common design patterns.
 Strategy is the explicit abstraction of like-minded algorithms.  An interface that abstracts a set of common algorithms is declared, thereby allowing the specific implementations to be used interchangeably.  With such an interpretation, Strategy is almost ubiquitous in generic C++ code.  It is fundamental to generic programming and, at the compile time level, it is an inherent part of the language.  Using compile time polymorphism to abstract away algorithmic details, Strategy may appear in any of the following ways (along with many, many others):
 
 <ul>
-<li>Function Overloading:  Using one function name (the interface) and defining it based on the types it is supplied; essentially implementing generic algorithms.  The filtering of types can be accomplished through non-templated function overloading or templated function overloading with or without SFINAE  (substitution-failure-is-not-an-error).</li>
+<li>Function Overloading:  Using one function name (the interface) and defining it based on the types it is supplied; essentially implementing generic algorithms.  The filtering of types can be accomplished through non-templated function overloading or templated function overloading with or without SFINAE<sup>[i]</sup> (substitution-failure-is-not-an-error).</li>
 <li>Partial Template Specialization:  Declaring a templated class or struct and defining it based on the template arguments supplied.  Here the interface is implicit in the code.</li>
 <li>Argument Dependent Lookup (aka Koenig Lookup): Defining a function in the namespace of the type(s) it uses, and calling without qualification. The function call will resolve to the definition in the namespace of the types it is given. Currently this is not normally done due to the unexpected problems that arise with ADL.</li>
 <li>Define a generic concept or reuse a generic concept, and define a number of types that model it.</li>
@@ -122,7 +122,7 @@ Strategy is the explicit abstraction of like-minded algorithms.  An interface th
 All four of these are used in the abstraction of purely procedural entities, while the second and fourth can also be used in more general uses of Strategy.
 <br><br>
 <b>What's a concept?</b><br>
-A concept is in essence a set of type requirements, such as functions that must be able to be called, associated types, and/or further requirements of those types.  If a type fulfills these requirements it is said to model the concept.  Concepts are somewhat equivalent to interfaces, though there are a few marked differences.  First, since there is currently no language support for concepts, they are defined almost solely through external documentation, though there is limited library support .  Second, the modeling relationship is completely non-intrusive.  Instead of inheriting from a concept, the declaration that says a type models a concept is done outside the type's definition, providing an extra layer of extensibility and adaptability.  Also, modeling a type can be implicit, if specified.  In such a case, any type that fulfills a concept's requirements will automatically model the concept.  In other cases the modeling relationship must be explicitly declared.  Finally, reuse in concepts is greatly stressed.  While interfaces are rather lightweight, and are defined again and again for the same basic purposes, concepts should not be (though that is not to say concepts must be used sparsely).  Design of concepts should be done very carefully.
+A concept is in essence a set of type requirements, such as functions that must be able to be called, associated types, and/or further requirements of those types.  If a type fulfills these requirements it is said to model the concept.  Concepts are somewhat equivalent to interfaces, though there are a few marked differences.  First, since there is currently no language support for concepts, they are defined almost solely through external documentation, though there is limited library support<sup>[ii]</sup>.  Second, the modeling relationship is completely non-intrusive.  Instead of inheriting from a concept, the declaration that says a type models a concept is done outside the type's definition, providing an extra layer of extensibility and adaptability.  Also, modeling a type can be implicit, if specified.  In such a case, any type that fulfills a concept's requirements will automatically model the concept.  In other cases the modeling relationship must be explicitly declared.  Finally, reuse in concepts is greatly stressed.  While interfaces are rather lightweight, and are defined again and again for the same basic purposes, concepts should not be (though that is not to say concepts must be used sparsely).  Design of concepts should be done very carefully.
 <br><br>
 <b>Example: Java Web Spider</b><br>
 The Java Web Spider component traverses graph-like structures, such as web pages.  The priority in which vertices are crawled is decided by the CrawlStrategy interface, which just happens to use Strategy.  The CrawlStrategy interface abstracts the manner in which the next vertex to crawl is obtained, as well as the way in which to-be-crawled vertices are stored, thus allowing different forms of crawling to be used interchangeably.  The interface is used, by the Crawler class, in an iterative manner, through multiple calls to getNextAddress and addAddress/addAddressList.  Therefore, the respective C++ implementations would be iterators.  The specific concepts that the iterators will be required to model must be determined and specified by the entity that uses them:
@@ -174,7 +174,7 @@ category.
 
 		breadth_first_iterator() : queue(), visited() {}
 
-		// Due to a lack of move semantics in C++ , copying the iterator will
+		// Due to a lack of move semantics in C++<sup>[iii]</sup>, copying the iterator will
 		// be rather slow, but since this example is not concerned with speed, 
 		// this is not addressed.  Of course, it could also be indicative that
 		// queue and visited should not be managed by this class, but by some 
@@ -194,7 +194,7 @@ category.
 
 		// Converting to bool can sometimes create ambiguities and unwanted 
 		// conversions to other data types, so instead of directly converting  
-		// to bool, the Safe Bool Idiom  is used.  unspecified_bool_t is 
+		// to bool, the Safe Bool Idiom<sup>[iv]</sup> is used.  unspecified_bool_t is 
 		// essentially a pointer to a member variable.  Such a type cannot be 
 		// implicitly converted to anything but bool.
 		operator unspecified_bool_t() const
@@ -248,12 +248,19 @@ inline void push(T const& value, some_non_conformant_sequence&lt;T&gt; & sequenc
 }
 </pre>
 
-Since each method that stack&lt;...&gt; exposes is separated from the others, it becomes much easier to adapt other sequences to the stack<...> interface.
+Since each method that stack&lt;...&gt; exposes is separated from the others, it becomes much easier to adapt other sequences to the stack&lt;...&gt; interface.
 <br><br>
 <span class="bodySubtitle">Iterator</span><br>
 Iterators are by far one of the most used abstractions in C++ code, though never quite like the GoF Iterator design pattern.  The GoF Iterator provides methods for value access, incrementing, validation and construction.  It does not take into account mutability of values, decrementing or non-uniform traversal.  The original STL iterator abstraction took all this into account, and defined concepts based on these distinct types of behavior.  It did not, however, separate iterator traversal from the accessing of values, which created contradictions such as vector&lt;bool&gt;::iterator not being random access.  The new iterator abstraction, specified in Boost.Iterator, and included in Technical Report 1, solves this problem.  Boost.Iterator also provides a very useful set of specialized iterators and two very powerful utilities, boost::iterator_facade&lt;...&gt; and boost::iterator_adaptor&lt;...&gt;.  The former makes the creation of iterators child's play, as was seen in the Java Web Spider example.  The latter makes the manipulation and tweaking of existing iterators just as simple.
 <br><br>
 <b>Coming in Part 2:</b> More information on the Composition, Object Factories, and Facade classes.
+<br><br>
+<span class="smallText">
+[i] For more information on SFINAE, see the documentation for <A href="http://boost.org/libs/utility/enable_if.html" target="_blank">boost::enable_if&lt;...&gt;</A>.<br>
+[ii] The Boost Concept Check Library gives support for declaring concepts and making sure types conform to those concepts, but compilation will halt on failure, which may not be desired. Also, using concepts will slow compilation some, which in some cases is not tolerable. Recently a new approach at simulated concept support has arisen, though it is still in development.<br>
+[iii] For more information on move semantics, see <A href="http://anubis.dkuug.dk/jtc1/sc22/wg21/docs/papers/2004/n1610.html" target="_blank">"Clarification of Initialization of Class Objects by rvalues"</A>, by David Abrahams and Gary Powell or <A href="http://www.ddj.com/dept/cpp/184403855" target="_blank">"Generic&lt;Programming&gt;: Move Constructors"</A>, by Andreii Alexandrescu.<br>
+[iv] For more information on the Safe Bool Idiom, see <A href="http://www.artima.com/cppsource/safebool.html" target="_blank">"The Safe Bool Idiom"</A> by Bjorn Karlsson.
+</span>
 
         <br><br>
         </td>

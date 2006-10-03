@@ -6,15 +6,15 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
-<%----------------------------------------
+<%--------------------------------------------------------%>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>10.02.06<br>6:00 PM</td>
+        <br>10.03.06<br>9:30 AM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=100206">Design Patterns in C++</A></span><br><br>
                This article will examine several design patterns affected by modern C++ practices and present some of their manifestations in generic 
                C++ code, along with a few examples of how parts of some TopCoder components may look like in C++.</td>
-            <td class="newsPhoto"><img src="/i/m/Seiz3r_mug.gif" alt=""/><br>by <tc-webtag:handle coderId="10584406"/></td></tr>
+            <td class="newsPhoto">by <tc-webtag:handle coderId="21195715"/></td></tr>
         </table>
     </td>
 </tr>
@@ -23,7 +23,7 @@
     <tc-webtag:forumLink forumID="506131" message="discuss this"/> |
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
-----------------%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.02.06<br>5:00 PM</td>
@@ -204,50 +204,5 @@ In this problem set coders faced an easy first problem, an easy second - which h
     <A href="/tc?module=Static&amp;d1=features&amp;d2=092506">article</A> |
     <tc-webtag:forumLink forumID="506123" message="discuss this"/> |
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.24.06<br>5:30 PM</td>
-    <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">TCCC06 Algorithm Round 1B Results</A></span><br><br>
-        You can now view Round 1 - Section B advancers.
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">view</A> |
-    <tc-webtag:forumLink forumID="506108" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
-        <br>09.24.06<br>11:00 AM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_1b">TCCC06 Online Round 1-B -
-                Problem Set & Analysis</A></span><br><br>
-This section had the highest number of registrants among all Round 1 sections, with participants including the three most recent TCCC champions.            </td>
-            <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by
-                <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_1b">full story</A> |
-    <tc-webtag:forumLink forumID="506108" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.22.06<br>11:45 AM</td>
-    <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">TCCC06 Algorithm Round 1A Results</A></span><br><br>
-        You can now view Round 1 - Section A advancers.
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">view</A> |
-    <tc-webtag:forumLink forumID="506107" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
 
