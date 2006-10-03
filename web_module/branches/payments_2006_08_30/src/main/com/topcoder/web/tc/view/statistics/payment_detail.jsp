@@ -17,6 +17,11 @@
     <jsp:include page="baseHRef.jsp"/>
     <jsp:include page="/script.jsp"/>
 
+<style type="text/css">
+.showText{ display: block }
+.hideText{ display: none }
+</style>
+
     <script type="text/javascript">
         var objPopUp = null;
         function popUp(event, objectID) {
@@ -34,6 +39,12 @@
             objPopUp.style.visibility = 'hidden';
             objPopUp = null;
         }
+        function toggleDisplay(objectID){
+		   var object = document.getElementById(objectID);
+		   if(object.className == 'showText') object.className = 'hideText';
+		   else object.className = 'showText';
+		   return;
+		}
     </script>
     <STYLE TYPE="text/css">
         .popper {
@@ -116,18 +127,27 @@
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Earnings</a>
             </TD>
         </tr>
+        <%int i = 0;%>
         <%boolean even = false;%>
         <rsc:iterator list="<%=rsc%>" id="resultRow">
             <tr class="<%=even?"dark":"light"%>">            
+            <TD class="value">
+            <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
+	            <a href="javascript:toggleDisplay('ref_<%=i%>');" class="statLink"><img src="/i/interface/open.gif" alt="open" border="0" /></a>
+                <%i++;%>
+			<% }%>
+            </TD>
             <TD class="value"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
             <TD class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
             <TD class="value"><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
             </tr>
+            
             <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
-	            <tr class="<%=even?"dark":"light"%>">            
-	            <TD class="value">     +<rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
-	            <TD class="value">     +<rsc:item name="ref_payment_type_desc" row="<%=resultRow%>"/></TD>
-	            <TD class="value">     +<rsc:item name="ref_earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
+	            <!--tr class="<%=even?"dark":"light"%>" id="ref_<%=i%>"-->
+	            <tr class="showText" id="ref_<%=i%>">            
+	            <TD class="value">+<rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
+	            <TD class="value">+<rsc:item name="ref_payment_type_desc" row="<%=resultRow%>"/></TD>
+	            <TD class="value">+<rsc:item name="ref_earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
 	            </tr>
 			<% }%>
             <%even = !even;%>
