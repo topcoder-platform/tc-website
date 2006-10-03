@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib uri="pacts.tld" prefix="pacts-tag" %>
+<%@ taglib uri="pacts.tld" prefix="pacts" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -28,7 +28,7 @@
 		</tr>
 		<tr>
 			<td><b>User</b></td>
-			<td><pacts-tag:handle coderId="${payment.header.user.id}" handle="${payment.header.user.handle}"/></td>
+			<td><pacts:handle coderId="${payment.header.user.id}" handle="${payment.header.user.handle}"/></td>
 		</tr>
 		<tr>		
 			<td><b>Description:</b></td>
@@ -154,7 +154,7 @@
 
 <br/>
 
-<a href="${pacts-tag:addAffidavitForPayment(payment.header.user.id, payment.header.id)}">Add an Affidavit for the Payment</a>
+<a href="${pacts:addAffidavitForPayment(payment.header.user.id, payment.header.id)}">Add an Affidavit for the Payment</a>
 <br/>
 <a href="PactsInternalServlet?module=AddAffidavit&user_id=${payment.header.user.id}&payment_id=${payment.header.id}">Add an Affidavit for the Payment</a>
 <br/>
