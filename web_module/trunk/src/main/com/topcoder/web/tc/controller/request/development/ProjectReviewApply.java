@@ -16,6 +16,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.throttle.Throttle;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
@@ -53,9 +54,13 @@ public class ProjectReviewApply extends Base {
     protected long projectId = 0;
     protected int phaseId = 0;
     RBoardApplication rBoardApplication = null;
+    private static final Throttle throttle = new Throttle(2, 2000);
 
     protected void developmentProcessing() throws TCWebException {
         try {
+            if (throttle.throttle(getRequest().getSession().getId())) {
+                throw new NavigationException("Request speed limit reached, please slow down.");
+            }
             projectId = Long.parseLong(getRequest().getParameter(Constants.PROJECT_ID));
             phaseId = Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID));
             int reviewTypeId = Integer.parseInt(getRequest().getParameter(Constants.REVIEWER_TYPE_ID));
