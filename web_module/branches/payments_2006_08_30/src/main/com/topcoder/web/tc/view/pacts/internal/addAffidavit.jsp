@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib uri="pacts.tld" prefix="pacts-tag" %>
+<%@ taglib uri="pacts.tld" prefix="pacts" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -30,18 +30,20 @@
 <c:if test="${not empty payment and payment.header.algorithmRoundId > 0}">
 	<input type="hidden" name="round_id" value="${payment.header.algorithmRoundId}">
 </c:if>
-		<table cellpadding=20" cellspacing="2" border="0">
+		<table cellpadding=2" cellspacing="2" border="0">
 		<tr>
-	        <td colspan="2"><span class="bigRed">
-    	    	<tc-webtag:errorIterator id="err" name="error"><%=err%><br></tc-webtag:errorIterator></span>
+	        <td colspan="2">
+    	    	<tc-webtag:errorIterator id="err" name="error">
+    	    		<font color="#FF0000"><%=err%></font><br/>
+    	    	</tc-webtag:errorIterator>
         	</td>
         </tr>
 		<tr>
-			<td>User</td>
-			<td><pacts-tag:handle coderId="${user.id}" handle="${user.handle}"/></td>
+			<td><b>User</b></td>
+			<td><a href="${pacts:viewUser(user.id)}"><c:out value="${user.handle}" /></a></td>			
 		</tr>
 		<tr>
-			<td>Associated Payment:</td>
+			<td><b>Associated Payment:</b></td>
 			<td>
 				<c:choose>
 					<c:when test="${empty payment}">
@@ -54,25 +56,25 @@
 			</td>
 		</tr>
 		<tr>
-			<td>Notarized:</td>
+			<td><b>Notarized:</b></td>
 			<td class="status">
 				<tc-webtag:radioButton name="is_notarized" value="yes"/>Yes<br/>
 				<tc-webtag:radioButton name="is_notarized" value="no"/>No			
 		</td></tr>
 		<tr>
-			<td>Status:</td>
+			<td><b>Status:</b></td>
 			<td>
             	<tc-webtag:rscSelect name="affidavit_status_id" list='${statusList}' fieldText="status_desc" 
             		fieldValue="status_id" useTopValue="true" topValue="-1" topText="Select Status"/>
 			</td>
 		</tr>
 		<tr>
-		<td>Description:</td>
+		<td><b>Description:</b></td>
 		<td>
 			<tc-webtag:textInput name="affidavit_desc" size="60" editable="true" />
 		</td></tr>
 		<tr>		
-			<td>Type:</td>
+			<td><b>Type:</b></td>
 			<td>
             	<tc-webtag:rscSelect name="affidavit_type_id" list='${typeList}' fieldText="affidavit_type_desc" 
             		fieldValue="affidavit_type_id" useTopValue="true" topValue="-1" topText="Select Type"/>
@@ -81,7 +83,7 @@
 		</tr>
 <c:if test="${empty payment}">
 		<tr>
-			<td>Round:</td>
+			<td><b>Round:</b></td>
 			<td>
 	            <tc-webtag:rscSelect name="round_id" list='${roundList}' fieldText="name" 
 	            	fieldValue="round_id" useTopValue="true" topValue="-1" topText="No Round"/>
@@ -89,7 +91,7 @@
 		</tr>
 </c:if>		
         <tr>
-	        <td>Text:
+	        <td><b>Text:</b>
 	        </td>
 	        <td>        
 		        If empty, it will be figured out from the type chosen.
