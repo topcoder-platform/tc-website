@@ -59,7 +59,7 @@ public class ProjectReviewApply extends Base {
     protected void developmentProcessing() throws TCWebException {
         try {
             if (throttle.throttle(getRequest().getSession().getId())) {
-                throw new NavigationException("Request speed limit reached, please slow down.");
+                throw new NavigationException("Request rate has exceeded allowable limit.");
             }
             projectId = Long.parseLong(getRequest().getParameter(Constants.PROJECT_ID));
             phaseId = Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID));

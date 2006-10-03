@@ -10,6 +10,7 @@ import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.throttle.Throttle;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -39,6 +40,8 @@ public abstract class BaseServlet extends HttpServlet {
     public static final String SESSION_INFO_KEY = "sessionInfo";
 
     private static final Logger log = Logger.getLogger(BaseServlet.class);
+
+    private static final Throttle throttle = new Throttle(4, 2000);
 
     /**
      * Initializes the servlet.
@@ -126,6 +129,12 @@ public abstract class BaseServlet extends HttpServlet {
             try {
 
                 request.setCharacterEncoding("utf-8");
+
+
+                if (throttle.throttle(request.getSession().getId())) {
+                    throw new NavigationException("Request rate has exceeded allowable limit.");
+                }
+
                 if (log.isDebugEnabled()) {
                     log.debug("content type: " + request.getContentType());
                 }
