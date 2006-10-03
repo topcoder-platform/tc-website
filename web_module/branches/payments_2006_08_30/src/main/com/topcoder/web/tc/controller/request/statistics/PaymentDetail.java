@@ -17,6 +17,7 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
 
 import java.util.Map;
@@ -112,6 +113,10 @@ public class PaymentDetail extends BaseProcessor {
                 Integer.parseInt(endRank));
 
         // sets attributes for the jsp
+        SortInfo s = new SortInfo();
+        s.addDefault(3, "asc"); //due_date
+        getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+        
         getRequest().setAttribute("payment_detail", rsc);
         setNextPage(Constants.VIEW_PAYMENT_DETAIL_PAGE);
         setIsNextPageInContext(true);
