@@ -188,8 +188,9 @@ number is not greater than k, we have to increment our return value. So we
 get the following algorithm:
 <pre>
 int howMuch(vector &lt;string&gt; str, int k) {
-        string s; for(int i=0;i&lt;str.size();++i) s+=str[i]; int
-n=s.size();
+        string s; 
+        for(int i=0;i&lt;str.size();++i) s+=str[i]; 
+        int n=s.size();
         int ret=0;
         for(int a=0;a&lt;n;++a) for(int b=a;b&lt;n;++b) {
                 int len=b-a+1;
@@ -414,16 +415,16 @@ int minSplitNumber(int width, int height, int nTiles) {
                 int b=nTiles/a;
                 if(a&lt;=width&&b&lt;=height||a&lt;=height&&b&lt;=width) {
                         if(a==width&&b==height||a==height&&b==width)
-ret=min(ret,0);
+                            ret=min(ret,0);
                         else if(a==width||a==height||b==width||b==height)
-ret=min(ret,1);
+                            ret=min(ret,1);
                         else ret=min(ret,2);
                 }
         }
         return ret==3?-1:ret;
 }
 </pre>
-Another approach that many coders took during the contest is handling case by
+Another approach a lot of coders took during the contest is handling case by
 case. If we take this approach, we get the following solution:
 <pre>
 int minSplitNumber(int width, int height, int nTiles) {
@@ -433,7 +434,7 @@ int minSplitNumber(int width, int height, int nTiles) {
         for(int a=1;a*a&lt;=nTiles;++a) if(nTiles%a==0) {
                 int b=nTiles/a;
                 if(a&lt;=width&&b&lt;=height||a&lt;=height&&b&lt;=width)
-return 2;
+        return 2;
         }
         return -1;
 }
@@ -575,14 +576,9 @@ int minMoves(string s) {
        
         int leftpos=0,leftval=0,rightpos=0,rightval=0;
         for(char c='a';c&lt='z';++c) if(have[c]) {
-                int
-nleftval=min(leftval+abs(last[c]-leftpos),rightval+abs(last[c]-rightpos))+ab
-s(first[c]-last[c])+cnt[c];
-                int
-nrightval=min(leftval+abs(first[c]-leftpos),rightval+abs(first[c]-rightpos))
-+abs(last[c]-first[c])+cnt[c];
-       
-leftpos=first[c],leftval=nleftval,rightpos=last[c],rightval=nrightval;
+                int nleftval=min(leftval+abs(last[c]-leftpos),rightval+abs(last[c]-rightpos))+abs(first[c]-last[c])+cnt[c];
+                int nrightval=min(leftval+abs(first[c]-leftpos),rightval+abs(first[c]-rightpos))+abs(last[c]-first[c])+cnt[c];
+                leftpos=first[c], leftval=nleftval, rightpos=last[c], rightval=nrightval;
         }
         return min(leftval,rightval);
 }
@@ -723,7 +719,7 @@ vector &lt;int&gt; sortArray(vector &lt;int&gt; data) {
                 for(int i=0;i&lt;data.size();++i) {
                         if(ret.size()&gt;0&&ret.back()+1==data[i]) continue;
                         if(data[i]==data[0]&&data[0]+1==data.back())
-continue;
+                continue;
                         ret.push_back(data[i]);
                         data.erase(data.begin()+i);
                         break;
