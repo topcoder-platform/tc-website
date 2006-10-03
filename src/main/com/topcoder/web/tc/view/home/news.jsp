@@ -26,6 +26,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>10.03.06<br>10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">Appeals statistics on member profiles and <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">Record Book</A></span><br><br>
+      We've added "Appeals" and "Appeals Success Rate" to the member profiles for component design and development, as well as new <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">Record Book</A> listings for "Highest Appeal Success Percentage".
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">Record Book</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="506132" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.02.06<br>5:00 PM</td>
      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA SRM 321 chat session</A></span><br><br>
       NSA will be in the arena tonight at 8:00 PM, just prior to SRM 321, to discuss working there.
