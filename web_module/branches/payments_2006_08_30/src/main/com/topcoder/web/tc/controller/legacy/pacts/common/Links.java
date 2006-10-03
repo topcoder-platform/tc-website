@@ -18,5 +18,9 @@ public class Links implements PactsConstants {
 	public static String addAffidavitForPayment(long userId, long paymentId) {
 		return createLink("AddAffidavit", USER_ID, userId + "", PAYMENT_ID, paymentId + "");
 	}
+
+	public static String viewUser(long userId) {
+		return PactsConstants.INTERNAL_SERVLET_URL + "?t=view&c=user&" + USER_ID + "=" + userId; 
+	}
 	
 }

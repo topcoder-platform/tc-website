@@ -15,22 +15,6 @@
 
     <uri>pacts.tld</uri>
 
-    <tag>
-        <name>handle</name>
-        <tag-class>com.topcoder.web.tc.view.pacts.internal.tag.HandleTag</tag-class>
-        <body-content>empty</body-content>
-        <attribute>
-            <name>coderId</name>
-            <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-        <attribute>
-            <name>handle</name>
-            <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-    </tag>
-
     <function>
         <name>addAffidavit</name>
         <function-class>com.topcoder.web.tc.controller.legacy.pacts.common.Links</function-class>
@@ -43,6 +27,13 @@
         <function-class>com.topcoder.web.tc.controller.legacy.pacts.common.Links</function-class>
         <function-signature>
             String addAffidavitForPayment(long, long)
+        </function-signature>
+    </function>
+    <function>
+        <name>viewUser</name>
+        <function-class>com.topcoder.web.tc.controller.legacy.pacts.common.Links</function-class>
+        <function-signature>
+            String viewUser(long)
         </function-signature>
     </function>
 

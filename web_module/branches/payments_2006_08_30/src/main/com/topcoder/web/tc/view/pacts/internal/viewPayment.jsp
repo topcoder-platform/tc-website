@@ -28,7 +28,7 @@
 		</tr>
 		<tr>
 			<td><b>User</b></td>
-			<td><pacts:handle coderId="${payment.header.user.id}" handle="${payment.header.user.handle}"/></td>
+			<td><a href="${pacts:viewUser(payment.header.user.id)}"><c:out value="${payment.header.user.handle}" /></td>
 		</tr>
 		<tr>		
 			<td><b>Description:</b></td>
