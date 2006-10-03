@@ -30,17 +30,30 @@
     </script>
 </HEAD>
 
-<BODY>
-<jsp:include page="../top.jsp"/>
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-<TR>
-<TD WIDTH="180" VALIGN="top">
-    <jsp:include page="../includes/global_left.jsp">
-        <jsp:param name="node" value="algo_recordbook"/>
-    </jsp:include>
-</TD>
-<TD WIDTH="10" VALIGN="top"><IMG src="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-<TD CLASS="bodyText" WIDTH="100%" VALIGN="top">
+<body>
+
+<jsp:include page="../top.jsp" >
+    <jsp:param name="level1" value=""/>
+</jsp:include>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+   <tr valign="top">
+<%-- Left Column Begins--%>
+        <td width="180">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="algo_recordbook"/>
+            </jsp:include>
+        </td>
+<%-- Left Column Ends --%>
+
+<%-- Center Column Begins --%>
+<td width="100%" align="center" class="bodyColumn">
+
+
+
+
+
+
 <IMG src="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"/><BR/>
 <!-- BEGIN BODY -->
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
@@ -88,15 +101,15 @@
                                     <IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                             </TR>
                             <TR VALIGN="middle">
-                                <TD class="statText">&nbsp;</TD>
-                                <TD class="statText">&nbsp;</TD>
-                                <TD class="statText">Handle</TD>
-                                <TD class="statText">Successful Challenges</TD>
-                                <TD class="statText">Failed Challenges</TD>
-                                <TD class="statText">Net Challenge Points</TD>
-                                <TD class="statText">Positive Challenge Points</TD>
-                                <TD class="statText">Division</TD>
-                                <TD class="statText">Event</TD>
+                                <td class="statText" align="center" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;">&nbsp;</TD>
+                                <td class="statText" align="center" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;">&nbsp;</TD>
+                                <td class="statText" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;" width="14%">Handle</TD>
+                                <td class="statText" align="center" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;" width="14%">Successful Challenges</TD>
+                                <td class="statText" align="center" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;" width="14%">Failed Challenges</TD>
+                                <td class="statText" align="center" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;" width="14%">Net Challenge Points</TD>
+                                <td class="statText" align="center" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;" width="14%">Positive Challenge Points</TD>
+                                <td class="statText" align="center" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;" width="14%">Division</TD>
+                                <td class="statText" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;" width="14%">Event</TD>
                             </TR>
                             <TR>
                                 <TD COLSPAN="9" CLASS="smallFoot" WIDTH="1">
@@ -106,23 +119,23 @@
                                 <tr>
                                     <td class="statText" align="right">
                                         <rsc:item name="rank" row="<%=row%>"/>&#160;</td>
-                                    <td class="statText" align="right">
+                                    <td class="statText" nowrap="nowrap">
                                         <A HREF="/stat?c=coder_room_stats&amp;rd=<rsc:item name="round_id" row="<%=row%>"/>&cr=<rsc:item name="coder_id" row="<%=row%>"/>" CLASS="statText"><IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0">&#160;
                                         </A>
                                     </td>
-                                    <td class="statText" width="20%">
+                                    <td class="statText">
                                         <tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=HandleTag.ALGORITHM%>'/></td>
-                                    <td class="statText" width="10%" align="right">
+                                    <td class="statText" align="center">
                                         <rsc:item name="challenges_made_successful" row="<%=row%>"/></td>
-                                    <td class="statText" width="10%" align="right">
+                                    <td class="statText" align="center">
                                         <rsc:item name="challenges_made_failed" row="<%=row%>"/></td>
-                                    <td class="statText" width="10%" align="right">
+                                    <td class="statText" align="center">
                                         <rsc:item name="challenge_points" row="<%=row%>" format="#.##"/></td>
-                                    <td class="statText" width="10%" align="right">
+                                    <td class="statText" align="center">
                                         <rsc:item name="positive_challenge_points" row="<%=row%>" format="#.##"/></td>
-                                    <td class="statText" width="10%" align="right">
+                                    <td class="statText" align="center">
                                         <rsc:item name="division_desc" row="<%=row%>"/></td>
-                                    <td class="statText" width="20%">
+                                    <td class="statText">
                                         <a href="/stat?c=round_overview&amp;rd=<rsc:item name="round_id" row="<%=row%>"/>" class="statText">
                                             <rsc:item name="short_name" row="<%=row%>"/>
                                         </a>
@@ -150,23 +163,28 @@
     </TR>
 </TABLE>
 
-<p><br></p>
 
-<!-- END BODY -->
 
-</TD>
-<TD WIDTH="10"><IMG src="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-<TD WIDTH="180" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="180" HEIGHT="1" BORDER="0">
-    <jsp:include page="../public_right.jsp"/>
-</TD>
-<!-- Gutter -->
-<TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-<!-- Gutter Ends -->
-</TR>
-</TABLE>
-<jsp:include page="../foot.jsp"/>
+
+</td>
+<%-- Center Column Ends --%>
+
+<%-- Right Column Begins --%>
+         <td width="170">
+            <jsp:include page="../public_right.jsp">
+               <jsp:param name="level1" value="privatelabel"/>
+            </jsp:include>
+         </td>
+<%-- Right Column Ends --%>
+
+<%-- Gutter --%>
+         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+<%-- Gutter Ends --%>
+    </tr>
+</table>
+
+<jsp:include page="../foot.jsp" />
+
 </body>
+
 </html>
-
-
-
