@@ -94,8 +94,11 @@ public class PaymentDetail extends BaseProcessor {
         if (!(sortCol.equals("") || sortDir.equals(""))) {
             r.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
             r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
-            r.setProperty(DataAccessConstants.SORT_QUERY, Constants.ALGO_COMPETITION_HISTORY_QUERY);
+        } else {
+            r.setProperty(DataAccessConstants.SORT_DIRECTION, "desc");
+            r.setProperty(DataAccessConstants.SORT_COLUMN, "3"); // date_due
         }
+        r.setProperty(DataAccessConstants.SORT_QUERY, "payment_detail");
         r.setProperty(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
         r.setProperty(Constants.PAYMENT_TYPE_ID, getRequest().getParameter(Constants.PAYMENT_TYPE_ID));
         r.setContentHandle("payment_detail");
@@ -114,7 +117,7 @@ public class PaymentDetail extends BaseProcessor {
 
         // sets attributes for the jsp
         SortInfo s = new SortInfo();
-        s.addDefault(3, "asc"); //due_date
+        s.addDefault(3, "desc"); //due_date
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
         
         getRequest().setAttribute("payment_detail", rsc);

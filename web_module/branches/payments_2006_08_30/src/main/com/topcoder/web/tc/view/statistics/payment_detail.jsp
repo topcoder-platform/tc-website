@@ -156,10 +156,10 @@
 	        <tr class="dark">
 	            <TD CLASS="header" width="5%"></TD>
 	            <TD CLASS="header" width="10%">
-	                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Description</a>
+	                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Date</a>
 	            </TD>
 	            <TD CLASS="header" width="55%">
-	                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Description</a>
+	                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Description</a>
 	            </TD>
 	            <TD CLASS="header" width="20%">
 	                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Payment Type</a>
