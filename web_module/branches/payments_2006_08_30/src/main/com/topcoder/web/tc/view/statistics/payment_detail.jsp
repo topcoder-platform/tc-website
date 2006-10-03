@@ -134,8 +134,8 @@
             <tr class="<%=even?"dark":"light"%>">            
             <TD class="value">
             <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
-	            <a href="javascript:toggleDisplay('ref_<%=i%>');" class="statLink"><img src="/i/interface/open.gif" alt="open" border="0" /></a>
                 <%i++;%>
+	            <a href="javascript:toggleDisplay('ref_<%=i%>');" class="statLink"><img src="/i/interface/open.gif" alt="open" border="0" /></a>
 			<% }%>
             </TD>
             <TD class="value"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
@@ -144,7 +144,6 @@
             </tr>
             
             <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
-	            <!--tr class="<%=even?"dark":"light"%>" id="ref_<%=i%>"-->
 	            <tr class="showText" id="ref_<%=i%>">            
 	            <TD class="value"></TD>
 	            <TD class="value">+<rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
