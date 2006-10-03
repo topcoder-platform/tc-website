@@ -1244,8 +1244,16 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
 
     // Pulls up the Add Affidavit Page
+    /**
+     * @deprecated
+     */
     private void doAddAffidavit(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+    	log.warn("Using deprecated processor, please use module=AddAffidavit insted");
+    	forward("/PactsInternalServlet?module=AddAffidavit&user_id" + request.getParameter(USER_ID) +
+    			(request.getParameter(PAYMENT_ID) == null? "" : 
+    				"&payment_id=" + request.getParameter(PAYMENT_ID)), request, response);
+    	
+/*
         log.debug("doAddAffidavit<br>");
 
         // Give the JSP the User object
@@ -1280,14 +1288,18 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         request.setAttribute(ROUND_LIST, map.get(ROUND_LIST));
 
         forward(INTERNAL_ADD_AFFIDAVIT_JSP, request, response);
-
+*/
     }
 
 
     // Trys to add the Affidavit.  If successful, pulls up the View Affidavit, otherwise returns
     // the user to the Add Affidavit Page
+    /**
+     * @deprecated
+     */ 
     private void doAddAffidavitPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+    	throw new IllegalArgumentException("Deprecated. It never should came here!!");
+/*
         try {
             log.debug("doAddAffidavitPost<br>");
 
@@ -1351,7 +1363,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                 out.println("</body></html>");
                 out.flush();
             }
-        }
+        }*/
     }
 
 

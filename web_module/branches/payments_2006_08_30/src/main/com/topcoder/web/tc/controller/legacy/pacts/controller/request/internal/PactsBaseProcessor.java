@@ -30,4 +30,12 @@ public abstract class PactsBaseProcessor extends BaseProcessor{
 		return getRequest().getParameter(name) == null? -1 : 
 				Long.parseLong(getRequest().getParameter(name));
 	}
+	
+	protected long getLongParameter(String name) {
+		if (getRequest().getParameter(name) == null) {
+			throw new IllegalArgumentException("Missing parameter " + name);
+		}
+		return Long.parseLong(getRequest().getParameter(name));
+	}
+	
 }

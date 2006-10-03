@@ -15,13 +15,12 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
  */
 public class AddAffidavit extends PactsBaseProcessor implements PactsConstants {
 
-    protected void businessProcessing() throws TCWebException {
-    	long paymentId = getOptionalLongParameter(PAYMENT_ID);
-    	long roundId = getOptionalLongParameter(ROUND_ID);
-    	long userId = Long.parseLong(getRequest().getParameter(USER_ID));
-    	
+    protected void businessProcessing() throws TCWebException {    	
         try {
-            DataInterfaceBean dib = new DataInterfaceBean();
+        	long paymentId = getOptionalLongParameter(PAYMENT_ID);
+        	long userId = getLongParameter(USER_ID);
+
+        	DataInterfaceBean dib = new DataInterfaceBean();
 
         	if (getRequest().getParameter("affidavit_desc") != null) {
         		String desc = (String) getRequest().getParameter("affidavit_desc");
@@ -40,19 +39,18 @@ public class AddAffidavit extends PactsBaseProcessor implements PactsConstants {
         		}
         		if (typeId < 0) {
         			addError("error", "Please select a type");
-        		}
-        		
-        		
+        		}        		        		
 
         		if (hasErrors()) {
-            		setDefault("affidavit_desc", getRequest().getParameter("affidavit_desc"));
-            		setDefault("affidavit_status_id", getRequest().getParameter("affidavit_status_id"));
-            		setDefault(IS_NOTARIZED, getRequest().getParameter(IS_NOTARIZED));
-            		setDefault("affidavit_type_id", getRequest().getParameter("affidavit_type_id"));
-            		setDefault("round_id", getRequest().getParameter("round_id"));
+            		setDefault("affidavit_desc", desc);
+            		setDefault("affidavit_status_id", statusId + "");
+            		setDefault("is_notarized", notarized);
+            		setDefault("affidavit_type_id", typeId + "");
             		setDefault("text", getRequest().getParameter("text"));        		
             	} else {     	
-	                // Save the Affidavit
+                	long roundId = getOptionalLongParameter(ROUND_ID);
+
+                	// Save the Affidavit
 	                Affidavit a = new Affidavit(
 	                        // If the round id is invalid, there is no round.
 	                		roundId < 0 ? null : new Long(roundId),
@@ -60,7 +58,7 @@ public class AddAffidavit extends PactsBaseProcessor implements PactsConstants {
 	                        statusId,
 	                        desc,
 	                        typeId,
-	                        false,notarized.equalsIgnoreCase("yes"));
+	                        false, notarized.equalsIgnoreCase("yes"));
 	
 	
 	                String text = "".equals(StringUtils.checkNull(getRequest().getParameter("text"))) ? null : getRequest().getParameter("text");
@@ -70,6 +68,8 @@ public class AddAffidavit extends PactsBaseProcessor implements PactsConstants {
 	                return;
             	}
 
+        	} else {
+        		setDefault("is_notarized", "no");
         	}
         	
 
@@ -93,7 +93,7 @@ public class AddAffidavit extends PactsBaseProcessor implements PactsConstants {
                 setDefault("affidavit_desc", "Affidavit for " + payment.getHeader().getDescription());
         	}
         	
-            setNextPage("/pacts/internal/addAffidavitNew.jsp");
+            setNextPage(INTERNAL_ADD_AFFIDAVIT_JSP);
             setIsNextPageInContext(true);
         } catch (Exception e) {
             throw new TCWebException(e);
