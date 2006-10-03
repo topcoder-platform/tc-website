@@ -76,15 +76,15 @@
 
                         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                             <TR>
-                                <TD COLSPAN="8" CLASS="smallFoot">
+                                <TD COLSPAN="9" CLASS="smallFoot">
                                     <IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"></TD>
                             </TR>
                             <TR>
-                                <TD background="/i/steel_gray_bg.gif" COLSPAN="8" CLASS="statTextBig" VALIGN="middle" HEIGHT="18">
+                                <TD background="/i/steel_gray_bg.gif" COLSPAN="9" CLASS="statTextBig" VALIGN="middle" HEIGHT="18">
                                     &nbsp;Challenge Success</TD>
                             </TR>
                             <TR>
-                                <TD COLSPAN="8" CLASS="smallFoot" WIDTH="1">
+                                <TD COLSPAN="9" CLASS="smallFoot" WIDTH="1">
                                     <IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                             </TR>
                             <TR VALIGN="middle">
@@ -95,10 +95,11 @@
                                 <TD class="statText">Failed Challenges</TD>
                                 <TD class="statText">Net Challenge Points</TD>
                                 <TD class="statText">Positive Challenge Points</TD>
+                                <TD class="statText">Division</TD>
                                 <TD class="statText">Event</TD>
                             </TR>
                             <TR>
-                                <TD COLSPAN="8" CLASS="smallFoot" WIDTH="1">
+                                <TD COLSPAN="9" CLASS="smallFoot" WIDTH="1">
                                     <IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                             </TR>
                             <rsc:iterator list="<%=rsc%>" id="row">
@@ -119,6 +120,8 @@
                                         <rsc:item name="challenge_points" row="<%=row%>" format="#.##"/></td>
                                     <td class="statText" width="10%" align="right">
                                         <rsc:item name="positive_challenge_points" row="<%=row%>" format="#.##"/></td>
+                                    <td class="statText" width="10%" align="right">
+                                        <rsc:item name="division_desc" row="<%=row%>"/></td>
                                     <td class="statText" width="20%">
                                         <a href="/stat?c=round_overview&amp;rd=<rsc:item name="round_id" row="<%=row%>"/>" class="statText">
                                             <rsc:item name="short_name" row="<%=row%>"/>
@@ -127,11 +130,11 @@
                                 </tr>
                             </rsc:iterator>
                             <TR>
-                                <TD background="/i/steel_blue_bg.gif" CLASS="statText" COLSPAN="8">
+                                <TD background="/i/steel_blue_bg.gif" CLASS="statText" COLSPAN="9">
                                     <IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                             </TR>
                             <TR>
-                                <TD CLASS="statText" COLSPAN="8">
+                                <TD CLASS="statText" COLSPAN="9">
                                     <IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="16" BORDER="0"></TD>
                             </TR>
                         </TABLE>
