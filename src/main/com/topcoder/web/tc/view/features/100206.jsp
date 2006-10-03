@@ -128,7 +128,7 @@ A concept is in essence a set of type requirements, such as functions that must 
 The Java Web Spider component traverses graph-like structures, such as web pages.  The priority in which vertices are crawled is decided by the CrawlStrategy interface, which just happens to use Strategy.  The CrawlStrategy interface abstracts the manner in which the next vertex to crawl is obtained, as well as the way in which to-be-crawled vertices are stored, thus allowing different forms of crawling to be used interchangeably.  The interface is used, by the Crawler class, in an iterative manner, through multiple calls to getNextAddress and addAddress/addAddressList.  Therefore, the respective C++ implementations would be iterators.  The specific concepts that the iterators will be required to model must be determined and specified by the entity that uses them:
 
 <pre class="codeBox">
-template <typename CrawlingIterator>
+template &lt;typename CrawlingIterator&gt;
 struct crawler
 {
 	...
@@ -138,7 +138,7 @@ struct crawler
 The Crawler class only uses its associated CrawlStrategy to obtain the next vertex to crawl, and to queue more vertices for crawling.  The vertex itself is not modified in any way, so the CrawlingIterator type must model the Readable Iterator concept.  Also, the Crawler class only increments, so the CrawlingIterator type must also model the Incrementable Iterator concept.  Using Boost Concept Check Library (BCCL), the crawler&lt;...&gt; class becomes:
 
 <pre class="codeBox">
-template <typename CrawlingIterator>
+template &lt;typename CrawlingIterator&gt;
 struct crawler
 {
 	// This macro makes sure the type, specified by the first argument, is a model
