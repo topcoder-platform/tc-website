@@ -7,6 +7,20 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 <%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>10.03.06<br>6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home">2 new fields in the Algorithm Record Book</A></span><br><br>
+      We recently added <A href="/stat?c=rated_events">Most Rated Events</A> and <A href="/stat?c=successful_challenges">Challenge Success for a Single Match</A> to the Algorithm Record Book.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=statistics&d2=recordbook_home">Record Book</A>&#160;|&#160;
+        <tc-webtag:forumLink forumID="506133" message="discuss this"/> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td>
+</tr>
+
+<%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
         <br>10.03.06<br>3:30 PM</td>
@@ -203,21 +217,5 @@ In this problem set coders faced an easy first problem, an easy second - which h
     <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm15">full story</A> |
     <tc-webtag:forumLink forumID="506037" message="discuss this"/> |
     <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>
-        09.25.06<br>2:30 PM</td>
-    <td class="newsTextCell"><span class="newsTitle">
-    <A href="/tc?module=SurveyResults&sid=219">TCCC06 t-shirt quote vote results</A>
-    </span><br><br>
-        "I have not failed. I've just found 10,000 ways that won't work." - Wernie
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=SurveyResults&sid=219">results</A> |
-    <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512330">discuss this</A> |
-    <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
 </td></tr>
 
