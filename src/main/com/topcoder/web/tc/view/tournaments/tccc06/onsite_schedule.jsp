@@ -64,7 +64,7 @@
 <tr><td class="formTextEven" nowrap="nowrap">1:30pm - 3:30pm</td><td class="formTextEven">Algorithm Championship Round</td></tr>
 <tr><td class="formTextOdd" nowrap="nowrap">3:30pm - 4:00pm</td><td class="formTextOdd">All Champion Announcements</td></tr>
 <tr><td class="formTextEven" nowrap="nowrap">4:00pm - 5:00pm</td><td class="formTextEven">Media Hour / Press Conference</td></tr>
-<tr><td class="formTextOdd" nowrap="nowrap">7:00pm - 9:00pm</td><td class="formTextOdd">Awards Reception</td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">7:00pm - 10:00pm</td><td class="formTextOdd">Awards Reception</td></tr>
 </table>
 
         </div>
