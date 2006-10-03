@@ -50,6 +50,7 @@
             Add throttle so that the speed as which users can use the site is limited. (It's unlikely to be relevant in
             any normal usage scenario)
         </li>
+        <li>Add Most successful challenges in a match recordbook page.</li>
     </ul>
 </p>
 
