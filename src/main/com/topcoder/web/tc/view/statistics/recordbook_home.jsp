@@ -106,10 +106,18 @@
                     <a href="/stat?c=division_wins&dn=2">Division II</a>
                 </td>
                 <td>
+                    <strong>Challenge Success for a Single Match</strong><br>
+                    This chart shows the coders that have gotten the most successful challenges in a single match.<br>
+                    <a href="/stat?c=successful_challenges">Overall</a>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td>
                     <strong>Most Rated Events</strong><br/>
                     This chart shows the coders that have participated in the most rated events.<br/>
                     <a href="/stat?c=rated_events">Overall</a>
                 </td>
+                <td>&nbsp;</td>
             </tr>
         </table>
 
