@@ -16,12 +16,14 @@ public class RequestRateExceededException extends NavigationException {
         super("Request rate has exceeded allowable limit.");
         this.handle = "unknown";
         this.sessionId = sessionId;
+        this.isVerbose = false;
     }
 
     public RequestRateExceededException(String sessionId, String handle) {
         super("Request rate has exceeded allowable limit.");
         this.sessionId = sessionId;
         this.handle = handle;
+        this.isVerbose = false;
     }
 
     public String getSessionId() {

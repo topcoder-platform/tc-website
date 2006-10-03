@@ -1,11 +1,16 @@
 <%@ page import="com.topcoder.web.common.BaseServlet" %>
+<%@ page import="com.topcoder.web.common.TCWebException" %>
 <%@ page import="java.util.Date" %>
 <%@ page language="java"
          session="true"
          isErrorPage="true"
         %>
 <% if (exception == null) exception = (Throwable) request.getAttribute("exception");
-    if (exception != null) exception.printStackTrace();
+    if (exception != null) {
+        if (!(exception instanceof TCWebException) || ((TCWebException) exception).isVerbose()) {
+            exception.printStackTrace();
+        }
+    }
     String message = (String) request.getAttribute(BaseServlet.MESSAGE_KEY);
     String url = (String) request.getAttribute(BaseServlet.URL_KEY);
 %>

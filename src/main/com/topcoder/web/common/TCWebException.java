@@ -53,4 +53,8 @@ public class TCWebException extends TCException {
         super(message, nestedException);
     }
 
+    public boolean isVerbose() {
+        return isVerbose;
+    }
+
 }
