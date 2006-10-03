@@ -41,8 +41,10 @@
         }
         function toggleDisplay(objectID){
 		   var object = document.getElementById(objectID);
-		   if(object.className == 'showText') object.className = 'hideText';
-		   else object.className = 'showText';
+		   if(object.className == 'dark hideText') object.className = 'dark showText';
+		   else if(object.className == 'dark showText') object.className = 'dark hideText';
+		   else if(object.className == 'light showText') object.className = 'light hideText';
+		   else object.className = 'light showText';
 		   return;
 		}
     </script>
@@ -131,7 +133,7 @@
         <%int i = 0;%>
         <%boolean even = false;%>
         <rsc:iterator list="<%=rsc%>" id="resultRow">
-            <tr class="showText">            
+            <tr class="<%=even?"dark":"light"%>">            
             <TD class="value">
             <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
                 <%i++;%>
@@ -144,7 +146,7 @@
             </tr>
             
             <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
-	            <tr class="showText" id="ref_<%=i%>">            
+	            <tr class="<%=even?"dark":"light"%> showText" id="ref_<%=i%>">            
 	            <TD class="value"></TD>
 	            <TD class="value">+<rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
 	            <TD class="value">+<rsc:item name="ref_payment_type_desc" row="<%=resultRow%>"/></TD>
