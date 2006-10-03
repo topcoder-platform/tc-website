@@ -46,26 +46,6 @@
     listing of the available feeds. Please keep in mind that none of the feeds provide ordered data.
 </p>
 
-<p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Coder List</span><br/>
-    This feed provides a list of coders who have competed in Algorithm, Development or Design competitions.
-    It includes the following fields:
-    <ul>
-        <li>user id</li>
-        <li>handle</li>
-        <li>algorithm rating</li>
-        <li>algorithm volatility</li>
-        <li>number of rated algorithm events</li>
-        <li>design rating</li>
-        <li>design volatility</li>
-        <li>number of rated design events</li>
-        <li>development rating</li>
-        <li>development volatility</li>
-        <li>number of rated development events</li>
-    </ul>
-
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_coder_list</strong>
-</p>
-
 <p style="border-top: 1px solid #999999;"><span class="bodySubtitle">High School Rating History</span><br/>
     This feed provides data about the high school rating history for a particular competitor.
     It includes the following fields:
