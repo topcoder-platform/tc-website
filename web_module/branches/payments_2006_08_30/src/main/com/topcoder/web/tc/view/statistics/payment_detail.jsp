@@ -123,6 +123,13 @@
             <TD class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
             <TD class="value"><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
             </tr>
+            <% if (resultRow.getItem("ref_payment_type_desc") != null) {%>
+	            <tr class="<%=even?"dark":"light"%>">            
+	            <TD class="value">     +<rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
+	            <TD class="value">     +<rsc:item name="ref_payment_type_desc" row="<%=resultRow%>"/></TD>
+	            <TD class="value">     +<rsc:item name="ref_earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
+	            </tr>
+			<% }%>
             <%even = !even;%>
         </rsc:iterator>
     </TABLE>
