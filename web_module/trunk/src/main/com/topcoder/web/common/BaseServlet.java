@@ -41,7 +41,7 @@ public abstract class BaseServlet extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(BaseServlet.class);
 
-    private static final Throttle throttle = new Throttle(1, 10000);
+    private static final Throttle throttle = new Throttle(4, 2000);
 
     /**
      * Initializes the servlet.
@@ -130,10 +130,6 @@ public abstract class BaseServlet extends HttpServlet {
 
                 request.setCharacterEncoding("utf-8");
 
-
-                if (log.isDebugEnabled()) {
-                    log.debug("check session " + request.getSession().getId());
-                }
                 if (throttle.throttle(request.getSession().getId())) {
                     throw new NavigationException("Request rate has exceeded allowable limit.");
                 }
