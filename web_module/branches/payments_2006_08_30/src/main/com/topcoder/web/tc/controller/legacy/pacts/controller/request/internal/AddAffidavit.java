@@ -22,6 +22,11 @@ public class AddAffidavit extends PactsBaseProcessor implements PactsConstants {
 
         	DataInterfaceBean dib = new DataInterfaceBean();
 
+        	Payment payment = null;
+        	if (paymentId > 0) {
+                payment = new Payment(dib.getPayment(paymentId));
+        	}
+
         	if (getRequest().getParameter("affidavit_desc") != null) {
         		String desc = (String) getRequest().getParameter("affidavit_desc");
         		int statusId = Integer.parseInt(getRequest().getParameter("affidavit_status_id"));
@@ -60,7 +65,9 @@ public class AddAffidavit extends PactsBaseProcessor implements PactsConstants {
 	                        typeId,
 	                        false, notarized.equalsIgnoreCase("yes"));
 	
-	
+	                if (payment != null) {
+	                	a.setPayment(payment.getHeader());
+	                }
 	                String text = "".equals(StringUtils.checkNull(getRequest().getParameter("text"))) ? null : getRequest().getParameter("text");
 	                long affidavitId = dib.addAffidavit(a, text, null);
 	                setNextPage("/PactsInternalServlet?t=view&c=affidavit&affidavit_id="+affidavitId);
@@ -87,8 +94,7 @@ public class AddAffidavit extends PactsBaseProcessor implements PactsConstants {
         	map = dib.getRounds();
         	getRequest().setAttribute(ROUND_LIST, map.get(ROUND_LIST));
         
-        	if (paymentId > 0) {
-                Payment payment = new Payment(dib.getPayment(paymentId));            
+        	if (payment != null) {
                 getRequest().setAttribute("payment", payment);
                 setDefault("affidavit_desc", "Affidavit for " + payment.getHeader().getDescription());
         	}

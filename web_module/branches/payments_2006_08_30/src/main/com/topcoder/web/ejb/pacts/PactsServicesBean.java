@@ -2207,6 +2207,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (p != null) {
                 paymentId = makeNewPayment(c, p, p.payReferrer());
                 paymentStr = "" + paymentId;
+            } else {
+            	if (a.getPayment() != null) {
+            		paymentStr = "" + a.getPayment().getId();
+            	}
             }
             log.debug("in makeAffidavit payment, the paymentId is " + paymentId);
 

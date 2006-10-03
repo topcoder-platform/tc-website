@@ -28,8 +28,7 @@
   <input type="hidden" name="<%=PactsConstants.USER_ID%>" value="${user.id}"/>
   <input type="hidden" name="module" value="AddAffidavit"/>
 <c:if test="${not empty payment}">
-	<input type="hidden" name="payment_id" value="${payment.id}">
-	<input type="hidden" name="payment_h_id" value="${payment.header.id}">
+	<input type="hidden" name="payment_id" value="${payment.header.id}">
 	<c:if test="${payment.header.algorithmRoundId > 0}">
 		<input type="hidden" name="round_id" value="${payment.header.algorithmRoundId}">
 	</c:if>
