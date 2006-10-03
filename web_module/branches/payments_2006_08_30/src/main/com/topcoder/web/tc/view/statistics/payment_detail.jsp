@@ -146,7 +146,7 @@
             </tr>
             
             <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
-	            <tr class="<%=even?"dark":"light"%> showText" id="ref_<%=i%>">            
+	            <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
 	            <TD class="value"></TD>
 	            <TD class="value">*- <rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
 	            <TD class="value"><rsc:item name="ref_payment_type_desc" row="<%=resultRow%>"/></TD>
