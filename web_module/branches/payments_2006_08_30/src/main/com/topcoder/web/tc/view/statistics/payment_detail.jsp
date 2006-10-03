@@ -133,7 +133,7 @@
         <%int i = 0;%>
         <%boolean even = false;%>
         <rsc:iterator list="<%=rsc%>" id="resultRow">
-            <tr class="<%=even?"dark":"light"%>">            
+            <tr class="<%=even?"dark":"light"%> showText">            
             <TD class="value">
             <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
                 <%i++;%>
