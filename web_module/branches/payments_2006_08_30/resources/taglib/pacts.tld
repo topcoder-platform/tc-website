@@ -36,5 +36,12 @@
             String viewUser(long)
         </function-signature>
     </function>
+    <function>
+        <name>viewAffidavit</name>
+        <function-class>com.topcoder.web.tc.controller.legacy.pacts.common.Links</function-class>
+        <function-signature>
+            String viewAffidavit(long)
+        </function-signature>
+    </function>
 
 </taglib>
