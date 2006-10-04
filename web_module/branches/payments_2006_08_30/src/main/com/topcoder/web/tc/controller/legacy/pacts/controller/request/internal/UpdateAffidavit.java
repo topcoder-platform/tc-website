@@ -95,8 +95,7 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
                     		dib.affirmAffidavit(affidavitId, birthday, familyName, aged);
                     	} else {
                     		dib.affirmAffidavit(affidavitId, birthday);
-                    	}
-                    	
+                    	}                    	
                 	}
                     
                     setNextPage(Links.viewAffidavit(affidavitId));

@@ -1180,13 +1180,16 @@ public class DataInterfaceBean implements PactsConstants {
      */
     public void affirmAffidavit(long affidavitId, Date birthday, String familyName, int aged)
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
-
+    	SimpleDateFormat dfmt = new SimpleDateFormat(DATE_FORMAT_STRING);
     	AffidavitBean bean = new AffidavitBean();
 
         AffidavitWithText a = bean.getAffidavitWithText(affidavitId);
 
         if (a == null) {
             throw new NoObjectFoundException("Couldn't find affidavit " + affidavitId);
+        }
+        if (birthday != null) {
+        	a.getAffidavit().setBirthday(dfmt.format(birthday));
         }
 
         //first replace the aged
@@ -1202,7 +1205,6 @@ public class DataInterfaceBean implements PactsConstants {
                 " " + familyName + " " + a.getAffidavitText().substring(bIdx));
 
         // if we got here everything is good, we should affirm the affidavit
-        SimpleDateFormat dfmt = new SimpleDateFormat(DATE_FORMAT_STRING);
         affirmAffidavit(a.getAffidavit().getHeader().getId(), a.getAffidavitText(), dfmt.format(birthday));
     }
 
@@ -1219,16 +1221,20 @@ public class DataInterfaceBean implements PactsConstants {
      */
     public void affirmAffidavit(long affidavitId, Date birthday)
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
-
+    	
+    	SimpleDateFormat dfmt = new SimpleDateFormat(DATE_FORMAT_STRING);
     	AffidavitBean bean = new AffidavitBean();
 
         AffidavitWithText a = bean.getAffidavitWithText(affidavitId);
-
+        
         if (a == null) {
             throw new NoObjectFoundException("Couldn't find affidavit " + affidavitId);
         }
+        if (birthday != null) {
+        	a.getAffidavit().setBirthday(dfmt.format(birthday));
+        }
 
-        SimpleDateFormat dfmt = new SimpleDateFormat(DATE_FORMAT_STRING);
+        
         affirmAffidavit(a.getAffidavit().getHeader().getId(), a.getAffidavitText(), dfmt.format(birthday));
     }
 

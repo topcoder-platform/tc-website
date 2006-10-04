@@ -47,14 +47,17 @@ function toggleDiv(divId, state)
 }
 
 function statusChanged() {
-    var affirmed = document.f.affidavit_status_id.value == <%= PactsConstants.AFFIDAVIT_AFFIRMED_STATUS%>;
+    var affirming = document.f.affidavit_status_id.value == <%= PactsConstants.AFFIDAVIT_AFFIRMED_STATUS%>;
+    <c:if test="${isAffirmed}">
+    affirming = false;
+    </c:if>
     var fromIndia = false;
     <c:if test="${isFromIndia}">
     	fromIndia = true;
     </c:if>
-	toggleDiv('BirthdayRow', affirmed);
-	toggleDiv('FamilyNameRow', affirmed && fromIndia);
-	toggleDiv('AgedRow', affirmed && fromIndia);
+	toggleDiv('BirthdayRow', affirming);
+	toggleDiv('FamilyNameRow', affirming && fromIndia);
+	toggleDiv('AgedRow', affirming && fromIndia);
 }
 
 </script>    
@@ -66,12 +69,6 @@ function statusChanged() {
 <h1>PACTS</h1>
 <h2>Update Affidavit</h2>
 
-<form name="ajaxFields">
-   <input type="hidden" name="reference_type_id">
-   <input type="hidden" name="country" value="India">
-   
-   <input type="hidden" name="cr" value="${user.id}" >
-</form>
 
 <form name="f" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
   <input type="hidden" name="<%=PactsConstants.USER_ID%>" value="${user.id}"/>
