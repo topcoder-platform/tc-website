@@ -108,7 +108,7 @@ public class ForumConversion {
             }
 
             System.out.println("Start the forum conversion.");
-            //convert();
+            convert();
             System.out.println("All forums are converted correctly.");
         } catch (Exception ex) {
             System.err.println("Error occurred when converting the data.");
