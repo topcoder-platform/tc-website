@@ -11,7 +11,8 @@ import com.jivesoftware.forum.database.DbForumCategory;
 import com.jivesoftware.forum.database.DbForumFactory;
 import com.jivesoftware.forum.database.DbForumMessage;
 import com.jivesoftware.forum.database.DbForumThread;
-import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCResourceBundle;
+import com.topcoder.shared.util.sql.InformixSimpleDataSource;
 import com.topcoder.web.forums.model.TCUserManager;
 
 import java.io.IOException;
@@ -37,7 +38,12 @@ import java.util.Map;
  * @version 1.0
  */
 public class ForumConversion {
-    /**
+	/**
+     * Datasource containing the existing TCS attachments.
+     */
+    private static String datasourceName = null;
+	
+	/**
      * The directory all the attachments are placed in.
      */
     private static String fileDir = null;
@@ -86,16 +92,16 @@ public class ForumConversion {
 
     
     public static void main(String[] args) {
-        if (args.length != 2) {
-            System.out.println("SYNTAX: java ForumConversion <attachment_dir> <root_category_id>");
+        if (args.length != 3) {
+            System.out.println("SYNTAX: java ForumConversion <datasource> <attachment_dir> <root_category_id>");
             return;
         }
         
         try {
-            fileDir = args[0];
-            rootCategoryId = Long.parseLong(args[1]);
-            //tcConn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
-            tcConn = DBMS.getConnection();
+        	datasourceName = args[0];
+            fileDir = args[1];
+            rootCategoryId = Long.parseLong(args[2]);
+            tcConn = new InformixSimpleDataSource(new TCResourceBundle("DBMS").getProperty(datasourceName)).getConnection();
             
             if (!fileDir.endsWith("/")) {
                 fileDir = fileDir + "/";
