@@ -6,6 +6,19 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
+<%----------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.04.06<br>5:00 PM</td>
+     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SurveyResults&sid=220">andrey_atlas is the TCHS07 Logo Contest Winner!</A></span><br><br>
+        Congratulations to andrey_atlas!
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=SurveyResults&sid=220">results</A> | 
+        <tc-webtag:forumLink forumID="506125" message="discuss this"/> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+----------------------------%>
 <%--------------------------------------------------------%>
    <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/headphones.gif" alt="Podcasts" border="0"/><br>10.04.06<br>12:00 Noon</td>
@@ -182,23 +195,5 @@ The score distribution in this round seems similar to the ones in rounds 1-A and
     <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_1c">full story</A> |
     <tc-webtag:forumLink forumID="506109" message="discuss this"/> |
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>09.29.06<br>10:15 AM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=092806">Writing code that writes code&#8230;</A></span><br><br>
-               Writing code that writes code can be a powerful technique for developers.  In an effort to be more productive, developers want to be able to 
-               accomplish tasks with fewer keystrokes, bugs, and headaches.</td>
-            <td class="newsPhoto"><img src="/i/m/Seiz3r_mug.gif" alt=""/><br>by <tc-webtag:handle coderId="10584406"/></td></tr>
-        </table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&amp;d1=features&amp;d2=092806">article</A> |
-    <tc-webtag:forumLink forumID="506127" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 

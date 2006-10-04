@@ -39,9 +39,12 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<%--
+<tr class="bodyText"><td nowrap="nowrap">10.04.06 5:00 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=220">andrey_atlas is the TCHS07 Logo Contest Winner!</A></td></tr>
+--%>
 <tr class="bodyText"><td nowrap="nowrap">10.02.06 5:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA SRM 321 chat session</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.28.06 5:00 PM - </td><td width="100%">Finalists for the TCCC06 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_bracket">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_bracket">Development</A> Competitions</td></tr>
-<tr class="bodyText"><td nowrap="nowrap">09.27.06 10:00 AM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=220">Vote for the TCHS logo design</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.27.06 10:00 AM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=220">Vote for the TCHS07 logo design</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.25.06 2:00 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=219">TCCC06 t-shirt quote vote results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.24.06 5:30 PM - </td><td width="100%"><A href="/tc?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">TCCC06 Algorithm Round 1B Results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.22.06 11:45 AM - </td><td width="100%"><A href="/tc?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">TCCC06 Algorithm Round 1A Results</A></td></tr>
