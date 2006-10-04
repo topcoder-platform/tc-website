@@ -6,11 +6,11 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
-<%----------------------------
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.04.06<br>5:00 PM</td>
      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SurveyResults&sid=220">andrey_atlas is the TCHS07 Logo Contest Winner!</A></span><br><br>
-        Congratulations to andrey_atlas!
+        Congratulations to <tc-webtag:handle coderId="22636857" />!
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -18,7 +18,7 @@
         <tc-webtag:forumLink forumID="506125" message="discuss this"/> |
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-----------------------------%>
+
 <%--------------------------------------------------------%>
    <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/headphones.gif" alt="Podcasts" border="0"/><br>10.04.06<br>12:00 Noon</td>
