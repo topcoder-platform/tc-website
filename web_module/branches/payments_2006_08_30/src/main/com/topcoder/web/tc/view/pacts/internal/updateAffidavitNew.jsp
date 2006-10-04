@@ -17,6 +17,7 @@
 <c:set var="payment" value="${requestScope.payment}"/>
 <c:set var="user" value="${requestScope.user}"/>
 <c:set var="affidavitId" value="${requestScope.affidavitId}"/>
+<c:set var="isAffirmed" value="${requestScope.isAffirmed}"/>
 <c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />
 <c:set var="typeList" value="<%= request.getAttribute(PactsConstants.AFFIDAVIT_TYPE_LIST) %>" />
 <c:set var="roundList" value="<%= request.getAttribute(PactsConstants.ROUND_LIST) %>" />
@@ -47,7 +48,7 @@
 						No payment associated. 
 					</c:when>
 					<c:otherwise>
-						<c:out value="${payment.description}" />
+						<a href="${pacts:viewPayment(payment.id)}"><c:out value="${payment.description}" /></a>
 					</c:otherwise>
 				</c:choose>
 			</td>
@@ -61,8 +62,15 @@
 		<tr>
 			<td>Status:</td>
 			<td>
-            	<tc-webtag:rscSelect name="affidavit_status_id" list='${statusList}' fieldText="status_desc" 
-            		fieldValue="status_id" useTopValue="false"/>
+				<c:choose> 
+					<c:when test="${isAffirmed }">
+		            	<tc-webtag:rscSelect name="affidavit_status_id" list='${statusList}' fieldText="status_desc" 
+	    	        		fieldValue="status_id" useTopValue="false"/>
+	    	        </c:when>
+	    	        <c:otherwise>
+	    	        	Affirmed
+	    	        </c:otherwise>
+            	</c:choose>
 			</td>
 		</tr>
 		<tr>

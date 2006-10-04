@@ -23,7 +23,8 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
             Affidavit affidavit = new Affidavit(dib.getAffidavit(affidavitId));
             PaymentHeader payment =  affidavit.getPayment();
             long userId = affidavit.getHeader().getUser().getId();
-                
+            boolean isAffirmed = affidavit.getHeader().isAffirmed();
+            	
             if (getRequest().getParameter("affidavit_desc") == null) {
                 setDefault("affidavit_desc", affidavit.getHeader().getDescription());
                 setDefault("affidavit_type_id", affidavit.getHeader().getTypeId());
@@ -38,7 +39,7 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
         		int typeId = Integer.parseInt(getRequest().getParameter("affidavit_type_id"));
         		String notarized = (String) getRequest().getParameter("is_notarized");
         		
-        		boolean affirmating = (statusId == AFFIDAVIT_AFFIRMED_STATUS) && !affidavit.getHeader().isAffirmed();
+        		boolean affirmating = (statusId == AFFIDAVIT_AFFIRMED_STATUS) && !isAffirmed;
         		
                 if (desc.trim().length() == 0) {
                     addError("error", "Please enter a description for the affidavit.");
@@ -77,6 +78,7 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
                 }
             }
 
+            getRequest().setAttribute("isAffirmed", Boolean.valueOf(isAffirmed));
             getRequest().setAttribute("affidavitId", affidavitId);
             getRequest().setAttribute("user", getUserProfileHeader(userId));
 
