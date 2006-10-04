@@ -184,9 +184,9 @@
 	            <TD class="value" width="20%"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
 	            <TD class="value" width="10%"><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
 	            <TD class="value" width="10%">
-	            <% if (resultRow.getItem("payment_type_id").getResultData() == 1) {%>
+	            <% if (resultRow.getIntItem("payment_type_id") == 1) {%>
 				<A href="/stat?c=coder_room_stats&cr=<%=coderId%>&rd=<rsc:item name="algorithm_round_id" row="<%=resultRow%>"/>" class="bcLink">More details</A>
-	            <% } else if (resultRow.getItem("payment_type_id").getResultData() == 6) {%>
+	            <% } else if (resultRow.getIntItem("payment_type_id") == 6) {%>
 				<A href="/tc?module=CompContestDetails&pj=<rsc:item name="component_project_id" row="<%=resultRow%>"/>" class="bcLink">More details</A>
 				<% }%>
 				</TD>
