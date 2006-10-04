@@ -74,8 +74,10 @@ function statusChanged() {
   <input type="hidden" name="affidavit_id" value="${affidavitId }"/>
 		<table cellpadding=2" cellspacing="2" border="0">
 		<tr>
-	        <td colspan="2"><span class="bigRed">
-    	    	<tc-webtag:errorIterator id="err" name="error"><%=err%><br></tc-webtag:errorIterator></span>
+	        <td colspan="2">
+    	    	<tc-webtag:errorIterator id="err" name="error">
+    	    		<font color="#FF0000"><%=err%></font><br/>
+    	    	</tc-webtag:errorIterator>
         	</td>
         </tr>
 		<tr>

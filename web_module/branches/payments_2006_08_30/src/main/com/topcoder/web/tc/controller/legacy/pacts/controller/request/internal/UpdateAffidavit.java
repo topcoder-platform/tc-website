@@ -1,5 +1,6 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
+import java.util.Date;
 import java.util.Map;
 
 import com.topcoder.web.common.TCWebException;
@@ -24,9 +25,13 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
             Affidavit affidavit = new Affidavit(dib.getAffidavit(affidavitId));
             PaymentHeader payment =  affidavit.getPayment();
             
+            if (payment.getId() <= 0) {
+            	payment = null;
+            }
+            
             long userId = affidavit.getHeader().getUser().getId();
             UserProfile user = new UserProfile(dib.getUserProfile(userId));
-            
+            boolean isFromIndia = "India".equalsIgnoreCase(user.getCountry());
             boolean isAffirmed = affidavit.getHeader().isAffirmed();
             	
             if (getRequest().getParameter("affidavit_desc") == null) {
@@ -38,23 +43,25 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
         		setDefault("date_of_birth", affidavit.getBirthday());
             } else {
         		
-        		String desc = (String) getRequest().getParameter("affidavit_desc"); 
+        		String desc = checkNotEmptyString("affidavit_desc", "Please enter a description for the affidavit."); 
         		int statusId = Integer.parseInt(getRequest().getParameter("affidavit_status_id"));
-        		int typeId = Integer.parseInt(getRequest().getParameter("affidavit_type_id"));
+        		int typeId = checkNonNegativeInt("affidavit_type_id", "Please select a type");
         		String notarized = (String) getRequest().getParameter("is_notarized");
+        		Date birthday = null;
+        		String familyName = null;
+        		int age = -1;
         		
         		boolean affirmating = (statusId == AFFIDAVIT_AFFIRMED_STATUS) && !isAffirmed;
         		
-                if (desc.trim().length() == 0) {
-                    addError("error", "Please enter a description for the affidavit.");
-                }
-                if (typeId < 0) {
-                    addError("error", "Please select a type");
-                }
                 if (affirmating) {
-                	// TODO check birthday
+                	birthday = checkDate("date_of_birth", "Please enter a valid birthday date");
                 	
-                	// TODO if coder is from india...
+                	if (isFromIndia) {
+                		familyName = checkNotEmptyString("family_name", "Please enter a family name");
+                		if (getRequest().getParameter("age").trim().length() > 0) {
+                			age = checkNonNegativeInt("age", "Please enter a valid age");
+                		}
+                	}
                 }
 
                 if (hasErrors()) {
@@ -79,15 +86,14 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
                     if (affirmating) {
                     	// TODO affirmation
                 	}
+                    
                     setNextPage(Links.viewAffidavit(affidavitId));
                     setIsNextPageInContext(false);
                     return;
                 }
             }
 
-
-            //TODO FILL country and birthday
-            getRequest().setAttribute("isFromIndia", Boolean.valueOf("India".equalsIgnoreCase(user.getCountry())));            
+            getRequest().setAttribute("isFromIndia", Boolean.valueOf(isFromIndia));            
             getRequest().setAttribute("isAffirmed", Boolean.valueOf(isAffirmed));
         	
             getRequest().setAttribute("affidavitId", affidavitId + "");
