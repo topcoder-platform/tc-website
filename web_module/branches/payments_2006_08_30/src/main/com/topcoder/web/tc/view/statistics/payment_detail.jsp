@@ -202,7 +202,7 @@
 	            <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
 		            <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
 		            <TD class="value" width="5%"></TD>
-    	            <TD class="value" width="10%"><rsc:item name="ref_date_due" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
+    	            <TD class="value" width="10%"></TD>
 		            <TD class="value" width="45%"><rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
 		            <TD class="value" width="20%"><rsc:item name="ref_payment_type_desc" row="<%=resultRow%>"/></TD>
 		            <TD class="value" width="10%"><rsc:item name="ref_earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
