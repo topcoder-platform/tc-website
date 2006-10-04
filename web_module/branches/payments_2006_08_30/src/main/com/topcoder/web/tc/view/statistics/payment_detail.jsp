@@ -150,7 +150,7 @@
         <tc-webtag:hiddenInput name="<%=Constants.PAYMENT_TYPE_ID%>"/>
 	
 	    <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-	        <tr><td class="title" colspan="5">
+	        <tr><td class="title" colspan="6">
 			Payment detail
 	        </td></tr>
 	        <tr class="dark">
@@ -158,7 +158,7 @@
 	            <TD CLASS="header" width="10%">
 	                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Date</a>
 	            </TD>
-	            <TD CLASS="header" width="55%">
+	            <TD CLASS="header" width="45%">
 	                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Description</a>
 	            </TD>
 	            <TD CLASS="header" width="20%">
@@ -167,6 +167,7 @@
 	            <TD CLASS="header" width="10%">
 	                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Earnings</a>
 	            </TD>
+	            <TD CLASS="header" width="10%"></TD>
 	        </tr>
 	        <%int i = 0;%>
 	        <%boolean even = false;%>
@@ -179,16 +180,23 @@
 				<% }%>
 	            </TD>
 	            <TD class="value" width="10%"><rsc:item name="date_due" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
-	            <TD class="value" width="55%"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
+	            <TD class="value" width="45%"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
 	            <TD class="value" width="20%"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
 	            <TD class="value" width="10%"><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
+	            <TD class="value" width="10%">
+	            <% if (resultRow.getItem("payment_type_id").getResultData() == 1) {%>
+				<A href="/stat?c=coder_room_stats&cr=<%=coderId%>&rd=<rsc:item name="algorithm_round_id" row="<%=resultRow%>"/>" class="bcLink">More details</A>
+	            <% } else if (resultRow.getItem("payment_type_id").getResultData() == 6) {%>
+				<A href="/tc?module=CompContestDetails&pj=<rsc:item name="component_project_id" row="<%=resultRow%>"/>" class="bcLink">More details</A>
+				<% }%>
+				</TD>
 	            </tr>
 	            
 	            <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
 		            <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
-		            <TD class="value" width="5%">*</TD>
+		            <TD class="value" width="5%"></TD>
     	            <TD class="value" width="10%"><rsc:item name="ref_date_due" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
-		            <TD class="value" width="55%"><rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
+		            <TD class="value" width="45%"><rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
 		            <TD class="value" width="20%"><rsc:item name="ref_payment_type_desc" row="<%=resultRow%>"/></TD>
 		            <TD class="value" width="10%"><rsc:item name="ref_earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
 		            </tr>
