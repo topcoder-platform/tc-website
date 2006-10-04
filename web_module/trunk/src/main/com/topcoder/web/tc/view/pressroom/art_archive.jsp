@@ -40,7 +40,7 @@
 <tr><td class="newsText">TopCoder featured on public radio's "Open Source" [PODCAST] &#160; [October 4 - Open Source]<br>
           <A href="/audio/open_source_060928_24kb.mp3" target="_blank">lo 6.8mb</A> &#160;|&#160;
           <A href="/audio/open_source_060928_48kb.mp3" target="_blank">hi 13.8mb</A> &#160;|&#160;
-          <A href="/images/downloads/mavericks_at_work.pdf" target="_blank"><i>Mavericks at Work</i> excerpt</A> [PDF]<br/></td></tr>
+          <A href="/images/downloads/mavericks_at_work.pdf" target="_blank">Mavericks at Work excerpt</A> [PDF]<br/></td></tr>
 <tr><td class="newsText"><i>Mass High Tech</i> features TopCoder staff &#160; [July 12 - Mass High Tech]<br>
           <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus1.html">Code Commanders</A>&#160;|&#160;
           <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus6.html">TheFaxman Codeth</A>&#160;|&#160;
