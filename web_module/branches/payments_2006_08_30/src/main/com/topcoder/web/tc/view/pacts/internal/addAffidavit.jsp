@@ -60,13 +60,6 @@
 			</td>
 		</tr>
 		<tr>
-			<td><b>Status:</b></td>
-			<td>
-            	<tc-webtag:rscSelect name="affidavit_status_id" list='${statusList}' fieldText="status_desc" 
-            		fieldValue="status_id" useTopValue="true" topValue="-1" topText="Select Status"/>
-			</td>
-		</tr>
-		<tr>
 		<td><b>Description:</b></td>
 		<td>
 			<tc-webtag:textInput name="affidavit_desc" size="60" editable="true" />
