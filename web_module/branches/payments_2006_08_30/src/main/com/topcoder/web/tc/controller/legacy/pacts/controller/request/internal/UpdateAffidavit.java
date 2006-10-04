@@ -27,7 +27,7 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
             if (getRequest().getParameter("affidavit_desc") == null) {
                 setDefault("affidavit_desc", affidavit.getHeader().getDescription());
                 setDefault("affidavit_type_id", affidavit.getHeader().getTypeId());
-        		setDefault("is_notarized", affidavit.getHeader().isNotarized());
+        		setDefault("is_notarized", affidavit.getHeader().isNotarized()? "yes" : "no");
         		setDefault("affidavit_status_id", affidavit.getHeader().getStatusId());
         		setDefault("round_id", affidavit.getRoundId());
         	
@@ -77,7 +77,7 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
                 }
             }
 
-
+            getRequest().setAttribute("affidavitId", affidavitId);
             getRequest().setAttribute("user", getUserProfileHeader(userId));
 
             // Give the JSP the list of Affidavit Types

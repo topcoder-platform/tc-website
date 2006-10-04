@@ -16,6 +16,7 @@
 
 <c:set var="payment" value="${requestScope.payment}"/>
 <c:set var="user" value="${requestScope.user}"/>
+<c:set var="affidavitId" value="${requestScope.affidavitId}"/>
 <c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />
 <c:set var="typeList" value="<%= request.getAttribute(PactsConstants.AFFIDAVIT_TYPE_LIST) %>" />
 <c:set var="roundList" value="<%= request.getAttribute(PactsConstants.ROUND_LIST) %>" />
@@ -27,7 +28,8 @@
 <form action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
   <input type="hidden" name="<%=PactsConstants.USER_ID%>" value="${user.id}"/>
   <input type="hidden" name="module" value="UpdateAffidavit"/>
-		<table cellpadding=20" cellspacing="2" border="0">
+  <input type="hidden" name="affidavit_id" value="${affidavitId }"/>
+		<table cellpadding=2" cellspacing="2" border="0">
 		<tr>
 	        <td colspan="2"><span class="bigRed">
     	    	<tc-webtag:errorIterator id="err" name="error"><%=err%><br></tc-webtag:errorIterator></span>
@@ -83,7 +85,7 @@
 	            	fieldValue="round_id" useTopValue="true" topValue="-1" topText="No Round"/>
 	        </td>
 		</tr>
-s</table>
+</table>
 
 <input type="submit" value="Save Affidavit">
 </form>
