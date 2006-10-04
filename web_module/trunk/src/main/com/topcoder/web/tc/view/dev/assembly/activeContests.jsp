@@ -93,10 +93,8 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_payrollLink">Payroll Link Website and Reports</A>
       </td>
       <td class="valueC">
-      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Payroll Link Website and Reports">register</A>
-      <%--
+      <%--<A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Payroll Link Website and Reports">register</A>--%>
       registration closed
-      --%>
       </td>
       <td class="valueC">
       &#160;
@@ -166,10 +164,8 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_costingEngineAdminTool">Costing Engine and Admin Tool</A>
       </td>
       <td class="valueC">
-      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Costing Engine and Admin Tool">register</A>
-      <%--
+      <%--<A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Costing Engine and Admin Tool">register</A>--%>
       registration closed
-      --%>
       </td>
       <td class="valueC">
       &#160;
