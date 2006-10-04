@@ -8,6 +8,22 @@
 </tr>
 <%--------------------------------------------------------%>
    <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/headphones.gif" alt="Podcasts" border="0"/><br>10.04.06<br>12:00 Noon</td>
+       <td class="newsTextCell"><span class="newsTitle">TopCoder featured on public radio's "Open Source" [PODCAST]</span><br><br>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/opensource_logo.gif" width="68" height="23" alt="Open Source" border="0" /></div>
+       Jack Hughes joined <i>Mavericks at Work</i> author William Taylor and host Christopher Lydon to discuss TopCoder's "maverick" approach. Stream the mp3:
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/audio/open_source_060928_24kb.mp3" target="_blank">lo 6.8mb</A> &#160;|&#160;
+       <A href="/audio/open_source_060928_48kb.mp3" target="_blank">hi 13.8mb</A> &#160;|&#160;
+       <A href="/images/downloads/mavericks_at_work.pdf" target="_blank"><i>Mavericks at Work</i> excerpt</A> [PDF] &#160;|&#160;
+       <tc-webtag:forumLink forumID="506134" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>10.04.06<br>11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2040">UML Tool Icons contest over at the Studio</A>
@@ -185,31 +201,4 @@ The score distribution in this round seems similar to the ones in rounds 1-A and
     <tc-webtag:forumLink forumID="506127" message="discuss this"/> |
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.28.06<br>5:00 PM</td>
-     <td class="newsTextCell"><span class="newsTitle">Finalists for the TCCC06 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_bracket">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_bracket">Development</A> Competitions</span><br><br>
-      The results are in.  Here are the TCCC06 finalists brackets.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_bracket">design</A> | 
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_bracket">development</A> | 
-    <tc-webtag:forumLink forumID="506129" message="discuss this"/> |
-     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>09.27.06<br>10:00 AM</td>
-     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=220">Vote for the TCHS logo design</A></span><br><br>
-      The top 10 logo designs have been chosen from the TopCoder Studio contest for the TCHS logo.  Help choose which design will become the look of the 2007 TopCoder High School tournament.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-     <A href="/tc?module=ViewSurvey&sid=220">vote</A> | 
-    <tc-webtag:forumLink forumID="506125" message="discuss this"/> |
-     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
 

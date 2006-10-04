@@ -49,6 +49,24 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- Open Source --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><img src="/i/pressroom/opensource_logo.gif" alt="Open Source" border="0" /></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong>TopCoder featured on public radio's "Open Source" [PODCAST] </strong></font><br />
+                        Jack Hughes joined <i>Mavericks at Work</i> author William Taylor and host Christopher Lydon to discuss TopCoder's "maverick" approach. <span class="prHead">[October 4]</span></p>
+                        <A href="/audio/open_source_060928_24kb.mp3" target="_blank">lo 6.8mb</A> &#160;|&#160;
+                        <A href="/audio/open_source_060928_48kb.mp3" target="_blank">hi 13.8mb</A> &#160;|&#160;
+                        <A href="/images/downloads/mavericks_at_work.pdf" target="_blank"><i>Mavericks at Work</i> excerpt</A> [PDF]
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- NSA TCCC Patron --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -72,10 +90,10 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><i>Mass High Tech</i> features TopCoder staff</strong></font><br />
-                        The latest issue of <i>Mass High Tech</i> names TheFaxman one of the six best programmers in New England, and features an article from FogleBird on identifying talented developers. [July 12]<br>
+                        The latest issue of <i>Mass High Tech</i> names TheFaxman one of the six best programmers in New England, and features an article from FogleBird on identifying talented developers. <span class="prHead">[July 12]</span><br>
                         <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus1.html">Code Commanders</A>&#160;|&#160;
        <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus6.html">TheFaxman Codeth</A>&#160;|&#160;
-       <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus8.html">Identifying Best Developers</A> <span class="prHead"> </span></p>
+       <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus8.html">Identifying Best Developers</A></p>
        </td>
                 </tr>
             </table>
