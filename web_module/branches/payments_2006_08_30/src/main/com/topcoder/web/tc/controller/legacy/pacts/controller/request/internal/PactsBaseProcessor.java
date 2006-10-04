@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 
@@ -49,12 +50,16 @@ public abstract class PactsBaseProcessor extends BaseProcessor{
 	}
 
 	protected int checkNonNegativeInt(String name, String errorMsg) {
+		return checkNonNegativeInt(name, -1, errorMsg);
+	}
+	
+	protected int checkNonNegativeInt(String name, int maxValue, String errorMsg) {
 		int value = -1;
 		try {
 			value = Integer.parseInt(getRequest().getParameter(name));
 		} catch(NumberFormatException e) {}
 		
-		if (value < 0) {
+		if (value < 0 || (maxValue > 0 && value > maxValue)) {
 			addError("error", errorMsg);
 		}
 		return value;
@@ -70,4 +75,19 @@ public abstract class PactsBaseProcessor extends BaseProcessor{
         }
         return d;
 	}
+	
+	protected int calculateAge(Date birthday) {
+		Calendar today = Calendar.getInstance();
+		Calendar birth = Calendar.getInstance();
+		birth.setTime(birthday);
+		
+		int age = today.get(Calendar.YEAR) - birth.get(Calendar.YEAR);
+		
+		birth.set(Calendar.YEAR, today.get(Calendar.YEAR));
+		if (today.before(birth)){
+			age--;			
+		}		
+		return age;		
+	}
+	
 }

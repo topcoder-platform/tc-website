@@ -6,6 +6,7 @@ import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -19,10 +20,13 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.PactsServices;
 import com.topcoder.web.ejb.pacts.PactsServicesBean;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
+import com.topcoder.web.tc.controller.legacy.pacts.common.AffidavitWithText;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.InvalidSearchInputException;
@@ -1158,6 +1162,74 @@ public class DataInterfaceBean implements PactsConstants {
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
         PactsServices ps = getEjbHandle();
         ps.affirmAffidavit(affidavitId, finalText, coderBirthDate);
+    }
+
+    /**
+     * Affirms the specified affidavit, searching the affidavit text and doing the replacements.
+     * This method should be used for Indian coders, since they require the family name and age.
+     * 
+     * @param   affidavitId The ID of the affidavit to affirm.
+     * @param   birthday The birth date of the coder
+     * @param   familyName family name of the coder
+     * @param   aged age of the couder
+     * @throws  RemoteException If there is some communication problem with the EJB
+     * @throws  NoObjectFoundException If the specified affidavit does not exist.
+     * @throws  IllegalUpdateException If the affidavit has expired or has already
+     * been affirmed.
+     * @throws  SQLException If there is some other problem updating the data
+     */
+    public void affirmAffidavit(long affidavitId, Date birthday, String familyName, int aged)
+            throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
+
+    	AffidavitBean bean = new AffidavitBean();
+
+        AffidavitWithText a = bean.getAffidavitWithText(affidavitId);
+
+        if (a == null) {
+            throw new NoObjectFoundException("Couldn't find affidavit " + affidavitId);
+        }
+
+        //first replace the aged
+        int aIdx = a.getAffidavitText().indexOf("FILL IN AGED");
+        int bIdx = aIdx + (new String("FILL IN AGED")).length();
+        a.setAffidavitText(a.getAffidavitText().substring(0, aIdx) +
+                " " + aged + " " + a.getAffidavitText().substring(bIdx));
+
+        //now the family name
+        aIdx = a.getAffidavitText().indexOf("FILL IN BELOW");
+        bIdx = aIdx + (new String("FILL IN BELOW")).length();
+        a.setAffidavitText(a.getAffidavitText().substring(0, aIdx) +
+                " " + familyName + " " + a.getAffidavitText().substring(bIdx));
+
+        // if we got here everything is good, we should affirm the affidavit
+        SimpleDateFormat dfmt = new SimpleDateFormat(DATE_FORMAT_STRING);
+        affirmAffidavit(a.getAffidavit().getHeader().getId(), a.getAffidavitText(), dfmt.format(birthday));
+    }
+
+    /**
+     * Affirms the specified affidavit, searching the affidavit text.
+     * 
+     * @param   affidavitId The ID of the affidavit to affirm.
+     * @param   birthday The birth date of the coder
+     * @throws  RemoteException If there is some communication problem with the EJB
+     * @throws  NoObjectFoundException If the specified affidavit does not exist.
+     * @throws  IllegalUpdateException If the affidavit has expired or has already
+     * been affirmed.
+     * @throws  SQLException If there is some other problem updating the data
+     */
+    public void affirmAffidavit(long affidavitId, Date birthday)
+            throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
+
+    	AffidavitBean bean = new AffidavitBean();
+
+        AffidavitWithText a = bean.getAffidavitWithText(affidavitId);
+
+        if (a == null) {
+            throw new NoObjectFoundException("Couldn't find affidavit " + affidavitId);
+        }
+
+        SimpleDateFormat dfmt = new SimpleDateFormat(DATE_FORMAT_STRING);
+        affirmAffidavit(a.getAffidavit().getHeader().getId(), a.getAffidavitText(), dfmt.format(birthday));
     }
 
     /**

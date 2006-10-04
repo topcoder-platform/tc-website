@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Map;
 
 import com.topcoder.web.common.TCWebException;
@@ -55,11 +56,14 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
         		
                 if (affirmating) {
                 	birthday = checkDate("date_of_birth", "Please enter a valid birthday date");
-                	
+                	if (!birthday.before(new Date()) && birthday.after(new GregorianCalendar(1900,0,1).getTime())) {
+                		addError("error", "Please enter a valid birthday date");
+                	}
+                		
                 	if (isFromIndia) {
                 		familyName = checkNotEmptyString("family_name", "Please enter a family name");
                 		if (getRequest().getParameter("aged").trim().length() > 0) {
-                			aged = checkNonNegativeInt("aged", "Please enter a valid age");
+                			aged = checkNonNegativeInt("aged", 99, "Please enter a valid age");
                 		}
                 	}
                 }
@@ -84,7 +88,15 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
                     dib.updateAffidavit(affidavit);
                     
                     if (affirmating) {
-                    	// TODO affirmation
+                    	if (isFromIndia) {
+                    		if (aged <= 0) {
+                    			aged = calculateAge(birthday);
+                    		}
+                    		dib.affirmAffidavit(affidavitId, birthday, familyName, aged);
+                    	} else {
+                    		dib.affirmAffidavit(affidavitId, birthday);
+                    	}
+                    	
                 	}
                     
                     setNextPage(Links.viewAffidavit(affidavitId));
