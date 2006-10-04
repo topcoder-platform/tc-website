@@ -10,13 +10,13 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>10.04.06<br>11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2030">UML Tool Icons contest over at the Studio</A>
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2040">UML Tool Icons contest over at the Studio</A>
         </span><br><br>
       At TopCoder Studio, we're running a contest to design a set of application icons for our UML tool that's currently in development.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2030">details</A> | 
+         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2040">details</A> | 
          <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=17">discuss this</A> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>

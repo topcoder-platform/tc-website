@@ -39,7 +39,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<tr class="bodyText"><td nowrap="nowrap">10.04.06 11:00 AM - </td><td width="100%"><A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2030">UML Tool Icons contest over at the Studio</A><br>
+<tr class="bodyText"><td nowrap="nowrap">10.04.06 11:00 AM - </td><td width="100%"><A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2040">UML Tool Icons contest over at the Studio</A><br>
 <tr class="bodyText"><td nowrap="nowrap">10.03.06 10:00 AM - </td><td width="100%">Appeals statistics on member profiles and <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">Record Book</A><br>
 <tr class="bodyText"><td nowrap="nowrap">09.21.06 12:30 PM - </td><td width="100%"><A href="/tc?module=ViewActiveContests&ph=112">Puzzled? Components offer brainy challenge</A><br>
 <tr class="bodyText"><td nowrap="nowrap">09.20.06 3:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_costingEngineAdminTool">New Assembly contest online: $22,500 in prizes!</A><br>
