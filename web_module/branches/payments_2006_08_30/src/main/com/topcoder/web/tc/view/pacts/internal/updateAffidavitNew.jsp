@@ -63,12 +63,12 @@
 			<td>Status:</td>
 			<td>
 				<c:choose> 
-					<c:when test="${isAffirmed }">
-		            	<tc-webtag:rscSelect name="affidavit_status_id" list='${statusList}' fieldText="status_desc" 
-	    	        		fieldValue="status_id" useTopValue="false"/>
+					<c:when test="${isAffirmed}">
+	    	        	Affirmed
 	    	        </c:when>
 	    	        <c:otherwise>
-	    	        	Affirmed
+		            	<tc-webtag:rscSelect name="affidavit_status_id" list='${statusList}' fieldText="status_desc" 
+	    	        		fieldValue="status_id" useTopValue="false"/>
 	    	        </c:otherwise>
             	</c:choose>
 			</td>

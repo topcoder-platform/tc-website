@@ -27,9 +27,9 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
             	
             if (getRequest().getParameter("affidavit_desc") == null) {
                 setDefault("affidavit_desc", affidavit.getHeader().getDescription());
-                setDefault("affidavit_type_id", affidavit.getHeader().getTypeId());
+                setDefault("affidavit_type_id", affidavit.getHeader().getTypeId() + "");
         		setDefault("is_notarized", affidavit.getHeader().isNotarized()? "yes" : "no");
-        		setDefault("affidavit_status_id", affidavit.getHeader().getStatusId());
+        		setDefault("affidavit_status_id", affidavit.getHeader().getStatusId() + "");
         		setDefault("round_id", affidavit.getRoundId());
         	
             } else {
@@ -55,9 +55,9 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
 
                 if (hasErrors()) {
             		setDefault("affidavit_desc", desc);
-            		setDefault("affidavit_status_id", statusId);
+            		setDefault("affidavit_status_id", statusId + "");
             		setDefault("is_notarized", notarized);
-            		setDefault("affidavit_type_id", typeId);
+            		setDefault("affidavit_type_id", typeId + "");
                 } else {
                     long roundId = getLongParameter(ROUND_ID);
 
@@ -78,8 +78,13 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
                 }
             }
 
-            getRequest().setAttribute("isAffirmed", Boolean.valueOf(isAffirmed));
-            getRequest().setAttribute("affidavitId", affidavitId);
+            /*if (isAffirmed) {
+            	getRequest().setAttribute("isAffirmed", "true");
+            }*/
+            log.debug("is affirmed=" + isAffirmed);
+        	getRequest().setAttribute("isAffirmed", Boolean.valueOf(isAffirmed));
+        	
+            getRequest().setAttribute("affidavitId", affidavitId + "");
             getRequest().setAttribute("user", getUserProfileHeader(userId));
 
             // Give the JSP the list of Affidavit Types
