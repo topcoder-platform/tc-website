@@ -20,7 +20,12 @@
 <c:set var="typeList" value="<%= request.getAttribute(PactsConstants.AFFIDAVIT_TYPE_LIST) %>" />
 <c:set var="roundList" value="<%= request.getAttribute(PactsConstants.ROUND_LIST) %>" />
 
-    
+    <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
+    <script type="text/javascript" src="/js/jscal/calendar.js"></script>
+    <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
+    <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
+    <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
+        
 <script type="text/javascript" src="/js/taconite-client.js"></script>
 <script type="text/javascript" src="/js/taconite-parser.js"></script>
 <script type="text/javascript">
@@ -139,7 +144,8 @@ function statusChanged() {
 		</tr>
 		<tr id="BirthdayRow">
 			<td><b>Birthday:<b></td>
-			<td><tc-webtag:textInput name="date_of_birth" size="10" editable="true" /></td>
+			<td><tc-webtag:textInput name="date_of_birth" size="10" editable="true" />
+			<button id="trigger_date_of_birth">Set</button></td>
 		</tr>
 		<tr id="FamilyNameRow">
 			<td><b>Family Name:<b></td>
@@ -150,6 +156,20 @@ function statusChanged() {
 			<td><tc-webtag:textInput name="aged" size="4" editable="true" />(If left empty, today's age of coder will be used)</td>
 		</tr>
 </table>
+<script language="javascript" type="text/javascript">
+    <!--
+Calendar.setup(
+{
+ inputField  : "date_of_birth",  
+                    ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",    
+                    button      : "trigger_date_of_birth",     
+                    showsTime   : false,
+                    singleClick  : false,
+                    cache       : true
+}
+);
+                -->
+</script>
 
 <input type="submit" value="Save Affidavit">
 </form>
