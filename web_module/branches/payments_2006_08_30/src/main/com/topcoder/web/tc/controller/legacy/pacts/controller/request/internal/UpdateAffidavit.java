@@ -8,6 +8,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfile;
 
 /**
  *
@@ -22,7 +23,10 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
         	
             Affidavit affidavit = new Affidavit(dib.getAffidavit(affidavitId));
             PaymentHeader payment =  affidavit.getPayment();
+            
             long userId = affidavit.getHeader().getUser().getId();
+            UserProfile user = new UserProfile(dib.getUserProfile(userId));
+            
             boolean isAffirmed = affidavit.getHeader().isAffirmed();
             	
             if (getRequest().getParameter("affidavit_desc") == null) {
@@ -31,7 +35,7 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
         		setDefault("is_notarized", affidavit.getHeader().isNotarized()? "yes" : "no");
         		setDefault("affidavit_status_id", affidavit.getHeader().getStatusId() + "");
         		setDefault("round_id", affidavit.getRoundId());
-        	
+        		setDefault("date_of_birth", affidavit.getBirthday());
             } else {
         		
         		String desc = (String) getRequest().getParameter("affidavit_desc"); 
@@ -58,6 +62,9 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
             		setDefault("affidavit_status_id", statusId + "");
             		setDefault("is_notarized", notarized);
             		setDefault("affidavit_type_id", typeId + "");
+            		setDefault("date_of_birth", getRequest().getParameter("date_of_birth"));
+            		setDefault("family_name", getRequest().getParameter("family_name"));
+            		setDefault("aged", getRequest().getParameter("aged"));
                 } else {
                     long roundId = getLongParameter(ROUND_ID);
 
@@ -77,7 +84,10 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
                     return;
                 }
             }
+
+
             //TODO FILL country and birthday
+            getRequest().setAttribute("isFromIndia", Boolean.valueOf("India".equalsIgnoreCase(user.getCountry())));            
             getRequest().setAttribute("isAffirmed", Boolean.valueOf(isAffirmed));
         	
             getRequest().setAttribute("affidavitId", affidavitId + "");

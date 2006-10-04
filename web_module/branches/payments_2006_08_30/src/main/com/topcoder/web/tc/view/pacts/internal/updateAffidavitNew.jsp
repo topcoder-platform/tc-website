@@ -11,6 +11,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Update Affidavit</title>
     
+<c:set var="payment" value="${requestScope.payment}"/>
+<c:set var="user" value="${requestScope.user}"/>
+<c:set var="affidavitId" value="${requestScope.affidavitId}"/>
+<c:set var="isAffirmed" value="${requestScope.isAffirmed}"/>
+<c:set var="isFromIndia" value="${requestScope.isFromIndia}"/>
+<c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />
+<c:set var="typeList" value="<%= request.getAttribute(PactsConstants.AFFIDAVIT_TYPE_LIST) %>" />
+<c:set var="roundList" value="<%= request.getAttribute(PactsConstants.ROUND_LIST) %>" />
+
     
 <script type="text/javascript" src="/js/taconite-client.js"></script>
 <script type="text/javascript" src="/js/taconite-parser.js"></script>
@@ -32,27 +41,21 @@ function toggleDiv(divId, state)
     }
 }
 
-function statusChanged(value) {
-/*  
-  var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
-    ajaxRequest.addNamedFormElements("affidavit_status_id");
-    ajaxRequest.addNamedFormElements("reference_type_id");    
-    ajaxRequest.sendRequest();*/
-	toggleDiv(affirmRows, value == <%= PactsConstants.AFFIDAVIT_AFFIRMED_STATUS%>);
+function statusChanged() {
+    var affirmed = document.f.affidavit_status_id.value == <%= PactsConstants.AFFIDAVIT_AFFIRMED_STATUS%>;
+    var fromIndia = false;
+    <c:if test="${isFromIndia}">
+    	fromIndia = true;
+    </c:if>
+	toggleDiv('BirthdayRow', affirmed);
+	toggleDiv('FamilyNameRow', affirmed && fromIndia);
+	toggleDiv('AgedRow', affirmed && fromIndia);
 }
 
 </script>    
 </head>
-<body>
+<body onInit="statusChanged()" >
 
-
-<c:set var="payment" value="${requestScope.payment}"/>
-<c:set var="user" value="${requestScope.user}"/>
-<c:set var="affidavitId" value="${requestScope.affidavitId}"/>
-<c:set var="isAffirmed" value="${requestScope.isAffirmed}"/>
-<c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />
-<c:set var="typeList" value="<%= request.getAttribute(PactsConstants.AFFIDAVIT_TYPE_LIST) %>" />
-<c:set var="roundList" value="<%= request.getAttribute(PactsConstants.ROUND_LIST) %>" />
 
 
 <h1>PACTS</h1>
@@ -107,7 +110,7 @@ function statusChanged(value) {
 	    	        </c:when>
 	    	        <c:otherwise>
 		            	<tc-webtag:rscSelect name="affidavit_status_id" list='${statusList}' fieldText="status_desc" 
-	    	        		fieldValue="status_id" useTopValue="false" onChange="statusChanged(this.value)"/>
+	    	        		fieldValue="status_id" useTopValue="false" onChange="statusChanged()"/>
 	    	        </c:otherwise>
             	</c:choose>
 			</td>
@@ -132,9 +135,17 @@ function statusChanged(value) {
 	            	fieldValue="round_id" useTopValue="true" topValue="-1" topText="No Round"/>
 	        </td>
 		</tr>
-		<tr id="affirmRows">
+		<tr id="BirthdayRow">
 			<td><b>Birthday:<b></td>
-			<td></td>
+			<td><tc-webtag:textInput name="date_of_birth" size="10" editable="true" /></td>
+		</tr>
+		<tr id="FamilyNameRow">
+			<td><b>Family Name:<b></td>
+			<td><tc-webtag:textInput name="family_name" size="30" editable="true" /></td>
+		</tr>
+		<tr id="AgedRow">
+			<td><b>Aged:<b></td>
+			<td><tc-webtag:textInput name="aged" size="4" editable="true" />(If left empty, today's age of coder will be used)</td>
 		</tr>
 </table>
 
