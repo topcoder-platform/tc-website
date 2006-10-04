@@ -77,12 +77,8 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
                     return;
                 }
             }
-
-            /*if (isAffirmed) {
-            	getRequest().setAttribute("isAffirmed", "true");
-            }*/
-            log.debug("is affirmed=" + isAffirmed);
-        	getRequest().setAttribute("isAffirmed", Boolean.valueOf(isAffirmed));
+            //TODO FILL country and birthday
+            getRequest().setAttribute("isAffirmed", Boolean.valueOf(isAffirmed));
         	
             getRequest().setAttribute("affidavitId", affidavitId + "");
             getRequest().setAttribute("user", getUserProfileHeader(userId));

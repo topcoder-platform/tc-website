@@ -10,6 +10,38 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Update Affidavit</title>
+    
+    
+<script type="text/javascript" src="/js/taconite-client.js"></script>
+<script type="text/javascript" src="/js/taconite-parser.js"></script>
+<script type="text/javascript">
+
+function toggleDiv(divId, state) 
+{
+    if(document.layers)	  
+    {
+       document.layers[divId].visibility = state ? "show" : "hide";
+    }
+    else if(document.getElementById)
+    {
+        document.getElementById(divId).style.visibility = state ? "visible" : "hidden";
+    }
+    else if(document.all)
+    {
+        document.all[divId].style.visibility = state ? "visible" : "hidden";
+    }
+}
+
+function statusChanged(value) {
+/*  
+  var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
+    ajaxRequest.addNamedFormElements("affidavit_status_id");
+    ajaxRequest.addNamedFormElements("reference_type_id");    
+    ajaxRequest.sendRequest();*/
+	toggleDiv(affirmRows, value == <%= PactsConstants.AFFIDAVIT_AFFIRMED_STATUS%>);
+}
+
+</script>    
 </head>
 <body>
 
@@ -26,7 +58,14 @@
 <h1>PACTS</h1>
 <h2>Update Affidavit</h2>
 
-<form action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
+<form name="ajaxFields">
+   <input type="hidden" name="reference_type_id">
+   <input type="hidden" name="country" value="India">
+   
+   <input type="hidden" name="cr" value="${user.id}" >
+</form>
+
+<form name="f" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
   <input type="hidden" name="<%=PactsConstants.USER_ID%>" value="${user.id}"/>
   <input type="hidden" name="module" value="UpdateAffidavit"/>
   <input type="hidden" name="affidavit_id" value="${affidavitId }"/>
@@ -37,11 +76,11 @@
         	</td>
         </tr>
 		<tr>
-			<td>User</td>
+			<td><b>User</b></td>
 			<td><a href="${pacts:viewUser(user.id)}"><c:out value="${user.handle}" /></a></td>			
 		</tr>
 		<tr>
-			<td>Associated Payment:</td>
+			<td><b>Associated Payment:</b></td>
 			<td>
 				<c:choose>
 					<c:when test="${empty payment}">
@@ -54,13 +93,13 @@
 			</td>
 		</tr>
 		<tr>
-			<td>Notarized:</td>
+			<td><b>Notarized:</b></td>
 			<td class="status">
 				<tc-webtag:radioButton name="is_notarized" value="yes"/>Yes<br/>
 				<tc-webtag:radioButton name="is_notarized" value="no"/>No			
 		</td></tr>
 		<tr>
-			<td>Status:</td>
+			<td><b>Status:</b></td>
 			<td>
 				<c:choose> 
 					<c:when test="${isAffirmed}">
@@ -68,18 +107,18 @@
 	    	        </c:when>
 	    	        <c:otherwise>
 		            	<tc-webtag:rscSelect name="affidavit_status_id" list='${statusList}' fieldText="status_desc" 
-	    	        		fieldValue="status_id" useTopValue="false"/>
+	    	        		fieldValue="status_id" useTopValue="false" onChange="statusChanged(this.value)"/>
 	    	        </c:otherwise>
             	</c:choose>
 			</td>
 		</tr>
 		<tr>
-		<td>Description:</td>
+		<td><b>Description:</b></td>
 		<td>
 			<tc-webtag:textInput name="affidavit_desc" size="60" editable="true" />
 		</td></tr>
 		<tr>		
-			<td>Type:</td>
+			<td><b>Type:<b></td>
 			<td>
             	<tc-webtag:rscSelect name="affidavit_type_id" list='${typeList}' fieldText="affidavit_type_desc" 
             		fieldValue="affidavit_type_id" useTopValue="true" topValue="-1" topText="Select Type"/>
@@ -87,11 +126,15 @@
 			</td>
 		</tr>
 		<tr>
-			<td>Round:</td>
+			<td><b>Round:</b></td>
 			<td>
 	            <tc-webtag:rscSelect name="round_id" list='${roundList}' fieldText="name" 
 	            	fieldValue="round_id" useTopValue="true" topValue="-1" topText="No Round"/>
 	        </td>
+		</tr>
+		<tr id="affirmRows">
+			<td><b>Birthday:<b></td>
+			<td></td>
 		</tr>
 </table>
 
