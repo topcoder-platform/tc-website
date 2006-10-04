@@ -79,110 +79,110 @@
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr valign="top">
+<tr valign="top">
 
-        <!-- Left Column Begins-->
-        <td width="180">
-            <jsp:include page="includes/global_left.jsp">
-                <jsp:param name="node" value="forums"/>
-            </jsp:include>
-        </td>
-        <!-- Left Column Ends -->
-
-
-        <!-- Center Column Begins -->
-        <td width="100%" class="rtBody">
-
-            <jsp:include page="page_title.jsp">
-                <jsp:param name="image" value="forums"/>
-                <jsp:param name="title" value="Forum Post History"/>
-            </jsp:include>
+<!-- Left Column Begins-->
+<td width="180">
+    <jsp:include page="includes/global_left.jsp">
+        <jsp:param name="node" value="forums"/>
+    </jsp:include>
+</td>
+<!-- Left Column Ends -->
 
 
-            <table cellpadding="0" cellspacing="0" class="rtbcTable">
-                <tr>
-                    <div class="topLinksL">
-                        <strong><a href="?module=Main" class="rtbcLink">Forums</a> > Post History:
-                            <tc-webtag:handle coderId="<%=historyUser.getID()%>"/>
-                            (<%=ForumsUtil.display(forumFactory.getUserMessageCount(historyUser), "post")%>)</strong>
-                    </div>
+<!-- Center Column Begins -->
+<td width="100%" class="rtBody">
 
-                    <div class="topLinksR">
-                        <% if (user.getUsername() == historyUser.getUsername()) { %>
-                        <b>My Post History</b>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My
-                        Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User
-                        Settings</A><br>
-                        <% } else { %>
-                        <A href="?module=History" class="rtbcLink">My Post
-                            History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My
-                        Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User
-                        Settings</A><br>
-                        <% } %>
-                    </div>
-                </tr>
-            </table>
-            <br>
-            <% if (paginator.getNumPages() > 1) { %>
-            <table cellpadding="0" cellspacing="0" class="rtbcTable">
-                <tr>
-                    <td class="rtbc" align="right" nowrap="nowrap" style="padding-bottom:3px;"><b>
-                        <% if (paginator.getPreviousPage()) { %>
-                        <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=paginator.getPreviousPageStart()%>" class="rtbcLink">
-                            <<PREV</A>&#160;&#160;&#160;
-                        <% } %> [
-                        <% Page[] pages = paginator.getPages(5);
-                            for (int i = 0; i < pages.length; i++) {
-                        %>  <% if (pages[i] != null) { %>
-                        <% if (pages[i].getNumber() == paginator.getPageIndex() + 1) { %>
-                        <span class="currentPage"><%= pages[i].getNumber() %></span>
-                        <% } else { %>
-                        <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
-                            <%= pages[i].getNumber() %></A>
-                        <% } %>
-                        <% } %>
-                        <% } %> ]
-                        <% if (paginator.getNextPage()) { %>
-                        &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=paginator.getNextPageStart()%>" class="rtbcLink">NEXT
-                        ></A>
-                        <% } %>
-                    </b>
-                    </td>
-                </tr>
-            </table>
-            <% } %>
+    <jsp:include page="page_title.jsp">
+        <jsp:param name="image" value="forums"/>
+        <jsp:param name="title" value="Forum Post History"/>
+    </jsp:include>
 
-            <table cellpadding="0" cellspacing="0" class="rtTable">
-                <tr>
-                    <td class="rtHeader" width="100%"><a href="<%=messageLink%>" class="rtbcLink">Post</a></td>
-                    <td class="rtHeader" width="25%">Forum</td>
-                    <td class="rtHeader" width="15%"><a href="<%=dateLink%>" class="rtbcLink">Date</a></td>
-                    <td class="rtHeader" align="right" width="5%">Replies</td>
-                    <td class="rtHeader" align="right" width="5%">Edits</td>
-                </tr>
-                <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage"
-                                    iterator='<%=(Iterator)request.getAttribute("messages")%>'>
-                <tr>
-                    <td class="rtThreadCellWrap">
-                        <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>" class="rtbcLink"><%=message.getSubject()%></A>
-                        <% if (message.getParentMessage() != null) { %>
-                        (response to
-                        <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%>
-                        by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/>
-                        (<A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getParentMessage().getUser().getID()%>" alt="Post history for <%=message.getParentMessage().getUser().getUsername()%>" class="rtbcLink"/>history
-                    </A>)<%}%>)
-            <% } %></td>
-        <td class="rtThreadCell">
-            <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=message.getForum().getID()%>&mc=<%=message.getForum().getMessageCount()%>" class="rtbcLink"><%=message.getForum().getName()%></A>
-        </td>
-        <td class="rtThreadCell"><strong>
-            <tc-webtag:format object="${message.modificationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></strong>
-        </td>
-        <td class="rtThreadCell" align="right"><%=message.getForumThread().getTreeWalker().getRecursiveChildCount(message)%></td>
-        <td class="rtThreadCell" align="right">
-            <A href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>" class="rtbcLink"><%=historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME)%></A>
-        </td>
-    </tr>
-    </tc-webtag:iterator>
+
+    <table cellpadding="0" cellspacing="0" class="rtbcTable">
+        <tr>
+            <div class="topLinksL">
+                <strong><a href="?module=Main" class="rtbcLink">Forums</a> > Post History:
+                    <tc-webtag:handle coderId="<%=historyUser.getID()%>"/>
+                    (<%=ForumsUtil.display(forumFactory.getUserMessageCount(historyUser), "post")%>)</strong>
+            </div>
+
+            <div class="topLinksR">
+                <% if (user.getUsername() == historyUser.getUsername()) { %>
+                <b>My Post History</b>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My
+                Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User
+                Settings</A><br>
+                <% } else { %>
+                <A href="?module=History" class="rtbcLink">My Post
+                    History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My
+                Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User
+                Settings</A><br>
+                <% } %>
+            </div>
+        </tr>
+    </table>
+    <br>
+    <% if (paginator.getNumPages() > 1) { %>
+    <table cellpadding="0" cellspacing="0" class="rtbcTable">
+        <tr>
+            <td class="rtbc" align="right" nowrap="nowrap" style="padding-bottom:3px;"><b>
+                <% if (paginator.getPreviousPage()) { %>
+                <A href="<%=link%>&<%=ForumConstants.START_IDX%>=${paginator.prevousPageStart}" class="rtbcLink">
+                    &lt;&lt;PREV</A>&#160;&#160;&#160;
+                <% } %> [
+                <% Page[] pages = paginator.getPages(5);
+                    for (int i = 0; i < pages.length; i++) {
+                %>  <% if (pages[i] != null) { %>
+                <% if (pages[i].getNumber() == paginator.getPageIndex() + 1) { %>
+                <span class="currentPage"><%= pages[i].getNumber() %></span>
+                <% } else { %>
+                <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
+                    <%= pages[i].getNumber() %></A>
+                <% } %>
+                <% } %>
+                <% } %> ]
+                <% if (paginator.getNextPage()) { %>
+                &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=${paginator.nextPageStart}" class="rtbcLink">NEXT
+                &gt;</A>
+                <% } %>
+            </b>
+            </td>
+        </tr>
+    </table>
+    <% } %>
+
+    <table cellpadding="0" cellspacing="0" class="rtTable">
+        <tr>
+            <td class="rtHeader" width="100%"><a href="<%=messageLink%>" class="rtbcLink">Post</a></td>
+            <td class="rtHeader" width="25%">Forum</td>
+            <td class="rtHeader" width="15%"><a href="<%=dateLink%>" class="rtbcLink">Date</a></td>
+            <td class="rtHeader" align="right" width="5%">Replies</td>
+            <td class="rtHeader" align="right" width="5%">Edits</td>
+        </tr>
+        <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage"
+                            iterator='<%=(Iterator)request.getAttribute("messages")%>'>
+        <tr>
+            <td class="rtThreadCellWrap">
+                <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>" class="rtbcLink"><%=message.getSubject()%></A>
+                <% if (message.getParentMessage() != null) { %>
+                (response to
+                <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%>
+                by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/>
+                (<A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getParentMessage().getUser().getID()%>" alt="Post history for <%=message.getParentMessage().getUser().getUsername()%>" class="rtbcLink"/>history
+            </A>)<%}%>)
+    <% } %></td>
+<td class="rtThreadCell">
+    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=message.getForum().getID()%>&mc=<%=message.getForum().getMessageCount()%>" class="rtbcLink"><%=message.getForum().getName()%></A>
+</td>
+<td class="rtThreadCell"><strong>
+    <tc-webtag:format object="${message.modificationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></strong>
+</td>
+<td class="rtThreadCell" align="right"><%=message.getForumThread().getTreeWalker().getRecursiveChildCount(message)%></td>
+<td class="rtThreadCell" align="right">
+    <A href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>" class="rtbcLink"><%=historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME)%></A>
+</td>
+</tr>
+</tc-webtag:iterator>
 </table>
 
 <% Group admins = forumFactory.getGroupManager().getGroup("TopCoder Admins");
