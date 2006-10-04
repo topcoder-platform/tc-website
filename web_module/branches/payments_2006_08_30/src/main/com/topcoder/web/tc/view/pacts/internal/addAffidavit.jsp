@@ -54,7 +54,7 @@
 						No payment associated.  If you want the affidavit to be associated to a payment, please create or search the payment first.
 					</c:when>
 					<c:otherwise>
-						<c:out value="${payment.description}" />
+						<c:out value="${payment.header.description}" />
 					</c:otherwise>
 				</c:choose>
 			</td>
