@@ -13,7 +13,7 @@
 %>
 <html>
 <head>
-    <TITLE>TopCoder Statistics - Most Rated Events</TITLE>
+    <TITLE>TopCoder Statistics - Most Successful Challenges in a Match</TITLE>
     <jsp:include page="/script.jsp"/>
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
@@ -32,26 +32,22 @@
 
 <body>
 
-<jsp:include page="../top.jsp" >
+<jsp:include page="../top.jsp">
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-   <tr valign="top">
+<tr valign="top">
 <%-- Left Column Begins--%>
-        <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="node" value="algo_recordbook"/>
-            </jsp:include>
-        </td>
+<td width="180">
+    <jsp:include page="/includes/global_left.jsp">
+        <jsp:param name="node" value="algo_recordbook"/>
+    </jsp:include>
+</td>
 <%-- Left Column Ends --%>
 
 <%-- Center Column Begins --%>
 <td width="100%" align="center" class="bodyColumn">
-
-
-
-
 
 
 <IMG src="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"/><BR/>
@@ -101,15 +97,24 @@
                                     <IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                             </TR>
                             <TR VALIGN="middle">
-                                <td class="statText" align="center" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;">&nbsp;</TD>
-                                <td class="statText" align="center" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;">&nbsp;</TD>
-                                <td class="statText" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;" width="14%">Handle</TD>
-                                <td class="statText" align="center" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;" width="14%">Successful Challenges</TD>
-                                <td class="statText" align="center" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;" width="14%">Failed Challenges</TD>
-                                <td class="statText" align="center" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;" width="14%">Net Challenge Points</TD>
-                                <td class="statText" align="center" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;" width="14%">Positive Challenge Points</TD>
-                                <td class="statText" align="center" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;" width="14%">Division</TD>
-                                <td class="statText" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;" width="14%">Event</TD>
+                                <td class="statText" align="center" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;">
+                                    &nbsp;</TD>
+                                <td class="statText" align="center" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;">
+                                    &nbsp;</TD>
+                                <td class="statText" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;" width="14%">
+                                    Handle</TD>
+                                <td class="statText" align="center" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;" width="14%">
+                                    Successful Challenges</TD>
+                                <td class="statText" align="center" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;" width="14%">
+                                    Failed Challenges</TD>
+                                <td class="statText" align="center" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;" width="14%">
+                                    Net Challenge Points</TD>
+                                <td class="statText" align="center" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;" width="14%">
+                                    Positive Challenge Points</TD>
+                                <td class="statText" align="center" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;" width="14%">
+                                    Division</TD>
+                                <td class="statText" style="background: #093158 url(/i/steel_bluebv_bg.gif) top center repeat-x;" width="14%">
+                                    Event</TD>
                             </TR>
                             <TR>
                                 <TD COLSPAN="9" CLASS="smallFoot" WIDTH="1">
@@ -164,26 +169,24 @@
 </TABLE>
 
 
-
-
 </td>
 <%-- Center Column Ends --%>
 
 <%-- Right Column Begins --%>
-         <td width="170">
-            <jsp:include page="../public_right.jsp">
-               <jsp:param name="level1" value="privatelabel"/>
-            </jsp:include>
-         </td>
+<td width="170">
+    <jsp:include page="../public_right.jsp">
+        <jsp:param name="level1" value="privatelabel"/>
+    </jsp:include>
+</td>
 <%-- Right Column Ends --%>
 
 <%-- Gutter --%>
-         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
 <%-- Gutter Ends --%>
-    </tr>
+</tr>
 </table>
 
-<jsp:include page="../foot.jsp" />
+<jsp:include page="../foot.jsp"/>
 
 </body>
 
