@@ -124,7 +124,7 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
 
             getRequest().setAttribute("payment", payment);
 
-            setNextPage("/pacts/internal/updateAffidavitNew.jsp");
+            setNextPage(INTERNAL_UPDATE_AFFIDAVIT_JSP);
             setIsNextPageInContext(true);
         } catch (Exception e) {
             throw new TCWebException(e);

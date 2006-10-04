@@ -72,10 +72,6 @@ public class AddAffidavit extends PactsBaseProcessor implements PactsConstants {
             Map map = dib.getAffidavitTypes();
             getRequest().setAttribute(AFFIDAVIT_TYPE_LIST, map.get(AFFIDAVIT_TYPE_LIST));
 
-            // Give the JSP the list of Affidavit Statuses
-            map = dib.getStatusCodes(PactsConstants.AFFIDAVIT_OBJ);
-            getRequest().setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
-
             // Give the JSP the list of Rounds
             map = dib.getRounds();
             getRequest().setAttribute(ROUND_LIST, map.get(ROUND_LIST));

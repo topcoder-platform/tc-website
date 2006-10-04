@@ -2118,9 +2118,14 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     /*
     Forwarding JSP: "updateAffidavit.jsp"
     */
+    /**
+     * @deprecated
+     */
     private void doUpdateAffidavit(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    	log.warn("Using deprecated processor, please use module=UpdateAffidavit insted");
+  		forward(Links.updateAffidavit(Long.parseLong(request.getParameter(AFFIDAVIT_ID))), request, response);
+/*
         log.debug("doUpdateAffidavit<br>");
-
         InternalDispatchAffidavit bean =
                 new InternalDispatchAffidavit(request, response);
         Affidavit results = bean.get();
@@ -2132,15 +2137,20 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         request.setAttribute(AFFIDAVIT_TYPE_LIST, dib.getAffidavitTypes().get(AFFIDAVIT_TYPE_LIST));
 
         forward(INTERNAL_UPDATE_AFFIDAVIT_JSP, request, response);
-
+*/
     }
 
 
     /*
     Forwarding JSP: "viewAffidavit.jsp"
     */
+    /**
+     * @deprecated
+     */
     private void doUpdateAffidavitPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        log.debug("doUpdateAffidavitPost<br>");
+    	throw new IllegalArgumentException("Deprecated. It never should came here!!");
+    	/*
+    	log.debug("doUpdateAffidavitPost<br>");
 
         InternalDispatchAffidavit bean =
                 new InternalDispatchAffidavit(request, response);
@@ -2173,6 +2183,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
             forward(INTERNAL_AFFIDAVIT_JSP, request, response);
         }
+        */
     }
 
 

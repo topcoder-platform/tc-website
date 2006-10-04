@@ -1183,13 +1183,10 @@ public class DataInterfaceBean implements PactsConstants {
     	SimpleDateFormat dfmt = new SimpleDateFormat(DATE_FORMAT_STRING);
     	AffidavitBean bean = new AffidavitBean();
 
-        AffidavitWithText a = bean.getAffidavitWithText(affidavitId);
+        AffidavitWithText a = bean.getAffidavitWithText(affidavitId, dfmt.format(birthday));
 
         if (a == null) {
             throw new NoObjectFoundException("Couldn't find affidavit " + affidavitId);
-        }
-        if (birthday != null) {
-        	a.getAffidavit().setBirthday(dfmt.format(birthday));
         }
 
         //first replace the aged
@@ -1225,15 +1222,11 @@ public class DataInterfaceBean implements PactsConstants {
     	SimpleDateFormat dfmt = new SimpleDateFormat(DATE_FORMAT_STRING);
     	AffidavitBean bean = new AffidavitBean();
 
-        AffidavitWithText a = bean.getAffidavitWithText(affidavitId);
+        AffidavitWithText a = bean.getAffidavitWithText(affidavitId, dfmt.format(birthday));
         
         if (a == null) {
             throw new NoObjectFoundException("Couldn't find affidavit " + affidavitId);
         }
-        if (birthday != null) {
-        	a.getAffidavit().setBirthday(dfmt.format(birthday));
-        }
-
         
         affirmAffidavit(a.getAffidavit().getHeader().getId(), a.getAffidavitText(), dfmt.format(birthday));
     }
