@@ -92,7 +92,6 @@ public class ForumConversion {
         }
         
         try {
-        	System.out.println("Starting execution.");
             fileDir = args[0];
             rootCategoryId = Long.parseLong(args[1]);
             tcConn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
