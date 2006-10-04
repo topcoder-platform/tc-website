@@ -113,6 +113,7 @@ function statusChanged() {
 				<c:choose> 
 					<c:when test="${isAffirmed}">
 	    	        	Affirmed
+	    	        	<input type="hidden" name="affidavit_status_id" value="<%= PactsConstants.AFFIDAVIT_AFFIRMED_STATUS %>">
 	    	        </c:when>
 	    	        <c:otherwise>
 		            	<tc-webtag:rscSelect name="affidavit_status_id" list='${statusList}' fieldText="status_desc" 
