@@ -61,6 +61,8 @@ public class AddAffidavit extends PactsBaseProcessor implements PactsConstants {
                     return;
                 }
 
+            } else {
+            	setDefault("affidavit_type_id", ALGORITHM_AFFIDAVIT_TYPE + "");
             }
 
 
