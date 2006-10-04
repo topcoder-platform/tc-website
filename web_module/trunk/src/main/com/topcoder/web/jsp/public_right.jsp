@@ -260,7 +260,6 @@ function find(n) {
 
 <div class="rightColContent">
     <br><br>
-    <A href="/tc?module=ViewSurvey&sid=220"><img src="/i/hs/tchs07_vote.png" alt="Vote for the TCHS logo design" /></A>
 </div>
 
 <%-- Employment Opportunities ends --%>
