@@ -246,6 +246,12 @@
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
             
+                <div style="float: right; padding-left: 5px;">
+                    <img src="/i/pressroom/opensource_logo.gif" width="68" height="23" alt="Open Source" border="0" /></div>
+                TopCoder featured on public radio's "Open Source" [PODCAST]<br>
+                <A href="/audio/open_source_060928_24kb.mp3" target="_blank">lo 6.8mb</A> &#160;|&#160;
+                <A href="/audio/open_source_060928_48kb.mp3" target="_blank">hi 13.8mb</A><br>[October 4]<br><br>
+            
                 New Software Assembly contest: $22,500 in prizes!
                 <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_costingEngineAdminTool">...more</A><br>[September 20]<br><br>
 
@@ -266,9 +272,6 @@
                 <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus1.html">Code Commanders</A><br>
                 <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus6.html">TheFaxman Codeth</A><br>
                 <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus8.html">Identifying Best Developers</A><br>[July 12]<br><br>
-
-                UBS Extends Premier Sponsorship of TopCoder Events
-                <A href="/tc?module=Static&d1=pressroom&d2=pr_071206">...more</A><br>[July 12]<br><br>
 
             </td>
         </tr>

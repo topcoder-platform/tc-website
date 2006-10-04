@@ -37,6 +37,9 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText" valign="top"><td nowrap="nowrap">10.04.06 12:00 Noon&#160;-&#160</td><td width="100%">TopCoder featured on public radio's "Open Source"<br>
+<A href="/audio/open_source_060928_24kb.mp3" target="_blank">lo 6.8mb</A> &#160;|&#160;
+<A href="/audio/open_source_060928_48kb.mp3" target="_blank">hi 13.8mb</A></td></tr>
 <tr class="bodyText" valign="top"><td nowrap="nowrap">07.05.06 1:00 PM&#160;-&#160</td><td width="100%"><A href="http://media32b.libsyn.com/aHeceJl2a3eTdmd2bHOcq5qkZnaZ/podcasts/dickwall/JavaPosse065.mp3" target="_blank">Java Posse - Interviews from Topcoder and Java One</A></td></tr>
 <tr class="bodyText" valign="top"><td nowrap="nowrap">05.15.06 2:00 PM&#160;-&#160</td><td width="100%"><A href="http://media41b.libsyn.com/andueJx1nXycfJd1Z3lvpGqtZXqZ/podcasts/dickwall/JavaPosse053.mp3" target="_blank">Java Posse - Listener Feedback and TopCoder Interviews</A></td></tr> 
 <tr class="bodyText" valign="top"><td nowrap="nowrap">05.11.06 5:30 PM&#160;-&#160</td><td width="100%"><A href="http://media32b.libsyn.com/a3edeJR1nnyUeGx8bXttpWytZHKZ/podcasts/dickwall/JavaPosse054.mp3" target="_blank">Java Posse - Live at the TopCoder Open</A></td></tr> 
