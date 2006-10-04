@@ -61,7 +61,7 @@
  
 
 <p>
-The score distribution in this round seems similar to the ones in rounds 1-A and 1-B. The problems were balanced, with the exception of the hard problem, which was solved only by two people.
+The score distribution in this round seems similar to the ones in rounds 1-A and 1-B. The problems were balanced, with the exception of the hard problem, which was solved by only three people.
 The top spot was taken by <tc-webtag:handle coderId="260835" context="algorithm"/>, second went <tc-webtag:handle coderId="9906197" context="algorithm"/> and rounding out the top three was <tc-webtag:handle coderId="8527113" context="algorithm"/>, who regained his red status. Congratulations to them and to all the advancers!
 </p>
 
@@ -497,8 +497,8 @@ So we have the recurrence formula num[V'] = e[V'] - sum num[V<sub>1</sub>] * e[V
     public int countWays(String[] paths) {
         n = paths.length;
         num = new int[1 << n];
-        e2 = new int[1<<n];
-        for (int i = 0; i < 1 << n; i++) {
+        e2 = new int[1 << n];
+        for (int i = 0; i < (1 << n); i++) {
             for (int j = n - 1; j  >= 0; j--) {
                 if ((i & (1 << j))!= 0) {
                     if (i == (1 << j)) {
