@@ -54,7 +54,7 @@ function statusChanged() {
 
 </script>    
 </head>
-<body onInit="statusChanged()" >
+<body onLoad="statusChanged()" >
 
 
 

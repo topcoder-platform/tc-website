@@ -49,7 +49,7 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
         		String notarized = (String) getRequest().getParameter("is_notarized");
         		Date birthday = null;
         		String familyName = null;
-        		int age = -1;
+        		int aged = -1;
         		
         		boolean affirmating = (statusId == AFFIDAVIT_AFFIRMED_STATUS) && !isAffirmed;
         		
@@ -58,8 +58,8 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
                 	
                 	if (isFromIndia) {
                 		familyName = checkNotEmptyString("family_name", "Please enter a family name");
-                		if (getRequest().getParameter("age").trim().length() > 0) {
-                			age = checkNonNegativeInt("age", "Please enter a valid age");
+                		if (getRequest().getParameter("aged").trim().length() > 0) {
+                			aged = checkNonNegativeInt("aged", "Please enter a valid age");
                 		}
                 	}
                 }
