@@ -30,12 +30,8 @@ public class AddAffidavit extends PactsBaseProcessor implements PactsConstants {
 
         	if (getRequest().getParameter("affidavit_desc") != null) {
         		String desc = (String) getRequest().getParameter("affidavit_desc");
-        		int statusId = Integer.parseInt(getRequest().getParameter("affidavit_status_id"));
         		int typeId = Integer.parseInt(getRequest().getParameter("affidavit_type_id"));
         		
-        		if (statusId < 0) {
-        			addError("error", "Please select a status");
-        		}
         		if (desc.trim().length() == 0) {
         			addError("error", "Please enter a description for the affidavit.");
         		}
