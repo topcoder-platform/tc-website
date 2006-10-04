@@ -47,13 +47,15 @@ function toggleDiv(divId, state)
 }
 
 function statusChanged() {
+    <c:if test="${not isAffirmed}">
     var affirming = document.f.affidavit_status_id.value == <%= PactsConstants.AFFIDAVIT_AFFIRMED_STATUS%>;
+    </c:if>
     <c:if test="${isAffirmed}">
-    affirming = false;
+    var affirming = false;
     </c:if>
     var fromIndia = false;
     <c:if test="${isFromIndia}">
-    	fromIndia = true;
+    fromIndia = true;
     </c:if>
 	toggleDiv('BirthdayRow', affirming);
 	toggleDiv('FamilyNameRow', affirming && fromIndia);
