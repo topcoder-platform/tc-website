@@ -144,7 +144,7 @@ function statusChanged() {
 		</tr>
 		<tr id="BirthdayRow">
 			<td><b>Birthday:<b></td>
-			<td><tc-webtag:textInput name="date_of_birth" size="10" editable="true" />
+			<td><tc-webtag:textInput name="date_of_birth" id="date_of_birth" size="10" editable="true" />
 			<button id="trigger_date_of_birth">Set</button></td>
 		</tr>
 		<tr id="FamilyNameRow">
