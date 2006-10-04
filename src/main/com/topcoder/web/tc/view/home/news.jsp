@@ -9,7 +9,7 @@
 <%--------------------------------------------------------%>
    <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/headphones.gif" alt="Podcasts" border="0"/><br>10.04.06<br>12:00 Noon</td>
-       <td class="newsTextCell"><span class="newsTitle">TopCoder featured on public radio's "Open Source" [PODCAST]</span><br><br>
+       <td class="newsTextCell"><span class="newsTitle"><A href="/audio/open_source_060928_48kb.mp3" target="_blank">TopCoder featured on public radio's "Open Source"</A> [PODCAST]</span><br><br>
        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/opensource_logo.gif" width="68" height="23" alt="Open Source" border="0" /></div>
        Jack Hughes joined <i>Mavericks at Work</i> author William Taylor and host Christopher Lydon to discuss TopCoder's "maverick" approach. Stream the mp3:
       </td>
@@ -17,7 +17,7 @@
    <tr><td class="newsLinksCell">
        <A href="/audio/open_source_060928_24kb.mp3" target="_blank">lo 6.8mb</A> &#160;|&#160;
        <A href="/audio/open_source_060928_48kb.mp3" target="_blank">hi 13.8mb</A> &#160;|&#160;
-       <A href="/images/downloads/mavericks_at_work.pdf" target="_blank"><i>Mavericks at Work</i> excerpt</A> [PDF] &#160;|&#160;
+       <A href="/images/downloads/mavericks_at_work.pdf" target="_blank">Mavericks at Work excerpt</A> [PDF] &#160;|&#160;
        <tc-webtag:forumLink forumID="506134" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
