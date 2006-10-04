@@ -8,13 +8,28 @@
 </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>10.04.06<br>11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2030">UML Tool Icons contest over at the Studio</A>
+        </span><br><br>
+      At TopCoder Studio, we're running a contest to design a set of application icons for our UML tool that's currently in development.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2030">details</A> | 
+         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=17">discuss this</A> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>10.03.06<br>6:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home">2 new fields in the Algorithm Record Book</A></span><br><br>
       We recently added <A href="/stat?c=rated_events">Most Rated Events</A> and <A href="/stat?c=successful_challenges">Challenge Success for a Single Match</A> to the Algorithm Record Book.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=statistics&d2=recordbook_home">Record Book</A>&#160;|&#160;
+        <A href="/tc?module=Static&d1=statistics&d2=recordbook_home">Record Book</A> | 
         <tc-webtag:forumLink forumID="506133" message="discuss this"/> |
         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td>
@@ -67,8 +82,8 @@ online round.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">Record Book</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="506132" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">Record Book</A> | 
+         <tc-webtag:forumLink forumID="506132" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 
@@ -93,7 +108,7 @@ online round.
       We're compiling a special feature to celebrate TopCoder's 100,000th member (coming soon), and we need your help. Answer this question: What is the one theory, term, or tactic that you most rely on, and that is most responsible for making you a better coder?
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=513341">discuss this</A>&#160;|&#160;
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=513341">discuss this</A> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
@@ -107,8 +122,8 @@ online round.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/longcontest/?module=ViewOverview&rd=10105">results</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="506106" message="discuss this" />&#160;|&#160;
+         <A href="/longcontest/?module=ViewOverview&rd=10105">results</A> | 
+         <tc-webtag:forumLink forumID="506106" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
 
@@ -197,25 +212,4 @@ The score distribution in this round seems similar to the ones in rounds 1-A and
     <tc-webtag:forumLink forumID="506125" message="discuss this"/> |
      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
-        <br>09.25.06<br>6:00 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle">
-            <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm15">TCHS SRM 15 - Problem Set & Analysis</A>
-            </span><br><br>
-In this problem set coders faced an easy first problem, an easy second - which had the same number of correct submissions as the first problem - and a not very difficult third, though it did require some accuracy in coding.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/Vedensky_big2.jpg" alt="" width="55" height="61"/><br>by
-                <tc-webtag:handle coderId="9927526" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm15">full story</A> |
-    <tc-webtag:forumLink forumID="506037" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-</td></tr>
 
