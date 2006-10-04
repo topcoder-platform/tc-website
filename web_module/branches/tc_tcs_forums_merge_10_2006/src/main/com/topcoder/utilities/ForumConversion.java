@@ -94,14 +94,15 @@ public class ForumConversion {
         try {
             fileDir = args[0];
             rootCategoryId = Long.parseLong(args[1]);
-            tcConn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
-
+            //tcConn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
+            tcConn = DBMS.getConnection();
+            
             if (!fileDir.endsWith("/")) {
                 fileDir = fileDir + "/";
             }
 
             System.out.println("Start the forum conversion.");
-            convert();
+            //convert();
             System.out.println("All forums are converted correctly.");
         } catch (Exception ex) {
             System.err.println("Error occurred when converting the data.");
