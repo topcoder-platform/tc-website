@@ -57,12 +57,12 @@ public class PaymentDetail extends BaseProcessor {
             throw new TCWebException("parameter " + Constants.PAYMENT_TYPE_ID + " expected.");
         }
         
-        String paymentType = getRequest().getParameter(Constants.PAYMENT_TYPE_ID);
+/*        String paymentType = getRequest().getParameter(Constants.PAYMENT_TYPE_ID);
         
         // Payment type should be viewable and admit details
         if (!validPaymentType(paymentType)) {
             throw new TCWebException("invalid parameter " + Constants.PAYMENT_TYPE_ID);
-        }
+        }*/
 
         setDefault(Constants.PAYMENT_TYPE_ID, getRequest().getParameter(Constants.PAYMENT_TYPE_ID));
 
@@ -125,7 +125,7 @@ public class PaymentDetail extends BaseProcessor {
         setIsNextPageInContext(true);
     }
 
-    private boolean validPaymentType(String paymentType) throws Exception {
+/*    private boolean validPaymentType(String paymentType) throws Exception {
         Request r = new Request();
         r.setProperty(Constants.PAYMENT_TYPE_ID, paymentType);
         r.setContentHandle("valid_payment_type");
@@ -138,5 +138,5 @@ public class PaymentDetail extends BaseProcessor {
         } else {
             return false;
         }
-    }
+    }*/
 }

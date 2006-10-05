@@ -182,19 +182,12 @@
 	            <TD class="value" width="10%"><rsc:item name="date_due" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
 	            <TD class="value" width="45%"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
 	            <TD class="value" width="20%"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
-	            <TD class="value" width="10%">
-		            <% if (resultRow.getIntItem("payment_type_id") == 5 && 
-		                    resultRow.getItem("ref_earnings").getResultData() != null) {%>
-		            	<rsc:item name="ref_earnings" row="<%=resultRow%>" format="$#,##0.00"/>
-		            <% } else { %>
-  		            	<rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
-		            <% } %>
-	           	</TD>
+	            <TD class="value" width="10%"><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
 	            <TD class="value" width="10%">
 	            <% if (resultRow.getIntItem("payment_type_id") == 1) {%>
-				<A href="/stat?c=coder_room_stats&cr=<%=coderId%>&rd=<rsc:item name="algorithm_round_id" row="<%=resultRow%>"/>" class="bcLink">Contest Details</A>
+				<A href="/stat?c=coder_room_stats&cr=<%=coderId%>&rd=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">Contest Details</A>
 	            <% } else if (resultRow.getIntItem("payment_type_id") == 6) {%>
-				<A href="/tc?module=CompContestDetails&pj=<rsc:item name="component_project_id" row="<%=resultRow%>"/>" class="bcLink">Project details</A>
+				<A href="/tc?module=CompContestDetails&pj=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">Project details</A>
 				<% }%>
 				</TD>
 	            </tr>
