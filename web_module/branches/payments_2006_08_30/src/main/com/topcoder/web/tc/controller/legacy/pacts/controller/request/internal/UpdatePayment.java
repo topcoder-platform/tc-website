@@ -79,7 +79,6 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             	dueDate = payment.getDueDate();
             	modificationRationaleId = payment.getRationaleId();
             	
-            	log.debug("setting gross ammount to: " + grossAmount);
                 setDefault("gross_amount", grossAmount + "");
                 setDefault("net_amount", netAmount + "");
             	

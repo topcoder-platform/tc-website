@@ -73,6 +73,7 @@ function doSearch(text) {
     document.f.search_text.value = text;
     ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.addNamedFormElements("search_text");
+    ajaxRequest.addNamedFormElements("reference_id");
     ajaxRequest.setPostRequest(loaded);
     ajaxRequest.setPreRequest(loading);    
     ajaxRequest.sendRequest();
@@ -80,7 +81,7 @@ function doSearch(text) {
 
 function doReferenceChanged(refId) {
     var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=FillPaymentData');
-    document.ajaxFields.reference_id.value = refId;
+    document.f.reference_id.value = refId;
     ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.addNamedFormElements("reference_id");
     ajaxRequest.addNamedFormElements("cr");    
@@ -152,7 +153,6 @@ function referenceChanged(name) {
 </c:if>	
 
 <form name="ajaxFields">
-   <input type="hidden" name="reference_id">
    <input type="hidden" name="cr" value="${user.id}" >
 </form>
 
@@ -160,6 +160,7 @@ function referenceChanged(name) {
 <form name="f" action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
    <input type="hidden" name="module" value="UpdatePayment">
    <input type="hidden" name="search_text">
+   <input type="hidden" name="reference_id" value="${requestScope.reference_id}>
    
 <table border="0" cellpadding="5" cellspacing="5">
 		<tr>

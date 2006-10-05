@@ -45,7 +45,7 @@
                         </c:if>
                         <c:if test="${not empty rounds}">                   
                              <tc-webtag:rscSelect name="algorithm_round_id" list="${rounds}" 
-                                     fieldText="round_desc" fieldValue="round_id"  selectedValue="${param.algorithm_round_id}"                      
+                                     fieldText="round_desc" fieldValue="round_id"  selectedValue="${param.reference_id}"                      
                                      useTopValue="false" onChange="referenceChanged('algorithm_round_id')" />
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>              
