@@ -63,34 +63,34 @@
         <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;${typeParam}" class="bcLink">All
             changes</A>
         |
-        <c:if test="${requestScope[color]=='Gray'}"><span class="selected"></c:if>
+        <c:if test="${requestScope['color']=='Gray'}"><span class="selected"></c:if>
         <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Gray&amp;${typeParam}" class="coderTextGray">New
             grays</A>
-        <c:if test="${requestScope[color]=='Gray'}"></span></c:if>
+        <c:if test="${requestScope['color']=='Gray'}"></span></c:if>
 
         |
-        <c:if test="${requestScope[color]=='Green'}"><span class="selected"></c:if>
+        <c:if test="${requestScope['color']=='Green'}"><span class="selected"></c:if>
         <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Green&amp;${typeParam}" class="coderTextGreen">New
             greens</A>
-        <c:if test="${requestScope[color]=='Green'}"></span></c:if>
+        <c:if test="${requestScope['color']=='Green'}"></span></c:if>
 
         |
-        <c:if test="${requestScope[color]=='Blue'}"><span class="selected"></c:if>
+        <c:if test="${requestScope['color']=='Blue'}"><span class="selected"></c:if>
         <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Blue&amp;${typeParam}" class="coderTextBlue">New
             blues</A>
-        <c:if test="${requestScope[color]=='Blue'}"></span></c:if>
+        <c:if test="${requestScope['color']=='Blue'}"></span></c:if>
 
         |
-        <c:if test="${requestScope[color]=='Yellow'}"><span class="selected"></c:if>
+        <c:if test="${requestScope['color']=='Yellow'}"><span class="selected"></c:if>
         <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Yellow&amp;${typeParam}" class="coderTextYellow">New
             yellows</A>
-        <c:if test="${requestScope[color]=='Yellow'}"></span></c:if>
+        <c:if test="${requestScope['color']=='Yellow'}"></span></c:if>
 
         |
-        <c:if test="${requestScope[color]=='Red'}"><span class="selected"></c:if>
+        <c:if test="${requestScope['color']=='Red'}"><span class="selected"></c:if>
         <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Red&amp;${typeParam}" class="coderTextRed">New
             reds</A>
-        <c:if test="${requestScope[color]=='Red'}"></span></c:if>
+        <c:if test="${requestScope['color']=='Red'}"></span></c:if>
     </strong>
 </div>
 
