@@ -11,6 +11,8 @@
 <c:set var="adding" value="${empty payment}" />
 <c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />
 <c:set var="typeList" value="<%= request.getAttribute(PactsConstants.PAYMENT_TYPE_LIST) %>" />
+<c:set var="methodList" value="<%= request.getAttribute(PactsConstants.PAYMENT_METHOD_LIST) %>" />
+<c:set var="rationaleList" value="<%= request.getAttribute(PactsConstants.MODIFICATION_RATIONALE_LIST) %>" />
 
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -139,8 +141,8 @@ function referenceChanged(name) {
 <p align="right">
 <b><font color="#FF0000" size="+1">Loading...</font></b>
 </p>
-
 </div>
+
 <h1>PACTS</h1>
 <c:if test="${updating}">
 	<h2>Update Payment</h2>
@@ -159,7 +161,7 @@ function referenceChanged(name) {
    <input type="hidden" name="module" value="UpdatePayment">
    <input type="hidden" name="search_text">
    
-<table border="0" cellpadding="2" cellspacing="2">
+<table border="0" cellpadding="5" cellspacing="5">
 <c:if test="${updating}">
 	<tr>
 		<td><b>ID:</b></td>
@@ -197,6 +199,12 @@ function referenceChanged(name) {
 		<td></td>
 	</tr>
 </c:if>	
+	<tr>
+        <td><b>Method:</b></td><td>
+        <tc-webtag:rscSelect name="payment_method_id" list="${methodList}" 
+                    fieldText="payment_method_desc" fieldValue="payment_method_id"  useTopValue="false" />
+        </td>
+    </tr>
 
     <tr>
         <td><b>Status:</b></td>
@@ -210,8 +218,49 @@ function referenceChanged(name) {
         <td>
 	        <tc-webtag:textInput name="payment_desc" size="60" editable="true" />
         </td>
-    </tr>	
+    <tr>
+        <td><b>Gross Amount:</b></td>
+        <td>
+        	<tc-webtag:textInput name="gross_amount" size="8" editable="true" />
+        </td>
+	</tr>
+	<tr>
+        <td><b>Net Amount:</b></td>
+        <td>
+        	<tc-webtag:textInput name="net_amount" size="8" editable="true" /> (if left blank, calculated from Gross Amount)
+        </td>
+    </tr>
+    <tr>
+        <td><b>Date Due:</b></td><td>
+        <tc-webtag:textInput name="date_due" size="12" editable="true" /> 
+            <button id="trigger_date_due">Set</button>
+        	(if left blank, 2 weeks from now)
+        </td>            
+    </tr>
+    <tr>
+        <td><b>Rationale:</b></td><td>
+        <tc-webtag:rscSelect name="modification_rationale_id" list="${rationaleList}" 
+                    fieldText="modification_rationale_desc" fieldValue="modification_rationale_id"  useTopValue="false" />
+        </td>
+    </tr>
+    
 </table>
+
+<script language="javascript" type="text/javascript">
+    <!--
+Calendar.setup(
+{
+ inputField  : "date_due",  
+                    ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",    
+                    button      : "trigger_date_due",     
+                    showsTime   : false,
+                    singleClick  : false,
+                    cache       : true
+}
+);
+                -->
+</script>
+
 
 <input type="submit" value="Save Payment">
 </form>

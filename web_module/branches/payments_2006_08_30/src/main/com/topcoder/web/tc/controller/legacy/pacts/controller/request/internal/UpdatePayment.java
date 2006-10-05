@@ -1,10 +1,12 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
 
 /**
  * 
@@ -21,14 +23,39 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             
             String desc = null;
             int statusId = -1;
-            
+            int typeId = -1;
+            double grossAmount = 0.0;
+            double netAmount = 0.0;
+            int methodId = -1;
+            int modificationRationaleId = -1;
+            String dueDate = null;
+            String client = null;
             if (getRequest().getParameter("payment_desc") != null) {
             	desc = checkNotEmptyString("payment_desc", "Please enter a description for the payment.");
             	statusId = getIntParameter("status_id");
+            	typeId = getIntParameter("payment_type_id");
+            	client = (String) getRequest().getParameter("client");
+            	grossAmount = checkNonNegativeDouble("gross_amount", "Please enter a valid gross amount");
+            	if (getRequest().getParameter("net_amount").trim().length() > 0) {
+            		netAmount = checkNonNegativeDouble("net_amount", "Please enter a valid net amount");
+            	}
+            	methodId = getIntParameter("payment_method_id");
+            	modificationRationaleId = getIntParameter("modification_rationale_id");
+            	checkDate("due_date", "Please enter a valid due date");
+            	dueDate = getStringParameter("due_date");
             	
+            	//payment_method_id, date_due, modification_rationale_id
             	if (!hasErrors()) {
                     payment.getHeader().setDescription(desc);
+                    payment.getHeader().setTypeId(typeId);
+                    payment.getHeader().setMethodId(methodId);
+                    payment.getHeader().setClient(client);
+                    
                     payment.setStatusId(statusId);
+                    payment.setGrossAmount(grossAmount);
+                    payment.setNetAmount(netAmount);
+                    payment.setDueDate(dueDate);
+                    payment.setRationaleId(modificationRationaleId);
                     
                     dib.updatePayment(payment);
                     
@@ -42,8 +69,15 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             }
             
             setDefault("payment_desc", desc);
-            setDefault("status_id", statusId + "");
+            setDefault("payment_type_id", typeId + "");
+            setDefault("payment_method_id", methodId + "");
+            setDefault("client", client);
             
+            setDefault("status_id", statusId + "");
+            setDefault("gross_amount", grossAmount + "");
+            setDefault("net_amount", netAmount > 0 ? netAmount + "" : "");
+            setDefault("due_date", dueDate);
+            setDefault("modification_rationale_id", modificationRationaleId + "");
             
         	getRequest().setAttribute(PAYMENT, payment);
         	getRequest().setAttribute(USER, payment.getHeader().getUser());

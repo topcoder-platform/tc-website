@@ -42,6 +42,13 @@ public abstract class PactsBaseProcessor extends BaseProcessor{
 		return Long.parseLong(getRequest().getParameter(name));
 	}
 
+	protected String getStringParameter(String name) {
+		if (getRequest().getParameter(name) == null) {
+			throw new IllegalArgumentException("Missing parameter " + name);
+		}
+		return (String) getRequest().getParameter(name);
+	}
+
 	protected int getIntParameter(String name) {
 		if (getRequest().getParameter(name) == null) {
 			throw new IllegalArgumentException("Missing parameter " + name);
@@ -66,6 +73,18 @@ public abstract class PactsBaseProcessor extends BaseProcessor{
 		} catch(NumberFormatException e) {}
 		
 		if (value < 0 || (maxValue > 0 && value > maxValue)) {
+			addError("error", errorMsg);
+		}
+		return value;
+	}
+
+	protected double checkNonNegativeDouble(String name, String errorMsg) {
+		double value = -1;
+		try {
+			value = Double.parseDouble(getRequest().getParameter(name));
+		} catch(NumberFormatException e) {}
+		
+		if (value < 0) {
 			addError("error", errorMsg);
 		}
 		return value;
