@@ -57,6 +57,8 @@ public interface ForumConstants {
     public final static String ADMIN_COMMAND_CREATE_FORUMS_ALGO = "createForumsAlgo";
     public final static String ADMIN_COMMAND_DELETE_FORUMS_ALGO = "deleteForumsAlgo";
     public final static String ADMIN_ENABLE_RATINGS = "enableRatings";
+    public final static String ADMIN_CREATE_FORUM_FROM_EJB = "createForumFromEJB";
+    public final static String ADMIN_CONVERT_TCS_FORUMS = "convertTCSForums";
 
     public final static String ADMIN_MATCH = "match";
 

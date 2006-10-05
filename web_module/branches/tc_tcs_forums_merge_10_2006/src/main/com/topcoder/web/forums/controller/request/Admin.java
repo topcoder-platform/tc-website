@@ -22,6 +22,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
+import com.topcoder.web.forums.util.ForumConversion;
 import com.topcoder.common.web.data.Round;
 
 import javax.naming.InitialContext;
@@ -80,7 +81,7 @@ public class Admin extends ForumsProcessor {
                     algoCategory.deleteForum(forum);
                 }
             }
-        } else if (command.equals("Create forum from EJB") && !match.equals("")) {
+        } else if (command.equals(ForumConstants.ADMIN_CREATE_FORUM_FROM_EJB) && !match.equals("")) {
             InitialContext ctx = null;
             try {
                 ctx = TCContext.getInitial();
@@ -105,6 +106,8 @@ public class Admin extends ForumsProcessor {
             if (ratingManager.getRatingFromScore(2) == null) {
                 ratingManager.createRating(2, "positive");
             }
+        } else if (command.equals(ForumConstants.ADMIN_CONVERT_TCS_FORUMS)) {
+        	ForumConversion.convertForums();
         }
         /*
         else if (command.equals("Add test forums")) {
