@@ -127,6 +127,16 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
         private Date completeDate = null;
 
         /**
+         * Get the name of the referenced project.
+         *
+         * @return the name of the referenced project.
+         * @throws SQLException if an error occurred trying to access db.
+         */
+        public String lookupReferenceDescription(BasePayment payment) throws SQLException {
+        	return getComponentName(((ComponentProjectReferencePayment) payment).getProjectId());
+        }
+        
+        /**
          * Get the date that the event took place.
          *
          * @param payment payment to look for its date.

@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
@@ -14,8 +15,8 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
 
     protected void businessProcessing() throws TCWebException {
         try {
-            int refId = Integer.parseInt(getRequest().getParameter("reference_type_id"));
             int type = Integer.parseInt(getRequest().getParameter("payment_type_id"));
+            int refId =BasePayment.getReferenceTypeId(type); 
             String search = getRequest().getParameter("search_text");
 
             DataInterfaceBean dib = new DataInterfaceBean();

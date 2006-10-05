@@ -61,6 +61,16 @@ public abstract class ParentReferencePayment extends BasePayment {
         private String referredCoder = null;
 
         /**
+         * Get the description of the referenced payment.
+         *
+         * @return the description of the referenced payment.
+         * @throws SQLException if an error occurred trying to access db.
+         */
+        public String lookupReferenceDescription(BasePayment payment) throws SQLException {
+        	return getPaymentDesc(((ParentReferencePayment) payment).getParentId());
+        }
+
+        /**
          * Get the date that the event took place.  Return today by default.
          *
          * @param payment payment to retrieve the end date.

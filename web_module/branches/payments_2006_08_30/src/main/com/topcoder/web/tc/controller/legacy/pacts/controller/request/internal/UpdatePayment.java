@@ -1,6 +1,5 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
@@ -43,7 +42,7 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             }
             
             setDefault("payment_desc", desc);
-            setDefault("statusId", statusId + "");
+            setDefault("status_id", statusId + "");
             
             
         	getRequest().setAttribute(PAYMENT, payment);

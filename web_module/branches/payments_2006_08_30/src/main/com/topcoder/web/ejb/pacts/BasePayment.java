@@ -34,7 +34,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     private int statusId = 0;
     private String description = null;
     private final int paymentTypeId;
-
+    private String referenceDescription = null;
+    
     // Date when the event happened.  It is not stored in the database, but needed to know if referrals must be paid.
     private Date eventDate;
 
@@ -292,6 +293,15 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     protected void setStatusDesc(String statusDesc) {
         this.statusDesc = statusDesc;
     }
+    
+    protected void setReferenceDescription(String referenceDescription) {
+    	this.referenceDescription = referenceDescription;
+    }
+    
+    public String getReferenceDescription() {
+    	return referenceDescription;
+    }
+    
 
     /**
      * Set the status id.
@@ -325,6 +335,14 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
          * @throws SQLException if an error occurred trying to access db.
          */
         public abstract String lookupDescription(BasePayment payment) throws SQLException;
+
+        /**
+         * Implementing classes must return the description of the reference of the payment.
+         *
+         * @return the description of the reference of the payment
+         * @throws SQLException if an error occurred trying to access db.
+         */
+        public abstract String lookupReferenceDescription(BasePayment payment) throws SQLException;
 
         /**
          * Implementing classes must return the date that the event being paid took place.
@@ -396,6 +414,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             if (payment.getDescription() == null) {
                 payment.setDescription(lookupDescription(payment));
             }
+            
+            payment.setReferenceDescription(lookupReferenceDescription(payment));
         }
 
 

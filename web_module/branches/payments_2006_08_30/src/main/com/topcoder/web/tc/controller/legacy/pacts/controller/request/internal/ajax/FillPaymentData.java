@@ -30,6 +30,7 @@ public class FillPaymentData extends BaseProcessor implements PactsConstants {
             getRequest().setAttribute("description", payment.getDescription());
             getRequest().setAttribute("dueDate", format.format(payment.getDueDate()));
             getRequest().setAttribute("statusId", payment.getStatusId() + "");
+            getRequest().setAttribute("referenceDescription", payment.getReferenceDescription());
             
             setNextPage(INTERNAL_AJAX_FILL_PAYMENT_DATA);
             setIsNextPageInContext(true);

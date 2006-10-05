@@ -62,6 +62,16 @@ public class NoReferencePayment extends BasePayment {
     protected static class Processor extends BasePayment.Processor {
 
         /**
+         * Get the name of the reference.
+         *
+         * @return an empty string, because it doesn't reference anything.
+         * @throws SQLException if an error occurred trying to access db.
+         */
+        public String lookupReferenceDescription(BasePayment payment) throws SQLException {
+            return "";
+        }
+
+        /**
          * Get the description of the payment.
          *
          * @param payment payment to retrieve its description.

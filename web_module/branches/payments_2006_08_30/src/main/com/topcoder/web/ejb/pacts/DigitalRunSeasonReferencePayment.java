@@ -71,6 +71,16 @@ public abstract class DigitalRunSeasonReferencePayment extends BasePayment {
         private Date endDate = null;
 
         /**
+         * Get the name of the referenced season.
+         *
+         * @return the name of the referenced season.
+         * @throws SQLException if an error occurred trying to access db.
+         */
+        public String lookupReferenceDescription(BasePayment payment) throws SQLException {
+            return getSeasonName(((DigitalRunSeasonReferencePayment) payment).getSeasonId());
+        }
+
+        /**
          * Get the season end date.
          *
          * @param payment payment to retrieve the season end date

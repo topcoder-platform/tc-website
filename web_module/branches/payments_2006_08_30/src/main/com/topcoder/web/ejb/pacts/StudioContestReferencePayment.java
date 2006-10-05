@@ -72,6 +72,16 @@ public abstract class StudioContestReferencePayment extends BasePayment {
         private Date endDate = null;
 
         /**
+         * Get the name of the referenced contest.
+         *
+         * @return the name of the referenced contest.
+         * @throws SQLException if an error occurred trying to access db.
+         */
+        public String lookupReferenceDescription(BasePayment payment) throws SQLException {
+        	return getContestName(((ComponentContestReferencePayment) payment).getContestId());
+        }
+
+        /**
          * Get the name of the contest.
          *
          * @param contestId id of the contest to retrieve its name.

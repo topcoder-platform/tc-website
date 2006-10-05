@@ -72,6 +72,16 @@ public abstract class DigitalRunStageReferencePayment extends BasePayment {
         private Date endDate = null;
 
         /**
+         * Get the name of the referenced stage.
+         *
+         * @return the name of the referenced stage.
+         * @throws SQLException if an error occurred trying to access db.
+         */
+        public String lookupReferenceDescription(BasePayment payment) throws SQLException {
+        	return getStageName(((DigitalRunStageReferencePayment) payment).getStageId());
+        }
+        
+        /**
          * Get the stage end date.
          *
          * @param payment payment to retrieve the stage's end date

@@ -67,6 +67,16 @@ public abstract class AlgorithmProblemReferencePayment extends BasePayment {
         }
 
         /**
+         * Get the name of the referenced problem.
+         *
+         * @return the name of the referenced problem.
+         * @throws SQLException if an error occurred trying to access db.
+         */
+        public String lookupReferenceDescription(BasePayment payment) throws SQLException {
+        	return getProblemName(((AlgorithmProblemReferencePayment) payment).getProblemId());
+        }
+
+        /**
          * Get the name of a problem.
          *
          * @param problemId the id of the problem to get its name.

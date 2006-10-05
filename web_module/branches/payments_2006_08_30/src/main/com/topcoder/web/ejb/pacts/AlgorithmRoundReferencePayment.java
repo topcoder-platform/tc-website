@@ -106,6 +106,17 @@ public abstract class AlgorithmRoundReferencePayment extends BasePayment {
         }
 
         /**
+         * Get the name of the referenced round.
+         *
+         * @return the name of the referenced round.
+         * @throws SQLException if an error occurred trying to access db.
+         */
+        public String lookupReferenceDescription(BasePayment payment) throws SQLException {
+        	return getRoundName(((AlgorithmRoundReferencePayment) payment).getRoundId());
+        }
+        
+
+        /**
          * Get the name of the round.
          *
          * @param roundId round to lookup its name.

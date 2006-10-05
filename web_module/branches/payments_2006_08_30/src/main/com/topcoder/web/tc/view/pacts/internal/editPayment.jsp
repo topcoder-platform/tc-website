@@ -5,21 +5,142 @@
 <%@ taglib uri="pacts.tld" prefix="pacts" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>View Payment</title>
-</head>
-<body>
-
-
 <c:set var="payment" value="<%= request.getAttribute(PactsConstants.PAYMENT) %>"/>
 <c:set var="user" value="<%= request.getAttribute(PactsConstants.USER) %>"/>
 <c:set var="updating" value="${not empty payment}" />
 <c:set var="adding" value="${empty payment}" />
 <c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />
+<c:set var="typeList" value="<%= request.getAttribute(PactsConstants.PAYMENT_TYPE_LIST) %>" />
 
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<c:if test="${updating}">
+    <title>Update Payment</title>
+</c:if>	
+<c:if test="${adding}">
+    <title>Add Payment</title>
+</c:if>	
+    
+    <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
+    <script type="text/javascript" src="/js/jscal/calendar.js"></script>
+    <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
+    <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
+    <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
+         
+<script type="text/javascript" src="/js/taconite-client.js"></script>
+<script type="text/javascript" src="/js/taconite-parser.js"></script>
+<script type="text/javascript">
+
+function toggleDiv(divId, state) 
+{
+    if(document.layers)	  
+    {
+       document.layers[divId].visibility = state ? "show" : "hide";
+    }
+    else if(document.getElementById)
+    {
+        document.getElementById(divId).style.visibility = state ? "visible" : "hidden";
+    }
+    else if(document.all)
+    {
+        document.all[divId].style.visibility = state ? "visible" : "hidden";
+    }
+}
+
+function loading() {
+	toggleDiv("loading", 1);
+}
+
+function loaded() {
+	toggleDiv("loading", 0);
+}
+
+function typeChanged() {
+    var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
+    ajaxRequest.addNamedFormElements("payment_type_id");
+    ajaxRequest.setPostRequest(loaded);
+    ajaxRequest.setPreRequest(loading);    
+    ajaxRequest.sendRequest();
+}
+
+function doSearch(text) {
+    var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
+    document.f.search_text.value = text;
+    ajaxRequest.addNamedFormElements("payment_type_id");
+    ajaxRequest.addNamedFormElements("search_text");
+    ajaxRequest.setPostRequest(loaded);
+    ajaxRequest.setPreRequest(loading);    
+    ajaxRequest.sendRequest();
+}
+
+function doReferenceChanged(refId) {
+    var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=FillPaymentData');
+    document.ajaxFields.reference_id.value = refId;
+    ajaxRequest.addNamedFormElements("payment_type_id");
+    ajaxRequest.addNamedFormElements("reference_id");
+    ajaxRequest.addNamedFormElements("cr");    
+    ajaxRequest.setPostRequest(loaded);
+    ajaxRequest.setPreRequest(loading);    
+    ajaxRequest.sendRequest();
+}
+
+function setDescription(text) {
+	document.f.payment_desc.value = text;
+}
+
+function setDueDate(text) {
+	document.f.date_due.value = text;
+}
+
+function setStatus(id) {
+    var sel = document.f.status_id;
+    var i;
+    for (i = 0; i < sel.length; i++) {
+        if (id == sel.options[i].value) {
+        	sel.selectedIndex = i;
+        	break;
+        }
+    }
+
+}
+
+function initialize() {
+<% if (request.getParameter("search_text") == null) { %>
+//   typeChanged();
+<% } else { %>
+  doSearch('<%= request.getParameter("search_text") %>');
+<% } %>
+	loaded();
+}
+
+function getElement(name) {
+	for(i=0; i < document.f.elements.length; i++) 
+	    if(document.f.elements[i].name==name)  return document.f.elements[i];
+	return undefined;
+}
+
+function search() {
+    doSearch(getElement("searchInput").value);
+}
+
+function referenceChanged(name) {
+    doReferenceChanged(getElement(name).value);
+}
+
+</script>
+    
+</head>
+<body>
+
+<div id="loading">
+<p align="right">
+<b><font color="#FF0000" size="+1">Loading...</font></b>
+</p>
+
+</div>
 <h1>PACTS</h1>
 <c:if test="${updating}">
 	<h2>Update Payment</h2>
@@ -28,9 +149,16 @@
 	<h2>Add Payment</h2>
 </c:if>	
 
-<form name="f" action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
-<input type="hidden" name="module" value="UpdatePayment">
+<form name="ajaxFields">
+   <input type="hidden" name="reference_id">
+   <input type="hidden" name="cr" value="${user.id}" >
+</form>
 
+
+<form name="f" action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
+   <input type="hidden" name="module" value="UpdatePayment">
+   <input type="hidden" name="search_text">
+   
 <table border="0" cellpadding="2" cellspacing="2">
 <c:if test="${updating}">
 	<tr>
@@ -43,6 +171,33 @@
 		<td><b>User</b></td>
 		<td><a href="${pacts:viewUser(user.id)}"><c:out value="${user.handle}" /></td>
 	</tr>
+    <tr>
+		<td><b>Type:</b></td>
+		<td>
+          <tc-webtag:rscSelect name="payment_type_id" 
+                   list="${typeList}" 
+                   fieldText="payment_type_desc" fieldValue="payment_type_id" 
+                   useTopValue="false" onChange="typeChanged()" />        
+
+			<c:if test="${adding}">                  
+                   <input type="checkbox" name="charityInd" />Donated to Charity
+			</c:if>                   
+       </td>
+    </tr>
+<c:if test="${updating}">    
+	<tr id="selectReference">
+		<td><b>Reference:</b></td>		
+		<td>TO DO<input type="button" value="change" onClick="typeChanged()" />
+		</td>
+	</tr>
+</c:if>	
+<c:if test="${adding}">    
+	<tr id="selectReference">
+		<td></td>		
+		<td></td>
+	</tr>
+</c:if>	
+
     <tr>
         <td><b>Status:</b></td>
         <td>
