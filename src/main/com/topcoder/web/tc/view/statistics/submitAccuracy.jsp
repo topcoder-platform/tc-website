@@ -13,7 +13,7 @@ Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 
 <html>
 <head>
-<TITLE>TopCoder Statistics - Most SRM Wins</TITLE>
+<TITLE>TopCoder Statistics - Highest Submission Accuracy</TITLE>
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
@@ -49,7 +49,7 @@ Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" style="float: left; width: 510px; margin-right: 15px; margin-bottom: 15px;">
 <thead>
-    <tr><td class="title" colspan="6">Most SRM Wins</td></tr>
+    <tr><td class="title" colspan="6">Highest Submission Accuracy</td></tr>
     <tr>
         <td class="headerC">Rank</td>
         <td class="header" width="40%">Handle</td>
