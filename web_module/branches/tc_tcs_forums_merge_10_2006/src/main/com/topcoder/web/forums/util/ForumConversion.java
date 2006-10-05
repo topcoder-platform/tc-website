@@ -104,8 +104,14 @@ public class ForumConversion {
             
             ForumCategory root = forumFactory.getForumCategory(rootCategoryId);
             if (root.getCategoryCount() > 0 || root.getForumCount() > 0) {
-            	log.info("Stopping conversion - the root category is not empty.");
-            	return;
+            	//log.info("Stopping conversion - the root category is not empty.");
+            	log.info("deleting categories in dev.... ");
+            	Iterator itCat = root.getCategories();
+            	while (itCat.hasNext()) {
+            		ForumCategory cat = (ForumCategory)itCat.next();
+            		root.deleteCategory(cat);
+            	}
+            	log.info("dev categories deleted");
             }
 
             log.info("Starting the forum conversion: attachmentDir = " + fileDir + " | rootCategoryId = "
