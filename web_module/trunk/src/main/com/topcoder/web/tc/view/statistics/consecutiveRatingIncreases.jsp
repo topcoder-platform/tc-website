@@ -65,16 +65,24 @@ window.location=sel;
 </jsp:include>
 
 <div style="float:right;"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home">back to table of contents</A></div>
+<span class="bodyText">
+<% if (streakType.equals("4")){ %>
+<A HREF="/stat?c=consecutive_rating_increases&wst=3">SRMs</A> | SRMs and Tournaments
+<% } else { %>
+SRMs | <A HREF="/stat?c=consecutive_rating_increases&wst=4">SRMs and Tournaments</A>
+<% } %>
 <br><br>
-<table class="stat" cellpadding="0" cellspacing="0" style="float: left; width: 270px; margin-right: 15px; margin-bottom: 15px;">
+<strong>Record:</strong> This chart represents the longest consecutive algorithm rating increase streaks.
+</span>
+<br><br>
+<table class="stat" cellpadding="0" cellspacing="0" style="float: left; width: 510px; margin-right: 15px; margin-bottom: 15px;">
 <thead>
-    <tr><td class="title" colspan="5">Most Consecutive Algorithm Rating Increases</td></tr>
+    <tr><td class="title" colspan="6">Most Consecutive Algorithm Rating Increases</td></tr>
     <tr>
         <td class="headerC">Rank</td>
         <td class="header">Coder</td>
-        <td class="headerC" nowrap="nowrap">Consecutive<br>Rating<br>Increases</td>
-        <td class="headerC">Round<br>Duration</td>
-        <td class="headerC" nowrap="nowrap">Time<br>Duration</td>
+        <td class="headerC" width="100%" nowrap>Consecutive<br>Rating<br>Increases</td>
+        <td class="headerC" colspan="3">Duration</td>
     </tr>
 </thead>
 <tbody>
@@ -82,14 +90,15 @@ window.location=sel;
     <rsc:iterator list="<%=rsc%>" id="resultRow">
     <tr class="<%=even?"dark":"light"%>">
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="rank"/></td>
-        <td class="value"><tc-webtag:handle coderId="144400" context="algorithm"/></td>
+        <td class="value"><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>" context="algorithm"/></td>
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="length"/></td>
-        <td class="valueC">
-        <rsc:item row="<%=resultRow%>" name="start_contest_name"/><br>
-        <rsc:item row="<%=resultRow%>" name="end_contest_name"/>
+        <td class="valueR" nowrap>
+        <strong><rsc:item row="<%=resultRow%>" name="start_contest_name"/></strong><br>
+        <rsc:item row="<%=resultRow%>" name="start_date" format="MM.dd.yy"/>
         </td>
-        <td class="valueC">
-        <rsc:item row="<%=resultRow%>" name="start_date" format="MM.dd.yy"/><br>
+        <td class="valueC">-</td>
+        <td class="value" nowrap>
+        <strong><rsc:item row="<%=resultRow%>" name="end_contest_name"/></strong><br>
         <rsc:item row="<%=resultRow%>" name="end_date" format="MM.dd.yy"/>
         </td>
     </tr>
@@ -97,9 +106,6 @@ window.location=sel;
     </rsc:iterator>
 </tbody>
 </table>
-<span class="bodyText">
-<strong>Record:</strong> This chart represents the longest consecutive algorithm rating increase streaks.
-</span>
         
 </div>
 
