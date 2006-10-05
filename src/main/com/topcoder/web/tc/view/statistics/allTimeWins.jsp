@@ -13,7 +13,7 @@ Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 
 <html>
 <head>
-<TITLE>TopCoder Statistics - All-Time Wins</TITLE>
+<TITLE>TopCoder Statistics - All-Time Room Wins</TITLE>
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
@@ -52,7 +52,7 @@ Overall
 
 <table class="stat" cellpadding="0" cellspacing="0" style="float: left; width: 270px; margin-right: 15px; margin-bottom: 15px;">
 <thead>
-    <tr><td class="title" colspan="5">All-Time Algorithm Wins</td></tr>
+    <tr><td class="title" colspan="5">All-Time Algorithm Room Wins</td></tr>
     <tr>
         <td class="headerC">Rank</td>
         <td class="header" width="40%"><a href="/stat?c=all_time_wins&sq=All_Time_Wins&sc=0&sd=<%= "0".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Coder</a></td>
