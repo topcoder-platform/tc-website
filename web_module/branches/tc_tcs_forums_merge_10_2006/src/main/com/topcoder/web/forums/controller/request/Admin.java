@@ -107,7 +107,7 @@ public class Admin extends ForumsProcessor {
                 ratingManager.createRating(2, "positive");
             }
         } else if (command.equals(ForumConstants.ADMIN_CONVERT_TCS_FORUMS)) {
-        	ForumConversion.convertForums();
+        	ForumConversion.convertForums(forumFactory);
         }
         /*
         else if (command.equals("Add test forums")) {

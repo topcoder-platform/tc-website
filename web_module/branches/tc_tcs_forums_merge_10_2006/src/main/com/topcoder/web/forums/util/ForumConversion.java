@@ -6,15 +6,13 @@ package com.topcoder.web.forums.util;
 import com.jivesoftware.base.UserManager;
 import com.jivesoftware.base.UserNotFoundException;
 
-import com.jivesoftware.forum.database.DbForum;
-import com.jivesoftware.forum.database.DbForumCategory;
-import com.jivesoftware.forum.database.DbForumFactory;
-import com.jivesoftware.forum.database.DbForumMessage;
-import com.jivesoftware.forum.database.DbForumThread;
+import com.jivesoftware.forum.Forum;
+import com.jivesoftware.forum.ForumCategory;
+import com.jivesoftware.forum.ForumFactory;
+import com.jivesoftware.forum.ForumMessage;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.forums.model.TCUserManager;
 
 import java.io.IOException;
 import java.net.URL;
@@ -35,7 +33,7 @@ import java.util.Map;
  * Uses the Jive API to create categories/forums/threads/messages with data retrieved from the old Topcoder
  * software forums database.
  *
- * @author air2cold, mtong
+ * @author air2cold, billy, mtong
  * @version 1.0
  */
 public class ForumConversion {	
@@ -94,7 +92,7 @@ public class ForumConversion {
     static boolean ATTACHMENTS_ENABLED = true;
 
     
-    public static void convertForums() {        
+    public static void convertForums(ForumFactory forumFactory) {        
         try {
             fileDir = bundle.getProperty("forums_attachment_dir");
             rootCategoryId = Long.parseLong(bundle.getProperty("forums_root_category_id"));
@@ -103,11 +101,17 @@ public class ForumConversion {
             if (!fileDir.endsWith("/")) {
                 fileDir = fileDir + "/";
             }
+            
+            ForumCategory root = forumFactory.getForumCategory(rootCategoryId);
+            if (root.getCategoryCount() > 0 || root.getForumCount() > 0) {
+            	log.info("Stopping conversion - the root category is not empty.");
+            	return;
+            }
 
-            System.out.println("Start the forum conversion: attachmentDir = " + fileDir + " | rootCategoryId = "
+            log.info("Start the forum conversion: attachmentDir = " + fileDir + " | rootCategoryId = "
             		+ rootCategoryId);
-            convert();
-            System.out.println("All forums are converted correctly.");
+            convert(root, forumFactory);
+            log.info("All forums are converted correctly.");
         } catch (Exception ex) {
             System.err.println("Error occurred when converting the data.");
             ex.printStackTrace();
@@ -126,8 +130,10 @@ public class ForumConversion {
     /**
      * Do the conversion.
      */
-    private static void convert() throws Exception {
-        // get forums from FORUM_MASTER table        
+    private static void convert(ForumCategory root, ForumFactory forumFactory) throws Exception {
+        UserManager userManager = forumFactory.getUserManager();
+    	
+    	// get forums from FORUM_MASTER table        
         forumPS = tcConn.prepareStatement(
                 "select m.forum_id, c.component_name, c.short_desc, m.status_id, m.create_time, "
         		+ " v.comp_vers_id, v.version_text, v.phase_id, f.forum_type "
@@ -170,12 +176,6 @@ public class ForumConversion {
         		+ " from comp_forum_xref f, comp_technology tech "
 				+ " where f.forum_id = ? and f.comp_vers_id = tech.comp_vers_id");
 
-        //UserManager userManager = new DbUserManager();
-        UserManager userManager = new TCUserManager();
-
-        // All topcoder forums would be put under this root category.
-        DbForumCategory root = new DbForumCategory(rootCategoryId);
-
         int forumNum = 0;
         int totalForum = forums.size();
 
@@ -184,7 +184,7 @@ public class ForumConversion {
 
             // create a category for topcoder forum
             ForumMaster forum = (ForumMaster) it.next();
-            DbForumCategory category = (DbForumCategory) root.createCategory(forum.getName(), forum.getDesc());
+            ForumCategory category = root.createCategory(forum.getName(), forum.getDesc());
             category.setCreationDate(forum.getCreation());
             category.setModificationDate(forum.getCreation());
             category.setProperty("status", (forum.getStatus() == 1) ? "active" : "archived");           
@@ -209,7 +209,7 @@ public class ForumConversion {
             
             // get topics in this forum           
             topicPS.setLong(1, forum.getId());
-            //System.out.println("setting topicPS[1] to " + forum.getId());
+            //log.info("setting topicPS[1] to " + forum.getId());
             rs = topicPS.executeQuery();
 
             List topics = new ArrayList();
@@ -228,22 +228,21 @@ public class ForumConversion {
                 // not creating separate category for forum
                 /*
                 DbForumCategory topicCat = (DbForumCategory) category.createCategory(topic.getName(), topic.getText());
-                //System.out.println("topic is: " + topic);
+                //log.info("topic is: " + topic);
                 topicCat.setCreationDate(topic.getCreation());
                 topicCat.setModificationDate(topic.getCreation());
                 */
                 
                 // create a forum for this topic in the category created above
-                DbForumFactory forumFactory = DbForumFactory.getInstance();
                 //DbForum topicForum = (DbForum) forumFactory.createForum(topic.getName(), topic.getText(), topicCat);
-                DbForum topicForum = (DbForum) forumFactory.createForum(topic.getName(), topic.getText(), category);
+                Forum topicForum = forumFactory.createForum(topic.getName(), topic.getText(), category);
 
                 topicForum.setCreationDate(topic.getCreation());
                 topicForum.setModificationDate(topic.getCreation());
 
                 // get threads in this topic               
                 threadPS.setLong(1, topic.getId());
-                //System.out.println("setting threadPS[1] to " + topic.getId());
+                //log.info("setting threadPS[1] to " + topic.getId());
                 rs = threadPS.executeQuery();
 
                 List threads = new ArrayList();
@@ -267,7 +266,7 @@ public class ForumConversion {
 
                     // get posts in this thread                   
                     postPS.setLong(1, thread.getId());
-                    //System.out.println("setting postPS[1] to " + thread.getId());
+                    //log.info("setting postPS[1] to " + thread.getId());
                     rs = postPS.executeQuery();
 
                     List posts = new ArrayList();
@@ -288,8 +287,8 @@ public class ForumConversion {
                     // insert posts into the thread
                     boolean first = true;
                     Map parentMsgs = new HashMap();
-                    DbForumMessage dbParentMsg = null;
-                    DbForumThread dbThread = null;
+                    ForumMessage parentMsg = null;
+                    com.jivesoftware.forum.ForumThread forumThread = null;
                     Date threadModificationDate = null;
 
                     for (Iterator postIt = posts.iterator(); postIt.hasNext();) {
@@ -297,7 +296,7 @@ public class ForumConversion {
 
                         // get attachments of this post                      
                         attPS.setLong(1, post.getId());
-                        //System.out.println("setting attPS[1] to " + post.getId());
+                        //log.info("setting attPS[1] to " + post.getId());
                         rs = attPS.executeQuery();
 
                         List attaches = new ArrayList();
@@ -309,25 +308,24 @@ public class ForumConversion {
 
                         rs.close();
 
-                        DbForumMessage msg;
+                        ForumMessage msg;
                         try {
-                        	msg = (DbForumMessage) topicForum.createMessage(userManager.getUser(
-                                    post.getLoginId()));
+                        	msg = topicForum.createMessage(userManager.getUser(post.getLoginId()));
                         } catch (UserNotFoundException unfe) {
-                        	System.out.println("UserNotFoundException: " + unfe.getMessage());
-                        	System.out.println("post.getId(): " + post.getId());
-                        	System.out.println("post.getLoginId(): " + post.getLoginId());
+                        	log.info("UserNotFoundException: " + unfe.getMessage());
+                        	log.info("post.getId(): " + post.getId());
+                        	log.info("post.getLoginId(): " + post.getLoginId());
 
-                        	System.out.println("unfe.getUserID(): " + unfe.getUserID());
-                        	System.out.println("unfe.getUsername(): " + unfe.getUsername() + "\n[end UNFE]");
+                        	log.info("unfe.getUserID(): " + unfe.getUserID());
+                        	log.info("unfe.getUsername(): " + unfe.getUsername() + "\n[end UNFE]");
                         	
                         	// set to user #100 (guest100) and try again
-                        	msg = (DbForumMessage) topicForum.createMessage(userManager.getUser(100));
+                        	msg = topicForum.createMessage(userManager.getUser(100));
                         	
                         	//throw unfe;
                         	//continue;
                         } catch (Exception e) {
-                        	System.out.println("Exception: " + e.getMessage() + ": loginId is: " + post.getLoginId());
+                        	log.info("Exception: " + e.getMessage() + ": loginId is: " + post.getLoginId());
                         	throw e;
                         }
                         msg.setBody(post.getPostText());
@@ -345,33 +343,33 @@ public class ForumConversion {
 	                            try {
 	                            	msg.createAttachment(att.getName(), conn.getContentType(), conn.getInputStream());
 	                            } catch (IOException ioe) {
-	                            	System.out.println("attachment " + att.getName() + " not found at URL: " + urlStr);
+	                            	log.info("attachment " + att.getName() + " not found at URL: " + urlStr);
 	                            }
                             } else {
-                            	System.out.println("skipping attaching of: " + att.getName() + " from " + urlStr);
+                            	log.info("skipping attaching of: " + att.getName() + " from " + urlStr);
                             }
                         }
 
                         if (first) {
                             // add the thread into jive forum
                             msg.setSubject(thread.getSubject());
-                            dbThread = (DbForumThread) topicForum.createThread(msg);
-                            topicForum.addThread(dbThread);
-                            dbParentMsg = msg;
+                            forumThread = topicForum.createThread(msg);
+                            topicForum.addThread(forumThread);
+                            parentMsg = msg;
                             first = false;
                         } else {
                             // add the message into the jive thread
                             msg.setSubject("Re: " + thread.getSubject());
 
-                            DbForumMessage pMsg = (DbForumMessage) parentMsgs.get(post.getParentId());
+                            ForumMessage pMsg = (ForumMessage)parentMsgs.get(post.getParentId());
 
                             if (pMsg == null) {
                                 // it shoule never happen
                                 System.err.println("Invalid parent message");
-                                System.out.println("post is: " + post);
-                                dbThread.addMessage(dbParentMsg, msg);
+                                log.info("post is: " + post);
+                                forumThread.addMessage(parentMsg, msg);
                             } else {
-                                dbThread.addMessage(pMsg, msg);
+                                forumThread.addMessage(pMsg, msg);
                             }
                         }
 
@@ -380,11 +378,11 @@ public class ForumConversion {
                     }
 
                     // change thread's modification date
-                    dbThread.setModificationDate(threadModificationDate);
+                    forumThread.setModificationDate(threadModificationDate);
                     forumModificationDate = threadModificationDate;
 
                     if ((threadNum % 1000) == 0) {
-                        System.out.println(threadNum + " out of " + totalThreads + " threads have been processed.");
+                        log.info(threadNum + " out of " + totalThreads + " threads have been processed.");
                     }
                 }
 
@@ -396,7 +394,7 @@ public class ForumConversion {
                 }
             }
 
-            System.out.println(forumNum + " out of " + totalForum + " forums have been processed.");
+            log.info(forumNum + " out of " + totalForum + " forums have been processed.");
         }
     }
 
@@ -667,7 +665,7 @@ class ForumTopic {
      */
     public Date getCreation() {
     	if(this.creation == null) {
-    		System.out.println("----- null creation date - using Date(0)");
+    		//log.info("----- null creation date - using Date(0)");
     		return new Date(0);
     	}
         return this.creation;
@@ -805,7 +803,7 @@ class ForumPost {
      */
     public long getLoginId() {
     	if(this.loginId == 0) {
-    		System.out.println("loginId is 0 - changing to 2");
+    		//log.info("loginId is 0 - changing to 2");
     		return 2;
     	}
         return this.loginId;
