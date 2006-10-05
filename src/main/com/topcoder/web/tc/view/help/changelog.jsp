@@ -51,6 +51,7 @@
             any normal usage scenario)
         </li>
         <li>Add Most successful challenges in a match recordbook page.</li>
+        <li>Fixed internal PACTS bug that did not allow the update of a payment</li>
     </ul>
 </p>
 
@@ -65,16 +66,19 @@
         </li>
         <li>Add appeal data to member profile</li>
         <li>Show handle colors on the problem details as whichever is greater between High School and regular algorithm
-            competitions.</li>
+            competitions.
+        </li>
         <li>Add the point value of the problem to the problem detail page</li>
         <li>Add link to problem details page from the problem solution page</li>
         <li>Make the problem archive page's link to round overview go to the appropriate page based on whehter it's a
-            High School match or not.</li>
+            High School match or not.
+        </li>
         <li>Make the problem detail page's links to round overview, problem statment and problem solution go to the
-            appropriate page based on whehter it's a High School match or not.</li>
+            appropriate page based on whehter it's a High School match or not.
+        </li>
         <li>Add link on Marathon Match overview page to example history</li>
         <li>Make the earnings totals link to the user's history on the member home page</li>
-        <li>Add instructions to internal recruiting member profile </li>
+        <li>Add instructions to internal recruiting member profile</li>
         <li>Fix content on srm rules page, some content was replicated</li>
         <li>On the Marathon Match overview page, make the rank column be the left most column</li>
         <li>Add division to competition history</li>
@@ -142,10 +146,12 @@
     5.4.9 - 2006.08.31
     <ul>
         <li>Fix in password reset page: if the key has expired, it doesn't let the user even enter the new
-            password.</li>
+            password.
+        </li>
         <li>Add TCCC06 Component results site</li>
         <li>In all tournament sites, the components should not link to the catalog if they are not public
-            components.</li>
+            components.
+        </li>
         <li>Include referral information in studio registration</li>
     </ul>
 </p>
@@ -156,7 +162,8 @@
         <li>Add resume download to registration process</li>
         <li>Refresh the cached value for registrants after someone registers for the tccc06 algo tournaments</li>
         <li>Change the text of the GCJ06 activation email to more correctly identify the appropriate JRE to have
-            installed</li>
+            installed
+        </li>
         <li>Fix emails when travel information is submitted for the TCCC</li>
         <li>Add new password recovery system using secret question and password resetting.</li>
     </ul>
@@ -174,7 +181,8 @@
     <ul>
         <li>Fix bug in member contact that enabled non rated members to send messages.</li>
         <li>Fix bug in privatelabel registration process where one could not update the phone number on an account that
-            did not already contain a phone number</li>
+            did not already contain a phone number
+        </li>
         <li>Fix the password reminder email for private label events so that doesn't munge non ascii characters</li>
         <li>fix XSS hole in all login pages</li>
         <li>Allow private label event users the ability to use any character in their password</li>
@@ -242,7 +250,8 @@
     <ul>
         <li>Fix default sorting of Digital Run scoreboard's columns</li>
         <li>Fix bug in Marathon Match submission where a user could test examples, click browser back and then submit
-            but it would test examples again</li>
+            but it would test examples again
+        </li>
         <li>Another attempt to improve the ACIDity of the reviewer reg process</li>
         <li>Fix the password reminder for people with ' in their name</li>
         <li>Make GPA, GPA Scale and resume fields in registration process not appear as required.</li>
@@ -266,7 +275,8 @@
     <ul>
         <li>Fix bug in the password reminder system</li>
         <li>New site terms of use. The new terms don't include the clause about users notifying TopCoder if they are
-            contacted by a 3rd party.</li>
+            contacted by a 3rd party.
+        </li>
         <li>Fix bug that caused error if one left fields blank while filling out employment preferences</li>
         <li>Added hs members to member search and corresponding fields to advanced search</li>
     </ul>
@@ -286,7 +296,8 @@
     5.3.6 - 2006.06.21
     <ul>
         <li>Add warning message for the case that there is less than the submission rate time left in a marathon
-            match</li>
+            match
+        </li>
         <li>Add unified registration process to the corporate and TopCoder Software sites.</li>
         <li>Show all matches in the Marathon Match active contests page, not just past 5</li>
     </ul>
@@ -324,7 +335,8 @@
     <ul>
         <li>Fix professional registration report so that it displays title correctly</li>
         <li>Fix first page of registration so that if an existing user updates and gets an error, defaults for
-            notifications and handle are populated correctly.</li>
+            notifications and handle are populated correctly.
+        </li>
         <li>Make UI adjustments for home schoolers in registration process</li>
         <%--  a bit too technical, don't show on site
                     <li>Fix country ranking tables in database to use floating point ratings rather than integer</li>
@@ -397,7 +409,8 @@
     <ul>
         <li>Fix the next/previous links on the example history page for Marathon Matches</li>
         <li>Fix component reg. The end time was calculated incorrectly as well had whether or not they had won the
-            design phase.</li>
+            design phase.
+        </li>
         <li>Add Google Europe site.</li>
         <li>Fix bug in Marathon Match results where one couldn't scroll.</li>
     </ul>
@@ -458,7 +471,8 @@
     5.0.3 - 2006.03.15
     <ul>
         <li>Change text at the top of the registration page to be more specific about sponsors and competitor
-            information</li>
+            information
+        </li>
         <li>Don't link to the component catalog for custom components on:
             <ul>
                 <li>Component Contest Details</li>
@@ -473,9 +487,11 @@
             </ul>
         </li>
         <li>Fix the passed review/win statistics in the member profile for dev and design to not used placed as an
-            indicator</li>
+            indicator
+        </li>
         <li>Change the win percentage record book page to require that one must place first and have a passing
-            score</li>
+            score
+        </li>
         <%--
                     <li>Populate passed_review_ind</li>
                     <li>Allow for the ability to set up a project that allows appeal responses during appeals phase</li>
@@ -503,9 +519,11 @@
         <li>Fix Google India Content</li>
         <li>Add registrants and component details fields to contest status page</li>
         <li>Fix registrants query on active contests page to be at the time of registration rather than change over
-            time</li>
+            time
+        </li>
         <li>When viewing marathon match results for a particular coder, move the the correct row when the page
-            loads.</li>
+            loads.
+        </li>
         <li>Format Marathon Match results to have 0000 digits to the right of the decimal</li>
     </ul>
 </p>
@@ -538,7 +556,8 @@
         <li>Adjust system to only use ph for the phase parameter, never pi</li>
         <li>link to the challenged code/arguments from the challenge list on coder room stats</li>
         <li>when you submit and time out in long comps, return to the submission page with the submitted code, not the
-            most recent successful submission</li>
+            most recent successful submission
+        </li>
         <%--
                     <li>put logic behind the contest details links on the component page in the catalog</li>
         --%>
@@ -672,7 +691,8 @@
         <li>Marathon Match site
             <ul>
                 <li>Fix bug where language wasn't reflected in types for problem statement page from active
-                    contests</li>
+                    contests
+                </li>
                 <li>Fix bug where language wasn't reflected on reload of submit page in the args/return type</li>
                 <li>Fix tc time link</li>
                 <li>allow admins to see the probelm statement even though they are not reg'd</li>
@@ -704,7 +724,8 @@
     4.0.9 - 2005.12.08
     <ul>
         <li>Added text to the reliability rating page indicating that new competitors don't get a rating til they pass
-            review, and that unreliable people can't register for more than 2 projects</li>
+            review, and that unreliable people can't register for more than 2 projects
+        </li>
         <li>Added survey admin tool</li>
         <li>Changed default sort on component listing page to be date descending</li>
         <li>Make extra sure a tc member can't create a dup account for a private label events</li>
@@ -733,7 +754,8 @@
     <ul>
         <li>increased size limit on user_placement.value and changed the code to enforce it</li>
         <li>improved the validation on review board applications. 1. so that one can't apply for a
-            design position that is taken. 2. so that one can't apply with an invalid review resp</li>
+            design position that is taken. 2. so that one can't apply with an invalid review resp
+        </li>
         <li>Added coder achievements page</li>
         <li>added ability to make the results of a survey not viewable</li>
         <li>enforced the dates on a survey. only during that time can one respond to it</li>
@@ -751,7 +773,8 @@
 <p> 4.0.4 - 2005.10.24
     <ul>
         <li>Added forum links to round stats, round overview, problem details, match editorial
-            and room stats.</li>
+            and room stats.
+        </li>
         <li>Added TCO06 Logo Contest site</li>
     </ul>
 </p>
@@ -761,7 +784,10 @@
         <li>Changes relating to the new component reliability formula.
             <ul>
                 <li>Split reliability rating in member profile</li>
-                <li>If your reliability is <70% you can't register for more than 2 projects</li>
+                <li>If your reliability is
+                    <
+                    70% you can't register for more than 2 projects
+                </li>
             </ul>
         </li>
     </ul>
@@ -780,7 +806,8 @@
     <ul>
         <li>Made the top color handle based on highest rating</li>
         <li>Allowed existing members that don't meet current handle criteria to update their profile without a
-            handle change</li>
+            handle change
+        </li>
     </ul>
 </p>
 
