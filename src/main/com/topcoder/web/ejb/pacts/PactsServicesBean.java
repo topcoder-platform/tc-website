@@ -3318,7 +3318,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 addAddress.append("INSERT INTO payment_address ");
                 addAddress.append(" (payment_address_id, first_name, middle_name, last_name, ");
                 addAddress.append("  address1, address2, city, state_code, zip, country_code, address3, province) ");
-                addAddress.append(" VALUES(?,?,?,?,?,?,?,?,?,?)");
+                addAddress.append(" VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
                 ps = c.prepareStatement(addAddress.toString());
                 ps.setLong(1, paymentAddressId);
                 ps.setString(2, (String) addressData.getItem("first_name").getResultData());
