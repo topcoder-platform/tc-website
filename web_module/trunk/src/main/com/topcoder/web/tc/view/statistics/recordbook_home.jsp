@@ -32,9 +32,9 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-<TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+<td width="100%" align="center" class="bodyColumn">
 
-    <div class="fixedWidthBody">
+<div class="fixedWidthBody">
 
         <jsp:include page="../page_title.jsp">
             <jsp:param name="image" value="statistics_w"/>
@@ -121,7 +121,8 @@
             </tr>
         </table>
 
-    </div>
+</div>
+
 </td>
 <!-- Center Column Ends -->
 
