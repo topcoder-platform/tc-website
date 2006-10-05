@@ -187,9 +187,9 @@
 		            <% if (resultRow.getIntItem("charity_ind") == 1) {%>*<% }%>
 	            </TD>
 	            <TD class="value" width="10%">
-	            <% if (resultRow.getIntItem("payment_type_id") == 1) {%>
+	            <% if (resultRow.getIntItem("payment_type_id") == 1 && resultRow.getItem("reference_id").getResultData() != null) {%>
 				<A href="/stat?c=coder_room_stats&cr=<%=coderId%>&rd=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">Contest Details</A>
-	            <% } else if (resultRow.getIntItem("payment_type_id") == 6) {%>
+	            <% } else if (resultRow.getIntItem("payment_type_id") == 6 && resultRow.getItem("reference_id").getResultData() != null) {%>
 				<A href="/tc?module=CompContestDetails&pj=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">Project details</A>
 				<% }%>
 				</TD>
