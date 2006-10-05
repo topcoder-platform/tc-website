@@ -17,7 +17,6 @@ else if (sDivision.equals("2")) romanDivision = "II";
 %>
 
 <html>
-<html>
 <head>
 <TITLE>TopCoder Statistics - Highest Rating Point Gain</TITLE>
 <jsp:include page="/script.jsp" />
