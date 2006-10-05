@@ -52,6 +52,7 @@
         </li>
         <li>Add Most successful challenges in a match recordbook page.</li>
         <li>Fixed internal PACTS bug that did not allow the update of a payment</li>
+        <li>Track all the queries that get executed.</li>
     </ul>
 </p>
 
