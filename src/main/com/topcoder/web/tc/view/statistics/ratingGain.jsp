@@ -88,6 +88,7 @@ Div I
     <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
 
     <tr class="<%=even?"dark":"light"%>">
+        <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 7 /*"coder_score"*/ + "]" %>'/>
         <td class="valueC"><bean:write name="resultRow" property='<%= "item[" + 8 /*"rank"*/ + "]" %>'/></td>
         <td class="value" nowrap><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>" context="algorithm"/></td>
         <td class="valueC"><bean:write name="resultRow" property='<%= "item[" + 2 /*"pt gain"*/ + "]" %>'/></td>
