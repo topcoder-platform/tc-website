@@ -108,14 +108,15 @@ public class ForumConversion {
             	return;
             }
 
-            log.info("Start the forum conversion: attachmentDir = " + fileDir + " | rootCategoryId = "
+            log.info("Starting the forum conversion: attachmentDir = " + fileDir + " | rootCategoryId = "
             		+ rootCategoryId);
-            convert(root, forumFactory);
+            //convert(root, forumFactory);
+            ForumCategory category = root.createCategory("TEST 123", "TEST 123");
+            Forum topicForum = forumFactory.createForum("TEST 123", "TEST 123", category);
             log.info("All forums are converted correctly.");
         } catch (Exception ex) {
             System.err.println("Error occurred when converting the data.");
             ex.printStackTrace();
-            return;
         } finally {
             closeConnection(tcConn);
             closeStatement(forumPS);
@@ -364,7 +365,7 @@ public class ForumConversion {
                             ForumMessage pMsg = (ForumMessage)parentMsgs.get(post.getParentId());
 
                             if (pMsg == null) {
-                                // it shoule never happen
+                                // should never happen
                                 System.err.println("Invalid parent message");
                                 log.info("post is: " + post);
                                 forumThread.addMessage(parentMsg, msg);
