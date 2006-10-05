@@ -26,7 +26,6 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             if (getRequest().getParameter("payment_desc") != null) {
             	desc = checkNotEmptyString("payment_desc", "Please enter a description for the payment.");
             	statusId = getIntParameter("status_id");
-            	// try to update
             	
             	if (!hasErrors()) {
                     payment.getHeader().setDescription(desc);

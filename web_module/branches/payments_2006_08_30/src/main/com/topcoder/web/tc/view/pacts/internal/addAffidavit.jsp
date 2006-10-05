@@ -17,7 +17,7 @@
 <c:set var="payment" value="${requestScope.payment}"/>
 <c:set var="user" value="${requestScope.user}"/>
 <c:set var="typeList" value="<%= request.getAttribute(PactsConstants.AFFIDAVIT_TYPE_LIST) %>" />
-<c:set var="roundList" value="<%= request.getAttribute(PactsConstants.ROUND_LIST) %>" />
+<c:set var="roundList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />
 
 
 <h1>PACTS</h1>
