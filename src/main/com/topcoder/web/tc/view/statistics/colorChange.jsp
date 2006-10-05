@@ -146,7 +146,8 @@
                                 </c:when>
                                 <c:otherwise>
                                     <a href="/tc?module=CompContestDetails&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
-                                        <rsc:item name="contest_name" row="<%=resultRow%>"/>
+                                        <rsc:item name="component_name" row="<%=resultRow%>"/>
+                                        <rsc:item name="version_text" row="<%=resultRow%>"/>
                                     </a>
                                 </c:otherwise>
                             </c:choose>
