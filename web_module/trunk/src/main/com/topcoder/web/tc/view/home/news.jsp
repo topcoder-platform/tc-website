@@ -11,7 +11,7 @@
         <br>10.05.06<br>4:00 PM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=100506">TopCoder @ Work: Incorporating new technologies</A></span><br><br>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=100506">TC @ Work: Incorporating new technologies</A></span><br><br>
                The situation: The boss has just returned from a technology conference, no doubt full of torturous new ideas. You perspire in your seat, waiting for
                the inevitable conversation. What twisted brand of innovation will he force upon your project today?</td>
             <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" alt="" /> &#160;<img src="/i/m/rhudson_mug.gif" alt="" />
