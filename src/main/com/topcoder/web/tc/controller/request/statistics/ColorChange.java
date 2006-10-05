@@ -53,6 +53,8 @@ public class ColorChange extends Base {
                 }
             }
 
+            //the idea here is that we cache the whole set (it shouldn't be that big) and then filter
+            //what we don't want in memory.  this should be a good balance between speed and memory use
             ResultSetContainer changes = (ResultSetContainer) dai.getData(r).get(r.getContentHandle());
 
             if (!color.equals("")) {
@@ -65,7 +67,7 @@ public class ColorChange extends Base {
 
             String end = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
             if (end.equals(""))
-                end = String.valueOf(Constants.PROBLEM_ARCHIVE_SCROLL_SIZE);
+                end = String.valueOf(Constants.COLOR_CHANGE_SCROLL_SIZE);
 
             //make sure we like the size they they're searching for
             if (Integer.parseInt(end) - Integer.parseInt(start) > (Constants.COLOR_CHANGE_SCROLL_SIZE - 1)) {
