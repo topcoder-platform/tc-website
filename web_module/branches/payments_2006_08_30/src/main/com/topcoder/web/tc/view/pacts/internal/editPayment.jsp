@@ -135,7 +135,7 @@ function referenceChanged(name) {
 </script>
     
 </head>
-<body>
+<body onLoad="initialize()">
 
 <div id="loading">
 <p align="right">
@@ -232,8 +232,8 @@ function referenceChanged(name) {
     </tr>
     <tr>
         <td><b>Date Due:</b></td><td>
-        <tc-webtag:textInput name="date_due" size="12" editable="true" /> 
-            <button id="trigger_date_due">Set</button>
+        <tc-webtag:textInput name="due_date" size="12" editable="true" /> 
+            <button id="trigger_due_date">Set</button>
         	(if left blank, 2 weeks from now)
         </td>            
     </tr>
@@ -252,7 +252,7 @@ Calendar.setup(
 {
  inputField  : "date_due",  
                     ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",    
-                    button      : "trigger_date_due",     
+                    button      : "due_date",     
                     showsTime   : false,
                     singleClick  : false,
                     cache       : true

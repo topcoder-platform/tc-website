@@ -30,6 +30,7 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             int modificationRationaleId = -1;
             String dueDate = null;
             String client = null;
+            
             if (getRequest().getParameter("payment_desc") != null) {
             	desc = checkNotEmptyString("payment_desc", "Please enter a description for the payment.");
             	statusId = getIntParameter("status_id");
@@ -44,7 +45,6 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             	checkDate("due_date", "Please enter a valid due date");
             	dueDate = getStringParameter("due_date");
             	
-            	//payment_method_id, date_due, modification_rationale_id
             	if (!hasErrors()) {
                     payment.getHeader().setDescription(desc);
                     payment.getHeader().setTypeId(typeId);
@@ -65,7 +65,15 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             	}
             } else {
             	desc = payment.getHeader().getDescription();
+            	typeId = payment.getHeader().getTypeId();
+            	methodId = payment.getHeader().getMethodId();
+            	client = payment.getHeader().getClient();
+            	
             	statusId = payment.getStatusId();
+            	grossAmount = payment.getGrossAmount();
+            	netAmount = payment.getNetAmount();
+            	dueDate = payment.getDueDate();
+            	modificationRationaleId = payment.getRationaleId();            	
             }
             
             setDefault("payment_desc", desc);
