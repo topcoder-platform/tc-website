@@ -59,8 +59,8 @@
             </tr>
             <tr valign="top">
                 <td>
-                    <strong>All-Time Wins</strong><br>
-                    This chart ranks the Top-10 in Wins.<br>
+                    <strong>All-Time Room Wins</strong><br>
+                    This chart ranks the Top-10 in Room Wins.<br>
                     <a href="/stat?&amp;c=all_time_wins">Overall</a> |
                     <a href="/stat?&amp;c=all_time_wins_by_div&amp;dn=1">Division I</a> |
                     <a href="/stat?&amp;c=all_time_wins_by_div&amp;dn=2">Division II</a>
