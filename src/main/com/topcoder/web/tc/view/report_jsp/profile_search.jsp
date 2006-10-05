@@ -5,6 +5,8 @@
                 java.util.List"
 
         %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.Set" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -29,6 +31,7 @@
 
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <style type="text/css">
     .search {
         font-size: 8pt;
