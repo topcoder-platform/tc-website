@@ -45,6 +45,7 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             	checkDate("due_date", "Please enter a valid due date");
             	dueDate = getStringParameter("due_date");
             	
+            	
             	if (!hasErrors()) {
                     payment.getHeader().setDescription(desc);
                     payment.getHeader().setTypeId(typeId);
@@ -62,6 +63,9 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             		setIsNextPageInContext(false);
             		setNextPage(Links.viewPayment(paymentId));
             		return;
+            	} else {
+                    setDefault("gross_amount", getRequest().getParameter("gross_amount"));
+                    setDefault("net_amount", getRequest().getParameter("net_amount"));
             	}
             } else {
             	desc = payment.getHeader().getDescription();
@@ -73,7 +77,12 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             	grossAmount = payment.getGrossAmount();
             	netAmount = payment.getNetAmount();
             	dueDate = payment.getDueDate();
-            	modificationRationaleId = payment.getRationaleId();            	
+            	modificationRationaleId = payment.getRationaleId();
+            	
+            	log.debug("setting gross ammount to: " + grossAmount);
+                setDefault("gross_amount", grossAmount + "");
+                setDefault("net_amount", netAmount + "");
+            	
             }
             
             setDefault("payment_desc", desc);
@@ -82,8 +91,6 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             setDefault("client", client);
             
             setDefault("status_id", statusId + "");
-            setDefault("gross_amount", getRequest().getParameter("gross_amount"));
-            setDefault("net_amount", getRequest().getParameter("net_amount"));
             setDefault("due_date", dueDate);
             setDefault("modification_rationale_id", modificationRationaleId + "");
             
