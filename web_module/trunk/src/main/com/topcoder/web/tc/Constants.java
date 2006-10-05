@@ -188,6 +188,7 @@ public class Constants implements WebConstants {
     public static int TOURNAMENT_SURVEY_QUESTION;
     public static int SEARCH_SCROLL_SIZE;
     public static int PROBLEM_ARCHIVE_SCROLL_SIZE;
+    public static int COLOR_CHANGE_SCROLL_SIZE;
     public static String STATISTICS_PATH;
     public static int TCCC04_TERMS_OF_USE_ID;
     public static int TCO04_EVENT_ID;
@@ -318,6 +319,7 @@ public class Constants implements WebConstants {
 
 
     public static String DEFAULT_SURVEY_SCROLL_SIZE;
+    public static final String COLOR = "color";
 
     static {
         initialize();
