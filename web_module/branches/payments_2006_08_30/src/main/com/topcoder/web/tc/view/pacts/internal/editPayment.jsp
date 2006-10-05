@@ -18,13 +18,13 @@
 <c:set var="user" value="<%= request.getAttribute(PactsConstants.USER) %>"/>
 <c:set var="updating" value="${not empty payment}" />
 <c:set var="adding" value="${empty payment}" />
-<c:set var="statusList" value="<%= request.getAttribute(PactsConstants.ROUND_LIST) %>" />
+<c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />
 
 <h1>PACTS</h1>
-<c:if test="updating">
+<c:if test="${updating}">
 	<h2>Update Payment</h2>
 </c:if>	
-<c:if test="adding">
+<c:if test="${adding}">
 	<h2>Add Payment</h2>
 </c:if>	
 
@@ -32,11 +32,11 @@
 <input type="hidden" name="module" value="UpdatePayment">
 
 <table border="0" cellpadding="2" cellspacing="2">
-<c:if test="updating">
+<c:if test="${updating}">
 	<tr>
 		<td><b>ID:</b></td>
 		<td><c:out value="${payment.header.id}" />	
-			<input type="hidden" name="payment_id" value="{payment.header.id}"></td>
+			<input type="hidden" name="payment_id" value="${payment.header.id}"></td>
 	</tr>
 </c:if>
 	<tr>
