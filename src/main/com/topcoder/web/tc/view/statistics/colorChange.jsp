@@ -1,4 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="com.topcoder.web.common.model.SoftwareComponent" %>
+<%@ page import="com.topcoder.web.common.tag.HandleTag" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -6,6 +8,20 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <% ResultSetContainer changeList = (ResultSetContainer) request.getAttribute("change_list");%>
+<%
+    //figure out what we should be linking to
+    String context = (String) request.getAttribute("context");
+    String typeParam;
+    if (HandleTag.ALGORITHM.equals(context)) {
+        typeParam = Constants.ALGO_RATING_TYPE_ID + "=" + Constants.TC_ALGO_RATING_TYPE_ID;
+    } else if (HandleTag.HS_ALGORITHM.equals(context)) {
+        typeParam = Constants.ALGO_RATING_TYPE_ID + "=" + Constants.HS_ALGO_RATING_TYPE_ID;
+    } else if (HandleTag.DESIGN.equals(context)) {
+        typeParam = Constants.PHASE_ID + "=" + SoftwareComponent.DESIGN_PHASE;
+    } else {
+        typeParam = Constants.PHASE_ID + "=" + SoftwareComponent.DEV_PHASE;
+    }
+%>
 <HTML>
 <HEAD>
     <TITLE>TopCoder Statistics</TITLE>
@@ -36,35 +52,35 @@
 
 <div align="center">
     <strong>
-        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange" class="bcLink">All
+        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;${typeParam}" class="bcLink">All
             changes</A>
         |
         <c:if test="${request[color]=='Gray'}"><span class="selected"></c:if>
-        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Gray" class="coderTextGray">New
+        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Gray&amp;${typeParam}" class="coderTextGray">New
             grays</A>
         <c:if test="${request[color]=='Gray'}"></span></c:if>
 
         |
         <c:if test="${request[color]=='Green'}"><span class="selected"></c:if>
-        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Green" class="coderTextGreen">New
+        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Green&amp;${typeParam}" class="coderTextGreen">New
             greens</A>
         <c:if test="${request[color]=='Green'}"></span></c:if>
 
         |
         <c:if test="${request[color]=='Blue'}"><span class="selected"></c:if>
-        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Blue" class="coderTextBlue">New
+        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Blue&amp;${typeParam}" class="coderTextBlue">New
             blues</A>
         <c:if test="${request[color]=='Blue'}"></span></c:if>
 
         |
         <c:if test="${request[color]=='Yellow'}"><span class="selected"></c:if>
-        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Yellow" class="coderTextYellow">New
+        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Yellow&amp;${typeParam}" class="coderTextYellow">New
             yellows</A>
         <c:if test="${request[color]=='Yellow'}"></span></c:if>
 
         |
         <c:if test="${request[color]=='Red'}"><span class="selected"></c:if>
-        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Red" class="coderTextRed">New
+        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Red&amp;${typeParam}" class="coderTextRed">New
             reds</A>
         <c:if test="${request[color]=='Red'}"></span></c:if>
     </strong>
