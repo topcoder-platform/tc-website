@@ -43,7 +43,6 @@ public interface WebConstants {
     public static final String CODER_ID = "cr";
     public static final String ALGO_RATING_TYPE_ID = "ratid";
 
-
     //secondary reg parameters
     public static final String CODER_TYPE = "cty";
     public static final String DEMOG_PREFIX = "demog_";
