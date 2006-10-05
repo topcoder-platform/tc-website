@@ -14,6 +14,8 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -116,9 +118,12 @@ public class ForumConversion {
 
             log.info("Starting the forum conversion: attachmentDir = " + fileDir + " | rootCategoryId = "
             		+ rootCategoryId);
-            //convert(root, forumFactory);
-            ForumCategory category = root.createCategory("TEST 123", "TEST 123");
-            Forum topicForum = forumFactory.createForum("TEST 123", "TEST 123", category);
+            convert(root, forumFactory);
+            //TODO: See why the following two lines produce a "Closing a result set you left open! 
+            //	Please close it yourself." warning for JBoss. See if this still occurs in Jive Forums
+            //	Silver 5.* - if so, contact Jive.
+            //ForumCategory category = root.createCategory("TEST 123", "TEST 123");
+            //Forum topicForum = forumFactory.createForum("TEST 123", "TEST 123", category);
             log.info("All forums are converted correctly.");
         } catch (Exception ex) {
             System.err.println("Error occurred when converting the data.");
@@ -342,18 +347,20 @@ public class ForumConversion {
                         // add attachment to jive message
                         for (Iterator attIt = attaches.iterator(); attIt.hasNext();) {
                             ForumAttachment att = (ForumAttachment) attIt.next();
-                            String urlStr = fileDir + att.getUrl();
+                            File attFile = new File(fileDir + att.getUrl());
+                            String urlStr = "https://software.topcoder.com/forum/attachment?f="+post.getId()+"&id="+att.getId();
                             
                             if(ATTACHMENTS_ENABLED) {
 	                            URL url = new URL(urlStr);
 	                            URLConnection conn = url.openConnection();
 	                            try {
-	                            	msg.createAttachment(att.getName(), conn.getContentType(), conn.getInputStream());
+	                            	msg.createAttachment(att.getName(), conn.getContentType(), new FileInputStream(attFile));
+	                            	log.info("***** attachment " + att.getName() + " successfully attached at URL: " + urlStr);
 	                            } catch (IOException ioe) {
-	                            	log.info("attachment " + att.getName() + " not found at URL: " + urlStr);
+	                            	log.info("***** attachment " + att.getName() + " not found at URL: " + urlStr);
 	                            }
                             } else {
-                            	log.info("skipping attaching of: " + att.getName() + " from " + urlStr);
+                            	log.info("***** skipping attaching of: " + att.getName() + " from " + urlStr);
                             }
                         }
 
@@ -402,6 +409,7 @@ public class ForumConversion {
             }
 
             log.info(forumNum + " out of " + totalForum + " forums have been processed.");
+            if (forumNum > 50) break;
         }
     }
 
