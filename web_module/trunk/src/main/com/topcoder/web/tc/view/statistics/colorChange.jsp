@@ -132,14 +132,14 @@
                 </td>
                 <td class="value">
                     <c:choose>
-                        <c:when test="${isTCAlog}">
+                        <c:when test="${isTCAlgo}">
                             <A href="/stat?c=coder_room_stats&amp;cr=<rsc:item name="user_id" row="<%=resultRow%>"/>&amp;rd=<rsc:item name="round_id" row="<%=resultRow%>"/>">
                                 <rsc:item name="short_name" row="<%=resultRow%>"/>
                             </a>
                         </c:when>
                         <c:otherwise>
                             <c:choose>
-                                <c:when test="$isHSAlgo">
+                                <c:when test="${isHSAlgo}">
                                     <A href="/tc?module=HSRoomStats&amp;rd=<rsc:item name="round_id" row="<%=resultRow%>"/>&amp;cr=<rsc:item name="user_id" row="<%=resultRow%>"/>">
                                         <rsc:item name="short_name" row="<%=resultRow%>"/>
                                     </a>
