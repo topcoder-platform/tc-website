@@ -36,7 +36,7 @@ public class ColorChange extends Base {
                 r.setContentHandle("algo_color_change");
                 r.setProperty(Constants.ALGO_RATING_TYPE_ID, ratingType);
                 dai = getDataAccess(true);
-                if (ratingType.equals(String.valueOf(Constants.ALGO_RATING_TYPE_ID))) {
+                if (ratingType.equals(String.valueOf(Constants.TC_ALGO_RATING_TYPE_ID))) {
                     getRequest().setAttribute("context", HandleTag.ALGORITHM);
                 } else {
                     getRequest().setAttribute("context", HandleTag.HS_ALGORITHM);
