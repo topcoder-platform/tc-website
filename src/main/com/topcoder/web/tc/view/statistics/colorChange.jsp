@@ -55,6 +55,8 @@
         document.colorChangeForm.<%=DataAccessConstants.END_RANK%>.value =<%=changeList.getEndRow()+Constants.COLOR_CHANGE_SCROLL_SIZE%>;
         document.colorChangeForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
         document.colorChangeForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+        document.colorChangeForm.<%=Constants.ALGO_RATING_TYPE_ID%>.value = '<%=request.getParameter(Constants.ALGO_RATING_TYPE_ID)==null?"":request.getParameter(Constants.ALGO_RATING_TYPE_ID)%>';
+        document.colorChangeForm.<%=Constants.PHASE_ID%>.value = '<%=request.getParameter(Constants.PHASE_ID)==null?"":request.getParameter(Constants.PHASE_ID)%>';
         document.colorChangeForm.submit();
     }
     function previous() {
@@ -62,6 +64,8 @@
         document.colorChangeForm.<%=DataAccessConstants.END_RANK%>.value =<%=changeList.getEndRow()-Constants.COLOR_CHANGE_SCROLL_SIZE%>;
         document.colorChangeForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
         document.colorChangeForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+        document.colorChangeForm.<%=Constants.ALGO_RATING_TYPE_ID%>.value = '<%=request.getParameter(Constants.ALGO_RATING_TYPE_ID)==null?"":request.getParameter(Constants.ALGO_RATING_TYPE_ID)%>';
+        document.colorChangeForm.<%=Constants.PHASE_ID%>.value = '<%=request.getParameter(Constants.PHASE_ID)==null?"":request.getParameter(Constants.PHASE_ID)%>';
         document.colorChangeForm.submit();
     }
     //--></script>
@@ -128,6 +132,8 @@
     <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
     <input type="hidden" name="<%=DataAccessConstants.SORT_COLUMN%>" value=""/>
     <input type="hidden" name="<%=DataAccessConstants.SORT_DIRECTION%>" value=""/>
+    <input type="hidden" name="<%=Constants.PHASE_ID%>" value=""/>
+    <input type="hidden" name="<%=Constants.ALGO_RATING_TYPE_ID%>" value=""/>
 
 
     <div class="pagingBox">
