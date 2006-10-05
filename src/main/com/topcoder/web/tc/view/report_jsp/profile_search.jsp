@@ -146,7 +146,7 @@ function submitForm(){
         deselect('skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>');
         deselect('skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>');
         </rsc:iterator>
-        //document.search.submit();
+        document.search.submit();
     }
     function deselect( a ){
         var i;
