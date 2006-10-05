@@ -108,7 +108,8 @@
 
 </style>
 <title>TopCoder Reporting</title>
-<script language="javascript">
+<script type="text/javascript">
+
     <!--
 function remove( a ){
     var i;
@@ -178,7 +179,7 @@ function submitForm(){
 <input type="hidden" name="sort" value="1"/>
 <table class="search"><tr><td align="center" colspan="3">
     <A HREF="<%=Constants.SERVLET_ADDR%>">&lt;&lt; back to main menu</A> |
-    <a href="/tc?module=ProfileSearch&t=profile_search">Start over</a> |
+    <a href="/tc?module=ProfileSearch&amp;t=profile_search">Start over</a> |
     <a href="JavaScript:submitForm()">Submit</a>
 </td></tr><tr><td valign="top" class="lefttop">
     <table class="search">
@@ -308,7 +309,7 @@ function submitForm(){
     </table>
 </td><tr><td align="center" colspan="3">
     <A HREF="<%=Constants.SERVLET_ADDR%>">&lt;&lt; back to main menu</A> |
-    <a href="/tc?module=ProfileSearch&t=profile_search">Start over</a> |
+    <a href="/tc?module=ProfileSearch&amp;t=profile_search">Start over</a> |
     <a href="JavaScript:submitForm()">Submit</a>
 </td></tr></table>
 </FORM>
