@@ -82,8 +82,8 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             setDefault("client", client);
             
             setDefault("status_id", statusId + "");
-            setDefault("gross_amount", grossAmount + "");
-            setDefault("net_amount", netAmount > 0 ? netAmount + "" : "");
+            setDefault("gross_amount", getRequest().getParameter("gross_amount"));
+            setDefault("net_amount", getRequest().getParameter("net_amount"));
             setDefault("due_date", dueDate);
             setDefault("modification_rationale_id", modificationRationaleId + "");
             

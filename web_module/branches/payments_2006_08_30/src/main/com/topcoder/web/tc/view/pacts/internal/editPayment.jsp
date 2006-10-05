@@ -290,7 +290,7 @@ Calendar.setup(
 );
                 -->
 </script>
-
+<div id='runJS'></div>
 
 <input type="submit" value="Save Payment">
 </form>
