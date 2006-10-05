@@ -55,11 +55,11 @@ Request srb = (Request) request.getAttribute("REQUEST_BEAN");
     <tr><td class="title" colspan="6">Highest Submission Accuracy</td></tr>
     <tr>
         <td class="headerC">Rank</td>
-        <td class="header" width="40%">Handle</td>
-        <td class="headerC" width="15%">Events</td>
-        <td class="headerC" width="15%">Submissions</td>
-        <td class="headerC" width="15%">Correct</td>
-        <td class="headerC" width="15%">Accuracy</td>
+        <td class="header" width="40%"><a href="/stat?c=highest_accuracy&sq=Highest_Submission_Accuracy&sc=0&sd=<%= "0".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Coder</a></td>
+        <td class="headerC" width="15%"><a href="/stat?c=highest_accuracy&sq=Highest_Submission_Accuracy&sc=2&sd=<%= "2".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Events</a></td>
+        <td class="headerC" width="15%"><a href="/stat?c=highest_accuracy&sq=Highest_Submission_Accuracy&sc=4&sd=<%= "4".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Submissions</a></td>
+        <td class="headerC" width="15%"><a href="/stat?c=highest_accuracy&sq=Highest_Submission_Accuracy&sc=5&sd=<%= "5".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Correct</a></td>
+        <td class="headerC" width="15%"><a href="/stat?c=highest_accuracy&sq=Highest_Submission_Accuracy&sc=6&sd=<%= "6".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Accuracy</a></td>
     </tr>
 </thead>
 <tbody>
