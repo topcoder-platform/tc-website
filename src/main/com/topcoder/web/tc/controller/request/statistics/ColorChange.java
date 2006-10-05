@@ -58,7 +58,7 @@ public class ColorChange extends Base {
             ResultSetContainer changes = (ResultSetContainer) dai.getData(r).get(r.getContentHandle());
 
             if (!color.equals("")) {
-                changes = new ResultSetContainer(changes, new Equals(color, "color"));
+                changes = new ResultSetContainer(changes, new Equals(color, "new_color"));
             }
 
             String start = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
