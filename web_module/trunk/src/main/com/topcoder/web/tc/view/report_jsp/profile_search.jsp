@@ -180,7 +180,7 @@ function submitForm(){
 <table class="search"><tr><td align="center" colspan="3">
     <A HREF="<%=Constants.SERVLET_ADDR%>">&lt;&lt; back to main menu</A> |
     <a href="/tc?module=ProfileSearch&amp;t=profile_search">Start over</a> |
-    <a href="JavaScript:submitForm()">Submit</a>
+    <button name="handleSubmit" value="submit" type="submit">Submit</button>
 </td></tr><tr><td valign="top" class="lefttop">
     <table class="search">
         <tr><td class="left">Show count only:</td><td class="right"><tc-webtag:chkBox name="count"/></td></tr>
