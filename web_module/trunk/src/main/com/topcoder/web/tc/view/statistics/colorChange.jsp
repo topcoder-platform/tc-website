@@ -14,16 +14,26 @@
     String typeParam;
     boolean isTCAlgo = false;
     boolean isHSAlgo = false;
+    String titleName;
+    String node;
     if (HandleTag.ALGORITHM.equals(context)) {
         typeParam = Constants.ALGO_RATING_TYPE_ID + "=" + Constants.TC_ALGO_RATING_TYPE_ID;
         isTCAlgo = true;
+        titleName = "Algorithm";
+        node = "algo_color_changes";
     } else if (HandleTag.HS_ALGORITHM.equals(context)) {
         typeParam = Constants.ALGO_RATING_TYPE_ID + "=" + Constants.HS_ALGO_RATING_TYPE_ID;
         isHSAlgo = true;
+        titleName = "TCHS";
+        node = "hs_algo_color_changes";
     } else if (HandleTag.DESIGN.equals(context)) {
         typeParam = Constants.PHASE_ID + "=" + SoftwareComponent.DESIGN_PHASE;
+        titleName = "Design";
+        node = "des_color_changes";
     } else {
         typeParam = Constants.PHASE_ID + "=" + SoftwareComponent.DEV_PHASE;
+        titleName = "Development";
+        node = "dev_color_changes";
     }
 %>
 <c:set value="<%=typeParam%>" var="typeParam"/>
@@ -45,7 +55,7 @@
 <tr>
 <td WIDTH="180" VALIGN="top">
     <jsp:include page="/includes/global_left.jsp">
-        <jsp:param name="node" value="algo_color_changes"/>
+        <jsp:param name="node" value="<%=node%>"/>
     </jsp:include>
 </TD>
 <!-- Center Column Begins -->
@@ -55,7 +65,7 @@
 
 <jsp:include page="../page_title.jsp">
     <jsp:param name="image" value="statistics_w"/>
-    <jsp:param name="title" value="Recent Handle Color Changes - Algorithm"/>
+    <jsp:param name="title" value="Recent Handle Color Changes - <%=titleName%>"/>
 </jsp:include>
 
 <div align="center">
