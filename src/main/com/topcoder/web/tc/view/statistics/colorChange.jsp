@@ -28,8 +28,8 @@
 %>
 <c:set value="<%=typeParam%>" var="typeParam"/>
 <c:set value="<%=context%>" var="context"/>
-<c:set value="<%=isTCAlgo%>" var="isTCAlgo"/>
-<c:set value="<%=isHSAlgo%>" var="isHSAlgo"/>
+<c:set value="<%=Boolean.valueOf(isTCAlgo)%>" var="isTCAlgo"/>
+<c:set value="<%=Boolean.valueOf(isHSAlgo)%>" var="isHSAlgo"/>
 <HTML>
 <HEAD>
     <TITLE>TopCoder Statistics</TITLE>
