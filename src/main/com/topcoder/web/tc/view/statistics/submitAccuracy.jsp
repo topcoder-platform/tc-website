@@ -4,6 +4,7 @@
 
 %>
 
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
 
@@ -72,7 +73,7 @@ Request srb = (Request) request.getAttribute("REQUEST_BEAN");
     <tr class="<%=even?"dark":"light"%>">
         <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 3 /*"coder_score"*/ + "]" %>'/>
         <td class="valueC"><bean:write name="resultRow" property='<%= "item[" + 7 /*"rank"*/ + "]" %>'/></td>
-        <td class="value" nowrap><tc-webtag:handle coderId="<bean:write name="resultRow" property='<%= "item[" + 1 /*"coder_id"*/ + "]" %>'/>" context="algorithm"/></td>
+        <td class="value" nowrap><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>" context="algorithm"/></td>
         <td class="valueC"><bean:write name="resultRow" property='<%= "item[" + 2 /*"events"*/ + "]" %>'/></td>
         <td class="valueC"><bean:write name="resultRow" property='<%= "item[" + 4 /*"submitted"*/ + "]" %>'/></td>
         <td class="valueC"><bean:write name="resultRow" property='<%= "item[" + 5 /*"correct"*/ + "]" %>'/></td>
