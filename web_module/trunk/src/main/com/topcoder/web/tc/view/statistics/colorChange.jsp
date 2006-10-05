@@ -22,6 +22,8 @@
         typeParam = Constants.PHASE_ID + "=" + SoftwareComponent.DEV_PHASE;
     }
 %>
+<c:set value="<%=typeParam%>" var="typeParam"/>
+<c:set value="<%=context%>" var="context"/>
 <HTML>
 <HEAD>
     <TITLE>TopCoder Statistics</TITLE>
