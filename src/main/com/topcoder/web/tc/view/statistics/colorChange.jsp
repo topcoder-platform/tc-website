@@ -12,10 +12,14 @@
     //figure out what we should be linking to
     String context = (String) request.getAttribute("context");
     String typeParam;
+    boolean isTCAlgo = false;
+    boolean isHSAlgo = false;
     if (HandleTag.ALGORITHM.equals(context)) {
         typeParam = Constants.ALGO_RATING_TYPE_ID + "=" + Constants.TC_ALGO_RATING_TYPE_ID;
+        isTCAlgo = true;
     } else if (HandleTag.HS_ALGORITHM.equals(context)) {
         typeParam = Constants.ALGO_RATING_TYPE_ID + "=" + Constants.HS_ALGO_RATING_TYPE_ID;
+        isHSAlgo = true;
     } else if (HandleTag.DESIGN.equals(context)) {
         typeParam = Constants.PHASE_ID + "=" + SoftwareComponent.DESIGN_PHASE;
     } else {
@@ -24,6 +28,8 @@
 %>
 <c:set value="<%=typeParam%>" var="typeParam"/>
 <c:set value="<%=context%>" var="context"/>
+<c:set value="<%=isTCAlgo%>" var="isTCAlgo"/>
+<c:set value="<%=isHSAlgo%>" var="isHSAlgo"/>
 <HTML>
 <HEAD>
     <TITLE>TopCoder Statistics</TITLE>
@@ -125,9 +131,27 @@
                     <tc-webtag:handle coderId="<%=resultRow.getLongItem("user_id")%>" context="${context}"/>
                 </td>
                 <td class="value">
-                    <A href="/stat?c=coder_room_stats&cr=7504863&rd=9995&rm=249379">
-                        <rsc:item name="short_name" row="<%=resultRow%>"/>
-                    </A>
+                    <c:choose>
+                        <c:when test="${isTCAlog}">
+                            <A href="/stat?c=coder_room_stats&amp;cr=<rsc:item name="user_id" row="<%=resultRow%>"/>&amp;rd=<rsc:item name="round_id" row="<%=resultRow%>"/>">
+                                <rsc:item name="short_name" row="<%=resultRow%>"/>
+                            </a>
+                        </c:when>
+                        <c:otherwise>
+                            <c:choose>
+                                <c:when test="$isHSAlgo">
+                                    <A href="/tc?module=HSRoomStats&amp;rd=<rsc:item name="round_id" row="<%=resultRow%>"/>&amp;cr=<rsc:item name="user_id" row="<%=resultRow%>"/>">
+                                        <rsc:item name="short_name" row="<%=resultRow%>"/>
+                                    </a>
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="/tc?module=CompContestDetails&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
+                                        <rsc:item name="contest_name" row="<%=resultRow%>"/>
+                                    </a>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:otherwise>
+                    </c:choose>
                 </td>
                 <td class="valueC"><span class="coderText<rsc:item name="old_color" row="<%=resultRow%>"/>"><rsc:item name="old_rating" row="<%=resultRow%>"/></span>
                 </td>
