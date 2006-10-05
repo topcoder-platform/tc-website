@@ -57,8 +57,16 @@ public class ColorChange extends Base {
             //what we don't want in memory.  this should be a good balance between speed and memory use
             ResultSetContainer changes = (ResultSetContainer) dai.getData(r).get(r.getContentHandle());
 
+
+            String col = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+            String dir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+
             if (!color.equals("")) {
                 changes = new ResultSetContainer(changes, new Equals(color, "new_color"));
+            }
+
+            if (!"".equals(col) && !"".equals(dir)) {
+                changes.sortByColumn(Integer.parseInt(col), dir.trim().toLowerCase().equals("asc"));
             }
 
             String start = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
