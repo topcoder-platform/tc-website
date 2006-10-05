@@ -171,7 +171,7 @@
                         Rating</a>
                 </td>
                 <td class="headerC" nowrap="nowrap">
-                    <a onmouseover="document.images['up_or_down'].src = '/i/interface/up_or_down_on.png';" onmouseout="document.images['up_or_down'].src = '/i/interface/up_or_down.png';" href=""><img src="/i/interface/up_or_down.png" alt="" name="up_or_down" border="0"/></a>
+                    <a onmouseover="document.images['up_or_down'].src = '/i/interface/up_or_down_on.png';" onmouseout="document.images['up_or_down'].src = '/i/interface/up_or_down.png';" href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange<tc-webtag:sort column="<%=changeList.getColumnIndex("color_increase")%>" includeParams="true" excludeParams="<%=exclude%>"/>"><img src="/i/interface/up_or_down.png" alt="" name="up_or_down" border="0"/></a>
                 </td>
             </tr>
             <% boolean even = true; %>
