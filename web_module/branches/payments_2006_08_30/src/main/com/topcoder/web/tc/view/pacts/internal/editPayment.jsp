@@ -162,6 +162,14 @@ function referenceChanged(name) {
    <input type="hidden" name="search_text">
    
 <table border="0" cellpadding="5" cellspacing="5">
+		<tr>
+	        <td colspan="2">
+    	    	<tc-webtag:errorIterator id="err" name="error">
+    	    		<font color="#FF0000"><%=err%></font><br/>
+    	    	</tc-webtag:errorIterator>
+        	</td>
+        </tr>
+
 <c:if test="${updating}">
 	<tr>
 		<td><b>ID:</b></td>
@@ -186,16 +194,37 @@ function referenceChanged(name) {
 			</c:if>                   
        </td>
     </tr>
+    
+    
 <c:if test="${updating}">    
 	<tr id="selectReference">
 		<td><b>Reference:</b></td>		
 		<td>TO DO<input type="button" value="change" onClick="typeChanged()" />
 		</td>
 	</tr>
+	<c:if test="${not empty payment.header.client}">
+		<tr id="projectClient"> 
+			<td><b>Client:</b></td>
+			<td>
+				<tc-webtag:textInput name="client" size="30" editable="true" />
+			</td>
+		</tr>
+	</c:if>
+	<c:if test="${empty payment.header.client}">
+		<tr id="projectClient">
+			<td></td>
+			<td></td>
+		</tr>
+	</c:if>
+	
 </c:if>	
 <c:if test="${adding}">    
 	<tr id="selectReference">
 		<td></td>		
+		<td></td>
+	</tr>
+	<tr id="projectClient">
+		<td></td>
 		<td></td>
 	</tr>
 </c:if>	
@@ -237,13 +266,14 @@ function referenceChanged(name) {
         	(if left blank, 2 weeks from now)
         </td>            
     </tr>
+<c:if test="${updating}">    
     <tr>
         <td><b>Rationale:</b></td><td>
         <tc-webtag:rscSelect name="modification_rationale_id" list="${rationaleList}" 
                     fieldText="modification_rationale_desc" fieldValue="modification_rationale_id"  useTopValue="false" />
         </td>
     </tr>
-    
+</c:if>    
 </table>
 
 <script language="javascript" type="text/javascript">
@@ -252,7 +282,7 @@ Calendar.setup(
 {
  inputField  : "date_due",  
                     ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",    
-                    button      : "due_date",     
+                    button      : "trigger_due_date",     
                     showsTime   : false,
                     singleClick  : false,
                     cache       : true
