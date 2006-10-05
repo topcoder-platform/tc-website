@@ -7,6 +7,26 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 <%--------------------------------------------------------%>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
+        <br>10.05.06<br>4:00 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=100506">TopCoder @ Work: Incorporating new technologies</A></span><br><br>
+               The situation: The boss has just returned from a technology conference, no doubt full of torturous new ideas. You perspire in your seat, waiting for
+               the inevitable conversation. What twisted brand of innovation will he force upon your project today?</td>
+            <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" alt="" /> &#160;<img src="/i/m/rhudson_mug.gif" alt="" />
+            <br>by<tc-webtag:handle coderId="10407399" context="algorithm"/> &amp; <tc-webtag:handle coderId="22627518" context="algorithm"/></td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&amp;d1=features&amp;d2=100506">article</A> |
+    <tc-webtag:forumLink forumID="506135" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.04.06<br>5:00 PM</td>
      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SurveyResults&sid=220">andrey_atlas is the TCHS07 Logo Contest Winner!</A></span><br><br>
@@ -177,7 +197,7 @@ only the second -- and also the last SRM -- of September.
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
 
-<%--------------------------------------------------------%>
+<%--------------------------------------------
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
         <br>09.29.06<br>1:30 PM</td>
@@ -197,3 +217,4 @@ The score distribution in this round seems similar to the ones in rounds 1-A and
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
 
+------------%>

@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><A href="/tc?module=Static&amp;d1=features&amp;d2=100506"><strong>TopCoder @ Work: Incorporating new technologies</strong></A>, by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /><br>
+The situation: The boss has just returned from a technology conference, no doubt full of torturous new ideas. You perspire in your seat, waiting for the inevitable conversation. What twisted brand of innovation will he force upon your project today?</li>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=100206"><strong>Design Patterns in C++</strong></A>, by <tc-webtag:handle coderId="21195715" /><br>
 This article will examine several design patterns affected by modern C++ practices and present some of their manifestations in generic C++ code, along with a few examples of how parts of some TopCoder components may look like in C++.</li>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=092806"><strong>Writing code that writes code&#8230;</strong></A>, by <tc-webtag:handle coderId="10584406" /><br>
 Writing code that writes code can be a powerful technique for developers.  In an effort to be more productive, developers want to be able to accomplish tasks with fewer keystrokes, bugs, and headaches.</li>
-<li><A href="/tc?module=Static&amp;d1=features&amp;d2=092506"><strong>Understanding the Mind Game</strong></A>, by <tc-webtag:handle coderId="22628020" /><br>
-Most TopCoder members - whether brand new or weathered veterans - would agree with the statement that algorithm competitions are primarily mind games. While other competitions have a one-on-one element, in a Single Round Match or Code Jam situation your biggest opponent is yourself.</li>
 </ul>
 <span class="bodySubtitle">From the archives:</span><br>
 <ul>
