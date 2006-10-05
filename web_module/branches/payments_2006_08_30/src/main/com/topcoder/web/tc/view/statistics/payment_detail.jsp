@@ -158,16 +158,16 @@
 	            <TD CLASS="header" width="10%">
 	                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Date</a>
 	            </TD>
-	            <TD CLASS="header" width="45%">
+	            <TD CLASS="header" width="40%">
 	                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Description</a>
 	            </TD>
-	            <TD CLASS="header" width="20%">
+	            <TD CLASS="header" width="30%">
 	                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Payment Type</a>
 	            </TD>
 	            <TD CLASS="header" width="10%">
 	                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Earnings</a>
 	            </TD>
-	            <TD CLASS="header" width="10%"></TD>
+	            <TD CLASS="header" width="5%"></TD>
 	        </tr>
 	        <%int i = 0;%>
 	        <%boolean even = false;%>
@@ -180,10 +180,10 @@
 				<% }%>
 	            </TD>
 	            <TD class="value" width="10%"><rsc:item name="date_due" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
-	            <TD class="value" width="45%"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
-	            <TD class="value" width="20%"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
+	            <TD class="value" width="40%"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
+	            <TD class="value" width="30%"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
 	            <TD class="value" width="10%"><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
-	            <TD class="value" width="10%">
+	            <TD class="value" width="5%">
 	            <% if (resultRow.getIntItem("payment_type_id") == 1) {%>
 				<A href="/stat?c=coder_room_stats&cr=<%=coderId%>&rd=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">Contest Details</A>
 	            <% } else if (resultRow.getIntItem("payment_type_id") == 6) {%>
@@ -196,9 +196,9 @@
 		            <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
 		            <TD class="value" width="5%"></TD>
     	            <TD class="value" width="10%"></TD>
-		            <TD class="value" width="45%"><rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
-		            <TD class="value" width="20%"><rsc:item name="ref_payment_type_desc" row="<%=resultRow%>"/></TD>
-		            <TD class="value" width="10%"><rsc:item name="ref_earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
+		            <TD class="value" width="40%"><rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
+		            <TD class="value" width="30%"><rsc:item name="ref_payment_type_desc" row="<%=resultRow%>"/></TD>
+		            <TD class="value" width="5%"><rsc:item name="ref_earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
 		            </tr>
 				<% }%>
 	            <%even = !even;%>
