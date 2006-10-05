@@ -45,6 +45,9 @@ Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 </jsp:include>
 
 <div style="float:right;"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home">back to table of contents</A></div>
+Overall
+ | <A HREF="/stat?c=all_time_wins_by_div&dn=1">Div I</a>
+ | <A HREF="/stat?c=all_time_wins_by_div&dn=2">Div II</a>
 <br><br>
 
 <table class="stat" cellpadding="0" cellspacing="0" style="float: left; width: 270px; margin-right: 15px; margin-bottom: 15px;">
@@ -52,10 +55,10 @@ Request srb = (Request) request.getAttribute("REQUEST_BEAN");
     <tr><td class="title" colspan="5">All-Time Algorithm Wins</td></tr>
     <tr>
         <td class="headerC">Rank</td>
-        <td class="header" width="40%"><a href="/stat?c=all_time_wins&sq=All_Time_Wins&sc=0&sd=<%= "0".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Coder</a></td>
-        <td class="headerC" width="20%">Overall</td>
-        <td class="headerC" width="20%">Div I</td>
-        <td class="headerC" width="20%">Div II</td>
+        <td class="header" width="40%"><a href="/stat?c=all_time_wins&sq=All_Time_Wins&sc=0&sd=<%= "0".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Coder</a></td>
+        <td class="headerC" width="20%"><a href="/stat?c=all_time_wins&sq=All_Time_Wins&sc=5&sd=<%= "5".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Overall</a></td>
+        <td class="headerC" width="20%"><a href="/stat?c=all_time_wins&sq=All_Time_Wins&sc=3&sd=<%= "3".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Div I</a></td>
+        <td class="headerC" width="20%"><a href="/stat?c=all_time_wins&sq=All_Time_Wins&sc=4&sd=<%= "4".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Div.&nbsp;II</a></td>
     </tr>
 </thead>
 <tbody>
