@@ -46,6 +46,8 @@ Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 </jsp:include>
 
 <div style="float:right; padding-left: 20px;"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home">back to table of contents</A></div>
+<br><br>
+<strong>Record:</strong> This chart ranks the top-25 in Submission Accuracy. Submission Accuracy is measured by dividing the number of correct submissions by the number of total submissions by a member.  NOTE: Note: Based on a minimum of 50 submissions, only includes those coders that have competed in the last 180 days
 
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" style="float: left; width: 510px; margin-right: 15px; margin-bottom: 15px;">
@@ -89,7 +91,6 @@ Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 
 </tbody>
 </table>
-<strong>Record:</strong> 
 
 
 </div>
