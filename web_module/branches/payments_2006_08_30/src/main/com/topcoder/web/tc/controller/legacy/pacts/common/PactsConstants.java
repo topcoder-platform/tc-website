@@ -178,6 +178,9 @@ public interface PactsConstants extends Constants {
     public static final String DIGITAL_RUN_SEASON_LIST = "digital_run_season_list";
     public static final String PARENT_REFERENCE_LIST = "parent_reference_list";
 
+    public static final String PAYMENT = "payment";
+    public static final String USER = "user";
+    
     // Miscellaneous
     public static final String TEXT = "text";
     public static final String ROUND_LIST = "round_list";
