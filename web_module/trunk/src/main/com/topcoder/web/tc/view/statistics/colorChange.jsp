@@ -65,7 +65,7 @@
 
 <jsp:include page="../page_title.jsp">
     <jsp:param name="image" value="statistics_w"/>
-    <jsp:param name="title" value="Recent Handle Color Changes - <%=titleName%>"/>
+    <jsp:param name="title" value="<%="Recent Handle Color Changes - "+titleName%>"/>
 </jsp:include>
 
 <div align="center">
