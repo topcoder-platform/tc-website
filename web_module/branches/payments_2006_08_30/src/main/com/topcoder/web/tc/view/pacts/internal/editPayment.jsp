@@ -83,9 +83,9 @@ function doSearch(text, mustSearch, firstLoad) {
 
 	if (mustSearch) {
 	    ajaxRequest.addNamedFormElements("search_text");
-    	ajaxRequest.addNamedFormElements("reference_id");
     }
     
+   	ajaxRequest.addNamedFormElements("reference_id");
   	ajaxRequest.addNamedFormElements("client");    
     ajaxRequest.setEchoDebugInfo();
     ajaxRequest.setPostRequest(loaded);
