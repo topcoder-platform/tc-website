@@ -30,6 +30,10 @@
 
 <h1>TCCC06 Logo Contest</h1>
 
+<div align="left" style="padding-bottom: 10px;">
+View Submissions
+ | <A href="/?module=Static&d1=old_contests&d2=tccc06_finals">Finals</A>
+</div>
 
 <div class="pagingBox">
 <A href="/?module=Static&d1=old_contests&d2=tccc06_submissions_2"><< prev</A>
