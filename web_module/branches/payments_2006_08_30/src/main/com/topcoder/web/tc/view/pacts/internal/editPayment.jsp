@@ -298,8 +298,7 @@ function searchKeyPress(e)
     <tr>
         <td><b>Date Due:</b></td><td>
         <tc-webtag:textInput name="due_date" id="due_date" size="12" editable="true" /> 
-            <button id="trigger_due_date">Set</button>
-            (if left blank, 2 weeks from now)
+            <button id="trigger_due_date">Set</button>       
         </td>            
     </tr>
 <c:if test="${updating}">    

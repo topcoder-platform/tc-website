@@ -31,6 +31,16 @@ public class Links implements PactsConstants {
 		return PactsConstants.INTERNAL_SERVLET_URL + "?t=view&c=user&" + USER_ID + "=" + userId; 
 	}
 
+	public static String addPayment(long userId) {
+		return createLink("EditPayment", USER_ID, userId + "");
+	}
+	public static String addContractPayment(long userId, long contractId) {
+		return createLink("EditPayment", USER_ID, userId + "", CONTRACT_ID, contractId + "");
+	}
+	public static String updatePayment(long paymentId) {
+		return createLink("EditPayment", PAYMENT_ID, paymentId + "");
+	}
+
 	public static String viewPayment(long paymentId) {
 		return createLink("ViewPayment", PAYMENT_ID, paymentId + "");
 	}

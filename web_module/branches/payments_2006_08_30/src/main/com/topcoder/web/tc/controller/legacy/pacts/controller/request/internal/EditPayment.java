@@ -16,10 +16,11 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
 /**
+ * Add or update a payment.
  * 
  * @author  cucu
  */
-public class UpdatePayment extends PactsBaseProcessor implements PactsConstants {
+public class EditPayment extends PactsBaseProcessor implements PactsConstants {
 
     protected void businessProcessing() throws TCWebException {    	
         try {

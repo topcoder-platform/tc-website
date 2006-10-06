@@ -53,6 +53,27 @@
     </function>
 
     <function>
+        <name>addPayment</name>
+        <function-class>com.topcoder.web.tc.controller.legacy.pacts.common.Links</function-class>
+        <function-signature>
+            String addPayment(long)
+        </function-signature>
+    </function>
+    <function>
+        <name>addContractPayment</name>
+        <function-class>com.topcoder.web.tc.controller.legacy.pacts.common.Links</function-class>
+        <function-signature>
+            String addContractPayment(long, long)
+        </function-signature>
+    </function>
+    <function>
+        <name>updatePayment</name>
+        <function-class>com.topcoder.web.tc.controller.legacy.pacts.common.Links</function-class>
+        <function-signature>
+            String updatePayment(long)
+        </function-signature>
+    </function>
+    <function>
         <name>viewPayment</name>
         <function-class>com.topcoder.web.tc.controller.legacy.pacts.common.Links</function-class>
         <function-signature>
