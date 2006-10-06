@@ -60,13 +60,7 @@ function loaded() {
     toggleDiv("loading", 0);
 }
 
-function REMOVEMEtypeChanged(firstLoad) {
-    var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
-    ajaxRequest.addNamedFormElements("payment_type_id");
-    ajaxRequest.setPostRequest(loaded);
-    ajaxRequest.setPreRequest(loading);    
-    ajaxRequest.sendRequest();
-}
+
 
 function doSearch(text, mustSearch, firstLoad) {
     var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
@@ -92,7 +86,7 @@ function doSearch(text, mustSearch, firstLoad) {
 
 function typeChanged()
 {
-	search("", false, false);
+	doSearch("", false, false);
 }
 
 function doReferenceChanged(refId) {
