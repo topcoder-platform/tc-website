@@ -141,7 +141,7 @@
 		<% }%>
     </div>
 
-    <form name="paymentDetailForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
+    <form name="paymentDetailForm" action="${sessionInfo.servletPath}" method="get">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="PaymentDetail"/>
         <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
         <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
