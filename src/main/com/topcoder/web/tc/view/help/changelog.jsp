@@ -54,6 +54,7 @@
         <li>Fixed internal PACTS bug that did not allow the update of a payment</li>
         <li>Track all the queries that get executed.</li>
         <li>Fixed internal search tool form submission code to be a bit more standards compliant</li>
+        <li>Add recent color change page</li>
     </ul>
 </p>
 
