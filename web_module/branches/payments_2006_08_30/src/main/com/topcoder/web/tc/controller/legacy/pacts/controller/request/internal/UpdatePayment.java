@@ -2,6 +2,7 @@ package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.CharityPayment;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
@@ -16,22 +17,40 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
 
     protected void businessProcessing() throws TCWebException {    	
         try {
-        	long paymentId = getLongParameter(PAYMENT_ID);
+        	boolean updating = getRequest().getParameter("payment_id") != null;
+        	boolean adding = getRequest().getParameter("user_id") != null;
+        	
+        	if (updating ^ adding) {
+        		throw new IllegalArgumentException("payment_id or user_id expected");
+        	}
+        	
+        	
+        	long paymentId = -1;
+        	long userId = -1;
+        	
+        	if (adding) {
+        		userId = getLongParameter(USER_ID);
+        	}
+        	if (updating) {
+        		paymentId = getLongParameter(PAYMENT_ID);
+        	}
 
             DataInterfaceBean dib = new DataInterfaceBean();
             Payment payment = new Payment(dib.getPayment(paymentId));
             
-            String desc = null;
+            String desc = "";
             int statusId = -1;
             int typeId = -1;
             double grossAmount = 0.0;
             double netAmount = 0.0;
             int methodId = -1;
             int modificationRationaleId = -1;
-            String dueDate = null;
-            String client = null;
+            String dueDate = "";
+            String client = "";
             
             if (getRequest().getParameter("payment_desc") != null) {
+            	// The user is trying to save the payment, so check that the parameters are ok
+            	
             	desc = checkNotEmptyString("payment_desc", "Please enter a description for the payment.");
             	statusId = getIntParameter("status_id");
             	typeId = getIntParameter("payment_type_id");
@@ -41,7 +60,9 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             		netAmount = checkNonNegativeDouble("net_amount", "Please enter a valid net amount");
             	}
             	methodId = getIntParameter("payment_method_id");
-            	modificationRationaleId = getIntParameter("modification_rationale_id");
+            	
+            	modificationRationaleId = getOptionalIntParameter("modification_rationale_id");
+            	
             	checkDate("due_date", "Please enter a valid due date");
             	dueDate = getStringParameter("due_date");
                 
@@ -51,6 +72,12 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
 
             	
             	if (!hasErrors()) {
+            		// Parameters are ok, so add or update the payment
+            		if (adding) {
+            			payment = new Payment();
+            			payment.getHeader().getUser().setId(userId);
+            		}
+            		
                     payment.getHeader().setDescription(desc);
                     payment.getHeader().setTypeId(typeId);
                     payment.getHeader().setMethodId(methodId);
@@ -64,12 +91,23 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
                     payment.setDueDate(dueDate);
                     payment.setRationaleId(modificationRationaleId);
                     
-                    dib.updatePayment(payment);
+                    if (adding) {
+                    	paymentId = dib.addPayment(payment);
+                        
+                        if (getRequest().getParameter("charityInd") != null) {
+                        	dib.addPayment(new CharityPayment(getLongParameter(USER_ID), paymentId));
+                        }
+                    	
+                    } else {
+                    	dib.updatePayment(payment);
+                    }
                     
             		setIsNextPageInContext(false);
             		setNextPage(Links.viewPayment(paymentId));
             		return;
             	} else {
+            		// there were some errors!
+            		
                     setDefault("gross_amount", getRequest().getParameter("gross_amount"));
                     setDefault("net_amount", getRequest().getParameter("net_amount"));
                     if (((String) getRequest().getParameter("reference_description")).length() > 0) {
@@ -77,34 +115,42 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
                     }
             	}
             } else {
-            	desc = payment.getHeader().getDescription();
-            	typeId = payment.getHeader().getTypeId();
-            	methodId = payment.getHeader().getMethodId();
-            	client = payment.getHeader().getClient();
+            	// The user is loading the page, so set the default values
             	
-            	
-            	statusId = payment.getStatusId();
-            	grossAmount = payment.getGrossAmount();
-            	netAmount = payment.getNetAmount();
-            	dueDate = payment.getDueDate();
-            	modificationRationaleId = MODIFICATION_STATUS;
-            	            	
-                setDefault("gross_amount", new Double(grossAmount));
-                setDefault("net_amount", new Double(netAmount));
-                
-                BasePayment p =  BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getReferenceId());
-                String refDescr = "[Can't get the description]";
-                try {
-                	p = dib.fillPaymentData(p);
-                	refDescr = p.getReferenceDescription();
-                } catch(Exception e) {}
-                getRequest().setAttribute("reference_description", refDescr);
+            	if (adding) {
+            		typeId = ALGORITHM_CONTEST_PAYMENT;
+            		statusId = PAYMENT_PENDING_STATUS;
+            		methodId = 1; // CHECK
+            	} else {
+	            	desc = payment.getHeader().getDescription();
+	            	typeId = payment.getHeader().getTypeId();
+	            	methodId = payment.getHeader().getMethodId();
+	            	client = payment.getHeader().getClient();
+	            	
+	            	
+	            	statusId = payment.getStatusId();
+	            	grossAmount = payment.getGrossAmount();
+	            	netAmount = payment.getNetAmount();
+	            	dueDate = payment.getDueDate();
+	            	modificationRationaleId = MODIFICATION_STATUS;
+	            	            	
+	                setDefault("gross_amount", new Double(grossAmount));
+	                setDefault("net_amount", new Double(netAmount));
+	                
+	                BasePayment p =  BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getReferenceId());
+	                String refDescr = "[Can't get the description]";
+	                try {
+	                	p = dib.fillPaymentData(p);
+	                	refDescr = p.getReferenceDescription();
+	                } catch(Exception e) {}
+	                getRequest().setAttribute("reference_description", refDescr);
+            	}
             }
             
             setDefault("payment_desc", desc);
             setDefault("payment_type_id", typeId + "");
             setDefault("payment_method_id", methodId + "");
-            setDefault("client", client);
+            setDefault("client", client == null? "" : client);
             
             setDefault("status_id", statusId + "");
             setDefault("due_date", dueDate);
