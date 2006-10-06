@@ -158,9 +158,12 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             setDefault("due_date", dueDate);
             setDefault("modification_rationale_id", modificationRationaleId + "");
             
-            getRequest().setAttribute("reference_id", payment.getHeader().getReferenceId() + "");
-        	getRequest().setAttribute(PAYMENT, payment);
-        	getRequest().setAttribute(USER, payment.getHeader().getUser());
+            if (payment != null) {
+            	getRequest().setAttribute("reference_id", payment.getHeader().getReferenceId() + "");
+            	getRequest().setAttribute(PAYMENT, payment);
+            	getRequest().setAttribute(USER, payment.getHeader().getUser());
+            }
+        	
             getRequest().setAttribute(MODIFICATION_RATIONALE_LIST, dib.getModificationRationales().get(MODIFICATION_RATIONALE_LIST));
             getRequest().setAttribute(PAYMENT_TYPE_LIST, getPaymentTypeList());
             getRequest().setAttribute(PAYMENT_METHOD_LIST, dib.getPaymentMethods().get(PAYMENT_METHOD_LIST));
