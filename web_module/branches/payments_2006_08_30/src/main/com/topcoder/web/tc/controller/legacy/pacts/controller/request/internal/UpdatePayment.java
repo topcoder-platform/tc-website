@@ -1,12 +1,11 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
-import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
 
 /**
  * 
@@ -77,10 +76,26 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             	grossAmount = payment.getGrossAmount();
             	netAmount = payment.getNetAmount();
             	dueDate = payment.getDueDate();
-            	modificationRationaleId = payment.getRationaleId();
-            	
+            	modificationRationaleId = 8; // fix constant!
+            	            	
                 setDefault("gross_amount", grossAmount + "");
                 setDefault("net_amount", netAmount + "");
+                
+                BasePayment p = null;
+                switch(BasePayment.getReferenceTypeId(typeId)) {
+                case REFERENCE_ALGORITHM_ROUND_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getAlgorithmRoundId()); break; 
+                case REFERENCE_COMPONENT_PROJECT_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getComponentProjectId());
+                case REFERENCE_ALGORITHM_PROBLEM_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getAlgorithmProblemId()); break;
+                case REFERENCE_STUDIO_CONTEST_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getStudioContestId()); break;
+                case REFERENCE_COMPONENT_CONTEST_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getComponentContestId()); break;
+                case REFERENCE_DIGITAL_RUN_STAGE_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getDigitalRunStageId()); break;
+                case REFERENCE_DIGITAL_RUN_SEASON_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getDigitalRunSeasonId()); break;
+                case REFERENCE_PARENT_PAYMENT_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getParentPaymentId()); break;
+                case NO_REFERENCE : p = BasePayment.createPayment(typeId, 1, 0.01, 0); break;
+                }
+                
+                p = dib.fillPaymentData(p);
+                getRequest().setAttribute("reference_description", p.getReferenceDescription());
             	
             }
             

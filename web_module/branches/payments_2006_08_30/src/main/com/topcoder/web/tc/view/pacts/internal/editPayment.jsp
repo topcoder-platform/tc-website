@@ -99,6 +99,7 @@ function setDueDate(text) {
 }
 
 function setStatus(id) {
+<c:if test="${adding}">
     var sel = document.f.status_id;
     var i;
     for (i = 0; i < sel.length; i++) {
@@ -107,16 +108,22 @@ function setStatus(id) {
         	break;
         }
     }
-
+</c:if>
 }
 
 function initialize() {
+<c:if test="${adding}">
 <% if (request.getParameter("search_text") == null) { %>
-//   typeChanged();
-<% } else { %>
-  doSearch('<%= request.getParameter("search_text") %>');
-<% } %>
+	<c:choose>	
+	<c:when test="${empty param.search_text}
+	   typeChanged();
+	</c:when>
+	<c:otherwise>
+	  doSearch('<c:out value="${param.search_text}/>');
+  	</c:otherwise>
+</c:if>	
 	loaded();
+
 }
 
 function getElement(name) {
@@ -141,7 +148,7 @@ function searchKeyPress(e)
     else return true;
     
     if (keycode == 13) {
-      if (getElement("searchInput")) search();  
+      if (getElement("searchInput") == undefined) search();  
       return false;
     } 
     return true;
@@ -214,7 +221,8 @@ function searchKeyPress(e)
 <c:if test="${updating}">    
 	<tr id="selectReference">
 		<td><b>Reference:</b></td>		
-		<td>TO DO<input type="button" value="change" onClick="typeChanged()" />
+		<td><c:out value="${requestScope.reference_description}" />
+		<input type="button" value="change" onClick="typeChanged()" />
 		</td>
 	</tr>
 	<c:if test="${not empty payment.header.client}">
