@@ -31,6 +31,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.activation.MimetypesFileTypeMap;
+
 /**
  * Uses the Jive API to create categories/forums/threads/messages with data retrieved from the old Topcoder
  * software forums database.
@@ -147,6 +149,7 @@ public class ForumConversion {
      */
     private static void convert(ForumCategory root, ForumFactory forumFactory) throws Exception {
         UserManager userManager = forumFactory.getUserManager();
+        MimetypesFileTypeMap fileTypeMap = new MimetypesFileTypeMap();
     	
     	// get forums from FORUM_MASTER table        
         forumPS = tcConn.prepareStatement(
@@ -351,13 +354,11 @@ public class ForumConversion {
                         for (Iterator attIt = attaches.iterator(); attIt.hasNext();) {
                             ForumAttachment att = (ForumAttachment) attIt.next();
                             File attFile = new File(fileDir + att.getUrl());
-                            String urlStr = "https://software.topcoder.com/forum/attachment?f="+post.getId()+"&id="+att.getId();
+                            //String urlStr = "https://software.topcoder.com/forum/attachment?f="+post.getId()+"&id="+att.getId();
                             
                             if(ATTACHMENTS_ENABLED) {
-	                            URL url = new URL(urlStr);
-	                            URLConnection conn = url.openConnection();
 	                            try {
-	                            	msg.createAttachment(att.getName(), conn.getContentType(), new FileInputStream(attFile));
+	                            	msg.createAttachment(att.getName(), fileTypeMap.getContentType(attFile), new FileInputStream(attFile));
 	                            	log.info("***** attachment " + att.getName() + " successfully attached at: " + attFile.getPath());
 	                            } catch (IOException ioe) {
 	                            	log.info("***** attachment " + att.getName() + " not found at: " + attFile.getPath());
@@ -409,6 +410,14 @@ public class ForumConversion {
             log.info(forumNum + " out of " + totalForum + " forums have been processed.");
             if (forumNum > 50) break;
         }
+        log.info("Attempting to close connections....");
+        closeConnection(tcConn);
+        closeStatement(forumPS);
+        closeStatement(topicPS);
+        closeStatement(threadPS);
+        closeStatement(postPS);
+        closeStatement(attPS);
+        log.info("Connection should be closed.");
     }
 
     /**

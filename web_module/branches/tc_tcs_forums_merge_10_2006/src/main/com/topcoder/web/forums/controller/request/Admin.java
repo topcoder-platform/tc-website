@@ -108,10 +108,10 @@ public class Admin extends ForumsProcessor {
             }
         } else if (command.equals(ForumConstants.ADMIN_CONVERT_TCS_FORUMS)) {
         	log.info("Converting TCS forums... ");
-        	ForumCategory root = forumFactory.getForumCategory(22);
-        	ForumCategory category = root.createCategory("TEST 123", "TEST 123");
-            Forum topicForum = forumFactory.createForum("TEST 123", "TEST 123", category);
-            log.info("Forum creation test complete.");
+        	//ForumCategory root = forumFactory.getForumCategory(22);
+        	//ForumCategory category = root.createCategory("TEST 123", "TEST 123");
+            //Forum topicForum = forumFactory.createForum("TEST 123", "TEST 123", category);
+            //log.info("Forum creation test complete.");
         	ForumConversion.convertForums(forumFactory);
         }
         /*
