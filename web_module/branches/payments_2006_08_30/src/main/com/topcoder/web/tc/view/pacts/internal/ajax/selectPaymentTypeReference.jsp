@@ -36,7 +36,7 @@
                      <c:when test="${refId == ALGORITHM_ROUND}">
                         <c:if test="${empty rounds}">    
                           <input type="hidden" name="missing_reference" value="Please select a round for the payment"/>
-                          Enter search text for round name: <input type="text" name="searchInput" value="${search}" onKeyPress="searchKeyPress(event)" />
+                          Enter search text for round name: <input type="text" name="searchInput" value="${search}" onFocus="setFocusInSearch(true)" onBlur="setFocusInSearch(false)" />
                           <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          
                                 <font color="#FF0000">No rounds found containing <c:out value="${search}"/>. </font>
