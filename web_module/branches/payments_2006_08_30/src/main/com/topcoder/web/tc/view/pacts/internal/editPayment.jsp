@@ -9,8 +9,10 @@
 
 <c:set var="payment" value="<%= request.getAttribute(PactsConstants.PAYMENT) %>"/>
 <c:set var="user" value="<%= request.getAttribute(PactsConstants.USER) %>"/>
+<c:set var="contract" value="<%= request.getAttribute(PactsConstants.CONTRACT) %>"/>
 <c:set var="updating" value="${not empty payment}" />
 <c:set var="adding" value="${empty payment}" />
+<c:set var="contract" value="${empty payment and not empty contract}" />
 <c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />
 <c:set var="typeList" value="<%= request.getAttribute(PactsConstants.PAYMENT_TYPE_LIST) %>" />
 <c:set var="methodList" value="<%= request.getAttribute(PactsConstants.PAYMENT_METHOD_LIST) %>" />
@@ -24,8 +26,11 @@
 <c:if test="${updating}">
     <title>Update Payment</title>
 </c:if> 
-<c:if test="${adding}">
+<c:if test="${adding and not contract}">
     <title>Add Payment</title>
+</c:if> 
+<c:if test="${adding and contract}">
+    <title>Add Contract Payment</title>
 </c:if> 
     
     <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
@@ -195,6 +200,12 @@ function searchKeyPress(e)
    <input type="hidden" name="reference_id" value="<c:out value="${param.reference_id}" />">
    <input type="hidden" name="reference_description" value="<c:out value="${requestScope.reference_description}" />" >
    <input type="hidden" name="user_id" value="${user.id}" >   
+<c:if test="${updating}">
+   <input type="hidden" name="payment_id" value="${payment.header.id}">
+</c:if>  
+<c:if test="${contract}">
+   <input type="hidden" name="contract_id" value="${contract.header.id}">
+</c:if>  
 
 <table border="0" cellpadding="5" cellspacing="5">
         <tr>
@@ -208,8 +219,9 @@ function searchKeyPress(e)
 <c:if test="${updating}">
     <tr>
         <td><b>ID:</b></td>
-        <td><c:out value="${payment.header.id}" />  
-            <input type="hidden" name="payment_id" value="${payment.header.id}"></td>
+        <td>
+        	<c:out value="${payment.header.id}" />  
+		</td>
     </tr>
 </c:if>
     <tr>
@@ -229,6 +241,16 @@ function searchKeyPress(e)
             </c:if>                   
        </td>
     </tr>
+<c:if test="${contract}">
+    <tr>
+        <td><b>Contract:</b></td>
+        <td>
+        	<a href="${pacts:viewContract(contract.header.id)}"><c:out value="${contract.header.name}" />
+		</td>
+    </tr>
+</c:if>
+    
+    
 <c:choose>    
 <c:when test="${not empty requestScope.reference_description}">    
     <tr id="selectReference">

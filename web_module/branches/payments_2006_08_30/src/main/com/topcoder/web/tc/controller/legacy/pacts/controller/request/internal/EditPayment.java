@@ -113,7 +113,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     
                     if (adding) {
                         if (contractId > 0) {
-                        	dib.addContractPayment(contractId, p);
+                        	dib.addContractPayment(contractId, payment);
                         } else {
                         	paymentId = dib.addPayment(payment);
                         }
