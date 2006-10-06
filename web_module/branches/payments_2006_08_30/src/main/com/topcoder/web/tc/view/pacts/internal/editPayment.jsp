@@ -113,7 +113,6 @@ function setStatus(id) {
 
 function initialize() {
 <c:if test="${adding}">
-<% if (request.getParameter("search_text") == null) { %>
 	<c:choose>	
 	<c:when test="${empty param.search_text}">
 	   typeChanged();
