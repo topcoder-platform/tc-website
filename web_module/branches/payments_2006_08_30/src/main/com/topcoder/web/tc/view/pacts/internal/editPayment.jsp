@@ -68,7 +68,7 @@ function REMOVEMEtypeChanged(firstLoad) {
     ajaxRequest.sendRequest();
 }
 
-function search(text, doSearch, firstLoad) {
+function doSearch(text, mustSearch, firstLoad) {
     var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
     document.f.search_text.value = text;
     ajaxRequest.addNamedFormElements("payment_type_id");
@@ -76,7 +76,7 @@ function search(text, doSearch, firstLoad) {
 	if (firstLoad) {
 	    ajaxRequest.addNamedFormElements("first_load");
 	}
-	if (doSearch) {
+	if (mustSearch) {
 	    ajaxRequest.addNamedFormElements("search_text");
     	ajaxRequest.addNamedFormElements("reference_id");
     }
@@ -86,9 +86,6 @@ function search(text, doSearch, firstLoad) {
     ajaxRequest.sendRequest();
 }
 
-function doSearch(text) {
-	search(text, true, false);
-}
 
 function typeChanged()
 {
@@ -146,7 +143,7 @@ function getElement(name) {
 }
 
 function search() {
-    doSearch(getElement("searchInput").value);
+    doSearch(getElement("searchInput").value, true, false);
 }
 
 function referenceChanged(name) {
