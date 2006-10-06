@@ -134,7 +134,7 @@ struct crawler
 	...
 };
 </pre>
-
+ 
 The Crawler class only uses its associated CrawlStrategy to obtain the next vertex to crawl, and to queue more vertices for crawling.  The vertex itself is not modified in any way, so the CrawlingIterator type must model the Readable Iterator concept.  Also, the Crawler class only increments, so the CrawlingIterator type must also model the Incrementable Iterator concept.  Using Boost Concept Check Library (BCCL), the crawler&lt;...&gt; class becomes:
 
 <pre class="codeBox">
