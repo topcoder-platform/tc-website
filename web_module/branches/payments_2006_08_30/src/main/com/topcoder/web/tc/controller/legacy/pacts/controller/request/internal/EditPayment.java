@@ -134,9 +134,9 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             		setIsNextPageInContext(false);
             		
             		if (adding && contractId > 0) {
-            			setNextPage(Links.viewPayment(paymentId));
-            		} else {
             			setNextPage(Links.viewContract(contractId));
+            		} else {
+            			setNextPage(Links.viewPayment(paymentId));
             		}
             		return;
             	} else {
