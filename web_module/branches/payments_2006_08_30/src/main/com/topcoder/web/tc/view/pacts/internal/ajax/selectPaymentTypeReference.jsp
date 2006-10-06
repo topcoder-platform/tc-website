@@ -15,6 +15,8 @@
 <c:set var="parentPayments" value="${requestScope.parent_reference_list}"/>
 <c:set var="refId" value="${requestScope.reference_type_id}"/>
 <c:set var="search" value="${requestScope.search}"/>
+<c:set var="firstLoad" value="${not empty requestScope.first_load}"/>
+<c:set var="referenceDescription" value="${requestScope.reference_description}"/>
 
 <c:set var="ALGORITHM_ROUND" value="<%= PactsConstants.REFERENCE_ALGORITHM_ROUND_ID + "" %>" />
 <c:set var="COMPONENT_PROJECT" value="<%= PactsConstants.REFERENCE_COMPONENT_PROJECT_ID + "" %>" />
@@ -33,6 +35,11 @@
               <td><b>Reference:</b></td>
               <td>
                  <c:choose>
+                 	<c:when test="${firstLoad and not empty referenceDescription}">
+                 		<c:out value="${referenceDescription}" />
+                 		        <input type="button" value="change" onClick="typeChanged()" />
+                 		
+                 	</c:when>
                      <c:when test="${refId == ALGORITHM_ROUND}">
                         <c:if test="${empty rounds}">    
                           <input type="hidden" name="missing_reference" value="Please select a round for the payment"/>
@@ -197,7 +204,9 @@
 			<c:when test="${refId == COMPONENT_PROJECT}">
 			<tr id="projectClient"> 
 			<td><b>Client:</b></td>
-			<td><input type="text" name="client"/></td>
+			<td>
+				<tc-webtag:textInput name="client" size="30" editable="true" />
+			</td>
 			</tr>
 			</c:when>
     		<c:otherwise>

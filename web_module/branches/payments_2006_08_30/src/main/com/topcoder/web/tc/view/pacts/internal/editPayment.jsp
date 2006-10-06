@@ -60,7 +60,7 @@ function loaded() {
     toggleDiv("loading", 0);
 }
 
-function typeChanged() {
+function REMOVEMEtypeChanged(firstLoad) {
     var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
     ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.setPostRequest(loaded);
@@ -68,15 +68,31 @@ function typeChanged() {
     ajaxRequest.sendRequest();
 }
 
-function doSearch(text) {
+function search(text, doSearch, firstLoad) {
     var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
     document.f.search_text.value = text;
     ajaxRequest.addNamedFormElements("payment_type_id");
-    ajaxRequest.addNamedFormElements("search_text");
-    ajaxRequest.addNamedFormElements("reference_id");
+
+	if (firstLoad) {
+	    ajaxRequest.addNamedFormElements("first_load");
+	}
+	if (doSearch) {
+	    ajaxRequest.addNamedFormElements("search_text");
+    	ajaxRequest.addNamedFormElements("reference_id");
+    }
+
     ajaxRequest.setPostRequest(loaded);
     ajaxRequest.setPreRequest(loading);    
     ajaxRequest.sendRequest();
+}
+
+function doSearch(text) {
+	search(text, true, false);
+}
+
+function typeChanged()
+{
+	search("", false, false);
 }
 
 function doReferenceChanged(refId) {
@@ -112,16 +128,13 @@ function setStatus(id) {
 }
 
 function initialize() {
-<c:if test="${adding}">
-</c:if> 
-    <c:choose>  
-    <c:when test="${empty param.search_text}">
-       typeChanged();
-    </c:when>
-    <c:otherwise>
-      doSearch('<c:out value="${param.search_text}" />');
-    </c:otherwise>
-    </c:choose> 
+	var s = false;
+	
+<if test="${not empty param.search_text}">
+	s=true;
+</if>
+    search('<c:out value="${param.search_text}" />',s,true);
+ 
     loaded();
 
 }
@@ -175,6 +188,7 @@ function searchKeyPress(e)
 
 <form name="ajaxFields">
    <input type="hidden" name="cr" value="${user.id}" >
+  <input type="hidden" name="first_load" value="true" >
 </form>
 
 <form name="f" action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
@@ -215,32 +229,6 @@ function searchKeyPress(e)
             </c:if>                   
        </td>
     </tr>
-    
-    
-<c:if test="${updating}">    
-    <tr id="selectReference">
-        <td><b>Reference:</b></td>      
-        <td><c:out value="${requestScope.reference_description}" />
-        <input type="button" value="change" onClick="typeChanged()" />
-        </td>
-    </tr>
-    <c:if test="${not empty payment.header.client}">
-        <tr id="projectClient"> 
-            <td><b>Client:</b></td>
-            <td>
-                <tc-webtag:textInput name="client" size="30" editable="true" />
-            </td>
-        </tr>
-    </c:if>
-    <c:if test="${empty payment.header.client}">
-        <tr id="projectClient">
-            <td></td>
-            <td></td>
-        </tr>
-    </c:if>
-    
-</c:if> 
-<c:if test="${adding}">    
     <tr id="selectReference">
         <td></td>       
         <td></td>
@@ -249,7 +237,6 @@ function searchKeyPress(e)
         <td></td>
         <td></td>
     </tr>
-</c:if> 
     <tr>
         <td><b>Method:</b></td><td>
         <tc-webtag:rscSelect name="payment_method_id" list="${methodList}" 
