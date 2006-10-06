@@ -60,7 +60,7 @@
                 <jsp:param name="title" value="Find a Competitor"/>
             </jsp:include>
 
-            <form name="simpleSearch" method="get">
+            <form name="simpleSearch" method="get" action="${sessionInfo.servletPath}">
                 <input type="hidden" name="module" value="SimpleSearch"/>
                 <input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
                 <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
