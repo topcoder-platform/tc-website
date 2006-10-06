@@ -85,8 +85,8 @@
 
 
     <jsp:include page="../page_title.jsp">
-		<jsp:param name="image" value="statistics_w"/>
-		<jsp:param name="title" value="Payments"/>
+        <jsp:param name="image" value="statistics_w"/>
+        <jsp:param name="title" value="Payments"/>
     </jsp:include>
 
 
@@ -102,7 +102,7 @@
 
     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tr><td class="title" colspan="10">
-		Payment summary
+        Payment summary
         </td></tr>
         <tr>
             <TD CLASS="header">
@@ -118,11 +118,11 @@
             <TD class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
             <TD class="value">
             <% if (resultRow.getDoubleItem("show_details_ind") == 1 && resultRow.getDoubleItem("earnings") > 0) {%>
-				<A href="/tc?module=PaymentDetail&cr=<%=coderId%>&pt=<%=resultRow.getStringItem("payment_type_id")%>">
-			<% }%>
+                <A href="/tc?module=PaymentDetail&cr=<%=coderId%>&pt=<%=resultRow.getStringItem("payment_type_id")%>">
+            <% }%>
             <rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
-			<% if (resultRow.getDoubleItem("show_details_ind") == 1) {%></A><% }%>
-			</TD>
+            <% if (resultRow.getDoubleItem("show_details_ind") == 1) {%></A><% }%>
+            </TD>
             </tr>
             <%even = !even;%>
         </rsc:iterator>
