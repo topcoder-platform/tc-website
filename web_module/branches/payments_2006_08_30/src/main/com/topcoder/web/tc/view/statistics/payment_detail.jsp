@@ -8,6 +8,7 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <HTML>
 <HEAD>
@@ -132,12 +133,16 @@
    </span>
 
     <div class="pagingBox" style="clear:both;">
-        <% if (rsc.croppedDataBefore() || rsc.croppedDataAfter()) { %>
-        <%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
-        | <%=(rsc.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
-        <% } else { %>
-        &#160;
-        <% } %>
+		<c:choose>
+			<c:when test="${rsc.croppedDataBefore() || rsc.croppedDataAfter()}">
+		        <% if (rsc.croppedDataBefore() || rsc.croppedDataAfter()) { %>
+		        <%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+		        | <%=(rsc.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+			</c:when>
+			<c:otherwise>
+		        &#160;
+	        </c:otherwise>
+	    </c:choose>
     </div>
 
     <form name="paymentDetailForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
@@ -156,16 +161,16 @@
 	        <tr class="dark">
 	            <TD CLASS="header" width="5%"></TD>
 	            <TD CLASS="header" width="5%">
-	                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Date</a>
+	                <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true"/>">Date</a>
 	            </TD>
 	            <TD CLASS="header" width="40%">
-	                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Description</a>
+	                <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="0" includeParams="true"/>">Description</a>
 	            </TD>
 	            <TD CLASS="header" width="30%">
-	                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Payment Type</a>
+	                <a href="${sessionInfo.servletPath}%>?<tc-webtag:sort column="2" includeParams="true"/>">Payment Type</a>
 	            </TD>
 	            <TD CLASS="header" width="10%">
-	                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Earnings</a>
+	                <a href="${sessionInfo.servletPath}%>?<tc-webtag:sort column="1" includeParams="true"/>">Earnings</a>
 	            </TD>
 	            <TD CLASS="header" width="10%"></TD>
 	        </tr>
