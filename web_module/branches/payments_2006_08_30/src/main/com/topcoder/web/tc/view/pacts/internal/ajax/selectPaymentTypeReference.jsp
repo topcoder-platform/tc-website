@@ -15,8 +15,8 @@
 <c:set var="parentPayments" value="${requestScope.parent_reference_list}"/>
 <c:set var="refId" value="${requestScope.reference_type_id}"/>
 <c:set var="search" value="${requestScope.search}"/>
-<c:set var="firstLoad" value="${not empty requestScope.first_load}"/>
-<c:set var="referenceDescription" value="${requestScope.reference_description}"/>
+<c:set var="firstLoad" value="${not empty param.first_load}"/>
+<c:set var="referenceDescription" value="${param.reference_description}"/>
 
 <c:set var="ALGORITHM_ROUND" value="<%= PactsConstants.REFERENCE_ALGORITHM_ROUND_ID + "" %>" />
 <c:set var="COMPONENT_PROJECT" value="<%= PactsConstants.REFERENCE_COMPONENT_PROJECT_ID + "" %>" />

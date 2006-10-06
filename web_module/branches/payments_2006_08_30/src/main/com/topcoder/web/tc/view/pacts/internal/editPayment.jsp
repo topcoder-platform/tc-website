@@ -75,12 +75,15 @@ function doSearch(text, mustSearch, firstLoad) {
 
 	if (firstLoad) {
 	    ajaxRequest.addNamedFormElements("first_load");
+    <c:if test="${updating}">
+	    ajaxRequest.addNamedFormElements("reference_description");
+    </c:if>
 	}
 	if (mustSearch) {
 	    ajaxRequest.addNamedFormElements("search_text");
     	ajaxRequest.addNamedFormElements("reference_id");
     }
-
+    ajaxRequest.setEchoDebugInfo();
     ajaxRequest.setPostRequest(loaded);
     ajaxRequest.setPreRequest(loading);    
     ajaxRequest.sendRequest();
@@ -183,6 +186,7 @@ function searchKeyPress(e)
 <form name="ajaxFields">
    <input type="hidden" name="cr" value="${user.id}" >
   <input type="hidden" name="first_load" value="true" >
+    <input type="hidden" name="reference_description" value="<c:out value="${requestScope.reference_description}" />" >
 </form>
 
 <form name="f" action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
