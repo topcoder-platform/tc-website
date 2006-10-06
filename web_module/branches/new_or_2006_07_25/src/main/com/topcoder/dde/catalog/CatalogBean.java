@@ -4,8 +4,6 @@
 
 package com.topcoder.dde.catalog;
 
-import com.topcoder.apps.review.document.DocumentManager;
-import com.topcoder.apps.review.document.DocumentManagerHome;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerV2;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerV2Home;
 import com.topcoder.dde.DDEException;
@@ -104,7 +102,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     private PrincipalMgrRemoteHome principalmgrHome;
     private PolicyMgrRemoteHome policymgrHome;
     private ProjectTrackerV2Home projectTrackerHome;
-    private DocumentManagerHome documentManagerHome;
     private PolicyRemoteHome policyHome;
 
     public CatalogBean() {
@@ -200,10 +197,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             projectTrackerHome = (ProjectTrackerV2Home) PortableRemoteObject.narrow(
                     homeBindings.lookup(ProjectTrackerV2Home.EJB_REF_NAME),
                     ProjectTrackerV2Home.class);
-            log.debug("blah");
-            documentManagerHome = (DocumentManagerHome) PortableRemoteObject.narrow(
-                    homeBindings.lookup(DocumentManagerHome.EJB_REF_NAME),
-                    DocumentManagerHome.class);
             log.debug("blah");
         } catch (NamingException exception) {
             throw new EJBException(
@@ -2639,8 +2632,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         long projectId = getProjectId(projectType, compVersId);
         if (projectId < 0) return false;
         try {
-            DocumentManager dm = documentManagerHome.create();
-            return dm.isProjectAggregated(projectId);
+            ProjectTrackerV2 pt = projectTrackerHome.create();
+            return pt.isProjectAggregated(projectId);
         } catch (RemoteException e) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(e.toString());
