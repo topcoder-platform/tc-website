@@ -107,13 +107,16 @@ public class ForumConversion {
             ForumCategory root = forumFactory.getForumCategory(rootCategoryId);
             if (root.getCategoryCount() > 0 || root.getForumCount() > 0) {
             	//log.info("Stopping conversion - the root category is not empty.");
-            	log.info("deleting categories in dev.... ");
+            	log.info("Deleting categories in dev.... ");
             	Iterator itCat = root.getCategories();
+            	int numCategories = root.getCategoryCount();
+            	int numDeleted = 0;
             	while (itCat.hasNext()) {
             		ForumCategory cat = (ForumCategory)itCat.next();
             		root.deleteCategory(cat);
+            		log.info(++numDeleted + "/" + numCategories + " categories deleted");
             	}
-            	log.info("dev categories deleted");
+            	log.info("All dev categories deleted.");
             }
 
             log.info("Starting the forum conversion: attachmentDir = " + fileDir + " | rootCategoryId = "
@@ -355,12 +358,12 @@ public class ForumConversion {
 	                            URLConnection conn = url.openConnection();
 	                            try {
 	                            	msg.createAttachment(att.getName(), conn.getContentType(), new FileInputStream(attFile));
-	                            	log.info("***** attachment " + att.getName() + " successfully attached at URL: " + urlStr);
+	                            	log.info("***** attachment " + att.getName() + " successfully attached at: " + attFile.getPath());
 	                            } catch (IOException ioe) {
-	                            	log.info("***** attachment " + att.getName() + " not found at URL: " + urlStr);
+	                            	log.info("***** attachment " + att.getName() + " not found at: " + attFile.getPath());
 	                            }
                             } else {
-                            	log.info("***** skipping attaching of: " + att.getName() + " from " + urlStr);
+                            	log.info("***** skipping attaching of: " + att.getName() + " at: " + attFile.getPath());
                             }
                         }
 
@@ -377,12 +380,7 @@ public class ForumConversion {
 
                             ForumMessage pMsg = (ForumMessage)parentMsgs.get(post.getParentId());
 
-                            if (pMsg == null) {
-                                // should never happen
-                                System.err.println("Invalid parent message");
-                                log.info("post is: " + post);
-                                forumThread.addMessage(parentMsg, msg);
-                            } else {
+                            if (pMsg != null) {
                                 forumThread.addMessage(pMsg, msg);
                             }
                         }
