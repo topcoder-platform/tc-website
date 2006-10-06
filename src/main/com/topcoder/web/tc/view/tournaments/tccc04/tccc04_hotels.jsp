@@ -48,7 +48,7 @@
 
             <h2>Hotel Accommodations</h2>
 
-            <p><strong><A href="http://www.bostonparkplaza.com/default.asp?sID=home" target="_blank">The Boston Park Plaza Hotel & Towers</a> </strong><br/>
+            <p><strong><A href="http://www.starwoodhotels.com/gx/search/hotel_detail.html?propertyID=97507" target="_blank">The Boston Park Plaza Hotel & Towers</a> </strong><br/>
             Surrounded by Boston's Back Bay neighborhood, this 950-room historic hotel is just one block from the Theater District and the swan boats in the
             Public Garden and two blocks from upscale Newbury Street shopping. Two nights accomodations at the Boston Park Plaza Hotel & Towers are included in the <A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=spectator_package">TCCC Spectator Package.</A><br/><br/>
             64 Arlington Street - Boston<br/>

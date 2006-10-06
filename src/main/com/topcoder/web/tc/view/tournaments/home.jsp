@@ -45,6 +45,7 @@
          <span class="bodySubtitle">2006 TopCoder&#174; Collegiate Challenge Sponsored by AOL</span>
          <br><br>
          November 14-18<br>
+         San Diego Marriott Mission Valley<br>
          San Diego, CA, USA<br>
          <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc06&amp;d3=about">Details</A>
          <br>
