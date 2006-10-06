@@ -9,6 +9,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.CharityPayment;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
@@ -34,12 +35,17 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
         	DataInterfaceBean dib = new DataInterfaceBean();
         	long paymentId = -1;
         	long userId = -1;
+        	long contractId = -1;
         	Payment payment = null; 
         	UserProfileHeader user = null;
         	
         	if (adding) {
         		userId = getLongParameter(USER_ID);
         	    user = new UserProfileHeader(dib.getUserProfileHeader(userId));
+        	    
+        	    if (getRequest().getParameter(CONTRACT_ID) != null) {
+        	    	contractId = getLongParameter(CONTRACT_ID);
+        	    }
         	}
 
         	if (updating) {
@@ -106,7 +112,11 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     payment.setRationaleId(modificationRationaleId);
                     
                     if (adding) {
-                    	paymentId = dib.addPayment(payment);
+                        if (contractId > 0) {
+                        	dib.addContractPayment(contractId, p);
+                        } else {
+                        	paymentId = dib.addPayment(payment);
+                        }
                         
                         if (getRequest().getParameter("charityInd") != null) {
                         	dib.addPayment(new CharityPayment(getLongParameter(USER_ID), paymentId));
@@ -117,7 +127,12 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     }
                     
             		setIsNextPageInContext(false);
-            		setNextPage(Links.viewPayment(paymentId));
+            		
+            		if (adding && contractId > 0) {
+            			setNextPage(Links.viewPayment(paymentId));
+            		} else {
+            			setNextPage(Links.viewContract(contractId));
+            		}
             		return;
             	} else {
             		// there were some errors!
@@ -132,7 +147,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             	// The user is loading the page, so set the default values
             	
             	if (adding) {
-            		typeId = ALGORITHM_CONTEST_PAYMENT;
+            		typeId = contractId > 0? CONTRACT_PAYMENT : ALGORITHM_CONTEST_PAYMENT;
             		statusId = PAYMENT_PENDING_STATUS;
             		methodId = 1; // CHECK
                     Calendar date = Calendar.getInstance();
@@ -166,6 +181,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             	}
             }
             
+            
             setDefault("payment_desc", desc);
             setDefault("payment_type_id", typeId + "");
             setDefault("payment_method_id", methodId + "");
@@ -175,6 +191,10 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             setDefault("due_date", dueDate);
             setDefault("modification_rationale_id", modificationRationaleId + "");
             
+	    	if (contractId > 0) {
+	    		getRequest().setAttribute(CONTRACT, new Contract(dib.getContract(contractId)));
+	    	}
+
             getRequest().setAttribute(USER, user);
             
             if (payment != null) {

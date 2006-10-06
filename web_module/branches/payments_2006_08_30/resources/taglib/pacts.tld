@@ -81,4 +81,13 @@
         </function-signature>
     </function>
 
+
+    <function>
+        <name>viewContract</name>
+        <function-class>com.topcoder.web.tc.controller.legacy.pacts.common.Links</function-class>
+        <function-signature>
+            String viewContract(long)
+        </function-signature>
+    </function>
+
 </taglib>

@@ -180,6 +180,7 @@ public interface PactsConstants extends Constants {
 
     public static final String PAYMENT = "payment";
     public static final String USER = "user";
+    public static final String CONTRACT = "contract";
     
     // Miscellaneous
     public static final String TEXT = "text";
