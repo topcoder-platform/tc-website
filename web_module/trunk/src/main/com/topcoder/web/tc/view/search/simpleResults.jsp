@@ -62,12 +62,11 @@
 
             <form name="simpleSearch" method="get">
                 <input type="hidden" name="module" value="SimpleSearch"/>
-                <input type="hidden" name=<%=DataAccessConstants.START_RANK%> value=""/>
-                        < input type="hidden" name=<%=DataAccessConstants.END_RANK%> value=""/>
-                        < input type="hidden" name=<%=Constants.HANDLE%> value="
-                <c:out value="${memberSearch.handle}" escapeXml="true"/>"/>
+                <input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
+                <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
+                <input type="hidden" name="<%=Constants.HANDLE%>" value="<c:out value="${memberSearch.handle}"/>"/>
                 <jsp:include page="results.jsp"/>
-                        </ form>
+            </form>
 
         </td>
 
