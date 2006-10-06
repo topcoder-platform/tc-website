@@ -38,6 +38,8 @@
 <script type="text/javascript" src="/js/taconite-parser.js"></script>
 <script type="text/javascript">
 
+var fixedReference = true;
+
 function toggleDiv(divId, state) 
 {
     if(document.layers)   
@@ -71,14 +73,20 @@ function doSearch(text, mustSearch, firstLoad) {
 
 	if (firstLoad) {
 	    ajaxRequest.addNamedFormElements("first_load");
-    <c:if test="${updating}">
-	    ajaxRequest.addNamedFormElements("reference_description");
-    </c:if>
 	}
+
+<c:if test="${updating}">    
+    if(fixedReference) {
+	    ajaxRequest.addNamedFormElements("reference_description");
+	}
+</c:if>
+
 	if (mustSearch) {
 	    ajaxRequest.addNamedFormElements("search_text");
     	ajaxRequest.addNamedFormElements("reference_id");
     }
+    
+  	ajaxRequest.addNamedFormElements("client");    
     ajaxRequest.setEchoDebugInfo();
     ajaxRequest.setPostRequest(loaded);
     ajaxRequest.setPreRequest(loading);    
@@ -88,6 +96,7 @@ function doSearch(text, mustSearch, firstLoad) {
 
 function typeChanged()
 {
+	fixedReference = false;
 	doSearch("", false, false);
 }
 
@@ -129,6 +138,10 @@ function initialize() {
 <c:if test="${not empty param.search_text}">
 	s=true;
 </c:if>
+<c:if test="${adding}">
+	fixedReference = false;
+</c:if>	
+
     doSearch('<c:out value="${param.search_text}" />',s,true);
 }
 
@@ -139,6 +152,7 @@ function getElement(name) {
 }
 
 function search() {
+	fixedReference = false;
     doSearch(getElement("searchInput").value, true, false);
 }
 
