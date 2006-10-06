@@ -16,7 +16,6 @@
 <c:set var="refId" value="${requestScope.reference_type_id}"/>
 <c:set var="search" value="${requestScope.search}"/>
 <c:set var="firstLoad" value="${not empty param.first_load}"/>
-<c:set var="referenceDescription" value="${param.reference_description}"/>
 
 <c:set var="ALGORITHM_ROUND" value="<%= PactsConstants.REFERENCE_ALGORITHM_ROUND_ID + "" %>" />
 <c:set var="COMPONENT_PROJECT" value="<%= PactsConstants.REFERENCE_COMPONENT_PROJECT_ID + "" %>" />
@@ -42,11 +41,6 @@
               <td><b>Reference:</b></td>
               <td>
                  <c:choose>
-                   	<c:when test="${not empty referenceDescription}">    
-                		<c:out value="${referenceDescription}" />
-                		        <input type="button" value="change" onClick="typeChanged()" />
-                		<input type="hidden" name="${requestScope.reference_field_name}" value="${requestScope.reference_id}" />
-                   	</c:when>
                      <c:when test="${refId == ALGORITHM_ROUND}">
                      	<c:choose>
                         <c:when test="${empty rounds}">    

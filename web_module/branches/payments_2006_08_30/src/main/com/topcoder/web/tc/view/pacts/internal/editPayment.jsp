@@ -75,12 +75,6 @@ function doSearch(text, mustSearch, firstLoad) {
 	    ajaxRequest.addNamedFormElements("first_load");
 	}
 
-<c:if test="${updating}">    
-    if(fixedReference) {
-	    ajaxRequest.addNamedFormElements("reference_description");
-	}
-</c:if>
-
 	if (mustSearch) {
 	    ajaxRequest.addNamedFormElements("search_text");
     }
@@ -195,15 +189,15 @@ function searchKeyPress(e)
 
 <form name="ajaxFields">
    <input type="hidden" name="cr" value="${user.id}" >
-  <input type="hidden" name="first_load" value="true" >
-    <input type="hidden" name="client" value="<%= ((Map) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("client") %>" >
-    <input type="hidden" name="reference_description" value="<c:out value="${requestScope.reference_description}" />" >
+   <input type="hidden" name="first_load" value="true" >
+   <input type="hidden" name="client" value="<%= ((Map) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("client") %>" >
+ 
 </form>
 
 <form name="f" action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
    <input type="hidden" name="module" value="UpdatePayment">
    <input type="hidden" name="search_text">
-   <input type="hidden" name="reference_id" value="${requestScope.reference_id}">
+   <input type="hidden" name="reference_description" value="<c:out value="${requestScope.reference_description}" />" >
    
 <table border="0" cellpadding="5" cellspacing="5">
         <tr>
@@ -238,6 +232,30 @@ function searchKeyPress(e)
             </c:if>                   
        </td>
     </tr>
+<c:if test="${updating}">    
+    <tr id="selectReference">
+        <td><b>Reference:</b></td>      
+        <td><c:out value="${requestScope.reference_description}" />
+        <input type="button" value="change" onClick="typeChanged()" />
+        </td>
+    </tr>
+    <c:if test="${not empty payment.header.client}">
+        <tr id="projectClient"> 
+            <td><b>Client:</b></td>
+            <td>
+                <tc-webtag:textInput name="client" size="30" editable="true" />
+            </td>
+        </tr>
+    </c:if>
+    <c:if test="${empty payment.header.client}">
+        <tr id="projectClient">
+            <td></td>
+            <td></td>
+        </tr>
+    </c:if>
+    
+</c:if> 
+<c:if test="${adding}">    
     <tr id="selectReference">
         <td></td>       
         <td></td>
@@ -246,6 +264,7 @@ function searchKeyPress(e)
         <td></td>
         <td></td>
     </tr>
+</c:if> 
     <tr>
         <td><b>Method:</b></td><td>
         <tc-webtag:rscSelect name="payment_method_id" list="${methodList}" 

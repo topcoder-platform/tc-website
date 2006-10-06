@@ -6,6 +6,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
 
 /**
  * 
@@ -50,14 +51,6 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
                     payment.getHeader().setTypeId(typeId);
                     payment.getHeader().setMethodId(methodId);
                     payment.getHeader().setClient(client);
-                    payment.getHeader().setAlgorithmRoundId(getOptionalLongParameter("algorithm_round_id", 0));
-                    payment.getHeader().setComponentProjectId(getOptionalLongParameter("component_project_id", 0));
-                    payment.getHeader().setAlgorithmProblemId(getOptionalLongParameter("algorithm_problem_id", 0));
-                    payment.getHeader().setStudioContestId(getOptionalLongParameter("studio_contest_id", 0));
-                    payment.getHeader().setComponentContestId(getOptionalLongParameter("component_contest_id", 0));
-                    payment.getHeader().setDigitalRunStageId(getOptionalLongParameter("digital_run_stage_id", 0));
-                    payment.getHeader().setDigitalRunSeasonId(getOptionalLongParameter("digital_run_season_id", 0));
-                    payment.getHeader().setParentPaymentId(getOptionalLongParameter("parent_reference_id", 0));
                     
                     payment.setStatusId(statusId);
                     payment.setGrossAmount(grossAmount);
@@ -81,6 +74,7 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             	methodId = payment.getHeader().getMethodId();
             	client = payment.getHeader().getClient();
             	
+            	setReference(payment.getHeader());
             	statusId = payment.getStatusId();
             	grossAmount = payment.getGrossAmount();
             	netAmount = payment.getNetAmount();
@@ -96,7 +90,7 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
                 	p = dib.fillPaymentData(p);
                 	refDescr = p.getReferenceDescription();
                 } catch(Exception e) {}
-                getRequest().setAttribute("reference_description", refDescr);                            	
+                getRequest().setAttribute("reference_description", refDescr);
             }
             
             setDefault("payment_desc", desc);
@@ -121,6 +115,41 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+    }
+    
+    private void setReference(PaymentHeader header) {
+        if (getRequest().getParameter("algorithm_round_id") != null) {
+        	header.setAlgorithmRoundId(getLongParameter("algorithm_round_id"));
+        }
+        
+        if (getRequest().getParameter("component_project_id") != null) {
+        	header.setComponentProjectId(getLongParameter("component_project_id"));
+        }
+        
+        if (getRequest().getParameter("algorithm_problem_id") != null) {
+            	header.setAlgorithmProblemId(getOptionalLongParameter("algorithm_problem_id", 0));
+        }
+        
+        if (getRequest().getParameter("studio_contest_id") != null) {
+        	header.setStudioContestId(getLongParameter("studio_contest_id"));
+        }
+        
+        if (getRequest().getParameter("component_contest_id") != null) {
+        	header.setComponentContestId(getLongParameter("component_contest_id"));
+        }
+            
+        if (getRequest().getParameter("digital_run_stage_id") != null) {
+        	header.setDigitalRunStageId(getLongParameter("digital_run_stage_id"));
+        }
+        
+        if (getRequest().getParameter("digital_run_season_id") != null) {
+        	header.setDigitalRunSeasonId(getLongParameter("digital_run_season_id"));
+        }
+
+        if (getRequest().getParameter("parent_reference_id") != null) {
+            header.setParentPaymentId(getLongParameter("parent_reference_id"));
+        }
+    	
     }
 }
 
