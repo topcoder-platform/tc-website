@@ -29,6 +29,7 @@
             <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
             <div class="contentSpacer">
 
+<div class="linkBox"><a href="/?module=Static&d1=old_contests&d2=archive">back to archive</a></div>
 <h1>TCCC06 Logo Contest</h1>
 
 <div align="left" style="padding-bottom: 10px;">
