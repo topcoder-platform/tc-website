@@ -148,7 +148,7 @@ function searchKeyPress(e)
     else return true;
     
     if (keycode == 13) {
-      if (getElement("searchInput") == undefined) search();  
+      if (getElement("searchInput") != undefined) search();  
       return false;
     } 
     return true;

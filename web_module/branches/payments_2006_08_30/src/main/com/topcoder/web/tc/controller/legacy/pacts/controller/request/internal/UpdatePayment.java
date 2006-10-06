@@ -50,6 +50,14 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
                     payment.getHeader().setTypeId(typeId);
                     payment.getHeader().setMethodId(methodId);
                     payment.getHeader().setClient(client);
+                    payment.getHeader().setAlgorithmRoundId(getOptionalLongParameter("algorithm_round_id", 0));
+                    payment.getHeader().setComponentProjectId(getOptionalLongParameter("component_project_id", 0));
+                    payment.getHeader().setAlgorithmProblemId(getOptionalLongParameter("algorithm_problem_id", 0));
+                    payment.getHeader().setStudioContestId(getOptionalLongParameter("studio_contest_id", 0));
+                    payment.getHeader().setComponentContestId(getOptionalLongParameter("component_contest_id", 0));
+                    payment.getHeader().setDigitalRunStageId(getOptionalLongParameter("digital_run_stage_id", 0));
+                    payment.getHeader().setDigitalRunSeasonId(getOptionalLongParameter("digital_run_season_id", 0));
+                    payment.getHeader().setParentPaymentId(getOptionalLongParameter("parent_reference_id", 0));
                     
                     payment.setStatusId(statusId);
                     payment.setGrossAmount(grossAmount);
@@ -96,9 +104,7 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
                 case REFERENCE_PARENT_PAYMENT_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getParentPaymentId()); break;
                 case NO_REFERENCE : p = BasePayment.createPayment(typeId, 1, 0.01, 0); break;
                 }
-                
-                
-                
+
                 String refDescr = "[Can't get the description]";
                 try {
                 	p = dib.fillPaymentData(p);

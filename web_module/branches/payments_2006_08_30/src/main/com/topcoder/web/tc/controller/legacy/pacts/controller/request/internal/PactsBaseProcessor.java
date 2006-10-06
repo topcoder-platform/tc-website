@@ -31,7 +31,10 @@ public abstract class PactsBaseProcessor extends BaseProcessor{
 	}
 	
 	protected long getOptionalLongParameter(String name) {
-		return getRequest().getParameter(name) == null? -1 : 
+		return getOptionalLongParameter(name, -1);
+	}
+	protected long getOptionalLongParameter(String name, long defaultValue) {
+		return getRequest().getParameter(name) == null? defaultValue : 
 				Long.parseLong(getRequest().getParameter(name));
 	}
 	
