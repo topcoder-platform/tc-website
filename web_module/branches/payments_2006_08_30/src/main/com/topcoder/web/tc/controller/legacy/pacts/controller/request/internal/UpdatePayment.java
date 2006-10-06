@@ -44,13 +44,19 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             	modificationRationaleId = getIntParameter("modification_rationale_id");
             	checkDate("due_date", "Please enter a valid due date");
             	dueDate = getStringParameter("due_date");
-            	
+                
+            	if (getRequest().getParameter("missing_reference") != null) {  
+                	addError("error", getRequest().getParameter("missing_reference"));
+            	}
+
             	
             	if (!hasErrors()) {
                     payment.getHeader().setDescription(desc);
                     payment.getHeader().setTypeId(typeId);
                     payment.getHeader().setMethodId(methodId);
                     payment.getHeader().setClient(client);
+                    
+                    setReference(payment.getHeader());
                     
                     payment.setStatusId(statusId);
                     payment.setGrossAmount(grossAmount);
@@ -74,7 +80,7 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             	methodId = payment.getHeader().getMethodId();
             	client = payment.getHeader().getClient();
             	
-            	setReference(payment.getHeader());
+            	
             	statusId = payment.getStatusId();
             	grossAmount = payment.getGrossAmount();
             	netAmount = payment.getNetAmount();
