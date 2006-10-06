@@ -229,6 +229,15 @@ function searchKeyPress(e)
         <td><a href="${pacts:viewUser(user.id)}"><c:out value="${user.handle}" /></td>
     </tr>
     <tr>
+    <c:if test="${hasContract}">
+    <tr>
+        <td><b>Contract:</b></td>
+        <td>
+        	<a href="${pacts:viewContract(contract.header.id)}"><c:out value="${contract.header.name}" />
+		</td>
+    </tr>
+</c:if>
+    
         <td><b>Type:</b></td>
         <td>
           <tc-webtag:rscSelect name="payment_type_id" 
@@ -241,14 +250,6 @@ function searchKeyPress(e)
             </c:if>                   
        </td>
     </tr>
-<c:if test="${hasContract}">
-    <tr>
-        <td><b>Contract:</b></td>
-        <td>
-        	<a href="${pacts:viewContract(contract.header.id)}"><c:out value="${contract.header.name}" />
-		</td>
-    </tr>
-</c:if>
     
     
 <c:choose>    

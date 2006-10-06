@@ -41,6 +41,8 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
     	    	contract = new Contract(dib.getContract(contractId));
         	}
         	
+        	log.debug("contract=" + contractId);
+        	
         	if (adding) {
         	    if (contract != null) {
         	    	user = contract.getHeader().getUser();        	    
@@ -116,7 +118,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     
                     if (adding) {
                         if (contractId > 0) {
-                        	dib.addContractPayment(contractId, payment);
+                        	paymentId = dib.addContractPayment(contractId, payment);
                         } else {
                         	paymentId = dib.addPayment(payment);
                         }
@@ -210,7 +212,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             getRequest().setAttribute(PAYMENT_METHOD_LIST, dib.getPaymentMethods().get(PAYMENT_METHOD_LIST));
             getRequest().setAttribute(STATUS_CODE_LIST, getStatusList());
         
-            setNextPage("/pacts/internal/editPayment.jsp");
+            setNextPage(INTERNAL_EDIT_PAYMENT_JSP);
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
         	throw e;
