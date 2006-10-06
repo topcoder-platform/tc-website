@@ -88,7 +88,7 @@ function doSearch(text, mustSearch, firstLoad) {
 
 function typeChanged()
 {
-	ducoument.f.reference_description.value = "";
+	document.f.reference_description.value = "";
 	doSearch("", false, false);
 }
 
