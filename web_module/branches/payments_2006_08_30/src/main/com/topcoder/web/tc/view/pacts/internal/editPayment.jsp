@@ -121,6 +121,7 @@ function initialize() {
 	<c:otherwise>
 	  doSearch('<c:out value="${param.search_text}/>');
   	</c:otherwise>
+  	</c:choose>
 </c:if>	
 	loaded();
 

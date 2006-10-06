@@ -82,6 +82,8 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
                 setDefault("net_amount", netAmount + "");
                 
                 BasePayment p = null;
+                log.debug("typeId=" + typeId);
+                log.debug("referece=" + BasePayment.getReferenceTypeId(typeId));
                 switch(BasePayment.getReferenceTypeId(typeId)) {
                 case REFERENCE_ALGORITHM_ROUND_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getAlgorithmRoundId()); break; 
                 case REFERENCE_COMPONENT_PROJECT_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getComponentProjectId());
@@ -94,8 +96,14 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
                 case NO_REFERENCE : p = BasePayment.createPayment(typeId, 1, 0.01, 0); break;
                 }
                 
-                p = dib.fillPaymentData(p);
-                getRequest().setAttribute("reference_description", p.getReferenceDescription());
+                
+                
+                String refDescr = "[Can't get the description]";
+                try {
+                	p = dib.fillPaymentData(p);
+                	refDescr = p.getReferenceDescription();
+                } catch(Exception e) {}
+                getRequest().setAttribute("reference_description", refDescr);
             	
             }
             
