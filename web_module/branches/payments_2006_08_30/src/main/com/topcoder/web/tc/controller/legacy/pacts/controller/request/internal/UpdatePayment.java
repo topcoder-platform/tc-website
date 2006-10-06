@@ -1,5 +1,8 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
+import java.util.Map;
+
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.CharityPayment;
@@ -8,6 +11,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
 /**
  * 
@@ -21,24 +25,29 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
         	boolean adding = getRequest().getParameter("user_id") != null;
         	
         	if (!(updating ^ adding)) {
-        		throw new IllegalArgumentException("payment_id or user_id expected");
+        		throw new NavigationException("payment_id or user_id expected");
         	}
         	
         	DataInterfaceBean dib = new DataInterfaceBean();
         	long paymentId = -1;
         	long userId = -1;
         	Payment payment = null; 
+        	UserProfileHeader user = null;
         	
         	if (adding) {
         		userId = getLongParameter(USER_ID);
+        	    user = new UserProfileHeader(dib.getUserProfileHeader(userId));
         	}
+
         	if (updating) {
         		paymentId = getLongParameter(PAYMENT_ID);
         		payment = new Payment(dib.getPayment(paymentId));
+        		if (payment.getStatusId() == PAID_STATUS) {
+        			throw new NavigationException("You can't update a paid payment");
+        		}
+        		
+        		user = payment.getHeader().getUser();
         	}
-
-            
-            
             
             String desc = "";
             int statusId = -1;
@@ -158,10 +167,11 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             setDefault("due_date", dueDate);
             setDefault("modification_rationale_id", modificationRationaleId + "");
             
+            getRequest().setAttribute(USER, user);
+            
             if (payment != null) {
             	getRequest().setAttribute("reference_id", payment.getHeader().getReferenceId() + "");
             	getRequest().setAttribute(PAYMENT, payment);
-            	getRequest().setAttribute(USER, payment.getHeader().getUser());
             }
         	
             getRequest().setAttribute(MODIFICATION_RATIONALE_LIST, dib.getModificationRationales().get(MODIFICATION_RATIONALE_LIST));
@@ -171,6 +181,8 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
         
             setNextPage("/pacts/internal/editPayment.jsp");
             setIsNextPageInContext(true);
+        } catch (TCWebException e) {
+        	throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
         }
