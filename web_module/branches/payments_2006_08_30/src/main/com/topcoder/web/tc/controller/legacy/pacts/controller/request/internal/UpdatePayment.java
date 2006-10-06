@@ -24,19 +24,21 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
         		throw new IllegalArgumentException("payment_id or user_id expected");
         	}
         	
-        	
+        	DataInterfaceBean dib = new DataInterfaceBean();
         	long paymentId = -1;
         	long userId = -1;
+        	Payment payment = null; 
         	
         	if (adding) {
         		userId = getLongParameter(USER_ID);
         	}
         	if (updating) {
         		paymentId = getLongParameter(PAYMENT_ID);
+        		payment = new Payment(dib.getPayment(paymentId));
         	}
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            Payment payment = new Payment(dib.getPayment(paymentId));
+            
+            
             
             String desc = "";
             int statusId = -1;
