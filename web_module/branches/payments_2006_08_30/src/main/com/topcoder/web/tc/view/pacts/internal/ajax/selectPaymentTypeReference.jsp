@@ -53,7 +53,7 @@
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:otherwise>   
                         </c:choose>                                   
-                        <c:if test="${firstLoad}">  
+                        <c:if test="${not firstLoad}">  
                             <script type="text/javascript">
                                 referenceChanged('algorithm_round_id');
                             </script>
@@ -77,7 +77,7 @@
                                      useTopValue="false"  onChange="referenceChanged('component_project_id')"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />                            
                         </c:if>                                  
-                        <c:if test="${firstLoad}">  
+                        <c:if test="${not firstLoad}">  
                             <script type="text/javascript">
                                 referenceChanged('component_project_id');
                             </script>
@@ -102,7 +102,7 @@
                                      useTopValue="false" onChange="referenceChanged('algorithm_problem_id')"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>               
-                        <c:if test="${firstLoad}">  
+                        <c:if test="${not firstLoad}">  
                             <script type="text/javascript">
                                 referenceChanged('algorithm_problem_id');
                             </script>
@@ -127,7 +127,7 @@
                                      useTopValue="false"  onChange="referenceChanged('studio_contest_id')"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>          
-                        <c:if test="${firstLoad}">  
+                        <c:if test="${not firstLoad}">  
                             <script type="text/javascript">
                                 referenceChanged('studio_contest_id');
                             </script>
@@ -151,10 +151,7 @@
                                      useTopValue="false"  onChange="referenceChanged('component_contest_id')"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>       
-                        <script type="text/javascript">
-                                if (!firstLoad) referenceChanged('component_contest_id')
-                        </script> 
-                        <c:if test="${firstLoad}">  
+                        <c:if test="${not firstLoad}">  
                             <script type="text/javascript">
                                 referenceChanged('algorithm_round_id');
                             </script>
@@ -178,7 +175,7 @@
                                      useTopValue="false"  onChange="referenceChanged('parent_reference_id')"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>       
-                        <c:if test="${firstLoad}">  
+                        <c:if test="${not firstLoad}">  
                             <script type="text/javascript">
                                 referenceChanged('parent_reference_id');
                             </script>
@@ -192,7 +189,7 @@
                          <tc-webtag:rscSelect name="digital_run_stage_id" list="${stages}" 
                                  fieldText="stage_desc" fieldValue="stage_id"  selectedValue="${param.reference_id}"                                            
                                  useTopValue="false" onChange="referenceChanged('digital_run_stage_id')"/>
-                        <c:if test="${firstLoad}">  
+                        <c:if test="${not firstLoad}">  
                             <script type="text/javascript">
                                 referenceChanged('digital_run_stage_id');
                             </script>
@@ -204,7 +201,7 @@
                          <tc-webtag:rscSelect name="digital_run_season_id" list="${seasons}" 
                                  fieldText="name" fieldValue="season_id"  selectedValue="${param.reference_id}"                                             
                                  useTopValue="false" onChange="referenceChanged('digital_run_season_id')"/>
-                        <c:if test="${firstLoad}">  
+                        <c:if test="${not firstLoad}">  
                             <script type="text/javascript">
                                 referenceChanged('digital_run_season_id');
                             </script>

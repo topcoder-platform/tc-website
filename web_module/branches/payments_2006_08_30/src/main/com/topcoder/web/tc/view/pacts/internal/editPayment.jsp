@@ -194,7 +194,7 @@ function searchKeyPress(e)
    <input type="hidden" name="search_text">
    <input type="hidden" name="reference_id" value="<c:out value="${param.reference_id}" />">
    <input type="hidden" name="reference_description" value="<c:out value="${requestScope.reference_description}" />" >
-   <input type="hidden" name="USER_ID" value="${user.id}" >   
+   <input type="hidden" name="user_id" value="${user.id}" >   
 
 <table border="0" cellpadding="5" cellspacing="5">
         <tr>
