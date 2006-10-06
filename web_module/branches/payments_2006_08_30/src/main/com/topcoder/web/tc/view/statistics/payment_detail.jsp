@@ -174,8 +174,7 @@
             </tr>
             <%int i = 0;
             boolean even = false;
-            boolean hasCharity = false;
-            double total = 0;%>
+            boolean hasCharity = false;%>
             <rsc:iterator list="<%=rsc%>" id="resultRow">
                 <tr class="<%=even?"dark":"light"%>">            
                 <TD class="value" width="5%">
@@ -203,7 +202,6 @@
                 <% }%>
                 </TD>
                 </tr>
-                <% total += resultRow.getDoubleItem("earnings"); %>
                 <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
                     <TD class="value" width="5%"></TD>
@@ -216,14 +214,6 @@
                 <% }%>
                 <%even = !even;%>
             </rsc:iterator>
-            <tr class="dark">
-                <TD CLASS="header" width="5%"></TD>
-                <TD CLASS="header" width="5%"></TD>
-                <TD CLASS="header" width="40%"></TD>
-                <TD CLASS="header" width="30%"></TD>
-                <TD CLASS="header" width="10%"><fmt:formatNumber value="${total}" type="currency" currencySymbol="$"/></TD>
-                <TD CLASS="header" width="10%"></TD>
-            </tr>
         </TABLE>
     </FORM>
 
