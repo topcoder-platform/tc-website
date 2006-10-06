@@ -175,19 +175,17 @@
 	        <rsc:iterator list="<%=rsc%>" id="resultRow">
 	            <tr class="<%=even?"dark":"light"%>">            
 	            <TD class="value" width="5%">
-                <c:if test="resultRow.item('ref_payment_type_desc').resultData() != null">	            
+	            <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
 	                <%i++;%>
 		            <a href="javascript:toggleDisplay('ref_<%=i%>');" class="statLink"><img src="/i/interface/open.gif" alt="open" border="0" /></a>
-                </c:if>
+				<% }%>
 	            </TD>
 	            <TD class="value" width="5%"><rsc:item name="date_due" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
 	            <TD class="value" width="40%"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
 	            <TD class="value" width="30%"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
 	            <TD class="value" width="10%">
 	            	<rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
-	            	---
-	            	<c:out value="${resultRow.getIntItem('charity_ind')}"/>
-	                <c:if test="${resultRow.getIntItem('charity_ind')} == 1">*</c:if>
+		            <% if (resultRow.getIntItem("charity_ind") == 1) {%>*<% }%>
 	            </TD>
 	            <TD class="value" width="10%">
 	            <% if (resultRow.getIntItem("payment_type_id") == 1 && resultRow.getItem("reference_id").getResultData() != null) {%>
