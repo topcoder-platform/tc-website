@@ -67,8 +67,8 @@ Div I
     <tr>
         <td class="headerC">Rank</td>
         <td class="header"><a href="/stat?c=highest_accuracy&sq=Highest_Submission_Accuracy&sc=0&sd=<%= "0".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Coder</a></td>
-        <td class="headerC"><a href="/stat?c=highest_accuracy&sq=Highest_Submission_Accuracy&sc=2&sd=<%= "2".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Wins</a></td>
-        <td class="headerC" width="100%" colspan="3">Duration</td>
+        <td class="headerC" width="100%"><a href="/stat?c=highest_accuracy&sq=Highest_Submission_Accuracy&sc=2&sd=<%= "2".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Wins</a></td>
+        <td class="headerC" colspan="3">Duration</td>
     </tr>
 </thead>
 <tbody>
@@ -86,12 +86,12 @@ Div I
         <td class="valueC"><bean:write name="resultRow" property='<%= "item[" + 10 /*"rank"*/ + "]" %>'/></td>
         <td class="value" nowrap><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>" context="algorithm"/></td>
         <td class="valueC"><bean:write name="resultRow" property='<%= "item[" + 2 /*"length"*/ + "]" %>'/></td>
-        <td class="valueR">
+        <td class="valueR" nowrap>
         <strong><bean:write name="resultRow" property='<%= "item[" + 5 /*"contest"*/ + "]" %>'/></strong><br>
         <bean:write format="MM.dd.yy" name="resultRow" property='<%= "item[" + 4 /*"start_date"*/ + "].resultData" %>'/>
         </td>
         <td class="valueC">-</td>
-        <td class="value">
+        <td class="value" nowrap>
         <strong><bean:write name="resultRow" property='<%= "item[" + 8 /*"contest"*/ + "]" %>'/></strong><br>
         <bean:write format="MM.dd.yy" name="resultRow" property='<%= "item[" + 7 /*"end_date"*/ + "].resultData" %>'/>
         </td>
