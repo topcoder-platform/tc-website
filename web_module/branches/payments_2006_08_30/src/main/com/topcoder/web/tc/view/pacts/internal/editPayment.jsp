@@ -108,7 +108,7 @@ function setDescription(text) {
 }
 
 function setDueDate(text) {
-    document.f.date_due.value = text;
+    document.f.due_date.value = text;
 }
 
 function setStatus(id) {
