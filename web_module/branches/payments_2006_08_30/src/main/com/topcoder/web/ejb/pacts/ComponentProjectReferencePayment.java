@@ -133,7 +133,8 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
          * @throws SQLException if an error occurred trying to access db.
          */
         public String lookupReferenceDescription(BasePayment payment) throws SQLException {
-        	return getComponentName(((ComponentProjectReferencePayment) payment).getProjectId());
+        	long id = ((ComponentProjectReferencePayment) payment).getProjectId();
+        	return getComponentName(id) + " - " + getProjectType(id);
         }
         
         /**

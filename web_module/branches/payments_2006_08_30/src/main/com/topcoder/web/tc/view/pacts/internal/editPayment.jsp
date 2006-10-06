@@ -1,4 +1,6 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="com.topcoder.web.common.BaseProcessor" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -180,6 +182,7 @@ function searchKeyPress(e)
 <form name="ajaxFields">
    <input type="hidden" name="cr" value="${user.id}" >
   <input type="hidden" name="first_load" value="true" >
+    <input type="hidden" name="client" value="<%= ((Map) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("client") %>" >
     <input type="hidden" name="reference_description" value="<c:out value="${requestScope.reference_description}" />" >
 </form>
 

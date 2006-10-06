@@ -27,6 +27,13 @@
 <c:set var="DIGITAL_RUN_SEASON" value="<%= PactsConstants.REFERENCE_DIGITAL_RUN_SEASON_ID + "" %>" />
 <c:set var="PARENT_PAYMENT" value="<%= PactsConstants.REFERENCE_PARENT_PAYMENT_ID + "" %>" />
 
+<script type="text/javascript">
+	var firstLoad = false;
+	<c:if test="${firstLoad}">
+    firstLoad=true;
+	</c:if>
+</script>
+
 <taconite-root xml:space="preserve">
 
     <taconite-replace contextNodeID="selectReference" parseInBrowser="true">
@@ -57,7 +64,7 @@
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>              
 						<script type="text/javascript">
-								referenceChanged('algorithm_round_id');
+								if (!firstLoad) referenceChanged('algorithm_round_id');
 				    	</script>
                                             
                      </c:when>                       
@@ -79,7 +86,7 @@
                              <input type="button" value="do another search" onClick="typeChanged()" />                            
                         </c:if>                                  
 						<script type="text/javascript">
-								referenceChanged('component_project_id')
+								if (!firstLoad) referenceChanged('component_project_id')
 				    	</script>
 
                      </c:when>               
@@ -102,7 +109,7 @@
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>               
 						<script type="text/javascript">
-								referenceChanged('algorithm_problem_id')
+								if (!firstLoad) referenceChanged('algorithm_problem_id')
 				    	</script>
                                            
                      </c:when>                       
@@ -124,7 +131,7 @@
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>          
 						<script type="text/javascript">
-								referenceChanged('studio_contest_id')
+								if (!firstLoad) referenceChanged('studio_contest_id')
 				    	</script>                                                
                      </c:when>                       
 
@@ -145,7 +152,7 @@
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>       
 						<script type="text/javascript">
-								referenceChanged('component_contest_id')
+								if (!firstLoad) referenceChanged('component_contest_id')
 				    	</script>                                                   
                      </c:when>                       
 
@@ -166,7 +173,7 @@
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>       
 						<script type="text/javascript">
-								referenceChanged('parent_reference_id')
+								if (!firstLoad) referenceChanged('parent_reference_id')
 				    	</script>                                                   
                      </c:when>                       
 
@@ -177,7 +184,7 @@
                                  fieldText="stage_desc" fieldValue="stage_id"  selectedValue="${param.reference_id}"                                            
                                  useTopValue="false" onChange="referenceChanged('digital_run_stage_id')"/>
 						<script type="text/javascript">
-								referenceChanged('digital_run_stage_id')
+								if (!firstLoad) referenceChanged('digital_run_stage_id')
 				    	</script>                                 
                      </c:when>                       
                      
@@ -186,7 +193,7 @@
                                  fieldText="name" fieldValue="season_id"  selectedValue="${param.reference_id}"                                             
                                  useTopValue="false" onChange="referenceChanged('digital_run_season_id')"/>
 						<script type="text/javascript">
-								referenceChanged('digital_run_season_id')
+								if (!firstLoad) referenceChanged('digital_run_season_id')
 				    	</script>                                 
                      </c:when>                       
 
