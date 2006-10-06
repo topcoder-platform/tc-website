@@ -38,8 +38,6 @@
 <script type="text/javascript" src="/js/taconite-parser.js"></script>
 <script type="text/javascript">
 
-var fixedReference = true;
-
 function toggleDiv(divId, state) 
 {
     if(document.layers)   
@@ -90,7 +88,7 @@ function doSearch(text, mustSearch, firstLoad) {
 
 function typeChanged()
 {
-	fixedReference = false;
+	ducoument.f.reference_description.value = "";
 	doSearch("", false, false);
 }
 
@@ -145,7 +143,6 @@ function getElement(name) {
 }
 
 function search() {
-	fixedReference = false;
     doSearch(getElement("searchInput").value, true, false);
 }
 
@@ -231,7 +228,8 @@ function searchKeyPress(e)
             </c:if>                   
        </td>
     </tr>
-<c:if test="${updating}">    
+<c:choose>    
+<c:when test="${not empty requestScope.reference_description}">    
     <tr id="selectReference">
         <td><b>Reference:</b></td>      
         <td><c:out value="${requestScope.reference_description}" />
@@ -253,8 +251,8 @@ function searchKeyPress(e)
         </tr>
     </c:if>
     
-</c:if> 
-<c:if test="${adding}">    
+</c:when> 
+<c:otherwise>    
     <tr id="selectReference">
         <td></td>       
         <td></td>
@@ -263,7 +261,8 @@ function searchKeyPress(e)
         <td></td>
         <td></td>
     </tr>
-</c:if> 
+</c:otherwise> 
+</c:choose>
     <tr>
         <td><b>Method:</b></td><td>
         <tc-webtag:rscSelect name="payment_method_id" list="${methodList}" 

@@ -2542,15 +2542,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 ps.setNull(12, Types.VARCHAR);
             }
 
-            setNullableLong(ps, 13, p.getHeader().getAlgorithmRoundId());
-            setNullableLong(ps, 14, p.getHeader().getComponentProjectId());
-            setNullableLong(ps, 15, p.getHeader().getAlgorithmProblemId());
-            setNullableLong(ps, 16, p.getHeader().getStudioContestId());
-            setNullableLong(ps, 17, p.getHeader().getComponentContestId());
-            setNullableLong(ps, 18, p.getHeader().getDigitalRunStageId());
-            setNullableLong(ps, 19, p.getHeader().getDigitalRunSeasonId());
-            setNullableLong(ps, 20, p.getHeader().getParentPaymentId());
-
+            for (int i = 13; i <= 20; i++) {
+            	ps.setNull(i, Types.DECIMAL);
+            }
+            switch (BasePayment.getReferenceTypeId(p.getHeader().getTypeId())) {
+            case REFERENCE_ALGORITHM_ROUND_ID: setNullableLong(ps, 13, p.getHeader().getAlgorithmRoundId()); break;
+            case REFERENCE_COMPONENT_PROJECT_ID: setNullableLong(ps, 14, p.getHeader().getComponentProjectId());  break;
+            case REFERENCE_ALGORITHM_PROBLEM_ID: setNullableLong(ps, 15, p.getHeader().getAlgorithmProblemId());  break;
+            case REFERENCE_STUDIO_CONTEST_ID:  setNullableLong(ps, 16, p.getHeader().getStudioContestId());  break;
+            case REFERENCE_COMPONENT_CONTEST_ID: setNullableLong(ps, 17, p.getHeader().getComponentContestId());  break;
+            case REFERENCE_DIGITAL_RUN_STAGE_ID: setNullableLong(ps, 18, p.getHeader().getDigitalRunStageId());  break;
+            case REFERENCE_DIGITAL_RUN_SEASON_ID: setNullableLong(ps, 19, p.getHeader().getDigitalRunSeasonId());  break;
+            case REFERENCE_PARENT_PAYMENT_ID: setNullableLong(ps, 20, p.getHeader().getParentPaymentId());  break;
+            }
             ps.executeUpdate();
 
             return paymentDetailId;

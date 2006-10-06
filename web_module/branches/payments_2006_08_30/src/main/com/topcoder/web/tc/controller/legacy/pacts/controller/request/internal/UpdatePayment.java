@@ -72,7 +72,9 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             	} else {
                     setDefault("gross_amount", getRequest().getParameter("gross_amount"));
                     setDefault("net_amount", getRequest().getParameter("net_amount"));
-                    getRequest().setAttribute("reference_description", getRequest().getParameter("reference_description"));                
+                    if (((String) getRequest().getParameter("reference_description")).length() > 0) {
+                    	getRequest().setAttribute("reference_description", getRequest().getParameter("reference_description"));
+                    }
             	}
             } else {
             	desc = payment.getHeader().getDescription();
