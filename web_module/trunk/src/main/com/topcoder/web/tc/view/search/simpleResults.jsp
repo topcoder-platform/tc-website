@@ -64,7 +64,7 @@
                 <input type="hidden" name="module" value="SimpleSearch"/>
                 <input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
                 <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
-                <input type="hidden" name="<%=Constants.HANDLE%>" value="<c:out value="${memberSearch.handle}"/>"/>
+                <input type="hidden" name="<%=Constants.HANDLE%>" value="<c:out value="${memberSearch.handle}" escapeXml="true"/>"/>
                 <jsp:include page="results.jsp"/>
             </form>
 

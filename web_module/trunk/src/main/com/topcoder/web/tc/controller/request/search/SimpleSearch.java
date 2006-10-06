@@ -72,7 +72,7 @@ public class SimpleSearch extends Base {
 
         String handle = StringUtils.checkNull(getRequest().getParameter(Constants.HANDLE));
         if (!handle.equals(""))
-            ret.setHandle(StringUtils.htmlEncode(handle));
+            ret.setHandle(handle);
 
         return ret;
     }
