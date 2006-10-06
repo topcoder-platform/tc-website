@@ -27,14 +27,14 @@
 <c:set var="DIGITAL_RUN_SEASON" value="<%= PactsConstants.REFERENCE_DIGITAL_RUN_SEASON_ID + "" %>" />
 <c:set var="PARENT_PAYMENT" value="<%= PactsConstants.REFERENCE_PARENT_PAYMENT_ID + "" %>" />
 
+
+<taconite-root xml:space="preserve">
 <script type="text/javascript">
 	var firstLoad = false;
 	<c:if test="${firstLoad}">
     firstLoad=true;
 	</c:if>
 </script>
-
-<taconite-root xml:space="preserve">
 
     <taconite-replace contextNodeID="selectReference" parseInBrowser="true">
         <c:if test="${refId > 0}">
