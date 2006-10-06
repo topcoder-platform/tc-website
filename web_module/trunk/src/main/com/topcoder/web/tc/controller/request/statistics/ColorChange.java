@@ -67,6 +67,7 @@ public class ColorChange extends Base {
             }
 
             if (!handle.equals("")) {
+                setDefault(Constants.HANDLE, handle);
                 changes = new ResultSetContainer(changes, new Equals(handle.toLowerCase(), "handle_lower"));
             }
 
