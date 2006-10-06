@@ -391,94 +391,70 @@ public class ProjectTrackerV2Bean implements SessionBean {
         Common.close(rs);
         Common.close(ps);
 
-
         // Prepare version_id
         ps = conn.prepareStatement("INSERT INTO project_info " +
                 "(project_id, project_info_type_id, value, create_user, create_date, modify_user, modify_date) " +
                 " values (?, ?, ?, ?, CURRENT, ?, CURRENT)");
-        int index = 1;
-        ps.setLong(index++, projectId);
-        ps.setLong(index++, 1); // 1 external id
-        ps.setString(index++, String.valueOf(compVersId));
-        ps.setString(index++, String.valueOf(modUserId));
-        ps.setString(index++, String.valueOf(modUserId));
-        ps.executeUpdate();
+        
+        createProjectInfo(ps, projectId, 1, String.valueOf(compVersId), modUserId);
         
         // component id
-        index = 1;
-        ps.setLong(index++, projectId);
-        ps.setLong(index++, 2); // 1 component id
-        ps.setString(index++, String.valueOf(componentId));
-        ps.setString(index++, String.valueOf(modUserId));
-        ps.setString(index++, String.valueOf(modUserId));
-        ps.executeUpdate();
+        createProjectInfo(ps, projectId, 2, String.valueOf(componentId), modUserId);
         
         // version id
-        index = 1;
-        ps.setLong(index++, projectId);
-        ps.setLong(index++, 3);
-        ps.setString(index++, String.valueOf(version));
-        ps.setString(index++, String.valueOf(modUserId));
-        ps.setString(index++, String.valueOf(modUserId));
-        ps.executeUpdate();
+        createProjectInfo(ps, projectId, 3, String.valueOf(version), modUserId);
         
         // forum id
-        index = 1;
-        ps.setLong(index++, projectId);
-        ps.setLong(index++, 4);
-        ps.setString(index++, String.valueOf(forumId));
-        ps.setString(index++, String.valueOf(modUserId));
-        ps.setString(index++, String.valueOf(modUserId));
-        ps.executeUpdate();
+        createProjectInfo(ps, projectId, 4, String.valueOf(forumId), modUserId);
         
         // rootCatagoryId
-        index = 1;
-        ps.setLong(index++, projectId);
-        ps.setLong(index++, 5);
-        ps.setString(index++, String.valueOf(rootCatagoryId));
-        ps.setString(index++, String.valueOf(modUserId));
-        ps.setString(index++, String.valueOf(modUserId));
-        ps.executeUpdate();
+        createProjectInfo(ps, projectId, 5, String.valueOf(rootCatagoryId), modUserId);
         
         // component name
-        index = 1;
-        ps.setLong(index++, projectId);
-        ps.setLong(index++, 6);
-        ps.setString(index++, componentName);
-        ps.setString(index++, String.valueOf(modUserId));
-        ps.setString(index++, String.valueOf(modUserId));
-        ps.executeUpdate();
+        createProjectInfo(ps, projectId, 6, componentName, modUserId);
 
         // Prepare project_version
-        index = 1;
-        ps.setLong(index++, projectId);
-        ps.setLong(index++, 7); // 7 project_version
-        ps.setString(index++, versionText);
-        ps.setString(index++, String.valueOf(modUserId));
-        ps.setString(index++, String.valueOf(modUserId));
-        ps.executeUpdate();
+        createProjectInfo(ps, projectId, 7, versionText, modUserId);
 
         // Prepare auto_pilot_ind
-        index = 1;
-        ps.setLong(index++, projectId);
-        ps.setLong(index++, 9); // 9 auto_pilot_ind
-        ps.setLong(index++, 1); 
-        ps.setString(index++, String.valueOf(modUserId));
-        ps.setString(index++, String.valueOf(modUserId));
-        ps.executeUpdate();
-        
-        // rootCatagoryId
-        index = 1;
-        ps.setLong(index++, projectId);
-        ps.setLong(index++, 16);
-        ps.setString(index++, String.valueOf(price));
-        ps.setString(index++, String.valueOf(modUserId));
-        ps.setString(index++, String.valueOf(modUserId));
-        ps.executeUpdate();
+        createProjectInfo(ps, projectId, 9, "On", modUserId);
 
+        // Status Notification
+        createProjectInfo(ps, projectId, 10, "On", modUserId);
+        
+        // Timeline Notification
+        createProjectInfo(ps, projectId, 11, "On", modUserId);
+
+        // Public
+        createProjectInfo(ps, projectId, 12, "Yes", modUserId);
+
+        // Rated
+        createProjectInfo(ps, projectId, 13, "Yes", modUserId);
+        
+        // Payments
+        createProjectInfo(ps, projectId, 16, String.valueOf(price), modUserId);
+        
         Common.close(ps);        
     }
 
+    /**
+     * Create project info.
+     * 
+     * @param ps the preparedstatement
+     * @param projectInfoTypeId the info type id
+     * @param value the value
+     * @throws SQLException if error occurs
+     */
+    private static void createProjectInfo(PreparedStatement ps, long projectId, long projectInfoTypeId, String value, long modUserId) throws SQLException {
+        int index = 1;
+        ps.setLong(index++, projectId);
+        ps.setLong(index++, projectInfoTypeId);
+        ps.setString(index++, value);
+        ps.setString(index++, String.valueOf(modUserId));
+        ps.setString(index++, String.valueOf(modUserId));
+        ps.executeUpdate();
+    }
+    
     /**
      * Creates a new Online Review Project.
      *
@@ -842,7 +818,7 @@ public class ProjectTrackerV2Bean implements SessionBean {
                 ps.setDouble(6, old_rating);
             }
 
-            if (old_rating == 0) {
+            if (oldReliability == 0) {
                 ps.setNull(7, Types.DOUBLE);
             } else {
                 ps.setDouble(7, oldReliability);
