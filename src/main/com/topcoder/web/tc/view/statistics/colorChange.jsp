@@ -89,6 +89,8 @@
     <jsp:param name="title" value="<%="Recent Handle Color Changes - "+titleName%>"/>
 </jsp:include>
 
+This chart shows all instances of a competitor changing handle colors in the last 30 days.
+
 <div align="center">
     <strong>
         <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;${typeParam}" class="bcLink">All
@@ -143,16 +145,16 @@
     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
         <tbody>
             <tr>
-                <td class="title" colspan="5">
+                <td class="title" colspan="6">
                     Recent Handle Color Changes
                 </td>
             </tr>
             <tr>
                 <% String exclude = Constants.MODULE_KEY + " " + DataAccessConstants.START_RANK + " " + DataAccessConstants.END_RANK;%>
-                <td class="header" width="50%">
+                <td class="header">
                     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange<tc-webtag:sort column="<%=changeList.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Handle</a>
                 </td>
-                <td class="header" width="50%">
+                <td class="header" width="100%">
                     <c:choose>
                         <c:when test="${isTCAlgo||isHSAlgo}">
                             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange<tc-webtag:sort column="<%=changeList.getColumnIndex("short_name")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Event</a>
@@ -161,6 +163,9 @@
                             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange<tc-webtag:sort column="<%=changeList.getColumnIndex("component_name")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Event</a>
                         </c:otherwise>
                     </c:choose>
+                </td>
+                <td class="headerC">
+                    <a href="">Date</a>
                 </td>
                 <td class="headerC" nowrap="nowrap">
                     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange<tc-webtag:sort column="<%=changeList.getColumnIndex("old_rating")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Old
@@ -179,7 +184,7 @@
 
             <rsc:iterator list="<%=changeList%>" id="resultRow">
                 <tr class="<%=even?"dark":"light"%>">
-                    <td class="value">
+                    <td class="value" nowrap>
                         <tc-webtag:handle coderId="<%=resultRow.getLongItem("user_id")%>" context="${context}"/>
                     </td>
                     <td class="value">
@@ -205,6 +210,9 @@
                                 </c:choose>
                             </c:otherwise>
                         </c:choose>
+                    </td>
+                    <td class="valueC">
+                        10.06.06
                     </td>
                     <td class="valueC"><span class="coderText<rsc:item name="old_color" row="<%=resultRow%>"/>"><rsc:item name="old_rating" row="<%=resultRow%>"/></span>
                     </td>
