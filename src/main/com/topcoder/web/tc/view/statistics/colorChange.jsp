@@ -137,6 +137,9 @@ This chart shows all instances of a competitor changing handle colors in the las
 <input type="hidden" name="<%=Constants.PHASE_ID%>" value=""/>
 <input type="hidden" name="<%=Constants.ALGO_RATING_TYPE_ID%>" value=""/>
 
+<%--
+<tc-webtag:textInput name="<%=Constants.HANDLE%>"/>
+--%>
 
 <div class="pagingBox">
     <%=(changeList.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
