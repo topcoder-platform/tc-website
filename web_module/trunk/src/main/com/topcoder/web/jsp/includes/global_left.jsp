@@ -32,7 +32,7 @@
     nav.search("m_algo_stats").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/stat?c=last_match", "Match Results", "algo_match_results"));
     nav.search("m_algo_stats").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=Static&d1=match_editorials&d2=archive", "Match Editorials", "algo_match_editorials"));
     nav.search("m_algo_stats").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ProblemArchive", "Problem Archive", "algo_problem_archive"));
-    nav.search("m_algo_stats").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=Static&d1=statistics&d2=colorChanges", "Recent Color Changes", "algo_color_changes"));
+    nav.search("m_algo_stats").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ColorChange&ratid=1", "Recent Color Changes", "algo_color_changes"));
     nav.search("m_algo_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_algo_support')", "Support / FAQs", "m_algo_support"));
     nav.search("m_algo_support").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=Static&d1=help&d2=index", "How to Compete", "algo_how_to_compete"));
     nav.search("m_algo_support").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=Static&d1=help&d2=faqIndex", "FAQs", "algo_faqs"));
@@ -50,7 +50,7 @@
     nav.search("m_des_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=CompList&ph=112", "Statistics", "des_stats"));
 //         nav.search("m_des_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_des_stats')", "Statistics", "m_des_stats"));
 //            nav.search("m_des_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&ph=112", "Past Contests", "des_past_contests"));
-    nav.search("m_des_stats").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=Static&d1=statistics&d2=colorChanges", "Recent Color Changes", "des_color_changes"));
+    nav.search("m_des_stats").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ColorChange&ph=112", "Recent Color Changes", "des_color_changes"));
 //            nav.search("m_des_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=support&d3=desDataFeed", "Data Feeds", "des_data_feeds"));
     nav.search("m_des_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&ph=112", "Meet the Review Board", "des_review_board"));
     nav.search("m_des_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_des_support')", "Support / FAQs", "m_des_support"));
@@ -70,7 +70,7 @@
     nav.search("m_dev_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_dev_support')", "Support / FAQs", "m_dev_support"));
 //         nav.search("m_dev_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_dev_stats')", "Statistics", "m_dev_stats"));
 //            nav.search("m_dev_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&ph=113", "Past Contests", "dev_past_contests"));
-    nav.search("m_dev_stats").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=Static&d1=statistics&d2=colorChanges", "Recent Color Changes", "dev_color_changes"));
+    nav.search("m_dev_stats").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ColorChange&ph=113", "Recent Color Changes", "dev_color_changes"));
 //            nav.search("m_dev_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=support&d3=desDataFeed", "Data Feeds", "dev_data_feeds"));
     nav.search("m_dev_support").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted", "How to Compete", "dev_getting_started"));
     nav.search("m_dev_support").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=Static&d1=dev&d2=support&d3=devDocumentation", "Documentation", "dev_documentation"));
@@ -101,7 +101,7 @@
     nav.search("m_hs_stats").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=HSRoundStatsTeam", "Match Results (Team)", "hs_team_match_results"));
     nav.search("m_hs_stats").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=HSRoundStatsInd", "Match Results (Indiv.)", "hs_ind_match_results"));
     nav.search("m_hs_stats").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=Static&d1=hs&d2=match_editorials&d3=archive", "Match Editorials", "hs_match_editorials"));
-    nav.search("m_hs_stats").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=Static&d1=statistics&d2=colorChanges", "Recent Color Changes", "hs_algo_color_changes"));
+    nav.search("m_hs_stats").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ColorChange&ratid=2", "Recent Color Changes", "hs_algo_color_changes"));
     nav.search("m_hs_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=Static&d1=hs&d2=sponsorship", "Sponsorship", "hs_sponsor"));
     nav.search("m_hs_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_hs_support')", "Support / FAQs", "m_hs_support"));
     nav.search("m_hs_support").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=Static&d1=hs&d2=support&d3=index", "How to Compete", "hs_how_to_compete"));
