@@ -84,9 +84,10 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
                 BasePayment p = null;
                 log.debug("typeId=" + typeId);
                 log.debug("referece=" + BasePayment.getReferenceTypeId(typeId));
+                log.debug("getComponentProjectId=" + payment.getHeader().getComponentProjectId());
                 switch(BasePayment.getReferenceTypeId(typeId)) {
                 case REFERENCE_ALGORITHM_ROUND_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getAlgorithmRoundId()); break; 
-                case REFERENCE_COMPONENT_PROJECT_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getComponentProjectId());
+                case REFERENCE_COMPONENT_PROJECT_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getComponentProjectId()); break;
                 case REFERENCE_ALGORITHM_PROBLEM_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getAlgorithmProblemId()); break;
                 case REFERENCE_STUDIO_CONTEST_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getStudioContestId()); break;
                 case REFERENCE_COMPONENT_CONTEST_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getComponentContestId()); break;

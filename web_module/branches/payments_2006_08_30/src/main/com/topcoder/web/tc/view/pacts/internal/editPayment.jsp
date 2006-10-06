@@ -115,13 +115,13 @@ function initialize() {
 <c:if test="${adding}">
 <% if (request.getParameter("search_text") == null) { %>
 	<c:choose>	
-	<c:when test="${empty param.search_text}
+	<c:when test="${empty param.search_text}">
 	   typeChanged();
 	</c:when>
 	<c:otherwise>
-	  doSearch('<c:out value="${param.search_text}/>');
+	  doSearch('<c:out value="${param.search_text}" />');
   	</c:otherwise>
-  	</c:choose>
+  	</c:choose>	
 </c:if>	
 	loaded();
 
@@ -177,7 +177,6 @@ function searchKeyPress(e)
 <form name="ajaxFields">
    <input type="hidden" name="cr" value="${user.id}" >
 </form>
-
 
 <form name="f" action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
    <input type="hidden" name="module" value="UpdatePayment">
