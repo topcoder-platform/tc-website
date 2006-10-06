@@ -23,6 +23,7 @@ public class ColorChange extends Base {
         String ratingType = StringUtils.checkNull(getRequest().getParameter(Constants.ALGO_RATING_TYPE_ID));
         String phase = StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID));
         String color = StringUtils.checkNull(getRequest().getParameter(Constants.COLOR));
+        String handle = StringUtils.checkNull(getRequest().getParameter(Constants.HANDLE));
 
         if ("".equals(phase) && "".equals(ratingType)) {
             throw new NavigationException("Invalid request");
@@ -63,6 +64,10 @@ public class ColorChange extends Base {
 
             if (!color.equals("")) {
                 changes = new ResultSetContainer(changes, new Equals(color, "new_color"));
+            }
+
+            if (!handle.equals("")) {
+                changes = new ResultSetContainer(changes, new Equals(handle.toLowerCase(), "handle_lower"));
             }
 
             if (!"".equals(col) && !"".equals(dir)) {
