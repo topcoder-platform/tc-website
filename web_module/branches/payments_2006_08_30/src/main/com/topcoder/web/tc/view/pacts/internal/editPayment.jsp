@@ -286,13 +286,13 @@ function searchKeyPress(e)
     <tr>
         <td><b>Gross Amount:</b></td>
         <td>
-            <tc-webtag:textInput name="gross_amount" size="8" editable="true" />
+            <tc-webtag:textInput name="gross_amount" size="8" editable="true" format="#########.00" />
         </td>
     </tr>
     <tr>
         <td><b>Net Amount:</b></td>
         <td>
-            <tc-webtag:textInput name="net_amount" size="8" editable="true" /> (if left blank, calculated from Gross Amount)
+            <tc-webtag:textInput name="net_amount" size="8" editable="true" format="#########.00" /> (if left blank, calculated from Gross Amount)
         </td>
     </tr>
     <tr>

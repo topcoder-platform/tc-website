@@ -87,7 +87,7 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             	grossAmount = payment.getGrossAmount();
             	netAmount = payment.getNetAmount();
             	dueDate = payment.getDueDate();
-            	modificationRationaleId = 8; // fix constant!
+            	modificationRationaleId = MODIFICATION_STATUS;
             	            	
                 setDefault("gross_amount", grossAmount + "");
                 setDefault("net_amount", netAmount + "");
@@ -116,7 +116,7 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             getRequest().setAttribute(MODIFICATION_RATIONALE_LIST, dib.getModificationRationales().get(MODIFICATION_RATIONALE_LIST));
             getRequest().setAttribute(PAYMENT_TYPE_LIST, getPaymentTypeList());
             getRequest().setAttribute(PAYMENT_METHOD_LIST, dib.getPaymentMethods().get(PAYMENT_METHOD_LIST));
-            getRequest().setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PactsConstants.PAYMENT_OBJ).get(STATUS_CODE_LIST));
+            getRequest().setAttribute(STATUS_CODE_LIST, getStatusList());
         
             setNextPage("/pacts/internal/editPayment.jsp");
             setIsNextPageInContext(true);
