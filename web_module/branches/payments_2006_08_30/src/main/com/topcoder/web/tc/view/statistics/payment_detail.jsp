@@ -186,8 +186,8 @@
 	            <TD class="value" width="10%">
 	            	<rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
 	            	---
-	            	<c:out value="${resultRow.intItem('charity_ind')}"/>
-	                <c:if test="${resultRow.intItem('charity_ind')} == 1">*</c:if>
+	            	<c:out value="${resultRow.getIntItem('charity_ind')}"/>
+	                <c:if test="${resultRow.getIntItem('charity_ind')} == 1">*</c:if>
 	            </TD>
 	            <TD class="value" width="10%">
 	            <% if (resultRow.getIntItem("payment_type_id") == 1 && resultRow.getItem("reference_id").getResultData() != null) {%>
