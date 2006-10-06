@@ -19,7 +19,7 @@ public class FillPaymentData extends BaseProcessor implements PactsConstants {
         try {
             long refId = Long.parseLong(getRequest().getParameter("reference_id"));
             int type = Integer.parseInt(getRequest().getParameter("payment_type_id"));
-            long coderId = Long.parseLong(getRequest().getParameter("cr"));
+            long coderId = Long.parseLong(getRequest().getParameter("user_id"));
 
             BasePayment payment = BasePayment.createPayment(type, coderId, 0.01, refId);
 

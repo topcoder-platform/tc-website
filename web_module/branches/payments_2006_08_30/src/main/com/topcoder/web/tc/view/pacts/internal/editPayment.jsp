@@ -97,7 +97,7 @@ function doReferenceChanged(refId) {
     document.f.reference_id.value = refId;
     ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.addNamedFormElements("reference_id");
-    ajaxRequest.addNamedFormElements("cr");    
+    ajaxRequest.addNamedFormElements("user_id");    
     ajaxRequest.setPostRequest(loaded);
     ajaxRequest.setPreRequest(loading);    
     ajaxRequest.sendRequest();
@@ -184,7 +184,6 @@ function searchKeyPress(e)
 </c:if> 
 
 <form name="ajaxFields">
-   <input type="hidden" name="cr" value="${user.id}" >
    <input type="hidden" name="first_load" value="true" >
    <input type="hidden" name="client" value="<%= ((Map) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("client") %>" >
  
@@ -195,7 +194,8 @@ function searchKeyPress(e)
    <input type="hidden" name="search_text">
    <input type="hidden" name="reference_id" value="<c:out value="${param.reference_id}" />">
    <input type="hidden" name="reference_description" value="<c:out value="${requestScope.reference_description}" />" >
-   
+   <input type="hidden" name="USER_ID" value="${user.id}" >   
+
 <table border="0" cellpadding="5" cellspacing="5">
         <tr>
             <td colspan="2">

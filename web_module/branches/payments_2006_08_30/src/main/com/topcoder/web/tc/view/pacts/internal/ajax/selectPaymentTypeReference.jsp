@@ -28,12 +28,6 @@
 
 
 <taconite-root xml:space="preserve">
-<script type="text/javascript">
-	var firstLoad = false;
-	<c:if test="${firstLoad}">
-    firstLoad=true;
-	</c:if>
-</script>
 
     <taconite-replace contextNodeID="selectReference" parseInBrowser="true">
         <c:if test="${refId > 0}">
@@ -42,7 +36,7 @@
               <td>
                  <c:choose>
                      <c:when test="${refId == ALGORITHM_ROUND}">
-                     	<c:choose>
+                        <c:choose>
                         <c:when test="${empty rounds}">    
                           <input type="hidden" name="missing_reference" value="Please select a round for the payment"/>
                           Enter search text for round name: <input type="text" name="searchInput" value="${search}" />
@@ -58,10 +52,12 @@
                                      useTopValue="false" onChange="referenceChanged('algorithm_round_id')" />
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:otherwise>   
-                     	</c:choose>                                   
-						<script type="text/javascript">
-								if (!firstLoad) referenceChanged('algorithm_round_id');
-				    	</script>
+                        </c:choose>                                   
+                        <c:if test="${firstLoad}">  
+                            <script type="text/javascript">
+                                referenceChanged('algorithm_round_id');
+                            </script>
+                        </c:if>
                                             
                      </c:when>                       
                      
@@ -81,9 +77,11 @@
                                      useTopValue="false"  onChange="referenceChanged('component_project_id')"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />                            
                         </c:if>                                  
-						<script type="text/javascript">
-								if (!firstLoad) referenceChanged('component_project_id')
-				    	</script>
+                        <c:if test="${firstLoad}">  
+                            <script type="text/javascript">
+                                referenceChanged('component_project_id');
+                            </script>
+                        </c:if>
 
                      </c:when>               
                      
@@ -104,9 +102,12 @@
                                      useTopValue="false" onChange="referenceChanged('algorithm_problem_id')"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>               
-						<script type="text/javascript">
-								if (!firstLoad) referenceChanged('algorithm_problem_id')
-				    	</script>
+                        <c:if test="${firstLoad}">  
+                            <script type="text/javascript">
+                                referenceChanged('algorithm_problem_id');
+                            </script>
+                        </c:if>
+                        
                                            
                      </c:when>                       
 
@@ -126,9 +127,12 @@
                                      useTopValue="false"  onChange="referenceChanged('studio_contest_id')"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>          
-						<script type="text/javascript">
-								if (!firstLoad) referenceChanged('studio_contest_id')
-				    	</script>                                                
+                        <c:if test="${firstLoad}">  
+                            <script type="text/javascript">
+                                referenceChanged('studio_contest_id');
+                            </script>
+                        </c:if>
+                                                                   
                      </c:when>                       
 
                      <c:when test="${refId == COMPONENT_CONTEST}">
@@ -147,9 +151,15 @@
                                      useTopValue="false"  onChange="referenceChanged('component_contest_id')"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>       
-						<script type="text/javascript">
-								if (!firstLoad) referenceChanged('component_contest_id')
-				    	</script>                                                   
+                        <script type="text/javascript">
+                                if (!firstLoad) referenceChanged('component_contest_id')
+                        </script> 
+                        <c:if test="${firstLoad}">  
+                            <script type="text/javascript">
+                                referenceChanged('algorithm_round_id');
+                            </script>
+                        </c:if>
+                                                                          
                      </c:when>                       
 
                      <c:when test="${refId == PARENT_PAYMENT}">
@@ -168,9 +178,12 @@
                                      useTopValue="false"  onChange="referenceChanged('parent_reference_id')"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>       
-						<script type="text/javascript">
-								if (!firstLoad) referenceChanged('parent_reference_id')
-				    	</script>                                                   
+                        <c:if test="${firstLoad}">  
+                            <script type="text/javascript">
+                                referenceChanged('parent_reference_id');
+                            </script>
+                        </c:if>
+                                                  
                      </c:when>                       
 
 
@@ -179,18 +192,24 @@
                          <tc-webtag:rscSelect name="digital_run_stage_id" list="${stages}" 
                                  fieldText="stage_desc" fieldValue="stage_id"  selectedValue="${param.reference_id}"                                            
                                  useTopValue="false" onChange="referenceChanged('digital_run_stage_id')"/>
-						<script type="text/javascript">
-								if (!firstLoad) referenceChanged('digital_run_stage_id')
-				    	</script>                                 
+                        <c:if test="${firstLoad}">  
+                            <script type="text/javascript">
+                                referenceChanged('digital_run_stage_id');
+                            </script>
+                        </c:if>
+                                                        
                      </c:when>                       
                      
                      <c:when test="${refId == DIGITAL_RUN_SEASON}">
                          <tc-webtag:rscSelect name="digital_run_season_id" list="${seasons}" 
                                  fieldText="name" fieldValue="season_id"  selectedValue="${param.reference_id}"                                             
                                  useTopValue="false" onChange="referenceChanged('digital_run_season_id')"/>
-						<script type="text/javascript">
-								if (!firstLoad) referenceChanged('digital_run_season_id')
-				    	</script>                                 
+                        <c:if test="${firstLoad}">  
+                            <script type="text/javascript">
+                                referenceChanged('digital_run_season_id');
+                            </script>
+                        </c:if>
+                                                       
                      </c:when>                       
 
                  </c:choose>
@@ -203,19 +222,19 @@
      </taconite-replace>
      
     <taconite-replace contextNodeID="projectClient" parseInBrowser="true">
-    	<c:choose>
-			<c:when test="${refId == COMPONENT_PROJECT}">
-			<tr id="projectClient"> 
-			<td><b>Client:</b></td>
-			<td>
-				<tc-webtag:textInput name="client" size="30" editable="true" />
-			</td>
-			</tr>
-			</c:when>
-    		<c:otherwise>
-	    		<tr id="projectClient"> <td></td><td></td></tr>
-    		</c:otherwise>
-    	</c:choose>   
+        <c:choose>
+            <c:when test="${refId == COMPONENT_PROJECT}">
+            <tr id="projectClient"> 
+            <td><b>Client:</b></td>
+            <td>
+                <tc-webtag:textInput name="client" size="30" editable="true" />
+            </td>
+            </tr>
+            </c:when>
+            <c:otherwise>
+                <tr id="projectClient"> <td></td><td></td></tr>
+            </c:otherwise>
+        </c:choose>   
      </taconite-replace>     
      
  </taconite-root>
