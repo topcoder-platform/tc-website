@@ -157,7 +157,8 @@ public abstract class PactsBaseProcessor extends BaseProcessor{
 		public boolean include(ResultSetRow rsr) {
 			int id = rsr.getIntItem("status_id");
 			return id != 67 && id != 666 // exclude SEE FAQ and Temp Fix
-					&& id != PactsConstants.PAYMENT_DELETED_STATUS;
+			        && id != PactsConstants.PAID_STATUS // can't manually move to paid
+					&& id != PactsConstants.PAYMENT_DELETED_STATUS; // can't delete directly
 		}
 		
 	}

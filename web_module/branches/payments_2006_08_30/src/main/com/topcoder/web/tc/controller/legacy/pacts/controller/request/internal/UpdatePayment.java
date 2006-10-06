@@ -89,8 +89,8 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             	dueDate = payment.getDueDate();
             	modificationRationaleId = MODIFICATION_STATUS;
             	            	
-                setDefault("gross_amount", grossAmount + "");
-                setDefault("net_amount", netAmount + "");
+                setDefault("gross_amount", new Double(grossAmount));
+                setDefault("net_amount", new Double(netAmount));
                 
                 BasePayment p =  BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getReferenceId());
                 String refDescr = "[Can't get the description]";
