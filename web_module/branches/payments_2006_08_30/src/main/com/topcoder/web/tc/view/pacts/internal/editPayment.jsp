@@ -127,7 +127,7 @@ function setStatus(id) {
 function initialize() {
 	loaded();
 
-<c:if test="${adding}">
+<c:if test="${empty requestScope.reference_description}">    
 	var s = false;
 	<c:if test="${not empty param.search_text}">
 		s=true;
