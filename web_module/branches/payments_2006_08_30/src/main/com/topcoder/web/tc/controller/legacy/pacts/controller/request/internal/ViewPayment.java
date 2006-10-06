@@ -1,5 +1,6 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +29,7 @@ public class ViewPayment extends BaseProcessor implements PactsConstants {
             getRequest().setAttribute(PACTS_INTERNAL_RESULT, payment);
             
             Date creationDate = bean.getCreationDate(payment_id);
-            getRequest().setAttribute(CREATION_DATE, creationDate);
+            getRequest().setAttribute(CREATION_DATE, new SimpleDateFormat(DATE_FORMAT_STRING).format(creationDate));
 
             Map search = new HashMap();
             search.put(PAYMENT_ID, payment_id + "");

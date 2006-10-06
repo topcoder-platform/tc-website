@@ -10,7 +10,7 @@
 <c:set var="payment" value="<%= request.getAttribute(PactsConstants.PAYMENT) %>"/>
 <c:set var="user" value="<%= request.getAttribute(PactsConstants.USER) %>"/>
 <c:set var="contract" value="<%= request.getAttribute(PactsConstants.CONTRACT) %>"/>
-<c:set var="hasContract" value="${empty payment and not empty contract}" />
+<c:set var="hasContract" value="${not empty contract}" />
 <c:set var="updating" value="${not empty payment}" />
 <c:set var="adding" value="${empty payment}" />
 <c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />

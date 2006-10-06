@@ -68,7 +68,7 @@
 		</tr>
 		<tr>
 			<td><b>Date Created:</b></td>
-			<td><fmt:formatDate value="${requestScope.creation_date}" pattern="<%= PactsConstants.DATE_FORMAT_STRING %>"/> </td>
+			<td><c:out value="${requestScope.creation_date}" /> </td>
 		</tr>
 		<tr>
 			<td><b>Date Due:</b></td>
