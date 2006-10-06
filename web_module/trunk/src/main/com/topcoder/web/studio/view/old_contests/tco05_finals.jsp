@@ -33,7 +33,7 @@
 <h1>TCO06 Logo Contest</h1>
 
 <div align="left" style="padding-bottom: 10px;">
-<A href="/?module=Static&d1=old_contests&d2=tco06_submissions_0">View Submissions</A>
+<A href="/?module=Static&d1=old_contests&d2=tco05_submissions_0">View Submissions</A>
  | Finals
 </div>
 
