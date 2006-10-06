@@ -21,10 +21,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <c:if test="${updating}">
     <title>Update Payment</title>
-</c:if>	
+</c:if> 
 <c:if test="${adding}">
     <title>Add Payment</title>
-</c:if>	
+</c:if> 
     
     <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
     <script type="text/javascript" src="/js/jscal/calendar.js"></script>
@@ -38,7 +38,7 @@
 
 function toggleDiv(divId, state) 
 {
-    if(document.layers)	  
+    if(document.layers)   
     {
        document.layers[divId].visibility = state ? "show" : "hide";
     }
@@ -53,11 +53,11 @@ function toggleDiv(divId, state)
 }
 
 function loading() {
-	toggleDiv("loading", 1);
+    toggleDiv("loading", 1);
 }
 
 function loaded() {
-	toggleDiv("loading", 0);
+    toggleDiv("loading", 0);
 }
 
 function typeChanged() {
@@ -91,11 +91,11 @@ function doReferenceChanged(refId) {
 }
 
 function setDescription(text) {
-	document.f.payment_desc.value = text;
+    document.f.payment_desc.value = text;
 }
 
 function setDueDate(text) {
-	document.f.date_due.value = text;
+    document.f.date_due.value = text;
 }
 
 function setStatus(id) {
@@ -104,8 +104,8 @@ function setStatus(id) {
     var i;
     for (i = 0; i < sel.length; i++) {
         if (id == sel.options[i].value) {
-        	sel.selectedIndex = i;
-        	break;
+            sel.selectedIndex = i;
+            break;
         }
     }
 </c:if>
@@ -113,23 +113,23 @@ function setStatus(id) {
 
 function initialize() {
 <c:if test="${adding}">
-	<c:choose>	
-	<c:when test="${empty param.search_text}">
-	   typeChanged();
-	</c:when>
-	<c:otherwise>
-	  doSearch('<c:out value="${param.search_text}" />');
-  	</c:otherwise>
-  	</c:choose>	
-</c:if>	
-	loaded();
+</c:if> 
+    <c:choose>  
+    <c:when test="${empty param.search_text}">
+       typeChanged();
+    </c:when>
+    <c:otherwise>
+      doSearch('<c:out value="${param.search_text}" />');
+    </c:otherwise>
+    </c:choose> 
+    loaded();
 
 }
 
 function getElement(name) {
-	for(i=0; i < document.f.elements.length; i++) 
-	    if(document.f.elements[i].name==name)  return document.f.elements[i];
-	return undefined;
+    for(i=0; i < document.f.elements.length; i++) 
+        if(document.f.elements[i].name==name)  return document.f.elements[i];
+    return undefined;
 }
 
 function search() {
@@ -167,11 +167,11 @@ function searchKeyPress(e)
 
 <h1>PACTS</h1>
 <c:if test="${updating}">
-	<h2>Update Payment</h2>
-</c:if>	
+    <h2>Update Payment</h2>
+</c:if> 
 <c:if test="${adding}">
-	<h2>Add Payment</h2>
-</c:if>	
+    <h2>Add Payment</h2>
+</c:if> 
 
 <form name="ajaxFields">
    <input type="hidden" name="cr" value="${user.id}" >
@@ -183,74 +183,74 @@ function searchKeyPress(e)
    <input type="hidden" name="reference_id" value="${param.reference_id}">
    
 <table border="0" cellpadding="5" cellspacing="5">
-		<tr>
-	        <td colspan="2">
-    	    	<tc-webtag:errorIterator id="err" name="error">
-    	    		<font color="#FF0000"><%=err%></font><br/>
-    	    	</tc-webtag:errorIterator>
-        	</td>
+        <tr>
+            <td colspan="2">
+                <tc-webtag:errorIterator id="err" name="error">
+                    <font color="#FF0000"><%=err%></font><br/>
+                </tc-webtag:errorIterator>
+            </td>
         </tr>
 
 <c:if test="${updating}">
-	<tr>
-		<td><b>ID:</b></td>
-		<td><c:out value="${payment.header.id}" />	
-			<input type="hidden" name="payment_id" value="${payment.header.id}"></td>
-	</tr>
-</c:if>
-	<tr>
-		<td><b>User</b></td>
-		<td><a href="${pacts:viewUser(user.id)}"><c:out value="${user.handle}" /></td>
-	</tr>
     <tr>
-		<td><b>Type:</b></td>
-		<td>
+        <td><b>ID:</b></td>
+        <td><c:out value="${payment.header.id}" />  
+            <input type="hidden" name="payment_id" value="${payment.header.id}"></td>
+    </tr>
+</c:if>
+    <tr>
+        <td><b>User</b></td>
+        <td><a href="${pacts:viewUser(user.id)}"><c:out value="${user.handle}" /></td>
+    </tr>
+    <tr>
+        <td><b>Type:</b></td>
+        <td>
           <tc-webtag:rscSelect name="payment_type_id" 
                    list="${typeList}" 
                    fieldText="payment_type_desc" fieldValue="payment_type_id" 
                    useTopValue="false" onChange="typeChanged()" />        
 
-			<c:if test="${adding}">                  
+            <c:if test="${adding}">                  
                    <input type="checkbox" name="charityInd" />Donated to Charity
-			</c:if>                   
+            </c:if>                   
        </td>
     </tr>
     
     
 <c:if test="${updating}">    
-	<tr id="selectReference">
-		<td><b>Reference:</b></td>		
-		<td><c:out value="${requestScope.reference_description}" />
-		<input type="button" value="change" onClick="typeChanged()" />
-		</td>
-	</tr>
-	<c:if test="${not empty payment.header.client}">
-		<tr id="projectClient"> 
-			<td><b>Client:</b></td>
-			<td>
-				<tc-webtag:textInput name="client" size="30" editable="true" />
-			</td>
-		</tr>
-	</c:if>
-	<c:if test="${empty payment.header.client}">
-		<tr id="projectClient">
-			<td></td>
-			<td></td>
-		</tr>
-	</c:if>
-	
-</c:if>	
+    <tr id="selectReference">
+        <td><b>Reference:</b></td>      
+        <td><c:out value="${requestScope.reference_description}" />
+        <input type="button" value="change" onClick="typeChanged()" />
+        </td>
+    </tr>
+    <c:if test="${not empty payment.header.client}">
+        <tr id="projectClient"> 
+            <td><b>Client:</b></td>
+            <td>
+                <tc-webtag:textInput name="client" size="30" editable="true" />
+            </td>
+        </tr>
+    </c:if>
+    <c:if test="${empty payment.header.client}">
+        <tr id="projectClient">
+            <td></td>
+            <td></td>
+        </tr>
+    </c:if>
+    
+</c:if> 
 <c:if test="${adding}">    
-	<tr id="selectReference">
-		<td></td>		
-		<td></td>
-	</tr>
-	<tr id="projectClient">
-		<td></td>
-		<td></td>
-	</tr>
-</c:if>	
-	<tr>
+    <tr id="selectReference">
+        <td></td>       
+        <td></td>
+    </tr>
+    <tr id="projectClient">
+        <td></td>
+        <td></td>
+    </tr>
+</c:if> 
+    <tr>
         <td><b>Method:</b></td><td>
         <tc-webtag:rscSelect name="payment_method_id" list="${methodList}" 
                     fieldText="payment_method_desc" fieldValue="payment_method_id"  useTopValue="false" />
@@ -260,32 +260,32 @@ function searchKeyPress(e)
     <tr>
         <td><b>Status:</b></td>
         <td>
-	       <tc-webtag:rscSelect name="status_id" list="${statusList}" 
-    	        fieldText="status_desc" fieldValue="status_id" useTopValue="false" />        
+           <tc-webtag:rscSelect name="status_id" list="${statusList}" 
+                fieldText="status_desc" fieldValue="status_id" useTopValue="false" />        
         </td>
-	</tr>
+    </tr>
     <tr>
         <td><b>Description:</b></td>
         <td>
-	        <tc-webtag:textInput name="payment_desc" size="60" editable="true" />
+            <tc-webtag:textInput name="payment_desc" size="60" editable="true" />
         </td>
     <tr>
         <td><b>Gross Amount:</b></td>
         <td>
-        	<tc-webtag:textInput name="gross_amount" size="8" editable="true" />
+            <tc-webtag:textInput name="gross_amount" size="8" editable="true" />
         </td>
-	</tr>
-	<tr>
+    </tr>
+    <tr>
         <td><b>Net Amount:</b></td>
         <td>
-        	<tc-webtag:textInput name="net_amount" size="8" editable="true" /> (if left blank, calculated from Gross Amount)
+            <tc-webtag:textInput name="net_amount" size="8" editable="true" /> (if left blank, calculated from Gross Amount)
         </td>
     </tr>
     <tr>
         <td><b>Date Due:</b></td><td>
         <tc-webtag:textInput name="due_date" size="12" editable="true" /> 
             <button id="trigger_due_date">Set</button>
-        	(if left blank, 2 weeks from now)
+            (if left blank, 2 weeks from now)
         </td>            
     </tr>
 <c:if test="${updating}">    
@@ -316,6 +316,8 @@ Calendar.setup(
 
 <input type="submit" value="Save Payment">
 </form>
+
+<br>
 
 <jsp:include page="InternalFooter.jsp" flush="true"/>
 
