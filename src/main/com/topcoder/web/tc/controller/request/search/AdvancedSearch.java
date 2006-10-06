@@ -62,15 +62,15 @@ public class AdvancedSearch extends SimpleSearch {
         MemberSearch ret = super.buildMemberSearch();
         String stateCode = StringUtils.checkNull(getRequest().getParameter(Constants.STATE_CODE));
         if (!stateCode.equals(""))
-            ret.setStateCode(StringUtils.htmlEncode(stateCode));
+            ret.setStateCode(stateCode);
 
         String countryCode = StringUtils.checkNull(getRequest().getParameter(Constants.COUNTRY_CODE));
         if (!countryCode.equals(""))
-            ret.setCountryCode(StringUtils.htmlEncode(countryCode));
+            ret.setCountryCode(countryCode);
 
         String schoolName = StringUtils.checkNull(getRequest().getParameter(Constants.SCHOOL_NAME));
         if (!schoolName.equals(""))
-            ret.setSchoolName(StringUtils.htmlEncode(schoolName));
+            ret.setSchoolName(schoolName);
 
         String minRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_RATING));
         if (!minRating.equals(""))
