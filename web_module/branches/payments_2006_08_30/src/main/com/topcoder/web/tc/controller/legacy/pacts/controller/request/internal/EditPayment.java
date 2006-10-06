@@ -27,25 +27,28 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
         try {
         	boolean updating = getRequest().getParameter("payment_id") != null;
         	boolean adding = !updating;
-        	
-        	if (!(updating || adding)) {
-        		throw new NavigationException("payment_id or user_id expected");
-        	}
-        	
+        	       	
         	DataInterfaceBean dib = new DataInterfaceBean();
         	long paymentId = -1;
         	long userId = -1;
         	long contractId = -1;
         	Payment payment = null; 
         	UserProfileHeader user = null;
+        	Contract contract = null;
+
+        	if (getRequest().getParameter(CONTRACT_ID) != null) {
+    	    	contractId = getLongParameter(CONTRACT_ID);
+    	    	contract = new Contract(dib.getContract(contractId));
+        	}
         	
         	if (adding) {
-        		userId = getLongParameter(USER_ID);
-        	    user = new UserProfileHeader(dib.getUserProfileHeader(userId));
-        	    
-        	    if (getRequest().getParameter(CONTRACT_ID) != null) {
-        	    	contractId = getLongParameter(CONTRACT_ID);
-        	    }
+        	    if (contract != null) {
+        	    	user = contract.getHeader().getUser();        	    
+        	    	userId = user.getId();
+        	    } else {
+            		userId = getLongParameter(USER_ID);
+            	    user = new UserProfileHeader(dib.getUserProfileHeader(userId));        	    	
+        	    }        	    	
         	}
 
         	if (updating) {
@@ -191,8 +194,8 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             setDefault("due_date", dueDate);
             setDefault("modification_rationale_id", modificationRationaleId + "");
             
-	    	if (contractId > 0) {
-	    		getRequest().setAttribute(CONTRACT, new Contract(dib.getContract(contractId)));
+	    	if (contract != null) {
+	    		getRequest().setAttribute(CONTRACT, contract);
 	    	}
 
             getRequest().setAttribute(USER, user);

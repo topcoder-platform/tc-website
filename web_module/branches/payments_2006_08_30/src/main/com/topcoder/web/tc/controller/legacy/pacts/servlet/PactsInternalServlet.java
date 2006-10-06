@@ -1431,10 +1431,21 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     /*
     Forwarding JSP: "addPayment.jsp"
     */
+    /**
+     * @deprecated
+     */
     private void doAddPayment(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        log.debug("doAddPayment<br>");
+    	log.warn("Using deprecated processor, please use module=EditPayment insted");
+    	if (request.getParameter(CONTRACT_ID) != null) {
+    		forward(Links.addContractPayment(Long.parseLong(request.getParameter(CONTRACT_ID))), request, response);
+    	} else {
+    		forward(Links.addPayment(Long.parseLong(request.getParameter(PAYMENT_ID))), request, response);
+    	}
+        /*
+    	log.debug("doAddPayment<br>");
 
         if (request.getParameter(CONTRACT_ID) != null) {
+        
             InternalDispatchContract bean =
                     new InternalDispatchContract(request, response);
             ContractHeader results = bean.get().getHeader();
@@ -1455,12 +1466,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
 
         forward(INTERNAL_ADD_PAYMENT_JSP, request, response);
-
-    }
-
-
-    private long getLongParam(HttpServletRequest request, String paramName) {
-        return request.getParameter(paramName) == null? 0 : Long.parseLong(request.getParameter(paramName));
+*/
     }
 
     /*
@@ -1469,6 +1475,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSPs: "viewPayment.jsp" "viewContract.jsp"
     */
     private void doAddPaymentPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    	throw new IllegalArgumentException("Deprecated. It never should came here!!");
+    	/*
         log.debug("doAddPaymentPost");
 
         String net = request.getParameter("net_amount");
@@ -1532,19 +1540,19 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             if (request.getParameter("charityInd") != null) {
             	dib.addPayment(new CharityPayment(Long.parseLong(request.getParameter("user_id")), payment_id));
             }
-            /*
-            InternalDispatchPayment bean =
-                    new InternalDispatchPayment(request, response);
-            Payment results = bean.get(payment_id);
-            request.setAttribute(PACTS_INTERNAL_RESULT, results);
-            String creationDate = bean.getCreationDate(results.getHeader());
-            request.setAttribute(CREATION_DATE, creationDate);
-            forward(INTERNAL_PAYMENT_JSP, request, response);
-            */
-        	forward("/PactsInternalServlet?module=ViewPayment&payment_id=" + payment_id, request, response);
+            
+            //InternalDispatchPayment bean =
+                    //new InternalDispatchPayment(request, response);
+            //Payment results = bean.get(payment_id);
+            //request.setAttribute(PACTS_INTERNAL_RESULT, results);
+            //String creationDate = bean.getCreationDate(results.getHeader());
+            //request.setAttribute(CREATION_DATE, creationDate);
+            //forward(INTERNAL_PAYMENT_JSP, request, response);
+            
+        	//forward("/PactsInternalServlet?module=ViewPayment&payment_id=" + payment_id, request, response);
             
         }
-
+*/
     }
 
     protected String getProcessor(String key) {
@@ -2249,7 +2257,13 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     /*
     Forwarding JSP: "updatePayment.jsp"
     */
+    /**
+     * @deprecated
+     */
     private void doUpdatePayment(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    	log.warn("Using deprecated processor, please use module=EditPayment insted");
+  		forward(Links.updatePayment(Long.parseLong(request.getParameter(PAYMENT_ID))), request, response);
+/*
         log.debug("doUpdatePayment<br>");
 
         InternalDispatchPayment bean =
@@ -2264,13 +2278,19 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PactsConstants.PAYMENT_OBJ).get(STATUS_CODE_LIST));
 
         forward(INTERNAL_UPDATE_PAYMENT_JSP, request, response);
+        */
     }
 
 
     /*
     Forwarding JSP: "viewPaymentAuditTrail.jsp"
     */
+    /**
+     * @deprecated
+     */
     private void doUpdatePaymentPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    	throw new IllegalArgumentException("Deprecated. It never should came here!!");
+    	/*
         log.debug("doUpdatePaymentPost<br>");
 
         InternalDispatchPayment pb =
@@ -2308,7 +2328,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
         forward(INTERNAL_PAYMENT_AUDIT_TRAIL_JSP, request, response);
-
+*/
     }
 
 

@@ -10,9 +10,9 @@
 <c:set var="payment" value="<%= request.getAttribute(PactsConstants.PAYMENT) %>"/>
 <c:set var="user" value="<%= request.getAttribute(PactsConstants.USER) %>"/>
 <c:set var="contract" value="<%= request.getAttribute(PactsConstants.CONTRACT) %>"/>
+<c:set var="hasContract" value="${empty payment and not empty contract}" />
 <c:set var="updating" value="${not empty payment}" />
 <c:set var="adding" value="${empty payment}" />
-<c:set var="contract" value="${empty payment and not empty contract}" />
 <c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />
 <c:set var="typeList" value="<%= request.getAttribute(PactsConstants.PAYMENT_TYPE_LIST) %>" />
 <c:set var="methodList" value="<%= request.getAttribute(PactsConstants.PAYMENT_METHOD_LIST) %>" />
@@ -26,10 +26,10 @@
 <c:if test="${updating}">
     <title>Update Payment</title>
 </c:if> 
-<c:if test="${adding and not contract}">
+<c:if test="${adding and not hasContract}">
     <title>Add Payment</title>
 </c:if> 
-<c:if test="${adding and contract}">
+<c:if test="${adding and hasContract}">
     <title>Add Contract Payment</title>
 </c:if> 
     
@@ -203,7 +203,7 @@ function searchKeyPress(e)
 <c:if test="${updating}">
    <input type="hidden" name="payment_id" value="${payment.header.id}">
 </c:if>  
-<c:if test="${contract}">
+<c:if test="${hasContract}">
    <input type="hidden" name="contract_id" value="${contract.header.id}">
 </c:if>  
 
@@ -241,7 +241,7 @@ function searchKeyPress(e)
             </c:if>                   
        </td>
     </tr>
-<c:if test="${contract}">
+<c:if test="${hasContract}">
     <tr>
         <td><b>Contract:</b></td>
         <td>
