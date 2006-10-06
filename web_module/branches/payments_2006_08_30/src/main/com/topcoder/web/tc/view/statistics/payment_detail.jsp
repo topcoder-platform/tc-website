@@ -9,6 +9,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <HTML>
 <HEAD>
@@ -132,6 +133,7 @@
  | Payment Details
    </span>
 
+	<% if (rsc.size() > 0) { %>
     <div class="pagingBox" style="clear:both;">
         <% if (rsc.croppedDataBefore() || rsc.croppedDataAfter()) { %>
             <%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
@@ -173,6 +175,7 @@
             <%int i = 0;
             boolean even = false;
             boolean hasCharity = false;%>
+            <c:set var="total" value="0"/>
             <rsc:iterator list="<%=rsc%>" id="resultRow">
                 <tr class="<%=even?"dark":"light"%>">            
                 <TD class="value" width="5%">
@@ -200,7 +203,7 @@
                 <% }%>
                 </TD>
                 </tr>
-                
+                <c:set var="total" value="${total} + <%resultRow.getDoubleItem("earnings");%>"/>
                 <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
                     <TD class="value" width="5%"></TD>
@@ -213,6 +216,14 @@
                 <% }%>
                 <%even = !even;%>
             </rsc:iterator>
+            <tr class="dark">
+                <TD CLASS="header" width="5%"></TD>
+                <TD CLASS="header" width="5%"></TD>
+                <TD CLASS="header" width="40%"></TD>
+                <TD CLASS="header" width="30%"></TD>
+                <TD CLASS="header" width="10%"><fmt:formatNumber value="${total}" type="currency" currencySymbol="$"/></TD>
+                <TD CLASS="header" width="10%"></TD>
+            </tr>
         </TABLE>
     </FORM>
 
@@ -228,6 +239,9 @@
         &#160;
         <% } %>
     </div>
+     <% } else { %>
+	    <p>There are no payments registered for this category.</p>
+     <% }%>
 
     <p><br></p>
     <!-- END BODY -->
