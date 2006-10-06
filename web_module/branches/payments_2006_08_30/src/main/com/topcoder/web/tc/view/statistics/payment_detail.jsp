@@ -133,16 +133,12 @@
    </span>
 
     <div class="pagingBox" style="clear:both;">
-		<c:choose>
-			<c:when test="${rsc.croppedDataBefore() || rsc.croppedDataAfter()}">
-		        <% if (rsc.croppedDataBefore() || rsc.croppedDataAfter()) { %>
-		        <%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
-		        | <%=(rsc.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
-			</c:when>
-			<c:otherwise>
-		        &#160;
-	        </c:otherwise>
-	    </c:choose>
+        <% if (rsc.croppedDataBefore() || rsc.croppedDataAfter()) { %>
+	        <%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+	        | <%=(rsc.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+		<% } else { %>
+			&#160;
+		<% }%>
     </div>
 
     <form name="paymentDetailForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
