@@ -89,11 +89,8 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
                 setDefault("gross_amount", grossAmount + "");
                 setDefault("net_amount", netAmount + "");
                 
-                BasePayment p = null;
-                log.debug("typeId=" + typeId);
-                log.debug("referece=" + BasePayment.getReferenceTypeId(typeId));
-                log.debug("getComponentProjectId=" + payment.getHeader().getComponentProjectId());
-                switch(BasePayment.getReferenceTypeId(typeId)) {
+                BasePayment p =  BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getReferenceId());
+/*                switch(BasePayment.getReferenceTypeId(typeId)) {
                 case REFERENCE_ALGORITHM_ROUND_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getAlgorithmRoundId()); break; 
                 case REFERENCE_COMPONENT_PROJECT_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getComponentProjectId()); break;
                 case REFERENCE_ALGORITHM_PROBLEM_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getAlgorithmProblemId()); break;
@@ -104,13 +101,14 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
                 case REFERENCE_PARENT_PAYMENT_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getParentPaymentId()); break;
                 case NO_REFERENCE : p = BasePayment.createPayment(typeId, 1, 0.01, 0); break;
                 }
-
+*/
                 String refDescr = "[Can't get the description]";
                 try {
                 	p = dib.fillPaymentData(p);
                 	refDescr = p.getReferenceDescription();
                 } catch(Exception e) {}
                 getRequest().setAttribute("reference_description", refDescr);
+                
             	
             }
             
@@ -123,6 +121,7 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             setDefault("due_date", dueDate);
             setDefault("modification_rationale_id", modificationRationaleId + "");
             
+            getRequest().setAttribute("reference_id", payment.getHeader().getReferenceId() + "");
         	getRequest().setAttribute(PAYMENT, payment);
         	getRequest().setAttribute(USER, payment.getHeader().getUser());
             getRequest().setAttribute(MODIFICATION_RATIONALE_LIST, dib.getModificationRationales().get(MODIFICATION_RATIONALE_LIST));

@@ -203,7 +203,7 @@ function searchKeyPress(e)
 <form name="f" action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
    <input type="hidden" name="module" value="UpdatePayment">
    <input type="hidden" name="search_text">
-   <input type="hidden" name="reference_id" value="${param.reference_id}">
+   <input type="hidden" name="reference_id" value="${requestScope.reference_id}">
    
 <table border="0" cellpadding="5" cellspacing="5">
         <tr>

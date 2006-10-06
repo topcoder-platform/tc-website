@@ -19,6 +19,7 @@ package com.topcoder.web.tc.controller.legacy.pacts.common;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.ejb.pacts.BasePayment;
 
 import java.util.Map;
 
@@ -339,5 +340,19 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     public void setParentPaymentId(long parentReferenceId) {
         this.parentPaymentId = parentReferenceId;
     }
+    public long getReferenceId() {
+        switch(BasePayment.getReferenceTypeId(typeId)) {
+        case REFERENCE_ALGORITHM_ROUND_ID : return algorithmRoundId; 
+        case REFERENCE_COMPONENT_PROJECT_ID : return componentProjectId;
+        case REFERENCE_ALGORITHM_PROBLEM_ID : return algorithmProblemId;
+        case REFERENCE_STUDIO_CONTEST_ID : return studioContestId;
+        case REFERENCE_COMPONENT_CONTEST_ID :return componentContestId;
+        case REFERENCE_DIGITAL_RUN_STAGE_ID : return digitalRunStageId;
+        case REFERENCE_DIGITAL_RUN_SEASON_ID : return digitalRunSeasonId;
+        case REFERENCE_PARENT_PAYMENT_ID : return parentPaymentId;
+        }
+        return 0;
+    }
+    
 
 }
