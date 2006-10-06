@@ -17,6 +17,7 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.NoteHeader" %>
 
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants"%><%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.UserProfile"%>
+
 <%
     UserProfile user = (UserProfile)
             request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT);
@@ -30,7 +31,7 @@
         user = new UserProfile();
     }
 %>
-
+<c:set var="user" value="<%=user %>" />
 <h1>PACTS</h1>
 
 <h2>View User</h2>
