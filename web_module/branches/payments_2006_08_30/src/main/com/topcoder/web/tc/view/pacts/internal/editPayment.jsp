@@ -130,7 +130,7 @@ function initialize() {
 <if test="${not empty param.search_text}">
 	s=true;
 </if>
-    search('<c:out value="${param.search_text}" />',s,true);
+    doSearch('<c:out value="${param.search_text}" />',s,true);
  
     loaded();
 
