@@ -137,7 +137,7 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
                     Calendar date = Calendar.getInstance();
                     date.setTime(new Date());
                     date.add(Calendar.DAY_OF_YEAR, DUE_DATE_INTERVAL);
-                    dueDate = new SimpleDateFormat(DATE_FORMAT_STRING).format(date);
+                    dueDate = new SimpleDateFormat(DATE_FORMAT_STRING).format(date.getTime());
 
             	} else {
 	            	desc = payment.getHeader().getDescription();
