@@ -35,7 +35,6 @@
 <script type="text/javascript" src="/js/taconite-client.js"></script>
 <script type="text/javascript" src="/js/taconite-parser.js"></script>
 <script type="text/javascript">
-var focusInSearch = false;
 
 function toggleDiv(divId, state) 
 {
@@ -134,10 +133,6 @@ function referenceChanged(name) {
     doReferenceChanged(getElement(name).value);
 }
 
-function setFocusInSearch(value) {
-    focusInSearch = value;
-}
-
 function searchKeyPress(e)
 {
     var keycode;
@@ -145,8 +140,8 @@ function searchKeyPress(e)
     else if (e) keycode = e.which;
     else return true;
     
-    if (keycode == 13 && focusInSearch) {
-      search();  
+    if (keycode == 13) {
+      if (getElement("searchInput")) search();  
       return false;
     } 
     return true;
