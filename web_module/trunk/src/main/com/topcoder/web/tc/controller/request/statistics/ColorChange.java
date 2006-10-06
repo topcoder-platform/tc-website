@@ -90,6 +90,7 @@ public class ColorChange extends Base {
             s.addDefault(changes.getColumnIndex("new_rating"), "desc");
             s.addDefault(changes.getColumnIndex("old_rating"), "desc");
             s.addDefault(changes.getColumnIndex("color_increase"), "desc");
+            s.addDefault(changes.getColumnIndex("date"), "desc");
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
             setNextPage("/statistics/colorChange.jsp");
             setIsNextPageInContext(true);
