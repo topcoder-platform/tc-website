@@ -127,13 +127,10 @@ function setStatus(id) {
 function initialize() {
 	var s = false;
 	
-<if test="${not empty param.search_text}">
+<c:if test="${not empty param.search_text}">
 	s=true;
-</if>
+</c:if>
     doSearch('<c:out value="${param.search_text}" />',s,true);
- 
-    loaded();
-
 }
 
 function getElement(name) {
