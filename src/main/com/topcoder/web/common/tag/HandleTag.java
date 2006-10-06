@@ -172,7 +172,7 @@ public class HandleTag extends TagSupport {
                                 rsc.getIntItem(0, "design_rating"),
                                 rsc.getIntItem(0, "development_rating"));
                     }
-                    log.debug("rating: " + rating + " rsc: " + rsc.toString());
+                    //log.debug("rating: " + rating + " rsc: " + rsc.toString());
                     output.append(getRatingCSS(rating));
                 }
 
