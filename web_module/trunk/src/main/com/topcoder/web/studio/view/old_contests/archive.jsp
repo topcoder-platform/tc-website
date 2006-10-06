@@ -32,19 +32,23 @@
 <h1>Old Contests</h1>
 
 <div align="center">
-In the past, TopCoder has held contests to design logos for our online programming competitions.<br>These are some examples. Click the logos for more details.
+In the past, TopCoder has held contests to design logos for our online programming competitions.<br>These are the winning submissions. Click the logos for more details.
 <br><br>
 <table cellpadding="0" cellspacing="0">
 <tbody>
     <tr>
         <td align="center">
-        <A href="/?module=Static&d1=old_contests&d2=tccc06_finals"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/finalists/0449.gif" alt="" width="200" height="200" /></A>
+        <A href="/?module=Static&d1=old_contests&d2=tccc06_finals"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/finalists/0449.gif" alt="" /></A>
         </td>
-        <td align="center">
-        <A href="/?module=Static&d1=old_contests&d2=tccc06_finals"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/finalists/0449.gif" alt="" width="200" height="200" /></A>
+    </tr>
+    <tr>
+        <td align="center" style="padding-bottom: 100px;">
+        <A href="/?module=Static&d1=old_contests&d2=tco06_finals"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/logo_submissions/0056.jpg" alt="" /></A>
         </td>
+    </tr>
+    <tr>
         <td align="center">
-        <A href="/?module=Static&d1=old_contests&d2=tccc06_finals"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/finalists/0449.gif" alt="" width="200" height="200" /></A>
+        <A href="/?module=Static&d1=old_contests&d2=tco05_finals"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco05/logo_submissions/085.gif" alt=""  /></A>
         </td>
     </tr>
 </tbody>
