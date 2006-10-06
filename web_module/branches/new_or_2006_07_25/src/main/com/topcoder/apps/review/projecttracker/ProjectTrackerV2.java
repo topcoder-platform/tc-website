@@ -116,4 +116,13 @@ public interface ProjectTrackerV2 extends EJBObject {
      */
     public void componentRename(long componentId, String oldName, String newName)
         throws RemoteException;
+
+    /**
+     * Check if the project is aggregated, with the
+     * aggregation completed and pm-reviewed.
+     *
+     * @param projectId The ProjectId
+     * @return true if project is aggregated
+     */
+    public boolean isProjectAggregated(long projectId) throws RemoteException;
 }

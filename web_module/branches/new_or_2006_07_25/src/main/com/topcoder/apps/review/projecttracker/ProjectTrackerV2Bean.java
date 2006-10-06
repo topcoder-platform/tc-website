@@ -207,6 +207,35 @@ public class ProjectTrackerV2Bean implements SessionBean {
     }
 
     /**
+     * Check if the project is aggregated, with the
+     * aggregation completed and pm-reviewed.
+     *
+     * @param projectId The ProjectId
+     * @return true if project is aggregated
+     */
+    public boolean isProjectAggregated(long projectId) throws RemoteException {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            conn = dataSource.getConnection();
+
+            // Find the review which made by aggregator and its review is completed 
+            ps = conn.prepareStatement("select review_id from review r, resource res  " +
+                    "where committed = 1 and r.resource_id = res.resource_id and res.resource_role_id = 8 and res.project_id = ? ");
+            ps.setLong(1, projectId);
+            rs = ps.executeQuery();
+
+            return rs.next();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            Common.close(conn, ps, rs);
+        }
+    }
+
+    /**
      * Gets the PM for the project, or returns null if no PM is found.
      *
      * @param projectId the id of the project whose PM will be retrieved.
