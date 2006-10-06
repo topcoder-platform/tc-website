@@ -6,6 +6,7 @@ package com.topcoder.web.tc.controller.request.statistics;
 
 
 import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -14,7 +15,9 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
 
 import java.util.Map;
@@ -47,8 +50,23 @@ public class PaymentSummary extends BaseProcessor {
             throw new TCWebException("parameter " + Constants.CODER_ID + " expected.");
         }
         
+        // Gets the rest of the optional parameters.
+        String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+
+        setDefault(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+        setDefault(DataAccessConstants.SORT_COLUMN, getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+
         // Prepare request for data retrieval
         Request r = new Request();
+        if (!(sortCol.equals("") || sortDir.equals(""))) {
+            r.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
+            r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
+        } else {
+            r.setProperty(DataAccessConstants.SORT_DIRECTION, "asc");
+            r.setProperty(DataAccessConstants.SORT_COLUMN, "1"); // payment_type_desc
+        }
+        r.setProperty(DataAccessConstants.SORT_QUERY, "payment_summary");
         r.setProperty(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
         r.setContentHandle("payment_summary");
 
@@ -60,8 +78,11 @@ public class PaymentSummary extends BaseProcessor {
         if (log.isDebugEnabled()) {
             log.debug("Got " + summary.size() + " rows for payment summary");
         }
-
         // sets attributes for the jsp
+        SortInfo s = new SortInfo();
+        s.addDefault(1, "asc"); //due_date
+        getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+
         getRequest().setAttribute("payment_summary", summary);
         setNextPage(Constants.VIEW_PAYMENT_SUMMARY_PAGE);
         setIsNextPageInContext(true);
