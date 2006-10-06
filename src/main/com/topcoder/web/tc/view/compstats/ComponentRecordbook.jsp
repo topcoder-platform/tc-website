@@ -34,8 +34,9 @@
         <!-- Left Column Ends -->
 
         <!-- Center Column Begins -->
-        <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
-         <div align="center">
+        <td width="100%" align="center" class="bodyColumn">
+        
+        <div class="fixedWidthBody">
             <jsp:include page="<%=(String)request.getAttribute("includeJsp")%>"/>
          </div>
         </td>
@@ -44,7 +45,7 @@
         <!-- Right Column Begins -->
         <td width="170">
             <jsp:include page="../public_right.jsp">
-                <jsp:param name="level1" value="privatelabel"/>
+                <jsp:param name="level1" value="default"/>
             </jsp:include>
         </td>
         <!-- Right Column Ends -->
