@@ -129,111 +129,111 @@ This chart shows all instances of a competitor changing handle colors in the las
 
 
 <form name="colorChangeForm" method="get">
-    <input type="hidden" name="module" value="ColorChange"/>
-    <input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
-    <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
-    <input type="hidden" name="<%=DataAccessConstants.SORT_COLUMN%>" value=""/>
-    <input type="hidden" name="<%=DataAccessConstants.SORT_DIRECTION%>" value=""/>
-    <input type="hidden" name="<%=Constants.PHASE_ID%>" value=""/>
-    <input type="hidden" name="<%=Constants.ALGO_RATING_TYPE_ID%>" value=""/>
+<input type="hidden" name="module" value="ColorChange"/>
+<input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
+<input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
+<input type="hidden" name="<%=DataAccessConstants.SORT_COLUMN%>" value=""/>
+<input type="hidden" name="<%=DataAccessConstants.SORT_DIRECTION%>" value=""/>
+<input type="hidden" name="<%=Constants.PHASE_ID%>" value=""/>
+<input type="hidden" name="<%=Constants.ALGO_RATING_TYPE_ID%>" value=""/>
 
 
-    <div class="pagingBox">
-        <%=(changeList.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
-        | <%=(changeList.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
-    </div>
-    <table cellpadding="0" cellspacing="0" class="stat" width="100%">
-        <tbody>
-            <tr>
-                <td class="title" colspan="6">
-                    Recent Handle Color Changes
+<div class="pagingBox">
+    <%=(changeList.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+    | <%=(changeList.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+</div>
+<table cellpadding="0" cellspacing="0" class="stat" width="100%">
+    <tbody>
+        <tr>
+            <td class="title" colspan="6">
+                Recent Handle Color Changes
+            </td>
+        </tr>
+        <tr>
+            <% String exclude = Constants.MODULE_KEY + " " + DataAccessConstants.START_RANK + " " + DataAccessConstants.END_RANK;%>
+            <td class="header">
+                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange<tc-webtag:sort column="<%=changeList.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Handle</a>
+            </td>
+            <td class="header" width="100%">
+                <c:choose>
+                    <c:when test="${isTCAlgo||isHSAlgo}">
+                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange<tc-webtag:sort column="<%=changeList.getColumnIndex("short_name")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Event</a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange<tc-webtag:sort column="<%=changeList.getColumnIndex("component_name")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Event</a>
+                    </c:otherwise>
+                </c:choose>
+            </td>
+            <td class="headerC">
+                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange<tc-webtag:sort column="<%=changeList.getColumnIndex("date")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Date</a>
+            </td>
+            <td class="headerC" nowrap="nowrap">
+                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange<tc-webtag:sort column="<%=changeList.getColumnIndex("old_rating")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Old
+                    Rating</a>
+            </td>
+            <td class="headerC" nowrap="nowrap">
+                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange<tc-webtag:sort column="<%=changeList.getColumnIndex("new_rating")%>" includeParams="true" excludeParams="<%=exclude%>"/>">New
+                    Rating</a>
+            </td>
+            <td class="headerC" nowrap="nowrap">
+                <a onmouseover="document.images['up_or_down'].src = '/i/interface/up_or_down_on.png';" onmouseout="document.images['up_or_down'].src = '/i/interface/up_or_down.png';" href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange<tc-webtag:sort column="<%=changeList.getColumnIndex("color_increase")%>" includeParams="true" excludeParams="<%=exclude%>"/>"><img src="/i/interface/up_or_down.png" alt="" name="up_or_down" border="0"/></a>
+            </td>
+        </tr>
+        <% boolean even = true; %>
+        <% even = !even; %>
+
+        <rsc:iterator list="<%=changeList%>" id="resultRow">
+            <tr class="<%=even?"dark":"light"%>">
+                <td class="value" nowrap>
+                    <tc-webtag:handle coderId="<%=resultRow.getLongItem("user_id")%>" context="${context}"/>
                 </td>
-            </tr>
-            <tr>
-                <% String exclude = Constants.MODULE_KEY + " " + DataAccessConstants.START_RANK + " " + DataAccessConstants.END_RANK;%>
-                <td class="header">
-                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange<tc-webtag:sort column="<%=changeList.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Handle</a>
-                </td>
-                <td class="header" width="100%">
+                <td class="value">
                     <c:choose>
-                        <c:when test="${isTCAlgo||isHSAlgo}">
-                            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange<tc-webtag:sort column="<%=changeList.getColumnIndex("short_name")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Event</a>
+                        <c:when test="${isTCAlgo}">
+                            <A href="/stat?c=coder_room_stats&amp;cr=<rsc:item name="user_id" row="<%=resultRow%>"/>&amp;rd=<rsc:item name="round_id" row="<%=resultRow%>"/>">
+                                <rsc:item name="short_name" row="<%=resultRow%>"/>
+                            </a>
                         </c:when>
                         <c:otherwise>
-                            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange<tc-webtag:sort column="<%=changeList.getColumnIndex("component_name")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Event</a>
+                            <c:choose>
+                                <c:when test="${isHSAlgo}">
+                                    <A href="/tc?module=HSRoomStats&amp;rd=<rsc:item name="round_id" row="<%=resultRow%>"/>&amp;cr=<rsc:item name="user_id" row="<%=resultRow%>"/>">
+                                        <rsc:item name="short_name" row="<%=resultRow%>"/>
+                                    </a>
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="/tc?module=CompContestDetails&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
+                                        <rsc:item name="component_name" row="<%=resultRow%>"/>
+                                        <rsc:item name="version_text" row="<%=resultRow%>"/>
+                                    </a>
+                                </c:otherwise>
+                            </c:choose>
                         </c:otherwise>
                     </c:choose>
                 </td>
-                <td class="headerC">
-                    <a href="">Date</a>
+                <td class="valueC">
+                    <rsc:item name="date" row="<%=resultRow%>" format="mm.dd.yyyy"/>
                 </td>
-                <td class="headerC" nowrap="nowrap">
-                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange<tc-webtag:sort column="<%=changeList.getColumnIndex("old_rating")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Old
-                        Rating</a>
+                <td class="valueC"><span class="coderText<rsc:item name="old_color" row="<%=resultRow%>"/>"><rsc:item name="old_rating" row="<%=resultRow%>"/></span>
                 </td>
-                <td class="headerC" nowrap="nowrap">
-                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange<tc-webtag:sort column="<%=changeList.getColumnIndex("new_rating")%>" includeParams="true" excludeParams="<%=exclude%>"/>">New
-                        Rating</a>
+                <td class="valueC"><span class="coderText<rsc:item name="new_color" row="<%=resultRow%>"/>"><rsc:item name="new_rating" row="<%=resultRow%>"/></span>
                 </td>
-                <td class="headerC" nowrap="nowrap">
-                    <a onmouseover="document.images['up_or_down'].src = '/i/interface/up_or_down_on.png';" onmouseout="document.images['up_or_down'].src = '/i/interface/up_or_down.png';" href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange<tc-webtag:sort column="<%=changeList.getColumnIndex("color_increase")%>" includeParams="true" excludeParams="<%=exclude%>"/>"><img src="/i/interface/up_or_down.png" alt="" name="up_or_down" border="0"/></a>
+                <td class="valueC" style="vertical-align: middle;">
+                    <% if (resultRow.getBooleanItem("color_increase")) { %>
+                    <img src="/i/interface/greenUp.gif" alt="Up"/>
+                    <% } else { %>
+                    <img src="/i/interface/redDown.gif" alt="Down"/>
+                    <% } %>
                 </td>
             </tr>
-            <% boolean even = true; %>
             <% even = !even; %>
-
-            <rsc:iterator list="<%=changeList%>" id="resultRow">
-                <tr class="<%=even?"dark":"light"%>">
-                    <td class="value" nowrap>
-                        <tc-webtag:handle coderId="<%=resultRow.getLongItem("user_id")%>" context="${context}"/>
-                    </td>
-                    <td class="value">
-                        <c:choose>
-                            <c:when test="${isTCAlgo}">
-                                <A href="/stat?c=coder_room_stats&amp;cr=<rsc:item name="user_id" row="<%=resultRow%>"/>&amp;rd=<rsc:item name="round_id" row="<%=resultRow%>"/>">
-                                    <rsc:item name="short_name" row="<%=resultRow%>"/>
-                                </a>
-                            </c:when>
-                            <c:otherwise>
-                                <c:choose>
-                                    <c:when test="${isHSAlgo}">
-                                        <A href="/tc?module=HSRoomStats&amp;rd=<rsc:item name="round_id" row="<%=resultRow%>"/>&amp;cr=<rsc:item name="user_id" row="<%=resultRow%>"/>">
-                                            <rsc:item name="short_name" row="<%=resultRow%>"/>
-                                        </a>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <a href="/tc?module=CompContestDetails&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
-                                            <rsc:item name="component_name" row="<%=resultRow%>"/>
-                                            <rsc:item name="version_text" row="<%=resultRow%>"/>
-                                        </a>
-                                    </c:otherwise>
-                                </c:choose>
-                            </c:otherwise>
-                        </c:choose>
-                    </td>
-                    <td class="valueC">
-                        10.06.06
-                    </td>
-                    <td class="valueC"><span class="coderText<rsc:item name="old_color" row="<%=resultRow%>"/>"><rsc:item name="old_rating" row="<%=resultRow%>"/></span>
-                    </td>
-                    <td class="valueC"><span class="coderText<rsc:item name="new_color" row="<%=resultRow%>"/>"><rsc:item name="new_rating" row="<%=resultRow%>"/></span>
-                    </td>
-                    <td class="valueC" style="vertical-align: middle;">
-                        <% if (resultRow.getBooleanItem("color_increase")) { %>
-                        <img src="/i/interface/greenUp.gif" alt="Up"/>
-                        <% } else { %>
-                        <img src="/i/interface/redDown.gif" alt="Down"/>
-                        <% } %>
-                    </td>
-                </tr>
-                <% even = !even; %>
-            </rsc:iterator>
-        </tbody>
-    </table>
-    <div class="pagingBox">
-        <%=(changeList.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
-        | <%=(changeList.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
-    </div>
+        </rsc:iterator>
+    </tbody>
+</table>
+<div class="pagingBox">
+    <%=(changeList.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+    | <%=(changeList.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+</div>
 </form>
 
 </div>
