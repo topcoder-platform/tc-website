@@ -39,6 +39,9 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<%--POST MONDAY 10.09.06
+<li><A href="/tc?module=Static&amp;d1=features&amp;d2=100906"><strong>Design Patterns in C++, Part 2</strong></A>, by <tc-webtag:handle coderId="21195715" /><br>
+Part One of this article covered the Strategy, Adaptor and Iterator design patterns.  This part will cover the Facade and Composition design patterns and the idea of Object Factories.</li>--%>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=100506"><strong>TopCoder @ Work: Incorporating new technologies</strong></A>, by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /><br>
 The situation: The boss has just returned from a technology conference, no doubt full of torturous new ideas. You perspire in your seat, waiting for the inevitable conversation. What twisted brand of innovation will he force upon your project today?</li>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=100206"><strong>Design Patterns in C++</strong></A>, by <tc-webtag:handle coderId="21195715" /><br>

@@ -43,6 +43,13 @@
                <td class="bodyText"><b>Title</b></td>
                <td class="bodyText"><b>Date</b></td>
             </tr>
+            <%-- POST MONDAY 10.09.06
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="21195715" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=100906"><strong>Design Patterns in C++, Part 2</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Oct 9, 2006</td>
+            </tr>
+            --%>
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=100506"><strong>TopCoder @ Work: Incorporating new technologies</strong></A></td>
