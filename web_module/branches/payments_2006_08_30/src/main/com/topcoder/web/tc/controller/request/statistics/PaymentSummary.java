@@ -64,7 +64,7 @@ public class PaymentSummary extends BaseProcessor {
             r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
         } else {
             r.setProperty(DataAccessConstants.SORT_DIRECTION, "asc");
-            r.setProperty(DataAccessConstants.SORT_COLUMN, "1"); // payment_type_desc
+            r.setProperty(DataAccessConstants.SORT_COLUMN, "0"); // payment_type_desc
         }
         r.setProperty(DataAccessConstants.SORT_QUERY, "payment_summary");
         r.setProperty(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
@@ -80,7 +80,7 @@ public class PaymentSummary extends BaseProcessor {
         }
         // sets attributes for the jsp
         SortInfo s = new SortInfo();
-        s.addDefault(1, "asc"); //due_date
+        s.addDefault(0, "asc"); //due_date
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
         getRequest().setAttribute("payment_summary", summary);

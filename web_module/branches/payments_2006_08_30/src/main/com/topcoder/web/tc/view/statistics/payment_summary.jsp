@@ -106,10 +106,10 @@
         </td></tr>
         <tr>
             <TD CLASS="header">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Payment Type</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Payment Type</a>
             </TD>
             <TD CLASS="header" width="40%">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Earnings</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Earnings</a>
             </TD>
         </tr>
         <%boolean even = false;%>
