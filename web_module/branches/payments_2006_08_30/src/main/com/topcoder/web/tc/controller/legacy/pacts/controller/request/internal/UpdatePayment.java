@@ -20,7 +20,7 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
         	boolean updating = getRequest().getParameter("payment_id") != null;
         	boolean adding = getRequest().getParameter("user_id") != null;
         	
-        	if (updating ^ adding) {
+        	if (!(updating ^ adding)) {
         		throw new IllegalArgumentException("payment_id or user_id expected");
         	}
         	
