@@ -133,6 +133,17 @@ function referenceChanged(name) {
     doReferenceChanged(getElement(name).value);
 }
 
+function searchKeyPress(e)
+{
+    var keycode;
+    if (window.event) keycode = window.event.keyCode;
+    else if (e) keycode = e.which;
+    
+    if (keycode == 13) {
+      search();  
+    } 
+}
+
 </script>
     
 </head>
