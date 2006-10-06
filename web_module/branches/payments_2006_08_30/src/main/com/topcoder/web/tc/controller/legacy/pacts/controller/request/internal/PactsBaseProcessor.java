@@ -1,10 +1,16 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
+import java.rmi.RemoteException;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultFilter;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
@@ -118,4 +124,22 @@ public abstract class PactsBaseProcessor extends BaseProcessor{
 		return age;		
 	}
 	
+	protected List getPaymentTypeList() throws SQLException, RemoteException {
+		DataInterfaceBean dib = new DataInterfaceBean();
+		ResultSetContainer rsc = (ResultSetContainer) dib.getPaymentTypes().get(PactsConstants.PAYMENT_TYPE_LIST);
+		return new ResultSetContainer(rsc, new FilterPaymentTypes());
+	}
+	
+	/**
+	 * Filter the payment types that the user can select  
+	 */
+	static class FilterPaymentTypes implements ResultFilter {
+
+		public boolean include(ResultSetRow rsr) {
+			int typeId = rsr.getIntItem("payment_type_id");
+			return typeId != PactsConstants.PROBLEM_PAYMENT &&  // deprecated
+				  typeId != PactsConstants.CHARITY_PAYMENT; // don't show charity!
+		}
+		
+	}
 }

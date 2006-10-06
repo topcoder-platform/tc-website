@@ -114,7 +114,7 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
         	getRequest().setAttribute(PAYMENT, payment);
         	getRequest().setAttribute(USER, payment.getHeader().getUser());
             getRequest().setAttribute(MODIFICATION_RATIONALE_LIST, dib.getModificationRationales().get(MODIFICATION_RATIONALE_LIST));
-            getRequest().setAttribute(PAYMENT_TYPE_LIST, dib.getPaymentTypes().get(PAYMENT_TYPE_LIST));
+            getRequest().setAttribute(PAYMENT_TYPE_LIST, getPaymentTypeList());
             getRequest().setAttribute(PAYMENT_METHOD_LIST, dib.getPaymentMethods().get(PAYMENT_METHOD_LIST));
             getRequest().setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PactsConstants.PAYMENT_OBJ).get(STATUS_CODE_LIST));
         
