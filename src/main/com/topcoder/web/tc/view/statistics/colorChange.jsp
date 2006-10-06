@@ -212,7 +212,7 @@ This chart shows all instances of a competitor changing handle colors in the las
                     </c:choose>
                 </td>
                 <td class="valueC">
-                    <rsc:item name="date" row="<%=resultRow%>" format="mm.dd.yyyy"/>
+                    <rsc:item name="date" row="<%=resultRow%>" format="MM.dd.yyyy"/>
                 </td>
                 <td class="valueC"><span class="coderText<rsc:item name="old_color" row="<%=resultRow%>"/>"><rsc:item name="old_rating" row="<%=resultRow%>"/></span>
                 </td>
