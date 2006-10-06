@@ -73,6 +73,7 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             	} else {
                     setDefault("gross_amount", getRequest().getParameter("gross_amount"));
                     setDefault("net_amount", getRequest().getParameter("net_amount"));
+                    getRequest().setAttribute("reference_description", getRequest().getParameter("reference_description"));                
             	}
             } else {
             	desc = payment.getHeader().getDescription();
@@ -90,26 +91,12 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
                 setDefault("net_amount", netAmount + "");
                 
                 BasePayment p =  BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getReferenceId());
-/*                switch(BasePayment.getReferenceTypeId(typeId)) {
-                case REFERENCE_ALGORITHM_ROUND_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getAlgorithmRoundId()); break; 
-                case REFERENCE_COMPONENT_PROJECT_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getComponentProjectId()); break;
-                case REFERENCE_ALGORITHM_PROBLEM_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getAlgorithmProblemId()); break;
-                case REFERENCE_STUDIO_CONTEST_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getStudioContestId()); break;
-                case REFERENCE_COMPONENT_CONTEST_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getComponentContestId()); break;
-                case REFERENCE_DIGITAL_RUN_STAGE_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getDigitalRunStageId()); break;
-                case REFERENCE_DIGITAL_RUN_SEASON_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getDigitalRunSeasonId()); break;
-                case REFERENCE_PARENT_PAYMENT_ID : p = BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getParentPaymentId()); break;
-                case NO_REFERENCE : p = BasePayment.createPayment(typeId, 1, 0.01, 0); break;
-                }
-*/
                 String refDescr = "[Can't get the description]";
                 try {
                 	p = dib.fillPaymentData(p);
                 	refDescr = p.getReferenceDescription();
                 } catch(Exception e) {}
-                getRequest().setAttribute("reference_description", refDescr);
-                
-            	
+                getRequest().setAttribute("reference_description", refDescr);                            	
             }
             
             setDefault("payment_desc", desc);

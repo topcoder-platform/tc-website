@@ -42,13 +42,13 @@
               <td><b>Reference:</b></td>
               <td>
                  <c:choose>
+                   	<c:when test="${not empty referenceDescription}">    
+                		<c:out value="${referenceDescription}" />
+                		        <input type="button" value="change" onClick="typeChanged()" />
+                		<input type="hidden" name="${requestScope.reference_field_name}" value="${requestScope.reference_id}" />
+                   	</c:when>
                      <c:when test="${refId == ALGORITHM_ROUND}">
                      	<c:choose>
-                     	<c:when test="${not empty referenceDescription}">    
-	                 		<c:out value="${referenceDescription}" />
-	                 		        <input type="button" value="change" onClick="typeChanged()" />
-	                 		<input type="hidden" name="algorithm_round_id" value="${param.reference_id}" />
-                     	</c:when>
                         <c:when test="${empty rounds}">    
                           <input type="hidden" name="missing_reference" value="Please select a round for the payment"/>
                           Enter search text for round name: <input type="text" name="searchInput" value="${search}" />
