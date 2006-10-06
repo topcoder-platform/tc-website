@@ -1,6 +1,8 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCWebException;
@@ -22,9 +24,9 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
     protected void businessProcessing() throws TCWebException {    	
         try {
         	boolean updating = getRequest().getParameter("payment_id") != null;
-        	boolean adding = getRequest().getParameter("user_id") != null;
+        	boolean adding = !updating;
         	
-        	if (!(updating ^ adding)) {
+        	if (!(updating || adding)) {
         		throw new NavigationException("payment_id or user_id expected");
         	}
         	
@@ -132,6 +134,11 @@ public class UpdatePayment extends PactsBaseProcessor implements PactsConstants 
             		typeId = ALGORITHM_CONTEST_PAYMENT;
             		statusId = PAYMENT_PENDING_STATUS;
             		methodId = 1; // CHECK
+                    Calendar date = Calendar.getInstance();
+                    date.setTime(new Date());
+                    date.add(Calendar.DAY_OF_YEAR, DUE_DATE_INTERVAL);
+                    dueDate = new SimpleDateFormat(DATE_FORMAT_STRING).format(date);
+
             	} else {
 	            	desc = payment.getHeader().getDescription();
 	            	typeId = payment.getHeader().getTypeId();
