@@ -133,7 +133,7 @@ public abstract class PactsBaseProcessor extends BaseProcessor{
 	
 	protected List getStatusList() throws SQLException, RemoteException {
 		DataInterfaceBean dib = new DataInterfaceBean();
-		ResultSetContainer rsc = (ResultSetContainer) dib.getStatusCodes(PactsConstants.PAYMENT_OBJ).get(PactsConstants.STATUS_CODE_LIST)
+		ResultSetContainer rsc = (ResultSetContainer) dib.getStatusCodes(PactsConstants.PAYMENT_OBJ).get(PactsConstants.STATUS_CODE_LIST);
 		return new ResultSetContainer(rsc, new FilterStatusTypes());
 	}
 	
