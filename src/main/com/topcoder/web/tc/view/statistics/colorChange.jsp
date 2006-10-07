@@ -98,32 +98,27 @@ This chart shows all instances of a competitor changing handle colors in the las
         |
         <c:if test="${param.color=='Gray'}"><span class="selected"></c:if>
         <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Gray&amp;${typeParam}" class="coderTextGray">New
-            grays</A>
-        <c:if test="${param.color=='Gray'}"></span></c:if>
+            grays</A><c:if test="${param.color=='Gray'}"></span></c:if>
 
         |
         <c:if test="${param.color=='Green'}"><span class="selected"></c:if>
         <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Green&amp;${typeParam}" class="coderTextGreen">New
-            greens</A>
-        <c:if test="${param.color=='Green'}"></span></c:if>
+            greens</A><c:if test="${param.color=='Green'}"></span></c:if>
 
         |
         <c:if test="${param.color=='Blue'}"><span class="selected"></c:if>
         <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Blue&amp;${typeParam}" class="coderTextBlue">New
-            blues</A>
-        <c:if test="${param.color=='Blue'}"></span></c:if>
+            blues</A><c:if test="${param.color=='Blue'}"></span></c:if>
 
         |
         <c:if test="${param.color=='Yellow'}"><span class="selected"></c:if>
         <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Yellow&amp;${typeParam}" class="coderTextYellow">New
-            yellows</A>
-        <c:if test="${param.color=='Yellow'}"></span></c:if>
+            yellows</A><c:if test="${param.color=='Yellow'}"></span></c:if>
 
         |
         <c:if test="${param.color=='Red'}"><span class="selected"></c:if>
         <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Red&amp;${typeParam}" class="coderTextRed">New
-            reds</A>
-        <c:if test="${param.color=='Red'}"></span></c:if>
+            reds</A><c:if test="${param.color=='Red'}"></span></c:if>
     </strong>
 </div>
 
