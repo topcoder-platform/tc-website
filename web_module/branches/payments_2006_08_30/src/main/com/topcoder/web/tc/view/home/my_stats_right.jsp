@@ -10,7 +10,7 @@
 <table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
     <tr>
         <td class="statTextBig" bgcolor="#333333">&#160;Coder: <tc-webtag:handle coderId='<%=coderInfo.getLongItem(0, "coder_id")%>'/><br>
-            Total Earnings: <A href="" class="statTextBig">$0.00</A>
+            Total Earnings: <A href="" class="statTextBig"><rsc:item set="<%=coderInfo%>" name="overall_earnings" format="$0.00" ifNull="$0.00"/></A>
         </td>
     </tr>
 
