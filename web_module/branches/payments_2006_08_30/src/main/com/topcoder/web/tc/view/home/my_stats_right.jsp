@@ -5,6 +5,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <% ResultSetContainer coderInfo= (ResultSetContainer)request.getAttribute("member_info");%>
+<% CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);%>
 
 <% if (coderInfo!=null && !coderInfo.isEmpty()) { %>
 <table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
@@ -38,7 +39,16 @@
 
     <tr>
         <td class="formHandleEven">Rating</td>
-        <td class="formHandleEven" align="right"><A href="" class="statTextBig"><rsc:item set="<%=coderInfo%>" name="design_rating" ifNull="Not Rated" format="#"/></A></td>
+        <td class="formHandleEven" align="right">
+            <% if (coderInfo.getItem(0, "design_rating").getResultData()!=null 
+                    && coderInfo.getIntItem(0, "design_rating")>0) { %>
+        	<A href="/tc?module=CompetitionHistory&ph=112&cr=<%=info.getUserId()%>" class="statTextBig">
+        		<rsc:item set="<%=coderInfo%>" name="design_rating" format="#"/>
+        	</A>
+		    <% } else {%>
+		    Not Rated
+		    <% } %>
+        </td>
     </tr>
 
     <tr><td colspan="2" class="myStatsTitle">Development</td></tr>
@@ -51,7 +61,6 @@
 
 <% } else { %>
 <table width="180" border="0" cellspacing="0" cellpadding="5" bgcolor="#555555">
-<% CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);%>
     <tr>
         <td class="statTextBig" bgcolor="#333333">Coder: <a href="/tc?module=MemberProfile&cr=<%=info.getUserId()%>" class="<tc:ratingStyle rating='<%=info.getRating()%>'/>"><%=info.getHandle()%></a></td>
     </tr>
