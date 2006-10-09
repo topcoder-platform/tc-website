@@ -136,9 +136,7 @@ Enter a member's handle here to narrow the chart down to just that member:<br>
 <input type="hidden" name="<%=Constants.PHASE_ID%>" value=""/>
 <input type="hidden" name="<%=Constants.ALGO_RATING_TYPE_ID%>" value=""/>
 
-<%--
 <tc-webtag:textInput name="<%=Constants.HANDLE%>"/>
---%>
 
 <div class="pagingBox">
     <%=(changeList.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
