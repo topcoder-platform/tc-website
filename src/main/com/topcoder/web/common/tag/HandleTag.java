@@ -229,6 +229,7 @@ public class HandleTag extends TagSupport {
         cssclass = "";
         darkBG = false;
         algorithm = false;
+        hsAlgorithm = false;
         design = false;
         development = false;
         component = false;
