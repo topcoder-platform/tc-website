@@ -53,6 +53,12 @@
                         <H3>TopCoder Software Web Site Change Log</H3>
 
                         <p>
+                            1.0.6 - 2006.10.09
+                            <ul>
+                                <li>Add the ability to exclude projects from the digital run</li>
+                            </ul>
+                        </p>
+                        <p>
                             1.0.5 - 2006.09.14
                             <ul>
                                 <li>Tweak to my open projects page to speed it up</li>
