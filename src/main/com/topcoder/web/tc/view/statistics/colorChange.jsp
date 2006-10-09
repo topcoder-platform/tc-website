@@ -120,10 +120,7 @@ This chart shows all instances of a competitor changing handle colors in the las
         <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Red&amp;${typeParam}" class="coderTextRed">New
             reds</A><c:if test="${param.color=='Red'}"></span></c:if>
     </strong>
-<br><br>
-Enter a member's handle here to narrow the chart down to just that member:<br>
-<input name="ha" type="text">
-<button name="handleSubmit" value="submit" type="submit">Submit</button>
+
 </div>
 
 
@@ -136,7 +133,10 @@ Enter a member's handle here to narrow the chart down to just that member:<br>
 <input type="hidden" name="<%=Constants.PHASE_ID%>" value=""/>
 <input type="hidden" name="<%=Constants.ALGO_RATING_TYPE_ID%>" value=""/>
 
-<tc-webtag:textInput name="<%=Constants.HANDLE%>"/>
+<br><br>
+Enter a member's handle here to narrow the chart down to just that member:<br>
+
+<tc-webtag:textInput name="<%=Constants.HANDLE%>"/> <button name="handleSubmit" value="submit" type="submit">Submit</button>
 
 <div class="pagingBox">
     <%=(changeList.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
