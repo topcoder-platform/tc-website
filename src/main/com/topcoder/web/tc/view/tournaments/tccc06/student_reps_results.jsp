@@ -32,7 +32,9 @@
 
                 <span class="bigTitle">Student Rep Referral Leaderboard</span>
                 <br><br>
-                Here are the results of the TCCC06 Referral Program. Check back often for updates.
+                <span class="bodySubTitle">Congratulations to the winner - <tc-webtag:handle coderId="14949480" />!</span>
+                <br><br>
+                Here are the results of the TCCC06 Referral Program.
                 <br><br>
                 <table width="510" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                     <tr>
