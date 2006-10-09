@@ -24,7 +24,7 @@ import java.util.Map;
 
 /**
  * <strong>Purpose</strong>:
- * A processor to retrieve payment summary.
+ * A processor to retrieve payment details.
  *
  * @author pulky
  * @version 1.0
@@ -36,8 +36,8 @@ public class PaymentDetail extends BaseProcessor {
     private static final Logger log = Logger.getLogger(PaymentDetail.class);
 
     /**
-     * Process the payment summary request.
-     * Retrieves the totals for each visible payment type.
+     * Process the payment details request.
+     * Retrieves the payments of the selected payment type.
      */
     protected void businessProcessing() throws Exception {
         // user should be authenticated.
@@ -57,13 +57,6 @@ public class PaymentDetail extends BaseProcessor {
             throw new TCWebException("parameter " + Constants.PAYMENT_TYPE_ID + " expected.");
         }
         
-/*        String paymentType = getRequest().getParameter(Constants.PAYMENT_TYPE_ID);
-        
-        // Payment type should be viewable and admit details
-        if (!validPaymentType(paymentType)) {
-            throw new TCWebException("invalid parameter " + Constants.PAYMENT_TYPE_ID);
-        }*/
-
         setDefault(Constants.PAYMENT_TYPE_ID, getRequest().getParameter(Constants.PAYMENT_TYPE_ID));
 
         // Gets the rest of the optional parameters.
@@ -124,19 +117,4 @@ public class PaymentDetail extends BaseProcessor {
         setNextPage(Constants.VIEW_PAYMENT_DETAIL_PAGE);
         setIsNextPageInContext(true);
     }
-
-/*    private boolean validPaymentType(String paymentType) throws Exception {
-        Request r = new Request();
-        r.setProperty(Constants.PAYMENT_TYPE_ID, paymentType);
-        r.setContentHandle("valid_payment_type");
-
-        // retrieves data from DB
-        DataAccessInt dai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
-        Map m = dai.getData(r);
-        if (((ResultSetContainer) m.get("valid_payment_type")).getRowCount() > 0){
-            return true;            
-        } else {
-            return false;
-        }
-    }*/
 }

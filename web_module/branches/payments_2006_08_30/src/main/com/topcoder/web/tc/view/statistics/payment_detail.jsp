@@ -149,10 +149,10 @@
                     <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="0" includeParams="true"/>">Description</a>
                 </TD>
                 <TD CLASS="header" width="30%">
-                    <a href="${sessionInfo.servletPath}%>?<tc-webtag:sort column="2" includeParams="true"/>">Payment Type</a>
+                    <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="2" includeParams="true"/>">Payment Type</a>
                 </TD>
                 <TD CLASS="header" width="10%">
-                    <a href="${sessionInfo.servletPath}%>?<tc-webtag:sort column="1" includeParams="true"/>">Earnings</a>
+                    <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="1" includeParams="true"/>">Earnings</a>
                 </TD>
                 <TD CLASS="header" width="10%"></TD>
             </tr>
