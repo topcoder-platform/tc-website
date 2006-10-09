@@ -102,11 +102,11 @@
 
     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tr><td class="title" colspan="10">
-        Payment summary
+        Payment Summary
         </td></tr>
         <tr>
             <TD CLASS="header">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Payment Type</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Payment Category</a>
             </TD>
             <TD CLASS="headerR">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Earnings</a>
@@ -115,7 +115,13 @@
         <%boolean even = false;%>
         <rsc:iterator list="<%=rsc%>" id="resultRow">
             <tr class="<%=even?"dark":"light"%>">            
-            <TD class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
+            <TD class="value">
+            <% if (resultRow.getDoubleItem("show_details_ind") == 1 && resultRow.getDoubleItem("earnings") > 0) {%>
+                <A href="/tc?module=PaymentDetail&cr=<%=coderId%>&pt=<%=resultRow.getStringItem("payment_type_id")%>">
+            <% }%>
+                <rsc:item name="payment_type_desc" row="<%=resultRow%>"/>
+            <% if (resultRow.getDoubleItem("show_details_ind") == 1) {%></A><% }%>
+            </TD>
             <TD class="valueR">
             <% if (resultRow.getDoubleItem("show_details_ind") == 1 && resultRow.getDoubleItem("earnings") > 0) {%>
                 <A href="/tc?module=PaymentDetail&cr=<%=coderId%>&pt=<%=resultRow.getStringItem("payment_type_id")%>">

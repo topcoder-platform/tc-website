@@ -124,7 +124,6 @@
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
  | <A href="/tc?module=PaymentSummary&cr=<%=coderId%>" class="bcLink">Payment Summary</A>
- | Payment Details
    </span>
 
 	<% if (rsc.size() > 0) { %>
@@ -148,7 +147,7 @@
     
         <table class="stat" cellpadding="0" cellspacing="0" width="100%">
             <tr><td class="title" colspan="6">
-            Payment detail
+            Payment Details
             </td></tr>
             <tr>
                 <TD CLASS="headerC">
