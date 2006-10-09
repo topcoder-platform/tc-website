@@ -9,7 +9,9 @@
 <% if (coderInfo!=null && !coderInfo.isEmpty()) { %>
 <table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
     <tr>
-        <td class="statTextBig" bgcolor="#333333">&#160;Coder: <tc-webtag:handle coderId='<%=coderInfo.getLongItem(0, "coder_id")%>'/></td>
+        <td class="statTextBig" bgcolor="#333333">&#160;Coder: <tc-webtag:handle coderId='<%=coderInfo.getLongItem(0, "coder_id")%>'/><br>
+            Total Earnings: <A href="" class="statTextBig">$0.00</A>
+        </td>
     </tr>
 
     <tr>
@@ -24,10 +26,6 @@
         <td class="formHandleEven">Rating</td>
         <td class="formHandleEven" align="right"><% if (coderInfo.getItem(0, "rating").getResultData()==null||coderInfo.getIntItem(0, "rating")<1) { %>Not Rated<% } else { %><rsc:item set="<%=coderInfo%>" name="rating" ifNull="Not Rated"/><% } %></td>
     </tr>
-    <tr>
-        <td class="formHandleEven">Earnings</td>
-        <td class="formHandleEven" align="right"><rsc:item set="<%=coderInfo%>" name="total_earnings" format="$0.00" ifNull="$0.00"/></td>
-        </tr>
     <% if (coderInfo.getItem(0, "rating").getResultData()!=null&&coderInfo.getIntItem(0, "rating")>0) { %>
    <tr>
       <td class="formHandleEven" colspan="2" align="center">
@@ -42,20 +40,12 @@
         <td class="formHandleEven">Rating</td>
         <td class="formHandleEven" align="right"><rsc:item set="<%=coderInfo%>" name="design_rating" ifNull="Not Rated" format="#"/></td>
     </tr>
-    <tr>
-        <td class="formHandleEven">Earnings</td>
-        <td class="formHandleEven" align="right"><rsc:item set="<%=coderInfo%>" name="design_earnings" format="$0.00"/></td>
-    </tr>
 
     <tr><td colspan="2" class="myStatsTitle">Development</td></tr>
 
     <tr>
         <td class="formHandleEven">Rating</td>
         <td class="formHandleEven" align="right"><rsc:item set="<%=coderInfo%>" name="development_rating" ifNull="Not Rated" format="#"/></td>
-    </tr>
-    <tr>
-        <td class="formHandleEven">Earnings</td>
-        <td class="formHandleEven" align="right"><rsc:item set="<%=coderInfo%>" name="development_earnings" format="$0.00"/></td>
     </tr>
 </table>
 
