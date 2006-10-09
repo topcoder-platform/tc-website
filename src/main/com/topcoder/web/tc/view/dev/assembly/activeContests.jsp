@@ -55,10 +55,8 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_aolXmppGateway">AOL XMPP Gateway</A>
       </td>
       <td class="valueC">
-      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: AOL XMPP Gateway">register</A>
-      <%--
+      <%--<A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: AOL XMPP Gateway">register</A>--%>
       registration closed
-      --%>
       </td>
       <td class="valueC">
       &#160;
