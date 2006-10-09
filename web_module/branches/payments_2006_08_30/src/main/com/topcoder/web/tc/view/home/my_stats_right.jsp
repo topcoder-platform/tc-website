@@ -25,7 +25,7 @@
 
     <tr>
         <td class="formHandleEven">Rating</td>
-        <td class="formHandleEven" align="right"><A href="" class="statTextBig"><% if (coderInfo.getItem(0, "rating").getResultData()==null||coderInfo.getIntItem(0, "rating")<1) { %>Not Rated<% } else { %><rsc:item set="<%=coderInfo%>" name="rating" ifNull="Not Rated"/><% } %></A></td>
+        <td class="formHandleEven" align="right"><% if (coderInfo.getItem(0, "rating").getResultData()==null||coderInfo.getIntItem(0, "rating")<1) { %>Not Rated<% } else { %><A href="/tc?module=AlgoCompetitionHistory&cr=<%=info.getUserId()%>" class="statTextBig"><rsc:item set="<%=coderInfo%>" name="rating" ifNull="Not Rated"/></A><% } %></td>
     </tr>
     <% if (coderInfo.getItem(0, "rating").getResultData()!=null&&coderInfo.getIntItem(0, "rating")>0) { %>
    <tr>
@@ -55,7 +55,16 @@
 
     <tr>
         <td class="formHandleEven">Rating</td>
-        <td class="formHandleEven" align="right"><A href="" class="statTextBig"><rsc:item set="<%=coderInfo%>" name="development_rating" ifNull="Not Rated" format="#"/></A></td>
+        <td class="formHandleEven" align="right">
+            <% if (coderInfo.getItem(0, "development_rating").getResultData()!=null 
+                    && coderInfo.getIntItem(0, "development_rating")>0) { %>
+        	<A href="/tc?module=CompetitionHistory&ph=113&cr=<%=info.getUserId()%>" class="statTextBig">
+        		<rsc:item set="<%=coderInfo%>" name="development_rating" format="#"/>
+        	</A>
+		    <% } else {%>
+		    Not Rated
+		    <% } %>
+		</td>
     </tr>
 </table>
 
