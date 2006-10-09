@@ -81,7 +81,7 @@
 </TD>
 
 <!-- Center Column Begins -->
-<td class="statTableSpacer" width="100%" valign="top">
+<td width="100%" align="left" class="bodyColumn">
 
 
     <jsp:include page="../page_title.jsp">
@@ -98,7 +98,7 @@
  | Payment Summary
    </span>
 
-    <br>
+<div class="pagingBox">&nbsp;</div>
 
     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tr><td class="title" colspan="10">
@@ -108,7 +108,7 @@
             <TD CLASS="header">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Payment Type</a>
             </TD>
-            <TD CLASS="header" width="40%">
+            <TD CLASS="headerR">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Earnings</a>
             </TD>
         </tr>
@@ -116,7 +116,7 @@
         <rsc:iterator list="<%=rsc%>" id="resultRow">
             <tr class="<%=even?"dark":"light"%>">            
             <TD class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
-            <TD class="value">
+            <TD class="valueR">
             <% if (resultRow.getDoubleItem("show_details_ind") == 1 && resultRow.getDoubleItem("earnings") > 0) {%>
                 <A href="/tc?module=PaymentDetail&cr=<%=coderId%>&pt=<%=resultRow.getStringItem("payment_type_id")%>">
             <% }%>

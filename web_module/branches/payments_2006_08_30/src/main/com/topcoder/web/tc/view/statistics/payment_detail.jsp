@@ -26,13 +26,23 @@
 </style>
 
     <script type="text/javascript">
-        function toggleDisplay(objectID){
-           var object = document.getElementById(objectID);
-           if(object.className == 'dark hideText') object.className = 'dark showText';
-           else if(object.className == 'dark showText') object.className = 'dark hideText';
-           else if(object.className == 'light showText') object.className = 'light hideText';
-           else object.className = 'light showText';
-           return;
+        function toggleDisplay(objectID,imageID,linkID){
+           var object = document.getElementById(objectID) 
+           if(object.className == 'dark hideText') {
+                object.className = 'dark showText'; 
+                document.images[imageID].src = '/i/interface/exp_ed_w.gif'; 
+           }else if(object.className == 'dark showText') {
+                object.className = 'dark hideText'; 
+                document.images[imageID].src = '/i/interface/exp_w.gif';
+           }else if(object.className == 'light showText') {
+                object.className = 'light hideText'; 
+                document.images[imageID].src = '/i/interface/exp_w.gif';
+           }else {
+                object.className = 'light showText';
+                document.images[imageID].src = '/i/interface/exp_ed_w.gif';
+           }
+          linkID.blur();
+          return;
         }
         function next() {
             var myForm = document.paymentDetailForm;
@@ -99,7 +109,7 @@
 </TD>
 
 <!-- Center Column Begins -->
-<td class="statTableSpacer" width="100%" valign="top">
+<td width="100%" align="left" class="bodyColumn">
 
 
     <jsp:include page="../page_title.jsp">
@@ -140,47 +150,49 @@
             <tr><td class="title" colspan="6">
             Payment detail
             </td></tr>
-            <tr class="dark">
-                <TD CLASS="header" width="5%"></TD>
-                <TD CLASS="header" width="5%">
+            <tr>
+                <TD CLASS="headerC">
                     <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true"/>">Date</a>
                 </TD>
-                <TD CLASS="header" width="40%">
+                <td class="header">&nbsp;</td>
+                <TD CLASS="header" width="60%">
                     <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="0" includeParams="true"/>">Description</a>
                 </TD>
-                <TD CLASS="header" width="30%">
+                <TD CLASS="header" width="40%">
                     <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="2" includeParams="true"/>">Payment Type</a>
                 </TD>
-                <TD CLASS="header" width="10%">
+                <TD CLASS="headerR">
                     <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="1" includeParams="true"/>">Earnings</a>
                 </TD>
-                <TD CLASS="header" width="10%"></TD>
+                <TD CLASS="header">&nbsp;</TD>
             </tr>
             <%int i = 0;
             boolean even = false;
             boolean hasCharity = false;%>
             <rsc:iterator list="<%=rsc%>" id="resultRow">
                 <tr class="<%=even?"dark":"light"%>">            
-                <TD class="value" width="5%">
+                <TD class="valueC"><rsc:item name="date_due" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
+                <TD class="value" style="vertical-align:middle;">
                 <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
                     <%i++;%>
-                    <a href="javascript:toggleDisplay('ref_<%=i%>');" class="statLink"><img src="/i/interface/open.gif" alt="open" border="0" /></a>
+                    <a href="javascript:toggleDisplay('ref_<%=i%>','switch_<%=i%>');" onfocus="this.blur();"><img src="/i/interface/exp_w.gif" alt="Open" name="switch_<%=i%>" /></a>
+                <% } else { %>
+                    <div style="width:7px;">&nbsp;</div>
                 <% }%>
                 </TD>
-                <TD class="value" width="5%"><rsc:item name="date_due" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
-                <TD class="value" width="40%"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
-                <TD class="value" width="30%"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
-                <TD class="value" width="10%">
+                <TD class="value"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
+                <TD class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
+                <TD class="valueR">
                     <rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
                     <% if (resultRow.getIntItem("charity_ind") == 1) {
                         hasCharity = true;
                     %>*<% }%>
                 </TD>
-                <TD class="value" width="10%">
+                <TD class="value" nowrap>
                 <% if ((resultRow.getIntItem("payment_type_id") == 1 || 
                         resultRow.getIntItem("payment_type_id") == 1) && 
                         resultRow.getItem("reference_id").getResultData() != null) {%>
-                <A href="/stat?c=coder_room_stats&cr=<%=coderId%>&rd=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">Contest Details</A>
+                <A href="/stat?c=coder_room_stats&cr=<%=coderId%>&rd=<rsc:item name="reference_id" row="<%=resultRow%>"/>">Contest Details</A>
                 <% } else if (resultRow.getIntItem("payment_type_id") == 6 && resultRow.getItem("reference_id").getResultData() != null) {%>
                 <A href="/tc?module=CompContestDetails&pj=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">Project details</A>
                 <% }%>
@@ -188,12 +200,12 @@
                 </tr>
                 <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
-                    <TD class="value" width="5%"></TD>
-                    <TD class="value" width="5%"></TD>
-                    <TD class="value" width="40%"><rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
-                    <TD class="value" width="30%"><rsc:item name="ref_payment_type_desc" row="<%=resultRow%>"/></TD>
-                    <TD class="value" width="10%"><rsc:item name="ref_earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
-                    <TD class="value" width="10%"></TD>
+                    <TD class="value">&nbsp;</TD>
+                    <TD class="value">&nbsp;</TD>
+                    <TD class="value"><rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
+                    <TD class="value"><rsc:item name="ref_payment_type_desc" row="<%=resultRow%>"/></TD>
+                    <TD class="value"><rsc:item name="ref_earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
+                    <TD class="value">&nbsp;</TD>
                     </tr>
                 <% }%>
                 <%even = !even;%>
@@ -202,7 +214,7 @@
     </FORM>
 
     <% if(hasCharity) { %>
-    <p>* was donated to charity.</p>
+    <p>* donated to charity.</p>
     <% } %>
 
     <div class="pagingBox">
