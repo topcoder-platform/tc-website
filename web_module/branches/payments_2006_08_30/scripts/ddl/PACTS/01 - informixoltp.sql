@@ -89,7 +89,7 @@ insert into payment_type_lu(payment_type_id, payment_type_desc, payment_referenc
 values(18, 'Digital Run Prize Rockie Payment', 7);
 
 insert into payment_type_lu(payment_type_id, payment_type_desc, payment_reference_id)
-values(19, 'Component Tournament Bouns Payment', 5);
+values(19, 'Component Tournament Bonus Payment', 5);
 
 insert into payment_type_lu(payment_type_id, payment_type_desc)
 values(20, 'Royalty Payment');
