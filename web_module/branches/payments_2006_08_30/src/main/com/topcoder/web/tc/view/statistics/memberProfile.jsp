@@ -99,7 +99,6 @@ This member has not yet been rated in a competition.
                     <rsc:item name="overall_earnings" set="<%=rscCoderData%>" format="$#,##0.00"/>
                 </A>
                 </td></tr>
-            <tr><td class="cat" nowrap="nowrap">Software Royalties:</td><td class="stat" align="right"><rsc:item name="royalties" set="<%=rscCoderData%>" format="$#,##0.00" ifNull="$0.00"/></td></tr>
 <% } %>
             <tr><td class="cat" nowrap="nowrap">Member Since:</td><td class="stat" align="right"><rsc:item name="member_since" set="<%=rscCoderData%>" format="MM.dd.yyyy"/></td></tr>
             <tr><td class="cat">Country:</td><td class="stat" align="right"><div style="width: 100px;"><rsc:item name="country_name" set="<%=rscCoderData%>"/></div></td></tr>

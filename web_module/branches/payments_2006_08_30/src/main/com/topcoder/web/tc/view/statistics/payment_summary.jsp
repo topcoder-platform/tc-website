@@ -106,7 +106,7 @@
         </td></tr>
         <tr>
             <TD CLASS="header">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Payment Category</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Category</a>
             </TD>
             <TD CLASS="headerR">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Earnings</a>
