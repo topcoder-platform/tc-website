@@ -86,38 +86,33 @@
 </jsp:include>
 
 
-<div align="center">
-This chart shows all instances of a competitor changing handle colors in the last 30 days.<br>
+<div align="center" style="padding-bottom: 10px;">
+This chart shows all instances of a member changing handle colors in the last 30 days.<br>
     <strong>
         <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;${typeParam}" class="bcLink">All
             changes</A>
         |
         <c:if test="${param.color=='Gray'}"><span class="selected"></c:if>
-        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Gray&amp;${typeParam}" class="coderTextGray">New
-            grays</A><c:if test="${param.color=='Gray'}"></span></c:if>
+        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Gray&amp;${typeParam}" class="coderTextGray">Grays</A><c:if test="${param.color=='Gray'}"></span></c:if>
 
         |
         <c:if test="${param.color=='Green'}"><span class="selected"></c:if>
-        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Green&amp;${typeParam}" class="coderTextGreen">New
-            greens</A><c:if test="${param.color=='Green'}"></span></c:if>
+        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Green&amp;${typeParam}" class="coderTextGreen">Greens</A><c:if test="${param.color=='Green'}"></span></c:if>
 
         |
         <c:if test="${param.color=='Blue'}"><span class="selected"></c:if>
-        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Blue&amp;${typeParam}" class="coderTextBlue">New
-            blues</A><c:if test="${param.color=='Blue'}"></span></c:if>
+        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Blue&amp;${typeParam}" class="coderTextBlue">Blues</A><c:if test="${param.color=='Blue'}"></span></c:if>
 
         |
         <c:if test="${param.color=='Yellow'}"><span class="selected"></c:if>
-        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Yellow&amp;${typeParam}" class="coderTextYellow">New
-            yellows</A><c:if test="${param.color=='Yellow'}"></span></c:if>
+        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Yellow&amp;${typeParam}" class="coderTextYellow">Yellows</A><c:if test="${param.color=='Yellow'}"></span></c:if>
 
         |
         <c:if test="${param.color=='Red'}"><span class="selected"></c:if>
-        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Red&amp;${typeParam}" class="coderTextRed">New
-            reds</A><c:if test="${param.color=='Red'}"></span></c:if>
+        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Red&amp;${typeParam}" class="coderTextRed">Reds</A><c:if test="${param.color=='Red'}"></span></c:if>
     </strong>
-
 </div>
+
 
 
 <form name="colorChangeForm" method="get">
@@ -129,10 +124,10 @@ This chart shows all instances of a competitor changing handle colors in the las
 <tc-webtag:hiddenInput name="<%=Constants.PHASE_ID%>"/>
 <tc-webtag:hiddenInput name="<%=Constants.ALGO_RATING_TYPE_ID%>"/>
 
-<br><br>
+<div align="center">
 Enter a member's handle here to narrow the chart down to just that member:<br>
-
 <tc-webtag:textInput name="<%=Constants.HANDLE%>"/> <button name="handleSubmit" value="submit" type="submit">Submit</button>
+</div>
 
 <div class="pagingBox">
     <%=(changeList.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
