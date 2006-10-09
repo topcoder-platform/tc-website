@@ -126,12 +126,12 @@ This chart shows all instances of a competitor changing handle colors in the las
 
 <form name="colorChangeForm" method="get">
 <input type="hidden" name="module" value="ColorChange"/>
-<input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
-<input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
-<input type="hidden" name="<%=DataAccessConstants.SORT_COLUMN%>" value=""/>
-<input type="hidden" name="<%=DataAccessConstants.SORT_DIRECTION%>" value=""/>
-<input type="hidden" name="<%=Constants.PHASE_ID%>" value=""/>
-<input type="hidden" name="<%=Constants.ALGO_RATING_TYPE_ID%>" value=""/>
+<tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>"/>
+<tc-webtag:textInput name="<%=DataAccessConstants.END_RANK%>"/>
+<tc-webtag:textInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+<tc-webtag:textInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+<tc-webtag:textInput name="<%=Constants.PHASE_ID%>"/>
+<tc-webtag:textInput name="<%=Constants.ALGO_RATING_TYPE_ID%>"/>
 
 <br><br>
 Enter a member's handle here to narrow the chart down to just that member:<br>
