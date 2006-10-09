@@ -573,7 +573,10 @@ public class Project implements Serializable {
 
     public void setPartOfDigitalRun(boolean partOfDigitalRun) {
         isPartOfDigitalRun = partOfDigitalRun;
-    }/* (non-Javadoc)
+    }
+
+
+    /* (non-Javadoc)
      * @see java.lang.Object#equals(java.lang.Object)
      */
     public boolean equals(Object o) {
