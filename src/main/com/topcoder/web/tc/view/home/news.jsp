@@ -6,9 +6,9 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
-<%-------------------------------------------------POST MONDAY 10.09.06
+<%--------------------------------------------------------%>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>10.09.06<br>9:00 AM</td>
+        <br>10.09.06<br>3:50 PM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=100906">Design Patterns in C++, Part 2</A></span><br><br>
@@ -23,7 +23,7 @@
     <tc-webtag:forumLink forumID="506131" message="discuss this"/> |
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
--------%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.09.06<br>9:00 AM</td>
@@ -191,19 +191,3 @@ online round.
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=513341">discuss this</A> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>10.02.06<br>1:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/longcontest/?module=ViewOverview&rd=10105">Intel&#174; Multi-Threading Competition 9 Results</A>
-      </span><br><br>
-      Congratulations to <tc-webtag:handle coderId="15600321" /> for winning the Intel&#174; Multi-Threading Competition 9.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/longcontest/?module=ViewOverview&rd=10105">results</A> | 
-         <tc-webtag:forumLink forumID="506106" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
-   </td></tr>
-

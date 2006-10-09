@@ -46,7 +46,7 @@ function makeNavigable(){
 <style type="text/css">
 .codeBox
 {
-   width: 600;
+   width: 620;
    padding: 10px;
    margin: 20px;
    color: #333;
@@ -103,7 +103,7 @@ Part One of this article covered the Strategy, Adaptor and Iterator design patte
 <span class="bodySubtitle">Facade</span><br>
 In systems where a substantial amount of abstraction has been applied -- whether through the use of design patterns, generic programming or something else entirely -- the scope of each programmatic entity will be rather small.  Such systems can be very flexible, but can also be somewhat hard to use.  In these cases, the Facade design pattern can provide a simple, unified way to use the system.  Facade classes that hold and manage some state must be represented in C++ as, well, classes.  Facades that do not manage any state, however, can be better represented as free functions (or immutable global function objects).  An example of such a Facade would be the GoF's Compiler class.
 <br><br>
-Facades, while useful, do not normally retain genericness (yes, that is a word), as, by definition, they are meant to simplify.  For example, the GoF's Compiler class provides one method to compile that takes a std::istream, the stream of characters used as input, and a ByteCodeStream, the output stream to which compiled bytecode is written.  It then goes ahead and assumes that the Scanner, Parser, ProgramNodeBuilder and RISCCodeGenerator classes should be used.  This may be enough for conventional use of the system, but in the off chance that a custom parser or code generator is called for the Facade class does little to help.  The process of compilation is exactly the same no matter what types are used, however, so the code the Compiler class uses would need to be duplicated.  In C++, this problem can be mended by moving those types to the particular function's argument list, and providing default arguments:
+Facades, while useful, do not normally retain genericness (yes, that is a word), as, by definition, they are meant to simplify.  For example, the GoF's Compiler class provides one method to compile that takes a std::istream, the stream of characters used as input, and a ByteCodeStream, the output stream to which compiled bytecode is written.  It then goes ahead and assumes that the Scanner, Parser, ProgramNodeBuilder and RISCCodeGenerator classes should be used.  This may be enough for conventional use of the system, but in the off chance that a custom parser or code generator is called for the Facade class does little to help.  The process of compilation is exactly the same no matter what types are used, however, so the code the Compiler class uses would need to be duplicated.  Theoretically, this problem can be mended by moving those types to the particular function's argument list, and providing default arguments:
 <pre class="codeBox">
 // Free function used, instead of a Compiler class to reduce the amount of overall text.
 template &lt;
@@ -114,7 +114,7 @@ template &lt;
 &gt;
 inline void compile(
 	std::istream &amp;        input,
-	ByteCodeStream &amp;      output
+	ByteCodeStream &amp;      output,
 	ScannerT const&amp;       scanner   = Scanner(),
 	NodeBuilderT const&amp;   builder   = ProgramNodeBuilder(),
 	ParserT const&amp;        parser    = Parser(),
@@ -124,13 +124,13 @@ inline void compile(
 	...
 }
 </pre>
-This allows users to use both the default behavior and custom, user-specified behavior, all through the same interface -- but it also comes with a rather annoying side effect.  If you wanted only to replace the RISCCodeGenerator with a custom generator, for example, the custom generator would obviously need to be supplied; since it is the last argument in the compile function, though, all others must be provided as well. This effectively defeats the purpose of using default parameters.  Further, in cases where function calls pass parameters in an incorrect order, subtle, hard to find bugs may arise.  The only way around this is to use named parameters, a feature that is not part of C++.  Fortunately, there is library support, in the form of Boost.Parameter.  A call to an implementation of the compile function that uses Boost.Parameter (not shown here) would look like this:
+Unfortunately, this is will not work as expected, but assuming it will, it would allow users to use both, the default behavior and custom, user specified behavior, all through the same interface. It would also come with a rather annoying side effect. Say it is desired only to replace the RISCCodeGenerator with a custom generator, for example, the custom generator would obviously need to be supplied; since it is the last argument in the compile function, though, all others must be provided as well. This effectively defeats the purpose of using default parameters. Further, in cases where function calls pass parameters in an incorrect order, subtle, hard to find bugs may arise. The only way around this is to use named parameters, a feature that is not part of C++.  Fortunately, there is library support, in the form of Boost.Parameter.  A call to an implementation of the compile function that uses Boost.Parameter (not shown here) would look like this:
 <pre class="codeBox">
 	std::istream &amp; in = ...;
 	ByteCodeStream &amp; out = ...;
 
-	// Parameter names may conflict with other names, so it would be a good idea to place them in 
-	// their own namespace, or use a common naming convention.
+	// Parameter names may conflict with other names, so it would be a good idea
+	// to place them in their own namespace, or use a common naming convention.
 	//
 	// All parameters that are not given are set to their default values.
 	compile(param::input = in, param::output = out, param::generator = MyGenerator());
@@ -152,16 +152,18 @@ In cases where further abstraction can be realized in encapsulated algorithms, t
 <pre class="codeBox">
 	using namespace boost::spirit;
 
-	// The scanner type is a utility Spirit uses to iterate over the supplied text, provide skipping 
-	// functionality, etc.  It is to be deprecated in Spirit 2.
+	// The scanner type is a utility Spirit uses to iterate over the supplied text, 
+	// provide skipping functionality, etc. It is to be deprecated in Spirit 2.
 	typedef ... scanner_t;
 
-	// int_p is a constant global variable that, alone, parses integers.  '+' gets converted to
-	// chlit&lt;char&gt;('+') in the &gt;&gt; operator's execution.  chlit&lt;char&gt; parses a single character.
+	// int_p is a constant global variable that, alone, parses integers.  '+' gets 
+	// converted to chlit&lt;char&gt;('+') in the &gt;&gt; operator's execution.
+	// chlit&lt;char&gt; parses a single character.
 	rule&lt;scanner_t&gt; my_rule = int_p &gt;&gt; '+' &gt;&gt; int_p;
 
-	// Parse some text by calling the parse free function.  parse returns a parse_info&lt;...&gt; instance 
-	// which has a member, full, that tells if parsing succeeded.
+	// Parse some text by calling the parse free function.  parse returns a 
+	// parse_info&lt;...&gt; instance which has a member, full, that tells
+	// if parsing succeeded.
 	bool success = parse("123 + 321", my_rule, space_p /*the skip parser*/).full;
 </pre>
 
