@@ -1250,10 +1250,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
      */
     private void doAddAffidavit(HttpServletRequest request, HttpServletResponse response) throws Exception {
     	log.warn("Using deprecated processor, please use module=AddAffidavit insted");
-    	/*forward("/PactsInternalServlet?module=AddAffidavit&user_id" + request.getParameter(USER_ID) +
-    			(request.getParameter(PAYMENT_ID) == null? "" : 
-    				"&payment_id=" + request.getParameter(PAYMENT_ID)), request, response);
-    	*/
     	if (request.getParameter(PAYMENT_ID) == null) {
     		forward(Links.addAffidavit(Long.parseLong(request.getParameter(USER_ID))), request, response);
     	} else {
@@ -1439,7 +1435,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     	if (request.getParameter(CONTRACT_ID) != null) {
     		forward(Links.addContractPayment(Long.parseLong(request.getParameter(CONTRACT_ID))), request, response);
     	} else {
-    		forward(Links.addPayment(Long.parseLong(request.getParameter(PAYMENT_ID))), request, response);
+    		forward(Links.addPayment(Long.parseLong(request.getParameter(USER_ID))), request, response);
     	}
         /*
     	log.debug("doAddPayment<br>");
@@ -1852,7 +1848,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     */
     private void doPayment(HttpServletRequest request, HttpServletResponse response) throws Exception {
     	log.warn("Using deprecated processor, please use module=ViewPayment insted");
-    	forward("/PactsInternalServlet?module=ViewPayment&payment_id=" + request.getParameter(PAYMENT_ID), request, response);
+    	forward(Links.viewPayment(Long.parseLong(request.getParameter(PAYMENT_ID))), request, response);
 /*    	
         log.debug("doPayment<br>");
 

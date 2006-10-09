@@ -1862,7 +1862,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 } else if (key.equals(METHOD_CODE)) {
                     whereClauses.append(" AND pd.payment_method_id IN (" + value + ")");
                 } else if (key.equals(PROJECT_ID)) {
-                    whereClauses.append(" AND pd.project_id = " + value);
+                    whereClauses.append(" AND pd.component_project_id = " + value);
                 } else if (key.equals(LOWEST_NET_AMOUNT)) {
                     whereClauses.append(" AND pd.net_amount >= " + value);
                 } else if (key.equals(HIGHEST_NET_AMOUNT)) {
