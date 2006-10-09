@@ -132,7 +132,7 @@
         <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
         <tc-webtag:hiddenInput name="<%=Constants.CODER_ID%>"/>
         <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-            <tr><td class="title" colspan="9">
+            <tr><td class="title" colspan="7">
                 Algorithm Competition History
             </td></tr>
             <tr>
@@ -157,12 +157,6 @@
                 <TD CLASS="headerC">
                     <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Rank</a>
                 </TD>
-                <TD CLASS="headerR">
-                    <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Earnings</a>
-                </TD>
-                <TD CLASS="headerC">
-                    <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true"/>">Payment
-                        Type</a></TD>
             </tr>
             <%boolean even = true;%>
             <rsc:iterator list="<%=rsc2%>" id="resultRow">
@@ -182,14 +176,6 @@
                     <TD class="valueR"><rsc:item name="new_rating" row="<%=resultRow%>"/></TD>
                     <TD class="valueR"><rsc:item name="vol" row="<%=resultRow%>"/></TD>
                     <TD class="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></TD>
-                    <TD class="valueR">
-                        <% if (resultRow.getItem("paid").getResultData() != null && resultRow.getDoubleItem("paid") > 0) { %>
-                        $&nbsp;<rsc:item name="paid" row="<%=resultRow%>" format="0.00"/>
-                        <% } else { %>
-                        &nbsp;
-                        <% } %>
-                    </TD>
-                    <TD class="valueC" nowrap="nowrap"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
                 </tr>
                 <%even = !even;%>
             </rsc:iterator>
