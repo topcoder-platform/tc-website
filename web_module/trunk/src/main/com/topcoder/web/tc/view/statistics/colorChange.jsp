@@ -55,6 +55,7 @@
         document.colorChangeForm.<%=DataAccessConstants.END_RANK%>.value =<%=changeList.getEndRow()+Constants.COLOR_CHANGE_SCROLL_SIZE%>;
         document.colorChangeForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
         document.colorChangeForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+        document.colorChangeForm.<%=Constants.COLOR%>.value = '<%=request.getParameter(Constants.COLOR)==null?"":request.getParameter(Constants.COLOR)%>';
         document.colorChangeForm.submit();
     }
     function previous() {
@@ -62,6 +63,7 @@
         document.colorChangeForm.<%=DataAccessConstants.END_RANK%>.value =<%=changeList.getEndRow()-Constants.COLOR_CHANGE_SCROLL_SIZE%>;
         document.colorChangeForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
         document.colorChangeForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+        document.colorChangeForm.<%=Constants.COLOR%>.value = '<%=request.getParameter(Constants.COLOR)==null?"":request.getParameter(Constants.COLOR)%>';
         document.colorChangeForm.submit();
     }
     //--></script>
@@ -123,6 +125,7 @@ This chart shows all instances of a member changing handle colors in the last 30
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 <tc-webtag:hiddenInput name="<%=Constants.PHASE_ID%>"/>
 <tc-webtag:hiddenInput name="<%=Constants.ALGO_RATING_TYPE_ID%>"/>
+<tc-webtag:hiddenInput name="<%=Constants.COLOR%>"/>
 
 <div align="center">
 Enter a member's handle here to narrow the chart down to just that member:<br>
