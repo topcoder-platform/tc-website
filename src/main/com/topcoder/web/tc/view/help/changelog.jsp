@@ -44,7 +44,7 @@
 
 
 <p>
-    5.4.15 - 2006.10.xx
+    5.4.15 - 2006.10.09
     <ul>
         <li>
             Add throttle so that the speed as which users can use the site is limited. (It's unlikely to be relevant in
