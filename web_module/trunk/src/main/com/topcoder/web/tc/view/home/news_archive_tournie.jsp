@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">10.09.06 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol">AOL SRM 322 chat session</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.04.06 5:00 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=220">andrey_atlas is the TCHS07 Logo Contest Winner!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.02.06 5:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA SRM 321 chat session</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.28.06 5:00 PM - </td><td width="100%">Finalists for the TCCC06 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_bracket">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_bracket">Development</A> Competitions</td></tr>
