@@ -190,7 +190,7 @@
             	<tc-webtag:handle coderId="<%=message.getUser().getID()%>"/>
             </td>
             <% } else { %>
-            <td class="rtThreadCell" style="width: 100px;"></td>
+            <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
             <% } %>
             <% } else { %>
             <td class="rtThreadCell" style="width: 270px;">&nbsp;</td>
@@ -206,8 +206,10 @@
 <table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
         <td class="rtHeader" width="100%">Category</td>
-        <td class="rtHeader"><% if (forumCategory.getID() != 1) { %>T./M.<% } %></td>
-        <td class="rtHeader" align="center" colspan="2">Last Post</td>
+        <td class="rtHeader"><div style="width:80px;"><% if (forumCategory.getID() != 1) { %>T./M.<% } %></div></td>
+        <td class="rtHeader" align="center" colspan="2" nowrap="nowrap">
+        	<div style="width:320px;"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></div>
+        </td>
     </tr>
     <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categories")%>'>
         <% if (forumCategory.getID() == 1) {
@@ -227,21 +229,23 @@
                 <% if (category.getDescription() != null) { %><br/>
 
                 <div class="rtDescIndent"><%=category.getDescription()%></div><% } %></td>
-            <td class="rtThreadCell"><% if (forumCategory.getID() != 1) { %><%=category.getThreadCount()%>
-                &#160;/&#160;<%=category.getMessageCount()%><% } %></td>
+            <td class="rtThreadCell" style="width: 80px;"><% if (forumCategory.getID() != 1) { %>
+                <%=category.getThreadCount()%>&#160;/&#160;<%=category.getMessageCount()%><% } %></td>
             <% if (category.getLatestMessage() != null) { %>
             <tc-webtag:useBean id="message" name="category" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
-            <td class="rtThreadCell"><b>
+            <td class="rtThreadCell" style="width: 270px;"><b>
                 <tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></b>
             </td>
             <% if (message.getUser() != null) { %>
-            <td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
+            <td class="rtThreadCell" style="width: 100px;">
+            	<tc-webtag:handle coderId="<%=message.getUser().getID()%>"/>
+            </td>
             <% } else { %>
-            <td class="rtThreadCell">&nbsp;</td>
+            <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
             <% } %>
             <% } else { %>
-            <td class="rtThreadCell">&nbsp;</td>
-            <td class="rtThreadCell">&nbsp;</td>
+            <td class="rtThreadCell" style="width: 270px;">&nbsp;</td>
+            <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
             <% } %>
         </tr>
     </tc-webtag:iterator>
