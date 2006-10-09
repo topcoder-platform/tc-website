@@ -89,9 +89,9 @@
     <jsp:param name="title" value="<%="Recent Handle Color Changes - "+titleName%>"/>
 </jsp:include>
 
-This chart shows all instances of a competitor changing handle colors in the last 30 days.
 
 <div align="center">
+This chart shows all instances of a competitor changing handle colors in the last 30 days.<br>
     <strong>
         <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;${typeParam}" class="bcLink">All
             changes</A>
@@ -120,6 +120,10 @@ This chart shows all instances of a competitor changing handle colors in the las
         <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ColorChange&amp;<%=Constants.COLOR%>=Red&amp;${typeParam}" class="coderTextRed">New
             reds</A><c:if test="${param.color=='Red'}"></span></c:if>
     </strong>
+<br><br>
+Enter a member's handle here to narrow the chart down to just that member:<br>
+<input name="ha" type="text">
+<button name="handleSubmit" value="submit" type="submit">Submit</button>
 </div>
 
 
