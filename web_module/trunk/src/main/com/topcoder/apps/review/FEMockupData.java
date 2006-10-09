@@ -487,7 +487,7 @@ public final class FEMockupData {
                                 "notes notes notes",
                                 "overview overview overview",
                                 userProjectInfos[i].getProjectType(),
-                                projectStatuses[0], true, -1, -1, 1, 1, 100, false, false, false);
+                                projectStatuses[0], true, -1, -1, 1, 1, 100, false, false, false, true);
             }
 
             // Test case reviews
