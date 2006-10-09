@@ -42,6 +42,7 @@ public class ColorChange extends Base {
                 } else {
                     getRequest().setAttribute("context", HandleTag.HS_ALGORITHM);
                 }
+                setDefault(Constants.ALGO_RATING_TYPE_ID, ratingType);
             } else {
                 //it's a component thing
                 r.setContentHandle("component_color_change");
@@ -52,6 +53,7 @@ public class ColorChange extends Base {
                 } else {
                     getRequest().setAttribute("context", HandleTag.DEVELOPMENT);
                 }
+                setDefault(Constants.PHASE_ID, phase);
             }
 
             //the idea here is that we cache the whole set (it shouldn't be that big) and then filter
