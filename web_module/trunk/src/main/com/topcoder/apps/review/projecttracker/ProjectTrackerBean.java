@@ -3,14 +3,11 @@
  */
 package com.topcoder.apps.review.projecttracker;
 
-import com.topcoder.apps.review.ConcurrentModificationException;
-import com.topcoder.apps.review.GeneralSecurityException;
+import com.topcoder.apps.review.*;
 import com.topcoder.apps.review.document.*;
 import com.topcoder.apps.review.persistence.Common;
 import com.topcoder.apps.review.security.*;
-import com.topcoder.apps.review.StartDateCalculator;
-import com.topcoder.apps.review.ConfigHelper;
-
+import com.topcoder.project.phases.TCPhase;
 import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
@@ -22,13 +19,10 @@ import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.policy.PermissionCollection;
 import com.topcoder.security.policy.PolicyRemote;
 import com.topcoder.security.policy.PolicyRemoteHome;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.util.errorhandling.BaseException;
 import com.topcoder.util.idgenerator.bean.IdGen;
 import com.topcoder.util.idgenerator.bean.IdGenHome;
-import com.topcoder.util.errorhandling.BaseException;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.project.phases.TCPhase;
-import com.topcoder.apps.review.TCWorkdays;
-
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
@@ -122,7 +116,10 @@ public class ProjectTrackerBean implements SessionBean {
                             "p.level_id, " +
                             "p.autopilot_ind, " +
                             "p.response_during_appeals_ind, " +
-                            "(select category_id from comp_categories where component_id = cc.component_id and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand " +
+                            "(select category_id from comp_categories " +
+                                "where component_id = cc.component_id " +
+                                "and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand, " +
+                            " p.digital_run_ind "+
                             "FROM project p, comp_versions cv, " +
                             "comp_catalog cc, " +
                             "comp_categories ccat, categories cat, categories pcat " +
@@ -155,6 +152,7 @@ public class ProjectTrackerBean implements SessionBean {
                 boolean autopilot = rs.getBoolean(15);
                 boolean responseDuringAppeals = rs.getBoolean(16);
                 boolean aolComponent = (rs.getObject(17) != null);
+                boolean isPartOfDigitalRun = rs.getBoolean(18);
 
                 ProjectTypeManager projectTypeManager = (ProjectTypeManager) Common.getFromCache("ProjectTypeManager");
                 ProjectType projectType = projectTypeManager.getProjectType(projectTypeId);
@@ -231,7 +229,7 @@ public class ProjectTrackerBean implements SessionBean {
                         projectStatus, notificationSent,
                         templateId[0], templateId[1],
                         requestor.getUserId(), projectVersionId, levelId, autopilot,
-                        responseDuringAppeals, aolComponent);
+                        responseDuringAppeals, aolComponent, isPartOfDigitalRun);
                 project.setCatalog(catalogName);
 
             }
@@ -595,8 +593,8 @@ public class ProjectTrackerBean implements SessionBean {
                                     "winner_id, overview, " +
                                     "notes, project_type_id, project_stat_id, notification_sent, " +
                                     "modify_user, modify_reason, level_id, autopilot_ind, " +
-                                    "cur_version, rating_date,response_during_appeals_ind) VALUES " +
-                                    "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, (select end_date from phase_instance where cur_version = 1 and phase_id = 1 and project_id = ?), ?)");
+                                    "cur_version, rating_date,response_during_appeals_ind, digital_run_ind) VALUES " +
+                                    "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, (select end_date from phase_instance where cur_version = 1 and phase_id = 1 and project_id = ?), ?, ?)");
 
                     PhaseInstance[] piArr = project.getTimeline();
                     currentPhase = project.getCurrentPhase();
@@ -655,6 +653,7 @@ public class ProjectTrackerBean implements SessionBean {
                     ps.setLong(12, project.getLevelId());
                     ps.setBoolean(13, project.getAutoPilot());
                     ps.setBoolean(15, project.getResponseDuringAppeals());
+                    ps.setInt(16, project.isPartOfDigitalRun()?1:0);
                     ps.setLong(14, project.getId());
                     int nr = ps.executeUpdate();
 
