@@ -63,7 +63,6 @@ if ( plugin ) {
             <tr><td class="catNW">Reliability:</td><td class="statRNW"><A href="/tc?module=ReliabilityDetail&ph=113&uid=<%=request.getParameter("cr")%>"><rsc:item name="reliability" set="<%=rscDevData%>" format="#.##%" ifNull="n/a"/></A></td></tr>
             <tr><td class="catNW">Maximum Rating:</td><td class="statRNW"><rsc:item name="max_rating" set="<%=rscDevData%>" format="####"/></td></tr>
             <tr><td class="catNW">Minimum Rating:</td><td class="statRNW"><rsc:item name="min_rating" set="<%=rscDevData%>" format="####"/></td></tr>
-            <tr><td class="catNW">Earnings:</td><td class="statRNW"><A href='/tc?module=CompetitionHistory&<%=Constants.PHASE_ID%>=113&cr=<%=request.getParameter("cr")%>'><rsc:item name="earnings" set="<%=rscDevData%>" format="$#,##0.00"/></A></td></tr>
          </table>
       </td>
       <td width="75%" valign="top">
