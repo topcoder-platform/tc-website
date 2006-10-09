@@ -65,6 +65,7 @@ public class Project implements Serializable {
     private long levelId;
     private boolean autopilot;
     private boolean responseDuringAppeals;
+    private boolean isPartOfDigitalRun;
 
     private boolean aolComponent;
 
@@ -84,12 +85,13 @@ public class Project implements Serializable {
      * @param projectType DOCUMENT ME!
      * @param requestorId DOCUMENT ME!
      * @param versionId DOCUMENT ME!
+     * @param isPartOfDigitalRun
      */
     public Project(long id, long componentId, long forumId, long compVersId, String name, String version,
-        User projectManager, User winner, PhaseInstance[] timeline, PhaseInstance currentPhase, UserRole[] userRole,
-            String notes, String overView, ProjectType projectType, ProjectStatus projectStatus,
-                boolean notificationSent, long screeningTemplateId, long reviewTemplateId, long requestorId,
-                    long versionId, long levelId, boolean autopilot, boolean responseDuringAppeals, boolean aolComponent) {
+                   User projectManager, User winner, PhaseInstance[] timeline, PhaseInstance currentPhase, UserRole[] userRole,
+                   String notes, String overView, ProjectType projectType, ProjectStatus projectStatus,
+                   boolean notificationSent, long screeningTemplateId, long reviewTemplateId, long requestorId,
+                   long versionId, long levelId, boolean autopilot, boolean responseDuringAppeals, boolean aolComponent, boolean isPartOfDigitalRun) {
         this.id = id;
         this.componentId = componentId;
         this.forumId = forumId;
@@ -114,6 +116,7 @@ public class Project implements Serializable {
         this.autopilot = autopilot;
         this.responseDuringAppeals = responseDuringAppeals;
         this.aolComponent = aolComponent;
+        this.isPartOfDigitalRun = this.isPartOfDigitalRun;
     }
 
     /**
@@ -335,7 +338,7 @@ public class Project implements Serializable {
      * Set the winner of this project.
      * </p>
      *
-     * @param winner The winner of this project.
+     * @param submitter winner of this project.
      */
     public void setWinner(User submitter) {
         this.winner = submitter;
@@ -465,7 +468,7 @@ public class Project implements Serializable {
      * Set the project status.
      * </p>
      *
-     * @param type The project status to be set.
+     * @param status project status to be set.
      */
     public void setProjectStatus(ProjectStatus status) {
         if (!Common.equals(this.projectStatus, status)) {
@@ -490,7 +493,7 @@ public class Project implements Serializable {
      * Set whether the project notification has been sent.
      * </p>
      *
-     * @param isPMReviewed Whether the project notification has been sent.
+     * @param isSent Whether the project notification has been sent.
      */
     public void setNotificationSent(boolean isSent) {
         if (this.isNotificationSent() != isSent) {
@@ -525,7 +528,7 @@ public class Project implements Serializable {
     }
 
     /**
-     * @param screeningeTemplateId The screeningeTemplateId to set.
+     * @param screeningTemplateId The screeningeTemplateId to set.
      */
     public void setScreeningTemplateId(long screeningTemplateId) {
         if (this.screeningTemplateId != screeningTemplateId) {
@@ -564,7 +567,13 @@ public class Project implements Serializable {
     }
 
 
-    /* (non-Javadoc)
+    public boolean isPartOfDigitalRun() {
+        return isPartOfDigitalRun;
+    }
+
+    public void setPartOfDigitalRun(boolean partOfDigitalRun) {
+        isPartOfDigitalRun = partOfDigitalRun;
+    }/* (non-Javadoc)
      * @see java.lang.Object#equals(java.lang.Object)
      */
     public boolean equals(Object o) {
