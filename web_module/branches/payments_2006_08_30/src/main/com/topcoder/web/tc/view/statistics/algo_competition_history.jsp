@@ -108,10 +108,10 @@
 
     <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=coderId%>' context='algorithm'/></span>
     <br>
-    <span class="bodySubtitle">Algorithm Statistics&#160;>&#160;</span><br>
+    <span class="bodySubtitle">Algorithm Statistics > </span><br>
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
-    &#160;|&#160;Competition History
+     | Competition History
 </span>
 
 
