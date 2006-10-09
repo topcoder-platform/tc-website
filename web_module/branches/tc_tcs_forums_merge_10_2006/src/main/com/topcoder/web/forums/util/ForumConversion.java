@@ -17,8 +17,6 @@ import com.topcoder.shared.util.logging.Logger;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.URL;
-import java.net.URLConnection;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -406,18 +404,20 @@ public class ForumConversion {
                     category.setModificationDate(forumModificationDate);
                 }
             }
-
+            
             log.info(forumNum + " out of " + totalForum + " forums have been processed.");
-            if (forumNum > 50) break;
+            if (forumNum > 50) {
+                log.info("Attempting to close connections....");
+                closeConnection(tcConn);
+                closeStatement(forumPS);
+                closeStatement(topicPS);
+                closeStatement(threadPS);
+                closeStatement(postPS);
+                closeStatement(attPS);
+                log.info("Connection should be closed.");
+            	break;
+            }
         }
-        log.info("Attempting to close connections....");
-        closeConnection(tcConn);
-        closeStatement(forumPS);
-        closeStatement(topicPS);
-        closeStatement(threadPS);
-        closeStatement(postPS);
-        closeStatement(attPS);
-        log.info("Connection should be closed.");
     }
 
     /**
