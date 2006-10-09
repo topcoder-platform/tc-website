@@ -24,7 +24,7 @@
 
     <tr>
         <td class="formHandleEven">Rating</td>
-        <td class="formHandleEven" align="right"><% if (coderInfo.getItem(0, "rating").getResultData()==null||coderInfo.getIntItem(0, "rating")<1) { %>Not Rated<% } else { %><rsc:item set="<%=coderInfo%>" name="rating" ifNull="Not Rated"/><% } %></td>
+        <td class="formHandleEven" align="right"><A href="" class="statTextBig"><% if (coderInfo.getItem(0, "rating").getResultData()==null||coderInfo.getIntItem(0, "rating")<1) { %>Not Rated<% } else { %><rsc:item set="<%=coderInfo%>" name="rating" ifNull="Not Rated"/><% } %></A></td>
     </tr>
     <% if (coderInfo.getItem(0, "rating").getResultData()!=null&&coderInfo.getIntItem(0, "rating")>0) { %>
    <tr>
@@ -38,14 +38,14 @@
 
     <tr>
         <td class="formHandleEven">Rating</td>
-        <td class="formHandleEven" align="right"><rsc:item set="<%=coderInfo%>" name="design_rating" ifNull="Not Rated" format="#"/></td>
+        <td class="formHandleEven" align="right"><A href="" class="statTextBig"><rsc:item set="<%=coderInfo%>" name="design_rating" ifNull="Not Rated" format="#"/></A></td>
     </tr>
 
     <tr><td colspan="2" class="myStatsTitle">Development</td></tr>
 
     <tr>
         <td class="formHandleEven">Rating</td>
-        <td class="formHandleEven" align="right"><rsc:item set="<%=coderInfo%>" name="development_rating" ifNull="Not Rated" format="#"/></td>
+        <td class="formHandleEven" align="right"><A href="" class="statTextBig"><rsc:item set="<%=coderInfo%>" name="development_rating" ifNull="Not Rated" format="#"/></A></td>
     </tr>
 </table>
 
