@@ -72,14 +72,14 @@ public class NewSchemaFixUtility extends DBUtility {
             
             pcs = (PactsClientServices) createEJB();
 
-            //processRoomResultAdditions();
-            //processRoomResultConflicts();
-            //processRoomResultCharities();
+            processRoomResultAdditions();
+            processRoomResultConflicts();
+            processRoomResultCharities();
 
-            //processCompCompetitions();
+            processCompCompetitions();
             processCompContests();
             
-            //processRoyalties();
+            processRoyalties();
             
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
@@ -130,8 +130,9 @@ public class NewSchemaFixUtility extends DBUtility {
         query.append("where pd.payment_detail_id = pdx.payment_detail_id and ");
         query.append("p.payment_id = pdx.payment_id and  p.most_recent_detail_id = pd.payment_detail_id ");
         query.append("and p.user_id = user_contest_prize_dw.user_id and pd.component_contest_id = user_contest_prize_dw.contest_id ");
-        query.append("and pd.gross_amount = user_contest_prize_dw.prize_payment) ");
-
+        query.append("and pd.gross_amount = user_contest_prize_dw.prize_payment and ");
+        query.append("pd.payment_type_id = 19 and pd.status_id <> 69) ");
+        
         PreparedStatement psSelCompContests = prepareStatement("informixoltp", query.toString());
         log.debug("Processing component contests:");
 
@@ -167,10 +168,11 @@ public class NewSchemaFixUtility extends DBUtility {
         query.append("where pd.payment_detail_id = pdx.payment_detail_id and ");
         query.append("p.payment_id = pdx.payment_id and pd.algorithm_round_id = room_result_dw.round_id ");
         query.append("and p.user_id = room_result_dw.coder_id and ");
-        query.append("pd.gross_amount = room_result_dw.paid ");
-        query.append(") and exists ( ");
+        query.append("pd.gross_amount = room_result_dw.paid and ");
+        query.append("pd.payment_type_id = 1 and pd.status_id <> 69) and exists ( ");
         query.append("select pd.payment_detail_id from payment_detail pd ");
-        query.append("where pd.algorithm_round_id = room_result_dw.round_id) ");
+        query.append("where pd.algorithm_round_id = room_result_dw.round_id and ");
+        query.append("pd.payment_type_id = 1 and pd.status_id <> 69) ");
 
         PreparedStatement psSelRoomResultsConflicts = prepareStatement("informixoltp", query.toString());
         log.debug("Processing room_result conflicts:");
@@ -206,7 +208,8 @@ public class NewSchemaFixUtility extends DBUtility {
         query.append("where pd.payment_detail_id = pdx.payment_detail_id and ");
         query.append("p.payment_id = pdx.payment_id and pd.algorithm_round_id = room_result_dw.round_id ");
         query.append("and p.user_id = room_result_dw.coder_id and ");
-        query.append("pd.gross_amount = room_result_dw.paid) ");
+        query.append("pd.gross_amount = room_result_dw.paid and ");
+        query.append("pd.payment_type_id = 5 and pd.status_id <> 69) ");
 
         PreparedStatement psSelRoomResultsCharities=  prepareStatement("informixoltp", query.toString());
 
@@ -255,7 +258,8 @@ public class NewSchemaFixUtility extends DBUtility {
         query.append("where room_result_dw.paid > 0 and room_result_dw.payment_type_id = 1 ");
         query.append("and not exists ( ");
         query.append("select pd.payment_detail_id from payment_detail pd ");
-        query.append("where pd.algorithm_round_id = room_result_dw.round_id) ");
+        query.append("where pd.algorithm_round_id = room_result_dw.round_id and ");
+        query.append("pd.payment_type_id = 1 and pd.status_id <> 69) ");
 
         PreparedStatement psSelRoomResultsAddittions =  prepareStatement("informixoltp", query.toString());
 
@@ -293,7 +297,8 @@ public class NewSchemaFixUtility extends DBUtility {
         query.append("where pd.payment_detail_id = pdx.payment_detail_id and ");
         query.append("p.payment_id = pdx.payment_id ");
         query.append("and p.user_id = royalty_dw.user_id and ");
-        query.append("pd.gross_amount = royalty_dw.amount)"); 
+        query.append("pd.gross_amount = royalty_dw.amount and "); 
+        query.append("pd.payment_type_id = 20 and pd.status_id <> 69) ");
         
         PreparedStatement psSelRoyalties =  prepareStatement("informixoltp", query.toString());
 
