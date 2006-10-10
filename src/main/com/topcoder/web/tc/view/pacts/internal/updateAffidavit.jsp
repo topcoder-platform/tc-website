@@ -1,185 +1,180 @@
-<html>
-
-<head>
-<meta http-equiv="Content-Language" content="en-us">
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
-<meta name="ProgId" content="FrontPage.Editor.Document">
-<title>PACTS</title>
-</head>
-
-<body>
-
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.*" %>
-<%
-	Affidavit affidavit = (Affidavit)
-		request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT);
-	ResultSetContainer stati = (ResultSetContainer)
-		request.getAttribute(PactsConstants.STATUS_CODE_LIST);
-	ResultSetContainer affidavitTypes = (ResultSetContainer)
-		request.getAttribute(PactsConstants.AFFIDAVIT_TYPE_LIST);
-	ResultSetContainer rounds = (ResultSetContainer)
-		request.getAttribute(PactsConstants.ROUND_LIST);
-	String message = (String)
-		request.getAttribute("message");
-	if (message == null) {
-		message = "";
-	} else if (affidavit != null) {
-		String param;
-		param = request.getParameter(PactsConstants.IS_NOTARIZED);
-        affidavit.getHeader().setNotarized("true".equals(param));
-		param = request.getParameter("affidavit_status_id");
-		try { if (param != null) affidavit.getHeader().setStatusId(Integer.parseInt(param)); } catch (Exception e) {}
-		param = request.getParameter("affidavit_type_id");
-		try { if (param != null) affidavit.getHeader().setTypeId(Integer.parseInt(param)); } catch (Exception e) {}
-		param = request.getParameter("round_id");
-		try { if (param != null) affidavit.setRoundId(new Long(Long.parseLong(param))); } catch (Exception e) {}
-		param = request.getParameter("affidavit_desc");
-		if (param != null) affidavit.getHeader().setDescription(param);
-	}
-	if (affidavit == null) {
-		out.println("no affidavit!!!<br>");
-		affidavit = new Affidavit();
-	}
-	
-   String dob = request.getParameter("date_of_birth");
-   String fn = request.getParameter("family_name");
-   String a = request.getParameter("aged");
-   if (dob == null) dob = "";
-   if (fn == null) fn = "";
-   if (a == null) a = "";
-%>
+<%@ page contentType="text/html;charset=utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="pacts.tld" prefix="pacts" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Update Affidavit</title>
+    
+<c:set var="payment" value="${requestScope.payment}"/>
+<c:set var="user" value="${requestScope.user}"/>
+<c:set var="affidavitId" value="${requestScope.affidavitId}"/>
+<c:set var="isAffirmed" value="${requestScope.isAffirmed}"/>
+<c:set var="isFromIndia" value="${requestScope.isFromIndia}"/>
+<c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />
+<c:set var="typeList" value="<%= request.getAttribute(PactsConstants.AFFIDAVIT_TYPE_LIST) %>" />
+<c:set var="roundList" value="<%= request.getAttribute(PactsConstants.ROUND_LIST) %>" />
+
+    <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
+    <script type="text/javascript" src="/js/jscal/calendar.js"></script>
+    <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
+    <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
+    <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
+        
+<script type="text/javascript" src="/js/taconite-client.js"></script>
+<script type="text/javascript" src="/js/taconite-parser.js"></script>
+<script type="text/javascript">
+
+function toggleDiv(divId, state) 
+{
+    if(document.layers)	  
+    {
+       document.layers[divId].visibility = state ? "show" : "hide";
+    }
+    else if(document.getElementById)
+    {
+        document.getElementById(divId).style.visibility = state ? "visible" : "hidden";
+    }
+    else if(document.all)
+    {
+        document.all[divId].style.visibility = state ? "visible" : "hidden";
+    }
+}
+
+function statusChanged() {
+    <c:if test="${not isAffirmed}">
+    var affirming = document.f.affidavit_status_id.value == <%= PactsConstants.AFFIDAVIT_AFFIRMED_STATUS%>;
+    </c:if>
+    <c:if test="${isAffirmed}">
+    var affirming = false;
+    </c:if>
+    var fromIndia = false;
+    <c:if test="${isFromIndia}">
+    fromIndia = true;
+    </c:if>
+	toggleDiv('BirthdayRow', affirming);
+	toggleDiv('FamilyNameRow', affirming && fromIndia);
+	toggleDiv('AgedRow', affirming && fromIndia);
+}
+
+</script>    
+</head>
+<body onLoad="statusChanged()" >
+
+
 
 <h1>PACTS</h1>
 <h2>Update Affidavit</h2>
 
-<%		out.print("<font color=\"#FF0000\">" + message + "</font>");
-		out.print("<form action=\"" + PactsConstants.INTERNAL_SERVLET_URL);
-		out.print("\" method=\"post\">");
 
-		out.print("<input type=\"hidden\" name=\""+PactsConstants.TASK_STRING+"\" value=\""+PactsConstants.UPDATE_TASK+"\">");
-		out.print("<input type=\"hidden\" name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.AFFIDAVIT_CMD+"\">");
-		out.print("<input type=\"hidden\" name=\""+PactsConstants.AFFIDAVIT_ID+"\" value=\""+affidavit.getHeader().getId()+"\">");
-		out.print("<input type=\"hidden\" name=\""+PactsConstants.PAYMENT_ID+"\" value=\""+affidavit.getPayment().getId()+"\">");
-%>
-		<table border="0" cellpadding="5" cellspacing="5">
+<form name="f" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
+  <input type="hidden" name="<%=PactsConstants.USER_ID%>" value="${user.id}"/>
+  <input type="hidden" name="module" value="UpdateAffidavit"/>
+  <input type="hidden" name="affidavit_id" value="${affidavitId }"/>
+		<table cellpadding=2" cellspacing="2" border="0">
 		<tr>
-		<td><b>User:</b></td>
-<% 			out.print("<td><a href=\"");
-			out.print(PactsConstants.INTERNAL_SERVLET_URL);
-			out.print("?"+PactsConstants.TASK_STRING+"=");
-			out.print(PactsConstants.VIEW_TASK+"&");
-			out.print(PactsConstants.CMD_STRING+"=");
-			out.print(PactsConstants.USER_CMD+"&");
-			out.print(PactsConstants.USER_ID+"=");
-			out.print(affidavit.getHeader().getUser().getId());
-			out.print("\">"+affidavit.getHeader().getUser().getHandle()+"</a></td>\n");
-%>
+	        <td colspan="2">
+    	    	<tc-webtag:errorIterator id="err" name="error">
+    	    		<font color="#FF0000"><%=err%></font><br/>
+    	    	</tc-webtag:errorIterator>
+        	</td>
+        </tr>
+		<tr>
+			<td><b>User</b></td>
+			<td><a href="${pacts:viewUser(user.id)}"><c:out value="${user.handle}" /></a></td>			
 		</tr>
 		<tr>
-		<td><b>Notarized:</b></td><td>
-<%		out.print("<input type=\"radio\" name=\""+PactsConstants.IS_NOTARIZED+"\" value=\"true\"");
-		if (affidavit.getHeader().isNotarized()) out.print(" checked");
-		out.print(">Yes<br>");
-		out.print("<input type=\"radio\" name=\""+PactsConstants.IS_NOTARIZED+"\" value=\"false\"");
-		if (!affidavit.getHeader().isNotarized()) out.print(" checked");
-		out.print(">No");
-%>
+			<td><b>Associated Payment:</b></td>
+			<td>
+				<c:choose>
+					<c:when test="${empty payment}">
+						No payment associated. 
+					</c:when>
+					<c:otherwise>
+						<a href="${pacts:viewPayment(payment.id)}"><c:out value="${payment.description}" /></a>
+					</c:otherwise>
+				</c:choose>
+			</td>
+		</tr>
+		<tr>
+			<td><b>Notarized:</b></td>
+			<td class="status">
+				<tc-webtag:radioButton name="is_notarized" value="yes"/>Yes<br/>
+				<tc-webtag:radioButton name="is_notarized" value="no"/>No			
 		</td></tr>
 		<tr>
-		<td><b>Status:</b></td>
+			<td><b>Status:</b></td>
+			<td>
+				<c:choose> 
+					<c:when test="${isAffirmed}">
+	    	        	Affirmed
+	    	        	<input type="hidden" name="affidavit_status_id" value="<%= PactsConstants.AFFIDAVIT_AFFIRMED_STATUS %>">
+	    	        </c:when>
+	    	        <c:otherwise>
+		            	<tc-webtag:rscSelect name="affidavit_status_id" list='${statusList}' fieldText="status_desc" 
+	    	        		fieldValue="status_id" useTopValue="false" onChange="statusChanged()"/>
+	    	        </c:otherwise>
+            	</c:choose>
+			</td>
+		</tr>
+		<tr>
+		<td><b>Description:</b></td>
 		<td>
-		<select name="affidavit_status_id">
-<%		int rowCount;
-		String s;
-		long code;
-		ResultSetContainer.ResultSetRow rsr;
-		if (stati != null) {
-			rowCount = stati.getRowCount();
-			for (int n = 0; n < rowCount; n++) {
-				rsr = stati.getRow(n);
-				code = TCData.getTCInt(rsr,"status_id",0,true);
-				if (affidavit.getHeader().getStatusId() == PactsConstants.AFFIDAVIT_AFFIRMED_STATUS &&
-					code != PactsConstants.AFFIDAVIT_AFFIRMED_STATUS) {
-					continue;
-				}
-				out.print("<option value="+code);
-				s = TCData.getTCString(rsr,"status_desc","default status",true);
-				if (code == affidavit.getHeader().getStatusId()) {
-					out.print(" selected");
-				}
-				out.print(">" + s + "</option>\n");
-			}
-		}
-%>
-		</select>
-		</td>
+			<tc-webtag:textInput name="affidavit_desc" size="60" editable="true" />
+		</td></tr>
+		<tr>		
+			<td><b>Type:<b></td>
+			<td>
+            	<tc-webtag:rscSelect name="affidavit_type_id" list='${typeList}' fieldText="affidavit_type_desc" 
+            		fieldValue="affidavit_type_id" useTopValue="true" topValue="-1" topText="Select Type"/>
+            	
+			</td>
 		</tr>
 		<tr>
-		<td><b>Description:</b></td><td>
-<% out.print("<input type=text width=25 name=\"affidavit_desc\" value=\""+affidavit.getHeader().getDescription()+"\">"); %>
-		</td></tr>
-		<tr>
-		<td><b>Type:</b></td><td>
-		<select name="affidavit_type_id">
-<%		if (affidavitTypes != null) {
-			rowCount = affidavitTypes.getRowCount();
-			for (int n = 0; n < rowCount; n++) {
-				rsr = affidavitTypes.getRow(n);
-				out.print("<option value=");
-				code = TCData.getTCInt(rsr,"affidavit_type_id",0,true);
-				out.print(""+code);
-				s = TCData.getTCString(rsr,"affidavit_type_desc","default affidavit type",true);
-				if (code == affidavit.getHeader().getTypeId()) {
-					out.print(" selected");
-				}
-				out.print(">" + s + "</option>\n");
-			}
-		}
-%>
-		</select>
-		</td></tr>
-		<tr><td><b>Round:</b></td><td>
-		<select name="round_id">
-		<option value="-1">None</option>
-<%		if (rounds != null) {
-			rowCount = rounds.getRowCount();
-			for (int n = 0; n < rowCount; n++) {
-				rsr = rounds.getRow(n);
-				out.print("<option value=");
-				code = TCData.getTCLong(rsr,"round_id",0,true);
-				out.print(""+code);
-				s = TCData.getTCString(rsr,"name","default round name",true);
-				if (code == affidavit.getRoundId().longValue()) {
-					out.print(" selected");
-				}
-				out.print(">" + s + "</option>\n");
-			}
-		}
-%>
-		</select></td></tr>
-		
-		<%	if (affidavit.getHeader().getStatusId() != PactsConstants.AFFIDAVIT_AFFIRMED_STATUS) { %>
-		<tr></tr>
-		<tr><td colspan="2"><b>Required for an affirmed affidavit:</b></td></tr>
-		
-		<tr><td><b>Date of Birth:</b></td><td>
-		<% out.print("<input type=\"text\" name=\"date_of_birth\" value=\""+dob+"\">"); %>
-		</td></tr>
-		<tr><td><b>Family Name (India Only):</b></td><td>
-		<% out.print("<input type=\"text\" name=\"family_name\" value=\""+fn+"\">"); %>
-		</td></tr>
-		<tr><td><b>Aged (India Only):</b></td><td>
-		<% out.print("<input type=\"text\" name=\"aged\" value=\""+a+"\">"); %>
-		</td></tr>
-		<%	} %>
-
+			<td><b>Round:</b></td>
+			<td>
+	            <tc-webtag:rscSelect name="round_id" list='${roundList}' fieldText="name" 
+	            	fieldValue="round_id" useTopValue="true" topValue="-1" topText="No Round"/>
+	        </td>
+		</tr>
+		<tr id="BirthdayRow">
+			<td><b>Birthday:<b></td>
+			<td><tc-webtag:textInput name="date_of_birth" id="date_of_birth" size="10" editable="true" />
+			<button id="trigger_date_of_birth">Set</button></td>
+		</tr>
+		<tr id="FamilyNameRow">
+			<td><b>Family Name:<b></td>
+			<td><tc-webtag:textInput name="family_name" size="30" editable="true" /></td>
+		</tr>
+		<tr id="AgedRow">
+			<td><b>Aged:<b></td>
+			<td><tc-webtag:textInput name="aged" size="4" editable="true" />(If left empty, today's age of coder will be used)</td>
+		</tr>
 </table>
+<script language="javascript" type="text/javascript">
+    <!--
+Calendar.setup(
+{
+ inputField  : "date_of_birth",  
+                    ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",    
+                    button      : "trigger_date_of_birth",     
+                    showsTime   : false,
+                    singleClick  : false,
+                    cache       : true
+}
+);
+                -->
+</script>
 
-<input type=submit>
+<input type="submit" value="Save Affidavit">
 </form>
-<jsp:include page="InternalFooter.jsp" flush="true" />
-</body>
 
+<jsp:include page="InternalFooter.jsp" flush="true" />
+
+</body>
 </html>

@@ -38,6 +38,11 @@ public class NoteHeaderList implements PactsConstants {
 *
 */
     public NoteHeaderList(Map results) {
+        if (results == null) {
+            headerList = new NoteHeader[0];
+            return;
+        }
+
         ResultSetContainer rsc = (ResultSetContainer) results.get(NOTE_HEADER_LIST);
 
         if (rsc == null) {

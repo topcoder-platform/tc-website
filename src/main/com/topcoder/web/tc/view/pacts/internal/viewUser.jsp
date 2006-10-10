@@ -1,3 +1,7 @@
+<%@ page contentType="text/html;charset=utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="pacts.tld" prefix="pacts" %>
 <html>
 
 <head>
@@ -12,8 +16,8 @@
 
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.NoteHeader" %>
 
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants" %>
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.UserProfile" %>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants"%><%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.UserProfile"%>
+
 <%
     UserProfile user = (UserProfile)
             request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT);
@@ -27,7 +31,7 @@
         user = new UserProfile();
     }
 %>
-
+<c:set var="user" value="<%=user %>" />
 <h1>PACTS</h1>
 
 <h2>View User</h2>
@@ -37,6 +41,12 @@
         <td><b>User:</b></td>
         <% out.print("<td>" + user.getHeader().getHandle() + "</td>\n");
         %>
+    </tr>
+
+    <tr>
+        <td><b>Status:</b></td>
+		<td><%= user.getStatus() %></td>
+        
     </tr>
 
     <tr>
@@ -116,6 +126,7 @@
     </tr>
 
 
+
 </table>
 
 <% if (notes.length > 0) {
@@ -133,7 +144,6 @@
 <p>
 
     <%
-
         out.println("<a href=\"" + PactsConstants.INTERNAL_SERVLET_URL + "?");
         out.print(PactsConstants.TASK_STRING + "=" + PactsConstants.LIST_TASK + "&");
         out.println(PactsConstants.CMD_STRING + "=" + PactsConstants.PAYMENT_CMD + "&");
@@ -173,19 +183,13 @@
         out.println("user_id=" + user.getHeader().getId() + "&");
         out.println("object_type=" + PactsConstants.USER_PROFILE_OBJ);
         out.println("\">Add Note</a><br>");
+%>            
+        <a href="${pacts:addPayment(user.header.id)}">Add Payment</a>
+        <br/>
 
-        out.println("<a href=\"" + PactsConstants.INTERNAL_SERVLET_URL + "?");
-        out.print(PactsConstants.TASK_STRING + "=" + PactsConstants.ADD_TASK + "&");
-        out.println(PactsConstants.CMD_STRING + "=" + PactsConstants.PAYMENT_CMD + "&");
-        out.println(PactsConstants.USER_ID + "=" + user.getHeader().getId());
-        out.println("\">Add Payment</a><br>");
-
-        out.println("<a href=\"" + PactsConstants.INTERNAL_SERVLET_URL + "?");
-        out.print(PactsConstants.TASK_STRING + "=" + PactsConstants.ADD_TASK + "&");
-        out.println(PactsConstants.CMD_STRING + "=" + PactsConstants.AFFIDAVIT_CMD + "&");
-        out.println(PactsConstants.USER_ID + "=" + user.getHeader().getId());
-        out.println("\">Add Affidavit</a><br>");
-
+        <a href="${pacts:addAffidavit(user.header.id)}">Add Affidavit</a>
+        <br/>
+<%
         out.println("<a href=\"" + PactsConstants.INTERNAL_SERVLET_URL + "?");
         out.print(PactsConstants.TASK_STRING + "=" + PactsConstants.ADD_TASK + "&");
         out.println(PactsConstants.CMD_STRING + "=" + PactsConstants.CONTRACT_CMD + "&");
@@ -197,7 +201,6 @@
         out.println(PactsConstants.CMD_STRING + "=" + PactsConstants.USER_TAX_FORM_CMD + "&");
         out.println(PactsConstants.USER_ID + "=" + user.getHeader().getId());
         out.println("\">Add Tax Form</a><br>");
-
     %>
 
 

@@ -6,8 +6,9 @@
  */
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
+import com.topcoder.web.ejb.pacts.Constants;
 
-public interface PactsConstants {
+public interface PactsConstants extends Constants {
     // Object types
     // Coordinate with note_type_lu table in the DB
     public static final int USER_PROFILE_OBJ = 4;
@@ -43,15 +44,16 @@ public interface PactsConstants {
     public static final int TCO05_ALGORITHM_AFFIDAVIT = 4;
     public static final int TCO05_COMPONENT_AFFIDAVIT = 5;
 
-    // Payment type codes
-    public static final int CONTEST_PAYMENT = 1;
-    public static final int CONTRACT_PAYMENT = 2;
-    public static final int PROBLEM_PAYMENT = 3;
-    public static final int CODER_REFERRAL_PAYMENT = 4;
-    public static final int CHARITY_PAYMENT = 5;
-    public static final int COMPONENT_PAYMENT = 6;
-    public static final int REVIEW_BOARD_PAYMENT = 7;
-    public static final int ONE_OFF_PAYMENT = 8;
+    // Affidavit statuses
+    public static final int AFFIDAVIT_STATUS_AFFIRMED = 58;
+    public static final int AFFIDAVIT_STATUS_EXPIRED = 59;
+    public static final int AFFIDAVIT_STATUS_PENDING = 57;
+
+    // Types of payment that pay to referrals
+    public static final int[] PAY_REFFERAL_TYPES = {ALGORITHM_CONTEST_PAYMENT, CHARITY_PAYMENT, COMPONENT_PAYMENT, REVIEW_BOARD_PAYMENT,
+        ASSEMBLY_PAYMENT, TESTING_PAYMENT, LOGO_CONTEST_PAYMENT, TC_STUDIO_PAYMENT, CCIP_PAYMENT, DIGITAL_RUN_PRIZE_PAYMENT,
+        DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT, COMPONENT_TOURNAMENT_BONUS_PAYMENT, MARATHON_MATCH_PAYMENT, ALGORITHM_TOURNAMENT_PRIZE_PAYMENT,
+        RELIABILITY_BONUS_PAYMENT, DIGITAL_RUN_TOP_THIRD_PAYMENT};
 
     // Contract type codes
     public static final int DEVELOPMENT_CONTRACT = 1;
@@ -59,9 +61,6 @@ public interface PactsConstants {
     public static final int PROBLEM_WRITER_CONTRACT = 3;
     public static final int PROBLEM_TESTER_CONTRACT = 4;
 
-    // Modficiation rationale codes
-    public static final int MODIFICATION_NEW = 1;
-    public static final int MODIFICATION_STATUS = 8;
 
     // Referral type codes
     public static final int CODER_REFERRAL_TYPE = 40;
@@ -71,13 +70,13 @@ public interface PactsConstants {
 
     // How long before a contest affidavit expires, in days
     public static final int AFFIDAVIT_EXPIRE_TIME = 60;
-    
+
     // How long before a contest payment comes due, in days
     public static final int DUE_DATE_INTERVAL = 28;
-    
+
     // How long before a contest payment expires after the due date, in days
     public static final int PAYMENT_EXPIRE_TIME = 32;
-    
+
 //  How long before a component payment comes due, in days
     public static final int COMPONENT_DUE_DATE_INTERVAL = 14;
 
@@ -117,6 +116,10 @@ public interface PactsConstants {
     // in this format.  Matt and Sam - feel free to change this if you want
     // to use some other format on the front end.
     public static final String DATE_FORMAT_STRING = "MM/dd/yyyy";
+
+    // The same date format but the way JS calendar needs it.
+    public static final String JS_DATE_FORMAT_STRING = "%m/%d/%Y";
+
     // Front-end default for dates that are not filled in
     public static final String EMPTY_DATE_STRING = "00/00/0000";
     // dpecora - Rather than have this constant I would prefer the data classes
@@ -166,6 +169,19 @@ public interface PactsConstants {
     public static final String PROJECT_TERMINATION_STATUS_LIST = "project_termination_status_list";
     public static final String CREATION_DATE_LIST = "creation_date_list";
 
+    public static final String ALGORITHM_ROUND_LIST = "algorithm_round_list";
+    public static final String COMPONENT_PROJECT_LIST = "component_project_list";
+    public static final String ALGORITHM_PROBLEM_LIST = "algorithm_problem_list";
+    public static final String STUDIO_CONTEST_LIST = "studio_contest_list";
+    public static final String COMPONENT_CONTEST_LIST = "component_contest_list";
+    public static final String DIGITAL_RUN_STAGE_LIST = "digital_run_stage_list";
+    public static final String DIGITAL_RUN_SEASON_LIST = "digital_run_season_list";
+    public static final String PARENT_REFERENCE_LIST = "parent_reference_list";
+
+    public static final String PAYMENT = "payment";
+    public static final String USER = "user";
+    public static final String CONTRACT = "contract";
+    
     // Miscellaneous
     public static final String TEXT = "text";
     public static final String ROUND_LIST = "round_list";
@@ -219,52 +235,14 @@ public interface PactsConstants {
     public static final int DATE = 4;
     public static final int STRING = 5;
 
+    public static final int[] ALGORITHM_CONTEST_ROUND_TYPES= {1, 3, 12, 17};
+    public static final int[] MARATHON_MATCH_ROUND_TYPES= {10, 13, 14, 15, 16};
+    public static final int[] ALGORITHM_TOURNAMENT_ROUND_TYPES = {2, 18};
+
     //status_id
 
     public static final int CONTRACT_INACTIVE_STATUS = 50;
     public static final int CONTRACT_ACTIVE_STATUS = 51;
-
-    /* We get a "printed" status once a payment has been printed to a file
-     * for use in importing into quick books
-     * (Deactivated since 6/6/06 - mktong)
-     */
-    //public static final int PRINTED_STATUS = 52;
-
-    /* We get a "paid" status once the checks are in the mail.  A TC rep.
-     * marks payments as having been paid
-     */
-    public static final int PAID_STATUS = 53;
-
-    /* We get a "ready to print" status when a TC rep decides the payments are ready to print */
-    public static final int READY_TO_PRINT_STATUS = 54;
-
-    /* We get an "on hold" status when the payment is going to someone who doesn't have a
-     * tax form on file at the time of the generation of the payment, or the person
-     * is not active at the time of printing
-     */
-    public static final int PAYMENT_ON_HOLD_STATUS = 55;
-
-    /* We get an "owed" status after the associated affidavit is affirmed, or if it's a referral
-     * payment.  In either case, it means we should pay them...
-     */
-    public static final int PAYMENT_OWED_STATUS = 56;
-
-    /* We get a "pending" status if they have a tax form on file at the time
-     * of the generation of the payment
-     */
-    public static final int PAYMENT_PENDING_STATUS = 64;
-
-    /* We get a "canceled" status when old affidavits expire */
-    public static final int PAYMENT_CANCELED_STATUS = 65;
-    
-    /* We get an "expired" status when algorithm payments lapse 60 days without 
-     * receiving the necessary paperwork 
-     */
-    public static final int PAYMENT_EXPIRED_STATUS = 68;
-
-    public static final int AFFIDAVIT_PENDING_STATUS = 57;
-    public static final int AFFIDAVIT_AFFIRMED_STATUS = 58;
-    public static final int AFFIDAVIT_EXPIRED_STATUS = 59;
 
 
     // Criteria descriptors
@@ -338,6 +316,7 @@ public interface PactsConstants {
 
     // servlet and jsps
     public static final String INTERNAL_JSP_DIR = "/pacts/internal";
+    public static final String INTERNAL_AJAX_JSP_DIR = "/pacts/internal/ajax";
     public static final String MEMBER_JSP_DIR = "/pacts/client/";
     public static final String MEMBER_SERVLET_URL = "PactsMemberServlet";
 
@@ -351,7 +330,7 @@ public interface PactsConstants {
     public static final String AFFIDAVIT_TYPE_ID = "aftid";
     public static final String AFFIDAVIT_TEXT = "atxt";
     public static final String PROJECT_TERMINATION_STATUS = "projts";
-    
+
     // affidavit member jsps
     public static final String AFFIDAVIT_TASK = "affidavit";
     public static final String AFFIDAVIT_HISTORY_CMD = "affidavit_history";
@@ -422,6 +401,7 @@ public interface PactsConstants {
     // internal parameters
     public static final String OBJECT_ID = "object_id";
     public static final String OBJECT_TYPE = "object_type";
+    public static final String PAYMENT_TYPE_ID = "payment_type_id";
 
     // request attributes
     public static final String PACTS_INTERNAL_RESULT = "pacts_internal_result";
@@ -474,6 +454,7 @@ public interface PactsConstants {
     public static final String INTERNAL_ADD_NOTE_JSP = INTERNAL_JSP_DIR + "/addNote.jsp";
     public static final String INTERNAL_ADD_USER_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/addUserTaxForm.jsp";
     public static final String INTERNAL_ADD_PAYMENT_JSP = INTERNAL_JSP_DIR + "/addPayment.jsp";
+    public static final String INTERNAL_EDIT_PAYMENT_JSP = INTERNAL_JSP_DIR + "/editPayment.jsp";
     public static final String INTERNAL_ADD_NOTE_LINK_JSP = INTERNAL_JSP_DIR + "/addNoteLink.jsp";
     public static final String INTERNAL_UPDATE_AFFIDAVIT_JSP = INTERNAL_JSP_DIR + "/updateAffidavit.jsp";
     public static final String INTERNAL_UPDATE_CONTRACT_JSP = INTERNAL_JSP_DIR + "/updateContract.jsp";
@@ -485,6 +466,8 @@ public interface PactsConstants {
     public static final String INTERNAL_GENERATE_PAYMENTS = INTERNAL_JSP_DIR + "/generatePayments.jsp";
     public static final String INTERNAL_GENERATE_COMPONENT_PAYMENTS = INTERNAL_JSP_DIR + "/generateComponentPayments.jsp";
     public static final String INTERNAL_CREATE_AFFIDAVIT = INTERNAL_JSP_DIR + "/createAffidavitTemplate.jsp";
+    public static final String INTERNAL_AJAX_SELECT_PAYMENT_TYPE_REFERENCE = INTERNAL_AJAX_JSP_DIR + "/selectPaymentTypeReference.jsp";
+    public static final String INTERNAL_AJAX_FILL_PAYMENT_DATA = INTERNAL_AJAX_JSP_DIR + "/fillPaymentData.jsp";
 
     /*
       veredox - Don't get your panties in a knot.
@@ -503,7 +486,7 @@ public interface PactsConstants {
     public static final String DEFAULT_AFFIDAVIT_PAYMENT_STATUS = "Pending";
     public static final String DEFAULT_AFFIDAVIT_PAYMENT_TYPE = "Contest Payment";
     public static final String DEFAULT_CONTRACT_PAYMENT_TYPE = "Contract Payment";
-    public static final String DEFAULT_PAYMENT_TYPE = "Problem Payment";
+    public static final String DEFAULT_PAYMENT_TYPE = "Algorithm Contest Payment";
     public static final String DEFAULT_PAYMENT_METHOD = "Check";
     //public static final String DEFAULT_CONTRACT_PAYMENT_STATUS = "Inactive";
     //public static final String DEFAULT_PAYMENT_STATUS = "Inactive";

@@ -204,7 +204,7 @@ function goTo(selection){
 	       		description = description.substring(description.indexOf(")")+1).trim();
 	       }
 	       String componentId = "";
-	       String projectId = String.valueOf(payments[i-1].getHeader().getProjectId());
+	       String projectId = String.valueOf(payments[i-1].getHeader().getComponentProjectId());
 	       if (componentIdMap.containsKey(projectId)) {
 	       		componentId = (String)componentIdMap.get(projectId);
 	       }

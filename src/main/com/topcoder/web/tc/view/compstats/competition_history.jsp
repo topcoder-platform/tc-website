@@ -156,7 +156,7 @@
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
     <tc-webtag:hiddenInput name="<%=Constants.CODER_ID%>"/>
     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-        <tr><td class="title" colspan="10">
+        <tr><td class="title" colspan="9">
             <% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) {%>
             Development
             <% } else { %>
@@ -194,9 +194,6 @@
                 </div>
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Points</a>
             </TD>
-            <TD CLASS="headerR" WIDTH="9%">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="9" includeParams="true"/>">Earnings</a>
-            </TD>
             <TD CLASS="headerR" WIDTH="9%" align="right">&#160;</TD>
         </tr>
         <%boolean even = false;%>
@@ -223,9 +220,6 @@
                     <% } else { %>
                     &nbsp;
                     <% } %>
-                </TD>
-                <TD class="valueR">
-                    &nbsp;<rsc:item name="payment" row="<%=resultRow%>" format="$0.00" ifNull=""/>
                 </TD>
                 <TD class="valueR" nowrap="nowrap">
                     <% if (resultRow.getItem("project_id").getResultData() != null) { %>

@@ -15,7 +15,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  * Create Date: May 16, 2006
  */
 public class GenerateComponentPayments extends BaseProcessor implements PactsConstants {
-	
+
     protected void businessProcessing() throws TCWebException {
         try {
             DataInterfaceBean dib = new DataInterfaceBean();
@@ -23,7 +23,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             getRequest().setAttribute(PROJECT_TERMINATION_STATUS_LIST, map.get(PROJECT_TERMINATION_STATUS_LIST));
             setNextPage(INTERNAL_GENERATE_COMPONENT_PAYMENTS);
             setIsNextPageInContext(true);
-            
+
             String projectID = StringUtils.checkNull(getRequest().getParameter(PROJECT_ID)).trim();
             String projectTermStatus = StringUtils.checkNull(getRequest().getParameter(PROJECT_TERMINATION_STATUS));
             String client = StringUtils.checkNull(getRequest().getParameter(PROJECT_CLIENT)).trim();
@@ -32,16 +32,16 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 int[] counts;
                 log.debug("status type " + getRequest().getParameter(PROJECT_TERMINATION_STATUS));
                 counts = bean.generateComponentPayments(Long.parseLong(projectID),
-                		Integer.parseInt(projectTermStatus), client, true);
-                addError(PROJECT_ID, "Success: " + counts[0] + " design/dev payments generated, " + 
-                		counts[1] + " review board payments generated");
+                        Integer.parseInt(projectTermStatus), client, true);
+                addError(PROJECT_ID, "Success: " + counts[0] + " design/dev payments generated, " +
+                        counts[1] + " review board payments generated");
             } else {
-            	if (projectID.equals("")) {
-            		addError(PROJECT_ID, "Error: Missing project id");
-            	}
-            	if (projectTermStatus.equals("")) {
-            		addError(PROJECT_TERMINATION_STATUS, "Error: Missing project termination status");
-            	}
+                if (projectID.equals("")) {
+                    addError(PROJECT_ID, "Error: Missing project id");
+                }
+                if (projectTermStatus.equals("")) {
+                    addError(PROJECT_TERMINATION_STATUS, "Error: Missing project termination status");
+                }
             }
         } catch (NumberFormatException e) {
             addError(PROJECT_ID, "Error: Please enter a value for project id");

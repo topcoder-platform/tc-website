@@ -17,10 +17,11 @@
 
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
+import java.util.Date;
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
-
-import java.util.Map;
 
 public class Payment implements PactsConstants, java.io.Serializable {
     private static Logger log = Logger.getLogger(Payment.class);
@@ -56,15 +57,19 @@ public class Payment implements PactsConstants, java.io.Serializable {
     private String province;
     private String address3;
 
+    // When the event took place. Is not stored in the db, but is needed in order to know if referrals must be paid
+    private Date eventDate;
+
     /**
      * this is used to set the payment when passed a result map
      * by a dipatch bean.  The dispatch bean would have gotten the
      * map as a result of a db query.  If an error occurs, the
      * values will fall back to defaults.
      *
+     *
      * @param results the result map from the dipatch bean
-     * @param row     the row in the specific result set container for this
-     *                object.
+     * @param row the row in the specific result set container for this
+     *        object.
      */
     public Payment(Map results, int row) {
         ResultSetContainer rsc = (ResultSetContainer)
@@ -105,6 +110,8 @@ public class Payment implements PactsConstants, java.io.Serializable {
             methodId = TCData.getTCInt(rRow, "payment_method_id");
             description = TCData.getTCString(rRow, "payment_desc");
             modifiedDate = TCData.getTCDate(rRow, "date_modified");
+
+
             if (row == 0)
                 header = new PaymentHeader(results, row);
             else {
@@ -165,6 +172,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
 
     /**
      * Default constructor.   builds payment with all values set to defaults
+     *
      */
     public Payment() {
         setDefaults();
@@ -200,6 +208,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
         province = "Default Province";
     }
 
+
     /* This contructs the payment as it will be sent to the addPayment
      *  and addAffidavit functions
      *
@@ -219,7 +228,12 @@ public class Payment implements PactsConstants, java.io.Serializable {
     }
 
     public boolean payReferrer() {
-        return typeId == CONTEST_PAYMENT;
+        for (int i = 0; i < PAY_REFFERAL_TYPES.length; i++) {
+            if (header.getTypeId() == PAY_REFFERAL_TYPES[i]) {
+                return true;
+            }
+        }
+        return false;
     }
 
 
@@ -447,6 +461,22 @@ public class Payment implements PactsConstants, java.io.Serializable {
         this.header = header;
     }
 
+    public static Logger getLog() {
+        return log;
+    }
+
+    public static void setLog(Logger log) {
+        Payment.log = log;
+    }
+
+    public Date getEventDate() {
+        return eventDate;
+    }
+
+    public void setEventDate(Date eventDate) {
+        this.eventDate = eventDate;
+    }
+
     public String getProvince() {
         return province;
     }
@@ -462,5 +492,6 @@ public class Payment implements PactsConstants, java.io.Serializable {
     public void setAddress3(String address3) {
         this.address3 = address3;
     }
+
 
 }

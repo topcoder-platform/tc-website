@@ -4,6 +4,7 @@ import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
+import com.topcoder.web.common.StringUtils;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -150,7 +151,7 @@ public abstract class SelectTag extends BaseTag {
             s.append("\"");
             if (selectedValue != null && topValue != null && selectedValue.equals(topValue) ||
                     selectedText != null && topText != null && selectedText.equals(topText)) {
-                s.append(" selected");
+                s.append(" selected=\"selected\"");
             }
             s.append(">");
             s.append(topText == null ? "" : topText);
@@ -179,15 +180,15 @@ public abstract class SelectTag extends BaseTag {
                 }
                 String optionText = getOptionText(option);
                 s.append("<option value=\"");
-                s.append(optionValue);
+                s.append(StringUtils.htmlEncode(optionValue));
                 s.append("\"");
                 if (selectedValue != null && selectedValue.equals(optionValue) ||
                         selectedText != null && selectedText.equals(optionText) ||
                         values != null && values.contains(optionValue)) {
-                    s.append(" selected");
+                    s.append(" selected=\"selected\"");
                 }
                 s.append(">");
-                s.append(optionText);
+                s.append(StringUtils.htmlEncode(optionText));
                 s.append("</option>\n");
             }
         }
