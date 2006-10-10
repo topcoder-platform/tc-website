@@ -59,7 +59,7 @@
 <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A></span>
 <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A></span>
 <br>
-<A href="/stat?c=round_stats&rd=10110">Match Results</A><br>
+<A href="/stat?c=round_overview&er=5&rd=10110">Match Overview</A><br>
 <tc-webtag:forumLink forumID="506110" message="Discuss this match" /></div>
 <span class="bodySubtitle">2006 TopCoder Collegiate Challenge <br> Online Round 2-A</span><br>September 27, 2006
 <br><br>
