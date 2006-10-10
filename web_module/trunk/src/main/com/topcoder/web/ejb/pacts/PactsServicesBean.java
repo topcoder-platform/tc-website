@@ -4609,6 +4609,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 p.setDueDate(dueDate);
                 p.getHeader().getUser().setId(userId);
                 p.setEventDate(eventDate);
+                p.getHeader().setAlgorithmRoundId(roundId);
 
                 String countryCode = winners.getItem(i, "country_code").toString();
                 String text = (String) textMap.get(countryCode);
