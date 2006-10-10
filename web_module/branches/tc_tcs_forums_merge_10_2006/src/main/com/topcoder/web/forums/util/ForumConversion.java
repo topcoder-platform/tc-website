@@ -13,6 +13,7 @@ import com.jivesoftware.forum.ForumMessage;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.forums.ForumConstants;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -200,7 +201,13 @@ public class ForumConversion {
 
             // create a category for topcoder forum
             ForumMaster forum = (ForumMaster) it.next();
-            ForumCategory category = root.createCategory(forum.getName(), forum.getDesc());
+            String categoryName = forum.getName();
+            if (forum.getForumType() == ForumConstants.CUSTOMER_FORUM) {
+            	categoryName += " - " + "Customer Forum";
+            } else if (forum.getForumType() == ForumConstants.DEVELOPER_FORUM) {
+            	categoryName += " - " + "Developer Forum";
+            }
+            ForumCategory category = root.createCategory(categoryName, forum.getDesc());
             category.setCreationDate(forum.getCreation());
             category.setModificationDate(forum.getCreation());
             category.setProperty("status", (forum.getStatus() == 1) ? "active" : "archived");           

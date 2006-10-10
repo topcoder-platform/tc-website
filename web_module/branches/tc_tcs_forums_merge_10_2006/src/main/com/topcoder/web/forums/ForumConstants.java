@@ -40,8 +40,8 @@ public interface ForumConstants {
     public final static String SORT_ORDER = "sortOrder";
     
     public final static String FORUM_TYPE = "ft";
-    public final static String CUSTOMER_FORUM = "1";
-    public final static String DEVELOPER_FORUM = "2";
+    public final static int CUSTOMER_FORUM = 1;
+    public final static int DEVELOPER_FORUM = 2;
     
     public final static Long FORUM_MODERATE_PERMISSION = new Long(1);
     public final static Long FORUM_POST_PERMISSION = new Long(2);
