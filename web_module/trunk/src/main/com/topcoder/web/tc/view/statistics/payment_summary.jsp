@@ -35,32 +35,6 @@
             objPopUp = null;
         }
     </script>
-    <STYLE TYPE="text/css">
-        .popper {
-            display: block;
-            margin: 0px auto 0px auto;
-        }
-
-        #container {
-            text-align: center;
-            position: relative;
-            margin: 0px;
-            padding: 0px;
-        }
-
-        .popUp {
-            font-size: 10px;
-            text-align: center;
-            background-color: #FFFFCC;
-            visibility: hidden;
-            margin: 10px;
-            padding: 3px;
-            position: absolute;
-            white-space: nowrap;
-            border: solid 1px black;
-            z-index: 1;
-        }
-    </STYLE>
 </HEAD>
 
 <BODY>
@@ -132,6 +106,9 @@
             </tr>
             <%even = !even;%>
         </rsc:iterator>
+        <tr>
+            <td class="headerR" colspan="2">Total:&nbsp$0,00</td>
+        </tr>
     </TABLE>
     <p><br></p>
     <!-- END BODY -->
