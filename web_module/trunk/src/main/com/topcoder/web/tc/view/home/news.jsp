@@ -12,7 +12,7 @@
         <br>10.10.06<br>1:30 PM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm321">SRM 322 - Problem Set & Analysis</A></span><br><br>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm322">SRM 322 - Problem Set & Analysis</A></span><br><br>
 Single Round Match 322 had a fairly high number of registrants (985) and a very dynamic
 start, with several coders of both divisions getting the easy problem in much less than five
 minutes.
@@ -22,8 +22,8 @@ minutes.
     </td>
 </tr>
 <tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=match_editorials&d2=srm321">full story</A> |
-    <tc-webtag:forumLink forumID="505995" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=match_editorials&d2=srm322">full story</A> |
+    <tc-webtag:forumLink forumID="505997" message="discuss this"/> |
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
 
