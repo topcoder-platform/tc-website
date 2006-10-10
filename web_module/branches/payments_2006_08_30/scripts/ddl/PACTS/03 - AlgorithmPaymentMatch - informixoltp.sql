@@ -130,7 +130,7 @@ where payment_type_id = 4 and parent_payment_id is null
 
 
 -- change payment_type for intel multi-threading competitions to marathon.
-update payment_detail set payment_type_id = 21 where payment_desc like "%Multi-Threading%" and payment_type_id = 1
+update payment_detail set payment_type_id = 21 where payment_desc like "%Multi-Threading%" and payment_type_id = 1;
 
 
 -- 2003 TCCC has bad data, mark it as deleted so it get regenerated.
@@ -156,5 +156,5 @@ and status_id = 69);
 
 
 --- This is just for the schema fix DB Utility, will be updated back to 22 in the post utility script.
-update payment_desc set payment_type_id = 1 where payment_type_id = 22 and status_id <> 69
+update payment_detail set payment_type_id = 1 where payment_type_id = 22 and status_id <> 69
 
