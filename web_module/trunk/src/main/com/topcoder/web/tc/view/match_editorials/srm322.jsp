@@ -49,7 +49,6 @@
 <br>
 <A href="/stat?c=round_overview&er=5&rd=10002">Match Overview</A><br>
 <tc-webtag:forumLink forumID="505997" message="Discuss this match" /></div>
-
 <span class="bodySubtitle">SRM 322</span><br>Monday, October 9, 2006
 <br><br>
 

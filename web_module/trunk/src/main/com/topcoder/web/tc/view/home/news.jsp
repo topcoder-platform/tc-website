@@ -109,6 +109,24 @@ minutes.
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
+        <br>10.08.06<br>11:00 AM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_2b">TCCC06 Round 2B - Problem Set & Analysis</A></span><br><br>
+This online round turned out to be very mathy, with two problems dealing with arithmetics. This caused problems for several high ranked coders.
+            </td>
+            <td class="newsPhoto"><img src="/i/m/Yarin_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="269554" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_2b">full story</A> |
+    <tc-webtag:forumLink forumID="506111" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
         <br>10.06.06<br>11:00 AM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -187,18 +205,4 @@ Only <tc-webtag:handle coderId="19929536" context="algorithm"/>, <tc-webtag:hand
          <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=17">discuss this</A> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>10.03.06<br>6:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home">2 new fields in the Algorithm Record Book</A></span><br><br>
-      We recently added <A href="/stat?c=rated_events">Most Rated Events</A> and <A href="/stat?c=successful_challenges">Challenge Success for a Single Match</A> to the Algorithm Record Book.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=statistics&d2=recordbook_home">Record Book</A> | 
-        <tc-webtag:forumLink forumID="506133" message="discuss this"/> |
-        <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td>
-</tr>
 
