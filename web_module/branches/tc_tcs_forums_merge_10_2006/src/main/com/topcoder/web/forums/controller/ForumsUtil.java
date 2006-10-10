@@ -219,7 +219,18 @@ public class ForumsUtil {
     public static ArrayList getForums(ForumCategory forumCategory, ResultFilter resultFilter,
             boolean excludeEmptyForums) {
         Iterator itForums = forumCategory.getForums(resultFilter);
-        ArrayList forumsList = new ArrayList();
+        return getForums(itForums, excludeEmptyForums);
+    }
+    
+    // Returns forums in a category and its subcategories, with empty forums omitted or placed at the list's end.
+    public static ArrayList getRecursiveForums(ForumCategory forumCategory, ResultFilter resultFilter,
+            boolean excludeEmptyForums) {
+    	Iterator itForums = forumCategory.getRecursiveForums(resultFilter);
+    	return getForums(itForums, excludeEmptyForums);
+    }
+    
+    public static ArrayList getForums(Iterator itForums, boolean excludeEmptyForums) {
+    	ArrayList forumsList = new ArrayList();
         ArrayList emptyForums = new ArrayList();
         while (itForums.hasNext()) {
             Forum f = (Forum)itForums.next();
