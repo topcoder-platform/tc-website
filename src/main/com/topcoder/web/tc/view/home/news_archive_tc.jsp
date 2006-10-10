@@ -39,6 +39,7 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">10.09.06 9:40 PM - </td><td width="100%">Recent Color Changes now available</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.02.06 2:00 PM - </td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=513341">TopCoder is turning 100!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.18.06 4:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=pressroom&d2=art_091806">In memoriam: Victor_lxd</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.14.06 3:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=collegetour&d2=description">2006 TopCoder College Tour continues</A></td></tr>
