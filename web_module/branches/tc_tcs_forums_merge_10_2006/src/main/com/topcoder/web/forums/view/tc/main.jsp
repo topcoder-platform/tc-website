@@ -113,6 +113,7 @@
 <%  } %>
 --%>
 
+<%--
 <%  if (deepCategories.size() > 0) { %>
 <br><table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
@@ -150,6 +151,7 @@
     </tc-webtag:iterator>
 </table>
 <%  } %>
+--%>
 
 <% if (categories.size() > 0) {
     Calendar calendar = Calendar.getInstance();
@@ -173,7 +175,12 @@
                 itForumsCopy = category.getForums(resultFilter);
             } else {
                 //resultFilter.setNumResults(Integer.parseInt(category.getProperty("displayLimit")));
-                ArrayList forumsList = ForumsUtil.getForums(category, resultFilter, true);
+                ArrayList forumsList = null;
+                if (category.getCategoryCount() > 0) {
+                	forumsList = ForumsUtil.getRecursiveForums(category, resultFilter, true);
+                } else {
+                	forumsList = ForumsUtil.getForums(category, resultFilter, true);
+                }
                 ArrayList pageList = ForumsUtil.getForumsPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
                 itForums = pageList.iterator();
                 itForumsCopy = pageList.iterator();
