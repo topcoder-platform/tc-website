@@ -40,12 +40,13 @@ alter table 'informix'.user_payment add constraint foreign key
 	references 'informix'.payment
 	(payment_id) 
 	constraint fk_user_payment_payment;
-	
-alter table 'informix'.user_payment add constraint foreign key 
-	(user_id)
-	references 'informix'.coder
-	(coder_id) 
-	constraint fk_user_payment_coder;
+
+-- 	add constraint after the load because there were coders that didn't existed in the dw.
+--  alter table 'informix'.user_payment add constraint foreign key 
+--	(user_id)
+--	references 'informix'.coder
+--	(coder_id) 
+--	constraint fk_user_payment_coder;
 
 alter table 'informix'.user_payment add constraint foreign key 
 	(due_calendar_id)

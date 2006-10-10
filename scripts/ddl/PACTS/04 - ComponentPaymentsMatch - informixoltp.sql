@@ -55,11 +55,38 @@ update payment_detail set project_id = 22268718 where payment_detail_id = 66527;
 update payment_detail set project_id = 22101156 where payment_detail_id = 66534;
 update payment_detail set project_id = 22101156 where payment_detail_id = 66535;
 
+
+update payment_detail set project_id = 22266446 where payment_detail_id = 66584;
+update payment_detail set project_id = 22207743 where payment_detail_id = 67105;
+update payment_detail set project_id = 22101226 where payment_detail_id = 67117;
+update payment_detail set project_id = 22268542 where payment_detail_id = 67153;
+update payment_detail set project_id = 22209063 where payment_detail_id = 67228;
+update payment_detail set project_id = 22209063 where payment_detail_id = 67229;
+update payment_detail set project_id = 22268500 where payment_detail_id = 67473;
+update payment_detail set project_id = 22267178 where payment_detail_id = 67474;
+update payment_detail set project_id = 22267492 where payment_detail_id = 67506;
+update payment_detail set project_id = 22266446 where payment_detail_id = 67537;
+update payment_detail set project_id = 22266446 where payment_detail_id = 67538;
+update payment_detail set project_id = 22266446 where payment_detail_id = 67562;
+update payment_detail set project_id = 22268676 where payment_detail_id = 67578;
+update payment_detail set project_id = 22101362 where payment_detail_id = 67641;
+update payment_detail set project_id = 22101156 where payment_detail_id = 67895;
+update payment_detail set project_id = 22101362 where payment_detail_id = 68080;
+update payment_detail set project_id = 22101362 where payment_detail_id = 68081;
+update payment_detail set project_id = 15497230 where payment_detail_id = 68716;
+update payment_detail set project_id = 22032835 where payment_detail_id = 68798;
+update payment_detail set project_id = 22268676 where payment_detail_id = 70076;
+update payment_detail set project_id = 21254711 where payment_detail_id = 71163;
+update payment_detail set project_id = 21254711 where payment_detail_id = 71164;
+update payment_detail set project_id = 21254711 where payment_detail_id = 71486;
+update payment_detail set project_id = 22101226 where payment_detail_id = 71578;
+update payment_detail set project_id = 21254711 where payment_detail_id = 71775;
+
 -- fixing bad data.
 update payment_detail set date_due = "2006-10-05 00:00:00.0" 
 where date_due = "0006-10-05 00:00:00.0";
 
 -- moving columns and dropping old ones.
 update payment_detail set component_project_id = project_id;
-alter table payment_detail drop column project_id;
+alter table payment_detail drop project_id;
 
