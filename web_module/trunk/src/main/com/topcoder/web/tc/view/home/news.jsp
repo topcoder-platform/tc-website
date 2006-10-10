@@ -8,6 +8,21 @@
 </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.10.06<br>12:00 NOON</td>
+     <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=TCCC06StudentReps">Zhengquiang is the TCCC06 Student Rep Winner</A>
+        </span><br><br>
+      Congratulations to the winner - <tc-webtag:handle coderId="14949480" /> for referring 16 qualification participants!
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+    <A href="/tc?module=TCCC06StudentReps">results</A> | 
+    <tc-webtag:forumLink forumID="506138" message="discuss this"/> |
+     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.10.06<br>11:30 AM</td>
        <td class="newsTextCell"><span class="newsTitle">TopCoder helps "free"ÊAOL</span><br><br>
        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/info_week_logo.gif" width="67" height="10" alt="InformationWeek" border="0" /></div>
@@ -105,7 +120,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/headphones.gif" alt="Podcasts" border="0"/><br>10.04.06<br>12:00 Noon</td>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/headphones.gif" alt="Podcasts" border="0"/><br>10.04.06<br>12:00 NOON</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="/audio/open_source_060928_48kb.mp3" target="_blank">TopCoder featured on public radio's "Open Source"</A> [PODCAST]</span><br><br>
        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/opensource_logo.gif" width="68" height="23" alt="Open Source" border="0" /></div>
        Jack Hughes joined <i>Mavericks at Work</i> author William Taylor and host Christopher Lydon to discuss TopCoder's "maverick" approach. Stream the mp3:
@@ -186,17 +201,4 @@ online round.
     <tc-webtag:forumLink forumID="506131" message="discuss this"/> |
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>10.03.06<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">Appeals statistics on member profiles and <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">Record Book</A></span><br><br>
-      We've added "Appeals" and "Appeals Success Rate" to the member profiles for component design and development, as well as new <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">Record Book</A> listings for "Highest Appeal Success Percentage".
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">Record Book</A> | 
-         <tc-webtag:forumLink forumID="506132" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
 
