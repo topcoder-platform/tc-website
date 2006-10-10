@@ -88,7 +88,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
 
                 modificationRationaleId = getOptionalIntParameter("modification_rationale_id");
 
-                checkDate("due_date", "Please enter a valid due date");
+                checkDate("DUE_DATE", "Please enter a valid due date");
                 dueDate = getStringParameter("due_date");
 
                 if (getRequest().getParameter("missing_reference") != null) {
@@ -157,7 +157,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     methodId = 1; // CHECK
                     Calendar date = Calendar.getInstance();
                     date.setTime(new Date());
-                    date.add(Calendar.DAY_OF_YEAR, DUE_DATE_INTERVAL);
+                    date.add(Calendar.DAY_OF_YEAR, COMPONENT_DUE_DATE_INTERVAL);
                     dueDate = new SimpleDateFormat(DATE_FORMAT_STRING).format(date.getTime());
 
                 } else {
