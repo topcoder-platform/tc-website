@@ -7,6 +7,21 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 <%--------------------------------------------------------%>
+   <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.10.06<br>4:00 PM</td>
+       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_101006">TopCoder joins "Mavericks at Work" book tour</A></span><br><br>
+       On November 7, the "Mavericks at Work" book tour will be coming to Hartford. Jack Hughes of TopCoder will join the authors and greater Hartford-area 
+       business leaders to discuss how, in an age of hyper-competition and non-stop innovation, the only way to stand out from the crowd is to stand for 
+       something truly unique. 
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_101006">press release</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506139" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
         <br>10.10.06<br>1:30 PM</td>
@@ -189,20 +204,5 @@ Only <tc-webtag:handle coderId="19929536" context="algorithm"/>, <tc-webtag:hand
        <A href="/images/downloads/mavericks_at_work.pdf" target="_blank">Mavericks at Work excerpt</A> [PDF] &#160;|&#160;
        <tc-webtag:forumLink forumID="506134" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>10.04.06<br>11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2040">UML Tool Icons contest over at the Studio</A>
-        </span><br><br>
-      At TopCoder Studio, we're running a contest to design a set of application icons for our UML tool that's currently in development.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2040">details</A> | 
-         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=17">discuss this</A> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 

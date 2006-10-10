@@ -49,6 +49,23 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- Mavericks --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_101006"><img src="/i/pressroom/mavericks_logo.jpg" alt="Mavericks at Work" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_101006">TopCoder joins "Mavericks at Work" book tour</A></strong></font><br />
+                        On November 7, the "Mavericks at Work" book tour will be coming to Hartford. Jack Hughes of TopCoder will join the authors and greater 
+                        Hartford-area business leaders to discuss how, in an age of hyper-competition and non-stop innovation, the only way to stand out from the crowd 
+                        is to stand for something truly unique. <span class="prHead"> [October 10]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- InfoWeek --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">

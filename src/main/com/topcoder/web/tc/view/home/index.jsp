@@ -247,6 +247,9 @@
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
             
+                TopCoder joins "Mavericks at Work" book tour
+                <A href="/tc?module=Static&d1=pressroom&d2=pr_101006">...more</A><br>[October 10]<br><br>
+            
                 <div style="float: right; padding-left: 5px;">
                     <img src="/i/pressroom/info_week_logo.gif" width="81" height="13" alt="InformationWeek" border="0" /></div>
                 TopCoder helps "free" AOL<br>
@@ -269,9 +272,6 @@
                 <A href="http://studio.topcoder.com/"><img src="/i/pressroom/studio_logo.gif" width="86" height="42" alt="TopCoder Studio" border="0"/></A></div>
                 TopCoder Studio launches creative contests
                 <A href="http://studio.topcoder.com/">...more</A><br>[August 30]<br><br>
-            
-                NSA Continues TopCoder Patronage with Support of 2006 TCCC in San Diego
-                <A href="/tc?module=Static&d1=pressroom&d2=pr_082906">...more</A><br>[August 29]<br><br>
 
             </td>
         </tr>
