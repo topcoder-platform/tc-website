@@ -72,14 +72,14 @@ public class NewSchemaFixUtility extends DBUtility {
             
             pcs = (PactsClientServices) createEJB();
 
-            processRoomResultAdditions();
-            processRoomResultConflicts();
-            processRoomResultCharities();
+            //processRoomResultAdditions();
+            //processRoomResultConflicts();
+            //processRoomResultCharities();
 
-            processCompCompetitions();
+            //processCompCompetitions();
             processCompContests();
             
-            processRoyalties();
+            //processRoyalties();
             
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
@@ -125,7 +125,7 @@ public class NewSchemaFixUtility extends DBUtility {
     private void processCompContests() throws SQLException, RemoteException {
         StringBuffer query = new StringBuffer(200);
         query.append("select user_id, prize_payment, contest_id, place from user_contest_prize_dw ");
-        query.append("where not exists ( ");
+        query.append("where prize_type_id not in (9, 10) and not exists ( ");
         query.append("select pd.payment_detail_id from payment_detail pd, payment_detail_xref pdx, payment p ");
         query.append("where pd.payment_detail_id = pdx.payment_detail_id and ");
         query.append("p.payment_id = pdx.payment_id and  p.most_recent_detail_id = pd.payment_detail_id ");
@@ -133,13 +133,14 @@ public class NewSchemaFixUtility extends DBUtility {
         query.append("and pd.gross_amount = user_contest_prize_dw.prize_payment) ");
 
         PreparedStatement psSelCompContests = prepareStatement("informixoltp", query.toString());
-        log.debug("Processing component competitions:");
+        log.debug("Processing component contests:");
 
         ResultSet rs = null;
         try {            
             rs = psSelCompContests.executeQuery();
             int i = 1;
             for (; rs.next(); i++ ) {
+                
                 pcs.addPayment(new ComponentTournamentBonusPayment(
                         rs.getLong("user_id"),
                         rs.getDouble("prize_payment"),
