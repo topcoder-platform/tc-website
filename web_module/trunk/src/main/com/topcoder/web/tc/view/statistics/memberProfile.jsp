@@ -101,9 +101,13 @@ This member has not yet been rated in a competition.
             <tr><td class="cat" colspan="2">&#160;</td></tr>
 <% if (!registeredHS || (rscCoderData.getStringItem(0, "rating") != null) || (rscCoderData.getStringItem(0, "design_rating") != null) || (rscCoderData.getStringItem(0, "development_rating") != null)) { %>
             <tr><td class="cat" nowrap="nowrap">Total Earnings:</td><td class="stat" align="right">
+                <% if (rscCoderData.getItem(0, "overall_earnings").getResultData() == null || rscCoderData.getDoubleItem(0, "overall_earnings") > 0) { %>
                 <A href="/tc?module=PaymentSummary&cr=<%=rscCoderData.getStringItem(0, "coder_id")%>">
+                <% } %>
                     <rsc:item name="overall_earnings" set="<%=rscCoderData%>" format="$#,##0.00"/>
+                <% if (rscCoderData.getItem(0, "overall_earnings").getResultData() == null || rscCoderData.getDoubleItem(0, "overall_earnings") > 0) { %>
                 </A>
+                <% } %>
                 </td></tr>
 <% } %>
             <tr><td class="cat" nowrap="nowrap">Member Since:</td><td class="stat" align="right">
