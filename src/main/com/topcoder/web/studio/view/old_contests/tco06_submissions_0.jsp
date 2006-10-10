@@ -29,7 +29,7 @@
             <div class="contentSpacer">
 
 <div class="linkBox"><a href="/?module=Static&d1=old_contests&d2=archive">back to archive</a></div>
-<h1>tco06 Logo Contest</h1>
+<h1>TCO06 Logo Contest</h1>
 
 <div align="left" style="padding-bottom: 10px;">
 View Submissions
