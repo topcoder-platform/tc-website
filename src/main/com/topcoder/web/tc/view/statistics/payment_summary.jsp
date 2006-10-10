@@ -7,6 +7,7 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <HTML>
 <HEAD>
@@ -111,7 +112,7 @@
             <%even = !even;%>
         </rsc:iterator>
         <tr>
-            <td class="headerR" colspan="2">Total:&nbsp<%=total%><fmt:formatNumber value="<%=total%>" type="currency" currencySymbol="$"/></td>
+            <td class="headerR" colspan="2">Total:&nbsp<fmt:formatNumber value="<%=total%>" type="currency" currencySymbol="$"/></td>
         </tr>
     </TABLE>
     <p><br></p>
