@@ -194,6 +194,10 @@
                 <A href="/stat?c=coder_room_stats&cr=<%=coderId%>&rd=<rsc:item name="reference_id" row="<%=resultRow%>"/>">Contest Details</A>
                 <% } else if (resultRow.getIntItem("payment_type_id") == 6 && resultRow.getItem("reference_id").getResultData() != null) {%>
                 <A href="/tc?module=CompContestDetails&pj=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">Project details</A>
+                <% } else if (resultRow.getIntItem("payment_type_id") == 17 && resultRow.getItem("reference_id").getResultData() != null) {%>
+                <A href="/tc?module=LeaderBoard&ph=112&staid=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">DR Stage details</A>
+                <% } else if (resultRow.getIntItem("payment_type_id") == 25 && resultRow.getItem("reference_id").getResultData() != null) {%>
+                <A href="/tc?module=LeaderBoard&ph=112&staid=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">DR Stage details</A>
                 <% }%>
                 </TD>
                 </tr>
