@@ -19,6 +19,7 @@ package com.topcoder.web.tc.controller.legacy.pacts.common;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.ejb.pacts.BasePayment;
 
 import java.util.Map;
 
@@ -33,8 +34,8 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 *   _recentNetAmount - current aggregate amount of the payment
 *   _description     - description of the payment
 *   _type            - type of payment
-*   _method			 - method of payment
-*   _project		 - project associated with payment
+*   _method          - method of payment
+*   _project         - project associated with payment
 */
     private long id;
     private UserProfileHeader user;
@@ -47,9 +48,17 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     private int recentStatusId;
     private int typeId;
     private int methodId;
-    private long projectId;
     private String client;
     private boolean reviewed;
+
+    private long algorithmRoundId;
+    private long componentProjectId;
+    private long algorithmProblemId;
+    private long studioContestId;
+    private long componentContestId;
+    private long digitalRunStageId;
+    private long digitalRunSeasonId;
+    private long parentPaymentId;
 
     /**************\
      *              *
@@ -71,7 +80,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         method = "Default Method";
         recentStatusId = 0;
         typeId = 0;
-        methodId = 1;	// Check
+        methodId = 1;   // Check
         reviewed = false;
     }
 
@@ -126,21 +135,30 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         method = TCData.getTCString(rsr, "payment_method_desc", "default method description", true);
         methodId = TCData.getTCInt(rsr, "payment_method_id", 1, true);
         if (rsr.isValidColumn("first_name")) {
-        	user = new UserProfileHeader(
-        			TCData.getTCLong(rsr, "user_id", 0, true),
-        			TCData.getTCString(rsr, "handle", "default handle", true),
-        			TCData.getTCString(rsr, "first_name", "", true),
-        			TCData.getTCString(rsr, "middle_name", "", true),
-        			TCData.getTCString(rsr, "last_name", "", true));
+            user = new UserProfileHeader(
+                    TCData.getTCLong(rsr, "user_id", 0, true),
+                    TCData.getTCString(rsr, "handle", "default handle", true),
+                    TCData.getTCString(rsr, "first_name", "", true),
+                    TCData.getTCString(rsr, "middle_name", "", true),
+                    TCData.getTCString(rsr, "last_name", "", true));
         } else {
-        	user = new UserProfileHeader(
-        			TCData.getTCLong(rsr, "user_id", 0, true),
+            user = new UserProfileHeader(
+                    TCData.getTCLong(rsr, "user_id", 0, true),
                     TCData.getTCString(rsr, "handle", "default handle", true));
         }
-        if (typeId == COMPONENT_PAYMENT || typeId == REVIEW_BOARD_PAYMENT) {
-        	projectId = TCData.getTCLong(rsr, "project_id", 0, false);
-        	client = TCData.getTCString(rsr, "client", "", false);
-        }
+
+        client = TCData.getTCString(rsr, "client", "", false);
+
+        algorithmRoundId = TCData.getTCLong(rsr, "algorithm_round_id", 0, false);
+        componentProjectId = TCData.getTCLong(rsr, "component_project_id", 0, false);
+
+        algorithmProblemId = TCData.getTCLong(rsr, "algorithm_problem_id", 0, false);
+        studioContestId = TCData.getTCLong(rsr, "studio_contest_id", 0, false);
+        componentContestId = TCData.getTCLong(rsr, "component_contest_id", 0, false);
+        digitalRunStageId = TCData.getTCLong(rsr, "digital_run_stage_id", 0, false);
+        digitalRunSeasonId = TCData.getTCLong(rsr, "digital_run_season_id", 0, false);
+        parentPaymentId = TCData.getTCLong(rsr, "parent_reference_id", 0, false);
+
         reviewed = 0 != TCData.getTCInt(rsr, "review", 0, true);
     }
 
@@ -153,7 +171,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     public PaymentHeader(Map results) {
         this(results, 0);
     }
-    
+
     public long getId() {
         return id;
     }
@@ -209,7 +227,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     public void setType(String type) {
         this.type = type;
     }
-    
+
     public String getMethod() {
         return method;
     }
@@ -233,7 +251,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     public void setTypeId(int typeId) {
         this.typeId = typeId;
     }
-    
+
     public int getMethodId() {
         return methodId;
     }
@@ -241,15 +259,8 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     public void setMethodId(int methodId) {
         this.methodId = methodId;
     }
-    
-    public long getProjectId() {
-        return projectId;
-    }
 
-    public void setProjectId(long projectId) {
-        this.projectId = projectId;
-    }
-    
+
     public String getClient() {
         return client;
     }
@@ -265,5 +276,83 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     public void setReviewed(boolean reviewed) {
         this.reviewed = reviewed;
     }
+
+    public long getAlgorithmProblemId() {
+        return algorithmProblemId;
+    }
+
+    public void setAlgorithmProblemId(long algorithmProblemId) {
+        this.algorithmProblemId = algorithmProblemId;
+    }
+
+    public long getAlgorithmRoundId() {
+        return algorithmRoundId;
+    }
+
+    public void setAlgorithmRoundId(long algorithmRoundId) {
+        this.algorithmRoundId = algorithmRoundId;
+    }
+
+    public long getComponentContestId() {
+        return componentContestId;
+    }
+
+    public void setComponentContestId(long componentContestId) {
+        this.componentContestId = componentContestId;
+    }
+
+    public long getComponentProjectId() {
+        return componentProjectId;
+    }
+
+    public void setComponentProjectId(long componentProjectId) {
+        this.componentProjectId = componentProjectId;
+    }
+
+    public long getDigitalRunSeasonId() {
+        return digitalRunSeasonId;
+    }
+
+    public void setDigitalRunSeasonId(long digitalRunSeasonId) {
+        this.digitalRunSeasonId = digitalRunSeasonId;
+    }
+
+    public long getDigitalRunStageId() {
+        return digitalRunStageId;
+    }
+
+    public void setDigitalRunStageId(long digitalRunStageId) {
+        this.digitalRunStageId = digitalRunStageId;
+    }
+
+    public long getStudioContestId() {
+        return studioContestId;
+    }
+
+    public void setStudioContestId(long studioContestId) {
+        this.studioContestId = studioContestId;
+    }
+
+    public long getParentPaymentId() {
+        return parentPaymentId;
+    }
+
+    public void setParentPaymentId(long parentReferenceId) {
+        this.parentPaymentId = parentReferenceId;
+    }
+    public long getReferenceId() {
+        switch(BasePayment.getReferenceTypeId(typeId)) {
+        case REFERENCE_ALGORITHM_ROUND_ID : return algorithmRoundId; 
+        case REFERENCE_COMPONENT_PROJECT_ID : return componentProjectId;
+        case REFERENCE_ALGORITHM_PROBLEM_ID : return algorithmProblemId;
+        case REFERENCE_STUDIO_CONTEST_ID : return studioContestId;
+        case REFERENCE_COMPONENT_CONTEST_ID :return componentContestId;
+        case REFERENCE_DIGITAL_RUN_STAGE_ID : return digitalRunStageId;
+        case REFERENCE_DIGITAL_RUN_SEASON_ID : return digitalRunSeasonId;
+        case REFERENCE_PARENT_PAYMENT_ID : return parentPaymentId;
+        }
+        return 0;
+    }
+    
 
 }

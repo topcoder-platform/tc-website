@@ -7,7 +7,7 @@
 <meta name="ProgId" content="FrontPage.Editor.Document">
 <title>PACTS</title>
 </head>
-
+ 
 <body>
 
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
