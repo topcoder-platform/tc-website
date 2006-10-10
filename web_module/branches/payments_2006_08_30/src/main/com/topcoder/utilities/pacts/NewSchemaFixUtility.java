@@ -28,27 +28,21 @@ import com.topcoder.web.ejb.pacts.BasePayment;
 
 /**
  * <strong>Purpose</strong>:
- * Utility to fix payment columns.
+ * Utility for the new payments schema.
  *
- * This utility analyzes and fixes the payments in both OR and PACTS due to a misscalculation.
+ * This utility adjusts old payments to the new payments schema
  *
  * @author pulky
  * @version 1.0.0
  */
 public class NewSchemaFixUtility extends DBUtility {
     /**
-     * This variable tells if only an analysis is wanted.
+     * The PACTS ejb.
      */
-    private String onlyAnalyze = null;
-
     PactsClientServices pcs = null;
     
     /**
-     * Runs the PaymentFixUtility.
-     *
-     * First of all it will search for those projects that has advanced to review participants
-     * who got less than 75 in screening, and will check for those project payment in both OR
-     * and PACTS tables. If there are inconsistencies, they will be corrected.
+     * Runs the NewSchemaFixUtility.
      *
      */
     public void runUtility() throws Exception {
@@ -78,12 +72,12 @@ public class NewSchemaFixUtility extends DBUtility {
             
             pcs = (PactsClientServices) createEJB();
 
-//            processRoomResultAdditions();
-//            processRoomResultConflicts();
-//            processRoomResultCharities();
-            
-//            processCompCompetitions();
-//            processCompContests();
+            processRoomResultAdditions();
+            processRoomResultConflicts();
+            processRoomResultCharities();
+
+            processCompCompetitions();
+            processCompContests();
             
             processRoyalties();
             
@@ -340,14 +334,6 @@ public class NewSchemaFixUtility extends DBUtility {
      */
     protected void processParams() {
         super.processParams();
-
-        onlyAnalyze = (String) params.get("onlyAnalyze");
-        if (onlyAnalyze == null)
-            setUsageError("Please specify a onlyAnalyze.\n");
-
-        params.remove("onlyAnalyze");
-
-        log.debug("onlyAnalyze : " + onlyAnalyze);
     }
 
     /**
