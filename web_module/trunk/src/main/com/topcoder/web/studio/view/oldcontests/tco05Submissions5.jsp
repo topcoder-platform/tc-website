@@ -33,11 +33,11 @@
 
 <div align="left" style="padding-bottom: 10px;">
 View Submissions
- | <A href="/?module=Static&d1=oldcontests&d2=tco05_finals">Finals</A>
+ | <A href="/?module=Static&d1=oldcontests&d2=tco05Finals">Finals</A>
 </div>
 
 <div class="pagingBox">
-<A href="/?module=Static&d1=oldcontests&d2=tco05_submissions_4"><< prev</A>
+<A href="/?module=Static&d1=oldcontests&d2=tco05Submissions4"><< prev</A>
  | next >>
 </div>
 
@@ -60,7 +60,7 @@ document.writeln( '<tr class="<%=even?"light":"dark"%>"><td class="valueW"><div>
 </tbody>
 </table>
 <div class="pagingBox">
-<A href="/?module=Static&d1=oldcontests&d2=tco05_submissions_4"><< prev</A>
+<A href="/?module=Static&d1=oldcontests&d2=tco05Submissions4"><< prev</A>
  | next >>
 </div>
 

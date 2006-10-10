@@ -33,12 +33,12 @@
 
 <div align="left" style="padding-bottom: 10px;">
 View Submissions
- | <A href="/?module=Static&d1=oldcontests&d2=tccc06_finals">Finals</A>
+ | <A href="/?module=Static&d1=oldcontests&d2=tccc06Finals">Finals</A>
 </div>
 
 <div class="pagingBox">
-<A href="/?module=Static&d1=oldcontests&d2=tccc06_submissions_4"><< prev</A>
- | <A href="/?module=Static&d1=oldcontests&d2=tccc06_submissions_6">next >></A>
+<A href="/?module=Static&d1=oldcontests&d2=tccc06Submissions4"><< prev</A>
+ | <A href="/?module=Static&d1=oldcontests&d2=tccc06Submissions6">next >></A>
 </div>
 
 <table cellpadding="0" cellspacing="0" class="stat" style="width:740px;">
@@ -157,8 +157,8 @@ View Submissions
 </tbody>
 </table>
 <div class="pagingBox">
-<A href="/?module=Static&d1=oldcontests&d2=tccc06_submissions_4"><< prev</A>
- | <A href="/?module=Static&d1=oldcontests&d2=tccc06_submissions_6">next >></A>
+<A href="/?module=Static&d1=oldcontests&d2=tccc06Submissions4"><< prev</A>
+ | <A href="/?module=Static&d1=oldcontests&d2=tccc06Submissions6">next >></A>
 </div>
 
 

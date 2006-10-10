@@ -33,11 +33,11 @@
 
 <div align="left" style="padding-bottom: 10px;">
 View Submissions
- | <A href="/?module=Static&d1=oldcontests&d2=tccc06_finals">Finals</A>
+ | <A href="/?module=Static&d1=oldcontests&d2=tccc06Finals">Finals</A>
 </div>
 
 <div class="pagingBox">
-<A href="/?module=Static&d1=oldcontests&d2=tccc06_submissions_5"><< prev</A>
+<A href="/?module=Static&d1=oldcontests&d2=tccc06Submissions5"><< prev</A>
  | next >>
 </div>
 
@@ -82,7 +82,7 @@ View Submissions
 </tbody>
 </table>
 <div class="pagingBox">
-<A href="/?module=Static&d1=oldcontests&d2=tccc06_submissions_5"><< prev</A>
+<A href="/?module=Static&d1=oldcontests&d2=tccc06Submissions5"><< prev</A>
  | next >>
 </div>
 

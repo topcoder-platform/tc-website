@@ -33,12 +33,12 @@
 
 <div align="left" style="padding-bottom: 10px;">
 View Submissions
- | <A href="/?module=Static&d1=oldcontests&d2=tco05_finals">Finals</A>
+ | <A href="/?module=Static&d1=oldcontests&d2=tco05Finals">Finals</A>
 </div>
 
 <div class="pagingBox">
-<A href="/?module=Static&d1=oldcontests&d2=tco05_submissions_0"><< prev</A>
- | <A href="/?module=Static&d1=oldcontests&d2=tco05_submissions_2">next >></A>
+<A href="/?module=Static&d1=oldcontests&d2=tco05Submissions0"><< prev</A>
+ | <A href="/?module=Static&d1=oldcontests&d2=tco05Submissions2">next >></A>
 </div>
 
 <table cellpadding="0" cellspacing="0" class="stat" style="width:740px;">
@@ -131,8 +131,8 @@ document.writeln( '<tr class="<%=even?"light":"dark"%>"><td class="valueW"><div>
 </tbody>
 </table>
 <div class="pagingBox">
-<A href="/?module=Static&d1=oldcontests&d2=tco05_submissions_0"><< prev</A>
- | <A href="/?module=Static&d1=oldcontests&d2=tco05_submissions_2">next >></A>
+<A href="/?module=Static&d1=oldcontests&d2=tco05Submissions0"><< prev</A>
+ | <A href="/?module=Static&d1=oldcontests&d2=tco05Submissions2">next >></A>
 </div>
 
 

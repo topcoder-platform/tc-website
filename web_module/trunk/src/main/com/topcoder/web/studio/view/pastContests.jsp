@@ -185,9 +185,8 @@
     </tbody>
 </table>
 
-<%--
-<div align="right" style="padding-top: 10px;"><strong>Would you like to see some of our <A href="/?module=Static&d1=old_contests&d2=archive">older logo design contests</A>?</strong></div>
---%>
+<div align="right" style="padding-top: 10px;"><strong>Would you like to see some of our <A href="/?module=Static&d1=oldcontests&d2=archive">older logo design contests</A>?</strong></div>
+
 </div>
 <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
 </div>
