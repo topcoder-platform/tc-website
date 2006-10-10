@@ -38,6 +38,14 @@ public interface ForumConstants {
 
     public final static String SORT_FIELD = "sortField";
     public final static String SORT_ORDER = "sortOrder";
+    
+    public final static String FORUM_TYPE = "ft";
+    public final static String CUSTOMER_FORUM = "1";
+    public final static String DEVELOPER_FORUM = "2";
+    
+    public final static Long FORUM_MODERATE_PERMISSION = new Long(1);
+    public final static Long FORUM_POST_PERMISSION = new Long(2);
+    public final static Long FORUM_MODERATE_AND_POST_PERMISSION = new Long(3);
 
     // Extended Properties
     public final static String PROPERTY_HIDE_EMPTY_FORUMS = "hideEmptyForums";

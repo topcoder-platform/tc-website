@@ -86,7 +86,6 @@ public class PostAnnounce extends ForumsProcessor {
             getRequest().setAttribute("forum", forum);
         } catch (ForumNotFoundException e) {}
 
-		getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("postMode", postMode);
 
         setNextPage("/postAnnounce.jsp");

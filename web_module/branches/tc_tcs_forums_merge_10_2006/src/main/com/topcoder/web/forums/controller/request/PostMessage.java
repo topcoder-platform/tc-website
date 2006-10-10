@@ -93,8 +93,7 @@ public class PostMessage extends ForumsProcessor {
                 getRequest().setAttribute("thread", thread);
                 getRequest().setAttribute("message", message);
             }
-
-			getRequest().setAttribute("forumFactory", forumFactory);
+            
 			getRequest().setAttribute("forum", forum);
             getRequest().setAttribute("postMode", postMode);
 

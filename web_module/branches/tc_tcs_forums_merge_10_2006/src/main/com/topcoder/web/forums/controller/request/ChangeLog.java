@@ -28,8 +28,6 @@ public class ChangeLog extends ForumsProcessor {
             setIsNextPageInContext(false);
             return;
         }
-        
-        getRequest().setAttribute("forumFactory", forumFactory);
 
         setNextPage("/changelog.jsp");
         setIsNextPageInContext(true);

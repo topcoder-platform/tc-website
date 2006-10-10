@@ -61,7 +61,6 @@ public class Announcement extends ForumsProcessor {
             return;
         }
         
-        getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("forumCategory", forumCategory);
         getRequest().setAttribute("forum", forum);
         getRequest().setAttribute("announcement", announcement);

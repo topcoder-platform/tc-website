@@ -406,7 +406,7 @@ public class ForumConversion {
             }
             
             log.info(forumNum + " out of " + totalForum + " forums have been processed.");
-            if (forumNum >= 5) {
+            if (forumNum >= 25) {
                 log.info("Attempting to close connections....");
                 closeConnection(tcConn);
                 closeStatement(forumPS);

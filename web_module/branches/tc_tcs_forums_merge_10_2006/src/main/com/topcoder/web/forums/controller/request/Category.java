@@ -130,7 +130,6 @@ public class Category extends ForumsProcessor {
         Paging paging = new Paging(resultFilter, totalItemCount);
         Paginator paginator = new Paginator(paging);
         
-        getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("forumCategory", forumCategory);
 		getRequest().setAttribute("forums", pageList.iterator());
         getRequest().setAttribute("categories", itCategories);

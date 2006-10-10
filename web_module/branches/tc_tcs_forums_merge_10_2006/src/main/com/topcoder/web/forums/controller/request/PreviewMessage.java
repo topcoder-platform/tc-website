@@ -71,7 +71,6 @@ public class PreviewMessage extends ForumsProcessor {
             BaseProcessor.close(ctx);
         }
         
-        getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("forum", forum);
         getRequest().setAttribute("postMode", postMode);
         getRequest().setAttribute("historyBean", historyBean);

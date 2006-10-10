@@ -67,7 +67,6 @@ public class Post extends ForumsProcessor {
             getRequest().setAttribute("thread", message.getForumThread());
         }
 
-		getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("forum", forum);
         getRequest().setAttribute("postMode", postMode);
 
