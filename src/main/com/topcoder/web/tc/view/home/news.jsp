@@ -6,6 +6,21 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
+<%-------------------------- 10.12 9am
+   <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.11.06<br>9:00 AM</td>
+       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_101106">AOL to Webcast TCCC06 Live on November 17</A></span><br><br>
+       "One of TopCoder's core goals is to bring value to the programming community, and with the help of AOL we'll now be able to present much of the excitement and thrill of the onsite contest live, via the internet," said Rob Hughes, President and COO of TopCoder, Inc.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="">trailer</A>&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_101106">press release</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506140" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
+   </td></tr>
+------------------------------%>
+
 <%--------------------------------------------------------%>
    <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.10.06<br>4:00 PM</td>

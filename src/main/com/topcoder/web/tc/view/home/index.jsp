@@ -246,6 +246,11 @@
         <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+
+                <%--            
+                AOL to Webcast TCCC06 Live on November 17
+                <A href="/tc?module=Static&d1=pressroom&d2=pr_101106">...more</A><br>[October 11]<br><br>
+                --%>
             
                 TopCoder joins "Mavericks at Work" book tour
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_101006">...more</A><br>[October 10]<br><br>
