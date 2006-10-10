@@ -15,10 +15,10 @@ extent size 3000 next size 1000
 lock mode row;
 
 alter table 'informix'.payment add constraint primary key 
-	(payment_id)
-	constraint payment_pk;
-	
-	
+    (payment_id)
+    constraint payment_pk;
+    
+    
 create table 'informix'.user_payment (
     payment_id DECIMAL(10,0),
     user_id DECIMAL(10,0),
@@ -27,40 +27,40 @@ create table 'informix'.user_payment (
     due_calendar_id DECIMAL(10,0),
     paid_calendar_id DECIMAL(10,0)
 )
-extent size 3000 next size 1000
+extent size 1000 next size 1000
 lock mode row;
 
 
 alter table 'informix'.user_payment add constraint primary key 
-	(payment_id)
-	constraint user_payment_pk;
+    (payment_id)
+    constraint user_payment_pk;
 
 alter table 'informix'.user_payment add constraint foreign key 
-	(payment_id)
-	references 'informix'.payment
-	(payment_id) 
-	constraint fk_user_payment_payment;
+    (payment_id)
+    references 'informix'.payment
+    (payment_id) 
+    constraint fk_user_payment_payment;
 
--- 	add constraint after the load because there were coders that didn't existed in the dw.
+--  add constraint after the load because there were coders that didn't existed in the dw.
 --  alter table 'informix'.user_payment add constraint foreign key 
---	(user_id)
---	references 'informix'.coder
---	(coder_id) 
---	constraint fk_user_payment_coder;
+--  (user_id)
+--  references 'informix'.coder
+--  (coder_id) 
+--  constraint fk_user_payment_coder;
 
 alter table 'informix'.user_payment add constraint foreign key 
-	(due_calendar_id)
-	references 'informix'.calendar
-	(calendar_id) 
-	constraint fk_user_payment_calendar1;
-		
+    (due_calendar_id)
+    references 'informix'.calendar
+    (calendar_id) 
+    constraint fk_user_payment_calendar1;
+        
 alter table 'informix'.user_payment add constraint foreign key 
-	(paid_calendar_id)
-	references 'informix'.calendar
-	(calendar_id) 
-	constraint fk_user_payment_calendar2;
-		
-	
+    (paid_calendar_id)
+    references 'informix'.calendar
+    (calendar_id) 
+    constraint fk_user_payment_calendar2;
+        
+    
 insert into log_type_lu values (6, "Payments load");
 
 insert into update_log (log_id, calendar_id, timestamp, log_type_id)
