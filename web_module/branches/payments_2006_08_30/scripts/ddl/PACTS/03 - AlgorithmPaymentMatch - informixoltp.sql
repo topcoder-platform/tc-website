@@ -176,3 +176,6 @@ update payment set most_recent_detail_id = null where exists
 and status_id = 69);
 
 
+--- This is just for the schema fix DB Utility, will be updated back to 22 in the post utility script.
+update payment_desc set payment_type_id = 1 where payment_type_id = 22 and status_id <> 69
+
