@@ -248,6 +248,12 @@
             <td class="homeText"><br>
             
                 <div style="float: right; padding-left: 5px;">
+                    <img src="/i/pressroom/info_week_logo.gif" width="81" height="13" alt="InformationWeek" border="0" /></div>
+                TopCoder helps "free" AOL<br>
+                <A href="/i/pressroom/infoweek_excerpt.gif" target="_blank">excerpt</A>&#160;|&#160;
+                <A href="http://www.informationweek.com/internet/showArticle.jhtml?articleID=193104723" target="_blank">full story</A><br>[October 10]<br><br>
+            
+                <div style="float: right; padding-left: 5px;">
                     <img src="/i/pressroom/opensource_logo.gif" width="68" height="23" alt="Open Source" border="0" /></div>
                 TopCoder featured on public radio's "Open Source" [PODCAST]<br>
                 <A href="/audio/open_source_060928_24kb.mp3" target="_blank">lo 6.8mb</A> &#160;|&#160;
@@ -266,13 +272,6 @@
             
                 NSA Continues TopCoder Patronage with Support of 2006 TCCC in San Diego
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_082906">...more</A><br>[August 29]<br><br>
-
-                <div style="float: right; padding-left: 5px;">
-                    <img src="/i/pressroom/mht_logo.gif" width="68" height="38" alt="Mass High Tech" border="0"/></div>
-                <i>Mass High Tech</i> features TopCoder staff<br>
-                <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus1.html">Code Commanders</A><br>
-                <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus6.html">TheFaxman Codeth</A><br>
-                <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus8.html">Identifying Best Developers</A><br>[July 12]<br><br>
 
             </td>
         </tr>

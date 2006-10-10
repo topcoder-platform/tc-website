@@ -8,7 +8,7 @@
 </tr>
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.10.06<br>12:00 NOON</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.10.06<br>12:15 PM</td>
      <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=TCCC06StudentReps">Zhengquiang is the TCCC06 Student Rep Winner</A>
         </span><br><br>
@@ -23,10 +23,10 @@
 
 <%--------------------------------------------------------%>
    <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.10.06<br>11:30 AM</td>
-       <td class="newsTextCell"><span class="newsTitle">TopCoder helps "free" AOL</span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/info_week_logo.gif" width="67" height="10" alt="InformationWeek" border="0" /></div>
-       InformationWeek interviewed TopCoder CTO Mike Lydon for a recent article on AOL, citing TopCoder's alliance with the company as evidence of a "monumental shift in its approach." 
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.10.06<br>12:15 PM</td>
+       <td class="newsTextCell"><span class="newsTitle">TopCoder helps "free" AOL</span><br><br>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/info_week_logo.gif" width="81" height="13" alt="InformationWeek" border="0" /></div>
+       InformationWeek interviewed TopCoder CTO Mike Lydon for a recent article on AOL, citing TopCoder's alliance with the company as evidence of a "monumental shift in its approach."
       <br><br>
       </td>
    </tr>
