@@ -54,7 +54,7 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
-<div style="float: right;" align="right">
+<div style="float: right;" align="left">
 <A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
 <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A></span>
 <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A></span>
