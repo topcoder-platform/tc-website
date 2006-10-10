@@ -132,7 +132,7 @@ update payment_type_lu set due_date_interval = 60
 where payment_type_id in (19,22);
 
 update payment_type_lu set show_in_profile_ind = 0
-where payment_type_id not in (1,5,6,19,20,22);
+where payment_type_id not in (1,5,6,17,19,20,22,25);
 
 update payment_type_lu set show_details_ind = 0
 where payment_type_id = 20;
