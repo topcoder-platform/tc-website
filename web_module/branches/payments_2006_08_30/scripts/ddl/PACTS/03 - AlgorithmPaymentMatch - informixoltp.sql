@@ -51,8 +51,13 @@ update payment_detail set algorithm_round_id =
 )
 where payment_desc like "%2003 TCO %" and payment_type_id = 1;
 
+
+update payment_detail set payment_desc = "TCO 06 Championship Round winnings"
+where payment_desc = "TCO Algorithm Onsite";
+
 update payment_detail set payment_desc = "TCO 06 Championship Round winnings" 
 where payment_detail_id in (select payment_detail_id from payment_detail_xref where payment_id = 76870);
+
 
 update payment_detail set payment_type_id = 16
 where payment_desc = "CCIP";
@@ -72,15 +77,14 @@ update payment_detail set payment_desc = "TCO 06 Semifinal Room 3 winnings"
 where payment_detail_id in (65435, 65807, 65808, 65430, 65797, 65432, 65802, 65433, 65804, 65436, 65809, 65441, 65824, 
 65438, 65812, 65431, 65798, 65428, 65782, 65429, 65786, 65792, 65796, 65434, 65805, 65439, 65813, 65440, 65814, 65437, 65810);
 
-update payment_detail set payment_desc = "TCO 06 Championship Round winnings"
-where payment_desc = "TCO Algorithm Onsite";
-
    
 update payment_detail set payment_type_id = 19, component_contest_id = 
 (select contest_id from tcs_catalog:contest where contest_name = payment_detail.payment_desc)
 where payment_desc in
 ("TCO06 Design Highest Debut Score", "TCO06 Design Most Passing Submissions",
  "TCO06 Development Highest Debut Score", "TCO06 Development Most Passing Submissions");
+
+update payment_detail set payment_type_id = 19 where payment_desc = "TCO Component Finalist";
 
 update payment_detail set component_contest_id =
 	(select contest_id from user_contest_prize_dw, payment_detail_xref pdx, payment p
@@ -123,7 +127,11 @@ where payment_detail_id in (20619, 20620, 20621, 20622, 20623, 20624, 20625, 206
 50405, 50406, 50407, 50408, 50409, 50410, 50411, 50412, 50413, 50414, 50415, 50416, 50417, 50418, 50419, 50420);
 
 
---- Update almost all rows
+update payment_detail set payment_desc = "Single Round Match 312 Round 1 winnings" 
+where payment_desc = "Single Round Match 312 winnings";
+
+
+--- Update almost all rows (long query)
 update payment_detail set algorithm_round_id =
 ( select round_id 
   from contest c, round r 
@@ -146,11 +154,22 @@ where payment_type_id = 4 and parent_payment_id is null
 update payment_detail set payment_type_id = 21 where payment_desc like "%Multi-Threading%" and payment_type_id = 1
 
 
+-- 2003 TCCC has bad data, mark it as deleted so it get regenerated.
+update payment_detail set status_id = 69 
+where payment_desc like "%2003 TCCC%" and payment_type_id = 1 and algorithm_round_id is null;
+
+-- 2003 TCCC has bad data, mark it as deleted so it get regenerated.
+update payment_detail set status_id = 69 
+where payment_desc like "%2003 TCO %" and payment_type_id = 1 and algorithm_round_id is null;
+
+
+-- 2005 TCCC orphan payment
+update payment_detail set status_id = 69 where payment_detail_id in (45949, 45553, 51052);
+
 --  mark all placeholder payments to "deleted"
 update payment_detail set status_id = 69 where payment_detail_id in (37492, 45934, 50960);
 update payment_detail set status_id = 69 where payment_desc = "Place Holder To Indicate they have a notarized affidavit on file";
 
-update payment_detail set status_id = 69 where payment_type_id = 1 and gross_amount <= 1;
 update payment_detail set status_id = 69 where payment_type_id = 1 and gross_amount <= 1;
 update payment set most_recent_detail_id = null where exists
 (select payment_detail_id from payment_detail where payment_detail_id = payment.most_recent_detail_id
