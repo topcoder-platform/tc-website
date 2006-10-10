@@ -90,3 +90,5 @@ where date_due = "0006-10-05 00:00:00.0";
 update payment_detail set component_project_id = project_id;
 alter table payment_detail drop project_id;
 
+-- update digital run payments reference
+update payment_detail set digital_run_stage_id = 1 where payment_type_id = 17;
