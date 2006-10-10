@@ -31,27 +31,6 @@ from payment_detail;
 update payment_detail set algorithm_round_id = 4345 
 where payment_detail_id in (select payment_detail_id from payment_detail_xref where payment_id = 11862);
 
-update payment_detail set algorithm_round_id =
-( select r.round_id 
-  from payment_detail_xref pdx, payment p, round_payment rp, round r, contest c
-  where payment_detail.payment_detail_id = pdx.payment_detail_id
-  and p.payment_id = pdx.payment_id 
-  and rp.round_id = r.round_id and r.contest_id = c.contest_id and 
-  c.name like "%Collegiate%" and rp.coder_id = p.user_id and rp.paid = payment_detail.gross_amount
-)
-where payment_desc like "%2003 TCCC%" and payment_type_id = 1;
-     
-update payment_detail set algorithm_round_id =
-( select r.round_id
-  from payment_detail_xref pdx, payment p, round_payment rp, round r, contest c
-  where payment_detail.payment_detail_id = pdx.payment_detail_id
-  and p.payment_id = pdx.payment_id 
-  and rp.round_id = r.round_id and r.contest_id = c.contest_id and 
-  c.name like "%2003 TCO%" and rp.coder_id = p.user_id and rp.paid = payment_detail.gross_amount
-)
-where payment_desc like "%2003 TCO %" and payment_type_id = 1;
-
-
 update payment_detail set payment_desc = "TCO 06 Championship Round winnings"
 where payment_desc = "TCO Algorithm Onsite";
 
@@ -156,11 +135,11 @@ update payment_detail set payment_type_id = 21 where payment_desc like "%Multi-T
 
 -- 2003 TCCC has bad data, mark it as deleted so it get regenerated.
 update payment_detail set status_id = 69 
-where payment_desc like "%2003 TCCC%" and payment_type_id = 1 and algorithm_round_id is null;
+where payment_desc like "%2003 TCCC%" and payment_type_id = 1;
 
 -- 2003 TCCC has bad data, mark it as deleted so it get regenerated.
 update payment_detail set status_id = 69 
-where payment_desc like "%2003 TCO %" and payment_type_id = 1 and algorithm_round_id is null;
+where payment_desc like "%2003 TCO %" and payment_type_id = 1;
 
 
 -- 2005 TCCC orphan payment
