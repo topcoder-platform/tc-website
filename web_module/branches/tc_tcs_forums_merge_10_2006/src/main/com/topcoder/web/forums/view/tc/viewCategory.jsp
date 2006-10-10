@@ -182,7 +182,7 @@
             <td class="rtThreadCell" style="width: 80px;"><%=forum.getThreadCount()%>&#160;/&#160;<%=forum.getMessageCount()%></td>
             <% if (forum.getMessageCount() > 0) { %>
             <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
-            <td class="rtThreadCell" style="width: 270px;"><b>
+            <td class="rtThreadCell" style="width: 220px;"><b>
                 <tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></b>
             </td>
             <% if (message.getUser() != null) { %>
@@ -193,7 +193,7 @@
             <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
             <% } %>
             <% } else { %>
-            <td class="rtThreadCell" style="width: 270px;">&nbsp;</td>
+            <td class="rtThreadCell" style="width: 220px;">&nbsp;</td>
             <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
             <% } %>
         </tr>
@@ -233,7 +233,7 @@
                 <%=category.getThreadCount()%>&#160;/&#160;<%=category.getMessageCount()%><% } %></td>
             <% if (category.getLatestMessage() != null) { %>
             <tc-webtag:useBean id="message" name="category" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
-            <td class="rtThreadCell" style="width: 270px;"><b>
+            <td class="rtThreadCell" style="width: 220px;"><b>
                 <tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></b>
             </td>
             <% if (message.getUser() != null) { %>
@@ -244,7 +244,7 @@
             <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
             <% } %>
             <% } else { %>
-            <td class="rtThreadCell" style="width: 270px;">&nbsp;</td>
+            <td class="rtThreadCell" style="width: 220px;">&nbsp;</td>
             <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
             <% } %>
         </tr>

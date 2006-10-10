@@ -131,7 +131,7 @@
             <%  } %>
                 <% if (category.getDescription() != null) { %><br/><div class="rtDescIndent"><%=category.getDescription()%></div><% } %></td>
             <td class="rtThreadCell" style="width: 80px;"><%=category.getThreadCount()%>&#160;/&#160;<%=category.getMessageCount()%></td>
-            <% if (category.getMessageCount() > 0) { %>
+            <% if (category.getLatestMessage() != null) { %>
                 <tc-webtag:useBean id="message" name="category" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
                 <td class="rtThreadCell" style="width: 220px;"><b>
                 	<tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/>

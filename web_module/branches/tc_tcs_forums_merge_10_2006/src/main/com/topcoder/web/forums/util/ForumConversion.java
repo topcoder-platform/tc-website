@@ -406,7 +406,7 @@ public class ForumConversion {
             }
             
             log.info(forumNum + " out of " + totalForum + " forums have been processed.");
-            if (forumNum > 5) {
+            if (forumNum >= 5) {
                 log.info("Attempting to close connections....");
                 closeConnection(tcConn);
                 closeStatement(forumPS);
@@ -414,7 +414,7 @@ public class ForumConversion {
                 closeStatement(threadPS);
                 closeStatement(postPS);
                 closeStatement(attPS);
-                log.info("Connection should be closed.");
+                log.info("Connections should be closed.");
             	break;
             }
         }
@@ -430,6 +430,8 @@ public class ForumConversion {
             try {
                 conn.close();
             } catch (Exception ex) {
+            	log.info("connection could not be closed: ");
+            	ex.printStackTrace();
             }
         }
     }
@@ -444,6 +446,8 @@ public class ForumConversion {
             try {
                 ps.close();
             } catch (Exception ex) {
+            	log.info("statement could not be closed: ");
+            	ex.printStackTrace();
             }
         }
     }
