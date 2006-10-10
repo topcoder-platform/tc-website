@@ -133,6 +133,10 @@ where payment_type_id = 4 and parent_payment_id is null
 update payment_detail set payment_type_id = 21 where payment_desc like "%Multi-Threading%" and payment_type_id = 1;
 
 
+-- Charity is incomplete, mark it as deleted so it get regenerated.
+update payment_detail set status_id = 69 
+where payment_type_id = 5;
+
 -- 2003 TCCC has bad data, mark it as deleted so it get regenerated.
 update payment_detail set status_id = 69 
 where payment_desc like "%2003 TCCC%" and payment_type_id = 1;
