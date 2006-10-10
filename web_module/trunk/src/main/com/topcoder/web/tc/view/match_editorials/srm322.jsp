@@ -47,7 +47,7 @@
 <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A></span>
 <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A></span>
 <br>
-<A href="/stat?c=round_stats&rd=10002">Match Results</A><br>
+<A href="/stat?c=round_overview&er=5&rd=10002">Match Overview</A><br>
 <tc-webtag:forumLink forumID="505997" message="Discuss this match" /></div>
 
 <span class="bodySubtitle">SRM 322</span><br>Monday, October 9, 2006
