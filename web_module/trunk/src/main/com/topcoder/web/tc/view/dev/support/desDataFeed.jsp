@@ -3,7 +3,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-    <title>TopCoder - Help</title>
+    <title>TopCoder - Data Feeds</title>
 
     <jsp:include page="../../script.jsp"/>
     <jsp:include page="/style.jsp">
@@ -77,7 +77,7 @@
         <li>number of rated design events</li>
     </ul>
 
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_active_design_list</strong>
+    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_active_designer_list</strong>
 </p>
 
 <p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Design Rating History</span><br/>
