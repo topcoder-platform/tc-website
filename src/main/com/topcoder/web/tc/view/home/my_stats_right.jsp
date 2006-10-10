@@ -12,7 +12,14 @@
     <tr>
         <td class="statTextBig" bgcolor="#333333">&#160;Coder: 
         <tc-webtag:handle coderId='<%=coderInfo.getLongItem(0, "coder_id")%>'/><br>
-            Total Earnings: <A href="/tc?module=PaymentSummary&cr=<%=info.getUserId()%>" class="statTextBig"><rsc:item set="<%=coderInfo%>" name="overall_earnings" format="$#,##0.00" ifNull="$0.00"/></A>
+            Total Earnings: 
+            <% if (coderInfo.getItem(0, "overall_earnings").getResultData() == null || coderInfo.getDoubleItem(0, "overall_earnings") > 0) { %>
+                <A href="/tc?module=PaymentSummary&cr=<%=info.getUserId()%>" class="statTextBig">
+                    <rsc:item set="<%=coderInfo%>" name="overall_earnings" format="$#,##0.00" ifNull="$0.00"/>
+                </A>
+            <% } else { %>
+                $0.00
+            <% } %>
         </td>
     </tr>
 
