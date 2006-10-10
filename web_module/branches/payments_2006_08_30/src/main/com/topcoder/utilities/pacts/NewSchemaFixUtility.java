@@ -81,6 +81,8 @@ public class NewSchemaFixUtility extends DBUtility {
             
             processRoyalties();
             
+            log.debug("Load process done.");
+
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw new Exception("PaymentFixUtility failed.\n" + sqle.getMessage());
