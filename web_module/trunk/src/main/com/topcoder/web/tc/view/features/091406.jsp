@@ -9,41 +9,7 @@
 <jsp:include page="/style.jsp">
 <jsp:param name="key" value="tc_main"/>
 </jsp:include>
-<script language="javascript" type="text/javascript">
-<!--
-function makeInvisible(){
-   var object = document.getElementById("onTop");
-   object.className = 'invisible';
-   object = document.getElementById("onLeft");
-   object.className = 'invisible';
-   object = document.getElementById("onRight");
-   object.className = 'invisible';
-   object = document.getElementById("onBottom");
-   object.className = 'invisible';
-   object = document.getElementById("printableLink");
-   object.className = 'invisible';
-   object = document.getElementById("navigableLink");
-   object.className = '';
-   return;
-}
-function makeNavigable(){
-   var object = document.getElementById("onTop");
-   object.className = '';
-   object = document.getElementById("onLeft");
-   object.className = '';
-   object = document.getElementById("onRight");
-   object.className = '';
-   object = document.getElementById("onBottom");
-   object.className = '';
-   object = document.getElementById("printableLink");
-   object.className = '';
-   object = document.getElementById("navigableLink");
-   object.className = 'invisible';
-   return;
-}
-// -->
-</script>
-
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 <style type="text/css">
 .codeBox
 {
