@@ -14,7 +14,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 public class FillPaymentData extends BaseProcessor implements PactsConstants {
 
     protected void businessProcessing() throws TCWebException {
-    	SimpleDateFormat format = new SimpleDateFormat(PactsConstants.DATE_FORMAT_STRING);
+        SimpleDateFormat format = new SimpleDateFormat(PactsConstants.DATE_FORMAT_STRING);
 
         try {
             long refId = Long.parseLong(getRequest().getParameter("reference_id"));
@@ -26,12 +26,12 @@ public class FillPaymentData extends BaseProcessor implements PactsConstants {
             DataInterfaceBean dib = new DataInterfaceBean();
 
             payment = dib.fillPaymentData(payment);
-            
+
             getRequest().setAttribute("description", payment.getDescription());
             getRequest().setAttribute("dueDate", format.format(payment.getDueDate()));
             getRequest().setAttribute("statusId", payment.getStatusId() + "");
             getRequest().setAttribute("referenceDescription", payment.getReferenceDescription());
-            
+
             setNextPage(INTERNAL_AJAX_FILL_PAYMENT_DATA);
             setIsNextPageInContext(true);
         } catch (Exception e) {

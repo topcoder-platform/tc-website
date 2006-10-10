@@ -16,7 +16,7 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
     protected void businessProcessing() throws TCWebException {
         try {
             int type = Integer.parseInt(getRequest().getParameter("payment_type_id"));
-            int refId =BasePayment.getReferenceTypeId(type); 
+            int refId =BasePayment.getReferenceTypeId(type);
             String search = getRequest().getParameter("search_text");
 
             DataInterfaceBean dib = new DataInterfaceBean();
@@ -31,16 +31,16 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                         getRequest().setAttribute(ALGORITHM_PROBLEM_LIST, map.get(ALGORITHM_PROBLEM_LIST));
                         field = "algorithm_problem_id";
                         break;
-                        
+
                     case REFERENCE_ALGORITHM_ROUND_ID:
                         if (type == ALGORITHM_CONTEST_PAYMENT) {
-                            map = dib.findRounds("%" + search + "%", ALGORITHM_CONTEST_ROUND_TYPES); 
+                            map = dib.findRounds("%" + search + "%", ALGORITHM_CONTEST_ROUND_TYPES);
 
                         } else if (type == MARATHON_MATCH_PAYMENT) {
                             map = dib.findRounds("%" + search + "%", MARATHON_MATCH_ROUND_TYPES);
-                            
+
                         }  else if (type == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT) {
-                        	  map = dib.findRounds("%" + search + "%", ALGORITHM_TOURNAMENT_ROUND_TYPES);
+                              map = dib.findRounds("%" + search + "%", ALGORITHM_TOURNAMENT_ROUND_TYPES);
                         }
                         getRequest().setAttribute(ALGORITHM_ROUND_LIST, map.get(ALGORITHM_ROUND_LIST));
                         field = "algorithm_round_id";
@@ -63,15 +63,15 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                         getRequest().setAttribute(STUDIO_CONTEST_LIST, map.get(STUDIO_CONTEST_LIST));
                         field = "studio_contest_id";
                         break;
-                        
+
                     case REFERENCE_PARENT_PAYMENT_ID:
                         map = dib.findPaymentsByDescription("%" + search + "%");
                         getRequest().setAttribute(PARENT_REFERENCE_LIST, map.get(PARENT_REFERENCE_LIST));
                         field = "parent_reference_id";
                         break;
-                       
+
                 }
-            } 
+            }
             switch (refId) {
                 case REFERENCE_DIGITAL_RUN_SEASON_ID:
                     map = dib.getDigitalRunSeasonList();
@@ -86,7 +86,7 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                     break;
             }
 
-            
+
             setDefault("client", getRequest().getParameter("client"));
             getRequest().setAttribute("reference_type_id", refId + "");
             //getRequest().setAttribute("reference_field_name", field);
