@@ -228,7 +228,7 @@
     <target name="package-EJB-PactsServicesBean" depends="compile">
         <jar jarfile="${ejb_jars}/PactsServices.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-        	<zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/pacts/common/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/pacts/common/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/pacts" includes="*.xml"/>
         </jar>
@@ -529,7 +529,8 @@
                 <include name="ProblemParser.properties"/>
                 <include name="Resume.properties"/>
                 <include name="Registration.properties"/>
-                <include name="TC.properties"/>
+                <include name="tc.PROPERTIES"/>
+                <include name="PactsInternalServlet.properties"/>
                 <include name="cache.properties"/>
                 <include name="Email.properties"/>
                 <include name="EmailEngineConfig.properties"/>
