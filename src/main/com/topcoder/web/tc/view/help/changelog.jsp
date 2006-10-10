@@ -44,6 +44,16 @@
 
 
 <p>
+    5.? - 2006.10.10
+    <ul>
+        <li>Add payment summary and details from the member profile page.</li>
+        <li>Added more types of payments to PACTS.</li>
+        <li>Updated pages for payments and affidavits in PACTS internal.</li>
+    </ul>
+    
+ </p>
+
+<p>   
     5.4.15 - 2006.10.09
     <ul>
         <li>
