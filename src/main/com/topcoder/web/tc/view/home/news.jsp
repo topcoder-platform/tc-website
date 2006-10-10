@@ -8,6 +8,22 @@
 </tr>
 <%--------------------------------------------------------%>
    <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.10.06<br>11:30 AM</td>
+       <td class="newsTextCell"><span class="newsTitle">TopCoder helps "free" AOL</span><br><br>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/info_week_logo.gif" width="67" height="10" alt="InformationWeek" border="0" /></div>
+       InformationWeek interviewed TopCoder CTO Mike Lydon for a recent article on AOL, citing TopCoder's alliance with the company as evidence of a "monumental shift in its approach." 
+      <br><br>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/i/pressroom/infoweek_excerpt.gif" target="_blank">excerpt</A>&#160;|&#160;
+       <A href="http://www.informationweek.com/internet/showArticle.jhtml?articleID=193104723" target="_blank">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506137" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>10.09.06<br>9:40 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       Recent Color Changes now available
@@ -22,6 +38,7 @@
         <tc-webtag:forumLink forumID="506136" message="discuss this"/> |
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
+
 <%--------------------------------------------------------%>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
         <br>10.09.06<br>3:50 PM</td>
@@ -181,17 +198,5 @@ online round.
          <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">Record Book</A> | 
          <tc-webtag:forumLink forumID="506132" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.02.06<br>5:00 PM</td>
-     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA SRM 321 chat session</A></span><br><br>
-      NSA will be in the arena tonight at 8:00 PM, just prior to SRM 321, to discuss working there.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-    <tc-webtag:forumLink forumID="504999" message="discuss this"/> |
-     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
