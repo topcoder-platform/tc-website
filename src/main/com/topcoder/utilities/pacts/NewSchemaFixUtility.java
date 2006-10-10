@@ -28,27 +28,21 @@ import com.topcoder.web.ejb.pacts.BasePayment;
 
 /**
  * <strong>Purpose</strong>:
- * Utility to fix payment columns.
+ * Utility for the new payments schema.
  *
- * This utility analyzes and fixes the payments in both OR and PACTS due to a misscalculation.
+ * This utility adjusts old payments to the new payments schema
  *
  * @author pulky
  * @version 1.0.0
  */
 public class NewSchemaFixUtility extends DBUtility {
     /**
-     * This variable tells if only an analysis is wanted.
+     * The PACTS ejb.
      */
-    private String onlyAnalyze = null;
-
     PactsClientServices pcs = null;
     
     /**
-     * Runs the PaymentFixUtility.
-     *
-     * First of all it will search for those projects that has advanced to review participants
-     * who got less than 75 in screening, and will check for those project payment in both OR
-     * and PACTS tables. If there are inconsistencies, they will be corrected.
+     * Runs the NewSchemaFixUtility.
      *
      */
     public void runUtility() throws Exception {
@@ -78,15 +72,17 @@ public class NewSchemaFixUtility extends DBUtility {
             
             pcs = (PactsClientServices) createEJB();
 
-//            processRoomResultAdditions();
-//            processRoomResultConflicts();
-//            processRoomResultCharities();
-            
-//            processCompCompetitions();
-//            processCompContests();
+            processRoomResultAdditions();
+            processRoomResultConflicts();
+            processRoomResultCharities();
+
+            processCompCompetitions();
+            processCompContests();
             
             processRoyalties();
             
+            log.debug("Load process done.");
+
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw new Exception("PaymentFixUtility failed.\n" + sqle.getMessage());
@@ -131,21 +127,23 @@ public class NewSchemaFixUtility extends DBUtility {
     private void processCompContests() throws SQLException, RemoteException {
         StringBuffer query = new StringBuffer(200);
         query.append("select user_id, prize_payment, contest_id, place from user_contest_prize_dw ");
-        query.append("where not exists ( ");
+        query.append("where prize_type_id not in (9, 10) and not exists ( ");
         query.append("select pd.payment_detail_id from payment_detail pd, payment_detail_xref pdx, payment p ");
         query.append("where pd.payment_detail_id = pdx.payment_detail_id and ");
         query.append("p.payment_id = pdx.payment_id and  p.most_recent_detail_id = pd.payment_detail_id ");
         query.append("and p.user_id = user_contest_prize_dw.user_id and pd.component_contest_id = user_contest_prize_dw.contest_id ");
-        query.append("and pd.gross_amount = user_contest_prize_dw.prize_payment) ");
-
+        query.append("and pd.gross_amount = user_contest_prize_dw.prize_payment and ");
+        query.append("pd.payment_type_id = 19 and pd.status_id <> 69) ");
+        
         PreparedStatement psSelCompContests = prepareStatement("informixoltp", query.toString());
-        log.debug("Processing component competitions:");
+        log.debug("Processing component contests:");
 
         ResultSet rs = null;
         try {            
             rs = psSelCompContests.executeQuery();
             int i = 1;
             for (; rs.next(); i++ ) {
+                
                 pcs.addPayment(new ComponentTournamentBonusPayment(
                         rs.getLong("user_id"),
                         rs.getDouble("prize_payment"),
@@ -172,10 +170,11 @@ public class NewSchemaFixUtility extends DBUtility {
         query.append("where pd.payment_detail_id = pdx.payment_detail_id and ");
         query.append("p.payment_id = pdx.payment_id and pd.algorithm_round_id = room_result_dw.round_id ");
         query.append("and p.user_id = room_result_dw.coder_id and ");
-        query.append("pd.gross_amount = room_result_dw.paid ");
-        query.append(") and exists ( ");
+        query.append("pd.gross_amount = room_result_dw.paid and ");
+        query.append("pd.payment_type_id = 1 and pd.status_id <> 69) and exists ( ");
         query.append("select pd.payment_detail_id from payment_detail pd ");
-        query.append("where pd.algorithm_round_id = room_result_dw.round_id) ");
+        query.append("where pd.algorithm_round_id = room_result_dw.round_id and ");
+        query.append("pd.payment_type_id = 1 and pd.status_id <> 69) ");
 
         PreparedStatement psSelRoomResultsConflicts = prepareStatement("informixoltp", query.toString());
         log.debug("Processing room_result conflicts:");
@@ -211,7 +210,8 @@ public class NewSchemaFixUtility extends DBUtility {
         query.append("where pd.payment_detail_id = pdx.payment_detail_id and ");
         query.append("p.payment_id = pdx.payment_id and pd.algorithm_round_id = room_result_dw.round_id ");
         query.append("and p.user_id = room_result_dw.coder_id and ");
-        query.append("pd.gross_amount = room_result_dw.paid) ");
+        query.append("pd.gross_amount = room_result_dw.paid and ");
+        query.append("pd.payment_type_id = 5 and pd.status_id <> 69) ");
 
         PreparedStatement psSelRoomResultsCharities=  prepareStatement("informixoltp", query.toString());
 
@@ -260,7 +260,8 @@ public class NewSchemaFixUtility extends DBUtility {
         query.append("where room_result_dw.paid > 0 and room_result_dw.payment_type_id = 1 ");
         query.append("and not exists ( ");
         query.append("select pd.payment_detail_id from payment_detail pd ");
-        query.append("where pd.algorithm_round_id = room_result_dw.round_id) ");
+        query.append("where pd.algorithm_round_id = room_result_dw.round_id and ");
+        query.append("pd.payment_type_id = 1 and pd.status_id <> 69) ");
 
         PreparedStatement psSelRoomResultsAddittions =  prepareStatement("informixoltp", query.toString());
 
@@ -298,7 +299,8 @@ public class NewSchemaFixUtility extends DBUtility {
         query.append("where pd.payment_detail_id = pdx.payment_detail_id and ");
         query.append("p.payment_id = pdx.payment_id ");
         query.append("and p.user_id = royalty_dw.user_id and ");
-        query.append("pd.gross_amount = royalty_dw.amount)"); 
+        query.append("pd.gross_amount = royalty_dw.amount and "); 
+        query.append("pd.payment_type_id = 20 and pd.status_id <> 69) ");
         
         PreparedStatement psSelRoyalties =  prepareStatement("informixoltp", query.toString());
 
@@ -340,14 +342,6 @@ public class NewSchemaFixUtility extends DBUtility {
      */
     protected void processParams() {
         super.processParams();
-
-        onlyAnalyze = (String) params.get("onlyAnalyze");
-        if (onlyAnalyze == null)
-            setUsageError("Please specify a onlyAnalyze.\n");
-
-        params.remove("onlyAnalyze");
-
-        log.debug("onlyAnalyze : " + onlyAnalyze);
     }
 
     /**
