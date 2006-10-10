@@ -7,6 +7,27 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 <%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
+        <br>10.10.06<br>1:30 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm321">SRM 322 - Problem Set & Analysis</A></span><br><br>
+Single Round Match 322 had a fairly high number of registrants (985) and a very dynamic
+start, with several coders of both divisions getting the easy problem in much less than five
+minutes.
+            </td>
+            <td class="newsPhoto"><img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61"/><br>by
+                <tc-webtag:handle coderId="15231364" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=match_editorials&d2=srm321">full story</A> |
+    <tc-webtag:forumLink forumID="505995" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.10.06<br>12:15 PM</td>
      <td class="newsTextCell"><span class="newsTitle">
@@ -86,6 +107,24 @@
    </td></tr>
 
 <%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
+        <br>10.06.06<br>11:00 AM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_2a">TCCC06 Round 2A - Problem Set & Analysis</A></span><br><br>
+Only <tc-webtag:handle coderId="19929536" context="algorithm"/>, <tc-webtag:handle coderId="22641345" context="algorithm"/> and <tc-webtag:handle coderId="309982" context="algorithm"/> were able to correctly solve all three problems in Round 2-A.
+            </td>
+            <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_2a">full story</A> |
+    <tc-webtag:forumLink forumID="506110" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
         <br>10.05.06<br>4:00 PM</td>
     <td class="newsTextCell">
@@ -162,43 +201,4 @@
         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td>
 </tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
-        <br>10.03.06<br>3:30 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm321">SRM 321 -
-                Problem Set & Analysis</A></span><br><br>
-This SRM gave coders still in the running for the TCCC one more chance to practice for the second
-online round.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/krijgertje_big.jpg" alt="" width="55" height="61"/><br>by
-                <tc-webtag:handle coderId="9906197" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=match_editorials&d2=srm321">full story</A> |
-    <tc-webtag:forumLink forumID="505995" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>10.03.06<br>9:50 AM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=100206">Design Patterns in C++</A></span><br><br>
-               This article will examine several design patterns affected by modern C++ practices and present some of their manifestations in generic 
-               C++ code, along with a few examples of how parts of some TopCoder components may look like in C++.</td>
-            <td class="newsPhoto">by <tc-webtag:handle coderId="21195715"/></td></tr>
-        </table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&amp;d1=features&amp;d2=100206">article</A> |
-    <tc-webtag:forumLink forumID="506131" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-</td></tr>
 
