@@ -347,7 +347,7 @@
         <% } %>
 
         <% } else { %>
-        <TD class="<%=even?"statLt":"statDk"%>" align="center" colspan="6">&nbsp;</TD>
+        <TD class="<%=even?"statLt":"statDk"%>" align="center" colspan="7">&nbsp;</TD>
         <% } %>
     </tr>
     <%even = !even; i++; %>

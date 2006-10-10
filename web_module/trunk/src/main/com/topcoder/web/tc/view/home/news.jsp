@@ -7,6 +7,22 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 <%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>10.09.06<br>9:40 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      Recent Color Changes now available
+      </span><br><br>
+      Now you can look at who went up (or down) in handle rating color over the last 30 days.
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=ColorChange&ratid=1">algorithm</A> |
+        <A href="/tc?module=ColorChange&ph=112">design</A> |
+        <A href="/tc?module=ColorChange&ph=113">development</A> |
+        <A href="/tc?module=ColorChange&ratid=2">tchs</A> |
+        <tc-webtag:forumLink forumID="506136" message="discuss this"/> |
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+<%--------------------------------------------------------%>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
         <br>10.09.06<br>3:50 PM</td>
     <td class="newsTextCell">
@@ -179,15 +195,3 @@ online round.
      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>10.02.06<br>2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=513341">TopCoder is turning 100!</A>
-      </span><br><br>
-      We're compiling a special feature to celebrate TopCoder's 100,000th member (coming soon), and we need your help. Answer this question: What is the one theory, term, or tactic that you most rely on, and that is most responsible for making you a better coder?
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=513341">discuss this</A> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
