@@ -111,7 +111,7 @@
             <%even = !even;%>
         </rsc:iterator>
         <tr>
-            <td class="headerR" colspan="2">Total:&nbsp<fmt:formatNumber value="<%=total%>" type="currency" currencySymbol="$"/></td>
+            <td class="headerR" colspan="2">Total:&nbsp<%=total%><fmt:formatNumber value="<%=total%>" type="currency" currencySymbol="$"/></td>
         </tr>
     </TABLE>
     <p><br></p>
