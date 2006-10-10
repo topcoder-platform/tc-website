@@ -101,9 +101,9 @@
             <% if (resultRow.getDoubleItem("show_details_ind") == 1 && resultRow.getDoubleItem("earnings") > 0) {%>
                 <A href="/tc?module=PaymentDetail&cr=<%=coderId%>&pt=<%=resultRow.getStringItem("payment_type_id")%>">
             <% }%>
-            <% if (resultRow.getDoubleItem("earnings") > 0) {%>
+            <% if (resultRow.getDoubleItem("earnings") > 0)
                 total += resultRow.getDoubleItem("earnings");
-            <% }%>
+            }%>
             <rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
             <% if (resultRow.getDoubleItem("show_details_ind") == 1) {%></A><% }%>
             </TD>
