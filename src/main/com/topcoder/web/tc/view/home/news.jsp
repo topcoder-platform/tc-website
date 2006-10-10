@@ -10,7 +10,7 @@
    <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.11.06<br>9:00 AM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_101106">AOL to Webcast TCCC06 Live on November 17</A></span><br><br>
-       "One of TopCoder's core goals is to bring value to the programming community, and with the help of AOL we'll now be able to present much of the excitement and thrill of the onsite contest live, via the internet," said Rob Hughes, President and COO of TopCoder, Inc.
+       TopCoder and AOL today announced that AOL will produce a live exclusive webcast of the TCCC finals via <A href="<tc-webtag:linkTracking link="http://dev.aol.com/" refer="Competition Home" />" target="_blank">dev.aol.com</A>, the company's developer site.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
