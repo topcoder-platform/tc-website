@@ -86,7 +86,8 @@
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Earnings</a>
             </TD>
         </tr>
-        <%boolean even = false;%>
+        <%boolean even = false;
+          double total = 0;%>
         <rsc:iterator list="<%=rsc%>" id="resultRow">
             <tr class="<%=even?"dark":"light"%>">            
             <TD class="value">
@@ -100,6 +101,9 @@
             <% if (resultRow.getDoubleItem("show_details_ind") == 1 && resultRow.getDoubleItem("earnings") > 0) {%>
                 <A href="/tc?module=PaymentDetail&cr=<%=coderId%>&pt=<%=resultRow.getStringItem("payment_type_id")%>">
             <% }%>
+            <% if (resultRow.getDoubleItem("earnings") > 0) {%>
+                total += resultRow.getDoubleItem("earnings");
+            <% }%>
             <rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
             <% if (resultRow.getDoubleItem("show_details_ind") == 1) {%></A><% }%>
             </TD>
@@ -107,7 +111,7 @@
             <%even = !even;%>
         </rsc:iterator>
         <tr>
-            <td class="headerR" colspan="2">Total:&nbsp$0,00</td>
+            <td class="headerR" colspan="2">Total:&nbsp<fmt:formatNumber value="<%=total%>" type="currency" currencySymbol="$"/></td>
         </tr>
     </TABLE>
     <p><br></p>
