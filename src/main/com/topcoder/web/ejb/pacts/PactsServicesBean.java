@@ -2478,6 +2478,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getReferralUser.append("AND c2.coder_id = cr.coder_id ");
             getReferralUser.append("AND c2.member_since + 365 UNITS DAY >= ?");
 
+            // if no event date, assume today
+            if (eventDate == null) {
+            	eventDate = new Date();
+            }
             ps = c.prepareStatement(getReferralUser.toString());
             ps.setTimestamp(1, new Timestamp(eventDate.getTime()));
             rs = ps.executeQuery();
@@ -4544,7 +4548,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Make sure the round exists; in the process, get the name and due date.
             StringBuffer checkExists = new StringBuffer(300);
             checkExists.append("SELECT con.name, r.name, ");
-            checkExists.append("con.end_date + " + DUE_DATE_INTERVAL + " UNITS DAY AS due_date ");
+            checkExists.append("con.end_date + " + DUE_DATE_INTERVAL + " UNITS DAY AS due_date, con.end_date ");
             checkExists.append("FROM round r, contest con ");
             checkExists.append("WHERE r.round_id = " + roundId + " ");
             checkExists.append("AND con.contest_id = r.contest_id");
@@ -4554,6 +4558,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
             String roundName = rsc.getItem(0, 0).toString() + " " + rsc.getItem(0, 1).toString();
             String dueDate = TCData.getTCDate(rsc.getRow(0), "due_date", null, true);
+            Date eventDate = rsc.getTimestampItem(0, "end_date");
 
             StringBuffer getWinners = new StringBuffer(300);
             getWinners.append("SELECT rr.room_id, rr.coder_id, rr.room_placed, rp.paid, a.country_code ");
@@ -4603,6 +4608,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 p.getHeader().setTypeId(ALGORITHM_CONTEST_PAYMENT);
                 p.setDueDate(dueDate);
                 p.getHeader().getUser().setId(userId);
+                p.setEventDate(eventDate);
 
                 String countryCode = winners.getItem(i, "country_code").toString();
                 String text = (String) textMap.get(countryCode);
