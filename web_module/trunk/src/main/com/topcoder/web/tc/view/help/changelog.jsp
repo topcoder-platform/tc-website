@@ -44,7 +44,7 @@
 
 
 <p>
-    5.? - 2006.10.10
+    5.5.0 - 2006.10.10
     <ul>
         <li>Add payment summary and details from the member profile page.</li>
         <li>Added more types of payments to PACTS.</li>
