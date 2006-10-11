@@ -74,17 +74,16 @@ function doSearch(text, mustSearch, firstLoad) {
     document.f.search_text.value = text;
     ajaxRequest.addNamedFormElements("payment_type_id");
 
-	if (firstLoad) {
-	    ajaxRequest.addNamedFormElements("first_load");
-	}
+    if (firstLoad) {
+        ajaxRequest.addNamedFormElements("first_load");
+    }
 
-	if (mustSearch) {
-	    ajaxRequest.addNamedFormElements("search_text");
+    if (mustSearch) {
+        ajaxRequest.addNamedFormElements("search_text");
     }
     
-   	ajaxRequest.addNamedFormElements("reference_id");
-  	ajaxRequest.addNamedFormElements("client");    
-    ajaxRequest.setEchoDebugInfo();
+    ajaxRequest.addNamedFormElements("reference_id");
+    ajaxRequest.addNamedFormElements("client");    
     ajaxRequest.setPostRequest(loaded);
     ajaxRequest.setPreRequest(loading);    
     ajaxRequest.sendRequest();
@@ -93,8 +92,8 @@ function doSearch(text, mustSearch, firstLoad) {
 
 function typeChanged()
 {
-	document.f.reference_description.value = "";
-	doSearch("", false, false);
+    document.f.reference_description.value = "";
+    doSearch("", false, false);
 }
 
 function doReferenceChanged(refId) {
@@ -130,15 +129,15 @@ function setStatus(id) {
 }
 
 function initialize() {
-	loaded();
+    loaded();
 
 <c:if test="${empty requestScope.reference_description}">    
-	var s = false;
-	<c:if test="${not empty param.search_text}">
-		s=true;
-	</c:if>
+    var s = false;
+    <c:if test="${not empty param.search_text}">
+        s=true;
+    </c:if>
     doSearch('<c:out value="${param.search_text}" />',s,true);    
-</c:if>	
+</c:if> 
 }
 
 function getElement(name) {
@@ -220,8 +219,8 @@ function searchKeyPress(e)
     <tr>
         <td><b>ID:</b></td>
         <td>
-        	<c:out value="${payment.header.id}" />  
-		</td>
+            <c:out value="${payment.header.id}" />  
+        </td>
     </tr>
 </c:if>
     <tr>
@@ -233,8 +232,8 @@ function searchKeyPress(e)
     <tr>
         <td><b>Contract:</b></td>
         <td>
-        	<a href="${pacts:viewContract(contract.header.id)}"><c:out value="${contract.header.name}" />
-		</td>
+            <a href="${pacts:viewContract(contract.header.id)}"><c:out value="${contract.header.name}" />
+        </td>
     </tr>
 </c:if>
     
@@ -244,10 +243,7 @@ function searchKeyPress(e)
                    list="${typeList}" 
                    fieldText="payment_type_desc" fieldValue="payment_type_id" 
                    useTopValue="false" onChange="typeChanged()" />        
-
-            <c:if test="${adding}">                  
-                   <input type="checkbox" name="charityInd" />Donated to Charity
-            </c:if>                   
+                   <tc-webtag:chkBox name="charity_ind"/>Donated to Charity
        </td>
     </tr>
     
@@ -338,7 +334,7 @@ function searchKeyPress(e)
     <!--
 Calendar.setup(
 {
- inputField  : "date_due",  
+ inputField  : "due_date",  
                     ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",    
                     button      : "trigger_due_date",     
                     showsTime   : false,
