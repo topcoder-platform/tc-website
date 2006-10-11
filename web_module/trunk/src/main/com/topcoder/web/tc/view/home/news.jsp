@@ -6,7 +6,7 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
-<%--------------------------------------------------------%>
+<%-------------------------------------POST THURS AM
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
         <br>10.12.06<br>9:00 AM</td>
     <td class="newsTextCell">
@@ -23,7 +23,7 @@
     <tc-webtag:forumLink forumID="506144" message="discuss this"/> |
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
-
+-------------------%>
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>10.11.05<br>4:00 PM</td>
