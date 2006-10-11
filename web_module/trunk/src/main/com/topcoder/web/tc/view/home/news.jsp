@@ -8,7 +8,7 @@
 </tr>
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>10.11.05<br>2:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>10.11.05<br>4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/collegetour">TopCoder College Tour comes to Beijing</A>
         </span><br><br>
