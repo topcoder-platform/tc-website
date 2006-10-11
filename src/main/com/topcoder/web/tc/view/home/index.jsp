@@ -63,9 +63,9 @@
         <td class="BIGPromoBox" align="center">
 <map name="tccc">
 <area shape="rect" alt="" coords="1,1,230,149" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
-<area shape="rect" alt="" coords="235,30,485,115" href="/tc?module=Static&d1=pressroom&d2=pr_101106" />
+<area shape="rect" alt="" coords="235,30,485,125" href="/tc?module=Static&d1=pressroom&d2=pr_101106" />
 </map>
-<IMG SRC="/i/home/tccc06_webcast_20061011.png" border="0" alt="TCCC06 Webcast" usemap="#tccc"/>
+<IMG SRC="/i/home/tccc06_webcast_20061011b.png" border="0" alt="TCCC06 Webcast" usemap="#tccc"/>
         </td>
         <td width="50%" class="homeLogo" align="right">&#160;</td>
     </tr>
@@ -247,10 +247,8 @@
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
 
-                <%--            
                 AOL to Webcast TCCC06 Live on November 17
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_101106">...more</A><br>[October 11]<br><br>
-                --%>
             
                 TopCoder joins "Mavericks at Work" book tour
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_101006">...more</A><br>[October 10]<br><br>
@@ -269,9 +267,6 @@
             
                 New Software Assembly contest: $22,500 in prizes!
                 <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_costingEngineAdminTool">...more</A><br>[September 20]<br><br>
-
-                2007 TCHS Tournament Logo Design Contest
-                <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2030">...more</A><br>[September 11]<br><br>
 
                 <div style="float: right; padding-left: 5px;">
                 <A href="http://studio.topcoder.com/"><img src="/i/pressroom/studio_logo.gif" width="86" height="42" alt="TopCoder Studio" border="0"/></A></div>
