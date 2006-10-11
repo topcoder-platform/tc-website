@@ -89,7 +89,7 @@
             } else {
                 //resultFilter.setNumResults(Integer.parseInt(category.getProperty("displayLimit")));
                 ArrayList forumsList = ForumsUtil.getForums(category, resultFilter, true);
-                ArrayList pageList = ForumsUtil.getForumsPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
+                ArrayList pageList = ForumsUtil.getPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
                 itForums = pageList.iterator();
                 itForumsCopy = pageList.iterator();
             }

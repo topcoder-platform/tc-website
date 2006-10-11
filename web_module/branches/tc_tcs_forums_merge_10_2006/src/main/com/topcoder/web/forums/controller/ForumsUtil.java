@@ -27,6 +27,8 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.forums.util.filter.TCHTMLFilter;
 import com.topcoder.web.forums.ForumConstants;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.ArrayList;
 
@@ -245,13 +247,35 @@ public class ForumsUtil {
         }
         return forumsList;
     }
+    
+    // Returns categories in a category, with empty categories omitted or placed at the list's end.
+    public static ArrayList getCategories(ForumCategory forumCategory, ResultFilter resultFilter,
+            boolean excludeEmptyCategories) {
+        Iterator itCategories = forumCategory.getCategories();
+        ArrayList categoriesList = new ArrayList();
+        ArrayList emptyCategories = new ArrayList();
+        while (itCategories.hasNext()) {
+        	ForumCategory c = (ForumCategory)itCategories.next();
+        	if (c.getMessageCount() > 0) {
+        		categoriesList.add(c);
+        	} else {
+        		emptyCategories.add(c);
+        	}
+        }
+        Collections.sort(categoriesList, 
+        		new JiveCategoryComparator(resultFilter.getSortField(), resultFilter.getSortOrder()));
+        if (!excludeEmptyCategories) {
+        	categoriesList.addAll(emptyCategories);
+        }
+        return categoriesList;
+    }
 
-    // Returns one page of forums in a category
-    public static ArrayList getForumsPage(ArrayList forumsList, int startIdx, int forumRange) {
-        int endIdx = Math.min(startIdx+forumRange, forumsList.size());
+    // Returns one page of items in a list
+    public static ArrayList getPage(ArrayList list, int startIdx, int forumRange) {
+        int endIdx = Math.min(startIdx+forumRange, list.size());
         ArrayList pageList = new ArrayList();
         for (int i=startIdx; i<endIdx; i++) {
-            pageList.add(forumsList.get(i));
+            pageList.add(list.get(i));
         }
         return pageList;
     }
@@ -449,5 +473,32 @@ public class ForumsUtil {
         	}
         }
         return linkStr.toString();
+    }
+}
+
+
+class JiveCategoryComparator implements Comparator {
+	private int sortField;
+	private int sortOrder;
+	
+	public JiveCategoryComparator(int sortField, int sortOrder) {
+		this.sortField = sortField;
+		this.sortOrder = sortOrder;
+	}
+	
+	public final int compare(Object o1, Object o2) {
+		ForumCategory c1 = (ForumCategory)o1;
+		ForumCategory c2 = (ForumCategory)o2;
+		
+		int retVal = 0;
+		if (sortField == JiveConstants.FORUM_NAME) {
+			retVal = c1.getName().compareTo(c2.getName());
+		} else if (sortField == JiveConstants.MODIFICATION_DATE) {
+			retVal = c1.getModificationDate().compareTo(c2.getModificationDate());
+		}
+		if (sortOrder == ResultFilter.DESCENDING) {
+			retVal = -retVal;
+		}
+		return retVal;
     }
 }

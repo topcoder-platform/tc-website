@@ -17,7 +17,7 @@
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
-<% User user = (User) request.getAttribute("user");
+<%	User user = (User) request.getAttribute("user");
     ResultFilter resultFilter = (ResultFilter) request.getAttribute("resultFilter");
     ReadTracker readTracker = forumFactory.getReadTracker();
     WatchManager watchManager = forumFactory.getWatchManager();
@@ -29,9 +29,7 @@
     linkBuffer.append("&").append(ForumConstants.CATEGORY_ID).append("=").append(forumCategory.getID());
 
     StringBuffer forumLinkBuffer = new StringBuffer(linkBuffer.toString());
-    StringBuffer dateLinkBuffer = new StringBuffer(linkBuffer.toString());
-    forumLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.FORUM_NAME);
-    dateLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.MODIFICATION_DATE);
+    forumLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.FORUM_NAME);    
     if (sortField.equals(String.valueOf(JiveConstants.FORUM_NAME))) {
         if (sortOrder.equals(String.valueOf(ResultFilter.ASCENDING))) {
             forumLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
@@ -43,6 +41,10 @@
     } else {  // default
         forumLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
     }
+    String forumLink = forumLinkBuffer.toString();
+    
+    StringBuffer dateLinkBuffer = new StringBuffer(linkBuffer.toString());
+    dateLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.MODIFICATION_DATE);
     if (sortField.equals(String.valueOf(JiveConstants.MODIFICATION_DATE))) {
         if (sortOrder.equals(String.valueOf(ResultFilter.ASCENDING))) {
             dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
@@ -54,7 +56,6 @@
     } else {  // default
         dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
     }
-    String forumLink = forumLinkBuffer.toString();
     String dateLink = dateLinkBuffer.toString();
 
     if (!sortField.equals("")) {
@@ -199,13 +200,10 @@
         </tr>
     </tc-webtag:iterator>
 </table>
-<% } %>
-
-<% if (forumCategory.getCategoryCount() > 0) { %>
-<% if (forumCategory.getForumCount() > 0) { %><br><% } %>
+<% } else if (forumCategory.getCategoryCount() > 0) { %>
 <table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
-        <td class="rtHeader" width="100%">Category</td>
+        <td class="rtHeader" width="100%"><a href="<%=forumLink%>" class="rtbcLink">Category</a></td>
         <td class="rtHeader"><div style="width:80px;"><% if (forumCategory.getID() != 1) { %>T./M.<% } %></div></td>
         <td class="rtHeader" align="center" colspan="2" nowrap="nowrap">
         	<div style="width:320px;"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></div>

@@ -415,12 +415,12 @@ public class ForumConversion {
             log.info(forumNum + " out of " + totalForum + " forums have been processed.");
             if (forumNum >= 25) {
                 log.info("Attempting to close connections....");
-                closeConnection(tcConn);
-                closeStatement(forumPS);
-                closeStatement(topicPS);
-                closeStatement(threadPS);
-                closeStatement(postPS);
-                closeStatement(attPS);
+                tcConn.close();
+                forumPS.close();
+                topicPS.close();
+                threadPS.close();
+                postPS.close();
+                attPS.close();
                 log.info("Connections should be closed.");
             	break;
             }

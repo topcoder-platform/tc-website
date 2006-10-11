@@ -15,7 +15,6 @@
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="categories" name="categories" type="java.util.ArrayList" toScope="request"/>
-<tc-webtag:useBean id="deepCategories" name="deepCategories" type="java.util.ArrayList" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
 <% User user = (User) request.getAttribute("user");
@@ -161,8 +160,8 @@
 %>
 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)categories.iterator()%>'>
     <% String limit = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_DISPLAY_LIMIT));
-        if (!"0".equals(limit)) { %>
-    <% Iterator itForums = null, itForumsCopy = null;
+       if (!"0".equals(limit)) {
+       	Iterator itForums = null, itForumsCopy = null;
         int numActiveForums = 0;
         if (!"".equals(limit)) {
             if (limit.endsWith("d")) {
@@ -181,7 +180,7 @@
                 } else {
                 	forumsList = ForumsUtil.getForums(category, resultFilter, true);
                 }
-                ArrayList pageList = ForumsUtil.getForumsPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
+                ArrayList pageList = ForumsUtil.getPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
                 itForums = pageList.iterator();
                 itForumsCopy = pageList.iterator();
             }
