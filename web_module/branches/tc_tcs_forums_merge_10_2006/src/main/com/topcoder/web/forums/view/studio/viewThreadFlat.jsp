@@ -193,7 +193,7 @@
                 <div style="float:right;" class="rtbc"><b>
                     <% if (paginator.getPreviousPage()) { %>
                     <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&<%=ForumConstants.START_IDX%>=<%=paginator.getPreviousPageStart()%>&mc=<%=thread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">
-                        <<PREV</A>&#160;&#160;&#160;
+                        << PREV</A>&#160;&#160;&#160;
                     <% } %> [
                     <% Page[] pages = paginator.getPages(5);
                         for (int i = 0; i < pages.length; i++) {

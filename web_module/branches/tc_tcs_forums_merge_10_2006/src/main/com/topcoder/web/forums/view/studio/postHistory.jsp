@@ -116,7 +116,7 @@
                 <td class="rtbc" width="100%" align="right" nowrap="nowrap" style="padding-bottom:3px;"><b>
                     <% if (paginator.getPreviousPage()) { %>
                     <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
-                        <<PREV</A>&#160;&#160;&#160;
+                        << PREV</A>&#160;&#160;&#160;
                     <% } %> [
                     <% Page[] pages = paginator.getPages(5);
                         for (int i = 0; i < pages.length; i++) {
