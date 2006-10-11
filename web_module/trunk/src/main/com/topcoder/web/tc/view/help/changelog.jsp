@@ -42,6 +42,14 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
+<p>
+    5.5.1 - 2006.10.11
+    <ul>
+        <li>Fixed addPayment page in PACTS internal pages.</li>
+        <li>Changed the way that charity payments are handled.</li>
+    </ul>
+    
+ </p>
 
 <p>
     5.5.0 - 2006.10.10
