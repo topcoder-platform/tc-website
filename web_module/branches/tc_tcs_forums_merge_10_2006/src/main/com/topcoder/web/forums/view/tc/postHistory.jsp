@@ -128,7 +128,7 @@
                     <td class="rtbc" align="right" nowrap="nowrap" style="padding-bottom:3px;"><b>
                         <% if (paginator.getPreviousPage()) { %>
                         <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=paginator.getPreviousPageStart()%>" class="rtbcLink">
-                            <<PREV</A>&#160;&#160;&#160;
+                            << PREV</A>&#160;&#160;&#160;
                         <% } %> [
                         <% Page[] pages = paginator.getPages(5);
                             for (int i = 0; i < pages.length; i++) {
