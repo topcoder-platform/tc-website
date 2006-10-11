@@ -110,8 +110,9 @@
                 <a name="schools"></a>
                 <rsc:iterator list="<%=list%>" id="resultRow">
                     <div align="center" style="padding: 20px;">
-                        <rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy"/>
-                        <br/>
+                        <div align="center" style="width: 100px; border-bottom: 1px solid #999999; padding-bottom: 4px; margin-bottom: 10px;">
+                        <strong><rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy"/></strong>
+                        </div>
                         <img src="<rsc:item name="image_path" row="<%=resultRow%>"/>"
                              alt="<rsc:item name="event_name" row="<%=resultRow%>"/>" border="0"/>
                     </div>
