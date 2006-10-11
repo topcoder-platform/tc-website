@@ -17,7 +17,7 @@ import javax.rmi.PortableRemoteObject;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.sql.DBUtility;
 import com.topcoder.web.ejb.pacts.AlgorithmContestPayment;
-import com.topcoder.web.ejb.pacts.CharityPayment;
+//import com.topcoder.web.ejb.pacts.CharityPayment;
 import com.topcoder.web.ejb.pacts.PactsClientServices;
 import com.topcoder.web.ejb.pacts.PactsClientServicesHome;
 import com.topcoder.web.ejb.pacts.ComponentWinningPayment;
@@ -74,7 +74,7 @@ public class NewSchemaFixUtility extends DBUtility {
 
             processRoomResultAdditions();
             processRoomResultConflicts();
-            processRoomResultCharities();
+            //processRoomResultCharities();
 
             processCompCompetitions();
             processCompContests();
@@ -200,7 +200,7 @@ public class NewSchemaFixUtility extends DBUtility {
         }
     }
 
-    private void processRoomResultCharities() throws SQLException, RemoteException {
+/*    private void processRoomResultCharities() throws SQLException, RemoteException {
         StringBuffer query = new StringBuffer(200);
         query.append("select coder_id, paid, round_id, room_placed ");
         query.append("from room_result_dw ");
@@ -222,11 +222,6 @@ public class NewSchemaFixUtility extends DBUtility {
             rs = psSelRoomResultsCharities.executeQuery();
             int i = 1;
             for (; rs.next(); i++ ) {
-/*                log.debug("Creating an AlgorithmContestPayment(" + 
-                        rs.getLong("coder_id") + "," +
-                        rs.getDouble("paid") + "," +
-                        rs.getLong("round_id") + "," +
-                        rs.getInt("room_placed") + ")");*/
                         
                 AlgorithmContestPayment algorithmContestPayment = new AlgorithmContestPayment(
                         rs.getLong("coder_id"),
@@ -251,7 +246,7 @@ public class NewSchemaFixUtility extends DBUtility {
           DBMS.close(rs);
           DBMS.close(psSelRoomResultsCharities);
         }
-    }
+    }*/
 
     private void processRoomResultAdditions() throws SQLException, RemoteException {
         StringBuffer query  = new StringBuffer(200);
