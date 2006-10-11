@@ -6,20 +6,20 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
-<%-------------------------- 10.12 9am
+<%--------------------------------------------------------%>
    <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.11.06<br>9:00 AM</td>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.11.06<br>10:00 AM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_101106">AOL to Webcast TCCC06 Live on November 17</A></span><br><br>
        TopCoder and AOL today announced that AOL will produce a live exclusive webcast of the TCCC finals via <A href="<tc-webtag:linkTracking link="http://dev.aol.com/" refer="Competition Home" />" target="_blank">dev.aol.com</A>, the company's developer site.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-       <A href="">trailer</A>&#160;|&#160;
+       <A href="/movies/tournament/tccc06/tccc06AOLWebcast.mpeg">trailer</A>&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=pr_101106">press release</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506140" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
-------------------------------%>
+
 
 <%--------------------------------------------------------%>
    <tr>
@@ -203,21 +203,5 @@ Only <tc-webtag:handle coderId="19929536" context="algorithm"/>, <tc-webtag:hand
         <A href="/tc?module=SurveyResults&sid=220">results</A> | 
         <tc-webtag:forumLink forumID="506125" message="discuss this"/> |
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/headphones.gif" alt="Podcasts" border="0"/><br>10.04.06<br>12:00 NOON</td>
-       <td class="newsTextCell"><span class="newsTitle"><A href="/audio/open_source_060928_48kb.mp3" target="_blank">TopCoder featured on public radio's "Open Source"</A> [PODCAST]</span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/opensource_logo.gif" width="68" height="23" alt="Open Source" border="0" /></div>
-       Jack Hughes joined <i>Mavericks at Work</i> author William Taylor and host Christopher Lydon to discuss TopCoder's "maverick" approach. Stream the mp3:
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/audio/open_source_060928_24kb.mp3" target="_blank">lo 6.8mb</A> &#160;|&#160;
-       <A href="/audio/open_source_060928_48kb.mp3" target="_blank">hi 13.8mb</A> &#160;|&#160;
-       <A href="/images/downloads/mavericks_at_work.pdf" target="_blank">Mavericks at Work excerpt</A> [PDF] &#160;|&#160;
-       <tc-webtag:forumLink forumID="506134" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 

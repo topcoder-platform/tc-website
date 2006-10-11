@@ -49,7 +49,7 @@
 </div>
       
 <div align="center">
-<A href=""><img src="/i/pressroom/watchTheTrailer.png" alt="Watch the Trailer" /></A>
+<A href="/movies/tournament/tccc06/tccc06AOLWebcast.mpeg"><img src="/i/pressroom/watchTheTrailer.png" alt="Watch the Trailer" /></A>
 </div>                  
 <p><strong>Glastonbury, Conn. & Dulles, Va., October 11, 2006 &#151;</strong>TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, and AOL, a global Web services company, today announced that the 2006 TopCoder&#174;  Collegiate Challenge will be webcast live on Friday, November 17. This first of its kind program will present the excitement and drama of 64 of the world's best collegiate programmers competing against the clock and each other for a share of $200,000 in prizes. The 2006 TopCoder Collegiate Challenge will be produced live from San Diego, California and distributed worldwide exclusively via title sponsor AOL's developer site. For more details and updates, check: <A href="http://dev.aol.com/" target="_blank">http://dev.aol.com/</A> or http://www.topcoder.com/. 
 <br><br>
