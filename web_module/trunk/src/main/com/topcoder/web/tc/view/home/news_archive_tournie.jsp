@@ -39,7 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<tr class="bodyText"><td nowrap="nowrap">10.10.06 12:00 NOON - </td><td width="100%"><A href="/tc?module=TCCC06StudentReps">Zhengquiang is the TCCC06 Student Rep Winner</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.10.06 12:00 NOON - </td><td width="100%"><A href="/tc?module=TCCC06StudentReps">zhengqiang is the TCCC06 Student Rep Winner</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.09.06 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol">AOL SRM 322 chat session</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.04.06 5:00 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=220">andrey_atlas is the TCHS07 Logo Contest Winner!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.02.06 5:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA SRM 321 chat session</A></td></tr>
