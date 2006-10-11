@@ -8,6 +8,7 @@ import javax.naming.InitialContext;
 import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.Forum;
+import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.ForumPermissions;
@@ -143,6 +144,11 @@ public class PostMessage extends ForumsProcessor {
                     watchManager.getTotalWatchCount(user, JiveConstants.THREAD) < ForumConstants.MAX_THREAD_WATCHES) {
                 watchManager.createWatch(user, thread);
             }
+		}
+		ForumCategory category = thread.getForum().getForumCategory();
+		while (category != null) {
+			category.setModificationDate(thread.getModificationDate());
+			category = category.getParentCategory();
 		}
 
 		setNextPage(getSessionInfo().getServletPath() + 
