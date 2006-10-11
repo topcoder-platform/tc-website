@@ -25,6 +25,27 @@
 </td></tr>
 -------------------%>
 <%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
+        <br>10.11.06<br>5:15 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle">
+            <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_8">Intel&#174; Multi-Threading Competition 8 - Analysis</A></span><br><br>
+Let us consider a simpler problem,
+which is to ignore the different line states and try to recompose the
+message...
+            </td>
+            <td class="newsPhoto"><img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="159052" /></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_8">full story</A> |
+    <tc-webtag:forumLink forumID="506093" message="discuss this"/> |
+    <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>10.11.05<br>4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -181,22 +202,4 @@ minutes.
     <tc-webtag:forumLink forumID="506075" message="discuss this"/> |
      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
-        <br>10.08.06<br>11:00 AM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_2b">TCCC06 Round 2B - Problem Set & Analysis</A></span><br><br>
-This online round turned out to be very mathy, with two problems dealing with arithmetics. This caused problems for several high ranked coders.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/Yarin_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="269554" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_2b">full story</A> |
-    <tc-webtag:forumLink forumID="506111" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
 
