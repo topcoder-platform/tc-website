@@ -61,7 +61,7 @@ minutes.
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.10.06<br>12:15 PM</td>
      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=TCCC06StudentReps">Zhengquiang is the TCCC06 Student Rep Winner</A>
+        <A href="/tc?module=TCCC06StudentReps">zhengqiang is the TCCC06 Student Rep Winner</A>
         </span><br><br>
       Congratulations to the winner - <tc-webtag:handle coderId="14949480" /> for referring 16 qualification participants!
       </td>
