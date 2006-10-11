@@ -49,7 +49,7 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
-<%-- AOL Title TCCC Sponsor 
+<%-- AOL Title TCCC Sponsor --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -57,13 +57,13 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_101106">AOL to Webcast TopCoder World Championship of Computer Programming Live on November 17</A></strong></font><br />
-                        "One of TopCoder's core goals is to bring value to the programming community, and with the help of AOL we'll now be able to present much of the excitement and thrill of the onsite contest live, via the internet," said Rob Hughes, President and COO of TopCoder, Inc.<span class="prHead"> [October 11]</span> - <A href="">Watch the trailer!</A></p>
+                        "One of TopCoder's core goals is to bring value to the programming community, and with the help of AOL we'll now be able to present much of the excitement and thrill of the onsite contest live, via the internet," said Rob Hughes, President and COO of TopCoder, Inc.<span class="prHead"> [October 11]</span> - <A href="/movies/tournament/tccc06/tccc06AOLWebcast.mpeg">Watch the trailer!</A></p>
                     </td>
                 </tr>
             </table>
 
             <hr width="100%" size="1" noshade="noshade" />
---%>
+
 
 <%-- Mavericks --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
