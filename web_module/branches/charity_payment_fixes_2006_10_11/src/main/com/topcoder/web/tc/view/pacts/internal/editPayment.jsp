@@ -244,10 +244,7 @@ function searchKeyPress(e)
                    list="${typeList}" 
                    fieldText="payment_type_desc" fieldValue="payment_type_id" 
                    useTopValue="false" onChange="typeChanged()" />        
-
-            <c:if test="${adding}">                  
-                   <input type="checkbox" name="charityInd" />Donated to Charity
-            </c:if>                   
+                   <tc-webtag:chkBox name="charity_ind"/>Donated to Charity
        </td>
     </tr>
     

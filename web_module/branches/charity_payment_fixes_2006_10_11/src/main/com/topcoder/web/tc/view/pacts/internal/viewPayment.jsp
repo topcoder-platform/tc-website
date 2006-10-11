@@ -48,6 +48,13 @@
 			<td><b>Type:</b></td>
 			<td><c:out value="${payment.header.type}" /></td>
 		</tr>
+<c:if test="${payment.charity }">
+		<tr>		
+			<td><b></b></td>
+			<td>This payment was given to charity</td>
+		</tr>
+</c:if>
+				
 		<tr>		
 			<td><b>Method:</b></td>
 			<td><c:out value="${payment.header.method}" /></td>

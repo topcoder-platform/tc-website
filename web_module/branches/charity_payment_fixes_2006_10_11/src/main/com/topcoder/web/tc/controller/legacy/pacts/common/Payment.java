@@ -56,6 +56,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
     private PaymentHeader header;
     private String province;
     private String address3;
+    private boolean charity;
 
     // When the event took place. Is not stored in the db, but is needed in order to know if referrals must be paid
     private Date eventDate;
@@ -110,6 +111,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
             methodId = TCData.getTCInt(rRow, "payment_method_id");
             description = TCData.getTCString(rRow, "payment_desc");
             modifiedDate = TCData.getTCDate(rRow, "date_modified");
+            charity = TCData.getTCInt(rRow, "charity_ind") != 0;
 
 
             if (row == 0)
@@ -206,6 +208,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
         dueDate = "00/00/00";
         address3 = "Default Address 3";
         province = "Default Province";
+        charity = false;
     }
 
 
@@ -493,5 +496,11 @@ public class Payment implements PactsConstants, java.io.Serializable {
         this.address3 = address3;
     }
 
+	public boolean isCharity() {
+		return charity;
+	}
 
+	public void setCharity(boolean charity) {
+		this.charity = charity;
+	}
 }
