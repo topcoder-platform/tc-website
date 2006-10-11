@@ -35,7 +35,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     private String description = null;
     private final int paymentTypeId;
     private String referenceDescription = null;
-
+    private boolean charity = false;
+    
     // Date when the event happened.  It is not stored in the database, but needed to know if referrals must be paid.
     private Date eventDate;
 
@@ -122,7 +123,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             return REFERENCE_DIGITAL_RUN_SEASON_ID;
 
         case CODER_REFERRAL_PAYMENT:
-        case CHARITY_PAYMENT:
         case RELIABILITY_BONUS_PAYMENT:
             return REFERENCE_PARENT_PAYMENT_ID;
 
@@ -157,7 +157,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case DIGITAL_RUN_TOP_THIRD_PAYMENT: return new DigitalRunTopThirdPayment(coderId, grossAmount, referenceId);
         case DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT: return new DigitalRunRockiePrizePayment(coderId, grossAmount, referenceId);
         case CODER_REFERRAL_PAYMENT: return new CoderReferralPayment(coderId, grossAmount, referenceId);
-        case CHARITY_PAYMENT: return new CharityPayment(coderId, referenceId);
         case RELIABILITY_BONUS_PAYMENT: return new ReliabilityBonusPayment(coderId, grossAmount, referenceId);
         default: return new NoReferencePayment(paymentTypeId, coderId, grossAmount, "");
         }
@@ -302,6 +301,13 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         return referenceDescription;
     }
 
+    public boolean isCharity() {
+		return charity;
+	}
+
+	public void setCharity(boolean charity) {
+		this.charity = charity;
+	}
 
     /**
      * Set the status id.
@@ -619,7 +625,5 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 
 
     }
-
-
 
 }

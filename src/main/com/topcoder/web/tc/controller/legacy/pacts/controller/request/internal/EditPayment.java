@@ -7,7 +7,6 @@ import java.util.Date;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
-import com.topcoder.web.ejb.pacts.CharityPayment;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
@@ -41,7 +40,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                 contract = new Contract(dib.getContract(contractId));
             }
 
-            log.debug("contract=" + contractId);
+			boolean charity = getRequest().getParameter("charity_ind") != null;
 
             if (adding) {
                 if (contract != null) {
@@ -88,7 +87,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
 
                 modificationRationaleId = getOptionalIntParameter("modification_rationale_id");
 
-                checkDate("DUE_DATE", "Please enter a valid due date");
+                checkDate("due_date", "Please enter a valid due date");
                 dueDate = getStringParameter("due_date");
 
                 if (getRequest().getParameter("missing_reference") != null) {
@@ -115,16 +114,13 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     payment.setNetAmount(netAmount);
                     payment.setDueDate(dueDate);
                     payment.setRationaleId(modificationRationaleId);
+                    payment.setCharity(charity);
 
                     if (adding) {
                         if (contractId > 0) {
                             paymentId = dib.addContractPayment(contractId, payment);
                         } else {
                             paymentId = dib.addPayment(payment);
-                        }
-
-                        if (getRequest().getParameter("charityInd") != null) {
-                            dib.addPayment(new CharityPayment(getLongParameter(USER_ID), paymentId));
                         }
 
                     } else {
@@ -171,6 +167,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     grossAmount = payment.getGrossAmount();
                     netAmount = payment.getNetAmount();
                     dueDate = payment.getDueDate();
+                    charity = payment.isCharity();
                     modificationRationaleId = MODIFICATION_STATUS;
 
                     setDefault("gross_amount", new Double(grossAmount));
@@ -195,7 +192,8 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             setDefault("status_id", statusId + "");
             setDefault("due_date", dueDate);
             setDefault("modification_rationale_id", modificationRationaleId + "");
-
+            setDefault("charity_ind", Boolean.valueOf(charity));
+            
             if (contract != null) {
                 getRequest().setAttribute(CONTRACT, contract);
             }

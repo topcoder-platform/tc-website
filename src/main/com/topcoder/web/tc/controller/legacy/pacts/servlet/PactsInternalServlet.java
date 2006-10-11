@@ -43,7 +43,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.ejb.pacts.CharityPayment;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchAffidavit;
@@ -1532,10 +1531,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             forward(INTERNAL_CONTRACT_JSP, request, response);
         } else {
             long payment_id = dib.addPayment(p);
-
-            if (request.getParameter("charityInd") != null) {
-                dib.addPayment(new CharityPayment(Long.parseLong(request.getParameter("user_id")), payment_id));
-            }
 
             //InternalDispatchPayment bean =
                     //new InternalDispatchPayment(request, response);
