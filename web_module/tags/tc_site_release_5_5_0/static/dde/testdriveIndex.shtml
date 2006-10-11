@@ -1,0 +1,84 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+ 
+<script language="JavaScript" src="scripts/javascript.js">
+</script>
+
+</head>
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+<body class="body" marginheight="0" marginwidth="0">
+<form action="#" method="#">
+
+<!--#include virtual="includes/headerNotLogged.shtml" -->
+<!--#include virtual="includes/navTestdrive.shtml" -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+<tr>
+	<td colspan="2" align="left" bgcolor="#b2b2b2"><img src="images/testdriveHeader.gif" alt="" width="600" height="48" border="0"/></td>
+	<!--r col-->
+	<td rowspan="2" width="150" valign="top" bgcolor="#547584">
+		<table width="150" border="0" cellpadding="0" cellspacing="0" align="center">
+	<tr><td><img src="images/clear.gif" alt="" width="150" height="30" border="0"/></td></tr>
+	</table>
+	</td>
+<tr>
+	<!--l col-->
+	<td width="140" height="96" valign="top" bgcolor="#b2b2b2" background="i/lColGraphic.gif" class="leftColText">
+	<img src="images/clear.gif" alt="" width="140" height="1" border="0"/><br/>
+	</td>
+	<!--m col-->
+	<td width="100%" valign="top" bgcolor="#b2b2b2">
+	<img src="images/clear.gif" alt="" width="1" height="1" border="0"/><br/>
+	<table width="100%" border="0" cellpadding="6" cellspacing="0" align="center">
+<tr><td align="left" class="bodyText">
+<p>This is a fully functional demonstration that uses component technology developed entirely by TopCoder Software 
+using the TopCoder Software Distributed Development Environment.</p>
+<p><strong>What you will see and do</strong><br/>
+We ask that while going through the TestDrive!, that you take note of what 
+components are in use. You will find a listing in the right blue column.</p>
+<p>Again, you are using actual software so please be sure that the event you create and the people you send it to is not of offensive nature.</p>
+<p><a href="tdScreen1.shtml"><img src="images/startTestDrive.gif" alt="" width="320" height="21" border="0"/></a></p>
+<p><img src="images/otherExamples.gif" alt="" width="160" height="21" border="0"/><br/>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+<tr><td colspan="3" class="bodyText">Each of the following can be found in the <a href="catalogIndex.shtml" class="bodyText">Component Sales Catalog</a>.</td></tr>
+<tr><td colspan="3" height="10"><img src="images/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
+<tr>
+	<td width="150" align="left" valign="top" class="bodyText"><a href="showroom_display.shtml" class="bodyText">Event Engine</a>:</td>
+	<td width="10" align="left" class="bodyText"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	<td width="75%" align="left" valign="top" class="bodyText">This component processes messages and triggers associated events.</td>
+</tr>
+<tr><td colspan="3" height="10"><img src="images/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
+<tr>
+	<td width="150" align="left" valign="top" class="bodyText"><a href="cat_EmailEng.shtml" class="bodyText">Email Engine</a>:</td>
+	<td width="10" align="left" class="bodyText"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	<td width="75%" align="left" valign="top" class="bodyText">This performs the functionality that its name implies.</td>
+</tr>
+<tr><td colspan="3" height="10"><img src="images/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
+<tr>
+	<td width="150" align="left" valign="top" class="bodyText"><a href="cat_DocGen.shtml" class="bodyText">Document Generator</a>:</td>
+	<td width="10" align="left" class="bodyText"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	<td width="75%" align="left" valign="top" class="bodyText">Merges data and templates to create customized documents.</td>
+</tr>
+<tr><td colspan="3" height="10"><img src="images/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
+<tr><td colspan="3" class="bodyText">When bundled together, the Bulk Mailer, Document Generation, Event Engine and <a href="cat_ConfigMan.shtml" class="bodyText">Configuration Manager</a> components create the TopCoder Software Email Component Assembly.</p>
+<p>This component assembly is an extremely efficient set of functionality to create, schedule and mail customized documents in an efficient manner.</p>
+</td></tr>
+</table></p>
+<p><a href="tdScreen1.shtml"><img src="images/startTestDrive.gif" alt="" width="320" height="21" border="0"/></a></p>
+</td></tr>
+<tr><td><img src="images/clear.gif" alt="" width="1" height="200" border="0"/></td></tr>
+</table>
+	</td>
+</tr>
+</table>
+	
+<!--Footer begins -->
+
+<!--#include virtual="includes/footer.shtml" -->
+
+<!--Footer ends -->
+
+</form>
+</body>
+</html>
