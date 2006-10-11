@@ -335,7 +335,7 @@ function searchKeyPress(e)
     <!--
 Calendar.setup(
 {
- inputField  : "date_due",  
+ inputField  : "due_date",  
                     ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",    
                     button      : "trigger_due_date",     
                     showsTime   : false,

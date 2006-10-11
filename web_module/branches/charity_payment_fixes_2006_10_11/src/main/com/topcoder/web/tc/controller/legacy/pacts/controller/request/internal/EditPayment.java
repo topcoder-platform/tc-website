@@ -87,7 +87,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
 
                 modificationRationaleId = getOptionalIntParameter("modification_rationale_id");
 
-                checkDate("DUE_DATE", "Please enter a valid due date");
+                checkDate("due_date", "Please enter a valid due date");
                 dueDate = getStringParameter("due_date");
 
                 if (getRequest().getParameter("missing_reference") != null) {
@@ -167,6 +167,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     grossAmount = payment.getGrossAmount();
                     netAmount = payment.getNetAmount();
                     dueDate = payment.getDueDate();
+                    charity = payment.isCharity();
                     modificationRationaleId = MODIFICATION_STATUS;
 
                     setDefault("gross_amount", new Double(grossAmount));

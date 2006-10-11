@@ -51,7 +51,7 @@
 <c:if test="${payment.charity }">
 		<tr>		
 			<td><b></b></td>
-			<td>This payment was given to charity</td>
+			<td><em>This payment was given to charity</em></td>
 		</tr>
 </c:if>
 				
