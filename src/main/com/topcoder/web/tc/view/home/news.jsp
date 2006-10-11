@@ -8,6 +8,21 @@
 </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>10.11.05<br>2:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/collegetour">TopCoder College Tour comes to Beijing</A>
+        </span><br><br>
+      TopCoder is sponsoring its first college tour event in China on October 25, with an onsite programming competition at Beijing Normal University.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/collegetour">details</A>&#160;|&#160;
+        <tc-webtag:forumLink forumID="506143" message="discuss this"/> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.11.06<br>1:45 PM</td>
      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_100906">AOL SRM 322 chat session transcript</A></span><br><br>
       AOL recently held a chat with members, just prior to SRM 322.  Here's a transcript of what they discussed.
@@ -165,43 +180,5 @@ This online round turned out to be very mathy, with two problems dealing with ar
     <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_2b">full story</A> |
     <tc-webtag:forumLink forumID="506111" message="discuss this"/> |
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
-        <br>10.06.06<br>11:00 AM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_2a">TCCC06 Round 2A - Problem Set & Analysis</A></span><br><br>
-Only <tc-webtag:handle coderId="19929536" context="algorithm"/>, <tc-webtag:handle coderId="22641345" context="algorithm"/> and <tc-webtag:handle coderId="309982" context="algorithm"/> were able to correctly solve all three problems in Round 2-A.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_2a">full story</A> |
-    <tc-webtag:forumLink forumID="506110" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>10.05.06<br>4:00 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=100506">TC @ Work: Incorporating new technologies</A></span><br><br>
-               The situation: The boss has just returned from a technology conference, no doubt full of torturous new ideas. You perspire in your seat, waiting for
-               the inevitable conversation. What twisted brand of innovation will he force upon your project today?</td>
-            <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" alt="" /> &#160;<img src="/i/m/rhudson_mug.gif" alt="" />
-            <br>by<tc-webtag:handle coderId="10407399" context="algorithm"/> &amp; <tc-webtag:handle coderId="22627518" context="algorithm"/></td>
-            </tr>
-        </table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&amp;d1=features&amp;d2=100506">article</A> |
-    <tc-webtag:forumLink forumID="506135" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 
