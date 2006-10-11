@@ -8,6 +8,19 @@
 </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.11.06<br>1:45 PM</td>
+     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_100906">AOL SRM 322 chat session transcript</A></span><br><br>
+      AOL recently held a chat with members, just prior to SRM 322.  Here's a transcript of what they discussed.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_100906">view</A> | 
+    <tc-webtag:forumLink forumID="506075" message="discuss this"/> |
+     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.11.06<br>10:00 AM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_101106">AOL to Webcast TCCC06 Live on November 17</A></span><br><br>
        TopCoder and AOL today announced that AOL will produce a live exclusive webcast of the TCCC finals via <A href="<tc-webtag:linkTracking link="http://dev.aol.com/" refer="Competition Home" />" target="_blank">dev.aol.com</A>, the company's developer site.
@@ -191,17 +204,4 @@ Only <tc-webtag:handle coderId="19929536" context="algorithm"/>, <tc-webtag:hand
     <tc-webtag:forumLink forumID="506135" message="discuss this"/> |
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.04.06<br>5:00 PM</td>
-     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SurveyResults&sid=220">andrey_atlas is the TCHS07 Logo Contest Winner!</A></span><br><br>
-        Congratulations to <tc-webtag:handle coderId="22636857" />!
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=SurveyResults&sid=220">results</A> | 
-        <tc-webtag:forumLink forumID="506125" message="discuss this"/> |
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
 
