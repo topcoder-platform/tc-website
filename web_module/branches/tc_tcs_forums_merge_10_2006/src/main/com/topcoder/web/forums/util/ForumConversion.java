@@ -133,12 +133,14 @@ public class ForumConversion {
             System.err.println("Error occurred when converting the data.");
             ex.printStackTrace();
         } finally {
+        	log.info("finally close connections");
             closeConnection(tcConn);
             closeStatement(forumPS);
             closeStatement(topicPS);
             closeStatement(threadPS);
             closeStatement(postPS);
             closeStatement(attPS);
+            log.info("finally block ended");
         }
         return;
     }
@@ -415,12 +417,14 @@ public class ForumConversion {
             log.info(forumNum + " out of " + totalForum + " forums have been processed.");
             if (forumNum >= 25) {
                 log.info("Attempting to close connections....");
-                tcConn.close();
-                forumPS.close();
-                topicPS.close();
-                threadPS.close();
-                postPS.close();
-                attPS.close();
+                /*
+                closeConnection(tcConn);
+                closeStatement(forumPS);
+                closeStatement(topicPS);
+                closeStatement(threadPS);
+                closeStatement(postPS);
+                closeStatement(attPS);
+                */
                 log.info("Connections should be closed.");
             	break;
             }
