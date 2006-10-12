@@ -85,13 +85,16 @@ the number of times the correct character was observed. Let us call <strong>M</s
 that number. If, for simplicity, we ignore ties where the correct
 character occurred the same number of times as another character, we
 have:</p>
-<p><img alt="PF(T) = Sum PC(T,M) * PI(T-M,M)" src="/i/longcontest/match_editorials/intelmtcs8/4eee81a6.gif" name="Object2" style="width: 305px; height: 41px;"></p>
+<div align="center">
+<img alt="PF(T) = Sum PC(T,M) * PI(T-M,M)" src="/i/longcontest/match_editorials/intelmtcs8/4eee81a6.gif" name="Object2" style="width: 305px; height: 41px;">
+</div>
 <p>where <strong>PC(T,
 M)</strong> is the probability of
 getting the correct character M times:<br>
 <br>
-<img alt="" src="/i/longcontest/match_editorials/intelmtcs8/6454b96b.gif" name="Object3" style="width: 276px; height: 47px;"><br>
-</p>
+<div align="center">
+<img alt="" src="/i/longcontest/match_editorials/intelmtcs8/6454b96b.gif" name="Object3" style="width: 276px; height: 47px;">
+</div>
 <p>and <strong>PI(T-M,
 M)</strong> is the probability that
 all the other characters occur fewer than M times. PI can be
@@ -102,7 +105,9 @@ Decomposing PI over the number of times an arbitrary incorrect
 character was observed, we have:<br>
 <br>
 </p>
-<p><img alt="" src="/i/longcontest/match_editorials/intelmtcs8/3f887df5.gif" name="Object4" style="width: 492px; height: 55px;"></p>
+<div align="center">
+<img alt="" src="/i/longcontest/match_editorials/intelmtcs8/3f887df5.gif" name="Object4" style="width: 492px; height: 55px;">
+</div>
 <p>with the end condition: <strong>PI(T, M, 1) = 1
 if T &lt; M, 0 otherwise</strong>.<br>
 <br>
@@ -121,7 +126,9 @@ approximately<img alt="" src="/i/longcontest/match_editorials/intelmtcs8/m17d8da
 </p>
 <p>So the optimal number of queries for
 the simplified problem is the one that maximizes:</p>
-<p><img alt="" src="/i/longcontest/match_editorials/intelmtcs8/25b276.gif" name="Object12" style="width: 298px; height: 78px;"></p>
+<div align="center">
+<img alt="" src="/i/longcontest/match_editorials/intelmtcs8/25b276.gif" name="Object12" style="width: 298px; height: 78px;">
+</div>
 <p><br>
 There are two ways to improve from
 there. One way is to only query the characters or intervals which we
@@ -146,7 +153,9 @@ estimate line quality using Bayes' theorem. <a
  href="http://en.wikipedia.org/wiki/Bayes_theorem" target="_blank">Bayes'
 theorem</a> is helpful in estimating hidden parameters based on their
 observed effects. It states:</p>
-<p><img alt="" src="/i/longcontest/match_editorials/intelmtcs8/240dfc92.gif" name="Object6" style="width: 219px; height: 50px;"></p>
+<div align="center">
+<img alt="" src="/i/longcontest/match_editorials/intelmtcs8/240dfc92.gif" name="Object6" style="width: 219px; height: 50px;">
+</div>
 <p style="margin-bottom: 0in;" align="left">where O is the observation,
 H is the
 hypothesis we're interested in, P(O/H) the probability of the
@@ -155,9 +164,7 @@ P(O) the total probability of O, or a normalizing constant.<br>
 <br>
 Let us consider each
 transmission separately, and for simplification assume that the line
-quality stays constant in an interval <font
- face="Times New Roman, serif">�
-</font>20 positions around the position we're interested in. In this
+quality stays constant in an interval +- 20 positions around the position we're interested in. In this
 case, the hypotheses are the possible line qualities, which all have
 equal prior probabilities, and the observations are the correct or
 incorrect characters around the position of interest. If k out of
@@ -167,7 +174,9 @@ occurring, and per Bayes' theorem this is also the probability
 (before normalization) of that Q<sub>i.</sub> Therefore the expected
 line quality (i.e. line quality to the best of our knowledge) at that
 position is the weighted average:</p>
-<p style="margin-bottom: 0in;" align="left"><img alt="" src="/i/longcontest/match_editorials/intelmtcs8/2a482d4.gif" name="Object1" style="width: 218px; height: 86px;"></p>
+<div align="center">
+<img alt="" src="/i/longcontest/match_editorials/intelmtcs8/2a482d4.gif" name="Object1" style="width: 218px; height: 86px;">
+</div>
 <p>Note that it may seem overly
 simplifying to assume a constant line quality, but I estimated it
 wouldn't lose much information, compared to considering every
@@ -247,8 +256,9 @@ the question</a>.<br>
 Now, we have a better solution, and
 more importantly a pretty good estimate of the probability of error
 of that solution, at each position:</p>
-<p><img alt="" src="/i/longcontest/match_editorials/intelmtcs8/m45fdefe4.gif" name="Object11" style="width: 217px; height: 70px;"><br>
-There are 3 categories of positions:</p>
+<div align="center"><img alt="" src="/i/longcontest/match_editorials/intelmtcs8/m45fdefe4.gif" name="Object11" style="width: 217px; height: 70px;"><br>
+There are 3 categories of positions:
+</div>
 <ul>
   <li>
     <p>positions with a very low
@@ -285,19 +295,25 @@ subsequence problem.<br>
 Let's consider the cost and benefit of
 querying each position. The cost is the derivative of the score per
 character transmitted:</p>
-<p><img alt="" src="/i/longcontest/match_editorials/intelmtcs8/373fc98a.gif" name="Object14" style="width: 462px; height: 49px;"></p>
+<div align="center">
+<img alt="" src="/i/longcontest/match_editorials/intelmtcs8/373fc98a.gif" name="Object14" style="width: 462px; height: 49px;">
+</div>
 <p>The benefit is the expected reduction
 in score penalty due to the change in error:</p>
-<p><img alt="" src="/i/longcontest/match_editorials/intelmtcs8/28ea8691.gif" name="Object15" style="width: 574px; height: 49px;"></p>
-<p><img alt="" src="/i/longcontest/match_editorials/intelmtcs8/2384b062.gif" name="Object16"
- style="width: 502px; height: 51px;"></p>
+<div align="center">
+<img alt="" src="/i/longcontest/match_editorials/intelmtcs8/28ea8691.gif" name="Object15" style="width: 574px; height: 49px;">
+</div>
+<div align="center">
+<img alt="" src="/i/longcontest/match_editorials/intelmtcs8/2384b062.gif" name="Object16" style="width: 502px; height: 51px;">
+</div>
 <p>Let us call the value of a position its
 benefit minus its cost. A value can be negative or positive.</p>
 <p>The cost of a transmission is the
 derivative of the score per transmission:</p>
-<p><img alt=""
+<div align="center"><img alt=""
  src="/i/longcontest/match_editorials/intelmtcs8/m1d12a87d.gif" name="Object17"
- style="width: 491px; height: 49px;"></p>
+ style="width: 491px; height: 49px;">
+</div>
 <p><br>
 We find intervals that maximize the
 total value as follows:</p>
@@ -335,7 +351,7 @@ position, until the entire message length has been processed.</li>
 Once we have all the intervals we want
 to query, we query them, then for each transmission calculate line
 quality and update character likelihoods as we did for the initial
-complete transmissions. We repeat this process until no interval is
+complete transmissions. We repeat this process until no interval is worth querying. 
 In practice, it gets a little more
 complicated, as queries also have a large time cost which needs to be
 factored in the value, and the N/4 call limit can sometimes be
