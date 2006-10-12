@@ -2,7 +2,6 @@ package com.topcoder.utilities.pacts;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
@@ -13,7 +12,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
 
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.sql.DBUtility;
 import com.topcoder.web.ejb.pacts.ComponentWinningPayment;
 import com.topcoder.web.ejb.pacts.PactsClientServices;
@@ -83,10 +81,15 @@ public class PayReliabilityBonus extends DBUtility {
 	        						" from " + bp.getGrossAmount() + " to " + bonusAmount);
 	        				bp.setGrossAmount(bonusAmount);
 	        				//ejb.updatePayment(bp);
-	        			} 
+	        			} else {
+	        				log.info("Already have bonus payment for project=" + projectId + ", user=" + userId +
+	        						 " of $ " + bonusAmount);
+=	        			}
 	        		} else {
 	        			// no bonus payment found, create it
-	        			log.info("Creating bonus payment for project=" + projectId + ", user=" + userId + " for $ " + bonusAmount);
+//	        			log.info("Creating bonus payment for project=" + projectId + ", user=" + userId + " for $ " + bonusAmount);
+        				log.info(projectId + ", " + userId + ", " + bonusAmount + ", " + getReliabilityPercent(reliability)+ ";");
+
 	        			ReliabilityBonusPayment bp = new ReliabilityBonusPayment(userId, bonusAmount, payment.getId());
 	        			//ejb.addPayment(bp);
 	        		}
