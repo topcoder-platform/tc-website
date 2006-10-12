@@ -4,12 +4,12 @@
                  com.jivesoftware.forum.ReadTracker,
                  com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.WatchManager,
+                 com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.common.StringUtils,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
-                 java.util.ArrayList,
-                 java.util.Calendar,
-                 java.util.Iterator"
+                 com.topcoder.web.forums.util.ImageMapper,
+                 java.util.*"
         %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -219,6 +219,10 @@
             <% if (subcategory.getMessageCount() > 0 || ("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)))) { %>
             <tr>
                 <td class="rtThreadCellWrap">
+                	<%	if ("software".equals(category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME))) { %>
+                		<img src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getStatusIcon(subcategory)%>" alt="ImageMapper.getStatusText(subcategory)" width="25" height="17" border="0">
+						<img src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getTechnologyIcon(subcategory)%>" alt="ImageMapper.getTechnologyText(subcategory)" border="0"/>
+					<%	} %>
                     <% if (user == null) { %>
                     <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=subcategory.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=subcategory.getMessageCount()%>" class="rtLinkNew"><%=subcategory.getName()%></A>
                     <% } else { %>

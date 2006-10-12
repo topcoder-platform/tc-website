@@ -155,7 +155,7 @@ public class ForumConversion {
     	// get forums from FORUM_MASTER table        
         forumPS = tcConn.prepareStatement(
                 "select m.forum_id, c.component_name, c.short_desc, m.status_id, m.create_time, "
-        		+ " v.comp_vers_id, v.version_text, v.phase_id, f.forum_type "
+        		+ " v.comp_vers_id, v.version_text, v.phase_id, f.forum_type, c.root_category_id "
                 + " from forum_master m, comp_forum_xref f, comp_versions v, comp_catalog c "
                 + " where (m.status_id = 1 or m.status_id = 2) and m.forum_id = f.forum_id and "
                 + " f.comp_vers_id = v.comp_vers_id and v.component_id = c.component_id"
@@ -166,7 +166,7 @@ public class ForumConversion {
 
         while (rs.next()) {
             ForumMaster forum = new ForumMaster(rs.getLong(1), rs.getString(2), rs.getString(3), rs.getLong(4),
-                    rs.getDate(5), rs.getLong(6), rs.getString(7), rs.getLong(8), rs.getLong(9));
+                    rs.getDate(5), rs.getLong(6), rs.getString(7), rs.getLong(8), rs.getLong(9), rs.getLong(10));
             forums.add(forum);
         }
 
@@ -217,6 +217,7 @@ public class ForumConversion {
             category.setProperty("compVersId", forum.getCompVersId() + "");
             category.setProperty("forumType", forum.getForumType() + "");
             category.setProperty("versionText", forum.getVersionText());
+            category.setProperty("rootCategoryId", forum.getRootCategoryId() + "");
             
             // set technology types for this category
             techPS.setLong(1, forum.getId());
@@ -518,6 +519,11 @@ class ForumMaster {
     private long forumType;
     
     /**
+     * The root category id
+     */
+    private long rootCategoryId;
+    
+    /**
      * Constructor.
      *
      * @param id forum id.
@@ -526,7 +532,8 @@ class ForumMaster {
      * @param status forum status.
      * @param creation forum creation time.
      */
-    public ForumMaster(long id, String name, String desc, long status, Date creation, long compVersId, String versionText, long componentStatus, long forumType) {
+    public ForumMaster(long id, String name, String desc, long status, Date creation, long compVersId, 
+    		String versionText, long componentStatus, long forumType, long rootCategoryId) {
         this.id = id;
         this.name = name;
         this.desc = desc;
@@ -536,6 +543,7 @@ class ForumMaster {
         this.versionText = versionText;
         this.componentStatus = componentStatus;
         this.forumType = forumType;
+        this.rootCategoryId = rootCategoryId;
     }
 
     /**
@@ -617,6 +625,15 @@ class ForumMaster {
      */
     public long getForumType() {
     	return this.forumType;
+    }
+    
+    /**
+     * Return the root category id.
+     * 
+     * @return the root category id
+     */
+    public long getRootCategoryId() {
+    	return this.rootCategoryId;
     }
 }
 

@@ -4,9 +4,11 @@
                  com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.WatchManager,
                  com.jivesoftware.forum.action.util.Page,
+                 com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.common.StringUtils,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
+                 com.topcoder.web.forums.util.ImageMapper,
                  java.util.Iterator"
         %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -117,9 +119,7 @@
                     <jsp:include page="searchHeader.jsp"/>
                 </td>
                 <td align="right" nowrap="nowrap" valign="top">
-                    <A href="?module=History" class="rtbcLink">My Post
-                        History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User
-                    Settings</A><br/>
+                    <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A>
                 </td>
             </tr>
             <tr><td colspan="2" style="padding-bottom:3px;"><b>
@@ -219,6 +219,10 @@
         } %>
         <tr>
             <td class="rtThreadCellWrap">
+            	<%	if ("software".equals(forumCategory.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME))) { %>
+                	<img src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getStatusIcon(category)%>" alt="ImageMapper.getStatusText(subcategory)" width="25" height="17" border="0">
+					<img src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getTechnologyIcon(category)%>" alt="ImageMapper.getTechnologyText(subcategory)" border="0"/>
+				<%	} %>
                 <% if (user == null) { %>
                 <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=category.getMessageCount()%>" class="rtLinkNew"><%=category.getName()%></A>
                 <% } else { %>

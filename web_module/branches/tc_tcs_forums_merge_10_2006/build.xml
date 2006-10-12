@@ -198,6 +198,8 @@
             <include name="com/topcoder/web/tc/*.java"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
+        	<include name="com/topocder/web/dde/catalog/Category.java"/>
+        	<include name="com/topocder/web/dde/catalog/ComponentVersionInfo.java"/>
         </javac>
         <antcall target="jar_common"/>
     </target>
@@ -939,6 +941,7 @@
                                 <include name="com/topcoder/web/common/**/*.class"/>
                 -->
                 <include name="com/topcoder/web/forums/**/*.class"/>
+            	<include name="com/topcoder/dde/catalog/**/*.class"/>
                 <include name="com/topcoder/web/tc/controller.request.authentication.Login.class"/>
             </classes>
             <webinf dir="${resources}/taglib">
