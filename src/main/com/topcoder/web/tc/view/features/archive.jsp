@@ -28,14 +28,14 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-		<td width="100%" align="center">
-		
-		<div class="tutorBody">
-		
-		<jsp:include page="../page_title.jsp" >
-		   <jsp:param name="image" value="features"/>
-		   <jsp:param name="title" value="Archive"/>
-		</jsp:include>
+        <td width="100%" align="center">
+        
+        <div class="tutorBody">
+        
+        <jsp:include page="../page_title.jsp" >
+           <jsp:param name="image" value="features"/>
+           <jsp:param name="title" value="Archive"/>
+        </jsp:include>
 
          <table width="100%" border="0" cellspacing="0" cellpadding="3">
             <tr valign="top">
@@ -43,13 +43,11 @@
                <td class="bodyText"><b>Title</b></td>
                <td class="bodyText"><b>Date</b></td>
             </tr>
-            <%--
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="275640" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=101206"><strong>C++ tools #2 - GNU Make</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Oct 12, 2006</td>
             </tr>
-            --%>
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="21195715" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=100906"><strong>Design Patterns in C++, Part 2</strong></A></td>
