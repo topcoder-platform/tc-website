@@ -10,10 +10,15 @@
 
 <div class="topBox">
     <div class="logoBox">
-        <A href="/"><img src="/i/studio_logo.gif" alt="TopCoder Studio"/></A>
+    <% if (section.equals("admin")) {%>
+        <A href="/"><img src="/i/studio_admin_logo.png" alt="This is an admin page" /></A>
+    <% } else { %>
+        <A href="/"><img src="/i/studio_logo.png" alt="TopCoder Studio"/></A>
+    <% } %>
     </div>
 
-    <% if (section.equals("")) {%>
+
+    <% if (section.equals("")||section.equals("admin")) {%>
     <div class="loginBox" align="center">
         <img src="/i/layout/loginBoxN.gif" alt="" style="display:block;"/>
 
