@@ -36,7 +36,7 @@ Let us consider a simpler problem,
 which is to ignore the different line states and try to recompose the
 message...
             </td>
-            <td class="newsPhoto"><img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="159052" /></td></tr></table>
+            <td class="newsPhoto"><img src="/i/m/battyone_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7504863" /></td></tr></table>
     </td>
 </tr>
 <tr><td class="newsLinksCell">
