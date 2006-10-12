@@ -84,7 +84,7 @@ public class PayReliabilityBonus extends DBUtility {
 	        			} else {
 	        				log.info("Already have bonus payment for project=" + projectId + ", user=" + userId +
 	        						 " of $ " + bonusAmount);
-=	        			}
+	        			}
 	        		} else {
 	        			// no bonus payment found, create it
 //	        			log.info("Creating bonus payment for project=" + projectId + ", user=" + userId + " for $ " + bonusAmount);
