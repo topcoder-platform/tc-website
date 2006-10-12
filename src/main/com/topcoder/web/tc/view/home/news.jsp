@@ -6,7 +6,7 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
-<%-------------------------------------POST THURS AM
+<%--------------------------------------------------------%>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
         <br>10.12.06<br>9:00 AM</td>
     <td class="newsTextCell">
@@ -14,7 +14,7 @@
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=101206">C++ tools #2 - GNU Make</A></span><br><br>
                There's a well-known joke about two women eating lunch at a resort. "The food here is so horrible," says one. "I know," replies the 
                other, "and the portions are so small!" There's a somewhat similar paradox that seems to apply to most developers.</td>
-            <td class="newsPhoto">by <tc-webtag:handle coderId="275640"/></td></tr>
+            <td class="newsPhoto"><img src="/i/m/sql_lall_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="275640"/></td></tr>
         </table>
     </td>
 </tr>
@@ -23,7 +23,7 @@
     <tc-webtag:forumLink forumID="506144" message="discuss this"/> |
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
--------------------%>
+
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
@@ -189,17 +189,4 @@ minutes.
     <tc-webtag:forumLink forumID="506131" message="discuss this"/> |
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.09.06<br>9:00 AM</td>
-     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol">AOL SRM 322 chat session</A></span><br><br>
-      AOL will be in the arena at 8:00 PM on 10.09, just prior to SRM 322, to discuss working at AOL.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol">details</A> | 
-    <tc-webtag:forumLink forumID="506075" message="discuss this"/> |
-     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
 
