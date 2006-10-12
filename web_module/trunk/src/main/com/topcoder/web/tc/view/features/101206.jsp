@@ -75,7 +75,7 @@
 <span class="bigTitle">C++ tools #2 - GNU Make</span>
 
       <p>
-      <img src="/i/m/sql_lall_mug.gif" alt="" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/>
+      <img src="/i/m/sql_lall_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/>
       By&#160;<tc-webtag:handle coderId="275640" /><br>
       <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
       </p>
