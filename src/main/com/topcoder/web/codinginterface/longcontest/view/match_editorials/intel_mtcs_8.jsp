@@ -51,8 +51,8 @@
 <span class="bodySubtitle">Intel&#174; Multi-Threading Competition 8</span><br>08.16.2006 - 08.30.2006
 <br><br>
 
-<img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/><br>
-By&#160;<tc-webtag:handle coderId="159052" /><br>
+<img src="/i/m/battyone_big.jpg" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/><br>
+By&#160;<tc-webtag:handle coderId="7504863" /><br>
 <span class="smallText"><em>TopCoder Member</em></span>
 
 <br><br><br>
