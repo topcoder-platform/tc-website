@@ -9,6 +9,26 @@
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
+        <br>10.13.06<br>3:45 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_2c">TCCC06 Round 2C - Problem Set & Analysis</A></span><br><br>
+Now we know all 150 coders who will fight for the final 48 spots in TCCC Round 3 on Saturday. 
+A lot of red coders performed below their level today -- and some of them got eliminated -- but not <tc-webtag:handle coderId="156216" context="algorithm"/>.
+            </td>
+            <td class="newsPhoto"><img src="/i/m/Andrew_Lazarev_big.jpg" alt="" width="55" height="61"/><br>by
+                <tc-webtag:handle coderId="7485898" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_2c">full story</A> |
+    <tc-webtag:forumLink forumID="506112" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
         <br>10.13.06<br>12:00 NOON</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -174,22 +194,5 @@ minutes.
        <A href="http://www.informationweek.com/internet/showArticle.jhtml?articleID=193104723" target="_blank">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506137" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>10.09.06<br>9:40 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      Recent Color Changes now available
-      </span><br><br>
-      Now you can look at who went up (or down) in handle rating color over the last 30 days.
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=ColorChange&ratid=1">algorithm</A> |
-        <A href="/tc?module=ColorChange&ph=112">design</A> |
-        <A href="/tc?module=ColorChange&ph=113">development</A> |
-        <A href="/tc?module=ColorChange&ratid=2">tchs</A> |
-        <tc-webtag:forumLink forumID="506136" message="discuss this"/> |
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
