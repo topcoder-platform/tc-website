@@ -280,6 +280,18 @@ By&#160;<tc-webtag:handle coderId="7485898" context="algorithm"/><br />
 <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
 </p>
 
+<%-- half done
+<div class="" style="float:right; margin: 0px 10px 10px 0px; border: 1px solid black;">
+    <div class="" style="float:right; border: 1px solid black;">
+        <img class="smallPhoto" src="/i/m/Andrew_Lazarev_big.jpg" alt="Author" />
+    </div>
+    <div class="" style="float: right; margin: 12px 8px 10px 8px; border: 1px solid black;">
+        By&#160;<tc-webtag:handle coderId="7485898" context="algorithm"/><br>
+        <span class="small"><em>TopCoder Member</em></span>
+    </div>
+</div>
+--%>
+
 </div>
 </td>
 
