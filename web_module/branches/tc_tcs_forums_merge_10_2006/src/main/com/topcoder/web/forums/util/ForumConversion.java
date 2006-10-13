@@ -123,26 +123,11 @@ public class ForumConversion {
             log.info("Starting the forum conversion: attachmentDir = " + fileDir + " | rootCategoryId = "
             		+ rootCategoryId);
             convert(root, forumFactory);
-            //TODO: See why the following two lines produce a "Closing a result set you left open! 
-            //	Please close it yourself." warning for JBoss. See if this still occurs in Jive Forums
-            //	Silver 5.* - if so, contact Jive.
-            //ForumCategory category = root.createCategory("TEST 123", "TEST 123");
-            //Forum topicForum = forumFactory.createForum("TEST 123", "TEST 123", category);
             log.info("All forums are converted correctly.");
         } catch (Exception ex) {
             System.err.println("Error occurred when converting the data.");
             ex.printStackTrace();
-        } finally {
-        	log.info("finally close connections");
-            closeConnection(tcConn);
-            closeStatement(forumPS);
-            closeStatement(topicPS);
-            closeStatement(threadPS);
-            closeStatement(postPS);
-            closeStatement(attPS);
-            log.info("finally block ended");
         }
-        return;
     }
 
     /**
@@ -417,16 +402,6 @@ public class ForumConversion {
             
             log.info(forumNum + " out of " + totalForum + " forums have been processed.");
             if (forumNum >= 25) {
-                log.info("Attempting to close connections....");
-                /*
-                closeConnection(tcConn);
-                closeStatement(forumPS);
-                closeStatement(topicPS);
-                closeStatement(threadPS);
-                closeStatement(postPS);
-                closeStatement(attPS);
-                */
-                log.info("Connections should be closed.");
             	break;
             }
         }

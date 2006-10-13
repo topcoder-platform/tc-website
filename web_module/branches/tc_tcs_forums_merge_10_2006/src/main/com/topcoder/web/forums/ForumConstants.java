@@ -30,6 +30,9 @@ public interface ForumConstants {
     public final static String ANNOUNCEMENT_BODY = "body";
     public final static String ANNOUNCEMENT_COMMAND = "cmd";
 	
+    public final static String ATTACHMENT_ID = "attID";
+    public final static String ATTACHMENT_ERROR = "attError";
+    
 	public final static String START_IDX = "start";
 	public final static String POST_MODE = "mode";
     
@@ -166,6 +169,8 @@ public interface ForumConstants {
         "Please enter some search terms.";
     public final static String ERR_NO_SEARCH_HANDLE =
         "No user exists with the specified handle.";
+    public final static String ERR_ATTACHING =
+        "There was an error attaching a file.";
     public final static String ERR_NO_POLL_ANSWER = 
     	"Please select an answer.";
     public final static String ERR_NO_POLL_ANSWERS = 
