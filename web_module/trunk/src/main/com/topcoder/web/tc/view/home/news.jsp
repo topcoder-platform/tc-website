@@ -7,6 +7,27 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 <%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
+        <br>10.13.06<br>12:00 NOON</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle">
+            <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_9">Intel&#174; Multi-Threading Competition 9 - Analysis</A></span><br><br>
+During this marathon, we were asked to write a program that
+  would select polyominoes of a chosen size and try to place them on a board in
+  way that maximizes the score.
+            </td>
+            <td class="newsPhoto"><img src="/i/m/MB___big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15600321" /></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_9">full story</A> |
+    <tc-webtag:forumLink forumID="506106" message="discuss this"/> |
+    <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
         <br>10.12.06<br>9:00 AM</td>
     <td class="newsTextCell">
@@ -171,22 +192,4 @@ minutes.
         <tc-webtag:forumLink forumID="506136" message="discuss this"/> |
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>10.09.06<br>3:50 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=100906">Design Patterns in C++, Part 2</A></span><br><br>
-               Part One of this article covered the Strategy, Adaptor and Iterator design patterns.  This part will cover the Facade and Composition 
-               design patterns and the idea of Object Factories.</td>
-            <td class="newsPhoto">by <tc-webtag:handle coderId="21195715"/></td></tr>
-        </table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&amp;d1=features&amp;d2=100906">article</A> |
-    <tc-webtag:forumLink forumID="506131" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-</td></tr>
 
