@@ -2595,7 +2595,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (p.getStatusId() == READY_TO_PRINT_STATUS) {
                 StringBuffer selectAddress = new StringBuffer(300);
                 selectAddress.append("SELECT a.country_code, a.zip, a.state_code, a.city, ");
-                selectAddress.append("a.address1, a.address2, u.first_name, u.middle_name, ");
+                selectAddress.append("a.address1, a.address2, a.address3, a.province, u.first_name, u.middle_name, ");
                 selectAddress.append("u.last_name, state.state_name, country.country_name ");
                 selectAddress.append("FROM user u, address a, user_address_xref x, OUTER state, OUTER country ");
                 selectAddress.append("WHERE u.user_id = " + p.getHeader().getUser().getId() + " ");
@@ -2614,7 +2614,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 StringBuffer addAddress = new StringBuffer(300);
                 addAddress.append("INSERT INTO payment_address ");
                 addAddress.append(" (payment_address_id, first_name, middle_name, last_name, ");
-                addAddress.append("  address1, address2, city, state_code, zip, country_code) ");
+                addAddress.append("  address1, address2, city, state_code, zip, country_code, address3, province) ");
                 addAddress.append(" VALUES(?,?,?,?,?,?,?,?,?,?)");
                 ps = c.prepareStatement(addAddress.toString());
                 ps.setLong(1, paymentAddressId);
@@ -2627,6 +2627,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 ps.setString(8, (String) rsc.getItem(0, "state_code").getResultData());
                 ps.setString(9, (String) rsc.getItem(0, "zip").getResultData());
                 ps.setString(10, (String) rsc.getItem(0, "country_code").getResultData());
+                ps.setString(11, (String) rsc.getItem(0, "address3").getResultData());
+                ps.setString(12, (String) rsc.getItem(0, "province").getResultData());
 
                 ps.executeUpdate();
                 ps.close();
@@ -3369,7 +3371,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (p.getStatusId() == READY_TO_PRINT_STATUS) {
                 StringBuffer selectAddresses = new StringBuffer(300);
                 selectAddresses.append("SELECT a.country_code, a.zip, a.state_code, a.city, ");
-                selectAddresses.append("a.address1, a.address2, u.first_name, u.middle_name, ");
+                selectAddresses.append("a.address1, a.address2, a.address3, a.province, u.first_name, u.middle_name, ");
                 selectAddresses.append("u.last_name, state.state_name, country.country_name, ");
                 selectAddresses.append("p.payment_id ");
                 selectAddresses.append("FROM user u, address a, user_address_xref x, payment p, OUTER state, OUTER country ");
@@ -4379,15 +4381,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 String paymentDesc = rsc.getItem(i, "payment_desc").toString();
                 String address1 = rsc.getItem(i, "address1").toString();
                 String address2 = rsc.getItem(i, "address2").toString();
+                String address3 = rsc.getItem(i, "address3").toString();
+                String province  = rsc.getItem(i, "province").toString();
                 String email = rsc.getItem(i, "email").toString();
                 String userId = rsc.getItem(i, "user_id").toString();
                 String dueDate = rsc.getItem(i, "date_due").toString().equals("00/00/0000") ? currentDate : rsc.getItem(i, "date_due").toString();
-                vendors.append("!VEND,NAME,PRINTAS,ADDR1,ADDR2,ADDR3,ADDR4,ADDR5,VTYPE,CONT1,EMAIL,SALUTATION,FIRSTNAME,MIDINIT,LASTNAME\n");
+                vendors.append("!VEND,NAME,PRINTAS,ADDR1,ADDR2,ADDR3,ADDR4,ADDR5,ADDR6,ADDR7,VTYPE,CONT1,EMAIL,SALUTATION,FIRSTNAME,MIDINIT,LASTNAME\n");
                 // Add the vendor line if necessary
                 if (!codersPrinted.contains(userId)) {
                     codersPrinted.add(userId);
                     vendors.append("VEND," + shroud(coderName) + "," + shroud(coderName) + ",");
-                    vendors.append(shroud(coderName) + "," + shroud(address1) + "," + shroud(address2) + "," + shroud(cityLine));
+                    vendors.append(shroud(coderName) + "," + shroud(address1) + "," + shroud(address2));
+                    vendors.append("," + shroud(address3) + "," + shroud(province) + "," + shroud(cityLine));
                     vendors.append("," + shroud(country) + "," + vendorType + "," + shroud(coderName) + ",");
                     vendors.append(shroud(email) + ",," + shroud(firstName) + "," + shroud(middleInitial));
                     vendors.append("," + shroud(lastName) + "\n");
@@ -5119,6 +5124,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 Payment ret = new Payment();
                 ret.setAddress1(rsc.getStringItem(0, "address1"));
                 ret.setAddress2(rsc.getStringItem(0, "address2"));
+                ret.setAddress3(rsc.getStringItem(0, "address3"));
+                ret.setProvince(rsc.getStringItem(0, "province"));
                 ret.setFirstName(rsc.getStringItem(0, "first_name"));
                 ret.setLastName(rsc.getStringItem(0, "last_name"));
                 ret.setMiddleName(rsc.getStringItem(0, "middle_name"));
