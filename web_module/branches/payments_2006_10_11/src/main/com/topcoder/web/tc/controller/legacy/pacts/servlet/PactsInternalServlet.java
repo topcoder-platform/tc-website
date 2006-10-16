@@ -18,6 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
@@ -37,7 +38,6 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.RequestTracker;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.StringUtils;
@@ -1779,8 +1779,9 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     This method authenticates the session and forwards
     the user to a login page if there is an error.
     */
-    private boolean doAuthenticate(HttpServletRequest request, HttpServletResponse response) throws Exception {    	
-        WebAuthentication auth = createAuthentication(HttpObjectFactory.createRequest(request),
+    private boolean doAuthenticate(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    	TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+        WebAuthentication auth = createAuthentication(tcRequest,
                 HttpObjectFactory.createResponse(response));
         ClassResource resource = new ClassResource(this.getClass());
 
@@ -1789,7 +1790,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         if (!auth.getActiveUser().isAnonymous()) {
             return true;
         } else {
-            handleException(request, response, new PermissionException(auth.getActiveUser(), resource));
+            //handleException(request, response, new PermissionException(auth.getActiveUser(), resource));
+            handleLogin(request, response, createSessionInfo(tcRequest, auth,  new HashSet()));
             return false;
         }
     }
