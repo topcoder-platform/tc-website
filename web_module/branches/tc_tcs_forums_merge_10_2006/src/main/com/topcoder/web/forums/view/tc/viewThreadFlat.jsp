@@ -365,6 +365,18 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
          <%  } %>
       </td>
    	</tr>
+   	<% if (message.getAttachmentCount() > 0) { %>
+	<tr>
+		<td class="rtHeader" colspan="2" width="100%">
+			Attachments:
+			<%	Iterator attachments = message.getAttachments();
+				while(attachments.hasNext()) {
+					Attachment attachment = (Attachment)attachment.next(); %>
+				&nbsp;&nbsp;<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><%=attachment.getName()%></A>&nbsp;&nbsp;
+			<% } %>
+		</td>
+ 	</tr>
+    <% } %>
    	<%   double pct = ratingCount<=0 ? 0 : 100*(double)(posRatings)/(double)(ratingCount);
         String msgBodyDisplay = ForumsUtil.collapsePost(user, pct, ratingCount, thread.getMessageCount())?"display:none":"";
    	%>

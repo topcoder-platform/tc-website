@@ -28,6 +28,7 @@ public class GetAttachment extends ForumsProcessor {
 		super.businessProcessing();
         if (isGuest()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        }
         
         String strAttachmentID = getRequest().getParameter(ForumConstants.ATTACHMENT_ID);
         long attachmentID = Long.parseLong(strAttachmentID);
