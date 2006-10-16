@@ -44,6 +44,11 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
+               <td class="bodyText">&#160;</td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=101606"><strong>TCCC Preview: Past Winners Tell All</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Oct 16, 2006</td>
+            </tr>
+            <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="275640" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=101206"><strong>C++ tools #2 - GNU Make</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Oct 12, 2006</td>
