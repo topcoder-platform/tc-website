@@ -182,7 +182,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         PassedParam pp = new PassedParam();
         try {
             trace(request, response);
-            if (!doAuthenticate(request, response)) return;
+            // No need of authentication for Login module
+            if (!doAuthenticate(request, response) || "Login".equals(request.getParameter(MODULE))	) return;
 
             //just jamming in the new way of doing things.  perhaps one day this whole system will leave the dark side
             if (request.getParameter(MODULE) != null) {
