@@ -27,6 +27,8 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.forums.util.filter.TCHTMLFilter;
 import com.topcoder.web.forums.ForumConstants;
 
+import java.text.NumberFormat;
+import java.text.DecimalFormat;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -474,8 +476,20 @@ public class ForumsUtil {
         }
         return linkStr.toString();
     }
+    
+    // Converts a file size into a nicely formatted string. Sizes of < 1 KB are expressed in B, < 1 MB are 
+    // expressed in KB, and >= 1 MB are expressed in MB.
+    public static String getFileSizeStr(long bytes) {
+    	NumberFormat formatter = new DecimalFormat("0.0");  
+    	if (bytes < 1000) {
+    		return bytes + " B";
+    	} else if (bytes < 1000000) {
+    		return formatter.format(((double)bytes)/1000.0) + " KB";
+    	} else {
+    		return formatter.format(((double)bytes)/1000000.0) + " MB";
+    	}
+    }
 }
-
 
 class JiveCategoryComparator implements Comparator {
 	private int sortField;

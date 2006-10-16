@@ -16,6 +16,7 @@
                 com.jivesoftware.forum.ReadTracker,
                 com.jivesoftware.forum.RatingManagerFactory,
                 com.jivesoftware.forum.RatingManager,
+                com.jivesoftware.forum.Attachment,
                 java.text.NumberFormat,
                 java.text.DecimalFormat,
                 java.util.*,
@@ -371,9 +372,9 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
 			Attachments:
 			<%	Iterator attachments = message.getAttachments();
 				while(attachments.hasNext()) {
-					Attachment attachment = (Attachment)attachment.next(); %>
-				&nbsp;&nbsp;<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><%=attachment.getName()%></A>&nbsp;&nbsp;
-			<% } %>
+					Attachment attachment = (Attachment)attachments.next(); %>
+					&nbsp;&nbsp;<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
+			<% 	} %>
 		</td>
  	</tr>
     <% } %>
