@@ -7,6 +7,27 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 <%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
+        <br>10.16.06<br>5:15 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_3">TCCC06 Round 3 - Problem Set & Analysis</A></span><br><br>
+    In the last online round before an onsite event, coding skills are not the only factor involved.
+    Nerves can easily disrupt the thought process and ruin everything. Those who had been in this situation
+    before certainly had an advantage.
+            </td>
+            <td class="newsPhoto"><img src="/i/m/Yarin_big.jpg" alt="" width="55" height="61"/><br>by
+                <tc-webtag:handle coderId="269554" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_3">full story</A> |
+    <tc-webtag:forumLink forumID="506145" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
         <br>10.16.06<br>2:45 PM</td>
     <td class="newsTextCell">
@@ -196,21 +217,5 @@ minutes.
     <A href="/tc?module=TCCC06StudentReps">results</A> | 
     <tc-webtag:forumLink forumID="506138" message="discuss this"/> |
      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.10.06<br>12:15 PM</td>
-       <td class="newsTextCell"><span class="newsTitle">TopCoder helps "free" AOL</span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/info_week_logo.gif" width="81" height="13" alt="InformationWeek" border="0" /></div>
-       InformationWeek interviewed TopCoder CTO Mike Lydon for a recent article on AOL, citing TopCoder's alliance with the company as evidence of a "monumental shift in its approach."
-      <br><br>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/i/pressroom/infoweek_excerpt.gif" target="_blank">excerpt</A>&#160;|&#160;
-       <A href="http://www.informationweek.com/internet/showArticle.jhtml?articleID=193104723" target="_blank">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506137" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
