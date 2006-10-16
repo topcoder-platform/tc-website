@@ -8,12 +8,13 @@
 </tr>
 <%--------------------------------------------------------%>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>10.16.06<br>1:00 PM</td>
+        <br>10.16.06<br>2:45 PM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=101606">TCCC Preview: Past Winners Tell All</A></span><br><br>
                With the Collegiate Challenge less than a month away, we asked some past TCCC winners for some advice and feedback that could come in 
-               handy in San Diego.</td></tr>
+               handy in San Diego.</td>
+            <td class="newsPhoto"><img src="/i/m/kzimmerman_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="21196141"/></td></tr>
         </table>
     </td>
 </tr>
