@@ -32,6 +32,7 @@ public interface ForumConstants {
 	
     public final static String ATTACHMENT_ID = "attID";
     public final static String ATTACHMENT_ERROR = "attError";
+    public final static String ATTACHMENT_CONTENT_TYPE = "attContentType";
     
 	public final static String START_IDX = "start";
 	public final static String POST_MODE = "mode";

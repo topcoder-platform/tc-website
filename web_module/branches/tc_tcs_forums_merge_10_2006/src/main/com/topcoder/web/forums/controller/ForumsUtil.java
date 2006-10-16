@@ -3,6 +3,7 @@
  */
 package com.topcoder.web.forums.controller;
 
+import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.Filter;
 import com.jivesoftware.base.FilterManager;
 import com.jivesoftware.base.JiveConstants;
@@ -11,13 +12,16 @@ import com.jivesoftware.base.Log;
 import com.jivesoftware.base.Permissions;
 import com.jivesoftware.base.User;
 import com.jivesoftware.base.filter.Profanity;
+import com.jivesoftware.forum.AttachmentManager;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.Forum;
+import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.QueryResult;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.RatingManager;
+import com.jivesoftware.forum.database.DbAttachmentManager;
 import com.jivesoftware.forum.database.DbForumFactory;
 import com.jivesoftware.forum.database.DbForumMessage;
 import com.jivesoftware.util.StringUtils;
@@ -27,12 +31,26 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.forums.util.filter.TCHTMLFilter;
 import com.topcoder.web.forums.ForumConstants;
 
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
+import java.awt.image.BufferedImage;
+import java.awt.image.IndexColorModel;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.NumberFormat;
 import java.text.DecimalFormat;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author mtong
