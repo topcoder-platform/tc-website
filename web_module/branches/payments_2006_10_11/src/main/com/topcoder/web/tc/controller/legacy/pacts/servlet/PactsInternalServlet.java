@@ -42,6 +42,8 @@ import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
@@ -161,6 +163,10 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         log.info(loginfo);
     }
 
+    protected WebAuthentication createAuthentication(TCRequest request, TCResponse response) throws Exception {
+    		return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response,
+    				BasicAuthentication.PACTS_INTERNAL_SITE);
+    }
 
     /*
     Handles all GET requests.
