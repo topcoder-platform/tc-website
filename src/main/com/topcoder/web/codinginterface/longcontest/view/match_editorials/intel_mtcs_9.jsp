@@ -60,12 +60,6 @@ By&#160;<tc-webtag:handle coderId="15600321" /><br>
 <br><br>
 <span class="bodySubtitle">Introduction</span>
 <br><br>
-During this marathon, we were asked to write a program that
-  would select polyominoes of a chosen size and try to place them on a board in
-  way that maximizes the score. This problem was entirely original -- it turns
-  out that there are no much materials, nor are there hints on Internet that
-  would help in developing a solution.
-
 <p>
   During this marathon, we were asked to write a program that
   would select polyominoes of a chosen size and try to place them on a board in
