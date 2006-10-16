@@ -39,6 +39,8 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.RequestTracker;
 import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.SimpleRequest;
+import com.topcoder.web.common.SimpleResponse;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
@@ -183,8 +185,21 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         try {
             trace(request, response);
             // No need of authentication for Login module
-            if (!doAuthenticate(request, response) || "Login".equals(request.getParameter(MODULE))	) return;
+            //if (!doAuthenticate(request, response) || "Login".equals(request.getParameter(MODULE))	) return;
+            if ("Login".equals(request.getParameter(MODULE))	)  {
+            	process(request, response);
+            	return;
+        	}
 
+            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+
+            WebAuthentication auth = createAuthentication(tcRequest,  tcResponse); 
+            if (auth.getActiveUser().isAnonymous()) {
+            	handleException(request, response, new PermissionException(auth.getActiveUser(), new ClassResource(this.getClass())));
+            	return;
+            }
+            
             //just jamming in the new way of doing things.  perhaps one day this whole system will leave the dark side
             if (request.getParameter(MODULE) != null) {
                 process(request, response);
@@ -656,7 +671,22 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         try {
             trace(request, response);
-            if (!doAuthenticate(request, response)) return;
+
+            //if (!doAuthenticate(request, response)) return;
+            
+            if ("Login".equals(request.getParameter(MODULE))	)  {
+            	process(request, response);
+            	return;
+        	}
+
+            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+
+            WebAuthentication auth = createAuthentication(tcRequest,  tcResponse); 
+            if (auth.getActiveUser().isAnonymous()) {
+            	handleException(request, response, new PermissionException(auth.getActiveUser(), new ClassResource(this.getClass())));
+            	return;
+            }
 
             //just jamming in the new way of doing things.  perhaps one day this whole system will leave the dark side
             if (request.getParameter(MODULE) != null) {
