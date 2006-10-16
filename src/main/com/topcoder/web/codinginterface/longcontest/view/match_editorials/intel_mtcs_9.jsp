@@ -59,16 +59,12 @@ By&#160;<tc-webtag:handle coderId="15600321" /><br>
 <span class="title"><A href="/longcontest/'module=ViewProblemStatement&compid=6091&rd=10105">Polyominoes</A></span>
 <br><br>
 <span class="bodySubtitle">Introduction</span>
-<br><br>
 <p>
   During this marathon, we were asked to write a program that
   would select polyominoes of a chosen size and try to place them on a board in
   way that maximizes the score. This problem was entirely original -- it turns
   out that there are no much materials, nor are there hints on Internet that
   would help in developing a solution.
-</P>
-<p>
-  <BR>
 </P>
 <span class="bodySubtitle">
   Basic Strategy
