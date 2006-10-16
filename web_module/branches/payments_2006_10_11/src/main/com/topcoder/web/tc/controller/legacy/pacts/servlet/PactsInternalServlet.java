@@ -171,8 +171,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     }
 
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
-    	log.debug("hasPerimission: "+r.getName());
-    	log.debug("login class  name: "+Login.class.getName());
     	if (Login.class.getName().equals(r.getName())) return true;
     	
     	return !auth.getActiveUser().isAnonymous();
@@ -194,7 +192,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             trace(request, response);
             
             //just jamming in the new way of doing things.  perhaps one day this whole system will leave the dark side
-            if (request.getParameter(MODULE) != null) {
+            if (request.getParameter(MODULE) != null || request.getAttribute(MODULE) != null) {
                 process(request, response);
                 return;
             }
@@ -669,7 +667,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
 
             //just jamming in the new way of doing things.  perhaps one day this whole system will leave the dark side
-            if (request.getParameter(MODULE) != null) {
+            if (request.getParameter(MODULE) != null || request.getAttribute(MODULE) != null) {
                 process(request, response);
                 return;
             }
@@ -1785,7 +1783,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                 HttpObjectFactory.createResponse(response));
         ClassResource resource = new ClassResource(this.getClass());
 
-        // Changed by cucu 10/16/2006: now that login has its own login, just a non anonymous is needed
+        // Changed by cucu 10/16/2006: now that pacts has its own login, just a non anonymous is needed
         //if (hasPermission(auth, resource)) {
         if (!auth.getActiveUser().isAnonymous()) {
             return true;
