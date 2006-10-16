@@ -7,6 +7,23 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 <%--------------------------------------------------------%>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
+        <br>10.16.06<br>1:00 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=101606">TCCC Preview: Past Winners Tell All</A></span><br><br>
+               With the Collegiate Challenge less than a month away, we asked some past TCCC winners for some advice and feedback that could come in 
+               handy in San Diego.</td></tr>
+        </table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&amp;d1=features&amp;d2=101606">article</A> |
+    <tc-webtag:forumLink forumID="506146" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
         <br>10.13.06<br>3:45 PM</td>
