@@ -13,6 +13,7 @@
                 com.jivesoftware.forum.ReadTracker,
                 com.jivesoftware.forum.RatingManagerFactory,
                 com.jivesoftware.forum.RatingManager,
+                com.jivesoftware.forum.Attachment,
                 java.util.*,
                 com.topcoder.shared.util.DBMS"
 %>
@@ -243,6 +244,19 @@ function displayVotes(messageID, posVotes, negVotes) {
             <%   } %>
           </td>
       </tr>
+      <% if (message.getAttachmentCount() > 0) { %>
+		<tr>
+			<td class="rtHeader" colspan="2" width="100%">
+				Attachments:
+				<%	Iterator attachments = message.getAttachments();
+					while(attachments.hasNext()) {
+						Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
+						<img src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" />
+						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
+				<% 	} %>
+			</td>
+	 	</tr>
+	  <% } %>
       <%   double pct = ratingCount<=0 ? 0 : 100*(double)(posRatings)/(double)(ratingCount);
            String msgBodyDisplay = ForumsUtil.collapsePost(user, pct, ratingCount, thread.getMessageCount())?"display:none":"";
       %>
