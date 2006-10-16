@@ -10,7 +10,6 @@ import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.security.TCSAuthorization;
-import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.servlet.PactsInternalServlet;
 
@@ -61,8 +60,8 @@ public class Login extends PactsBaseProcessor implements PactsConstants {
                 }
                 
                 TCSAuthorization auth = new TCSAuthorization(sub);
-                if (auth.hasPermission(new ClassResource(PactsInternalServlet.class))) {
-                	
+                if (!auth.hasPermission(new ClassResource(PactsInternalServlet.class))) {
+                	throw new LoginException("You don't have permissions to login in PACTS.");
                 }
                 getAuthentication().login(new SimpleUser(0, username, password), false);
                 setNextPage("/PactsInternalServlet");

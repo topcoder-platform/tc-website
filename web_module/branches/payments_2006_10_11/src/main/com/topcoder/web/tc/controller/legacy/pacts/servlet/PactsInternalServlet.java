@@ -166,8 +166,9 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     }
 
     protected WebAuthentication createAuthentication(TCRequest request, TCResponse response) throws Exception {
-    		return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response,
-    				BasicAuthentication.PACTS_INTERNAL_SITE);
+    	log.debug("PactsInternalServlet.createAuthentication");
+		return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response,
+				BasicAuthentication.PACTS_INTERNAL_SITE);
     }
 
     /*
