@@ -36,11 +36,8 @@
 
 <body>
 
-<!-- Top begins -->
-<jsp:include page="../top.jsp">
-    <jsp:param name="level1" value="login"/>
-</jsp:include>
-<!-- Top ends -->
+<h1>PACTS</h1>
+<h2>Login</h2>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr valign="top">
@@ -54,11 +51,12 @@
     <!-- Left Column Ends -->
 
     <!-- Gutter Begins -->
-    <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+    <td valign="top">
+    </td>
     <!-- Gutter Ends -->
 
     <!-- Center Column begins -->
-    <td width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+    <td width="100%">
 	 <form method="post" name="frmLogin" action="/PactsInternalServlet">
      <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>">
      <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="Login">
@@ -78,14 +76,14 @@
                             </tr>
 
                             <tr valign="middle">
-                                <td nowrap class="bodyText" align="right">Username:</td>
+                                <td nowrap align="right">Username:</td>
                                 <td colspan="2" align="left">
                                     <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
                                 </td>
                             </tr>
 
                             <tr valign="middle">
-                                <td nowrap class="bodyText" align="right">Password:</td>
+                                <td nowrap align="right">Password:</td>
                                 <td align="left">
                                     <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
                                 </td>

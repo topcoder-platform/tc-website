@@ -64,7 +64,9 @@ public class Login extends PactsBaseProcessor implements PactsConstants {
                 	throw new LoginException("You don't have permissions to login in PACTS.");
                 }
                 getAuthentication().login(new SimpleUser(0, username, password), false);
-                setNextPage("/PactsInternalServlet");
+                
+                String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
+                setNextPage(dest.length() > 0? dest : "/PactsInternalServlet");
                 setIsNextPageInContext(false);
                 return;
             } catch (LoginException e) {
