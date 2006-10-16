@@ -30,6 +30,7 @@ import javax.servlet.http.HttpSession;
 
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
@@ -39,8 +40,6 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.RequestTracker;
 import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.SimpleRequest;
-import com.topcoder.web.common.SimpleResponse;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
@@ -84,6 +83,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TaxFormHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfile;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.Login;
 import com.topcoder.web.tc.controller.legacy.pacts.messaging.request.QueueRequest;
 
 public class PactsInternalServlet extends BaseServlet implements PactsConstants {
@@ -166,9 +166,16 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     }
 
     protected WebAuthentication createAuthentication(TCRequest request, TCResponse response) throws Exception {
-    	log.debug("PactsInternalServlet.createAuthentication");
 		return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response,
 				BasicAuthentication.PACTS_INTERNAL_SITE);
+    }
+
+    protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
+    	log.debug("hasPerimission: "+r.getName());
+    	log.debug("login class  name: "+Login.class.getName());
+    	if (Login.class.getName().equals(r.getName())) return true;
+    	
+    	return !auth.getActiveUser().isAnonymous();
     }
 
     /*
@@ -185,27 +192,14 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         PassedParam pp = new PassedParam();
         try {
             trace(request, response);
-            // No need of authentication for Login module
-            //if (!doAuthenticate(request, response) || "Login".equals(request.getParameter(MODULE))	) return;
-            if ("Login".equals(request.getParameter(MODULE))	)  {
-            	process(request, response);
-            	return;
-        	}
-
-            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
-
-            WebAuthentication auth = createAuthentication(tcRequest,  tcResponse); 
-            if (auth.getActiveUser().isAnonymous()) {
-            	handleException(request, response, new PermissionException(auth.getActiveUser(), new ClassResource(this.getClass())));
-            	return;
-            }
             
             //just jamming in the new way of doing things.  perhaps one day this whole system will leave the dark side
             if (request.getParameter(MODULE) != null) {
                 process(request, response);
                 return;
             }
+
+            if (!doAuthenticate(request, response)) return;
 
             String task = request.getParameter(TASK_STRING);
             String command = request.getParameter(CMD_STRING);
@@ -673,21 +667,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         try {
             trace(request, response);
 
-            //if (!doAuthenticate(request, response)) return;
-            
-            if ("Login".equals(request.getParameter(MODULE))	)  {
-            	process(request, response);
-            	return;
-        	}
-
-            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
-
-            WebAuthentication auth = createAuthentication(tcRequest,  tcResponse); 
-            if (auth.getActiveUser().isAnonymous()) {
-            	handleException(request, response, new PermissionException(auth.getActiveUser(), new ClassResource(this.getClass())));
-            	return;
-            }
 
             //just jamming in the new way of doing things.  perhaps one day this whole system will leave the dark side
             if (request.getParameter(MODULE) != null) {
@@ -695,6 +674,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                 return;
             }
 
+            if (!doAuthenticate(request, response)) return;
+            
             String task = null;
             String command = null;
 
@@ -1798,12 +1779,14 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     This method authenticates the session and forwards
     the user to a login page if there is an error.
     */
-    private boolean doAuthenticate(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+    private boolean doAuthenticate(HttpServletRequest request, HttpServletResponse response) throws Exception {    	
         WebAuthentication auth = createAuthentication(HttpObjectFactory.createRequest(request),
                 HttpObjectFactory.createResponse(response));
         ClassResource resource = new ClassResource(this.getClass());
-        if (hasPermission(auth, resource)) {
+
+        // Changed by cucu 10/16/2006: now that login has its own login, just a non anonymous is needed
+        //if (hasPermission(auth, resource)) {
+        if (!auth.getActiveUser().isAnonymous()) {
             return true;
         } else {
             handleException(request, response, new PermissionException(auth.getActiveUser(), resource));
