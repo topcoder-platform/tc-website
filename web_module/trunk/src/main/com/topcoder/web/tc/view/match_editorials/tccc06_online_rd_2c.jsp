@@ -281,15 +281,17 @@ By&#160;<tc-webtag:handle coderId="7485898" context="algorithm"/><br />
 </p>
 
 <%-- half done
-<div class="" style="float:right; margin: 0px 10px 10px 0px; border: 1px solid black;">
-    <div class="" style="float:right; border: 1px solid black;">
-        <img class="smallPhoto" src="/i/m/Andrew_Lazarev_big.jpg" alt="Author" />
-    </div>
-    <div class="" style="float: right; margin: 12px 8px 10px 8px; border: 1px solid black;">
-        By&#160;<tc-webtag:handle coderId="7485898" context="algorithm"/><br>
-        <span class="small"><em>TopCoder Member</em></span>
-    </div>
+<div style="float: right; border: 1px solid black;">
+    <img class="smallPhoto" src="/i/m/Andrew_Lazarev_big.jpg" alt="Author" />
 </div>
+<div style="float: right; margin: 12px 8px 10px 8px; border: 1px solid black;">
+    By&#160;<tc-webtag:handle coderId="7485898" context="algorithm"/><br>
+    <span class="small"><em>TopCoder Member</em></span>
+</div>
+
+We can start calculation of A(i, n) from the first element of the given cells because we can always put the tile on the right side instead of putting it to the left of the initial segment.
+We can start calculation of A(i, n) from the first element of the given cells because we can always put the tile on the right side instead of putting it to the left of the initial segment.
+We can start calculation of A(i, n) from the first element of the given cells because we can always put the tile on the right side instead of putting it to the left of the initial segment.
 --%>
 
 </div>
