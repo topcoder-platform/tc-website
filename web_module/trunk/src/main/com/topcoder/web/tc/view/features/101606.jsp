@@ -80,7 +80,7 @@ In terms of his approach to the finals, <tc-webtag:handle coderId="268851" /> sa
 <br><br>
 How did winning affect him? "I've been programming for most of my life, and knew that was what I wanted to do, so it didn't affect my career too much," he says. "However, it did generate some very positive news at my university. I hope it encouraged more students to get into computer science."
 <br><br>
-<br><br>
+<br><br><br><br><br>
 <div style="float: left; padding-right: 20px; clear: left;"><img src="/i/tournament/tccc04/onsite_photos/des_finals.jpg" alt="Aksonov" border="0" /></div>
 <span class="bodySubtitle">Aksonov: "Be the best"</span><br>
 A TopCoder Open Component Design finalist in 2003 and 2004, <tc-webtag:handle coderId="277356" /> took home the <A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_des_editorial" target="_blank">Design Championship</A> at the 2004 Collegiate Challenge.
