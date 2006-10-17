@@ -7,15 +7,17 @@
 <head>
     <title>TopCoder Statistics</title>
 
-    <jsp:include page="/script.jsp"/>
-    <jsp:include page="/style.jsp">
+    <jsp:include page="../../script.jsp"/>
+    <jsp:include page="../../style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 </head>
+
 
 <body>
 
-<jsp:include page="/top.jsp">
+<jsp:include page="../../top.jsp">
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -23,7 +25,7 @@
 <tr valign="top">
 <!-- Left Column Begins-->
 <td width="180">
-    <jsp:include page="/includes/global_left.jsp">
+    <jsp:include page="../../includes/global_left.jsp">
         <jsp:param name="node" value="hs_match_editorials"/>
     </jsp:include>
 </td>
@@ -32,7 +34,7 @@
 <!-- Center Column Begins -->
 <td class="statTableSpacer" width="100%" valign="top">
 <div class="bodyText">
-    <jsp:include page="/page_title.jsp">
+    <jsp:include page="../../page_title.jsp">
         <jsp:param name="image" value="high_school"/>
         <jsp:param name="title" value="Match Editorials"/>
     </jsp:include>
@@ -493,7 +495,7 @@ Used as: Division One - Level Three: <blockquote>
 
 <!-- Right Column Begins -->
 <td width="170">
-    <jsp:include page="/public_right.jsp">
+    <jsp:include page="../../public_right.jsp">
         <jsp:param name="level1" value="tchs"/>
     </jsp:include>
 </td>
@@ -505,7 +507,7 @@ Used as: Division One - Level Three: <blockquote>
 </tr>
 </table>
 
-<jsp:include page="/foot.jsp"/>
+<jsp:include page="../../foot.jsp"/>
 
 </body>
 

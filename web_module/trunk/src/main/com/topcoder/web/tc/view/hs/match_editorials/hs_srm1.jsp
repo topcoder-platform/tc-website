@@ -11,7 +11,9 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 </head>
+
 
 <body>
 
