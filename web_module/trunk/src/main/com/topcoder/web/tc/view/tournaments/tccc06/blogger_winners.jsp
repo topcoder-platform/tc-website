@@ -1,5 +1,5 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -15,8 +15,8 @@
 <!-- Tab barlinks-->
 <jsp:include page="links.jsp" >
 <jsp:param name="tabLev1" value="overview"/>
-<jsp:param name="tabLev2" value="onsite_events"/>
-<jsp:param name="tabLev3" value="blogs"/>
+<jsp:param name="tabLev2" value="join_us"/>
+<jsp:param name="tabLev3" value="pickme"/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -25,47 +25,29 @@
       <td valign="top" align="center">
       <div class="bodySpacer">
             
-<%--<div style="float:right;"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=pickme_contest">What is the "Pick Me Contest"?</A><br>
-<A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=overview">Read the blogs</A></div>--%>
+<div style="float:right;"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=pickme_contest">What is the "Pick Me Contest"?</A><br>
+<%--<A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=overview">Read the blogs</A>--%>
+</div>
 <span class="bigTitle">Pick Me Contest Winners</span>
 <br><br>
 <div align="center">
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<%--
-<table cellpadding="6" cellspacing="0" width="600">
+<table cellpadding="6" cellspacing="0" width="300">
    <tr>
-      <td class="bodyText" align="center" valign="top" width="25%"><img src="/i/m/davidyang_big.jpg" /><br>
-      <tc-webtag:handle coderId="21471147" darkBG="true" /><br>
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_davidyang">winning submission</A>
+      <td class="bodyText" align="center" valign="top" width="50%"><img src="/i/m/RRLevering_big.jpg" /><br>
+      <tc-webtag:handle coderId="344462" darkBG="true" /><br>
+      <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloggerWinnerRRLevering">winning submission</A>
       </td>
-      <td class="bodyText" align="center" valign="top" width="25%"><img src="/i/m/dplass_big.jpg" /><br>
+      <td class="bodyText" align="center" valign="top" width="50%"><img src="/i/m/dplass_big.jpg" /><br>
       <tc-webtag:handle coderId="251184" darkBG="true" /><br>
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_dplass">winning submission</A>
-      </td>
-      <td class="bodyText" align="center" valign="top" width="25%"><img src="/i/m/Kawigi_big.jpg" /><br>
-      <tc-webtag:handle coderId="8416646" darkBG="true" /><br>
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_kawigi">winning submission</A>
-      </td>
-      <td class="bodyText" align="center" valign="top" width="25%"><img src="/i/m/omgrace_big.jpg" /><br>
-      <tc-webtag:handle coderId="21518515" darkBG="true" /><br>
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_omgrace">winning submission</A>
+      <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogger_dplass">winning submission</A>
       </td>
    </tr>
 </table>
 </div>
 <br><br>
-In deciding what our lucky winners should blog about at the TCO06, we figured asking the members would be a good place to start.  So please <strong><tc-webtag:forumLink forumID="505936" message="tell us and the bloggers" /></strong> what you guys would like to hear about.  For example:
+Congratulations to our "pick me" winners, and thanks to everyone who entered. If you didn't make it, you can still make your voice heard - just <tc-webtag:forumLink forumID="506113" message="tell us and the bloggers"/> what you would like to see in the Collegiate Challenge blogs. 
 <br><br>
-<ul>
-   <li>What's it like to meet everyone in person?</li>
-   <li>What did everyone do while they weren't competing?</li>
-   <li>Anything really interesting happen? (We are talking about Vegas after all)</li>
-   <li>Were there any "close calls" or "if only's" that the final scores don't portray?
-   <li><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=507641">How tall is misof?</A></li>
-</ul>
-<br><br>
---%>
         </div>
       </td>
         
