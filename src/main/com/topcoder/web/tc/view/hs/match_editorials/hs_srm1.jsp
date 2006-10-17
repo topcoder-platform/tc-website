@@ -7,8 +7,8 @@
 <head>
 <title>TopCoder Statistics</title>
 
-<jsp:include page="/script.jsp" />
-<jsp:include page="/style.jsp">
+<jsp:include page="../../script.jsp" />
+<jsp:include page="../../style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 <SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
@@ -17,15 +17,18 @@
 
 <body>
 
-<jsp:include page="/top.jsp" >
+<div id="onTop">
+<jsp:include page="../../top.jsp" >
   <jsp:param name="level1" value=""/>
 </jsp:include>
+</div>
+
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
  <tr valign="top">
 <!-- Left Column Begins-->
-   <td width="180">
-      <jsp:include page="/includes/global_left.jsp">
+   <td width="180" id="onLeft">
+      <jsp:include page="../../includes/global_left.jsp">
          <jsp:param name="node" value="hs_match_editorials"/>
       </jsp:include>
    </td>
@@ -34,12 +37,16 @@
 <!-- Center Column Begins -->
 <td class="statTableSpacer" width="100%" valign="top">
 <div class="bodyText">
-<jsp:include page="/page_title.jsp" >
+<jsp:include page="../../page_title.jsp" >
 <jsp:param name="image" value="high_school"/>
 <jsp:param name="title" value="Match Editorials"/>
 </jsp:include>
 
-<div style="float: right;" align="right"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">Archive</A><br>
+<div class="linkBox">
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+    <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
+    <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
+
 <tc-webtag:forumLink forumID="506023" message="Discuss this match" /></div>
 <span class="bodySubtitle">TCHS SRM 1</span><br>Monday, June 5, 2006
 <br><br>
@@ -572,8 +579,8 @@ the number of 'visible' walls:
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-   <td width="170">
-  <jsp:include page="/public_right.jsp">
+   <td width="170" id="onRight">
+  <jsp:include page="../../public_right.jsp">
    <jsp:param name="level1" value="tchs"/>
   </jsp:include>
    </td>
@@ -585,7 +592,10 @@ the number of 'visible' walls:
   </tr>
 </table>
 
-<jsp:include page="/foot.jsp" />
+<div id="onBottom">
+<jsp:include page="../../foot.jsp" />
+</div>
+
 
 </body>
 
