@@ -1,5 +1,5 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.controller.request.member.AffidavitHistory" %>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.controller.request.member.PaymentHistory" %>
 <%@ page language="java"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -41,7 +41,7 @@
 
         <jsp:include page="../../page_title.jsp" >
             <jsp:param name="image" value="pact_s"/>
-            <jsp:param name="title" value="Affidavits"/>
+            <jsp:param name="title" value="Payments"/>
         </jsp:include>
 
 		<p class="bigRed" align="left">Learn <A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid" class="bigRed">How to Get Paid</A> from TopCoder for your competition winnings.</p>
@@ -86,7 +86,7 @@
 	</table>
 </c:when>
 <c:otherwise>
-<b><em>No Affidavits Found</em> </b>
+<b><em>No Payments Found</em> </b>
 </c:otherwise>	
 </c:choose>			
 
