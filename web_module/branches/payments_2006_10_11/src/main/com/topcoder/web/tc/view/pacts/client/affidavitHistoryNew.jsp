@@ -6,7 +6,7 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 
 <c:set var="fullList" value="<%= request.getAttribute(AffidavitHistory.FULL_LIST) %>"/>
-<c:set var="affidavit" value="<%= request.getAttribute(AffidavitHistory.AFFIDAVITS) %>"/>
+<c:set var="affidavits" value="<%= request.getAttribute(AffidavitHistory.AFFIDAVITS) %>"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -67,10 +67,24 @@
 			</c:if>
 		</td>
 	</tr>
-<c:forEach items="affidavits" var="affidavit">
+<c:forEach items="${affidavits}" var="affidavit">
 	<tr>
 		<td class="bodyText"><c:out value="${affidavit.header.description}"/></td>
-		<td class="bodyText">to do</td>
+		<td class="bodyText">
+			<a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=%{affidavit.header.id}">
+				<c:choose>
+					<c:when test="${affidavit.header.affirmed}">
+						affirmed on <c:out value="${affidavit.affirmationDate}"></c:out>
+					</c:when>
+					<c:when test="${affidavit.header.daysLeftToAffirm > 0}">
+						click to affirm, <c:out value="${affidavit.header.daysLeftToAffirm}"> days left</c:out>
+					</c:when>
+					<c:otherwise>
+						expired, click here to view
+					</c:otherwise>
+				</c:choose>
+			</a>				
+		</td>
 		<td class="bodyText">to do</td>
 		<td class="bodyText">to do</td>
 		<td class="bodyText"><c:out value="${affidavit.header.statusDesc}"/></td>
