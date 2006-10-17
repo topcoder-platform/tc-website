@@ -662,14 +662,14 @@ trie</a> to build a matrix. His
 <a href="/stat?c=problem_solution&rm=247370&rd=8080&pm=5966&cr=2058177">
 solution</a>
 is an example of very clear impementation.
-</p>
-
-
- 
-  <img src="/i/m/gevak_big2.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/gevak_big2.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="7340263" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

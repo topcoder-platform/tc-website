@@ -282,11 +282,14 @@ See bladerunner's <a href="/stat?c=problem_solution&rm=247879&rd=9922&pm=6076&cr
 
 
 
-<p>
-<img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/Olexiy_big2.jpg" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="303644" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

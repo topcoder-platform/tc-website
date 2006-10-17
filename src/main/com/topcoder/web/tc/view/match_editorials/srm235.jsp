@@ -378,11 +378,14 @@ of the function with respect to each of the variables are all zero. The partial 
 <p>Coders who have studied physics will recognize the above equation as Snell's law, which describes the refraction of a light ray across an interface between materials with different light propagation speeds. It is possible to derive Snell's law directly from Maxwell's equations without assuming that light always takes the path of minimum time. How is it that light rays just happen to be so clever? If this kind of question is interesting to you, you should study physics!
 </p>
 
- <p>
-<img src="/i/m/the_one_smiley_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+ <div class="authorPhoto">
+    <img src="/i/m/the_one_smiley_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="156485" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

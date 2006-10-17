@@ -222,11 +222,14 @@ In this case compute the same calculation as before from where you are, to the n
 Lets say your guess is the O and the X represents the closest guess.  Including where you guessed, there are 5 spots from the O to the the X that should be calculated as above ( (5+1)/2 = 3).  Then there are the 6 spots before you that just get added on.  (3+6=9).  So the score for this guess is 9.
 </p>
 
-<p>
-<img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/brett1479_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="251317" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

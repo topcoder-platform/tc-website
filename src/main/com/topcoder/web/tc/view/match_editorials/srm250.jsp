@@ -439,11 +439,14 @@ code, was how AdrianKuegel was able to solve the problem in under 7 minutes.  If
 these methods, check out the <a href="/tc?module=Static&amp;d1=tutorials&amp;d2=alg_index">education content</a> section of TopCoder.
 </p>
 
-<p>
-<img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/lbackstrom_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="159052" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

@@ -520,12 +520,14 @@ more. Writing the state of that DP formally (that is, writing formally what 'rec
 a way to store the 'bottomline' are left as good exercises for the reader.</p>
 <p>See <tc-webtag:handle coderId="8394868" context="algorithm"/>'s only passing <a href="/stat?c=problem_solution&rm=249215&rd=9992&pm=6482&cr=8394868">solution</a> 
 as an example of another possible approach, moving row-by-row instead of moving cell-by-cell. It is slower, but
-could be optimized to pass, too.</p>
-
-  <img src="/i/m/Petr_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+could be optimized to pass, too.</p><div class="authorPhoto">
+    <img src="/i/m/Petr_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="10574855" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

@@ -450,14 +450,14 @@ If two states DP and DN are balanced, and we already know the value of DP, the v
 </p>
 <p>
 Using the given formulas it is possible to calculate the answer with the help of <a href="http://en.wikipedia.org/wiki/Dynamic_programming">dynamic programming</a>. You can look at <b>bmerry</b>'s solution which used similar (but not the same) ideas.
-</p>
-
-
-
-  <img src="/i/m/Andrew_Lazarev_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/Andrew_Lazarev_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="7485898" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

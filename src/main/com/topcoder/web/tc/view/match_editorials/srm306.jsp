@@ -496,12 +496,14 @@ This leads to a simple recursive implementation that does O(log(k)) matrix multi
 As a final comment, I like to say that <tc-webtag:handle coderId="11829284" context="algorithm"/>'s <a href=/stat?c=problem_solution&rm=248947&rd=9986&pm=6386&cr=11829284>solution</a> was pretty similar to my original solution
 and came up to be pretty different from the rest. It is based on building a 2N*2N matrix with a similar idea of
 <a href=/tc?module=Static&d1=match_editorials&d2=tco06_qual>fast fibonacci</a> matrix (remember that <a href=http://mathworld.wolfram.com/BlockMatrix.html>block multiplication</a> is valid in matrices) and simply powering that matrix, with a O(log(k)) number of matrix multiplications, to get the result. I won't give any other details for this approach because it would be too long, but try to inspect the code, is a good lesson of linear algebra.
-</p>
-
-  <img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/soul-net_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="15231364" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

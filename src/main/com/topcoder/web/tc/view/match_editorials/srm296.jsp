@@ -601,14 +601,15 @@ for each coloring {
 </pre>
 Here, we need the same number of comparisons (7<sup>6</sup> * N * 24), but a much smaller number of rotations (7<sup>6</sup> * 24).
 This is more than enough to make it work in time even for slow java and C#.
-</p>
-
-
-  <img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/Olexiy_big2.jpg" alt="Author" />
+</div>
+<div class="authorText">
 
   By&#160;<tc-webtag:handle coderId="303644" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

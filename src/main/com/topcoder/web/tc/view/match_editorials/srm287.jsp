@@ -945,15 +945,14 @@ The probability that the first player wins can be computed in an even more
 simple way, by simply examining the patterns.
 Look at <a href="/stat?c=problem_solution&rm=247528&rd=9808&pm=6005&cr=7502813">monsoon's
 solution</a> for a clean implementation of this solution.
-</p>
-
-
-
- 
-  <img src="/i/m/misof_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/misof_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="8357090" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

@@ -425,11 +425,14 @@ Once we passed through all commands again we have a list of adjacent rectangles 
 Now we have to pass through all those rectangles and calculate the number of different pixels for each color.
 </P>
 
-<p>
-<img src="/i/m/slavik_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/slavik_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="160082" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

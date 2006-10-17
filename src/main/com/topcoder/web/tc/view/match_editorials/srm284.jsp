@@ -516,13 +516,14 @@ for our problem. This allows us to say the number is thrown out of Cantor's set 
 <p>
 The only thing left is multiplicating a number by 3. This can be done digit-by-digit, see <a href="/tc?module=MemberProfile&cr=8355516">Eryx</a>'s
 <a href="/stat?c=problem_solution&rm=247411&rd=8081&pm=2355&cr=8355516">solution</a> for a clean implementation.
-</p>
-
- 
-  <img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/Olexiy_big2.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="303644" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

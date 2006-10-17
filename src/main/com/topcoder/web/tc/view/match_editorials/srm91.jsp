@@ -402,11 +402,14 @@ Therefore, by combining binary search, which is <tt>O(log n)</tt>, with <tt>occu
 the overall runtime complexity of this algorithm is the product, which is <tt>O(log<sup>2</sup> n)</tt>.  That's pretty fast.
 </P>
 
-<p>
-<img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/Logan_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="112902" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
           
 <P><B>Member Comments</B></P> 
 <P>

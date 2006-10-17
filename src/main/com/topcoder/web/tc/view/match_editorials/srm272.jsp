@@ -522,12 +522,14 @@ the regularity of the buildings in the city, one should always make each
 move to a corner which is closer to the target in straight line distance. 
 Using this you can use dynamic programming where the state is which corner 
 you are at and you populate the table starting with the closest points to 
-the start.</p>
-
-      <img src="/i/m/Ryan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+the start.</p><div class="authorPhoto">
+    <img src="/i/m/Ryan_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
       By&#160;<tc-webtag:handle coderId="284007" context="algorithm"/><br />
-      <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-      </p>
+          <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

@@ -376,11 +376,14 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
   <p>The second part of the problem is to determine which letters should be on the other side of the first roll. We could just blindly assign all letters to the hidden sides, but why do that when we know which letters are required from the letters in the rolls. Alas, with 50 rolls, all the letters in the alphabet could be used, which brings us back to brute force. However, we can use a simple deduction to reduce our search space significantly. If any sequence of rolls has more than 6 distinct letters, then we know for sure that sequence is invalid. Therefore, there is no reason to try any more than 3 letters for the hidden sides. We simply use the letters from the largest sequence of rolls which does not exceed 6 letters. With only 3 letters to try, there are only 6 possible cubes that can be made. With our algorithm above, we can compare each of the 6 cubes with the given rolls, stopping if one doesn't match. We then return the maximum roll attained, or -1 if all rolls matched for one of the 6 cubes. In the case where less than 6 letters are specified in all the rolls, we simply assign invalid characters to the leftover sides. In my practice room solution I used lowercase 'x', 'y' and 'z' for any leftover spaces.</p>
 
 
-<p>
-<img src="/i/m/schveiguy_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/schveiguy_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="273217" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

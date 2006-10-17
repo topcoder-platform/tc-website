@@ -387,11 +387,14 @@ Since all the really interesting cases were gotten rid of by the constraints (in
 Add up the distances as you go (distance around an arc is pi * radians * radius), and return. Simple double arithmetic works here, there's nothing fancy you have to do to avoid precision problems.
 </p> 
 
-<p>
-<img src="/i/m/zoidal_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/zoidal_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="112939" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

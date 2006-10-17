@@ -671,14 +671,14 @@ long f(int i, int j, int k) {
 }
 </pre>
 For an iterative, fastly coded implementation, see gawry's <a href="/stat?c=problem_solution&rm=248282&rd=9819&pm=6158&cr=7390224">code</a>.
-</p>
-
-
-
-  <img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/soul-net_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="15231364" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

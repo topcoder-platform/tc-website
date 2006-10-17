@@ -270,12 +270,14 @@ Add 1... and so on. If all parts left are all single-coloured, return the counte
 Of course, coming up with both is similar in difficult, and once you have the idea, the analytical
 approach is much easier to code. Probably that's why no passed solution and no reference or
 tester solution used the greedy approach.
-</p>
-
-  <img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/soul-net_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="15231364" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

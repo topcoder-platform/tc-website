@@ -141,11 +141,14 @@ where f refers to the size of a building in floors that can be handled by an opt
 Usage of the above algorithm of course requires that you initialize your values for the case of ballnum=1 to the trivial solution, i.e. f(1,x) = x.
 </P>
 
-<p>
-<img src="/i/m/Penwiper_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/Penwiper_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="150527" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

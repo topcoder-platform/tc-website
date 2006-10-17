@@ -205,11 +205,14 @@ Suppose we wish to grow a coalition that ends with party X. We iterate through e
 Once we can make no more new, unique coalitions, we return the size of the largest one we constructed. We can update this value as we build the coalitions, eliminating the need to iterate through all our constructed coalitions before we return. 
 </P>
 
-<p>
-<img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/Logan_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="112902" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="100%">
     <TR>

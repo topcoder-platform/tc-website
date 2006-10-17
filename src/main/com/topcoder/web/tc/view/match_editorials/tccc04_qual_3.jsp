@@ -171,11 +171,14 @@ The algorithm to solve this problem was hinted at in the problem statement.  Bas
 If we needed to, we could solve this without explicitly making the scaled up image.  Our loops end up being basically the same, and our runtime is still O(N^4) (where N is the size of the largest dimension), but we use a lot less memory.  Basically, we note that when we look up <tt>b[i*image.length+k][j*image[0].length()+l]</tt> in the above code, we could instead have looked up the value in the original image simply by dividing the two coordinates by x and y, respectively: <tt>image[(i*image.length+k)/y].charAt((j*image[0].length()+l)/x)</tt>.  We can also improve our runtime significantly if we want to be really clever.  Rather than considering a larger, scaled up image, we can calculate exactly which pixels in the original image have an effect on a particular pixel in the new image.  Say we are considering pixel (i,j) in the scaled image.  That pixel falls in the region from <tt>(i-1,j-1)</tt> to <tt>(i,j)</tt> in the scaled image, and if you do out the math, you'll find that it falls in the region <tt>((i-1)*width/y,(j-1)*height/y)</tt> to <tt>(i*width/y,j*height/y)</tt>, where width and heigh correspond to the original image.  Now, we can go to the original image and iterate over all pixels that are at least partly in this region, and calculate how much of each one is in the region.  The runtime for this is a little harder to calculate, but it works out to O(N^2), a significant improvement.  See mathijs' solution for an implementation of this.
 </p> 
 
-<p>
-<img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/lbackstrom_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="159052" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

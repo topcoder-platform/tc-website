@@ -695,12 +695,14 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
 
 <p>Most coders preferred dynamic programming or memoized solutions instead, based on the same key idea. Let <i>best[row][col][time]</i> be the earliest time to reach the destination cell from the state <i>(row, col, time)</i> -- that is, <i>best[row][col][time]</i> equals <i>T</i> if and only if the final state <i>(destRow, destCol, T)</i> is reachable from <i>(row, col, time)</i> and there is no reachable final state with a lower <i>T</i>. For any <i>T</i>, we have that <pre>best[destRow][destCol][T] = T</pre> and <pre>best[row][col][T] = min(best[row][col][T+1], best[newRow][newCol][T+1])</pre> where <i>(newRow, newCol)</i> is the new position after following the command given at time <i>T</i>. We return the lowest <i>T</i> for which <i>best[startRow<sub>1</sub>][startCol<sub>1</sub>][T]</i> is less than <i>best[startRow<sub>2</sub>][startCol<sub>2</sub>][T]</i>. For solutions based on this approach see <tc-webtag:handle coderId="309453" context="algorithm"/>’ DP <a href=/stat?c=problem_solution&rm=249419&rd=9996&pm=6621&cr=309453>solution</a>, or <tc-webtag:handle coderId="144400" context="algorithm"/>’s <a href=/stat?c=problem_solution&rm=249416&rd=9996&pm=6621&cr=144400>memoized version</a>.</p>
 
-</p>
-
-  <img src="/i/m/_efer__big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/_efer__big.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="8593420" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

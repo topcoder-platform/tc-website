@@ -525,11 +525,14 @@ So we have the recurrence formula num[V'] = e[V'] - sum num[V<sub>1</sub>] * e[V
 </pre>
 </p>
 
-<p>
-<img src="/i/m/Cosmin.ro_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/Cosmin.ro_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="303185" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

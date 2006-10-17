@@ -358,11 +358,14 @@ If the character is a 5, we check if the next character is assigned a 1 (and if 
 If we encounter an unassigned character, we tentatively assign it 1 and 5 with the highest power that can be associated with each number without repeating a previous assignment. For each of these possible assignments we then parse as described in the previous paragraphs (which were quite a mouthful). Whenever we reach the end of the input string without inconsistencies, we will have generated a number that is a possible interpretation of the input string. We simply maintain the best interpretation as we go along. 
 </P>
 
-<p>
-<img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/Logan_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="112902" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

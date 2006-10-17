@@ -153,11 +153,14 @@
                               A similar transformation can be performed on subtrees consisting of additions and variable multiplications.  Repetitive use of these transformations in a bottom up manner will give us the optimized tree.  A final count of the number of multiplies and adds contained in the tree will produce the answer.
                               </p>
 
-<p>
-<img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/brett1479_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="251317" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

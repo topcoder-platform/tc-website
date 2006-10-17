@@ -538,13 +538,14 @@ For those familiar with theory of languages, an instance of KMP algorithm for a 
 The Wikipedia contains several <a href="http://en.wikipedia.org/wiki/String_search_algorithms">search algorithms</a>. A very clear explanation of KMP algorithm can also be found
 <a href="http://www.ics.uci.edu/~eppstein/161/960227.html">here</a>
 See also <a href="/stat?c=problem_solution&rm=247505&rd=8083&pm=6017&cr=144400">tomek's</a> as for a solution written during the contest.
-</p>
-
- 
-  <img src="/i/m/ged_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/ged_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="10505830" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

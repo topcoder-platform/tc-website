@@ -489,13 +489,14 @@ The answer for the whole problem will be the set containing all numbers which ca
 </p>
 <p>
 As an implementation note, representing the set of all possible answers as a long number (with the ability to take k machines represented as the k-th bit in the number) makes the coding much shorter and easier.
-</p>
-
-
-  <img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/Olexiy_big2.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="303644" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

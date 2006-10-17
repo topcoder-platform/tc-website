@@ -89,11 +89,14 @@ just test every single possibility in some matter. My personal favorite solution
 He keeps an array of the four values and for each step he "accumulates" two of them together with some operator, recursively so he gets all the possible 
 values. Then it's just a matter of keeping track of the current "best". A common mistake was to only do the operators in order, which wouldn't allow 
 results like (3/14)+(11/14). In fact, this is the mistake that I made :P</P>
-<p>
-<img src="/i/m/ZorbaTHut_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/ZorbaTHut_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="152347" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
           
 </div>
 </td>

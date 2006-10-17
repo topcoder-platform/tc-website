@@ -474,8 +474,9 @@ it can be fully explored without much trouble.
 
 <p>
 By&#160;<tc-webtag:handle coderId="10487679" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

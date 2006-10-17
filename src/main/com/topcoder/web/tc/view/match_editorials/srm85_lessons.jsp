@@ -122,11 +122,14 @@ for each player at the end of each round reset to 0 if it was negative.</P>
 <P>It's hard to analyse where a lot of these problems went wrong, because of the complexity of the rules.  Probably, only getting out a debugger.<BR/><BR/>
 Issues:<BR/>Many of the issues involved either failing to deal with the negative reset, or resetting the round score rather than the cumulative score.</P>
 
-<p>
-<img src="/i/m/slowjoe_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/slowjoe_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="271917" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
  
 <P><B>Member Comments</B></P>
 

@@ -467,14 +467,14 @@ the depth.  Nodes with nesting depth 0 are terminal, since
 they complete an MLC.  Once the search is complete, we can determine which pair with depth 0
 had the largest location.  This gives us the length of our maximal MLC.  Removing this comment, we
 repeat the process until no further comments can be removed.
-</p>
-
-
-
-      <img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/brett1479_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
       By&#160;<tc-webtag:handle coderId="251317" context="algorithm"/><br />
-      <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-      </p>
+          <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

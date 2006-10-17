@@ -102,11 +102,14 @@ dropping him from 1st to 6th. The only other failures were dgarthur's 500pt and 
 with 1274.74 points, each with three working solutions. Last place was <A HREF="/stat?c=last_match" CLASS="bodyGeneric">evd</A> with 269.99 points, followed by
 <A HREF="/stat?c=last_match" CLASS="bodyGeneric">John Dethridge</A> with 269.73, each with only their 300pt solution remaining.
 <A HREF="/stat?c=last_match" CLASS="bodyGeneric">ZorbaTHut</A> was the only other coder with less than 1000 points in Room 1.</P>
-<p>
-<img src="/i/m/ZorbaTHut_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/ZorbaTHut_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="152347" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
           
 </div>
 </td>

@@ -81,11 +81,14 @@ This impressive debut earned <A HREF="/stat?c=last_match" CLASS="bodyGeneric">an
 was <A HREF="/stat?c=last_match" CLASS="bodyGeneric">antimatter's</A> 1200 point submission, which gave him/her a division high 742.28 points, in 3 lines of code.  Other notables included 
 <A HREF="/stat?c=last_match" CLASS="bodyGeneric">brpy</A> who debuted at 1737, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Debug</A> at 1704, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">zhliu</A> at 1679.</P>
 
-<p>
-<img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/lbackstrom_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="159052" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
           
 </div>
 </td>
