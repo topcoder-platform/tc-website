@@ -174,6 +174,10 @@ public interface ForumConstants {
         "No user exists with the specified handle.";
     public final static String ERR_ATTACHING =
         "There was an error attaching a file.";
+    public final static String ERR_ATTACHMENT_DELETE_PERMS = 
+    	"You are not authorized to delete this attachment.";
+    public final static String ERR_ATTACHMENT_NOT_FOUND = 
+    	"Message does not contain the specified attachment.";
     public final static String ERR_NO_POLL_ANSWER = 
     	"Please select an answer.";
     public final static String ERR_NO_POLL_ANSWERS = 

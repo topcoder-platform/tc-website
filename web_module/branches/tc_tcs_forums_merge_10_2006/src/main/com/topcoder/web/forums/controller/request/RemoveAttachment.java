@@ -6,9 +6,8 @@
  */
 package com.topcoder.web.forums.controller.request;
 
-import java.util.Iterator;
-
-import com.jivesoftware.forum.Attachment;
+import com.jivesoftware.base.UnauthorizedException;
+import com.jivesoftware.forum.AttachmentException;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.database.DbAttachment;
 import com.topcoder.shared.security.ClassResource;
@@ -53,25 +52,19 @@ public class RemoveAttachment extends ForumsProcessor {
     		setIsNextPageInContext(true);
     		return;
     	}
-    	
-        // check that the specified attachment is for the specified message
-        boolean attachmentIsFromThisMessage = false;
-        Iterator attachmentsIter = messageToRemoveFrom.getAttachments();
-        while (attachmentsIter.hasNext()) {
-        	Attachment curAttachment = (Attachment) attachmentsIter.next();
-        	if(curAttachment.getID() == attachment.getID()) {
-        		attachmentIsFromThisMessage = true;
-        		break;
+        
+        try {
+        	messageToRemoveFrom.deleteAttachment(attachment);
+        } catch (Exception e) {
+        	if (e instanceof UnauthorizedException) {
+        		getRequest().setAttribute(BaseServlet.MESSAGE_KEY, ForumConstants.ERR_ATTACHMENT_DELETE_PERMS);
+        	} else if (e instanceof AttachmentException) {
+        		getRequest().setAttribute(BaseServlet.MESSAGE_KEY, ForumConstants.ERR_ATTACHMENT_NOT_FOUND);
         	}
-        }
-        if (!attachmentIsFromThisMessage) {
-    		getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "Invalid attachment for the current message.");
-    		setNextPage("/errorPage.jsp");
+        	setNextPage("/errorPage.jsp");
     		setIsNextPageInContext(true);
     		return;
-    	}
-        
-        messageToRemoveFrom.deleteAttachment(attachment);
+        }
 
         StringBuffer urlNext = new StringBuffer(getSessionInfo().getServletPath()).append("?module=Post");
         urlNext.append("&").append(ForumConstants.FORUM_ID).append("=").append(forumIDStr);
