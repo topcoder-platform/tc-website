@@ -43,7 +43,7 @@
 </jsp:include>
 
 <div class="linkBox">
-    <A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+    <A href="tc?module=Static&d1=hs&d2=match_editorials&d3=archive">Archive</A><br>
     <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
     <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
 
@@ -556,11 +556,12 @@ Despite the efforts of the problem statement, it wasn't clear to some people tha
 </p>
 
 
-<%--  <img src="/i/m/brett1479_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />--%>
-  By&#160;<tc-webtag:handle coderId="343655" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
-
+<%--<div class="authorPhoto">
+    <img src="/i/m/brett1479_big.jpg" alt="Author" />--%>
+</div>
+<div class="authorText">
+    By&#160;<tc-webtag:handle coderId="343655" context="algorithm"/><br />    <em>TopCoder Member</em>
+</div>
 </div>
 </td>
 <!-- Center Column Ends -->
