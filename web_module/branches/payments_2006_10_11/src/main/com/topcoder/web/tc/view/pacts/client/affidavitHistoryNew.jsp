@@ -87,13 +87,18 @@
 			</a>				
 		</td>
 		<td class="bodyText">
-			<c:if test="${affidavit.payment.id >= 0}">
+			<c:if test="${affidavit.payment.id > 0}">
 				<a href="/PactsMemberServlet?t=payments&c=payment_details&payment_id=${affidavit.payment.id}" >
 					$<fmt:formatNumber value="${affidavit.payment.recentNetAmount}" pattern="###,###.00" />
 				</a>
 			</c:if>
 		</td>
-		<td class="bodyText">to do</td>
+		<td class="bodyText">
+			<c:choose>
+				<c:when test="affidavit.header.notarized">yes</c:when>
+				<c:otherwise>no</c:otherwise>				 
+			</c:choose>
+		</td>
 		<td class="bodyText"><c:out value="${affidavit.header.statusDesc}"/></td>
 		<td class="bodyText">
 			<c:if test="${fullList and affidavit.payDate != '00/00/0000'}" >
