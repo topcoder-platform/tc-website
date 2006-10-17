@@ -54,12 +54,13 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
-<div style="float: right;" align="left">
-<A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
-<span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
-<span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
-<A href="/stat?c=round_overview&er=5&rd=10112">Match Overview</A><br>
-<tc-webtag:forumLink forumID="506111" message="Discuss this match" /></div>
+<div class="linkBox" style="float: right;" align="left">
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+    <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
+    <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
+    <A href="/stat?c=round_overview&er=5&rd=10112">Match Overview</A><br>
+    <tc-webtag:forumLink forumID="506111" message="Discuss this match" />
+</div>
 <span class="bodySubtitle">2006 TopCoder Collegiate Challenge <br> Online Round 2B</span><br>October 7, 2006
 <br><br>
 
