@@ -54,12 +54,13 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
-<div style="float: right;" align="left">
-<A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
-<span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
-<span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
-<A href="/stat?c=round_overview&er=5&rd=10113">Match Overview</A><br>
-<tc-webtag:forumLink forumID="506112" message="Discuss this match" /></div>
+<div class="linkBox" style="float: right;" align="left">
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+    <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
+    <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
+    <A href="/stat?c=round_overview&er=5&rd=10113">Match Overview</A><br>
+    <tc-webtag:forumLink forumID="506112" message="Discuss this match" />
+</div>
 <span class="bodySubtitle">2006 TopCoder Collegiate Challenge<br>Online Round 2C</span><br>October 11, 2006
 <br><br>
 
@@ -274,25 +275,13 @@ where k is the number of empty cells immediately before the i-th position, 1 &le
 We can start calculation of A(i, n) from the first element of the given cells because we can always put the tile on the right side instead of putting it to the left of the initial segment.
 </p>
 
-<p>
-<img src="/i/m/Andrew_Lazarev_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-By&#160;<tc-webtag:handle coderId="7485898" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
-
-<%-- half done
-<div style="float: right; border: 1px solid black;">
-    <img class="smallPhoto" src="/i/m/Andrew_Lazarev_big.jpg" alt="Author" />
+<div class="authorPhoto">
+    <img src="/i/m/Andrew_Lazarev_big.jpg" alt="Author" />
 </div>
-<div style="float: right; margin: 12px 8px 10px 8px; border: 1px solid black;">
+<div class="authorText">
     By&#160;<tc-webtag:handle coderId="7485898" context="algorithm"/><br>
-    <span class="small"><em>TopCoder Member</em></span>
+    <em>TopCoder Member</em>
 </div>
-
-We can start calculation of A(i, n) from the first element of the given cells because we can always put the tile on the right side instead of putting it to the left of the initial segment.
-We can start calculation of A(i, n) from the first element of the given cells because we can always put the tile on the right side instead of putting it to the left of the initial segment.
-We can start calculation of A(i, n) from the first element of the given cells because we can always put the tile on the right side instead of putting it to the left of the initial segment.
---%>
 
 </div>
 </td>
