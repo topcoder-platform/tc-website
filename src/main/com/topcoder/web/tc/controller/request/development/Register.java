@@ -117,7 +117,7 @@ public class Register extends ViewRegistration {
 
         } catch (TCWebException e) {
             throw e;
-        } catch (Exception e) {
+        } catch (Throwable e) {
             throw new TCWebException(e);
         }
     }
