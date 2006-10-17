@@ -13,9 +13,7 @@
 </jsp:include>
 <SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 </head>
-
 <body>
-
 <div id="onTop">
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
