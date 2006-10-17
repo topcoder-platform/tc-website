@@ -21,16 +21,15 @@
 
 <body>
 
-<jsp:include page="../top.jsp" >
+<jsp:include page="../../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
-
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="referrals"/>
+            <jsp:param name="node" value="affidavits"/>
          </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -52,8 +51,8 @@
 		<c:if test="${not fullList}" >
 			This page displays pending affidavits. <a href="/PactsMemberServlet?module=AffidavitHistory&full_list=true">(View all)</a>		
 		</c:if>
-		
-	<table BGCOLOR="#FFFFFF" CELLPADDING=2 CELLSPACING=2 BORDER=0 WIDTH=100%>
+		<br>
+	<table BGCOLOR="#FFFFFF" CELLPADDING="2" CELLSPACING="2" BORDER="0" WIDTH="100%" >
 	<tr>
 		<td class="bodyText" width="35%"><b>Affidavit Description</b></td>
 		<td class="bodyText" width="20%"><b>Affidavit Affirmation</b></td>
