@@ -469,11 +469,14 @@ the normal state of the puzzle will be {"1232", "_434"}, or, using letters, {"AB
 <p>
 To see the complete solution of this problem, check <tc-webtag:handle coderId="19849563" context="algorithm"/>'s solution in practice room.
 </p>
-<p>
-<img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/Olexiy_big2.jpg" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="303644" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

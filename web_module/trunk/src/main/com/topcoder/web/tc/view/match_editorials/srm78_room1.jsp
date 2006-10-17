@@ -84,11 +84,14 @@ for a total of 1408.41, giving him second overall (to <A HREF="/stat?c=last_matc
 easy problem, resulting in big ratings drops of 150+ points.</P>
 <P>In addition, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">jonmac</A> and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">ZorbaTHut</A>, the number 2 and number 3 coders were absent tonight.  <A HREF="/stat?c=last_match" CLASS="bodyGeneric">jonmac</A>, last year's <A HREF="/tc?module=Static&d1=tournaments&amp;d2=tci01&amp;d3=summary" CLASS="bodyText">2001 Invitational</A> winner, was rumored to be playing tennis.</P>
 
-<p>
-<img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/lbackstrom_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="159052" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
           
 </div>
 </td>

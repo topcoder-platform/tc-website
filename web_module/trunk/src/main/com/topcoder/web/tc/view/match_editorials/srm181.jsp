@@ -468,11 +468,14 @@ It should be noted that this problem is in fact just the same as the problem of 
 <p>However, various algorithms have been discovered that solve the directed case of the Minimal Spanning Tree problem.  More on such algorithms can be found <a href="http://www.ce.rit.edu/~sjyeec/dmst.html">here</a>.  Implementations of the Chu-Liu/Edmonds Algorithm run in O(E log V) on average and O(V^2) for dense graphs, certainly well in time to solve this problem, although with N = 15, it's overkill.
 </p>
 
-<p>
-<img src="/i/m/antimatter_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/antimatter_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="275071" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

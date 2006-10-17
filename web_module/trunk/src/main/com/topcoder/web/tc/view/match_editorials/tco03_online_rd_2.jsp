@@ -334,11 +334,14 @@ The next step is to deal with the different operators, and the parentheses.  Sin
 If we don't find any '+'s or '-'s outside of parentheses to split on, then we do pretty much the same thing with '*' and '/'.  If there aren't any of those operators either, then we move on to exponentiation, which also works pretty much the same way.  However, taking powers can be a little bit tricky, and you may not want to trust the library pow function since it works with doubles (though it does work in this case) and we are working with ints.  Writing your own pow function is pretty simple, but you have to make sure you handle 3 special cases properly: -1, 0 and 1.  0^x is always 0 (in this problem), 1^x is always 1, and -1^x is either -1 or +1, depending on whether x is odd or even.  A few coders missed these cases and because they only had a loop to calculate powers, and they timed out on inputs like 1^999999999.  Anyhow, after we do exponentiation, we are done with all of the operators that aren't nested within parentheses.  If we get to this point, there are only two cases: the expression is either a single number or a variable, or else the first character is a '(' and the last character is a ')'.  Both cases are easy to handle.  In the first, we just parse the number or look up the variable and return that.  For the second, we simply call our recursive function with the first and last characters removed, and return the result.  If you want to see a full implementation of this, I recommend you look at SnapDragon's code, which implements the evaluate method I've described in only 40 lines.
 </p> 
 
-<p>
-<img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/lbackstrom_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="159052" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

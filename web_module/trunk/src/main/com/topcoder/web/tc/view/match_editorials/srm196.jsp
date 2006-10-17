@@ -414,11 +414,14 @@ This problem seems a little tricky at first, and indeed it is. The first thing t
    <li>Once a solution is found, store it if it is the best (determining best by the "rightmost non-space character as far to the left as possible" and "fewest columns" rules).</li>
 </ul>
 
-<p>
-<img src="/i/m/zoidal_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/zoidal_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="112939" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

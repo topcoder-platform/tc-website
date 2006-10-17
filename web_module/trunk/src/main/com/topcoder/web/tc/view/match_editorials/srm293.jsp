@@ -442,13 +442,14 @@ This problem is actually not as hard as it seems. Suppose you want to reach from
 Let's now suppose that you want to reach the right edge of the map (the other 3 edges are treated similarly). Let a be the distance between point A (your initial position) and the right edge.  AX is the total distance you need to travel in order to safely reach the border. You want to find, if possible, a location for point X such that A'X is minimized. Then, you determine for every expanding circle (a circle's center is denoted by a red dot in the diagram above) the interval of points on the axis that get enclosed before you can reach there. To find such an interval, you'll need to determine one of its edges, which is exactly the point where AX = BX.  You find that x = (a * a - d * d - b * b) / (2 * d). Every such interval is open on the other edge, since AX - BX is a monotone function on X. This can be proved by applying the properties of square numbers, or deducted by working on an example. Because of this property, you can also successfully apply binary search instead of the more precise formula to find the point X. 
 <br><br>
 You may need to treat separately the case when B is on the AA' segment. In that case every point on the axis is obstructed, so there are no solutions there. 
-</p>
-
-
-  <img src="/i/m/supernova_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/supernova_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="7371063" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

@@ -94,11 +94,14 @@ only working 1000pt solution in the rookie rooms. <A HREF="/stat?c=last_match" C
 
 <P>The grand winner of the rookie rooms, however, was <A HREF="/stat?c=last_match" CLASS="bodyGeneric">mmsa</A>, submitting a rapid 
 300 and 450 and then gaining another 150 points during challenge phase, for a grand total of 824.11 and a debut rating of 1485.</P>    
-<p>
-<img src="/i/m/ZorbaTHut_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/ZorbaTHut_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="152347" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
           
 </div>
 </td>

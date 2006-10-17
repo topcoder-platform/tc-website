@@ -775,13 +775,14 @@ of the graph on demand).
 To see the integer arithmetic in intercept ability test, see
 <tc-webtag:handle coderId="19786437" context="hs_algorithm"/>'s
 <a href="/stat?c=problem_solution&rm=249262&rd=9993&pm=6546&cr=19786437">code</a>.
-</p>
-
-
-  <img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/soul-net_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="15231364" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

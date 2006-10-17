@@ -287,11 +287,14 @@ Decompose twoShuffle into disjoint cycles, and place them in a list called cycle
 If you pair cycles together, remove them both from cycleList.  If you have an even cycle, and there is no pair in cycleList, return an empty int[].  Since we are processing in order of minimum elements, 1-cycles are never paired with other 1-cycles. Proceed till all elements of cycleList are exhausted.  The formed permutation is the answer.
 </p> 
 
-<p>
-<img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/brett1479_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="251317" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

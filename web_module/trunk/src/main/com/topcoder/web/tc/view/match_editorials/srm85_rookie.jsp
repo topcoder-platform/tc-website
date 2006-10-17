@@ -83,11 +83,14 @@ and <A HREF="/stat?c=round_stats&amp;rd=4145&amp;dn=2" CLASS="bodyGeneric">IAZer
 and <A HREF="/stat?c=round_stats&amp;rd=4145&amp;dn=2" CLASS="bodyGeneric">Black_Ice</A> for a total of 100 points, giving him a total of 736.90 points for the night. This made <B>Ryback</B> the only rookie to 
 accumulate positive points during the Challenge Phase tonight.</P>
 
-<p>
-<img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/Logan_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="112902" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
           
 </div>
 </td>

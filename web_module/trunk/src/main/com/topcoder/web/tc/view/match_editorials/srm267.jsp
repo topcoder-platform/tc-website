@@ -516,11 +516,14 @@ A better approach is to note that there is an optimal solution in which each hai
 So we take the minimum value of R/N over all customers.  If this is less than 5 minutes, then no schedule is possible.  Otherwise, we return this value.
 <br><br>
 See <b>Ying</b>'s and <b>mbee</b>'s solutions for good examples of this algorithm.
-<br><br>
-<img src="/i/m/John_Dethridge_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<br><br><div class="authorPhoto">
+    <img src="/i/m/John_Dethridge_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="270505" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

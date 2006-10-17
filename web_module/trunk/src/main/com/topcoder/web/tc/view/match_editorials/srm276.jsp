@@ -607,15 +607,14 @@ public int fewestTests (int maxForce, int testUnits)
  seenUnknown[maxForce][testUnits] = true;
  return cacheUnknown[maxForce][testUnits] = ret;
 }
-</pre>
-
-
-
-
-  <img src="/i/m/timmac_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</pre><div class="authorPhoto">
+    <img src="/i/m/timmac_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="10407399" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

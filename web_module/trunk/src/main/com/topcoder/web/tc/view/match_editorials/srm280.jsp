@@ -921,13 +921,14 @@ Having all these optimization applied, the algorithm will easily run within 0.5 
 <p>
 Formulas and algorithms for line intersection can be found in <a href="/tc?module=Static&d1=tutorials&d2=geometry2"> Geometry Concepts Tutorial</a> by <b>lbackstrom</b>.
 More info about planar graphs can be found <a href="http://en.wikipedia.org/wiki/Planar_graphs">here</a>.
-</p>
-
- 
-  <img src="/i/m/dimkadimon_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/dimkadimon_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="276230" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

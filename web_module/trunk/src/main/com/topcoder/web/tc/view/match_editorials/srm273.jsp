@@ -867,12 +867,14 @@ public double probability (int n, int m, String c1, String c2) {
 You can significantly optimize your solution using the following observation. For every cell, compute the probability of a collision if Robbie starts
 from that cell. You can easily prove that this probability is the same for all cells further than 20 units from any border. Therefore you don't need to compute this
 probability for every such cell, instead you can compute it only once and multiply by the number of such cells.
-</p>
-
-      <img src="/i/m/supernova_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/supernova_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
       By&#160;<tc-webtag:handle coderId="7371063" context="algorithm"/><br />
-      <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-      </p>
+          <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

@@ -114,11 +114,14 @@ lost his Level 2 problem, leaving him with 1002.92 points and third in the room.
 of the system tests, and thus each won his room. <B>InsaneParadox</B> finished with a total 1248.12 points, the second highest rookie score of the match, while <B>ssotangkur</B> finished with 
 1360.89, giving him the highest rookie score of the match and a shiny yellow rating.</P>
 
-<p>
-<img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/Logan_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="112902" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
           
 </div>
 </td>

@@ -251,11 +251,14 @@ RBBRG
                         problem, one can check out the following link: <a href="http://www.rose-hulman.edu/mathjournal/2000/vol1-n1/paper2/v1n1-2pd.pdf">Turning the Lights Out in Three Dimensions</a>.</p>
 
 
-<p>
-<img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/Yarin_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="269554" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

@@ -480,12 +480,14 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
 <p>After we've compressed the grid and constructed a graph, we need to run a shortest-path algorithm. Not all choices will do, since the graph can get quite large (system tests included a grid of size 622 &#0215; 622). It was possible to use Dijkstra's algorithm (as <b>bmerry</b> did), implemented with time complexity <em>O</em>(E log V), but all other passing solutions used a modification of breadth-first search, which runs in <em>O</em>(E) time.</p>
 
 <p>Breadth-first search is usually used on unweighted graph, but we can use it on 0-1 graphs as well, by using a deque (double-ended queue) instead of a regular queue: any time we expand over an edge of weight 0, we insert the neighbour vertex at the front on the queue. When we use an edge of weight 1, we push the vertex at the end of the queue. This way, closer vertices will be processed before the farther ones. Observe that a vertex may be pushed on the deque twice (first via a 1-edge, then a 0-edge before the first one is processed). However, the implementation will be careful to only process the first copy and in the worst case, this only adds a factor of at most two to the runtime.</p>
-</p>
-
-  <img src="/i/m/lovro_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/lovro_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="7390467" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

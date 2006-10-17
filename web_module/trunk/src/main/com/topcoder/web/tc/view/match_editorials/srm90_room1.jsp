@@ -159,11 +159,14 @@ by 184 points, the maximum he could drop in one round. The only other person to 
 losing 166 points and plummeting from his 1st-place position all the way to 4th-place, <B>ZorbaTHut</B> now only 
 64 points behind him, from 347 points a day ago.
 </P>
-<p>
-<img src="/i/m/ZorbaTHut_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/ZorbaTHut_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="152347" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

@@ -874,10 +874,15 @@ For an implementation with this idea see <tc-webtag:handle coderId="274023" cont
 
 
 </p>
-  <img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-  By&#160;<tc-webtag:handle coderId="15231364" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+
+<div class="authorPhoto">
+    <img src="/i/m/soul-net_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
+    By&#160;<tc-webtag:handle coderId="15231364" context="algorithm"/><br />
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

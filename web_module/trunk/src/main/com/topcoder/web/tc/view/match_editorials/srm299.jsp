@@ -526,12 +526,14 @@ each time, I only looped through those that were added in the last question
 which doesn't take hat configurations into account at all. During the limited 
 time I had for this writeup I failed to understand why it works. See <A 
 href="/stat?c=problem_solution&amp;rm=248340&amp;rd=9820&amp;pm=6039&amp;cr=10600282">Mojito1's 
-solution</A> for a clean implementation of this approach. </P>
-
-  <img src="/i/m/Yarin_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+solution</A> for a clean implementation of this approach. </P><div class="authorPhoto">
+    <img src="/i/m/Yarin_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="269554" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

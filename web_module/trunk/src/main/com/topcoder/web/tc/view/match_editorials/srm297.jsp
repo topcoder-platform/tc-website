@@ -533,15 +533,15 @@ to the same cluster.</p>
 <p>We iterate over the levels of the stack, and at each level compute the
 possible next states, as well as the transition probabilities. The computation of
 the transition probabilities is conceptually not too difficult, but we have to be careful
-not to make mistakes. lyimpanda’s solution roughly follows this approach. Alternatively, instead of using bitmasks to represent the previous layer, it is also possible to simply enumerate the 7 cases: no dynamite boxes, one dynamite box, two adjacent dynamite boxes, two diagonal dynamite boxes that are not connected in lower layers, two diagonal dynamite boxes that are connected, three dynamite boxes and four dynamite boxes. kalinov’s solution follows this approach.</p>
-
-
-
-  <img src="/i/m/igorsk_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+not to make mistakes. lyimpanda’s solution roughly follows this approach. Alternatively, instead of using bitmasks to represent the previous layer, it is also possible to simply enumerate the 7 cases: no dynamite boxes, one dynamite box, two adjacent dynamite boxes, two diagonal dynamite boxes that are not connected in lower layers, two diagonal dynamite boxes that are connected, three dynamite boxes and four dynamite boxes. kalinov’s solution follows this approach.</p><div class="authorPhoto">
+    <img src="/i/m/igorsk_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
 
   By&#160;<tc-webtag:handle coderId="7269339" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

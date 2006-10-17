@@ -248,11 +248,14 @@ public int minPushes(int current, int target, int[] buttons) {
 For a given button, to efficiently account for all reachable targets, we loop over each value.  Then, in the loop marked HERE, we continually push the button, as long as it continues to improve the scores for the targets we reach.  Another method used by many coders, was to implement a table-aided breadth-first-search.  Instead of looping over buttons, we loop over the number of button presses, stopping when we reach the target.  Since the table stores the targets already produced earlier in the search, we can avoid reexamining those values.
 </p> 
 
-<p>
-<img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/brett1479_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="251317" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

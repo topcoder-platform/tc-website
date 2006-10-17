@@ -94,11 +94,14 @@ and <A HREF="/stat?c=round_stats&amp;rd=4145" CLASS="bodyGeneric">NDBronson</A> 
 uncharacteristically poor performance, lost his 450 point submission during the System Test Phase, due to a minor mistake.  As a result he also lost top ranking among all coders, a title now held by 
 <A HREF="/tc?module=MemberProfile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A> (who did not compete tonight).</P>
 
-<p>
-<img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/Logan_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="112902" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
           
 </div>
 </td>

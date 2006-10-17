@@ -92,11 +92,14 @@ challenge of <B>ZorbaTHut</B> that dropped him from second into third, and movin
 had come from behind and beat out <B>NDBronson</B> by 8.05 points, who in turn beat third place <B>ZorbaTHut</B> by only 3.59 points.  As a result <B>reid's</B> 
 rating went up 132 points.  On the other side of things, <B>derkuci</B> dropped 140 points, knocking him out of the top 10.</P>
 
-<p>
-<img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/lbackstrom_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="159052" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
           
 </div>
 </td>

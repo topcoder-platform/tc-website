@@ -456,11 +456,14 @@ As the strips tend to a height of zero this expression becomes exactly the integ
 Some coders noticed that there is a way to calculate the integral exactly, without using numerical integration. It turns out that the function P is piecewise quadratic with the pieces being split at critical points. In figure (b) these points are indicated visually by the light green horizontal lines which pass through some vertex. If each strip on the frog's window was defined as the interval where the frog sees the top of the wall laying between a fixed pair of these horizontal lines, then P will be a quadratic function of y. A formula for P in this interval can be calculated knowing the area of the window above the top horizontal line in the pair and using the fact that the area of the window under it is a trapezoid. This explicit formula can be used for the integration, or alternatively you can use Simpson's rule on this much larger strip, since Simpson's rule is exact for up to cubic polynomials.
 </p>
 
-<p>
-<img src="/i/m/Ryan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/Ryan_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="284007" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

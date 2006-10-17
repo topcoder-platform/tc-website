@@ -192,11 +192,14 @@ The method of solving this problem is to iterate through all possible "interesti
 <P>Since this is a static network, we can precompute these distances before iterating over time. This is a simple application of an all-pairs-shortest-paths algorithm, such as Floyd's algorithm. The static nodes represent a graph, where there are edges between any pair of nodes that are within range of each other, with weight corresponding to Euclidean distance. 
 </P><BR/>
 
-<p>
-<img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/Logan_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="112902" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

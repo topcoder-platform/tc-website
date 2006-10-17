@@ -521,13 +521,14 @@ href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs3#floydWarshall">Floyd-W
 The initial state of the distance matrix must be carefully constructed
 so that the constraint that bears can't move vertically on the first
 and last columns is taken care of.
-</p>
-
-
-  <img src="/i/m/mathijs_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/mathijs_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="262056" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

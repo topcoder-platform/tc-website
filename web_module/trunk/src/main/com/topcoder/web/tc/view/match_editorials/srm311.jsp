@@ -830,13 +830,14 @@ digit to the most allowed digit, i.e. the digit that can be created using the cu
 treats. If at some step we can't "upgrade" the digit or <b>len</b> becomes equal to zero,
 it points that the job is done.
 </p>
-</p>
-
-
-  <img src="/i/m/gevak_big2.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/gevak_big2.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="7340263" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

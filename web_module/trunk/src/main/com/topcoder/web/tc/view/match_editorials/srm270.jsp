@@ -596,14 +596,14 @@ of the rotated "small" rectangle. None of them may exceed the corresponding dime
 "large" rectangle. This leads to two linear inequalities for x and y. We compute whether they
 have a solution such that x*x + y*y = c*c. If yes, the "small" rectangle can be rotated and
 the answer is positive, otherwise the answer is negative.
-</p>
-
-
-
-      <img src="/i/m/misof_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/misof_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
       By&#160;<tc-webtag:handle coderId="8357090" context="algorithm"/><br />
-      <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-      </p>
+          <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

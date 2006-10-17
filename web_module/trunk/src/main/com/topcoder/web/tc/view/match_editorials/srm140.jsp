@@ -232,11 +232,14 @@ Used as: Division-I, Level 3:
 <p>Now it's time to merge the two halves (see picture). We start with the combination in the first half which has the highest value (and weight) and in the second half with the lowest value. Then we keep either going up in the left half or down in the right half depending on whether the total weight of the current combination in the left and right half is less than or greater than <i>maxWeight</i>. After every step, we check if the new merging of the combination to the left and combination to the right is better than the best one found so far. This is repeated until we reached the top in the left half or the bottom in the right half. We will then have found the optimal solution.</p>
 
  
-<p>
-<img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/Yarin_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="269554" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

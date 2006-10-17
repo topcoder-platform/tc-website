@@ -637,15 +637,14 @@ public double defeatAll(String[] armies) {
   return go(owned, a);
 }
 
-</pre>
-
-
-
- 
-  <img src="/i/m/timmac_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</pre><div class="authorPhoto">
+    <img src="/i/m/timmac_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="10407399" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

@@ -555,12 +555,14 @@ We can think of this subproblem as one that works on finding a maximum sum conti
   return best;
 </pre>
 We have O(n^2) regions in our algorithm and as we shown above each region can be solved in O(n), thus we have a O(n^3) time algorithm.
-</p>
-
-  <img src="/i/m/Cosmin.ro_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/Cosmin.ro_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="303185" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>

@@ -86,11 +86,14 @@ with 1516.</P>
 placed third in room 6, increasing his rating to 1946.  Last week's second place first timer, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">currane</A>, 
 did even better, winning room 10 by submitting all three problems correctly and increasing his rating to 1948.</P>
 
-<p>
-<img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/lbackstrom_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="159052" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
           
 </div>
 </td>

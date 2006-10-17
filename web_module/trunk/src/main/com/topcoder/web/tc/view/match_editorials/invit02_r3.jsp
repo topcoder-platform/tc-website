@@ -267,11 +267,14 @@ The brute force approach would work for this problem: try to start a river from 
 For every location one shall use a floodfill-like algorithm, or a breadth-first search, on the map. One shall worry about the efficiency on the floodfill algorithm, since you might be doing it 1600 times on a 40x40 grid, but with some number of optimizations it shall work. Well, it did work for some of the successful submissions.
 </P>
 
-<p>
-<img src="/i/m/slavik_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/slavik_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="160082" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>
