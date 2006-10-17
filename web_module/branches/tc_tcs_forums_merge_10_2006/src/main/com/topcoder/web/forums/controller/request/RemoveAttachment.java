@@ -30,6 +30,7 @@ public class RemoveAttachment extends ForumsProcessor {
         
         String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
         String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
+        String forumIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.FORUM_ID));
         
         String strAttachmentID = getRequest().getParameter(ForumConstants.ATTACHMENT_ID);
         long attachmentID = Long.parseLong(strAttachmentID);
@@ -44,10 +45,10 @@ public class RemoveAttachment extends ForumsProcessor {
         }
         
         // make sure the current user is the one who uploaded the attachment
-        boolean correctUser = ( (messageToRemoveFrom.getUser() == null)
+        boolean correctUser = ((messageToRemoveFrom.getUser() == null)
         		|| (messageToRemoveFrom.getUser().getID() == user.getID())); 
     	if (!correctUser) {
-    		getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "You cannot edit messages created by other users.");
+    		getRequest().setAttribute(BaseServlet.MESSAGE_KEY, ForumConstants.ERR_CANNOT_EDIT_FOREIGN_POST);
     		setNextPage("/errorPage.jsp");
     		setIsNextPageInContext(true);
     		return;
@@ -71,9 +72,12 @@ public class RemoveAttachment extends ForumsProcessor {
     	}
         
         messageToRemoveFrom.deleteAttachment(attachment);
-        
-        // should be in a new window so just go to confirmation page
-        setNextPage("/attachmentRemoved.jsp");
-		setIsNextPageInContext(true);
+
+        StringBuffer urlNext = new StringBuffer(getSessionInfo().getServletPath()).append("?module=Post");
+        urlNext.append("&").append(ForumConstants.FORUM_ID).append("=").append(forumIDStr);
+        urlNext.append("&").append(ForumConstants.MESSAGE_ID).append("=").append(messageIDStr);
+        urlNext.append("&").append(ForumConstants.POST_MODE).append("=").append(postMode);
+        setNextPage(urlNext.toString());
+		setIsNextPageInContext(false);
 	}	
 }

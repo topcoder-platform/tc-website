@@ -102,8 +102,6 @@ public class Attach extends ForumsProcessor {
         getRequest().setAttribute("forum", forum);
         getRequest().setAttribute("postMode", postMode);
 
-        // when there are errors attaching, addError() is called,
-        // and they will show up on the post.jsp page
         setNextPage("/post.jsp");
 		setIsNextPageInContext(true);
 	}
@@ -149,7 +147,7 @@ public class Attach extends ForumsProcessor {
         }
         catch (UnauthorizedException e) {
         	e.printStackTrace();
-        	addError(ForumConstants.ATTACHMENT_ERROR, "Sorry, you do not have permission to attach files");
+        	addError(ForumConstants.ATTACHMENT_ERROR, "Sorry, you do not have permission to attach files.");
         }
         finally {
         	if (uploadedFileBIS != null) {

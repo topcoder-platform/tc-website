@@ -104,7 +104,7 @@ public class PostMessage extends ForumsProcessor {
 		}
 
         if (message == null || postMode.equals("Reply")) {
-			message = forum.createMessage(user);
+			message = (ForumMessage)getRequest().getSession().getAttribute("tempMessage");
 		}
         long histModificationDate = message.getModificationDate().getTime();
         String histSubject = message.getSubject();

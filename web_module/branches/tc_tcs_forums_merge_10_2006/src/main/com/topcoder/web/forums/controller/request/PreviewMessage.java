@@ -108,9 +108,10 @@ public class PreviewMessage extends ForumsProcessor {
             setIsNextPageInContext(true);
             return;
 		}
-		
-        ForumMessage previewMessage = forum.createMessage(user);   // message for preview
-        previewMessage.setSubject(subject);
+   
+		// message for preview
+        ForumMessage previewMessage = (ForumMessage)getRequest().getSession().getAttribute("tempMessage");
+		previewMessage.setSubject(subject);
         previewMessage.setBody(body);
         
         getRequest().setAttribute("message", previewMessage);        

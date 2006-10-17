@@ -109,13 +109,13 @@ public class AttachFiles extends ForumsProcessor {
             return;
 		}
 		
-        ForumMessage previewMessage = forum.createMessage(user);   // message for preview
+        //ForumMessage previewMessage = forum.createMessage(user);   
+		// message for preview
+		ForumMessage previewMessage = (ForumMessage)getRequest().getSession().getAttribute("tempMessage");
         previewMessage.setSubject(subject);
         previewMessage.setBody(body);
         
         getRequest().setAttribute("message", previewMessage);
-        //getRequest().setAttribute("tempMessage", getRequest().getAttribute("tempMessage")); 
-        //getRequest().setAttribute("tempMessage", getRequest().getAttribute("tempMessage"));
         
         setNextPage("/attachfiles.jsp");
 		setIsNextPageInContext(true);

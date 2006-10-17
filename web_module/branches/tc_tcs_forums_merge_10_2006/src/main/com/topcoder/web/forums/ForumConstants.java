@@ -149,6 +149,8 @@ public interface ForumConstants {
         "You do not have permission to post a new message in this forum.";
     public final static String ERR_CANNOT_POST_ANNOUNCEMENT =
         "You do not have permission to post a new announcement.";
+    public final static String ERR_CANNOT_EDIT_FOREIGN_POST =
+    	"You cannot edit messages created by other users.";
     public final static String ERR_LONG_MESSAGE_SUBJECT =
         "Error: Message body exceeds " + MESSAGE_SUBJECT_MAX_LENGTH + " characters.";
     public final static String ERR_LONG_MESSAGE_BODY =

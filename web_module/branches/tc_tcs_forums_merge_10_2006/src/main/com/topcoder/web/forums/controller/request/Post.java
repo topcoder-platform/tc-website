@@ -62,11 +62,17 @@ public class Post extends ForumsProcessor {
             	
                 setDefault(ForumConstants.MESSAGE_SUBJECT, message.getSubject());
                 setDefault(ForumConstants.MESSAGE_BODY, ForumsUtil.createTextAreaBody(message.getUnfilteredBody()));
+                getRequest().getSession().setAttribute("tempMessage", message);
             }
             getRequest().setAttribute("message", message);
             getRequest().setAttribute("thread", message.getForumThread());
         }
 
+        if (postMode.equals("New") || postMode.equals("Reply")) {
+        	ForumMessage tempMessage = forum.createMessage(user);
+        	getRequest().getSession().setAttribute("tempMessage", tempMessage);
+        }
+        
         getRequest().setAttribute("forum", forum);
         getRequest().setAttribute("postMode", postMode);
 

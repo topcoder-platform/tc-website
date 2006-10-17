@@ -5,6 +5,8 @@
                 com.jivesoftware.forum.stats.ViewCountManager,
                 com.jivesoftware.forum.ForumMessage,
                 com.jivesoftware.forum.ForumThread,
+                com.jivesoftware.forum.Attachment,
+                com.jivesoftware.util.ByteFormat,
                 java.util.*,
                 com.topcoder.shared.util.DBMS"
 %>
@@ -164,6 +166,9 @@ function AllowTabCharacter() {
 <%  } %>
 <span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></A></div></td>
 <td class="rtTextCell100">
+<% 	if (errors.get(ForumConstants.ATTACHMENT_ERROR) != null) { %>
+		<span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.ATTACHMENT_ERROR%>"><%=err%><br/></tc-webtag:errorIterator></span>
+<% 	} %>
 <% if (errors.get(ForumConstants.MESSAGE_SUBJECT) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=err%></tc-webtag:errorIterator><br/></span><% } %>
 <b>Subject:</b><br/><tc-webtag:textInput size="60" name="<%=ForumConstants.MESSAGE_SUBJECT%>" escapeHtml="false" onKeyPress="return noenter(event)"/><br/><br/>
 <% if (errors.get(ForumConstants.MESSAGE_BODY) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_BODY%>"><%=err%></tc-webtag:errorIterator><br/></span><% } %>
@@ -171,7 +176,55 @@ function AllowTabCharacter() {
 <br/><tc-webtag:textArea id="tcPreviewArea" rows="15" cols="72" name="<%=ForumConstants.MESSAGE_BODY%>" onKeyDown="AllowTabCharacter()"/>
 </td>
 </tr>
-<tr><td class="rtFooter"><input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/><input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/></td></tr>
+
+<tr>
+	<td class="rtFooter">
+		<input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/>
+		<input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/>
+		<input type="image" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
+	</td>
+</tr>
+
+<tr>
+	<td class="rtFooter">
+		<table>
+		<%  // attachment list
+			Iterator attachments = message.getAttachments();
+		    int attachCounter = 0;
+		    if (attachments.hasNext()) { %>
+			    <tr valign="top">
+			        <td>Attachments:</td>
+			        <td>
+			            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+			            <%  ByteFormat byteFormatter = new ByteFormat();
+			                while (attachments.hasNext()) {
+			                    Attachment attachment = (Attachment)attachments.next();
+			                    attachCounter++; %>
+				                
+				                <tr valign="top">
+				                    <td width="1%">
+				
+				                        <table cellpadding="0" cellspacing="0" border="0">
+					                        <tr>
+					                            <td nowrap class="jive-attach-item">
+					                                <A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><%=attachment.getName()%></A>
+					                                (<%= byteFormatter.format(attachment.getSize()) %>)
+					                                [<A href="?module=RemoveAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.POST_MODE%>=<%=request.getAttribute("postMode")%>&<%=ForumConstants.MESSAGE_ID%>=<%=request.getParameter(ForumConstants.MESSAGE_ID)%>&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>">remove</A>]
+					                            </td>
+					                        </tr>
+				                        </table>
+				
+				                    </td>
+				                </tr>
+			            <%  } %>
+			            </table>
+			        </td>
+			    </tr>
+		<%  } %>
+		</table>
+	</td>
+</tr>
+
 </form></table>
 
 <p><br/></p>

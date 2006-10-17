@@ -5,6 +5,8 @@
                 com.jivesoftware.forum.stats.ViewCountManager,
                 com.jivesoftware.forum.ForumMessage,
                 com.jivesoftware.forum.ForumThread,
+                com.jivesoftware.forum.Attachment,
+                com.jivesoftware.util.ByteFormat,
                 java.util.*"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -18,6 +20,7 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%  ForumMessage message = (ForumMessage)request.getAttribute("message");
+	ForumMessage tempMessage = (ForumMessage)request.getSession().getAttribute("tempMessage");
     ForumThread thread = (ForumThread)request.getAttribute("thread");
     HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
 
@@ -157,6 +160,9 @@ function AllowTabCharacter() {
 <%  } %>
 <span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></A></div></td>
 <td class="rtTextCell100">
+<%  if (errors.get(ForumConstants.ATTACHMENT_ERROR) != null) { %>
+	<span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.ATTACHMENT_ERROR%>"><%=err%><br/></tc-webtag:errorIterator></span>
+<% 	} %>
 <%  if (errors.get(ForumConstants.MESSAGE_SUBJECT) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=err%><br/></tc-webtag:errorIterator></span><% } %>
 <b>Subject:</b><br/><tc-webtag:textInput size="60" name="<%=ForumConstants.MESSAGE_SUBJECT%>" escapeHtml="false" onKeyPress="return noenter(event)"/><br/><br/>
 <%  if (errors.get(ForumConstants.MESSAGE_BODY) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_BODY%>"><%=err%><br/></tc-webtag:errorIterator></span><% } %>
@@ -164,7 +170,55 @@ function AllowTabCharacter() {
 <br/><tc-webtag:textArea id="tcPostArea" rows="15" cols="72" name="<%=ForumConstants.MESSAGE_BODY%>" onKeyDown="AllowTabCharacter()"/>
 </td>
 </tr>
-<tr><td class="rtFooter"><input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/><input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/></td></tr>
+
+<tr>
+	<td class="rtFooter">
+		<input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/>
+		<input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/>
+		<input type="image" class="rtButton" alt="Attach Files" onclick="postform.module.value='AttachFiles'"/>
+	</td>
+</tr>
+
+<tr>
+	<td class="rtFooter">
+		<table>
+		<%  // attachment list
+			Iterator attachments = tempMessage.getAttachments();
+		    int attachCounter = 0;
+		    if (attachments.hasNext()) { %>
+			    <tr valign="top">
+			        <td>Attachments:</td>
+			        <td>
+			            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+			            <%  ByteFormat byteFormatter = new ByteFormat();
+			                while (attachments.hasNext()) {
+			                    Attachment attachment = (Attachment)attachments.next();
+			                    attachCounter++; %>
+				                
+				                <tr valign="top">
+				                    <td width="1%">
+				
+				                        <table cellpadding="0" cellspacing="0" border="0">
+					                        <tr>
+					                            <td nowrap class="jive-attach-item">
+					                                <A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><%=attachment.getName()%></A>
+					                                (<%= byteFormatter.format(attachment.getSize()) %>)
+					                                [<A href="?module=RemoveAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.POST_MODE%>=<%=request.getAttribute("postMode")%>&<%=ForumConstants.MESSAGE_ID%>=<%=request.getParameter(ForumConstants.MESSAGE_ID)%>&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>">remove</A>]
+					                            </td>
+					                        </tr>
+				                        </table>
+				
+				                    </td>
+				                </tr>
+			            <%  } %>
+			            </table>
+			        </td>
+			    </tr>
+		<%  } %>
+		</table>
+	</td>
+</tr>
+
 </form>
 </table>
 
@@ -176,6 +230,19 @@ function AllowTabCharacter() {
             (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%>" class="rtbcLink">post</A> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/>)
         <%  } %>
         </a></td></tr>
+        <% 	if (message.getAttachmentCount() > 0) { %>
+				<tr>
+					<td class="rtHeader" colspan="2" width="100%">
+						Attachments:
+						<%	Iterator attachments = message.getAttachments();
+							while(attachments.hasNext()) {
+								Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
+								<img src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" />
+								<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
+						<% 	} %>
+					</td>
+				</tr>
+       	<% } %>
         <tr>
         <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
         <%  if (ForumsUtil.displayMemberPhoto(user, message.getUser())) { %>
