@@ -9,6 +9,26 @@
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
+        <br>10.17.06<br>3:45 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm16">TCHS SRM 16 - Problem Set & Analysis</A></span><br><br>
+<tc-webtag:handle coderId="22652504" context="hs_algorithm"/> won the first HS event in three weeks.
+In his second ever HS match, <tc-webtag:handle coderId="22652504" context="hs_algorithm"/> destroyed the field -- recording the highest score on the hard problem, racking up +475 points on challenges and winning by more than 400 points.
+            </td>
+            <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by
+                <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm16">full story</A> |
+    <tc-webtag:forumLink forumID="506038" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
         <br>10.16.06<br>5:15 PM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -203,19 +223,4 @@ minutes.
     <tc-webtag:forumLink forumID="505997" message="discuss this"/> |
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.10.06<br>12:15 PM</td>
-     <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=TCCC06StudentReps">zhengqiang is the TCCC06 Student Rep Winner</A>
-        </span><br><br>
-      Congratulations to the winner - <tc-webtag:handle coderId="14949480" /> for referring 16 qualification participants!
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-    <A href="/tc?module=TCCC06StudentReps">results</A> | 
-    <tc-webtag:forumLink forumID="506138" message="discuss this"/> |
-     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
 
