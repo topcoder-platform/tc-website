@@ -43,7 +43,7 @@
 </jsp:include>
 
 <div class="linkBox">
-    <A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+    <A href="tc?module=Static&d1=hs&d2=match_editorials&d3=archive">Archive</A><br>
     <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
     <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
 
@@ -456,11 +456,12 @@ Imagine a large blank grid that is closed at the bottom.  Now imagine our algori
 The problem can also be solved using "max-flow" (which was the original intended solution) or using dynamic programming (see <tc-webtag:handle coderId="14886245" context="hs_algorithm"/>'s solution).  If you think of any other approaches, drop a note in the forums.
 <br><br>
 
-  <img src="/i/m/jmzero_mug.gif" alt="" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-  By&#160;<tc-webtag:handle coderId="15498334" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
-
+<div class="authorPhoto">
+    <img src="/i/m/jmzero_mug.gif" alt="" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</div>
+<div class="authorText">
+    By&#160;<tc-webtag:handle coderId="15498334" context="algorithm"/><br />    <em>TopCoder Member</em>
+</div>
 </div>
 </td>
 <!-- Center Column Ends -->
