@@ -6,6 +6,20 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
+<%----------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.17.06<br>6:00 PM</td>
+     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogger_winners">TCCC06 "Pick Me" Contest Winners</A></span><br><br>
+      Congratulations to <tc-webtag:handle coderId="344462" /> and <tc-webtag:handle coderId="303644" />, and thanks to everyone who entered. If you didn't make it, you can still make your voice heard - just <tc-webtag:forumLink forumID="506113" message="tell us and the bloggers"/> what you would like to see in the Collegiate Challenge blogs.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogger_winners">results</A> | 
+    <tc-webtag:forumLink forumID="506113" message="discuss this"/> |
+     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+----------------------------%>
+
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>

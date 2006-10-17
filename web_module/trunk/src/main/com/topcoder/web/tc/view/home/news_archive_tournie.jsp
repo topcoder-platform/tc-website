@@ -39,6 +39,9 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<%--
+<tr class="bodyText"><td nowrap="nowrap">10.17.06 6:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogger_winners">TCCC06 "Pick Me" Contest Winners</A></td></tr>
+--%>
 <tr class="bodyText"><td nowrap="nowrap">10.11.06 1:45 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_100906">AOL SRM 322 chat session transcript</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.10.06 12:00 NOON - </td><td width="100%"><A href="/tc?module=TCCC06StudentReps">zhengqiang is the TCCC06 Student Rep Winner</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.09.06 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol">AOL SRM 322 chat session</A></td></tr>
