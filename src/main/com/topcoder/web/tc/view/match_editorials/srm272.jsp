@@ -11,17 +11,20 @@
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 <jsp:include page="../script.jsp" />
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 </head>
 <body>
-
+<div id="onTop">
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
+</div>
+
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-        <td width="180">	<jsp:include page="/includes/global_left.jsp">
+        <td width="180" id="onLeft">	<jsp:include page="/includes/global_left.jsp">
 		<jsp:param name="node" value="algo_match_editorials"/>
 	</jsp:include>
 </td>
@@ -35,7 +38,10 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
-<div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+<div class="linkBox">
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+    <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
+    <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
 <tc-webtag:forumLink forumID="505786" message="Discuss this match" /></div>
 <span class="bodySubtitle">SRM 272</span><br>Saturday, November 19, 2005
 <br><br>
@@ -536,7 +542,7 @@ the start.</p><div class="authorPhoto">
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-         <td width="170">
+         <td width="170" id="onRight">
             <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
@@ -549,7 +555,9 @@ the start.</p><div class="authorPhoto">
     </tr>
 </table>
 
+<div id="onBottom">
 <jsp:include page="../foot.jsp" />
+</div>
 
 </body>
 

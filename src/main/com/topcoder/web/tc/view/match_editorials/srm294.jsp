@@ -11,18 +11,18 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 </head>
-
 <body>
-
-<jsp:include page="/top.jsp" >
-  <jsp:param name="level1" value=""/>
+<div id="onTop">
+<jsp:include page="../top.jsp" >
+    <jsp:param name="level1" value=""/>
 </jsp:include>
-
+</div>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
  <tr valign="top">
 <!-- Left Column Begins-->
-   <td width="180">
+   <td width="180" id="onLeft">
       <jsp:include page="/includes/global_left.jsp">
          <jsp:param name="node" value="algo_match_editorials"/>
       </jsp:include>
@@ -37,7 +37,10 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
-<div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+<div class="linkBox">
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+    <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
+    <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
 <tc-webtag:forumLink forumID="505860" message="Discuss this match" /></div>
 <span class="bodySubtitle">SRM 294</span><br>Saturday, March 25, 2006
 <br><br>
@@ -915,7 +918,7 @@ For example, the expected value of "_55_" is:
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-   <td width="170">
+   <td width="170" id="onRight">
   <jsp:include page="../public_right.jsp">
    <jsp:param name="level1" value="privatelabel"/>
   </jsp:include>
@@ -928,7 +931,9 @@ For example, the expected value of "_55_" is:
   </tr>
 </table>
 
+<div id="onBottom">
 <jsp:include page="../foot.jsp" />
+</div>
 
 </body>
 
