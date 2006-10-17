@@ -97,7 +97,7 @@
 		<td class="bodyText"><c:out value="${affidavit.header.statusDesc}"/></td>
 		<td class="bodyText">
 			<c:if test="${fullList and affidavit.payDate != '00/00/0000'}" >
-				<c:out value="${affidavit.header.payDate}"/>			
+				<c:out value="${affidavit.payDate}"/>			
 			</c:if>
 		</td>
 	</tr>
