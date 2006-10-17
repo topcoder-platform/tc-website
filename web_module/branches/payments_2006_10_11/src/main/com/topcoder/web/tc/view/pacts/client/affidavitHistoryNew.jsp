@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set var="fullList" value="<%= request.getAttribute(AffidavitHistory.FULL_LIST) %>"/>
 <c:set var="affidavits" value="<%= request.getAttribute(AffidavitHistory.AFFIDAVITS) %>"/>
@@ -71,7 +72,7 @@
 	<tr>
 		<td class="bodyText"><c:out value="${affidavit.header.description}"/></td>
 		<td class="bodyText">
-			<a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=%{affidavit.header.id}">
+			<a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavit.header.id}">
 				<c:choose>
 					<c:when test="${affidavit.header.affirmed}">
 						affirmed on <c:out value="${affidavit.affirmationDate}"></c:out>
@@ -85,7 +86,13 @@
 				</c:choose>
 			</a>				
 		</td>
-		<td class="bodyText">to do</td>
+		<td class="bodyText">
+			<c:if test="${affidavit.payment.id >= 0}">
+				<a href="/PactsMemberServlet?t=payments&c=payment_details&payment_id=${affidavit.payment.id}" >
+					$<fmt:formatNumber value="${affidavit.payment.recentNetAmount}" pattern="###,###.00" />
+				</a>
+			</c:if>
+		</td>
 		<td class="bodyText">to do</td>
 		<td class="bodyText"><c:out value="${affidavit.header.statusDesc}"/></td>
 		<td class="bodyText">
