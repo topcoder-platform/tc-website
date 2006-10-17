@@ -55,6 +55,8 @@
 		</c:if>
 		</p>
 		<br>
+<c:choose>
+<c:when test="${affidavit.legnth > 0}">
 	<table BGCOLOR="#FFFFFF" CELLPADDING="2" CELLSPACING="2" BORDER="0" WIDTH="100%" >
 	<tr>
 		<td class="bodyText" width="35%"><b>Affidavit Description</b></td>
@@ -109,7 +111,11 @@
 </c:forEach>	
 	
 	</table>
-		
+</c:when>
+<c:otherwise>
+<b><em>No Affidavits Found</em> </b>
+</c:otherwise>	
+</c:choose>			
 
 <!-- Center Column Ends -->
 
