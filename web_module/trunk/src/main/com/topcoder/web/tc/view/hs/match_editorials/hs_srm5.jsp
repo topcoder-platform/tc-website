@@ -17,14 +17,17 @@
 
 <body>
 
+<div id="onTop">
 <jsp:include page="../../top.jsp" >
   <jsp:param name="level1" value=""/>
 </jsp:include>
+</div>
+
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
  <tr valign="top">
 <!-- Left Column Begins-->
-   <td width="180">
+   <td width="180" id="onLeft">
       <jsp:include page="../../includes/global_left.jsp">
          <jsp:param name="node" value="hs_match_editorials"/>
       </jsp:include>
@@ -39,7 +42,11 @@
 <jsp:param name="title" value="Match Editorials"/>
 </jsp:include>
 
-<div style="float: right;" align="right"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">Archive</A><br>
+<div class="linkBox">
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+    <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
+    <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
+
 <tc-webtag:forumLink forumID="506027" message="Discuss this match" /></div>
 <span class="bodySubtitle">TCHS SRM 5</span><br>Wednesday, July 5, 2006
 <br><br>
@@ -559,7 +566,7 @@ Despite the efforts of the problem statement, it wasn't clear to some people tha
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-   <td width="170">
+   <td width="170" id="onRight">
   <jsp:include page="../../public_right.jsp">
    <jsp:param name="level1" value="tchs"/>
   </jsp:include>
@@ -572,7 +579,10 @@ Despite the efforts of the problem statement, it wasn't clear to some people tha
   </tr>
 </table>
 
+<div id="onBottom">
 <jsp:include page="../../foot.jsp" />
+</div>
+
 
 </body>
 
