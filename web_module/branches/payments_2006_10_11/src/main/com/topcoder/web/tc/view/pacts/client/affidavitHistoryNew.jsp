@@ -76,8 +76,8 @@
 					<c:when test="${affidavit.header.affirmed}">
 						affirmed on <c:out value="${affidavit.affirmationDate}"></c:out>
 					</c:when>
-					<c:when test="${affidavit.header.daysLeftToAffirm > 0}">
-						click to affirm, <c:out value="${affidavit.header.daysLeftToAffirm}"> days left</c:out>
+					<c:when test="${affidavit.daysLeftToAffirm > 0}">
+						click to affirm, <c:out value="${affidavit.daysLeftToAffirm}"/> days left
 					</c:when>
 					<c:otherwise>
 						expired, click here to view
