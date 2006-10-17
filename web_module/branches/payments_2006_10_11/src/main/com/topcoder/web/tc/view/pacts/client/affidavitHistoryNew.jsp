@@ -6,6 +6,7 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 
 <c:set var="fullList" value="<%= request.getAttribute(AffidavitHistory.FULL_LIST) %>"/>
+<c:set var="affidavit" value="<%= request.getAttribute(AffidavitHistory.AFFIDAVITS) %>"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -44,12 +45,14 @@
 
 		<p class="bigRed" align="left">Learn <A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid" class="bigRed">How to Get Paid</A> from TopCoder for your competition winnings.</p>
 
+		<p align="left">
 		<c:if test="${fullList}" >
 			This page displays all affidavits. <a href="/PactsMemberServlet?module=AffidavitHistory&full_list=false">(View pending)</a>
 		</c:if>
 		<c:if test="${not fullList}" >
 			This page displays pending affidavits. <a href="/PactsMemberServlet?module=AffidavitHistory&full_list=true">(View all)</a>		
 		</c:if>
+		</p>
 		<br>
 	<table BGCOLOR="#FFFFFF" CELLPADDING="2" CELLSPACING="2" BORDER="0" WIDTH="100%" >
 	<tr>
@@ -64,6 +67,21 @@
 			</c:if>
 		</td>
 	</tr>
+<c:forEach items="affidavits" var="affidavit">
+	<tr>
+		<td class="bodyText"><c:out value="${affidavit.header.description}"/></td>
+		<td class="bodyText">to do</td>
+		<td class="bodyText">to do</td>
+		<td class="bodyText">to do</td>
+		<td class="bodyText"><c:out value="${affidavit.header.statusDesc}"/></td>
+		<td class="bodyText">
+			<c:if test="${fullList and affidavit.payDate != '00/00/0000'}" >
+				<c:out value="${affidavit.header.payDate}"/>			
+			</c:if>
+		</td>
+	</tr>
+</c:forEach>	
+	
 	</table>
 		
 
