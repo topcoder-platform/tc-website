@@ -60,7 +60,7 @@
 	<table BGCOLOR="#FFFFFF" CELLPADDING="2" CELLSPACING="2" BORDER="0" WIDTH="100%" >
 	<tr>
 		<td class="bodyText" width="35%"><b>Payment Description</b></td>
-		<td class="bodyText" width="20%"><b>Date Created</b></td>
+		<td class="bodyText" width="20%"><b>Due Date</b></td>
 		<td class="bodyText" width="15%"><b>Net Payment Amount</b></td>
 		<td class="bodyText" width="10%"><b>Status</b></td>
 		<td class="bodyText" width="10%">
