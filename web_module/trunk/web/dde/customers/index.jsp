@@ -65,7 +65,7 @@
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">ABB, a leading power and automation technology enabler, needed a modern, user-friendly HTML interface that would allow users in its engineering and systems business units to access data on its mainframe legacy system. The Project Management Dashboard application delivered by TopCoder Software limited the amount of custom code built to 42 percent that of more traditional development models.<br><br>
                     <A href="http://www.abb.com/" target="_blank">homepage</A>&#160;|&#160;
-                    <A href="<tc-webtag:linkTracking link="http://software.topcoder.com/pdfs/tcs/casestudies/abb_casestudy.pdf" refer="customer_index"/>" target="_blank">case study</A>
+                    <A href="<tc-webtag:linkTracking link="/pdfs/tcs/casestudies/abb_casestudy.pdf" refer="customer_index"/>" target="_blank">case study</A>
                      </td>
                 </tr>
             </table>
