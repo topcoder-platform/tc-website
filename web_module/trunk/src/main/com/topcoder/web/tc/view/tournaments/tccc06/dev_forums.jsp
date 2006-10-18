@@ -47,6 +47,19 @@ trading stocks? Join in the discussion, and find out!
 <span class="bodySubtitle">Thursday, November 16</span>
 <br><br>
 <b>3:00PM - 4:00PM<br>
+Estimating Project Size</b><br>
+How long will this take? How much money will it cost? These two simple 
+questions can be infuriatingly difficult to answer, especially when it comes 
+to an enterprise software project. But there's hope, thanks to the "Use 
+Case Points" methodology. Use Case Points can help evaluate a project's 
+scope - based on the Use Cases and Actors outlined in the Use Case model - 
+as well as a project's complexity. This forum will discuss the features of 
+the Use Case Points approach, and highlight how it has been applied to 
+TopCoder projects.
+<br><br>
+<span class="bodySubtitle">Friday, November 17</span>
+<br><br>
+<b>1:00PM - 2:00PM<br>
 Overview of Recent TopCoder Projects</b><br>
 New clients and projects have expanded TopCoder's presence in a variety 
 of market spaces, from energy and insurance to finance, healthcare, media, 
@@ -59,19 +72,6 @@ library, these projects have been completed for less money and with fewer
 bugs. In this forum, learn more about the diverse array of projects 
 TopCoder is tackling, and what we've learned by applying our methods 
 to a wide range of industries. 
-<br><br>
-<span class="bodySubtitle">Friday, November 17</span>
-<br><br>
-<b>1:00PM - 2:00PM<br>
-Estimating Project Size</b><br>
-How long will this take? How much money will it cost? These two simple 
-questions can be infuriatingly difficult to answer, especially when it comes 
-to an enterprise software project. But there's hope, thanks to the "Use 
-Case Points" methodology. Use Case Points can help evaluate a project's 
-scope - based on the Use Cases and Actors outlined in the Use Case model - 
-as well as a project's complexity. This forum will discuss the features of 
-the Use Case Points approach, and highlight how it has been applied to 
-TopCoder projects.
 <br><br>
         </div>
       </td>
