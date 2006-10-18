@@ -972,14 +972,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("AND mr.modification_rationale_id = pd.modification_rationale_id ");
         selectPaymentDetails.append("AND state.state_code = pa.state_code ");
         selectPaymentDetails.append("AND country.country_code = pa.country_code ");
-        selectPaymentDetails.append("ORDER BY date_due DESC");
 
         if (pendingOnly) {
             selectPaymentDetails.append(" AND pd.status_id IN (" + PAYMENT_ON_HOLD_STATUS + "," +
                     PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
         }
 
-        selectPaymentDetails.append("ORDER BY 1");
+        selectPaymentDetails.append("ORDER BY date_due DESC");
 
         return doUserPayments(userId, selectPaymentDetails.toString(), paymentTypes, pendingOnly);
     }
