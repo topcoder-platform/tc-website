@@ -43,6 +43,11 @@
 </jsp:include>
 
 <p>
+    5.5.2 - 2006.10.18
+    <ul>
+        <li>Fixed a bug in PACTS internal that was throwing an error when trying to update status to ready to print.</li>
+    </ul>
+
     5.5.1 - 2006.10.11
     <ul>
         <li>Fixed addPayment page in PACTS internal pages.</li>
