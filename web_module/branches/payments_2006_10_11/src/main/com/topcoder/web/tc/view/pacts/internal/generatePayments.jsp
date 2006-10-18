@@ -10,7 +10,7 @@
 <body>
 <h1>PACTS</h1>
 
-<h2 align="center">Generate Algorithm Affidavits</h2>
+<h2 align="center">Generate Algorithm Payments and Affidavits</h2>
 
 <center>
     <form name="paymentForm" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
@@ -35,7 +35,7 @@
             </tr>
             <tr>
                 <td align="center" colspan="2">
-                    <a href="JavaScript:document.paymentForm.submit();">Generate Algorithm Round Affidavits</a> <br/>
+                    <a href="JavaScript:document.paymentForm.submit();">Generate Algorithm Round Payments and Affidavits</a> <br/>
                     <%--
                                                 <a href="JavaScript:document.paymentForm.<%=PactsConstants.AFFIDAVIT_TYPE_ID%>.value='<%=PactsConstants.TCCC05_ALGORITHM_AFFIDAVIT%>';document.paymentForm.submit();">Generate TCCC 05 Payments</a> <br />
                                                 <a href="JavaScript:document.paymentForm.<%=PactsConstants.AFFIDAVIT_TYPE_ID%>.value='11';document.paymentForm.submit();">Generate TCO 05 Round 1 Payments</a> <br />

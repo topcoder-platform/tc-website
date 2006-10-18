@@ -2651,7 +2651,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     referPay.getHeader().setDescription("Referral bonus for " + handle + " " + p.getHeader().getDescription());
                     referPay.getHeader().setTypeId(CODER_REFERRAL_PAYMENT);
                     referPay.getHeader().getUser().setId(referId);
-                    //referPay.setDueDate(p.getDueDate()); fix, is that ok?
+                    referPay.setDueDate(p.getDueDate());
                     referPay.getHeader().setParentPaymentId(paymentId);
                     log.debug("referrer found:" + handle);
 
