@@ -921,7 +921,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentHeaders.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, pd.client, p.review, ");
         selectPaymentHeaders.append("pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
         selectPaymentHeaders.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
-        selectPaymentHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.date_due ");
+        selectPaymentHeaders.append("pd.digital_run_season_id, pd.parent_payment_id");
         selectPaymentHeaders.append("FROM payment p, payment_type_lu pt, payment_method_lu pm, payment_detail pd, ");
         selectPaymentHeaders.append("status_lu s, user u ");
         selectPaymentHeaders.append("WHERE p.user_id = " + userId + " ");
@@ -930,7 +930,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentHeaders.append("AND pt.payment_type_id = pd.payment_type_id ");
         selectPaymentHeaders.append("AND pm.payment_method_id = pd.payment_method_id ");
         selectPaymentHeaders.append("AND s.status_id = pd.status_id ");
-        selectPaymentHeaders.append("ORDER BY date_due DESC");
+        selectPaymentHeaders.append("ORDER BY 1");
 
         ResultSetContainer rsc = runSelectQuery(selectPaymentHeaders.toString(), true);
         HashMap hm = new HashMap();
@@ -972,6 +972,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("AND mr.modification_rationale_id = pd.modification_rationale_id ");
         selectPaymentDetails.append("AND state.state_code = pa.state_code ");
         selectPaymentDetails.append("AND country.country_code = pa.country_code ");
+        selectPaymentDetails.append("ORDER BY date_due DESC");
 
         if (pendingOnly) {
             selectPaymentDetails.append(" AND pd.status_id IN (" + PAYMENT_ON_HOLD_STATUS + "," +
