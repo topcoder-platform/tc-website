@@ -17,8 +17,10 @@
         <input type="hidden" name="<%=PactsConstants.MODULE_KEY%>" value="GeneratePayments"/>
         <input type="hidden" name="<%=PactsConstants.AFFIDAVIT_TYPE_ID%>"/>
         <table border="1" cellpadding="5" cellspacing="0">
-            <tr><td><tc-webtag:errorIterator id="err" name="<%=PactsConstants.ROUND_ID%>"><%=err%>
-            </tc-webtag:errorIterator></td></tr>
+            <tr><td colspan="2">
+            		<tc-webtag:errorIterator id="err" name="<%=PactsConstants.ROUND_ID%>"><%=err%>
+            		</tc-webtag:errorIterator>
+            </td></tr>
             <tr>
                 <td align="center">
                     Round Id: <input type="text" name="<%=PactsConstants.ROUND_ID%>" maxlength="10" size="10"/>                    
@@ -32,7 +34,7 @@
                 </td>
             </tr>
             <tr>
-                <td align="center">
+                <td align="center" colspan="2">
                     <a href="JavaScript:document.paymentForm.submit();">Generate Algorithm Round Affidavits</a> <br/>
                     <%--
                                                 <a href="JavaScript:document.paymentForm.<%=PactsConstants.AFFIDAVIT_TYPE_ID%>.value='<%=PactsConstants.TCCC05_ALGORITHM_AFFIDAVIT%>';document.paymentForm.submit();">Generate TCCC 05 Payments</a> <br />

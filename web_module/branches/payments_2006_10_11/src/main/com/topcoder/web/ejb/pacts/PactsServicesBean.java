@@ -4562,7 +4562,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Make sure the round exists; in the process, get the name and due date.
             StringBuffer checkExists = new StringBuffer(300);
             checkExists.append("SELECT con.name, r.name, ");
-            checkExists.append("NVL(con.end_date,current) + (select due_date_interval from payment_type_lu where payment_type_id "+  paymentTypeId + ")"); 
+            checkExists.append("NVL(con.end_date,current) + (select due_date_interval from payment_type_lu where payment_type_id="+  paymentTypeId + ")"); 
             checkExists.append(	" UNITS DAY AS due_date, con.end_date ");
             checkExists.append("FROM round r, contest con ");
             checkExists.append("WHERE r.round_id = " + roundId + " ");
