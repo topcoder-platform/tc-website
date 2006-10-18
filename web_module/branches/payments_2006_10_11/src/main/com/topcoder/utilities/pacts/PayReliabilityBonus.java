@@ -47,7 +47,7 @@ public class PayReliabilityBonus extends DBUtility {
         query.append("AND not exists ");
         query.append("   (SELECT 1 FROM payment_detail pd2 ");
         query.append("     WHERE pd2.parent_payment_id=p.payment_id ");
-        query.append("     AND pd2.payment_type_id=" + PactsConstants.RELIABILITY_BONUS_PAYMENT);
+        query.append("     AND pd2.payment_type_id=" + PactsConstants.RELIABILITY_BONUS_PAYMENT + ")");
         
         PreparedStatement psSelProjects = prepareStatement("informixoltp", query.toString());
         
