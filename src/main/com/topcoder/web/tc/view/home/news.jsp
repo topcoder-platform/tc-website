@@ -6,11 +6,11 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
-<%----------------------------
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.17.06<br>6:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.17.06<br>8:15 PM</td>
      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogger_winners">TCCC06 "Pick Me" Contest Winners</A></span><br><br>
-      Congratulations to <tc-webtag:handle coderId="344462" /> and <tc-webtag:handle coderId="303644" />, and thanks to everyone who entered. If you didn't make it, you can still make your voice heard - just <tc-webtag:forumLink forumID="506113" message="tell us and the bloggers"/> what you would like to see in the Collegiate Challenge blogs.
+      Congratulations to <tc-webtag:handle coderId="344462" /> and <tc-webtag:handle coderId="21181561" />, and thanks to everyone who entered. If you didn't make it, you can still make your voice heard - just <tc-webtag:forumLink forumID="506113" message="tell us and the bloggers"/> what you would like to see in the Collegiate Challenge blogs.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -18,7 +18,6 @@
     <tc-webtag:forumLink forumID="506113" message="discuss this"/> |
      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-----------------------------%>
 
 <%--------------------------------------------------------%>
 <tr>
@@ -216,25 +215,3 @@ message...
        <tc-webtag:forumLink forumID="506139" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
-        <br>10.10.06<br>1:30 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm322">SRM 322 - Problem Set & Analysis</A></span><br><br>
-Single Round Match 322 had a fairly high number of registrants (985) and a very dynamic
-start, with several coders of both divisions getting the easy problem in much less than five
-minutes.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61"/><br>by
-                <tc-webtag:handle coderId="15231364" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=match_editorials&d2=srm322">full story</A> |
-    <tc-webtag:forumLink forumID="505997" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
-

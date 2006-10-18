@@ -34,7 +34,7 @@
     <img src="/i/m/nophoto.jpg" alt="Author" />
 </div>
 <div class="authorText">
-By&#160;<tc-webtag:handle coderId="21181561" context="algorithm"/><br />
+By&#160;<tc-webtag:handle coderId="21181561" darkBG="true" /><br />
     <em>TopCoder Member</em>
 </div>
 I'm from Newfoundland, Canada. Our local programming competitions are few and far between, so my excitement when they roll around is unmatched. I love the thrill of live competition, as I have been part of 3 regional apics competitions in the past, and have had to write departmental reports for our local university about each one (to be eligable for funding).

@@ -34,7 +34,7 @@
     <img src="/i/m/RRLevering_big.jpg" alt="Author" />
 </div>
 <div class="authorText">
-By&#160;<tc-webtag:handle coderId="344462" context="algorithm"/><br />
+By&#160;<tc-webtag:handle coderId="344462" darkBG="true" /><br />
     <em>TopCoder Member</em>
 </div>
 I believe that I would be a good choice to come to the TCCC finals in San Diego.  The reasons for that fall into several categories - I'm familiar with TopCoder, I have been interested in the particular competition, and I'm not a bad writer.  
