@@ -4737,7 +4737,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             StringBuffer checkNew = new StringBuffer(300);
             checkNew.append("SELECT COUNT(*) FROM payment_detail pd, payment_type_lu pt WHERE pd.component_project_id = " + projectId)
                     .append(" AND pd.payment_type_id = pt.payment_type_id ")
-                    .append(" AND pt.payment_type_desc IN ('Component Payment', 'Review Board Payment')");
+                    .append(" AND pt.payment_type_id IN (" + COMPONENT_PAYMENT + "," + REVIEW_BOARD_PAYMENT + ")");
             ResultSetContainer rsc = runSelectQuery(c, checkNew.toString(), false);
             int existingAffidavits = Integer.parseInt(rsc.getItem(0, 0).toString());
             if (existingAffidavits > 0) {
@@ -4757,7 +4757,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 throw new IllegalUpdateException("Project " + projectId + " does not exist or is not unique");
             }
             String componentName = rsc.getItem(0, 0).toString();
-            String dueDate = TCData.getTCDate(rsc.getRow(0), "due_date", null, true);
+            // If the end date not found, calculate from today.
+            String today = new SimpleDateFormat(DATE_FORMAT_STRING).format(new Date());
+            String dueDate = TCData.getTCDate(rsc.getRow(0), "due_date", today, true);
 
             int[] numWinners = new int[2];
             ResultSetContainer[] winners = new ResultSetContainer[2];
