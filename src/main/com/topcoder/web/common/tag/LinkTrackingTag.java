@@ -35,9 +35,9 @@ public class LinkTrackingTag extends TagSupport {
         StringBuffer buf = new StringBuffer(100);
         buf.append("http://");
         buf.append(ApplicationServer.SERVER_NAME);
-        buf.append("/tc?module=LinkTracking&link=");
+        buf.append("/tc?module=LinkTracking&amp;link=");
         buf.append(StringUtils.replace(link, "&", "%26"));
-        buf.append("&refer=").append(refer);
+        buf.append("&amp;refer=").append(refer);
         try {
             pageContext.getOut().print(buf.toString());
         } catch (IOException e) {
