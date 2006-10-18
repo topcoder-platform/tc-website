@@ -56,7 +56,7 @@
 		</p>
 		<br>
 <c:choose>
-<c:when test="${payments.length > 0}">
+<c:when test="${not empty payments}">
 	<table BGCOLOR="#FFFFFF" CELLPADDING="2" CELLSPACING="2" BORDER="0" WIDTH="100%" >
 	<tr>
 		<td class="bodyText" width="35%"><b>Payment Description</b></td>
