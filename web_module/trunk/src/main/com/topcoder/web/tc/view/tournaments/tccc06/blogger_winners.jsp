@@ -38,9 +38,9 @@
       <tc-webtag:handle coderId="344462" darkBG="true" /><br>
       <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloggerWinnerRRLevering">winning submission</A>
       </td>
-      <td class="bodyText" align="center" valign="top" width="50%"><img src="/i/m/dplass_big.jpg" /><br>
-      <tc-webtag:handle coderId="251184" darkBG="true" /><br>
-      <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogger_dplass">winning submission</A>
+      <td class="bodyText" align="center" valign="top" width="50%"><img src="/i/m/nophoto.jpg" /><br>
+      <tc-webtag:handle coderId="21181561" darkBG="true" /><br>
+      <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloggerWinnerChurchillio">winning submission</A>
       </td>
    </tr>
 </table>
