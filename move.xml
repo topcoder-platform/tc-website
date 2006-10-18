@@ -134,6 +134,7 @@
         <jar destfile="software.jar" update="true">
             <fileset dir=".">
                 <include name="lib/bin/shared.jar"/>
+                <include name="lib/bin/tcwebcommon.jar"/>
                 <include name="lib/bin/screening.jar"/>
                 <include name="build/ears/dde.ear"/>
                 <include name="build/wars/review.war"/>

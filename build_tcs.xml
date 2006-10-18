@@ -23,6 +23,7 @@
     <property name="java.dir" value="${src.dir}/main"/>
     <property name="shared.src.dir" value="../shared/src/main"/>
     <property name="shared.jar" value="${bin.dir}/shared.jar"/>
+    <property name="common.jar" value="${bin.dir}/tcwebcommon.jar"/>
     <property name="struts.lib.dir" value="${lib.dir}/jakarta-struts-1.1/lib"/>
 
 
@@ -120,7 +121,7 @@
         </jar>
     </target>
 
-    <target name="compile" depends="init,jar_shared">
+    <target name="compile" depends="init,jar_shared,jar_common">
         <javac
                 srcdir="${java.dir}"
                 destdir="${classes.dir}"
@@ -152,6 +153,16 @@
         </javac>
     </target>
 
+    <target name="jar_common" depends="">
+        <jar jarfile="${common.jar}">
+            <fileset dir="${classes.dir}">
+                <include name="com/topcoder/web/common/**/*.class"/>
+                <include name="com/topcoder/common/**/*.class"/>
+            </fileset>
+        </jar>
+    </target>
+
+    
     <target name="compile_onsite" depends="init,jar_shared">
         <javac
                 srcdir="${java.dir}"
@@ -480,6 +491,7 @@
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${bin.dir}">
                 <include name="shared.jar"/>
+                <include name="tcwebcommon.jar"/>
             </fileset>
         </copy>
         <copy todir="${jboss.conf.dir}">
