@@ -210,7 +210,7 @@
                 <include name="com/topcoder/web/common/**/*.class"/>
             </classes>
             <webinf dir="${resources.dir}/taglib">
-                <include name="dde.tld"/>
+                <include name="tc-webtags.tld"/>
             </webinf>
             <lib dir="${jars.dir}">
                 <include name="jstl.jar"/>
