@@ -51,6 +51,7 @@ public class PayReliabilityBonus extends DBUtility {
         
         PreparedStatement psSelProjects = prepareStatement("informixoltp", query.toString());
         
+        int count = 0;
         ResultSet rs = psSelProjects.executeQuery();
         while (rs.next()) {
         	long userId = rs.getLong("user_id");
@@ -64,52 +65,9 @@ public class PayReliabilityBonus extends DBUtility {
     		log.info("Adding a bonus payment for user " + userId + " project " + projectId + " for $ " + bonusAmount);
         	ReliabilityBonusPayment bp = new ReliabilityBonusPayment(userId, amount, paymentId);
 			ejb.addPayment(bp);
-/*
-        	List l = ejb.findCoderPayments(userId, PactsConstants.COMPONENT_PAYMENT, projectId);
-        	for (Iterator it = l.iterator(); it.hasNext(); ) {
-        		ComponentWinningPayment payment = (ComponentWinningPayment) it.next();
-        		       		
-        		List bonusPayments = ejb.findCoderPayments(userId, PactsConstants.RELIABILITY_BONUS_PAYMENT, payment.getId());
-        		if (bonusPayments.size() > 1) {
-        			log.error("Payment " + payment.getId() + " has more than 1 reliability bonus payment, please have a look at it!");
-        			continue;
-        		}
-        		
-        		
-        		if (bonusAmount > 0) {
-	        		if (bonusPayments.size() == 1) {
-	        			ReliabilityBonusPayment bp = (ReliabilityBonusPayment) bonusPayments.get(0);
-	        			if (bp.getGrossAmount() != bonusAmount) {
-	        				log.warn("Changing amount for bonus payment for project=" + projectId + ", user=" + userId +
-	        						" from " + bp.getGrossAmount() + " to " + bonusAmount);
-	        				bp.setGrossAmount(bonusAmount);
-	        				//ejb.updatePayment(bp);
-	        			} else {
-	        				log.info("Already have bonus payment for project=" + projectId + ", user=" + userId +
-	        						 " of $ " + bonusAmount);
-	        			}
-	        		} else {
-	        			// no bonus payment found, create it
-//	        			log.info("Creating bonus payment for project=" + projectId + ", user=" + userId + " for $ " + bonusAmount);
-        				log.info(projectId + ", " + userId + ", " + bonusAmount + ", " + getReliabilityPercent(reliability)+ ";");
-
-	        			ReliabilityBonusPayment bp = new ReliabilityBonusPayment(userId, bonusAmount, payment.getId());
-	        			//ejb.addPayment(bp);
-	        		}
-        		} else {
-        			// No bonus amount should be payed
-            		if (bonusPayments.size() > 0) {
-            			log.warn("Payment " + payment.getId() + " had reliability bonus but its reliability is " + reliability + 
-            						", so the bonus will be erased");
-            			//ejb.deletePayment(bp);
-            		}
-        		}
-        		
-        		
-        	} */
-			
-			
+			count++;			
         }
+        log.info("Done. Bonus rows inserted: " + count);
 	}
 
     private double getReliabilityPercent(double reliability) {
