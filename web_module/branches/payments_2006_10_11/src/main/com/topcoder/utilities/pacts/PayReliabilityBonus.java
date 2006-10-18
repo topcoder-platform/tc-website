@@ -28,39 +28,43 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  */
 public class PayReliabilityBonus extends DBUtility {
 
-	private static final int PAY_RELIABILITY_BONUS_LOG_ID = 999; // FIX!
-    protected Timestamp fLastLogTime = null;
-
-	@Override
 	protected void runUtility() throws Exception {
 		PactsClientServices  ejb = (PactsClientServices) createEJB();
-		getLastUpdateTime();
         
 		StringBuffer query = new StringBuffer(200);
-        query.append("SELECT pr.user_id, pr.project_id, pr.old_reliability, pd.gross_amount ");
+
+		// Find all the project result that have a payment but not a reliability bonus payment
+		// If a reliability bonus is deleted (status 69) it will be found anyways, so that if 
+		// someone deletes a reliability bonus, it is not created again.
+		query.append("SELECT pr.user_id, pr.project_id, pr.old_reliability, pd.gross_amount, p.payment_id ");
         query.append("FROM tcs_catalog:project_result pr, ");
         query.append("payment p, ");
         query.append("payment_detail pd ");
         query.append("WHERE p.user_id = pr.user_id ");
         query.append("AND component_project_id = pr.project_id ");
-        query.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
-        query.append("AND not old_reliability is null ");
-        query.append("AND pd.status_id != " + PactsConstants.PAYMENT_DELETED_STATUS);
-        query.append("AND (pr.modify_date >= ? OR "); 
-        query.append("pd.date_modified >= ? OR ");
-        query.append("pd.create_date >= ? ) ");
+        query.append("AND p.most_recent_detail_id = pd.payment_detail_id ");        
+        query.append("AND old_reliability >= 0.8 ");
+        query.append("AND not exists ");
+        query.append("   (SELECT 1 FROM payment_detail pd2 ");
+        query.append("     WHERE pd2.parent_payment_id=p.payment_id ");
+        query.append("     AND pd2.payment_type_id=" + PactsConstants.RELIABILITY_BONUS_PAYMENT);
         
         PreparedStatement psSelProjects = prepareStatement("informixoltp", query.toString());
-        psSelProjects.setTimestamp(1, fLastLogTime);
-        psSelProjects.setTimestamp(2, fLastLogTime);
-        psSelProjects.setTimestamp(3, fLastLogTime);
         
         ResultSet rs = psSelProjects.executeQuery();
         while (rs.next()) {
         	long userId = rs.getLong("user_id");
         	long projectId = rs.getLong("project_id");
         	double reliability = rs.getDouble("old_reliability");
+        	double amount = rs.getDouble("gross_amount");
+        	long paymentId = rs.getLong("payment_id");
         	
+    		double bonusAmount = getReliabilityPercent(reliability) * amount;
+
+    		log.info("Adding a bonus payment for user " + userId + " project " + projectId + " for $ " + bonusAmount);
+        	ReliabilityBonusPayment bp = new ReliabilityBonusPayment(userId, amount, paymentId);
+			ejb.addPayment(bp);
+/*
         	List l = ejb.findCoderPayments(userId, PactsConstants.COMPONENT_PAYMENT, projectId);
         	for (Iterator it = l.iterator(); it.hasNext(); ) {
         		ComponentWinningPayment payment = (ComponentWinningPayment) it.next();
@@ -71,7 +75,6 @@ public class PayReliabilityBonus extends DBUtility {
         			continue;
         		}
         		
-        		double bonusAmount = getReliabilityPercent(reliability) * payment.getGrossAmount();
         		
         		if (bonusAmount > 0) {
 	        		if (bonusPayments.size() == 1) {
@@ -103,7 +106,9 @@ public class PayReliabilityBonus extends DBUtility {
         		}
         		
         		
-        	}
+        	} */
+			
+			
         }
 	}
 
@@ -119,16 +124,17 @@ public class PayReliabilityBonus extends DBUtility {
         return bonus;
     }
     
-	private void payReliabilityBonus(ComponentWinningPayment payment) {
-		
-	}
 	
-	
-	@Override
+
 	protected void setUsageError(String msg) {
-		// TODO Auto-generated method stub
-		
+        sErrorMsg.setLength(0);
+        sErrorMsg.append(msg + "\n");
+        sErrorMsg.append("PayReliabilityBonus:\n");
+        sErrorMsg.append("   The following parameters should be included in the XML or the command line");
+        sErrorMsg.append("   -sourcedb URL : URL of source database.\n");
+        fatal_error();
 	}
+	
     public static Object createEJB() throws NamingException, Exception {
         Context initial = new InitialContext();
         Object objref = initial.lookup(PactsClientServicesHome.class.getName());
@@ -138,36 +144,5 @@ public class PayReliabilityBonus extends DBUtility {
         return(home.create());
     }
     
-    private void getLastUpdateTime() throws Exception {
-/*        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        StringBuffer query = null;
-
-        query = new StringBuffer(100);
-        query.append("select timestamp from update_log where log_id = ");
-        query.append("(select max(log_id) from update_log where log_type_id = " + PAY_RELIABILITY_BONUS_LOG_ID + ")");
-
-        try {
-            stmt = prepareStatement("informix", query.toString());
-            rs = stmt.executeQuery(query.toString());
-            if (rs.next()) {
-                fLastLogTime = rs.getTimestamp(1);
-                log.info("Date is " + fLastLogTime.toString());
-            } else {
-                fLastLogTime = new Timestamp(new GregorianCalendar(1980,1,1).getTimeInMillis());
-                log.info("No row found in update_log, starting from the beggining.");
-            }
-        } catch (SQLException sqle) {
-            DBMS.printSqlException(true, sqle);
-            throw new Exception("Failed to retrieve last log time.\n" +
-                    sqle.getMessage());
-        } finally {
-            DBMS.close(rs);
-            DBMS.close(stmt);
-        }
-        */
-    	fLastLogTime = new Timestamp(new GregorianCalendar(1980,1,1).getTimeInMillis()); 
-    }
-
 
 }
