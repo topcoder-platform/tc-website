@@ -1,17 +1,18 @@
-<%@ page import="javax.naming.*,
-                 com.topcoder.dde.util.ApplicationServer" %>
+<%@ page import="com.topcoder.shared.common.ApplicationServer" %>
+<%--<%@ page import="javax.naming.*,
+              com.topcoder.dde.util.ApplicationServer" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
 <%@ page import="javax.rmi.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
-<%@ page import="java.lang.reflect.*" %>
+<%@ page import="java.lang.reflect.*" %>--%>
 
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
 <%@ include file="/includes/formclasses.jsp" %>
-
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%
     // STANDARD PAGE VARIABLES
@@ -64,7 +65,7 @@
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">ABB, a leading power and automation technology enabler, needed a modern, user-friendly HTML interface that would allow users in its engineering and systems business units to access data on its mainframe legacy system. The Project Management Dashboard application delivered by TopCoder Software limited the amount of custom code built to 42 percent that of more traditional development models.<br><br>
                     <A href="http://www.abb.com/" target="_blank">homepage</A>&#160;|&#160;
-                    <A href="http://<%=ApplicationServer.TC_SERVER%>/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/abb_casestudy.pdf&refer=customer_index" target="_blank">case study</A>
+                    <A href="<tc-webtag:linkTracking link="/pdfs/tcs/casestudies/abb_casestudy.pdf" refer="customer_index"/>" target="_blank">case study</A>
                      </td>
                 </tr>
             </table>
@@ -79,7 +80,7 @@
                     <td width="170"><img src="/images/clients/fin_services_logo.gif" alt="Financial Services" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">A national financial institution needed database management functionality delivered across a variety of platforms as part of an Information Quality Management initiative. TopCoder Software devised an IQM solution that allows users to intuitively navigate through data.<br><br>
-                    <A href="http://<%=ApplicationServer.TC_SERVER%>/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/fin_services_casestudy.pdf&refer=customer_index" target="_blank">case study</A>
+                    <A href="http://<%=ApplicationServer.SERVER_NAME%>/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/fin_services_casestudy.pdf&refer=customer_index" target="_blank">case study</A>
                      </td>
                 </tr>
             </table>
@@ -93,8 +94,8 @@
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/id_manage_logo.gif" alt="Identity Management" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">With a proven track record of success within Fortune 100 organizations, TopCoder Software’s identity and access management solutions centralize users and passwords, allowing organizations to reduce maintenance cost, improve accessibility and enforce consistent security policies.<br><br>
-                    <A href="http://<%=ApplicationServer.TC_SERVER%>/?t=sponsor&c=link&link=http://software.topcoder.com/pdfs/casestudies/identity_management.pdf&refer=customer_index" target="_blank">case study</A>
+                    <td width="99%" class="bodyText">With a proven track record of success within Fortune 100 organizations, TopCoder Softwareï¿½s identity and access management solutions centralize users and passwords, allowing organizations to reduce maintenance cost, improve accessibility and enforce consistent security policies.<br><br>
+                    <A href="http://<%=ApplicationServer.SERVER_NAME%>/?t=sponsor&c=link&link=http://software.topcoder.com/pdfs/casestudies/identity_management.pdf&refer=customer_index" target="_blank">case study</A>
                      </td>
                 </tr>
             </table>
@@ -110,7 +111,7 @@
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">The world-renowned Salk Institute, a private, non-profit, research organization dedicated to fundamental research in biology and its relation to health, wanted to make an extremely large amount of gene data resulting from years of research on the topic of spinal cord injury available to the scientific community. TopCoder Software devised a solution that enables users to access project data through an HTML-based interface.<br><br>
                     <A href="http://www.salk.edu/" target="_blank">homepage</A>&#160;|&#160;
-                     <A href="http://<%=ApplicationServer.TC_SERVER%>/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/salk_institute_casestudy.pdf&refer=customer_index" target="_blank">case study</A>
+                     <A href="http://<%=ApplicationServer.SERVER_NAME%>/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/salk_institute_casestudy.pdf&refer=customer_index" target="_blank">case study</A>
                     </td>
                 </tr>
             </table>
@@ -125,7 +126,7 @@
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">StageStores, Inc. brings nationally recognized brand name apparel, accessories, cosmetics and footwear for the entire family to small and mid-size towns and communities with over 520 stores in 27 states.<br><br>
                     <A href="http://www.stagestores.com/" target="_blank">homepage</A>&#160;|&#160;
-                     <A href="http://<%=ApplicationServer.TC_SERVER%>/?t=sponsor&c=link&link=/i/downloads/Gift_Card_Case_Study.pdf&refer=customer_index" target="_blank">case study</A>
+                     <A href="http://<%=ApplicationServer.SERVER_NAME%>/?t=sponsor&c=link&link=/i/downloads/Gift_Card_Case_Study.pdf&refer=customer_index" target="_blank">case study</A>
                      </td>
                 </tr>
             </table>
@@ -224,7 +225,7 @@
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/espn_logo.png" alt="ESPN" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">ESPN, Inc. is the world’s leading multinational, multimedia sports entertainment company featuring a portfolio of over 40 multimedia sports assets. The company is comprised of seven domestic television networks (ESPN, ESPN2, ESPN Classic, ESPNEWS, ESPN Deportes, ESPN Now, ESPN Today), ESPN HD, ESPN Regional Television, ESPN International (networks and syndication), ESPN Radio, ESPN.com, ESPN The Magazine, SportsTicker, ESPN Enterprises, ESPN Zones (sports-themed restaurants), and other growing new businesses including ESPN Broadband, ESPN Video-on-Demand, ESPN Interactive and ESPN PPV.<br><br>
+                    <td width="99%" class="bodyText">ESPN, Inc. is the worldï¿½s leading multinational, multimedia sports entertainment company featuring a portfolio of over 40 multimedia sports assets. The company is comprised of seven domestic television networks (ESPN, ESPN2, ESPN Classic, ESPNEWS, ESPN Deportes, ESPN Now, ESPN Today), ESPN HD, ESPN Regional Television, ESPN International (networks and syndication), ESPN Radio, ESPN.com, ESPN The Magazine, SportsTicker, ESPN Enterprises, ESPN Zones (sports-themed restaurants), and other growing new businesses including ESPN Broadband, ESPN Video-on-Demand, ESPN Interactive and ESPN PPV.<br><br>
                     <A href="http://www.espn.com/" target="_blank">homepage</A>
                      </td>
                 </tr>
@@ -365,7 +366,7 @@
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/verisign_logo.png" alt="Verisign" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">VeriSign Inc operates intelligent infrastructure services that enable and protect billions of interactions every day across the world’s voice and data networks. Every day, we process as many as 18 billion Internet interactions and support over 100 million phone calls. We also provide the services that help over 3,000 enterprises and 500,000 Web sites to operate securely, reliably, and efficiently. VeriSign is a global enterprise with offices throughout the Asia-Pacific region, Europe, Latin America, and North America, supported by a widespread international network of data centers and operations centers.<br><br>
+                    <td width="99%" class="bodyText">VeriSign Inc operates intelligent infrastructure services that enable and protect billions of interactions every day across the worldï¿½s voice and data networks. Every day, we process as many as 18 billion Internet interactions and support over 100 million phone calls. We also provide the services that help over 3,000 enterprises and 500,000 Web sites to operate securely, reliably, and efficiently. VeriSign is a global enterprise with offices throughout the Asia-Pacific region, Europe, Latin America, and North America, supported by a widespread international network of data centers and operations centers.<br><br>
                     <A href="http://www.espn.com/" target="_blank">homepage</A>
                      </td>
                 </tr>
