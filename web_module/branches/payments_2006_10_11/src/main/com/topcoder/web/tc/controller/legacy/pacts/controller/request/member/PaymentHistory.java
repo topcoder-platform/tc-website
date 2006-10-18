@@ -1,12 +1,8 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.member;
 
-import java.util.Map;
-
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.PaymentBean;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
 
@@ -32,27 +28,22 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             	payments = new Payment[0];            		
             }
             	
+        	// Component IDs
+        	long[] paymentIds = new long[payments.length];
+        	for (int i=0; i<payments.length; i++) {
+        		paymentIds[i] = payments[i].getHeader().getId();
+        	}
+
+            // Payment creation dates
+           	String[] creationDates = paymentBean.getCreationDates(paymentIds);
+           	
+            for (int i=0; i<payments.length; i++) {
+            	payments[0].setModifiedDate(creationDates[i]);
+            }
             getRequest().setAttribute(PAYMENTS, payments);
-            	/*
-            
-            	// Component IDs
-            	long[] paymentIds = new long[payments.length];
-            	for (int i=0; i<payments.length; i++) {
-            		paymentIds[i] = payments[i].getHeader().getId();
-            	}
-    	    Map componentIdMap = paymentBean.getPaymentComponentData(paymentIds);
-                request.setAttribute(COMPONENT_DATA, componentIdMap);
-                
-                // Payment creation dates
-                try {
-                	String[] creationDates = paymentBean.getCreationDates(paymentIds);
-                	request.setAttribute(CREATION_DATE_LIST, creationDates);
-                } catch (Exception e1) {
-            		log.error("error in doAffidavitHistory");
-                    e1.printStackTrace();
-            	}            
-*/
-            getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));
+
+
+        	getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));
             setNextPage("pacts/client/paymentHistoryNew.jsp");
             setIsNextPageInContext(true);
         } catch (Exception e) {

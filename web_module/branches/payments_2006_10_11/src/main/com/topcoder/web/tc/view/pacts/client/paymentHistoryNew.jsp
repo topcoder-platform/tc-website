@@ -72,7 +72,7 @@
 <c:forEach items="${payments}" var="payment">
 	<tr>
 		<td class="bodyText"><c:out value="${payment.description}"/></td>
-		<td class="bodyText">TO DO</td>
+		<td class="bodyText"><c:out value="${payment.modifiedDate}"/></td>
 		<td class="bodyText">$<fmt:formatNumber value="${payment.netAmount}" pattern="###,###.00" /></td>
 		<td class="bodyText"><c:out value="${payment.statusDesc}"/></td>
 		<td class="bodyText">
