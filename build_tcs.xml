@@ -137,10 +137,12 @@
             <include name="com/topcoder/sql/**"/>
             <include name="com/topcoder/util/**"/>
             <include name="com/topcoder/security/**"/>
+<!--
             <include name="com/topcoder/web/common/*"/>
             <include name="com/topcoder/web/common/tag/HandleTag.java"/>
             <include name="com/topcoder/web/common/model/**"/>
             <include name="com/topcoder/web/common/security/**"/>
+-->
             <!--
                         <exclude name="com/topcoder/web/common/model/IdGenerator.java"/>
                         <exclude name="com/topcoder/web/common/model/LongHibernateProcessor.java"/>
@@ -364,6 +366,7 @@
                 <include name="DBMS.properties"/>
                 <include name="DataAccess.properties"/>
                 <include name="TCS.properties"/>
+                <include name="onsite.properties"/>
             </fileset>
             <fileset dir="${resources.dir}/security/conf">
                 <include name="com/topcoder/security/Util.properties"/>
@@ -494,12 +497,6 @@
                 <include name="tcwebcommon.jar"/>
             </fileset>
         </copy>
-        <copy todir="${jboss.conf.dir}">
-            <fileset dir="${resources.dir}">
-                <include name="onsite.properties"/>
-            </fileset>
-        </copy>
-
     </target>
 
     <target name="build-site" depends="">
