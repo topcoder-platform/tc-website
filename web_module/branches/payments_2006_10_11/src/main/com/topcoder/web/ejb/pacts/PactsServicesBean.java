@@ -4508,6 +4508,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
+    public int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges) 
+    		throws IllegalUpdateException, SQLException {
+    	return generateRoundPayments(roundId, affidavitTypeId, makeChanges, ALGORITHM_CONTEST_PAYMENT);
+    }
+    
     /**
      * Generates all the affidavits and payments for the people who won
      * money in the given contest round.  Returns the number of
@@ -4521,8 +4526,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *                                has already been generated for this round.
      * @throws SQLException           If there was some error updating the data.
      */
-    public int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges)
-            throws IllegalUpdateException, SQLException {
+    public int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges, int paymentTypeId)
+           throws IllegalUpdateException, SQLException {
         log.debug("generateRoundPayments called...");
         int i;
         Connection c = null;
@@ -4557,7 +4562,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Make sure the round exists; in the process, get the name and due date.
             StringBuffer checkExists = new StringBuffer(300);
             checkExists.append("SELECT con.name, r.name, ");
-            checkExists.append("con.end_date + " + DUE_DATE_INTERVAL + " UNITS DAY AS due_date, con.end_date ");
+            checkExists.append("NVL(con.end_date,current) + (select due_date_interval from payment_type_lu where payment_type_id "+  paymentTypeId + ")"); 
+            checkExists.append(	" UNITS DAY AS due_date, con.end_date ");
             checkExists.append("FROM round r, contest con ");
             checkExists.append("WHERE r.round_id = " + roundId + " ");
             checkExists.append("AND con.contest_id = r.contest_id");
@@ -4580,7 +4586,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getWinners.append("and a.address_type_id = 2 ");
             getWinners.append("AND rr.coder_id = rp.coder_id ");
             getWinners.append("AND rr.round_id = rp.round_id ");
-            getWinners.append("AND rp.payment_type_id = " + ALGORITHM_CONTEST_PAYMENT);
+            getWinners.append("AND rp.payment_type_id in (" + ALGORITHM_CONTEST_PAYMENT + "," + ALGORITHM_TOURNAMENT_PRIZE_PAYMENT + ")");            
             getWinners.append(" ORDER BY rr.room_id, rr.room_placed");
             ResultSetContainer winners = runSelectQuery(c, getWinners.toString(), false);
             int numWinners = winners.getRowCount();
@@ -4614,7 +4620,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 p.setGrossAmount(TCData.getTCDouble(winners.getRow(i), "paid"));
                 p.setStatusId(userTaxFormSet.contains(new Long(userId)) ? PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);
                 p.getHeader().setDescription(roundName + " winnings");
-                p.getHeader().setTypeId(ALGORITHM_CONTEST_PAYMENT);
+                p.getHeader().setTypeId(paymentTypeId);
                 p.setDueDate(dueDate);
                 p.getHeader().getUser().setId(userId);
                 p.setEventDate(eventDate);
@@ -4693,6 +4699,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throws IllegalUpdateException, SQLException {
         return generateRoundPayments(roundId, CONTEST_WINNING_AFFIDAVIT, makeChanges);
     }
+    
+    public int generateRoundPayments(long roundId, boolean makeChanges, int paymentTypeId)
+    		throws IllegalUpdateException, SQLException {
+    	return generateRoundPayments(roundId, CONTEST_WINNING_AFFIDAVIT, makeChanges, paymentTypeId);
+    }
 
 
     /**
@@ -4746,7 +4757,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             // Make sure the project exists; in the process, get the name and due date.
             StringBuffer checkExists = new StringBuffer(300);
-            checkExists.append("SELECT cc.component_name, p.complete_date + " + COMPONENT_DUE_DATE_INTERVAL + " UNITS DAY AS due_date ");
+            checkExists.append("SELECT cc.component_name, NVL(p.complete_date,current) + " + COMPONENT_DUE_DATE_INTERVAL + " UNITS DAY AS due_date ");
             checkExists.append("FROM tcs_catalog:project p, tcs_catalog:comp_versions cv, tcs_catalog:comp_catalog cc ");
             checkExists.append("WHERE p.comp_vers_id = cv.comp_vers_id ");
             checkExists.append("AND cv.component_id = cc.component_id ");
@@ -4757,9 +4768,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 throw new IllegalUpdateException("Project " + projectId + " does not exist or is not unique");
             }
             String componentName = rsc.getItem(0, 0).toString();
-            // If the end date not found, calculate from today.
-            String today = new SimpleDateFormat(DATE_FORMAT_STRING).format(new Date());
-            String dueDate = TCData.getTCDate(rsc.getRow(0), "due_date", today, true);
+
+            String dueDate = TCData.getTCDate(rsc.getRow(0), "due_date", null, true);
 
             int[] numWinners = new int[2];
             ResultSetContainer[] winners = new ResultSetContainer[2];

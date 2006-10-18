@@ -21,7 +21,14 @@
             </tc-webtag:errorIterator></td></tr>
             <tr>
                 <td align="center">
-                    Round Id: <input type="text" name="<%=PactsConstants.ROUND_ID%>" maxlength="10" size="10"/>
+                    Round Id: <input type="text" name="<%=PactsConstants.ROUND_ID%>" maxlength="10" size="10"/>                    
+                </td>
+                <td align="center">
+                	Type:
+                	<select name="<%=PactsConstants.PAYMENT_TYPE_ID %>">
+                		<option value="<%= PactsConstants.ALGORITHM_CONTEST_PAYMENT %>">Regular round</option>
+                		<option value="<%= PactsConstants.ALGORITHM_TOURNAMENT_PRIZE_PAYMENT %>">Tournament round</option>
+                	</select>
                 </td>
             </tr>
             <tr>
