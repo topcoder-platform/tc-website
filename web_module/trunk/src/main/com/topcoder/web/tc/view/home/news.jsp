@@ -8,6 +8,19 @@
 </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.18.06<br>2:00 PM</td>
+     <td class="newsTextCell"><span class="newsTitle">
+     DamianK wins the TCCC06 Sponsor Track</span><br><br>
+        Congratulations to <tc-webtag:handle coderId="13261056" context="algorithm" />, winner of the 2006 TopCoder Collegiate Challenge Sponsor Track!
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+    <tc-webtag:forumLink forumID="506149" message="discuss this"/> |
+     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.17.06<br>8:15 PM</td>
      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogger_winners">TCCC06 "Pick Me" Contest Winners</A></span><br><br>
       Congratulations to <tc-webtag:handle coderId="344462" /> and <tc-webtag:handle coderId="21181561" />, and thanks to everyone who entered. If you didn't make it, you can still make your voice heard - just <tc-webtag:forumLink forumID="506113" message="tell us and the bloggers"/> what you would like to see in the Collegiate Challenge blogs.
@@ -197,21 +210,5 @@ message...
        <A href="/movies/tournament/tccc06/tccc06AOLWebcast.mpeg">trailer</A>&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=pr_101106">press release</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506140" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
-   </td></tr>
-
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.10.06<br>4:00 PM</td>
-       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_101006">TopCoder joins "Mavericks at Work" book tour</A></span><br><br>
-       On November 7, the "Mavericks at Work" book tour will be coming to Hartford. Jack Hughes of TopCoder will join the authors and greater Hartford-area 
-       business leaders to discuss how, in an age of hyper-competition and non-stop innovation, the only way to stand out from the crowd is to stand for 
-       something truly unique. 
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_101006">press release</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506139" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
