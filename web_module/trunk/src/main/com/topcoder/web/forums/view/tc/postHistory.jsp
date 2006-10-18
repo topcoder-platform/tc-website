@@ -129,8 +129,8 @@
         <tr>
             <td class="rtbc" align="right" nowrap="nowrap" style="padding-bottom:3px;"><b>
                 <% if (paginator.getPreviousPage()) { %>
-                <A href="<%=link%>&<%=ForumConstants.START_IDX%>=${paginator.prevousPageStart}" class="rtbcLink">
-                    &lt;&lt;PREV</A>&#160;&#160;&#160;
+                <A href="<%=link%>&<%=ForumConstants.START_IDX%>=${paginator.previousPageStart}" class="rtbcLink">
+                    << PREV</A>&#160;&#160;&#160;
                 <% } %> [
                 <% Page[] pages = paginator.getPages(5);
                     for (int i = 0; i < pages.length; i++) {
@@ -170,8 +170,8 @@
                 (response to
                 <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%>
                 by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/>
-                (<A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getParentMessage().getUser().getID()%>" alt="Post history for <%=message.getParentMessage().getUser().getUsername()%>" class="rtbcLink"/>history
-            </A>)<%}%>)
+                (<A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getParentMessage().getUser().getID()%>" alt="Post history for <%=message.getParentMessage().getUser().getUsername()%>" class="rtbcLink"/>history</A>))
+                <%}%>
     <% } %></td>
 <td class="rtThreadCell">
     <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=message.getForum().getID()%>&mc=<%=message.getForum().getMessageCount()%>" class="rtbcLink"><%=message.getForum().getName()%></A>
