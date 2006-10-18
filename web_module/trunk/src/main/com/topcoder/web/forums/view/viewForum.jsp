@@ -14,6 +14,8 @@
                  java.util.Iterator"
         %>
 
+<%@ page contentType="text/html;charset=utf-8" %>
+
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%@ page language="java" %>
