@@ -12,7 +12,7 @@
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
 <%@ include file="/includes/formclasses.jsp" %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 
 <%
     // STANDARD PAGE VARIABLES
