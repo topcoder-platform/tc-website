@@ -978,7 +978,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
         }
 
-        selectPaymentDetails.append("ORDER BY 1");
+        selectPaymentDetails.append("ORDER BY date_due DESC");
 
         return doUserPayments(userId, selectPaymentDetails.toString(), paymentTypes, pendingOnly);
     }
@@ -2548,7 +2548,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             for (int i = 13; i <= 20; i++) {
                 ps.setNull(i, Types.DECIMAL);
-            }         
+            }
             switch (BasePayment.getReferenceTypeId(p.getHeader().getTypeId())) {
             case REFERENCE_ALGORITHM_ROUND_ID: setNullableLong(ps, 13, p.getHeader().getAlgorithmRoundId()); break;
             case REFERENCE_COMPONENT_PROJECT_ID: setNullableLong(ps, 14, p.getHeader().getComponentProjectId());  break;
@@ -5399,7 +5399,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         p.setId(payment.getId());
         p.getHeader().setId(payment.getId());
         p.setCharity(payment.isCharity());
-        
+
         switch (payment.getReferenceTypeId()) {
             case REFERENCE_ALGORITHM_ROUND_ID:
                 p.getHeader().setAlgorithmRoundId(((AlgorithmRoundReferencePayment) payment).getRoundId());
