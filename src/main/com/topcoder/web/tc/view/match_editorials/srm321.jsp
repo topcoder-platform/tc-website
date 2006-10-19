@@ -887,7 +887,9 @@ approach was only taken by <tc-webtag:handle coderId="20812309"
 context="algorithm"/>. </li>
 </ul>
 
-</p><div class="authorPhoto">
+</p>
+
+<div class="authorPhoto">
     <img src="/i/m/krijgertje_big.jpg" alt="Author" />
 </div>
 <div class="authorText">

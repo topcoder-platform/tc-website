@@ -7,6 +7,24 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 <%--------------------------------------------------------%>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
+        <br>10.19.06<br>3:15 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=101906">TCCC Preview: By the Numbers</A></span><br><br>
+               In this article, I'll take a look at some of the numbers and trivia behind the upcoming 2006 TopCoder Collegiate Challenge, and how those compare to last year's tournament and the last few Topcoder Opens.</li>
+            </td>
+            <td class="newsPhoto"><img src="/i/m/kzimmerman_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="21196141"/></td></tr>
+        </table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&amp;d1=features&amp;d2=101906">article</A> |
+    <tc-webtag:forumLink forumID="506150" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.18.06<br>2:00 PM</td>
      <td class="newsTextCell"><span class="newsTitle">
@@ -199,16 +217,3 @@ message...
      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.11.06<br>10:00 AM</td>
-       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_101106">AOL to Webcast TCCC06 Live on November 17</A></span><br><br>
-       TopCoder and AOL today announced that AOL will produce a live exclusive webcast of the TCCC finals via <A href="<tc-webtag:linkTracking link="http://dev.aol.com/" refer="Competition Home" />" target="_blank">dev.aol.com</A>, the company's developer site.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/movies/tournament/tccc06/tccc06AOLWebcast.mpeg">trailer</A>&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_101106">press release</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506140" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
-   </td></tr>

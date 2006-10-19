@@ -39,7 +39,7 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
-<li><A href="/tc?module=Static&amp;d1=features&amp;d2=101606"><strong>TCCC Preview: By the Numbers</strong></A>, by <tc-webtag:handle coderId="21196141" /><br>
+<li><A href="/tc?module=Static&amp;d1=features&amp;d2=101906"><strong>TCCC Preview: By the Numbers</strong></A>, by <tc-webtag:handle coderId="21196141" /><br>
 In this article, I'll take a look at some of the numbers and trivia behind the upcoming 2006 TopCoder Collegiate Challenge, and how those compare to last year's tournament and the last few Topcoder Opens.</li>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=101606"><strong>TCCC Preview: Past Winners Tell All</strong></A>, by <tc-webtag:handle coderId="21196141" /><br>
 With the Collegiate Challenge less than a month away, we asked some past TCCC winners for some advice and feedback that could come in handy in San Diego.</li>
