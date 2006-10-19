@@ -49,7 +49,7 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         getRequest().setAttribute("isOver", String.valueOf(isOver));
 
         //load up the submissions
-        DataAccess da = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+        DataAccess da = new CachedDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
         Request r = new Request();
         r.setContentHandle("submissions");
         r.setProperty(Constants.CONTEST_ID, contestId);
