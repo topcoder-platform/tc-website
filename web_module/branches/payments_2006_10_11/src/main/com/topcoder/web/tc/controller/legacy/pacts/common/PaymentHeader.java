@@ -160,7 +160,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         componentContestId = TCData.getTCLong(rsr, "component_contest_id", 0, false);
         digitalRunStageId = TCData.getTCLong(rsr, "digital_run_stage_id", 0, false);
         digitalRunSeasonId = TCData.getTCLong(rsr, "digital_run_season_id", 0, false);
-        parentPaymentId = TCData.getTCLong(rsr, "parent_reference_id", 0, false);
+        parentPaymentId = TCData.getTCLong(rsr, "parent_payment_id", 0, false);
 
         reviewed = 0 != TCData.getTCInt(rsr, "review", 0, true);
         
