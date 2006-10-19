@@ -56,6 +56,7 @@ Searches<br>
 
 <br><br>
 <%
+   out.print("<a href=\"PactsInternalServlet?module=Login\">Login</a>");
    out.print("<a href=\"PactsInternalServlet?module=Logout\">Logout</a><br>");
 %>
 </center>
