@@ -3,18 +3,12 @@
  */
 package com.topcoder.web.forums.controller.request;
 
-import javax.naming.InitialContext;
-
-import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.ejb.messagehistory.MessageHistory;
 import com.topcoder.web.forums.controller.ForumsUtil;
 import com.topcoder.web.forums.ForumConstants;
 
@@ -49,7 +43,7 @@ public class AttachFiles extends ForumsProcessor {
             forumID = Long.parseLong(forumIDStr);
             forum = forumFactory.getForum(forumID);
             message = (ForumMessage)getRequest().getAttribute("message");
-        } else if (postMode.equals("Reply") || postMode.equals("Edit")) {
+        } else if (postMode.equals("Reply")) {
             messageID = Long.parseLong(messageIDStr);
             message = forumFactory.getMessage(messageID);
             forum = message.getForum();
@@ -59,20 +53,8 @@ public class AttachFiles extends ForumsProcessor {
             addError(ForumConstants.MESSAGE_SUBJECT, ForumConstants.ERR_POST_MODE_UNRECOGNIZED);
         }
         
-        InitialContext ctx = null;
-        MessageHistory historyBean = null;
-        try {
-            ctx = TCContext.getInitial();
-            historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
-        } catch (Exception e) {
-            Log.error(e);
-        } finally {
-            BaseProcessor.close(ctx);
-        }
-        
         getRequest().setAttribute("forum", forum);
         getRequest().setAttribute("postMode", postMode);
-        getRequest().setAttribute("historyBean", historyBean);
         
         setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
         setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
@@ -89,33 +71,22 @@ public class AttachFiles extends ForumsProcessor {
             	getRequest().setAttribute("parentMessage", null);
             }
         }
-        /*
-		if (subject.trim().equals("")) {
-			addError(ForumConstants.MESSAGE_SUBJECT, ForumConstants.ERR_EMPTY_MESSAGE_SUBJECT);
-		}
-		if (body.trim().equals("")) {
-			addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_EMPTY_MESSAGE_BODY);
-		}
-        if (subject.length() > ForumConstants.MESSAGE_SUBJECT_MAX_LENGTH) {
-            addError(ForumConstants.MESSAGE_SUBJECT, ForumConstants.ERR_LONG_MESSAGE_SUBJECT);
-        }
-        if (body.length() > ForumConstants.MESSAGE_BODY_MAX_LENGTH) {
-            addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_LONG_MESSAGE_BODY);
-        }
-        */
+
 		if (hasErrors()) {
             setNextPage("/post.jsp");
             setIsNextPageInContext(true);
             return;
 		}
 		
-        //ForumMessage previewMessage = forum.createMessage(user);   
-		// message for preview
-		ForumMessage previewMessage = (ForumMessage)getRequest().getSession().getAttribute("tempMessage");
-        previewMessage.setSubject(subject);
-        previewMessage.setBody(body);
-        
-        getRequest().setAttribute("message", previewMessage);
+		ForumMessage tempMessage = (ForumMessage)getRequest().getAttribute("tempMessage");
+		if (tempMessage == null) {
+			log.info("!!!!!!!!!!!!!!!!! TEMP MESSAGE IS NULL");
+		} else {
+			log.info("!!!!!!!!!!!!!!!!! TEMP MESSAGE IS NOT NULL");
+		}
+        tempMessage.setSubject(subject);
+        tempMessage.setBody(body);
+        getRequest().setAttribute("message", tempMessage);
         
         setNextPage("/attachfiles.jsp");
 		setIsNextPageInContext(true);

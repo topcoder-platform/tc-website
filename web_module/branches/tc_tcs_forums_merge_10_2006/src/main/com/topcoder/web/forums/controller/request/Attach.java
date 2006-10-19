@@ -66,7 +66,7 @@ public class Attach extends ForumsProcessor {
 
         ForumMessage messageToAttachTo = null;
         if (postMode.equals("New") || postMode.equals("Reply")) {
-        	messageToAttachTo = (ForumMessage) getRequest().getSession().getAttribute("tempMessage"); 
+        	messageToAttachTo = (ForumMessage) getRequest().getAttribute("tempMessage"); 
         } else if (postMode.equals("Edit")) {
             long messageID = Long.parseLong(messageIDStr);
             messageToAttachTo = forumFactory.getMessage(messageID);
@@ -78,6 +78,12 @@ public class Attach extends ForumsProcessor {
         	attachFile(uploadedFiles[fileIndex], messageToAttachTo);
         }
 		
+        if (postMode.equals("Edit")) {
+        	setNextPage(getSessionInfo().getServletPath() + 
+    				"?module=Message&" + ForumConstants.MESSAGE_ID + "=" + messageToAttachTo.getID());
+    		setIsNextPageInContext(false);
+        }
+        
         Forum forum = forumFactory.getForum(forumID);
         if (!messageIDStr.equals("")) {
             ForumMessage message = forumFactory.getMessage(Long.parseLong(messageIDStr));

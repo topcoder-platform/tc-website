@@ -109,8 +109,7 @@ public class PreviewMessage extends ForumsProcessor {
             return;
 		}
    
-		// message for preview
-        ForumMessage previewMessage = (ForumMessage)getRequest().getSession().getAttribute("tempMessage");
+        ForumMessage previewMessage = (ForumMessage)getRequest().getAttribute("tempMessage");
 		previewMessage.setSubject(subject);
         previewMessage.setBody(body);
         

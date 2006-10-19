@@ -6,7 +6,6 @@
                 com.jivesoftware.forum.ForumMessage,
                 com.jivesoftware.forum.ForumThread,
                 com.jivesoftware.forum.Attachment,
-                com.jivesoftware.util.ByteFormat,
                 java.util.*"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -20,7 +19,7 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%  ForumMessage message = (ForumMessage)request.getAttribute("message");
-	ForumMessage tempMessage = (ForumMessage)request.getSession().getAttribute("tempMessage");
+	ForumMessage tempMessage = (ForumMessage)request.getAttribute("tempMessage");
     ForumThread thread = (ForumThread)request.getAttribute("thread");
     HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
 
@@ -121,28 +120,31 @@ function AllowTabCharacter() {
         </jsp:include>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr>
-   <td class="categoriesBox" style="padding-right: 20px;">
-      <jsp:include page="categoriesHeader.jsp" />
-   </td>
-   <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
-       <jsp:include page="searchHeader.jsp" />
-   </td>
-</tr>
-
-<tr><td colspan="2" style="padding-bottom:3px;"><b>
-       <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
-            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> >
-       </tc-webtag:iterator>
-         <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A>
-            <%   if (thread != null) { %>
-               > <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>" class="rtbcLink"><%=thread.getName()%></A>
-            <%   } %>
-            > <%=postHeading%>
-       </b></td>
-       <!--<td align="right" class="rtbc"><a href="javascript:toggle('Options')" class="rtbcLink">Options</a></td>-->
-   </tr>
+	<tr>
+	   <td class="categoriesBox" style="padding-right: 20px;">
+	      <jsp:include page="categoriesHeader.jsp" />
+	   </td>
+	   <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
+	       <jsp:include page="searchHeader.jsp" />
+	   </td>
+	</tr>
+	
+	<tr>
+		<td colspan="2" style="padding-bottom:3px;"><b>
+	       <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
+	            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> >
+	       </tc-webtag:iterator>
+	         <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A>
+	            <%   if (thread != null) { %>
+	               > <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>" class="rtbcLink"><%=thread.getName()%></A>
+	            <%   } %>
+	            > <%=postHeading%>
+	       </b>
+	   </td>
+	   <!--<td align="right" class="rtbc"><a href="javascript:toggle('Options')" class="rtbcLink">Options</a></td>-->
+	</tr>
 </table>
+
 <br><div id="Options">Allowed tags: <%=ForumsUtil.getAllowedTagsDisplay()%>. Allowed attributes: <%=ForumsUtil.getAllowedAttributesDisplay()%>. Syntax highlighting is applied to text within [code][/code], [cpp][/cpp], [java][/java], [c#][/c#], [vb][/vb], and [py][/py] blocks. Usernames within [handle][/handle] blocks are converted into color-coded links.</div>
 <p><b>Please do not cross post, most people read all posts and will not appreciate reading yours twice.</b></p>
             <table cellpadding="0" cellspacing="0" class="rtTable">
@@ -153,6 +155,19 @@ function AllowTabCharacter() {
 <tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
 
 <tr><td class="rtHeader" colspan="2"><%=postHeading%></td></tr>
+<% 	if (tempMessage.getAttachmentCount() > 0) { %>
+		<tr>
+			<td class="rtHeader" colspan="2" width="100%">
+				Attachments:
+				<%	attachments = tempMessage.getAttachments();
+					while(attachments.hasNext()) {
+						Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
+						<img src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" />
+						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
+				<% 	} %>
+			</td>
+		</tr>
+<% } %>
 <tr>
 <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
 <%  if (ForumsUtil.displayMemberPhoto(user, user)) { %>
@@ -175,47 +190,12 @@ function AllowTabCharacter() {
 	<td class="rtFooter">
 		<input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/>
 		<input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/>
-		<input type="image" class="rtButton" alt="Attach Files" onclick="postform.module.value='AttachFiles'"/>
-	</td>
-</tr>
-
-<tr>
-	<td class="rtFooter">
-		<table>
-		<%  // attachment list
-			Iterator attachments = tempMessage.getAttachments();
-		    int attachCounter = 0;
-		    if (attachments.hasNext()) { %>
-			    <tr valign="top">
-			        <td>Attachments:</td>
-			        <td>
-			            <table cellpadding="0" cellspacing="0" border="0" width="100%">
-			            <%  ByteFormat byteFormatter = new ByteFormat();
-			                while (attachments.hasNext()) {
-			                    Attachment attachment = (Attachment)attachments.next();
-			                    attachCounter++; %>
-				                
-				                <tr valign="top">
-				                    <td width="1%">
-				
-				                        <table cellpadding="0" cellspacing="0" border="0">
-					                        <tr>
-					                            <td nowrap class="jive-attach-item">
-					                                <A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><%=attachment.getName()%></A>
-					                                (<%= byteFormatter.format(attachment.getSize()) %>)
-					                                [<A href="?module=RemoveAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.POST_MODE%>=<%=request.getAttribute("postMode")%>&<%=ForumConstants.MESSAGE_ID%>=<%=request.getParameter(ForumConstants.MESSAGE_ID)%>&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>">remove</A>]
-					                            </td>
-					                        </tr>
-				                        </table>
-				
-				                    </td>
-				                </tr>
-			            <%  } %>
-			            </table>
-			        </td>
-			    </tr>
-		<%  } %>
-		</table>
+		<%	if (postMode.equals("Edit")) { %>
+				String urlNext = sessionInfo.getServletPath() + "?module=EditAttachments&" + ForumConstants.MESSAGE_ID + "=" + message.getID(); 
+				<a href="<%=urlNext%>"><img src="/i/interface/btn_attach.gif" class="rtButton" alt="Attach Files"/></a>
+		<%	} else { %>
+				<input type="image" src="/i/interface/btn_attach.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
+		<%	} %>
 	</td>
 </tr>
 
@@ -234,7 +214,7 @@ function AllowTabCharacter() {
 				<tr>
 					<td class="rtHeader" colspan="2" width="100%">
 						Attachments:
-						<%	Iterator attachments = message.getAttachments();
+						<%	attachments = message.getAttachments();
 							while(attachments.hasNext()) {
 								Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
 								<img src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" />
