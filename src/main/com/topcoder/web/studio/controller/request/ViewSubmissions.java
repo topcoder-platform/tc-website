@@ -79,8 +79,14 @@ public class ViewSubmissions extends ShortHibernateProcessor {
             end = String.valueOf(Constants.VIEW_SUBMISSIONS_SCROLL_SIZE);
         }
 
+        if (log.isDebugEnabled()) {
+            log.debug("start: " + start + " end: " + end);
+        }
         if (Integer.parseInt(end) - Integer.parseInt(start) > (Constants.VIEW_SUBMISSIONS_SCROLL_SIZE - 1)) {
             end = String.valueOf(Integer.parseInt(start) + Constants.VIEW_SUBMISSIONS_SCROLL_SIZE - 1);
+        }
+        if (log.isDebugEnabled()) {
+            log.debug("start: " + start + " end: " + end);
         }
 
         getRequest().setAttribute("submissions", submissions.subList(Integer.parseInt(start), Integer.parseInt(end)));
