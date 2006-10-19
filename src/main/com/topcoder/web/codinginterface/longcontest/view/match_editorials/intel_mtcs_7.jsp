@@ -63,32 +63,29 @@ By&#160;<tc-webtag:handle coderId="7504863" /><br>
 <p>
   <span class="bodySubtitle">Initial analysis </span>
 </P>
-<p>
-  After writing a testing framework that generates test cases and scores them
+<ul>
+<li>After writing a testing framework that generates test cases and scores them
   per the problem description, I found that even a simplistic solution of
   placing the k suppliers at k random customers scored about 70, so with the
   best scores being around 80 it was clear that scores would be very close and
   the 1% penalty per second would make the runtime very important.
-</P>
-<p>
-  As most competitors realized, since the customers were located around at
+</li>
+<li>As most competitors realized, since the customers were located around at
   most 100 city centers, it was only necessary to consider a small subset of
   them to get a solution which is almost as good but much faster than by using
   all of them, and given the generation procedure the first part of the input
   was as representative a set as any. My final submission used the first 20,000
   points.
-</P>
-<p>
-  The optimal placement for a supplier (Weber point) minimizes a complex
+</li>
+<li>The optimal placement for a supplier (Weber point) minimizes a complex
   function and is hard to determine, but when considering the big picture, a
   good approximation is the center of gravity (centroid) of its customers.
   Another possibly better approximation was to generalize from 1 dimension
   (where the solution is just the median point), and use the point at the median
   of each sets of coordinates, but as that required recalculations as each
   customer is added or removed, I didn't end up using it.
-</P>
-<p>
-  Starting from any configuration of suppliers and customers, that
+</li>
+<li>Starting from any configuration of suppliers and customers, that
   configuration can be improved by reallocating customers to their closest
   supplier, then moving the suppliers to the new Weber point or centroid of
   their customers, and repeating until stabilization. This method would often
@@ -104,10 +101,10 @@ By&#160;<tc-webtag:handle coderId="7504863" /><br>
   suppliers per city which would be better globally. Therefore, an important
   realization is that starting with a good initial configuration is a crucial
   first step towards a good final solution in complex cases.
-</P>
-<p>
-  With this in mind, my solution ended up as follows:
-</P>
+</li>
+<li>With this in mind, my solution ended up as follows:
+</li>
+</ul>
 <p>
   <span class="bodySubtitle">1. Initial configuration</span>
 </P>
@@ -123,7 +120,7 @@ By&#160;<tc-webtag:handle coderId="7504863" /><br>
   at the cost of merging 2 groups being proportional to
 </P>
 <P ALIGN=CENTER STYLE="MARGIN-BOTTOM: 0pt">
-  <IMG HEIGHT=40 HSPACE=8 NAME=Object1 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_1ftxztw.gif WIDTH=312>
+  <IMG HSPACE=8 NAME=Object1 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_1ftxztw.gif>
 </P>
 <p>
   which is very easy to calculate. Initially I defined a neighborhood as any
@@ -174,28 +171,28 @@ By&#160;<tc-webtag:handle coderId="7504863" /><br>
 </P>
 <p>
   The function to minimize
-  is<IMG ALIGN=ABSMIDDLE HEIGHT=25 HSPACE=8 NAME=Object2 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_2d87ftn.gif WIDTH=227>which
+  is<IMG ALIGN=ABSMIDDLE HSPACE=8 NAME=Object2 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_2d87ftn.gif >which
   is derivable everywhere except at
-  the<IMG ALIGN=ABSMIDDLE HEIGHT=21 HSPACE=8 NAME=Object3 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_3gps8mf.gif WIDTH=76>customer
+  the<IMG ALIGN=ABSMIDDLE HSPACE=8 NAME=Object3 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_3gps8mf.gif >customer
   coordinates, which are singular points. To fix that I added a small constant
   to the squared distances and used
-  <IMG ALIGN=ABSMIDDLE HEIGHT=25 HSPACE=8 NAME=Object4 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_4fgxn6n.gif WIDTH=249>instead,
+  <IMG ALIGN=ABSMIDDLE HSPACE=8 NAME=Object4 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_4fgxn6n.gif >instead,
   for a function that behaves similarly almost everywhere but is more rounded
   near the customer coordinates. Note that the
-  constant<IMG ALIGN=ABSMIDDLE HEIGHT=20 HSPACE=8 NAME=Object5 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_5gnj4sd.gif WIDTH=16>can
+  constant<IMG ALIGN=ABSMIDDLE HSPACE=8 NAME=Object5 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_5gnj4sd.gif >can
   be viewed as constraining the solution point to be in a separate plane,
   parallel to the one containing the customers, at a
-  distance<IMG ALIGN=ABSMIDDLE HEIGHT=22 HSPACE=8 NAME=Object6 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_6g6m85p.gif WIDTH=26>away
+  distance<IMG ALIGN=ABSMIDDLE HSPACE=8 NAME=Object6 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_6g6m85p.gif >away
   (this is easier to visualize by considering the 2-dimensional problem). Also
-  when<IMG ALIGN=ABSMIDDLE HEIGHT=20 HSPACE=8 NAME=Object7 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_7hhth5j.gif WIDTH=16>becomes
+  when<IMG ALIGN=ABSMIDDLE  HSPACE=8 NAME=Object7 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_7hhth5j.gif >becomes
   large the solution tends towards the centroid, while as it becomes small the
   solution tends towards the Weber point. One of my solutions used
-  decreasing<IMG ALIGN=ABSMIDDLE HEIGHT=20 HSPACE=8 NAME=Object8 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_8dzmsdg.gif WIDTH=16>values
+  decreasing<IMG ALIGN=ABSMIDDLE HSPACE=8 NAME=Object8 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_8dzmsdg.gif >values
   to progressively move from the centroid to the Weber point, but as I couldn't
   find a method for
-  changing<IMG ALIGN=ABSMIDDLE HEIGHT=20 HSPACE=8 NAME=Object9 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_9dhqrgd.gif WIDTH=16>which
+  changing<IMG ALIGN=ABSMIDDLE HSPACE=8 NAME=Object9 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_9dhqrgd.gif >which
   was both fast and always convergent I settled on a fixed
-  small<IMG ALIGN=ABSMIDDLE HEIGHT=20 HSPACE=8 NAME=Object10 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_104cvj7z.gif WIDTH=16>value.
+  small<IMG ALIGN=ABSMIDDLE HSPACE=8 NAME=Object10 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_104cvj7z.gif >value.
 </P>
 <p>
   To minimize the sum of distances, which is a convex function, we need to find
@@ -203,14 +200,14 @@ By&#160;<tc-webtag:handle coderId="7504863" /><br>
   simplify the equations for this we arrive to the conditions:
 </P>
 <P ALIGN=CENTER STYLE="MARGIN-BOTTOM: 0pt">
-  <IMG ALIGN=ABSMIDDLE HEIGHT=49 HSPACE=8 NAME=Object11 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_11txtfw9.gif WIDTH=91>
-  <IMG ALIGN=ABSMIDDLE HEIGHT=49 HSPACE=8 NAME=Object12 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_12f752ns.gif WIDTH=92>
-  <IMG ALIGN=ABSMIDDLE HEIGHT=49 HSPACE=8 NAME=Object13 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_13mqqqdf.gif WIDTH=89>
+  <IMG ALIGN=ABSMIDDLE HSPACE=8 NAME=Object11 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_11txtfw9.gif>
+  <IMG ALIGN=ABSMIDDLE HSPACE=8 NAME=Object12 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_12f752ns.gif>
+  <IMG ALIGN=ABSMIDDLE HSPACE=8 NAME=Object13 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_13mqqqdf.gif>
 </P>
 <p>
-  with<IMG ALIGN=ABSMIDDLE HEIGHT=21 HSPACE=8 NAME=Object14 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_14f47x3p.gif WIDTH=22>being
+  with<IMG ALIGN=ABSMIDDLE HSPACE=8 NAME=Object14 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_14f47x3p.gif >being
   the distance from the solution point to the i'th customer
-  (with<IMG ALIGN=ABSMIDDLE HEIGHT=20 HSPACE=8 NAME=Object15 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_15dj8pmt.gif WIDTH=16>added
+  (with<IMG ALIGN=ABSMIDDLE HSPACE=8 NAME=Object15 SRC=/i/longcontest/match_editorials/intel_mtcs_7/ajd92kcbbbb_15dj8pmt.gif >added
   in to avoid divisions by zero). In other words, the Weber point is the average
   of the customers coordinates, weighted by the inverse of their distance to the
   Weber point. This suggests a simple iterative procedure to find that point,
