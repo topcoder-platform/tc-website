@@ -31,7 +31,7 @@
 <span class="bigTitle">Churchillio's Submission</span>
 <br><br>
 <div class="authorPhoto">
-    <img src="/i/m/nophoto.jpg" alt="Author" />
+    <img src="/i/m/Churchillio_big.jpg" alt="Author" />
 </div>
 <div class="authorText">
 By&#160;<tc-webtag:handle coderId="21181561" darkBG="true" /><br />
