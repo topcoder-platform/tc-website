@@ -75,7 +75,11 @@
 		</tr>
 		<tr>
 			<td><b>Date Created:</b></td>
-			<td><c:out value="${requestScope.creation_date}" /> </td>
+			<td><c:out value="${payment.header.createDate}" /> </td>
+		</tr>
+		<tr>
+			<td><b>Date Modified:</b></td>
+			<td><c:out value="${payment.header.modifyDate}" /> </td>
 		</tr>
 		<tr>
 			<td><b>Date Due:</b></td>
