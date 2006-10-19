@@ -12,7 +12,7 @@
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=101906">TCCC Preview: By the Numbers</A></span><br><br>
-               In this article, I'll take a look at some of the numbers and trivia behind the upcoming 2006 TopCoder Collegiate Challenge, and how those compare to last year's tournament and the last few Topcoder Opens.</li>
+               In this article, I'll take a look at some of the numbers and trivia behind the upcoming 2006 TopCoder Collegiate Challenge, and how those compare to last year's tournament and the last few TopCoder Opens.</li>
             </td>
             <td class="newsPhoto"><img src="/i/m/kzimmerman_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="21196141"/></td></tr>
         </table>
