@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><A href="/tc?module=Static&amp;d1=features&amp;d2=101606"><strong>TCCC Preview: By the Numbers</strong></A>, by <tc-webtag:handle coderId="21196141" /><br>
+In this article, I'll take a look at some of the numbers and trivia behind the upcoming 2006 TopCoder Collegiate Challenge, and how those compare to last year's tournament and the last few Topcoder Opens.</li>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=101606"><strong>TCCC Preview: Past Winners Tell All</strong></A>, by <tc-webtag:handle coderId="21196141" /><br>
 With the Collegiate Challenge less than a month away, we asked some past TCCC winners for some advice and feedback that could come in handy in San Diego.</li>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=101206"><strong>C++ tools #2 - GNU Make</strong></A>, by <tc-webtag:handle coderId="275640" /><br>
 There's a well-known joke about two women eating lunch at a resort. "The food here is so horrible," says one. "I know," replies the other, "and the portions are so small!" There's a somewhat similar paradox that seems to apply to most developers.</li>
-<li><A href="/tc?module=Static&amp;d1=features&amp;d2=100906"><strong>Design Patterns in C++, Part 2</strong></A>, by <tc-webtag:handle coderId="21195715" /><br>
-Part One of this article covered the Strategy, Adaptor and Iterator design patterns.  This part will cover the Facade and Composition design patterns and the idea of Object Factories.</li>
 </ul>
 <span class="bodySubtitle">From the archives:</span><br>
 <ul>
