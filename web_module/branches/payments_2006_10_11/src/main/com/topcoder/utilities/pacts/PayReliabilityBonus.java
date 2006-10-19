@@ -63,7 +63,7 @@ public class PayReliabilityBonus extends DBUtility {
     		double bonusAmount = getReliabilityPercent(reliability) * amount;
 
     		log.info("Adding a bonus payment for user " + userId + " project " + projectId + " for $ " + bonusAmount);
-        	ReliabilityBonusPayment bp = new ReliabilityBonusPayment(userId, amount, paymentId);
+        	ReliabilityBonusPayment bp = new ReliabilityBonusPayment(userId, bonusAmount, paymentId);
 			ejb.addPayment(bp);
 			count++;			
         }
