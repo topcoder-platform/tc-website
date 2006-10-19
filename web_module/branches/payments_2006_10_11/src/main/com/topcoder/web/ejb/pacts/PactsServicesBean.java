@@ -402,7 +402,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 long paymentId = Long.parseLong(rsc.getItem(0, "payment_id").toString());
                 // Get payment header for affidavit
                 StringBuffer selectPaymentHeader = new StringBuffer(300);
-                selectPaymentHeader.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, ");
+                selectPaymentHeader.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id,  p.create_date, pd.create_date as modify_date, ");
                 selectPaymentHeader.append("pt.payment_type_desc, pd.payment_method_id, pm.payment_method_desc, ");
                 selectPaymentHeader.append("pd.net_amount, pd.status_id, s.status_desc, ");
                 selectPaymentHeader.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, pd.client, p.review, ");
@@ -464,7 +464,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectContractDetails.append("WHERE contract_id = " + contractId);
 
         StringBuffer selectPaymentHeaders = new StringBuffer(300);
-        selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, ");
+        selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, p.create_date, pd.create_date as modify_date,  ");
         selectPaymentHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.status_id, s.status_desc, ");
         selectPaymentHeaders.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, pd.client, p.review, ");
         selectPaymentHeaders.append("pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
@@ -604,7 +604,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private Map doPayment(long paymentId, String detailsQuery) throws SQLException {
         log.debug("dopayment(long, String) called...");
         StringBuffer selectPaymentHeader = new StringBuffer(300);
-        selectPaymentHeader.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, ");
+        selectPaymentHeader.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, p.create_date, pd.create_date as modify_date, ");
         selectPaymentHeader.append("pt.payment_type_desc, pd.payment_method_id, pm.payment_method_desc, ");
         selectPaymentHeader.append("pd.net_amount, pd.status_id, s.status_desc, ");
         selectPaymentHeader.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, pd.client, p.review, ");
@@ -916,7 +916,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map getUserPaymentList(long userId) throws SQLException {
         StringBuffer selectPaymentHeaders = new StringBuffer(300);
-        selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, ");
+        selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id,  p.create_date, pd.create_date as modify_date, ");
         selectPaymentHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.status_id, s.status_desc, ");
         selectPaymentHeaders.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, pd.client, p.review, ");
         selectPaymentHeaders.append("pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
@@ -987,7 +987,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private Map doUserPayments(long userId, String detailsQuery, int[] paymentTypes, boolean pendingOnly) throws SQLException {
         String paymentTypeList = makeList(paymentTypes);
         StringBuffer selectPaymentHeaders = new StringBuffer(300);
-        selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, ");
+        selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, p.create_date, pd.create_date as modify_date,  ");
         selectPaymentHeaders.append("pt.payment_type_desc, pd.payment_method_id, pm.payment_method_desc, ");
         selectPaymentHeaders.append("pd.net_amount, pd.status_id, s.status_desc, ");
         selectPaymentHeaders.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, pd.client, p.review, ");
@@ -1139,7 +1139,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map getContractPaymentList(long contractId) throws SQLException {
         StringBuffer selectPaymentHeaders = new StringBuffer(300);
-        selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, ");
+        selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id,  p.create_date, pd.create_date as modify_date, ");
         selectPaymentHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.status_id, s.status_desc, ");
         selectPaymentHeaders.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, pd.client, p.review, ");
         selectPaymentHeaders.append("pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
@@ -1795,7 +1795,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map findPayments(Map searchCriteria) throws SQLException {
         StringBuffer selectHeaders = new StringBuffer(300);
-        selectHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, ");
+        selectHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, p.create_date, pd.create_date as modify_date,  ");
         selectHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.status_id, s.status_desc, ");
         selectHeaders.append("p.user_id, u.handle, u.first_name, u.middle_name, u.last_name, ");
         selectHeaders.append("pd.date_modified, pd.gross_amount, p.review, pd.client, ");
@@ -1823,10 +1823,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 String key = (String) i.next();
                 String value = ((String) searchCriteria.get(key)).toUpperCase();
                 if (key.equals(EARLIEST_CREATION_DATE)) {
-                    whereClauses.append(" AND pd.date_modified >= ?");
+                    whereClauses.append(" AND p.create_date >= ?");
                     objects.add(makeTimestamp(value, false, false));
                 } else if (key.equals(LATEST_CREATION_DATE)) {
-                    whereClauses.append(" AND pd.date_modified <= ?");
+                    whereClauses.append(" AND p.create_date <= ?");
+                    objects.add(makeTimestamp(value, false, true));
+                } else if (key.equals(EARLIEST_MODIFICATION_DATE)) {
+                    whereClauses.append(" AND pd.create_date >= ?");
+                    objects.add(makeTimestamp(value, false, false));
+                } else if (key.equals(LATEST_MODIFICATION_DATE)) {
+                    whereClauses.append(" AND pd.create_date <= ?");
                     objects.add(makeTimestamp(value, false, true));
                 } else if (key.equals(EARLIEST_PAY_DATE)) {
                     whereClauses.append(" AND pd.date_paid >= ?");
