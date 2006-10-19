@@ -43,18 +43,27 @@
 </jsp:include>
 
 <p>
+    5.5.3 - 2006.10.zz
+    <ul>
+        <li>Change max request rate for site</li>
+    </ul>
+ </p>
+
+<p>
     5.5.2 - 2006.10.18
     <ul>
         <li>Fixed a bug in PACTS internal that was throwing an error when trying to update status to ready to print.</li>
         <li>Fixed sorting of rows in payment list for members</li>
     </ul>
+ </p>
 
+
+<p>
     5.5.1 - 2006.10.11
     <ul>
         <li>Fixed addPayment page in PACTS internal pages.</li>
         <li>Changed the way that charity payments are handled.</li>
     </ul>
-    
  </p>
 
 <p>

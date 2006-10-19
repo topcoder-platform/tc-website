@@ -31,6 +31,9 @@
                         <li>Cache submissions on submission page for full length. No need to only cache for 1
                             hour since we don't show them until submission phase is closed.</li>
                     </ul>
+                <ul>
+                    <li>Fix bug on submissions page where it only showed 19 submission per page.</li>
+                </ul>
                 </p>
 
                 <p>
