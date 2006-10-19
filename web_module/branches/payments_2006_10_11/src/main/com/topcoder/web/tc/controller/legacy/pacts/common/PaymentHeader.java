@@ -164,7 +164,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 
         reviewed = 0 != TCData.getTCInt(rsr, "review", 0, true);
         
-        createDate = TCData.getTCDate(rsr, "modify_date", "00/00/00", false);
+        createDate = TCData.getTCDate(rsr, "create_date", "00/00/00", false);
         modifyDate = TCData.getTCDate(rsr, "modify_date", "00/00/00", false);
     }
 
