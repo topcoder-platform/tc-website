@@ -1,5 +1,5 @@
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.controller.request.member.PaymentHistory" %>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants"%>
 <%@ page language="java"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -69,7 +69,11 @@
 			</c:if>
 		</td>
 	</tr>
+	
 <c:forEach items="${payments}" var="payment">
+<c:choose>
+<c:when test="${payment.typeId == 2}"></c:when> <!-- contract -->
+<c:otherwise>
 	<tr>
 		<td class="bodyText"><c:out value="${payment.description}"/></td>
 		<td class="bodyText"><c:out value="${payment.dueDate}"/></td>
@@ -81,6 +85,8 @@
 			</c:if>
 		</td>
 	</tr>
+</c:otherwise>	
+</c:choose>	
 </c:forEach>	
 	
 	</table>

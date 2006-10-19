@@ -127,6 +127,8 @@ public class AffidavitBean implements PactsConstants {
         Affidavit[] a = new Affidavit[aList.getHeaderList().length];
 
         for (int i = 0; i < a.length; i++) {
+        	// this seems useless!!
+        	/**
             try {
                 log.debug("getting the affidavit " + aList.getHeaderList()[i].getId() +
                         " for member " + memberId);
@@ -136,7 +138,7 @@ public class AffidavitBean implements PactsConstants {
                 e1.printStackTrace();
                 return null;
             }
-
+        	 	*/
             a[i] = getAffidavit(aList.getHeaderList()[i].getId());
         }
 
