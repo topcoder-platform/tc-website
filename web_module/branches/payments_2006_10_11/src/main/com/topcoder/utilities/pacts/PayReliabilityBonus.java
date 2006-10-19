@@ -32,7 +32,7 @@ public class PayReliabilityBonus extends DBUtility {
 		// Find all the project result that have a payment but not a reliability bonus payment
 		// If a reliability bonus is deleted (status 69) it will be found anyways, so that if 
 		// someone deletes a reliability bonus, it is not created again.
-		query.append("SELECT pr.user_id, pr.project_id, pr.old_reliability, pd.gross_amount, p.payment_id");
+		query.append("SELECT pr.user_id, pr.project_id, pr.old_reliability, pd.gross_amount, p.payment_id ");
         query.append("FROM tcs_catalog:project_result pr, ");
         query.append("payment p, ");
         query.append("payment_detail pd ");

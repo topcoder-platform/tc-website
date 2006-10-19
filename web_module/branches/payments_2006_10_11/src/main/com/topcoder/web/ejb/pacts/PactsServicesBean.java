@@ -5408,6 +5408,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         Payment p = new Payment();
         p.setGrossAmount(payment.getGrossAmount());
+        p.setNetAmount(payment.getNetAmount());
         p.setStatusId(payment.getStatusId());
         p.getHeader().setDescription(payment.getDescription());
         p.getHeader().setTypeId(payment.getPaymentType());
