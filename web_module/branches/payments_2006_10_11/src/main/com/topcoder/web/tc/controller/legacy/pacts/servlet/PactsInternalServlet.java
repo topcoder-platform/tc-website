@@ -45,6 +45,7 @@ import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
@@ -170,10 +171,20 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 				BasicAuthentication.PACTS_INTERNAL_SITE);
     }
 
+    /**
+     * Check that the user has permissions for the specified resource.
+     * Any user has permissions to access Login module.
+     * For the rest, just the users having permissions to PactsInternalServlet are authorized.
+     */
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
     	if (Login.class.getName().equals(r.getName())) return true;
     	
-    	return !auth.getActiveUser().isAnonymous();
+    	if (auth.getActiveUser().isAnonymous()) {
+    		return false;
+    	}
+
+    	TCSAuthorization a = new TCSAuthorization(auth.getActiveUser());
+        return a.hasPermission(new ClassResource(PactsInternalServlet.class));         	
     }
 
     /*
@@ -1783,9 +1794,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                 HttpObjectFactory.createResponse(response));
         ClassResource resource = new ClassResource(this.getClass());
 
-        // Changed by cucu 10/16/2006: now that pacts has its own login, just a non anonymous is needed
-        //if (hasPermission(auth, resource)) {
-        if (!auth.getActiveUser().isAnonymous()) {
+        if (hasPermission(auth, resource)) {
             return true;
         } else {
             //handleException(request, response, new PermissionException(auth.getActiveUser(), resource));
