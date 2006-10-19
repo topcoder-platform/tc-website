@@ -169,8 +169,8 @@ Try to put it somewhere on board (call placeNext)
 </P>
 <pre>
 for n=3...last chose order or fixed if first call, do
-approximate probability p(n)
-calculate expected income E(n)
+    approximate probability p(n)
+    calculate expected income E(n)
 select n that maximizes E(n)
 </pre>
 <p>
@@ -205,31 +205,30 @@ select n that maximizes E(n)
   Implementation details
 </span>
 <UL>
-  <LI>
-      Representation of board and pieces:</li>
-    <ul>
-  <LI>- array of bytes for board and list of (x, y) pairs of each cell occupied in
-  polyomino, with 4 pre-calculated rotations,</li>
-  <LI>- bitmask for board and bitmask for polyominoes, with precalculated 4
-  rotations and for each 32 bit shifts.</li>
-    <UL>
-      <LI>
-          Many speed improvements can be done:</li>
+    <LI>
+    Representation of board and pieces:</li>
+        <ul>
+            <LI>array of bytes for board and list of (x, y) pairs of each cell occupied in
+            polyomino, with 4 pre-calculated rotations,</li>
+            <LI>bitmask for board and bitmask for polyominoes, with precalculated 4
+            rotations and for each 32 bit shifts.</li>
+        </ul>
+    <LI>
+    Many speed improvements can be done:</li>
         <UL>
-          <LI>
-              precalculating all 4 rotations (and/or all bit-shifts when using
-              bitmasks),</li>
-          <LI>
-              using old sample pieces instead of generating each time new one,
-              when order to test didn't change,</li>
-          <LI>
-              using threading, with care to not use much
-              synchronization, it more often slows things down than makes it
-              faster.</li>
+            <LI>
+            precalculating all 4 rotations (and/or all bit-shifts when using
+            bitmasks),</li>
+            <LI>
+            using old sample pieces instead of generating each time new one,
+            when order to test didn't change,</li>
+            <LI>
+            using threading, with care to not use much
+            synchronization, it more often slows things down than makes it
+            faster.</li>
         </UL>
-    </UL>
-    </ul>
 </UL>
+
 <span class="bodySubtitle">
   Threading
 </span>
