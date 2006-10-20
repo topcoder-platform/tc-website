@@ -53,7 +53,7 @@
 <h2>Match summary</h2> 
 
 <p>
-This match was harder then usual. All three problems in the
+This match was harder than usual. All three problems in the
 first division proved to be rather tricky. Only 229 coders solved the so-called easy 
 problem, 40 solved the medium, while only 10 coders successfully restored 
 expression in the hard one.
@@ -62,8 +62,8 @@ expression in the hard one.
 <tc-webtag:handle coderId="10574855" context="algorithm"/> won the match with a wide margin, thanks to his fast 1000-pointer. They 
 were followed by <tc-webtag:handle coderId="11829284" context="algorithm"/>. His fourth place showing allowed <tc-webtag:handle coderId="310333" context="algorithm"/> to reach the target rating -- congratulations! And an amazing +500 at the challenge phase lifted <tc-webtag:handle coderId="7340263" context="algorithm"/> up to the fifth place.                                                                   
 <p/>
-In the second division <tc-webtag:handle coderId="22653739" context="algorithm"/> enjoyeds the victory with the fastest hard and 
-+200 at challenges.
+In the second division <tc-webtag:handle coderId="22653739" context="algorithm"/> enjoyed the victory with the fastest hard and 
++200 in challenges.
 </p>                                        
  
 <H1>
@@ -118,7 +118,7 @@ The Problems
 </table></blockquote>
 
 <p>
-Actually, this problem can be solved efficiently with the size of <b>A</b> much greater then 3. The solution is as follows:
+Actually, this problem can be solved efficiently with the size of <b>A</b> much greater than 3. The solution is as follows:
 <pre>
 Sort(A);
 N = 0; K = 0;
@@ -130,9 +130,9 @@ N = 0; K = 0;
 To prove this solution, let's prove the following property: on each step of the algorithm above,
 only non-negative integers less or equal to N can be represented as a required sum of first K elements from <b>A</b>.<br>
 <br/>
-When N = K = 0, it's obvious. Moreover, if on some step <b>A</b>[K] appears to be greater then N+1, it implies that
+When N = K = 0, it's obvious. Moreover, if on some step <b>A</b>[K] appears to be greater than N+1, it implies that
 the number N+1 is irreducible. Indeed, N+1 cannot be represented as a sum of first K elements from <b>A</b>,
-and all other elements from <b>A</b> are greater then N+1, so N+1 is irreducible.<br>
+and all other elements from <b>A</b> are greater than N+1, so N+1 is irreducible.<br>
 <br/>
 In the other case, if <b>A</b>[K] &le; N+1, all the integers in range from N+1 to N+<b>A</b>[k] can also be represented as a sum
 of first K+1 elements. The desired representation can be obtained by adding <b>A</b>[K] to the representation of the respected 
@@ -256,7 +256,7 @@ The following pseudocode illustrates this approach:
 <p/>
 How do you check if the solution is unique? It's simple: for each index <i>i</i> try to replace <b>B</b>[<i>i</i>] with
 <b>length</b> - <b>B</b>[<i>i</i>] and see if the result remains strictly increasing. The only corner case is when
-<b>B</b>[<i>i</i>] = <b>length</b>/2, such indices <i>i</i> mustn't be checked.  It is sufficient, because if <b>B</b> is strictly increasing and you replace more then two of its element with its difference with <b>length</b>,
+<b>B</b>[<i>i</i>] = <b>length</b>/2, such indices <i>i</i> mustn't be checked.  It is sufficient, because if <b>B</b> is strictly increasing and you replace more than two of its element with its difference with <b>length</b>,
 the resulting sequence won't be able to be strictly increasing.<br>
 <br>  
 </p>
@@ -315,7 +315,7 @@ word will be k-unrepeateble or not. If not, we'll try letter 'B' and so on.
 If we can't extend our word to length n by adding any allowed character, we'll have to
 move one step back, to the word of length n-2.
 <p/> 
-So, the general scheme of the
+The general scheme of the
 solution looks like this:<br>
 <br>
 <pre>
@@ -353,7 +353,7 @@ For clarity, see the picture below:
 <p/>
 Here, for k=3 and pos=8 possible length of the subword could be 3, 2 or 1.
 <p/>
-So, for every possible length we need to check whether all <i>k</i> subwords are the same. A good optimization is to
+For every possible length we need to check whether all <i>k</i> subwords are the same. A good optimization is to
 compare all the first characters of these words, then all the second characters and so on. The comparison of <i>k</i> characters
 can be done at <i>O(k)</i>. So the whole <b>checkUnrepeatable</b> will 
 take at most <i>O(pos^2)</i>.             
@@ -430,11 +430,11 @@ We can simply obtain the following equation:
 <img src = "/i/srm/srm323/eq2.jpg"/>
 </div>
 
-We should consider two general cases. If <i>U = V</i> then this equation is linear and has only one root. In the other case, the equation is quadratic and its discriminant equals to
+We should consider two general cases. If <i>U = V</i> then this equation is linear and has only one root. In the other case, the equation is quadratic and its discriminant equals:
 <div align="center">
 <img src = "/i/srm/srm323/eq3.jpg"/>
 </div>
-We need to check if the discriminant is less than zero (in this case there is no solution), equals to zero (one root) or is greater then zero (two roots). We may choose only positive roots, and if no such roots exist, there is no solution. If more than one positive root exists we need to choose the smaller one.
+We need to check if the discriminant is less than zero (in this case there is no solution), equals to zero (one root) or is greater than zero (two roots). We may choose only positive roots and if no such roots exist there is no solution. If more than one positive root exists we need to choose the smaller one.
 
 See <tc-webtag:handle coderId="22636969" context="algorithm"/>'s <a 
 href="/stat?c=problem_solution&rm=250032&rd=10003&pm=6782&cr=22636969">solution</a> for the details.
@@ -507,7 +507,7 @@ href="/stat?c=problem_solution&rm=250026&rd=10003&pm=6782&cr=22628829">solution<
 <p>
 Attention and accuracy are the keys to solve this problem.
 First of all, let's parse our "A+B=C" expression and pick out 
-three masks: A, B and C. Let's add leading zeroes to make their lengthes equal, and denote this length as <i>Len</i>.
+three masks: A, B and C. Let's add leading zeroes to make their lengths equal, and denote this length as <i>Len</i>.
 
 
 To make the implementation easier, let's introduce the <i>can</i>(string 
@@ -518,7 +518,7 @@ prevent the appearing of leading zeroes.
 Now we are going to write recursive <i>solvePosition</i>(int <i>Pos</i>, int <i>ToAdd</i>) function, where <i>Pos</i> is the current position in
 masks and <i>ToAdd</i> equls to 0 or 1. It checks, if it's possible to restore the expression "A[<i>Pos</i>..N-1]+B[<i>Pos</i>..N-1]=<i>D</i>C[<i>Pos</i>..N-1]".
 
-<br/>The rough plan of this function looks as follows.<p/>
+<br/>The rough plan of this function looks like this.<p/>
 <pre>
 <font color=blue>bool</font> <i>solvePosition</i>(<font color=blue>int</font> Pos, <font color=blue>int</font> ToAdd){
     <font color=blue>if</font>(Pos==Len && ToAdd==0){
@@ -549,10 +549,10 @@ masks and <i>ToAdd</i> equls to 0 or 1. It checks, if it's possible to restore t
 </pre>
 
 Now all we need is just to call <i>solvePosition(0,0)</i>. This solution will work, but too slowly. Fortunately, the following two tricks will make it work almost instant.
-At first, note that if we've already found the solution for current <i>ci</i> and <i>ai</i> we do not need to check the others,
+First, note that if we've already found the solution for current <i>ci</i> and <i>ai</i> we do not need to check the others,
 because they are less than ours. (But we still need to finish the iteration of the <i>bi</i>-loop!)
 <br/>
-The second trick is using of the memoization. Note, that the result of <i>solvePositon</i> call do not depend
+The second trick involves the memoization. Note, that the result of <i>solvePositon</i> call do not depend
 on current values of <i>ai, bi</i> and <i>ci</i>. So if it returns false, we'll be able to store this result, and we won't call it again.
 (But we still need to make the "true-calls," even if we already know that it will return true!)
 Now, it's easy to see that the whole soution will make at most 2^<i>Len</i> calls of <i>solvePosition</i>, which is acceptable.
