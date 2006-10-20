@@ -80,10 +80,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         super.ejbRemove();
         // Tear down the message queue if necessary
         if (pactsMsgSender != null) {
-            log.info("Destroying PACTS Message Queue...");
+//            log.info("Destroying PACTS Message Queue...");
+            log.info("ejb remove called...");
             Thread.dumpStack();
-            pactsMsgSender.close();
-            pactsMsgSender = null;
+//            pactsMsgSender.close();
+//            pactsMsgSender = null;
         }
     }
 
