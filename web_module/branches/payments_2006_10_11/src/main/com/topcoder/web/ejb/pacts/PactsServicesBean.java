@@ -4793,7 +4793,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Get winning designers/developers to be paid
             if (status == ProjectStatus.ID_COMPLETED) {
                 StringBuffer getWinners = new StringBuffer(300);
-                getWinners.append("select pr.placed, pr.user_id, payment as paid, pt.project_type_name, pr.old_reliability as reliability ");
+                getWinners.append("select pr.placed, pr.user_id, payment as paid, pt.project_type_name ");
                 getWinners.append("from tcs_catalog:project_result pr, tcs_catalog:project p, tcs_catalog:project_type pt ");
                 getWinners.append("where pr.project_id = " + projectId + " ");
                 getWinners.append("and pr.project_id = p.project_id ");
@@ -4850,8 +4850,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     p.setGrossAmount(TCData.getTCDouble(winners[j].getRow(i), "paid"));
                     p.setStatusId(userTaxFormSet.contains(new Long(userId)) ? PAYMENT_OWED_STATUS : PAYMENT_ON_HOLD_STATUS);
                     if (j == 0) {
-                        double reliability = TCData.getTCDouble(winners[j].getRow(i), "reliability");
-                        p.setGrossAmount(getReliabilityPayment(p.getGrossAmount(), reliability));
                         String projectType = winners[j].getItem(i, 3).toString();
                         String placed = winners[j].getItem(i, 0).toString();
                         if (placed.equals("1")) {
@@ -4924,25 +4922,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 throw (IllegalUpdateException) e;
             throw new SQLException(e.getMessage());
         }
-    }
-
-
-    /**
-     * Helper function that calculates the component payment given the base payment and winner's reliability.
-     *
-     * @return The payment for the winning component designer or developer.
-     * @throws SQLException If there was some error updating the data.
-     */
-    private double getReliabilityPayment(double payment, double reliability) {
-        double bonus = 0;
-        if (reliability >= .95) {
-            bonus = .2;
-        } else if (reliability >= .9) {
-            bonus = .15;
-        } else if (reliability >= .8) {
-            bonus = .1;
-        }
-        return payment * (1+bonus);
     }
 
 
