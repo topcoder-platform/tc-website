@@ -72,7 +72,7 @@
 	
 <c:forEach items="${payments}" var="payment">
 <c:choose>
-<c:when test="${payment.typeId == 2}"></c:when> <!-- contract -->
+<c:when test="${payment.typeId == 2}"><!-- contract --></c:when> 
 <c:otherwise>
 	<tr>
 		<td class="bodyText"><c:out value="${payment.description}"/></td>
