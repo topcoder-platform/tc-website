@@ -13,7 +13,7 @@
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm323">SRM 323 - Problem Set & Analysis</A></span><br><br>
-This match was harder then usual. All three problems in the
+This match was harder than usual. All three problems in the
 first division proved to be rather tricky. Only 229 coders solved the so-called easy 
 problem, 40 solved the medium, while only 10 coders successfully restored 
 expression in the hard one.
