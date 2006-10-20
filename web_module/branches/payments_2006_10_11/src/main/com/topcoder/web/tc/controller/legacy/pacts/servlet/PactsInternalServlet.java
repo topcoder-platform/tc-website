@@ -18,7 +18,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
@@ -31,13 +30,13 @@ import javax.servlet.http.HttpSession;
 
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.RequestTracker;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.StringUtils;
@@ -45,7 +44,6 @@ import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
-import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
@@ -84,7 +82,6 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TaxFormHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfile;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
-import com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.Login;
 import com.topcoder.web.tc.controller.legacy.pacts.messaging.request.QueueRequest;
 
 public class PactsInternalServlet extends BaseServlet implements PactsConstants {
@@ -1800,8 +1797,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         if (hasPermission(auth, resource)) {
             return true;
         } else {
-            //handleException(request, response, new PermissionException(auth.getActiveUser(), resource));
-            handleLogin(request, response, createSessionInfo(tcRequest, auth,  new HashSet()));
+            handleException(request, response, new PermissionException(auth.getActiveUser(), resource));
+            //handleLogin(request, response, createSessionInfo(tcRequest, auth,  new HashSet()));
             return false;
         }
     }
