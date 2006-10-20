@@ -80,7 +80,7 @@
         Time Left
         </td>
         <td class="headerR">
-        Net Payment Amount
+        Net Payment
         </td>
         <td class="headerC">
         Notarized
@@ -100,10 +100,6 @@
         <td class="value">
         <c:out value="${affidavit.header.description}"/>
         </td>
-<%--
-        <td class="valueC">
-            <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavit.header.id}">
---%>
     <c:choose>
         <c:when test="${affidavit.header.affirmed}">
         <td class="valueC">
@@ -138,10 +134,6 @@
         </td>
         </c:otherwise>
     </c:choose>
-<%--
-            </a>                
-        </td>
---%>
         <td class="valueR">
             <c:if test="${affidavit.payment.id > 0}">
                 <a href="/PactsMemberServlet?t=payments&c=payment_details&payment_id=${affidavit.payment.id}" >
@@ -174,75 +166,6 @@
 </c:otherwise>    
 </c:choose>            
 
-
-
-
-
-
-
-
-<%--
-    <table BGCOLOR="#FFFFFF" CELLPADDING="2" CELLSPACING="2" BORDER="0" WIDTH="100%" >
-    <tr>
-        <td class="bodyText" width="35%"><b>Affidavit Description</b></td>
-        <td class="bodyText" width="20%"><b>Affidavit Affirmation</b></td>
-        <td class="bodyText" width="15%"><b>Net Payment Amount</b></td>
-        <td class="bodyText" width="10%"><b>Notarized</b></td>
-        <td class="bodyText" width="10%"><b>Status</b></td>
-        <td class="bodyText" width="10%">
-            <c:if test="${fullList}" >
-                <b>Date Paid</b>            
-            </c:if>
-        </td>
-    </tr>
-<c:forEach items="${affidavits}" var="affidavit">
-    <tr>
-        <td class="bodyText"><c:out value="${affidavit.header.description}"/></td>
-        <td class="bodyText">
-            <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavit.header.id}">
-                <c:choose>
-                    <c:when test="${affidavit.header.affirmed}">
-                        affirmed on <c:out value="${affidavit.affirmationDate}"></c:out>
-                    </c:when>
-                    <c:when test="${affidavit.daysLeftToAffirm > 0}">
-                        click to affirm, <c:out value="${affidavit.daysLeftToAffirm}"/> days left
-                    </c:when>
-                    <c:otherwise>
-                        expired, click here to view
-                    </c:otherwise>
-                </c:choose>
-            </a>                
-        </td>
-        <td class="bodyText">
-            <c:if test="${affidavit.payment.id > 0}">
-                <a href="/PactsMemberServlet?t=payments&c=payment_details&payment_id=${affidavit.payment.id}" >
-                    $<fmt:formatNumber value="${affidavit.payment.recentNetAmount}" pattern="###,###.00" />
-                </a>
-            </c:if>
-        </td>
-        <td class="bodyText">
-            <c:choose>
-                <c:when test="affidavit.header.notarized">yes</c:when>
-                <c:otherwise>no</c:otherwise>                 
-            </c:choose>
-        </td>
-        <td class="bodyText"><c:out value="${affidavit.header.statusDesc}"/></td>
-        <td class="bodyText">
-            <c:if test="${fullList and affidavit.payDate != '00/00/0000'}" >
-                <c:out value="${affidavit.payDate}"/>            
-            </c:if>
-        </td>
-    </tr>
-</c:forEach>    
-    
-    </table>
-</c:when>
-
-<c:otherwise>
-<b><em>No Affidavits Found</em> </b>
-</c:otherwise>    
-</c:choose>            
---%>
 
 <!-- Center Column Ends -->
 
