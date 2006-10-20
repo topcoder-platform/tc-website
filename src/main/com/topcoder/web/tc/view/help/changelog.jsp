@@ -46,6 +46,9 @@
     5.5.3 - 2006.10.zz
     <ul>
         <li>Change max request rate for site</li>
+<%--
+        <li>don't kill the queue connection when ejbremove is called on the pacts ejb</li>
+--%>
     </ul>
  </p>
 
