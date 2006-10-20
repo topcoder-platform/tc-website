@@ -168,24 +168,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 				BasicAuthentication.PACTS_INTERNAL_SITE);
     }
 
-    /**
-     * Check that the user has permissions for the specified resource.
-     * Any user has permissions to access Login module.
-     * For the rest, just the users having permissions to PactsInternalServlet are authorized.
-     */
-    // Doesn't seem necessary
-    /*
-    protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
-    	if (Login.class.getName().equals(r.getName())) return true;
-    	
-    	if (auth.getActiveUser().isAnonymous()) {
-    		return false;
-    	}
-
-    	TCSAuthorization a = new TCSAuthorization(auth.getActiveUser());
-        return a.hasPermission(new ClassResource(PactsInternalServlet.class));         	
-    }
-*/
 
     /*
     Handles all GET requests.
@@ -1798,7 +1780,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             return true;
         } else {
             handleException(request, response, new PermissionException(auth.getActiveUser(), resource));
-            //handleLogin(request, response, createSessionInfo(tcRequest, auth,  new HashSet()));
             return false;
         }
     }

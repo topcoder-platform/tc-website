@@ -1,17 +1,24 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
+import java.util.Arrays;
+
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.login.LoginRemote;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.security.TCSAuthorization;
+import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.servlet.PactsInternalServlet;
+import com.topcoder.web.tc.controller.request.authentication.EmailActivate;
+import com.topcoder.web.tc.Constants;
 
 /**
  * Add or update a payment.
@@ -58,13 +65,21 @@ public class Login extends PactsBaseProcessor implements PactsConstants {
                     }
                     throw new LoginException("Username or password incorrect.");
                 }
-                /*
-                TCSAuthorization auth = new TCSAuthorization(sub);
-                if (!auth.hasPermission(new ClassResource(PactsInternalServlet.class))) {
-                	throw new LoginException("You don't have permissions to login in PACTS.");
+                
+                char status = getStatus(sub.getUserId());
+                
+                if (Arrays.binarySearch(Constants.ACTIVE_STATI, status) >= 0) {
+                	getAuthentication().logout();
+                	throw new LoginException("Your account is not active.");
                 }
-                */
+                	
+                if (getEmailStatus(sub.getUserId()) != EmailActivate.ACTIVE_STATUS) {
+                	getAuthentication().logout();
+                	throw new LoginException("Your email is not active.");                	
+                }
+                	
                 getAuthentication().login(new SimpleUser(0, username, password), false);
+                
                 
                 String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
                 setNextPage(dest.length() > 0? dest : "/PactsInternalServlet");
@@ -92,6 +107,37 @@ public class Login extends PactsBaseProcessor implements PactsConstants {
         
         setNextPage("/pacts/internal/login.jsp");
         setIsNextPageInContext(true);
+    }
+    
+    /**
+     * Gets the status for the user
+     *
+     * @param userId
+     * @return
+     * @throws Exception if user doesn't exist or some other ejb problem
+     */
+    private char getStatus(long userId) throws Exception {
+        char result;
+        User user = (User) createEJB(getInitialContext(), User.class);
+        result = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        return result;
+
+    }
+    
+    /**
+     * Gets the e-mail status for the user
+     *
+     * @param userId
+     * @return
+     * @throws Exception if user doesn't exist or some other ejb problem
+     */
+    private int getEmailStatus(long userId) throws Exception {
+        int result;
+        Email email = (Email) createEJB(getInitialContext(), Email.class);
+        result = email.getStatusId(email.getPrimaryEmailId(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME),
+                DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        return result;
+
     }
 }
 
