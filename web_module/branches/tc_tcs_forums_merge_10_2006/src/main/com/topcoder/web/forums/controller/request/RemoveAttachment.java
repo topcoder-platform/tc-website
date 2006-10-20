@@ -37,7 +37,7 @@ public class RemoveAttachment extends ForumsProcessor {
         
         ForumMessage messageToRemoveFrom = null;
         if (postMode.equals("New") || postMode.equals("Reply")) {
-        	messageToRemoveFrom = (ForumMessage) getRequest().getAttribute("tempMessage"); 
+        	messageToRemoveFrom = (ForumMessage) getRequest().getSession().getAttribute("tempMessage"); 
         } else if (postMode.equals("Edit")) {
             long messageID = Long.parseLong(messageIDStr);
             messageToRemoveFrom = forumFactory.getMessage(messageID);
