@@ -76,7 +76,7 @@
 	<tr>
 		<td class="bodyText"><c:out value="${payment.description}"/></td>
 		<td class="bodyText"><c:out value="${payment.dueDate}"/></td>
-		<td class="bodyText">$<fmt:formatNumber value="${payment.netAmount}" pattern="###,###.00" /></td>
+		<td class="bodyText">$<fmt:formatNumber value="${payment.netAmount}" pattern="###,##0.00" /></td>
 		<td class="bodyText"><c:out escapeXml="false" value="${payment.statusDesc}"/></td>
 		<td class="bodyText">
 			<c:if test="${fullList and payment.payDate != '00/00/0000'}" >
