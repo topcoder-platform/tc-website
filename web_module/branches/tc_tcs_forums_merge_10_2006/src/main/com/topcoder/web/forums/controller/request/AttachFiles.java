@@ -80,9 +80,9 @@ public class AttachFiles extends ForumsProcessor {
 		
 		ForumMessage tempMessage = (ForumMessage)getRequest().getAttribute("tempMessage");
 		if (tempMessage == null) {
-			log.info("!!!!!!!!!!!!!!!!! TEMP MESSAGE IS NULL");
+			log.info("(AttachFiles) !!!!!!!!!!!!!!!!! TEMP MESSAGE IS NULL");
 		} else {
-			log.info("!!!!!!!!!!!!!!!!! TEMP MESSAGE IS NOT NULL");
+			log.info("(AttachFiles) !!!!!!!!!!!!!!!!! TEMP MESSAGE IS NOT NULL");
 		}
         tempMessage.setSubject(subject);
         tempMessage.setBody(body);

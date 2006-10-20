@@ -34,7 +34,9 @@
     ForumThread thread = (ForumThread)request.getAttribute("thread");
     HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
     AttachmentManager attachManager = forumFactory.getAttachmentManager(); 
-    String pageTitle = postMode.equals("Edit") ? "Edit Attachments" : "Attach Files"; %>
+    String pageTitle = postMode.equals("Edit") ? "Edit Attachments" : "Attach Files"; 
+    
+    request.setAttribute("tempMessage", message); %>
 
 <html>
 <head>

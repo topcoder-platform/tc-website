@@ -21,7 +21,9 @@
 <%  ForumMessage message = (ForumMessage)request.getAttribute("message");
 	ForumMessage tempMessage = (ForumMessage)request.getAttribute("tempMessage");
     ForumThread thread = (ForumThread)request.getAttribute("thread");
-    HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
+    HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); 
+    
+    request.setAttribute("tempMessage", tempMessage); %>
 
 <script type="text/javascript">
 function noenter(e)
@@ -193,7 +195,8 @@ function AllowTabCharacter() {
 		<%	if (postMode.equals("Edit")) { %>
 				String urlNext = sessionInfo.getServletPath() + "?module=EditAttachments&" + ForumConstants.MESSAGE_ID + "=" + message.getID(); 
 				<a href="<%=urlNext%>"><img src="/i/interface/btn_attach.gif" class="rtButton" alt="Attach Files"/></a>
-		<%	} else { %>
+		<%	} else { 
+				request.setAttribute("tempMessage", tempMessage); %>
 				<input type="image" src="/i/interface/btn_attach.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
 		<%	} %>
 	</td>

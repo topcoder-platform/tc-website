@@ -29,7 +29,7 @@ public class PreviewMessage extends ForumsProcessor {
 		if (isGuest()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
-        
+		
         long forumID = -1;
         long threadID = -1;
         long messageID = -1;
@@ -112,6 +112,13 @@ public class PreviewMessage extends ForumsProcessor {
         ForumMessage previewMessage = (ForumMessage)getRequest().getAttribute("tempMessage");
 		previewMessage.setSubject(subject);
         previewMessage.setBody(body);
+        
+        // need to add attachments if tempMessage is picked up
+        if (previewMessage == null) {
+			log.info("(PreviewMessage) !!!!!!!!!!!!!!!!! TEMP MESSAGE IS NULL");
+		} else {
+			log.info("(PreviewMessage) !!!!!!!!!!!!!!!!! TEMP MESSAGE IS NOT NULL");
+		}
         
         getRequest().setAttribute("message", previewMessage);        
         
