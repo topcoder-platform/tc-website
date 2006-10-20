@@ -83,7 +83,9 @@
 <c:forEach items="${payments}" var="payment">
 <c:choose>
 <c:when test="${payment.typeId == 2}"><!-- contract --></c:when> 
+<c:when test="${payment.typeId == 3}"><!-- problem (legacy) --></c:when>
 <c:when test="${payment.typeId == 4}"><!-- coder referral --></c:when>
+<c:when test="${payment.typeId == 5}"><!-- charity (legacay) --></c:when>
 <c:when test="${payment.typeId == 7}"><!-- review --></c:when>
 <c:when test="${payment.typeId == 8}"><!-- one off --></c:when>
 <c:when test="${payment.typeId == 9}"><!-- article --></c:when>
@@ -104,7 +106,6 @@
 <c:otherwise>
     <tr class="<%=even?"light":"dark"%>">
         <td class="value">
-            tipo=<c:out value="${payment.typeId}" />
             <c:choose>
                 <c:when test="${(payment.typeId == 1 || payment.typeId == 22) && payment.header.algorithmRoundId > 0}">
                     <A href="/stat?c=coder_room_stats&cr=${payment.header.user.id}&rd=${payment.header.algorithmRoundId}"><c:out value="${payment.description}"/></A>
