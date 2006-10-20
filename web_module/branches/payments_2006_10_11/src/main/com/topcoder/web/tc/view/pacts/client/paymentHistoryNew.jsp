@@ -101,7 +101,7 @@
 <c:when test="${payment.typeId == 23}"><!-- bug fixes --></c:when>
 <c:when test="${payment.typeId == 24}"><!-- reliability --></c:when>
 <c:when test="${payment.typeId == 25}"><!-- DR top 1/3 --></c:when>
-=<c:otherwise>
+<c:otherwise>
     <tr class="<%=even?"light":"dark"%>">
         <td class="value">
             
@@ -144,7 +144,7 @@
 </c:when>
 <c:otherwise>
 <div align="center">
-<strong>No Affidavits Found</strong>
+<strong>No Payments Found</strong>
 </div>
 </c:otherwise>    
 </c:choose>            

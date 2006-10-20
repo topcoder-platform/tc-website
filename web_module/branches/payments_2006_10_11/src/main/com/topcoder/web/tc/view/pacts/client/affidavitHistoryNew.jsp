@@ -101,7 +101,7 @@
         <c:out value="${affidavit.header.description}"/>
         </td>
     <c:choose>
-        <c:when test="${affidavit.header.affirmed}">
+        <c:when test="${affidavit.header.statusId == 58}">
         <td class="valueC">
             <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavit.header.id}">
                 affirmed on<br><c:out value="${affidavit.affirmationDate}"></c:out>
@@ -109,7 +109,7 @@
         </td>
         <td class="valueC">&nbsp;</td>
         </c:when>
-        <c:when test="${affidavit.daysLeftToAffirm > 0}">
+        <c:when test="${affidavit.header.statusId == 57}">
         <td class="valueC">
             <strong><a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavit.header.id}">
                 affirm

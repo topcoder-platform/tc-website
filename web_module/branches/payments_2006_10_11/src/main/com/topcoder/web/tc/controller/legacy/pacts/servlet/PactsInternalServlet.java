@@ -1771,6 +1771,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
      * Override to use getUser instead of getActiveUser, so that it just looks in the sesion and not in the cookie,
      */
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
+    	log.debug("PactsInternalServlet.hasPermission, user=" + auth.getUser().getUserName());
         return createAuthorization(auth.getUser()).hasPermission(r);
     }
 
@@ -1784,6 +1785,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                 HttpObjectFactory.createResponse(response));
         ClassResource resource = new ClassResource(this.getClass());
 
+        log.debug("PactsInternalServlet.doAuthenticate, user=" + auth.getUser().getUserName());
         if (hasPermission(auth, resource)) {
             return true;
         } else {
@@ -2925,12 +2927,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         doAffidavit(request, response);
     }
-
-/*
-    protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
-        return true;
-    }
-*/
 
 
 }
