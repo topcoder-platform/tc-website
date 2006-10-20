@@ -74,7 +74,17 @@
 <c:when test="${payment.typeId == 2}"><!-- contract --></c:when> 
 <c:otherwise>
 	<tr>
-		<td class="bodyText"><c:out value="${payment.description}"/></td>
+		<td class="bodyText">
+			
+			<c:choose>
+				<c:when test="${(payment.typeId == 1 || payment.typeId == 22) && payment.header.algorithmRoundId > 0">
+                	<A href="/stat?c=coder_room_stats&cr=${payment.header.user.id}&rd=${payment.header.algorithmRoundId}"><c:out value="${payment.description}"/></A>
+                </c:when>
+                <c:otherwise>
+	                <c:out value="${payment.description}"/>
+                </c:otherwise>
+			</c:choose>
+		</td>
 		<td class="bodyText"><c:out value="${payment.dueDate}"/></td>
 		<td class="bodyText">$<fmt:formatNumber value="${payment.netAmount}" pattern="###,##0.00" /></td>
 		<td class="bodyText"><c:out escapeXml="false" value="${payment.statusDesc}"/></td>
