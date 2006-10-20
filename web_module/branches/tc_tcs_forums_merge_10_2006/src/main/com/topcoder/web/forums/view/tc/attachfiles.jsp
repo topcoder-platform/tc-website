@@ -160,7 +160,7 @@ function isClicked() {
     	</tr>
 <%  } %>
 
-<%  for (int i=message.getAttachmentCount(); i<attachManager.getMaxAttachmentsPerMessage(); i++) { %>
+<%  for (i=message.getAttachmentCount()+1; i<=attachManager.getMaxAttachmentsPerMessage(); i++) { %>
 	    <tr>
 	        <td>File <%=i%>: </td>
 	        <td><input type="file" name="attachFile" size="40" id="f<%=i%>"></td>
@@ -175,8 +175,8 @@ function isClicked() {
 <input type="image" src="/i/interface/btn_attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='Attach'"/>
 
 <%-- Cancel --%>
-<%	if (postMode.equals("Edit")) { %>
-		String urlNext = sessionInfo.getServletPath() + "?module=Message&" + ForumConstants.MESSAGE_ID + "=" + message.getID(); 
+<%	if (postMode.equals("Edit")) {
+		String urlNext = sessionInfo.getServletPath() + "?module=Message&" + ForumConstants.MESSAGE_ID + "=" + message.getID(); %> 
 		<a href="<%=urlNext%>"><img src="/i/interface/btn_cancel.gif" class="rtButton" alt="Cancel"/></a>
 <%	} else { %>
 		<input type="image" src="/i/interface/btn_cancel.gif" class="rtButton" alt="Cancel" onclick="form1.module.value='Post'"/>

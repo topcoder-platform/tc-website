@@ -165,7 +165,7 @@ function AllowTabCharacter() {
 						<img src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" />
 						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)
 						<%	if (!postMode.equals("Edit")) { %>
-							[<A href="?module=RemoveAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.POST_MODE%>=<%=request.getAttribute("postMode")%>&<%=ForumConstants.MESSAGE_ID%>=<%=request.getParameter(ForumConstants.MESSAGE_ID)%>">remove</A>]
+							[<A href="?module=RemoveAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.POST_MODE%>=<%=request.getAttribute("postMode")%>&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>">remove</A>]
 						<%	} %>
 						&nbsp;
 				<% 	} %>
