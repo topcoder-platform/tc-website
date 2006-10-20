@@ -80,12 +80,24 @@
 				<c:when test="${(payment.typeId == 1 || payment.typeId == 22) && payment.header.algorithmRoundId > 0}">
                 	<A href="/stat?c=coder_room_stats&cr=${payment.header.user.id}&rd=${payment.header.algorithmRoundId}"><c:out value="${payment.description}"/></A>
                 </c:when>
-				<c:when test="${(payment.typeId == 6 || payment.typeId == 7)}">
+				<c:when test="${(payment.typeId == 6 || payment.typeId == 7) && payment.header.componentProjectId > 0}">
                 	<A href="/tc?module=CompContestDetails&pj=${payment.header.componentProjectId}" class="bcLink"><c:out value="${payment.description}"/></A>                	
                 </c:when>
+				<c:when test="${(payment.typeId == 17 || payment.typeId == 25) && payment.header.digitalRunStageId > 0}">
+	                <A href="/tc?module=LeaderBoard&ph=112&staid=${payment.header.digitalRunStageId}" class="bcLink"><c:out value="${payment.description}"/></A>                	
+                </c:when>
+				<c:when test="${payment.typeId == 18 && payment.header.digitalRunSeasonId > 0}">
+	                <A href="/tc?module=RookieBoard&ph=112&seid=${payment.header.digitalRunStageId}" class="bcLink"><c:out value="${payment.description}"/></A>                	
+                </c:when>
+				<c:when test="${payment.typeId == 21 && payment.header.algorithmRoundId > 0}">
+                	<A href="/longcontest/?module=ViewOverview&rd=${payment.header.algorithmRoundId}>" class="bcLink"><c:out value="${payment.description}"/></A>                	
+                </c:when>                
                 <c:otherwise>
 	                <c:out value="${payment.description}"/>
                 </c:otherwise>
+                
+                
+                
 			</c:choose>
 		</td>
 		<td class="bodyText"><c:out value="${payment.dueDate}"/></td>
