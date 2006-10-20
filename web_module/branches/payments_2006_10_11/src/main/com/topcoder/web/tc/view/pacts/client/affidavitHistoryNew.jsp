@@ -162,7 +162,9 @@
 </table>
 </c:when>
 <c:otherwise>
-<b><em>No Affidavits Found</em> </b>
+<div align="center">
+<b><em>No Affidavits Found</em></b>
+</div>
 </c:otherwise>    
 </c:choose>            
 

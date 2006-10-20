@@ -16,7 +16,7 @@
 
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_main"/>
+  <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 </head>
 
@@ -56,27 +56,36 @@
     </c:if>
 </div>
 
+<br clear="all">
+
 <c:choose>
 <c:when test="${not empty payments}">
-    <table BGCOLOR="#FFFFFF" CELLPADDING="2" CELLSPACING="2" BORDER="0" WIDTH="100%" >
+<table cellpadding="0" cellspacing="0" class="stat" width="100%">
+<tbody>
     <tr>
-        <td class="bodyText" width="35%"><b>Payment Description</b></td>
-        <td class="bodyText" width="20%"><b>Due Date</b></td>
-        <td class="bodyText" width="15%"><b>Net Payment Amount</b></td>
-        <td class="bodyText" width="10%"><b>Status</b></td>
-        <td class="bodyText" width="10%">
+        <td class="title" colspan="5">
+        Payments
+        </td>
+    </tr>
+    <tr>
+        <td class="header">Description</td>
+        <td class="headerC">Due Date</td>
+        <td class="headerR">Net Payment</td>
+        <td class="headerC">Status</td>
+        <td class="headerC">
             <c:if test="${fullList}" >
-                <b>Date Paid</b>            
-            </c:if>
+                <b>Date Paid            
+            </c:if>&nbsp;
         </td>
     </tr>
     
+<% boolean even = true;%>
 <c:forEach items="${payments}" var="payment">
 <c:choose>
 <c:when test="${payment.typeId == 2}"><!-- contract --></c:when> 
 <c:otherwise>
-    <tr>
-        <td class="bodyText">
+    <tr class="<%=even?"light":"dark"%>">
+        <td class="value">
             
             <c:choose>
                 <c:when test="${(payment.typeId == 1 || payment.typeId == 22) && payment.header.algorithmRoundId > 0}">
@@ -97,28 +106,28 @@
                 <c:otherwise>
                     <c:out value="${payment.description}"/>
                 </c:otherwise>
-                
-                
-                
             </c:choose>
         </td>
-        <td class="bodyText"><c:out value="${payment.dueDate}"/></td>
-        <td class="bodyText">$<fmt:formatNumber value="${payment.netAmount}" pattern="###,##0.00" /></td>
-        <td class="bodyText"><c:out escapeXml="false" value="${payment.statusDesc}"/></td>
-        <td class="bodyText">
+        <td class="valueC"><c:out value="${payment.dueDate}"/></td>
+        <td class="valueR">$<fmt:formatNumber value="${payment.netAmount}" pattern="###,##0.00" /></td>
+        <td class="valueC"><c:out escapeXml="false" value="${payment.statusDesc}"/></td>
+        <td class="valueC">
             <c:if test="${fullList and payment.payDate != '00/00/0000'}" >
                 <c:out value="${payment.payDate}"/>            
-            </c:if>
+            </c:if>&nbsp;
         </td>
     </tr>
+<% even = !even;%>
 </c:otherwise>    
 </c:choose>    
 </c:forEach>    
-    
-    </table>
+</tbody>
+</table>
 </c:when>
 <c:otherwise>
-<b><em>No Payments Found</em> </b>
+<div align="center">
+<b><em>No Payments Found</em></b>
+</div>
 </c:otherwise>    
 </c:choose>            
 
