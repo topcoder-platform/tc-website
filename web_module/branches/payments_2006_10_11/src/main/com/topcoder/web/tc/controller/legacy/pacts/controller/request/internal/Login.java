@@ -58,11 +58,12 @@ public class Login extends PactsBaseProcessor implements PactsConstants {
                     }
                     throw new LoginException("Username or password incorrect.");
                 }
-                
+                /*
                 TCSAuthorization auth = new TCSAuthorization(sub);
                 if (!auth.hasPermission(new ClassResource(PactsInternalServlet.class))) {
                 	throw new LoginException("You don't have permissions to login in PACTS.");
                 }
+                */
                 getAuthentication().login(new SimpleUser(0, username, password), false);
                 
                 String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
@@ -71,8 +72,6 @@ public class Login extends PactsBaseProcessor implements PactsConstants {
                 return;
             } catch (LoginException e) {
                 addError("error", e.getMessage());            
-            } catch (TCWebException e) {
-                throw e;
             } catch (Exception e) {
                 throw(new TCWebException(e));
             }

@@ -176,6 +176,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
      * Any user has permissions to access Login module.
      * For the rest, just the users having permissions to PactsInternalServlet are authorized.
      */
+    // Doesn't seem necessary
+    /*
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
     	if (Login.class.getName().equals(r.getName())) return true;
     	
@@ -186,6 +188,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     	TCSAuthorization a = new TCSAuthorization(auth.getActiveUser());
         return a.hasPermission(new ClassResource(PactsInternalServlet.class));         	
     }
+*/
 
     /*
     Handles all GET requests.
