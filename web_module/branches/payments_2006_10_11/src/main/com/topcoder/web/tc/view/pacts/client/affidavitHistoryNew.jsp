@@ -91,7 +91,7 @@
         <td class="headerC">
         <c:if test="${fullList}" >
             <b>Date Paid</b>            
-        </c:if>
+        </c:if>&nbsp;
         </td>
     </tr>
 <% boolean even = true;%>
