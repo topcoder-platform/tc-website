@@ -965,7 +965,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("WHERE p.user_id = " + userId + " ");
         
         // if no elements, don't filter.
-        if (paymentTypeList.length() > 0) {
+        if (paymentTypes.length > 0) {
         	selectPaymentDetails.append("AND pd.payment_type_id IN (" + paymentTypeList + ") ");
         }
         
