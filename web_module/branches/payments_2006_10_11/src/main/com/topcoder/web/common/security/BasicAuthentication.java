@@ -160,6 +160,7 @@ public class BasicAuthentication implements WebAuthentication {
      * is present, returns an anonymous user.
      */
     public User getActiveUser() {
+    	log.debug("getActiveUser");
         /*
          * check if they're logged in.  accessing the current persistor implementation
          * is quicker than accessing the cookie because of the hash.  if they are
@@ -177,16 +178,16 @@ public class BasicAuthentication implements WebAuthentication {
                 u = checkCookie();
                 if (u == null) {
                     u = guest;
-                    //log.debug("*** made up a guest ***");
+                    log.debug("*** made up a guest ***");
                 } else {
-                    //log.debug("*** " + u.getUserName() + " was in cookie ***");
+                    log.debug("*** " + u.getUserName() + " was in cookie ***");
                 }
                 persistor.setObject(request.getSession().getId() + USER_COOKIE_NAME, u);
             } else {
-                //log.debug("*** " + u.getUserName() + " was stale ***");
+                log.debug("*** " + u.getUserName() + " was stale ***");
             }
         } else {
-            //log.debug("*** " + u.getUserName() + " was live***");
+            log.debug("*** " + u.getUserName() + " was live***");
         }
         if (!u.isAnonymous()) {
             markKnownUser();
@@ -199,11 +200,15 @@ public class BasicAuthentication implements WebAuthentication {
      * this session.  Otherwise returns an anonymous user.
      */
     public User getUser() {
+    	log.debug("getUser");
         User u = getUserFromPersistor();
         if (u == null) u = guest;
         if (!u.isAnonymous()) {
             markKnownUser();
+            log.debug("anonymous");
+           
         }
+        log.debug("user:" + u.getUserName());
         return u;
     }
 
