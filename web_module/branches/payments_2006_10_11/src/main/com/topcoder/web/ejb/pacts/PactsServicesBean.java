@@ -1024,7 +1024,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
         }
 
-        selectPaymentHeaders.append("ORDER BY 1");
+        selectPaymentHeaders.append("ORDER BY date_due DESC");
 
         Connection c = null;
         try {
