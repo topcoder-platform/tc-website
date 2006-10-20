@@ -36,96 +36,98 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-         <td class="cardCell" width="100%" align="center">
+<td width="100%" align="left" class="bodyColumn">
 
-        <jsp:include page="../../page_title.jsp" >
-            <jsp:param name="image" value="pact_s"/>
-            <jsp:param name="title" value="Payments"/>
-        </jsp:include>
+<jsp:include page="../../page_title.jsp" >
+<jsp:param name="image" value="pact_s"/>
+<jsp:param name="title" value="Payments"/>
+</jsp:include>
 
-		<p class="bigRed" align="left">Learn <A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid" class="bigRed">How to Get Paid</A> from TopCoder for your competition winnings.</p>
+<div align="left">
+    <div style="float:right;">
+       <A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
+    </div>
+    <span class="bodySubtitle">Payments > </span><br>
+    <c:if test="${fullList}" >
+        View all | <a href="/PactsMemberServlet?module=PaymentHistory&full_list=false" class="bcLink">View pending</a>
+    </c:if>
+    <c:if test="${not fullList}" >
+        <a href="/PactsMemberServlet?module=PaymentHistory&full_list=true" class="bcLink">View all</a> | View pending
+    </c:if>
+</div>
 
-		<p align="left">
-		<c:if test="${fullList}" >
-			This page displays all payments. <a href="/PactsMemberServlet?module=PaymentHistory&full_list=false">(View pending)</a>
-		</c:if>
-		<c:if test="${not fullList}" >
-			This page displays pending payments. <a href="/PactsMemberServlet?module=PaymentHistory&full_list=true">(View all)</a>		
-		</c:if>
-		</p>
-		<br>
 <c:choose>
 <c:when test="${not empty payments}">
-	<table BGCOLOR="#FFFFFF" CELLPADDING="2" CELLSPACING="2" BORDER="0" WIDTH="100%" >
-	<tr>
-		<td class="bodyText" width="35%"><b>Payment Description</b></td>
-		<td class="bodyText" width="20%"><b>Due Date</b></td>
-		<td class="bodyText" width="15%"><b>Net Payment Amount</b></td>
-		<td class="bodyText" width="10%"><b>Status</b></td>
-		<td class="bodyText" width="10%">
-			<c:if test="${fullList}" >
-				<b>Date Paid</b>			
-			</c:if>
-		</td>
-	</tr>
-	
+    <table BGCOLOR="#FFFFFF" CELLPADDING="2" CELLSPACING="2" BORDER="0" WIDTH="100%" >
+    <tr>
+        <td class="bodyText" width="35%"><b>Payment Description</b></td>
+        <td class="bodyText" width="20%"><b>Due Date</b></td>
+        <td class="bodyText" width="15%"><b>Net Payment Amount</b></td>
+        <td class="bodyText" width="10%"><b>Status</b></td>
+        <td class="bodyText" width="10%">
+            <c:if test="${fullList}" >
+                <b>Date Paid</b>            
+            </c:if>
+        </td>
+    </tr>
+    
 <c:forEach items="${payments}" var="payment">
 <c:choose>
 <c:when test="${payment.typeId == 2}"><!-- contract --></c:when> 
 <c:otherwise>
-	<tr>
-		<td class="bodyText">
-			
-			<c:choose>
-				<c:when test="${(payment.typeId == 1 || payment.typeId == 22) && payment.header.algorithmRoundId > 0}">
-                	<A href="/stat?c=coder_room_stats&cr=${payment.header.user.id}&rd=${payment.header.algorithmRoundId}"><c:out value="${payment.description}"/></A>
+    <tr>
+        <td class="bodyText">
+            
+            <c:choose>
+                <c:when test="${(payment.typeId == 1 || payment.typeId == 22) && payment.header.algorithmRoundId > 0}">
+                    <A href="/stat?c=coder_room_stats&cr=${payment.header.user.id}&rd=${payment.header.algorithmRoundId}"><c:out value="${payment.description}"/></A>
                 </c:when>
-				<c:when test="${(payment.typeId == 6 || payment.typeId == 7) && payment.header.componentProjectId > 0}">
-                	<A href="/tc?module=CompContestDetails&pj=${payment.header.componentProjectId}" class="bcLink"><c:out value="${payment.description}"/></A>                	
+                <c:when test="${(payment.typeId == 6 || payment.typeId == 7) && payment.header.componentProjectId > 0}">
+                    <A href="/tc?module=CompContestDetails&pj=${payment.header.componentProjectId}" class="bcLink"><c:out value="${payment.description}"/></A>                    
                 </c:when>
-				<c:when test="${(payment.typeId == 17 || payment.typeId == 25) && payment.header.digitalRunStageId > 0}">
-	                <A href="/tc?module=LeaderBoard&ph=112&staid=${payment.header.digitalRunStageId}" class="bcLink"><c:out value="${payment.description}"/></A>                	
+                <c:when test="${(payment.typeId == 17 || payment.typeId == 25) && payment.header.digitalRunStageId > 0}">
+                    <A href="/tc?module=LeaderBoard&ph=112&staid=${payment.header.digitalRunStageId}" class="bcLink"><c:out value="${payment.description}"/></A>                    
                 </c:when>
-				<c:when test="${payment.typeId == 18 && payment.header.digitalRunSeasonId > 0}">
-	                <A href="/tc?module=RookieBoard&ph=112&seid=${payment.header.digitalRunStageId}" class="bcLink"><c:out value="${payment.description}"/></A>                	
+                <c:when test="${payment.typeId == 18 && payment.header.digitalRunSeasonId > 0}">
+                    <A href="/tc?module=RookieBoard&ph=112&seid=${payment.header.digitalRunStageId}" class="bcLink"><c:out value="${payment.description}"/></A>                    
                 </c:when>
-				<c:when test="${payment.typeId == 21 && payment.header.algorithmRoundId > 0}">
-                	<A href="/longcontest/?module=ViewOverview&rd=${payment.header.algorithmRoundId}>" class="bcLink"><c:out value="${payment.description}"/></A>                	
+                <c:when test="${payment.typeId == 21 && payment.header.algorithmRoundId > 0}">
+                    <A href="/longcontest/?module=ViewOverview&rd=${payment.header.algorithmRoundId}>" class="bcLink"><c:out value="${payment.description}"/></A>                    
                 </c:when>                
                 <c:otherwise>
-	                <c:out value="${payment.description}"/>
+                    <c:out value="${payment.description}"/>
                 </c:otherwise>
                 
                 
                 
-			</c:choose>
-		</td>
-		<td class="bodyText"><c:out value="${payment.dueDate}"/></td>
-		<td class="bodyText">$<fmt:formatNumber value="${payment.netAmount}" pattern="###,##0.00" /></td>
-		<td class="bodyText"><c:out escapeXml="false" value="${payment.statusDesc}"/></td>
-		<td class="bodyText">
-			<c:if test="${fullList and payment.payDate != '00/00/0000'}" >
-				<c:out value="${payment.payDate}"/>			
-			</c:if>
-		</td>
-	</tr>
-</c:otherwise>	
-</c:choose>	
-</c:forEach>	
-	
-	</table>
+            </c:choose>
+        </td>
+        <td class="bodyText"><c:out value="${payment.dueDate}"/></td>
+        <td class="bodyText">$<fmt:formatNumber value="${payment.netAmount}" pattern="###,##0.00" /></td>
+        <td class="bodyText"><c:out escapeXml="false" value="${payment.statusDesc}"/></td>
+        <td class="bodyText">
+            <c:if test="${fullList and payment.payDate != '00/00/0000'}" >
+                <c:out value="${payment.payDate}"/>            
+            </c:if>
+        </td>
+    </tr>
+</c:otherwise>    
+</c:choose>    
+</c:forEach>    
+    
+    </table>
 </c:when>
 <c:otherwise>
 <b><em>No Payments Found</em> </b>
-</c:otherwise>	
-</c:choose>			
+</c:otherwise>    
+</c:choose>            
 
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../public_right.jsp">
-               <jsp:param name="level1" value="privatelabel"/>
+            <jsp:include page="../../public_right.jsp">
+               <jsp:param name="level1" value="default"/>
             </jsp:include>
          </td>
 <!-- Right Column Ends -->
