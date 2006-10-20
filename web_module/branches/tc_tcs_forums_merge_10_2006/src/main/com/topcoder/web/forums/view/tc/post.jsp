@@ -156,16 +156,23 @@ function AllowTabCharacter() {
 
 <tr><td class="rtHeader" colspan="2"><%=postHeading%></td></tr>
 <% 	if (tempMessage != null && tempMessage.getAttachmentCount() > 0) { %>
-		<tr>
+		<tr valign="middle">
 			<td class="rtHeader" colspan="2" width="100%">
 				Attachments:
 				<%	Iterator attachments = tempMessage.getAttachments();
 					while(attachments.hasNext()) {
 						Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
-						<img src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" />
+						<img align="absmiddle" src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" />
 						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)
-						<%	if (!postMode.equals("Edit")) { %>
-							[<A href="?module=RemoveAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.POST_MODE%>=<%=request.getAttribute("postMode")%>&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>">remove</A>]
+						<%	if (!postMode.equals("Edit")) { 
+								StringBuffer removeAttachUrl = new StringBuffer("?module=RemoveAttachment");
+								removeAttachUrl.append("&").append(ForumConstants.ATTACHMENT_ID).append("=").append(attachment.getID());
+								removeAttachUrl.append("&").append(ForumConstants.POST_MODE).append("=").append(postMode);
+								removeAttachUrl.append("&").append(ForumConstants.FORUM_ID).append("=").append(forum.getID());
+								if (message != null) {
+									removeAttachUrl.append("&").append(ForumConstants.MESSAGE_ID).append("=").append(message.getID());
+								}	%>
+								[<A href="<%=removeAttachUrl%>">remove</A>]
 						<%	} %>
 						&nbsp;
 				<% 	} %>
