@@ -12,6 +12,7 @@ import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.ForumPermissions;
+import com.jivesoftware.forum.Attachment;
 import com.jivesoftware.forum.WatchManager;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.TCContext;
@@ -22,6 +23,8 @@ import com.topcoder.web.ejb.messagehistory.MessageHistory;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
 import com.topcoder.shared.util.DBMS;
+
+import java.util.Iterator;
 
 /**
  * @author mtong
@@ -104,7 +107,13 @@ public class PostMessage extends ForumsProcessor {
 		}
 
         if (message == null || postMode.equals("Reply")) {
-			message = (ForumMessage)getRequest().getSession().getAttribute("tempMessage");
+			message = forum.createMessage(user);
+			ForumMessage tempMessage = (ForumMessage)getRequest().getSession().getAttribute("tempMessage");
+			Iterator itAttachments = tempMessage.getAttachments();
+			while (itAttachments.hasNext()) {
+				Attachment attachment = (Attachment)itAttachments.next();
+				message.createAttachment(attachment.getName(), attachment.getContentType(), attachment.getData());
+			}
 		}
         long histModificationDate = message.getModificationDate().getTime();
         String histSubject = message.getSubject();
