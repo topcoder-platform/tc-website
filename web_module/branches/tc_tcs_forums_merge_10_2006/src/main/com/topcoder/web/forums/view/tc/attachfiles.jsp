@@ -34,9 +34,7 @@
     ForumThread thread = (ForumThread)request.getAttribute("thread");
     HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
     AttachmentManager attachManager = forumFactory.getAttachmentManager(); 
-    String pageTitle = postMode.equals("Edit") ? "Edit Attachments" : "Attach Files"; 
-    
-    request.setAttribute("tempMessage", message); %>
+    String pageTitle = postMode.equals("Edit") ? "Edit Attachments" : "Attach Files"; %>
 
 <html>
 <head>
@@ -174,7 +172,7 @@ function isClicked() {
 <br>
 
 <%-- Attach Files & Post Message --%>
-<input type="image" class="rtButton" alt="Attach Files" onclick="form1.module.value='Attach'"/>
+<input type="image" src="/i/interface/btn_attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='Attach'"/>
 
 <%-- Cancel --%>
 <%	if (postMode.equals("Edit")) { %>

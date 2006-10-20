@@ -104,7 +104,7 @@ public class PostMessage extends ForumsProcessor {
 		}
 
         if (message == null || postMode.equals("Reply")) {
-			message = (ForumMessage)getRequest().getAttribute("tempMessage");
+			message = (ForumMessage)getRequest().getSession().getAttribute("tempMessage");
 		}
         long histModificationDate = message.getModificationDate().getTime();
         String histSubject = message.getSubject();
@@ -126,7 +126,7 @@ public class PostMessage extends ForumsProcessor {
                 BaseProcessor.close(ctx);
             }
         }
-
+        
         WatchManager watchManager = forumFactory.getWatchManager();
 		if (thread != null) {
 			if (postMode.equals("Reply")) {

@@ -19,11 +19,9 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%  ForumMessage message = (ForumMessage)request.getAttribute("message");
-	ForumMessage tempMessage = (ForumMessage)request.getAttribute("tempMessage");
+	ForumMessage tempMessage = (ForumMessage)request.getSession().getAttribute("tempMessage");
     ForumThread thread = (ForumThread)request.getAttribute("thread");
-    HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); 
-    
-    request.setAttribute("tempMessage", tempMessage); %>
+    HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
 
 <script type="text/javascript">
 function noenter(e)
@@ -157,11 +155,11 @@ function AllowTabCharacter() {
 <tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
 
 <tr><td class="rtHeader" colspan="2"><%=postHeading%></td></tr>
-<% 	if (tempMessage.getAttachmentCount() > 0) { %>
+<% 	if (tempMessage != null && tempMessage.getAttachmentCount() > 0) { %>
 		<tr>
 			<td class="rtHeader" colspan="2" width="100%">
 				Attachments:
-				<%	attachments = tempMessage.getAttachments();
+				<%	Iterator attachments = tempMessage.getAttachments();
 					while(attachments.hasNext()) {
 						Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
 						<img src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" />
@@ -192,12 +190,11 @@ function AllowTabCharacter() {
 	<td class="rtFooter">
 		<input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/>
 		<input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/>
-		<%	if (postMode.equals("Edit")) { %>
-				String urlNext = sessionInfo.getServletPath() + "?module=EditAttachments&" + ForumConstants.MESSAGE_ID + "=" + message.getID(); 
-				<a href="<%=urlNext%>"><img src="/i/interface/btn_attach.gif" class="rtButton" alt="Attach Files"/></a>
-		<%	} else { 
-				request.setAttribute("tempMessage", tempMessage); %>
-				<input type="image" src="/i/interface/btn_attach.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
+		<%	if (postMode.equals("Edit")) { 
+				String urlNext = sessionInfo.getServletPath() + "?module=EditAttachments&" + ForumConstants.MESSAGE_ID + "=" + message.getID(); %>
+				<a href="<%=urlNext%>"><img src="/i/interface/btn_attach_files.gif" class="rtButton" alt="Attach Files"/></a>
+		<%	} else { %>
+				<input type="image" src="/i/interface/btn_attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
 		<%	} %>
 	</td>
 </tr>
@@ -217,7 +214,7 @@ function AllowTabCharacter() {
 				<tr>
 					<td class="rtHeader" colspan="2" width="100%">
 						Attachments:
-						<%	attachments = message.getAttachments();
+						<%	Iterator attachments = message.getAttachments();
 							while(attachments.hasNext()) {
 								Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
 								<img src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" />

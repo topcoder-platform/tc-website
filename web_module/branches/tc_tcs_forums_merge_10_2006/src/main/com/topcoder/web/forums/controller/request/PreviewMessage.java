@@ -108,18 +108,11 @@ public class PreviewMessage extends ForumsProcessor {
             setIsNextPageInContext(true);
             return;
 		}
-   
-        ForumMessage previewMessage = (ForumMessage)getRequest().getAttribute("tempMessage");
+		
+        ForumMessage previewMessage = (ForumMessage)getRequest().getSession().getAttribute("tempMessage");
 		previewMessage.setSubject(subject);
         previewMessage.setBody(body);
-        
-        // need to add attachments if tempMessage is picked up
-        if (previewMessage == null) {
-			log.info("(PreviewMessage) !!!!!!!!!!!!!!!!! TEMP MESSAGE IS NULL");
-		} else {
-			log.info("(PreviewMessage) !!!!!!!!!!!!!!!!! TEMP MESSAGE IS NOT NULL");
-		}
-        
+
         getRequest().setAttribute("message", previewMessage);        
         
         setNextPage("/preview.jsp");

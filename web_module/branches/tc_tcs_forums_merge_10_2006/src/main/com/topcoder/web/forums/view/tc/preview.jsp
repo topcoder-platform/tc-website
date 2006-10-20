@@ -159,6 +159,19 @@ function AllowTabCharacter() {
 <tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
 
 <tr><td class="rtHeader" colspan="2"><%=message.getSubject()%></td></tr>
+<% 	if (message.getAttachmentCount() > 0) { %>
+		<tr>
+			<td class="rtHeader" colspan="2" width="100%">
+				Attachments:
+				<%	Iterator attachments = message.getAttachments();
+					while(attachments.hasNext()) {
+						Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
+						<img src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" />
+						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
+				<% 	} %>
+			</td>
+		</tr>
+<% } %>
 <tr>
 <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
 <%  if (ForumsUtil.displayMemberPhoto(user, user)) { %>
@@ -182,48 +195,8 @@ function AllowTabCharacter() {
 		<input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/>
 		<input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/>
 		<%	if (!postMode.equals("Edit")) { %>
-		<input type="image" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
+		<input type="image" src="/i/interface/btn_attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
 		<%	} %>
-	</td>
-</tr>
-
-<tr>
-	<td class="rtFooter">
-		<table>
-		<%  // attachment list
-			Iterator attachments = message.getAttachments();
-		    int attachCounter = 0;
-		    if (attachments.hasNext()) { %>
-			    <tr valign="top">
-			        <td>Attachments:</td>
-			        <td>
-			            <table cellpadding="0" cellspacing="0" border="0" width="100%">
-			            <%  ByteFormat byteFormatter = new ByteFormat();
-			                while (attachments.hasNext()) {
-			                    Attachment attachment = (Attachment)attachments.next();
-			                    attachCounter++; %>
-				                
-				                <tr valign="top">
-				                    <td width="1%">
-				
-				                        <table cellpadding="0" cellspacing="0" border="0">
-					                        <tr>
-					                            <td nowrap class="jive-attach-item">
-					                                <A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><%=attachment.getName()%></A>
-					                                (<%= byteFormatter.format(attachment.getSize()) %>)
-					                                [<A href="?module=RemoveAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.POST_MODE%>=<%=request.getAttribute("postMode")%>&<%=ForumConstants.MESSAGE_ID%>=<%=request.getParameter(ForumConstants.MESSAGE_ID)%>&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>">remove</A>]
-					                            </td>
-					                        </tr>
-				                        </table>
-				
-				                    </td>
-				                </tr>
-			            <%  } %>
-			            </table>
-			        </td>
-			    </tr>
-		<%  } %>
-		</table>
 	</td>
 </tr>
 

@@ -68,13 +68,8 @@ public class Post extends ForumsProcessor {
         }
 
         if (postMode.equals("New") || postMode.equals("Reply")) {
-        	ForumMessage tempMessage = null;
-            if (getRequest().getAttribute("tempMessage") != null) {
-            	tempMessage = (ForumMessage)getRequest().getAttribute("tempMessage");
-            } else {
-            	tempMessage = forum.createMessage(user);
-            }
-        	getRequest().setAttribute("tempMessage", tempMessage);
+        	ForumMessage tempMessage = forum.createMessage(user);
+        	getRequest().getSession().setAttribute("tempMessage", tempMessage);
         }
         
         getRequest().setAttribute("forum", forum);

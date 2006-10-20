@@ -78,14 +78,11 @@ public class AttachFiles extends ForumsProcessor {
             return;
 		}
 		
-		ForumMessage tempMessage = (ForumMessage)getRequest().getAttribute("tempMessage");
-		if (tempMessage == null) {
-			log.info("(AttachFiles) !!!!!!!!!!!!!!!!! TEMP MESSAGE IS NULL");
-		} else {
-			log.info("(AttachFiles) !!!!!!!!!!!!!!!!! TEMP MESSAGE IS NOT NULL");
-		}
+        ForumMessage tempMessage = 
+        	(ForumMessage)getRequest().getSession().getAttribute("tempMessage");   // message for preview
         tempMessage.setSubject(subject);
         tempMessage.setBody(body);
+        
         getRequest().setAttribute("message", tempMessage);
         
         setNextPage("/attachfiles.jsp");
