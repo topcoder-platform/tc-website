@@ -126,7 +126,7 @@
 </c:when>
 <c:otherwise>
 <div align="center">
-<b><em>No Payments Found</em></b>
+<strong>No Affidavits Found</strong>
 </div>
 </c:otherwise>    
 </c:choose>            
