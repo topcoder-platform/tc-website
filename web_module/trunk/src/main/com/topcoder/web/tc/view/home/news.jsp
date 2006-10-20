@@ -7,6 +7,28 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 <%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
+        <br>10.20.06<br>12:30 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm323">SRM 323 - Problem Set & Analysis</A></span><br><br>
+This match was harder then usual. All three problems in the
+first division proved to be rather tricky. Only 229 coders solved the so-called easy 
+problem, 40 solved the medium, while only 10 coders successfully restored 
+expression in the hard one.
+            </td>
+            <td class="newsPhoto"><img src="/i/m/Pawa_big.jpg" alt="" width="55" height="61"/><br>by
+                <tc-webtag:handle coderId="10323773" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=match_editorials&d2=srm323">full story</A> |
+    <tc-webtag:forumLink forumID="505998" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
         <br>10.19.06<br>3:15 PM</td>
     <td class="newsTextCell">
@@ -202,18 +224,5 @@ message...
         <A href="/collegetour">details</A>&#160;|&#160;
         <tc-webtag:forumLink forumID="506143" message="discuss this"/> |
         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.11.06<br>1:45 PM</td>
-     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_100906">AOL SRM 322 chat session transcript</A></span><br><br>
-      AOL recently held a chat with members, just prior to SRM 322.  Here's a transcript of what they discussed.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_100906">view</A> | 
-    <tc-webtag:forumLink forumID="506075" message="discuss this"/> |
-     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
