@@ -39,28 +39,33 @@
 <!-- Center Column Begins -->
 <td width="100%" align="left" class="bodyColumn">
 
-        <jsp:include page="../../page_title.jsp" >
-            <jsp:param name="image" value="pact_s"/>
-            <jsp:param name="title" value="Affidavits"/>
-        </jsp:include>
+<jsp:include page="../../page_title.jsp" >
+<jsp:param name="image" value="pact_s"/>
+<jsp:param name="title" value="Affidavits"/>
+</jsp:include>
 
-        <p class="bigRed" align="left">Learn <A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid" class="bigRed">How to Get Paid</A> from TopCoder for your competition winnings.</p>
 
-        <p align="left">
-        <c:if test="${fullList}" >
-            This page displays all affidavits. <a href="/PactsMemberServlet?module=AffidavitHistory&full_list=false">(View pending)</a>
-        </c:if>
-        <c:if test="${not fullList}" >
-            This page displays pending affidavits. <a href="/PactsMemberServlet?module=AffidavitHistory&full_list=true">(View all)</a>        
-        </c:if>
-        </p>
-        <br>
+<div align="left">
+    <div style="float:right;">
+       <A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
+    </div>
+    <span class="bodySubtitle">Affidavits > </span><br>
+    <c:if test="${fullList}" >
+        View all | <a href="/PactsMemberServlet?module=AffidavitHistory&full_list=false" class="bcLink">View pending</a>
+    </c:if>
+    <c:if test="${not fullList}" >
+        <a href="/PactsMemberServlet?module=AffidavitHistory&full_list=true" class="bcLink">View all</a> | View pending
+    </c:if>
+</div>
+
+<br clear="all">
+
 <c:choose>
 <c:when test="${not empty affidavits}">
 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
 <tbody>
     <tr>
-        <td class="title" colspan="6">
+        <td class="title" colspan="7">
         Affidavits
         </td>
     </tr>
@@ -68,8 +73,11 @@
         <td class="header">
         Description
         </td>
-        <td class="header">
+        <td class="headerC">
         Affirmation
+        </td>
+        <td class="headerC">
+        Time Left
         </td>
         <td class="headerR">
         Net Payment Amount
@@ -92,21 +100,48 @@
         <td class="value">
         <c:out value="${affidavit.header.description}"/>
         </td>
-        <td class="value">
+<%--
+        <td class="valueC">
             <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavit.header.id}">
-                <c:choose>
-                    <c:when test="${affidavit.header.affirmed}">
-                        affirmed on <c:out value="${affidavit.affirmationDate}"></c:out>
-                    </c:when>
-                    <c:when test="${affidavit.daysLeftToAffirm > 0}">
-                        click to affirm, <c:out value="${affidavit.daysLeftToAffirm}"/> days left
-                    </c:when>
-                    <c:otherwise>
-                        expired, click here to view
-                    </c:otherwise>
-                </c:choose>
+--%>
+    <c:choose>
+        <c:when test="${affidavit.header.affirmed}">
+        <td class="valueC">
+            <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavit.header.id}">
+                affirmed on<br><c:out value="${affidavit.affirmationDate}"></c:out>
             </a>                
         </td>
+        <td class="valueC">&nbsp;</td>
+        </c:when>
+        <c:when test="${affidavit.daysLeftToAffirm > 0}">
+        <td class="valueC">
+            <strong><a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavit.header.id}">
+                affirm
+            </a></strong>
+        </td>
+        <td class="valueC">
+            <strong><a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavit.header.id}">
+                <c:out value="${affidavit.daysLeftToAffirm}"/> days
+            </a></strong>            
+        </td>
+        </c:when>
+        <c:otherwise>
+        <td class="valueC">
+            <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavit.header.id}" class="bigRed">
+                expired
+            </a>                
+        </td>
+        <td class="valueC">
+            <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavit.header.id}" class="bigRed">
+                expired
+            </a>                
+        </td>
+        </c:otherwise>
+    </c:choose>
+<%--
+            </a>                
+        </td>
+--%>
         <td class="valueR">
             <c:if test="${affidavit.payment.id > 0}">
                 <a href="/PactsMemberServlet?t=payments&c=payment_details&payment_id=${affidavit.payment.id}" >
@@ -120,7 +155,7 @@
                 <c:otherwise>no</c:otherwise>                 
             </c:choose>
         </td>
-        <td class="value"C>
+        <td class="valueC">
             <c:out value="${affidavit.header.statusDesc}"/>
         </td>
         <td class="valueC">
