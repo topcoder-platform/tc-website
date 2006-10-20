@@ -102,9 +102,10 @@ By&#160;<tc-webtag:handle coderId="7504863" /><br>
   realization is that starting with a good initial configuration is a crucial
   first step towards a good final solution in complex cases.
 </li>
-<li>With this in mind, my solution ended up as follows:
-</li>
 </ul>
+<p>
+With this in mind, my solution ended up as follows:
+</p>
 <p>
   <span class="bodySubtitle">1. Initial configuration</span>
 </P>
