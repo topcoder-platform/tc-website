@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.login.LoginRemote;
-import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.DBMS;
@@ -12,13 +11,11 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.user.User;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
-import com.topcoder.web.tc.controller.legacy.pacts.servlet.PactsInternalServlet;
-import com.topcoder.web.tc.controller.request.authentication.EmailActivate;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.request.authentication.EmailActivate;
 
 /**
  * Add or update a payment.
@@ -68,7 +65,7 @@ public class Login extends PactsBaseProcessor implements PactsConstants {
                 
                 char status = getStatus(sub.getUserId());
                 
-                if (Arrays.binarySearch(Constants.ACTIVE_STATI, status) >= 0) {
+                if (Arrays.binarySearch(Constants.ACTIVE_STATI, status) < 0) {
                 	getAuthentication().logout();
                 	throw new LoginException("Your account is not active.");
                 }

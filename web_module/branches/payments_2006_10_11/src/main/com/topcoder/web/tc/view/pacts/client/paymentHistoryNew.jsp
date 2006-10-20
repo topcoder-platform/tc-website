@@ -83,7 +83,25 @@
 <c:forEach items="${payments}" var="payment">
 <c:choose>
 <c:when test="${payment.typeId == 2}"><!-- contract --></c:when> 
-<c:otherwise>
+<c:when test="${payment.typeId == 4}"><!-- coder referral --></c:when>
+<c:when test="${payment.typeId == 7}"><!-- review --></c:when>
+<c:when test="${payment.typeId == 8}"><!-- one off --></c:when>
+<c:when test="${payment.typeId == 9}"><!-- article --></c:when>
+<c:when test="${payment.typeId == 10}"><!-- assembly --></c:when>
+<c:when test="${payment.typeId == 11}"><!-- testing --></c:when>
+<c:when test="${payment.typeId == 12}"><!-- logo --></c:when>
+<c:when test="${payment.typeId == 13}"><!-- studio --></c:when>
+<c:when test="${payment.typeId == 14}"><!-- problem testing --></c:when>
+<c:when test="${payment.typeId == 15}"><!-- problem writing --></c:when>
+<c:when test="${payment.typeId == 16}"><!-- ccip --></c:when>
+<c:when test="${payment.typeId == 17}"><!-- DR Prize --></c:when>
+<c:when test="${payment.typeId == 18}"><!-- DR Rockie --></c:when>
+<c:when test="${payment.typeId == 20}"><!-- royalty --></c:when>
+<c:when test="${payment.typeId == 21}"><!-- marathon --></c:when>
+<c:when test="${payment.typeId == 23}"><!-- bug fixes --></c:when>
+<c:when test="${payment.typeId == 24}"><!-- reliability --></c:when>
+<c:when test="${payment.typeId == 25}"><!-- DR top 1/3 --></c:when>
+=<c:otherwise>
     <tr class="<%=even?"light":"dark"%>">
         <td class="value">
             

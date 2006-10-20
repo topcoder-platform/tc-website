@@ -30,6 +30,7 @@ import javax.servlet.http.HttpSession;
 
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
@@ -164,7 +165,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     }
 
     protected WebAuthentication createAuthentication(TCRequest request, TCResponse response) throws Exception {
-		return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response,
+		return new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response,
 				BasicAuthentication.PACTS_INTERNAL_SITE);
     }
 
@@ -1765,6 +1766,13 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         return rv;
     }
 */
+
+    /**
+     * Override to use getUser instead of getActiveUser, so that it just looks in the sesion and not in the cookie,
+     */
+    protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
+        return createAuthorization(auth.getUser()).hasPermission(r);
+    }
 
     /*
     This method authenticates the session and forwards
