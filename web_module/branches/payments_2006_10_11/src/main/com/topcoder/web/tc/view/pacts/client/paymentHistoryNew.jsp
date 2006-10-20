@@ -80,6 +80,9 @@
 				<c:when test="${(payment.typeId == 1 || payment.typeId == 22) && payment.header.algorithmRoundId > 0">
                 	<A href="/stat?c=coder_room_stats&cr=${payment.header.user.id}&rd=${payment.header.algorithmRoundId}"><c:out value="${payment.description}"/></A>
                 </c:when>
+				<c:when test="${(payment.typeId == 6 || payment.typeId == 7)">
+                	<A href="/tc?module=CompContestDetails&pj=${payment.header.componentProjectId}" class="bcLink"><c:out value="${payment.description}"/></A>                	
+                </c:when>
                 <c:otherwise>
 	                <c:out value="${payment.description}"/>
                 </c:otherwise>
