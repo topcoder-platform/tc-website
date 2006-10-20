@@ -20,14 +20,13 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
         	boolean fullList = "true".equals(getRequest().getParameter(FULL_LIST));
         	
             PaymentBean paymentBean = new PaymentBean();
-            int[] paymentTypes = {COMPONENT_PAYMENT, CHARITY_PAYMENT, REVIEW_BOARD_PAYMENT, ONE_OFF_PAYMENT};
             
-            Payment[] payments = paymentBean.getPaymentDetailsForUser(getUser().getId(), paymentTypes, !fullList);
+            Payment[] payments = paymentBean.getPaymentDetailsForUser(getUser().getId(), new int[0], !fullList);
             
             if (payments == null) {
             	payments = new Payment[0];            		
             }
-            	
+/*            	
         	// Component IDs
         	long[] paymentIds = new long[payments.length];
         	for (int i=0; i<payments.length; i++) {
@@ -40,6 +39,7 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             for (int i=0; i<payments.length; i++) {
             	payments[0].setModifiedDate(creationDates[i]);
             }
+*/            
             getRequest().setAttribute(PAYMENTS, payments);
 
 

@@ -963,7 +963,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentDetails.append("OUTER(payment_address pa, OUTER state, OUTER country) ");
         selectPaymentDetails.append("WHERE p.user_id = " + userId + " ");
-        selectPaymentDetails.append("AND pd.payment_type_id IN (" + paymentTypeList + ") ");
+        
+        // if no elements, don't filter.
+        if (paymentTypeList.length() > 0) {
+        	selectPaymentDetails.append("AND pd.payment_type_id IN (" + paymentTypeList + ") ");
+        }
+        
         selectPaymentDetails.append("AND pd.payment_detail_id = p.most_recent_detail_id ");
         selectPaymentDetails.append("AND pt.payment_type_id = pd.payment_type_id ");
         selectPaymentDetails.append("AND pm.payment_method_id = pd.payment_method_id ");

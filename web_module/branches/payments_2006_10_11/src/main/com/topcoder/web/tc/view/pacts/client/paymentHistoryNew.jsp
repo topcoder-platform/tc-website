@@ -1,5 +1,4 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.controller.request.member.PaymentHistory" %>
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants"%>
 <%@ page language="java"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
