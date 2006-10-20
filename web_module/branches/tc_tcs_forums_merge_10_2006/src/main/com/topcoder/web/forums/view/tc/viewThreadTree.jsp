@@ -239,7 +239,7 @@ function displayVotes(messageID, posVotes, negVotes) {
    </tr>
    	<% if (activeMessage.getAttachmentCount() > 0) { %>
 	<tr>
-		<td class="rtHeader" colspan="2" width="100%">
+		<td class="rtHeader" colspan="2">
 			Attachments:
 			<%	Iterator attachments = activeMessage.getAttachments();
 				while(attachments.hasNext()) {

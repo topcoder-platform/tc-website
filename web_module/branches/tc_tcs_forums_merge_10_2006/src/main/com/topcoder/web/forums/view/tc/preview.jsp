@@ -160,7 +160,7 @@ function AllowTabCharacter() {
 <tr><td class="rtHeader" colspan="2"><%=message.getSubject()%></td></tr>
 <% 	if (message.getAttachmentCount() > 0) { %>
 		<tr>
-			<td class="rtHeader" colspan="2" width="100%">
+			<td class="rtHeader" colspan="2">
 				Attachments:
 				<%	Iterator attachments = message.getAttachments();
 					while(attachments.hasNext()) {

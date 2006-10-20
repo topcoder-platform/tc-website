@@ -368,7 +368,7 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
    	</tr>
    	<% if (message.getAttachmentCount() > 0) { %>
 	<tr>
-		<td class="rtHeader" colspan="2" width="100%">
+		<td class="rtHeader" colspan="2">
 			Attachments:
 			<%	Iterator attachments = message.getAttachments();
 				while(attachments.hasNext()) {

@@ -157,7 +157,7 @@ function AllowTabCharacter() {
 <tr><td class="rtHeader" colspan="2"><%=postHeading%></td></tr>
 <% 	if (tempMessage != null && tempMessage.getAttachmentCount() > 0) { %>
 		<tr valign="middle">
-			<td class="rtHeader" colspan="2" width="100%">
+			<td class="rtHeader" colspan="2">
 				Attachments:
 				<%	Iterator attachments = tempMessage.getAttachments();
 					while(attachments.hasNext()) {
@@ -223,7 +223,7 @@ function AllowTabCharacter() {
         </a></td></tr>
         <% 	if (message.getAttachmentCount() > 0) { %>
 				<tr>
-					<td class="rtHeader" colspan="2" width="100%">
+					<td class="rtHeader" colspan="2">
 						Attachments:
 						<%	Iterator attachments = message.getAttachments();
 							while(attachments.hasNext()) {
