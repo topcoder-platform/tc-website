@@ -47,6 +47,7 @@ public class BasicAuthentication implements WebAuthentication {
     public static final Resource TECH_ASSESS_SITE = new SimpleResource("techassess");
     public static final Resource LONG_CONTEST_SITE = new SimpleResource("lc");
     public static final Resource STUDIO_SITE = new SimpleResource("studio");
+    public static final Resource PACTS_INTERNAL_SITE = new SimpleResource("pacts");
 
     /**
      * Construct an authentication instance backed by the given persistor

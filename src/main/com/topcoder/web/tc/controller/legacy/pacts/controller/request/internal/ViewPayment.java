@@ -28,15 +28,11 @@ public class ViewPayment extends BaseProcessor implements PactsConstants {
             Payment payment = new Payment(bean.getPayment(payment_id));
             getRequest().setAttribute(PACTS_INTERNAL_RESULT, payment);
 
-            Date creationDate = bean.getCreationDate(payment_id);
-            getRequest().setAttribute(CREATION_DATE, new SimpleDateFormat(DATE_FORMAT_STRING).format(creationDate));
-
             Map search = new HashMap();
             search.put(PAYMENT_ID, payment_id + "");
 
             Map notes = bean.findNotes(search);
             getRequest().setAttribute(NOTE_HEADER_LIST, new NoteHeaderList(notes).getHeaderList());
-
 
             setNextPage(INTERNAL_PAYMENT_JSP);
             setIsNextPageInContext(true);

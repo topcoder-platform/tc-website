@@ -20,16 +20,18 @@ public class GeneratePayments extends BaseProcessor implements PactsConstants {
         try {
             setNextPage(INTERNAL_GENERATE_PAYMENTS);
             setIsNextPageInContext(true);
+            int paymentTypeId = Integer.parseInt(getRequest().getParameter(PAYMENT_TYPE_ID));
+           
             if (getRequest().getParameter(ROUND_ID) != null) {
                 DataInterfaceBean bean = new DataInterfaceBean();
                 int count = 0;
                 if (StringUtils.checkNull(getRequest().getParameter(AFFIDAVIT_TYPE_ID)).trim().equals("")) {
                     log.debug("no affidavit type");
-                    count = bean.generateRoundPayments(Long.parseLong(getRequest().getParameter(ROUND_ID)), true);
+                    count = bean.generateRoundPayments(Long.parseLong(getRequest().getParameter(ROUND_ID)), true, paymentTypeId);
                 } else {
                     log.debug("affidavit type " + getRequest().getParameter(AFFIDAVIT_TYPE_ID));
                     count = bean.generateRoundPayments(Long.parseLong(getRequest().getParameter(ROUND_ID)),
-                            Integer.parseInt(getRequest().getParameter(AFFIDAVIT_TYPE_ID)), true);
+                            Integer.parseInt(getRequest().getParameter(AFFIDAVIT_TYPE_ID)), true, paymentTypeId);
                 }
                 addError(ROUND_ID, "Success, " + count + " payments generated");
             } else {

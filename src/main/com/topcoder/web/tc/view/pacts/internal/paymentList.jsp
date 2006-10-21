@@ -18,7 +18,6 @@
 		request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT);
 	ResultSetContainer stati = (ResultSetContainer)
 		request.getAttribute(PactsConstants.STATUS_CODE_LIST);
-	String[] creationDateList = (String[])request.getAttribute(PactsConstants.CREATION_DATE_LIST);
 	if (paymentList == null) {
 		out.println("no list!!!<br>");
 		paymentList = new PaymentHeader[0];
@@ -74,6 +73,7 @@
 		<td><b>Status</b></td>
 		<td><b>Client</b></td>
 		<td><b>Created</b></td>
+		<td><b>Modified</b></td>
 		<td><b>Reviewed</b></td>
 		</tr>
 <%
@@ -121,7 +121,8 @@
 			} else {
 				out.print("<td></td>\n");
 			}
-			out.print("<td>"+creationDateList[n]+"</td>\n");
+			out.print("<td>"+paymentList[n].getCreateDate()+"</td>\n");
+			out.print("<td>"+paymentList[n].getModifyDate()+"</td>\n");
 			if (paymentList[n].isReviewed()) out.print("<td>Yes</td>\n");
 			else out.print("<td>No</td>\n");
 			

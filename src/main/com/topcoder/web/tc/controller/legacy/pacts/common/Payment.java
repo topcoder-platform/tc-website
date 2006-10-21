@@ -192,6 +192,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
         grossAmount = 0;
         printDate = "00/00/00";
         payDate = "00/00/00";
+        modifiedDate = "00/00/00";
         lastName = "Last";
         firstName = "First";
         middleName = "Middle";
@@ -503,4 +504,5 @@ public class Payment implements PactsConstants, java.io.Serializable {
 	public void setCharity(boolean charity) {
 		this.charity = charity;
 	}
+
 }

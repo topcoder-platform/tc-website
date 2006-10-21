@@ -1468,6 +1468,18 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.generateRoundPayments(roundId, affidavitTypeId, makeChanges);
     }
 
+    public int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges, int paymentTypeId)
+    		throws RemoteException, IllegalUpdateException, SQLException {
+    	PactsServices ps = getEjbHandle();
+    	return ps.generateRoundPayments(roundId, affidavitTypeId, makeChanges, paymentTypeId);
+    }
+
+
+    public int generateRoundPayments(long roundId, boolean makeChanges, int paymentTypeId)
+			throws RemoteException, IllegalUpdateException, SQLException {
+    	PactsServices ps = getEjbHandle();
+    	return ps.generateRoundPayments(roundId, makeChanges, paymentTypeId);
+    }
 
     /**
      * Generates all the payments for the people who won money for the given project (designers, developers,

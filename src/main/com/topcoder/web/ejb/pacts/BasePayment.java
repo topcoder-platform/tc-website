@@ -36,7 +36,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     private final int paymentTypeId;
     private String referenceDescription = null;
     private boolean charity = false;
-    
+
     // Date when the event happened.  It is not stored in the database, but needed to know if referrals must be paid.
     private Date eventDate;
 
@@ -105,7 +105,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case REVIEW_BOARD_PAYMENT:
             return REFERENCE_COMPONENT_PROJECT_ID;
 
-        case PROBLEM_TESTING_PAYMENT:
         case PROBLEM_WRITING_PAYMENT:
             return REFERENCE_ALGORITHM_PROBLEM_ID;
 
@@ -149,7 +148,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case ALGORITHM_TOURNAMENT_PRIZE_PAYMENT: return new AlgorithmTournamentPrizePayment(coderId, grossAmount, referenceId);
         case COMPONENT_PAYMENT: return new ComponentWinningPayment(coderId, grossAmount, referenceId);
         case REVIEW_BOARD_PAYMENT: return new ReviewBoardPayment(coderId, grossAmount, referenceId);
-        case PROBLEM_TESTING_PAYMENT: return new ProblemTestingPayment(coderId, grossAmount, referenceId);
         case PROBLEM_WRITING_PAYMENT: return new ProblemWritingPayment(coderId, grossAmount, referenceId);
         case TC_STUDIO_PAYMENT: return new StudioContestPayment(coderId, grossAmount, referenceId);
         case COMPONENT_TOURNAMENT_BONUS_PAYMENT: return new ComponentTournamentBonusPayment(coderId, grossAmount, referenceId);
