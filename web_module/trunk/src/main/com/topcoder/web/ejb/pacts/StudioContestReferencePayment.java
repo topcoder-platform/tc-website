@@ -78,7 +78,7 @@ public abstract class StudioContestReferencePayment extends BasePayment {
          * @throws SQLException if an error occurred trying to access db.
          */
         public String lookupReferenceDescription(BasePayment payment) throws SQLException {
-            return getContestName(((ComponentContestReferencePayment) payment).getContestId());
+            return getContestName(((StudioContestReferencePayment) payment).getContestId());
         }
 
         /**

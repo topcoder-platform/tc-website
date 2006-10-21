@@ -63,6 +63,10 @@
 <% out.println("            <td>Between <input type=\"text\" name=\""+PactsConstants.EARLIEST_CREATION_DATE+"\" size=\"10\"> and <input type=\"text\" name=\""+PactsConstants.LATEST_CREATION_DATE+"\" size=\"10\"></td>"); %>
           </tr>
           <tr>
+            <td>Last Modification Date:</td>
+<% out.println("            <td>Between <input type=\"text\" name=\""+PactsConstants.EARLIEST_MODIFICATION_DATE+"\" size=\"10\"> and <input type=\"text\" name=\""+PactsConstants.LATEST_MODIFICATION_DATE+"\" size=\"10\"></td>"); %>
+          </tr>
+          <tr>
             <td>Pay Date:</td>
 <% out.println("            <td>Between <input type=\"text\" name=\""+PactsConstants.EARLIEST_PAY_DATE+"\" size=\"10\"> and <input type=\"text\" name=\""+PactsConstants.LATEST_PAY_DATE+"\" size=\"10\"></td>"); %>
           </tr>

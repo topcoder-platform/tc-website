@@ -30,6 +30,7 @@ import javax.servlet.http.HttpSession;
 
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
@@ -42,6 +43,8 @@ import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
@@ -161,6 +164,11 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         log.info(loginfo);
     }
 
+    protected WebAuthentication createAuthentication(TCRequest request, TCResponse response) throws Exception {
+		return new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response,
+				BasicAuthentication.PACTS_INTERNAL_SITE);
+    }
+
 
     /*
     Handles all GET requests.
@@ -176,13 +184,14 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         PassedParam pp = new PassedParam();
         try {
             trace(request, response);
-            if (!doAuthenticate(request, response)) return;
-
+            
             //just jamming in the new way of doing things.  perhaps one day this whole system will leave the dark side
-            if (request.getParameter(MODULE) != null) {
+            if (request.getParameter(MODULE) != null || request.getAttribute(MODULE) != null) {
                 process(request, response);
                 return;
             }
+
+            if (!doAuthenticate(request, response)) return;
 
             String task = request.getParameter(TASK_STRING);
             String command = request.getParameter(CMD_STRING);
@@ -649,14 +658,16 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         try {
             trace(request, response);
-            if (!doAuthenticate(request, response)) return;
+
 
             //just jamming in the new way of doing things.  perhaps one day this whole system will leave the dark side
-            if (request.getParameter(MODULE) != null) {
+            if (request.getParameter(MODULE) != null || request.getAttribute(MODULE) != null) {
                 process(request, response);
                 return;
             }
 
+            if (!doAuthenticate(request, response)) return;
+            
             String task = null;
             String command = null;
 
@@ -1756,15 +1767,25 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     }
 */
 
+    /**
+     * Override to use getUser instead of getActiveUser, so that it just looks in the sesion and not in the cookie,
+     */
+    protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
+    	log.debug("PactsInternalServlet.hasPermission, user=" + auth.getUser().getUserName());
+        return createAuthorization(auth.getUser()).hasPermission(r);
+    }
+
     /*
     This method authenticates the session and forwards
     the user to a login page if there is an error.
     */
     private boolean doAuthenticate(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-        WebAuthentication auth = createAuthentication(HttpObjectFactory.createRequest(request),
+    	TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+        WebAuthentication auth = createAuthentication(tcRequest,
                 HttpObjectFactory.createResponse(response));
         ClassResource resource = new ClassResource(this.getClass());
+
+        log.debug("PactsInternalServlet.doAuthenticate, user=" + auth.getUser().getUserName());
         if (hasPermission(auth, resource)) {
             return true;
         } else {
@@ -2906,12 +2927,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         doAffidavit(request, response);
     }
-
-/*
-    protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
-        return true;
-    }
-*/
 
 
 }

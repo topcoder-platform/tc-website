@@ -75,7 +75,11 @@
 		</tr>
 		<tr>
 			<td><b>Date Created:</b></td>
-			<td><c:out value="${requestScope.creation_date}" /> </td>
+			<td><c:out value="${payment.header.createDate}" /> </td>
+		</tr>
+		<tr>
+			<td><b>Date Modified:</b></td>
+			<td><c:out value="${payment.header.modifyDate}" /> </td>
 		</tr>
 		<tr>
 			<td><b>Date Due:</b></td>
@@ -129,8 +133,11 @@
 </c:if>
 <c:if test="${payment.header.parentPaymentId > 0}">
 		<tr>
-			<td><b>Parent Payment ID:</b></td>
-			<td><c:out value="${payment.header.parentPaymentId}" /></td>
+			<td><b>Parent Payment Id:</b></td>
+			<td><a href="${pacts:viewPayment(payment.header.parentPaymentId)}">
+				<c:out value="${payment.header.parentPaymentId}" />
+				</a>
+				</td>
 		</tr>
 </c:if>
 		<tr>

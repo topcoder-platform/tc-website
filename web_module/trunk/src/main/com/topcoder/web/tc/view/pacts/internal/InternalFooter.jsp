@@ -55,7 +55,6 @@ Searches<br>
 
 
 <br><br>
-<%
-   out.print("<a href=\"tc?module=Logout\">Logout</a><br>");
-%>
+<a href="PactsInternalServlet?module=Login">Login</a>&nbsp;&nbsp;
+<a href="PactsInternalServlet?module=Logout">Logout</a><br>
 </center>
