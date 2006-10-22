@@ -1,6 +1,6 @@
 package com.topcoder.web.reg.transaction;
 
-import com.topcoder.web.reg.HibernateUtils;
+import com.topcoder.web.common.HibernateUtils;
 
 /**
  * @author dok

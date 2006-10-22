@@ -1,5 +1,6 @@
 package com.topcoder.web.privatelabel.controller.request;
 
+import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.EmailEngine;
@@ -14,9 +15,9 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 /**
- * @author  dok
- * @version  $Revision$ $Date$
- * Create Date: Jan 31, 2005
+ * @author dok
+ * @version $Revision$ $Date$
+ *          Create Date: Jan 31, 2005
  */
 public abstract class BaseCredentialReminder extends RegistrationBase {
 
@@ -46,9 +47,10 @@ public abstract class BaseCredentialReminder extends RegistrationBase {
                 if (rsc.isEmpty()) {
                     throw new NavigationException("Sorry, this email address (" + StringUtils.htmlEncode(email) + ") does not exist in our system.");
                 } else {
+                    PrincipalMgrRemote mgr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
                     TCSEmailMessage mail = new TCSEmailMessage();
                     mail.setSubject(getEmailSubject());
-                    mail.setBody(getEmailContent(rsc.getStringItem(0, "handle"), rsc.getStringItem(0, "password")));
+                    mail.setBody(getEmailContent(rsc.getStringItem(0, "handle"), mgr.getPassword(rsc.getLongItem(0, "user_id"), db)));
                     mail.addToAddress(email, TCSEmailMessage.TO);
                     mail.setFromAddress(getEmailFromAddress(), getEmailFromAddressName());
                     log.info("sent reminder email to " + email);

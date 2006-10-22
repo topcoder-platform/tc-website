@@ -48,7 +48,7 @@ public class Login extends Base {
 
             password = StringUtils.checkNull(password);
             if (username.equals("") || password.equals("")) {
-                getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "You must enter a handle and a password.");
+                getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "You must enter a username and a password.");
 
             } else {
                 try {
@@ -62,7 +62,10 @@ public class Login extends Base {
                                 log.debug("correct user name and password");
                             }
                         } catch (Exception e) {
-                            throw new LoginException("Handle or password incorrect.");
+                            if (log.isDebugEnabled()) {
+                                e.printStackTrace();
+                            }
+                            throw new LoginException("Username or password incorrect.");
                         }
                         char status = getStatus(sub.getUserId());
                         if (log.isDebugEnabled()) {
@@ -82,13 +85,14 @@ public class Login extends Base {
                                 if (log.isDebugEnabled()) {
                                     log.debug("user active");
                                 }
-                                String dest = StringUtils.replace(StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)), "&", "%26");
                                 String forumsURL = "http://" + ApplicationServer.FORUMS_SERVER_NAME;
 
+                                String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
                                 //todo make this https
                                 SiteTest siteTest = new SiteTest();
                                 boolean forumsServerActive = siteTest.check(forumsURL);
                                 if (forumsServerActive) {
+                                    dest = StringUtils.replace(StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)), "&", "%26");
                                     StringBuffer nextPage = new StringBuffer(forumsURL).append("/?module=Login");
                                     nextPage.append("&").append(USER_ID).append("=").append(sub.getUserId());
                                     nextPage.append("&").append(USER_NAME).append("=").append(username);

@@ -151,8 +151,10 @@ public class Contest {
             query.append(" SELECT cc.coder_id ");
             query.append(" , scf.class_file ");
             query.append(" , u.handle ");
-            query.append(" , s.submission_text ");
-            query.append(" , s.language_id ");
+            query.append(" , co.compilation_text");
+            query.append(" , s.submission_text");
+            query.append(" , s.language_id as submit_language");
+            query.append(" , co.language_id as compile_language");
             query.append(" , co.open_time ");
             query.append(" , s.submit_time ");
             query.append(" , s.submission_points ");
@@ -162,17 +164,17 @@ public class Contest {
             query.append(" , c.method_name");
             query.append(" , s.submission_number");
             query.append(" FROM component_state cc ");
-            query.append(" , submission s ");
+            query.append(" , outer (submission s, submission_class_file scf)  ");
             query.append(" , room r ");
             query.append(" , room_result rr ");
             query.append(" , user u ");
-            query.append(" , submission_class_file scf ");
             query.append(" , component c");
             query.append(" , compilation co");
             query.append(" WHERE cc.round_id = ? ");
             query.append(" AND r.round_id = ? ");
             query.append(" AND cc.round_id = r.round_id ");
             query.append(" AND r.room_type_id = 2 ");
+            query.append(" and cc.status_id > 120 ");
             query.append(" AND cc.component_id = ? ");
             query.append(" AND s.submission_points >= 0 ");//
             query.append(" AND s.component_state_id = cc.component_state_id ");
@@ -187,15 +189,11 @@ public class Contest {
             query.append(" AND scf.component_state_id = cc.component_state_id ");
             query.append(" AND scf.sort_order = 1");    //hoke it to be the first if there are multiple classes
             query.append(" AND cc.component_id = c.component_id");
-            query.append(" AND co.component_state_id = s.component_state_id");
+            query.append(" AND co.component_state_id = cc.component_state_id");
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, roundId);
             ps.setLong(2, roundId);
             ps.setLong(3, componentId);
-/*
-            ps.setLong(4, roundId);
-            ps.setLong(5, componentId);
-*/
 
             CommentStripper cs = new CommentStripper();
             ret = new ArrayList();
@@ -204,8 +202,13 @@ public class Contest {
                 s.setHandle(rs.getString("handle"));
                 s.setCoderId(rs.getInt("coder_id"));
                 //s.setClassFile(rs.getBytes("class_file"));
-                s.setSource(cs.stripComments(DBMS.getTextString(rs, 4)));
-                s.setLanguageId(rs.getInt("language_id"));
+                if (rs.getString("submission_number") == null) {
+                    s.setSource(cs.stripComments(DBMS.getTextString(rs, 4)));
+                    s.setLanguageId(rs.getInt("compile_language"));
+                } else {
+                    s.setSource(cs.stripComments(DBMS.getTextString(rs, 5)));
+                    s.setLanguageId(rs.getInt("submit_language"));
+                }
                 s.setOpenTime(rs.getLong("open_time"));
                 s.setSubmitTime(rs.getLong("submit_time"));
                 s.setPoints(rs.getFloat("submission_points"));
@@ -254,18 +257,18 @@ public class Contest {
 
             for (rs1 = ps.executeQuery(); rs1.next(); ret.add(s)) {
                 s = new Submission();
-                s.setHandle(rs.getString("handle"));
-                s.setCoderId(rs.getInt("coder_id"));
+                s.setHandle(rs1.getString("handle"));
+                s.setCoderId(rs1.getInt("coder_id"));
                 //s.setClassFile(rs.getBytes("class_file"));
-                s.setSource(cs.stripComments(DBMS.getTextString(rs, 4)));
-                s.setLanguageId(rs.getInt("language_id"));
+                s.setSource(cs.stripComments(DBMS.getTextString(rs1, 4)));
+                s.setLanguageId(rs1.getInt("language_id"));
                 s.setOpenTime(0);
-                s.setSubmitTime(1000*60*60*6);  //6 hours.  that should keep them out of the running
-                s.setPoints(rs.getFloat("submission_points"));
-                s.setProblemId(rs.getLong("problem_id"));
-                s.setComponentId(rs.getLong("component_id"));
-                s.setClassName(rs.getString("class_name"));
-                s.setMethodName(rs.getString("method_name"));
+                s.setSubmitTime(1000 * 60 * 60 * 6);  //6 hours.  that should keep them out of the running
+                s.setPoints(0);
+                s.setProblemId(rs1.getLong("problem_id"));
+                s.setComponentId(rs1.getLong("component_id"));
+                s.setClassName(rs1.getString("class_name"));
+                s.setMethodName(rs1.getString("method_name"));
                 s.setIncluded(true);
             }
 

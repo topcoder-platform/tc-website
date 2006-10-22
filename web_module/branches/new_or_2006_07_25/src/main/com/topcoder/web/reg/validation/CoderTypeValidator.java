@@ -1,8 +1,8 @@
 package com.topcoder.web.reg.validation;
 
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.CoderType;
 import com.topcoder.web.common.validation.*;
-import com.topcoder.web.reg.dao.Util;
-import com.topcoder.web.reg.model.CoderType;
 
 /**
  * @author dok
@@ -19,7 +19,7 @@ public class CoderTypeValidator implements Validator {
             } catch (NumberFormatException e) {
                 return new BasicResult(false, "Please choose a valid coder type.");
             }
-            CoderType c = Util.getFactory().getCoderTypeDAO().find(i);
+            CoderType c = DAOUtil.getFactory().getCoderTypeDAO().find(i);
             if (c == null) {
                 return new BasicResult(false, "Please choose a valid coder type.");
             } else {

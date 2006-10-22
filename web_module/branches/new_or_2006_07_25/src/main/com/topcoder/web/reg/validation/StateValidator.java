@@ -1,10 +1,10 @@
 package com.topcoder.web.reg.validation;
 
-import com.topcoder.web.common.validation.*;
-import com.topcoder.web.reg.model.Country;
-import com.topcoder.web.reg.model.State;
-import com.topcoder.web.reg.dao.Util;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Country;
+import com.topcoder.web.common.model.State;
+import com.topcoder.web.common.validation.*;
 
 /**
  * @author dok
@@ -23,14 +23,15 @@ public class StateValidator implements Validator {
     /**
      * This will throw a null pointer if a null country was given to the constructor
      * that seems the best choice, as it's not a validity failure, it's a use failure.
+     *
      * @param input
      * @return whether or not the input is valid
      */
     public ValidationResult validate(ValidationInput input) {
-        if (c.equals(Util.getFactory().getCountryDAO().getUS())) {
+        if (c.equals(DAOUtil.getFactory().getCountryDAO().getUS())) {
             ValidationResult ret = new NonEmptyValidator("Please enter your state.").validate(input);
             if (ret.isValid()) {
-                State s = Util.getFactory().getStateDAO().find((String) input.getInput());
+                State s = DAOUtil.getFactory().getStateDAO().find((String) input.getInput());
                 if (s == null) {
                     return new BasicResult(false, "Please enter a valid state.");
                 } else {

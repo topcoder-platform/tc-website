@@ -1,15 +1,16 @@
-<%@ page import="com.topcoder.web.tc.Constants"%>
+<%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
     <title>TopCoder College Tour</title>
 
-<jsp:include page="/script.jsp"/>
-<jsp:include page="/style.jsp">
-<jsp:param name="key" value="tc_stats"/>
-</jsp:include>
+    <jsp:include page="/script.jsp"/>
+    <jsp:include page="/style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
 
 </head>
 
@@ -22,10 +23,11 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
         <!-- Left Column Begins-->
-        <td width="180"><jsp:include page="/includes/global_left.jsp">
-<jsp:param name="node" value="m_competitions"/>
-</jsp:include>
-</td>
+        <td width="180">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_competitions"/>
+            </jsp:include>
+        </td>
         <!-- Left Column Ends -->
 
         <!-- Center Column Begins -->
@@ -40,19 +42,24 @@
                     <tc-webtag:sponsorImage image="image" alt="College Logo" border="0"/>
                 </div>
 
+
+                <c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
                 <!-- college tour site subnav -->
                 <p align="center">
                     <A href="/tc?module=CollegeTourOverview&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Overview</A>&#160;&#160;|&#160;&#160;
                     <A href="/tc?module=CollegeTourInfo&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Instructions</A>&#160;&#160;|&#160;&#160;
                     Registration&#160;&#160;|&#160;&#160;
                     <A href="/tc?module=CollegeTourRegistrants&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Registrants</A>&#160;&#160;|&#160;&#160;
-                    <% if (request.getAttribute(Constants.FORUM_ID)!=null) {%>
-                    <tc-webtag:forumLink forumID="<%=Long.parseLong((String)request.getAttribute(Constants.FORUM_ID))%>" message="Discuss College Tour"/>
+                    <% if (request.getAttribute(Constants.FORUM_ID) != null) {%>
+                    <tc-webtag:forumLink forumID="<%=Long.parseLong((String)request.getAttribute(Constants.FORUM_ID))%>"
+                                         message="Discuss College Tour"/>
                     <% } %>
                 </p>
                 <!-- ends -->
 
-                <p align="center">Click <a href="/tc?module=CollegeTourReg&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">here</a> to register for the TopCoder College Tour event at your school.</p>
+                <p align="center">Click <a
+                        href="/tc?module=CollegeTourReg&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">here</a>
+                    to register for the TopCoder College Tour event at ${requestScope[schoolName]}.</p>
 
 
             </div>

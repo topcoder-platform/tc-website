@@ -52,7 +52,8 @@
 </span>
 <span class="bigTitle">Competition Arena</span>
          <br><br>
-         
+         The Google&#153; Code Jam Europe Arena is no longer available. 
+         <%--
                 <br><br>
                 <A href="/pl/?module=GoogleEurope06Credentials&cid=18317">Forgot your password?</A>
                 <br><br>
@@ -81,8 +82,12 @@
                 <br><br>
                 If you experience problems loading or running the Competition Arena please contact
             <A href="mailto:gcje@topcoder.com?subject=Question regarding Google Code Jam Europe">gcje@topcoder.com</A>.
-        
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        --%>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+To find out more detailed information about the Google&#153; Code Jam Europe, including a list of the prizes, please read the
+<a href="/pl/?module=Static&d1=gecj06&d2=rules">Terms and Conditions</a>.
+
 </div>
 </td>
 <td width="49%">&#160;</td>

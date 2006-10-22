@@ -13,13 +13,14 @@ import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal;
+import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseLocal;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.util.TCO06ComponentTerms;
+import com.topcoder.web.tc.controller.request.util.TCCC06ComponentTerms;
 
 import java.util.*;
 
@@ -131,18 +132,26 @@ public class ViewRegistration extends Base {
             }
         }
         //just adding the date check to hold off on the db hit when we don't need it
+
         if (isTournamentTime()) {
             if (log.isDebugEnabled()) {
                 log.debug("tourny time");
             }
-            if (isTournamentProject(projectId) && !isRegisteredForTournament()) {
-                getRequest().setAttribute("notRegistered", "true");
+            Coder c = (Coder) createEJB(getInitialContext(), Coder.class);
+            boolean isStudent = c.getCoderTypeId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME) == 1;
+            if (isStudent) {
+                if (log.isDebugEnabled()) {
+                    log.debug("yes, they're a student");
+                }
+                if (isTournamentProject(projectId) && !isRegisteredForTournament()) {
+                    getRequest().setAttribute("notRegistered", "true");
+                }
             }
         }
     }
 
     protected boolean isTournamentTime() {
-        TCO06ComponentTerms t = new TCO06ComponentTerms();
+        TCCC06ComponentTerms t = new TCCC06ComponentTerms();
         Calendar now = Calendar.getInstance();
         now.setTime(new Date());
         return now.before(t.getEnd()) && now.after(t.getBeginning());
@@ -162,7 +171,8 @@ public class ViewRegistration extends Base {
     protected boolean isRegisteredForTournament() throws Exception {
         boolean ret = false;
         UserTermsOfUse userTerms = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
-        ret = userTerms.hasTermsOfUse(getUser().getId(), Constants.TCO06_COMPONENT_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
+        ret = userTerms.hasTermsOfUse(getUser().getId(), Constants.TCCC06_COMPONENT_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
+        log.debug("they " + (ret ? "are" : "are not") + " registered");
         return ret;
     }
 

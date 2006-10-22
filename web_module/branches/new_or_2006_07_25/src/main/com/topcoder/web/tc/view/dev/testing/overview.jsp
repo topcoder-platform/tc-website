@@ -63,6 +63,8 @@ Each Testing Competition will coincide with an Assembly Competition.  TopCoder w
 <span class="bodySubtitle">Registration</span><br>
 Click <A href="/tc?module=Static&d1=dev&d2=testing&d3=instructions">here</A> for details about registering for a Testing Competition.  Registration will remain open until either the competition deadline has passed or there have been the requisite number of submissions that pass screening, whichever comes first.
 <br><br>
+<div align="right"><A href="/tc?module=Static&d1=features&d2=071006"><img src="/i/development/testing/learn_more.gif" alt="Want to Learn More?" border="0" /></A></div>
+
 <A name="competition"></A>
 <span class="bodySubtitle">Competition</span><br>
 The Competition phase consists of registrants creating test code that checks certain functionality requirements in the specific application being built in the Assembly Competition.  TopCoder will break up the application functionality into logical test case competitions.  Prizes will be assigned for first and second place per test case contest.  The prize purse for each Testing Competition will be based on the complexity and number of test case scenarios.  Each Testing Competition will consist of the test case scenarios focusing on specific areas of the application.  Each test case scenario will map to a use case.  The end result of this phase is a test code that will be run against submissions in the corresponding Assembly Competition.

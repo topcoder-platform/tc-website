@@ -18,6 +18,16 @@
             <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
         </session>
+        <session>
+            <description>Review Board Payment EJB</description>
+            <display-name>Review Board Payment EJB</display-name>
+            <ejb-name>RBoardPayment</ejb-name>
+            <home>com.topcoder.apps.review.rboard.RBoardPaymentHome</home>
+            <remote>com.topcoder.apps.review.rboard.RBoardPayment</remote>
+            <ejb-class>com.topcoder.apps.review.rboard.RBoardPaymentBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
+            <session-type>Stateless</session-type>
+        </session>
     </enterprise-beans>
     <assembly-descriptor>
         <container-transaction>

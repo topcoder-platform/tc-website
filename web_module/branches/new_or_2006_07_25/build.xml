@@ -21,11 +21,10 @@
     <property name="taglib" value="${resources}/taglib"/>
     <property name="images" value="images"/>
     <property name="shared.jar" value="${bin}/shared.jar"/>
-    <!--
-        <property name="long.jar" value="${bin}/long.jar"/>
-    -->
+    <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
+    <property name="long.jar" value="${bin}/long.jar"/>
     <property name="web" value="src/main/com/topcoder/web"/>
-    <property name="jboss_home" value="../jboss-4.0.2"/>
+    <property name="jboss_home" value="../jboss-4.0.4.GA"/>
     <property name="jboss_deploy" value="${jboss_home}/server/all/deploy"/>
     <property name="jboss_lib" value="${jboss_home}/server/all/lib"/>
     <property name="jboss_conf" value="${jboss_home}/server/all/conf"/>
@@ -56,6 +55,7 @@
         <pathelement location="${jars.dir}/jboss/xercesImpl.jar"/>
         <pathelement location="${jars.dir}/jboss/xml-apis.jar"/>
         <pathelement location="${jars.dir}/jboss/mail.jar"/>
+
 
         <pathelement location="${jive.dir}/jivebase.jar"/>
         <pathelement location="${jive.dir}/jiveforums.jar"/>
@@ -113,9 +113,9 @@
         <pathelement location="${jars.dir}/TestServices.jar"/>
         <pathelement location="${jars.dir}/DBServices.jar"/>
         <pathelement location="${jars.dir}/tc.jar"/>
-
-
     </path>
+    <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
+    <property name="class.path" refid="class.path"/>
 
     <target name="init">
         <mkdir dir="${classes}"/>
@@ -141,8 +141,7 @@
         <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
     </target>
 
-
-    <target name="compile_techassess" depends="init">
+    <target name="compile_techassess" depends="init,jar_shared">
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -175,6 +174,7 @@
             <include name="com/topcoder/utilities/**"/>
             <include name="com/topcoder/web/**"/>
         </javac>
+        <antcall target="jar_common"/>
     </target>
 
     <target name="compile_forums" depends="init,jar_shared">
@@ -191,12 +191,15 @@
             <include name="com/topcoder/web/common/**"/>
             <include name="com/topcoder/security/**"/>
             <include name="com/topcoder/common/web/data/**"/>
-            <include name="com/topcoder/web/tc/**"/>
+            <include name="com/topcoder/web/tc/controller/request/authentication/**"/>
+            <include name="com/topcoder/web/tc/controller/request/*.java"/>
+            <include name="com/topcoder/web/tc/controller/*.java"/>
+            <include name="com/topcoder/web/tc/*.java"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
         </javac>
+        <antcall target="jar_common"/>
     </target>
-
 
     <target name="compile_forumData" depends="init,jar_shared">
         <javac
@@ -212,7 +215,7 @@
         </javac>
     </target>
 
-    <target name="compile_TCUser" depends="init,jar_shared">
+    <target name="compile_TCJive" depends="init,jar_shared">
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -224,34 +227,9 @@
                 >
             <include name="com/topcoder/web/forums/model/TCUser.java"/>
             <include name="com/topcoder/web/forums/model/TCUserManager.java"/>
-        </javac>
-    </target>
-
-    <target name="compile_TCAuth" depends="init,jar_shared">
-        <javac
-                srcdir="${java}"
-                destdir="${classes}"
-                classpathref="class.path"
-                deprecation="${deprecation}"
-                debug="${debug}"
-                source="1.4"
-                target="1.4"
-                >
+            <include name="com/topcoder/web/forums/model/Common.java"/>
             <include name="com/topcoder/web/forums/model/TCAuthFactory.java"/>
             <include name="com/topcoder/web/forums/model/TCAuthToken.java"/>
-        </javac>
-    </target>
-
-    <target name="compile_TCFilters" depends="init,jar_shared">
-        <javac
-                srcdir="${java}"
-                destdir="${classes}"
-                classpathref="class.path"
-                deprecation="${deprecation}"
-                debug="${debug}"
-                source="1.4"
-                target="1.4"
-                >
             <include name="com/topcoder/web/forums/util/filter/*.java"/>
         </javac>
     </target>
@@ -284,6 +262,14 @@
         </jar>
     </target>
 
+    <target name="jar_common" depends="">
+        <jar jarfile="${common.jar}">
+            <fileset dir="${classes}">
+                <include name="com/topcoder/web/common/**/*.class"/>
+                <include name="com/topcoder/common/**/*.class"/>
+            </fileset>
+        </jar>
+    </target>
 
     <target name="package-EJB-FileConversionBean" depends="compile">
         <jar jarfile="${ejb_jars}/FileConversion.jar">
@@ -293,28 +279,12 @@
         </jar>
     </target>
 
-    <target name="package-EJB-QueryServicesBean" depends="compile">
-        <jar jarfile="${ejb_jars}/QueryServices.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/query/*.class"/>
-            <metainf dir="${java}/com/topcoder/web/ejb/query" includes="*.xml"/>
-        </jar>
-    </target>
-
-    <target name="package-EJB-JobPostingServicesBean" depends="compile">
-        <jar jarfile="${ejb_jars}/JobPostingServices.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/jobposting/*.class"/>
-            <metainf dir="${java}/com/topcoder/web/ejb/jobposting" includes="*.xml"/>
-        </jar>
-    </target>
-
     <target name="package-EJB-ResumeServicesBean" depends="compile">
         <jar jarfile="${ejb_jars}/ResumeServices.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/tc/model/Resume.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/resume/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/resume" includes="*.xml"/>
@@ -323,31 +293,14 @@
 
     <target name="package-EJB-ReportingBean" depends="compile">
         <jar jarfile="${ejb_jars}/Reporting.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/report/*.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/report/*.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/ejb/Reporting/*.class"/>
             <metainf dir="${java}/com/topcoder/ejb/Reporting" includes="*.xml"/>
         </jar>
     </target>
 
-    <target name="package-EJB-PactsServicesBean" depends="compile">
-        <jar jarfile="${ejb_jars}/PactsServices.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/pacts/common/*.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/*.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/NavigationException.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/TCWebException.class"/>
-            <metainf dir="${java}/com/topcoder/web/ejb/pacts" includes="*.xml"/>
-        </jar>
-    </target>
-
-    <target name="package-EJB-JavaDocServicesBean" depends="compile">
-        <jar jarfile="${ejb_jars}/JavaDocServices.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/ejb/JavaDocServices/*.class"/>
-            <metainf dir="${java}/com/topcoder/ejb/JavaDocServices" includes="*.xml"/>
-        </jar>
-    </target>
 
     <target name="package-EJB-EmailServicesBean" depends="compile">
         <jar jarfile="${ejb_jars}/EmailServices.jar">
@@ -359,8 +312,10 @@
     <target name="package-EJB-UtilBean" depends="compile">
         <jar jarfile="${ejb_jars}/Util.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/ejb/AuthenticationServices/User.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/common/web/util/DateTime.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/common/web/util/DateTime.class"/>
+                        <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/ejb/Util/*.class"/>
             <metainf dir="${java}/com/topcoder/ejb/Util" includes="*.xml"/>
         </jar>
@@ -371,7 +326,9 @@
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/coder/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/coder" includes="*.xml"/>
         </jar>
@@ -382,7 +339,9 @@
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/image/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/image" includes="*.xml"/>
         </jar>
@@ -392,7 +351,9 @@
     <target name="package-EJB-DemographicBean" depends="compile">
         <jar jarfile="${ejb_jars}/Demographic.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/demographic/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/demographic" includes="*.xml"/>
         </jar>
@@ -401,7 +362,9 @@
     <target name="package-EJB-UserBean" depends="compile">
         <jar jarfile="${ejb_jars}/User.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/user/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/user" includes="*.xml"/>
         </jar>
@@ -410,7 +373,9 @@
     <target name="package-EJB-SchoolBean" depends="compile">
         <jar jarfile="${ejb_jars}/School.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/school/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/school" includes="*.xml"/>
         </jar>
@@ -419,7 +384,9 @@
     <target name="package-EJB-RatingBean" depends="compile">
         <jar jarfile="${ejb_jars}/Rating.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/rating/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/rating" includes="*.xml"/>
         </jar>
@@ -428,7 +395,9 @@
     <target name="package-EJB-SurveyBean" depends="compile">
         <jar jarfile="${ejb_jars}/Survey.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/survey/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/survey" includes="*.xml"/>
         </jar>
@@ -437,7 +406,9 @@
     <target name="package-EJB-ProblemRatingBean" depends="compile">
         <jar jarfile="${ejb_jars}/ProblemRatingServices.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/problemrating/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/problemrating" includes="*.xml"/>
         </jar>
@@ -447,7 +418,8 @@
     <target name="package-EJB-EmailBean" depends="compile">
         <jar jarfile="${ejb_jars}/Email.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--<zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/email/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/email" includes="*.xml"/>
         </jar>
@@ -456,7 +428,9 @@
     <target name="package-EJB-AddressBean" depends="compile">
         <jar jarfile="${ejb_jars}/Address.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/address/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/address" includes="*.xml"/>
         </jar>
@@ -466,7 +440,9 @@
         <jar jarfile="${ejb_jars}/CollegeTour.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/collegetour/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <metainf dir="${java}/com/topcoder/web/ejb/collegetour" includes="*.xml"/>
         </jar>
     </target>
@@ -474,7 +450,9 @@
     <target name="package-EJB-PhoneBean" depends="compile">
         <jar jarfile="${ejb_jars}/Phone.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/phone/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/phone" includes="*.xml"/>
         </jar>
@@ -483,7 +461,9 @@
     <target name="package-EJB-ProductBean" depends="compile">
         <jar jarfile="${ejb_jars}/Product.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/product/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/product" includes="*.xml"/>
         </jar>
@@ -492,7 +472,9 @@
     <target name="package-EJB-ProjectBean" depends="compile">
         <jar jarfile="${ejb_jars}/Project.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/project/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/project" includes="*.xml"/>
         </jar>
@@ -501,9 +483,10 @@
 
     <target name="package-EJB-UserEvent" depends="compile">
         <jar jarfile="${ejb_jars}/UserEvent.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/userevent/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/userevent" includes="*.xml"/>
         </jar>
@@ -512,7 +495,9 @@
     <target name="package-EJB-NoteBean" depends="compile">
         <jar jarfile="${ejb_jars}/Note.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/note/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/note" includes="*.xml"/>
         </jar>
@@ -521,7 +506,9 @@
     <target name="package-EJB-SessionBean" depends="compile">
         <jar jarfile="${ejb_jars}/Session.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/session/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/session" includes="*.xml"/>
         </jar>
@@ -530,7 +517,9 @@
     <target name="package-EJB-SessionProfileBean" depends="compile">
         <jar jarfile="${ejb_jars}/SessionProfile.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/sessionprofile/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/sessionprofile" includes="*.xml"/>
         </jar>
@@ -539,7 +528,9 @@
     <target name="package-EJB-TermsOfUseBean" depends="compile">
         <jar jarfile="${ejb_jars}/TermsOfUse.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/termsofuse/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/termsofuse" includes="*.xml"/>
         </jar>
@@ -548,7 +539,9 @@
     <target name="package-EJB-CompanyBean" depends="compile">
         <jar jarfile="${ejb_jars}/Company.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/company/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/company" includes="*.xml"/>
         </jar>
@@ -557,7 +550,9 @@
     <target name="package-EJB-ScreeningCoderBean" depends="compile">
         <jar jarfile="${ejb_jars}/ScreeningCoder.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/corp/ejb/coder/*.class"/>
             <metainf dir="${java}/com/topcoder/web/corp/ejb/coder" includes="*.xml"/>
         </jar>
@@ -576,8 +571,10 @@
     <target name="package-EJB-PreferenceLevelBean" depends="compile">
         <jar jarfile="${ejb_jars}/PreferenceLevel.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/TCWebException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/TCWebException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/preferencelevel/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/preferencelevel" includes="*.xml"/>
         </jar>
@@ -586,7 +583,9 @@
     <target name="package-EJB-CoderSkillBean" depends="compile">
         <jar jarfile="${ejb_jars}/CoderSkill.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/coderskill/*"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/coderskill/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/coderskill" includes="*.xml"/>
@@ -596,7 +595,9 @@
     <target name="package-EJB-ComponentRegistrationServicesBean" depends="compile">
         <jar jarfile="${ejb_jars}/ComponentRegistrationServices.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/ComponentRegistrationServices/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/ComponentRegistrationServices" includes="*.xml"/>
         </jar>
@@ -609,16 +610,22 @@
     <target name="package-EJB-MessageHistoryBean" depends="compile_forums">
         <jar jarfile="${ejb_jars}/messagehistory.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/messagehistory/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/messagehistory" includes="*.xml"/>
+        </jar>
+    </target>
+
+    <target name="package-EJB-ForumPollBean" depends="compile_forums">
+        <jar jarfile="${ejb_jars}/forumpoll.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/forumpoll/*.class"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/forumpoll" includes="*.xml"/>
         </jar>
     </target>
 
     <target name="package-EJB-ForumsBean" depends="compile_forums">
         <jar jarfile="${ejb_jars}/forums.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/forums/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/forums" includes="*.xml"/>
         </jar>
@@ -626,10 +633,12 @@
 
     <target name="package-EJB-ContestAdminServices" depends="compile">
         <jar jarfile="${ejb_jars}/ContestAdminServices.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
+            <!--
+                        <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
+                        <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+                        <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+                        <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
+            -->
             <zipfileset dir="${classes}" includes="com/topcoder/ejb/ContestAdminServices/*.class"/>
             <metainf dir="${java}/com/topcoder/ejb/ContestAdminServices" includes="*.xml"/>
         </jar>
@@ -639,41 +648,6 @@
          End JBoss EJBs
          ============== -->
 
-    <target name="deploy">
-        <antcall target="deploy-tc"/>
-        <antcall target="deploy-admin"/>
-        <antcall target="deploy-query"/>
-        <antcall target="deploy-email"/>
-        <antcall target="deploy-corp"/>
-        <antcall target="deploy-privatelabel"/>
-        <antcall target="deploy-longcontest"/>
-        <antcall target="deploy-reg"/>
-
-        <antcall target="move-libs"/>
-        <antcall target="move-conf"/>
-        <antcall target="deploy-security"/>
-
-    </target>
-
-    <target name="expand">
-        <antcall target="expand-tc"/>
-        <antcall target="expand-admin"/>
-        <antcall target="expand-query"/>
-        <antcall target="expand-email"/>
-        <antcall target="expand-corp"/>
-        <antcall target="expand-privatelabel"/>
-        <antcall target="expand-longcontest"/>
-        <antcall target="expand-reg"/>
-
-        <antcall target="move-libs"/>
-        <antcall target="move-conf"/>
-        <copy todir="${jboss_deploy}">
-            <fileset dir="${ear.dir}">
-                <include name="security.ear"/>
-            </fileset>
-        </copy>
-
-    </target>
 
     <target name="move-conf">
         <copy todir="${jboss_conf}">
@@ -724,7 +698,7 @@
             </fileset>
         </copy>
     </target>
-    <target name="move-libs" depends="">
+    <target name="move-libs" depends="jar_common">
         <!--
              <copy todir="${jboss_lib}">
                  <fileset dir="${bin}">
@@ -735,6 +709,7 @@
         <copy todir="${jboss_lib}">
             <fileset dir="${bin}">
                 <include name="shared.jar"/>
+                <include name="tcwebcommon.jar"/>
                 <include name="tc.jar"/>
             </fileset>
         </copy>
@@ -778,227 +753,6 @@
 
     </target>
 
-    <target name="move">
-        <unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/tc.war/META-INF"/>
-        <unwar src="${war.dir}/admin.war" dest="${jboss_deploy}/admin.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/admin.war/META-INF"/>
-        <unwar src="${war.dir}/query.war" dest="${jboss_deploy}/query.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/query.war/META-INF"/>
-        <unwar src="${war.dir}/email.war" dest="${jboss_deploy}/email.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/email.war/META-INF"/>
-        <unwar src="${war.dir}/corp.war" dest="${jboss_deploy}/corp.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/corp.war/META-INF"/>
-        <unwar src="${war.dir}/privatelabel.war" dest="${jboss_deploy}/privatelabel.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/privatelabel.war/META-INF"/>
-        <copy todir="${jboss_deploy}">
-            <fileset dir="${ejb_jars}">
-                <include name="*.jar"/>
-                <exclude name="security.jar"/>
-            </fileset>
-        </copy>
-    </target>
-
-
-    <target name="war-query" depends="compile">
-        <war warfile="${war.dir}/query.war" webxml="${resources}/query/web.xml">
-            <fileset dir="${java}/com/topcoder/web/query/servlet/jsp">
-                <include name="**/*.jsp"/>
-            </fileset>
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/query/**"/>
-                <include name="com/topcoder/common/**/*.class"/>
-                <include name="com/topcoder/web/common/**/*.class"/>
-                <include name="com/topcoder/security/**/*.class"/>
-            </classes>
-            <webinf dir="${resources}/query">
-                <include name="query-taglib.tld"/>
-            </webinf>
-            <webinf dir="${resources}/query">
-                <include name="jboss-web.xml"/>
-            </webinf>
-        </war>
-        <unwar src="${war.dir}/query.war" dest="${jboss_deploy}/query.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/query.war/META-INF"/>
-    </target>
-
-    <target name="deploy-query" depends="compile">
-        <antcall target="package-EJB-QueryServicesBean"/>
-        <antcall target="war-query"/>
-        <antcall target="expand-query"/>
-
-    </target>
-
-    <target name="expand-query">
-        <copy todir="${jboss_deploy}">
-            <fileset dir="${ejb_jars}">
-                <include name="QueryServices.jar"/>
-            </fileset>
-        </copy>
-        <unwar src="${war.dir}/query.war" dest="${jboss_deploy}/query.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/query.war/META-INF"/>
-
-    </target>
-
-    <target name="war-chinaemail" depends="compile">
-        <war warfile="${war.dir}/chinaemail.war" webxml="${resources}/email/web.xml">
-            <fileset dir="${java}/com/topcoder/web/email/servlet/jsp">
-                <include name="**/*.jsp"/>
-            </fileset>
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/email/**"/>
-            </classes>
-            <webinf dir="${resources}/email">
-                <include name="email-taglib.tld"/>
-            </webinf>
-            <zipfileset dir="${java}/com/topcoder/web/email/servlet/jsp">
-                <include name="**/*.jpg"/>
-            </zipfileset>
-            <webinf dir="${resources}/email">
-                <include name="jboss-web.xml"/>
-            </webinf>
-        </war>
-        <unwar src="${war.dir}/chinaemail.war" dest="${jboss_deploy}/chinaemail.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/chinaemail.war/META-INF"/>
-    </target>
-
-
-    <target name="war-email" depends="compile">
-        <war warfile="${war.dir}/email.war" webxml="${resources}/email/web.xml">
-            <fileset dir="${java}/com/topcoder/web/email/servlet/jsp">
-                <include name="**/*.jsp"/>
-            </fileset>
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/email/**"/>
-            </classes>
-            <webinf dir="${resources}/email">
-                <include name="email-taglib.tld"/>
-            </webinf>
-            <zipfileset dir="${java}/com/topcoder/web/email/servlet/jsp">
-                <include name="**/*.jpg"/>
-            </zipfileset>
-            <webinf dir="${resources}/email">
-                <include name="jboss-web.xml"/>
-            </webinf>
-        </war>
-        <unwar src="${war.dir}/email.war" dest="${jboss_deploy}/email.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/email.war/META-INF"/>
-    </target>
-
-    <target name="deploy-email" depends="compile">
-        <antcall target="package-EJB-EmailServicesBean"/>
-        <antcall target="war-email"/>
-
-        <antcall target="expand-email"/>
-    </target>
-
-    <target name="expand-email">
-        <copy todir="${jboss_deploy}">
-            <fileset dir="${ejb_jars}">
-                <include name="EmailServices.jar"/>
-            </fileset>
-        </copy>
-        <unwar src="${war.dir}/email.war" dest="${jboss_deploy}/email.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/email.war/META-INF"/>
-
-    </target>
-
-
-    <!-- begin corp targets -->
-
-    <target name="war-corp" depends="compile">
-        <war warfile="${war.dir}/corp.war" webxml="${resources}/corp/web.xml">
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/corp/**"/>
-                <include name="com/topcoder/web/common/**"/>
-                <include name="com/topcoder/web/ejb/**"/>
-                <include name="com/topcoder/security/**/*.class"/>
-                <include name="com/topcoder/common/web/util/Data.class"/>
-                <include name="com/topcoder/common/web/render/*.class"/>
-                <include name="com/topcoder/web/privatelabel/model/Base.class"/>
-                <include name="com/topcoder/web/privatelabel/model/DemographicAnswer.class"/>
-                <include name="com/topcoder/web/privatelabel/model/DemographicQuestion.class"/>
-                <include name="com/topcoder/web/privatelabel/model/DemographicResponse.class"/>
-                <include name="com/topcoder/web/privatelabel/view/tag/DemographicQuestionIteratorTagInfo.class"/>
-                <include name="com/topcoder/web/privatelabel/view/tag/DemographicAnswerIteratorTagInfo.class"/>
-                <include name="com/topcoder/web/privatelabel/view/tag/DemographicResponseIteratorTagInfo.class"/>
-                <include name="com/topcoder/web/privatelabel/view/tag/DemographicInput.class"/>
-                <include name="com/topcoder/web/privatelabel/Constants.class"/>
-                <include name="com/fx4m/**/*.class"/>
-                <exclude name="**/*Bean.class"/>
-                <exclude name="**/*Impl.class"/>
-            </classes>
-            <webinf dir="${resources}/taglib">
-                <include name="tc-webtags.tld"/>
-                <include name="screening.tld"/>
-                <include name="tces-taglib.tld"/>
-                <include name="rsc-taglib.tld"/>
-                <include name="privatelabel.tld"/>
-            </webinf>
-
-            <webinf dir="${resources}/corp">
-                <include name="jboss-web.xml"/>
-            </webinf>
-            <fileset dir="${java}/com/topcoder/web/jsp">
-                <include name="errorPage.jsp"/>
-                <include name="date_time.jsp"/>
-                <include name="script.jsp"/>
-                <include name="menu.jsp"/>
-                <include name="corpMenu.jsp"/>
-            </fileset>
-            <fileset dir="${java}/com/topcoder/web/corp/view">
-                <include name="**/*"/>
-            </fileset>
-            <lib dir="${jars.dir}">
-                <include name="jstl.jar"/>
-                <include name="standard.jar"/>
-            </lib>
-
-
-        </war>
-        <unwar src="${war.dir}/corp.war" dest="${jboss_deploy}/corp.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/corp.war/META-INF"/>
-    </target>
-
-    <target name="deploy-corp" depends="war-corp">
-        <antcall target="package-EJB-AddressBean"/>
-        <antcall target="package-EJB-CompanyBean"/>
-        <antcall target="package-EJB-EmailBean"/>
-        <antcall target="package-EJB-NoteBean"/>
-        <antcall target="package-EJB-PhoneBean"/>
-        <antcall target="package-EJB-PreferenceLevelBean"/>
-        <antcall target="package-EJB-ProductBean"/>
-        <antcall target="package-EJB-ResumeServicesBean"/>
-        <antcall target="package-EJB-ScreeningCoderBean"/>
-        <antcall target="package-EJB-SessionBean"/>
-        <antcall target="package-EJB-SessionProfileBean"/>
-        <antcall target="package-EJB-TermsOfUseBean"/>
-        <antcall target="package-EJB-UserBean"/>
-        <antcall target="expand-corp"/>
-    </target>
-
-    <target name="expand-corp">
-        <copy todir="${jboss_deploy}">
-            <fileset dir="${ejb_jars}">
-                <include name="Company.jar"/>
-                <include name="Email.jar"/>
-                <include name="Note.jar"/>
-                <include name="Phone.jar"/>
-                <include name="PreferenceLevel.jar"/>
-                <include name="Product.jar"/>
-                <include name="ResumeService.jar"/>
-                <include name="ScreeningCoder.jar"/>
-                <include name="Session.jar"/>
-                <include name="SessionProfile.jar"/>
-                <include name="TermsOfUse.jar"/>
-                <include name="User.jar"/>
-            </fileset>
-        </copy>
-        <unwar src="${war.dir}/corp.war" dest="${jboss_deploy}/corp.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/corp.war/META-INF"/>
-
-    </target>
-
 
     <target name="war-techassess" depends="jar_shared, compile_techassess">
         <war warfile="${war.dir}/techassess.war" webxml="${resources}/techassess/web.xml">
@@ -1007,7 +761,9 @@
                 <include name="com/topcoder/web/codinginterface/view/tag/**"/>
                 <include name="com/topcoder/web/codinginterface/messaging/**"/>
                 <include name="com/topcoder/web/codinginterface/*.class"/>
-                <include name="com/topcoder/web/common/**"/>
+                <!--
+                                <include name="com/topcoder/web/common/**"/>
+                -->
             </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
@@ -1049,93 +805,15 @@
         <delete dir="${jboss_home}/server/all/deploy/techassess.war/META-INF"/>
     </target>
 
-    <target name="compile-reg" depends="jar_shared,init">
-        <javac
-                srcdir="${java}"
-                destdir="${classes}"
-                classpathref="class.path"
-                deprecation="${deprecation}"
-                debug="${debug}"
-                source="1.4"
-                target="1.4"
-                >
-            <include name="com/topcoder/web/reg/**"/>
-            <include name="com/topcoder/web/common/**"/>
-        </javac>
-    </target>
 
-    <target name="war-reg" depends="compile-reg">
-        <war warfile="${war.dir}/reg.war" webxml="${resources}/reg/web.xml">
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/reg/**/*.class"/>
-                <include name="com/topcoder/web/common/**/*.class"/>
-            </classes>
-            <webinf dir="${resources}/taglib">
-                <include name="tc-webtags.tld"/>
-                <include name="reg-tags.tld"/>
-                <include name="common-functions.tld"/>
-            </webinf>
-            <fileset dir="${java}/com/topcoder/web/reg/view">
-                <include name="**/*.jsp"/>
-            </fileset>
-            <fileset dir="${java}/com/topcoder/web/jsp">
-                <include name="errorPage.jsp"/>
-                <include name="date_time.jsp"/>
-                <include name="script.jsp"/>
-                <include name="style.jsp"/>
-                <include name="menu.jsp"/>
-                <include name="page_title.jsp"/>
-            </fileset>
-            <webinf dir="${resources}/reg">
-                <include name="jboss-web.xml"/>
-            </webinf>
-            <classes dir="${resources}/hibernate">
-                <include name="hibernate.cfg.xml"/>
-            </classes>
-            <classes dir="${resources}/hibernate">
-                <include name="com/topcoder/web/reg/model/**/*.xml"/>
-            </classes>
-            <lib dir="${jars.dir}">
-                <include name="jstl.jar"/>
-                <include name="standard.jar"/>
-            </lib>
-
-        </war>
-    </target>
-
-    <target name="deploy-reg" depends="war-reg">
-        <antcall target="expand-reg"/>
-    </target>
-
-    <target name="expand-reg" depends="">
-        <delete file="${jboss_home}/server/all/deploy/reg.war"/>
-        <unwar src="${war.dir}/reg.war" dest="${jboss_home}/server/all/deploy/reg.war/" overwrite="yes"/>
-        <delete dir="${jboss_home}/server/all/deploy/reg.war/META-INF"/>
-    </target>
-
-
-    <target name="package-TCUser" depends="compile_TCUser">
-        <jar jarfile="${jars.dir}/tcuser.jar">
+    <target name="package-TCJive" depends="compile_TCJive">
+        <jar jarfile="${jars.dir}/tcjive.jar">
             <fileset dir="${classes}/">
                 <include name="com/topcoder/web/forums/model/TCUser.class"/>
                 <include name="com/topcoder/web/forums/model/TCUserManager.class"/>
                 <include name="com/topcoder/web/forums/model/Common.class"/>
-            </fileset>
-        </jar>
-    </target>
-
-    <target name="package-TCAuth" depends="compile_TCAuth">
-        <jar jarfile="${jars.dir}/tcauth.jar">
-            <fileset dir="${classes}/">
                 <include name="com/topcoder/web/forums/model/TCAuthFactory.class"/>
                 <include name="com/topcoder/web/forums/model/TCAuthToken.class"/>
-            </fileset>
-        </jar>
-    </target>
-
-    <target name="package-TCFilters" depends="compile_TCFilters">
-        <jar jarfile="${jars.dir}/tcfilters.jar">
-            <fileset dir="${classes}/">
                 <include name="com/topcoder/web/forums/util/filter/*.class"/>
             </fileset>
             <fileset dir="${resources}/forums/filter">
@@ -1169,71 +847,6 @@
             </fileset>
             <report format="frames" todir="${testclasses}/html"/>
         </junitreport>
-    </target>
-
-    <target name="run_reg_tests" depends="compile_tests" description="run junit tests">
-        <!--        <junit printsummary="${junitsummary}" fork="yes">
-            <classpath refid="class.path"/>
-            <formatter type="xml"/>
-            <batchtest todir="${testclasses}">
-                <fileset dir="${testclasses}">
-                    <include name="com/topcoder/web/reg/**/*TestCase.class"/>
-                </fileset>
-            </batchtest>
-        </junit>
-        -->
-
-        <junit printsummary="${junitsummary}" fork="yes">
-            <classpath refid="class.path"/>
-            <formatter type="xml"/>
-            <test name="com.topcoder.web.reg.RegTests" todir="${testclasses}"/>
-        </junit>
-
-        <junitreport todir="${testclasses}">
-            <fileset dir="${testclasses}">
-                <include name="TEST-*.xml"/>
-            </fileset>
-            <report format="frames" todir="${testclasses}/html"/>
-        </junitreport>
-    </target>
-
-    <target name="deploy-admin" depends="compile">
-        <jar jarfile="${ejb_jars}/ContestAdminServices.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/Group.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/ejb/ContestAdminServices/*.class"/>
-            <metainf dir="${java}/com/topcoder/ejb/ContestAdminServices" includes="*.xml"/>
-        </jar>
-        <war warfile="${war.dir}/admin.war" webxml="${resources}/admin/web.xml">
-            <fileset dir="${java}/com/topcoder/web/admin/view">
-                <include name="**/*.jsp"/>
-            </fileset>
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/servlet/admin/"/>
-                <include name="com/topcoder/common/web/"/>
-                <include name="com/topcoder/web/common/"/>
-                <include name="com/topcoder/web/admin/**"/>
-            </classes>
-            <webinf dir="${resources}/taglib">
-                <include name="rsc-taglib.tld"/>
-                <include name="tc-webtags.tld"/>
-            </webinf>
-            <webinf dir="${resources}/admin">
-                <include name="jboss-web.xml"/>
-            </webinf>
-        </war>
-        <antcall target="expand-admin"/>
-    </target>
-
-    <target name="expand-admin">
-        <unwar src="${war.dir}/admin.war" dest="${jboss_deploy}/admin.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/admin.war/META-INF"/>
-
-        <copy todir="${jboss_deploy}">
-            <fileset dir="${ejb_jars}">
-                <include name="ContestAdminServices.jar"/>
-            </fileset>
-        </copy>
     </target>
 
 
@@ -1283,243 +896,16 @@
         </ear>
     </target>
 
-
-    <target name="deploy-privatelabel" depends="compile">
-        <antcall target="package-EJB-AddressBean"/>
-        <antcall target="package-EJB-CoderBean"/>
-        <antcall target="package-EJB-CompanyBean"/>
-        <antcall target="package-EJB-DemographicBean"/>
-        <antcall target="package-EJB-EmailBean"/>
-        <antcall target="package-EJB-JobPostingServicesBean"/>
-        <antcall target="package-EJB-RatingBean"/>
-        <antcall target="package-EJB-SchoolBean"/>
-        <antcall target="package-EJB-UserBean"/>
-
-        <antcall target="war-privatelabel"/>
-        <antcall target="expand-privatelabel"/>
-    </target>
-
-    <target name="expand-privatelabel">
-        <copy todir="${jboss_deploy}">
-            <fileset dir="${ejb_jars}">
-                <include name="Address.jar"/>
-                <include name="Coder.jar"/>
-                <include name="Company.jar"/>
-                <include name="Demographic.jar"/>
-                <include name="Email.jar"/>
-                <include name="JobPostingService.jar"/>
-                <include name="Rating.jar"/>
-                <include name="School.jar"/>
-                <include name="User.jar"/>
-            </fileset>
-        </copy>
-        <unwar src="${war.dir}/privatelabel.war" dest="${jboss_deploy}/privatelabel.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/privatelabel.war/META-INF"/>
-    </target>
-
-    <target name="war-privatelabel" depends="compile">
-        <war warfile="${war.dir}/privatelabel.war" webxml="${resources}/privatelabel/web.xml">
-            <fileset dir="${java}/com/topcoder/web/privatelabel/view">
-                <include name="**/*.jsp"/>
-            </fileset>
-            <fileset dir="${java}/com/topcoder/web/jsp">
-                <include name="errorPage.jsp"/>
-                <include name="foot.jsp"/>
-                <include name="script.jsp"/>
-                <include name="body_top.jsp"/>
-                <include name="page_title.jsp"/>
-                <include name="date_time.jsp"/>
-                <include name="style.jsp"/>
-                <include name="menu.jsp"/>
-                <include name="nocache.jsp"/>
-                <include name="top.jsp"/>
-                <include name="includes/global_left.jsp"/>
-                <include name="includes/modules/simpleSearch.jsp"/>
-                <include name="calendar.jsp"/>
-                <include name="public_right.jsp"/>
-            </fileset>
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/common/"/>
-                <include name="com/topcoder/web/privatelabel/"/>
-                <include name="com/topcoder/web/tc/Constants.class"/>
-                <include name="com/topcoder/common/web/error/TCException.class"/>
-                <include name="com/topcoder/common/web/data/User.class"/>
-                <include name="com/topcoder/common/web/data/Navigation.class"/>
-            </classes>
-            <webinf dir="${resources}/privatelabel">
-                <include name="jboss-web.xml"/>
-            </webinf>
-            <webinf dir="${resources}/taglib">
-                <include name="tc-webtags.tld"/>
-                <include name="privatelabel.tld"/>
-                <include name="nav.tld"/>
-                <include name="rsc-taglib.tld"/>
-            </webinf>
-            <lib dir="${jars.dir}">
-                <include name="jstl.jar"/>
-                <include name="standard.jar"/>
-            </lib>
-
-        </war>
-        <unwar src="${war.dir}/privatelabel.war" dest="${jboss_deploy}/privatelabel.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/privatelabel.war/META-INF"/>
-    </target>
-
-
-    <target name="war-tc" depends="compile">
-        <war warfile="${war.dir}/tc.war" webxml="${resources}/tc/web.xml">
-            <fileset dir="${java}/com/topcoder/web/tc/view">
-                <include name="**/*.*"/>
-            </fileset>
-            <fileset dir="${java}/com/topcoder/web/jsp">
-                <include name="errorPage.jsp"/>
-                <include name="top.jsp"/>
-                <include name="foot.jsp"/>
-                <include name="date_time.jsp"/>
-                <include name="script.jsp"/>
-                <include name="style.jsp"/>
-                <include name="body_top.jsp"/>
-                <include name="page_title.jsp"/>
-                <include name="menu.jsp"/>
-                <include name="includes/global_left.jsp"/>
-                <include name="includes/modules/simpleSearch.jsp"/>
-                <include name="calendar.jsp"/>
-                <include name="public_right.jsp"/>
-            </fileset>
-            <classes dir="${classes}">
-                <include name="com/topcoder/common/**/*.class"/>
-                <include name="com/topcoder/web/common/**/*.class"/>
-                <include name="com/topcoder/web/tc/**/*.class"/>
-                <include name="com/fx4m/**/*.class"/>
-            </classes>
-            <!--
-                     <classes dir="${resources}">
-                         <include name="com/topcoder/servlet/request/FileUpload.xml"/>
-                     </classes>
-            -->
-            <webinf dir="${resources}/taglib">
-                <include name="tc.tld"/>
-                <include name="rsc-taglib.tld"/>
-                <include name="tc-webtags.tld"/>
-                <include name="nav.tld"/>
-            </webinf>
-            <webinf dir="${struts.dir}">
-                <include name="*.tld"/>
-            </webinf>
-            <webinf dir="${resources}/tc">
-                <include name="jboss-web.xml"/>
-            </webinf>
-            <lib dir="${struts.dir}">
-                <include name="*.jar"/>
-            </lib>
-            <lib dir="${jars.dir}">
-                <include name="jstl.jar"/>
-                <include name="standard.jar"/>
-            </lib>
-
-        </war>
-        <unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/tc.war/META-INF"/>
-    </target>
-
-
-    <target name="deploy-tc">
-        <antcall target="package-EJB-AddressBean"/>
-        <!--
-             <antcall target="package-EJB-Catalog"/>
-        -->
-        <antcall target="package-EJB-CoderBean"/>
-        <antcall target="package-EJB-CoderSkillBean"/>
-        <antcall target="package-EJB-CollegeTourBean"/>
-        <antcall target="package-EJB-ComponentRegistrationServicesBean"/>
-        <!--
-             <antcall target="package-EJB-DDEPersistence"/>
-        -->
-        <antcall target="package-EJB-EmailBean"/>
-        <antcall target="package-EJB-FileConversionBean"/>
-        <antcall target="package-EJB-ImageBean"/>
-        <antcall target="package-EJB-JavaDocServicesBean"/>
-        <antcall target="package-EJB-JobPostingServicesBean"/>
-        <!--
-             <antcall target="package-EJB-ORPersistence"/>
-        -->
-        <antcall target="package-EJB-PactsServicesBean"/>
-        <antcall target="package-EJB-PasswordBean"/>
-        <antcall target="package-EJB-PhoneBean"/>
-        <antcall target="package-EJB-PreferenceLevelBean"/>
-        <antcall target="package-EJB-ProblemRatingBean"/>
-        <antcall target="package-EJB-ProjectBean"/>
-        <antcall target="package-EJB-ReportingBean"/>
-        <antcall target="package-EJB-ResumeServicesBean"/>
-        <!--
-             <antcall target="package-EJB-SoftwareUser"/>
-        -->
-        <antcall target="package-EJB-SurveyBean"/>
-        <!--
-                 <antcall target="package-EJB-RequestServicesBean"/>
-        -->
-        <antcall target="package-EJB-UserEvent"/>
-        <!-- Since Screening Tool 1.1 -->
-        <antcall target="package-EJB-UserBean"/>
-        <!--
-                 <antcall target="package-EJB-UserEvent"/>
-        -->
-        <antcall target="package-EJB-UtilBean"/>
-
-        <antcall target="war-tc"/>
-        <antcall target="expand-tc"/>
-
-    </target>
-
-    <target name="expand-tc">
-        <copy todir="${jboss_deploy}">
-            <fileset dir="${ejb_jars}">
-                <include name="Address.jar"/>
-                <include name="Coder.jar"/>
-                <include name="CoderSkill.jar"/>
-                <include name="CollegeTour.jar"/>
-                <include name="ComponentRegistrationServices.jar"/>
-                <include name="Email.jar"/>
-                <include name="FileConversion.jar"/>
-                <include name="Image.jar"/>
-                <include name="JavaDocServices.jar"/>
-                <include name="JobPostingServices.jar"/>
-                <!--
-                             <include name="orpersistence.jar"/>
-                -->
-                <include name="PactsServices.jar"/>
-                <include name="Password.jar"/>
-                <include name="Phone.jar"/>
-                <include name="PreferenceLevel.jar"/>
-                <include name="ProblemRatingServices.jar"/>
-                <include name="Project.jar"/>
-                <include name="Reporting.jar"/>
-                <include name="ResumeServices.jar"/>
-                <include name="Survey.jar"/>
-                <include name="User.jar"/>
-                <!--
-                                 <include name="UserEvent.jar"/>
-                -->
-                <include name="Util.jar"/>
-            </fileset>
-        </copy>
-        <unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/tc.war/META-INF"/>
-    </target>
-
-
     <target name="build-forums" depends="">
         <antcall target="war-forums"/>
-        <antcall target="package-TCUser"/>
-        <antcall target="package-TCAuth"/>
-        <antcall target="package-TCFilters"/>
+        <antcall target="package-TCJive"/>
         <antcall target="package-EJB-MessageHistoryBean"/>
         <antcall target="package-EJB-ForumsBean"/>
     </target>
 
     <target name="war-forums" depends="compile_forums">
-        <war warfile="${war.dir}/forums.war" webxml="${resources}/forums/web.xml">
-            <fileset dir="${java}/com/topcoder/web/forums/view">
+        <war warfile="${war.dir}/forums.war" webxml="${resources}/forums/tc/web.xml">
+            <fileset dir="${java}/com/topcoder/web/forums/view/tc">
                 <include name="*.*"/>
             </fileset>
             <fileset dir="${java}/com/topcoder/web/jsp">
@@ -1538,16 +924,18 @@
                 <include name="includes/modules/simpleSearch.jsp"/>
             </fileset>
             <classes dir="${classes}">
-                <include name="com/topcoder/common/web/util/Conversion.class"/>
-                <include name="com/topcoder/common/web/error/TCException.class"/>
-                <include name="com/topcoder/common/web/data/Navigation.class"/>
-                <include name="com/topcoder/common/web/data/User.class"/>
-                <include name="com/topcoder/common/web/data/SecureObject.class"/>
-                <include name="com/topcoder/common/web/data/PermissionAssignee.class"/>
-                <include name="com/topcoder/common/web/data/UserType.class"/>
-                <include name="com/topcoder/common/web/data/Browser.class"/>
-                <include name="com/topcoder/common/web/data/Round.class"/>
-                <include name="com/topcoder/web/common/**/*.class"/>
+                <!--
+                                <include name="com/topcoder/common/web/util/Conversion.class"/>
+                                <include name="com/topcoder/common/web/error/TCException.class"/>
+                                <include name="com/topcoder/common/web/data/Navigation.class"/>
+                                <include name="com/topcoder/common/web/data/User.class"/>
+                                <include name="com/topcoder/common/web/data/SecureObject.class"/>
+                                <include name="com/topcoder/common/web/data/PermissionAssignee.class"/>
+                                <include name="com/topcoder/common/web/data/UserType.class"/>
+                                <include name="com/topcoder/common/web/data/Browser.class"/>
+                                <include name="com/topcoder/common/web/data/Round.class"/>
+                                <include name="com/topcoder/web/common/**/*.class"/>
+                -->
                 <include name="com/topcoder/web/forums/**/*.class"/>
                 <include name="com/topcoder/web/tc/controller.request.authentication.Login.class"/>
             </classes>
@@ -1555,7 +943,7 @@
                 <include name="tc-webtags.tld"/>
                 <include name="nav.tld"/>
             </webinf>
-            <webinf dir="${resources}/forums">
+            <webinf dir="${resources}/forums/tc">
                 <include name="jboss-web.xml"/>
             </webinf>
             <lib dir="${jars.dir}">
@@ -1565,29 +953,47 @@
         <antcall target="explode-forums"/>
     </target>
 
+
     <target name="explode-forums" depends="">
         <unwar src="${war.dir}/forums.war" dest="${jboss_deploy}/forums.war" overwrite="yes"/>
         <delete dir="${jboss_deploy}/forums.war/META-INF"/>
     </target>
 
-    <target name="deploy-forums" depends="">
-        <antcall target="explode-forums"/>
+    <target name="deploy-forums-full" depends="">
+        <antcall target="deploy-forums"/>
 
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcauth.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcuser.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcfilters.jar"/>
-        <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/velocity-dep.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/webwork.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
 
+        <copy todir="${jboss_lib}" file="${jars.dir}/ifxjdbc.jar"/>
+
+        <copy todir="${jboss_conf}" file="${resources}/forums/tc/jive_init.xml"/>
+        <copy todir="${jboss_conf}" file="${resources}/cache.properties"/>
+        <copy todir="${jboss_conf}" file="${resources}/ApplicationServer.properties"/>
+        <copy todir="${jboss_conf}" file="${resources}/DBMS.properties"/>
+        <copy todir="${jboss_conf}" file="${resources}/DataAccess.properties"/>
+        <copy todir="${jboss_conf}/com/topcoder/security/" file="${resources}/com/topcoder/security/Util.properties"/>
+
+        <copy todir="${jboss_lib}" file="${jars.dir}/object_formatter.jar"/>
+
+        <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
+        <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
+    </target>
+
+    <target name="deploy-forums" depends="">
+        <antcall target="explode-forums"/>
+
+        <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
+        <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcjive.jar"/>
 
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
-
     </target>
-
 
     <target name="package-EJB-RoundRegistrationBean" depends="compile">
         <jar jarfile="${ejb_jars}/RoundRegistration.jar">
@@ -1609,90 +1015,6 @@
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/longcompresult/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/longcompresult" includes="*.xml"/>
         </jar>
-    </target>
-
-
-    <target name="compile_longcontest" depends="init">
-        <javac
-                srcdir="${java}"
-                destdir="${classes}"
-                classpathref="class.path"
-                deprecation="${deprecation}"
-                debug="${debug}"
-                source="1.4"
-                target="1.4"
-                >
-            <include name="com/topcoder/web/codinginterface/**"/>
-            <include name="com/topcoder/web/common/**"/>
-        </javac>
-    </target>
-
-    <target name="war-longcontest" depends="jar_shared, compile_longcontest">
-        <!--
-                <jar jarfile="${long.jar}">
-                    <fileset dir="${classes}">
-                        <include name="com/topcoder/common/web/data/*.class"/>
-                        <include name="com/topcoder/common/web/error/*.class"/>
-                        <include name="com/topcoder/common/web/util/*.class"/>
-                        <include name="com/topcoder/web/tc/model/*.class"/>
-                        <include name="com/topcoder/web/common/**"/>
-                    </fileset>
-                </jar>
-        -->
-        <war warfile="${war.dir}/longcontest.war" webxml="${resources}/longcontest/web.xml">
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/codinginterface/longcontest/**"/>
-                <include name="com/topcoder/web/codinginterface/view/tag/**"/>
-                <include name="com/topcoder/web/codinginterface/*.class"/>
-                <include name="com/topcoder/web/codinginterface/messaging/**"/>
-                <include name="com/topcoder/web/codinginterface/model/**"/>
-                <include name="com/topcoder/web/common/**"/>
-                <include name="com/topcoder/common/web/render/**"/>
-            </classes>
-            <webinf dir="${resources}/taglib">
-                <include name="tc-webtags.tld"/>
-                <include name="codinginterface.tld"/>
-                <include name="rsc-taglib.tld"/>
-                <include name="nav.tld"/>
-            </webinf>
-            <webinf dir="${struts.dir}">
-                <include name="struts-logic.tld"/>
-            </webinf>
-            <lib dir="${struts.dir}">
-                <include name="*.jar"/>
-            </lib>
-            <lib dir="${jars.dir}">
-                <include name="jstl.jar"/>
-                <include name="standard.jar"/>
-            </lib>
-
-            <fileset dir="${java}/com/topcoder/web/codinginterface/longcontest/view">
-                <include name="**/*.jsp"/>
-            </fileset>
-            <fileset dir="${java}/com/topcoder/web/jsp">
-                <include name="*.jsp"/>
-                <include name="includes/**/*.jsp"/>
-            </fileset>
-
-        </war>
-    </target>
-
-    <target name="deploy-longcontest" depends="war-longcontest">
-        <antcall target="package-EJB-RoundRegistrationBean"/>
-        <antcall target="package-EJB-LongCompResultBean"/>
-        <antcall target="expand-longcontest"/>
-    </target>
-
-    <target name="expand-longcontest" depends="">
-        <copy todir="${jboss_deploy}">
-            <fileset dir="${ejb_jars}">
-                <include name="RoundRegistration.jar"/>
-                <include name="LongCompResult.jar"/>
-            </fileset>
-        </copy>
-        <unwar src="${war.dir}/longcontest.war" dest="${jboss_home}/server/all/deploy/longcontest.war/"
-               overwrite="yes"/>
-        <delete dir="${jboss_home}/server/all/deploy/longcontest.war/META-INF"/>
     </target>
 
 
@@ -1834,7 +1156,6 @@
 
 
 </project>
-
 
 
 

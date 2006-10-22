@@ -182,7 +182,8 @@ public class PrincipalMgrBean extends BaseEJB {
         return sub;
     }
 
-    public String getPassword(long id)
+
+    public String getPassword(long id, String dataSource)
             throws GeneralSecurityException, NoSuchUserException {
         logger.debug("getting user's password: " + id);
         String query = "SELECT password FROM security_user WHERE login_id = ? ";
@@ -192,7 +193,7 @@ public class PrincipalMgrBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            conn = Util.getConnection(ctx, DATA_SOURCE);
+            conn = Util.getConnection(ctx, dataSource);
             ps = conn.prepareStatement(query);
             ps.setEscapeProcessing(true);
             ps.setLong(1, id);
@@ -215,6 +216,12 @@ public class PrincipalMgrBean extends BaseEJB {
             close(conn);
             close(ctx);
         }
+    }
+
+
+    public String getPassword(long id)
+            throws GeneralSecurityException, NoSuchUserException {
+        return getPassword(id, DATA_SOURCE);
     }
 
 
@@ -720,7 +727,7 @@ public class PrincipalMgrBean extends BaseEJB {
     }
 
     public void assignRole(UserPrincipal user, RolePrincipal role,
-            TCSubject requestor) throws GeneralSecurityException {
+                           TCSubject requestor) throws GeneralSecurityException {
         assignRole(user, role, requestor, DATA_SOURCE);
     }
 

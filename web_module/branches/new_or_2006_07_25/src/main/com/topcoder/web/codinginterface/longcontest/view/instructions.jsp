@@ -48,7 +48,7 @@ All members registered for a specific Marathon Match will see a Submit option fo
 <br><br>
 Clicking the Test Examples button will immediately compile and place your submission on a queue for automated testing of just the example test cases. Detailed feedback will be made available when the tests are complete, including processing time, score, and any output from the program. Competitors may submit test examples once every 30 minutes. The competitor's rank and overall score will not be updated.
 <br><br>
-In a Marathon Match, all competitors are encouraged to improve their solutions and resubmit iteratively throughout the length of the submission phase.  The most recent submission is always the one that counts, so if you make a submission that does not score as well as a prior submission, the most recent will still be the one that counts in the standings. Participants may submit code written in one of the following languages: Java, C++, C# .Net, or VB .Net
+In a Marathon Match, all competitors are encouraged to improve their solutions and resubmit iteratively throughout the length of the submission phase.  The most recent submission is always the one that counts, so if you make a submission that does not score as well as a prior submission, the most recent will still be the one that counts in the standings. Participants may submit code written in one of the following languages: Java, C++, C#.NET, VB.NET, or Python.
 <br><br>
 <strong>System Testing</strong><br>
 After a match completes all full submissions will be placed on a queue for automated system testing.  During system tests, each submission will be run against a larger set of test cases and be issued a final score. Only this final score will be used to determine final rankings.

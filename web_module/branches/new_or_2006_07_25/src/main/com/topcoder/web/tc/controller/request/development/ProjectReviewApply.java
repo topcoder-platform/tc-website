@@ -16,22 +16,15 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.ejb.project.Project;
-import com.topcoder.web.ejb.project.ProjectLocal;
+import com.topcoder.web.common.error.RequestRateExceededException;
+import com.topcoder.web.common.throttle.Throttle;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
 
 import javax.ejb.CreateException;
-import javax.ejb.EJBException;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
-import javax.transaction.Status;
-import javax.transaction.TransactionManager;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Map;
 
@@ -46,7 +39,7 @@ import java.util.Map;
  * </li>
  * </ol>
  * </p>
- *
+ * <p/>
  * Version 1.0.2 Change notes:
  * <ol>
  * <li>
@@ -62,9 +55,13 @@ public class ProjectReviewApply extends Base {
     protected long projectId = 0;
     protected int phaseId = 0;
     RBoardApplication rBoardApplication = null;
+    private static final Throttle throttle = new Throttle(2, 2000);
 
     protected void developmentProcessing() throws TCWebException {
         try {
+            if (throttle.throttle(getRequest().getSession().getId())) {
+                throw new RequestRateExceededException(getRequest().getSession().getId(), getUser().getUserName());
+            }
             projectId = Long.parseLong(getRequest().getParameter(Constants.PROJECT_ID));
             phaseId = Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID));
             int reviewTypeId = Integer.parseInt(getRequest().getParameter(Constants.REVIEWER_TYPE_ID));
@@ -82,45 +79,12 @@ public class ProjectReviewApply extends Base {
 
                 rBoardApplication = createRBoardApplication();
                 nonTransactionalValidation(catalog, reviewTypeId);
-//                TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
-//                try {
-//                    if (log.isDebugEnabled()) {
-//                        log.debug("Begin transaction");
-//                    }
-//                    tm.begin();
-//                    //we're doing this so that we can have something to sync on.  if we don't lock
-//                    //project, then people get register while we're still doing the selects to determine
-//                    //if one should be able to register.  both people end up coming up ok to register and we
-//                    //end up with more than one person in the same slot.
-//                    //ProjectLocal project = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
-//                    //project.updateForLock(projectId, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
 
-//                    // Since 1.0.2
-//                    // The project lock was moved into the RBoardApplication EJB, this way it's transparent for the caller
-//                    // and always atomic and auto-excluding
-//                    updateForLock(projectId, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
+                applicationProcessing((Timestamp) detail.getItem(0, "opens_on").getResultData(), reviewTypeId);
 
-                    applicationProcessing((Timestamp) detail.getItem(0, "opens_on").getResultData(), reviewTypeId);
-//                  tm.commit();
-//                    if (log.isDebugEnabled()) {
-//                        log.debug("Commit transaction");
-//                    }
-
-                    // Put the terms text in the request.
-                    TermsOfUse terms = ((TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class));
-                    setDefault(Constants.TERMS, terms.getText(Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME));
-//                } catch (Exception e) {
-//                    if (log.isDebugEnabled()) {
-//                        log.debug("Error transaction");
-//                    }
-//                    if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
-//                        if (log.isDebugEnabled()) {
-//                            log.debug("Rollback Transaction");
-//                        }
-//                        tm.rollback();
-//                    }
-//                    throw e;
-//                }
+                // Put the terms text in the request.
+                TermsOfUse terms = ((TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class));
+                setDefault(Constants.TERMS, terms.getText(Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME));
             } else {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }
@@ -128,6 +92,8 @@ public class ProjectReviewApply extends Base {
             throw pe;
         } catch (RBoardRegistrationException rbre) {
             throw new NavigationException(rbre.getMessage());
+        } catch (TCWebException e) {
+            throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
         }

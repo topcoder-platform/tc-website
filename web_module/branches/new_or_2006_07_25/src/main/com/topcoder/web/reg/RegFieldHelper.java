@@ -1,11 +1,11 @@
 package com.topcoder.web.reg;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.reg.dao.RegistrationTypeDAO;
-import com.topcoder.web.reg.dao.Util;
-import com.topcoder.web.reg.model.CoderType;
-import com.topcoder.web.reg.model.RegistrationType;
-import com.topcoder.web.reg.model.User;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.RegistrationTypeDAO;
+import com.topcoder.web.common.model.CoderType;
+import com.topcoder.web.common.model.RegistrationType;
+import com.topcoder.web.common.model.User;
 
 import java.util.*;
 
@@ -22,6 +22,7 @@ public class RegFieldHelper {
     private static Set mainCorpFields = new HashSet();
     private static Set mainMinFields = new HashSet();
     private static Set mainSoftwareFields = new HashSet();
+    private static Set mainStudioFields = new HashSet();
 
     private static Set secondaryHSFields = new HashSet();
     private static Set secondaryCompStudentFields = new HashSet();
@@ -29,12 +30,15 @@ public class RegFieldHelper {
     private static Set secondaryCorpFields = new HashSet();
     private static Set secondaryMinFields = new HashSet();
     private static Set secondarySoftwareFields = new HashSet();
+    private static Set secondaryStudioStudentFields = new HashSet();
+    private static Set secondaryStudioProFields = new HashSet();
 
     private static Set requiredMainHSFields = new HashSet();
     private static Set requiredMainCompFields = new HashSet();
     private static Set requiredMainCorpFields = new HashSet();
     private static Set requiredMainMinFields = new HashSet();
     private static Set requiredMainSoftwareFields = new HashSet();
+    private static Set requiredMainStudioFields = new HashSet();
 
     private static Set requiredSecondaryHSFields = new HashSet();
     private static Set requiredSecondaryCompStudentFields = new HashSet();
@@ -42,6 +46,8 @@ public class RegFieldHelper {
     private static Set requiredSecondaryCorpFields = new HashSet();
     private static Set requiredSecondaryMinFields = new HashSet();
     private static Set requiredSecondarySoftwareFields = new HashSet();
+    private static Set requiredSecondaryStudioStudentFields = new HashSet();
+    private static Set requiredSecondaryStudioProFields = new HashSet();
 
 
     static {
@@ -59,10 +65,13 @@ public class RegFieldHelper {
         mainCompFields.add(Constants.HANDLE);
         mainCompFields.add(Constants.PASSWORD);
         mainCompFields.add(Constants.PASSWORD_CONFIRM);
+        mainCompFields.add(Constants.SECRET_QUESTION);
+        mainCompFields.add(Constants.SECRET_QUESTION_RESPONSE);
         mainCompFields.add(Constants.EMAIL);
         mainCompFields.add(Constants.EMAIL_CONFIRM);
         mainCompFields.add(Constants.QUOTE);
         mainCompFields.add(Constants.NOTIFICATION);
+        mainCompFields.add(Constants.MEMBER_CONTACT);
         mainCompFields.add(Constants.COMP_COUNTRY_CODE);
         mainCompFields.add(Constants.CODER_TYPE);
         mainCompFields.add(Constants.TIMEZONE);
@@ -75,6 +84,8 @@ public class RegFieldHelper {
         requiredMainCompFields.add(Constants.HANDLE);
         requiredMainCompFields.add(Constants.PASSWORD);
         requiredMainCompFields.add(Constants.PASSWORD_CONFIRM);
+        requiredMainCompFields.add(Constants.SECRET_QUESTION);
+        requiredMainCompFields.add(Constants.SECRET_QUESTION_RESPONSE);
         requiredMainCompFields.add(Constants.EMAIL);
         requiredMainCompFields.add(Constants.EMAIL_CONFIRM);
         requiredMainCompFields.add(Constants.COMP_COUNTRY_CODE);
@@ -128,6 +139,8 @@ public class RegFieldHelper {
         mainHSFields.add(Constants.HANDLE);
         mainHSFields.add(Constants.PASSWORD);
         mainHSFields.add(Constants.PASSWORD_CONFIRM);
+        mainHSFields.add(Constants.SECRET_QUESTION);
+        mainHSFields.add(Constants.SECRET_QUESTION_RESPONSE);
         mainHSFields.add(Constants.EMAIL);
         mainHSFields.add(Constants.EMAIL_CONFIRM);
         mainHSFields.add(Constants.QUOTE);
@@ -141,6 +154,8 @@ public class RegFieldHelper {
         requiredMainHSFields.add(Constants.HANDLE);
         requiredMainHSFields.add(Constants.PASSWORD);
         requiredMainHSFields.add(Constants.PASSWORD_CONFIRM);
+        requiredMainHSFields.add(Constants.SECRET_QUESTION);
+        requiredMainHSFields.add(Constants.SECRET_QUESTION_RESPONSE);
         requiredMainHSFields.add(Constants.EMAIL);
         requiredMainHSFields.add(Constants.EMAIL_CONFIRM);
         requiredMainHSFields.add(Constants.TIMEZONE);
@@ -179,6 +194,8 @@ public class RegFieldHelper {
         mainCorpFields.add(Constants.HANDLE);
         mainCorpFields.add(Constants.PASSWORD);
         mainCorpFields.add(Constants.PASSWORD_CONFIRM);
+        mainCorpFields.add(Constants.SECRET_QUESTION);
+        mainCorpFields.add(Constants.SECRET_QUESTION_RESPONSE);
         mainCorpFields.add(Constants.EMAIL);
         mainCorpFields.add(Constants.EMAIL_CONFIRM);
         mainCorpFields.add(Constants.TIMEZONE);
@@ -194,6 +211,8 @@ public class RegFieldHelper {
         requiredMainCorpFields.add(Constants.HANDLE);
         requiredMainCorpFields.add(Constants.PASSWORD);
         requiredMainCorpFields.add(Constants.PASSWORD_CONFIRM);
+        requiredMainCorpFields.add(Constants.SECRET_QUESTION);
+        requiredMainCorpFields.add(Constants.SECRET_QUESTION_RESPONSE);
         requiredMainCorpFields.add(Constants.EMAIL);
         requiredMainCorpFields.add(Constants.EMAIL_CONFIRM);
         requiredMainCorpFields.add(Constants.TIMEZONE);
@@ -217,6 +236,8 @@ public class RegFieldHelper {
         mainSoftwareFields.add(Constants.HANDLE);
         mainSoftwareFields.add(Constants.PASSWORD);
         mainSoftwareFields.add(Constants.PASSWORD_CONFIRM);
+        mainSoftwareFields.add(Constants.SECRET_QUESTION);
+        mainSoftwareFields.add(Constants.SECRET_QUESTION_RESPONSE);
         mainSoftwareFields.add(Constants.EMAIL);
         mainSoftwareFields.add(Constants.EMAIL_CONFIRM);
         mainSoftwareFields.add(Constants.NOTIFICATION);
@@ -233,6 +254,8 @@ public class RegFieldHelper {
         requiredMainSoftwareFields.add(Constants.HANDLE);
         requiredMainSoftwareFields.add(Constants.PASSWORD);
         requiredMainSoftwareFields.add(Constants.PASSWORD_CONFIRM);
+        requiredMainSoftwareFields.add(Constants.SECRET_QUESTION);
+        requiredMainSoftwareFields.add(Constants.SECRET_QUESTION_RESPONSE);
         requiredMainSoftwareFields.add(Constants.EMAIL);
         requiredMainSoftwareFields.add(Constants.EMAIL_CONFIRM);
         requiredMainSoftwareFields.add(Constants.TIMEZONE);
@@ -246,6 +269,8 @@ public class RegFieldHelper {
         mainMinFields.add(Constants.HANDLE);
         mainMinFields.add(Constants.PASSWORD);
         mainMinFields.add(Constants.PASSWORD_CONFIRM);
+        mainMinFields.add(Constants.SECRET_QUESTION);
+        mainMinFields.add(Constants.SECRET_QUESTION_RESPONSE);
         mainMinFields.add(Constants.EMAIL);
         mainMinFields.add(Constants.EMAIL_CONFIRM);
         mainMinFields.add(Constants.TIMEZONE);
@@ -253,6 +278,81 @@ public class RegFieldHelper {
         //secondary page for min reg is empty
     }
 
+    static {
+        mainStudioFields.add(Constants.GIVEN_NAME);
+        mainStudioFields.add(Constants.SURNAME);
+        mainStudioFields.add(Constants.ADDRESS1);
+        mainStudioFields.add(Constants.ADDRESS2);
+        mainStudioFields.add(Constants.ADDRESS3);
+        mainStudioFields.add(Constants.CITY);
+        mainStudioFields.add(Constants.STATE_CODE);
+        mainStudioFields.add(Constants.POSTAL_CODE);
+        mainStudioFields.add(Constants.PROVINCE);
+        mainStudioFields.add(Constants.COUNTRY_CODE);
+        mainStudioFields.add(Constants.PHONE_NUMBER);
+        mainStudioFields.add(Constants.HANDLE);
+        mainStudioFields.add(Constants.PASSWORD);
+        mainStudioFields.add(Constants.PASSWORD_CONFIRM);
+        mainStudioFields.add(Constants.SECRET_QUESTION);
+        mainStudioFields.add(Constants.SECRET_QUESTION_RESPONSE);
+        mainStudioFields.add(Constants.EMAIL);
+        mainStudioFields.add(Constants.EMAIL_CONFIRM);
+        mainStudioFields.add(Constants.NOTIFICATION);
+        mainStudioFields.add(Constants.COMP_COUNTRY_CODE);
+        mainStudioFields.add(Constants.CODER_TYPE);
+        mainStudioFields.add(Constants.TIMEZONE);
+
+        requiredMainStudioFields.add(Constants.GIVEN_NAME);
+        requiredMainStudioFields.add(Constants.SURNAME);
+        requiredMainStudioFields.add(Constants.ADDRESS1);
+        requiredMainStudioFields.add(Constants.CITY);
+        requiredMainStudioFields.add(Constants.COUNTRY_CODE);
+        requiredMainStudioFields.add(Constants.HANDLE);
+        requiredMainStudioFields.add(Constants.PASSWORD);
+        requiredMainStudioFields.add(Constants.PASSWORD_CONFIRM);
+        requiredMainStudioFields.add(Constants.SECRET_QUESTION);
+        requiredMainStudioFields.add(Constants.SECRET_QUESTION_RESPONSE);
+        requiredMainStudioFields.add(Constants.EMAIL);
+        requiredMainStudioFields.add(Constants.EMAIL_CONFIRM);
+        requiredMainStudioFields.add(Constants.COMP_COUNTRY_CODE);
+        requiredMainStudioFields.add(Constants.CODER_TYPE);
+        requiredMainStudioFields.add(Constants.TIMEZONE);
+
+        secondaryStudioStudentFields.add(Constants.DEMOG_PREFIX);
+        secondaryStudioStudentFields.add(Constants.VISIBLE_SCHOOL);
+        secondaryStudioStudentFields.add(Constants.SCHOOL_NAME);
+        secondaryStudioStudentFields.add(Constants.SCHOOL_CITY);
+        secondaryStudioStudentFields.add(Constants.SCHOOL_ID);
+        secondaryStudioStudentFields.add(Constants.SCHOOL_PROVINCE);
+        secondaryStudioStudentFields.add(Constants.SCHOOL_STATE);
+        secondaryStudioStudentFields.add(Constants.SCHOOL_COUNTRY);
+        secondaryStudioStudentFields.add(Constants.SCHOOL_TYPE);
+        secondaryStudioStudentFields.add(Constants.REFERRAL);
+        secondaryStudioStudentFields.add(Constants.REFERRAL_CODER);
+        secondaryStudioStudentFields.add(Constants.REFERRAL_OTHER);
+
+
+        requiredSecondaryStudioStudentFields.add(Constants.VISIBLE_SCHOOL);
+        requiredSecondaryStudioStudentFields.add(Constants.SCHOOL_NAME);
+        requiredSecondaryStudioStudentFields.add(Constants.SCHOOL_CITY);
+        requiredSecondaryStudioStudentFields.add(Constants.SCHOOL_ID);
+        requiredSecondaryStudioStudentFields.add(Constants.SCHOOL_COUNTRY);
+        requiredSecondaryStudioStudentFields.add(Constants.SCHOOL_TYPE);
+        requiredSecondaryStudioStudentFields.add(Constants.REFERRAL);
+
+        secondaryStudioProFields.add(Constants.DEMOG_PREFIX);
+        secondaryStudioProFields.add(Constants.TITLE);
+        secondaryStudioProFields.add(Constants.COMPANY_NAME);
+        secondaryStudioProFields.add(Constants.REFERRAL);
+        secondaryStudioProFields.add(Constants.REFERRAL_CODER);
+        secondaryStudioProFields.add(Constants.REFERRAL_OTHER);
+
+        requiredSecondaryStudioProFields.add(Constants.TITLE);
+        requiredSecondaryStudioProFields.add(Constants.COMPANY_NAME);
+        requiredSecondaryStudioProFields.add(Constants.REFERRAL);
+
+
+    }
 
     /**
      * Figure out what registration fields are relevant for the given set of registration types
@@ -307,7 +407,7 @@ public class RegFieldHelper {
             currentTypes = user.getRegistrationTypes();
         }
 
-        RegistrationTypeDAO dao = Util.getFactory().getRegistrationTypeDAO();
+        RegistrationTypeDAO dao = DAOUtil.getFactory().getRegistrationTypeDAO();
 
         List allRegTypes = dao.getRegistrationTypes();
         RegistrationType curr;
@@ -347,6 +447,12 @@ public class RegFieldHelper {
                     } else {
                         ret.addAll(mainSoftwareFields);
                     }
+                } else if (curr.getId().equals(RegistrationType.STUDIO_ID)) {
+                    if (required) {
+                        ret.addAll(requiredMainStudioFields);
+                    } else {
+                        ret.addAll(mainStudioFields);
+                    }
                 }
             } else if (regTypes.contains(curr) && !currentTypes.contains(curr)) {
                 //the user creating a registration for the specified type
@@ -380,6 +486,12 @@ public class RegFieldHelper {
                     } else {
                         ret.addAll(mainSoftwareFields);
                     }
+                } else if (curr.getId().equals(RegistrationType.STUDIO_ID)) {
+                    if (required) {
+                        ret.addAll(requiredMainStudioFields);
+                    } else {
+                        ret.addAll(mainStudioFields);
+                    }
                 }
             }
         }
@@ -403,7 +515,7 @@ public class RegFieldHelper {
         Set ret = new HashSet();
         Set currentTypes = user.getRegistrationTypes();
 
-        RegistrationTypeDAO dao = Util.getFactory().getRegistrationTypeDAO();
+        RegistrationTypeDAO dao = DAOUtil.getFactory().getRegistrationTypeDAO();
 
         List allRegTypes = dao.getRegistrationTypes();
         RegistrationType corp = dao.getCorporateType();
@@ -415,17 +527,13 @@ public class RegFieldHelper {
             if (regTypes.contains(curr) && currentTypes.contains(curr)) {
                 //must be an update
                 if (curr.getId().equals(RegistrationType.COMPETITION_ID)) {
-                    if (user.getCoder().getCoderType().equals(Util.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL)))
+                    if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL)))
                     {
                         if (required) {
-                            ret.addAll(secondaryCompProFields);
-                            ret.remove(Constants.REFERRAL);
+                            ret.addAll(requiredSecondaryCompProFields);
                         } else {
                             ret.addAll(secondaryCompProFields);
                             ret.add(Constants.PHOTO);
-                            ret.remove(Constants.REFERRAL);
-                            ret.remove(Constants.REFERRAL_CODER);
-                            ret.remove(Constants.REFERRAL_OTHER);
                         }
                         if (regTypes.contains(corp) || regTypes.contains(tcs)) {
                             //remove these because if they are registering for competitions as a pro
@@ -434,17 +542,13 @@ public class RegFieldHelper {
                             ret.remove(Constants.TITLE);
                         }
                     } else
-                    if (user.getCoder().getCoderType().equals(Util.getFactory().getCoderTypeDAO().find(CoderType.STUDENT)))
+                    if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.STUDENT)))
                     {
                         if (required) {
-                            ret.addAll(secondaryCompStudentFields);
-                            ret.remove(Constants.REFERRAL);
+                            ret.addAll(requiredSecondaryCompStudentFields);
                         } else {
                             ret.addAll(secondaryCompStudentFields);
                             ret.add(Constants.PHOTO);
-                            ret.remove(Constants.REFERRAL);
-                            ret.remove(Constants.REFERRAL_CODER);
-                            ret.remove(Constants.REFERRAL_OTHER);
                         }
                     } else {
                         throw new RuntimeException("Invalid coder type " + user.getCoder().getCoderType().getId());
@@ -472,6 +576,31 @@ public class RegFieldHelper {
                         ret.addAll(requiredSecondarySoftwareFields);
                     } else {
                         ret.addAll(secondarySoftwareFields);
+                    }
+                } else if (curr.getId().equals(RegistrationType.STUDIO_ID)) {
+                    if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL)))
+                    {
+                        if (required) {
+                            ret.addAll(requiredSecondaryStudioProFields);
+                        } else {
+                            ret.addAll(secondaryCompProFields);
+                        }
+                        if (regTypes.contains(corp) || regTypes.contains(tcs)) {
+                            //remove these because if they are registering for competitions as a pro
+                            //and they are corporate, they answered these questions on the first page already
+                            ret.remove(Constants.COMPANY_NAME);
+                            ret.remove(Constants.TITLE);
+                        }
+                    } else
+                    if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.STUDENT)))
+                    {
+                        if (required) {
+                            ret.addAll(requiredSecondaryCompStudentFields);
+                        } else {
+                            ret.addAll(secondaryCompStudentFields);
+                        }
+                    } else {
+                        throw new RuntimeException("Invalid coder type " + user.getCoder().getCoderType().getId());
                     }
                 }
 
@@ -528,6 +657,34 @@ public class RegFieldHelper {
                     } else {
                         ret.addAll(secondarySoftwareFields);
                     }
+                } else if (curr.getId().equals(RegistrationType.STUDIO_ID)) {
+                    ct = user.getCoder().getCoderType();
+                    if (ct == null) {
+                        throw new RuntimeException("User had no coder type");
+                    } else {
+                        if (ct.getId().equals(CoderType.PROFESSIONAL)) {
+                            if (required) {
+                                ret.addAll(requiredSecondaryStudioProFields);
+                            } else {
+                                ret.addAll(secondaryStudioProFields);
+                            }
+                            if (regTypes.contains(corp) || regTypes.contains(tcs)) {
+                                //remove these because if they are registering for competitions as a pro
+                                //and they are corporate, they answered these questions on the first page already
+                                ret.remove(Constants.COMPANY_NAME);
+                                ret.remove(Constants.TITLE);
+                            }
+                        } else if (ct.getId().equals(CoderType.STUDENT)) {
+                            if (required) {
+                                ret.addAll(requiredSecondaryStudioStudentFields);
+                            } else {
+                                ret.addAll(secondaryStudioStudentFields);
+                            }
+                        } else {
+                            throw new RuntimeException("Invalid coder type " + ct.getId());
+                        }
+                    }
+
                 }
             }
         }
@@ -537,6 +694,11 @@ public class RegFieldHelper {
                 //high school people have to show their school
                 ret.remove(Constants.VISIBLE_SCHOOL);
             }
+        }
+        if (!user.isNew()) {
+            ret.remove(Constants.REFERRAL);
+            ret.remove(Constants.REFERRAL_CODER);
+            ret.remove(Constants.REFERRAL_OTHER);
         }
         log.debug("returning " + ret.size() + " items " + ret.toString());
 

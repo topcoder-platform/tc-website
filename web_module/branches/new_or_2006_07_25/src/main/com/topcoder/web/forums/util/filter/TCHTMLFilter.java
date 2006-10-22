@@ -3,9 +3,15 @@ package com.topcoder.web.forums.util.filter;
 import com.jivesoftware.base.*;
 import com.jivesoftware.base.filter.*;
 
+import java.awt.Frame;
+import java.awt.MediaTracker;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.*;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import org.htmlparser.*;
 import org.htmlparser.lexer.Lexer;
@@ -25,10 +31,13 @@ public class TCHTMLFilter implements Filter {
     private boolean onlyFilterBlocksEnabled = false;
     private boolean stripDisallowedTags = false;
     private boolean allowSymbols = true;
+    private boolean restrictImageWidth = false;
+    
     private String allowedTagsString = "";
     private String disallowedTagsString = "";
     private String allowedAttributesString = "";
     private String disallowedKeywordsString = "";
+    private int maxImageWidth = 0;
 
     private Hashtable allowedAttributes = new Hashtable();
     private List disallowedKeywords = new ArrayList();
@@ -45,6 +54,7 @@ public class TCHTMLFilter implements Filter {
     public static String[] DEFAULT_DISALLOWED_TAGS = {"o:~","st1:~"};
     public static String[] DEFAULT_ALLOWED_ATTRIBUTES = {"a:href","img:src,height,width"};
     public static String[] DEFAULT_DISALLOWED_KEYWORDS = {"javascript"};
+    public static int DEFAULT_MAX_IMAGE_WIDTH = 600;
     
     /**
      * Creates a new default HTML filter.
@@ -92,7 +102,7 @@ public class TCHTMLFilter implements Filter {
             }
         }
         
-        Log.info("allowedAttributesString: "+allowedAttributesString);
+        maxImageWidth = DEFAULT_MAX_IMAGE_WIDTH;
     }
 
     public String getName() {
@@ -170,6 +180,26 @@ public class TCHTMLFilter implements Filter {
 
     public void setAllowSymbols(boolean allowSymbols) {
         this.allowSymbols = allowSymbols;
+    }
+    
+    public boolean isRestrictImageWidth() {
+    	return restrictImageWidth;
+    }
+    
+    public void setRestrictImageWidth(boolean restrictImageWidth) {
+    	this.restrictImageWidth = restrictImageWidth;
+    }
+    
+    public String getMaxImageWidth() {
+    	return String.valueOf(maxImageWidth);
+    }
+    
+    public void setMaxImageWidth(String maxImageWidth) {
+    	try {
+    		this.maxImageWidth = Integer.parseInt(maxImageWidth);
+    	} catch (NumberFormatException nfe) {
+    		this.maxImageWidth = DEFAULT_MAX_IMAGE_WIDTH;
+    	}
     }
 
     public String getAllowedTagsString() {
@@ -653,6 +683,47 @@ public class TCHTMLFilter implements Filter {
                         Attribute attr = tag.getAttributeEx("src");
                         attr.setValue("#");
                     }
+                }
+
+                if (restrictImageWidth) {
+	                String widthStr = tag.getAttribute("width");
+	                if (widthStr != null) {
+		                if (widthStr.endsWith("/")) {
+		                	widthStr = widthStr.substring(0,widthStr.length()-1);
+		                }
+		                try {
+		                	int width = Integer.parseInt(widthStr);
+		                	if (width > maxImageWidth) {
+		                		Attribute attrWidth = tag.getAttributeEx("width");
+		                		attrWidth.setValue(String.valueOf(maxImageWidth));
+			                }	
+		                } catch (NumberFormatException nfe) {}
+	                } else {
+	                	try {
+	                		Image im = Toolkit.getDefaultToolkit().getImage(new URL(src)); 
+	                		MediaTracker tracker = new MediaTracker(new Frame()); 
+	                		tracker.addImage(im, 0); 
+	                		tracker.waitForAll();
+	                		
+	                		int width = im.getWidth(null);
+			                String heightStr = tag.getAttribute("height");
+			                if (heightStr != null && heightStr.endsWith("/")) {
+			                	heightStr = heightStr.substring(0,heightStr.length()-1);
+			                }
+			                try {
+			                	int height = Integer.parseInt(heightStr);
+			                	width = width * (height / im.getHeight(null)); 
+			                } catch (NumberFormatException nfe) {}
+	                		if (width > maxImageWidth) {
+	                			Attribute attrWidth = tag.getAttributeEx("width");
+		                		attrWidth.setValue(String.valueOf(maxImageWidth));
+	                		}
+	                	} catch (InterruptedException ie) {
+	                		Log.error("TCHTMLFilter: InterruptedException encountered while retrieving image");
+	                	} catch (MalformedURLException mue) {
+	                		Log.error("TCHTMLFilter: MalformedURLException encountered while retrieving image (SRC = " + src + ")");
+	                	}
+	                }
                 }
             }
             else {

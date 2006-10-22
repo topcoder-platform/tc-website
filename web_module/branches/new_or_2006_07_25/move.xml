@@ -11,6 +11,14 @@
     <property name="war_dir" value="${build}/wars"/>
     <property name="techassess_war_dir" value="${jboss_home}/server/default/deploy/techassess.war/"/>
 
+    <target name="jar-classes" depends="">
+        <jar destfile="./lib/bin/classes.jar" update="true">
+            <fileset dir="./build/classes">
+                <include name="**"/>
+            </fileset>
+        </jar>
+    </target>
+
     <target name="package-topcoder" depends="">
 
         <!--
@@ -24,19 +32,15 @@
         <cvs command="update -Pd" package="src"/>
         <cvs command="update -Pd" package="resources"/>
         <cvs command="update -Pd" package="lib"/>
-        <cvs command="update -Pd" package="build.xml"/>
+        <cvs command="update -Pd" package="build_tc.xml"/>
 
         <exec dir="../shared" executable="cvs">
             <arg line="update -dP src"/>
         </exec>
 
-        <ant antfile="build.xml" target="deploy"/>
+        <ant antfile="build_tc.xml" target="deploy"/>
 
-        <jar destfile="./lib/bin/classes.jar" update="true">
-            <fileset dir="./build/classes">
-                <include name="**"/>
-            </fileset>
-        </jar>
+        <antcall target="jar-classes"/>
 
         <jar destfile="topcoder.jar" update="true">
             <fileset dir=".">
@@ -53,14 +57,16 @@
                 <include name="resources/privatelabel/**"/>
                 <include name="resources/TC.properties"/>
                 <include name="resources/PrivateLabel*.properties"/>
+                <include name="resources/PactsInternalServlet.properties"/>
                 <include name="resources/Registration.properties"/>
                 <include name="resources/LongContest.properties"/>
                 <include name="resources/CorpConstants.properties"/>
                 <include name="resources/DataAccess.properties"/>
                 <include name="resources/problem.xsd"/>
                 <include name="move.xml"/>
-                <include name="build.xml"/>
+                <include name="build_tc.xml"/>
                 <include name="lib/bin/shared.jar"/>
+                <include name="lib/bin/tcwebcommon.jar"/>
                 <include name="lib/bin/classes.jar"/>
             </fileset>
         </jar>
@@ -91,6 +97,7 @@
 
         <copy todir="${tempMoveDir}" file="build/wars/techassess.war"/>
         <copy todir="${tempMoveDir}" file="lib/bin/shared.jar"/>
+        <copy todir="${tempMoveDir}" file="lib/bin/tcwebcommon.jar"/>
         <copy todir="${tempMoveDir}" file="${jboss_home}/server/default/deploy/reconnect.jar"/>
         <copy todir="${tempMoveDir}" file="${jboss_home}/server/default/deploy/ProblemServices.jar"/>
         <copy todir="${tempMoveDir}" file="${jboss_home}/server/default/deploy/ScreeningServices.jar"/>
@@ -102,6 +109,7 @@
             <fileset dir="${tempMoveDir}">
                 <include name="techassess.war"/>
                 <include name="shared.jar"/>
+                <include name="tcwebcommon.jar"/>
                 <include name="reconnect.jar"/>
                 <include name="Screening.jar"/>
                 <include name="ProblemServices.jar"/>
@@ -126,6 +134,7 @@
         <jar destfile="software.jar" update="true">
             <fileset dir=".">
                 <include name="lib/bin/shared.jar"/>
+                <include name="lib/bin/tcwebcommon.jar"/>
                 <include name="lib/bin/screening.jar"/>
                 <include name="build/ears/dde.ear"/>
                 <include name="build/wars/review.war"/>
@@ -133,7 +142,23 @@
                 <include name="build/wars/onsite.war"/>
                 <include name="build/ejb_jars/Project.jar"/>
                 <include name="build/ejb_jars/RBoard.jar"/>
+                <include name="build/ejb_jars/Specification.jar"/>
                 <include name="build_tcs.xml"/>
+                <include name="resources/automatic_screening/com/topcoder/apps/**"/>
+                <include name="resources/automatic_screening/com/topcoder/file/**"/>
+                <include name="resources/automatic_screening/com/topcoder/util/**"/>
+            </fileset>
+        </jar>
+    </target>
+
+    <target name="package-forums-full" depends="">
+        <antcall target="package-forums"/>
+        <ant antfile="build.xml" target="build-security"/>
+
+        <jar destfile="forums.jar" update="true">
+            <fileset dir=".">
+                <include name="lib/jars/jive/**"/>
+                <include name="build/ears/security.ear"/>
             </fileset>
         </jar>
     </target>
@@ -168,20 +193,50 @@
 
         <jar destfile="forums.jar" update="true">
             <fileset dir=".">
-                <include name="lib/jars/tcuser.jar"/>
-                <include name="lib/jars/tcauth.jar"/>
-                <include name="lib/jars/tcfilters.jar"/>
+                <include name="lib/jars/tcjive.jar"/>
                 <include name="build/wars/forums.war"/>
                 <include name="build/ejb_jars/messagehistory.jar"/>
                 <include name="build/ejb_jars/forums.jar"/>
                 <include name="lib/bin/shared.jar"/>
+                <include name="lib/bin/tcwebcommon.jar"/>
                 <include name="build.xml"/>
             </fileset>
         </jar>
-
-
     </target>
 
+    <target name="package-studio" depends="">
+
+        <delete dir="build"/>
+        <delete file="studio.jar"/>
+
+        <cvs command="update -Pd" package="src"/>
+        <cvs command="update -Pd" package="resources"/>
+        <cvs command="update -Pd" package="lib"/>
+        <cvs command="update -Pd" package="build_studio.xml"/>
+
+        <exec dir="../shared" executable="cvs">
+            <arg line="update -dP src"/>
+        </exec>
+
+        <ant antfile="build_studio.xml" target="deploy-studio"/>
+        <ant antfile="build_studio.xml" target="build-security"/>
+
+        <jar destfile="studio.jar" update="true">
+            <fileset dir=".">
+                <include name="build/ejb_jars/*.jar"/>
+                <include name="build/wars/*.war"/>
+                <include name="build/ears/*.ear"/>
+                <include name="resources/studio/**"/>
+                <include name="resources/forums/filter/**"/>
+                <include name="resources/longcontest/**"/>
+                <include name="resources/Studio.properties"/>
+                <include name="move.xml"/>
+                <include name="build_studio.xml"/>
+                <include name="lib/bin/*.jar"/>
+            </fileset>
+        </jar>
+
+    </target>
 
     <target name="deploy-techassess" depends="">
         <!-- create backup -->
@@ -192,6 +247,7 @@
 
         <copy todir="${backupDirectory}" file="build/wars/techassess.war"/>
         <copy todir="${backupDirectory}" file="${jboss_home}/server/default/lib/shared.jar"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/lib/tcwebcommon.jar"/>
         <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/reconnect.jar"/>
         <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/ProblemServices.jar"/>
         <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/ScreeningServices.jar"/>
@@ -207,6 +263,7 @@
         <unjar src="techassess.jar" dest="${tempDeployDir}"/>
         <copy overwrite="true" todir="${war_dir}" file="${tempDeployDir}/techassess.war"/>
         <copy overwrite="true" todir="${jboss_home}/server/default/lib" file="${tempDeployDir}/shared.jar"/>
+        <copy overwrite="true" todir="${jboss_home}/server/default/lib" file="${tempDeployDir}/tcwebcommon.jar"/>
         <copy overwrite="true" todir="${jboss_home}/server/default/deploy" file="${tempDeployDir}/reconnect.jar"/>
         <copy overwrite="true" todir="${jboss_home}/server/default/deploy" file="${tempDeployDir}/ProblemServices.jar"/>
         <copy overwrite="true" todir="${jboss_home}/server/default/deploy"

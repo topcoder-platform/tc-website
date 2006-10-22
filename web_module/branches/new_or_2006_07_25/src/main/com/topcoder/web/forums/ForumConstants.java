@@ -8,15 +8,14 @@ import com.jivesoftware.base.JiveGlobals;
 /**
  * @author mtong
  */
-public interface ForumConstants {
-    public final static String FORUMS_DIR = "/";
-    
+public interface ForumConstants {    
     public final static String CATEGORY_ID = "categoryID";
 	public final static String FORUM_ID = "forumID";
 	public final static String THREAD_ID = "threadID";
 	public final static String MESSAGE_ID = "messageID";
     public final static String USER_ID = "userID";
     public final static String ANNOUNCEMENT_ID = "annID";
+    public final static String POLL_ID = "pollID";
     
     public final static String THREAD_VIEW = "view";
     public final static String THREAD_ERROR = "error";
@@ -32,10 +31,8 @@ public interface ForumConstants {
     public final static String ANNOUNCEMENT_COMMAND = "cmd";
 	
 	public final static String START_IDX = "start";
-    
 	public final static String POST_MODE = "mode";
     
-    public final static String SETTINGS_STATUS = "status";
     public final static String SETTINGS_SECTION = "section";
     public final static String MARK_READ = "markRead";
 
@@ -60,12 +57,10 @@ public interface ForumConstants {
     public final static String ADMIN_COMMAND_CREATE_FORUMS_ALGO = "createForumsAlgo";
     public final static String ADMIN_COMMAND_DELETE_FORUMS_ALGO = "deleteForumsAlgo";
     public final static String ADMIN_ENABLE_RATINGS = "enableRatings";
-    public final static String ADMIN_ENABLE_RATING_PERMS = "enableRatingPerms";
 
     public final static String ADMIN_MATCH = "match";
 
     // Search
-    public final static String SEARCH_STATUS = "status";
     public final static String SEARCH_QUERY = "query";
     public final static String SEARCH_SCOPE = "scope";
     public final static String SEARCH_DATE_RANGE = "dateRange";
@@ -90,7 +85,6 @@ public interface ForumConstants {
     };
 
     // Watches
-    public final static String WATCHLIST_STATUS = "status";
     public final static String WATCH_TYPE = "type";
     public final static String WATCH_ID = "ID";
     public final static String WATCH_COMMAND = "cmd";
@@ -100,6 +94,13 @@ public interface ForumConstants {
     public final static String WATCHES_SAVE_THREAD = "save";
     public final static String WATCHES_DELETE_THREAD = "delete";
 
+    // Statuses
+	public final static String STATUS = "status";
+	public final static String STATUS_CREATE = "create";
+	public final static String STATUS_DELETE = "delete";
+	public final static String STATUS_SAVE = "save";
+	public final static String STATUS_UPDATE = "update";
+    
     // Defaults
     public final static int DEFAULT_SEARCH_RANGE = 20;
     public final static int DEFAULT_MESSAGE_RANGE = 15;
@@ -121,6 +122,7 @@ public interface ForumConstants {
     public final static int MAX_SEARCH_RESULTS_PER_PAGE = 100;
     public final static int MAX_THREAD_WATCHES = 2000;
     public final static int MAX_DISPLAYED_FORUMS_PER_CATEGORY = 15;
+    public final static int MAX_POLL_CHOICES = 100;
 
     // Error messages
     public final static String ERR_EMPTY_MESSAGE_SUBJECT =
@@ -154,6 +156,10 @@ public interface ForumConstants {
         "Please enter some search terms.";
     public final static String ERR_NO_SEARCH_HANDLE =
         "No user exists with the specified handle.";
+    public final static String ERR_NO_POLL_ANSWER = 
+    	"Please select an answer.";
+    public final static String ERR_NO_POLL_ANSWERS = 
+    	"Please select one or more answers.";
 
     // Occur when attempting to change the query string while posting a message
     public final static String ERR_POST_MODE_UNRECOGNIZED = "Post mode unrecognized.";

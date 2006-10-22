@@ -60,6 +60,8 @@ research papers, and with networks and graphs becoming more and more common,
 this sort of data mining is sure to be important.
 <br><br>
 <span class="subtitle">General Approach</span><br>
+<ul>
+<li>
 Due to the performance metric being optimized, it didn't seem practical to
 optimize the number_of_cuts / minimum_cluster_size ratio by allowing both
 factors to change, because a change in cluster size usually has a much bigger
@@ -68,15 +70,14 @@ Thus, any incremental approach would quickly lock itself in a state where the
 minimum cluster size is N/C. So instead, I fixed the minimum cluster size to one
 value at a time, starting from N/C, and tried to minimize the number of cuts
 with the only constraint being that all the clusters had at least the minimum
-size.<br><br>
-
-
+size.</li>
+<li>
 Instead of trying to minimize the number of cuts between clusters, I
 worked towards maximizing the number of internal connections in each
 cluster. Obviously it is the same thing, but as the number of internal
 connections is a property of each cluster independently of the rest of
-the graph, it was easier to visualize when trying to come up with methods.<br><br>
-
+the graph, it was easier to visualize when trying to come up with methods.</li>
+<li>
 Since the score is a function of runtime if the result is near
 optimal, and zero otherwise, the goal wasn't to create the most accurate
 algorithm, or the fastest, but the one that has the best
@@ -87,8 +88,9 @@ graphs, then saved these so the testing program could calculate a score
 for all the versions of my algorithm, using the same formula
 1/(100+runtime) if optimal, 0 if not, then normalizing against a
 theoretical maximum score of 10000 to have comparable results for
-different tests.<br><br>
+different tests.</li>
 
+<li>
 Given how the graphs are generated with 'natural' groups, one can in
 many cases expect the optimal configuration to be close to the original
 distribution (in fact the optimal clusters were usually much better than
@@ -96,8 +98,10 @@ the generated clusters), and random solutions to converge fast towards
 that optimal. Furthermore, the easiest test cases also tend to be the
 fastest to solve, and it's more important to focus on solving these
 fast, rather than on solving optimally the harder cases, as the score for these
-will be low anyway.<br>
-<br>
+will be low anyway.</li>
+</ul>
+
+
 <span class="subtitle">Algorithm</span><br>
 
 My algorithm consisted of 5 parts:

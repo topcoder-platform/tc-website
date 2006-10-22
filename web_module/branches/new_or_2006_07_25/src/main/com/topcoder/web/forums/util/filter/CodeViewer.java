@@ -941,6 +941,7 @@ public class CodeViewer {
         loadJavaKeywords();
         loadCSharpKeywords();
         loadVBKeywords();
+        loadPythonKeywords();
     }
      
     private static void loadCPPKeywords() {
@@ -1080,6 +1081,16 @@ public class CodeViewer {
                 "Xor"};
         for (int i=0; i<keywordsVB.length; i++) {
             reservedWords.put(keywordsVB[i], keywordsVB[i]);
+        }
+    }
+    
+    private static void loadPythonKeywords() {
+    	// From: http://docs.python.org/ref/keywords.html
+        String[] keywordsPython = {"and","assert","break","class","continue","def","del","elif",
+        		"else","except","exec","finally","for","from","global","if","import","in","is",
+        		"lambda","not","or","pass","print","raise","return","try","while","yield","True","False"};
+        for (int i=0; i<keywordsPython.length; i++) {
+            reservedWords.put(keywordsPython[i], keywordsPython[i]);
         }
     }
 }

@@ -15,7 +15,7 @@ public class PasswordValidator implements Validator {
         ValidationResult nret = new NonEmptyValidator("Please enter your password.").validate(input);
         if (nret.isValid()) {
             ValidationResult sret =  new SizeValidator(Constants.MIN_PASSWORD_LENGTH,
-                    Constants.MAX_PASSWORD_LENGTH, "password").validate(input);
+                    Constants.MAX_PASSWORD_LENGTH, "Password").validate(input);
             if (sret.isValid()) {
                 //validate characters in password
                 ret = new BasicResult(StringUtils.containsOnly((String)input.getInput(), Constants.PASSWORD_ALPHABET, false),

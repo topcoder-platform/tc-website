@@ -3,8 +3,8 @@
 <html>
 <head>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/tcStyles.css"/>
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gicj06.css"/>
+    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
+    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gicj06.css"/>
     <title>Google Code Jam India, Powered by TopCoder</title>
 </head>
 
@@ -17,7 +17,8 @@
         <table border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                 <td width="49%"></td>
-                <td valign="bottom" align="center"><img border="0" src="/i/events/gicj06/logo_CodeJam.gif" alt="Google Code Jam India logo"></td>
+                <td valign="bottom" align="center">
+                    <img border="0" src="/i/events/gicj06/logo_CodeJam.gif" alt="Google Code Jam India logo"></td>
                 <td width="49%"></td>
             </tr>
         </table>
@@ -223,7 +224,7 @@ Vectors:<br>
 <br><br>
 STL:<br>
 <a href="http://www.sgi.com/tech/stl/">STL Programmer's Guide</a><br>
-<a href="http://www.topcoder.com/index?t=features&c=feat_082803">A Crash Course in the C++ Standard Template Library</a>
+<a href="/tc?module=Static&amp;d1=features&amp;d2=082803">A Crash Course in the C++ Standard Template Library</a>
 
 <br><br>
 To find out more detailed information about Google&#153; Code Jam India, including a list of the prizes, please read the

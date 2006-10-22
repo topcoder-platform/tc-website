@@ -68,6 +68,11 @@
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
+        <attribute>
+            <name>id</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
 
     </tag>
     <tag>
@@ -460,6 +465,7 @@
         </attribute>
 
     </tag>
+
 
     <tag>
         <name>ratingColor</name>

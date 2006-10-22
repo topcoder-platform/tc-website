@@ -33,9 +33,9 @@ public class AdvancedSearch extends SimpleSearch {
 
     protected void setDefaults(MemberSearch m) {
         super.setDefaults(m);
-        setDefault(Constants.STATE_CODE, m.getStateCode() == null ? "" : m.getStateCode().toString());
-        setDefault(Constants.COUNTRY_CODE, m.getCountryCode() == null ? "" : m.getCountryCode().toString());
-        setDefault(Constants.SCHOOL_NAME, m.getSchoolName() == null ? "" : m.getSchoolName().toString());
+        setDefault(Constants.STATE_CODE, m.getStateCode() == null ? "" : m.getStateCode());
+        setDefault(Constants.COUNTRY_CODE, m.getCountryCode() == null ? "" : m.getCountryCode());
+        setDefault(Constants.SCHOOL_NAME, m.getSchoolName() == null ? "" : m.getSchoolName());
         setDefault(Constants.MIN_RATING, m.getMinRating() == null ? "" : m.getMinRating().toString());
         setDefault(Constants.MAX_RATING, m.getMaxRating() == null ? "" : m.getMaxRating().toString());
         setDefault(Constants.MIN_DESIGN_RATING, m.getMinDesignRating() == null ? "" : m.getMinDesignRating().toString());
@@ -54,6 +54,7 @@ public class AdvancedSearch extends SimpleSearch {
 
     /**
      * pull the info out of the request and do some error checking
+     *
      * @return
      * @throws Exception
      */

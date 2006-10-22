@@ -62,7 +62,7 @@ public class Search extends ForumsProcessor {
         getRequest().setAttribute("dates", dates);
 
         String mode = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_MODE));
-        String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_STATUS));
+        String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.STATUS));
 
         if (mode.equals(ForumConstants.SEARCH_MODE_BASIC)) {
             setNextPage("/searchBasic.jsp");

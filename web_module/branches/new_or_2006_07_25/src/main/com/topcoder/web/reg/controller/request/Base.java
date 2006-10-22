@@ -1,15 +1,18 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.servlet.request.UploadedFile;
+import com.topcoder.web.common.LongHibernateProcessor;
 import com.topcoder.web.common.MultipartRequest;
+import com.topcoder.web.common.dao.DAOFactory;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
+import com.topcoder.web.common.model.*;
 import com.topcoder.web.common.validation.ListInput;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.Validator;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
-import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
-import com.topcoder.web.reg.model.*;
 import com.topcoder.web.reg.validation.*;
 
 import java.io.IOException;
@@ -20,9 +23,10 @@ import java.util.*;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2006
  */
-abstract class Base extends HibernateProcessor {
+abstract class Base extends LongHibernateProcessor {
 
     private User user = null;
+    private DAOFactory factory = null;
 
     protected void dbProcessing() throws Exception {
         registrationProcessing();
@@ -53,10 +57,14 @@ abstract class Base extends HibernateProcessor {
                     log.debug("not logged in and user is null");
                 }
             } else {
-                log.debug("got user from session");
+                if (log.isDebugEnabled()) {
+                    log.debug("got id: " + user.getId() + " handle: " + user.getHandle() + " user from session");
+                }
             }
         } else {
-            log.debug("got user from processor");
+            if (log.isDebugEnabled()) {
+                log.debug("got id: " + user.getId() + " handle: " + user.getHandle() + " user from processor");
+            }
         }
         return user;
     }
@@ -86,9 +94,13 @@ abstract class Base extends HibernateProcessor {
      */
     protected Set getRequestedTypes() {
         Set regTypes = (Set) getRequest().getSession().getAttribute(Constants.REG_TYPES);
-        for (Iterator it = regTypes.iterator(); it.hasNext();) {
-            log.debug("getter: " + ((RegistrationType) it.next()).getName());
+/*
+        if (log.isDebugEnabled()) {
+            for (Iterator it = regTypes.iterator(); it.hasNext();) {
+                log.debug("getter: " + ((RegistrationType) it.next()).getName());
+            }
         }
+*/
         return regTypes;
     }
 
@@ -99,9 +111,13 @@ abstract class Base extends HibernateProcessor {
      * @param requestedTypes
      */
     protected void setRequestedTypes(Set requestedTypes) {
-        for (Iterator it = requestedTypes.iterator(); it.hasNext();) {
-            log.debug("settter: " + ((RegistrationType) it.next()).getName());
+/*
+        if (log.isDebugEnabled()) {
+            for (Iterator it = requestedTypes.iterator(); it.hasNext();) {
+                log.debug("settter: " + ((RegistrationType) it.next()).getName());
+            }
         }
+*/
         getRequest().getSession().setAttribute(Constants.REG_TYPES, requestedTypes);
     }
 
@@ -129,6 +145,8 @@ abstract class Base extends HibernateProcessor {
         ret.put(Constants.SURNAME, getTrimmedParameter(Constants.SURNAME));
         ret.put(Constants.PASSWORD, getTrimmedParameter(Constants.PASSWORD));
         ret.put(Constants.PASSWORD_CONFIRM, getTrimmedParameter(Constants.PASSWORD_CONFIRM));
+        ret.put(Constants.SECRET_QUESTION, getTrimmedParameter(Constants.SECRET_QUESTION));
+        ret.put(Constants.SECRET_QUESTION_RESPONSE, getTrimmedParameter(Constants.SECRET_QUESTION_RESPONSE));
         ret.put(Constants.HANDLE, getTrimmedParameter(Constants.HANDLE));
         ret.put(Constants.QUOTE, getTrimmedParameter(Constants.QUOTE));
         ret.put(Constants.TITLE, getTrimmedParameter(Constants.TITLE));
@@ -137,6 +155,8 @@ abstract class Base extends HibernateProcessor {
         ret.put(Constants.COMP_COUNTRY_CODE, getTrimmedParameter(Constants.COMP_COUNTRY_CODE));
         ret.put(Constants.CODER_TYPE, getTrimmedParameter(Constants.CODER_TYPE));
         ret.put(Constants.TIMEZONE, getTrimmedParameter(Constants.TIMEZONE));
+        ret.put(Constants.MEMBER_CONTACT, getTrimmedParameter(Constants.MEMBER_CONTACT));
+        ret.put(Constants.TERMS_OF_USE_ID, getTrimmedParameter(Constants.TERMS_OF_USE_ID));
 
         //iterate through the notifications, we're essentially validating here
         //since we're only looking for valid notifications.
@@ -177,6 +197,8 @@ abstract class Base extends HibernateProcessor {
         simpleValidation(GivenNameValidator.class, fields, params, Constants.GIVEN_NAME);
         simpleValidation(MiddleNameValidator.class, fields, params, Constants.MIDDLE_NAME);
         simpleValidation(PasswordValidator.class, fields, params, Constants.PASSWORD);
+        simpleValidation(SecretQuestionValidator.class, fields, params, Constants.SECRET_QUESTION);
+        simpleValidation(SecretQuestionResponseValidator.class, fields, params, Constants.SECRET_QUESTION_RESPONSE);
         simpleValidation(PostalCodeValidator.class, fields, params, Constants.POSTAL_CODE);
         simpleValidation(ProvinceValidator.class, fields, params, Constants.PROVINCE);
         simpleValidation(QuoteValidator.class, fields, params, Constants.QUOTE);
@@ -187,6 +209,12 @@ abstract class Base extends HibernateProcessor {
         simpleValidation(CountryValidator.class, fields, params, Constants.COMP_COUNTRY_CODE);
         simpleValidation(CoderTypeValidator.class, fields, params, Constants.CODER_TYPE);
         simpleValidation(TimeZoneValidator.class, fields, params, Constants.TIMEZONE);
+
+        ValidationResult termsResults = new TermsOfUseValidator(getRegUser()).validate(
+                new StringInput((String) params.get(Constants.TERMS_OF_USE_ID)));
+        if (!termsResults.isValid()) {
+            addError(Constants.TERMS_OF_USE_ID, termsResults.getMessage());
+        }
 
         if (fields.contains(Constants.EMAIL_CONFIRM)) {
             ValidationResult emailConfirmResult = new EmailConfirmValidator(
@@ -261,6 +289,12 @@ abstract class Base extends HibernateProcessor {
         setDefault(Constants.GIVEN_NAME, u.getFirstName());
         setDefault(Constants.PASSWORD, u.getPassword());
         setDefault(Constants.PASSWORD_CONFIRM, u.getPassword());
+
+        if (u.getSecretQuestion() != null) {
+            setDefault(Constants.SECRET_QUESTION, u.getSecretQuestion().getQuestion());
+            setDefault(Constants.SECRET_QUESTION_RESPONSE, u.getSecretQuestion().getResponse());
+        }
+
         setDefault(Constants.HANDLE, u.getHandle());
         if (u.getContact() != null) {
             if (u.getContact().getCompany() != null) {
@@ -287,6 +321,9 @@ abstract class Base extends HibernateProcessor {
         for (Iterator it = u.getNotifications().iterator(); it.hasNext();) {
             setDefault(Constants.NOTIFICATION + ((Notification) it.next()).getId(), String.valueOf(true));
         }
+
+        setDefault(Constants.MEMBER_CONTACT, String.valueOf(u.isMemberContactEnabled()));
+
         if (u.getContact() != null) {
             setDefault(Constants.TITLE, u.getContact().getTitle());
             if (u.getContact().getCompany() != null) {
@@ -636,6 +673,12 @@ abstract class Base extends HibernateProcessor {
         return getFactory().getReferralDAO().getReferrals(s);
     }
 
+    protected DAOFactory getFactory() {
+        if (factory == null) {
+            factory = DAOUtil.getFactory();
+        }
+        return factory;
+    }
 
     /**
      * Should be implemented by child classes to handle all the actual processing

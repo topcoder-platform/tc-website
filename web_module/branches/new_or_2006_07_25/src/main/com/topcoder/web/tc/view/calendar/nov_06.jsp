@@ -165,7 +165,7 @@
          </div>
          <div class="tccc06">
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=onsite_schedule">Algo Finals</A></strong><br>
-         2:30 PM PST
+         1:30 PM PST
          </div>
       </td>
       <td class="value">18

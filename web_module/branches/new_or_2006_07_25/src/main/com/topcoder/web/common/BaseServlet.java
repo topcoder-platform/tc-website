@@ -6,10 +6,12 @@ import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.error.RequestRateExceededException;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.throttle.Throttle;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -39,6 +41,8 @@ public abstract class BaseServlet extends HttpServlet {
     public static final String SESSION_INFO_KEY = "sessionInfo";
 
     private static final Logger log = Logger.getLogger(BaseServlet.class);
+
+    private static final Throttle throttle = new Throttle(5, 2500);
 
     /**
      * Initializes the servlet.
@@ -126,12 +130,19 @@ public abstract class BaseServlet extends HttpServlet {
             try {
 
                 request.setCharacterEncoding("utf-8");
+
+                TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+                TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+
+                if (throttle.throttle(request.getSession().getId())) {
+                    authentication = createAuthentication(tcRequest, tcResponse);
+                    throw new RequestRateExceededException(request.getSession().getId(),
+                            authentication.getActiveUser().getUserName());
+                }
+
                 if (log.isDebugEnabled()) {
                     log.debug("content type: " + request.getContentType());
                 }
-                TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-
-                TCResponse tcResponse = HttpObjectFactory.createResponse(response);
                 //set up security objects and session info
                 authentication = createAuthentication(tcRequest, tcResponse);
                 TCSubject user = getUser(authentication.getActiveUser().getId());
@@ -195,22 +206,21 @@ public abstract class BaseServlet extends HttpServlet {
                         throw new NavigationException("Invalid request", e);
                     }
                 } catch (PermissionException pe) {
-                    if (log.isDebugEnabled()) {
-                        log.debug("caught PermissionException");
-                    }
                     if (authentication.getUser().isAnonymous()) {
+                        log.info(info.getHandle() + " does not have access to " + pe.getResource().getName() + " sending to login");
                         handleLogin(request, response, info);
                         return;
                     } else {
-                        if (log.isDebugEnabled()) {
-                            log.debug("already logged in, rethrowing");
-                        }
+                        log.info(info.getHandle() + " does not have access to " + pe.getResource().getName() + " sending to error");
                         throw pe;
                     }
                 }
                 if (!response.isCommitted()) {
                     fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
                 }
+                //if there is an exception in post processing, and we've already started writting the response
+                //we're not going to be able to forward to the error page.
+                rp.postProcessing();
 
             } catch (Throwable e) {
                 handleException(request, response, e);
@@ -296,15 +306,24 @@ public abstract class BaseServlet extends HttpServlet {
 
     protected void handleException(HttpServletRequest request, HttpServletResponse response, Throwable e)
             throws Exception {
-        log.error("caught exception, forwarding to error page", e);
+        log.error("caught exception, forwarding to error page: " + e.getMessage());
         if (e instanceof PermissionException) {
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             request.setAttribute(MESSAGE_KEY, "Sorry, you do not have permission to access the specified resource.");
         } else if (e instanceof NavigationException) {
-            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            if (e instanceof RequestRateExceededException) {
+                RequestRateExceededException rre = (RequestRateExceededException) e;
+                StringBuffer buf = new StringBuffer(100);
+                buf.append("session ").append(rre.getSessionId());
+                buf.append("(").append(rre.getHandle()).append(")");
+                buf.append(" exceeded the request rate limit.");
+                log.warn(buf.toString());
+            } else {
+                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+                if (((NavigationException) e).hasUrl())
+                    request.setAttribute(URL_KEY, ((NavigationException) e).getUrl());
+            }
             request.setAttribute(MESSAGE_KEY, e.getMessage());
-            if (((NavigationException) e).hasUrl())
-                request.setAttribute(URL_KEY, ((NavigationException) e).getUrl());
         } else {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             request.setAttribute(MESSAGE_KEY, "An error has occurred when attempting to process your request.");

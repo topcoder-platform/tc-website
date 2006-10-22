@@ -28,20 +28,105 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-		<td width="100%" align="center">
-		
-		<div class="tutorBody">
-		
-		<jsp:include page="../page_title.jsp" >
-		   <jsp:param name="image" value="features"/>
-		   <jsp:param name="title" value="Archive"/>
-		</jsp:include>
+        <td width="100%" align="center">
+        
+        <div class="tutorBody">
+        
+        <jsp:include page="../page_title.jsp" >
+           <jsp:param name="image" value="features"/>
+           <jsp:param name="title" value="Archive"/>
+        </jsp:include>
 
          <table width="100%" border="0" cellspacing="0" cellpadding="3">
             <tr valign="top">
                <td class="bodyText"><b>Author</b></td>
                <td class="bodyText"><b>Title</b></td>
                <td class="bodyText"><b>Date</b></td>
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="21196141" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=101906"><strong>TCCC Preview: By the Numbers</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Oct 19, 2006</td>
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="21196141" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=101606"><strong>TCCC Preview: Past Winners Tell All</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Oct 16, 2006</td>
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="275640" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=101206"><strong>C++ tools #2 - GNU Make</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Oct 12, 2006</td>
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="21195715" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=100906"><strong>Design Patterns in C++, Part 2</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Oct 9, 2006</td>
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=100506"><strong>TopCoder @ Work: Incorporating new technologies</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Oct 5, 2006</td>
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="21195715" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=100206"><strong>Design Patterns in C++</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Oct 3, 2006</td>
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="10584406" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=092806"><strong>Writing code that writes code&#8230;</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Sep 28, 2006</td>
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="22628020" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=092506"><strong>Understanding the Mind Game</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Sep 25, 2006</td>
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="299911" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=092106"><strong>Creating an Intelligent Design</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Sep 21, 2006</td>
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="251074" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=091806"><strong>Computational geometry with complex numbers</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Sep 18, 2006</td>
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="21464956" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=091406"><strong>Introduction to OpenMP, Part 2</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Sep 14, 2006</td>
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="21464956" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=091106"><strong>Introduction to OpenMP, Part 1</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Sep 11, 2006</td>
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=090506"><strong>TopCoder @ Work: Introduction to upselling, Part 2</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Sep 5, 2006</td>
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=082906"><strong>TopCoder @ Work: Introduction to upselling</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Aug 29, 2006</td>
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="252022" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=082106"><strong>The Digital Run: Highlights from Stage 1</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Aug 21, 2006</td>
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="275640" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=081406"><strong>The art of testing C++ code: An introduction to cppUnit</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Aug 14, 2006</td>
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="9927526" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=080706"><strong>The Intricate Art of Testing</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Aug 7, 2006</td>
             </tr>
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td>

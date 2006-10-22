@@ -8,17 +8,20 @@ package com.topcoder.utilities;
 
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.io.File;
 import java.io.InputStream;
 
 /**
- *
- * @author  rfairfax
+ * @author rfairfax
  */
 public class ServerMonitorBot {
+    private static final Logger log = Logger.getLogger(ServerMonitorBot.class);
 
-    /** Creates a new instance of ServerMonitorBot */
+    /**
+     * Creates a new instance of ServerMonitorBot
+     */
     public ServerMonitorBot() {
     }
 
@@ -30,6 +33,8 @@ public class ServerMonitorBot {
     public boolean fiveone = true;
     public boolean fivetwo = true;
     public boolean software = true;
+    public boolean studio = true;
+    public boolean forums = true;
 
     public void run() {
 
@@ -37,13 +42,13 @@ public class ServerMonitorBot {
             try {
                 Runtime r = Runtime.getRuntime();
 
-                System.out.println("STARTING");
+                log.info("STARTING");
                 String[] callAndArgs = {"wget",
-                                        "http://www.topcoder.com",
-                                        "--header=Host: www.topcoder.com",
-                                        "--timeout=30",
-                                        "-t1",
-                                        ""};
+                        "http://www.topcoder.com",
+                        "--header=Host: www.topcoder.com",
+                        "--timeout=30",
+                        "-t1",
+                        ""};
 
                 Process p = r.exec(callAndArgs);
                 p.waitFor();
@@ -52,21 +57,20 @@ public class ServerMonitorBot {
                 p.destroy();
 
 
-                System.out.println("1:" + ret);
-                System.out.println(p.exitValue());
+                log.info("1:" + ret + "\n" + p.exitValue());
 
                 if (ret.indexOf("failed") != -1) {
                     if (fiveone) {
                         fiveone = false;
-                        System.out.println("FAILED, SENDING MAIL");
-                        addError("connection to 12.51 failed");
+                        log.warn("FAILED, SENDING MAIL");
+                        addError("connection to wwww.topcoder.com failed");
                         sendError();
                     }
                 } else if (ret.indexOf("200 OK") == -1) {
                     if (fiveone) {
                         fiveone = false;
-                        System.out.println("FAILED, SENDING MAIL");
-                        addError("response from 12.51 failed");
+                        log.warn("FAILED, SENDING MAIL");
+                        addError("response from wwww.topcoder.com failed");
                         addErrorLarge(ret);
                         sendError();
                     }
@@ -79,35 +83,34 @@ public class ServerMonitorBot {
                     File f = new File("index.html");
                     f.delete();
                 } catch (Exception e) {
-
+                    log.debug("error deleting index.html" + e.getMessage());
                 }
-                
+
                 String[] callAndArgs2 = {"wget",
-                                         "http://192.168.12.151:8080/index.jsp",
-                                         "--timeout=30",
-                                         "-t1",
-                                         ""};
+                        "http://192.168.12.151:8080/index.jsp",
+                        "--timeout=30",
+                        "-t1",
+                        ""};
 
                 p = r.exec(callAndArgs2);
                 p.waitFor();
 
                 ret = getData(p.getErrorStream());
                 p.destroy();
-                
-                System.out.println("2:" + ret);
-                System.out.println(p.exitValue());
+
+                log.info("2:" + ret + "\n" + p.exitValue());
 
                 if (ret.indexOf("failed") != -1) {
                     if (software) {
                         software = false;
-                        System.out.println("FAILED, SENDING MAIL");
+                        log.warn("FAILED, SENDING MAIL");
                         addError("connection to 12.151 failed");
                         sendError();
                     }
                 } else if (ret.indexOf("200 OK") == -1) {
                     if (software) {
                         software = false;
-                        System.out.println("FAILED, SENDING MAIL");
+                        log.warn("FAILED, SENDING MAIL");
                         addError("response from 12.151 failed");
                         addError(ret);
                         sendError();
@@ -115,46 +118,94 @@ public class ServerMonitorBot {
                 } else {
                     software = true;
                 }
-                
+
                 try {
                     File f = new File("index.jsp");
                     f.delete();
                 } catch (Exception e) {
-                    
+                    log.debug("error deleting index.jsp" + e.getMessage());
                 }
 
-                /*String[] callAndArgs2 = {"wget",
-                                         "http://192.168.12.52:7030",
-                                         "--header=Host: www.topcoder.com",
-                                         "--timeout=30",
-                                         "-t1",
-                                         "--spider"};
+                String[] callAndArgs3 = {"wget",
+                        "http://192.168.10.91",
+                        "--timeout=30",
+                        "-t1",
+                        ""};
 
-                p = r.exec(callAndArgs2);
+                p = r.exec(callAndArgs3);
                 p.waitFor();
 
                 ret = getData(p.getErrorStream());
-                System.out.println("2:" + ret);
-                System.out.println(p.exitValue());
+                p.destroy();
+
+                log.info("2:" + ret + "\n" + p.exitValue());
 
                 if (ret.indexOf("failed") != -1) {
-                    if (fivetwo) {
-                        fivetwo = false;
-                        System.out.println("FAILED, SENDING MAIL");
-                        addError("connection to 12.52 failed");
+                    if (forums) {
+                        forums = false;
+                        log.warn("FAILED, SENDING MAIL");
+                        addError("connection to forums failed");
                         sendError();
                     }
                 } else if (ret.indexOf("200 OK") == -1) {
-                    if (fivetwo) {
-                        fivetwo = false;
-                        System.out.println("FAILED, SENDING MAIL");
-                        addError("response from 12.51 failed");
+                    if (forums) {
+                        forums = false;
+                        log.warn("FAILED, SENDING MAIL");
+                        addError("response from forums failed");
                         addError(ret);
                         sendError();
                     }
                 } else {
-                    fivetwo = true;
-                }*/
+                    forums = true;
+                }
+
+                try {
+                    File f = new File("index.html?module=Main");
+                    f.delete();
+                } catch (Exception e) {
+                    log.debug("error deleting index.html" + e.getMessage());
+                }
+
+                String[] callAndArgs4 = {"wget",
+                        "http://192.168.10.93",
+                        "--timeout=30",
+                        "-t1",
+                        ""};
+
+                p = r.exec(callAndArgs4);
+                p.waitFor();
+
+                ret = getData(p.getErrorStream());
+                p.destroy();
+
+                log.info("2:" + ret + "\n" + p.exitValue());
+
+                if (ret.indexOf("failed") != -1) {
+                    if (studio) {
+                        studio = false;
+                        log.warn("FAILED, SENDING MAIL");
+                        addError("connection to studio failed");
+                        sendError();
+                    }
+                } else if (ret.indexOf("200 OK") == -1) {
+                    if (studio) {
+                        studio = false;
+                        log.warn("FAILED, SENDING MAIL");
+                        addError("response from studio failed");
+                        addError(ret);
+                        sendError();
+                    }
+                } else {
+                    studio = true;
+                }
+
+                try {
+                    File f = new File("index.html");
+                    f.delete();
+                } catch (Exception e) {
+                    log.debug("error deleting index.html" + e.getMessage());
+                }
+
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -182,7 +233,7 @@ public class ServerMonitorBot {
     private static String errorTextLarge = "";
 
     public static void addError(String message) {
-        System.out.println("ADDING ERROR");
+        log.info("ADDING ERROR");
         errorText += message + "\n";
         errorTextLarge += message + "\n";
     }
@@ -192,8 +243,8 @@ public class ServerMonitorBot {
     }
 
     public void sendError() {
-       if (!errorText.equals("")) {
-            System.out.println("SENDING ERROR LOG");
+        if (!errorText.equals("")) {
+            log.info("SENDING ERROR LOG");
             try {
                 TCSEmailMessage em = new TCSEmailMessage();
                 em.addToAddress("8609182841@mmode.com", TCSEmailMessage.TO);
@@ -201,7 +252,7 @@ public class ServerMonitorBot {
                 em.addToAddress("6508045266@vtext.com", TCSEmailMessage.TO);
                 em.addToAddress("8604656205@mobile.mycingular.com", TCSEmailMessage.TO);
                 em.addToAddress("8606144043@vtext.com", TCSEmailMessage.TO);
-                em.addToAddress("9196197120@vtext.com", TCSEmailMessage.TO); //fogle
+                //em.addToAddress("9196197120@vtext.com", TCSEmailMessage.TO); //fogle
 
                 em.setSubject("Server Error");
                 em.setBody(errorText);
@@ -223,10 +274,10 @@ public class ServerMonitorBot {
                 em.setSubject("Server Error");
                 em.setBody(errorTextLarge);
                 em.setFromAddress("rfairfax@topcoder.com");
-		
-		EmailEngine.send(em);
+
+                EmailEngine.send(em);
             } catch (Exception e) {
-                System.out.println("HERE" + e.getClass());
+                log.error("HERE" + e.getClass());
                 e.printStackTrace();
             }
         }

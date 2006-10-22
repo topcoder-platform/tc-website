@@ -1,8 +1,8 @@
 package com.topcoder.web.common.tag;
 
 import javax.servlet.jsp.JspException;
-import java.util.List;
 import java.lang.reflect.Method;
+import java.util.Collection;
 
 /**
  * @author dok
@@ -16,7 +16,7 @@ public class ObjectSelectTag extends SelectTag {
 
     private String valueField;
     private String textField;
-    private List list;
+    private Collection list;
 
     public ObjectSelectTag() {
         init();
@@ -30,7 +30,7 @@ public class ObjectSelectTag extends SelectTag {
         this.textField = textField;
     }
 
-    public void setList(List list) {
+    public void setList(Collection list) {
         this.list = list;
     }
 
@@ -42,7 +42,7 @@ public class ObjectSelectTag extends SelectTag {
         return getPropertyValue(o, textField);
     }
 
-    protected List getSelectOptions() throws JspException {
+    protected Collection getSelectOptions() throws JspException {
         return list;
     }
 
@@ -51,7 +51,7 @@ public class ObjectSelectTag extends SelectTag {
             return null;
         }
 
-        String methodName =  new StringBuffer("get").append(Character.toUpperCase(property.charAt(0))).append(property.substring(1)).toString();
+        String methodName = new StringBuffer("get").append(Character.toUpperCase(property.charAt(0))).append(property.substring(1)).toString();
         try {
             Method method = o.getClass().getMethod(methodName, NO_PARAMS);
             Object out = method.invoke(o, NO_ARGS);

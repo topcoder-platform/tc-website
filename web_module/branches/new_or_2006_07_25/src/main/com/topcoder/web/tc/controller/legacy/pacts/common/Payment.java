@@ -17,10 +17,11 @@
 
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
+import java.util.Date;
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
-
-import java.util.Map;
 
 public class Payment implements PactsConstants, java.io.Serializable {
     private static Logger log = Logger.getLogger(Payment.class);
@@ -53,6 +54,12 @@ public class Payment implements PactsConstants, java.io.Serializable {
     private String countryCode;
     private String stateCode;
     private PaymentHeader header;
+    private String province;
+    private String address3;
+    private boolean charity;
+
+    // When the event took place. Is not stored in the db, but is needed in order to know if referrals must be paid
+    private Date eventDate;
 
     /**
      * this is used to set the payment when passed a result map
@@ -104,26 +111,29 @@ public class Payment implements PactsConstants, java.io.Serializable {
             methodId = TCData.getTCInt(rRow, "payment_method_id");
             description = TCData.getTCString(rRow, "payment_desc");
             modifiedDate = TCData.getTCDate(rRow, "date_modified");
+            charity = TCData.getTCInt(rRow, "charity_ind") != 0;
+
+
             if (row == 0)
                 header = new PaymentHeader(results, row);
             else {
-            	boolean initFromRow = true;
-            	ResultSetContainer rscHeaders = (ResultSetContainer) results.get(PAYMENT_HEADER_LIST);
-            	if (rscHeaders == null) {
-            		initFromRow = false;
-            	}
-            	int numRows = rscHeaders.getRowCount();
-            	if (row < 0 || row >= numRows) {
-            		initFromRow = false;
-            	}
-            	
-            	if (initFromRow) {
-            		header = new PaymentHeader(results, row);
-            	} else {
-            		header = new PaymentHeader();
-            	}
+                boolean initFromRow = true;
+                ResultSetContainer rscHeaders = (ResultSetContainer) results.get(PAYMENT_HEADER_LIST);
+                if (rscHeaders == null) {
+                    initFromRow = false;
+                }
+                int numRows = rscHeaders.getRowCount();
+                if (row < 0 || row >= numRows) {
+                    initFromRow = false;
+                }
+
+                if (initFromRow) {
+                    header = new PaymentHeader(results, row);
+                } else {
+                    header = new PaymentHeader();
+                }
             }
-           
+
 
             if ((statusId != PAID_STATUS)) {
                 rsc = (ResultSetContainer) results.get(CURRENT_CODER_ADDRESS);
@@ -135,12 +145,14 @@ public class Payment implements PactsConstants, java.io.Serializable {
             middleName = TCData.getTCString(rRow, "middle_name");
             address1 = TCData.getTCString(rRow, "address1");
             address2 = TCData.getTCString(rRow, "address2");
+            address3 = TCData.getTCString(rRow, "address3");
             city = TCData.getTCString(rRow, "city");
             state = TCData.getTCString(rRow, "state_name");
             country = TCData.getTCString(rRow, "country_name");
             stateCode = TCData.getTCString(rRow, "state_code");
             countryCode = TCData.getTCString(rRow, "country_code");
             zip = TCData.getTCString(rRow, "zip");
+            province = TCData.getTCString(rRow, "province");
 
         } catch (Exception e) {
             log.error("there was an exception in the Payment contructor");
@@ -180,6 +192,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
         grossAmount = 0;
         printDate = "00/00/00";
         payDate = "00/00/00";
+        modifiedDate = "00/00/00";
         lastName = "Last";
         firstName = "First";
         middleName = "Middle";
@@ -194,7 +207,11 @@ public class Payment implements PactsConstants, java.io.Serializable {
         stateCode = "0";
         countryCode = "0";
         dueDate = "00/00/00";
+        address3 = "Default Address 3";
+        province = "Default Province";
+        charity = false;
     }
+
 
     /* This contructs the payment as it will be sent to the addPayment
      *  and addAffidavit functions
@@ -215,7 +232,12 @@ public class Payment implements PactsConstants, java.io.Serializable {
     }
 
     public boolean payReferrer() {
-        return typeId == CONTEST_PAYMENT;
+        for (int i = 0; i < PAY_REFFERAL_TYPES.length; i++) {
+            if (header.getTypeId() == PAY_REFFERAL_TYPES[i]) {
+                return true;
+            }
+        }
+        return false;
     }
 
 
@@ -234,7 +256,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
     public void setTypeId(int typeId) {
         this.typeId = typeId;
     }
-    
+
     public int getMethodId() {
         return methodId;
     }
@@ -250,7 +272,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
     public void setType(String type) {
         this.type = type;
     }
-    
+
     public String getMethod() {
         return method;
     }
@@ -443,5 +465,44 @@ public class Payment implements PactsConstants, java.io.Serializable {
         this.header = header;
     }
 
+    public static Logger getLog() {
+        return log;
+    }
+
+    public static void setLog(Logger log) {
+        Payment.log = log;
+    }
+
+    public Date getEventDate() {
+        return eventDate;
+    }
+
+    public void setEventDate(Date eventDate) {
+        this.eventDate = eventDate;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getAddress3() {
+        return address3;
+    }
+
+    public void setAddress3(String address3) {
+        this.address3 = address3;
+    }
+
+	public boolean isCharity() {
+		return charity;
+	}
+
+	public void setCharity(boolean charity) {
+		this.charity = charity;
+	}
 
 }

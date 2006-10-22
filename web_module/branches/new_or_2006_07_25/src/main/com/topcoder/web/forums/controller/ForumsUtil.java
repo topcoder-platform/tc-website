@@ -358,13 +358,21 @@ public class ForumsUtil {
     }
     
     // For use in preview.jsp, post.jsp
-    public static String getAllowedTagsDisplay() {
-        String tagList = JiveGlobals.getJiveProperty("tc.filter.TCHTMLFilter.default.allowedTags", "");
-        String[] tags = TCHTMLFilter.DEFAULT_ALLOWED_TAGS;
-        if (!tagList.equals("")) {
-            tags = tagList.split(","); 
-        }
-        
+    public static String getAllowedTagsDisplay() {	
+		String[] tags = TCHTMLFilter.DEFAULT_ALLOWED_TAGS;
+    	
+    	int filterCount = JiveGlobals.getJiveIntProperty("filter.global.filterCount", 0);
+    	for (int i=0; i<filterCount; i++) {
+    		String filterName = "filter.global.filter" + String.valueOf(i);
+    		String className = JiveGlobals.getJiveProperty(filterName+".className", "");
+    		if (className.equals("com.topcoder.web.forums.util.filter.TCHTMLFilter")) {
+    			String tagList = JiveGlobals.getJiveProperty(filterName+".properties.allowedTagsString", "");
+    	        if (!tagList.equals("")) {
+    	            tags = tagList.split(","); 
+    	        }
+    		}
+    	}
+    	
         StringBuffer display = new StringBuffer();
         for (int i=0; i<tags.length; i++) {
             display.append("&lt;");
@@ -379,11 +387,19 @@ public class ForumsUtil {
     
     // For use in preview.jsp, post.jsp
     public static String getAllowedAttributesDisplay() {
-        String attributeList = JiveGlobals.getJiveProperty("tc.filter.TCHTMLFilter.default.allowedAttributes", "");
-        String[] attributes = TCHTMLFilter.DEFAULT_ALLOWED_ATTRIBUTES;
-        if (!attributeList.equals("")) {
-            attributes = attributeList.split(" "); 
-        }
+    	String[] attributes = TCHTMLFilter.DEFAULT_ALLOWED_ATTRIBUTES;
+    	
+    	int filterCount = JiveGlobals.getJiveIntProperty("filter.global.filterCount", 0);
+    	for (int i=0; i<filterCount; i++) {
+    		String filterName = "filter.global.filter" + String.valueOf(i);
+    		String className = JiveGlobals.getJiveProperty(filterName+".className", "");
+    		if (className.equals("com.topcoder.web.forums.util.filter.TCHTMLFilter")) {
+    			String attributeList = JiveGlobals.getJiveProperty(filterName+".properties.allowedAttributesString", "");
+    	        if (!attributeList.equals("")) {
+    	            attributes = attributeList.split(" "); 
+    	        }
+    		}
+    	}
         
         StringBuffer display = new StringBuffer();
         for (int i=0; i<attributes.length; i++) {

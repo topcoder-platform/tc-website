@@ -1,9 +1,9 @@
 package com.topcoder.web.reg.validation;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Referral;
 import com.topcoder.web.common.validation.*;
-import com.topcoder.web.reg.dao.Util;
-import com.topcoder.web.reg.model.Referral;
 
 /**
  * @author dok
@@ -31,7 +31,7 @@ public class ReferralValidator implements Validator {
             } catch (NumberFormatException e) {
                 return new BasicResult(false, "Please choose a valid referral type.");
             }
-            Referral c = Util.getFactory().getReferralDAO().find(i);
+            Referral c = DAOUtil.getFactory().getReferralDAO().find(i);
             if (c == null) {
                 return new BasicResult(false, "Please choose a valid referral type.");
             } else {

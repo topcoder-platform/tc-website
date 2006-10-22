@@ -7,8 +7,8 @@ import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
+import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.tc.controller.request.authentication.EmailActivate;
 
 import java.util.Arrays;
@@ -56,6 +56,9 @@ public class Login extends Base {
                             sub = login.login(username, password, DBMS.JTS_OLTP_DATASOURCE_NAME);
                             log.debug("correct user name and password");
                         } catch (Exception e) {
+                            if (log.isDebugEnabled()) {
+                                e.printStackTrace();
+                            }
                             throw new LoginException("Handle or password incorrect.");
                         }
                         char status = getStatus(sub.getUserId());
@@ -65,7 +68,7 @@ public class Login extends Base {
                             if (getEmailStatus(sub.getUserId()) != EmailActivate.ACTIVE_STATUS) {
                                 getAuthentication().logout();
                                 log.debug("inactive email");
-                                setNextPage("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=authentication&d2=emailActivate");
+                                setNextPage("http://" + ApplicationServer.SERVER_NAME + "/tc?module=Static&d1=authentication&d2=emailActivate");
                                 setIsNextPageInContext(false);
                                 return;
                             } else {
@@ -119,7 +122,7 @@ public class Login extends Base {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name and password.");
         }
 */
-        String nextpage = (String)getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY);
+        String nextpage = (String) getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY);
         if (nextpage == null) nextpage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
         if (nextpage == null) nextpage = getRequest().getHeader("Referer");
         if (nextpage == null) nextpage = getSessionInfo().getAbsoluteServletPath();
@@ -131,6 +134,7 @@ public class Login extends Base {
 
     /**
      * shouldn't use ejb slooooooooow
+     *
      * @param userId
      * @return
      * @throws Exception if user doesn't exist or some other ejb problem

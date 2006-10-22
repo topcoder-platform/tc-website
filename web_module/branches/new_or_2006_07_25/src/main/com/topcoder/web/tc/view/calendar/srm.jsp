@@ -108,14 +108,6 @@
 </TR>
 
 
-<%--
-                                    <% if (round_id == 4365) { %>
-                                    <TR><TD COLSPAN="3" ALIGN="center" class="bodyText">
-                                        <A HREF="/?&amp;t=schedule&amp;c=srm_spon_artifact">...More about Artifact</A>
-                                    </TD></TR>
-                                    <% } %>
---%>
-
 <TR>
 <TD COLSPAN="3" ALIGN="left" class="bodyText">
 
@@ -348,7 +340,8 @@ A given competitor will only be eligible to win, at most, one random drawing.
             years of age, and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec
             province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
         <li>In the event that any member who is ineligible to receive prizes places in a position in which they would
-            receive a prize, they will be asked to pick a <a href="?&amp;t=support&amp;c=charities">charity</a> to which
+            receive a prize, they will be asked to pick a
+            <a href="/tc?module=Static&amp;d1=help&amp;d2=charity">charity</a> to which
             to donate their prize. In the event that the member does not pick a charity, TopCoder will pick a charity to
             which the ineligible member's prize will be paid.</li>
         <li>Employees of SAP and/or persons living in the same household as such employees are ineligible to win prizes
@@ -365,7 +358,7 @@ A given competitor will only be eligible to win, at most, one random drawing.
         regulations</B></A>
 </TD></TR>
 
-<% } else if (round_id == 7223 || round_id == 8004 || round_id == 8005 || round_id == 7227 || round_id == 8007 || round_id == 8080 || round_id == 8069 || round_id == 8074 || round_id == 8083 || round_id == 9812 || round_id == 9815 || round_id == 9816 || round_id == 9820 || round_id == 9822 || round_id == 9997 || round_id == 9992 || round_id == 9999 || round_id == 10004) { %>
+<% } else if (round_id == 7223 || round_id == 8004 || round_id == 8005 || round_id == 7227 || round_id == 8007 || round_id == 8080 || round_id == 8069 || round_id == 8074 || round_id == 8083 || round_id == 9812 || round_id == 9815 || round_id == 9816 || round_id == 9820 || round_id == 9822 || round_id == 9997 || round_id == 9992 || round_id == 9999 || round_id == 10004 || round_id == 9995 || round_id == 10005 || round_id == 10002) { %>
 <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
     <font size="3"><b>Total Prize Purse of $5,000 !!!</b></font><br/><br/>
     <B>Single Round Match Description</B>
@@ -400,7 +393,8 @@ A given competitor will only be eligible to win, at most, one random drawing.
             years of age, and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec
             province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
         <li>In the event that any member who is ineligible to receive prizes places in a position in which they would
-            receive a prize, they will be asked to pick a <a href="?&amp;t=support&amp;c=charities">charity</a> to which
+            receive a prize, they will be asked to pick a
+            <a href="/tc?module=Static&amp;d1=help&amp;d2=charity">charity</a> to which
             to donate their prize. In the event that the member does not pick a charity, TopCoder will pick a charity to
             which the ineligible member's prize will be paid.</li>
     </UL>

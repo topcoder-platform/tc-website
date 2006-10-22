@@ -15,25 +15,50 @@ package com.topcoder.web.tc.controller.legacy.pacts.servlet;
  * @see PactsMemberTableModel
  */
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Map;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.topcoder.security.TCSubject;
+import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.RequestTracker;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.ContractBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.PaymentBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.UserTaxFormBean;
-import com.topcoder.web.tc.controller.legacy.pacts.common.*;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Map;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
+import com.topcoder.web.tc.controller.legacy.pacts.common.AffidavitWithText;
+import com.topcoder.web.tc.controller.legacy.pacts.common.ContractHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.common.ContractWithText;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TaxFormHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TaxFormWithText;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
 public class PactsMemberServlet extends BaseServlet implements PactsConstants {
     private static Logger log = Logger.getLogger(PactsMemberServlet.class);
+
+    /**
+     * Used for modules. It checks that the user is authenticated.
+     * 
+     */
+    protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
+    	return !auth.getActiveUser().isAnonymous();
+    }
+    
 
     /**
      * this method handles all incoming http get requests.  It will
@@ -54,6 +79,12 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response) {
         try {
+        	
+            if (request.getParameter(MODULE) != null || request.getAttribute(MODULE) != null) {
+                process(request, response);
+                return;
+            }
+
             TCRequest tcRequest = HttpObjectFactory.createRequest(request);
             TCResponse tcResponse = HttpObjectFactory.createResponse(response);
             //set up security objects and session info
@@ -96,11 +127,14 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
             log.debug("t= " + t + " c= " + c);
             if (t.equals(AFFIDAVIT_TASK)) {
                 //it is an affidavit task
+            	/* deprecated
                 if (c.equals(AFFIDAVIT_HISTORY_CMD)) {
                     //grab the history for the user
                     doAffidavitHistory(request, response);
                     return;
-                } else if (c.equals(AFFIDAVIT_DETAILS_CMD)) {
+                } else 
+                	*/
+                if (c.equals(AFFIDAVIT_DETAILS_CMD)) {
                     doAffidavitDetails(request, response);
                     return;
                 } else if (c.equals(AFFIDAVIT_RENDER_CMD)) {
@@ -158,6 +192,10 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response) {
         try {
+            if (request.getParameter(MODULE) != null || request.getAttribute(MODULE) != null) {
+                process(request, response);
+                return;
+            }
 
             TCRequest tcRequest = HttpObjectFactory.createRequest(request);
             TCResponse tcResponse = HttpObjectFactory.createResponse(response);
@@ -231,6 +269,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
      *
      * @param request the http request, where the session is stored
      * @param response the http response
+     * @deprecated
      */
     public void doAffidavitHistory(HttpServletRequest request,
                                    HttpServletResponse response) {
@@ -260,8 +299,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
         // Payment data
         PaymentBean paymentBean = new PaymentBean();
         Payment[] payments;
-        int[] paymentTypes = {COMPONENT_PAYMENT, CHARITY_PAYMENT, COMPONENT_PAYMENT, REVIEW_BOARD_PAYMENT,
-        		ONE_OFF_PAYMENT};
+        int[] paymentTypes = {COMPONENT_PAYMENT, CHARITY_PAYMENT, REVIEW_BOARD_PAYMENT, ONE_OFF_PAYMENT};
         
         if (fullList != null) {
             payments = paymentBean.getPaymentDetailsForUser(getUserId(request), paymentTypes, false);
@@ -764,7 +802,8 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
 
 
         // send it back to the affidavit history page
-        doAffidavitHistory(request, response);
+        //doAffidavitHistory(request, response);
+        forward("/PactsMemberServlet?module=AffidavitHistory", request, response);
     }
     /***********************************************************************/
 

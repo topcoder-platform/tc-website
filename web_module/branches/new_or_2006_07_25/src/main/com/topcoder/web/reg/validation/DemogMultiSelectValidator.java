@@ -1,10 +1,10 @@
 package com.topcoder.web.reg.validation;
 
+import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.common.validation.*;
-import com.topcoder.web.reg.model.DemographicQuestion;
 
-import java.util.List;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author dok
@@ -23,7 +23,7 @@ public class DemogMultiSelectValidator implements Validator {
 
     public ValidationResult validate(ValidationInput input) {
         List l = (List) input.getInput();
-        if (l==null||l.isEmpty()) {
+        if (l == null || l.isEmpty()) {
             if (isRequired) {
                 new BasicResult(false, "Please make a selection.");
             } else {
@@ -32,7 +32,7 @@ public class DemogMultiSelectValidator implements Validator {
         }
         ValidationResult r;
         for (Iterator it = l.iterator(); it.hasNext();) {
-            r = new DemogSingleSelectValidator(q, isRequired).validate(new StringInput((String)it.next()));
+            r = new DemogSingleSelectValidator(q, isRequired).validate(new StringInput((String) it.next()));
             if (!r.isValid()) {
                 return r;
             }

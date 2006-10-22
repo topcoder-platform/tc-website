@@ -1,8 +1,9 @@
 package com.topcoder.web.common.model;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class SortInfo {
+public class SortInfo implements Serializable {
     public static final String REQUEST_KEY = "sortInfo";
     private HashMap map;
 

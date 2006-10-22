@@ -1,11 +1,12 @@
 #!/usr/local/bin/bash
 
-  JAVA=/usr/bin/java
+  JAVA=${JAVA_HOME}/bin/java
 
   CLASSPATH="."
   CLASSPATH=$CLASSPATH:../lib/bin/screening.jar
   CLASSPATH=$CLASSPATH:../lib/bin/shared.jar
   CLASSPATH=$CLASSPATH:../lib/jars/idgenerator.jar
+  CLASSPATH=$CLASSPATH:../lib/jars/tcs/id_generator/3.0/id_generator.jar
   CLASSPATH=$CLASSPATH:../lib/jars/ifxjdbc.jar
   CLASSPATH=$CLASSPATH:../lib/jars/jboss/jbossall-client.jar
   CLASSPATH=$CLASSPATH:../lib/jars/log4j-1.2.7.jar
@@ -20,7 +21,8 @@
   CLASSPATH=$CLASSPATH:../lib/jars/tcs/generic_event_manager/1.0/generic_event_manager.jar
   CLASSPATH=$CLASSPATH:../lib/jars/tcs/magic_numbers/1.0/magic_numbers.jar
   CLASSPATH=$CLASSPATH:../lib/jars/tcs/typesafe_enum/1.0/typesafe_enum.jar
-  CLASSPATH=$CLASSPATH:../lib/jars/tcs/xmi_parser/1.0/xmi_parser.jar
+  CLASSPATH=$CLASSPATH:../lib/jars/tcs/xmi_parser/1.1/xmi_parser.jar
+  CLASSPATH=$CLASSPATH:../lib/jars/tcs/application_screening/1.0/application_screening.jar
   CLASSPATH=$CLASSPATH:../lib/jars/xercesImpl.jar
   CLASSPATH=$CLASSPATH:../lib/jars/xmlParserAPIs.jar
   CLASSPATH=$CLASSPATH:../resources/automatic_screening

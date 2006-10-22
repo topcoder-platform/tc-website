@@ -29,6 +29,7 @@ public class TCO06AlgRegistrants extends Base {
         Request r = new Request();
         r.setContentHandle("tco06_alg_registrants");
 
+        //this gets refreshed when people sign up.
         Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
 
         ResultSetContainer rsc = (ResultSetContainer) m.get("tco06_alg_registrants");

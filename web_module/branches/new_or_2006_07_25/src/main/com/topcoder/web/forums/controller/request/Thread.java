@@ -68,7 +68,7 @@ public class Thread extends ForumsProcessor {
         InitialContext ctx = null;
         try {
             ctx = TCContext.getInitial();
-            historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);   
+            historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
         } catch (Exception e) {
             Log.error(e);
         } finally {

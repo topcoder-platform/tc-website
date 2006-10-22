@@ -4,16 +4,17 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <% List questionInfo = (List) request.getAttribute("questionInfo");%>
 <html>
+<%@ page import="com.topcoder.web.common.model.SoftwareComponent" %>
+<%@ page import="com.topcoder.web.common.tag.AnswerInput" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.topcoder.web.common.tag.AnswerInput" %>
-<%@ page import="com.topcoder.web.common.model.SoftwareComponent"%> <head>
+<head>
     <title>TopCoder - Message</title>
     <jsp:include page="../script.jsp"/>
     <jsp:include page="/style.jsp">
-      <jsp:param name="key" value="tc_stats"/>
+        <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
-    
+
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 </head>
 
@@ -28,7 +29,7 @@
         <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="/includes/global_left.jsp">
-               <jsp:param name="node" value="<%= new Integer(SoftwareComponent.DESIGN_PHASE).equals(request.getAttribute(Constants.PHASE_ID))? "des_compete" : "dev_compete"%>"/>
+                <jsp:param name="node" value="<%= new Integer(SoftwareComponent.DESIGN_PHASE).equals(request.getAttribute(Constants.PHASE_ID))? "des_compete" : "dev_compete"%>"/>
             </jsp:include>
         </td>
         <!-- Left Column Ends -->
@@ -45,7 +46,7 @@
                 <jsp:param name="title" value="Active Contests"/>
             </jsp:include>
 
-            <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
+            <form action="${sessionInfo.servletPath}" method="POST" name="regForm">
                 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ProjectRegister"/>
                 <tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID%>"/>
 
@@ -75,7 +76,7 @@
                                     <%=answerInput%>
                                 </td>
                             </tr>
-                        <% even = !even; %>
+                            <% even = !even; %>
                         </tc:answerInput>
                     </table>
                     <p><br/></p>
@@ -84,7 +85,7 @@
                 <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="10" cols="60"/>
 
                 <p style="width: 510px;">
-                    <% if (request.getAttribute("notRegistered")!=null) { %>
+                    <% if (request.getAttribute("notRegistered") != null) { %>
                     <span class="errorText">
                      Please be aware that you are NOT REGISTERED for the tournament, and registering for this contest will not register you for the tournament.  If you don't register for the tournament prior to registering for this contest, it will not count in the tournament standings even if you sign up at a later date.
                      </span><br><br>
@@ -92,13 +93,15 @@
                     <span class="errorText"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>"><%=err%>
                         <br/></tc-webtag:errorIterator></span>
 
-                I Agree to the Terms and Conditions stated above&#160;<tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
+                    I Agree to the Terms and Conditions stated above&#160;
+                    <tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
                 </p>
 
                 <p style="width: 510px;">
                     <A href="Javascript:document.regForm.submit();">Register</A>
                 </p>
-               <p><br></p>
+
+                <p><br></p>
             </form>
         </td>
         <!-- Center Column Ends -->

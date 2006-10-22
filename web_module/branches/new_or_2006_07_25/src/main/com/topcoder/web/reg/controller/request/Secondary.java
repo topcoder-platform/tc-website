@@ -4,10 +4,10 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.*;
+import com.topcoder.web.common.model.TimeZone;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
-import com.topcoder.web.reg.model.*;
-import com.topcoder.web.reg.model.TimeZone;
 
 import java.util.*;
 
@@ -21,7 +21,7 @@ public class Secondary extends Base {
     protected void registrationProcessing() throws Exception {
         User u = getRegUser();
         if (u == null) {
-            throw new NavigationException("Sorry, your session has timed out.");
+            throw new NavigationException("Sorry, your session has expired.");
         } else {
 
             Set fields = RegFieldHelper.getMainFieldSet(getRequestedTypes(), u);
@@ -43,6 +43,8 @@ public class Secondary extends Base {
                                 setDefault((String) me.getKey(), me.getValue());
                             }
                         }
+
+                        setDefault(Constants.MEMBER_CONTACT, String.valueOf(params.get(Constants.MEMBER_CONTACT) != null));
                         if (!u.isNew()) {
                             setDefault(Constants.HANDLE, u.getHandle());
                         }
@@ -56,6 +58,7 @@ public class Secondary extends Base {
                         getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
                         getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
                         getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
+                        getRequest().setAttribute("regTerms", getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
                         setNextPage("/main.jsp");
                         setIsNextPageInContext(true);
                     } else {
@@ -164,6 +167,23 @@ public class Secondary extends Base {
             u.setPassword((String) params.get(Constants.PASSWORD));
         }
 
+        if (fields.contains(Constants.SECRET_QUESTION) || fields.contains(Constants.SECRET_QUESTION_RESPONSE)) {
+            SecretQuestion sc = u.getSecretQuestion();
+            if (sc == null) {
+                sc = new SecretQuestion();
+                sc.setUser(u);
+                u.setSecretQuestion(sc);
+            }
+
+            if (fields.contains(Constants.SECRET_QUESTION)) {
+                sc.setQuestion((String) params.get(Constants.SECRET_QUESTION));
+            }
+
+            if (fields.contains(Constants.SECRET_QUESTION_RESPONSE)) {
+                sc.setResponse((String) params.get(Constants.SECRET_QUESTION_RESPONSE));
+            }
+        }
+
         if (fields.contains(Constants.COMPANY_NAME)) {
             String name = (String) params.get(Constants.COMPANY_NAME);
 
@@ -236,6 +256,20 @@ public class Secondary extends Base {
             u.setNotifications(new HashSet((List) params.get(Constants.NOTIFICATION)));
         }
 
+        if (fields.contains(Constants.MEMBER_CONTACT)) {
+            UserPreference up = u.getUserPreference(Preference.MEMBER_CONTACT_PREFERENCE_ID);
+            String value = String.valueOf(params.get(Constants.MEMBER_CONTACT) != null);
+            if (up == null) {
+                up = new UserPreference();
+                Preference p = getFactory().getPreferenceDAO().find(Preference.MEMBER_CONTACT_PREFERENCE_ID);
+                up.setId(new UserPreference.Identifier(u, p));
+                up.setValue(value);
+                u.addUserPreference(up);
+            } else {
+                up.setValue(value);
+            }
+        }
+
         if (fields.contains(Constants.COMP_COUNTRY_CODE)) {
             u.getCoder().setCompCountry(getFactory().getCountryDAO().find((String) params.get(Constants.COMP_COUNTRY_CODE)));
         }
@@ -276,7 +310,7 @@ public class Secondary extends Base {
             u.getCoder().addRating(tcRating);
         }
 
-
+        u.addTerms(getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
         setRegUser(u);
     }
 }

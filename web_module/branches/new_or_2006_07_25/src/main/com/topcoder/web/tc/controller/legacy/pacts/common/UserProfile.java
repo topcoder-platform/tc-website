@@ -58,6 +58,9 @@ public class UserProfile implements PactsConstants, java.io.Serializable {
     protected String countryCode;
     protected int coderTypeId;
     protected String coderTypeDesc;
+    protected String status;
+    protected String address3;
+    protected String province;
 
     /**
      * this constructor takes in a result set map, and
@@ -117,6 +120,9 @@ public class UserProfile implements PactsConstants, java.io.Serializable {
             countryCode = TCData.getTCString(rRow, "country_code");
             coderTypeId = TCData.getTCInt(rRow, "coder_type_id");
             coderTypeDesc = TCData.getTCString(rRow, "coder_type_desc");
+            status = TCData.getTCString(rRow, "user_status_desc");
+            address3 = TCData.getTCString(rRow, "address3");
+            province = TCData.getTCString(rRow, "province");
 
             header = new UserProfileHeader(results);
         } catch (Exception e) {
@@ -153,6 +159,9 @@ public class UserProfile implements PactsConstants, java.io.Serializable {
         lastName = "Last";
         coderTypeId = -1;
         coderTypeDesc = "default coder desc";
+        status = "";
+        address3 = "Default Address 3";
+        province = "Default Province";
     }
 
 
@@ -292,5 +301,29 @@ public class UserProfile implements PactsConstants, java.io.Serializable {
         this.coderTypeDesc = coderTypeDesc;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+
+    public String getAddress3() {
+        return address3;
+    }
+
+    public void setAddress3(String address3) {
+        this.address3 = address3;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
 
 }

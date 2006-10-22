@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2005 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.screening;
 
@@ -97,37 +97,29 @@ public class ScreeningTool {
      * Screen a submission with file and project type.
      *
      * @param log the logger to use.
-     * @param file the file to screen.
-     * @param type the project type of this submission.
-     * @param submissionId the submission id of the submission.
+     * @param request the request to screen.
      *
      * @return true if screening process succedeed.
      */
-    public boolean screen(Logger log, File file, ProjectType type, long submissionVId) {
+    public boolean screen(IScreeningRequest request, Logger log) {
         boolean retVal = true;
         if (log == null) {
             throw new NullPointerException("log should not be null.");
         }
-        if (file == null) {
-            throw new NullPointerException("file should not be null.");
-        }
-        if (type == null) {
-            throw new NullPointerException("type should not be null.");
-        }
-        if (!this.rules.containsKey(type)) {
-            return true;
+        if (request == null) {
+            throw new NullPointerException("request should not be null.");
         }
 
-        File root = new File(tempFolder, String.valueOf(submissionVId));
+        File root = new File(tempFolder, String.valueOf(request.getProjectType().getName() + request.getArtifactId()));
         ScreeningLogger logger = new ScreeningLogger();
-        logger.setSubmissionVId(submissionVId);
+        logger.setRequest(request);
 
         try {
             boolean success = true;
-            for (Iterator itr = ((List) this.rules.get(type)).iterator(); itr.hasNext();) {
+            for (Iterator itr = ((List) this.rules.get(request.getProjectType())).iterator(); itr.hasNext();) {
                 ScreeningRule rule = (ScreeningRule) itr.next();
                 long start = System.currentTimeMillis();
-                boolean result = rule.screen(file, root, logger);
+                boolean result = rule.screen(new File(request.getArtifactPath()), root, logger);
                 long end = System.currentTimeMillis();
                 log.info(rule.getClass().getName() + ": " + (result ? "pass" : "fail") + " with " + (end - start) + "ms.");
                 if (!result) {
@@ -139,6 +131,7 @@ public class ScreeningTool {
             }
             logger.log(new SimpleScreeningResult(success || this.soft));
         } catch (DatabaseException ex) {
+            ex.printStackTrace();
             log.error("Exception thrown while screening: " + ex.getMessage());
             retVal = false;
         } finally {

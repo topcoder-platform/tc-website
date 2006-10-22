@@ -1,5 +1,7 @@
 package com.topcoder.web.common.tag;
 
+import com.topcoder.web.common.StringUtils;
+
 /**
  * User: dok
  * Date: Dec 14, 2004
@@ -13,7 +15,7 @@ public class HiddenInputTag extends BaseTag {
 
         ret.append("<input type=\"hidden\" name=\"").append(name).append("\" ");
         if (value == null) {
-            value = getDefaultValue() == null ? null : getDefaultValue().toString();
+            value = getDefaultValue() == null ? null : StringUtils.htmlEncode(getDefaultValue().toString());
         }
         if (value != null) {
             ret.append("value=\"").append(value).append("\" ");

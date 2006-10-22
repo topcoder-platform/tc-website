@@ -71,6 +71,8 @@ A total of 120 developers accumulate placement points during the Stage.  We will
 <br><br>
 As an added prize, the top 5 point-getters from each Stage will win a trip to the TCO finals to be recognized.  At the TCO awards presentation, the overall highest point-getter for the entire year will be recognized as the winner of the TopCoder&#174; Development Cup.
 <br><br>
+Digital Run prize money will be paid at the end of each Stage within 60 days of announcing the Top Five and Top Third money winners.
+<br><br>
 </div>
 
 </td>

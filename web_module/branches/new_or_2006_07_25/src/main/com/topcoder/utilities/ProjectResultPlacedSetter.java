@@ -31,7 +31,7 @@ public class ProjectResultPlacedSetter {
         ResultSet rs = null;
         try {
             //InformixSimpleDataSource prod = new InformixSimpleDataSource("jdbc:informix-sqli://192.168.14.51:2020/tcs_catalog:INFORMIXSERVER=informixoltp_tcp;user=coder;password=xxx");
-            InformixSimpleDataSource dev = new InformixSimpleDataSource("jdbc:informix-sqli://172.16.214.52:1526/tcs_catalog:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec");
+            InformixSimpleDataSource dev = new InformixSimpleDataSource("jdbc:informix-sqli://63.118.154.190:1526/tcs_catalog:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec");
             //InformixSimpleDataSource dev = new InformixSimpleDataSource("jdbc:informix-sqli://65.112.118.221:1526/tcs_catalog:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec");
             conn = dev.getConnection();
 

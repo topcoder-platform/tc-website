@@ -346,17 +346,13 @@ public class VBViewer {
                             state = NUMBER_BIN_INT_FLOAT_OCTAL;
                         }
                     }
-                    else if (curr_char == '/') {  // comment
+                    else if (curr_char == '\'') {  // comment
                         head_idx = i;
-                        state = IGNORE_BEGIN;
+                        state = INLINE_IGNORE;
                     }
                     else if (curr_char == '\"') {  // string
                         head_idx = i;
                         state = STRING_ENTRY;
-                    }
-                    else if (curr_char == '\'') {  // character
-                        head_idx = i;
-                        state = CHARACTER_ENTRY;
                     }
                     else if (curr_char == '{' || curr_char == '}') {  // scope bracket
                         buffer.append(bracketStart);
@@ -810,9 +806,9 @@ public class VBViewer {
                             state = NUMBER_BIN_INT_FLOAT_OCTAL;
                         }
                     }
-                    else if (curr_char == '/') {
+                    else if (curr_char == '\'') {
                         head_idx = i;
-                        state = IGNORE_BEGIN;
+                        state = INLINE_IGNORE;
                     }
                     else if (curr_char == '\"') {
                         head_idx = i;
@@ -825,43 +821,6 @@ public class VBViewer {
                         state = ACCEPT;
                     }
                     else {
-                        state = ENTRY;
-                        i--;
-                    }
-                    break;
-                case IGNORE_BEGIN:
-                    if (curr_char == '/') {
-                        state = INLINE_IGNORE;
-                    }
-                    else if (curr_char == '*') {
-                        state = MULTILINE_IGNORE;
-                    }
-                    else if (Character.isJavaIdentifierPart(curr_char)) {
-                        head_idx = i;
-                        if (Character.isDigit(curr_char)) {
-                            buffer.append('/');
-                            if (curr_char == '0') {
-                                state = NUMBER_HEX_BEGIN;
-                                i--;
-                            }
-                            else {
-                                state = NUMBER_BIN_INT_FLOAT_OCTAL;
-                                i--;
-                            }
-                        }
-                        else {
-                            buffer.append('/');
-                            state = ENTRY;
-                            i--;
-                        }
-                    }
-                    else if (curr_char == '\n') {
-                        buffer.append('/');
-                        state = NEWLINE_ENTRY;
-                        i--;
-                    }
-                    else {  // space, \t, etc
-                        buffer.append('/');
                         state = ENTRY;
                         i--;
                     }

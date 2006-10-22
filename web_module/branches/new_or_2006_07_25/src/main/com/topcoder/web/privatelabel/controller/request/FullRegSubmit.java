@@ -4,14 +4,14 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.demographic.Response;
 import com.topcoder.web.ejb.jobposting.JobPostingServices;
 import com.topcoder.web.ejb.school.CurrentSchool;
 import com.topcoder.web.ejb.school.School;
 import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.common.model.DemographicResponse;
+import com.topcoder.web.privatelabel.model.DemographicQuestion;
+import com.topcoder.web.privatelabel.model.DemographicResponse;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
@@ -19,7 +19,6 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- *
  * @author gpaul 06.26.2003
  */
 public abstract class FullRegSubmit extends SimpleRegSubmit {
@@ -94,16 +93,16 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
                 }
 
 
-                long schoolId=0;
-                if (((FullRegInfo)regInfo).getSchoolId()>0&&!regInfo.isNew()) {
+                long schoolId = 0;
+                if (((FullRegInfo) regInfo).getSchoolId() > 0 && !regInfo.isNew()) {
                     //we're only going to add a new scholl if they actually changed their school
-                    if (!s.getFullName(((FullRegInfo)regInfo).getSchoolId(), transDb).equals(schoolName)) {
+                    if (!s.getFullName(((FullRegInfo) regInfo).getSchoolId(), transDb).equals(schoolName)) {
                         schoolId = s.createSchool(transDb, db);
                     }
                 } else {
                     schoolId = s.createSchool(transDb, db);
                 }
-                if (schoolId>0) {
+                if (schoolId > 0) {
                     s.setFullName(schoolId, schoolName, transDb);
                     if (!cs.exists(userId, transDb)) {
                         cs.createCurrentSchool(userId, transDb);
@@ -142,6 +141,7 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
 
     /**
      * default is true, subclasses can implement something more interesting
+     *
      * @return whether or not the info provided is eligible
      */
     protected static boolean isEligible(FullRegInfo info) {
@@ -150,6 +150,7 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
 
     /**
      * default is do nothing, subclasses can implement something more interesting
+     *
      * @throws TCWebException
      */
     protected void handleActivation(SimpleRegInfo info, long userId) throws TCWebException {

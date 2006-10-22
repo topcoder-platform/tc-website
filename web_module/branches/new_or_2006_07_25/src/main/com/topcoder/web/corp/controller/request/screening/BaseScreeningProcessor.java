@@ -18,6 +18,7 @@ import java.util.TimeZone;
 
 /**
  * Processor that does usage type processing
+ *
  * @author rfairfax
  */
 public abstract class BaseScreeningProcessor extends BaseProcessor {
@@ -65,7 +66,10 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
     abstract protected void screeningProcessing() throws TCWebException;
 
     protected void loadTimeZoneInfo() throws TCWebException {
-        String tz= getTimeZone();
+        String tz = getTimeZone();
+        if (tz == null) {
+            tz = "America/New_York";
+        }
         //setDefault(Constants.TIMEZONE, tz);
         if (log.isDebugEnabled()) log.debug("timezone is " + tz);
         getRequest().setAttribute(Constants.TIMEZONE, TimeZone.getTimeZone(tz));
@@ -82,17 +86,15 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
     }
 
 
-
-
     /**
      * A helper method building the URL string for specified request processor and referrer. This method constructs an
      * relative URL in form of : <code>?module=processorName&referrer=referrerName</code>.
      *
-     * @param  processorName a <code>String</code> name of a processor to redirect the request to.
-     * @param  referrer a <code>String</code> name of a referrer redirecting the request to specified processor. May be
-     *         <code>null</code>.
+     * @param processorName a <code>String</code> name of a processor to redirect the request to.
+     * @param referrer      a <code>String</code> name of a referrer redirecting the request to specified processor. May be
+     *                      <code>null</code>.
      * @return a <code>String</code> representing the URL to redirect the request to specified processor.
-     * @since  Screening Tool 1.1
+     * @since Screening Tool 1.1
      */
     protected String buildProcessorURL(String processorName, String referrer) {
         StringBuffer buf = new StringBuffer();

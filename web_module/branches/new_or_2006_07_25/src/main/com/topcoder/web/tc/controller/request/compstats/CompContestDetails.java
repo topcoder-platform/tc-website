@@ -44,7 +44,6 @@ public class CompContestDetails extends Base {
         try {
             String projId = null;
 
-
             ResultSetContainer dates = null;
 
             // 1. if there is comp, vers and type, use the winning project
@@ -116,6 +115,15 @@ public class CompContestDetails extends Base {
 
             }
 
+            // check if there is a completed version of the component
+            boolean isComplete = false;
+            for (int i=0; i < dates.size() && !isComplete; i++) {
+                if (dates.getIntItem(i,"status_id") == 4) {
+                    isComplete = true;
+                }
+            }
+
+            getRequest().setAttribute("isComplete", new Boolean(isComplete));
             getRequest().setAttribute("resultMap", result);
             getRequest().setAttribute("pid", Long.decode(projId));
             getRequest().setAttribute("dates", dates);

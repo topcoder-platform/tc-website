@@ -101,7 +101,7 @@ public class BoardRowComparator implements Comparator {
             ResultSetRow row0 = (ResultSetRow) it0.next();
             ResultSetRow row1 = (ResultSetRow) it1.next();
 
-            if (row0.getLongItem("placed") < row1.getLongItem("placed")) {
+            if (row0.getLongItem("placed") > row1.getLongItem("placed")) {
                 //log.debug("--3-- Compare result: " + lbr0.getUserName() + " < " + lbr1.getUserName());
                 return -1;
             }
@@ -111,7 +111,7 @@ public class BoardRowComparator implements Comparator {
                 return 1;
             }
 
-            if (row0.getLongItem("cnt") > row1.getLongItem("cnt")) {
+            if (row0.getLongItem("cnt") < row1.getLongItem("cnt")) {
                 //log.debug("--5-- Compare result: " + lbr0.getUserName() + " < " + lbr1.getUserName());
                 return -1;
             }

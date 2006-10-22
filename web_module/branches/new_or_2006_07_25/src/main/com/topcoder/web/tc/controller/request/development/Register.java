@@ -21,6 +21,7 @@ import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.SurveyResponse;
 import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.common.tag.CalendarDateFormatMethod;
+import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
@@ -56,14 +57,31 @@ public class Register extends ViewRegistration {
 
             boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE));
             List responses = validateSurvey();
+            Coder c = (Coder) createEJB(getInitialContext(), Coder.class);
+            boolean isStudent = c.getCoderTypeId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME) == 1;
             if (agreed && !hasErrors()) {
+                if (log.isDebugEnabled()) {
+                    log.debug("they agree to terms and there are no errors");
+                }
                 getRequest().getSession().setAttribute("responses", responses);
                 boolean isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
                 if (isEligible) {
-                    if (isTournamentTime()) {
+                    if (log.isDebugEnabled()) {
+                        log.debug("they are eligible");
+                    }
+                    if (isTournamentTime() && isStudent) {
+                        if (log.isDebugEnabled()) {
+                            log.debug("it's tournament time and they are as student");
+                        }
                         boolean isRegisteredForTournament = getRequest().getAttribute("notRegistered") == null;
                         boolean isConfirmed = getRequest().getParameter("confirm") != null;
+                        if (log.isDebugEnabled()) {
+                            log.debug("reged: " + isRegisteredForTournament + " confirmed: " + isConfirmed);
+                        }
                         if (isRegisteredForTournament || isConfirmed) {
+                            if (log.isDebugEnabled()) {
+                                log.debug("either they are registered, or they've confirmed they don't want to");
+                            }
                             register();
                             getRequest().removeAttribute("responses");
                             setNextPage("/dev/regSuccess.jsp");
@@ -73,6 +91,9 @@ public class Register extends ViewRegistration {
                             setIsNextPageInContext(true);
                         }
                     } else {
+                        if (log.isDebugEnabled()) {
+                            log.debug("just register them, it's either not tourney time, or they are a pro");
+                        }
                         register();
                         setNextPage("/dev/regSuccess.jsp");
                         setIsNextPageInContext(true);
@@ -96,7 +117,7 @@ public class Register extends ViewRegistration {
 
         } catch (TCWebException e) {
             throw e;
-        } catch (Exception e) {
+        } catch (Throwable e) {
             throw new TCWebException(e);
         }
     }

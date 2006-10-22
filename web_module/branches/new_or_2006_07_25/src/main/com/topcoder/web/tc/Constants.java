@@ -21,6 +21,8 @@ public class Constants implements WebConstants {
     public static String VIEW_COMPETITION_HISTORY_PAGE;
     public static String VIEW_CURRENT_PROJECTS_PAGE;
     public static String VIEW_ALGO_COMPETITION_HISTORY_PAGE;
+    public static String VIEW_PAYMENT_SUMMARY_PAGE;
+    public static String VIEW_PAYMENT_DETAIL_PAGE;
 
     public static String LEADER_BOARD_COMMAND;
     public static String LEADER_BOARD_QUERY;
@@ -50,6 +52,7 @@ public class Constants implements WebConstants {
 
 
     /* request parameters */
+    //todo convert problem id to pm and move it to webconstants.  it is only used by problem rating right now
     public static String PROBLEM_ID;
     public static String SURVEY_ID;
     public static String FIRST_NAME;
@@ -96,6 +99,7 @@ public class Constants implements WebConstants {
     public static String ANSWER_PREFIX;
     public static String MESSAGE;
 
+    public static String SUBMISSION_TYPE;
 
     /* pages */
     public static String SURVEY_RESULTS;
@@ -119,6 +123,10 @@ public class Constants implements WebConstants {
     public static String EMAIL_ACTIVATE;
     public static String EMAIL_ACTIVATE_CONFIRM;
     public static String RECOVER_PASSWORD;
+    public static String SECRET_QUESTION;
+    public static String RESET_PASSWORD;
+    public static String RESET_PASSWORD_CONFIRM;
+    public static String RECOVER_PASSWORD_CONFIRM;
     public static String EMAIL_SENT;
 
     public static String SIMPLE_SEARCH_RESULTS;
@@ -153,6 +161,23 @@ public class Constants implements WebConstants {
 
     public static String MEMBER_PROFILE;
 
+    public static String MEMBER_CONTACT;
+
+    public static String MEMBER_CONTACT_ENABLE_SUCCEEDED;
+    public static String MEMBER_CONTACT_ENABLE;
+
+    public static String MEMBER_CONTACT_FROM_ADDRESS;
+    public static String MEMBER_CONTACT_SUBJECT;
+    public static String MEMBER_CONTACT_SUBJECT_COPY;
+
+    public static String VALIDATE_HANDLE;
+
+    public static String BLACK_LIST;
+    public static String BLOCK_HANDLE;
+
+    public static String DOWNLOAD_SUBMISSION;
+    public static String DOWNLOAD_SUBMISSION_TERMS;
+
     //dev pages
     public static String REVIEW_PROJECT_DETAIL;
     public static String REVIEW_PROJECTS;
@@ -165,6 +190,7 @@ public class Constants implements WebConstants {
     public static int TOURNAMENT_SURVEY_QUESTION;
     public static int SEARCH_SCROLL_SIZE;
     public static int PROBLEM_ARCHIVE_SCROLL_SIZE;
+    public static int COLOR_CHANGE_SCROLL_SIZE;
     public static String STATISTICS_PATH;
     public static int TCCC04_TERMS_OF_USE_ID;
     public static int TCO04_EVENT_ID;
@@ -175,6 +201,7 @@ public class Constants implements WebConstants {
     public static int TCCC05_COMPONENT_TERMS_OF_USE_ID;
     public static int TCO05_EVENT_ID;
     public static final int TCO06_EVENT_ID = 5;
+    public static final int TCCC06_EVENT_ID = 6;
     public static int TCO05_ALGORITHM_TERMS_OF_USE_ID;
     public static int TCO05_COMPONENT_TERMS_OF_USE_ID;
     public static final int TCO06_ALGORITHM_TERMS_OF_USE_ID = 20383;
@@ -182,6 +209,11 @@ public class Constants implements WebConstants {
     public static final int TCO05_SPONSOR_COMPANY_QUESTION_ID = 30;
     public static final int TCO06_SPONSOR_COMPANY_QUESTION_ID = 31;
     public static final int TCO06_SPONSOR_TERMS_ID = 20388;
+    public static final int TCCC06_ALGORITHM_TERMS_OF_USE_ID = 20504;
+    public static final int TCCC06_COMPONENT_TERMS_OF_USE_ID = 20503;
+    public static int DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID;
+    public static final int TCCC06_SPONSOR_TERMS_ID = 20523;
+    public static final int TCCC06_SPONSOR_COMPANY_QUESTION_ID = 136;
     public static int UNLOCK_CARD_PREFERENCE_ID;
     public static int JAVA_CATALOG_ID;
     public static int DOT_NET_CATALOG_ID;
@@ -202,6 +234,7 @@ public class Constants implements WebConstants {
     public static int TOURNAMENT_COMPONENT;
     //public static int ACTIVE_REVIEWER;
 
+    public static int PASSWORD_RECOVERY_EXPIRE;
     /* job posting stuff */
     public static String JOB_HIT_TYPE_PARAM;
     public static String JOB_HIT_PREFIX;
@@ -286,6 +319,9 @@ public class Constants implements WebConstants {
     public static String HS_PROBLEM_SOLUTION;
     public static String HS_RATING_HISTORY;
 
+
+    public static String DEFAULT_SURVEY_SCROLL_SIZE;
+    public static final String COLOR = "color";
 
     static {
         initialize();

@@ -1,14 +1,15 @@
 package com.topcoder.web.common.model;
 
-import java.util.List;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author dok
  * @version $Revision$ $Date$
  *          Create Date: Oct 20, 2005
  */
-public class NavNode {
+public class NavNode implements Serializable {
 
     private List children = null;
     private boolean leaf = true;
@@ -48,19 +49,19 @@ public class NavNode {
     }
 
     public NavNode[] getChildren() {
-        return (NavNode[])children.toArray(new NavNode[0]);
+        return (NavNode[]) children.toArray(new NavNode[0]);
     }
 
     public void setChildren(NavNode[] children) {
         this.children = new ArrayList(children.length);
-        for (int i=0; i<children.length; i++) {
-            children[i].parent=(this);
+        for (int i = 0; i < children.length; i++) {
+            children[i].parent = (this);
             this.children.add(children[i]);
         }
     }
 
     public NavNode getChildAt(int index) {
-        return (NavNode)children.get(index);
+        return (NavNode) children.get(index);
     }
 
     public int getChildCount() {
@@ -99,7 +100,7 @@ public class NavNode {
         if (getKey().equals(key)) {
             ret = this;
         } else {
-            for (int i=0; i<getChildCount()&&ret==null; i++) {
+            for (int i = 0; i < getChildCount() && ret == null; i++) {
                 ret = search(getChildAt(i), key);
             }
         }
@@ -111,7 +112,7 @@ public class NavNode {
         if (node.getKey().equals(key)) {
             ret = node;
         } else {
-            for (int i=0; i<node.getChildCount()&&ret==null; i++) {
+            for (int i = 0; i < node.getChildCount() && ret == null; i++) {
                 ret = search(node.getChildAt(i), key);
             }
         }
@@ -136,12 +137,12 @@ public class NavNode {
     }
 
     public boolean equals(Object o) {
-        if (o==null) {
+        if (o == null) {
             return false;
         }
 
         try {
-            NavNode other = (NavNode)o;
+            NavNode other = (NavNode) o;
             return other.getKey().equals(key);
         } catch (ClassCastException e) {
             return false;

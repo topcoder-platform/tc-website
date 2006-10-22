@@ -40,6 +40,9 @@ public class CompetitionHistory extends BaseProcessor {
      * Retrieves the competition history list for development or design for a particular coder.
      */
     protected void businessProcessing() throws Exception {
+        //todo smarten this up.  if we do the sorting in memory, we wouldn't have to make a db hit for every
+        //todo different sort.  we'd cache less, and hit the db less.  WAY better
+
         // user should be authenticated.
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));

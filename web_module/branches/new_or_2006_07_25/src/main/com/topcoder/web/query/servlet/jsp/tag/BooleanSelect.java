@@ -4,11 +4,13 @@ import com.topcoder.web.common.tag.SelectTag;
 
 import javax.servlet.jsp.JspException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class BooleanSelect extends SelectTag {
 
     private static final List list;
+
     static {
         list = new ArrayList();
         list.add("true");
@@ -24,7 +26,7 @@ public class BooleanSelect extends SelectTag {
         return o.toString();
     }
 
-    protected List getSelectOptions() throws JspException {
+    protected Collection getSelectOptions() throws JspException {
         return list;
     }
 

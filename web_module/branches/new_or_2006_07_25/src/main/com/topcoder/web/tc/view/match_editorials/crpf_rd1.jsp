@@ -11,17 +11,20 @@
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 <jsp:include page="../script.jsp" />
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 </head>
 <body>
-
+<div id="onTop">
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
+</div>
+
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-        <td width="180">	<jsp:include page="/includes/global_left.jsp">
+        <td width="180" id="onLeft">	<jsp:include page="/includes/global_left.jsp">
 		<jsp:param name="node" value="algo_match_editorials"/>
 	</jsp:include>
 </td>
@@ -35,7 +38,10 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
-<div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+<div class="linkBox">
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+    <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
+    <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
 <tc-webtag:forumLink forumID="505613" message="Discuss this match" /></div>
 <span class="bodySubtitle">CRPF Charity Challenge <br>Round 1</span><BR/>Tuesday, November 11, 2003
 <br><br>
@@ -248,11 +254,14 @@ public int minPushes(int current, int target, int[] buttons) {
 For a given button, to efficiently account for all reachable targets, we loop over each value.  Then, in the loop marked HERE, we continually push the button, as long as it continues to improve the scores for the targets we reach.  Another method used by many coders, was to implement a table-aided breadth-first-search.  Instead of looping over buttons, we loop over the number of button presses, stopping when we reach the target.  Since the table stores the targets already produced earlier in the search, we can avoid reexamining those values.
 </p> 
 
-<p>
-<img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/brett1479_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="251317" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>
@@ -260,7 +269,7 @@ By&#160;<tc-webtag:handle coderId="251317" context="algorithm"/><br />
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-         <td width="170">
+         <td width="170" id="onRight">
             <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
@@ -273,7 +282,9 @@ By&#160;<tc-webtag:handle coderId="251317" context="algorithm"/><br />
     </tr>
 </table>
 
+<div id="onBottom">
 <jsp:include page="../foot.jsp" />
+</div>
 
 </body>
 

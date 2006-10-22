@@ -39,6 +39,14 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">10.09.06 9:40 PM - </td><td width="100%">Recent Color Changes now available</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.02.06 2:00 PM - </td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=513341">TopCoder is turning 100!</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.18.06 4:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=pressroom&d2=art_091806">In memoriam: Victor_lxd</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.14.06 3:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=collegetour&d2=description">2006 TopCoder College Tour continues</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">08.30.06 4:00 PM - </td><td width="100%"><A href="http://studio.topcoder.com/">gojohnie wins the first TopCoder Studio contest</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">08.14.06 10:00 AM - </td><td width="100%"><A href="http://studio.topcoder.com/">Introducing TopCoder Studio</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">08.06.06 9:00 AM - </td><td width="100%">Downtime for scheduled maintenance: 08.03</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">07.31.06 7:30 PM - </td><td width="100%"><A href="/tc?module=MemberContact">Member Contacting now available</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.10.06 10:00 AM - </td><td width="100%">Syntax Highlighter and other features added to the arena</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.06.06 11:05 AM - </td><td width="100%">Downtime for scheduled maintenance: 07.07</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.29.06 6:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=my_home&d2=empReferrals">TopCoder Employee Referral Program Prize Increase</A></td></tr>

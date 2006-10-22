@@ -3,9 +3,9 @@ package com.topcoder.web.reg.controller.request;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.*;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
-import com.topcoder.web.reg.model.*;
 
 import java.util.*;
 
@@ -20,7 +20,7 @@ public class Confirm extends Base {
 
         User u = getRegUser();
         if (getRegUser() == null) {
-            throw new NavigationException("Sorry, your session has timed out.");
+            throw new NavigationException("Sorry, your session has expired.");
         } else if (u.isNew() || userLoggedIn()) {
 
             Map params = getSecondaryUserInput();
@@ -248,6 +248,7 @@ public class Confirm extends Base {
         if (fields.contains(Constants.TITLE)) {
             u.getContact().setTitle((String) params.get(Constants.TITLE));
         }
+
 
         setRegUser(u);
     }

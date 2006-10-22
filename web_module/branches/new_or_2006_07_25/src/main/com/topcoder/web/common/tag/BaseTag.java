@@ -8,13 +8,10 @@ import java.util.HashMap;
 
 
 /**
- *
  * My comments/description/notes go here
- *
  *
  * @author djFD molc@mail.ru
  * @version 1.02
- *
  */
 public abstract class BaseTag extends BodyTagSupport {
 
@@ -22,6 +19,7 @@ public abstract class BaseTag extends BodyTagSupport {
 
     /**
      * Sets the name.
+     *
      * @param name The name to set
      */
     public void setName(String name) {
@@ -39,6 +37,7 @@ public abstract class BaseTag extends BodyTagSupport {
 
     public int doEndTag() throws JspException {
         this.name = null;
+        this.id = null;//declared in super class
         init();
         return super.doEndTag();
     }

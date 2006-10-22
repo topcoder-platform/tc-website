@@ -163,7 +163,7 @@
         %>
         <tr class='<%= selected? "highlight" : (even? "light" : "dark") %>'>
             <td class="value" style="vertical-align: middle;">
-                <A href='/tc?module=HSProblemSolution&rm=<%= sRoomId %>&rd=<%= sRoundId %>&pm=<%= resultRow.getIntItem("problem_id") %>&cr=<%= sCoderId %>'>
+                <A href='/tc?module=HSProblemSolution&amp;rd=<%= sRoundId %>&amp;pm=<%= resultRow.getIntItem("problem_id") %>&amp;cr=<%= sCoderId %>'>
                     <img src='<%= "/i/interface/" + (selected? "exp_ed_w.gif" : "exp_w.gif") %>' alt=""/>
                 </A>
             </td>
@@ -284,7 +284,7 @@
 <!-- Right Column Begins -->
 <td width="170">
     <jsp:include page="/public_right.jsp">
-        <jsp:param name="level1" value="default"/>
+        <jsp:param name="level1" value="tchs"/>
     </jsp:include>
 </td>
 <!-- Right Column Ends -->

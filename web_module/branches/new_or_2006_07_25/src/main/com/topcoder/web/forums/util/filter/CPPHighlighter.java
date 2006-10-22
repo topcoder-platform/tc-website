@@ -7,7 +7,7 @@ import com.topcoder.web.common.BaseProcessor;
 import java.io.*;
 
 /**
- * A Filter that syntax highlights code appearing between [cpp][/cpp] tags.
+ * A Filter that syntax highlights C++ code appearing between [cpp][/cpp] tags.
  */
 public class CPPHighlighter implements Filter {
 

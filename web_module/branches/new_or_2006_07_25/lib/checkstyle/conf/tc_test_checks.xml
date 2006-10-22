@@ -61,7 +61,7 @@
         <module name="TypeName" />
 
         <module name="RegexpHeader">
-            <property name="headerFile" value="/export/home/apps/web/lib/checkstyle/conf/topcoder.header" />
+            <property name="headerFile" value="/export/home/tcs/web/lib/checkstyle/conf/topcoder.header" />
         </module>
 
         <!-- No start, illegal, redundant, and unused imports -->

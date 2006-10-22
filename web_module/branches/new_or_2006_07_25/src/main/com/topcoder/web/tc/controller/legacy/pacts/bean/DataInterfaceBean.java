@@ -1,24 +1,45 @@
 package com.topcoder.web.tc.controller.legacy.pacts.bean;
 
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.ejb.pacts.PactsServices;
-import com.topcoder.web.ejb.pacts.PactsServicesBean;
-import com.topcoder.web.tc.controller.legacy.pacts.common.*;
-
-import javax.jms.JMSException;
-import javax.naming.InitialContext;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+
+import javax.jms.JMSException;
+import javax.naming.InitialContext;
+
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.PactsServices;
+import com.topcoder.web.ejb.pacts.PactsServicesBean;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
+import com.topcoder.web.tc.controller.legacy.pacts.common.AffidavitWithText;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
+import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.InvalidSearchInputException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.NoObjectFoundException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentNotReviewedException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UnsupportedSearchException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UpdateResults;
 
 /**
  * This class receives incoming requests from the dispatch beans
@@ -278,13 +299,13 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.getUserPaymentList(userId);
     }
-    
+
     /**
      * Returns the list of payment details of the given type(s) for the given user.
      *
      * @param   userId  The coder ID of the payments.
-     * @param	paymentTypes  The payment type(s) to filter on.
-     * @param 	pendingOnly  True when only pending/owed details should be returned.
+     * @param   paymentTypes  The payment type(s) to filter on.
+     * @param   pendingOnly  True when only pending/owed details should be returned.
      * @return  The payment header list.
      * @throws  RemoteException If there is some communication problem with the EJB
      * @throws  SQLException If there is some problem retrieving the data
@@ -415,7 +436,7 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.getPaymentTypes();
     }
-    
+
     /**
      * Returns the list of all payment methods.
      *
@@ -439,7 +460,7 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.getProjectTerminationStatusTypes();
     }
-    
+
     /**
      * Returns the list of all payment modification rationales.
      *
@@ -516,7 +537,7 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.getDemographicData(userId);
     }
-    
+
     /**
      * Returns the created dates for the given payments.
      *
@@ -527,6 +548,21 @@ public class DataInterfaceBean implements PactsConstants {
     public Map getCreationDates(long[] paymentIds) throws RemoteException, SQLException {
         PactsServices ps = getEjbHandle();
         return ps.getCreationDates(paymentIds);
+    }
+
+    /**
+     * Return a Payment creation date, or null if it couldn't be found.
+     *
+     * @param paymentId Payment to retrieve its creation date
+     * @return the Payment creation date, or null if it couldn't be found.
+     * @throws RemoteException
+     * @throws SQLException
+     */
+    public Date getCreationDate(long paymentId) throws RemoteException, SQLException {
+        Map results = getCreationDates(new long[] {paymentId});
+        ResultSetContainer rsc = (ResultSetContainer)results.get(CREATION_DATE_LIST);
+
+         return rsc.getRowCount() > 0? rsc.getTimestampItem(0, "date_created") : null;
     }
 
     /*****************************************************
@@ -787,7 +823,7 @@ public class DataInterfaceBean implements PactsConstants {
                     key.equals(HIGHEST_NET_AMOUNT))
                 inputOk = validateInput(value, DECIMAL);
             else if (key.equals(STATUS_CODE) ||
-                    key.equals(TYPE_CODE) || 
+                    key.equals(TYPE_CODE) ||
                     key.equals(METHOD_CODE) ||
                     key.equals(HANDLE))
                 inputOk = validateInput(value, STRING);
@@ -1129,6 +1165,73 @@ public class DataInterfaceBean implements PactsConstants {
     }
 
     /**
+     * Affirms the specified affidavit, searching the affidavit text and doing the replacements.
+     * This method should be used for Indian coders, since they require the family name and age.
+     *
+     * @param   affidavitId The ID of the affidavit to affirm.
+     * @param   birthday The birth date of the coder
+     * @param   familyName family name of the coder
+     * @param   aged age of the couder
+     * @throws  RemoteException If there is some communication problem with the EJB
+     * @throws  NoObjectFoundException If the specified affidavit does not exist.
+     * @throws  IllegalUpdateException If the affidavit has expired or has already
+     * been affirmed.
+     * @throws  SQLException If there is some other problem updating the data
+     */
+    public void affirmAffidavit(long affidavitId, Date birthday, String familyName, int aged)
+            throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
+        SimpleDateFormat dfmt = new SimpleDateFormat(DATE_FORMAT_STRING);
+        AffidavitBean bean = new AffidavitBean();
+
+        AffidavitWithText a = bean.getAffidavitWithText(affidavitId, dfmt.format(birthday));
+
+        if (a == null) {
+            throw new NoObjectFoundException("Couldn't find affidavit " + affidavitId);
+        }
+
+        //first replace the aged
+        int aIdx = a.getAffidavitText().indexOf("FILL IN AGED");
+        int bIdx = aIdx + (new String("FILL IN AGED")).length();
+        a.setAffidavitText(a.getAffidavitText().substring(0, aIdx) +
+                " " + aged + " " + a.getAffidavitText().substring(bIdx));
+
+        //now the family name
+        aIdx = a.getAffidavitText().indexOf("FILL IN BELOW");
+        bIdx = aIdx + (new String("FILL IN BELOW")).length();
+        a.setAffidavitText(a.getAffidavitText().substring(0, aIdx) +
+                " " + familyName + " " + a.getAffidavitText().substring(bIdx));
+
+        // if we got here everything is good, we should affirm the affidavit
+        affirmAffidavit(a.getAffidavit().getHeader().getId(), a.getAffidavitText(), dfmt.format(birthday));
+    }
+
+    /**
+     * Affirms the specified affidavit, searching the affidavit text.
+     *
+     * @param   affidavitId The ID of the affidavit to affirm.
+     * @param   birthday The birth date of the coder
+     * @throws  RemoteException If there is some communication problem with the EJB
+     * @throws  NoObjectFoundException If the specified affidavit does not exist.
+     * @throws  IllegalUpdateException If the affidavit has expired or has already
+     * been affirmed.
+     * @throws  SQLException If there is some other problem updating the data
+     */
+    public void affirmAffidavit(long affidavitId, Date birthday)
+            throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
+
+        SimpleDateFormat dfmt = new SimpleDateFormat(DATE_FORMAT_STRING);
+        AffidavitBean bean = new AffidavitBean();
+
+        AffidavitWithText a = bean.getAffidavitWithText(affidavitId, dfmt.format(birthday));
+
+        if (a == null) {
+            throw new NoObjectFoundException("Couldn't find affidavit " + affidavitId);
+        }
+
+        affirmAffidavit(a.getAffidavit().getHeader().getId(), a.getAffidavitText(), dfmt.format(birthday));
+    }
+
+    /**
      * Updates the given affidavit (excluding text updates and affirmations).
      *
      * @param   a The updated affidavit information
@@ -1365,7 +1468,19 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.generateRoundPayments(roundId, affidavitTypeId, makeChanges);
     }
 
-    
+    public int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges, int paymentTypeId)
+    		throws RemoteException, IllegalUpdateException, SQLException {
+    	PactsServices ps = getEjbHandle();
+    	return ps.generateRoundPayments(roundId, affidavitTypeId, makeChanges, paymentTypeId);
+    }
+
+
+    public int generateRoundPayments(long roundId, boolean makeChanges, int paymentTypeId)
+			throws RemoteException, IllegalUpdateException, SQLException {
+    	PactsServices ps = getEjbHandle();
+    	return ps.generateRoundPayments(roundId, makeChanges, paymentTypeId);
+    }
+
     /**
      * Generates all the payments for the people who won money for the given project (designers, developers,
      * and review board members). Returns the number of payments generated.
@@ -1380,24 +1495,24 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws SQLException If there was some error updating the data.
      */
     public int[] generateComponentPayments(long projectId, long status, String client, boolean makeChanges)
-		throws IllegalUpdateException, RemoteException, SQLException {
-    	PactsServices ps = getEjbHandle();
+        throws IllegalUpdateException, RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
         return ps.generateComponentPayments(projectId, status, client, makeChanges);
     }
-    
-    
+
+
     /**
      * Generates a map with project ID keys and component ID values from the component and review board
      * payments in the given list.
-     * 
+     *
      * @param paymentIds The list of payment IDs.
      * @return the map of (projectID, componentID) pairs
      */
     public Map getPaymentComponentData(long[] paymentIds) throws RemoteException, SQLException {
-    	PactsServices ps = getEjbHandle();
-    	return ps.getPaymentComponentData(paymentIds);
+        PactsServices ps = getEjbHandle();
+        return ps.getPaymentComponentData(paymentIds);
     }
-    
+
     /**
      * Sets the status on all contest payments with Pending or On Hold status older than a specified time
      * to Expired. The time limit is specified in <tt>PactsConstants.java</tt>
@@ -1431,12 +1546,61 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         ps.createAffidavitTemplate(affidavitTypeId, text);
     }
-    
+
     public Payment getEmptyPayment(long userId) throws RemoteException, SQLException {
         PactsServices ps = getEjbHandle();
         return ps.getEmptyPayment(userId);
     }
 
+    public Map findProblems(String search) throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.findProblems(search);
+    }
+
+    public Map findProjects(String search) throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.findProjects(search);
+    }
+
+    public Map findComponentContests(String search) throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.findComponentContests(search);
+    }
+
+    public Map findStudioContests(String search) throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.findStudioContests(search);
+    }
+
+    public Map findRounds(String search, int []roundTypes) throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.findRounds(search,roundTypes);
+    }
+
+    public Map getDigitalRunSeasonList() throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.getDigitalRunSeasonList();
+    }
+
+    public Map getDigitalRunStageList() throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.getDigitalRunStageList();
+    }
+
+    public Map findPaymentsByDescription(String search) throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.findPaymentsByDescription(search);
+    }
+
+    public BasePayment fillPaymentData(BasePayment payment) throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.fillPaymentData(payment);
+    }
+
+    public BasePayment addPayment(BasePayment payment) throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.addPayment(payment);
+    }
 
 }
 

@@ -1,6 +1,7 @@
 package com.topcoder.web.common.function;
 
 import java.util.Collection;
+import java.util.Map;
 
 /**
  * @author dok
@@ -11,4 +12,9 @@ public class Util {
     public static boolean contains(Collection c, Object o) {
         return c.contains(o);
     }
+
+    public static boolean containsMapKey(Map m, Object o) {
+        return m.containsKey(o);
+    }
+
 }

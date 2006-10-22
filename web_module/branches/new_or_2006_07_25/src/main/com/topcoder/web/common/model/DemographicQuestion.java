@@ -1,148 +1,120 @@
 package com.topcoder.web.common.model;
 
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.model.Base;
-import com.topcoder.web.common.model.DemographicAnswer;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeSet;
 
-import java.util.*;
+public class DemographicQuestion extends Base {
 
-public class DemographicQuestion extends Base implements Comparable {
-    protected static Logger log = Logger.getLogger(DemographicQuestion.class);
+    public static final Long COLLEGE_MAJOR_DESC = new Long(14);
+    public static final Long DEGREE_PROGRAM = new Long(16);
+    public static final Long COLLEGE_MAJOR = new Long(17);
 
-    public static final int MULTIPLE_SELECT = 1;
-    public static final int SINGLE_SELECT = 2;
-    public static final int FREE_FORM = 3;
-
-    private long id;
+    private Long id;
     private String text;
-    private String desc;
-    private String selectable;
-    private boolean required;
-    private HashMap answers;
-    private int sort;
+    private Character selectable;
+    private String description;
+/*
+    private List answers = new ArrayList();
+*/
+    private Set answers = new TreeSet();
 
-    public DemographicQuestion() {
-    }
+    public static final Character MULTIPLE_SELECT = new Character('M');
+    public static final Character SINGLE_SELECT = new Character('Y');
+    public static final Character FREE_FORM = new Character('N');
 
-    public Object clone() throws OutOfMemoryError {
-        DemographicQuestion ret = new DemographicQuestion();
-        ret.setId(id);
-        ret.setText(text);
-        ret.setDesc(desc);
-        ret.setSelectable(selectable);
-        ret.setRequired(required);
-        ret.setSort(sort);
-        HashMap list = new HashMap();
-        DemographicAnswer a = null;
-        for (Iterator it = answers.values().iterator(); it.hasNext();) {
-            a = (DemographicAnswer) it.next();
-            list.put(new Long(a.getAnswerId()), a.clone());
-        }
-        ret.setAnswers(list);
-        return ret;
-    }
-
-    public long getId() {
+    public Long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getText() {
         return text;
     }
 
+    public Character getSelectable() {
+        return selectable;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int hashCode() {
+        return id.hashCode();
+    }
+
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        } else {
+            try {
+                DemographicQuestion oa = (DemographicQuestion) o;
+                return oa.getId().equals(getId());
+            } catch (ClassCastException e) {
+                return false;
+            }
+        }
+    }
+
+    /**
+     * The we're be returning the answers in the correct order.  Really
+     * this should be returning a <code>SortedSet</code> but I couldn't
+     * get hibernate to work right.
+     *
+     * @return the potential answers to this question
+     */
+    public Set getAnswers() {
+        return Collections.unmodifiableSet(answers);
+    }
+
+    public boolean isMultipleSelect() {
+        return MULTIPLE_SELECT.equals(selectable);
+    }
+
+    public boolean isSingleSelect() {
+        return SINGLE_SELECT.equals(selectable);
+    }
+
+    public boolean isFreeForm() {
+        return FREE_FORM.equals(selectable);
+    }
+
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public void setText(String text) {
         this.text = text;
     }
 
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    /**
-     * get the list of potential answers associated with this question.
-     * they will be returned in ascending order based on their sort
-     * order from the database
-     * @return
-     */
-    public List getAnswers() {
-        List list = null;
-        if (answers != null) {
-            list = new ArrayList(answers.size());
-            for (Iterator it = answers.values().iterator(); it.hasNext();) {
-                list.add(((DemographicAnswer) it.next()).clone());
-            }
-            Collections.sort(list);
-        }
-        return list;
-    }
-
-    public void setAnswers(List answers) {
-        this.answers = new HashMap();
-        DemographicAnswer a = null;
-        for (Iterator it = answers.iterator(); it.hasNext();) {
-            a = (DemographicAnswer) it.next();
-            this.answers.put(new Long(a.getAnswerId()), a.clone());
-        }
-    }
-
-    private void setAnswers(HashMap answers) {
-        this.answers = answers;
-    }
-
-    /**
-     * return an answer specified by the input.  returns null
-     * if the answer is not associated with this question
-     * @param answerId
-     * @return
-     */
-    public DemographicAnswer getAnswer(long answerId) {
-        Long key = new Long(answerId);
-        DemographicAnswer ret = null;
-        if (answers.containsKey(key))
-            ret = (DemographicAnswer) ((DemographicAnswer) answers.get(key)).clone();
-        return ret;
-    }
-
-    public int getAnswerType() {
-        if (selectable.equals("M"))
-            return MULTIPLE_SELECT;
-        else if (selectable.equals("Y"))
-            return SINGLE_SELECT;
-        else if (selectable.equals("N")) return FREE_FORM;
-        throw new RuntimeException("Invalid type found: " + selectable);
-    }
-
-    public void setSelectable(String selectable) {
+    public void setSelectable(Character selectable) {
         this.selectable = selectable;
     }
 
-    public boolean isRequired() {
-        return required;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setRequired(boolean required) {
-        this.required = required;
+    public void setAnswers(Set answers) {
+        this.answers = answers;
     }
 
-    public int getSort() {
-        return sort;
+    public void addAnswer(DemographicAnswer a) {
+        this.answers.add(a);
     }
 
-    public void setSort(int sort) {
-        this.sort = sort;
+
+    public DemographicAnswer getAnswer(Long id) {
+        boolean found = false;
+        DemographicAnswer da = null;
+        for (Iterator it = answers.iterator(); it.hasNext() && !found;) {
+            da = (DemographicAnswer) it.next();
+            found = da.getId().equals(id);
+        }
+        return da;
     }
 
-    public int compareTo(Object o) {
-        DemographicQuestion other = (DemographicQuestion) o;
-        return new Integer(getSort()).compareTo(new Integer(other.getSort()));
-    }
 
 }

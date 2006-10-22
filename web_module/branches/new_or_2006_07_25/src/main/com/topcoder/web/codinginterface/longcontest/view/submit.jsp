@@ -155,7 +155,7 @@
                         <%if (request.getAttribute(Constants.CODE) == null || request.getAttribute(Constants.CODE).toString().equals("")) {%>
                         <textarea cols="70" rows="20" name="code" class="codeTextArea" wrap="off"></textarea>
                         <%} else {%>
-                        <textarea cols="70" rows="20" name="code" class="codeTextArea" wrap="off"><%=request.getAttribute(Constants.CODE)%></textarea>
+                        <textarea cols="70" rows="20" name="code" class="codeTextArea" wrap="off"><%=StringUtils.replace((String) request.getAttribute(Constants.CODE), "&", "&amp;")%></textarea>
 
                         <%}%>
                     </td>

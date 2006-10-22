@@ -1,16 +1,16 @@
 package com.topcoder.web.common.tag;
 
-import com.topcoder.web.common.model.NavTree;
-import com.topcoder.web.common.model.NavNode;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.model.NavNode;
+import com.topcoder.web.common.model.NavTree;
 
-import javax.servlet.jsp.tagext.TagSupport;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.tagext.TagSupport;
+import java.io.IOException;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-import java.util.HashSet;
-import java.io.IOException;
 
 /**
  * @author dok
@@ -32,7 +32,7 @@ public class NavBuilder extends TagSupport {
     }
 
     public void setSelectedNode(String selectedNode) {
-        if (selectedNode!=null) {
+        if (selectedNode != null) {
             this.selectedNode = selectedNode;
         }
     }
@@ -85,12 +85,8 @@ public class NavBuilder extends TagSupport {
 
     private void printOutput(NavNode node, Set parents) throws IOException {
         JspWriter out = pageContext.getOut();
-        out.print("\n<li>");
+        out.print("\n<li");
         if (node.isLink() && node.isLeaf()) {
-            //log.debug("leaf link " + node.getKey());
-            out.print("<a href=\"");
-            out.print(node.getHref());
-            out.print("\"");
             if (selectedNode.equals(node.getKey())) {
                 out.print(" class=\"");
                 out.print(selectedLeafClass);
@@ -100,6 +96,11 @@ public class NavBuilder extends TagSupport {
                 out.print(unSelectedLeafClass);
                 out.print("\"");
             }
+            out.print(">");//close the li
+            //log.debug("leaf link " + node.getKey());
+            out.print("<a href=\"");
+            out.print(node.getHref());
+            out.print("\"");
             if (node.getOnClick() != null) {
                 out.print(" \"");
                 out.print(node.getOnClick());
@@ -109,15 +110,11 @@ public class NavBuilder extends TagSupport {
             out.print(node.getContents());
             out.print("</a>");
         } else if (!node.isLink()) {
+            out.print(">");//close the li
             //log.debug("not link " + node.getKey());
             out.print(node.getContents());
         } else {
-            //log.debug("link not leaf " + node.getKey());
-            //is link and not leaf
-            out.print("<a href=\"");
-            out.print(node.getHref());
-            out.print("\"");
-            if (parents.contains(node.getKey())||selectedNode.equals(node.getKey())) {
+            if (parents.contains(node.getKey()) || selectedNode.equals(node.getKey())) {
                 out.print(" class=\"");
                 out.print(selectedParentClass);
                 out.print("\"");
@@ -126,6 +123,12 @@ public class NavBuilder extends TagSupport {
                 out.print(unSelectedParentClass);
                 out.print("\"");
             }
+            out.print(">");//close the li
+            //log.debug("link not leaf " + node.getKey());
+            //is link and not leaf
+            out.print("<a href=\"");
+            out.print(node.getHref());
+            out.print("\"");
             if (node.getOnClick() != null) {
                 out.print(" onClick=\"");
                 out.print(node.getOnClick());

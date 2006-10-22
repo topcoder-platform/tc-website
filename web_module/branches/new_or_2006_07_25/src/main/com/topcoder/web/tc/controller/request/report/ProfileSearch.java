@@ -34,26 +34,49 @@ public class ProfileSearch extends Base {
                     response_addr = Constants.REPORT_PROFILE_SEARCH_RESULTS_ADDR;
                     ArrayList headers = new ArrayList();
                     long time = System.currentTimeMillis();
-                    String query = buildQuery(getRequest(), headers);
+                    String countQuery = buildQuery(getRequest(), headers, true);
+                    String fullQuery = null;
+                    boolean countOnly = "on".equals(getRequest().getParameter("count"));
+                    if (countOnly) {
+                        getRequest().setAttribute("QUERY", countQuery);
+                    } else {
+                        headers.clear();
+                        fullQuery = buildQuery(getRequest(), headers, countOnly);
+                        getRequest().setAttribute("QUERY", fullQuery);
+                    }
                     time = System.currentTimeMillis() - time;
                     if (log.isDebugEnabled()) {
-                        log.debug("query constructed in " + time);
+                        log.debug("queries constructed in " + time);
                     }
-                    getRequest().setAttribute("QUERY", query);
                     if (!"on".equals(getRequest().getParameter("queryOnly"))) {
                         time = System.currentTimeMillis();
                         QueryDataAccess qda = new QueryDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-                        QueryRequest qr = new QueryRequest();
-                        qr.addQuery("results", query);
-                        Map m = qda.getData(qr);
+                        QueryRequest countRequest = new QueryRequest();
+                        countRequest.addQuery("results", countQuery);
+                        Map countResults = qda.getData(countRequest);
                         time = System.currentTimeMillis() - time;
                         if (log.isDebugEnabled()) {
-                            log.debug("data got in " + time);
+                            log.debug("got count in " + time);
                         }
-
-
+                        ResultSetContainer count = (ResultSetContainer) countResults.get("results");
+                        if (countOnly) {
+                            getRequest().setAttribute(Constants.REPORT_PROFILE_SEARCH_RESULTS_KEY, countResults);
+                        } else {
+                            if (count.getIntItem(0, "total_count") > 1000) {
+                                throw new NavigationException("Sorry, your query returns more than 1000 records.  Please include more search criteria.");
+                            } else {
+                                time = System.currentTimeMillis();
+                                QueryRequest fullRequest = new QueryRequest();
+                                fullRequest.addQuery("results", fullQuery);
+                                Map fullResults = qda.getData(fullRequest);
+                                time = System.currentTimeMillis() - time;
+                                if (log.isDebugEnabled()) {
+                                    log.debug("got full results in " + time);
+                                }
+                                getRequest().setAttribute(Constants.REPORT_PROFILE_SEARCH_RESULTS_KEY, fullResults);
+                            }
+                        }
                         getRequest().setAttribute("column_headers", headers);
-                        getRequest().setAttribute(Constants.REPORT_PROFILE_SEARCH_RESULTS_KEY, m);
                     }
                 }
                 setNextPage(Constants.JSP_ADDR + response_addr);
@@ -69,7 +92,7 @@ public class ProfileSearch extends Base {
 
     }
 
-    private String buildQuery(TCRequest request, List headers) {
+    private String buildQuery(TCRequest request, List headers, boolean countOnly) {
         boolean isCaseSensitive = "on".equals(request.getParameter("casesensitive"));
         ArrayList skillsHeaders = new ArrayList();
         List[] skills = buildSkillsQuery(request, skillsHeaders);
@@ -81,13 +104,19 @@ public class ProfileSearch extends Base {
         String comp = request.getParameter("company");
         String title = request.getParameter("title");
         String sch = request.getParameter("school");
+        String daysVisit = request.getParameter("maxdayssincevisit");
+        String phone = request.getParameter("phone");
+        String maxDaysDes = request.getParameter("maxdayssincedes");
+        String maxDaysDev = request.getParameter("maxdayssincedev");
+        String maxDaysAlgo = request.getParameter("maxdayssincerating");
+
         boolean containsDevRating = !"".equals(StringUtils.checkNull(request.getParameter("mindevrating")))
                 || !"".equals(StringUtils.checkNull(request.getParameter("maxdevrating")));
         boolean containsDesRating = !"".equals(StringUtils.checkNull(request.getParameter("mindesrating")))
                 || !"".equals(StringUtils.checkNull(request.getParameter("maxdesrating")));
 
         StringBuffer query = new StringBuffer(5000);
-        if ("on".equals(request.getParameter("count"))) {
+        if (countOnly) {
             headers.add("Count");
             headers.add("Rated");
             headers.add("Pro");
@@ -148,16 +177,34 @@ public class ProfileSearch extends Base {
                 query.append("  , sch.name as School\n");
                 headers.add("School");
             }
+
+            if (daysVisit != null && daysVisit.length() > 0) {
+                query.append("  , date(current) - date(u.last_site_hit_date) as days_since_visit\n");
+                headers.add("Days Since Visit");
+            }
+
             query.append("  , r.rating as Algorithm_Rating\n");
-            query.append("  , (select ur1.rating from tcs_catalog:user_rating ur1 where ur1.user_id = c.coder_id AND ur1.phase_id = 112) as Design_Rating\n");
-            query.append("  , (select ur2.rating from tcs_catalog:user_rating ur2 where ur2.user_id = c.coder_id AND ur2.phase_id = 113) as Development_Rating\n");
+
+            if (maxDaysDes != null && maxDaysDes.length() > 0) {
+                query.append("  , ur_des.rating as Design_Rating\n");
+            } else {
+                query.append("  , (select ur1.rating from tcs_catalog:user_rating ur1 where ur1.user_id = c.coder_id AND ur1.phase_id = 112) as Design_Rating\n");
+            }
+
+            if (maxDaysDev != null && maxDaysDev.length() > 0) {
+                query.append("  , ur_dev.rating as Development_Rating\n");
+            } else {
+                query.append("  , (select ur2.rating from tcs_catalog:user_rating ur2 where ur2.user_id = c.coder_id AND ur2.phase_id = 113) as Development_Rating\n");
+            }
+
+            query.append("  , (select '<a href=mailto:' || address  || ' >' || address || '</a>' from email where user_id = c.coder_id and primary_ind=1) as email\n");
             query.append("  , (select '<a href=/tc?module=DownloadResume&uid=' || res2.coder_id || '>Resume</a>' from resume res2 where res2.coder_id = c.coder_id)\n");
             query.append("  , (select max(n.modify_date) from user_note_xref unx, note n where n.note_type_id = 5 and unx.user_id = c.coder_id and unx.note_id = n.note_id)\n");
             query.append("  , (select unique '<a href=/tc?module=PlacementInfoDetail&uid=' || upi.user_id || '>Placement Info</a>' from user_preference upi where upi.user_id = c.coder_id AND upi.preference_id in (2,7))\n");
             query.append("  , '<a href=/tc?module=ViewNotes&uid=' || c.coder_id || '>Notes</a>'\n");
             query.append("  , '<a href=/tc?module=LegacyReport&t=profile&ha=' || u.handle || '>General Info</a>'\n");
             query.append("  , '<a href=/tc?module=MemberProfile&cr=' || c.coder_id || '>Public Profile</a>'\n");
-            headers.addAll(Arrays.asList(new String[]{"Algorithm Rating", "Design Rating", "Development Rating", "", "Notes", "", "", "", ""}));
+            headers.addAll(Arrays.asList(new String[]{"Algorithm Rating", "Design Rating", "Development Rating", "Email", "", "Notes", "", "", "", ""}));
             for (int i = 0; i < skills[2].size(); i++) {
                 query.append("  , ");
                 query.append((String) skills[2].get(i));
@@ -181,7 +228,11 @@ public class ProfileSearch extends Base {
         query.append("    user_address_xref x,\n");
         query.append("    address a,\n");
         query.append("    rating r,\n");
-        query.append("    outer round_segment rs,\n");
+
+        if (maxDaysAlgo != null && maxDaysAlgo.length() > 0) {
+            query.append("    round_segment rs,\n");
+        }
+
         if (containsDesRating) {
             query.append(" tcs_catalog:user_rating desr,\n");
 
@@ -194,6 +245,20 @@ public class ProfileSearch extends Base {
 
         if ("on".equals(request.getParameter("resume"))) {
             query.append("    resume res,\n");
+        }
+
+        if (phone != null && phone.length() > 0) {
+            query.append("    phone p,\n");
+        }
+
+        if (maxDaysDes != null && maxDaysDes.length() > 0) {
+            query.append("  tcs_catalog:user_rating ur_des, ");
+            query.append("  tcs_catalog:project p_des, ");
+        }
+
+        if (maxDaysDev != null && maxDaysDev.length() > 0) {
+            query.append("  tcs_catalog:user_rating ur_dev, ");
+            query.append("  tcs_catalog:project p_dev, ");
         }
 
         for (int i = 0; i < tables.size(); i++) {
@@ -213,11 +278,13 @@ public class ProfileSearch extends Base {
             query.append("    AND devr.user_id = c.coder_id\n");
             query.append("    AND devr.phase_id = 113\n");
         }
-        query.append("    AND r.round_id = rs.round_id\n");
-        query.append("    AND rs.segment_id = 2\n");
+
+        if (maxDaysAlgo != null && maxDaysAlgo.length() > 0) {
+            query.append("    AND r.round_id = rs.round_id\n");
+            query.append("    AND rs.segment_id = 2\n");
+        }
+
         query.append("    AND r.coder_id = c.coder_id\n");
-        query.append("    and r.round_id = rs.round_id\n");
-        query.append("    and rs.segment_id = 2\n");
         query.append("    AND u.user_id = c.coder_id\n");
         query.append("    AND u.status = 'A'\n");
         query.append("    AND cry.country_code = a.country_code\n");
@@ -257,6 +324,14 @@ public class ProfileSearch extends Base {
             query.append("))\n");
         }
 
+        if (phone != null && phone.length() > 0) {
+            query.append(" AND p.user_id = u.user_id");
+            query.append(" AND p.primary_ind = 1");
+            query.append(stringMatcher(phone, "p.phone_number", false));
+        }
+        if (daysVisit != null && daysVisit.length() > 0) {
+            query.append(" AND u.last_site_hit_date > (current - " + daysVisit + " units day) ");
+        }
         for (int i = 0; i < constraints.size(); i++) {
             query.append("    AND ");
             query.append(constraints.get(i));
@@ -444,17 +519,16 @@ public class ProfileSearch extends Base {
             query.delete(query.length() - "    AND c.language_id IN ()\n".length(), query.length());
         }
         String[] bounds = {"maxdayssincerating", "mindays", "maxdays", "minevents", "minrating", "maxrating", "mindesrating", "maxdesrating", "mindevrating", "maxdevrating"};
-        String[] value = {"current-rs.start_time <= \'", "current-c.member_since >= \'", "current-c.member_since <= \'", "r.num_ratings >= ", "r.rating >= ", "r.rating <= ", "desr.rating >= ", "desr.rating <= ", "devr.rating >= ", "devr.rating <= "};
+        String[] value = {"rs.start_time >= ", "c.member_since <= ", "c.member_since >= ", "r.num_ratings >= ", "r.rating >= ", "r.rating <= ", "desr.rating >= ", "desr.rating <= ", "devr.rating >= ", "devr.rating <= "};
         for (int i = 0; i < bounds.length; i++) {
             String b = request.getParameter(bounds[i]);
             if (b == null || b.length() == 0) continue;
             query.append("    AND ");
             query.append(value[i]);
-            query.append(b);
             if (i < 3) {
-                query.append(" 00:00:00.0'\n");
+                query.append(" (current - " + b + " units day)\n");
             } else {
-                query.append('\n');
+                query.append(b + '\n');
             }
         }
         boolean pro = "on".equals(request.getParameter("pro"));
@@ -487,6 +561,27 @@ public class ProfileSearch extends Base {
             query.append("    AND c.coder_id IN (select up3.user_id FROM user_preference up3 WHERE up3.preference_value_id = 28)\n");
         }
 
+
+        String maxDaysDes = request.getParameter("maxdayssincedes");
+        if (maxDaysDes != null && maxDaysDes.length() > 0) {
+            query.append("  and ur_des.user_id = u.user_id\n");
+            query.append("  and ur_des.last_rated_project_id = p_des.project_id\n");
+            query.append("  and p_des.cur_version=1 \n");
+            query.append("  and ur_des.phase_id = 112 \n");
+            query.append(" AND p_des.rating_date > (current - " + maxDaysDes + " units day) \n");
+
+        }
+
+        String maxDaysDev = request.getParameter("maxdayssincedev");
+        if (maxDaysDev != null && maxDaysDev.length() > 0) {
+            query.append("  and ur_dev.user_id = u.user_id \n");
+            query.append("  and ur_dev.last_rated_project_id = p_dev.project_id \n");
+            query.append("  and p_dev.cur_version=1 \n");
+            query.append("  and ur_dev.phase_id = 113 \n");
+            query.append(" AND p_dev.rating_date > (current - " + maxDaysDev + " units day) \n");
+
+        }
+
         return query.toString();
     }
 
@@ -510,7 +605,9 @@ public class ProfileSearch extends Base {
         Map skillMap = new HashMap();
         Map skillSetMap = new HashMap();
         Map demo = new HashMap();
-        String[] textFields = {"handle", "email", "firstname", "lastname", "zipcode", "city", "company", "title", "school", "maxdayssincerating", "minevents", "mindays", "maxdays", "minrating", "maxrating", "mindesrating", "maxdesrating", "mindevrating", "maxdevrating"};
+        String[] textFields = {"handle", "email", "firstname", "lastname", "maxdayssincevisit", "phone", "zipcode", "city",
+                "company", "title", "school", "maxdayssincerating", "minevents", "mindays", "maxdays", "minrating", "maxrating",
+                "maxdayssincedes", "mindesrating", "maxdesrating", "maxdayssincedev", "mindevrating", "maxdevrating"};
         String[] checkBoxes = {"count", "pro", "stud", "resume", "travel", "auth", "casesensitive"};
         boolean[] checkBoxDefaults = {false, true, true, false, false, false, false};
         boolean revise = "on".equals(request.getParameter("revise"));

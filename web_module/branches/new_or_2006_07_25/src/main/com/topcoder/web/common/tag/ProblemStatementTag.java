@@ -60,6 +60,8 @@ public class ProblemStatementTag extends TagSupport {
                 language = CSharpLanguage.CSHARP_LANGUAGE;
             } else if (val.equals(VBLanguage.DESCRIPTION)) {
                 language = VBLanguage.VB_LANGUAGE;
+            } else if (val.equals(PythonLanguage.DESCRIPTION)) {
+                language = PythonLanguage.PYTHON_LANGUAGE;
             }
         }
     }
@@ -74,9 +76,9 @@ public class ProblemStatementTag extends TagSupport {
      * quietly
      *
      * @return The JSP Tag specific return specifying the next action
-     *          (Should always return SKIP_BODY)
+     *         (Should always return SKIP_BODY)
      * @throws JspException Thrown if name and property are not set or if
-     *                  there is IO trouble writing out the tag.
+     *                      there is IO trouble writing out the tag.
      */
     public int doStartTag() throws JspException {
         if (text == null && problem == null) {

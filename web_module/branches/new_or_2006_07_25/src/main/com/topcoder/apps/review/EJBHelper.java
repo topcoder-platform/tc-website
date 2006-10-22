@@ -11,6 +11,8 @@ import com.topcoder.apps.review.projecttracker.ProjectTrackerV2Local;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerV2LocalHome;
 import com.topcoder.apps.review.projecttracker.UserManagerLocal;
 import com.topcoder.apps.review.projecttracker.UserManagerLocalHome;
+import com.topcoder.apps.review.rboard.RBoardPayment;
+import com.topcoder.apps.review.rboard.RBoardPaymentHome;
 import com.topcoder.security.admin.PolicyMgrRemote;
 import com.topcoder.security.admin.PolicyMgrRemoteHome;
 import com.topcoder.security.admin.PrincipalMgrRemote;
@@ -112,6 +114,12 @@ public class EJBHelper {
      * The user manager instance.
      */
     private static UserManagerLocal userManager = null;
+
+    /**
+     * The user manager instance.
+     */
+    private static RBoardPayment rBoardPayment = null;
+
 
     /**
      * Constructor (inhibits outside instantiation).
@@ -347,5 +355,23 @@ public class EJBHelper {
         return userManager;
     }
 
+    /**
+     * Get an instance of the RBoard Payment EJB.
+     *
+     * @return the RBoardPayment instance
+     *
+     * @throws NamingException thrown from the EJB lookup code
+     * @throws RemoteException thrown from the EJB lookup code
+     * @throws CreateException thrown from the EJB lookup code
+     */
+    public static synchronized RBoardPayment getRBoardPayment() throws NamingException, RemoteException, CreateException {
+        if (rBoardPayment == null) {
+            Context initial = new InitialContext();
+            Object objref = initial.lookup(RBoardPaymentHome.EJB_REF_NAME);
+            RBoardPaymentHome home = (RBoardPaymentHome) PortableRemoteObject.narrow(objref, RBoardPaymentHome.class);
+            rBoardPayment = home.create();
+        }
+        return rBoardPayment;
+    }
 }
 

@@ -7,17 +7,17 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
-import com.topcoder.web.common.model.DemographicQuestion;
-import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.demographic.Response;
 import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.phone.Phone;
+import com.topcoder.web.ejb.school.CurrentSchool;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserAddress;
-import com.topcoder.web.ejb.school.CurrentSchool;
-import com.topcoder.web.ejb.phone.Phone;
 import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.model.DemographicQuestion;
+import com.topcoder.web.privatelabel.model.DemographicResponse;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
@@ -68,7 +68,7 @@ public abstract class FullLogin extends FullReg {
             log.debug("no event account");
             try {
                 BasicAuthentication b = new BasicAuthentication(new SessionPersistor(getRequest().getSession()),
-                    getRequest(), getResponse(), BasicAuthentication.PRIVATE_LABEL_SITE);
+                        getRequest(), getResponse(), BasicAuthentication.PRIVATE_LABEL_SITE);
                 b.login(new SimpleUser(0, handle, password), false);
                 char status = user.getStatus(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
                 if (Arrays.binarySearch(ACTIVE_STATI, status) >= 0) {
@@ -94,7 +94,9 @@ public abstract class FullLogin extends FullReg {
             info.setUserId(getUser().getId());
             info.setAccountConversion(true);
 
-            info.setCoderType(coder.getCoderTypeId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME));
+            if (coder.exists(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) {
+                info.setCoderType(coder.getCoderTypeId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME));
+            }
 
             //load up the demographic information
             Response response = (Response) createEJB(getInitialContext(), Response.class);
@@ -152,7 +154,8 @@ public abstract class FullLogin extends FullReg {
                 DemographicResponse r = new DemographicResponse();
                 r.setQuestionId(row.getLongItem("demographic_question_id"));
                 r.setSort(row.getIntItem("sort"));
-                if (row.getItem("demographic_answer_id").getResultData() != null && row.getLongItem("demographic_answer_id")>0) {
+                if (row.getItem("demographic_answer_id").getResultData() != null && row.getLongItem("demographic_answer_id") > 0)
+                {
                     r.setAnswerId(row.getLongItem("demographic_answer_id"));
                 } else {
                     r.setText(row.getStringItem("demographic_response"));
@@ -186,7 +189,7 @@ public abstract class FullLogin extends FullReg {
         info.setEmail(email.getAddress(email.getPrimaryEmailId(userId, db), db));
         info.setEmailConfirm(email.getAddress(email.getPrimaryEmailId(userId, db), db));
         long phoneId = phone.getPrimaryPhoneId(userId, db);
-        if (phoneId>0) {
+        if (phoneId > 0) {
             info.setPhoneNumber(phone.getNumber(phoneId, db));
         }
         info.setFirstName(user.getFirstName(userId, db));
@@ -213,13 +216,10 @@ public abstract class FullLogin extends FullReg {
 
     protected static void loadQuestionMaps() {
         TC_TO_PL_QUESTION_MAP.put(new Long(21), new Long(100));
-        TC_TO_PL_QUESTION_MAP.put(new Long(20), new Long(102));
         TC_TO_PL_QUESTION_MAP.put(new Long(15), new Long(106));
         TC_TO_PL_QUESTION_MAP.put(new Long(5), new Long(105));
         TC_TO_PL_QUESTION_MAP.put(new Long(2), new Long(112));
         TC_TO_PL_QUESTION_MAP.put(new Long(3), new Long(108));
-        TC_TO_PL_QUESTION_MAP.put(new Long(18), new Long(18));
-        TC_TO_PL_QUESTION_MAP.put(new Long(23), new Long(23));
 
         TC_TO_PL_ANSWER_MAP.put(new Long(141), new Long(100));
         TC_TO_PL_ANSWER_MAP.put(new Long(142), new Long(101));

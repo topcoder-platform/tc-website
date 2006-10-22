@@ -28,7 +28,7 @@ public class Watch extends ForumsProcessor {
         int type = Integer.parseInt(getRequest().getParameter(ForumConstants.WATCH_TYPE));
         long id = Long.parseLong(getRequest().getParameter(ForumConstants.WATCH_ID));
         String cmd = getRequest().getParameter(ForumConstants.WATCH_COMMAND);
-        StringBuffer nextPage = new StringBuffer();
+        StringBuffer nextPage = new StringBuffer(getSessionInfo().getServletPath());
         String errors = "";
 
         if (type == JiveConstants.THREAD) {

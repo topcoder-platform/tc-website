@@ -30,22 +30,22 @@ public class PlacementConfigInfo implements Serializable {
     }
 
     public void setDevelopmentComponents(ResultSetContainer developmentComponents) {
-		this.developmentComponents = developmentComponents;
-	}
+        this.developmentComponents = developmentComponents;
+    }
 
-	public ResultSetContainer getDevelopmentComponents() {
-		return developmentComponents;
-	}
+    public ResultSetContainer getDevelopmentComponents() {
+        return developmentComponents;
+    }
 
-	public void setDesignComponents(ResultSetContainer designComponents) {
-		this.designComponents = designComponents;
-	}
+    public void setDesignComponents(ResultSetContainer designComponents) {
+        this.designComponents = designComponents;
+    }
 
-	public ResultSetContainer getDesignComponents() {
-		return designComponents;
-	}
+    public ResultSetContainer getDesignComponents() {
+        return designComponents;
+    }
 
-	public void setProblems(ResultSetContainer problems) {
+    public void setProblems(ResultSetContainer problems) {
         this.problems = problems;
     }
 

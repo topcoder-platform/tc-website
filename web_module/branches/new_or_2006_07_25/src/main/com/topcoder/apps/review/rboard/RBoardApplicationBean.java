@@ -35,7 +35,6 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.util.idgenerator.IDGenerator;
-import com.topcoder.util.idgenerator.IDGeneratorFactory;
 import com.topcoder.util.idgenerator.IDGeneratorImpl;
 import com.topcoder.util.idgenerator.bean.IdGen;
 import com.topcoder.util.idgenerator.bean.IdGenHome;
@@ -69,7 +68,7 @@ import com.topcoder.shared.util.logging.Logger;
  * </p>
  *
  * @author dok, pulky
- * @version 1.0.2
+ * @version 1.0.3
  */
 public class RBoardApplicationBean extends BaseEJB {
     private static final int INTERNAL_ADMIN_USER = 100129;
@@ -480,6 +479,22 @@ public class RBoardApplicationBean extends BaseEJB {
     }
 
     /**
+     * Resets cur_version for the submitter role of the specified user Id and project
+     *
+     * @param conn the connection being used
+     * @param userId the user id to reset.
+     * @param projectId the project id to reset
+     *
+     * @since 1.0.3
+     */
+    private void resetSubmitterRole(Connection conn, long userId, long projectId) {
+        update(conn, "r_user_role",
+            new String[]{"cur_version"}, new String[]{"0"},
+            new String[]{"project_id", "login_id", "r_role_id"},
+            new String[]{String.valueOf(projectId), String.valueOf(userId), "1"});
+    }
+
+    /**
      * Searches for existence of a particular row in rboard_application
      *
      * @param conn the connection being used
@@ -627,57 +642,6 @@ public class RBoardApplicationBean extends BaseEJB {
     }
 
     /**
-     * Retrieves a particular category's catalog id.
-     *
-     * @param conn the connection being used
-     * @param catalogId the category being inspected
-     * @return the catalog's ID.     *
-     * @since 1.0.2     
-     */
-    private long getCatalogId(Connection conn, long categoryId) {
-        return selectLong(conn,
-            "catalog_category_xref ccx",
-            "catalog_id",
-            new String[] { "category_id" },
-            new String[] { String.valueOf(categoryId)}).intValue();
-    }
-
-    /**
-     * Retrieves a particular catalog name.
-     *
-     * @param conn the connection being used
-     * @param catalogId the catalog's ID
-     * @return the catalog's name.
-     *
-     * @since 1.0.2
-     */
-    private String getCatalogName(Connection conn, long catalogId) {
-        return selectString(conn,
-            "catalog",
-            "catalog_name",
-            new String[] { "catalog_id" },
-            new String[] { String.valueOf(catalogId)});
-    }
-
-    /**
-     * Retrieves the reviewer status of a particular user
-     *
-     * @param conn the connection being used
-     * @param userId the user id to inspect
-     * @param projectType the project type to inspect
-     * @param projectType the catalogId to review
-     * @return the status of the reviewer
-     */
-    private long getStatus(Connection conn, long userId, int projectType, long catalogId) {
-        return selectLong(conn,
-            "rboard_user",
-            "status_id",
-            new String[] { "user_id", "project_type_id", "catalog_id" },
-            new String[] { String.valueOf(userId), String.valueOf(projectType),
-                String.valueOf(catalogId)}).intValue();
-    }
-
-    /**
      * Validates some transacional constraints for the review signup
      *
      * @param dataSource the datasource being used
@@ -822,6 +786,59 @@ public class RBoardApplicationBean extends BaseEJB {
                 returnMap.put(new Integer(respIds[i]), new Integer(phaseIds[i]));
         }
         return returnMap;
+    }
+
+
+    /**
+     * Retrieves a particular category's catalog id.
+     *
+     * @param conn the connection being used
+     * @param catalogId the category being inspected
+     * @return the catalog's ID.
+     *
+     * @since 1.0.2
+     */
+    private long getCatalogId(Connection conn, long categoryId) {
+        return selectLong(conn,
+            "category_catalog",
+            "catalog_id",
+            new String[] { "category_id" },
+            new String[] { String.valueOf(categoryId)}).intValue();
+    }
+
+    /**
+     * Retrieves a particular catalog name.
+     *
+     * @param conn the connection being used
+     * @param catalogId the catalog's ID
+     * @return the catalog's name.
+     *
+     * @since 1.0.2
+     */
+    private String getCatalogName(Connection conn, long catalogId) {
+        return selectString(conn,
+            "catalog",
+            "catalog_name",
+            new String[] { "catalog_id" },
+            new String[] { String.valueOf(catalogId)});
+    }
+
+    /**
+     * Retrieves the reviewer status of a particular user
+     *
+     * @param conn the connection being used
+     * @param userId the user id to inspect
+     * @param projectType the project type to inspect
+     * @param projectType the catalogId to review
+     * @return the status of the reviewer
+     */
+    private long getStatus(Connection conn, long userId, int projectType, long catalogId) {
+        return selectLong(conn,
+            "rboard_user",
+            "status_id",
+            new String[] { "user_id", "project_type_id", "catalog_id" },
+            new String[] { String.valueOf(userId), String.valueOf(projectType),
+                String.valueOf(catalogId)}).intValue();
     }
 
     /**

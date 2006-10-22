@@ -39,17 +39,17 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
-<li><A href="/tc?module=Static&amp;d1=features&amp;d2=061906"><strong>How to prepare for an Assembly Competition</strong></A>, by <tc-webtag:handle coderId="16096823"/><br>
-What does it take for you and your team to ace TopCoder's next Assembly Competition? The winner of the very first Assembly contest tells all&#8230;</li>
-<li><A href="/tc?module=Static&amp;d1=features&amp;d2=061206"><strong>Creating Use Case and Sequence Diagrams</strong></A>, by <tc-webtag:handle coderId="151743"/><br>
-This article provides an overview of use case and sequence diagrams, including how they are created, how they influence design, and how they help developers and users.</li>
-<li><a href="/tc?module=Static&d1=tutorials&d2=xmiDocumenter"><strong>Using XMI Documenter</strong></a>, by <tc-webtag:handle coderId="15664457" context="development"/><br>
-This article will show how the XMI Documenter component can be used to build an XMI documentation editor which can be used as a replacement for the somewhat sub-optimal documentation editing features of Poseidon.</li>
+<li><A href="/tc?module=Static&amp;d1=features&amp;d2=101906"><strong>TCCC Preview: By the Numbers</strong></A>, by <tc-webtag:handle coderId="21196141" /><br>
+In this article, I'll take a look at some of the numbers and trivia behind the upcoming 2006 TopCoder Collegiate Challenge, and how those compare to last year's tournament and the last few Topcoder Opens.</li>
+<li><A href="/tc?module=Static&amp;d1=features&amp;d2=101606"><strong>TCCC Preview: Past Winners Tell All</strong></A>, by <tc-webtag:handle coderId="21196141" /><br>
+With the Collegiate Challenge less than a month away, we asked some past TCCC winners for some advice and feedback that could come in handy in San Diego.</li>
+<li><A href="/tc?module=Static&amp;d1=features&amp;d2=101206"><strong>C++ tools #2 - GNU Make</strong></A>, by <tc-webtag:handle coderId="275640" /><br>
+There's a well-known joke about two women eating lunch at a resort. "The food here is so horrible," says one. "I know," replies the other, "and the portions are so small!" There's a somewhat similar paradox that seems to apply to most developers.</li>
 </ul>
 <span class="bodySubtitle">From the archives:</span><br>
 <ul>
-<li><A href="/tc?module=Static&amp;d1=features&amp;d2=060204"><strong>Java for C++ coders, and vice versa</strong></A>, by <tc-webtag:handle coderId="251184" /><br>
-Three out of the four languages used in TopCoder competitions derive from a common language, C. But there are still differences (and similarities) between C++, Java, and C#. In this feature, I will point out the more significant, and interesting, features that distinguish these three languages&#8230;</li>
+<li><A href="/tc?module=Static&d1=features&d2=021004"><strong>The 5 Most Common Design Mistakes</strong></A>, by <tc-webtag:handle coderId="119676" /><br>
+Being on the review board, I see designs that are first attempts, those that are well polished and everything in-between. After seeing so many, a few mistakes seem to be made over and over.&#8230;I've attempted to summarize their and my experiences in a compilation of the most 5 common mistakes and how to avoid them.</li>
 </ul>
 <br>
 <span class="bodySubtitle">Tell us what you'd like to learn!</span><br>

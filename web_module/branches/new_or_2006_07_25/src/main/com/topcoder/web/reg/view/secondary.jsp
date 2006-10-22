@@ -1,6 +1,6 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.common.model.Referral" %>
 <%@ page import="com.topcoder.web.reg.Constants" %>
-<%@ page import="com.topcoder.web.reg.model.Referral" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -308,6 +308,9 @@
 
 <%--Resume--%>
 <c:if test="${cf:contains(fields, resume)}">
+    <%--
+    <tc-webtag:hiddenInput name="<%=Constants.FILE_NAME%>"/>
+    --%>
 <tr>
     <td colspan="2"><span class="bigRed">
             <tc-webtag:errorIterator id="err" name="${resume}"><%=err%><br></tc-webtag:errorIterator></span>
@@ -318,7 +321,10 @@
         <c:if test="${cf:contains(reqFields, resume)}">*</c:if> Resume:
     </td>
     <td class="value">
-        <tc-webtag:textInput name="<%=Constants.FILE_NAME%>" editable="false"/>
+            <%--there should be only one--%>
+        <c:forEach items="${regUser.coder.resumes}" var="res">
+            <a href="${sessionInfo.servletPath}?module=DownloadResume" target="_blank">${res.fileName}</a>
+        </c:forEach>
         <input type="file" name="${resume}">
     </td>
 </tr>

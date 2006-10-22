@@ -12,11 +12,11 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.dao.RegistrationTypeDAO;
+import com.topcoder.web.common.model.RegistrationType;
+import com.topcoder.web.common.model.SecurityGroup;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.dao.RegistrationTypeDAO;
-import com.topcoder.web.reg.model.RegistrationType;
-import com.topcoder.web.reg.model.SecurityGroup;
-import com.topcoder.web.reg.model.User;
 
 import javax.ejb.CreateException;
 import javax.naming.Context;
@@ -33,7 +33,7 @@ public class Submit extends Base {
     protected void registrationProcessing() throws Exception {
         User u = getRegUser();
         if (getRegUser() == null) {
-            throw new NavigationException("Sorry, your session has timed out.");
+            throw new NavigationException("Sorry, your session has expired.");
         } else if (u.isNew() || userLoggedIn()) {
             //todo check if the handle is taken again
             boolean newUser = u.isNew();
@@ -42,35 +42,54 @@ public class Submit extends Base {
             securityStuff(newUser, u);
 
             markForCommit();
+            closeConversation();
+            beginCommunication();
             if (newUser) {
-                Long newUserId = u.getId();
-                closeConversation();
-                //have to wrap up the last stuff, and get into new stuff.  we don't want
-                //sending email to be in the transaction
-                beginCommunication();
-                User newUserObj = getFactory().getUserDAO().find(newUserId);
-
-                String activationCode = StringUtils.getActivationCode(newUserId.longValue());
-                newUserObj.setActivationCode(activationCode);
-                getFactory().getUserDAO().saveOrUpdate(newUserObj);
-                markForCommit();
-                String email = newUserObj.getPrimaryEmailAddress().getAddress();
-
-                RegistrationTypeDAO dao = getFactory().getRegistrationTypeDAO();
-                RegistrationType comp = dao.getCompetitionType();
-                RegistrationType tcs = dao.getSoftwareType();
-                RegistrationType hs = dao.getHighSchoolType();
-                RegistrationType corp = dao.getCorporateType();
-                RegistrationType min = dao.getMinimalType();
-
-
-                closeConversation();
                 try {
-                    sendEmail(activationCode, email, getRequestedTypes(), comp, tcs, hs, corp, min);
-                } catch (Exception e) {
-                    //we don't want whatever happened to affect the registration.
-                    e.printStackTrace();
+                    Long newUserId = u.getId();
+                    //have to wrap up the last stuff, and get into new stuff.  we don't want
+                    //sending email to be in the transaction
+                    User newUserObj = getFactory().getUserDAO().find(newUserId);
+
+                    String activationCode = StringUtils.getActivationCode(newUserId.longValue());
+                    newUserObj.setActivationCode(activationCode);
+                    getFactory().getUserDAO().saveOrUpdate(newUserObj);
+                    markForCommit();
+                    String email = newUserObj.getPrimaryEmailAddress().getAddress();
+
+                    RegistrationTypeDAO dao = getFactory().getRegistrationTypeDAO();
+                    RegistrationType comp = dao.getCompetitionType();
+                    RegistrationType tcs = dao.getSoftwareType();
+                    RegistrationType hs = dao.getHighSchoolType();
+                    RegistrationType corp = dao.getCorporateType();
+                    RegistrationType min = dao.getMinimalType();
+                    RegistrationType studio = dao.getStudioType();
+
+
+                    closeConversation();
+                    try {
+                        sendEmail(activationCode, email, getRequestedTypes(), comp, tcs, hs, corp, min, studio);
+                    } catch (Exception e) {
+                        //we don't want whatever happened to affect the registration.
+                        e.printStackTrace();
+                    }
+                } catch (Throwable e) {
+                    if (u != null && u.getId() != null) {
+                        Context ctx = null;
+                        try {
+                            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+                            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+                            PrincipalMgrRemote pmr = pmrh.create();
+                            pmr.removeUser(new UserPrincipal("", u.getId().longValue()), new TCSubject(132456));
+
+                        } catch (Throwable ex) {
+                            log.error("problem in exception callback for user: " + u.getId() + " " + e.getMessage());
+                        } finally {
+                            close(ctx);
+                        }
+                    }
                 }
+
             }
 
             HashSet h = new HashSet();
@@ -95,55 +114,59 @@ public class Submit extends Base {
 
     }
 
-
     private void securityStuff(boolean newUser, User u) throws Exception, RemoteException, CreateException, GeneralSecurityException {
-        Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
 
-        TCSubject tcs = new TCSubject(132456);
-        UserPrincipal myPrincipal;
-        PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-        PrincipalMgrRemote pmr = pmrh.create();
-        if (newUser) {
-            //create the security user entry
-            myPrincipal = pmr.createUser(u.getId().longValue(), u.getHandle(), u.getPassword(), tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
-        } else {
-            myPrincipal = new UserPrincipal("", u.getId().longValue());
-            pmr.editPassword(myPrincipal, u.getPassword(), tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
-        }
-
-        List types = getFactory().getSecurityGroupDAO().getSecurityGroups(getRequestedTypes());
-        for (Iterator it = types.iterator(); it.hasNext();) {
-            pmr.addUserToGroup(pmr.getGroup(((SecurityGroup) it.next()).getGroupId().longValue(), DBMS.JTS_OLTP_DATASOURCE_NAME),
-                    myPrincipal, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
-        }
-
-        //add them to these two as well.  eventually i'm guessing we'll rearrange security and this'll change
-        Collection groups = pmr.getGroups(tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
-        GroupPrincipal anonGroup = null;
-        GroupPrincipal userGroup = null;
-        for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
-            anonGroup = (GroupPrincipal) iterator.next();
-            if (anonGroup.getName().equals("Anonymous")) {
-                break;
+        Context ctx = null;
+        try {
+            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+            TCSubject tcs = new TCSubject(132456);
+            UserPrincipal myPrincipal;
+            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            PrincipalMgrRemote pmr = pmrh.create();
+            if (newUser) {
+                //create the security user entry
+                myPrincipal = pmr.createUser(u.getId().longValue(), u.getHandle(), u.getPassword(), tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+            } else {
+                myPrincipal = new UserPrincipal("", u.getId().longValue());
+                pmr.editPassword(myPrincipal, u.getPassword(), tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
             }
-        }
-        for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
-            userGroup = (GroupPrincipal) iterator.next();
-            if (userGroup.getName().equals("Users")) {
-                break;
+
+            List types = getFactory().getSecurityGroupDAO().getSecurityGroups(getRequestedTypes());
+            for (Iterator it = types.iterator(); it.hasNext();) {
+                pmr.addUserToGroup(pmr.getGroup(((SecurityGroup) it.next()).getGroupId().longValue(), DBMS.JTS_OLTP_DATASOURCE_NAME),
+                        myPrincipal, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
             }
+
+            //add them to these two as well.  eventually i'm guessing we'll rearrange security and this'll change
+            Collection groups = pmr.getGroups(tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+            GroupPrincipal anonGroup = null;
+            GroupPrincipal userGroup = null;
+            for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
+                anonGroup = (GroupPrincipal) iterator.next();
+                if (anonGroup.getName().equals("Anonymous")) {
+                    break;
+                }
+            }
+            for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
+                userGroup = (GroupPrincipal) iterator.next();
+                if (userGroup.getName().equals("Users")) {
+                    break;
+                }
+            }
+            pmr.addUserToGroup(anonGroup, myPrincipal, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+            pmr.addUserToGroup(userGroup, myPrincipal, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+            //refresh the cached object
+            SecurityHelper.getUserSubject(u.getId().longValue(), true, DBMS.JTS_OLTP_DATASOURCE_NAME);
+        } finally {
+            close(ctx);
         }
-        pmr.addUserToGroup(anonGroup, myPrincipal, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
-        pmr.addUserToGroup(userGroup, myPrincipal, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
-        //refresh the cached object
-        SecurityHelper.getUserSubject(u.getId().longValue(), true, DBMS.JTS_OLTP_DATASOURCE_NAME);
 
     }
 
 
     private void sendEmail(String activationCode, String email, Set regTypes, RegistrationType comp,
                            RegistrationType tcs, RegistrationType hs, RegistrationType corp,
-                           RegistrationType min) throws Exception {
+                           RegistrationType min, RegistrationType studio) throws Exception {
 
 
         TCSEmailMessage mail = new TCSEmailMessage();
@@ -169,15 +192,19 @@ public class Submit extends Base {
         msgText.append("between them.\n\n");
 
         if (regTypes.contains(comp) && !regTypes.contains(hs)) {
-            msgText.append("You may utilize your activated TopCoder handle and password in order to access your member home page on TopCoder's web site.  Your handle and password will also provide you with access to the TopCoder Marathon Match and Algorithm Competition Arenas, where you can practice, chat, and compete in events, as well as to the Component Competition Forums, where you can read about and discuss component projects.\n\n");
+            msgText.append("You may utilize your activated TopCoder user name and password in order to access your member home page on TopCoder's web site.  Your user name and password will also provide you with access to the TopCoder Marathon Match and Algorithm Competition Arenas, where you can practice, chat, and compete in events, as well as to the Component Competition Forums, where you can read about and discuss component projects.\n\n");
         }
 
         if (regTypes.contains(comp) && regTypes.contains(hs)) {
-            msgText.append("You may utilize your activated TopCoder handle and password in order to access your member home page on TopCoder's web site.  Your handle and password will also provide you with access to the following areas within the TopCoder website: High School Competition Arena, where you can practice, chat, and compete in rated events; TopCoder Marathon Match and Algorithm Competition Arenas, where you can practice, chat, and compete in those events; the Component Competition Forums, where you can read about and discuss component projects.\n\n");
+            msgText.append("You may utilize your activated TopCoder user name and password in order to access your member home page on TopCoder's web site.  Your user name and password will also provide you with access to the following areas within the TopCoder website: High School Competition Arena, where you can practice, chat, and compete in rated events; TopCoder Marathon Match and Algorithm Competition Arenas, where you can practice, chat, and compete in those events; the Component Competition Forums, where you can read about and discuss component projects.\n\n");
         }
 
         if (!regTypes.contains(comp) && regTypes.contains(hs)) {
-            msgText.append("You may utilize your activated TopCoder handle and password in order to access your member home page on TopCoder's web site.  Your handle and password will also provide you with access to the High School Competition Arena, where you can practice, chat, and compete in rated events.\n\n");
+            msgText.append("You may utilize your activated TopCoder user name and password in order to access your member home page on TopCoder's web site.  Your user name and password will also provide you with access to the High School Competition Arena, where you can practice, chat, and compete in rated events.\n\n");
+        }
+
+        if (regTypes.contains(studio)) {
+            msgText.append("You may utilize your activated TopCoder Studio user name and password in order to access the TopCoder Studio web site.  Your user name and password will also provide you with access to the Active Contests posted on the TopCoder Studio website, where you can compete in design projects, as well as to the Forums, where you can read about and discuss the projects.\n\n");
         }
 
         if (regTypes.contains(hs)) {

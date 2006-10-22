@@ -1,11 +1,16 @@
 package com.topcoder.web.ejb.pacts;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 
 import javax.ejb.EJBObject;
 import javax.jms.JMSException;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -45,7 +50,7 @@ public interface PactsServices extends EJBObject {
     Map getUserContractList(long userId) throws RemoteException, SQLException;
 
     Map getUserPaymentList(long userId) throws RemoteException, SQLException;
-    
+
     Map getUserPaymentDetailsList(long userId, int[] paymentTypes, boolean pendingOnly) throws RemoteException, SQLException;
 
     Map getUserTaxFormList(long userId) throws RemoteException, SQLException;
@@ -66,9 +71,9 @@ public interface PactsServices extends EJBObject {
     Map getNoteTypes() throws RemoteException, SQLException;
 
     Map getPaymentTypes() throws RemoteException, SQLException;
-    
+
     Map getPaymentMethods() throws RemoteException, SQLException;
-    
+
     Map getProjectTerminationStatusTypes() throws RemoteException, SQLException;
 
     Map getModificationRationales() throws RemoteException, SQLException;
@@ -82,9 +87,9 @@ public interface PactsServices extends EJBObject {
     Map getRounds() throws RemoteException, SQLException;
 
     Map getDemographicData(long userId) throws RemoteException, SQLException;
-    
+
     Map getPaymentComponentData(long[] paymentIds) throws RemoteException, SQLException;
-    
+
     Map getCreationDates(long[] paymentIds) throws RemoteException, SQLException;
 
     // Search routines
@@ -159,7 +164,7 @@ public interface PactsServices extends EJBObject {
 
     void reviewPayments(long paymentId[])
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException;
-    
+
     // Utility routines
     boolean canAffirmAffidavit(long userId, int affidavitTypeId)
             throws RemoteException, SQLException;
@@ -169,14 +174,20 @@ public interface PactsServices extends EJBObject {
     int generateRoundPayments(long roundId, boolean makeChanges)
             throws IllegalUpdateException, RemoteException, SQLException;
 
+    int generateRoundPayments(long roundId, boolean makeChanges, int paymentTypeI)
+    		throws IllegalUpdateException, RemoteException, SQLException;
+
     int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges)
             throws IllegalUpdateException, RemoteException, SQLException;
 
+    int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges, int paymentTypeId)
+    	throws IllegalUpdateException, RemoteException, SQLException;
+
     int[] generateComponentPayments(long projectId, long status, String client, boolean makeChanges)
-    		throws IllegalUpdateException, RemoteException, SQLException;
-    
+            throws IllegalUpdateException, RemoteException, SQLException;
+
     int expireOldPayments() throws RemoteException, SQLException;
-    
+
     int expireOldAffidavits() throws RemoteException, SQLException;
 
     void createAffidavitTemplate(int affidavitTypeId, String text) throws RemoteException, SQLException;
@@ -189,6 +200,43 @@ public interface PactsServices extends EJBObject {
 
     Payment getEmptyPayment(long userId) throws RemoteException, SQLException;
 
+    Map findRounds(String search, int[] roundTypes) throws RemoteException, SQLException;
 
+    Map findProblems(String name) throws RemoteException, SQLException;
+
+    Map findProjects(String search) throws RemoteException, SQLException;
+
+    Map findPaymentsByDescription(String search) throws RemoteException, SQLException;
+    
+    Map getDigitalRunSeasonList() throws RemoteException, SQLException;
+
+    Map getDigitalRunStageList() throws RemoteException, SQLException;
+
+    Map findComponentContests(String search) throws RemoteException, SQLException;
+
+    Map findStudioContests(String search) throws RemoteException, SQLException;
+    
+    
+    // ================== Methods from the Client Service ================== 
+    
+    BasePayment addPayment(BasePayment payment)  throws RemoteException, SQLException;
+
+    BasePayment updatePayment(BasePayment payment) throws RemoteException, Exception;
+
+    List findPayments(int paymentTypeId) throws RemoteException, Exception;
+
+    List findPayments(int paymentTypeId, long referenceId) throws RemoteException, Exception;
+
+    List findCoderPayments(long coderId) throws RemoteException, Exception;
+
+    List findCoderPayments(long coderId, int paymentTypeId) throws RemoteException, Exception;
+
+    List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws RemoteException, Exception;
+
+    void deletePayment(long paymentId) throws RemoteException, Exception;
+
+    void deletePayment(BasePayment payment) throws RemoteException, Exception;
+
+    BasePayment fillPaymentData(BasePayment payment) throws RemoteException, SQLException;
 }
 

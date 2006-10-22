@@ -39,9 +39,37 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<%--
-<tr class="bodyText"><td nowrap="nowrap">03.16.06 11:15 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs_chat_031606">UBS TCO06 Round 3 chat session transcript</A></td></tr>
---%>
+<tr class="bodyText"><td nowrap="nowrap">10.18.06 2:00 PM - </td><td width="100%">DamianK wins the TCCC06 Sponsor Track</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.17.06 8:15 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogger_winners">TCCC06 "Pick Me" Contest Winners</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.11.06 1:45 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_100906">AOL SRM 322 chat session transcript</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.10.06 12:00 NOON - </td><td width="100%"><A href="/tc?module=TCCC06StudentReps">zhengqiang is the TCCC06 Student Rep Winner</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.09.06 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol">AOL SRM 322 chat session</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.04.06 5:00 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=220">andrey_atlas is the TCHS07 Logo Contest Winner!</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.02.06 5:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA SRM 321 chat session</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.28.06 5:00 PM - </td><td width="100%">Finalists for the TCCC06 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_bracket">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_bracket">Development</A> Competitions</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.27.06 10:00 AM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=220">Vote for the TCHS07 logo design</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.25.06 2:00 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=219">TCCC06 t-shirt quote vote results</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.24.06 5:30 PM - </td><td width="100%"><A href="/tc?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">TCCC06 Algorithm Round 1B Results</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.22.06 11:45 AM - </td><td width="100%"><A href="/tc?module=SimpleStats&c=tccc06_alg_adv_overview&trans=true&d1=tournaments&d2=tccc06&d3=alg_adv_overview">TCCC06 Algorithm Round 1A Results</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.22.06 9:00 AM - </td><td width="100%"><A href="/tc?module=AOLAlertsDescription">Announcing AOL&#174; Alerts</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.18.06 12:10 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=219">Vote for the TCCC t-shirt quote</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.18.06 11:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA SRM 319 Chat Session</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.18.06 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=pickme_contest">TCCC06 "Pick Me" Contest</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.13.06 4:15 PM - </td><td width="100%">TCCC06 Algorithm Sections: <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionA">A</A>, <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionB">B</A>, and <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sectionC">C</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.13.06 11:45 AM - </td><td width="100%"><A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">TCCC06 Algorithm Qualification Round 3 Results</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.13.06 11:30 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg_chat_082406">Bloomberg SRM 317 chat session transcript</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.12.06 1:45 PM - </td><td width="100%">TCCC Registration Ends This Week</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.11.06 3:00 PM - </td><td width="100%"><A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">TCCC06 Algorithm Qualification Round 2 Results</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.11.06 10:00 AM - </td><td width="100%"><A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2030">2007 TCHS Tournament Logo Design Contest</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.11.06 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=dev_forums">TCCC06 Developer Forums Announced</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.08.06 5:20 PM - </td><td width="100%"><A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">TCCC06 Algorithm Qualification Round 1 Results</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.06.06 12:30 PM - </td><td width="100%"><A href="/tc?module=SimpleStats&d1=tournaments&d2=tccc06&d3=alg_qualification&c=tccc06_alg_qual&trans=true">TCCC06 Algorithm Qualification Byes</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.01.06 2:45 PM - </td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512848">TCCC06 automatic berth cutoff date changed</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">08.28.06 9:00 AM - </td><td width="100%"><A href="/tc?module=TCCC06ViewAlgoReg">TCCC06 Algorithm registration is now open</A></td></tr> 
+<tr class="bodyText"><td nowrap="nowrap">08.10.06 4:45 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_080906">AOL SRM 315 chat session transcript</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">08.01.06 10:45 AM - </td><td width="100%"><A href="/tc?module=TCCC06StudentReps">Student Rep Referral Leaderboard</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">07.31.06 9:00 AM - </td><td width="100%"><A href="/tc?module=TCCC06ComponentTerms">TCCC06 CDDC registration is now open</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">07.26.06 2:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_072206">AOL SRM 312 chat session transcript</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.20.06 6:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps">Want to be a Student Rep for the TCCC06?</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.19.06 12:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about">Announcing the 2006 TopCoder Collegiate Challenge</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.05.06 5:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_winner">kristofferrouge is the TCCC06 Logo Contest Winner!</A></td></tr>

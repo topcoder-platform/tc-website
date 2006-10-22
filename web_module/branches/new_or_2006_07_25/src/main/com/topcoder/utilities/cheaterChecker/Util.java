@@ -1,11 +1,15 @@
 package com.topcoder.utilities.cheaterChecker;
 
+import com.topcoder.shared.util.logging.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 public class Util {
+
+    private static final Logger log = Logger.getLogger(Similar.class);
     private static TreeSet javaTokens;
 
     public static List getNormalizedJavaTokens(String source) {
@@ -38,7 +42,7 @@ public class Util {
      * the consecutive flag determines whether or not the items have to
      * be next to each other in the list when determining the output.
      * ie: if (consecutive) {a,b,c}, {a,e,b,c} return 2
-     *     else return 3
+     * else return 3
      *
      * @param list1
      * @param list2
@@ -103,7 +107,10 @@ public class Util {
             r = (Result) values.get(i);
             sum += (r.getValue() - avg) * (r.getValue() - avg);
         }
-        return Math.sqrt(sum / (values.size() - 1));
+        if (log.isDebugEnabled()) {
+            log.debug("sum: " + sum + " value size: " + values.size());
+        }
+        return Math.sqrt(sum / (double) (values.size() - 1));
     }
 
     public static double avg(List values) {
@@ -113,15 +120,19 @@ public class Util {
             r = (Result) values.get(i);
             sum += r.getValue();
         }
-        return sum / values.size();
+        if (log.isDebugEnabled()) {
+            log.debug("sum: " + sum + " value size: " + values.size());
+        }
+        return sum / (double) values.size();
     }
 
     /**
      * given three integers, return the largest
+     *
      * @param a
      * @param b
      * @param c
-     * @return
+     * @return the max
      */
     private static int max(int a, int b, int c) {
         return Math.max(a, Math.max(b, c));
@@ -129,10 +140,11 @@ public class Util {
 
     /**
      * given three integers, return the smallest
+     *
      * @param a
      * @param b
      * @param c
-     * @return
+     * @return the min
      */
     private static int min(int a, int b, int c) {
         return Math.min(a, Math.min(b, c));
@@ -143,11 +155,12 @@ public class Util {
      * you have, return how many comparisons it would
      * take to compare every item to every other item.
      * x*(x-1)/2
+     *
      * @param n
-     * @return
+     * @return a magic number
      */
     protected static int magic(int n) {
-        return (n*(n-1))/2;
+        return (n * (n - 1)) / 2;
     }
 
     static {

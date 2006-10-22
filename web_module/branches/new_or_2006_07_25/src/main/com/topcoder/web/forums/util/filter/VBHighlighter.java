@@ -5,7 +5,7 @@ import com.jivesoftware.base.*;
 import java.io.*;
 
 /**
- * A Filter that syntax highlights code appearing between [cpp][/cpp] tags.
+ * A Filter that syntax highlights Visual Basic code appearing between [vb][/vb] tags.
  */
 public class VBHighlighter implements Filter {
 

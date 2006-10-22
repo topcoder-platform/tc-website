@@ -195,7 +195,6 @@ United Kingdom<br>
 Uruguay<br>
 Vatican City State (Holy See)<br>
 Venezuela<br>
-Viet Nam<br>
 Virgin Islands (British)<br>
 Virgin Islands (U.S.)<br>
 Western Sahara<br>
@@ -293,6 +292,7 @@ Tonga<br>
 Tuvalu<br>
 United States Minor Outlying Islands<br>
 Vanuatu<br>
+Viet Nam<br>
 Wallis and Futuna Islands<br>
 <br><br>
 </p>
@@ -305,7 +305,7 @@ Wallis and Futuna Islands<br>
 <!-- Right Column Begins -->
 <td width="170">
     <jsp:include page="/public_right.jsp">
-        <jsp:param name="level1" value="default"/>
+        <jsp:param name="level1" value="tchs"/>
     </jsp:include>
 </td>
 <!-- Right Column Ends -->

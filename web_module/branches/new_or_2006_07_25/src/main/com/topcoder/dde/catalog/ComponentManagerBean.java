@@ -6,11 +6,6 @@ package com.topcoder.dde.catalog;
 
 import com.topcoder.apps.review.document.DocumentManager;
 import com.topcoder.apps.review.document.DocumentManagerHome;
-import com.topcoder.apps.review.projecttracker.ProjectTracker;
-import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
-import com.topcoder.apps.review.projecttracker.ProjectType;
-import com.topcoder.apps.review.projecttracker.Project;
-import com.topcoder.apps.review.projecttracker.User;
 import com.topcoder.apps.review.projecttracker.*;
 import com.topcoder.dde.forum.ForumModeratePermission;
 import com.topcoder.dde.forum.ForumPostPermission;
@@ -27,6 +22,7 @@ import com.topcoder.security.admin.PolicyMgrRemote;
 import com.topcoder.security.admin.PolicyMgrRemoteHome;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.security.policy.GenericPermission;
 import com.topcoder.security.policy.PermissionCollection;
 import com.topcoder.security.policy.PolicyRemote;
 import com.topcoder.security.policy.PolicyRemoteHome;
@@ -391,17 +387,70 @@ public class ComponentManagerBean
         }
     }
 
-    private ComponentVersionInfo generateInfo(LocalDDECompVersions bean) {
+    private ComponentVersionInfo generateInfo(LocalDDECompVersions bean) throws CatalogException {
         /*
          * The version text must be trim()ed because the database currently
          * stores it as a fixed-length string.  The trim() should be removed
          * once this is corrected.
          */
-        return new ComponentVersionInfo(
+
+        ComponentVersionInfo cvi = new ComponentVersionInfo(
                 ((Long) bean.getPrimaryKey()).longValue(),
                 bean.getVersion(), bean.getVersionText().trim(),
                 bean.getComments(), bean.getPhaseId(),
                 new Date(bean.getPhaseTime().getTime()), bean.getPrice());
+
+        // look for the public forum flag
+        try {
+            long forumId = 0;
+            versionId = ((Long) bean.getPrimaryKey()).longValue();
+            log.debug("versionId: " + versionId);
+
+            Iterator forumIterator;
+            try {
+                forumIterator = compforumHome.
+                        findByCompVersIdAndType(versionId, Forum.SPECIFICATION).iterator();
+            } catch (FinderException impossible) {
+                throw new CatalogException("Could not find forum: " + impossible.toString());
+            }
+            if (forumIterator.hasNext()) {
+                forumId = ((LocalDDECompForumXref)
+                        forumIterator.next()).getForumId();
+
+                PrincipalMgrRemote principalManager = principalmgrHome.create();
+                RolePrincipal userRole = principalManager.getRole(Long.parseLong(getConfigValue("user_role")));
+
+                PolicyMgrRemote policyManager = policymgrHome.create();
+                PermissionCollection perms = policyManager.getPermissions(userRole, null);
+
+                GenericPermission forumPerm = new GenericPermission((new ForumPostPermission(forumId)).getName());
+
+                log.debug("Looking for: " + forumPerm.getName());
+                for (Iterator it=perms.getPermissions().iterator(); it.hasNext(); ) {
+                    Object itNext = it.next();
+                    if (itNext instanceof GenericPermission) {
+                        GenericPermission itForum = (GenericPermission) itNext;
+                        if (itForum.equals(forumPerm)) {
+                            log.debug("Forum is public");
+                            cvi.setPublicForum(true);
+                        }
+                    }
+                }
+            }
+        } catch (ConfigManagerException exception) {
+            throw new CatalogException(
+                "Failed to obtain configuration data: " + exception.toString());
+        } catch (CreateException exception) {
+            throw new CatalogException(
+                "Failed to read forum public: " + exception.toString());
+        } catch (GeneralSecurityException exception) {
+            throw new CatalogException(
+                "Failed to read forum public: " + exception.toString());
+        } catch (RemoteException exception) {
+            throw new EJBException(exception.toString());
+        }
+
+        return cvi;
     }
 
     private VersionDateInfo generateVersionDateInfo(LocalDDECompVersionDates bean) {
@@ -755,6 +804,8 @@ public class ComponentManagerBean
 
     public void updateVersionInfo(ComponentVersionInfo info, TCSubject requestor, long levelId)
             throws CatalogException {
+
+        log.debug("public: " + info.getPublicForum());
 
 
         if (info == null) {

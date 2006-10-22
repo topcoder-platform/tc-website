@@ -56,14 +56,14 @@ public abstract class Base extends BaseProcessor {
             ResultSetContainer rsc = getRoundInfo(roundId);
 
             if (!rsc.isEmpty()) {
-                if (rsc.getItem(0, "forum_id").getResultData()!=null) {
+                if (rsc.getItem(0, "forum_id").getResultData() != null) {
                     getRequest().setAttribute(Constants.FORUM_ID, new Long(rsc.getLongItem(0, "forum_id")));
                 }
                 int type = rsc.getIntItem(0, "round_type_id");
-                if (!(type==Constants.LONG_ROUND_TYPE_ID ||
-                        type==Constants.LONG_PRACTICE_ROUND_TYPE_ID || 
-                        type==Constants.INTEL_LONG_ROUND_TYPE_ID ||
-                        type==Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID)) {
+                if (!(type == Constants.LONG_ROUND_TYPE_ID ||
+                        type == Constants.LONG_PRACTICE_ROUND_TYPE_ID ||
+                        type == Constants.INTEL_LONG_ROUND_TYPE_ID ||
+                        type == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID)) {
                     throw new NavigationException("Invalid round specified, wrong type");
                 }
                 getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(type));
@@ -72,7 +72,6 @@ public abstract class Base extends BaseProcessor {
         }
 
     }
-
 
 
     protected void loadSponsorImage() throws Exception {
@@ -122,7 +121,10 @@ public abstract class Base extends BaseProcessor {
         hm.put("submitTime", new Long(System.currentTimeMillis()));
         hm.put("language", new Integer(language));
         hm.put("roundType", getRequest().getAttribute(Constants.ROUND_TYPE_ID));
+        long before = System.currentTimeMillis();
         sender.sendMessage(hm, sub);
+        log.info("long compile took " + (System.currentTimeMillis() - before) + " milliseconds");
+
     }
 
     protected void lock() throws TCWebException, ServerBusyException {
@@ -258,7 +260,6 @@ public abstract class Base extends BaseProcessor {
     }
 
     /**
-     *
      * @param roundId
      * @return true if the coding phase is over, false otherwise
      * @throws Exception if there is a db problem or if the round doesn't exist
@@ -270,13 +271,12 @@ public abstract class Base extends BaseProcessor {
         Request r = new Request();
         r.setContentHandle("long_contest_over");
         r.setProperty(Constants.ROUND_ID, String.valueOf(roundId));
-        ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("long_contest_over");
+        ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("long_contest_over");
         return rsc.getBooleanItem(0, 0);
     }
 
 
     /**
-     *
      * @param roundId
      * @return
      * @throws Exception if there is a db problem
@@ -286,23 +286,22 @@ public abstract class Base extends BaseProcessor {
         r.setContentHandle("long_contest_round_information");
         r.setProperty("rd", String.valueOf(roundId));
         Map m = getDataAccess(true).getData(r);
-        return (ResultSetContainer)m.get("long_contest_round_information");
+        return (ResultSetContainer) m.get("long_contest_round_information");
     }
 
     /**
-     *
      * @param roundId
      * @return true if the round has been load already, false otherwise
      * @throws Exception
      */
     protected boolean areResultsAvailable(long roundId) throws Exception {
-        if (getRequest().getAttribute(Constants.RESULTS_AVAILABLE)!=null) {
-            return ((Boolean)getRequest().getAttribute(Constants.RESULTS_AVAILABLE)).booleanValue();
+        if (getRequest().getAttribute(Constants.RESULTS_AVAILABLE) != null) {
+            return ((Boolean) getRequest().getAttribute(Constants.RESULTS_AVAILABLE)).booleanValue();
         } else {
             Request r = new Request();
             r.setContentHandle("round_exists");
             r.setProperty("rd", String.valueOf(roundId));
-            return !((ResultSetContainer)getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r).get("round_exists")).isEmpty();
+            return !((ResultSetContainer) getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r).get("round_exists")).isEmpty();
         }
     }
 

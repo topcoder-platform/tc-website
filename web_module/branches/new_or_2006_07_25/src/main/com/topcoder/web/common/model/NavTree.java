@@ -1,15 +1,16 @@
 package com.topcoder.web.common.model;
 
-import java.util.List;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author dok
  * @version $Revision$ $Date$
  *          Create Date: Oct 20, 2005
  */
-public class NavTree {
+public class NavTree implements Serializable {
 
     private List roots = null;
 
@@ -31,9 +32,9 @@ public class NavTree {
 
     public NavNode search(String key) {
         NavNode node;
-        NavNode ret=null;
-        for (Iterator it = roots.iterator(); it.hasNext()&&ret==null;) {
-            node = (NavNode)it.next();
+        NavNode ret = null;
+        for (Iterator it = roots.iterator(); it.hasNext() && ret == null;) {
+            node = (NavNode) it.next();
             ret = node.search(key);
         }
         return ret;

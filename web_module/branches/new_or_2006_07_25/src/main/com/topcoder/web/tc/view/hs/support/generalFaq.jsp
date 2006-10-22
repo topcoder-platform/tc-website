@@ -370,7 +370,7 @@ Some extensions are also present, including most of those from SGI's STL, such a
 <!-- Right Column Begins -->
          <td width="170">
             <jsp:include page="../../public_right.jsp">
-               <jsp:param name="level1" value="privatelabel"/>
+               <jsp:param name="level1" value="tchs"/>
             </jsp:include>
          </td>
 <!-- Right Column Ends -->

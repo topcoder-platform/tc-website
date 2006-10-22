@@ -42,7 +42,7 @@ public class Google {
             for (int i = 1; i < rounds.length; i++) {
                 submissions.addAll(getSubmissions(dataSourceName, rounds[i], componentId));
             }
-            log.debug("got submissions");
+            log.info("got " + submissions.size() + "  submissions");
             if (submissions != null && submissions.size() > 0) {
                 Submission temp = (Submission) submissions.get(0);
                 StringBuffer buf = new StringBuffer();
@@ -56,29 +56,12 @@ public class Google {
                 log.info(buf.toString());
 
                 List normalizedSource = new ArrayList(submissions.size());
-                for (int i = 0; i < submissions.size(); i++) {
-                    normalizedSource.add(new NormalizedJavaSource(((Submission) submissions.get(i)).getSource()));
-                }
-
                 List nonNormalizedSource = new ArrayList(submissions.size());
                 for (int i = 0; i < submissions.size(); i++) {
+                    normalizedSource.add(new NormalizedJavaSource(((Submission) submissions.get(i)).getSource()));
                     nonNormalizedSource.add(new JavaSource(((Submission) submissions.get(i)).getSource()));
                 }
 
-/* haven't come up with a use for this yet...
-
-                List classSource = new ArrayList(submissions.size());
-                for (int i = 0; i < submissions.size(); i++) {
-                    classSource.add(new ClassSource(((Submission) submissions.get(i)).getClassFile()));
-                }
-*/
-/* subsequences should be a superset, so we'll just do that one...at least for now
-                fraud = new SimilarSourceSubstrings(normalizedSource, submissions);
-                log.info("****************** SIMILAR SUBSTRINGS **************************");
-                fraud.execute();
-                log.info(fraud.getReport());
-                log.info("**********************************************************");
-*/
                 fraud = new SimilarSourceSubsequences(normalizedSource, submissions, 1000);
                 log.info("****************** SIMILAR SUBSEQUENCES **************************");
                 fraud.execute();
@@ -142,8 +125,6 @@ public class Google {
                 log.info("**********************************************************");
 
 
-
-
             }
 
         } catch (Exception e) {
@@ -168,8 +149,10 @@ public class Google {
             query.append(" SELECT cc.coder_id ");
             query.append(" , scf.class_file ");
             query.append(" , u.handle ");
-            query.append(" , s.submission_text ");
-            query.append(" , s.language_id ");
+            query.append(" , co.compilation_text");
+            query.append(" , s.submission_text");
+            query.append(" , s.language_id as submit_language");
+            query.append(" , co.language_id as compile_language");
             query.append(" , co.open_time ");
             query.append(" , s.submit_time ");
             query.append(" , s.submission_points ");
@@ -177,12 +160,12 @@ public class Google {
             query.append(" , c.problem_id");
             query.append(" , c.class_name");
             query.append(" , c.method_name");
+            query.append(" , s.submission_number");
             query.append(" FROM component_state cc ");
-            query.append(" , submission s ");
+            query.append(" , outer (submission s, submission_class_file scf)  ");
             query.append(" , room r ");
             query.append(" , room_result rr ");
             query.append(" , user u ");
-            query.append(" , submission_class_file scf ");
             query.append(" , component c");
             query.append(" , compilation co");
             query.append(" WHERE cc.round_id = ? ");
@@ -190,6 +173,7 @@ public class Google {
             query.append(" AND cc.round_id = r.round_id ");
             query.append(" AND r.room_type_id = 2 ");
             query.append(" AND cc.component_id = ? ");
+            query.append(" and cc.status_id > 120 ");
             query.append(" AND s.submission_points >= 0 ");//
             query.append(" AND s.component_state_id = cc.component_state_id ");
             query.append(" AND rr.round_id = r.round_id ");
@@ -198,15 +182,12 @@ public class Google {
             query.append(" AND rr.round_id = cc.round_id ");
             query.append(" AND u.user_id = cc.coder_id ");
             query.append(" AND u.user_id = rr.coder_id ");
-//            query.append(" AND cc.submission_number = s.submission_number ");
             query.append(" AND scf.submission_number = s.submission_number ");
             query.append(" AND scf.component_state_id = s.component_state_id ");
-//            query.append(" AND scf.submission_number = cc.submission_number ");
             query.append(" AND scf.component_state_id = cc.component_state_id ");
             query.append(" AND scf.sort_order = 1");    //hoke it to be the first if there are multiple classes
             query.append(" AND cc.component_id = c.component_id");
-            query.append(" AND co.component_state_id = s.component_state_id");
-
+            query.append(" AND co.component_state_id = cc.component_state_id");
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, roundId);
             ps.setLong(2, roundId);
@@ -219,8 +200,13 @@ public class Google {
                 s.setHandle(rs.getString("handle"));
                 s.setCoderId(rs.getInt("coder_id"));
                 //s.setClassFile(rs.getBytes("class_file"));
-                s.setSource(cs.stripComments(DBMS.getTextString(rs, 4)));
-                s.setLanguageId(rs.getInt("language_id"));
+                if (rs.getString("submission_number") == null) {
+                    s.setSource(cs.stripComments(DBMS.getTextString(rs, 4)));
+                    s.setLanguageId(rs.getInt("compile_language"));
+                } else {
+                    s.setSource(cs.stripComments(DBMS.getTextString(rs, 5)));
+                    s.setLanguageId(rs.getInt("submit_language"));
+                }
                 s.setOpenTime(rs.getLong("open_time"));
                 s.setSubmitTime(rs.getLong("submit_time"));
                 s.setPoints(rs.getFloat("submission_points"));
@@ -228,6 +214,7 @@ public class Google {
                 s.setComponentId(rs.getLong("component_id"));
                 s.setClassName(rs.getString("class_name"));
                 s.setMethodName(rs.getString("method_name"));
+                s.setSubmissionNumber(rs.getInt("submission_number"));
                 s.setIncluded(true);
             }
         } catch (SQLException e) {

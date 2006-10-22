@@ -81,9 +81,10 @@ C++中最重要的新添加概念就是类。类可以包含方法和变量。�
 using namespace std;
 <pre>这行告诉编译器到std名字空间中去寻找类。</pre>
 <span class="greenSubtitle">Vector</span><br>
-vector是C++中用来取代C数组的。vector解决了传统C语言数组的许多问题。vector能查询当前数组大小以及动态调整大小。用 vector<类型> 可以声明vector，其中类型是存储在vector中的变量类型。比如如果您想创建一个包含int的vector，可以使用：
+vector是C++中用来取代C数组的。vector解决了传统C语言数组的许多问题。vector能查询当前数组大小以及动态调整大小。用 vector<类型>
+可以声明vector，其中类型是存储在vector中的变量类型。比如如果您想创建一个包含int的vector，可以使用：
 <pre>vector&lt;int&gt; myVar;</pre>
-新创建的vector大小为0。声明一个其它大小的vector，您可以使用： 
+新创建的vector大小为0。声明一个其它大小的vector，您可以使用：
 <pre>vector&lt;int&gt; myVar(10);</pre>
 在这个例子中新创建的vector大小为10。
 <br><br>
@@ -144,61 +145,62 @@ s一开始是空字符串（大小为0）。在第二行s的值变为“Hello”
 <span class="greenSubtitle">解答实例</span><br>
 请看下面的例题：
 <br><br>
-我们的输入程序将记录键盘输入到一个字符序列中。我们想把输入字符序列转换到一个单独的string中以便于日后使用。创建一个方法buildstring。这个方法接受一个vector<char>类型的参数。这个参数代表了键盘的输入序列。buildstring方法必须返回把从这个输入序列合并而成的string。
-<br><br>
-类: StringBuilder<br>
-方法: buildString<br>
-参数: vector &lt;char&gt;<br>
-返回: string<br>
-方法签名: string buildString(vector &lt;char&gt; array)
-<br><br>
-如下的解答使用string和vector解决了这个问题：
+我们的输入程序将记录键盘输入到一个字符序列中。我们想把输入字符序列转换到一个单独的string中以便于日后使用。创建一个方法buildstring。这个方法接受一个vector<char>
+    类型的参数。这个参数代表了键盘的输入序列。buildstring方法必须返回把从这个输入序列合并而成的string。
+    <br><br>
+    类: StringBuilder<br>
+    方法: buildString<br>
+    参数: vector &lt;char&gt;<br>
+    返回: string<br>
+    方法签名: string buildString(vector &lt;char&gt; array)
+    <br><br>
+    如下的解答使用string和vector解决了这个问题：
 
-<pre>
-    #include&lt;vector&gt;
-    #include&lt;string&gt;
+    <pre>
+        #include&lt;vector&gt;
+        #include&lt;string&gt;
 
-    using namespace std;
+        using namespace std;
 
-    class StringBuilder {
-    public:
-    string buildString(vector&lt;char&gt; array) {
-    //创建将要返回的string
-    string s;
+        class StringBuilder {
+        public:
+        string buildString(vector&lt;char&gt; array) {
+        //创建将要返回的string
+        string s;
 
-    //循环读取数组中的每一项
-    for(int i = 0; i &lt; array.size(); i++) {
-    s = s + array[i];
-    }
+        //循环读取数组中的每一项
+        for(int i = 0; i &lt; array.size(); i++) {
+        s = s + array[i];
+        }
 
-    //返回创建的string
-    return s;
-    }
-    };
-</pre>
+        //返回创建的string
+        return s;
+        }
+        };
+    </pre>
 
-<span class="greenSubtitle">额外参考</span><br>
-C++和STL类库有几百个函数和类。这些函数和类是用来提高编程速度和效率的。下面列出的参考对我们上面没有讨论到的东西，以及整个C++，提供了简要概述。
-<br><br>
+    <span class="greenSubtitle">额外参考</span><br>
+    C++和STL类库有几百个函数和类。这些函数和类是用来提高编程速度和效率的。下面列出的参考对我们上面没有讨论到的东西，以及整个C++，提供了简要概述。
+    <br><br>
 
-C++:<br>
-<a href="http://www.cplusplus.com/doc/tutorial/">C++指南</a><br>
-<a href="http://www.4p8.com/eric.brasseur/cppcen.html">针对C用户的C++指南</a>
-<br><br>
-名字空间<br>
-<a href="http://www.cplusplus.com/doc/tutorial/tut5-2.html">名字空间指南</a><br>
-<a href="http://www-h.eng.cam.ac.uk/help/tpl/languages/C++/namespaces.html">C++名字空间</a>
-<br><br>
-Vectors:<br>
-<a href="http://www.sgi.com/tech/stl/Vector.html">vector参考</a><br>
-<a href="http://www.cprogramming.com/tutorial/stl/vector.html">vector类</a>
-<br><br>
-STL:<br>
-<a href="http://www.sgi.com/tech/stl/">STL 程序员指南</a><br>
-<a href="http://www.topcoder.com/index?t=features&c=feat_082803">C++标准模板库速成</a>
+    C++:<br>
+    <a href="http://www.cplusplus.com/doc/tutorial/">C++指南</a><br>
+    <a href="http://www.4p8.com/eric.brasseur/cppcen.html">针对C用户的C++指南</a>
+    <br><br>
+    名字空间<br>
+    <a href="http://www.cplusplus.com/doc/tutorial/tut5-2.html">名字空间指南</a><br>
+    <a href="http://www-h.eng.cam.ac.uk/help/tpl/languages/C++/namespaces.html">C++名字空间</a>
+    <br><br>
+    Vectors:<br>
+    <a href="http://www.sgi.com/tech/stl/Vector.html">vector参考</a><br>
+    <a href="http://www.cprogramming.com/tutorial/stl/vector.html">vector类</a>
+    <br><br>
+    STL:<br>
+    <a href="http://www.sgi.com/tech/stl/">STL 程序员指南</a><br>
+    <a href="/tc?module=Static&amp;d1=features&amp;d2=082803">C++标准模板库速成</a>
 
-<br><br>
-想要了解更多的 Google&#153; Code Jam - 中国编程挑战赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
+    <br><br>
+    想要了解更多的 Google&#153; Code Jam - 中国编程挑战赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
 </div>
 </td>
 <td width="49%">&#160;</td>
