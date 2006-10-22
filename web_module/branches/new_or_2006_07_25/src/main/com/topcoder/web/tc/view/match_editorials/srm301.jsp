@@ -11,18 +11,18 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 </head>
-
 <body>
-
-<jsp:include page="/top.jsp" >
-  <jsp:param name="level1" value=""/>
+<div id="onTop">
+<jsp:include page="../top.jsp" >
+    <jsp:param name="level1" value=""/>
 </jsp:include>
-
+</div>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
  <tr valign="top">
 <!-- Left Column Begins-->
-   <td width="180">
+   <td width="180" id="onLeft">
       <jsp:include page="/includes/global_left.jsp">
          <jsp:param name="node" value="algo_match_editorials"/>
       </jsp:include>
@@ -37,7 +37,10 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
-<div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+<div class="linkBox">
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+    <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
+    <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
 <tc-webtag:forumLink forumID="505867" message="Discuss this match" /></div>
 <span class="bodySubtitle">SRM 301</span><br>Tuesday, May 9, 2006
 <br><br>
@@ -532,20 +535,21 @@ public int countParsingTrees(String[] rules, char seed, String word) {
 </pre>
 <p>
 A few words about the other approach i talked about. The idea required a little language theory and knowledge of Context Free Grammars and the <a href="http://en.wikipedia.org/wiki/Chomsky_normal_form">chomsky normal form</a>. Since there's an efficient algorithm to convert any grammar to a chomsky normal form equivalent one, we can first do that transformation. As you can see, in chomsky normal form there is no need for the g function we discussed previously, because f can be directly implemented with a single loop that makes the partition between the only 2 nonterminals, if that's the case of that rule. This bound of 2 nonterminals gives us a bound of at most j-i partitions, instead of an exponential explosion, and eliminates the need for the g function. For an implementation with this idea see misof's <a href="/stat?c=problem_solution&rm=248574&rd=9822&pm=6210&cr=8357090">solution</a>.
-</p>
-
-
-  <img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/soul-net_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="15231364" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-   <td width="170">
+   <td width="170" id="onRight">
   <jsp:include page="../public_right.jsp">
    <jsp:param name="level1" value="privatelabel"/>
   </jsp:include>
@@ -558,7 +562,9 @@ A few words about the other approach i talked about. The idea required a little 
   </tr>
 </table>
 
+<div id="onBottom">
 <jsp:include page="../foot.jsp" />
+</div>
 
 </body>
 

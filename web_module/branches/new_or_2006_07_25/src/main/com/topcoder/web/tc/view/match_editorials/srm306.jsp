@@ -11,18 +11,18 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 </head>
-
 <body>
-
-<jsp:include page="/top.jsp" >
-  <jsp:param name="level1" value=""/>
+<div id="onTop">
+<jsp:include page="../top.jsp" >
+    <jsp:param name="level1" value=""/>
 </jsp:include>
-
+</div>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
  <tr valign="top">
 <!-- Left Column Begins-->
-   <td width="180">
+   <td width="180" id="onLeft">
       <jsp:include page="/includes/global_left.jsp">
          <jsp:param name="node" value="algo_match_editorials"/>
       </jsp:include>
@@ -37,7 +37,10 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
-<div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+<div class="linkBox">
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+    <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
+    <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
 <tc-webtag:forumLink forumID="505981" message="Discuss this match" /></div>
 <span class="bodySubtitle">SRM 306</span><br>Thursday, June 8, 2006
 <br><br>
@@ -496,19 +499,21 @@ This leads to a simple recursive implementation that does O(log(k)) matrix multi
 As a final comment, I like to say that <tc-webtag:handle coderId="11829284" context="algorithm"/>'s <a href=/stat?c=problem_solution&rm=248947&rd=9986&pm=6386&cr=11829284>solution</a> was pretty similar to my original solution
 and came up to be pretty different from the rest. It is based on building a 2N*2N matrix with a similar idea of
 <a href=/tc?module=Static&d1=match_editorials&d2=tco06_qual>fast fibonacci</a> matrix (remember that <a href=http://mathworld.wolfram.com/BlockMatrix.html>block multiplication</a> is valid in matrices) and simply powering that matrix, with a O(log(k)) number of matrix multiplications, to get the result. I won't give any other details for this approach because it would be too long, but try to inspect the code, is a good lesson of linear algebra.
-</p>
-
-  <img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/soul-net_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="15231364" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-   <td width="170">
+   <td width="170" id="onRight">
   <jsp:include page="../public_right.jsp">
    <jsp:param name="level1" value="privatelabel"/>
   </jsp:include>
@@ -521,7 +526,9 @@ and came up to be pretty different from the rest. It is based on building a 2N*2
   </tr>
 </table>
 
+<div id="onBottom">
 <jsp:include page="../foot.jsp" />
+</div>
 
 </body>
 

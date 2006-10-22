@@ -11,17 +11,20 @@
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 <jsp:include page="../script.jsp" />
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 </head>
 <body>
-
+<div id="onTop">
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
+</div>
+
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-        <td width="180">
+        <td width="180" id="onLeft">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="algo_match_editorials"/>
             </jsp:include>
@@ -36,7 +39,10 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
-<div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+<div class="linkBox">
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+    <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
+    <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
 <tc-webtag:forumLink forumID="505757" message="Discuss this match" /></div>
 <span class="bodySubtitle">SRM 260</span><br>Saturday, August 27, 2005
 <br><br>
@@ -456,18 +462,21 @@ As the strips tend to a height of zero this expression becomes exactly the integ
 Some coders noticed that there is a way to calculate the integral exactly, without using numerical integration. It turns out that the function P is piecewise quadratic with the pieces being split at critical points. In figure (b) these points are indicated visually by the light green horizontal lines which pass through some vertex. If each strip on the frog's window was defined as the interval where the frog sees the top of the wall laying between a fixed pair of these horizontal lines, then P will be a quadratic function of y. A formula for P in this interval can be calculated knowing the area of the window above the top horizontal line in the pair and using the fact that the area of the window under it is a trapezoid. This explicit formula can be used for the integration, or alternatively you can use Simpson's rule on this much larger strip, since Simpson's rule is exact for up to cubic polynomials.
 </p>
 
-<p>
-<img src="/i/m/Ryan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/Ryan_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="284007" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-         <td width="170">
+         <td width="170" id="onRight">
             <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
@@ -480,7 +489,9 @@ By&#160;<tc-webtag:handle coderId="284007" context="algorithm"/><br />
     </tr>
 </table>
 
+<div id="onBottom">
 <jsp:include page="../foot.jsp" />
+</div>
 
 </body>
 

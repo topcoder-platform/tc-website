@@ -189,7 +189,7 @@ function goTo(selection){
 	
 	   //set up the table title row
 	   tableData.setElement(0,0,"Payment Description");
-	   tableData.setElement(0,1,"Date Created");
+	   tableData.setElement(0,1,"Due Date");
 	   tableData.setElement(0,2,"Net Payment Amount");
 	   tableData.setElement(0,3,"Status");
 	   if (fullList != null) {
@@ -204,7 +204,7 @@ function goTo(selection){
 	       		description = description.substring(description.indexOf(")")+1).trim();
 	       }
 	       String componentId = "";
-	       String projectId = String.valueOf(payments[i-1].getHeader().getProjectId());
+	       String projectId = String.valueOf(payments[i-1].getHeader().getComponentProjectId());
 	       if (componentIdMap.containsKey(projectId)) {
 	       		componentId = (String)componentIdMap.get(projectId);
 	       }
@@ -216,7 +216,7 @@ function goTo(selection){
 	       }
 	      
 	       // date created
-	       tableData.setElement(i,1,paymentCreationDates[i-1]);
+	       tableData.setElement(i,1,payments[i-1].getDueDate());
 	      
 	       // net amount
 	       DecimalFormat decf = new DecimalFormat("0.00");

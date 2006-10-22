@@ -11,17 +11,20 @@
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 <jsp:include page="../script.jsp" />
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 </head>
 <body>
-
+<div id="onTop">
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
+</div>
+
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-        <td width="180">	<jsp:include page="/includes/global_left.jsp">
+        <td width="180" id="onLeft">	<jsp:include page="/includes/global_left.jsp">
 		<jsp:param name="node" value="algo_match_editorials"/>
 	</jsp:include>
 </td>
@@ -122,11 +125,14 @@ for each player at the end of each round reset to 0 if it was negative.</P>
 <P>It's hard to analyse where a lot of these problems went wrong, because of the complexity of the rules.  Probably, only getting out a debugger.<BR/><BR/>
 Issues:<BR/>Many of the issues involved either failing to deal with the negative reset, or resetting the round score rather than the cumulative score.</P>
 
-<p>
-<img src="/i/m/slowjoe_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/slowjoe_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="271917" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
  
 <P><B>Member Comments</B></P>
 
@@ -221,7 +227,7 @@ Brian Kernighan and Dennis Ritchie.
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-         <td width="170">
+         <td width="170" id="onRight">
             <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
@@ -234,7 +240,9 @@ Brian Kernighan and Dennis Ritchie.
     </tr>
 </table>
 
+<div id="onBottom">
 <jsp:include page="../foot.jsp" />
+</div>
 
 </body>
 

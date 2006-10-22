@@ -11,17 +11,20 @@
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 <jsp:include page="../script.jsp" />
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 </head>
 <body>
-
+<div id="onTop">
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
+</div>
+
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-        <td width="180">	<jsp:include page="/includes/global_left.jsp">
+        <td width="180" id="onLeft">	<jsp:include page="/includes/global_left.jsp">
 		<jsp:param name="node" value="algo_match_editorials"/>
 	</jsp:include>
 </td>
@@ -137,11 +140,14 @@ The Rookie Rooms started with mostly scores around the 300 or 400 area, but
  case that did not result in a null set for the result.
 </P>
 
-<p>
-<img src="/i/m/ZorbaTHut_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<div class="authorPhoto">
+    <img src="/i/m/ZorbaTHut_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
 By&#160;<tc-webtag:handle coderId="152347" context="algorithm"/><br />
-<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-</p>
+    <em>TopCoder Member</em>
+</div>
+
           
 </div>
 </td>
@@ -149,7 +155,7 @@ By&#160;<tc-webtag:handle coderId="152347" context="algorithm"/><br />
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-         <td width="170">
+         <td width="170" id="onRight">
             <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
@@ -162,7 +168,9 @@ By&#160;<tc-webtag:handle coderId="152347" context="algorithm"/><br />
     </tr>
 </table>
 
+<div id="onBottom">
 <jsp:include page="../foot.jsp" />
+</div>
 
 </body>
 

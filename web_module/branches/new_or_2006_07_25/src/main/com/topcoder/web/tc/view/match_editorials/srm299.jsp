@@ -11,18 +11,18 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 </head>
-
 <body>
-
-<jsp:include page="/top.jsp" >
-  <jsp:param name="level1" value=""/>
+<div id="onTop">
+<jsp:include page="../top.jsp" >
+    <jsp:param name="level1" value=""/>
 </jsp:include>
-
+</div>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
  <tr valign="top">
 <!-- Left Column Begins-->
-   <td width="180">
+   <td width="180" id="onLeft">
       <jsp:include page="/includes/global_left.jsp">
          <jsp:param name="node" value="algo_match_editorials"/>
       </jsp:include>
@@ -37,7 +37,10 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
-<div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+<div class="linkBox">
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+    <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
+    <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
 <tc-webtag:forumLink forumID="505865" message="Discuss this match" /></div>
 <span class="bodySubtitle">SRM 299</span><br>Saturday, April 22, 2006
 <br><br>
@@ -526,19 +529,21 @@ each time, I only looped through those that were added in the last question
 which doesn't take hat configurations into account at all. During the limited 
 time I had for this writeup I failed to understand why it works. See <A 
 href="/stat?c=problem_solution&amp;rm=248340&amp;rd=9820&amp;pm=6039&amp;cr=10600282">Mojito1's 
-solution</A> for a clean implementation of this approach. </P>
-
-  <img src="/i/m/Yarin_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+solution</A> for a clean implementation of this approach. </P><div class="authorPhoto">
+    <img src="/i/m/Yarin_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="269554" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-   <td width="170">
+   <td width="170" id="onRight">
   <jsp:include page="../public_right.jsp">
    <jsp:param name="level1" value="privatelabel"/>
   </jsp:include>
@@ -551,7 +556,9 @@ solution</A> for a clean implementation of this approach. </P>
   </tr>
 </table>
 
+<div id="onBottom">
 <jsp:include page="../foot.jsp" />
+</div>
 
 </body>
 

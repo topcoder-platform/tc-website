@@ -11,18 +11,20 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 </head>
-
 <body>
-
+<div id="onTop">
 <jsp:include page="../top.jsp" >
-  <jsp:param name="level1" value=""/>
+    <jsp:param name="level1" value=""/>
 </jsp:include>
+</div>
+
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
  <tr valign="top">
 <!-- Left Column Begins-->
-    <td width="180">
+    <td width="180" id="onLeft">
 	<jsp:include page="/includes/global_left.jsp">
 		<jsp:param name="node" value="algo_match_editorials"/>
 	</jsp:include>
@@ -37,7 +39,10 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
-<div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+<div class="linkBox">
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+    <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
+    <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
 <tc-webtag:forumLink forumID="505800" message="Discuss this match" /></div>
 <span class="bodySubtitle">SRM 286</span><br>Monday, January 30, 2006
 <br><br>
@@ -538,20 +543,21 @@ For those familiar with theory of languages, an instance of KMP algorithm for a 
 The Wikipedia contains several <a href="http://en.wikipedia.org/wiki/String_search_algorithms">search algorithms</a>. A very clear explanation of KMP algorithm can also be found
 <a href="http://www.ics.uci.edu/~eppstein/161/960227.html">here</a>
 See also <a href="/stat?c=problem_solution&rm=247505&rd=8083&pm=6017&cr=144400">tomek's</a> as for a solution written during the contest.
-</p>
-
- 
-  <img src="/i/m/ged_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/ged_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="10505830" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-   <td width="170">
+   <td width="170" id="onRight">
     <jsp:include page="../public_right.jsp">
      <jsp:param name="level1" value="privatelabel"/>
     </jsp:include>
@@ -564,7 +570,9 @@ See also <a href="/stat?c=problem_solution&rm=247505&rd=8083&pm=6017&cr=144400">
   </tr>
 </table>
 
+<div id="onBottom">
 <jsp:include page="../foot.jsp" />
+</div>
 
 </body>
 

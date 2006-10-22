@@ -11,18 +11,20 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 </head>
-
 <body>
-
+<div id="onTop">
 <jsp:include page="../top.jsp" >
-  <jsp:param name="level1" value=""/>
+    <jsp:param name="level1" value=""/>
 </jsp:include>
+</div>
+
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
  <tr valign="top">
 <!-- Left Column Begins-->
-    <td width="180">
+    <td width="180" id="onLeft">
 	<jsp:include page="/includes/global_left.jsp">
 		<jsp:param name="node" value="algo_match_editorials"/>
 	</jsp:include>
@@ -37,7 +39,10 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
-<div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+<div class="linkBox">
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+    <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
+    <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
 <tc-webtag:forumLink forumID="505856" message="Discuss this match" /></div>
 <span class="bodySubtitle">SRM 290</span><br>Thursday, February 16, 2006
 <br><br>
@@ -489,20 +494,21 @@ The answer for the whole problem will be the set containing all numbers which ca
 </p>
 <p>
 As an implementation note, representing the set of all possible answers as a long number (with the ability to take k machines represented as the k-th bit in the number) makes the coding much shorter and easier.
-</p>
-
-
-  <img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/Olexiy_big2.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="303644" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-   <td width="170">
+   <td width="170" id="onRight">
     <jsp:include page="../public_right.jsp">
      <jsp:param name="level1" value="privatelabel"/>
     </jsp:include>
@@ -515,7 +521,9 @@ As an implementation note, representing the set of all possible answers as a lon
   </tr>
 </table>
 
+<div id="onBottom">
 <jsp:include page="../foot.jsp" />
+</div>
 
 </body>
 

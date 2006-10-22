@@ -57,11 +57,11 @@ Registration for the 2006 TopCoder Collegiate Challenge Algorithm Competition wi
 <br><br>
 <a name="qualification"></a>
 <span class="bodySubtitle">Qualification Rounds</span><br><br>
-<strong>Automatic Berths</strong> - The top 150 rated members as of September 7, 2006 who meet all of the following criteria will receive an automatic berth into Online Round #1:
+<strong>Automatic Berths</strong> - The top 150 rated members as of September 6, 2006 who meet all of the following criteria will receive an automatic berth into Online Round #1:
 <ul>
-<li>Must have competed in a TopCoder rated event between April 9 and September 7, 2006; and</li>
+<li>Must have competed in a TopCoder rated event between April 9 and September 6, 2006; and</li>
 <li>Must have competed in at least three (3) lifetime TopCoder rated events; and</li>
-<li>Must have registered for the 2006 TCCC; and</li>
+<li>Must have registered for the 2006 TCCC by Wednesday, September 6 at 12:00 PM (noon) (GMT/UTC -4); and</li>
 <li>Must have met all other tournament eligibility criteria.</li>
 </ul>
 <strong>Qualification Spots</strong> - All members who do not receive an automatic berth and who meet all of the tournament eligibility criteria can compete for one of the 1,500 qualification spots in the tournament.  Three (3) Qualification Rounds will be held and the top 450 scorers from each Qualification Round will win a spot in Online Round #1.  Please note that the top 150 rated members who receive an automatic berth will not be allowed to compete in any of the Qualification Rounds.  Also, those members who qualify for the tournament during one qualification attempt will not be allowed to compete in future Qualification Rounds.
@@ -239,7 +239,7 @@ The forty-eight (48) advancers from Online Round #3 will travel to the San Diego
 <br><br>
 At the end of the Qualification Rounds, TopCoder will issue letters at the request of international competitors who require one to obtain a travel visa to enter the United States.  Visa letters can be requested by emailing Jessie D'Amato Ford at <A href="mailto:jdamato@topcoder.com">jdamato@topcoder.com</A> and must be requested by Thursday, October 12, 2006 at 5:00 PM EDT (GMT -4).  Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline.  The cost of obtaining a visa is the sole responsibility of the competitor.
 <br><br>
-TopCoder will provide air travel arrangements for each competitor, up to a cost of $1,500 per person.  (That is, if a contestant's airfare is greater than $1,500, the difference between the cost of the airfare and $1,500 will be deducted from the contestant's total TCCC prize money won. If the contestant's total TCCC prize money is not sufficient to cover the additional costs, the contestant will be responsible for remitting to TopCoder the remainder of the cost by November 30, 2006.)  The flight reserved by and paid for by TopCoder is for arrival on November 14, 2006 and departure on November 18, 2006.  Extended flights and/or hotel room nights requested by a competitor that result in additional costs will be the responsibility of the competitor and will be deducted from the competitor's total TCCC prize money won, as above.
+TopCoder will provide air travel arrangements for each competitor. The flight reserved by and paid for by TopCoder is for arrival on November 14, 2006 and departure on November 18, 2006. Extended flights and/or hotel room nights requested by a competitor that result in additional costs will be the responsibility of the competitor and will be deducted from the competitor's total TCCC prize money won.
 <br><br>
 TopCoder will also provide ground transportation to and from the San Diego airport, as well as hotel accommodations and certain meals for each contestant.  All other expenses are the responsibility of the contestant.  TopCoder will not provide travel or lodging accommodations for competitor guests at the 2006 TCCC.  
 <br><br>
@@ -351,6 +351,11 @@ Prizewinners will be notified via e-mail within 10 days of the completion of eac
 <ul>
 <li>Affidavit of Eligibility and Liability and Publicity Release (must be notarized unless a notarized affidavit is already on file with TopCoder)</li>
 <li>Applicable tax form (unless one is already on file with TopCoder)</li>
+</ul>
+All contestants who advance to Round 3 must complete the following items by 10:00 AM EDT on Saturday, October 14, 2006 in order to be eligible as an onsite finalist:
+<ul>
+<li>Update your profile</li>
+<li>Please submit a head shot by emailing <A href="mailto:memberphotos@topcoder.com">memberphotos@topcoder.com</A>, if we do not have one on file for you.</li>
 </ul>
 All contestants who advance to the onsite tournament rounds must complete the following items and submit them to TopCoder by 8:00 AM EDT on Wednesday, October 18, 2006:
 <ul>

@@ -9,7 +9,7 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.lang.reflect.*" %>
-<%@ taglib uri="/WEB-INF/dde.tld" prefix="dde" %>
+<%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
@@ -264,15 +264,19 @@
 <%
     int refCatalog = -1;
     String catalogName = "No";
-    if (javaCategory.getId() == details.getSummary().getRootCategory()) {
-        refCatalog = 0;
-        catalogName = "Java";
-    } else if (netCategory.getId() == details.getSummary().getRootCategory()) {
-        refCatalog = 1;
-        catalogName = ".NET";
-    } else if (flashCategory.getId() == details.getSummary().getRootCategory()) {
-        refCatalog = 2;
-        catalogName = "Flash";
+    if (details.getSummary().getAolComponent()) {
+        refCatalog = 3;
+    } else {
+        if (javaCategory.getId() == details.getSummary().getRootCategory()) {
+            refCatalog = 0;
+            catalogName = "Java";
+        } else if (netCategory.getId() == details.getSummary().getRootCategory()) {
+            refCatalog = 1;
+            catalogName = ".NET";
+        } else if (flashCategory.getId() == details.getSummary().getRootCategory()) {
+            refCatalog = 2;
+            catalogName = "Flash";
+        }
     }
 %>
 
@@ -294,6 +298,9 @@
                                             break;
                                         case 2:
                                             %><td><img src="/images/catalog/catpg_flash_logo.gif" alt="" border="0" /></td><%
+                                            break;
+                                        case 3:
+                                            %><td style="padding-right:20px;"><img src="/images/catalog/catpg_AOL_logo.gif" alt="" border="0" /></td><%
                                             break;
                                         default:
                                             %><td></td><%
@@ -398,7 +405,7 @@
                                  <font class="small">Designer(s):</font>
                               </div>
                                                 <%boolean first = true;%>
-                                 <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 5) { if(first) { first = false; } else {%><br><%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="design"/><%  }  }  %>
+                                 <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 5) { if(first) { first = false; } else {%><br><%}%><tc-webtag:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="design"/><%  }  }  %>
                               <br><br>
                             </td>
                             <td width="50%">
@@ -407,7 +414,7 @@
                               </div>
 
                                 <% first = true;%>
-                                 <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 6) { if(first) { first = false; } else {%><br><%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="design"/><%  }  }  %>
+                                 <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 6) { if(first) { first = false; } else {%><br><%}%><tc-webtag:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="design"/><%  }  }  %>
                                 </font>
                               <br><br>
                                </td>
@@ -427,7 +434,7 @@
 
 
                                   <% first = true;%>
-                                 <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 7) { if(first) { first = false; } else {%><br><%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="development"/><%  }  }  %>
+                                 <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 7) { if(first) { first = false; } else {%><br><%}%><tc-webtag:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="development"/><%  }  }  %>
                                   </font>
                               <br><br>
                                </td>
@@ -436,7 +443,7 @@
                                  <font class="small">Development Review Board:</font>
                               </div>
                                   <% first = true;%>
-                                 <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 8) { if(first) { first = false; } else {%><br><%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="development"/><%  }  }  %>
+                                 <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 8) { if(first) { first = false; } else {%><br><%}%><tc-webtag:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="development"/><%  }  }  %>
                                   </font>
                               <br><br>
                                </td>

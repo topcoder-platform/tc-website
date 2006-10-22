@@ -26,6 +26,8 @@
             
 <div align="left"><img src="/i/tournament/tccc06/bloomberg_logo.gif" alt="Bloomberg" border="0" /></div>
 <br><br>
+<A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg_chat_082406">SRM 317 Chat Transcript</A>
+<br><br>
 Bloomberg is proud to welcome the world's top programming talent to the
 2006 Top Coder Collegiate Challenge.  This presents an opportunity to
 test your programming skills against the best the world has to offer.
@@ -42,7 +44,11 @@ you need the best.
 <br><br>
 Are you up to the challenge?
 <br><br>
+Bloomberg has software development offices in the United States and the United Kingdom.<br>
 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg_confirm">Apply Now</A>
+<br><br>
+<a href="/?t=sponsor&c=link&link=http://www.bloomberg.com" target="_blank">www.bloomberg.com</a>
+
 <br><br><br><br><br><br><br><br><br><br>
 
         </div>

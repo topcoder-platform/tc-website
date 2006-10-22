@@ -25,6 +25,7 @@
 <span class="bigTitle">Schedule of Onsite Events</span>
 <br><br>
 
+<%-- WITH DEV FORUMS - POST MON SEPT 11TH  --%>
 <table border="0" cellpadding="5" cellspacing="0" width="400">
 <tr><td colspan="2" class="sidebarTitle">Tuesday, November 14, 2006</td></tr>
 <tr><td class="formTextEven" nowrap="nowrap">7:00pm - 9:00pm</td><td class="formTextEven">Welcome Reception</td></tr>
@@ -36,9 +37,10 @@
 <tr><td class="formTextOdd" nowrap="nowrap">11:00am - 12:00pm</td><td class="formTextOdd">UBS Presentation</td></tr>
 <tr><td class="formTextEven" nowrap="nowrap">12:00pm - 1:00pm</td><td class="formTextEven">Lunch</td></tr>
 <tr><td class="formTextOdd" nowrap="nowrap">1:00pm - 3:00pm</td><td class="formTextOdd">Component Design & Development 1</td></tr>
-<tr><td class="formTextEven" nowrap="nowrap">4:00pm - 6:00pm</td><td class="formTextEven">Algorithm Semifinal Room 2</td></tr>
-<tr><td class="formTextOdd" nowrap="nowrap">4:00pm - 10:00pm</td><td class="formTextOdd">Competitor Game Room</td></tr>
-<tr><td class="formTextEven" nowrap="nowrap">7:00pm - 10:00pm</td><td class="formTextEven">Poker tournament</td></tr>
+<tr><td class="formTextEven" nowrap="nowrap">3:00pm - 4:00pm</td><td class="formTextEven">Developer Forum: <i>Applying the TopCoder Philosophy to New Frontiers</i></td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">4:00pm - 6:00pm</td><td class="formTextOdd">Algorithm Semifinal Room 2</td></tr>
+<tr><td class="formTextEven" nowrap="nowrap">4:00pm - 10:00pm</td><td class="formTextEven">Competitor Game Room</td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">7:00pm - 10:00pm</td><td class="formTextOdd">Poker tournament</td></tr>
 
 <tr><td colspan="2" class="bodyText">&#160;</td></tr>
 
@@ -46,7 +48,9 @@
 <tr><td class="formTextEven" nowrap="nowrap">9:00am - 11:00am</td><td class="formTextEven">Algorithm Semifinal Room 3</td></tr>
 <tr><td class="formTextOdd" nowrap="nowrap">11:00am - 12:00pm</td><td class="formTextOdd">Bloomberg Presentation</td></tr>
 <tr><td class="formTextEven" nowrap="nowrap">12:00pm - 1:00pm</td><td class="formTextEven">Lunch</td></tr>
-<tr><td class="formTextOdd" nowrap="nowrap">1:00pm - 3:00pm</td><td class="formTextOdd">Component Design & Development 2</td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">1:00pm - 2:00pm</td><td class="formTextOdd">NSA Presentation</td></tr>
+<tr><td class="formTextEven" nowrap="nowrap">1:00pm - 3:00pm</td><td class="formTextEven">Component Design & Development 2</td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">3:00pm - 4:00pm</td><td class="formTextOdd">Developer Forum: <i>Estimating Project Size</i></td></tr>
 <tr><td class="formTextEven" nowrap="nowrap">4:00pm - 6:00pm</td><td class="formTextEven">Algorithm Wildcard Round</td></tr>
 <tr><td class="formTextOdd" nowrap="nowrap">6:30pm - 10:00pm</td><td class="formTextOdd">AOL Evening Event</td></tr>
 
@@ -54,13 +58,13 @@
 
 <tr><td colspan="2" class="sidebarTitle">Friday, November 17, 2006</td></tr>
 <tr><td class="formTextEven" nowrap="nowrap">9:00am - 11:00am</td><td class="formTextEven">Component Design & Development Appeals Final</td></tr>
-<tr><td class="formTextOdd" nowrap="nowrap">11:00am - 12:00pm</td><td class="formTextOdd">NSA Presentation</td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">11:00am - 12:00pm</td><td class="formTextOdd">AOL Presentation</td></tr>
 <tr><td class="formTextEven" nowrap="nowrap">12:00pm - 1:00pm</td><td class="formTextEven">Lunch</td></tr>
-<tr><td class="formTextOdd" nowrap="nowrap">1:00pm - 2:00pm</td><td class="formTextOdd">AOL Presentation</td></tr>
-<tr><td class="formTextEven" nowrap="nowrap">2:30pm - 4:30pm</td><td class="formTextEven">Algorithm Championship Round</td></tr>
-<tr><td class="formTextOdd" nowrap="nowrap">4:30pm - 5:00pm</td><td class="formTextOdd">All Champion Announcements</td></tr>
-<tr><td class="formTextEven" nowrap="nowrap">5:00pm - 6:00pm</td><td class="formTextEven">Media Hour / Press Conference</td></tr>
-<tr><td class="formTextOdd" nowrap="nowrap">7:00pm - 9:00pm</td><td class="formTextOdd">Awards Reception</td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">1:00pm - 2:00pm</td><td class="formTextOdd">Developer Forum: <i>Overview of Recent TopCoder Projects</i></td></tr>
+<tr><td class="formTextEven" nowrap="nowrap">1:30pm - 3:30pm</td><td class="formTextEven">Algorithm Championship Round</td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">3:30pm - 4:00pm</td><td class="formTextOdd">All Champion Announcements</td></tr>
+<tr><td class="formTextEven" nowrap="nowrap">4:00pm - 5:00pm</td><td class="formTextEven">Media Hour / Press Conference</td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">7:00pm - 10:00pm</td><td class="formTextOdd">Awards Reception</td></tr>
 </table>
 
         </div>

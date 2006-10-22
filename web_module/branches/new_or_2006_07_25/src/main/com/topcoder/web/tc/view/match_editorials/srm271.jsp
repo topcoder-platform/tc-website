@@ -11,17 +11,20 @@
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 <jsp:include page="../script.jsp" />
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 </head>
 <body>
-
+<div id="onTop">
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
+</div>
+
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-        <td width="180">	<jsp:include page="/includes/global_left.jsp">
+        <td width="180" id="onLeft">	<jsp:include page="/includes/global_left.jsp">
 		<jsp:param name="node" value="algo_match_editorials"/>
 	</jsp:include>
 </td>
@@ -35,7 +38,10 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
-<div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+<div class="linkBox">
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+    <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
+    <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
 <tc-webtag:forumLink forumID="505785" message="Discuss this match" /></div>
 <span class="bodySubtitle">SRM 271</span><br>Tuesday, November 8, 2005
 <br><br>
@@ -800,19 +806,21 @@ have a corner of the polygon in the corner of the rectangle. As example 2
 in the problem statement claims, the best polygon for m=n=4 has got 9
 vertices &ndash; and it is impossible to make it without placing one of its
 vertices into the corner.
-</p>
-
-      <img src="/i/m/misof_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/misof_mug.gif" alt="Author" />
+</div>
+<div class="authorText">
       By&#160;<tc-webtag:handle coderId="8357090" context="algorithm"/><br />
-      <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-      </p>
+          <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-         <td width="170">
+         <td width="170" id="onRight">
             <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
@@ -825,7 +833,9 @@ vertices into the corner.
     </tr>
 </table>
 
+<div id="onBottom">
 <jsp:include page="../foot.jsp" />
+</div>
 
 </body>
 

@@ -11,18 +11,18 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 </head>
-
 <body>
-
-<jsp:include page="/top.jsp" >
-  <jsp:param name="level1" value=""/>
+<div id="onTop">
+<jsp:include page="../top.jsp" >
+    <jsp:param name="level1" value=""/>
 </jsp:include>
-
+</div>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
  <tr valign="top">
 <!-- Left Column Begins-->
-   <td width="180">
+   <td width="180" id="onLeft">
       <jsp:include page="/includes/global_left.jsp">
          <jsp:param name="node" value="algo_match_editorials"/>
       </jsp:include>
@@ -37,7 +37,10 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
-<div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+<div class="linkBox">
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+    <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
+    <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
 <tc-webtag:forumLink forumID="505984" message="Discuss this match" /></div>
 <span class="bodySubtitle">SRM 309</span><br>Wednesday, June 28, 2006
 <br><br>
@@ -370,21 +373,21 @@ CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" bor
 <p>The implementation of the correct algorithm for this problem was really easy. The tough part was coming up with it.
 The first thing to realize is the similarity between the game presented in the problem statement and the classic game of <a href="http://en.wikipedia.org/wiki/Nim">Nim</a>. In fact the only difference is that a move is legal here only if it maintains the property of the piles being ordered in increasing number of stones. To deal with this we must reduce the problem to a new one. The equivalent to each pile will be a new pile with a number of stones equal to the difference of stones between this pile and the one to its left. It is easy to see that a move in this new game is legal in the original game. However, we are now faced with a new complication: by taking stones from a pile not only we decrease the difference of stones between this pile and the previous one, but we also increase the difference between the next pile and this one. This corresponds to taking stones from a pile and adding them to the next one in the new game. At first glance this may seem to actually be less convenient, but we will prove this is not the case.</p>
 <p>Let us now see how to deal with this. For an easier understanding, let’s reverse the order of the new difference piles, and index them starting with 1. Stones taken from a pile must now be added to the pile with the next lower index (or out of the game, if taken from the first pile). The key observation is that we can reduce this game to the game of Nim by taking only the odd-numbered piles. To prove this, note that taking stones from an odd-numbered pile and adding them to an even-numbered one is equivalent to a move in the Nim game proposed. Taking stones from an even-numbered pile and adding them to an odd-numbered pile is equivalent to adding stones to a pile in the Nim game above. However, these moves are useless, since the added stones can be removed in the following move, yielding the same game state. To conclude, even though these moves may appear in a winning strategy, there is no need to.</p>
-<p>With that being said, we only have to iterate through all possible initial winning moves-do not forget to include the useless “adding moves” since they could be part of a winning strategy, and choose the best one, as it is described in the problem statement. See <tc-webtag:handle coderId="15616795" context="algorithm"/>’s <a href="/stat?c=problem_solution&rm=249080&rd=9989&pm=6239&cr=7555099">solution</a> for a clean implementation of this algorithm.</p>
-
-
-
-  <img src="/i/m/_efer__big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<p>With that being said, we only have to iterate through all possible initial winning moves-do not forget to include the useless “adding moves” since they could be part of a winning strategy, and choose the best one, as it is described in the problem statement. See <tc-webtag:handle coderId="15616795" context="algorithm"/>’s <a href="/stat?c=problem_solution&rm=249080&rd=9989&pm=6239&cr=7555099">solution</a> for a clean implementation of this algorithm.</p><div class="authorPhoto">
+    <img src="/i/m/_efer__big.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="8593420" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-   <td width="170">
+   <td width="170" id="onRight">
   <jsp:include page="../public_right.jsp">
    <jsp:param name="level1" value="privatelabel"/>
   </jsp:include>
@@ -397,7 +400,9 @@ The first thing to realize is the similarity between the game presented in the p
   </tr>
 </table>
 
+<div id="onBottom">
 <jsp:include page="../foot.jsp" />
+</div>
 
 </body>
 

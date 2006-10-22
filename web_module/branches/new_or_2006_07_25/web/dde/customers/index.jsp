@@ -1,17 +1,18 @@
-<%@ page import="javax.naming.*,
-                 com.topcoder.dde.util.ApplicationServer" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%--<%@ page import="javax.naming.*,
+           com.topcoder.dde.util.ApplicationServer" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
 <%@ page import="javax.rmi.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
-<%@ page import="java.lang.reflect.*" %>
+<%@ page import="java.lang.reflect.*" %>--%>
 
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
 <%@ include file="/includes/formclasses.jsp" %>
-
+<%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 
 <%
     // STANDARD PAGE VARIABLES
@@ -63,8 +64,8 @@
                     <td width="170"><img src="/images/clients/abb_logo.gif" alt="ABB" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">ABB, a leading power and automation technology enabler, needed a modern, user-friendly HTML interface that would allow users in its engineering and systems business units to access data on its mainframe legacy system. The Project Management Dashboard application delivered by TopCoder Software limited the amount of custom code built to 42 percent that of more traditional development models.<br><br>
-                    <A href="http://www.abb.com/" target="_blank">homepage</A>&#160;|&#160;
-                    <A href="http://<%=ApplicationServer.TC_SERVER%>/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/abb_casestudy.pdf&refer=customer_index" target="_blank">case study</A>
+                    <A href="<tc-webtag:linkTracking link="http://www.abb.com/" refer="customer_index"/>" target="_blank">homepage</A> | 
+                    <A href="/pdfs/tcs/casestudies/abb_casestudy.pdf" target="_blank">case study</A>
                      </td>
                 </tr>
             </table>
@@ -79,7 +80,7 @@
                     <td width="170"><img src="/images/clients/fin_services_logo.gif" alt="Financial Services" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">A national financial institution needed database management functionality delivered across a variety of platforms as part of an Information Quality Management initiative. TopCoder Software devised an IQM solution that allows users to intuitively navigate through data.<br><br>
-                    <A href="http://<%=ApplicationServer.TC_SERVER%>/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/fin_services_casestudy.pdf&refer=customer_index" target="_blank">case study</A>
+                    <A href="http://<%=ApplicationServer.SERVER_NAME%>/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/fin_services_casestudy.pdf&refer=customer_index" target="_blank">case study</A>
                      </td>
                 </tr>
             </table>
@@ -93,8 +94,8 @@
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/id_manage_logo.gif" alt="Identity Management" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">With a proven track record of success within Fortune 100 organizations, TopCoder Software’s identity and access management solutions centralize users and passwords, allowing organizations to reduce maintenance cost, improve accessibility and enforce consistent security policies.<br><br>
-                    <A href="http://<%=ApplicationServer.TC_SERVER%>/?t=sponsor&c=link&link=http://software.topcoder.com/pdfs/casestudies/identity_management.pdf&refer=customer_index" target="_blank">case study</A>
+                    <td width="99%" class="bodyText">With a proven track record of success within Fortune 100 organizations, TopCoder Softwareï¿½s identity and access management solutions centralize users and passwords, allowing organizations to reduce maintenance cost, improve accessibility and enforce consistent security policies.<br><br>
+                    <A href="http://<%=ApplicationServer.SERVER_NAME%>/?t=sponsor&c=link&link=http://software.topcoder.com/pdfs/casestudies/identity_management.pdf&refer=customer_index" target="_blank">case study</A>
                      </td>
                 </tr>
             </table>
@@ -109,8 +110,8 @@
                     <td width="170"><img src="/images/clients/salk_logo.gif" alt="Salk Institute" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">The world-renowned Salk Institute, a private, non-profit, research organization dedicated to fundamental research in biology and its relation to health, wanted to make an extremely large amount of gene data resulting from years of research on the topic of spinal cord injury available to the scientific community. TopCoder Software devised a solution that enables users to access project data through an HTML-based interface.<br><br>
-                    <A href="http://www.salk.edu/" target="_blank">homepage</A>&#160;|&#160;
-                     <A href="http://<%=ApplicationServer.TC_SERVER%>/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/salk_institute_casestudy.pdf&refer=customer_index" target="_blank">case study</A>
+                    <A href="<tc-webtag:linkTracking link="http://www.salk.edu/" refer="customer_index"/>" target="_blank">homepage</A> | 
+                     <A href="http://<%=ApplicationServer.SERVER_NAME%>/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/salk_institute_casestudy.pdf&refer=customer_index" target="_blank">case study</A>
                     </td>
                 </tr>
             </table>
@@ -124,8 +125,8 @@
                     <td width="170"><img src="/images/clients/stagestores_logo.gif" alt="Stagestores" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">StageStores, Inc. brings nationally recognized brand name apparel, accessories, cosmetics and footwear for the entire family to small and mid-size towns and communities with over 520 stores in 27 states.<br><br>
-                    <A href="http://www.stagestores.com/" target="_blank">homepage</A>&#160;|&#160;
-                     <A href="http://<%=ApplicationServer.TC_SERVER%>/?t=sponsor&c=link&link=/i/downloads/Gift_Card_Case_Study.pdf&refer=customer_index" target="_blank">case study</A>
+                    <A href="<tc-webtag:linkTracking link="http://www.stagestores.com/" refer="customer_index"/>" target="_blank">homepage</A> | 
+                     <A href="http://<%=ApplicationServer.SERVER_NAME%>/?t=sponsor&c=link&link=/i/downloads/Gift_Card_Case_Study.pdf&refer=customer_index" target="_blank">case study</A>
                      </td>
                 </tr>
             </table>
@@ -135,13 +136,27 @@
             <br><br>
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Other Customers</td></tr></table>
+<!-- AOL begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/aol_logo.png" alt="AOL" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">AOL and its subsidiaries operate a leading network of Web brands and the largest Internet access subscription service in the United States. Web brands include the AOL.com&#174; website, AIM&#174;, MapQuest&#174; and Netscape&#174;. AOL offers a range of digital services in the areas of education, safety and security, communications and music. The company also has operations in Europe and Canada. AOL LLC is a majority-owned subsidiary of Time Warner Inc. and is based in Dulles, Virginia.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://developer.aol.com/" refer="customer_index"/>" target="_blank">homepage</A>
+                     </td>
+                </tr>
+            </table>
+<!-- AOL ends -->
+
+             <hr width="100%" size="1px" noshade>
+
 <!-- Borders begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/borders_logo.gif" alt="Borders" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">With more than 32,000 employees worldwide, this company provides its customers with the books, music, movies, and other entertainment items they love.<br><br>
-                    <A href="http://www.amazon.com/exec/obidos/tg/browse/-/577394/103-3590679-6259839" target="_blank">homepage</A>
+                    <A href="<tc-webtag:linkTracking link="http://www.amazon.com/exec/obidos/tg/browse/-/577394/103-3590679-6259839" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
             </table>
@@ -155,7 +170,7 @@
                     <td width="170"><img src="/images/clients/burlington_logo.gif" alt="Burlington Coat Factory" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">Burlington Coat Factory Warehouse Corporation is a national department store retail chain offering current, high quality, designer merchandise at up to 60% less than other department store prices.<br><br>
-                    <A href="http://corporate.burlingtoncoatfactory.com/" target="_blank">homepage</A>
+                    <A href="<tc-webtag:linkTracking link="http://corporate.burlingtoncoatfactory.com/" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
             </table>
@@ -169,7 +184,7 @@
                     <td width="170"><img src="/images/clients/caliper_logo.gif" alt="Caliper" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">Caliper has advised more than 25,000 companies - including FedEx, Avis and some of the fastest growing smaller firms - on Employee Selection, Employee Development, Team Building and Organizational Development. <br><br>
-                    <A href="http://www.calipercorp.com/" target="_blank">homepage</A>
+                    <A href="<tc-webtag:linkTracking link="http://www.calipercorp.com/" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
             </table>
@@ -183,11 +198,40 @@
                     <td width="170"><img src="/images/clients/detroit_edison_logo.gif" alt="Detroit Edison" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">Founded in 1903, this investor-owned electric utility generates, transmits, and distributes electricy to 2.1 million customers in Southeastern Michigan.<br><br>
-                    <A href="http://my.dteenergy.com/main/index.do" target="_blank">homepage</A>
+                    <A href="<tc-webtag:linkTracking link="http://my.dteenergy.com/main/index.do" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
             </table>
 <!-- Detroit Edison ends -->
+
+             <hr width="100%" size="1px" noshade>
+
+<!-- Direct Energy begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/directenergy_logo.gif" alt="Direct Energy" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">Direct Energy is North America's largest competitive energy solutions provider, with over five million residential and commercial customer relationships. Direct Energy provides customers with choice and support in managing energy costs through a portfolio of innovative products and services.<br><br>
+                    <A href="http://www.directenergy.com/" target="_blank">homepage</A>
+                    <A href="<tc-webtag:linkTracking link="http://www.directenergy.com/" refer="customer_index"/>" target="_blank">homepage</A>
+                     </td>
+                </tr>
+            </table>
+<!-- Direct Energy ends -->
+
+             <hr width="100%" size="1px" noshade>
+
+<!-- ESPN begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/espn_logo.png" alt="ESPN" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">ESPN, Inc. is the worldï¿½s leading multinational, multimedia sports entertainment company featuring a portfolio of over 40 multimedia sports assets. The company is comprised of seven domestic television networks (ESPN, ESPN2, ESPN Classic, ESPNEWS, ESPN Deportes, ESPN Now, ESPN Today), ESPN HD, ESPN Regional Television, ESPN International (networks and syndication), ESPN Radio, ESPN.com, ESPN The Magazine, SportsTicker, ESPN Enterprises, ESPN Zones (sports-themed restaurants), and other growing new businesses including ESPN Broadband, ESPN Video-on-Demand, ESPN Interactive and ESPN PPV.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www.espn.com/" refer="customer_index"/>" target="_blank">homepage</A>
+                     </td>
+                </tr>
+            </table>
+<!-- ESPN ends -->
 
              <hr width="100%" size="1px" noshade>
 
@@ -197,7 +241,7 @@
                     <td width="170"><img src="/images/clients/ferguson_logo.gif" alt="Ferguson" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">Ferguson distributes plumbing, pipe, valves and fittings, heating and cooling, and waterworks products to the construction industry through a coast-to-coast network of showrooms, counters and distribution centers.<br><br>
-                    <A href="http://www.ferguson.com/" target="_blank">homepage</A>
+                    <A href="<tc-webtag:linkTracking link="http://www.ferguson.com/" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
             </table>
@@ -224,7 +268,7 @@
                     <td width="170"><img src="/images/clients/gentiva_logo.gif" alt="Gentiva" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">With their vast network of licensed and certified home health care agencies, Gentiva employs an expansive team of caregivers, and provide health services for a diverse group of patients each year.<br><br>
-                    <A href="http://www.gentiva.com/" target="_blank">homepage</A>
+                    <A href="<tc-webtag:linkTracking link="http://www.gentiva.com/" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
             </table>
@@ -238,7 +282,7 @@
                     <td width="170"><img src="/images/clients/oxford_logo.gif" alt="Oxford" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">Learn about Oxford programs, products and services including Access to Care, Preventive and Practical resources.<br><br>
-                    <A href="https://www.oxhp.com/" target="_blank">homepage</A>
+                    <A href="<tc-webtag:linkTracking link="https://www.oxhp.com/" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
             </table>
@@ -252,7 +296,7 @@
                     <td width="170"><img src="/images/clients/philipmorris_logo.gif" alt="Philip Morris" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">Hiring the best people, producing the highest quality products, and giving back to the community helped grow this 101-year-old company into the leading manufacturer of cigarettes in the United States.<br><br>
-                    <A href="http://www.philipmorrisusa.com/en/home.asp" target="_blank">homepage</A>
+                    <A href="<tc-webtag:linkTracking link="http://www.philipmorrisusa.com/en/home.asp" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
             </table>
@@ -266,7 +310,7 @@
                     <td width="170"><img src="/images/clients/praxair_logo.gif" alt="Praxair" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">With annual sales of $5.6 billion, Praxair, Inc. is a global, Fortune 500 company that supplies atmospheric, process and specialty gases, high-performance coatings, and related services and technologies.<br><br>
-                    <A href="http://www.praxair.com/" target="_blank">homepage</A><%--&#160;|&#160;
+                    <A href="<tc-webtag:linkTracking link="http://www.praxair.com/" refer="customer_index"/>" target="_blank">homepage</A><%-- | 
                      <A href="/" target="_blank">case study</A>--%>
                      </td>
                 </tr>
@@ -281,7 +325,7 @@
                     <td width="170"><img src="/images/clients/rodale_logo.gif" alt="Rodale" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">Rodale today is a global leader in healthy, active living information. Rodale's nine magazine properties, all veteran publications in their categories, include the brands Prevention, Men's Health and Runner's World, which are published in 36 countries.<br><br>
-                    <A href="http://www.rodale.com/" target="_blank">homepage</A>
+                    <A href="<tc-webtag:linkTracking link="http://www.rodale.com/" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
             </table>
@@ -295,11 +339,40 @@
                     <td width="170"><img src="/images/clients/talbots_logo.gif" alt="Talbots" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">With hundreds of locations in the US, Canada, and the UK, Talbots is a leading specialty retailer, cataloger, and e-tailer of women's classic apparel.<br><br>
-                    <A href="http://www1.talbots.com/talbotsonline/index.asp" target="_blank">homepage</A>
+                    <A href="<tc-webtag:linkTracking link="http://www1.talbots.com/talbotsonline/index.asp" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
             </table>
 <!-- Talbots ends -->
+
+             <hr width="100%" size="1px" noshade>
+
+<!-- UBS begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/ubs_logo.png" alt="UBS" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">UBS is one of the world's leading financial firms. UBS is: the world's leading wealth management business; a global investment banking and securities firm; a key asset manager; and the market leader in Swiss corporate and individual client banking. As an organization, UBS combines financial strength with a culture that embraces change. As an integrated firm, UBS creates added value for clients by drawing on the combined resources and expertise of all its businesses.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www.ubs.com" refer="customer_index"/>" target="_blank">homepage</A>
+                     </td>
+                </tr>
+            </table>
+<!-- UBS ends -->
+
+             <hr width="100%" size="1px" noshade>
+
+
+<!-- Verisign begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/verisign_logo.png" alt="Verisign" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">VeriSign Inc operates intelligent infrastructure services that enable and protect billions of interactions every day across the worldï¿½s voice and data networks. Every day, we process as many as 18 billion Internet interactions and support over 100 million phone calls. We also provide the services that help over 3,000 enterprises and 500,000 Web sites to operate securely, reliably, and efficiently. VeriSign is a global enterprise with offices throughout the Asia-Pacific region, Europe, Latin America, and North America, supported by a widespread international network of data centers and operations centers.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www.verisign.com" refer="customer_index"/>" target="_blank">homepage</A>
+                     </td>
+                </tr>
+            </table>
+<!-- Verisign ends -->
 
              <hr width="100%" size="1px" noshade>
 

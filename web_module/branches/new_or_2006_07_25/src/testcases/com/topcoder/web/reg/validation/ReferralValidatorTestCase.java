@@ -1,8 +1,8 @@
 package com.topcoder.web.reg.validation;
 
+import com.topcoder.web.common.model.Referral;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.reg.TCHibernateTestCase;
-import com.topcoder.web.reg.model.Referral;
 
 /**
  * @author dok
@@ -29,7 +29,7 @@ public class ReferralValidatorTestCase extends TCHibernateTestCase {
 
     public void testValidReferral() {
         assertTrue("didn't validate a valid member referral",
-                new ReferralValidator(null, null).validate(new StringInput("6")).isValid());
+                new ReferralValidator(null, "stuff").validate(new StringInput("6")).isValid());
     }
 
     public void testInValidReferral() {

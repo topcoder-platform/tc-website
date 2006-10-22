@@ -11,18 +11,18 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 </head>
-
 <body>
-
-<jsp:include page="/top.jsp" >
-  <jsp:param name="level1" value=""/>
+<div id="onTop">
+<jsp:include page="../top.jsp" >
+    <jsp:param name="level1" value=""/>
 </jsp:include>
-
+</div>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
  <tr valign="top">
 <!-- Left Column Begins-->
-   <td width="180">
+   <td width="180" id="onLeft">
       <jsp:include page="/includes/global_left.jsp">
          <jsp:param name="node" value="algo_match_editorials"/>
       </jsp:include>
@@ -37,7 +37,10 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
-<div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+<div class="linkBox">
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+    <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
+    <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
 <tc-webtag:forumLink forumID="505870" message="Discuss this match" /></div>
 <span class="bodySubtitle">SRM 304</span><br>Saturday, May 27, 2006
 <br><br>
@@ -476,20 +479,21 @@ The '-' characters in our problem correspond to the stones in the Nim problem. T
 We will prove by induction that if player2 is faced with n stones in total and the xor sum of the heaps is 0 then player1 will win by a minimum of n/2 * current_multiplier points.<br> If the game will end in two moves, then player2 is faced with two heaps, and if the xor sum of the sizes of the heaps is 0 then it means the two heaps have equal sizes, so player1 wins by n/2 * current_multiplier.<br>Suppose we are not at the last two moves in the game. Player2 can take at most n/2 stones from the game, because for the xor sum to be 0, the largest heap in the game can't be of size bigger than n/2. Now suppose player2 takes n/2 stones from the game, now player1 will take x stones from the game, and we are left with a smaller game of n/2 - x stones. By the induction hypothesis this game will get player1 at least (n/2 - x)/2 * 4 * current_multiplier advantage (we did two moves so the multiplier increased 4 times). So the first player will have a advantage given by x * 2 * current_multiplier which is the cost of taking x stones and by (n/2 - x)/2 * 4 * current_multiplier which is the advantage he gets in the (n/2 - x) game from which we substract n/2 * current_multiplier which was scored by player2.  In the worst case this amounts at least to n/2 * current_multiplier. So our hypothesis is proved. (this proof is due to <tc-webtag:handle coderId="7433858" context="algorithm"/>'s post in the <a href="http://forums.topcoder.com/?module=Thread&threadID=511254">forum</a>).
 <br>
 Now to solve the problem we can make every possible move and see if the nim-like problem has the xor sum equal to 0. A clean simple implementation by <tc-webtag:handle coderId="7433858" context="algorithm"/> of this solution can be found <a href="/stat?c=problem_solution&rm=248768&rd=9825&pm=6137&cr=7433858">here</a>.
-</p>
-
-
-  <img src="/i/m/Cosmin.ro_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+</p><div class="authorPhoto">
+    <img src="/i/m/Cosmin.ro_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
   By&#160;<tc-webtag:handle coderId="303185" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-   <td width="170">
+   <td width="170" id="onRight">
   <jsp:include page="../public_right.jsp">
    <jsp:param name="level1" value="privatelabel"/>
   </jsp:include>
@@ -502,7 +506,9 @@ Now to solve the problem we can make every possible move and see if the nim-like
   </tr>
 </table>
 
+<div id="onBottom">
 <jsp:include page="../foot.jsp" />
+</div>
 
 </body>
 

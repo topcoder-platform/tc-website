@@ -18,7 +18,6 @@
 		request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT);
 	ResultSetContainer stati = (ResultSetContainer)
 		request.getAttribute(PactsConstants.STATUS_CODE_LIST);
-	String[] creationDateList = (String[])request.getAttribute(PactsConstants.CREATION_DATE_LIST);
 	if (paymentList == null) {
 		out.println("no list!!!<br>");
 		paymentList = new PaymentHeader[0];
@@ -74,6 +73,7 @@
 		<td><b>Status</b></td>
 		<td><b>Client</b></td>
 		<td><b>Created</b></td>
+		<td><b>Modified</b></td>
 		<td><b>Reviewed</b></td>
 		</tr>
 <%
@@ -109,7 +109,10 @@
 			out.print("<td>"+df.format(paymentList[n].getRecentGrossAmount()
 				- paymentList[n].getRecentNetAmount())+"</td>\n");
 			out.print("<td>"+df.format(paymentList[n].getRecentNetAmount())+"</td>\n");
-			String type = paymentList[n].getType().substring(0,paymentList[n].getType().indexOf("Payment"));
+            
+            int pos = paymentList[n].getType().indexOf("Payment");
+            String type = pos >= 0? paymentList[n].getType().substring(0, pos) : paymentList[n].getType();
+            
 			out.print("<td>"+type+"</td>\n");
 			out.print("<td>"+paymentList[n].getMethod()+"</td>\n");
 			out.print("<td>"+paymentList[n].getRecentStatus()+"</td>\n");
@@ -118,7 +121,8 @@
 			} else {
 				out.print("<td></td>\n");
 			}
-			out.print("<td>"+creationDateList[n]+"</td>\n");
+			out.print("<td>"+paymentList[n].getCreateDate()+"</td>\n");
+			out.print("<td>"+paymentList[n].getModifyDate()+"</td>\n");
 			if (paymentList[n].isReviewed()) out.print("<td>Yes</td>\n");
 			else out.print("<td>No</td>\n");
 			

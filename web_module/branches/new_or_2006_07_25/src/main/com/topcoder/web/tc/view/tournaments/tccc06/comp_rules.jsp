@@ -35,7 +35,7 @@
 <br><br>
 <span class="bodySubtitle">Overview</span>
 <br><br>
-The 2006 TopCoder Collegiate Challenge ("TCCC") Component Design and Development Competition ("CDDC") will take place between July 31 and November 17, 2006. It will consist of two competitions - the design competition and the development competition. Each competition will consist of five (5) weeks of online competition and one (1) onsite final round, being the Championship round. The prize purse for this tournament is $100,000 in cash, with $62,500 being awarded for the design competition and $32,500 for the development competition. The eight (8) competitors in each competition with the highest cumulative placement scores after the online rounds of competition will advance to the onsite Championship round, being held at the San Diego Marriott Mission Valley in San Diego, California, USA on November 15 - 17, 2006.
+The 2006 TopCoder Collegiate Challenge ("TCCC") Component Design and Development Competition ("CDDC") will take place between July 31 and November 17, 2006. It will consist of two competitions - the design competition and the development competition. Each competition will consist of five (5) weeks of online competition and one (1) onsite final round, being the Championship round. The prize purse for this tournament is $100,000 in cash, with $62,500 being awarded for the design competition and $37,500 for the development competition. The eight (8) competitors in each competition with the highest cumulative placement scores after the online rounds of competition will advance to the onsite Championship round, being held at the San Diego Marriott Mission Valley in San Diego, California, USA on November 15 - 17, 2006.
 <br><br>
 <a name="eligibility"></a>
 <a href="#top"><img src="/i/tournament/tccc06/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
@@ -194,11 +194,11 @@ Contestant #1 would advance to the Championship round.
 <br><br>
 <span class="bodySubtitle">Championship Round</span>
 <br><br>
-Up to eight (8) advancers in each competition from the five (5) weeks of online competition will travel to the San Diego Marriott Mission Valley on Tuesday, November 14, 2006 to compete in the final competitive stage of the tournament being held on Wednesday, November 15 - Friday, November 17, 2006. All contestants must arrive at the San Diego Marriott Mission Valley no later than 4:00 PM PST on Tuesday, November 14, 2006. All contestants must confirm their attendance at the onsite Championship Round no later than 5:00 PM EDT on Friday, September 29, 2006 by emailing Jessie D'Amato Ford, <A href="mailto:jdamato@topcoder.com">jdamato@topcoder.com</A>. That is, contestants must have acquired any necessary travel visas and know for certain that they can travel to the United States by that date and time. If a contestant is unable to attend the onsite round, he/she will forfeit his/her eligibility to receive any prizes awarded to onsite finalists, and his/her spot in the tournament will be given to the competitor with the next highest positive (i.e., greater than zero) cumulative placement score from the online competition. 
+Up to eight (8) advancers in each competition from the five (5) weeks of online competition will travel to the San Diego Marriott Mission Valley on Tuesday, November 14, 2006 to compete in the final competitive stage of the tournament being held on Wednesday, November 15 - Friday, November 17, 2006. All contestants must arrive at the San Diego Marriott Mission Valley no later than 4:00 PM PST on Tuesday, November 14, 2006. All contestants must confirm their attendance at the onsite Championship Round no later than 5:00 PM EDT on Tuesday, October 3, 2006 by emailing Jessie D'Amato Ford, <A href="mailto:jdamato@topcoder.com">jdamato@topcoder.com</A>. That is, contestants must have acquired any necessary travel visas and know for certain that they can travel to the United States by that date and time. If a contestant is unable to attend the onsite round, he/she will forfeit his/her eligibility to receive any prizes awarded to onsite finalists, and his/her spot in the tournament will be given to the competitor with the next highest positive (i.e., greater than zero) cumulative placement score from the online competition. 
 <br><br>
 During the Online Rounds, TopCoder will issue letters at the request of international competitors who require one to obtain a travel visa to enter the United States.  Visa letters can be requested by emailing Jessie D'Amato Ford at <A href="mailto:jdamato@topcoder.com">jdamato@topcoder.com</A> and must be requested by Thursday, September 21, 2006 at 5:00 PM EDT (GMT -4).  Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline.  The cost of obtaining a visa is the sole responsibility of the competitor.
 <br><br>
-TopCoder will provide air travel arrangements for each competitor, up to a cost of $1,500 per person.  (That is, if a contestant's airfare is greater than $1,500, the difference between the cost of the airfare and $1,500 will be deducted from the contestant's total TCCC prize money won. If the contestant's total TCCC prize money is not sufficient to cover the additional costs, the contestant will be responsible for remitting to TopCoder the remainder of the cost by November 30, 2006.)  The flight reserved by and paid for by TopCoder is for arrival on November 14, 2006 and departure on November 18, 2006.  Extended flights and/or hotel room nights requested by a competitor that result in additional costs will be the responsibility of the competitor and will be deducted from the competitor's total TCCC prize money won, as above.
+TopCoder will provide air travel arrangements for each competitor. The flight reserved by and paid for by TopCoder is for arrival on November 14, 2006 and departure on November 18, 2006. Extended flights and/or hotel room nights requested by a competitor that result in additional costs will be the responsibility of the competitor and will be deducted from the competitor's total TCCC prize money won.
 <br><br>
 TopCoder will also provide ground transportation to and from the airport, as well as hotel accommodations and certain meals for each contestant. All other expenses are the responsibility of the contestant. TopCoder will not provide travel or lodging accommodations for competitor guests at the 2006 TCCC. 
 <br><br>
@@ -301,23 +301,23 @@ All contestants who submit components that pass screening during at least one we
    </tr>
    <tr valign="top">
       <td class="sidebarText">5th place finisher* in the Championship Round</td>
-      <td class="sidebarText" align="right">$1,500</td>
-      <td class="sidebarText" align="right">$1,000</td>
+      <td class="sidebarText" align="right">$2,000</td>
+      <td class="sidebarText" align="right">$1,200</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">6th place finisher* in the Championship Round</td>
-      <td class="sidebarText" align="right">$1,500</td>
-      <td class="sidebarText" align="right">$1,000</td>
+      <td class="sidebarText" align="right">$2,000</td>
+      <td class="sidebarText" align="right">$1,200</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">7th place finisher* in the Championship Round</td>
-      <td class="sidebarText" align="right">$1,500</td>
-      <td class="sidebarText" align="right">$1,000</td>
+      <td class="sidebarText" align="right">$2,000</td>
+      <td class="sidebarText" align="right">$1,200</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">8th place finisher* in the Championship Round</td>
-      <td class="sidebarText" align="right">$1,500</td>
-      <td class="sidebarText" align="right">$1,000</td>
+      <td class="sidebarText" align="right">$2,000</td>
+      <td class="sidebarText" align="right">$1,200</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Weekly 1st Place finishers</td>
@@ -328,11 +328,6 @@ All contestants who submit components that pass screening during at least one we
       <td class="sidebarText">Weekly 2nd Place finishers</td>
       <td class="sidebarText" align="right">$700</td>
       <td class="sidebarText" align="right">$270</td>
-   </tr>
-   <tr valign="top">
-      <td class="sidebarText">Highest debut score**</td>
-      <td class="sidebarText" align="right">$2,000</td>
-      <td class="sidebarText" align="right">$1,000</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Online participants who pass screening for at least one component</td>
@@ -358,14 +353,14 @@ All decisions relating to the viability of submissions, the ranking of submissio
 <br><br>
 As a condition of participation in the tournament, all information provided by you in your TopCoder member profile must be comprehensive, accurate and up-to-date. TopCoder may require you to complete an additional registration form to register for the tournament. In order to be eligible to participate in the tournament, you must have completed any and all registration forms required by TopCoder. 
 <br><br>
-Contestants who advance to the onsite Championship Round must complete the following items and submit them to TopCoder by 5:00 PM EDT on Friday, September 29, 2006: 
+Contestants who advance to the onsite Championship Round must complete the following items and submit them to TopCoder by 5:00 PM EDT on Tuesday, October 3, 2006: 
 
 <ul>
 <li>Competitor Questionnaire - the questions and responses will be published in the 2006 TopCoder Collegiate Challenge program</li>
 <li>Travel form - provides TopCoder with the appropriate travel information for your trip to the onsite tournament rounds</li>
 <li>Affidavit of Eligibility and Liability and Publicity Release</li>
 <ul>
-<li>TopCoder must receive the original copy of a notarized affidavit unless a notarized affidavit is already on file with TopCoder. The document must be postmarked by September 29, 2006, and must be sent in such a manner that it will arrive at TopCoder no later than October 20, 2006.</li>
+<li>TopCoder must receive the original copy of a notarized affidavit unless a notarized affidavit is already on file with TopCoder. The document must be postmarked by October 3, 2006, and must be sent in such a manner that it will arrive at TopCoder no later than October 20, 2006.</li>
 <li>If TopCoder already has a notarized affidavit and a tax form on file for a contestant, that contestant may send in simply a signed affidavit. No additional notarization is needed.</li>
 </ul>
 <li>Applicable tax form (unless one is already on file with TopCoder)</li>

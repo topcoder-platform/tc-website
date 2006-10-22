@@ -50,21 +50,26 @@
                                 <td class="forumText"><img src="<%=icon%>" alt="" width="25" height="17" border="0"></td>
                                 <td class="forumText"><img src="/images/clear.gif" alt="" width="5" height="5" border="0"/></td>
                                 <td class="forumText">
-<logic:equal name="project" property="catalog" value="Java">
-                                <img src="/images/javaSm.gif" alt="" border="0">
+<logic:equal name="project" property="aolComponent" value="true">
+                                <img src="/images/aolSm.gif" alt="" border="0">
 </logic:equal>
-<logic:equal name="project" property="catalog" value=".NET">
-                                <img src="/images/dotnetSm.gif" alt="" border="0">
-</logic:equal>
-<logic:equal name="project" property="catalog" value="Java Custom">
-                                <img src="/images/javaCustomSm.gif" alt="" border="0">
-</logic:equal>
-<logic:equal name="project" property="catalog" value=".NET Custom">
-                                <img src="/images/dotnetCustomSm.gif" alt="" border="0">
-</logic:equal>
-<logic:equal name="project" property="catalog" value="Application">
-                                <img src="/images/appSm.gif" alt="" border="0">
-</logic:equal>
+<logic:notEqual name="project" property="aolComponent" value="true">
+    <logic:equal name="project" property="catalog" value="Java">
+                                    <img src="/images/javaSm.gif" alt="" border="0">
+    </logic:equal>
+    <logic:equal name="project" property="catalog" value=".NET">
+                                    <img src="/images/dotnetSm.gif" alt="" border="0">
+    </logic:equal>
+    <logic:equal name="project" property="catalog" value="Java Custom">
+                                    <img src="/images/javaCustomSm.gif" alt="" border="0">
+    </logic:equal>
+    <logic:equal name="project" property="catalog" value=".NET Custom">
+                                    <img src="/images/dotnetCustomSm.gif" alt="" border="0">
+    </logic:equal>
+    <logic:equal name="project" property="catalog" value="Application">
+                                    <img src="/images/appSm.gif" alt="" border="0">
+    </logic:equal>
+</logic:notEqual>
                                 </td>
                                 <td class="forumText"><img src="/images/clear.gif" alt="" width="5" height="5" border="0"/></td>
                                 <td nowrap class="forumText">

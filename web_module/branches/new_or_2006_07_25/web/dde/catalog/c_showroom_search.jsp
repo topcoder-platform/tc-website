@@ -224,11 +224,15 @@
             row++;
             oddeven = (row%2==0)?"Even":"Odd";
             int refCatalog = -1;
-            if (java.getId() == summary.getRootCategory()) refCatalog = 0;
-            else if (net.getId() == summary.getRootCategory()) refCatalog = 1;
-            else if (flash.getId() == summary.getRootCategory()) refCatalog = 2;
-            else if (javaCustom.getId() == summary.getRootCategory()) refCatalog = 3;
-            else if (netCustom.getId() == summary.getRootCategory()) refCatalog = 4;
+            if (summary.getAolComponent()) {
+                refCatalog = 5;
+            } else {
+                if (java.getId() == summary.getRootCategory()) refCatalog = 0;
+                else if (net.getId() == summary.getRootCategory()) refCatalog = 1;
+                else if (flash.getId() == summary.getRootCategory()) refCatalog = 2;
+                else if (javaCustom.getId() == summary.getRootCategory()) refCatalog = 3;
+                else if (netCustom.getId() == summary.getRootCategory()) refCatalog = 4;
+            }
 %>
                 <tr valign="top">
                     <td class="forumText<%=oddeven%>">
@@ -248,6 +252,8 @@
                             %><img src="/images/javaCustomSm.gif" alt="" border="0" /><%
                         } else if (refCatalog == 4) {
                             %><img src="/images/dotnetCustomSm.gif" alt="" border="0" /><%
+                        } else if (refCatalog == 5) {
+                            %><img src="/images/aolSm.gif" alt="" border="0" /><%
                         }
                             %></td>
                                 <td width="5" class="forumText"><img src="/images/clear.gif" alt="" width="5" height="5" border="0"/></td>

@@ -11,18 +11,18 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 </head>
-
 <body>
-
-<jsp:include page="/top.jsp" >
-  <jsp:param name="level1" value=""/>
+<div id="onTop">
+<jsp:include page="../top.jsp" >
+    <jsp:param name="level1" value=""/>
 </jsp:include>
-
+</div>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
  <tr valign="top">
 <!-- Left Column Begins-->
-   <td width="180">
+   <td width="180" id="onLeft">
       <jsp:include page="/includes/global_left.jsp">
          <jsp:param name="node" value="algo_match_editorials"/>
       </jsp:include>
@@ -37,7 +37,10 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
-<div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+<div class="linkBox">
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+    <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
+    <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
 <tc-webtag:forumLink forumID="505863" message="Discuss this match" /></div>
 <span class="bodySubtitle">SRM 297</span><br>Thursday, April 6, 2006
 <br><br>
@@ -533,22 +536,22 @@ to the same cluster.</p>
 <p>We iterate over the levels of the stack, and at each level compute the
 possible next states, as well as the transition probabilities. The computation of
 the transition probabilities is conceptually not too difficult, but we have to be careful
-not to make mistakes. lyimpanda’s solution roughly follows this approach. Alternatively, instead of using bitmasks to represent the previous layer, it is also possible to simply enumerate the 7 cases: no dynamite boxes, one dynamite box, two adjacent dynamite boxes, two diagonal dynamite boxes that are not connected in lower layers, two diagonal dynamite boxes that are connected, three dynamite boxes and four dynamite boxes. kalinov’s solution follows this approach.</p>
-
-
-
-  <img src="/i/m/igorsk_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+not to make mistakes. lyimpanda’s solution roughly follows this approach. Alternatively, instead of using bitmasks to represent the previous layer, it is also possible to simply enumerate the 7 cases: no dynamite boxes, one dynamite box, two adjacent dynamite boxes, two diagonal dynamite boxes that are not connected in lower layers, two diagonal dynamite boxes that are connected, three dynamite boxes and four dynamite boxes. kalinov’s solution follows this approach.</p><div class="authorPhoto">
+    <img src="/i/m/igorsk_big.jpg" alt="Author" />
+</div>
+<div class="authorText">
 
   By&#160;<tc-webtag:handle coderId="7269339" context="algorithm"/><br />
-  <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-  </p>
+      <em>TopCoder Member</em>
+</div>
+
 
 </div>
 </td>
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-   <td width="170">
+   <td width="170" id="onRight">
   <jsp:include page="../public_right.jsp">
    <jsp:param name="level1" value="privatelabel"/>
   </jsp:include>
@@ -561,7 +564,9 @@ not to make mistakes. lyimpanda’s solution roughly follows this approach. Altern
   </tr>
 </table>
 
+<div id="onBottom">
 <jsp:include page="../foot.jsp" />
+</div>
 
 </body>
 
