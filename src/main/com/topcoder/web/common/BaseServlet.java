@@ -43,6 +43,7 @@ public abstract class BaseServlet extends HttpServlet {
     private static final Logger log = Logger.getLogger(BaseServlet.class);
 
     private static final Throttle throttle = new Throttle(5, 2500);
+    private static boolean throttleEnabled = true;
 
     /**
      * Initializes the servlet.
@@ -134,10 +135,12 @@ public abstract class BaseServlet extends HttpServlet {
                 TCRequest tcRequest = HttpObjectFactory.createRequest(request);
                 TCResponse tcResponse = HttpObjectFactory.createResponse(response);
 
-                if (throttle.throttle(request.getSession().getId())) {
-                    authentication = createAuthentication(tcRequest, tcResponse);
-                    throw new RequestRateExceededException(request.getSession().getId(),
-                            authentication.getActiveUser().getUserName());
+                if (throttleEnabled) {
+                    if (throttle.throttle(request.getSession().getId())) {
+                        authentication = createAuthentication(tcRequest, tcResponse);
+                        throw new RequestRateExceededException(request.getSession().getId(),
+                                authentication.getActiveUser().getUserName());
+                    }
                 }
 
                 if (log.isDebugEnabled()) {

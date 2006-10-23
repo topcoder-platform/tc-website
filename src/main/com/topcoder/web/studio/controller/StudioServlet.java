@@ -19,6 +19,10 @@ import java.util.MissingResourceException;
 public class StudioServlet extends BaseServlet {
     private static final Logger log = Logger.getLogger(StudioServlet.class);
 
+    static {
+        throttleEnabled = false;
+    }
+
     protected WebAuthentication createAuthentication(TCRequest request,
                                                      TCResponse response) throws Exception {
         return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response,
