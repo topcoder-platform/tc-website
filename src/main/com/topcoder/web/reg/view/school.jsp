@@ -85,7 +85,7 @@
                                 <br/>
                             </c:if>
                             Registrants: ${result[0]}<br/>
-                            <A class="small" href="#" onclick="Javascript:submit('${fn:replace(result[1].name, "\"", "\\\"")}',${result[1].id});">Select</A>
+                            <A class="small" href="#" onclick="Javascript:submit('${result[1].name}',${result[1].id});">Select</A>
                             <br/><br/>
                         </c:forEach>
                     </span>
