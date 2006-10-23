@@ -47,22 +47,22 @@
    <tr>
       <td style="padding: 15px" valign="middle" align="center">
       <%-- ROOM 1 --%>
-      <tc-webtag:handle coderId="272072" context="algorithm"/><br>
-      <tc-webtag:handle coderId="10574855" context="algorithm"/><br>
-      <tc-webtag:handle coderId="9906197" context="algorithm"/><br>
-      <tc-webtag:handle coderId="311170" context="algorithm"/><br>
-      <tc-webtag:handle coderId="14970299" context="algorithm"/><br>
-      <tc-webtag:handle coderId="269554" context="algorithm"/><br>
-      <tc-webtag:handle coderId="261024" context="algorithm"/><br>
-      <tc-webtag:handle coderId="262056" context="algorithm"/><br>
-      <tc-webtag:handle coderId="308953" context="algorithm"/><br>
-      <tc-webtag:handle coderId="15206296" context="algorithm"/><br>
-      <tc-webtag:handle coderId="309982" context="algorithm"/><br>
+      <tc-webtag:handle coderId="144400" context="algorithm"/><br>
+      <tc-webtag:handle coderId="19849563" context="algorithm"/><br>
+      <tc-webtag:handle coderId="260835" context="algorithm"/><br>
       <tc-webtag:handle coderId="10157606" context="algorithm"/><br>
-      <tc-webtag:handle coderId="7338095" context="algorithm"/><br>
+      <tc-webtag:handle coderId="262056" context="algorithm"/><br>
+      <tc-webtag:handle coderId="307060" context="algorithm"/><br>
+      <tc-webtag:handle coderId="308953" context="algorithm"/><br>
+      <tc-webtag:handle coderId="7459080" context="algorithm"/><br>
       <tc-webtag:handle coderId="7452866" context="algorithm"/><br>
-      <tc-webtag:handle coderId="15082287" context="algorithm"/><br>
-      <tc-webtag:handle coderId="20156359" context="algorithm"/><br>
+      <tc-webtag:handle coderId="20315020" context="algorithm"/><br>
+      <tc-webtag:handle coderId="286375" context="algorithm"/><br>
+      <tc-webtag:handle coderId="8398526" context="algorithm"/><br>
+      <tc-webtag:handle coderId="9927526" context="algorithm"/><br>
+      <tc-webtag:handle coderId="21758810" context="algorithm"/><br>
+      <tc-webtag:handle coderId="22641345" context="algorithm"/><br>
+      <tc-webtag:handle coderId="22641658" context="algorithm"/><br>
       </td>
       <td valign="middle"><img src="/i/tournament/tco06/bracket_bar.gif" alt="" border="0" /></td>
       <td style="padding: 15px" valign="middle" align="center">
@@ -70,15 +70,16 @@
       </td>
       <td valign="middle">&#160;</td>
       <td rowspan="9" style="padding: 15px" valign="middle" align="center">
-      <%-- FINALS --%>
-      <tc-webtag:handle coderId="8357090" context="algorithm"/><br>
-      <tc-webtag:handle coderId="16056363" context="algorithm"/><br>
-      <tc-webtag:handle coderId="309982" context="algorithm"/><br>
-      <tc-webtag:handle coderId="10574855" context="algorithm"/><br>
-      <tc-webtag:handle coderId="144400" context="algorithm"/><br>
-      <tc-webtag:handle coderId="270505" context="algorithm"/><br>
-      <tc-webtag:handle coderId="11829284" context="algorithm"/><br>
-      <tc-webtag:handle coderId="10599449" context="algorithm"/><br>
+      <%-- FINALS 
+      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
+      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
+      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
+      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
+      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
+      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
+      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
+      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
+        --%>
       </td>
    </tr>
    <tr>
@@ -99,43 +100,44 @@
       <td style="padding: 15px" valign="middle" align="center">
       <%-- ROOM 2 --%>
       <tc-webtag:handle coderId="8357090" context="algorithm"/><br>
-      <tc-webtag:handle coderId="8355516" context="algorithm"/><br>
       <tc-webtag:handle coderId="11829284" context="algorithm"/><br>
-      <tc-webtag:handle coderId="310333" context="algorithm"/><br>
-      <tc-webtag:handle coderId="304031" context="algorithm"/><br>
-      <tc-webtag:handle coderId="8365685" context="algorithm"/><br>
-      <tc-webtag:handle coderId="293874" context="algorithm"/><br>
-      <tc-webtag:handle coderId="7340263" context="algorithm"/><br>
-      <tc-webtag:handle coderId="16056363" context="algorithm"/><br>
-      <tc-webtag:handle coderId="10599449" context="algorithm"/><br>
-      <tc-webtag:handle coderId="15485957" context="algorithm"/><br>
-      <tc-webtag:handle coderId="7501828" context="algorithm"/><br>
-      <tc-webtag:handle coderId="10019533" context="algorithm"/><br>
-      <tc-webtag:handle coderId="7311097" context="algorithm"/><br>
-      <tc-webtag:handle coderId="113178" context="algorithm"/><br>
-      <tc-webtag:handle coderId="10569084" context="algorithm"/><br>
+      <tc-webtag:handle coderId="9906197" context="algorithm"/><br>
+      <tc-webtag:handle coderId="14970299" context="algorithm"/><br>
+      <tc-webtag:handle coderId="2058177" context="algorithm"/><br>
+      <tc-webtag:handle coderId="15094447" context="algorithm"/><br>
+      <tc-webtag:handle coderId="263396" context="algorithm"/><br>
+      <tc-webtag:handle coderId="21239671" context="algorithm"/><br>
+      <tc-webtag:handle coderId="10597114" context="algorithm"/><br>
+      <tc-webtag:handle coderId="8362207" context="algorithm"/><br>
+      <tc-webtag:handle coderId="269788" context="algorithm"/><br>
+      <tc-webtag:handle coderId="21822659" context="algorithm"/><br>
+      <tc-webtag:handle coderId="7295710" context="algorithm"/><br>
+      <tc-webtag:handle coderId="11771960" context="algorithm"/><br>
+      <tc-webtag:handle coderId="7227699" context="algorithm"/><br>
+      <tc-webtag:handle coderId="20635649" context="algorithm"/><br>
       </td>
       <td rowspan="2" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
       <td valign="middle"><img src="/i/tournament/tco06/bracket_bar.gif" alt="" border="0" /></td>
       <td style="padding: 15px" valign="middle" align="center">
-      <%-- WILDCARD ROOM --%>
-      <tc-webtag:handle coderId="272072" context="algorithm"/><br>
-      <tc-webtag:handle coderId="311170" context="algorithm"/><br>
-      <tc-webtag:handle coderId="10157606" context="algorithm"/><br>
-      <tc-webtag:handle coderId="261024" context="algorithm"/><br>
-      <tc-webtag:handle coderId="11829284" context="algorithm"/><br>
-      <tc-webtag:handle coderId="113178" context="algorithm"/><br>
-      <tc-webtag:handle coderId="10599449" context="algorithm"/><br>
-      <tc-webtag:handle coderId="293874" context="algorithm"/><br>
-      <tc-webtag:handle coderId="260835" context="algorithm"/><br>
-      <tc-webtag:handle coderId="7462740" context="algorithm"/><br>
-      <tc-webtag:handle coderId="7433858" context="algorithm"/><br>
-      <tc-webtag:handle coderId="7446789" context="algorithm"/><br>
+      <%-- WILDCARD ROOM 
+      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
+      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
+      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
+      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
+      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
+      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
+      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
+      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
+      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
+      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
+      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
+      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
+        --%>
       </td>
       <td rowspan="2" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
       <td valign="middle"><img src="/i/tournament/tco06/bracket_bar.gif" alt="" border="0" /></td>
       <td valign="middle"><img src="/i/tournament/tco06/bracket_R.gif" alt="" border="0" /></td>
-      <td valign="middle" align="center"><img src="/i/tournament/tco06/champion.gif" alt="" border="0" /><br><span class="bigTitle"><tc-webtag:handle coderId="10574855" context="algorithm"/></span></td>
+      <td valign="middle" align="center"><img src="/i/tournament/tco06/champion.gif" alt="" border="0" /><%--<br><span class="bigTitle"><tc-webtag:handle coderId="10574855" context="algorithm"/></span>--%></td>
    </tr>
    <tr>
       <td align="right"><img src="/i/tournament/tco06/bracket_BL.gif" alt="" border="0" /></td>
@@ -155,22 +157,22 @@
    <tr>
       <td style="padding: 15px" valign="middle" align="center">
       <%-- ROOM 3 --%>
-      <tc-webtag:handle coderId="144400" context="algorithm"/><br>
-      <tc-webtag:handle coderId="270505" context="algorithm"/><br>
-      <tc-webtag:handle coderId="7462740" context="algorithm"/><br>
-      <tc-webtag:handle coderId="260835" context="algorithm"/><br>
-      <tc-webtag:handle coderId="7442498" context="algorithm"/><br>
-      <tc-webtag:handle coderId="15094447" context="algorithm"/><br>
-      <tc-webtag:handle coderId="275071" context="algorithm"/><br>
+      <tc-webtag:handle coderId="10574855" context="algorithm"/><br>
+      <tc-webtag:handle coderId="251074" context="algorithm"/><br>
+      <tc-webtag:handle coderId="8355516" context="algorithm"/><br>
+      <tc-webtag:handle coderId="15206296" context="algorithm"/><br>
       <tc-webtag:handle coderId="7546048" context="algorithm"/><br>
-      <tc-webtag:handle coderId="7433858" context="algorithm"/><br>
-      <tc-webtag:handle coderId="7446789" context="algorithm"/><br>
-      <tc-webtag:handle coderId="8584656" context="algorithm"/><br>
-      <tc-webtag:handle coderId="8472826" context="algorithm"/><br>
-      <tc-webtag:handle coderId="310430" context="algorithm"/><br>
-      <tc-webtag:handle coderId="346607" context="algorithm"/><br>
-      <tc-webtag:handle coderId="8527113" context="algorithm"/><br>
-      <tc-webtag:handle coderId="10270846" context="algorithm"/><br>
+      <tc-webtag:handle coderId="20286298" context="algorithm"/><br>
+      <tc-webtag:handle coderId="293874" context="algorithm"/><br>
+      <tc-webtag:handle coderId="7340263" context="algorithm"/><br>
+      <tc-webtag:handle coderId="15805598" context="algorithm"/><br>
+      <tc-webtag:handle coderId="310723" context="algorithm"/><br>
+      <tc-webtag:handle coderId="302501" context="algorithm"/><br>
+      <tc-webtag:handle coderId="21971539" context="algorithm"/><br>
+      <tc-webtag:handle coderId="10425804" context="algorithm"/><br>
+      <tc-webtag:handle coderId="8518361" context="algorithm"/><br>
+      <tc-webtag:handle coderId="8510917" context="algorithm"/><br>
+      <tc-webtag:handle coderId="11889878" context="algorithm"/><br>
       </td>
       <td rowspan="2" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
       <td valign="middle"><img src="/i/tournament/tco06/bracket_bar.gif" alt="" border="0" /></td>
