@@ -42,7 +42,6 @@ The finalists are sorted alphabetically.
       <tc-webtag:handle coderId="302810" context="development" darkBG="true"/><br><br>
       <tc-webtag:handle coderId="14788013" context="development" darkBG="true"/><br><br>
       <tc-webtag:handle coderId="9998760" context="development" darkBG="true"/><br><br>
-      <tc-webtag:handle coderId="13325985" context="development" darkBG="true"/><br><br>
       <tc-webtag:handle coderId="8375801" context="development" darkBG="true"/><br><br>
       <tc-webtag:handle coderId="10526732" context="development" darkBG="true"/>
       </td>
