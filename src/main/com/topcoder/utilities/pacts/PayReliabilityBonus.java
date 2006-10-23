@@ -92,15 +92,6 @@ public class PayReliabilityBonus extends DBUtility {
     
 	
 
-	protected void setUsageError(String msg) {
-        sErrorMsg.setLength(0);
-        sErrorMsg.append(msg + "\n");
-        sErrorMsg.append("PayReliabilityBonus:\n");
-        sErrorMsg.append("   The following parameters should be included in the XML or the command line");
-        sErrorMsg.append("   -sourcedb URL : URL of source database.\n");
-        fatal_error();
-	}
-	
     public static Object createEJB() throws NamingException, Exception {
         Context initial = new InitialContext();
         Object objref = initial.lookup(PactsClientServicesHome.class.getName());
