@@ -104,7 +104,7 @@
         <c:when test="${affidavit.header.statusId == 58}">
         <td class="valueC">
             <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavit.header.id}">
-                affirmed on<br><c:out value="${affidavit.affirmationDate}"></c:out>
+                Affirmed on<br><c:out value="${affidavit.affirmationDate}"></c:out>
             </a>                
         </td>
         <td class="valueC">&nbsp;</td>
@@ -112,7 +112,7 @@
         <c:when test="${affidavit.header.statusId == 57}">
         <td class="valueC">
             <strong><a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavit.header.id}">
-                affirm
+                Affirm now
             </a></strong>
         </td>
         <td class="valueC">
@@ -124,12 +124,12 @@
         <c:otherwise>
         <td class="valueC">
             <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavit.header.id}" class="bigRed">
-                expired
-            </a>                
+                Expired
+            </a>
         </td>
         <td class="valueC">
             <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavit.header.id}" class="bigRed">
-                expired
+                Expired
             </a>                
         </td>
         </c:otherwise>
