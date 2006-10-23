@@ -133,9 +133,9 @@
 <p>Last month, TopCoder lost a valued member and friend with the passing of Victor_lxd. We are dedicating this match
 to his memory, along with a $5,000 prize purse.</p>
 
-<p>With his wife also injured, we believe the best tribute we can make is to lend our support to Victor_lxd’s family.
-We invite all SRM 324 participants to consider pledging their winnings as a gift in Victor’s memory, though there is
-no obligation to do so – please indicate your preference when registering for the match.</p>
+<p>With his wife also injured, we believe the best tribute we can make is to lend our support to <tc-webtag:handle coderId="13377493"/>'s family.
+We invite all SRM 324 participants to consider pledging their winnings as a gift in Victor's memory, though there is
+no obligation to do so - please indicate your preference when registering for the match.</p>
 
 <p>TopCoder will match any and all donations that members make during this SRM, up to a potential total gift of $10,000.
 Please join us in this tribute to one of our own.</p>
