@@ -1,6 +1,6 @@
 <%@ page import="com.topcoder.web.reg.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="str" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -85,7 +85,7 @@
                                 <br/>
                             </c:if>
                             Registrants: ${result[0]}<br/>
-                            <A class="small" href="#" onclick="Javascript:submit('${result[1].name}',${result[1].id});">Select</A>
+                            <A class="small" href="#" onclick="Javascript:submit('${fn:replace(result[1].name, "\"", "\\\"")}',${result[1].id});">Select</A>
                             <br/><br/>
                         </c:forEach>
                     </span>
