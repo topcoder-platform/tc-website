@@ -24,6 +24,12 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  */
 public class PayReliabilityBonus extends DBUtility {
 
+    /**
+     * This variable tells if only an analysis is wanted.
+     */
+    private String onlyAnalyze = null;
+
+
 	protected void runUtility() throws Exception {
 		PactsClientServices  ejb = (PactsClientServices) createEJB();
         
@@ -58,11 +64,15 @@ public class PayReliabilityBonus extends DBUtility {
         	
     		double bonusAmount = getReliabilityPercent(reliability) * amount;
 
-        	ReliabilityBonusPayment bp = new ReliabilityBonusPayment(userId, bonusAmount, paymentId);
-        	bp.setNetAmount(bonusAmount);
+            if (onlyAnalyze.equalsIgnoreCase("false")) {
+            	ReliabilityBonusPayment bp = new ReliabilityBonusPayment(userId, bonusAmount, paymentId);
+            	bp.setNetAmount(bonusAmount);
 
-        	BasePayment p = ejb.addPayment(bp);
-    		log.info("Adding a bonus payment for user " + userId + " project " + projectId + " for $ " + bonusAmount + "(payment_id = " + p.getId() + ")");
+            	BasePayment p = ejb.addPayment(bp);
+            }
+
+    		log.info("" + userId + ";" + projectId + ";" + getReliabilityPercent(reliability) + ";" + bonusAmount + ";" + p.getId() + ";" + reliability + ";" + amount);
+//    		log.info("Adding a bonus payment for user " + userId + " project " + projectId + " for $ " + bonusAmount + "(payment_id = " + p.getId() + ")");
 			count++;			
         }
         log.info("Done. Bonus rows inserted: " + count);
@@ -100,5 +110,34 @@ public class PayReliabilityBonus extends DBUtility {
         return(home.create());
     }
     
+    /**
+     * Process and validates the parameters.
+     */
+    protected void processParams() {
+        super.processParams();
+
+        onlyAnalyze = (String) params.get("onlyAnalyze");
+        if (onlyAnalyze == null)
+            setUsageError("Please specify a onlyAnalyze.\n");
+        params.remove("onlyAnalyze");
+
+        log.debug("onlyAnalyze : " + onlyAnalyze);
+    }
+
+    /**
+     * Show usage of the PayReliabilityBonus.
+     *
+     * @param msg The error message.
+     */
+    protected void setUsageError(String msg) {
+        sErrorMsg.setLength(0);
+        sErrorMsg.append(msg + "\n");
+        sErrorMsg.append("PayReliabilityBonus:\n");
+        sErrorMsg.append("   The following parameters should be included in the XML or the command line");
+        sErrorMsg.append("   -onlyAnalyze : whether to just analyze without updates.\n");
+        fatal_error();
+    }
+
+
 
 }
