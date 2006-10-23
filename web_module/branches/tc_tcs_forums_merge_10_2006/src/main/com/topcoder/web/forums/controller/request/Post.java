@@ -67,8 +67,11 @@ public class Post extends ForumsProcessor {
             getRequest().setAttribute("thread", message.getForumThread());
         }
 
-        ForumMessage tempMessage = forum.createMessage(user);
-        getRequest().getSession().setAttribute("tempMessage", tempMessage);
+        ForumMessage tempMessage = (ForumMessage)getRequest().getSession().getAttribute("tempMessage");
+        if (tempMessage == null || !forum.equals(tempMessage.getForum())) { 
+        	tempMessage = forum.createMessage(user);
+        	getRequest().getSession().setAttribute("tempMessage", tempMessage);
+        }
         
         getRequest().setAttribute("forum", forum);
         getRequest().setAttribute("postMode", postMode);
