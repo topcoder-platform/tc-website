@@ -7,6 +7,20 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 <%--------------------------------------------------------%>
+   <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.23.06<br>3:00 PM</td>
+       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.wallstreetandtech.com/showArticle.jhtml;jsessionid=0U21ZF2KMDLJYQSNDLPCKHSCJUNN2JVN?articleID=193400878" target="_blank"><i>Wall Street & Technology</i> on TopCoder and UBS</A></span><br><br>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wallstreetnTech_logo.gif" width="80" height="30" alt="Wall Street &amp; Technology" border="0" /></div>
+       "Ken Vogel didn't join TopCoder looking for a job, but a job came looking for him when UBS evaluated his success in online competitive development."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://www.wallstreetandtech.com/showArticle.jhtml;jsessionid=0U21ZF2KMDLJYQSNDLPCKHSCJUNN2JVN?articleID=193400878" target="_blank">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506154" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
         <br>10.20.06<br>12:30 PM</td>
@@ -210,19 +224,4 @@ message...
     <tc-webtag:forumLink forumID="506093" message="discuss this"/> |
     <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>10.11.05<br>4:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/collegetour">TopCoder College Tour comes to Beijing</A>
-        </span><br><br>
-      TopCoder is sponsoring its first college tour event in China on October 25, with an onsite programming competition at Beijing Normal University.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/collegetour">details</A>&#160;|&#160;
-        <tc-webtag:forumLink forumID="506143" message="discuss this"/> |
-        <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
 

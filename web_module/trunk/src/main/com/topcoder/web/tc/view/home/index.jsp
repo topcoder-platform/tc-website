@@ -247,6 +247,11 @@
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
 
+                <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/wallstreetnTech_logo.gif" width="80" height="30" alt="Wall Street &amp; Technology" border="0" /></div>
+                <i>Wall Street & Technology</i> on TopCoder and UBS
+                <A href="http://www.wallstreetandtech.com/showArticle.jhtml;jsessionid=0U21ZF2KMDLJYQSNDLPCKHSCJUNN2JVN?articleID=193400878">...more</A><br>[October 23]<br><br>
+
                 AOL to Webcast TCCC06 Live on November 17
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_101106">...more</A><br>[October 11]<br><br>
             
@@ -267,11 +272,6 @@
             
                 New Software Assembly contest: $22,500 in prizes!
                 <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_costingEngineAdminTool">...more</A><br>[September 20]<br><br>
-
-                <div style="float: right; padding-left: 5px;">
-                <A href="http://studio.topcoder.com/"><img src="/i/pressroom/studio_logo.gif" width="86" height="42" alt="TopCoder Studio" border="0"/></A></div>
-                TopCoder Studio launches creative contests
-                <A href="http://studio.topcoder.com/">...more</A><br>[August 30]<br><br>
 
             </td>
         </tr>
