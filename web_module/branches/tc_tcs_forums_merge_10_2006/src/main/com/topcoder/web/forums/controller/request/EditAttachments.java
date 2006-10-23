@@ -39,16 +39,17 @@ public class EditAttachments extends ForumsProcessor {
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
         String textareaBody = ForumsUtil.createTextAreaBody(body);
         
-    	if (!message.getUser().equals(user)) {
-            setNextPage(getSessionInfo().getServletPath() + "?module=Main");
-            setIsNextPageInContext(false);
-            return;
-        }
         messageID = Long.parseLong(messageIDStr);
         message = forumFactory.getMessage(messageID);
         forum = message.getForum();
         forumID = forum.getID();
         thread = message.getForumThread();
+        
+    	if (!message.getUser().equals(user)) {
+            setNextPage(getSessionInfo().getServletPath() + "?module=Main");
+            setIsNextPageInContext(false);
+            return;
+        }
         
         getRequest().setAttribute("forum", forum);
         getRequest().setAttribute("postMode", "Edit");
