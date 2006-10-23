@@ -189,15 +189,21 @@
                 </TD>
                 <TD class="value" nowrap>
                 <% if ((resultRow.getIntItem("payment_type_id") == 1 || 
-                        resultRow.getIntItem("payment_type_id") == 1) && 
+                        resultRow.getIntItem("payment_type_id") == 22) && 
                         resultRow.getItem("reference_id").getResultData() != null) {%>
                 <A href="/stat?c=coder_room_stats&cr=<%=coderId%>&rd=<rsc:item name="reference_id" row="<%=resultRow%>"/>">Contest Details</A>
-                <% } else if (resultRow.getIntItem("payment_type_id") == 6 && resultRow.getItem("reference_id").getResultData() != null) {%>
+                <% } else if ((resultRow.getIntItem("payment_type_id") == 6 ||
+                    resultRow.getIntItem("payment_type_id") == 7) && 
+                    resultRow.getItem("reference_id").getResultData() != null) {%>
                 <A href="/tc?module=CompContestDetails&pj=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">Project details</A>
-                <% } else if (resultRow.getIntItem("payment_type_id") == 17 && resultRow.getItem("reference_id").getResultData() != null) {%>
+                <% } else if ((resultRow.getIntItem("payment_type_id") == 17 ||
+                    resultRow.getIntItem("payment_type_id") == 25) && 
+                    resultRow.getItem("reference_id").getResultData() != null) {%>
                 <A href="/tc?module=LeaderBoard&ph=112&staid=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">DR Stage details</A>
-                <% } else if (resultRow.getIntItem("payment_type_id") == 25 && resultRow.getItem("reference_id").getResultData() != null) {%>
-                <A href="/tc?module=LeaderBoard&ph=112&staid=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">DR Stage details</A>
+                <% } else if (resultRow.getIntItem("payment_type_id") == 18 && resultRow.getItem("reference_id").getResultData() != null) {%>
+                <A href="/tc?module=RookieBoard&ph=112&seid=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">DR Stage details</A>
+                <% } else if (resultRow.getIntItem("payment_type_id") == 21 && resultRow.getItem("reference_id").getResultData() != null) {%>
+                <A href="/longcontest/?module=ViewOverview&rd=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">Marathon details</A>
                 <% }%>
                 </TD>
                 </tr>
