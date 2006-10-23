@@ -39,8 +39,10 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<%--<li><A href="/tc?module=Static&amp;d1=features&amp;d2=102306"><strong>A Number or a String: <br>Parsing Your Input and Formatting Your Output in C++</strong></A>, by <tc-webtag:handle coderId="15635590" /><br>
+This article is focused on main fast-to-type and convenient means of parsing input and formatting output in cases that are typical for TopCoder problems. All methods are specific to C++, but Java and VB coders may find several helpful ideas.</li>--%>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=101906"><strong>TCCC Preview: By the Numbers</strong></A>, by <tc-webtag:handle coderId="21196141" /><br>
-In this article, I'll take a look at some of the numbers and trivia behind the upcoming 2006 TopCoder Collegiate Challenge, and how those compare to last year's tournament and the last few Topcoder Opens.</li>
+In this article, I'll take a look at some of the numbers and trivia behind the upcoming 2006 TopCoder Collegiate Challenge, and how those compare to last year's tournament and the last few TopCoder Opens.</li>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=101606"><strong>TCCC Preview: Past Winners Tell All</strong></A>, by <tc-webtag:handle coderId="21196141" /><br>
 With the Collegiate Challenge less than a month away, we asked some past TCCC winners for some advice and feedback that could come in handy in San Diego.</li>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=101206"><strong>C++ tools #2 - GNU Make</strong></A>, by <tc-webtag:handle coderId="275640" /><br>
