@@ -43,7 +43,7 @@ public abstract class BaseServlet extends HttpServlet {
     private static final Logger log = Logger.getLogger(BaseServlet.class);
 
     private static final Throttle throttle = new Throttle(5, 2500);
-    private static boolean throttleEnabled = true;
+    protected static boolean throttleEnabled = true;
 
     /**
      * Initializes the servlet.
