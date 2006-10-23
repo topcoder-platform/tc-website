@@ -28,19 +28,19 @@
 <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
    <tr><td colspan="10"><span class="bigTitle">Algorithm Bracket</span></td></tr>
    <tr>
-      <td align="center"><img src="/i/tournament/tco06/bracket_room1.gif" alt="" border="0" /></td>
+      <td align="center"><img src="/i/tournament/tccc06/bracket_room1.gif" alt="" border="0" /></td>
       <td colspan="2">&#160;</td>
-      <td align="center"><img src="/i/tournament/tco06/bracket_wildcard.gif" alt="" border="0" /></td>
+      <td align="center"><img src="/i/tournament/tccc06/bracket_wildcard.gif" alt="" border="0" /></td>
       <td colspan="2">&#160;</td>
-      <td align="center"><img src="/i/tournament/tco06/bracket_finals.gif" alt="" border="0" /></td>
+      <td align="center"><img src="/i/tournament/tccc06/bracket_finals.gif" alt="" border="0" /></td>
       <td colspan="3">&#160;</td>
    </tr>
    <tr>
-      <td align="right"><img src="/i/tournament/tco06/bracket_TL.gif" alt="" border="0" /></td>
+      <td align="right"><img src="/i/tournament/tccc06/bracket_TL.gif" alt="" border="0" /></td>
       <td rowspan="2" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
-      <td colspan="2" align="right"><img src="/i/tournament/tco06/bracket_TL.gif" alt="" border="0" /></td>
+      <td colspan="2" align="right"><img src="/i/tournament/tccc06/bracket_TL.gif" alt="" border="0" /></td>
       <td rowspan="2" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
-      <td colspan="2" align="right"><img src="/i/tournament/tco06/bracket_TL.gif" alt="" border="0" /></td>
+      <td colspan="2" align="right"><img src="/i/tournament/tccc06/bracket_TL.gif" alt="" border="0" /></td>
       <td rowspan="11" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
       <td rowspan="2" valign="middle"></td>
    </tr>
@@ -64,7 +64,7 @@
       <tc-webtag:handle coderId="22641345" context="algorithm"/><br>
       <tc-webtag:handle coderId="22641658" context="algorithm"/><br>
       </td>
-      <td valign="middle"><img src="/i/tournament/tco06/bracket_bar.gif" alt="" border="0" /></td>
+      <td valign="middle"><img src="/i/tournament/tccc06/bracket_bar.gif" alt="" border="0" /></td>
       <td style="padding: 15px" valign="middle" align="center">
       &#160;
       </td>
@@ -83,17 +83,17 @@
       </td>
    </tr>
    <tr>
-      <td align="right"><img src="/i/tournament/tco06/bracket_BL.gif" alt="" border="0" /></td>
+      <td align="right"><img src="/i/tournament/tccc06/bracket_BL.gif" alt="" border="0" /></td>
       <td colspan="4" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
       <td style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
    </tr>
    <tr>
-      <td align="center"><img src="/i/tournament/tco06/bracket_room2.gif" alt="" border="0" /></td><td colspan="3">&#160;</td>
+      <td align="center"><img src="/i/tournament/tccc06/bracket_room2.gif" alt="" border="0" /></td><td colspan="3">&#160;</td>
       <td style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
       <td>&#160;</td>
    </tr>
    <tr>
-      <td align="right"><img src="/i/tournament/tco06/bracket_TL.gif" alt="" border="0" /></td>
+      <td align="right"><img src="/i/tournament/tccc06/bracket_TL.gif" alt="" border="0" /></td>
       <td colspan="5" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
    </tr>
    <tr>
@@ -117,7 +117,7 @@
       <tc-webtag:handle coderId="20635649" context="algorithm"/><br>
       </td>
       <td rowspan="2" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
-      <td valign="middle"><img src="/i/tournament/tco06/bracket_bar.gif" alt="" border="0" /></td>
+      <td valign="middle"><img src="/i/tournament/tccc06/bracket_bar.gif" alt="" border="0" /></td>
       <td style="padding: 15px" valign="middle" align="center">
       <%-- WILDCARD ROOM 
       <tc-webtag:handle coderId="000000" context="algorithm"/><br>
@@ -135,22 +135,22 @@
         --%>
       </td>
       <td rowspan="2" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
-      <td valign="middle"><img src="/i/tournament/tco06/bracket_bar.gif" alt="" border="0" /></td>
-      <td valign="middle"><img src="/i/tournament/tco06/bracket_R.gif" alt="" border="0" /></td>
-      <td valign="middle" align="center"><img src="/i/tournament/tco06/champion.gif" alt="" border="0" /><%--<br><span class="bigTitle"><tc-webtag:handle coderId="10574855" context="algorithm"/></span>--%></td>
+      <td valign="middle"><img src="/i/tournament/tccc06/bracket_bar.gif" alt="" border="0" /></td>
+      <td valign="middle"><img src="/i/tournament/tccc06/bracket_R.gif" alt="" border="0" /></td>
+      <td valign="middle" align="center"><img src="/i/tournament/tccc06/champion.gif" alt="" border="0" /><%--<br><span class="bigTitle"><tc-webtag:handle coderId="10574855" context="algorithm"/></span>--%></td>
    </tr>
    <tr>
-      <td align="right"><img src="/i/tournament/tco06/bracket_BL.gif" alt="" border="0" /></td>
+      <td align="right"><img src="/i/tournament/tccc06/bracket_BL.gif" alt="" border="0" /></td>
       <td colspan="2"></td>
    </tr>
    <tr>
-      <td align="center"><img src="/i/tournament/tco06/bracket_room3.gif" alt="" border="0" /></td><td colspan="3">&#160;</td>
+      <td align="center"><img src="/i/tournament/tccc06/bracket_room3.gif" alt="" border="0" /></td><td colspan="3">&#160;</td>
       <td style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
       <td>&#160;</td>
       <td colspan="3"align="center"></td>
    </tr>
    <tr>
-      <td align="right"><img src="/i/tournament/tco06/bracket_TL.gif" alt="" border="0" /></td>
+      <td align="right"><img src="/i/tournament/tccc06/bracket_TL.gif" alt="" border="0" /></td>
       <td colspan="4" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
       <td style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
    </tr>
@@ -175,7 +175,7 @@
       <tc-webtag:handle coderId="11889878" context="algorithm"/><br>
       </td>
       <td rowspan="2" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
-      <td valign="middle"><img src="/i/tournament/tco06/bracket_bar.gif" alt="" border="0" /></td>
+      <td valign="middle"><img src="/i/tournament/tccc06/bracket_bar.gif" alt="" border="0" /></td>
       <td style="padding: 15px" valign="middle" align="center">
       <%-- WILDCARD ROOM --%>
       &#160;
@@ -183,9 +183,9 @@
       <td rowspan="2" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
    </tr>
    <tr>
-      <td align="right"><img src="/i/tournament/tco06/bracket_BL.gif" alt="" border="0" /></td>
-      <td align="right" colspan="2"><img src="/i/tournament/tco06/bracket_BL.gif" alt="" border="0" /></td>
-      <td align="right" colspan="2"><img src="/i/tournament/tco06/bracket_BL.gif" alt="" border="0" /></td>
+      <td align="right"><img src="/i/tournament/tccc06/bracket_BL.gif" alt="" border="0" /></td>
+      <td align="right" colspan="2"><img src="/i/tournament/tccc06/bracket_BL.gif" alt="" border="0" /></td>
+      <td align="right" colspan="2"><img src="/i/tournament/tccc06/bracket_BL.gif" alt="" border="0" /></td>
    </tr>
 </table>
 
