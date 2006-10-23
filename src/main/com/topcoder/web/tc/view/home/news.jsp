@@ -6,21 +6,36 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
-<%-----------------------------------------------
+<%------------------------------------
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.23.06<br>6:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>10.23.05<br>6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewPastContests">leungxiao wins Digital Run logo contest</A></span><br><br>
+      Congratulations to leungxiao, the winner of TopCoder Studio's Digital Run logo design contest. 
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewPastContests">results</A> | 
+         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums/forums?module=ThreadList&forumID=18">discuss this</A> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+--------------------%>
+
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.23.06<br>5:15 PM</td>
      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_bracket">
      TCCC06 Algorithm Competition Semifinalists</span></A><br><br>
       Collegiate coding talent from 19 countries to meet at World Championship of Programming scheduled for November 17th in San Diego, CA.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-     <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_bracket">view</A> |
+     <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_bracket">details</A> |
      <A href="/tc?module=Static&d1=pressroom&d2=pr_102306">press release</A> |
      <tc-webtag:forumLink forumID="506155" message="discuss this"/> |
      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
----------%>
+
 <%--------------------------------------------------------%>
    <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.23.06<br>5:00 PM</td>
