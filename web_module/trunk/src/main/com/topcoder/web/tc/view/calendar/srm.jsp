@@ -1,7 +1,6 @@
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.common.StringUtils" %>
-<%@ page import="com.topcoder.web.common.tag.HandleTag" %>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -129,7 +128,7 @@
 
 <% if (round_id == 10004) { %>
 <hr />
-<p>In memoriam: <tc-webtag:handle coderId="13377493" context="<%=HandleTag.ALGORITHM%>"/></p>
+<p>In memoriam: <tc-webtag:handle coderId="13377493"/></p>
 
 <p>Last month, TopCoder lost a valued member and friend with the passing of Victor_lxd. We are dedicating this match
 to his memory, along with a $5,000 prize purse.</p>
