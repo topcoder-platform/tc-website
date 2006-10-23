@@ -44,8 +44,7 @@ public class RemoveAttachment extends ForumsProcessor {
         }
         
         // make sure the current user is the one who uploaded the attachment
-        boolean correctUser = ((messageToRemoveFrom.getUser() == null)
-        		|| (messageToRemoveFrom.getUser().getID() == user.getID())); 
+        boolean correctUser = (messageToRemoveFrom.getUser().getID() == user.getID()); 
     	if (!correctUser) {
     		getRequest().setAttribute(BaseServlet.MESSAGE_KEY, ForumConstants.ERR_CANNOT_EDIT_FOREIGN_POST);
     		setNextPage("/errorPage.jsp");

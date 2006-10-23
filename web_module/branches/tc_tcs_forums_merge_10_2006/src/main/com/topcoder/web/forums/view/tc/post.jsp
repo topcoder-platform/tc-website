@@ -201,9 +201,8 @@ function AllowTabCharacter() {
 	<td class="rtFooter">
 		<input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/>
 		<input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/>
-		<%	if (postMode.equals("Edit")) { 
-				String urlNext = sessionInfo.getServletPath() + "?module=EditAttachments&" + ForumConstants.MESSAGE_ID + "=" + message.getID(); %>
-				<a href="<%=urlNext%>"><img src="/i/interface/btn_attach_files.gif" class="rtButton" alt="Attach Files"/></a>
+		<%	if (postMode.equals("Edit")) { %>
+				<input type="image" src="/i/interface/btn_attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='EditAttachments'"/>
 		<%	} else { %>
 				<input type="image" src="/i/interface/btn_attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
 		<%	} %>

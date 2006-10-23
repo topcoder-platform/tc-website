@@ -3,10 +3,14 @@
  */
 package com.topcoder.web.forums.controller.request;
 
+import com.jivesoftware.base.UnauthorizedException;
+import com.jivesoftware.forum.AttachmentException;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
+import com.jivesoftware.forum.database.DbAttachment;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.controller.ForumsUtil;
@@ -84,6 +88,35 @@ public class AttachFiles extends ForumsProcessor {
         tempMessage.setBody(body);
         
         getRequest().setAttribute("message", tempMessage);
+        
+        String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.STATUS));
+        if (status.equals(ForumConstants.STATUS_DELETE)) {
+        	// deleted specified attachment
+        	String attachmentIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.ATTACHMENT_ID));
+        	long attachmentID = Long.parseLong(attachmentIDStr);
+        	DbAttachment attachment = new DbAttachment(attachmentID);
+        
+	        boolean correctUser = (tempMessage.getUser().getID() == user.getID()); 
+	    	if (!correctUser) {
+	    		getRequest().setAttribute(BaseServlet.MESSAGE_KEY, ForumConstants.ERR_CANNOT_EDIT_FOREIGN_POST);
+	    		setNextPage("/errorPage.jsp");
+	    		setIsNextPageInContext(true);
+	    		return;
+	    	}
+	        
+	        try {
+	        	tempMessage.deleteAttachment(attachment);
+	        } catch (Exception e) {
+	        	if (e instanceof UnauthorizedException) {
+	        		getRequest().setAttribute(BaseServlet.MESSAGE_KEY, ForumConstants.ERR_ATTACHMENT_DELETE_PERMS);
+	        	} else if (e instanceof AttachmentException) {
+	        		getRequest().setAttribute(BaseServlet.MESSAGE_KEY, ForumConstants.ERR_ATTACHMENT_NOT_FOUND);
+	        	}
+	        	setNextPage("/errorPage.jsp");
+	    		setIsNextPageInContext(true);
+	    		return;
+	        }
+        }
         
         setNextPage("/attachfiles.jsp");
 		setIsNextPageInContext(true);
