@@ -6,6 +6,24 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
+<%--------------------------------
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
+        <br>10.23.06<br>7:30 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=102306">A Number or a String: <br>Parsing Your Input and Formatting Your Output in C++.</A></span><br><br>
+            This article is focused on main fast-to-type and convenient means of parsing input and formatting output in cases that are typical for TopCoder problems. All methods are specific to C++, but Java and VB coders may find several helpful ideas.
+            </td>
+            <td class="newsPhoto"><img src="/i/m/Nickolas_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15635590"/></td></tr>
+        </table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&amp;d1=features&amp;d2=102306">article</A> |
+    <tc-webtag:forumLink forumID="506153" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+</td></tr>
+------------------------%>
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>10.23.05<br>6:00 PM</td>
@@ -76,7 +94,7 @@ expression in the hard one.
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=101906">TCCC Preview: By the Numbers</A></span><br><br>
-               In this article, I'll take a look at some of the numbers and trivia behind the upcoming 2006 TopCoder Collegiate Challenge, and how those compare to last year's tournament and the last few TopCoder Opens.</li>
+               In this article, I'll take a look at some of the numbers and trivia behind the upcoming 2006 TopCoder Collegiate Challenge, and how those compare to last year's tournament and the last few TopCoder Opens.
             </td>
             <td class="newsPhoto"><img src="/i/m/kzimmerman_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="21196141"/></td></tr>
         </table>
@@ -193,7 +211,7 @@ A lot of red coders performed below their level today -- and some of them got el
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
 
-<%--------------------------------------------------------%>
+<%---------------------------------------------
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
         <br>10.13.06<br>12:00 NOON</td>
@@ -213,43 +231,4 @@ During this marathon, we were asked to write a program that
     <tc-webtag:forumLink forumID="506106" message="discuss this"/> |
     <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
-
-<%--------------------------------------------------------%>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>10.12.06<br>9:00 AM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=101206">C++ tools #2 - GNU Make</A></span><br><br>
-               There's a well-known joke about two women eating lunch at a resort. "The food here is so horrible," says one. "I know," replies the 
-               other, "and the portions are so small!" There's a somewhat similar paradox that seems to apply to most developers.</td>
-            <td class="newsPhoto"><img src="/i/m/sql_lall_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="275640"/></td></tr>
-        </table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&amp;d1=features&amp;d2=101206">article</A> |
-    <tc-webtag:forumLink forumID="506144" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
-        <br>10.11.06<br>5:15 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle">
-            <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_8">Intel&#174; Multi-Threading Competition 8 - Analysis</A></span><br><br>
-Let us consider a simpler problem,
-which is to ignore the different line states and try to recompose the
-message...
-            </td>
-            <td class="newsPhoto"><img src="/i/m/battyone_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7504863" /></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_8">full story</A> |
-    <tc-webtag:forumLink forumID="506093" message="discuss this"/> |
-    <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
-
+-----------%>
