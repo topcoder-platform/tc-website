@@ -71,7 +71,7 @@ public class PayReliabilityBonus extends DBUtility {
             	BasePayment p = ejb.addPayment(bp);
             }
 
-    		log.info("" + userId + ";" + projectId + ";" + getReliabilityPercent(reliability) + ";" + bonusAmount + ";" + p.getId() + ";" + reliability + ";" + amount);
+    		log.info("" + userId + ";" + projectId + ";" + getReliabilityPercent(reliability) + ";" + bonusAmount + ";" + reliability + ";" + amount);
 //    		log.info("Adding a bonus payment for user " + userId + " project " + projectId + " for $ " + bonusAmount + "(payment_id = " + p.getId() + ")");
 			count++;			
         }
