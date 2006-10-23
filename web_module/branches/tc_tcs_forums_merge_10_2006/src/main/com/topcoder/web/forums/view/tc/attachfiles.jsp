@@ -156,7 +156,10 @@ function isClicked() {
         Attachment attachment = (Attachment)iter.next(); %>
         <tr>
 	        <td>File <%=i++%>: </td>
-	        <td><%=attachment.getName()%></td>
+	        <td>
+	        	<img align="absmiddle" src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" />
+	        	<%=attachment.getName()%> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)
+	        </td>
     	</tr>
 <%  } %>
 
