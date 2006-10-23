@@ -147,6 +147,8 @@ function isClicked() {
 <tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.MESSAGE_SUBJECT%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.MESSAGE_BODY%>"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.ATTACHMENT_ID%>"/>
 
 <table cellpadding="3" cellspacing="0" border="0">
 
@@ -158,7 +160,7 @@ function isClicked() {
 	        <td>File <%=i++%>: </td>
 	        <td>
 	        	<img align="absmiddle" src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" />
-	        	<%=attachment.getName()%> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)
+	        	<%=attachment.getName()%> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>) [<a href="javascript:void(0)" onclick="form1.module.value='AttachFiles';form1.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_DELETE%>';form1.<%=ForumConstants.ATTACHMENT_ID%>.value='<%=attachment.getID()%>';form1.submit();" class="rtbcLink">remove</a>]
 	        </td>
     	</tr>
 <%  } %>
