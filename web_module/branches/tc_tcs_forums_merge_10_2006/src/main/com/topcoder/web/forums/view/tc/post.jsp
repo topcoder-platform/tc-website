@@ -172,7 +172,7 @@ function AllowTabCharacter() {
 								if (message != null) {
 									removeAttachUrl.append("&").append(ForumConstants.MESSAGE_ID).append("=").append(message.getID());
 								}	%>
-								[<A href="<%=removeAttachUrl%>">remove</A>]
+								[<A href="<%=removeAttachUrl%>" class="rtbcLink">remove</A>]
 						<%	} %>
 						&nbsp;
 				<% 	} %>

@@ -164,7 +164,7 @@ public class Attach extends ForumsProcessor {
     		    }
     		}
         }
-        System.out.println("finished attaching file: " + uploadedFile.getRemoteFileName() +
+        log.info("Attached file: " + uploadedFile.getRemoteFileName() + 
         		" (" + uploadedFile.getSize() + " bytes)");
 	}	
 }
