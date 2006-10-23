@@ -7,6 +7,10 @@
 <table width="530" border="0" cellspacing="0" cellpadding="4">
 
    <tr><td class="prHead">
+         <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/wallstreetnTech_logo.gif" width="80" height="30" alt="Wall Street &amp; Technology" border="0" /></div>
+         <A href="http://www.wallstreetandtech.com/showArticle.jhtml;jsessionid=0U21ZF2KMDLJYQSNDLPCKHSCJUNN2JVN?articleID=193400878" target="_blank"><i>Wall Street & Technology</i> on TopCoder and UBS</A> [October 23]
+   </td></tr>
+   <tr><td class="prHead">
          <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/opensource_logo.gif" width="68" height="23" alt="Open Source" border="0" /></div>
          <A href="/audio/open_source_060928_48kb.mp3" target="_blank">TopCoder featured on public radio's "Open Source"</A> [PODCAST] [October 4]<br>
          <A href="/audio/open_source_060928_24kb.mp3" target="_blank">low bandwidth</A> (6.8mb)
@@ -21,10 +25,6 @@
          <A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9000323" target="_blank">Programming contest garners enterprise interest</A> [May 10]
    </td></tr>
    <tr><td class="prHead"><A href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_012606">TopCoder Software Component Libraries Selected as Finalist for the 16th Annual Jolt Awards</A> [January 26]</td></tr>
-   <tr><td class="prHead">
-         <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/incDOTcom_logo.gif" width="67" height="25" alt="Inc.com" border="0" /></div>
-          <A href="http://www.inc.com/magazine/20060101/handson-global.html" target="_blank">Put a hacker to work</A> [January 2006]
-   </td></tr>
 
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
 
