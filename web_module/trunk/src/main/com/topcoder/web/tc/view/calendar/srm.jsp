@@ -1,6 +1,7 @@
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.common.StringUtils" %>
+<%@ page import="com.topcoder.web.common.tag.HandleTag" %>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -69,7 +70,9 @@
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 
 <TABLE WIDTH="428" BORDER="0" CELLPADDING="0" CELLSPACING="0" ALIGN="center">
-<TR><TD COLSPAN="3" ALIGN="center"><IMG SRC="/i/clear.gif" ALT="" WIDTH="428" HEIGHT="10" BORDER="0"/></TD></TR>
+<TR>
+    <TD COLSPAN="3" ALIGN="center"><IMG SRC="/i/clear.gif" ALT="" WIDTH="428" HEIGHT="10" BORDER="0"/></TD>
+</TR>
 
 <TR>
     <TD COLSPAN="3" ALIGN="center">
@@ -95,13 +98,19 @@
         </TR>
         <TR BGCOLOR="#666666">
             <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
-                <b><rsc:item name="date" row="<%=rsr%>"/><br/></b>
+                <b>
+                    <rsc:item name="date" row="<%=rsr%>"/>
+                    <br/></b>
             </TD>
             <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
-                <B><rsc:item name="reg_begin" row="<%=rsr%>"/></B>
+                <B>
+                    <rsc:item name="reg_begin" row="<%=rsr%>"/>
+                </B>
             </TD>
             <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
-                <B><rsc:item name="coding_begin" row="<%=rsr%>"/></B>
+                <B>
+                    <rsc:item name="coding_begin" row="<%=rsr%>"/>
+                </B>
             </TD>
         </TR>
     </TD>
@@ -117,8 +126,27 @@
     All times are Eastern Time unless otherwise noted, click
     <a HREF="<%="http://www.timeanddate.com/worldclock/fixedtime.html?" + time+"&amp;p1=179"%>">here</a>
     to see when coding begins in other time zones.<br/></center>
+
+<% if (round_id == 10004) { %>
+<hr />
+In memoriam: <tc-webtag:handle coderId="13377493" context="<%=HandleTag.ALGORITHM%>"/>
+Last month, TopCoder lost a valued member and friend with the passing of Victor_lxd. We are dedicating this match
+to his memory, along with a $5,000 prize purse.
+
+With his wife also injured, we believe the best tribute we can make is to lend our support to Victor_lxd’s family.
+We invite all SRM 324 participants to consider pledging their winnings as a gift in Victor’s memory, though there is
+no obligation to do so – please indicate your preference when registering for the match.
+
+TopCoder will match any and all donations that members make during this SRM, up to a potential total gift of $10,000.
+Please join us in this tribute to one of our own.
+
+<hr />
+<% } %>
+
 <% if (rsr.getItem("forum_id").getResultData() != null && rsr.getIntItem("forum_id") != 0) { %>
-<center><strong><tc-webtag:forumLink forumID="<%=rsr.getIntItem("forum_id")%>" message="Discuss This Match"/></strong>
+<center><strong>
+    <tc-webtag:forumLink forumID="<%=rsr.getIntItem("forum_id")%>" message="Discuss This Match"/>
+</strong>
     <br/><br/></center>
 <% } %>
 <% if (round_id == 8075) { %>
@@ -128,7 +156,9 @@ TopCoder Employment Services is placing members in the Tampa Bay, FL area. <A HR
 <% } else if (round_id == 8070 || round_id == 8073 || round_id == 8076) { %>
 <br/>
 <b>If you're a member of <A href="/tc?module=Static&amp;d1=sponsors&amp;d2=sap">SAP Developer Network</A> AND take part
-    in <rsc:item name="contest_name" row="<%=rsr%>"/>, you'll be eligible for a chance to win one 60GB Apple iPod!</b>
+    in
+    <rsc:item name="contest_name" row="<%=rsr%>"/>
+    , you'll be eligible for a chance to win one 60GB Apple iPod!</b>
 <br/><br/>
 <table width="428" border="0" cellpadding="6" cellspacing="2">
     <tr valign="top">
@@ -173,7 +203,8 @@ For Official Contest Rules on how to win a 60GB Apple iPod click
             &#174;</sup>
             855GM CHIPSET, OEM BASEBOARD, DDR266 512MB (1x512MB) MEMORY, INTEGRATED GRAPHICS, TABLET FORM FACTOR
             CHASSIS, WINDOWS
-            XP TABLET PC OS, CALEXICO 802.11b (Intel<sup>&#174;</sup> PRO/Wireless 2100 network connection)</td>
+            XP TABLET PC OS, CALEXICO 802.11b (Intel<sup>&#174;</sup> PRO/Wireless 2100 network connection)
+        </td>
     </tr>
 
     <tr valign="top">
@@ -213,67 +244,167 @@ A given competitor will only be eligible to win, at most, one random drawing.
 <br/>
 <% } else if (round_id == 5849) { %>
 <table>
-    <tr><td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members
-        in Europe, Asia and Australia. The additional dates and times are as follows:</td></tr>
-    <tr><td class="bodyText"></td></tr>
-    <tr><td class="bodyText">August 10:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete
-        - 1:00PM ET</td></tr>
-    <tr><td class="bodyText">September 14:</td><td class="bodyText">Register - 6:00AM ET </td><td class="bodyText">
-        Compete - 9:00AM ET</td></tr>
-    <tr><td class="bodyText">October 4:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete
-        - 1:00PM ET</td></tr>
-    <tr><td class="bodyText">November 4:</td><td class="bodyText">Register - 6:00AM ET </td><td class="bodyText">Compete
-        - 9:00AM ET</td></tr>
-    <tr><td class="bodyText">December 6:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">
-        Compete - 1:00PM ET</td></tr>
+    <tr>
+        <td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members
+            in Europe, Asia and Australia. The additional dates and times are as follows:
+        </td>
+    </tr>
+    <tr>
+        <td class="bodyText"></td>
+    </tr>
+    <tr>
+        <td class="bodyText">August 10:</td>
+        <td class="bodyText">Register - 10:00AM ET</td>
+        <td class="bodyText">Compete
+            - 1:00PM ET
+        </td>
+    </tr>
+    <tr>
+        <td class="bodyText">September 14:</td>
+        <td class="bodyText">Register - 6:00AM ET</td>
+        <td class="bodyText">
+            Compete - 9:00AM ET
+        </td>
+    </tr>
+    <tr>
+        <td class="bodyText">October 4:</td>
+        <td class="bodyText">Register - 10:00AM ET</td>
+        <td class="bodyText">Compete
+            - 1:00PM ET
+        </td>
+    </tr>
+    <tr>
+        <td class="bodyText">November 4:</td>
+        <td class="bodyText">Register - 6:00AM ET</td>
+        <td class="bodyText">Compete
+            - 9:00AM ET
+        </td>
+    </tr>
+    <tr>
+        <td class="bodyText">December 6:</td>
+        <td class="bodyText">Register - 10:00AM ET</td>
+        <td class="bodyText">
+            Compete - 1:00PM ET
+        </td>
+    </tr>
 </table>
 <br/>
 <% } else if (round_id == 5853) { %>
 <table>
-    <tr><td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members
-        in Europe, Asia and Australia. The additional dates and times are as follows:</td></tr>
-    <tr><td class="bodyText"></td></tr>
-    <tr><td class="bodyText">September 14:</td><td class="bodyText">Register - 6:00AM ET </td><td class="bodyText">
-        Compete - 9:00AM ET</td></tr>
-    <tr><td class="bodyText">October 4:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete
-        - 1:00PM ET</td></tr>
-    <tr><td class="bodyText">November 4:</td><td class="bodyText">Register - 6:00AM ET </td><td class="bodyText">Compete
-        - 9:00AM ET</td></tr>
-    <tr><td class="bodyText">December 6:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">
-        Compete - 1:00PM ET</td></tr>
+    <tr>
+        <td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members
+            in Europe, Asia and Australia. The additional dates and times are as follows:
+        </td>
+    </tr>
+    <tr>
+        <td class="bodyText"></td>
+    </tr>
+    <tr>
+        <td class="bodyText">September 14:</td>
+        <td class="bodyText">Register - 6:00AM ET</td>
+        <td class="bodyText">
+            Compete - 9:00AM ET
+        </td>
+    </tr>
+    <tr>
+        <td class="bodyText">October 4:</td>
+        <td class="bodyText">Register - 10:00AM ET</td>
+        <td class="bodyText">Compete
+            - 1:00PM ET
+        </td>
+    </tr>
+    <tr>
+        <td class="bodyText">November 4:</td>
+        <td class="bodyText">Register - 6:00AM ET</td>
+        <td class="bodyText">Compete
+            - 9:00AM ET
+        </td>
+    </tr>
+    <tr>
+        <td class="bodyText">December 6:</td>
+        <td class="bodyText">Register - 10:00AM ET</td>
+        <td class="bodyText">
+            Compete - 1:00PM ET
+        </td>
+    </tr>
 </table>
 <br/>
 <% } else if (round_id == 5857) { %>
 <table>
-    <tr><td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members
-        in Europe, Asia and Australia. The additional dates and times are as follows:</td></tr>
-    <tr><td class="bodyText"></td></tr>
-    <tr><td class="bodyText">October 4:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete
-        - 1:00PM ET</td></tr>
-    <tr><td class="bodyText">November 4:</td><td class="bodyText">Register - 6:00AM ET </td><td class="bodyText">Compete
-        - 9:00AM ET</td></tr>
-    <tr><td class="bodyText">December 6:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">
-        Compete - 1:00PM ET</td></tr>
+    <tr>
+        <td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members
+            in Europe, Asia and Australia. The additional dates and times are as follows:
+        </td>
+    </tr>
+    <tr>
+        <td class="bodyText"></td>
+    </tr>
+    <tr>
+        <td class="bodyText">October 4:</td>
+        <td class="bodyText">Register - 10:00AM ET</td>
+        <td class="bodyText">Compete
+            - 1:00PM ET
+        </td>
+    </tr>
+    <tr>
+        <td class="bodyText">November 4:</td>
+        <td class="bodyText">Register - 6:00AM ET</td>
+        <td class="bodyText">Compete
+            - 9:00AM ET
+        </td>
+    </tr>
+    <tr>
+        <td class="bodyText">December 6:</td>
+        <td class="bodyText">Register - 10:00AM ET</td>
+        <td class="bodyText">
+            Compete - 1:00PM ET
+        </td>
+    </tr>
 </table>
 <br/>
 <% } else if (round_id == 5860) { %>
 <table>
-    <tr><td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members
-        in Europe, Asia and Australia. The additional dates and times are as follows:</td></tr>
-    <tr><td class="bodyText"></td></tr>
-    <tr><td class="bodyText">November 4:</td><td class="bodyText">Register - 6:00AM ET </td><td class="bodyText">Compete
-        - 9:00AM ET</td></tr>
-    <tr><td class="bodyText">December 6:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">
-        Compete - 1:00PM ET</td></tr>
+    <tr>
+        <td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members
+            in Europe, Asia and Australia. The additional dates and times are as follows:
+        </td>
+    </tr>
+    <tr>
+        <td class="bodyText"></td>
+    </tr>
+    <tr>
+        <td class="bodyText">November 4:</td>
+        <td class="bodyText">Register - 6:00AM ET</td>
+        <td class="bodyText">Compete
+            - 9:00AM ET
+        </td>
+    </tr>
+    <tr>
+        <td class="bodyText">December 6:</td>
+        <td class="bodyText">Register - 10:00AM ET</td>
+        <td class="bodyText">
+            Compete - 1:00PM ET
+        </td>
+    </tr>
 </table>
 <br/>
 <% } else if (round_id == 5864) { %>
 <table>
-    <tr><td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members
-        in Europe, Asia and Australia. The additional dates and times are as follows:</td></tr>
-    <tr><td class="bodyText"></td></tr>
-    <tr><td class="bodyText">December 7:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">
-        Compete - 1:00PM ET</td></tr>
+    <tr>
+        <td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members
+            in Europe, Asia and Australia. The additional dates and times are as follows:
+        </td>
+    </tr>
+    <tr>
+        <td class="bodyText"></td>
+    </tr>
+    <tr>
+        <td class="bodyText">December 7:</td>
+        <td class="bodyText">Register - 10:00AM ET</td>
+        <td class="bodyText">
+            Compete - 1:00PM ET
+        </td>
+    </tr>
 </table>
 <br/>
 <% } %>
@@ -283,8 +414,10 @@ A given competitor will only be eligible to win, at most, one random drawing.
 <TR>
     <TD COLSPAN="3" ALIGN="center">
         <table width="100%" cellspacing="0" cellpadding="3" border="0" bgcolor="#EEEEEE">
-            <tr valign="middle"><td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Getting started
-                in the Competition Arena</font></td></tr>
+            <tr valign="middle">
+                <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Getting started
+                    in the Competition Arena</font></td>
+            </tr>
             <tr>
                 <td class="bodyText">
                     <p style="padding: 3px">Load the Competition Arena as an
@@ -305,129 +438,186 @@ A given competitor will only be eligible to win, at most, one random drawing.
 </TR>
 
 <% if (round_id == 8070 || round_id == 8073 || round_id == 8076) { %>
-<TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
-    <font size="3"><b>***TopCoder will be giving away $5,000 per match sponsored by SAP. There will also be a raffle for
-        an iPod during each match.***</b></font><br/><br/>
-    <B>Single Round Match Description</B>
-    <UL>
-        <li>Competitors with a rating of 1200 or higher at the start of the match will be placed into a division one
-            room. All other competitors, including non-rated competitors, will be placed into a division two room.</li>
-        <li>Room assignments within each division will performed randomly, with prizes distributed evenly among all
-            rooms in each division.</li>
-        <li>70% of the total purse will be awarded to division one competitors, and 30% to division two
-            competitors.</li>
-        <li>Approximately 20 competitors will be assigned to each room.</li>
-        <li>The first, second, and third place coders in each division one room will receive 50%, 30%, and 20% of the
-            room award, respectively.</li>
-        <li>The first and second place competitors in each division two room will receive 60% and 40% of the room award,
-            respectively.</li>
-        <li>In the event of a tie for any prize winning position, the sum of the awards of the tied competitors will be
-            distributed evenly. (For example, if five coders tie for second place in a division one room, each will
-            receive (30%+20%)/5 or 10% of the room award.)</li>
-        <li>Prizes will only be awarded to competitors who finish with greater than zero scores.</li>
-        <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18
-            years of age, and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec
-            province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
-        <li><a href="/tc?module=Static&d1=help&d2=ratings">Rating changes</a> go into effect in next participated rated
-            event</li>
-        <li>For a complete guide to competing in a Single Round Match, read the
-            <a href="/tc?module=Static&amp;d1=help&amp;d2=index">Algorithm Competition Guide</a></li>
-    </UL>
-    <B>Eligibility:</B>
-    <UL>
-        <li>Any TopCoder member in good standing, who is at least 13 years of age, may compete in this competition.</li>
-        <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18
-            years of age, and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec
-            province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
-        <li>In the event that any member who is ineligible to receive prizes places in a position in which they would
-            receive a prize, they will be asked to pick a
-            <a href="/tc?module=Static&amp;d1=help&amp;d2=charity">charity</a> to which
-            to donate their prize. In the event that the member does not pick a charity, TopCoder will pick a charity to
-            which the ineligible member's prize will be paid.</li>
-        <li>Employees of SAP and/or persons living in the same household as such employees are ineligible to win prizes
-            in this competition and are ineligible to donate any prize to charity. If any such employee finishes in a
-            prize-winning position in the competition, the next-best competitor will either receive the prize or be able
-            to donate the applicable prize to a charity.</li>
-        <li>You must be a member of the SAP Developer Network to be eligible for the iPod raffle. Go here to register:
-            <a href="http://www.topcoder.com/?t=sponsor&amp;c=link&amp;link=http://sdn.sap.com">http://sdn.sap.com</a>
-            and use “TopCoder” as a referral.</li>
-    </UL>
-    <BR/><BR/>
+<TR>
+    <TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
+        <font size="3"><b>***TopCoder will be giving away $5,000 per match sponsored by SAP. There will also be a raffle
+            for
+            an iPod during each match.***</b></font><br/><br/>
+        <B>Single Round Match Description</B>
+        <UL>
+            <li>Competitors with a rating of 1200 or higher at the start of the match will be placed into a division one
+                room. All other competitors, including non-rated competitors, will be placed into a division two room.
+            </li>
+            <li>Room assignments within each division will performed randomly, with prizes distributed evenly among all
+                rooms in each division.
+            </li>
+            <li>70% of the total purse will be awarded to division one competitors, and 30% to division two
+                competitors.
+            </li>
+            <li>Approximately 20 competitors will be assigned to each room.</li>
+            <li>The first, second, and third place coders in each division one room will receive 50%, 30%, and 20% of
+                the
+                room award, respectively.
+            </li>
+            <li>The first and second place competitors in each division two room will receive 60% and 40% of the room
+                award,
+                respectively.
+            </li>
+            <li>In the event of a tie for any prize winning position, the sum of the awards of the tied competitors will
+                be
+                distributed evenly. (For example, if five coders tie for second place in a division one room, each will
+                receive (30%+20%)/5 or 10% of the room award.)
+            </li>
+            <li>Prizes will only be awarded to competitors who finish with greater than zero scores.</li>
+            <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18
+                years of age, and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the
+                Quebec
+                province of Canada, or anywhere else where this contest is prohibited by applicable law.
+            </li>
+            <li><a href="/tc?module=Static&d1=help&d2=ratings">Rating changes</a> go into effect in next participated
+                rated
+                event
+            </li>
+            <li>For a complete guide to competing in a Single Round Match, read the
+                <a href="/tc?module=Static&amp;d1=help&amp;d2=index">Algorithm Competition Guide</a></li>
+        </UL>
+        <B>Eligibility:</B>
+        <UL>
+            <li>Any TopCoder member in good standing, who is at least 13 years of age, may compete in this
+                competition.
+            </li>
+            <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18
+                years of age, and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the
+                Quebec
+                province of Canada, or anywhere else where this contest is prohibited by applicable law.
+            </li>
+            <li>In the event that any member who is ineligible to receive prizes places in a position in which they
+                would
+                receive a prize, they will be asked to pick a
+                <a href="/tc?module=Static&amp;d1=help&amp;d2=charity">charity</a> to which
+                to donate their prize. In the event that the member does not pick a charity, TopCoder will pick a
+                charity to
+                which the ineligible member's prize will be paid.
+            </li>
+            <li>Employees of SAP and/or persons living in the same household as such employees are ineligible to win
+                prizes
+                in this competition and are ineligible to donate any prize to charity. If any such employee finishes in
+                a
+                prize-winning position in the competition, the next-best competitor will either receive the prize or be
+                able
+                to donate the applicable prize to a charity.
+            </li>
+            <li>You must be a member of the SAP Developer Network to be eligible for the iPod raffle. Go here to
+                register:
+                <a href="http://www.topcoder.com/?t=sponsor&amp;c=link&amp;link=http://sdn.sap.com">http://sdn.sap.com</a>
+                and use “TopCoder” as a referral.
+            </li>
+        </UL>
+        <BR/><BR/>
 
-    <A CLASS="bodyText" href="/tc?module=MatchDetails&rd=<%=round_id%>&c=rules"><B>Click here for complete rules &amp;
-        regulations</B></A>
-</TD></TR>
+        <A CLASS="bodyText" href="/tc?module=MatchDetails&rd=<%=round_id%>&c=rules"><B>Click here for complete rules
+            &amp;
+            regulations</B></A>
+    </TD>
+</TR>
 
 <% } else if (round_id == 7223 || round_id == 8004 || round_id == 8005 || round_id == 7227 || round_id == 8007 || round_id == 8080 || round_id == 8069 || round_id == 8074 || round_id == 8083 || round_id == 9812 || round_id == 9815 || round_id == 9816 || round_id == 9820 || round_id == 9822 || round_id == 9997 || round_id == 9992 || round_id == 9999 || round_id == 10004 || round_id == 9995 || round_id == 10005 || round_id == 10002) { %>
-<TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
-    <font size="3"><b>Total Prize Purse of $5,000 !!!</b></font><br/><br/>
-    <B>Single Round Match Description</B>
-    <UL>
-        <li>Competitors with a rating of 1200 or higher at the start of the match will be placed into a division one
-            room. All other competitors, including non-rated competitors, will be placed into a division two room.</li>
-        <li>Room assignments within each division will performed randomly, with prizes distributed evenly among all
-            rooms in each division.</li>
-        <li>70% of the total purse will be awarded to division one competitors, and 30% to division two
-            competitors.</li>
-        <li>Approximately 20 competitors will be assigned to each room.</li>
-        <li>The first, second, and third place coders in each division one room will receive 50%, 30%, and 20% of the
-            room award, respectively.</li>
-        <li>The first and second place competitors in each division two room will receive 60% and 40% of the room award,
-            respectively.</li>
-        <li>In the event of a tie for any prize winning position, the sum of the awards of the tied competitors will be
-            distributed evenly. (For example, if five coders tie for second place in a division one room, each will
-            receive (30%+20%)/5 or 10% of the room award.)</li>
-        <li>Prizes will only be awarded to competitors who finish with greater than zero scores.</li>
-        <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18
-            years of age, and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec
-            province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
-        <li><a href="/tc?module=Static&d1=help&d2=ratings">Rating changes</a> go into effect in next participated rated
-            event</li>
-        <li>For a complete guide to competing in a Single Round Match, read the
-            <a href="/tc?module=Static&amp;d1=help&amp;d2=index">Algorithm Competition Guide</a></li>
-    </UL>
-    <B>Eligibility:</B>
-    <UL>
-        <li>Any TopCoder member in good standing, who is at least 13 years of age, may compete in this competition.</li>
-        <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18
-            years of age, and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec
-            province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
-        <li>In the event that any member who is ineligible to receive prizes places in a position in which they would
-            receive a prize, they will be asked to pick a
-            <a href="/tc?module=Static&amp;d1=help&amp;d2=charity">charity</a> to which
-            to donate their prize. In the event that the member does not pick a charity, TopCoder will pick a charity to
-            which the ineligible member's prize will be paid.</li>
-    </UL>
-    <BR/><BR/>
+<TR>
+    <TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
+        <font size="3"><b>Total Prize Purse of $5,000 !!!</b></font><br/><br/>
+        <B>Single Round Match Description</B>
+        <UL>
+            <li>Competitors with a rating of 1200 or higher at the start of the match will be placed into a division one
+                room. All other competitors, including non-rated competitors, will be placed into a division two room.
+            </li>
+            <li>Room assignments within each division will performed randomly, with prizes distributed evenly among all
+                rooms in each division.
+            </li>
+            <li>70% of the total purse will be awarded to division one competitors, and 30% to division two
+                competitors.
+            </li>
+            <li>Approximately 20 competitors will be assigned to each room.</li>
+            <li>The first, second, and third place coders in each division one room will receive 50%, 30%, and 20% of
+                the
+                room award, respectively.
+            </li>
+            <li>The first and second place competitors in each division two room will receive 60% and 40% of the room
+                award,
+                respectively.
+            </li>
+            <li>In the event of a tie for any prize winning position, the sum of the awards of the tied competitors will
+                be
+                distributed evenly. (For example, if five coders tie for second place in a division one room, each will
+                receive (30%+20%)/5 or 10% of the room award.)
+            </li>
+            <li>Prizes will only be awarded to competitors who finish with greater than zero scores.</li>
+            <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18
+                years of age, and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the
+                Quebec
+                province of Canada, or anywhere else where this contest is prohibited by applicable law.
+            </li>
+            <li><a href="/tc?module=Static&d1=help&d2=ratings">Rating changes</a> go into effect in next participated
+                rated
+                event
+            </li>
+            <li>For a complete guide to competing in a Single Round Match, read the
+                <a href="/tc?module=Static&amp;d1=help&amp;d2=index">Algorithm Competition Guide</a></li>
+        </UL>
+        <B>Eligibility:</B>
+        <UL>
+            <li>Any TopCoder member in good standing, who is at least 13 years of age, may compete in this
+                competition.
+            </li>
+            <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18
+                years of age, and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the
+                Quebec
+                province of Canada, or anywhere else where this contest is prohibited by applicable law.
+            </li>
+            <li>In the event that any member who is ineligible to receive prizes places in a position in which they
+                would
+                receive a prize, they will be asked to pick a
+                <a href="/tc?module=Static&amp;d1=help&amp;d2=charity">charity</a> to which
+                to donate their prize. In the event that the member does not pick a charity, TopCoder will pick a
+                charity to
+                which the ineligible member's prize will be paid.
+            </li>
+        </UL>
+        <BR/><BR/>
 
-    <A CLASS="bodyText" HREF="/tc?module=MatchRules&rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for
-        complete rules &amp; regulations</B></A>
-</TD></TR>
+        <A CLASS="bodyText" HREF="/tc?module=MatchRules&rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for
+            complete rules &amp; regulations</B></A>
+    </TD>
+</TR>
 
 <% } else { %>
-<TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
-    <B>Single Round Match Description</B>
-    <UL>
-        <LI>Maximum of 20 coders per room</LI>
-        <LI>Ratings will be adjusted post-match</LI>
-        <LI>Members will be emailed prior to the match with date and time (opt-in)</LI>
-    </UL>
-    The match will feature a mixed programming language format. For each individual problem, the coder will have the
-    option of using either Java, C++, Microsoft&#174; Visual C#&#174; .NET or Microsoft&#174; Visual Basic&#174; .NET to
-    code the solution. Syntactical knowledge of all four languages will be helpful during the challenge phase of each
-    round of competition.<BR/><BR/>
-    <B>Divisions and Room Assignments:</B>
-    <UL>
-        <LI>Members rated 1200 or better compete in Division-I</LI>
-        <LI>Members rated 1199 or lower compete in Division-II</LI>
-        <LI>Members not yet rated compete in Division-II</LI>
-        <LI>Room assignments place members of like divisions together</LI>
-        <LI>Rating changes go into effect in next participated match</LI></UL>
-    <B>Eligibility:</B><BR/><BR/>
-    Anyone who is at least 13 years of age may compete in any Single Round Match.<BR/><BR/>
-    <A CLASS="bodyText" HREF="/tc?module=MatchRules&rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for
-        complete rules &amp; regulations</B></A>
-</TD></TR>
+<TR>
+    <TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
+        <B>Single Round Match Description</B>
+        <UL>
+            <LI>Maximum of 20 coders per room</LI>
+            <LI>Ratings will be adjusted post-match</LI>
+            <LI>Members will be emailed prior to the match with date and time (opt-in)</LI>
+        </UL>
+        The match will feature a mixed programming language format. For each individual problem, the coder will have the
+        option of using either Java, C++, Microsoft&#174; Visual C#&#174; .NET or Microsoft&#174; Visual Basic&#174;
+        .NET to
+        code the solution. Syntactical knowledge of all four languages will be helpful during the challenge phase of
+        each
+        round of competition.<BR/><BR/>
+        <B>Divisions and Room Assignments:</B>
+        <UL>
+            <LI>Members rated 1200 or better compete in Division-I</LI>
+            <LI>Members rated 1199 or lower compete in Division-II</LI>
+            <LI>Members not yet rated compete in Division-II</LI>
+            <LI>Room assignments place members of like divisions together</LI>
+            <LI>Rating changes go into effect in next participated match</LI>
+        </UL>
+        <B>Eligibility:</B><BR/><BR/>
+        Anyone who is at least 13 years of age may compete in any Single Round Match.<BR/><BR/>
+        <A CLASS="bodyText" HREF="/tc?module=MatchRules&rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for
+            complete rules &amp; regulations</B></A>
+    </TD>
+</TR>
 <% } %>
 </TABLE>
 
