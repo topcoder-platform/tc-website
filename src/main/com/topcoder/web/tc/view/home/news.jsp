@@ -15,7 +15,7 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewPastContests">results</A> | 
-         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums/forums?module=ThreadList&forumID=18">discuss this</A> | 
+         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=18">discuss this</A> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 --------------------%>
