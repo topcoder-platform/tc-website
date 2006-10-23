@@ -54,8 +54,8 @@ public class EditAttachments extends ForumsProcessor {
         getRequest().setAttribute("forum", forum);
         getRequest().setAttribute("postMode", "Edit");
         
-        setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
-        setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
+        setDefault(ForumConstants.FORUM_ID, String.valueOf(forumID));
+        setDefault(ForumConstants.MESSAGE_ID, String.valueOf(messageID));
         setDefault(ForumConstants.POST_MODE, "Edit");
         setDefault(ForumConstants.MESSAGE_SUBJECT, subject);
         setDefault(ForumConstants.MESSAGE_BODY, textareaBody);

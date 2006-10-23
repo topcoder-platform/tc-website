@@ -62,15 +62,16 @@ public class Post extends ForumsProcessor {
             	
                 setDefault(ForumConstants.MESSAGE_SUBJECT, message.getSubject());
                 setDefault(ForumConstants.MESSAGE_BODY, ForumsUtil.createTextAreaBody(message.getUnfilteredBody()));
+                getRequest().getSession().setAttribute("tempMessage", message);
+            } else {
+            	ForumMessage tempMessage = (ForumMessage)getRequest().getSession().getAttribute("tempMessage");
+                if (tempMessage == null || !forum.equals(tempMessage.getForum())) { 
+                	tempMessage = forum.createMessage(user);
+                	getRequest().getSession().setAttribute("tempMessage", tempMessage);
+                }   	
             }
             getRequest().setAttribute("message", message);
             getRequest().setAttribute("thread", message.getForumThread());
-        }
-
-        ForumMessage tempMessage = (ForumMessage)getRequest().getSession().getAttribute("tempMessage");
-        if (tempMessage == null || !forum.equals(tempMessage.getForum())) { 
-        	tempMessage = forum.createMessage(user);
-        	getRequest().getSession().setAttribute("tempMessage", tempMessage);
         }
         
         getRequest().setAttribute("forum", forum);

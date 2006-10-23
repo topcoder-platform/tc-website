@@ -495,16 +495,16 @@ public class ForumsUtil {
         return linkStr.toString();
     }
     
-    // Converts a file size into a nicely formatted string. Sizes of < 1 KB are expressed in B, < 1 MB are 
+    // Converts a file size into a formatted string. Sizes of < 1 KB are expressed in B, < 1 MB are 
     // expressed in KB, and >= 1 MB are expressed in MB.
     public static String getFileSizeStr(long bytes) {
     	NumberFormat formatter = new DecimalFormat("0.0");  
-    	if (bytes < 1000) {
+    	if (bytes < 1024) {
     		return bytes + " B";
-    	} else if (bytes < 1000000) {
-    		return formatter.format(((double)bytes)/1000.0) + " KB";
+    	} else if (bytes < 1048576) {
+    		return formatter.format(((double)bytes)/1024.0) + " KB";
     	} else {
-    		return formatter.format(((double)bytes)/1000000.0) + " MB";
+    		return formatter.format(((double)bytes)/1048576.0) + " MB";
     	}
     }
 }
