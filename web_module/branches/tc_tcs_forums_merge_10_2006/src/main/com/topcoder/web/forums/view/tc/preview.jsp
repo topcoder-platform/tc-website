@@ -139,14 +139,27 @@ function AllowTabCharacter() {
          <%   } %>
         </td>
     </tr>
-   <tr>
-   <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
-   <%  if (ForumsUtil.displayMemberPhoto(user, user)) { %>
-      <img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
-   <%  } %>
-   <span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></A></div></td>
-   <td class="rtTextCell100"><%=message.getBody()%></td>
-   </tr>
+	<% 	if (message.getAttachmentCount() > 0) { %>
+		<tr>
+			<td class="rtHeader" colspan="2">
+				Attachments:
+				<%	Iterator attachments = message.getAttachments();
+					while(attachments.hasNext()) {
+						Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
+						<img align="absmiddle" src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" />
+						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
+				<% 	} %>
+			</td>
+		</tr>
+	<% } %>
+	<tr>
+	   <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
+	   <%  if (ForumsUtil.displayMemberPhoto(user, user)) { %>
+	      <img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
+	   <%  } %>
+	   <span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></A></div></td>
+	   <td class="rtTextCell100"><%=message.getBody()%></td>
+	</tr>
 </table>
 
 <span class="bodySubtitle">Edit Message</span><br/>
@@ -166,7 +179,7 @@ function AllowTabCharacter() {
 					while(attachments.hasNext()) {
 						Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
 						<img align="absmiddle" src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" />
-						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
+						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
 				<% 	} %>
 			</td>
 		</tr>
