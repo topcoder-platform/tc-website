@@ -52,7 +52,7 @@ padding: 3px 5px 3px 5px;
 <h2>SRM 323 Chat Transcript</h2>
 <table class="bodyText" cellpadding="0" cellspacing="0" width="100%">
 <tr><td class="header">Handle</td><td class="header" width="100%">Comment</td></tr>
-<tr><td class="light"><b>BB_Christine</b></td><td class="light">Welcome</td></tr>
+<tr><td class="light"><span class="bigRed">BB_Christine</span></td><td class="light"><span class="bigRed">Welcome</td></tr>
 <tr><td class="dark"><b>mastermage</b></td><td class="dark">hi</td></tr>
 <tr><td class="light"><b>superkinhluan</b></td><td class="light">i must admit I know very little about bloomberg</td></tr>
 <tr><td class="dark"><b>harvey6ft</b></td><td class="dark">Hello everyone!</td></tr>
@@ -60,13 +60,13 @@ padding: 3px 5px 3px 5px;
 <tr><td class="dark"><b>tywok</b></td><td class="dark">are you going to be at TCCC?</td></tr>
 <tr><td class="light"><b>harvey6ft</b></td><td class="light">Where is Bloomberg?</td></tr>
 <tr><td class="dark"><span class="bigRed">BB_Stuart</span></td><td class="dark"><span class="bigRed">tywok: definetly. I will be there. With 3 other programmers and an HR rep</span></td></tr>
-<tr><td class="light"><b>BB_Christine</b></td><td class="light">Hi superkinhluan&gt;: A great place to learn more about us at bloomberg.com. We are a leading global provider in data, news and analytics</td></tr>
-<tr><td class="dark"><b>BB_Christine</b></td><td class="dark">We are Located in 126 countries around the world.</td></tr>
+<tr><td class="light"><span class="bigRed">BB_Christine</span></td><td class="light"><span class="bigRed">Hi superkinhluan&gt;: A great place to learn more about us at bloomberg.com. We are a leading global provider in data, news and analytics</td></tr>
+<tr><td class="dark"><span class="bigRed">BB_Christine</span></td><td class="dark"><span class="bigRed">We are Located in 126 countries around the world.</td></tr>
 <tr><td class="light"><b>tywok</b></td><td class="light">BB_Stuart: cool</td></tr>
 <tr><td class="dark"><span class="bigRed">BB_Stuart</span></td><td class="dark"><span class="bigRed">We are headquatered in NY. But have many offices in 126 countries</span></td></tr>
 <tr><td class="light"><b>tywok</b></td><td class="light">BB_Stuart: I suppose we'll meet there</td></tr>
 <tr><td class="dark"><b>harvey6ft</b></td><td class="dark">What countries are you hiring in now?</td></tr>
-<tr><td class="light"><b>BB_Christine</b></td><td class="light">NY, NJ, London</td></tr>
+<tr><td class="light"><span class="bigRed">BB_Christine</span></td><td class="light"><span class="bigRed">NY, NJ, London</td></tr>
 <tr><td class="dark"><span class="bigRed">BB_Stuart</span></td><td class="dark"><span class="bigRed">we are hiring in NY, Princetion (US) and London (UK)</span></td></tr>
 <tr><td class="light"><b>harvey6ft</b></td><td class="light">What technologies do you work with at Bloomberg?</td></tr>
 <tr><td class="dark"><span class="bigRed">BB_Stuart</span></td><td class="dark"><span class="bigRed">we largely use C++ on Unix.</span></td></tr>
@@ -92,13 +92,13 @@ padding: 3px 5px 3px 5px;
 <tr><td class="dark"><b>superkinhluan</b></td><td class="dark">does BB have office in Singapore?</td></tr>
 <tr><td class="light"><span class="bigRed">BB_Stuart</span></td><td class="light"><span class="bigRed">we do. but it is NOT a development office. Just the less important things like Sales</span></td></tr>
 <tr><td class="dark"><b>superkinhluan</b></td><td class="dark">then, do you hire international candidate?</td></tr>
-<tr><td class="light"><b>BB_Christine</b></td><td class="light">Yes we do hire international candidate</td></tr>
+<tr><td class="light"><span class="bigRed">BB_Christine</span></td><td class="light"><span class="bigRed">Yes we do hire international candidate</td></tr>
 <tr><td class="dark"><b>superkinhluan</b></td><td class="dark">how do I apply?</td></tr>
 <tr><td class="light"><b>harvey6ft</b></td><td class="light">How many people are you going to hire this year out of college?</td></tr>
 <tr><td class="dark"><b>ali_raza_shaikh</b></td><td class="dark">BB_Christine: What technical skills you are looking for?</td></tr>
 <tr><td class="light"><b>superkinhluan</b></td><td class="light">how are the interviews conducted?</td></tr>
 <tr><td class="dark"><span class="bigRed">BB_Stuart</span></td><td class="dark"><span class="bigRed">Hello Everyone. My name is Stuart. I am a senior developer at Bloomberg. With me is Tara (currently known as Christine) from HR. We are here to answer any questions you may have. If you havent got that already</span></td></tr>
-<tr><td class="light"><b>BB_Christine</b></td><td class="light">http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg</td></tr>
+<tr><td class="light"><span class="bigRed">BB_Christine</span></td><td class="light"><span class="bigRed">http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg</td></tr>
 <tr><td class="dark"><b>ali_raza_shaikh</b></td><td class="dark">BB_Christine: any prefferend languages?</td></tr>
 <tr><td class="light"><b>ali_raza_shaikh</b></td><td class="light">BB_Christine: * any preferred language?</td></tr>
 <tr><td class="dark"><b>Peterpay</b></td><td class="dark">BB_Christine: is there any way to follow the process of my job application</td></tr>
@@ -109,32 +109,32 @@ padding: 3px 5px 3px 5px;
 <tr><td class="light"><span class="bigRed">BB_Stuart</span></td><td class="light"><span class="bigRed">there are a few rounds of interviews.</span></td></tr>
 <tr><td class="dark"><b>superkinhluan</b></td><td class="dark">how's the interview conducted for international candidates?</td></tr>
 <tr><td class="light"><b>vahem</b></td><td class="light">BB_Christine: Do you offer internship for international students?</td></tr>
-<tr><td class="dark"><b>BB_Christine</b></td><td class="dark">We do relocation, more information will be provided once we move forward in the process</td></tr>
-<tr><td class="light"><b>BB_Christine</b></td><td class="light">yes we do offer internships for international students</td></tr>
-<tr><td class="dark"><b>BB_Christine</b></td><td class="dark">Are you an international candidate studying in the US?</td></tr>
+<tr><td class="dark"><span class="bigRed">BB_Christine</span></td><td class="dark"><span class="bigRed">We do relocation, more information will be provided once we move forward in the process</td></tr>
+<tr><td class="light"><span class="bigRed">BB_Christine</span></td><td class="light"><span class="bigRed">yes we do offer internships for international students</td></tr>
+<tr><td class="dark"><span class="bigRed">BB_Christine</span></td><td class="dark"><span class="bigRed">Are you an international candidate studying in the US?</td></tr>
 <tr><td class="light"><b>Peterpay</b></td><td class="light">superkinhluan: first resume review, then phone screen adn then face to face interview the normal way</td></tr>
 <tr><td class="dark"><b>nikzzz</b></td><td class="dark">I just interested in international intership, how can i find more info?</td></tr>
 <tr><td class="light"><b>vahem</b></td><td class="light">BB_Christine: No. I study in Yerevan, Armenia.</td></tr>
 <tr><td class="dark"><b>superkinhluan</b></td><td class="dark">Peterpay: is that applied to international candidates too?</td></tr>
 <tr><td class="light"><b>superkinhluan</b></td><td class="light">Peterpay: if I don't stay in US, how can I have a face-to-face interview?</td></tr>
 <tr><td class="dark"><b>vahem</b></td><td class="dark">BB_Christine: Do you offer internship for students studying out of US? I do well at TopCoder. What are my chances to be accepted for internship at Bloomberg?</td></tr>
-<tr><td class="light"><b>BB_Christine</b></td><td class="light">The interview process will start with a phone screen and if there is interested the face to face will be conducted in the NY or London.</td></tr>
+<tr><td class="light"><span class="bigRed">BB_Christine</span></td><td class="light"><span class="bigRed">The interview process will start with a phone screen and if there is interested the face to face will be conducted in the NY or London.</td></tr>
 <tr><td class="dark"><span class="bigRed">BB_Stuart</span></td><td class="dark"><span class="bigRed">For HR Questions ask "Christine" for R&D ask Stuart</span></td></tr>
 <tr><td class="light"><b>Peterpay</b></td><td class="light">superkinhluan: ive applied from mexic</td></tr>
-<tr><td class="dark"><b>BB_Christine</b></td><td class="dark">We have internships in London is that something you are interested in? vahem&gt;</td></tr>
-<tr><td class="light"><b>BB_Christine</b></td><td class="light">Mexico can be a US internship.</td></tr>
+<tr><td class="dark"><span class="bigRed">BB_Christine</span></td><td class="dark"><span class="bigRed">We have internships in London is that something you are interested in? vahem&gt;</td></tr>
+<tr><td class="light"><span class="bigRed">BB_Christine</span></td><td class="light"><span class="bigRed">Mexico can be a US internship.</td></tr>
 <tr><td class="dark"><b>superkinhluan</b></td><td class="dark">BB_Stuart: what projects are you recruiting for right now?</td></tr>
 <tr><td class="light"><b>vahem</b></td><td class="light">BB_Christine: Yes I am interested in internship in London. Is it going to take place during summer vacations?</td></tr>
 <tr><td class="dark"><span class="bigRed">BB_Stuart</span></td><td class="dark"><span class="bigRed">we recruit for Programming in general across all areas. Fixed Income, Equity, Trading Systems, Execution, Technology</span></td></tr>
 <tr><td class="light"><b>tywok</b></td><td class="light">after which year of university is it possible to get an intership?</td></tr>
 <tr><td class="dark"><span class="bigRed">BB_Stuart</span></td><td class="dark"><span class="bigRed">usually between junior and senior and in the us system</span></td></tr>
-<tr><td class="light"><b>BB_Christine</b></td><td class="light">vahem&gt; yes it is during the summer, please visit careers.bloomberg.com -&gt; Europe --&gt; Internships</td></tr>
-<tr><td class="dark"><b>BB_Christine</b></td><td class="dark">vahem&gt; more then 85% of our internships to Jr And Seniors.</td></tr>
+<tr><td class="light"><span class="bigRed">BB_Christine</span></td><td class="light"><span class="bigRed">vahem&gt; yes it is during the summer, please visit careers.bloomberg.com -&gt; Europe --&gt; Internships</td></tr>
+<tr><td class="dark"><span class="bigRed">BB_Christine</span></td><td class="dark"><span class="bigRed">vahem&gt; more then 85% of our internships to Jr And Seniors.</td></tr>
 <tr><td class="light"><b>vahem</b></td><td class="light">I am a sophomore now.</td></tr>
 <tr><td class="dark"><b>emka207</b></td><td class="dark">BB_Stuart: are the openings only for positions based in US?</td></tr>
 <tr><td class="light"><b>vahem</b></td><td class="light">Is it possible for me to have internship between this year and my junior year.</td></tr>
-<tr><td class="dark"><b>BB_Christine</b></td><td class="dark">thats perfect when you take the internship you will be an incoming Junior</td></tr>
-<tr><td class="light"><b>BB_Christine</b></td><td class="light">yes</td></tr>
+<tr><td class="dark"><span class="bigRed">BB_Christine</span></td><td class="dark"><span class="bigRed">thats perfect when you take the internship you will be an incoming Junior</td></tr>
+<tr><td class="light"><span class="bigRed">BB_Christine</span></td><td class="light"><span class="bigRed">yes</td></tr>
 <tr><td class="dark"><b>vahem</b></td><td class="dark">OK. Nice to hear that.</td></tr>
 <tr><td class="light"><b>emka207</b></td><td class="light">BB_Stuart: will there be any training given for some of us that has no finance background?</td></tr>
 <tr><td class="dark"><b>vahem</b></td><td class="dark">BB_Christine: Thanks for the link.</td></tr>
@@ -159,7 +159,7 @@ padding: 3px 5px 3px 5px;
 <tr><td class="light"><b>MadGuy</b></td><td class="light">Well, i'm graduating in 2007 may.</td></tr>
 <tr><td class="dark"><span class="bigRed">BB_Stuart</span></td><td class="dark"><span class="bigRed">MadGuy: Hello</span></td></tr>
 <tr><td class="light"><b>MadGuy</b></td><td class="light">can i apply for bloomberg?</td></tr>
-<tr><td class="dark"><b>BB_Christine</b></td><td class="dark">Hi</td></tr>
+<tr><td class="dark"><span class="bigRed">BB_Christine</span></td><td class="dark"><span class="bigRed">Hi</td></tr>
 <tr><td class="light"><b>MadGuy</b></td><td class="light">i'm doing my bsc in se at IIT-Sri lanka.</td></tr>
 <tr><td class="dark"><span class="bigRed">BB_Stuart</span></td><td class="dark"><span class="bigRed">MadGuy: Thats fine. We are looking for people who grad this year</span></td></tr>
 <tr><td class="light"><b>emka207</b></td><td class="light">BB_Stuart: I graduated last year, and had been writing my own trading system for a couple of months.. not for my full time Job..</td></tr>
@@ -167,7 +167,7 @@ padding: 3px 5px 3px 5px;
 <tr><td class="light"><b>MadGuy</b></td><td class="light">what are the positions available for me to apply?</td></tr>
 <tr><td class="dark"><span class="bigRed">BB_Stuart</span></td><td class="dark"><span class="bigRed">we are looking for software developers in NY, NJ and London</span></td></tr>
 <tr><td class="light"><b>MadGuy</b></td><td class="light">i'm doing the 4 yrs honours degree.</td></tr>
-<tr><td class="dark"><b>BB_Christine</b></td><td class="dark">we have the financial software developer position in NY&lt; NJ and LO</td></tr>
+<tr><td class="dark"><span class="bigRed">BB_Christine</span></td><td class="dark"><span class="bigRed">we have the financial software developer position in NY&lt; NJ and LO</td></tr>
 <tr><td class="light"><b>MadGuy</b></td><td class="light">i'm more good in java and less in c++ of course.</td></tr>
 <tr><td class="dark"><span class="bigRed">BB_Stuart</span></td><td class="dark"><span class="bigRed">emka: thats pretty cool. we do look for people up to a few years out of school for this position as well</span></td></tr>
 <tr><td class="light"><span class="bigRed">BB_Stuart</span></td><td class="light"><span class="bigRed">thats fine if your main lang isnt c++. However, if Java is your lang, your should be strong in that, because that is what we will interview you on. If you are a good programmer you will pick up the C++ quickly</span></td></tr>
@@ -175,21 +175,21 @@ padding: 3px 5px 3px 5px;
 <tr><td class="light"><span class="bigRed">BB_Stuart</span></td><td class="light"><span class="bigRed">Bloomberg builds large scale financial systems that are used around the world 24/7. It covers all markets (FI, Equity) and countries</span></td></tr>
 <tr><td class="dark"><b>MadGuy</b></td><td class="dark">since i live in SL and i dont have financial facility to go abroad, what are the chances for me to apply? how are you gonna interview me in such a senario?</td></tr>
 <tr><td class="light"><span class="bigRed">BB_Stuart</span></td><td class="light"><span class="bigRed">emka: talk to chrisitne on HR questions. but you can apply through the website</span></td></tr>
-<tr><td class="dark"><b>BB_Christine</b></td><td class="dark">We do some international recruiting for both internships are Full Time positions, since we do not visit SL you can visit our career site and apply via careers.bloomberg.com</td></tr>
-<tr><td class="light"><b>BB_Christine</b></td><td class="light">your interview will start with a phone screen and if you are selected you will have a face to face interview at the closest R&D office</td></tr>
+<tr><td class="dark"><span class="bigRed">BB_Christine</span></td><td class="dark"><span class="bigRed">We do some international recruiting for both internships are Full Time positions, since we do not visit SL you can visit our career site and apply via careers.bloomberg.com</td></tr>
+<tr><td class="light"><span class="bigRed">BB_Christine</span></td><td class="light"><span class="bigRed">your interview will start with a phone screen and if you are selected you will have a face to face interview at the closest R&D office</td></tr>
 <tr><td class="dark"><b>MadGuy</b></td><td class="dark">can i apply eventhough i'm not a rated topcoder member? :D since this is my first time here.</td></tr>
-<tr><td class="light"><b>BB_Christine</b></td><td class="light">Yes, Ofcourse</td></tr>
+<tr><td class="light"><span class="bigRed">BB_Christine</span></td><td class="light"><span class="bigRed">Yes, Ofcourse</td></tr>
 <tr><td class="dark"><b>dai_yx</b></td><td class="dark">hello boys</td></tr>
 <tr><td class="light"><b>MadGuy</b></td><td class="light">where else do you have offices except usa?</td></tr>
 <tr><td class="dark"><span class="bigRed">BB_Stuart</span></td><td class="dark"><span class="bigRed">london</span></td></tr>
 <tr><td class="light"><b>dai_yx</b></td><td class="light">how about you</td></tr>
-<tr><td class="dark"><b>BB_Christine</b></td><td class="dark">around the world...126 countries..technology is is in NY and London</td></tr>
-<tr><td class="light"><b>BB_Christine</b></td><td class="light">NJ also (US)</td></tr>
+<tr><td class="dark"><span class="bigRed">BB_Christine</span></td><td class="dark"><span class="bigRed">around the world...126 countries..technology is is in NY and London</td></tr>
+<tr><td class="light"><span class="bigRed">BB_Christine</span></td><td class="light"><span class="bigRed">NJ also (US)</td></tr>
 <tr><td class="dark"><b>d0nJuan_</b></td><td class="dark">hey mr</td></tr>
 <tr><td class="light"><b>d0nJuan_</b></td><td class="light">hey mrbobguy whatsup</td></tr>
 <tr><td class="dark"><b>UWFhollaback</b></td><td class="dark">Stuart: how can i send you my resume?</td></tr>
 <tr><td class="light"><span class="bigRed">BB_Stuart</span></td><td class="light"><span class="bigRed">through topcoder or on the bloomberg website</span></td></tr>
-<tr><td class="dark"><b>BB_Christine</b></td><td class="dark">careers.bloomberg.com</td></tr>
+<tr><td class="dark"><span class="bigRed">BB_Christine</span></td><td class="dark"><span class="bigRed">careers.bloomberg.com</td></tr>
 <tr><td class="light"><b>thanhtung</b></td><td class="light">N.M.Hieu: dong chi cung thi ah</td></tr>
 <tr><td class="dark"><b>N.M.Hieu</b></td><td class="dark">thanhtung: Ko , register thoi</td></tr>
 <tr><td class="light"><b>N.M.Hieu</b></td><td class="light">thanhtung: con thi hay ko thi chua biet</td></tr>
@@ -227,7 +227,7 @@ padding: 3px 5px 3px 5px;
 <tr><td class="light"><b>N.M.Hieu</b></td><td class="light">thanhtung: ca tien la dang an com :D</td></tr>
 <tr><td class="dark"><b>thanhtung</b></td><td class="dark">N.M.Hieu: ko</td></tr>
 <tr><td class="light"><b>thanhtung</b></td><td class="light">N.M.Hieu: da an uong gi dau</td></tr>
-<tr><td class="dark"><b>BB_Christine</b></td><td class="dark">Thanks everyone: GOOD LUCK!</td></tr>
+<tr><td class="dark"><span class="bigRed">BB_Christine</span></td><td class="dark"><span class="bigRed">Thanks everyone: GOOD LUCK!</td></tr>
 <tr><td class="light"><b></b></td><td class="light"></td></tr>
 </table>
 
