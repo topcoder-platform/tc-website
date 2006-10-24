@@ -90,7 +90,6 @@
 <c:when test="${payment.typeId == 13}"><!-- studio --></c:when>
 <c:when test="${payment.typeId == 14}"><!-- problem testing --></c:when>
 <c:when test="${payment.typeId == 15}"><!-- problem writing --></c:when>
-<c:when test="${payment.typeId == 20}"><!-- royalty --></c:when>
 <c:when test="${payment.typeId == 24}"><!-- reliability --></c:when>
 <c:otherwise>
     <tr class="<%=even?"light":"dark"%>">
