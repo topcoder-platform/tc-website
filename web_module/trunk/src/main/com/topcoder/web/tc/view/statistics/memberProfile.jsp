@@ -1,9 +1,8 @@
 <%@  page language="java"
-    import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
-          java.util.Map"%>
+    import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,com.topcoder.shared.util.ApplicationServer,
+          com.topcoder.web.common.StringUtils"%>
 
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
-<%@ page import="com.topcoder.web.common.StringUtils"%>
+<%@ page import="java.util.Map"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -130,7 +129,7 @@ This member has not yet been rated in a competition.
          </table>
       </td>
       <td class="quoteCell">
-        <% if(!rscCoderData.getStringItem(0,"quote").equals("")) {%>
+        <% if(!"".equals(StringUtils.checkNull(rscCoderData.getStringItem(0,"quote")))) {%>
         <div class="quoteBox"><span class="quoteTitle">Quote:</span><br><br>
         <div align="center">"<%=StringUtils.htmlEncode(rscCoderData.getStringItem(0, "quote"))%>"</div></div>
         <%}%>
