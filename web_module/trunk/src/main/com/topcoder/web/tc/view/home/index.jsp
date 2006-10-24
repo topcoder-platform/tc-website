@@ -220,18 +220,15 @@
 <td class="homeRightCol">
     <table border="0" cellpadding="0" cellspacing="0">
         <tr><td class="homeBigPromo">
+            <%-- China 
+            <A href="/tc?module=Static&d1=pressroom&d2=pr_102506" target="_blank"><img src="/i/home/china_20061025.png" alt="Now Open in China" border="0" style="display:block;" /></A>
+            --%>
+            <%-- Maverick --%>
             <A href="/images/downloads/mavericks_at_work.pdf" target="_blank"><img src="/i/home/mavericks_100206.gif" alt="Mavericks at Work" border="0" style="display:block;" /></A>
 
-            <%-- WSJ   
+            <%-- WSJ
             <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0" style="display:block;" /></A>
             --%> 
-            <%-- TCCC & DR 
-<map name="tccc_cddc_dr">
-<area shape="rect" alt="" coords="1,1,130,139" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
-<area shape="rect" alt="" coords="140,1,269,139" href="/tc?module=Static&d1=digital_run&d2=description" />
-</map>
-<IMG SRC="/i/home/tccc06_digrun_sm.gif" border="0" alt="TCCC06 CDDC REGISTRATION OPEN & THE DIGITAL RUN" usemap="#tccc_cddc_dr" />
-            --%>
             <%-- Intel MTCS
                         <A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0"  style="display:block;" /></A>
             --%>
