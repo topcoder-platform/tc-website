@@ -248,9 +248,14 @@
             <td class="homeText"><br>
 
                 <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/gigaOm_logo.jpg" width="80" height="26" alt="gigaOm" border="0" /></div>
+                The New American Idol&#8230; The Coder</A>
+                <A href="http://gigaom.com/2006/10/23/the-new-american-idol-the-coder/" target="_blank">...more</A><br>[October 24]<br><br>
+
+                <div style="float: right; padding-left: 5px;">
                 <img src="/i/pressroom/wallstreetnTech_logo.gif" width="80" height="30" alt="Wall Street &amp; Technology" border="0" /></div>
                 <i>Wall Street & Technology</i> on TopCoder and UBS
-                <A href="http://www.wallstreetandtech.com/showArticle.jhtml;jsessionid=0U21ZF2KMDLJYQSNDLPCKHSCJUNN2JVN?articleID=193400878">...more</A><br>[October 23]<br><br>
+                <A href="http://www.wallstreetandtech.com/showArticle.jhtml;jsessionid=0U21ZF2KMDLJYQSNDLPCKHSCJUNN2JVN?articleID=193400878" target="_blank">...more</A><br>[October 23]<br><br>
 
                 AOL to Webcast TCCC06 Live on November 17
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_101106">...more</A><br>[October 11]<br><br>
@@ -270,9 +275,6 @@
                 <A href="/audio/open_source_060928_24kb.mp3" target="_blank">lo 6.8mb</A> &#160;|&#160;
                 <A href="/audio/open_source_060928_48kb.mp3" target="_blank">hi 13.8mb</A><br>[October 4]<br><br>
             
-                New Software Assembly contest: $22,500 in prizes!
-                <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_costingEngineAdminTool">...more</A><br>[September 20]<br><br>
-
             </td>
         </tr>
         <tr>
