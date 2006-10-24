@@ -39,6 +39,25 @@
    </td></tr>
 --------------------------------%>
 <%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
+        <br>10.24.06<br>4:20 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm17">TCHS SRM 17 - Problem Set & Analysis</A></span><br><br>
+TCHS SRM 17 proved to be quite difficult, making for a very exciting challenge phase as half of the medium submissions alone were successfully challenged.
+            </td>
+            <td class="newsPhoto"><img src="/i/m/eleusive_big2.jpg" alt="" width="55" height="61"/><br>by
+                <tc-webtag:handle coderId="8369955" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm17">full story</A> |
+    <tc-webtag:forumLink forumID="506039" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.24.06<br>4:00 PM</td>
      <td class="newsTextCell"><span class="newsTitle">
@@ -213,23 +232,5 @@ In his second ever HS match, <tc-webtag:handle coderId="22652504" context="hs_al
     <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_3">full story</A> |
     <tc-webtag:forumLink forumID="506145" message="discuss this"/> |
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>10.16.06<br>2:45 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=101606">TCCC Preview: Past Winners Tell All</A></span><br><br>
-               With the Collegiate Challenge less than a month away, we asked some past TCCC winners for some advice and feedback that could come in 
-               handy in San Diego.</td>
-            <td class="newsPhoto"><img src="/i/m/kzimmerman_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="21196141"/></td></tr>
-        </table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&amp;d1=features&amp;d2=101606">article</A> |
-    <tc-webtag:forumLink forumID="506146" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 
