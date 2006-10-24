@@ -100,6 +100,9 @@ public class PostMessage extends ForumsProcessor {
                 getRequest().setAttribute("message", message);
             }
             
+            ForumMessage tempMessage = (ForumMessage)getRequest().getSession().getAttribute("tempMessage_" + tempMessageIDStr); 
+            getRequest().setAttribute("tempMessage", tempMessage);
+            
 			getRequest().setAttribute("forum", forum);
             getRequest().setAttribute("postMode", postMode);
 

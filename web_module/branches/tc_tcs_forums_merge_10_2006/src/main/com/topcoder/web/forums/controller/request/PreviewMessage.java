@@ -88,6 +88,8 @@ public class PreviewMessage extends ForumsProcessor {
             addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_LONG_MESSAGE_BODY);
         }
 		if (hasErrors()) {
+			ForumMessage tempMessage = (ForumMessage)getRequest().getSession().getAttribute("tempMessage_" + tempMessageIDStr); 
+            getRequest().setAttribute("tempMessage", tempMessage);
             setNextPage("/post.jsp");
             setIsNextPageInContext(true);
             return;

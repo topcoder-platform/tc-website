@@ -79,6 +79,8 @@ public class AttachFiles extends ForumsProcessor {
         }
 
 		if (hasErrors()) {
+			ForumMessage tempMessage = (ForumMessage)getRequest().getSession().getAttribute("tempMessage_" + tempMessageIDStr); 
+            getRequest().setAttribute("tempMessage", tempMessage);
             setNextPage("/post.jsp");
             setIsNextPageInContext(true);
             return;
