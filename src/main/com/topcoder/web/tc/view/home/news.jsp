@@ -26,7 +26,7 @@
 ------------------------%>
 <%--------------------------------------------------------%>
    <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.24.06<br>11:30 AM</td>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.24.06<br>12:45 PM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="http://gigaom.com/2006/10/23/the-new-american-idol-the-coder/" target="_blank">The New American Idol&#8230; The Coder</A></span><br><br>
        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/gigaOm_logo.jpg" width="80" height="26" alt="gigaOm" border="0" /></div>
        Om Malik discusses his take on the newest trend of big technology companies promoting and webcasting <i>codercons</i>, aka marathon coder events where hackers jock for hacking props.
