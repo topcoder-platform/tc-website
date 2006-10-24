@@ -44,7 +44,8 @@ public class PayReliabilityBonus extends DBUtility {
         query.append("payment_detail pd ");
         query.append("WHERE p.user_id = pr.user_id ");
         query.append("AND component_project_id = pr.project_id ");
-        query.append("AND p.most_recent_detail_id = pd.payment_detail_id ");        
+        query.append("AND p.most_recent_detail_id = pd.payment_detail_id ");      
+        query.append("AND pr.reliability_ind = 1 ");
         query.append("AND old_reliability >= 0.8 ");
         query.append("AND not exists ");
         query.append("   (SELECT 1 FROM payment_detail pd2 ");
@@ -53,6 +54,8 @@ public class PayReliabilityBonus extends DBUtility {
         
         PreparedStatement psSelProjects = prepareStatement("informixoltp", query.toString());
         
+		log.info("user_id;project_id;reliability_percent;bonus_amount;old_reliability;gross_amount");
+
         int count = 0;
         ResultSet rs = psSelProjects.executeQuery();
         while (rs.next()) {
