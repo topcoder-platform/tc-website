@@ -41,7 +41,6 @@ public class Post extends ForumsProcessor {
 
 		setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
 		setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
-		setDefault(ForumConstants.TEMP_MESSAGE_ID, getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
 		setDefault(ForumConstants.POST_MODE, postMode);
 
         Forum forum = forumFactory.getForum(forumID);
@@ -69,10 +68,12 @@ public class Post extends ForumsProcessor {
             		getAttribute("tempMessage_"	+ tempMessageIDStr);
                 if (tempMessage == null) { 
                 	getRequest().setAttribute(ForumConstants.TEMP_MESSAGE_ID, String.valueOf(ForumsUtil.tempMessageID));
+                	setDefault(ForumConstants.TEMP_MESSAGE_ID, String.valueOf(ForumsUtil.tempMessageID));
                 	tempMessage = forum.createMessage(user);
                 	getRequest().getSession().setAttribute("tempMessage_" + ForumsUtil.tempMessageID++, tempMessage);
                 } else {
                 	getRequest().setAttribute(ForumConstants.TEMP_MESSAGE_ID, tempMessageIDStr);
+                	setDefault(ForumConstants.TEMP_MESSAGE_ID, getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
                 }
                 getRequest().setAttribute("tempMessage", tempMessage);
             }
