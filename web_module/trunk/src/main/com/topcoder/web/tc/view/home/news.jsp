@@ -26,6 +26,20 @@
 ------------------------%>
 <%--------------------------------------------------------%>
    <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.24.06<br>11:30 AM</td>
+       <td class="newsTextCell"><span class="newsTitle"><A href="http://gigaom.com/2006/10/23/the-new-american-idol-the-coder/" target="_blank">The New American Idol&#8230; The Coder</A></span><br><br>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/gigaOm_logo.jpg" width="80" height="26" alt="gigaOm" border="0" /></div>
+       Om Malik discusses his take on the newest trend of big technology companies promoting and webcasting <i>codercons</i>, aka marathon coder events where hackers jock for hacking props.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://gigaom.com/2006/10/23/the-new-american-idol-the-coder/" target="_blank">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506156" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>10.23.05<br>6:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewPastContests">leungxiao wins Digital Run logo contest</A></span><br><br>
       Congratulations to leungxiao, the winner of TopCoder Studio's Digital Run logo design contest. 
@@ -211,24 +225,3 @@ A lot of red coders performed below their level today -- and some of them got el
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
 
-<%---------------------------------------------
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
-        <br>10.13.06<br>12:00 NOON</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle">
-            <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_9">Intel&#174; Multi-Threading Competition 9 - Analysis</A></span><br><br>
-During this marathon, we were asked to write a program that
-  would select polyominoes of a chosen size and try to place them on a board in
-  way that maximizes the score.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/MB___big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15600321" /></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_9">full story</A> |
-    <tc-webtag:forumLink forumID="506106" message="discuss this"/> |
-    <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
------------%>
