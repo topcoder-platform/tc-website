@@ -27,9 +27,10 @@ public class RemoveAttachment extends ForumsProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
         
-        String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
-        String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
         String forumIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.FORUM_ID));
+        String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
+        String tempMessageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
+        String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
         
         String strAttachmentID = getRequest().getParameter(ForumConstants.ATTACHMENT_ID);
         long attachmentID = Long.parseLong(strAttachmentID);
@@ -37,7 +38,7 @@ public class RemoveAttachment extends ForumsProcessor {
         
         ForumMessage messageToRemoveFrom = null;
         if (postMode.equals("New") || postMode.equals("Reply")) {
-        	messageToRemoveFrom = (ForumMessage) getRequest().getSession().getAttribute("tempMessage"); 
+        	messageToRemoveFrom = (ForumMessage) getRequest().getSession().getAttribute("tempMessage_" + tempMessageIDStr); 
         } else if (postMode.equals("Edit")) {
             long messageID = Long.parseLong(messageIDStr);
             messageToRemoveFrom = forumFactory.getMessage(messageID);
@@ -68,6 +69,9 @@ public class RemoveAttachment extends ForumsProcessor {
         StringBuffer urlNext = new StringBuffer(getSessionInfo().getServletPath()).append("?module=Post");
         urlNext.append("&").append(ForumConstants.FORUM_ID).append("=").append(forumIDStr);
         urlNext.append("&").append(ForumConstants.MESSAGE_ID).append("=").append(messageIDStr);
+        if (!postMode.equals("Edit")) {
+        	 urlNext.append("&").append(ForumConstants.TEMP_MESSAGE_ID).append("=").append(tempMessageIDStr);
+        }
         urlNext.append("&").append(ForumConstants.POST_MODE).append("=").append(postMode);
         setNextPage(urlNext.toString());
 		setIsNextPageInContext(false);

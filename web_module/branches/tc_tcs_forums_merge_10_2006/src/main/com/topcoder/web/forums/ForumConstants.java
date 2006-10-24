@@ -13,6 +13,7 @@ public interface ForumConstants {
 	public final static String FORUM_ID = "forumID";
 	public final static String THREAD_ID = "threadID";
 	public final static String MESSAGE_ID = "messageID";
+	public final static String TEMP_MESSAGE_ID = "tmID";
     public final static String USER_ID = "userID";
     public final static String ANNOUNCEMENT_ID = "annID";
     public final static String POLL_ID = "pollID";

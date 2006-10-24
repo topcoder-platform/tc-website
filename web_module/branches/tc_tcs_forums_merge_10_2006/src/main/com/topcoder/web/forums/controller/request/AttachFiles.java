@@ -37,6 +37,7 @@ public class AttachFiles extends ForumsProcessor {
         
         String forumIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.FORUM_ID));
         String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
+        String tempMessageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
         String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
         String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags(
                 getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
@@ -62,6 +63,7 @@ public class AttachFiles extends ForumsProcessor {
         
         setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
         setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
+        setDefault(ForumConstants.TEMP_MESSAGE_ID, getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
         setDefault(ForumConstants.POST_MODE, postMode);
         setDefault(ForumConstants.MESSAGE_SUBJECT, subject);
         setDefault(ForumConstants.MESSAGE_BODY, textareaBody);
@@ -83,7 +85,7 @@ public class AttachFiles extends ForumsProcessor {
 		}
 		
         ForumMessage tempMessage = 
-        	(ForumMessage)getRequest().getSession().getAttribute("tempMessage");   // message for preview
+        	(ForumMessage)getRequest().getSession().getAttribute("tempMessage_" + tempMessageIDStr);
         tempMessage.setSubject(subject);
         tempMessage.setBody(body);
         

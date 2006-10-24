@@ -19,7 +19,10 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%  ForumMessage message = (ForumMessage)request.getAttribute("message");
-	ForumMessage tempMessage = (ForumMessage)request.getSession().getAttribute("tempMessage");
+	ForumMessage tempMessage = (ForumMessage)request.getAttribute("tempMessage");
+	if (postMode.equals("Edit")) {
+		tempMessage = message;
+	}
     ForumThread thread = (ForumThread)request.getAttribute("thread");
     HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
 
@@ -152,6 +155,7 @@ function AllowTabCharacter() {
 <tc-webtag:hiddenInput name="module"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.FORUM_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.MESSAGE_ID%>"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.TEMP_MESSAGE_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
 
 <tr><td class="rtHeader" colspan="2"><%=postHeading%></td></tr>

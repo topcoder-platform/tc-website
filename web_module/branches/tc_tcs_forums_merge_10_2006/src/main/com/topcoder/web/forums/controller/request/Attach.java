@@ -38,6 +38,7 @@ public class Attach extends ForumsProcessor {
 		String postMode = getRequest().getParameter(ForumConstants.POST_MODE);        
         String forumIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.FORUM_ID));
         String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
+        String tempMessageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
         String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags(
                 getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
@@ -54,6 +55,7 @@ public class Attach extends ForumsProcessor {
 
 		setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
 		setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
+		setDefault(ForumConstants.TEMP_MESSAGE_ID, getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
 		setDefault(ForumConstants.POST_MODE, postMode);
         setDefault(ForumConstants.MESSAGE_SUBJECT, subject);
         setDefault(ForumConstants.MESSAGE_BODY, textareaBody);
@@ -66,7 +68,7 @@ public class Attach extends ForumsProcessor {
 
         ForumMessage messageToAttachTo = null;
         if (postMode.equals("New") || postMode.equals("Reply")) {
-        	messageToAttachTo = (ForumMessage) getRequest().getSession().getAttribute("tempMessage"); 
+        	messageToAttachTo = (ForumMessage) getRequest().getSession().getAttribute("tempMessage_" + tempMessageIDStr); 
         } else if (postMode.equals("Edit")) {
             long messageID = Long.parseLong(messageIDStr);
             messageToAttachTo = forumFactory.getMessage(messageID);

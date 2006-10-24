@@ -144,6 +144,7 @@ function isClicked() {
 <tc-webtag:hiddenInput name="module"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.FORUM_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.MESSAGE_ID%>"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.TEMP_MESSAGE_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.MESSAGE_SUBJECT%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.MESSAGE_BODY%>"/>
