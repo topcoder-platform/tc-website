@@ -1,7 +1,7 @@
 /*
  * ProjectStatus.java
  *
- * Copyright � 2003, TopCoder, Inc. All rights reserved
+ * Copyright 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;

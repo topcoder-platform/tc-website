@@ -98,12 +98,13 @@ public class Common {
                 newManager = (Refreshable) Class.forName("com.topcoder.apps.review.projecttracker." + key).newInstance();
             }
 
+            /* just ignore
             try {
                 //System.out.println("Common.addManager, class: " + newManager.getClass().getName());
                 newManager.refresh();
             } catch (RefreshException e) {
                 throw new RuntimeException(e);
-            }
+            }*/
 
             cache.put(key, newManager);
         } catch (InstantiationException e1) {
