@@ -24,7 +24,7 @@
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 ------------------------%>
-<%------------------------ Now Open in China piece
+<%--------------------------------------------------------%>
    <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.25.06<br>9:00 AM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_102506">TC Launches Operations in China with New Beijing Appointment</A></span><br><br>
@@ -35,9 +35,9 @@
    <tr><td class="newsLinksCell">
        <A href="/tc?module=Static&d1=pressroom&d2=pr_102506" target="_blank">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506157" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
---------------------------------%>
+
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
@@ -211,26 +211,5 @@ In his second ever HS match, <tc-webtag:handle coderId="22652504" context="hs_al
     <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm16">full story</A> |
     <tc-webtag:forumLink forumID="506038" message="discuss this"/> |
     <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
-        <br>10.16.06<br>5:15 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_3">TCCC06 Round 3 - Problem Set & Analysis</A></span><br><br>
-    In the last online round before an onsite event, coding skills are not the only factor involved.
-    Nerves can easily disrupt the thought process and ruin everything. Those who had been in this situation
-    before certainly had an advantage.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/Yarin_big.jpg" alt="" width="55" height="61"/><br>by
-                <tc-webtag:handle coderId="269554" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=match_editorials&d2=tccc06_online_rd_3">full story</A> |
-    <tc-webtag:forumLink forumID="506145" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
 
