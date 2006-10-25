@@ -62,6 +62,13 @@ public interface ForumConstants {
     public final static String PROPERTY_HIDE_MAIN_RSS = "hideMainRSS";
     public final static String PROPERTY_LINK_NAMES = "linkNames";
     public final static String PROPERTY_LINK = "link";
+    public final static String PROPERTY_ARCHIVAL_STATUS = "archivalStatus";
+    public final static String PROPERTY_COMPONENT_STATUS = "componentStatus";
+    public final static String PROPERTY_COMPONENT_VERSION_ID = "compVersionId";
+    public final static String PROPERTY_COMPONENT_ROOT_CATEGORY_ID = "compRootCategoryId";
+    public final static String PROPERTY_COMPONENT_TECH_TYPES = "compTechTypes";
+    public final static String PROPERTY_FORUM_TYPE = "forumType";
+    public final static String PROPERTY_VERSION_TEXT = "versionText";
 
     // Admin
     public final static String ADMIN_COMMAND = "cmd";

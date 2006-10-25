@@ -5,6 +5,7 @@ package com.topcoder.web.forums.util;
 
 import com.topcoder.dde.catalog.Catalog;
 import com.topcoder.dde.catalog.ComponentVersionInfo;
+import com.topcoder.web.forums.ForumConstants;
 import com.jivesoftware.forum.ForumCategory;
 
 /**
@@ -63,7 +64,7 @@ public class ImageMapper {
 	}
 	
 	public static String getStatusProperty(ForumCategory category, int propIdx) {
-		String strComponentStatus = category.getProperty("componentStatus");
+		String strComponentStatus = category.getProperty(ForumConstants.PROPERTY_COMPONENT_STATUS);
 		if(strComponentStatus == null) {
 			return "";
 		}
@@ -87,7 +88,7 @@ public class ImageMapper {
 	}
 	
 	public static String getTechnologyProperty(ForumCategory category, int propIdx) {
-		String strRootCategoryId = category.getProperty("rootCategoryId");
+		String strRootCategoryId = category.getProperty(ForumConstants.PROPERTY_COMPONENT_ROOT_CATEGORY_ID);
 		if (strRootCategoryId == null) {
 			return "";
 		}

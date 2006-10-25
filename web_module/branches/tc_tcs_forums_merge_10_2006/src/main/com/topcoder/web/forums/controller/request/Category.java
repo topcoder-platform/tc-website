@@ -12,7 +12,6 @@ import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Paging;
 import com.topcoder.web.forums.controller.ForumsUtil;
 
-import java.util.Iterator;
 import java.util.ArrayList;
 
 /**

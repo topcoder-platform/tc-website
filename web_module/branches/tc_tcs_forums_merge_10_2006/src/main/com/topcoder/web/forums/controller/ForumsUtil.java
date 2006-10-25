@@ -252,7 +252,7 @@ public class ForumsUtil {
         return forumsList;
     }
     
-    // Returns categories in a category, with empty categories omitted or placed at the list's end.
+    // Returns categories in a category, with empty/archived categories omitted or placed at the list's end.
     public static ArrayList getCategories(ForumCategory forumCategory, ResultFilter resultFilter,
             boolean excludeEmptyCategories) {
         Iterator itCategories = forumCategory.getCategories();
@@ -260,6 +260,7 @@ public class ForumsUtil {
         ArrayList emptyCategories = new ArrayList();
         while (itCategories.hasNext()) {
         	ForumCategory c = (ForumCategory)itCategories.next();
+        	if ("archived".equals(c.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS))) continue;
         	if (c.getMessageCount() > 0) {
         		categoriesList.add(c);
         	} else {
