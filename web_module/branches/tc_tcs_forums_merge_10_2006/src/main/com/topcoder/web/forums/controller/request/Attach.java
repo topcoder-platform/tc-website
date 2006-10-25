@@ -85,6 +85,7 @@ public class Attach extends ForumsProcessor {
         	setNextPage(getSessionInfo().getServletPath() + 
     				"?module=Message&" + ForumConstants.MESSAGE_ID + "=" + messageToAttachTo.getID());
     		setIsNextPageInContext(false);
+    		return;
         }
         
         Forum forum = forumFactory.getForum(forumID);
@@ -129,8 +130,7 @@ public class Attach extends ForumsProcessor {
             uploadedFileBIS = new BufferedInputStream(is);
             
             message.createAttachment(fileName, uploadedFile.getContentType(), uploadedFileBIS);
-        }
-        catch (AttachmentException e) {
+        } catch (AttachmentException e) {
         	e.printStackTrace();
             if (e.getErrorType() == AttachmentException.TOO_LARGE) {
                 List args = new ArrayList();
@@ -149,16 +149,13 @@ public class Attach extends ForumsProcessor {
             	String errorMessage = (e.getMessage() != null ? e.getMessage() : ForumConstants.ERR_ATTACHING);
             	addError(ForumConstants.ATTACHMENT_ERROR, errorMessage);
             }
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
         	e.printStackTrace();
         	addError(ForumConstants.ATTACHMENT_ERROR, e.getMessage());
-        }
-        catch (UnauthorizedException e) {
+        } catch (UnauthorizedException e) {
         	e.printStackTrace();
         	addError(ForumConstants.ATTACHMENT_ERROR, "Sorry, you do not have permission to attach files.");
-        }
-        finally {
+        } finally {
         	if (uploadedFileBIS != null) {
     		    try {
     		    	uploadedFileBIS.close();

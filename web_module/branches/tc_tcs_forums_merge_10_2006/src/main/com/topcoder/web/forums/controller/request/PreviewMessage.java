@@ -3,6 +3,9 @@
  */
 package com.topcoder.web.forums.controller.request;
 
+import java.util.Iterator;
+
+import com.jivesoftware.forum.Attachment;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
@@ -98,10 +101,16 @@ public class PreviewMessage extends ForumsProcessor {
         ForumMessage previewMessage = (ForumMessage)getRequest().getSession().getAttribute("tempMessage_" + tempMessageIDStr);
         if (previewMessage == null) {
         	previewMessage = forum.createMessage(user);
-        	getRequest().getSession().setAttribute("tempMessage", previewMessage);
         }
 		previewMessage.setSubject(subject);
         previewMessage.setBody(body);
+        if (postMode.equals("Edit")) {
+	        Iterator itAttachments = message.getAttachments();
+			while (itAttachments.hasNext()) {
+				Attachment attachment = (Attachment)itAttachments.next();
+				previewMessage.createAttachment(attachment.getName(), attachment.getContentType(), attachment.getData());
+			}
+        }
 
         getRequest().setAttribute("message", previewMessage);        
         
