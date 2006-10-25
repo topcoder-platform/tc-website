@@ -24,9 +24,22 @@
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 ------------------------%>
+<%----------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>10.25.06<br>10:00 AM</td>
+     <td class="newsTextCell"><span class="newsTitle"><A href="">survey</A></span><br><br>
+      
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?&module=ViewSurvey&sid=6535">view survey</A>&#160;|&#160;
+    <tc-webtag:forumLink forumID="000000" message="discuss this"/> |
+         <A href="/tc?&module=SurveyList">archive</A>
+   </td></tr>
+----------------------------%>
 <%--------------------------------------------------------%>
    <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.25.06<br>9:00 AM</td>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.25.06<br>10:00 AM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_102506">TC Launches Operations in China with New Beijing Appointment</A></span><br><br>
        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/china_20061024.png" width="72" height="32" alt="Now Open in China" border="0" /></div>
        TopCoder today announced it has hired Yingying Wu as Vice President of Operations for TopCoder in Asia. Wu will oversee and manage TopCoder business relationships and will build TopCoder's market presence and member enrollment throughout the greater China and Asia region.
@@ -192,24 +205,4 @@ expression in the hard one.
     <tc-webtag:forumLink forumID="506113" message="discuss this"/> |
      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
-        <br>10.17.06<br>3:45 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm16">TCHS SRM 16 - Problem Set & Analysis</A></span><br><br>
-<tc-webtag:handle coderId="22652504" context="hs_algorithm"/> won the first HS event in three weeks.
-In his second ever HS match, <tc-webtag:handle coderId="22652504" context="hs_algorithm"/> destroyed the field -- recording the highest score on the hard problem, racking up +475 points on challenges and winning by more than 400 points.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by
-                <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm16">full story</A> |
-    <tc-webtag:forumLink forumID="506038" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-</td></tr>
 
