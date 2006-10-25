@@ -129,7 +129,11 @@ public class Attach extends ForumsProcessor {
         	is = uploadedFile.getInputStream();
             uploadedFileBIS = new BufferedInputStream(is);
             
-            message.createAttachment(fileName, uploadedFile.getContentType(), uploadedFileBIS);
+            if (message.getAttachmentCount() >= forumFactory.getAttachmentManager().getMaxAttachmentsPerMessage()) {
+            	addError(ForumConstants.ATTACHMENT_ERROR, AttachmentException.messages[AttachmentException.TOO_MANY_ATTACHMENTS]);
+            } else {
+            	message.createAttachment(fileName, uploadedFile.getContentType(), uploadedFileBIS);
+            }
         } catch (AttachmentException e) {
         	e.printStackTrace();
             if (e.getErrorType() == AttachmentException.TOO_LARGE) {
