@@ -42,7 +42,10 @@
 <div style="padding: 8px 0px 8px 0px;"><span class="bigTitle">AOL XMPP Gateway</span></div>
                   
 <div class="sectionHeader">Overview</div>
-<span class="bodySubtitle">Application Overview</span><br>
+<span class="bodySubtitle">Application Overview</span>
+<br><br>
+<span class="bigRed">The XMPP Gateway project has been re-launched with a full timeline. All of the competition kinks have been worked out, so here is your chance to earn $30,000 and build an exciting enterprise system that could be used by millions of people.</span>
+<br><br>
 The XMPP Gateway provides a communication interface to the AOL Instant Messenger (AIM) platform that is compliant with eXtensible Messaging and Presence Protocol (XMPP). This allows XMPP and Jabber clients to sign on to the AIM network for instant messaging.
 <br><br>
 The XMPP Gateway is composed of a series of components built through the TopCoder Component Production methodology. Additionally, a set of components has been developed to utilize the AIM SDK. 
@@ -88,10 +91,10 @@ Documentation/Specifications are available in the application forums <A href="ht
 TopCoder will compensate teams with first and second place submissions. Initial payment for the winning team will be distributed in two installments. First Milestone: When the winning solution is submitted and review board suggestions are integrated. Second Milestone: Marked by the completion of the Deployment phase of the project.
 <br><br>
 <strong>Winning Team</strong><br>
-Total Payment - $15,000
+Total Payment - $30,000
 <br><br>
 <strong>Second Place Team</strong><br>
-Total Payment - $7,500
+Total Payment - $15,000
 <br><br>
 
 <div class="sectionHeader">Eligibility</div>
@@ -117,24 +120,25 @@ All submissions are required to be submitted by the end of Competition Phase. Th
       <td><strong>Phase</strong></td><td align="right"><strong>Start</strong></td><td align="right"><strong>End</strong></td>
    </tr>
    <tr>
-      <td>Team Creation:</td><td align="right">09.29.2006</td><td align="right">10.09.2006</td>
+      <td>Team Creation:</td><td align="right">10.25.2006</td><td align="right">10.30.2006</td>
    </tr>
    <tr>
-      <td>Competition Phase:</td><td align="right">10.10.2006</td><td align="right">10.23.2006</td>
+      <td>Competition Phase:</td><td align="right">10.25.2006</td><td align="right">11.15.2006</td>
    </tr>
    <tr>
-      <td>Review Phase:</td><td align="right">10.24.2006</td><td align="right">10.31.2006</td>
+      <td>Review Phase:</td><td align="right">11.15.2006</td><td align="right">11.22.2006</td>
    </tr>
    <tr>
-      <td>Feedback Phase:</td><td align="right">11.01.2006</td><td align="right">11.02.2006</td>
+      <td>Feedback Phase:</td><td align="right">11.22.2006</td><td align="right">11.23.2006</td>
    </tr>
 </table>
 </div>
 <br><br>
 <div class="sectionHeader">Registration</div>
+<%--
 Registration is closed.
 <br><br>
-<%--
+--%>
 To sign up as a Team Captain or a Free Agent, send an email to <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: AOL XMPP Gateway">AssemblyCompetitions@topcoder.com</A>.  In the email, include the following information:
 <ul>
 <li>Handle</li>
@@ -147,7 +151,6 @@ To sign up as a Team Captain or a Free Agent, send an email to <A href="mailto:A
    <li>Note that for this competition, all team members, including the Team Captain, will receive an equal percentage of the prize money.</li>
    </ul>
 </ul>
---%>
 
 <div class="sectionHeader">Submission</div>
 Once your team has working code you are ready to submit, you can do so by emailing your source code to <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Submission: AOL XMPP Gateway">AssemblySubmissions@topcoder.com</A> before the end of the Competition Phase.  Your team can submit code as many times as you wish before the submission deadline without any penalties.  The last code submitted prior to the deadline will be used as your final submission.
