@@ -95,12 +95,17 @@ public class NewSchemaFixUtility extends DBUtility {
     private void processReviewersPaymentInfo() throws SQLException, RemoteException {
         StringBuffer query = new StringBuffer(200);
         query.append("select rur.login_id, rur.project_id, sum(pi.payment) as payment ");
-        query.append("from tcs_catalog:r_user_role rur, tcs_catalog:payment_info pi ");
+        query.append("from tcs_catalog:r_user_role rur, tcs_catalog:payment_info pi, tcs_catalog:project p ");
         query.append("where pi.cur_version = 1 ");
         query.append("and pi.payment > 0 ");
         query.append("and rur.cur_version = 1 ");
         query.append("and rur.r_role_id in (2,3,4,5) ");
         query.append("and rur.payment_info_id = pi.payment_info_id ");
+        query.append("and rur.project_id = p.project_id ");
+        query.append("and p.cur_version = 1 ");
+        query.append("and p.project_stat_id in (4,5,6,7) "); // correct status
+        query.append("and nvl(p.complete_date, p.rating_date) >= '2004-10-22 10:29:15.000' "); // this is when the status started being updated 
+        query.append("and pi.payment_stat_id = 2 "); // only paid 
         query.append("and not exists ( ");
         query.append("select * from payment p, payment_detail pd ");
         query.append("where p.most_recent_detail_id = pd.payment_detail_id ");
