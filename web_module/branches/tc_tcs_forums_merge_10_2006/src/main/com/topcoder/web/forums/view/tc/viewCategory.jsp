@@ -220,8 +220,8 @@
         <tr>
             <td class="rtThreadCellWrap">
             	<%	if ("software".equals(forumCategory.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME))) { %>
-                	<img src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getStatusIcon(category)%>" alt="<%=ImageMapper.getStatusText(category)%>" width="25" height="17" border="0">
-					<img src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getTechnologyIcon(category)%>" alt="<%=ImageMapper.getTechnologyText(category)%>" border="0"/>
+                	<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getStatusIcon(category)%>" alt="<%=ImageMapper.getStatusText(category)%>" width="25" height="17" border="0">
+					<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getTechnologyIcon(category)%>" alt="<%=ImageMapper.getTechnologyText(category)%>" border="0"/>
 				<%	} %>
                 <% if (user == null) { %>
                 <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=category.getMessageCount()%>" class="rtLinkNew"><%=category.getName()%></A>
