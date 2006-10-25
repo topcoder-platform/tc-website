@@ -24,19 +24,19 @@
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 ------------------------%>
-<%----------------------------
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>10.25.06<br>10:00 AM</td>
-     <td class="newsTextCell"><span class="newsTitle"><A href="">survey</A></span><br><br>
-      
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>10.25.06<br>1:00 PM</td>
+     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=10004">Ajax survey</A></span><br><br>
+      How much do you know about Ajax technologies?  Please take a moment to answer the following survey.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?&module=ViewSurvey&sid=6535">view survey</A>&#160;|&#160;
-    <tc-webtag:forumLink forumID="000000" message="discuss this"/> |
+         <A href="/tc?module=ViewSurvey&sid=10004">view survey</A>&#160;|&#160;
+        <tc-webtag:forumLink forumID="506158" message="discuss this"/> |
          <A href="/tc?&module=SurveyList">archive</A>
    </td></tr>
-----------------------------%>
+
 <%--------------------------------------------------------%>
    <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.25.06<br>10:00 AM</td>
