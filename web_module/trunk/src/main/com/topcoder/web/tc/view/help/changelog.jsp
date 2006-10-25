@@ -41,11 +41,23 @@
     <jsp:param name="image1" value="white"/>
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
+<p>
+    5.5.4 - 2006.10.xx
+    <ul>
+        <li>Fix member search so that it can search for HS only members</li>
+        <li>Fix member profile so that it can show HS only members</li>
+
+    </ul>
+ </p>
 
 <p>
-    5.5.3 - 2006.10.zz
+    5.5.3 - 2006.10.23
     <ul>
         <li>Change max request rate for site</li>
+        <li>Add independent login to administrative PACTs interface</li>
+        <li>Add additional search criteria to administrative PACTs interface</li>
+        <li>Add more payment types to member PACTs payment view</li>
+        <li>Break the affidavits/payments page into two distinct pages</li>
 <%--
         <li>don't kill the queue connection when ejbremove is called on the pacts ejb</li>
 --%>
