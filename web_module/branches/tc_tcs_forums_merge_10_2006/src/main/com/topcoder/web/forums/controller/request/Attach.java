@@ -166,9 +166,9 @@ public class Attach extends ForumsProcessor {
         	if (errors.size() > 0) {
         		log.info("Errors encountered when attaching file: " + uploadedFile.getRemoteFileName() + 
                 		" (" + uploadedFile.getSize() + " bytes)");
-        		Iterator itErrors = errors.values().iterator();
-        		while (itErrors.hasNext()) {
-        			log.info("\t"+(String)itErrors.next());
+        		ArrayList errorsList = (ArrayList)errors.get(ForumConstants.ATTACHMENT_ERROR);
+        		for (int i=0; i<errorsList.size(); i++) {
+        			log.info("\t"+(String)errorsList.get(i));
         		}
         	}
         	if (uploadedFileBIS != null) {

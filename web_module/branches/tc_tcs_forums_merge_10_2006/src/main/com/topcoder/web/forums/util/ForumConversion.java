@@ -189,6 +189,9 @@ public class ForumConversion {
             // create a category for topcoder forum
             ForumMaster forum = (ForumMaster) it.next();
             String categoryName = forum.getName();
+            if (forum.getVersionText() != null && !forum.getVersionText().equals("")) {
+            	categoryName += " v" + forum.getVersionText();
+            }
             if (forum.getForumType() == ForumConstants.CUSTOMER_FORUM) {
             	categoryName += " - " + "Customer Forum";
             } else if (forum.getForumType() == ForumConstants.DEVELOPER_FORUM) {
