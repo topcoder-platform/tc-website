@@ -111,8 +111,10 @@ This member has not yet been rated in a competition.
 <% } %>
             <tr><td class="cat" nowrap="nowrap">Member Since:</td><td class="stat" align="right">
             <rsc:item name="member_since" set="<%=rscCoderData%>" format="MM.dd.yyyy"/></td></tr>
+             <% if (rscCoderData.getItem(0, "country_name").getResultData()!=null) { %>
             <tr><td class="cat">Country:</td><td class="stat" align="right"><div style="width: 100px;">
             <rsc:item name="country_name" set="<%=rscCoderData%>"/></div></td></tr>
+             <% } %>
             <% if (rscCoderData.getStringItem(0,"school_name")!=null) { %>
             <tr><td class="cat">School:</td><td class="stat" align="right">
             <rsc:item name="school_name" set="<%=rscCoderData%>"/></td></tr>
