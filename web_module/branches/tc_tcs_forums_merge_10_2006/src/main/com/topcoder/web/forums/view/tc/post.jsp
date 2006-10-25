@@ -122,6 +122,9 @@ function AllowTabCharacter() {
             <jsp:param name="title" value="<%=postDesc%>"/>
         </jsp:include>
 
+temp id: <%=tempMessage%>
+ForumsUtil temp id: <%=ForumsUtil.tempMessageID%>
+
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 	<tr>
 	   <td class="categoriesBox" style="padding-right: 20px;">

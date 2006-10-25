@@ -189,8 +189,13 @@ public class ForumConversion {
             // create a category for topcoder forum
             ForumMaster forum = (ForumMaster) it.next();
             String categoryName = forum.getName();
-            if (forum.getVersionText() != null && !forum.getVersionText().equals("")) {
-            	categoryName += " v" + forum.getVersionText();
+            if (forum.getVersionText() != null && !forum.getVersionText().trim().equals("")) {
+            	try {
+            		double version = Double.parseDouble(forum.getVersionText().trim());
+                	categoryName += " v" + version;            		
+            	} catch (NumberFormatException nfe) {
+            		categoryName += " (" + forum.getVersionText().trim() + ")";
+            	}
             }
             if (forum.getForumType() == ForumConstants.CUSTOMER_FORUM) {
             	categoryName += " - " + "Customer Forum";
@@ -220,7 +225,7 @@ public class ForumConversion {
             	}
             	techTypeList.append(rs.getLong(1));
             }
-            category.setProperty("technologyType", techTypeList.toString());
+            category.setProperty(ForumConstants.PROPERTY_COMPONENT_TECH_TYPES, techTypeList.toString());
             rs.close();
             
             // get topics in this forum           

@@ -63,22 +63,24 @@ public class Post extends ForumsProcessor {
             	
                 setDefault(ForumConstants.MESSAGE_SUBJECT, message.getSubject());
                 setDefault(ForumConstants.MESSAGE_BODY, ForumsUtil.createTextAreaBody(message.getUnfilteredBody()));
-            } else {
-            	ForumMessage tempMessage = (ForumMessage)getRequest().getSession().
-            		getAttribute("tempMessage_"	+ tempMessageIDStr);
-                if (tempMessage == null) { 
-                	getRequest().setAttribute(ForumConstants.TEMP_MESSAGE_ID, String.valueOf(ForumsUtil.tempMessageID));
-                	setDefault(ForumConstants.TEMP_MESSAGE_ID, String.valueOf(ForumsUtil.tempMessageID));
-                	tempMessage = forum.createMessage(user);
-                	getRequest().getSession().setAttribute("tempMessage_" + ForumsUtil.tempMessageID++, tempMessage);
-                } else {
-                	getRequest().setAttribute(ForumConstants.TEMP_MESSAGE_ID, tempMessageIDStr);
-                	setDefault(ForumConstants.TEMP_MESSAGE_ID, getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
-                }
-                getRequest().setAttribute("tempMessage", tempMessage);
-            }
+            } 
             getRequest().setAttribute("message", message);
             getRequest().setAttribute("thread", message.getForumThread());
+        }
+        
+        if (postMode.equals("New") || postMode.equals("Reply")) {
+        	ForumMessage tempMessage = (ForumMessage)getRequest().getSession().
+        		getAttribute("tempMessage_"	+ tempMessageIDStr);
+            if (tempMessage == null) { 
+            	getRequest().setAttribute(ForumConstants.TEMP_MESSAGE_ID, String.valueOf(ForumsUtil.tempMessageID));
+            	setDefault(ForumConstants.TEMP_MESSAGE_ID, String.valueOf(ForumsUtil.tempMessageID));
+            	tempMessage = forum.createMessage(user);
+            	getRequest().getSession().setAttribute("tempMessage_" + ForumsUtil.tempMessageID++, tempMessage);
+            } else {
+            	getRequest().setAttribute(ForumConstants.TEMP_MESSAGE_ID, tempMessageIDStr);
+            	setDefault(ForumConstants.TEMP_MESSAGE_ID, getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
+            }
+            getRequest().setAttribute("tempMessage", tempMessage);
         }
         
         getRequest().setAttribute("forum", forum);
