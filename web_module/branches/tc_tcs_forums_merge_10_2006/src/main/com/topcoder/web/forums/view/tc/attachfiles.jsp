@@ -153,7 +153,8 @@ function isClicked() {
 
 <table cellpadding="3" cellspacing="0" border="0">
 
-<%  Iterator iter = message.getAttachments();
+<%  String removeProcessor = postMode.equals("Edit") ? "EditAttachments" : "AttachFiles";
+	Iterator iter = message.getAttachments();
    	int i=1;
     while (iter.hasNext()) {
         Attachment attachment = (Attachment)iter.next(); %>
@@ -161,7 +162,7 @@ function isClicked() {
 	        <td>File <%=i++%>: </td>
 	        <td>
 	        	<img align="absmiddle" src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" />
-	        	<%=attachment.getName()%> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>) [<a href="javascript:void(0)" onclick="form1.module.value='AttachFiles';form1.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_DELETE%>';form1.<%=ForumConstants.ATTACHMENT_ID%>.value='<%=attachment.getID()%>';form1.submit();" class="rtbcLink">remove</a>]
+	        	<%=attachment.getName()%> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>) [<a href="javascript:void(0)" onclick="form1.module.value='<%=removeProcessor%>';form1.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_DELETE%>';form1.<%=ForumConstants.ATTACHMENT_ID%>.value='<%=attachment.getID()%>';form1.submit();" class="rtbcLink">remove</a>]
 	        </td>
     	</tr>
 <%  } %>

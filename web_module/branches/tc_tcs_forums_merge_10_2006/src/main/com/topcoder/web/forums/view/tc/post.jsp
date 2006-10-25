@@ -157,6 +157,7 @@ function AllowTabCharacter() {
 <tc-webtag:hiddenInput name="<%=ForumConstants.MESSAGE_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.TEMP_MESSAGE_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.ATTACHMENT_ID%>"/>
 
 <tr><td class="rtHeader" colspan="2"><%=postHeading%></td></tr>
 <% 	if (tempMessage != null && tempMessage.getAttachmentCount() > 0) { %>
@@ -168,15 +169,8 @@ function AllowTabCharacter() {
 						Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
 						<img align="absmiddle" src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" />
 						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)
-						<%	if (!postMode.equals("Edit")) { 
-								StringBuffer removeAttachUrl = new StringBuffer("?module=RemoveAttachment");
-								removeAttachUrl.append("&").append(ForumConstants.ATTACHMENT_ID).append("=").append(attachment.getID());
-								removeAttachUrl.append("&").append(ForumConstants.POST_MODE).append("=").append(postMode);
-								removeAttachUrl.append("&").append(ForumConstants.FORUM_ID).append("=").append(forum.getID());
-								if (message != null) {
-									removeAttachUrl.append("&").append(ForumConstants.MESSAGE_ID).append("=").append(message.getID());
-								}	%>
-								[<A href="<%=removeAttachUrl%>" class="rtbcLink">remove</A>]
+						<%	if (!postMode.equals("Edit")) { %>
+								[<A href="javascript:void(0)" onclick="form1.module.value='RemoveAttachment';form1.<%=ForumConstants.ATTACHMENT_ID%>.value='<%=attachment.getID()%>';form1.submit();" class="rtbcLink">remove</A>]
 						<%	} %>
 						&nbsp;
 				<% 	} %>

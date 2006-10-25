@@ -5,10 +5,14 @@
  */
 package com.topcoder.web.forums.controller.request;
 
+import com.jivesoftware.base.UnauthorizedException;
+import com.jivesoftware.forum.AttachmentException;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
+import com.jivesoftware.forum.database.DbAttachment;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.controller.ForumsUtil;
@@ -59,6 +63,27 @@ public class EditAttachments extends ForumsProcessor {
         setDefault(ForumConstants.POST_MODE, "Edit");
         setDefault(ForumConstants.MESSAGE_SUBJECT, subject);
         setDefault(ForumConstants.MESSAGE_BODY, textareaBody);
+        
+        String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.STATUS));
+        if (status.equals(ForumConstants.STATUS_DELETE)) {
+        	// deleted specified attachment
+        	String attachmentIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.ATTACHMENT_ID));
+        	long attachmentID = Long.parseLong(attachmentIDStr);
+        	DbAttachment attachment = new DbAttachment(attachmentID);
+	        
+	        try {
+	        	message.deleteAttachment(attachment);
+	        } catch (Exception e) {
+	        	if (e instanceof UnauthorizedException) {
+	        		getRequest().setAttribute(BaseServlet.MESSAGE_KEY, ForumConstants.ERR_ATTACHMENT_DELETE_PERMS);
+	        	} else if (e instanceof AttachmentException) {
+	        		getRequest().setAttribute(BaseServlet.MESSAGE_KEY, ForumConstants.ERR_ATTACHMENT_NOT_FOUND);
+	        	}
+	        	setNextPage("/errorPage.jsp");
+	    		setIsNextPageInContext(true);
+	    		return;
+	        }
+        }
         
         getRequest().setAttribute("message", message);
         
