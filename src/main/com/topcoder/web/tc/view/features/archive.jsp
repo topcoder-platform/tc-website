@@ -47,7 +47,7 @@
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="15635590" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=102306"><strong>A Number or a String: <br>Parsing Your Input and Formatting Your Output in C++</strong></A></td>
-               <td class="bodyText" nowrap=nowrap>Oct 23, 2006</td>
+               <td class="bodyText" nowrap=nowrap>Oct 26, 2006</td>
             </tr>--%>
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="21196141" /></td>
