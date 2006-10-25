@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 
 import com.jivesoftware.base.Log;
 import com.jivesoftware.base.UnauthorizedException;
@@ -133,6 +134,8 @@ public class Attach extends ForumsProcessor {
             	addError(ForumConstants.ATTACHMENT_ERROR, AttachmentException.messages[AttachmentException.TOO_MANY_ATTACHMENTS]);
             } else {
             	message.createAttachment(fileName, uploadedFile.getContentType(), uploadedFileBIS);
+                log.info("Attached file: " + uploadedFile.getRemoteFileName() + 
+                		" (" + uploadedFile.getSize() + " bytes)");
             }
         } catch (AttachmentException e) {
         	e.printStackTrace();
@@ -160,6 +163,14 @@ public class Attach extends ForumsProcessor {
         	e.printStackTrace();
         	addError(ForumConstants.ATTACHMENT_ERROR, "Sorry, you do not have permission to attach files.");
         } finally {
+        	if (errors.size() > 0) {
+        		log.info("Errors encountered when attaching file: " + uploadedFile.getRemoteFileName() + 
+                		" (" + uploadedFile.getSize() + " bytes)");
+        		Iterator itErrors = errors.values().iterator();
+        		while (itErrors.hasNext()) {
+        			log.info("\t"+(String)itErrors.next());
+        		}
+        	}
         	if (uploadedFileBIS != null) {
     		    try {
     		    	uploadedFileBIS.close();
@@ -168,7 +179,5 @@ public class Attach extends ForumsProcessor {
     		    }
     		}
         }
-        log.info("Attached file: " + uploadedFile.getRemoteFileName() + 
-        		" (" + uploadedFile.getSize() + " bytes)");
 	}	
 }
