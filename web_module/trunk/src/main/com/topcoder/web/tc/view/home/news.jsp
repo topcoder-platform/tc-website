@@ -8,7 +8,7 @@
 </tr>
 <%--------------------------------
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>10.23.06<br>7:30 PM</td>
+        <br>10.26.06<br>10:00 AM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=102306">A Number or a String: <br>Parsing Your Input and Formatting Your Output in C++.</A></span><br><br>
