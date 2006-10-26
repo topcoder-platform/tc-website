@@ -142,7 +142,7 @@ public class ForumConversion {
                 "select m.forum_id, c.component_name, c.short_desc, m.status_id, m.create_time, "
         		+ " v.comp_vers_id, v.version_text, v.phase_id, f.forum_type, c.root_category_id, c.status_id "
                 + " from forum_master m, comp_forum_xref f, comp_versions v, comp_catalog c "
-                + " where forum_id = f.forum_id and "
+                + " where m.forum_id = f.forum_id and "
                 + " f.comp_vers_id = v.comp_vers_id and v.component_id = c.component_id"
         );
 
