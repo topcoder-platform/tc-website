@@ -12,10 +12,10 @@ import com.jivesoftware.forum.ForumCategory;
  * @author billy
  */
 public class ImageMapper {
-	private static final String PHASE_COMPLETE_ICON = "iconPhaseCompleteSm.gif";
-	private static final String PHASE_COLLAB_ICON = "iconPhaseCollabSm.gif";
-	private static final String PHASE_SPEC_ICON = "iconPhaseSpecSm.gif";
-	private static final String PHASE_DEV_ICON = "iconPhaseDevSm.gif";
+	private static final String PHASE_COMPLETE_ICON = "iconStatusCompleteSm.gif";
+	private static final String PHASE_COLLAB_ICON = "iconStatusCollabSm.gif";
+	private static final String PHASE_SPEC_ICON = "iconStatusSpecSm.gif";
+	private static final String PHASE_DEV_ICON = "iconStatusDevSm.gif";
 	
 	private static final String PHASE_COMPLETE_TEXT = "Complete";
 	private static final String PHASE_COLLAB_TEXT = "Collaboration";
