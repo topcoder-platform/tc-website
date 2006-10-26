@@ -164,6 +164,10 @@ Try to put it somewhere on board (call placeNext)
 <p>
   <IMG ALIGN=ABSMIDDLE NAME=Object4 src="/i/longcontest/match_editorials/intelmtcs9/ajd92kcbbbb_226v37cv.gif" />
 </P>
+<p>Here is the proof for that equation:</p>
+<p>
+  <IMG ALIGN=ABSMIDDLE NAME=Object4 src="/i/longcontest/match_editorials/intelmtcs9/image002.gif" />
+</P>
 <p>
   Based on this, the algorithm can be done:
 </P>
@@ -259,9 +263,9 @@ select n that maximizes E(n)
       </P>
     </TD>
     <TD WIDTH=90>
-      <H2 ALIGN=CENTER CLASS=western>
-        Thread 3
-      </H2>
+      <P ALIGN=CENTER CLASS=western>
+        <B>Thread 3</B>
+      </P>
     </TD>
     <TD WIDTH=90>
       <P ALIGN=CENTER CLASS=western>
