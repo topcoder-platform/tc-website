@@ -50,6 +50,11 @@
                <td class="bodyText" nowrap=nowrap>Oct 26, 2006</td>
             </tr>--%>
             <tr valign="top">
+               <td class="bodyText">&nbsp;</td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=102606"><strong>TopCoder visits Dalian Software Park</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Oct 26, 2006</td>
+            </tr>
+            <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="21196141" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=101906"><strong>TCCC Preview: By the Numbers</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Oct 19, 2006</td>
