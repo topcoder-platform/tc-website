@@ -191,10 +191,10 @@ public class ForumConversion {
             ForumMaster forum = (ForumMaster) it.next();
             String categoryName = forum.getName();
             if (forum.getVersionText() != null && !forum.getVersionText().trim().equals("")) {
-            	try {
-            		double version = Double.parseDouble(forum.getVersionText().trim());
-                	categoryName += " v" + version;            		
-            	} catch (NumberFormatException nfe) {
+            	boolean wellFormatted = forum.getVersionText().trim().matches("\\d+(\\.\\d+)*\\w?");    	
+            	if (wellFormatted) {
+                	categoryName += " v" + forum.getVersionText().trim();            		
+            	} else {
             		categoryName += " (" + forum.getVersionText().trim() + ")";
             	}
             }
