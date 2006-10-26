@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Iterator;
 
 import com.jivesoftware.base.Log;
 import com.jivesoftware.base.UnauthorizedException;
@@ -60,7 +59,7 @@ public class Attach extends ForumsProcessor {
 		setDefault(ForumConstants.POST_MODE, postMode);
         setDefault(ForumConstants.MESSAGE_SUBJECT, subject);
         setDefault(ForumConstants.MESSAGE_BODY, textareaBody);
-
+        
         MultipartRequest mpr = (MultipartRequest) getRequest();
         UploadedFile[] uploadedFiles = mpr.getAllUploadedFiles();
         for(int i=0; i<uploadedFiles.length; i++) {
