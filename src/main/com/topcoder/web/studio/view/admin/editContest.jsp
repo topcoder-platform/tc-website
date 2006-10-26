@@ -263,7 +263,9 @@ Calendar.setup(
 
 <script language="javascript" type="text/javascript">
     <!--
-var defaultOverview= "This is the default overview text.  We need to come up with a real default text.";
+var defaultOverview= "General description of the contest goes here. Give background info, overview about what the client " +
+"is seeking, and general look and feel info.\n\n" +
+"Entries must be your original work, and must not infringe on the copyright or licenses of others. ";
 var overviewText = getValue("document.editForm", "${overviewText}");
                        if ( overviewText==null || overviewText.length==0) {
                          putValue("document.editForm", "${overviewText}", defaultOverview);
