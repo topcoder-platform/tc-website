@@ -18,8 +18,9 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.sql.DBUtility;
 import com.topcoder.web.ejb.pacts.PactsClientServices;
 import com.topcoder.web.ejb.pacts.PactsClientServicesHome;
-import com.topcoder.web.ejb.pacts.ReviewBoardPayment;
-/*import com.topcoder.web.ejb.pacts.AlgorithmContestPayment;
+import com.topcoder.web.ejb.pacts.ProblemWritingPayment;;
+/*import com.topcoder.web.ejb.pacts.ReviewBoardPayment;
+import com.topcoder.web.ejb.pacts.AlgorithmContestPayment;
 import com.topcoder.web.ejb.pacts.CharityPayment;
 import com.topcoder.web.ejb.pacts.ComponentWinningPayment;
 import com.topcoder.web.ejb.pacts.ComponentTournamentBonusPayment;
@@ -73,9 +74,9 @@ public class NewSchemaFixUtility extends DBUtility {
             
             pcs = (PactsClientServices) createEJB();
 
-            processReviewersPaymentInfo();
-
-            /*processRoomResultAdditions();
+            processProblemWritersPayments();
+            /*processReviewersPaymentInfo();
+            processRoomResultAdditions();
             processRoomResultConflicts();
             processRoomResultCharities();
             processCompCompetitions();
@@ -91,8 +92,40 @@ public class NewSchemaFixUtility extends DBUtility {
         }
     }
 
+    private void processProblemWritersPayments() throws SQLException, RemoteException {
+        StringBuffer query = new StringBuffer(200);
+        query.append("select user_id, problem_id, sum(money) as payment ");
+        query.append("from excelwriter ");
+        query.append("where user_id is not null ");
+        query.append("and problem_id is not null ");
+        query.append("and move = 'yes' ");
+        query.append("and processed_ind = 0 ");
+        query.append("group by user_id, problem_id ");
 
-    private void processReviewersPaymentInfo() throws SQLException, RemoteException {
+        PreparedStatement psSelCompCompetitions = prepareStatement("informixoltp", query.toString());
+        log.debug("Processing problem writers payments:");
+
+        ResultSet rs = null;
+        try {            
+            rs = psSelCompCompetitions.executeQuery();
+            int i = 1;
+            for (; rs.next(); i++ ) {
+                pcs.addPayment(new ProblemWritingPayment(
+                        rs.getLong("user_id"),
+                        rs.getDouble("payment"),
+                        rs.getLong("problem_id")));
+                if (i % 100 == 0) {
+                    log.debug(i + "...");
+                }
+            }
+            log.debug(i + " rows were processed...");
+        } finally {
+            DBMS.close(rs);
+            DBMS.close(psSelCompCompetitions);
+        }
+    }
+    
+/*    private void processReviewersPaymentInfo() throws SQLException, RemoteException {
         StringBuffer query = new StringBuffer(200);
         query.append("select rur.login_id, rur.project_id, sum(pi.payment) as payment ");
         query.append("from tcs_catalog:r_user_role rur, tcs_catalog:payment_info pi, tcs_catalog:project p ");
@@ -138,7 +171,7 @@ public class NewSchemaFixUtility extends DBUtility {
         }
     }
     
-/*
+    
     private void processCompCompetitions() throws SQLException, RemoteException {
         StringBuffer query = new StringBuffer(200);
         query.append("select project_result_dw.user_id, project_result_dw.payment, "); 
