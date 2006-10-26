@@ -62,7 +62,9 @@ public interface ForumConstants {
     public final static String PROPERTY_HIDE_MAIN_RSS = "hideMainRSS";
     public final static String PROPERTY_LINK_NAMES = "linkNames";
     public final static String PROPERTY_LINK = "link";
+    
     public final static String PROPERTY_ARCHIVAL_STATUS = "archivalStatus";
+    public final static String PROPERTY_COMPONENT_PHASE = "componentPhase";
     public final static String PROPERTY_COMPONENT_STATUS = "componentStatus";
     public final static String PROPERTY_COMPONENT_VERSION_ID = "compVersionId";
     public final static String PROPERTY_COMPONENT_ROOT_CATEGORY_ID = "compRootCategoryId";
@@ -70,6 +72,10 @@ public interface ForumConstants {
     public final static String PROPERTY_FORUM_TYPE = "forumType";
     public final static String PROPERTY_VERSION_TEXT = "versionText";
 
+    public final static String PROPERTY_ARCHIVAL_STATUS_DELETED = "deleted";
+    public final static String PROPERTY_ARCHIVAL_STATUS_ACTIVE = "active";
+    public final static String PROPERTY_ARCHIVAL_STATUS_ARCHIVED = "archived";
+    
     // Admin
     public final static String ADMIN_COMMAND = "cmd";
     public final static String ADMIN_COMMAND_HTML_ESCAPE = "htmlEscape";

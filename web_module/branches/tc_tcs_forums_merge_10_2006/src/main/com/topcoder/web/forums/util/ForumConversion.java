@@ -140,9 +140,9 @@ public class ForumConversion {
     	// get forums from FORUM_MASTER table        
         forumPS = tcConn.prepareStatement(
                 "select m.forum_id, c.component_name, c.short_desc, m.status_id, m.create_time, "
-        		+ " v.comp_vers_id, v.version_text, v.phase_id, f.forum_type, c.root_category_id "
+        		+ " v.comp_vers_id, v.version_text, v.phase_id, f.forum_type, c.root_category_id, c.status_id "
                 + " from forum_master m, comp_forum_xref f, comp_versions v, comp_catalog c "
-                + " where (m.status_id = 1 or m.status_id = 2) and m.forum_id = f.forum_id and "
+                + " where forum_id = f.forum_id and "
                 + " f.comp_vers_id = v.comp_vers_id and v.component_id = c.component_id"
         );
 
@@ -151,7 +151,8 @@ public class ForumConversion {
 
         while (rs.next()) {
             ForumMaster forum = new ForumMaster(rs.getLong(1), rs.getString(2), rs.getString(3), rs.getLong(4),
-                    rs.getDate(5), rs.getLong(6), rs.getString(7), rs.getLong(8), rs.getLong(9), rs.getLong(10));
+                    rs.getDate(5), rs.getLong(6), rs.getString(7), rs.getLong(8), rs.getLong(9), rs.getLong(10),
+                    rs.getLong(11));
             forums.add(forum);
         }
 
@@ -205,8 +206,8 @@ public class ForumConversion {
             ForumCategory category = root.createCategory(categoryName, forum.getDesc());
             category.setCreationDate(forum.getCreation());
             category.setModificationDate(forum.getCreation());
-            category.setProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS, 
-            		(forum.getStatus() == 1) ? "active" : "archived");           
+            category.setProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS, forum.getStatus() + "");           
+            category.setProperty(ForumConstants.PROPERTY_COMPONENT_PHASE, forum.getComponentPhase() + "");
             category.setProperty(ForumConstants.PROPERTY_COMPONENT_STATUS, forum.getComponentStatus() + "");
             category.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID, forum.getCompVersId() + "");
             category.setProperty(ForumConstants.PROPERTY_COMPONENT_ROOT_CATEGORY_ID, 
