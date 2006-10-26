@@ -100,7 +100,15 @@ public class NewSchemaFixUtility extends DBUtility {
         query.append("and problem_id is not null ");
         query.append("and move = 'yes' ");
         query.append("and processed_ind = 0 ");
+        query.append("and not exists ( ");
+        query.append("select 'exist' from payment p, payment_detail pd ");
+        query.append("where p.most_recent_detail_id = pd.payment_detail_id ");
+        query.append("and pd.status_id <> 69 ");
+        query.append("and p.user_id = excelwriter.user_id ");
+        query.append("and pd.algorithm_problem_id = excelwriter.problem_id ");
+        query.append("and pd.payment_type_id = 15) ");
         query.append("group by user_id, problem_id ");
+
 
         PreparedStatement psSelCompCompetitions = prepareStatement("informixoltp", query.toString());
         log.debug("Processing problem writers payments:");
