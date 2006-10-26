@@ -1,7 +1,6 @@
-<%@ page import="java.io.InputStream"%>
 <%@ page import="com.topcoder.web.tc.Constants"%>
-<%@ page import="java.net.URL"%>
 <%@ page language="java"  %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -61,19 +60,10 @@
 
             <br><br>
 
-
-    <%
-        URL termsURL = new URL(sessionInfo.getAbsoluteServletPath()+"?module=Terms&"+ Constants.TERMS_OF_USE_ID+"="+Constants.TCO06_LOGO_TERMS_ID);
-        InputStream is = termsURL.openStream();
-        int count = is.available();
-        while (count > 0) {
-            for (int i=0; i<count; i++) {
-                out.write(is.read());
-            }
-            count = is.available();
-        }
-        is.close();
-    %>
+             <c:import url="${sessionInfo.servletPath}">
+                 <c:param name="<%=Constants.MODULE_KEY%>" value="Terms"/>
+                 <c:param name="<%=Constants.TERMS_OF_USE_ID%>" value="<%=String.valueOf(Constants.TCO06_LOGO_TERMS_ID)%>"/>
+             </c:import>
 
          </div>
 
