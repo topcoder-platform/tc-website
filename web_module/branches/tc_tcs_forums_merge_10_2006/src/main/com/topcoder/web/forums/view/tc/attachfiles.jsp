@@ -103,7 +103,8 @@
 <div id="jive-attachfilepage"><br/>
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 	<tr>
-		</td><b>Use the form below to attach files to this message.</b></td>
+		</td><b>Use the form below to attach files to this message. 
+		Maximum file size: <%=ForumsUtil.getFileSizeStr(attachManager.getMaxAttachmentSize()*1024)%>.</b></td>
 	</tr>
 </table>
 

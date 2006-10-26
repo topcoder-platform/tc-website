@@ -179,9 +179,7 @@ public interface ForumConstants {
     public final static String ERR_NO_SEARCH_TERMS =
         "Please enter some search terms.";
     public final static String ERR_NO_SEARCH_HANDLE =
-        "No user exists with the specified handle.";
-    public final static String ERR_ATTACHING =
-        "There was an error attaching a file.";
+        "No user exists with the specified handle.";;
     public final static String ERR_ATTACHMENT_DELETE_PERMS = 
     	"You are not authorized to delete this attachment.";
     public final static String ERR_ATTACHMENT_NOT_FOUND = 

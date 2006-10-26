@@ -125,6 +125,8 @@ public class Attach extends ForumsProcessor {
 		BufferedInputStream uploadedFileBIS = null;
 		InputStream is = null;
 		String fileName = uploadedFile.getRemoteFileName();
+		String errorMessage = "Cannot attach \"" + fileName + "\": ";
+		
         try {
         	is = uploadedFile.getInputStream();
             uploadedFileBIS = new BufferedInputStream(is);
@@ -141,18 +143,19 @@ public class Attach extends ForumsProcessor {
             if (e.getErrorType() == AttachmentException.TOO_LARGE) {
                 List args = new ArrayList();
                 args.add(fileName);
-                addError(ForumConstants.ATTACHMENT_ERROR, AttachmentException.messages[AttachmentException.TOO_LARGE]);
+                addError(ForumConstants.ATTACHMENT_ERROR, errorMessage + AttachmentException.messages[AttachmentException.TOO_LARGE]);
             }
             else if (e.getErrorType() == AttachmentException.BAD_CONTENT_TYPE) {
                 List args = new ArrayList();
                 args.add(fileName);
-                addError(ForumConstants.ATTACHMENT_ERROR, AttachmentException.messages[AttachmentException.BAD_CONTENT_TYPE]);
+                addError(ForumConstants.ATTACHMENT_ERROR, errorMessage + AttachmentException.messages[AttachmentException.BAD_CONTENT_TYPE]);
             }
             else if (e.getErrorType() == AttachmentException.TOO_MANY_ATTACHMENTS) {
-            	addError(ForumConstants.ATTACHMENT_ERROR, AttachmentException.messages[AttachmentException.TOO_MANY_ATTACHMENTS]);
+            	addError(ForumConstants.ATTACHMENT_ERROR, errorMessage + AttachmentException.messages[AttachmentException.TOO_MANY_ATTACHMENTS]);
             }
             else {
-            	String errorMessage = (e.getMessage() != null ? e.getMessage() : ForumConstants.ERR_ATTACHING);
+            	errorMessage += (e.getMessage() != null) ? e.getMessage() : 
+            		AttachmentException.messages[AttachmentException.GENERAL_ERROR]; 
             	addError(ForumConstants.ATTACHMENT_ERROR, errorMessage);
             }
         } catch (IOException e) {
