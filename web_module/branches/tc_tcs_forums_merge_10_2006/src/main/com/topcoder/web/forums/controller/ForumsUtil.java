@@ -21,11 +21,13 @@ import com.jivesoftware.forum.RatingManager;
 import com.jivesoftware.forum.database.DbForumFactory;
 import com.jivesoftware.forum.database.DbForumMessage;
 import com.jivesoftware.util.StringUtils;
+import com.opensymphony.oscache.util.StringUtil;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.forums.util.filter.TCHTMLFilter;
 import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.dde.catalog.ComponentInfo;
 
 import java.text.NumberFormat;
 import java.text.DecimalFormat;
@@ -252,7 +254,8 @@ public class ForumsUtil {
         return forumsList;
     }
     
-    // Returns categories in a category, with empty/archived categories omitted or placed at the list's end.
+    // Returns categories in a category, with empty/inactive/unapproved categories omitted or placed at 
+    // the list's end.
     public static ArrayList getCategories(ForumCategory forumCategory, ResultFilter resultFilter,
             boolean excludeEmptyCategories) {
         Iterator itCategories = forumCategory.getCategories();
@@ -260,7 +263,11 @@ public class ForumsUtil {
         ArrayList emptyCategories = new ArrayList();
         while (itCategories.hasNext()) {
         	ForumCategory c = (ForumCategory)itCategories.next();
-        	if ("archived".equals(c.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS))) continue;
+        	String archivalStatus = c.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS);
+        	String componentStatus = c.getProperty(ForumConstants.PROPERTY_COMPONENT_STATUS);
+        	if (ForumConstants.PROPERTY_ARCHIVAL_STATUS_ARCHIVED.equals(archivalStatus) ||
+        			ForumConstants.PROPERTY_ARCHIVAL_STATUS_DELETED.equals(archivalStatus)) continue;
+        	if (componentStatus != null && !componentStatus.equals(String.valueOf(ComponentInfo.APPROVED))) continue;        	
         	if (c.getMessageCount() > 0) {
         		categoriesList.add(c);
         	} else {
