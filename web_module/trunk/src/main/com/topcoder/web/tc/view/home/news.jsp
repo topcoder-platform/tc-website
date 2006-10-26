@@ -25,6 +25,23 @@
 </td></tr>
 ------------------------%>
 <%--------------------------------------------------------%>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
+        <br>10.26.06<br>10:30 AM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=102606">TopCoder visits Dalian Software Park</A></span><br><br>
+            Recently, TopCoder's Yingying Wu hosted the company's first professional open house at Dalian Software Park, part of "the Silicon Valley of China."
+            </td>
+        </table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&amp;d1=features&amp;d2=102606">article</A> |
+    <tc-webtag:forumLink forumID="506159" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>10.25.06<br>1:00 PM</td>
      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=10004">Ajax survey</A></span><br><br>
@@ -190,19 +207,6 @@ expression in the hard one.
    </tr>
    <tr><td class="newsLinksCell">
     <tc-webtag:forumLink forumID="506149" message="discuss this"/> |
-     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.17.06<br>8:15 PM</td>
-     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogger_winners">TCCC06 "Pick Me" Contest Winners</A></span><br><br>
-      Congratulations to <tc-webtag:handle coderId="344462" /> and <tc-webtag:handle coderId="21181561" />, and thanks to everyone who entered. If you didn't make it, you can still make your voice heard - just <tc-webtag:forumLink forumID="506113" message="tell us and the bloggers"/> what you would like to see in the Collegiate Challenge blogs.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogger_winners">results</A> | 
-    <tc-webtag:forumLink forumID="506113" message="discuss this"/> |
      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
