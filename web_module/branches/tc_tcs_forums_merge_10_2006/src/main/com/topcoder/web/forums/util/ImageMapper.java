@@ -12,15 +12,15 @@ import com.jivesoftware.forum.ForumCategory;
  * @author billy
  */
 public class ImageMapper {
-	private static final String STATUS_COMPLETE_ICON = "iconStatusCompleteSm.gif";
-	private static final String STATUS_COLLAB_ICON = "iconStatusCollabSm.gif";
-	private static final String STATUS_SPEC_ICON = "iconStatusSpecSm.gif";
-	private static final String STATUS_DEV_ICON = "iconStatusDevSm.gif";
+	private static final String PHASE_COMPLETE_ICON = "iconPhaseCompleteSm.gif";
+	private static final String PHASE_COLLAB_ICON = "iconPhaseCollabSm.gif";
+	private static final String PHASE_SPEC_ICON = "iconPhaseSpecSm.gif";
+	private static final String PHASE_DEV_ICON = "iconPhaseDevSm.gif";
 	
-	private static final String STATUS_COMPLETE_TEXT = "Complete";
-	private static final String STATUS_COLLAB_TEXT = "Collaboration";
-	private static final String STATUS_SPEC_TEXT = "Design and Architecture";
-	private static final String STATUS_DEV_TEXT = "Development and Testing";
+	private static final String PHASE_COMPLETE_TEXT = "Complete";
+	private static final String PHASE_COLLAB_TEXT = "Collaboration";
+	private static final String PHASE_SPEC_TEXT = "Design and Architecture";
+	private static final String PHASE_DEV_TEXT = "Development and Testing";
 	
 	private static final String TECH_JAVA_ICON = "javaSm.gif";
 	private static final String TECH_JAVA_CUSTOM_ICON = "javaCustomSm.gif";
@@ -36,13 +36,13 @@ public class ImageMapper {
 	private static final String TECH_FLASH_TEXT = "Flash";
 	private static final String TECH_APPLICATION_TEXT = "Application";
 	
-	public static final long STATUS_IDS[] = {
+	public static final long PHASE_IDS[] = {
 		ComponentVersionInfo.COLLABORATION, ComponentVersionInfo.SPECIFICATION,
 			ComponentVersionInfo.DEVELOPMENT, ComponentVersionInfo.COMPLETED
 	};
-	public static final String[][] STATUS_PROPERTIES = {
-		{STATUS_COLLAB_ICON, STATUS_SPEC_ICON, STATUS_DEV_ICON, STATUS_COMPLETE_ICON},
-		{STATUS_COLLAB_TEXT, STATUS_SPEC_TEXT, STATUS_DEV_TEXT, STATUS_COMPLETE_TEXT}
+	public static final String[][] PHASE_PROPERTIES = {
+		{PHASE_COLLAB_ICON, PHASE_SPEC_ICON, PHASE_DEV_ICON, PHASE_COMPLETE_ICON},
+		{PHASE_COLLAB_TEXT, PHASE_SPEC_TEXT, PHASE_DEV_TEXT, PHASE_COMPLETE_TEXT}
 	};
 	public static final long TECH_IDS[] = {
 		Catalog.JAVA_CATALOG, Catalog.JAVA_CUSTOM_CATALOG, Catalog.NET_CATALOG, Catalog.NET_CUSTOM_CATALOG,
@@ -55,25 +55,25 @@ public class ImageMapper {
 		 TECH_FLASH_TEXT, TECH_APPLICATION_TEXT}
 	};
 	
-	public static String getStatusIcon(ForumCategory category) {
-		return getStatusProperty(category, 0);
+	public static String getPhaseIcon(ForumCategory category) {
+		return getPhaseProperty(category, 0);
 	}
 		
-	public static String getStatusText(ForumCategory category) {
-		return getStatusProperty(category, 1);
+	public static String getPhaseText(ForumCategory category) {
+		return getPhaseProperty(category, 1);
 	}
 	
-	public static String getStatusProperty(ForumCategory category, int propIdx) {
-		String strComponentStatus = category.getProperty(ForumConstants.PROPERTY_COMPONENT_STATUS);
-		if(strComponentStatus == null) {
+	public static String getPhaseProperty(ForumCategory category, int propIdx) {
+		String strComponentPhase = category.getProperty(ForumConstants.PROPERTY_COMPONENT_PHASE);
+		if(strComponentPhase == null) {
 			return "";
 		}
 		
-		int componentStatus = Integer.parseInt(strComponentStatus);
+		int componentPhase = Integer.parseInt(strComponentPhase);
 		
-		for (int i=0; i<STATUS_IDS.length; i++) {
-			if (componentStatus == STATUS_IDS[i]) {
-				return STATUS_PROPERTIES[propIdx][i];
+		for (int i=0; i<PHASE_IDS.length; i++) {
+			if (componentPhase == PHASE_IDS[i]) {
+				return PHASE_PROPERTIES[propIdx][i];
 			}
 		}
 		return "";

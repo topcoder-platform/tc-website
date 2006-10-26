@@ -495,9 +495,9 @@ class ForumMaster {
     private String versionText;
     
     /**
-     * The component status
+     * The component phase
      */
-    private long componentStatus;
+    private long componentPhase;
 
     /**
      * The forum type
@@ -510,16 +510,22 @@ class ForumMaster {
     private long rootCategoryId;
     
     /**
+     * The component status
+     */
+    private long componentStatus;
+    
+    /**
      * Constructor.
      *
      * @param id forum id.
      * @param name forum name.
      * @param desc forum description.
+     * @param status forum phase.
      * @param status forum status.
      * @param creation forum creation time.
      */
     public ForumMaster(long id, String name, String desc, long status, Date creation, long compVersId, 
-    		String versionText, long componentStatus, long forumType, long rootCategoryId) {
+    		String versionText, long componentPhase, long forumType, long rootCategoryId, long componentStatus) {
         this.id = id;
         this.name = name;
         this.desc = desc;
@@ -527,9 +533,10 @@ class ForumMaster {
         this.creation = creation;
         this.compVersId = compVersId;
         this.versionText = versionText;
-        this.componentStatus = componentStatus;
+        this.componentPhase = componentPhase;
         this.forumType = forumType;
         this.rootCategoryId = rootCategoryId;
+        this.componentStatus = componentStatus;
     }
 
     /**
@@ -596,12 +603,12 @@ class ForumMaster {
     }
     
     /**
-     * Return the component's status.
+     * Return the component's phase.
      * 
-     * @return the component's status
+     * @return the component's phase
      */
-    public long getComponentStatus() {
-    	return this.componentStatus;
+    public long getComponentPhase() {
+    	return this.componentPhase;
     }
     
     /**
@@ -620,6 +627,15 @@ class ForumMaster {
      */
     public long getRootCategoryId() {
     	return this.rootCategoryId;
+    }
+    
+    /**
+     * Return the component's status.
+     * 
+     * @return the component's status
+     */
+    public long getComponentStatus() {
+    	return this.componentStatus;
     }
 }
 

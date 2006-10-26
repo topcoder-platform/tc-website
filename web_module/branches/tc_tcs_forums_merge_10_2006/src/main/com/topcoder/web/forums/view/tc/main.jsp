@@ -220,7 +220,7 @@
             <tr>
                 <td class="rtThreadCellWrap">
                 	<%	if ("software".equals(category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME))) { %>
-                		<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getStatusIcon(subcategory)%>" alt="<%=ImageMapper.getStatusText(subcategory)%>" width="25" height="17" border="0">
+                		<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getPhaseIcon(subcategory)%>" alt="<%=ImageMapper.getPhaseText(subcategory)%>" width="25" height="17" border="0">
 						<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getTechnologyIcon(subcategory)%>" alt="<%=ImageMapper.getTechnologyText(subcategory)%>" border="0"/>
 					<%	} %>
                     <% if (user == null) { %>
