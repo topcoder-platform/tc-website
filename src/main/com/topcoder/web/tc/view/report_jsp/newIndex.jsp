@@ -107,6 +107,7 @@ Software
         <a href="<%=baseURL+"cost_by_catalog&days=180"%>">6 months?</a>
         <a href="<%=baseURL+"cost_by_catalog&days=3600"%>">all?</A></LI>
     <LI><A HREF="<%=baseURL+"posted_components"%>">New components by year, month and week</a></LI>
+    <LI><A HREF="<%=baseURL+"predictor"%>">Component Submission Predictor</a></LI>
 </UL>
 <br/>
 Payment Reports
