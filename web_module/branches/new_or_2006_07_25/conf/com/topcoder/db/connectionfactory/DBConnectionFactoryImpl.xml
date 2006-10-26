@@ -84,16 +84,6 @@
                 </Property>
             </Property>
         </Property>
-        <Property name="tcs_catalog_conn">
-            <Property name="producer">
-                <Value>com.topcoder.db.connectionfactory.producers.JNDIConnectionProducer</Value>
-            </Property>
-            <Property name="parameters">
-                <Property name="jndi_name">
-                    <Value>java:TCS_CATALOG</Value>
-                </Property>
-            </Property>
-        </Property>
 
         <!--
             The following property configures the ConnectionProducer obtaining the Connections from a DataSource

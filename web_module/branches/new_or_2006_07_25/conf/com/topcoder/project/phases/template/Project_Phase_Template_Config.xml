@@ -87,7 +87,7 @@
             			<Value>String</Value>
           			</Property>
           			<Property name="value">
-            			<Value>config/workdays.xml</Value>
+            			<Value>/home/apps/jboss-4.0.2/server/default/conf/template/com/topcoder/apps/review/workdays.xml</Value>
           			</Property>
         		</Property>
         		<Property name="param2">

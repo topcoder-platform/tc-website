@@ -35,6 +35,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.util.idgenerator.IDGenerator;
+import com.topcoder.util.idgenerator.IDGeneratorFactory;
 import com.topcoder.util.idgenerator.IDGeneratorImpl;
 import com.topcoder.util.idgenerator.bean.IdGen;
 import com.topcoder.util.idgenerator.bean.IdGenHome;
@@ -348,18 +349,11 @@ public class RBoardApplicationBean extends BaseEJB {
         }
     }
 
-    private Map ids = new HashMap();
-    private static final String ID_NAMESPACE = "com.topcoder.util.idgenerator.onlinereview";
     private long nextId(String tableId) {
     	try {
-    		
-			IDGenerator idgen = (IDGenerator) ids.get(tableId); // IDGeneratorFactory.getIDGenerator(tableId);
-			if (idgen == null) {
-				idgen = new IDGeneratorImpl(ID_NAMESPACE, tableId); 
-				ids.put(tableId, idgen);
-			}
-			return idgen.getNextID();
-		} catch (IDGenerationException e) {
+    		IDGenerator idgen = IDGeneratorFactory.getIDGenerator(tableId);
+    		return idgen.getNextID();
+    	} catch (IDGenerationException e) {
 			throw new RuntimeException("Failed to get id generator for " + tableId);
 		}
     }
