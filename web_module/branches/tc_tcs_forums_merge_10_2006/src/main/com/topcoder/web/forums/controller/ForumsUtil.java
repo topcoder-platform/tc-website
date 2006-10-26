@@ -275,6 +275,8 @@ public class ForumsUtil {
         }
         Collections.sort(categoriesList, 
         		new JiveCategoryComparator(resultFilter.getSortField(), resultFilter.getSortOrder()));
+        Collections.sort(emptyCategories, 
+        		new JiveCategoryComparator(resultFilter.getSortField(), resultFilter.getSortOrder()));
         if (!excludeEmptyCategories) {
         	categoriesList.addAll(emptyCategories);
         }

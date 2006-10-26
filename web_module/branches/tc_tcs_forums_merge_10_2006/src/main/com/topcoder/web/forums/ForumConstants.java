@@ -72,9 +72,9 @@ public interface ForumConstants {
     public final static String PROPERTY_FORUM_TYPE = "forumType";
     public final static String PROPERTY_VERSION_TEXT = "versionText";
 
-    public final static String PROPERTY_ARCHIVAL_STATUS_DELETED = "deleted";
-    public final static String PROPERTY_ARCHIVAL_STATUS_ACTIVE = "active";
-    public final static String PROPERTY_ARCHIVAL_STATUS_ARCHIVED = "archived";
+    public final static String PROPERTY_ARCHIVAL_STATUS_DELETED = "0";
+    public final static String PROPERTY_ARCHIVAL_STATUS_ACTIVE = "1";
+    public final static String PROPERTY_ARCHIVAL_STATUS_ARCHIVED = "2";
     
     // Admin
     public final static String ADMIN_COMMAND = "cmd";
