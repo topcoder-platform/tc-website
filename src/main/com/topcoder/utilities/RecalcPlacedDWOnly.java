@@ -1,10 +1,12 @@
 package com.topcoder.utilities;
 
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCResourceBundle;
+import com.topcoder.shared.util.sql.InformixSimpleDataSource;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 /**
  *
@@ -18,8 +20,8 @@ public class RecalcPlacedDWOnly {
     public static void main(String[] args) {
         int roundId = Integer.parseInt(args[0]);
         try {
-            go(DBMS.getConnection(DBMS.DW_DATASOURCE_NAME), roundId);
-        } catch (SQLException e) {
+            go(new InformixSimpleDataSource(new TCResourceBundle("DBMS").getProperty("DW_CONNECT_STRING")).getConnection(), roundId);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
