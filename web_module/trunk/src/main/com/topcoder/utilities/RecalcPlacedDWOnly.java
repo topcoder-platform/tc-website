@@ -33,7 +33,7 @@ public class RecalcPlacedDWOnly {
         try {
             // update ROOM_RESULT.room_placed
             StringBuffer sqlStr = new StringBuffer();
-            sqlStr.append("SELECT rr.coder_id, r.room_id, rr.total_points ");
+            sqlStr.append("SELECT rr.coder_id, r.room_id, rr.final_points ");
             sqlStr.append("FROM room_result rr, room r ");
             sqlStr.append("WHERE r.room_id = rr.room_id ");
             sqlStr.append("AND rr.round_id = ? ");
@@ -91,7 +91,7 @@ public class RecalcPlacedDWOnly {
             // Set division_placed - where the coder placed in their division
             // get all the users in order for this division by points.
             sqlStr = new StringBuffer();
-            sqlStr.append("SELECT rr.coder_id, r.division_id, rr.total_points ");
+            sqlStr.append("SELECT rr.coder_id, r.division_id, rr.final_points ");
             sqlStr.append("FROM room_result rr, room r ");
             sqlStr.append("WHERE r.room_id = rr.room_id ");
             sqlStr.append("AND rr.round_id = ? ");
