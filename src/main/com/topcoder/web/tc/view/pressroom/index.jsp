@@ -53,7 +53,7 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_102506"><img src="/i/pressroom/china_20061024.png" alt="Now Open in China" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_102506"><img src="/i/pressroom/china_20061027.gif" alt="Now Open in China" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_102506">TopCoder Launches Operations in China with New Beijing Appointment</A></strong></font><br />

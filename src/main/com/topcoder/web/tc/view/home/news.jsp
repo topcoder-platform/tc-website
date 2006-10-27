@@ -66,6 +66,7 @@ The expected battle didn't happen because of <tc-webtag:handle coderId="10574855
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=102606">TopCoder visits Dalian Software Park</A></span><br><br>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/china_20061027.gif" width="80" height="38" alt="Now Open in China" border="0" /></div>
             Recently, TopCoder's Yingying Wu hosted the company's first professional open house at Dalian Software Park, part of "the Silicon Valley of China."
             </td>
         </table>
@@ -94,7 +95,7 @@ The expected battle didn't happen because of <tc-webtag:handle coderId="10574855
    <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.25.06<br>10:00 AM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_102506">TC Launches Operations in China with New Beijing Appointment</A></span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/china_20061024.png" width="72" height="32" alt="Now Open in China" border="0" /></div>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/china_20061027.gif" width="80" height="38" alt="Now Open in China" border="0" /></div>
        TopCoder today announced it has hired Yingying Wu as Vice President of Operations for TopCoder in Asia. Wu will oversee and manage TopCoder business relationships and will build TopCoder's market presence and member enrollment throughout the greater China and Asia region.
       </td>
    </tr>

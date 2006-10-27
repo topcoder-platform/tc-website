@@ -223,7 +223,7 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr><td class="homeBigPromo">
             <%-- China --%>
-            <A href="/tc?module=Static&d1=pressroom&d2=pr_102506"><img src="/i/home/china_20061025.png" alt="Now Open in China" border="0" style="display:block;" /></A>
+            <A href="/tc?module=Static&d1=features&d2=102606"><img src="/i/home/china_20061027.gif" alt="Now Open in China" border="0" style="display:block;" /></A>
             
             <%-- Maverick 
             <A href="/images/downloads/mavericks_at_work.pdf" target="_blank"><img src="/i/home/mavericks_100206.gif" alt="Mavericks at Work" border="0" style="display:block;" /></A>
