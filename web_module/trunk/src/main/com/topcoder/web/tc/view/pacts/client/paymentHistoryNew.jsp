@@ -85,11 +85,7 @@
 <c:when test="${payment.typeId == 3}"><!-- problem (legacy) --></c:when>
 <c:when test="${payment.typeId == 4}"><!-- coder referral --></c:when>
 <c:when test="${payment.typeId == 5}"><!-- charity (legacay) --></c:when>
-<c:when test="${payment.typeId == 7}"><!-- review --></c:when>
-<c:when test="${payment.typeId == 12}"><!-- logo --></c:when>
 <c:when test="${payment.typeId == 13}"><!-- studio --></c:when>
-<c:when test="${payment.typeId == 14}"><!-- problem testing --></c:when>
-<c:when test="${payment.typeId == 15}"><!-- problem writing --></c:when>
 <c:when test="${payment.typeId == 24}"><!-- reliability --></c:when>
 <c:otherwise>
     <tr class="<%=even?"light":"dark"%>">
