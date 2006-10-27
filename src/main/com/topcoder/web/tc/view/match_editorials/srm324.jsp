@@ -53,7 +53,7 @@
 <h2>Match summary</h2> 
 
 <p>
-This SRM, being the last start before the upcoming GCJ finals, attracted a lot of strong coders, including 6 (out of total 10) targeteers. 
+This SRM, being the last start before the upcoming GCJ finals, attracted a lot of strong coders, including 6 (out of the total 10) targeteers. 
 The expected battle didn't happen because of <tc-webtag:handle coderId="10574855" context="algorithm"/>, who needed only a bit more than 12 minutes to submit all 3 problems.
 In addition to getting another spot among <a href="http://www.topcoder.com/stat?&c=highest_totals&dn=1">the all-time highest total scores</a>, <tc-webtag:handle coderId="10574855" context="algorithm"/> regained the top line in the Algorithm Ranking. 
 In Div 2, newcomer <tc-webtag:handle coderId="22655534" context="algorithm"/> won the round by a solid margin over more experienced members <tc-webtag:handle coderId="19968150" context="algorithm"/>, <tc-webtag:handle coderId="21926605" context="algorithm"/>, <tc-webtag:handle coderId="15211879" context="algorithm"/> and <tc-webtag:handle coderId="22652765" context="algorithm"/>,  all of whom were close in the race for the second place.
