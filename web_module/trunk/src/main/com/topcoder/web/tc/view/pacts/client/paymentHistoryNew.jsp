@@ -86,7 +86,6 @@
 <c:when test="${payment.typeId == 4}"><!-- coder referral --></c:when>
 <c:when test="${payment.typeId == 5}"><!-- charity (legacay) --></c:when>
 <c:when test="${payment.typeId == 13}"><!-- studio --></c:when>
-<c:when test="${payment.typeId == 24}"><!-- reliability --></c:when>
 <c:otherwise>
     <tr class="<%=even?"light":"dark"%>">
         <td class="value">
