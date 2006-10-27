@@ -67,7 +67,7 @@
                     duplicate, <strong>please choose the school with the greatest number of registrants</strong>.
                     <br><br>
                     If any information about your school is missing or incorrect and you'd like to send us the correct
-                    information, <A href="mailto:service@topcoder.com?subject=School Information Correction">click
+                    information, <A href="mailto:service@topcoder.com?subject=School%20Information%20Correction">click
                     here</A>.
                     <br><br>
                     Please <strong>select</strong> your school from list below.<br />
@@ -85,7 +85,10 @@
                                 <br/>
                             </c:if>
                             Registrants: ${result[0]}<br/>
-                            <A class="small" href="#" onclick="Javascript:submit('${result[1].name}',${result[1].id});">Select</A>
+                            <c:set value="\"" var="quote"/>
+                            <c:set value="\\\"" var="escapedQuote"/>
+
+                            <A class="small" href="#" onclick='Javascript:submit("${fn:replace(result[1].name, quote, escapedQuote)}",${result[1].id});'>Select</A>
                             <br/><br/>
                         </c:forEach>
                     </span>
