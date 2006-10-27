@@ -57,6 +57,7 @@
 
 <div class="linkBox">
     <A href="/tc?module=Static&d1=features&d2=archive">Archive</A><br>
+    <A href="/tc?module=Static&d1=pressroom&d2=pr_102506">Press Release</A><br>
     <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
     <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
     <tc-webtag:forumLink forumID="506159" message="Discuss this article" />
