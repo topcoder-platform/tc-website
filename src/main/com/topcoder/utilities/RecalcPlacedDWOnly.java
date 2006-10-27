@@ -87,6 +87,7 @@ public class RecalcPlacedDWOnly {
             ps.close();
             ps = null;
 
+/*
 
             // Set division_placed - where the coder placed in their division
             // get all the users in order for this division by points.
@@ -143,6 +144,7 @@ public class RecalcPlacedDWOnly {
             }
             ps.close();
             ps = null;
+*/
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
