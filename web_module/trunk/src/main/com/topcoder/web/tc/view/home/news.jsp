@@ -24,22 +24,22 @@
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 ------------------------%>
-<%-------------------------------------------------
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>10.27.06<br>3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-      <A href="/longcontest/?module=ViewActiveContests&rt=15">Introducing AOL Mashups, at TopCoder Studio</A>
+      <A href="http://studio.topcoder.com/forums?module=Thread&threadID=123">Introducing AOL Mashups, at TopCoder Studio</A>
       </span><br><br>
       Are you a Web 2.0 visionary? Can you differentiate the cool-but-useless from what is genuinely, utterly awesome? We want your ideas. 
       As you may know, AOL has opened up its APIs for the development community to play with. Now it's taking things one step further, and 
       challenging people to come up with the next killer mashup.
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/longcontest/?module=ViewActiveContests&rt=15">view</A>&#160;|&#160;
+         <A href="http://studio.topcoder.com/forums?module=Thread&threadID=123">view</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="506160" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
--------%>
+
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
@@ -214,22 +214,3 @@ expression in the hard one.
     <tc-webtag:forumLink forumID="505998" message="discuss this"/> |
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
-
-<%--------------------------------------------------------%>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>10.19.06<br>3:15 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=101906">TCCC Preview: By the Numbers</A></span><br><br>
-               In this article, I'll take a look at some of the numbers and trivia behind the upcoming 2006 TopCoder Collegiate Challenge, and how those compare to last year's tournament and the last few TopCoder Opens.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/kzimmerman_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="21196141"/></td></tr>
-        </table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&amp;d1=features&amp;d2=101906">article</A> |
-    <tc-webtag:forumLink forumID="506150" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-</td></tr>
-
