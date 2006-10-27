@@ -24,6 +24,42 @@
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 ------------------------%>
+<%-------------------------------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>10.27.06<br>3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/longcontest/?module=ViewActiveContests&rt=15">Introducing AOL Mashups, at TopCoder Studio</A>
+      </span><br><br>
+      Are you a Web 2.0 visionary? Can you differentiate the cool-but-useless from what is genuinely, utterly awesome? We want your ideas. 
+      As you may know, AOL has opened up its APIs for the development community to play with. Now it's taking things one step further, and 
+      challenging people to come up with the next killer mashup.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/longcontest/?module=ViewActiveContests&rt=15">view</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="506160" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+-------%>
+<%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
+        <br>10.27.06<br>1:45 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm324">SRM 324 - Problem Set & Analysis</A></span><br><br>
+This SRM, being the last start before the upcoming GCJ finals, attracted a lot of strong coders, including 6 (out of the total 10) targeteers. 
+The expected battle didn't happen because of <tc-webtag:handle coderId="10574855" context="algorithm"/>, who needed only a bit more than 12 minutes to submit all 3 problems.
+            </td>
+            <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by
+                <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=match_editorials&d2=srm324">full story</A> |
+    <tc-webtag:forumLink forumID="505999" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+</td></tr>
+
 <%--------------------------------------------------------%>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
         <br>10.26.06<br>10:30 AM</td>
@@ -196,17 +232,4 @@ expression in the hard one.
     <tc-webtag:forumLink forumID="506150" message="discuss this"/> |
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.18.06<br>2:00 PM</td>
-     <td class="newsTextCell"><span class="newsTitle">
-     DamianK wins the TCCC06 Sponsor Track</span><br><br>
-        Congratulations to <tc-webtag:handle coderId="13261056" context="algorithm" />, winner of the 2006 TopCoder Collegiate Challenge Sponsor Track!
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-    <tc-webtag:forumLink forumID="506149" message="discuss this"/> |
-     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
 
