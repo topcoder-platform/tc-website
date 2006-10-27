@@ -88,6 +88,9 @@ public class AttachFiles extends ForumsProcessor {
 		
         ForumMessage tempMessage = 
         	(ForumMessage)getRequest().getSession().getAttribute("tempMessage_" + tempMessageIDStr);
+        if (tempMessage == null) {
+        	tempMessage = forum.createMessage(user);
+        }
         tempMessage.setSubject(subject);
         tempMessage.setBody(body);
         

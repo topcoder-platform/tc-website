@@ -91,18 +91,6 @@ public class Attach extends ForumsProcessor {
         Forum forum = forumFactory.getForum(forumID);
         if (!messageIDStr.equals("")) {
             ForumMessage message = forumFactory.getMessage(Long.parseLong(messageIDStr));
-            String replySubject = message.getSubject();
-            if (!replySubject.startsWith("Re: ")) {
-                replySubject = "Re: " + replySubject;
-            }
-
-            if (postMode.equals("Reply")) {
-                setDefault(ForumConstants.MESSAGE_SUBJECT, replySubject);
-            }
-            if (postMode.equals("Edit")) {
-                setDefault(ForumConstants.MESSAGE_SUBJECT, message.getSubject());
-                setDefault(ForumConstants.MESSAGE_BODY, ForumsUtil.createTextAreaBody(message.getUnfilteredBody()));
-            }
             getRequest().setAttribute("message", message);
             getRequest().setAttribute("thread", message.getForumThread());
         } else {

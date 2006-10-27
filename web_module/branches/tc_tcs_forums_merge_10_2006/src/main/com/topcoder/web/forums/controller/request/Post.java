@@ -78,6 +78,8 @@ public class Post extends ForumsProcessor {
             	getRequest().getSession().setAttribute("tempMessage_" + ForumsUtil.tempMessageID++, tempMessage);
             } else {
             	getRequest().setAttribute(ForumConstants.TEMP_MESSAGE_ID, tempMessageIDStr);
+            	setDefault(ForumConstants.MESSAGE_SUBJECT, tempMessage.getSubject());
+            	setDefault(ForumConstants.MESSAGE_BODY, ForumsUtil.createTextAreaBody(tempMessage.getUnfilteredBody()));
             	setDefault(ForumConstants.TEMP_MESSAGE_ID, getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
             }
             getRequest().setAttribute("tempMessage", tempMessage);

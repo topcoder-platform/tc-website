@@ -31,6 +31,9 @@ public class RemoveAttachment extends ForumsProcessor {
         String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
         String tempMessageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
         String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
+        String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags(
+                getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
+        String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
         
         String strAttachmentID = getRequest().getParameter(ForumConstants.ATTACHMENT_ID);
         long attachmentID = Long.parseLong(strAttachmentID);
@@ -65,6 +68,14 @@ public class RemoveAttachment extends ForumsProcessor {
     		setIsNextPageInContext(true);
     		return;
         }
+        
+        ForumMessage tempMessage = (ForumMessage)getRequest().getSession().getAttribute("tempMessage_" + tempMessageIDStr);
+        if (tempMessage == null) {
+        	tempMessage = messageToRemoveFrom.getForum().createMessage(user);
+        }
+        tempMessage.setSubject(subject);
+        tempMessage.setBody(body);
+        
 
         StringBuffer urlNext = new StringBuffer(getSessionInfo().getServletPath()).append("?module=Post");
         urlNext.append("&").append(ForumConstants.FORUM_ID).append("=").append(forumIDStr);
