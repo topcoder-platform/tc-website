@@ -38,7 +38,7 @@ public class RecalcPlacedDWOnly {
             sqlStr.append("WHERE r.room_id = rr.room_id ");
             sqlStr.append("AND rr.round_id = ? ");
             sqlStr.append("AND rr.attended = 'Y' ");
-            sqlStr.append("ORDER BY r.room_id, rr.total_points DESC");
+            sqlStr.append("ORDER BY r.room_id, rr.final_points DESC");
             ps = c.prepareStatement(sqlStr.toString());
             ps.setInt(1, roundId);
             rs = ps.executeQuery();
@@ -54,7 +54,7 @@ public class RecalcPlacedDWOnly {
 
                 int coderId = rs.getInt("coder_id");
                 int room = rs.getInt("room_id");
-                double points = rs.getDouble("total_points");
+                double points = rs.getDouble("final_points");
 
                 // Are we starting a new room?
                 if (room != lastRoom) {
@@ -97,7 +97,7 @@ public class RecalcPlacedDWOnly {
             sqlStr.append("AND rr.round_id = ? ");
             sqlStr.append("AND rr.attended = 'Y' ");
             sqlStr.append("AND r.division_id <> -1 ");
-            sqlStr.append("ORDER BY r.division_id, rr.total_points DESC");
+            sqlStr.append("ORDER BY r.division_id, rr.final_points DESC");
             ps = c.prepareStatement(sqlStr.toString());
             ps.setInt(1, roundId);
             rs = ps.executeQuery();
@@ -115,7 +115,7 @@ public class RecalcPlacedDWOnly {
 
                 int coderId = rs.getInt("coder_id");
                 int divisionId = rs.getInt("division_id");
-                double points = rs.getDouble("total_points");
+                double points = rs.getDouble("final_points");
 
                 // Are we starting a new division?
                 if (divisionId != previousDivision) {
