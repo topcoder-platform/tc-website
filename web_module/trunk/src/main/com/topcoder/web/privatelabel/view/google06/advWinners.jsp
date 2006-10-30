@@ -62,106 +62,205 @@
              <td class="advancersRound" width="50%">Handle</td>
              <td class="advancersRound" width="50%" align="right">Score</td>
          </tr>
-         <tr class="boxText"><td>marek.cygan</td><td align="right">607.48</td></tr>
-         <tr class="boxText"><td>krijgertje</td><td align="right">555.29</td></tr>
-         <tr class="boxText"><td>Petr</td><td align="right">549.83</td></tr>
-         <tr class="boxText"><td>reid</td><td align="right">538.65</td></tr>
-         <tr class="boxText"><td>ploh</td><td align="right">521.67</td></tr>
-         <tr class="boxText"><td>RalphFurmaniak</td><td align="right">521.46</td></tr>
-         <tr class="boxText"><td>kalinov</td><td align="right">512.81</td></tr>
-         <tr class="boxText"><td>snewman</td><td align="right">485.03</td></tr>
-         <tr class="boxText"><td>ante</td><td align="right">476.25</td></tr>
-         <tr class="boxText"><td>zjq</td><td align="right">463.93</td></tr>
-         <tr class="boxText"><td>John_Dethridge</td><td align="right">451.96</td></tr>
-         <tr class="boxText"><td>venco</td><td align="right">439.75</td></tr>
-         <tr class="boxText"><td>kalmakka</td><td align="right">412.60</td></tr>
-         <tr class="boxText"><td>overwise</td><td align="right">386.60</td></tr>
-         <tr class="boxText"><td>Matei</td><td align="right">385.57</td></tr>
-         <tr class="boxText"><td>hauser</td><td align="right">384.65</td></tr>
-         <tr class="boxText"><td>dgarthur</td><td align="right">379.17</td></tr>
-         <tr class="boxText"><td>Im2Good</td><td align="right">375.85</td></tr>
-         <tr class="boxText"><td>sjelkjd</td><td align="right">361.71</td></tr>
-         <tr class="boxText"><td>radeye</td><td align="right">341.69</td></tr>
-         <tr class="boxText"><td>Egor</td><td align="right">341.41</td></tr>
-         <tr class="boxText"><td>soul-net</td><td align="right">325.48</td></tr>
-         <tr class="boxText"><td>martinp534</td><td align="right">304.97</td></tr>
-         <tr class="boxText"><td>texel</td><td align="right">293.51</td></tr>
-         <tr class="boxText"><td>gawry</td><td align="right">286.55</td></tr>
-         <tr class="boxText"><td>tjq</td><td align="right">282.63</td></tr>
-         <tr class="boxText"><td>tmyklebu</td><td align="right">281.52</td></tr>
-         <tr class="boxText"><td>Yarin</td><td align="right">267.40</td></tr>
-         <tr class="boxText"><td>mathijs</td><td align="right">265.23</td></tr>
-         <tr class="boxText"><td>AdrianKuegel</td><td align="right">259.70</td></tr>
-         <tr class="boxText"><td>natori</td><td align="right">250.61</td></tr>
-         <tr class="boxText"><td>skanthak</td><td align="right">240.32</td></tr>
-         <tr class="boxText"><td>visualage</td><td align="right">238.83</td></tr>
-         <tr class="boxText"><td>nicka81</td><td align="right">231.41</td></tr>
-         <tr class="boxText"><td>andrewzta</td><td align="right">226.33</td></tr>
-         <tr class="boxText"><td>Per</td><td align="right">219.49</td></tr>
-         <tr class="boxText"><td>fuwenjie</td><td align="right">218.34</td></tr>
-         <tr class="boxText"><td>dmytro</td><td align="right">170.12</td></tr>
-         <tr class="boxText"><td>oldbig</td><td align="right">150.00</td></tr>
-         <tr class="boxText"><td>bolu</td><td align="right">144.74</td></tr>
-         <tr class="boxText"><td>HilbertRaum</td><td align="right">138.71</td></tr>
-         <tr class="boxText"><td>maze_pallas</td><td align="right">131.96</td></tr>
-         <tr class="boxText"><td>qixin99</td><td align="right">131.08</td></tr>
-         <tr class="boxText"><td>Ryan</td><td align="right">120.64</td></tr>
-         <tr class="boxText"><td>aditsu</td><td align="right">111.69</td></tr>
-         <tr class="boxText"><td>po</td><td align="right">100.00</td></tr>
-         <tr class="boxText"><td>unChabonSerio</td><td align="right">91.79</td></tr>
-         <tr class="boxText"><td>haha</td><td align="right">82.85</td></tr>
-         <tr class="boxText"><td>SuperRaskao</td><td align="right">75.00</td></tr>
-         <tr class="boxText"><td>Andrew_Lazarev</td><td align="right">50.00</td></tr>
-         <tr class="boxText"><td>HardCoder</td><td align="right">50.00</td></tr>
-         <tr class="boxText"><td>Krzysan</td><td align="right">50.00</td></tr>
-         <tr class="boxText"><td>chrbanx</td><td align="right">50.00</td></tr>
-         <tr class="boxText"><td>HappyDude</td><td align="right">25.00</td></tr>
-         <tr class="boxText"><td>Wernie</td><td align="right">25.00</td></tr>
-         <tr class="boxText"><td>jdmetz</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>cvoinescu</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>timmac</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>abiczo</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>Tomy</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>xs0</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>Larry</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>anikov</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>Psyho</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>doeth</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>madking</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>mickle</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>sean_henderson</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>liympanda</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>LuckyLibran</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>Abednego</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>Jasko</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>XuChuan</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>myprasanna</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>bogklug</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>Sparrow</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>assembler</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>Dan[Popovici]</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>centipede80</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>Jumping_John</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>goo</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>Ulan</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>Reyhot</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>mrozik</td><td align="right">0.00</td></tr>
-         <tr class="boxText"><td>malcin</td><td align="right">-25.00</td></tr>
-         <tr class="boxText"><td>battyone</td><td align="right">-25.00</td></tr>
-         <tr class="boxText"><td>zig2</td><td align="right">-25.00</td></tr>
-         <tr class="boxText"><td>polchawa</td><td align="right">-25.00</td></tr>
-         <tr class="boxText"><td>asaveljevs</td><td align="right">-25.00</td></tr>
-         <tr class="boxText"><td>MikeMirzayanov</td><td align="right">-25.00</td></tr>
-         <tr class="boxText"><td>algostorm</td><td align="right">-25.00</td></tr>
-         <tr class="boxText"><td>binarius</td><td align="right">-25.00</td></tr>
-         <tr class="boxText"><td>Mg9H</td><td align="right">-25.00</td></tr>
-         <tr class="boxText"><td>Crush</td><td align="right">-25.00</td></tr>
-         <tr class="boxText"><td>adic</td><td align="right">-25.00</td></tr>
-         <tr class="boxText"><td>agh</td><td align="right">-25.00</td></tr>
-         <tr class="boxText"><td>misof</td><td align="right">-50.00</td></tr>
-         <tr class="boxText"><td>WSX</td><td align="right">-50.00</td></tr>
-         <tr class="boxText"><td>lovro</td><td align="right">-50.00</td></tr>
-         <tr class="boxText"><td>Jan_Kuipers</td><td align="right">-50.00</td></tr>
+<tr class="boxText"><td>Petr</td><td align="right">927.02</td></tr>
+
+<tr class="boxText"><td>Ying</td><td align="right">811.21</td></tr>
+
+<tr class="boxText"><td>andrewzta</td><td align="right">761.56</td></tr>
+
+<tr class="boxText"><td>halyavin</td><td align="right">732.46</td></tr>
+
+<tr class="boxText"><td>tomek</td><td align="right">677.55</td></tr>
+
+<tr class="boxText"><td>tomekkulczynski</td><td align="right">634.69</td></tr>
+
+<tr class="boxText"><td>pashka</td><td align="right">590.05</td></tr>
+
+<tr class="boxText"><td>asaveljevs</td><td align="right">579.60</td></tr>
+
+<tr class="boxText"><td>ainu7</td><td align="right">552.23</td></tr>
+
+<tr class="boxText"><td>misof</td><td align="right">537.19</td></tr>
+
+<tr class="boxText"><td>Egor</td><td align="right">534.19</td></tr>
+
+<tr class="boxText"><td>xOberon</td><td align="right">517.65</td></tr>
+
+<tr class="boxText"><td>reid</td><td align="right">516.23</td></tr>
+
+<tr class="boxText"><td>bmerry</td><td align="right">498.01</td></tr>
+
+<tr class="boxText"><td>LemonTree</td><td align="right">497.27</td></tr>
+
+<tr class="boxText"><td>MikeMirzayanov</td><td align="right">490.32</td></tr>
+
+<tr class="boxText"><td>PaulJefferys</td><td align="right">481.89</td></tr>
+
+<tr class="boxText"><td>monsoon</td><td align="right">478.60</td></tr>
+
+<tr class="boxText"><td>Andrew_Lazarev</td><td align="right">475.39</td></tr>
+
+<tr class="boxText"><td>tsjoker</td><td align="right">454.86</td></tr>
+
+<tr class="boxText"><td>kalinov</td><td align="right">440.75</td></tr>
+
+<tr class="boxText"><td>pparys</td><td align="right">440.41</td></tr>
+
+<tr class="boxText"><td>dyatlov</td><td align="right">420.64</td></tr>
+
+<tr class="boxText"><td>Michael_Levin</td><td align="right">419.19</td></tr>
+
+<tr class="boxText"><td>daveagp</td><td align="right">403.39</td></tr>
+
+<tr class="boxText"><td>malcin</td><td align="right">399.55</td></tr>
+
+<tr class="boxText"><td>kalmakka</td><td align="right">397.15</td></tr>
+
+<tr class="boxText"><td>kedaizd</td><td align="right">391.91</td></tr>
+
+<tr class="boxText"><td>cyfra</td><td align="right">389.02</td></tr>
+
+<tr class="boxText"><td>Macsy</td><td align="right">387.38</td></tr>
+
+<tr class="boxText"><td>Psyho</td><td align="right">377.22</td></tr>
+
+<tr class="boxText"><td>mhchan</td><td align="right">374.90</td></tr>
+
+<tr class="boxText"><td>jakubr</td><td align="right">353.71</td></tr>
+
+<tr class="boxText"><td>overwise</td><td align="right">330.73</td></tr>
+
+<tr class="boxText"><td>kia</td><td align="right">283.48</td></tr>
+
+<tr class="boxText"><td>ACRush</td><td align="right">282.62</td></tr>
+
+<tr class="boxText"><td>JongMan</td><td align="right">261.44</td></tr>
+
+<tr class="boxText"><td>IvanRomanov</td><td align="right">251.33</td></tr>
+
+<tr class="boxText"><td>DmitryKorolev</td><td align="right">235.14</td></tr>
+
+<tr class="boxText"><td>Revenger</td><td align="right">234.54</td></tr>
+
+<tr class="boxText"><td>elizarov</td><td align="right">233.79</td></tr>
+
+<tr class="boxText"><td>evgeni</td><td align="right">232.44</td></tr>
+
+<tr class="boxText"><td>antimatter</td><td align="right">226.70</td></tr>
+
+<tr class="boxText"><td>CatalinT</td><td align="right">226.15</td></tr>
+
+<tr class="boxText"><td>Jan_Kuipers</td><td align="right">225.73</td></tr>
+
+<tr class="boxText"><td>krijgertje</td><td align="right">225.11</td></tr>
+
+<tr class="boxText"><td>wd.h</td><td align="right">221.28</td></tr>
+
+<tr class="boxText"><td>w_</td><td align="right">218.82</td></tr>
+
+<tr class="boxText"><td>zhuzeyuan</td><td align="right">217.09</td></tr>
+
+<tr class="boxText"><td>falagar</td><td align="right">212.75</td></tr>
+
+<tr class="boxText"><td>MegaS</td><td align="right">210.88</td></tr>
+
+<tr class="boxText"><td>gawry</td><td align="right">209.13</td></tr>
+
+<tr class="boxText"><td>liympanda</td><td align="right">207.74</td></tr>
+
+<tr class="boxText"><td>hyyylr</td><td align="right">206.37</td></tr>
+
+<tr class="boxText"><td>skatou</td><td align="right">205.00</td></tr>
+
+<tr class="boxText"><td>Vintik</td><td align="right">204.09</td></tr>
+
+<tr class="boxText"><td>jasonw</td><td align="right">199.82</td></tr>
+
+<tr class="boxText"><td>darnley</td><td align="right">199.59</td></tr>
+
+<tr class="boxText"><td>NPermyakov</td><td align="right">199.54</td></tr>
+
+<tr class="boxText"><td>aengus</td><td align="right">196.67</td></tr>
+
+<tr class="boxText"><td>embe</td><td align="right">191.62</td></tr>
+
+<tr class="boxText"><td>Yarin</td><td align="right">186.89</td></tr>
+
+<tr class="boxText"><td>NSI</td><td align="right">185.22</td></tr>
+
+<tr class="boxText"><td>AdrianKuegel</td><td align="right">182.40</td></tr>
+
+<tr class="boxText"><td>nicka81</td><td align="right">181.01</td></tr>
+
+<tr class="boxText"><td>HeaDacHe</td><td align="right">178.77</td></tr>
+
+<tr class="boxText"><td>VitalyGoldstein</td><td align="right">178.37</td></tr>
+
+<tr class="boxText"><td>kappa</td><td align="right">175.40</td></tr>
+
+<tr class="boxText"><td>HilbertRaum</td><td align="right">168.29</td></tr>
+
+<tr class="boxText"><td>DmitryKlenov</td><td align="right">168.26</td></tr>
+
+<tr class="boxText"><td>Abednego</td><td align="right">165.51</td></tr>
+
+<tr class="boxText"><td>Rocking</td><td align="right">164.38</td></tr>
+
+<tr class="boxText"><td>Per</td><td align="right">163.41</td></tr>
+
+<tr class="boxText"><td>Emilian_Miron</td><td align="right">158.22</td></tr>
+
+<tr class="boxText"><td>Aidin.Kashigar</td><td align="right">156.94</td></tr>
+
+<tr class="boxText"><td>lukasP</td><td align="right">156.00</td></tr>
+
+<tr class="boxText"><td>grotmol</td><td align="right">152.34</td></tr>
+
+<tr class="boxText"><td>gevak</td><td align="right">142.55</td></tr>
+
+<tr class="boxText"><td>nhzp339</td><td align="right">130.61</td></tr>
+
+<tr class="boxText"><td>NauCoder</td><td align="right">107.71</td></tr>
+
+<tr class="boxText"><td>lazyboy</td><td align="right">98.73</td></tr>
+
+<tr class="boxText"><td>WSX</td><td align="right">56.89</td></tr>
+
+<tr class="boxText"><td>Snail</td><td align="right">25.00</td></tr>
+
+<tr class="boxText"><td>Masao</td><td align="right">0.00</td></tr>
+
+<tr class="boxText"><td>blackmath</td><td align="right">0.00</td></tr>
+
+<tr class="boxText"><td>.Invader</td><td align="right">0.00</td></tr>
+
+<tr class="boxText"><td>Mg9H</td><td align="right">0.00</td></tr>
+
+<tr class="boxText"><td>smsorin</td><td align="right">0.00</td></tr>
+
+<tr class="boxText"><td>Rostislav</td><td align="right">0.00</td></tr>
+
+<tr class="boxText"><td>nya</td><td align="right">0.00</td></tr>
+
+<tr class="boxText"><td>lyc1977</td><td align="right">0.00</td></tr>
+
+<tr class="boxText"><td>xreborner</td><td align="right">0.00</td></tr>
+
+<tr class="boxText"><td>goo</td><td align="right">0.00</td></tr>
+
+<tr class="boxText"><td>soul-net</td><td align="right">-25.00</td></tr>
+
+<tr class="boxText"><td>wintokk</td><td align="right">-25.00</td></tr>
+
+<tr class="boxText"><td>Ulan</td><td align="right">-25.00</td></tr>
+
+<tr class="boxText"><td>Bankevich</td><td align="right">-25.00</td></tr>
+
+<tr class="boxText"><td>madking</td><td align="right">-25.00</td></tr>
+
+<tr class="boxText"><td>fpmc</td><td align="right">-25.00</td></tr>
+
+<tr class="boxText"><td>Soultaker</td><td align="right">-25.00</td></tr>
          </table>
 
 
