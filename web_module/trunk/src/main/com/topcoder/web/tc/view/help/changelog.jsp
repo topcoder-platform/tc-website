@@ -42,7 +42,7 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 <p>
-    5.5.4 - 2006.10.xx
+    5.5.4 - 2006.10.30
     <ul>
         <li>Fix member search so that it can search for HS only members</li>
         <li>Fix member profile so that it can show HS only members</li>
