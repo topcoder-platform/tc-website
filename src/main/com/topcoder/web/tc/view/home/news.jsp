@@ -26,7 +26,7 @@
 ------------------------%>
 <%--------------------------------------------------------%>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>10.30.06<br>11:30 AM</td>
+        <br>10.30.06<br>11:40 AM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=103006">TCCC Preview: Component Competitions</A></span><br><br>
@@ -211,26 +211,3 @@ TCHS SRM 17 proved to be quite difficult, making for a very exciting challenge p
        <tc-webtag:forumLink forumID="506154" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
-
-<%-----------------------------------------------
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
-        <br>10.20.06<br>12:30 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm323">SRM 323 - Problem Set & Analysis</A></span><br><br>
-This match was harder than usual. All three problems in the
-first division proved to be rather tricky. Only 229 coders solved the so-called easy 
-problem, 40 solved the medium, while only 10 coders successfully restored 
-expression in the hard one.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/Pawa_big.jpg" alt="" width="55" height="61"/><br>by
-                <tc-webtag:handle coderId="10323773" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=match_editorials&d2=srm323">full story</A> |
-    <tc-webtag:forumLink forumID="505998" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
----------%>

@@ -44,7 +44,7 @@
 This article is focused on main fast-to-type and convenient means of parsing input and formatting output in cases that are typical for TopCoder problems. All methods are specific to C++, but Java and VB coders may find several helpful ideas.</li>
 --%>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=103006"><strong>TCCC Preview: Component Competitions</strong></A>, by <tc-webtag:handle coderId="252022" /><br>
-It has been a while since the last Collegiate Challenge (or it at least seems that way); with the competition enhancements first introduced at the 2006 TCO adding some interesting twists to this TCCC's design/development competitions, it should prove to be an exciting one.</li>
+With the competition enhancements first introduced at the 2006 TCO adding some interesting twists to the College Challenge's design and development finals, I am expecting an exciting contest in San Diego.</li>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=102606"><strong>TopCoder visits Dalian Software Park</strong></A><br>
 Last week TopCoder's Yingying Wu hosted the company's first professional open house at Dalian Software Park, part of "the Silicon Valley of China."</li>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=101906"><strong>TCCC Preview: By the Numbers</strong></A>, by <tc-webtag:handle coderId="21196141" /><br>
