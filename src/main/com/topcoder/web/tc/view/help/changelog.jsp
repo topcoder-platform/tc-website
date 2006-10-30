@@ -47,7 +47,7 @@
         <li>Fix member search so that it can search for HS only members</li>
         <li>Fix member profile so that it can show HS only members</li>
         <li>Fix bug in registration process where one can not select a school whose name contains a "</li>
-
+        <li>Fix bug in registration where a HS user might end up without a country to represent</li>
     </ul>
  </p>
 
