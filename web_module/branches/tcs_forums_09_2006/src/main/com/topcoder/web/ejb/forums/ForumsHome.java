@@ -12,6 +12,8 @@ import java.rmi.RemoteException;
 
 public interface ForumsHome extends EJBHome {
 
+	public static final String EJB_REF_NAME = "com.topcoder.web.ejb.forums.ForumsHome";
+	
     /**
      *
      * This method returns a Forums ejb.
