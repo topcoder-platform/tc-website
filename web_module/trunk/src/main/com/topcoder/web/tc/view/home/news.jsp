@@ -25,6 +25,20 @@
 </td></tr>
 ------------------------%>
 <%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>10.30.06<br>4:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      TopCoder members honor victor_lxd
+      </span><br><br>
+      In SRM 324, dedicated to the memory of <tc-webtag:handle coderId="13377493"/>, TopCoder members donated $3,253 of their winnings. With TopCoder's matching donation, and other donations from members, the total giving from the community to help <tc-webtag:handle coderId="13377493"/>'s family was more than $12,000. Thank you.
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=pressroom&d2=art_091806">learn more</A> |
+         <tc-webtag:forumLink forumID="506118" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
         <br>10.30.06<br>11:40 AM</td>
     <td class="newsTextCell">
@@ -53,8 +67,8 @@
       challenging people to come up with the next killer mashup.
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="http://studio.topcoder.com/forums?module=Thread&threadID=123">view</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="506160" message="discuss this" />&#160;|&#160;
+         <A href="http://studio.topcoder.com/forums?module=Thread&threadID=123">view</A> | 
+         <tc-webtag:forumLink forumID="506160" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
@@ -104,7 +118,7 @@ The expected battle didn't happen because of <tc-webtag:handle coderId="10574855
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=ViewSurvey&sid=10004">view survey</A>&#160;|&#160;
+         <A href="/tc?module=ViewSurvey&sid=10004">view survey</A> | 
         <tc-webtag:forumLink forumID="506158" message="discuss this"/> |
          <A href="/tc?&module=SurveyList">archive</A>
    </td></tr>
@@ -118,8 +132,8 @@ The expected battle didn't happen because of <tc-webtag:handle coderId="10574855
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_102506" target="_blank">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506157" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_102506" target="_blank">full story</A> | 
+       <tc-webtag:forumLink forumID="506157" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
@@ -165,8 +179,8 @@ TCHS SRM 17 proved to be quite difficult, making for a very exciting challenge p
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-       <A href="http://gigaom.com/2006/10/23/the-new-american-idol-the-coder/" target="_blank">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506156" message="discuss this" />&#160;|&#160;
+       <A href="http://gigaom.com/2006/10/23/the-new-american-idol-the-coder/" target="_blank">full story</A> | 
+       <tc-webtag:forumLink forumID="506156" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
@@ -198,16 +212,3 @@ TCHS SRM 17 proved to be quite difficult, making for a very exciting challenge p
      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.23.06<br>5:00 PM</td>
-       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.wallstreetandtech.com/showArticle.jhtml;jsessionid=0U21ZF2KMDLJYQSNDLPCKHSCJUNN2JVN?articleID=193400878" target="_blank"><i>Wall Street & Technology</i> on TopCoder and UBS</A></span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wallstreetnTech_logo.gif" width="80" height="30" alt="Wall Street &amp; Technology" border="0" /></div>
-       "Ken Vogel didn't join TopCoder looking for a job, but a job came looking for him when UBS evaluated his success in online competitive development."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://www.wallstreetandtech.com/showArticle.jhtml;jsessionid=0U21ZF2KMDLJYQSNDLPCKHSCJUNN2JVN?articleID=193400878" target="_blank">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506154" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
