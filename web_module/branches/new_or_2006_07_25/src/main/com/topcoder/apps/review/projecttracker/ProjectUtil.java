@@ -22,6 +22,7 @@ import java.util.Set;
 
 import com.topcoder.project.phases.Dependency;
 import com.topcoder.project.phases.Phase;
+import com.topcoder.project.phases.PhaseStatus;
 import com.topcoder.project.phases.template.ConfigurationException;
 import com.topcoder.project.phases.template.DefaultPhaseTemplate;
 import com.topcoder.project.phases.template.PhaseTemplate;
@@ -250,6 +251,12 @@ public class ProjectUtil {
         String templateName = (projectTypeId == 1) ? "Design" : "Development";
         com.topcoder.project.phases.Project project = template.applyTemplate(templateName);
         com.topcoder.project.phases.Phase[] phases = project.getAllPhases();
+        for (int i = 0; i < phases.length; i++) {
+        	phases[i].setFixedStartDate(phases[i].calcStartDate());
+        	phases[i].setScheduledStartDate(phases[i].calcStartDate());
+        	phases[i].setScheduledEndDate(phases[i].calcEndDate());
+        	phases[i].setPhaseStatus(PhaseStatus.SCHEDULED);
+        }
         Map phaseIds = new HashMap();
         Set dependencies = new HashSet();
 
@@ -352,6 +359,7 @@ public class ProjectUtil {
         ps.setDate(index++, phase.getActualEndDate() == null ? null : new Date(phase.getActualEndDate().getTime()));
         ps.setString(index++, String.valueOf(userId));
         ps.setString(index++, String.valueOf(userId));
+        ps.execute();
         close(ps);
     }
 
@@ -377,6 +385,7 @@ public class ProjectUtil {
         ps.setString(index++, parameter);
         ps.setString(index++, String.valueOf(userId));
         ps.setString(index++, String.valueOf(userId));
+        ps.execute();
         close(ps);
     }
 
@@ -534,7 +543,7 @@ public class ProjectUtil {
     private static final String PROJECT_AUDIT_ID_SEQ = "project_audit_id_seq";
     private static final String PROJECT_PHASE_ID_SEQ = "project_phase_id_seq";
 
-    private static PhaseTemplate getPhaseTemplate() {
+    static PhaseTemplate getPhaseTemplate() {
     	try {
 			return new DefaultPhaseTemplate(DefaultPhaseTemplate.class.getName());
 		} catch (ConfigurationException e) {
@@ -603,6 +612,7 @@ public class ProjectUtil {
         ps.setLong(index++, d.getLagTime());
         ps.setString(index++, String.valueOf(userId));
         ps.setString(index++, String.valueOf(userId));
+        ps.execute();
         close(ps);
     }
 
