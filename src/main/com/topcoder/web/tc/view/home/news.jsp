@@ -25,6 +25,24 @@
 </td></tr>
 ------------------------%>
 <%--------------------------------------------------------%>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
+        <br>10.30.06<br>11:30 AM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=103006">TCCC Preview: Component Competitions</A></span><br><br>
+            It has been a while since the last Collegiate Challenge (or it at least seems that way); with the competition enhancements first introduced at the 2006 TCO adding some interesting twists to this TCCC's design/development competitions, it should prove to be an exciting one.
+            </td>
+            <td class="newsPhoto"><img src="/i/m/AleaActaEst_big.jpg" alt="" width="55" height="61"/><br>by
+                <tc-webtag:handle coderId="252022" context="design"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&amp;d1=features&amp;d2=103006">article</A> |
+    <tc-webtag:forumLink forumID="506161" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>10.27.06<br>3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -194,7 +212,7 @@ TCHS SRM 17 proved to be quite difficult, making for a very exciting challenge p
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
+<%-----------------------------------------------
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
         <br>10.20.06<br>12:30 PM</td>
@@ -215,3 +233,4 @@ expression in the hard one.
     <tc-webtag:forumLink forumID="505998" message="discuss this"/> |
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
+---------%>
