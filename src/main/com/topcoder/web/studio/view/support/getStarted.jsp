@@ -39,14 +39,14 @@
 
                         <h3>Creative and exciting projects that pay off big.</h3>
                         TopCoder Studio is the meeting place for clients who need creative work done and creative
-                        designers looking to compete for that work. Here's how it happens:
+                        people looking to compete for that work. Here's how it happens:
                         <br><br>
 
                         <div style="float:left; margin: 0px 6px 4px 0px;">
                             <img src="/i/layout/step1.gif" alt="Step 1"/>
                         </div>
                         <strong>Client contacts TopCoder Studio with project</strong>:
-                        Companies who are in need of graphic design work for their website or product line contact
+                        Companies who are in need of creative work for their website or product line contact
                         TopCoder Studio with their project requirements and timeline. TopCoder Studio works with them to
                         gather the necessary information and documentation, as well as to ensure that the project fits
                         our consistent competition model.
@@ -67,7 +67,7 @@
                         <strong>Browse through the posted contests</strong>:
                         Anyone interested in participating in TopCoder Studio can read through the Contests page - no
                         prior registration is necessary. If there is a contest that you think a friend, co-worker or
-                        fellow designer might be interested in, send them a link to the
+                        fellow creative type might be interested in, send them a link to the
                         <A href="/?module=ViewActiveContests">Contests page</A>.
                         <br><br>
 
@@ -84,12 +84,12 @@
                         <div style="float:left; margin: 0px 6px 4px 0px;">
                             <img src="/i/layout/step5.gif" alt="Step 5"/>
                         </div>
-                        <strong>Registered TopCoder Studio members can submit their design(s)</strong>:
+                        <strong>Registered TopCoder Studio members can submit their work</strong>:
                         Once you've read through a Project's overview and specifications, it's time to work on your
                         submission. Designs can be submitted from the Contest Details page and must conform to the
                         requirements.
                         <br><br>
-                        Members can submit more than one design for each competition, but can only submit one design at
+                        Members can submit more than one concept for each competition, but can only submit one concept at
                         a time.
                         <br><br>
 
@@ -114,19 +114,18 @@
                         <div style="float:left; margin: 0px 6px 4px 0px;">
                             <img src="/i/layout/step8.gif" alt="Step 8"/>
                         </div>
-                        <strong>Client chooses winning design</strong>:
-                        In most cases, it is at the client's sole discretion which design is selected as the contest
-                        winner. Once the client has selected a winner, the designer who submitted the winning design
+                        <strong>Client chooses winning submission</strong>:
+                        In most cases, it is at the client's sole discretion which submission is selected as the contest
+                        winner. Once the client has selected a winner, the member who submitted the winning concept
                         will be notified via email.
                         <br><br>
 
                         <div style="float:left; margin: 0px 6px 4px 0px;">
                             <img src="/i/layout/step9.gif" alt="Step 9"/>
                         </div>
-                        <strong>Winning designer is compensated for their work</strong>:
-                        In order for the winning designer to be compensated for their work, she/he must submit to
-                        TopCoder Studio a vector-based file of the winning design. Once TopCoder Studio receives the
-                        vector-based file, the winning designer will be paid the amount specified in the Project
+                        <strong>Winner is compensated for their work</strong>:
+                        In order for the winner to be compensated for their work, she/he must submit the required file or other deliverables detailed in the Specification Document. Once TopCoder Studio receives the
+                        required file, the winner will be paid the amount specified in the Project
                         Details.
                         <br><br>
 
