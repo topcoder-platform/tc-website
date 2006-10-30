@@ -30,7 +30,7 @@
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=103006">TCCC Preview: Component Competitions</A></span><br><br>
-            It has been a while since the last Collegiate Challenge (or it at least seems that way); with the competition enhancements first introduced at the 2006 TCO adding some interesting twists to this TCCC's design/development competitions, it should prove to be an exciting one.
+            With the competition enhancements first introduced at the 2006 TCO adding some interesting twists to the College Challenge's design and development finals, I am expecting an exciting contest in San Diego.
             </td>
             <td class="newsPhoto"><img src="/i/m/AleaActaEst_big.jpg" alt="" width="55" height="61"/><br>by
                 <tc-webtag:handle coderId="252022" context="design"/></td></tr></table>
