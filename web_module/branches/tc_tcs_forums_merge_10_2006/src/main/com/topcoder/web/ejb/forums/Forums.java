@@ -10,5 +10,7 @@ public interface Forums extends EJBObject {
 
     public String[] getCategoryNames() throws EJBException, RemoteException;
     
-    public int getThreadMessageCount(int threadID) throws EJBException, RemoteException;
+    public int numSoftwareCategories() throws EJBException, RemoteException;
+    
+    public void addSoftwareCategory() throws EJBException, RemoteException;
 }
