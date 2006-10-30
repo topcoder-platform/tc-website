@@ -73,13 +73,13 @@
                         <td class="boxText" align="right"><a href="/pl/?&module=Static&d1=google06&d2=advRd2">100</a>
                         </td>
                     </tr>
-                    <%--
                     <tr valign="top">
                         <td class="advancersRound">
-                            <a href="/pl/?&module=Static&d1=google06&d2=advWinners" class="topLink">Final Round</a></td>
+                            <a href="/pl/?&module=Static&d1=google06&d2=advWinners" class="topLink">Championship Round</a></td>
                         <td class="boxText" align="right"><a href="/pl/?&module=Static&d1=google06&d2=advWinners">Winners</a>
                         </td>
                     </tr>
+                    <%--
                     --%>
                 </table>
 
