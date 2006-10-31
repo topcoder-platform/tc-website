@@ -4,17 +4,23 @@
 
 package com.topcoder.web.tc.controller.request.dr;
 
+import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.RookieBoardRow;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <strong>Purpose</strong>:
@@ -65,7 +71,7 @@ public class RookieBoard extends BaseBoard {
         boolean invert = sortDir.equals("desc");
 
         // break prizes ties
-        tieBreak(rookieBoardResult, (phase == 112) ? designPlacementPrize : developmentPlacementPrize, invert,
+        tieBreak(rookieBoardResult, getPlacementPrize(period, phase + ""), invert,
                 "dr_rookie_tie_break_placement", "dr_rookie_tie_break_score", Constants.SEASON_ID);
 
         // sort
@@ -99,4 +105,35 @@ public class RookieBoard extends BaseBoard {
         }
         return rookieBoardResult;
     }
+    
+    private double[] getPlacementPrize(String seasonId, String phaseId) throws TCWebException {
+        double[] placementArray = null;
+
+        Request r = new Request();
+        r.setContentHandle("rookie_board_placement_prize");
+        r.setProperty(Constants.PHASE_ID, phaseId);
+        r.setProperty(Constants.SEASON_ID, seasonId);
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+        Map m = null;
+        try {
+            m = dai.getData(r);
+
+            ResultSetContainer placementPoints = (ResultSetContainer) m.get("rookie_board_placement_prize");        
+        
+            placementArray = new double[placementPoints.size()];
+            int i = 1;
+            for (Iterator it = placementPoints.iterator(); it.hasNext(); i++) {
+                ResultSetRow row = (ResultSetRow) it.next();
+                if (row.getIntItem("place") != i) {
+                    throw new TCWebException("Wrong contest_prize for stage " + seasonId + " phase " + phaseId);
+                }
+                placementArray[i-1] = row.getDoubleItem("prize_amount");
+            }
+        } catch (Exception e) {
+            throw new TCWebException("Command " + "rookie_board_placement_prize" + " failed.", e);
+        }
+
+        return placementArray;
+    }
+
 }
