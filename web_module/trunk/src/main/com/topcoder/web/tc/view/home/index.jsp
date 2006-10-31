@@ -96,7 +96,7 @@
             <A href="/longcontest/?module=Static&d1=intel_overview"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0" style="display:block;"/></A>
             --%>
             <%-- DIGITAL RUN 
-            <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/dig_run_20061025.png" alt="The Digital Run" border="0" style="display:block;"/></A>
+            <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalRunDesignDoubled.png" alt="The Digital Run" border="0" style="display:block;"/></A>
             --%>
             <%-- bloomberg 
             <map name="bbg_srm">
@@ -113,7 +113,7 @@
             </map>
             <img src="/i/home/srm324_victor_lxd.png" alt="SRM 324 in memoriam: Victor_lxd" border="0" style="display:block;" usemap="#srm"/>
             --%>
-            <%-- AOL mashups - studio --%>
+            <%-- AOL mashups --%>
             <A href="http://studio.topcoder.com/forums?module=Thread&threadID=123"><img src="/i/home/aol_mashups.gif" alt="AOL mashups" border="0" style="display:block;"/></A>
             
 
