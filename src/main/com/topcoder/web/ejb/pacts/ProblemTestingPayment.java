@@ -2,8 +2,6 @@ package com.topcoder.web.ejb.pacts;
 
 import java.sql.SQLException;
 
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-
 
 /**
  * Payment for a problem testing.  It can optionally refer to a round id.
