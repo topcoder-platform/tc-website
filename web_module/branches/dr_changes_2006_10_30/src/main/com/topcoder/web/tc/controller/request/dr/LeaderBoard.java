@@ -4,17 +4,23 @@
 
 package com.topcoder.web.tc.controller.request.dr;
 
+import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.LeaderBoardRow;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <strong>Purpose</strong>:
@@ -33,22 +39,22 @@ public class LeaderBoard extends BaseBoard {
     /**
      * The development prize pool for the top third.
      */
-    private static final double DEVELOPMENT_POOL_PRIZE = 14000.0;
+    private double DEVELOPMENT_POOL_PRIZE = -1;
 
     /**
      * The design prize pool for the top third.
      */
-    private static final double DESIGN_POOL_PRIZE = 28000.0;
+    private double DESIGN_POOL_PRIZE = -1;
 
     /**
      * The design leader placement prizes.
      */
-    private static final double[] designPlacementPrize = {25000.0, 10000.0, 7000.0, 3000.0, 2000.0};
+//    private double[] designPlacementPrize = null;
 
     /**
      * The development leader placement prizes.
      */
-    private static final double[] developmentPlacementPrize = {12500.0, 5000.0, 3500.0, 1500.0, 1000.0};
+//    private double[] developmentPlacementPrize = null;
 
     /**
      * Process the dr rookie board request.
@@ -76,7 +82,7 @@ public class LeaderBoard extends BaseBoard {
         boolean invert = sortDir.equals("desc");
 
         // break prizes ties
-        tieBreak(leaderBoardResult, designBoard ? designPlacementPrize : developmentPlacementPrize, invert,
+        tieBreak(leaderBoardResult, designBoard ? getPlacementPrize(getRequest().getParameter(Constants.STAGE_ID), "112") : getPlacementPrize(getRequest().getParameter(Constants.STAGE_ID), "113"), invert,
                 "dr_leader_tie_break_placement", "dr_leader_tie_break_score", Constants.STAGE_ID);
 
         // sort
@@ -89,6 +95,35 @@ public class LeaderBoard extends BaseBoard {
         setNextPage(Constants.VIEW_LEADER_BOARD_PAGE);
         setIsNextPageInContext(true);
 
+    }
+
+    private double[] getPlacementPrize(String stageId, String phaseId) throws TCWebException {
+        double[] placementArray = null;
+
+        Request r = new Request();
+        r.setContentHandle("leader_board_placement_prize");
+        r.setProperty(Constants.PHASE_ID, phaseId);
+        r.setProperty(Constants.STAGE_ID, stageId);
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+        Map m = null;
+        try {
+            m = dai.getData(r);
+
+            ResultSetContainer placementPoints = (ResultSetContainer) m.get("leader_board_placement_prize");        
+        
+            placementArray = new double[placementPoints.size()];
+            int i = 1;
+            for (Iterator it = placementPoints.iterator(); it.hasNext(); i++) {
+                if (((ResultSetRow) it.next()).getIntItem("place") != i) {
+                    throw new TCWebException("Wrong contest_prize for stage " + stageId + " phase " + phaseId);
+                }
+                placementArray[i-1] = ((ResultSetRow) it.next()).getDoubleItem("prize_amount");
+            }
+        } catch (Exception e) {
+            throw new TCWebException("Command " + "leader_board_placement_prize" + " failed.");
+        }
+
+        return placementArray;
     }
 
     /**
