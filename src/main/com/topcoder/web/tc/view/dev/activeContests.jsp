@@ -158,7 +158,11 @@ position: relative;
          <% } %>
             </td>
             <td class="valueC" nowrap="nowrap">
+                <% if (resultRow.getBooleanItem("is_reg_closed")) { %>
                 <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
+                <% } else { %>
+                <strong><rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/></strong>
+                <% } %>
             </td>
             <td class="valueC">
                 <rsc:item name="total_submissions" row="<%=resultRow%>"/>
@@ -240,7 +244,11 @@ position: relative;
                <% } %>
             </td>
             <td class="valueC" nowrap="nowrap">
+                <% if (resultRow.getBooleanItem("is_reg_closed")) { %>
                 <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
+                <% } else { %>
+                <strong><rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/></strong>
+                <% } %>
             </td>
             <td class="valueC">
                 <rsc:item name="total_submissions" row="<%=resultRow%>"/>
