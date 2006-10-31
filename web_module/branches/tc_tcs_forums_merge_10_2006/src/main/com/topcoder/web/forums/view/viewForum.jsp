@@ -277,7 +277,7 @@
             postings. <%if (user != null) {%><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
             all as read)</A><%}%></td>
         <td align="right">
-            <a href="?module=RSS&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a>
+            <a href="?module=RSS&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>"><img alt="RSS" border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a>
         </td>
     </tr>
 </table>

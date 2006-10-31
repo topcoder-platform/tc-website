@@ -546,11 +546,11 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
         <%  } %>
    </b></td></tr>
 <% } else { %>
-    <td align="right"><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img border="none" src="/i/interface/btn_rss.gif"/></a></td>
+    <td align="right"><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" src="/i/interface/btn_rss.gif"/></a></td>
 <% } %>
 </table>
 <% if (paginator.getNumPages() > 1) { %>
-    <br><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img border="none" align="right" src="/i/interface/btn_rss.gif"/></a>
+    <br><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" align="right" src="/i/interface/btn_rss.gif"/></a>
 <% } %>
         <p><br></p>
         </td>

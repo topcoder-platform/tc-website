@@ -12,7 +12,6 @@ import java.util.List;
 import com.jivesoftware.base.Log;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.forum.AttachmentException;
-import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.MultipartRequest;

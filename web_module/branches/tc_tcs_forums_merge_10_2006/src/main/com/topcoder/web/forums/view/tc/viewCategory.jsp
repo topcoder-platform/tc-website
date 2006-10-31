@@ -266,7 +266,7 @@
             all as read)</A><%}%></td>
         <% } %>
         <td align="right">
-            <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>"><img border="none" src="/i/interface/btn_rss.gif"/></a>
+            <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>"><img alt="RSS" border="none" src="/i/interface/btn_rss.gif"/></a>
         </td>
     </tr>
 </table>
