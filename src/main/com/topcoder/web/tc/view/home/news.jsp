@@ -24,6 +24,34 @@
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 ------------------------%>
+
+<%------------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>11.01.06<br>9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=digital_run&d2=2006_des_prizes">Design prizes <strong><em>DOUBLED</em></strong> for next Digital Run stage</A></span><br><br>
+      For Stage 3 of the Digital Run, starting November 3, the Design Cup series will double its prize pool -- with a total of $150,000 up for grabs, don't miss out!
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=digital_run&d2=2006_des_prizes">details</A> | 
+        <tc-webtag:forumLink forumID="506162" message="discuss this"/> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+--------------------------%>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>10.31.06<br>3:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=activeContests">Latest Software Assembly winners claim $22,500 in prizes</A></span><br><br>
+      <tc-webtag:handle coderId="7389864" /> and <tc-webtag:handle coderId="10627428" /> are the latest TopCoder members to win the top spots in a Software Assembly competition. Roma came in first, winning $15,000, and Fvillaf took home $7,500 for his second-place finish in the Costing Engine and Admin Tool competition. Congratulations!
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <tc-webtag:forumLink forumID="506117" message="discuss this"/> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
@@ -203,15 +231,3 @@ TCHS SRM 17 proved to be quite difficult, making for a very exciting challenge p
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>10.23.05<br>6:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewPastContests">leungxiao wins Digital Run logo contest</A></span><br><br>
-      Congratulations to leungxiao, the winner of TopCoder Studio's Digital Run logo design contest. 
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewPastContests">results</A> | 
-         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=18">discuss this</A> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
