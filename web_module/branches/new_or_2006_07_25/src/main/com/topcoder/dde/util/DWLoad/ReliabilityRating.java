@@ -239,7 +239,7 @@ public class ReliabilityRating {
                     " , case when pi.scheduled_start_time >= ? then 1 else 0 end as after_start_flag" +
                     " from project_result pr" +
                     " , component_inquiry ci" +
-                    " , phase pi" +
+                    " , project_phase pi" +
                     " , project p" +
                     " where ci.project_id = pr.project_id" +
                     " and pr.user_id = ci.user_id" +
@@ -451,27 +451,27 @@ public class ReliabilityRating {
 
     //
     private static final String oldReliabilityData =
-            " select pr.reliable_submission_ind" +
-                    " , ci.create_time" +
-                    " , pr.project_id" +
-                    " from project_result pr" +
-                    " , component_inquiry ci" +
-                    " , phase pi" +
-                    " where ci.project_id = pr.project_id" +
-                    " and pr.user_id = ci.user_id" +
-                    " and pr.user_id = ?" +
-                    " and pi.phase_type_id = 2" +
-                    " and pi.scheduled_start_time < ?" +
-                    " and pi.project_id = pr.project_id" +
-                    " and pr.reliability_ind = 1" +
-                    " and pr.reliable_submission_ind is not null" +
-                    " order by ci.create_time asc";
+        " select pr.reliable_submission_ind" +
+                " , ci.create_time" +
+                " , pr.project_id" +
+                " from project_result pr" +
+                " , component_inquiry ci" +
+                " , project_phase pi" +
+                " where ci.project_id = pr.project_id" +
+                " and pr.user_id = ci.user_id" +
+                " and pr.user_id = ?" +
+                " and pi.phase_type_id = 2" +
+                " and pi.scheduled_start_time < ?" +
+                " and pi.project_id = pr.project_id" +
+                " and pr.reliability_ind = 1" +
+                " and pr.reliable_submission_ind is not null" +
+                " order by ci.create_time asc";
 
     //all the people that became part of the reliability process prior to the change date
     private static final String oldReliabilityUsers =
             " select distinct pr.user_id" +
                     " from project_result pr" +
-                    " , phase pi" +
+                    " , project_phase pi" +
                     " where pi.phase_type_id = 2" +
                     " and pi.scheduled_start_time < ?" +
                     " and pi.project_id = pr.project_id" +
@@ -561,28 +561,28 @@ public class ReliabilityRating {
      * submissions will count against them the next time they submit.
      */
     private static final String includedUsers =
-            " select pr.user_id" +
-                    " from project_result pr" +
-                    " , phase pi" +
-                    " , project p" +
-                    " where pr.project_id = pi.project_id" +
-                    " and pi.phase_type_id = 2" +
-                    " and pi.scheduled_start_time < ?" +
-                    " and pr.reliability_ind = 1" +
-                    " and pr.project_id = p.project_id" +
-                    " and p.project_category_id+111=?" +
-                    " union" +
-                    " select pr.user_id" +
-                    " from project_result pr" +
-                    " , phase pi" +
-                    " , project p" +
-                    " where pr.project_id = pi.project_id" +
-                    " and pi.phase_type_id = 2" +
-                    " and pi.scheduled_start_time >= ?" +
-                    " and pr.reliability_ind = 1" +
-                    " and pr.final_score >= ?" +
-                    " and pr.project_id = p.project_id" +
-                    " and p.project_category_id+111=?";
+        " select distinct pr.user_id" +
+        " from project_result pr" +
+        " , project_phase pi" +
+        " , project p" +
+        " where pr.project_id = pi.project_id" +
+        " and pi.phase_type_id = 2" +
+        " and pi.scheduled_start_time < ?" +
+        " and pr.reliability_ind = 1" +
+        " and pr.project_id = p.project_id" +
+        " and p.project_category_id+111=?" +
+        " union" +
+        " select distinct pr.user_id" +
+        " from project_result pr" +
+        " , project_phase pi" +
+        " , project p" +
+        " where pr.project_id = pi.project_id" +
+        " and pi.phase_type_id = 2" +
+        " and pi.scheduled_start_time >= ?" +
+        " and pr.reliability_ind = 1" +
+        " and pr.final_score >= ?" +
+        " and pr.project_id = p.project_id" +
+        " and p.project_category_id+111=?";
 
     private Set getIncludedUsers(Connection conn, long phaseId) throws SQLException {
 
@@ -616,7 +616,7 @@ public class ReliabilityRating {
                     " , pr.project_id" +
                     " , pr.final_score" +
                     " from project_result pr" +
-                    " , phase pi" +
+                    " , project_phase pi" +
                     " where pr.project_id = pi.project_id" +
                     " and pi.phase_type_id = 2" +
                     " and pi.scheduled_start_time >= ?" +
@@ -682,7 +682,7 @@ public class ReliabilityRating {
                     " , pr.project_id" +
                     " , pr.valid_submission_ind" +
                     " from project_result pr" +
-                    " , phase pi" +
+                    " , project_phase pi" +
                     " where pr.project_id = pi.project_id" +
                     " and pi.phase_type_id = 2" +
                     " and pi.scheduled_start_time < ?" +
@@ -735,18 +735,18 @@ public class ReliabilityRating {
                     "and final_score >= ?";
 
     private final static String getUnmarked =
-            "select pr.user_id, pr.project_id, p.project_category_id, ci.create_time " +
-                    " from project_result pr " +
-                    " , project p " +
-                    " , component_inquiry ci " +
-                    "where ((pr.final_score is not null " +
-                    "and pr.final_score < ?) " +
-                    "or (pr.final_score is null and p.project_status_id in (3,4,5,6,7))) " +
-                    "and pr.reliability_ind is null  " +
-                    "and pr.project_id = p.project_id " +
-                    "and ci.project_id = pr.project_id " +
-                    "and ci.user_id = pr.user_id " +
-                    " order by ci.create_time";
+        "select pr.user_id, pr.project_id, p.project_category_id, ci.create_time " +
+        " from project_result pr " +
+        " , project p " +
+        " , component_inquiry ci " +
+        "where ((pr.final_score is not null " +
+        "and pr.final_score < ?) " +
+        "or (pr.final_score is null and p.project_status_id in (3,4,5,6,7))) " +
+        "and pr.reliability_ind is null  " +
+        "and pr.project_id = p.project_id " +
+        "and ci.project_id = pr.project_id " +
+        "and ci.user_id = pr.user_id " +
+        " order by ci.create_time";
 
     private final static String setReliability =
             "update project_result set reliability_ind = ? where project_id = ? and user_id = ?";
