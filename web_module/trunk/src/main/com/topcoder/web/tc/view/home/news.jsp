@@ -25,6 +25,25 @@
 </td></tr>
 ------------------------%>
 <%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
+        <br>10.31.06<br>1:50 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm18">TCHS SRM 18 - Problem Set & Analysis</A></span><br><br>
+<tc-webtag:handle coderId="14886245" context="hs_algorithm"/> took first place in this match, thanks to seven successful challenges. He was followed by <tc-webtag:handle coderId="11972352" context="hs_algorithm"/>, in second place, with <tc-webtag:handle coderId="22652634" context="hs_algorithm"/> close behind in third.
+            </td>
+            <td class="newsPhoto"><img src="/i/m/rusolis_big.jpg" alt="" width="55" height="61"/><br>by
+                <tc-webtag:handle coderId="20289593" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm18">full story</A> |
+    <tc-webtag:forumLink forumID="506040" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>10.30.06<br>4:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -196,19 +215,3 @@ TCHS SRM 17 proved to be quite difficult, making for a very exciting challenge p
          <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=18">discuss this</A> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.23.06<br>5:15 PM</td>
-     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_bracket">
-     TCCC06 Algorithm Competition Semifinalists</span></A><br><br>
-      Collegiate coding talent from 19 countries to meet at World Championship of Programming scheduled for November 17th in San Diego, CA.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-     <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_bracket">details</A> |
-     <A href="/tc?module=Static&d1=pressroom&d2=pr_102306">press release</A> |
-     <tc-webtag:forumLink forumID="506155" message="discuss this"/> |
-     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
