@@ -82,7 +82,8 @@ public class LeaderBoard extends BaseBoard {
         boolean invert = sortDir.equals("desc");
 
         // break prizes ties
-        tieBreak(leaderBoardResult, designBoard ? getPlacementPrize(getRequest().getParameter(Constants.STAGE_ID), "112") : getPlacementPrize(getRequest().getParameter(Constants.STAGE_ID), "113"), invert,
+        
+        tieBreak(leaderBoardResult, getPlacementPrize(period, designBoard ? "112" : "113"), invert,
                 "dr_leader_tie_break_placement", "dr_leader_tie_break_score", Constants.STAGE_ID);
 
         // sort

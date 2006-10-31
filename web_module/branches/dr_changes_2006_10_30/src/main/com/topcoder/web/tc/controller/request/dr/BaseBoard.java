@@ -52,6 +52,11 @@ public abstract class BaseBoard extends BaseProcessor {
     private static final String TOTAL_POINTS_COLUMN = "7";
 
     /**
+     * The requested period
+     */
+    protected String period = null;
+
+    /**
      * Child must implement businessProcessing.
      */
     protected void businessProcessing() throws Exception {
@@ -90,7 +95,6 @@ public abstract class BaseBoard extends BaseProcessor {
         setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
 
         // if period is not available, get current one from DB.
-        String period = null;
         if (!hasParameter(period_id)) {
             period = getCurrentPeriod(period_id);
         } else {
