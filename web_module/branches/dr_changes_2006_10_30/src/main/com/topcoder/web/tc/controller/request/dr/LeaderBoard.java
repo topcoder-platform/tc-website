@@ -39,12 +39,12 @@ public class LeaderBoard extends BaseBoard {
     /**
      * The development prize pool for the top third.
      */
-    private double DEVELOPMENT_POOL_PRIZE = -1;
+//    private double DEVELOPMENT_POOL_PRIZE = -1;
 
     /**
      * The design prize pool for the top third.
      */
-    private double DESIGN_POOL_PRIZE = -1;
+//    private double DESIGN_POOL_PRIZE = -1;
 
     /**
      * The design leader placement prizes.
@@ -98,43 +98,13 @@ public class LeaderBoard extends BaseBoard {
 
     }
 
-    private double[] getPlacementPrize(String stageId, String phaseId) throws TCWebException {
-        double[] placementArray = null;
-
-        Request r = new Request();
-        r.setContentHandle("leader_board_placement_prize");
-        r.setProperty(Constants.PHASE_ID, phaseId);
-        r.setProperty(Constants.STAGE_ID, stageId);
-        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
-        Map m = null;
-        try {
-            m = dai.getData(r);
-
-            ResultSetContainer placementPoints = (ResultSetContainer) m.get("leader_board_placement_prize");        
-        
-            placementArray = new double[placementPoints.size()];
-            int i = 1;
-            for (Iterator it = placementPoints.iterator(); it.hasNext(); i++) {
-                ResultSetRow row = (ResultSetRow) it.next();
-                if (row.getIntItem("place") != i) {
-                    throw new TCWebException("Wrong contest_prize for stage " + stageId + " phase " + phaseId);
-                }
-                placementArray[i-1] = row.getDoubleItem("prize_amount");
-            }
-        } catch (Exception e) {
-            throw new TCWebException("Command " + "leader_board_placement_prize" + " failed.", e);
-        }
-
-        return placementArray;
-    }
-
     /**
      * First processing of the board
      *
      * @param rsc         the ResultSetContainer retrieved from DB
      * @param designBoard true if its a design board (false if development)
      */
-    private List processBoard(ResultSetContainer rsc, boolean designBoard) {
+    private List processBoard(ResultSetContainer rsc, boolean designBoard) throws TCWebException {
         long topThirdAttempt = 0;
 
         for (Iterator it = rsc.iterator(); it.hasNext();) {
@@ -176,7 +146,7 @@ public class LeaderBoard extends BaseBoard {
 
         double prizePerPoint = 0;
         if (overallTopThirdPoints > 0) {
-            prizePerPoint = (designBoard ? DESIGN_POOL_PRIZE : DEVELOPMENT_POOL_PRIZE) / overallTopThirdPoints;
+            prizePerPoint = (getPoolPrize(period, designBoard ? "112" : "113")) / overallTopThirdPoints;
         }
         if (log.isDebugEnabled()) {
             log.debug("prizePerPoint: " + prizePerPoint);
@@ -187,5 +157,62 @@ public class LeaderBoard extends BaseBoard {
             leaderBoardRow.setPointsPrize(leaderBoardRow.getPointsPrize() * prizePerPoint);
         }
         return leaderBoardResult;
+    }
+
+
+    private double getPoolPrize(String stageId, String phaseId) throws TCWebException {
+        double poolPrize;
+
+        Request r = new Request();
+        r.setContentHandle("leader_board_pool_prize");
+        r.setProperty(Constants.PHASE_ID, phaseId);
+        r.setProperty(Constants.STAGE_ID, stageId);
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+        Map m = null;
+        try {
+            m = dai.getData(r);
+
+            ResultSetContainer rscPoolPrize = (ResultSetContainer) m.get("leader_board_pool_prize");        
+
+            if (rscPoolPrize.size() != 1) {
+                throw new TCWebException("Wrong contest_prize for stage " + stageId + " phase " + phaseId);
+            }
+            poolPrize = ((ResultSetRow) rscPoolPrize.get(0)).getDoubleItem("prize_amount");
+        } catch (Exception e) {
+            throw new TCWebException("Command " + "leader_board_pool_prize" + " failed.", e);
+        }
+
+        return poolPrize;
+    }
+
+
+    private double[] getPlacementPrize(String stageId, String phaseId) throws TCWebException {
+        double[] placementArray = null;
+
+        Request r = new Request();
+        r.setContentHandle("leader_board_placement_prize");
+        r.setProperty(Constants.PHASE_ID, phaseId);
+        r.setProperty(Constants.STAGE_ID, stageId);
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+        Map m = null;
+        try {
+            m = dai.getData(r);
+
+            ResultSetContainer placementPoints = (ResultSetContainer) m.get("leader_board_placement_prize");        
+        
+            placementArray = new double[placementPoints.size()];
+            int i = 1;
+            for (Iterator it = placementPoints.iterator(); it.hasNext(); i++) {
+                ResultSetRow row = (ResultSetRow) it.next();
+                if (row.getIntItem("place") != i) {
+                    throw new TCWebException("Wrong contest_prize for stage " + stageId + " phase " + phaseId);
+                }
+                placementArray[i-1] = row.getDoubleItem("prize_amount");
+            }
+        } catch (Exception e) {
+            throw new TCWebException("Command " + "leader_board_placement_prize" + " failed.", e);
+        }
+
+        return placementArray;
     }
 }
