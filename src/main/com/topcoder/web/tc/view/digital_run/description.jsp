@@ -32,8 +32,8 @@
 <td width="100%" align="center" class="bodyColumn">
 
 <div class="fixedWidthBody">
-<div align="center" style="margin-bottom: 10px;">
-<img src="/i/digital_run/banner.gif" alt="The Digital Run" />
+<div align="center" style="margin-bottom: 20px;">
+<img src="/i/digital_run/digital_run_logo.png" alt="Digital Run" style="border-bottom: 1px solid #999999;"/>
 </div>
 
 <div align="center">

@@ -118,12 +118,12 @@
 <div id="maxWidth">
     <% if (request.getParameter(Constants.PHASE_ID).equals("113")) { %>
     <jsp:include page="/page_title.jsp">
-        <jsp:param name="image" value="digital_run"/>
+        <jsp:param name="image" value="digital_run_20061031"/>
         <jsp:param name="title" value="Development Cup Series Leaderboard"/>
     </jsp:include>
     <% } else { %>
     <jsp:include page="/page_title.jsp">
-        <jsp:param name="image" value="digital_run"/>
+        <jsp:param name="image" value="digital_run_20061031"/>
         <jsp:param name="title" value="Design Cup Series Leaderboard"/>
     </jsp:include>
     <% } %>
