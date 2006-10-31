@@ -115,10 +115,11 @@ public class LeaderBoard extends BaseBoard {
             placementArray = new double[placementPoints.size()];
             int i = 1;
             for (Iterator it = placementPoints.iterator(); it.hasNext(); i++) {
-                if (((ResultSetRow) it.next()).getIntItem("place") != i) {
+                ResultSetRow row = (ResultSetRow) it.next();
+                if (row.getIntItem("place") != i) {
                     throw new TCWebException("Wrong contest_prize for stage " + stageId + " phase " + phaseId);
                 }
-                placementArray[i-1] = ((ResultSetRow) it.next()).getDoubleItem("prize_amount");
+                placementArray[i-1] = row.getDoubleItem("prize_amount");
             }
         } catch (Exception e) {
             throw new TCWebException("Command " + "leader_board_placement_prize" + " failed.", e);
