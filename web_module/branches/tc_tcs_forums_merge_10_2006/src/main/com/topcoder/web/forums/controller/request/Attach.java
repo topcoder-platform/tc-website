@@ -69,6 +69,10 @@ public class Attach extends ForumsProcessor {
         ForumMessage messageToAttachTo = null;
         if (postMode.equals("New") || postMode.equals("Reply")) {
         	messageToAttachTo = (ForumMessage) getRequest().getSession().getAttribute("tempMessage_" + tempMessageIDStr); 
+        	if (messageToAttachTo == null) {
+            	messageToAttachTo = forumFactory.getForum(forumID).createMessage(user);
+            	getRequest().getSession().setAttribute("tempMessage_" + tempMessageIDStr, messageToAttachTo);
+            }
             getRequest().setAttribute("tempMessage", messageToAttachTo);
         } else if (postMode.equals("Edit")) {
             long messageID = Long.parseLong(messageIDStr);

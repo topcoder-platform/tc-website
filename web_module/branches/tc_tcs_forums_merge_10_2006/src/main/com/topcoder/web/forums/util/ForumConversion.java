@@ -3,6 +3,7 @@
  */
 package com.topcoder.web.forums.util;
 
+import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.base.UserManager;
 import com.jivesoftware.base.UserNotFoundException;
 
@@ -95,7 +96,12 @@ public class ForumConversion {
     static boolean ATTACHMENTS_ENABLED = true;
 
     
-    public static void convertForums(ForumFactory forumFactory) {        
+    public static void convertForums(ForumFactory forumFactory) {       
+    	if (!JiveGlobals.getJiveBooleanProperty("tc.convert.tcs.forums")) {
+    		log.info("Forum conversion canceled.");
+    		return;
+    	}
+    	
         try {
             fileDir = bundle.getProperty("forums_attachment_dir");
             rootCategoryId = Long.parseLong(bundle.getProperty("forums_root_category_id"));
@@ -128,6 +134,8 @@ public class ForumConversion {
             System.err.println("Error occurred when converting the data.");
             ex.printStackTrace();
         }
+        
+        JiveGlobals.setJiveProperty("tc.convert.tcs.forums", "false");
     }
 
     /**
