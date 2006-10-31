@@ -5500,7 +5500,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             long paymentId;
 
             // Special treating for algorithm payments, because they have affidavits.
-            if (payment instanceof AlgorithmRoundReferencePayment) {
+            if (payment instanceof AlgorithmContestPayment ||
+            		payment instanceof AlgorithmTournamentPrizePayment ||
+            		payment instanceof MarathonMatchPayment) {
                 paymentId = makeNewAlgorithmPayment(c, p, (AlgorithmRoundReferencePayment) payment);
             } else {
                 paymentId = makeNewPayment(c, p, p.payReferrer());
