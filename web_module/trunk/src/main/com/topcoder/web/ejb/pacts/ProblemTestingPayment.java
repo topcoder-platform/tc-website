@@ -1,6 +1,7 @@
 package com.topcoder.web.ejb.pacts;
 
 import java.sql.SQLException;
+import java.util.Date;
 
 
 /**
@@ -92,6 +93,37 @@ public class ProblemTestingPayment extends AlgorithmRoundReferencePayment {
         	
         	return "Problem Testing";
         }
+        
+        /**
+         * Get when the event took date, i.e. the round end date, or today if there is no reference to a round.
+         *
+         * @param payment the payment to look for its date.
+         * @return the end date of the round
+         */
+        public Date lookupEventDate(BasePayment payment) throws SQLException {
+        	ProblemTestingPayment p = (ProblemTestingPayment) payment;
+        	
+        	if (p.hasReference()) {
+        		return getEndDate(p.getRoundId());
+        	}
+        	return new Date();
+        }
+
+        /**
+         * Get the name of the referenced round.
+         *
+         * @return the name of the referenced round.
+         * @throws SQLException if an error occurred trying to access db.
+         */
+        public String lookupReferenceDescription(BasePayment payment) throws SQLException {
+        	ProblemTestingPayment p = (ProblemTestingPayment) payment;
+        	
+        	if (p.hasReference()) {
+        		return getRoundName(p.getRoundId());
+        	}
+        	return p.getRoundName();
+        }
+        
     }
 
 }
