@@ -32,9 +32,10 @@ import java.util.Map;
 
 /**
  * Uses the Jive API to create categories/forums/threads/messages with data retrieved from the old Topcoder
- * software forums database.
+ * software forums database. (NOTE: this does not work, since JNDI/context lookups for Jive and TCUserManager
+ * cannot be performed when JBoss is down. Use /forums/util/ForumConversion instead.)
  *
- * @author air2cold, mtong
+ * @author air2cold, billy, mtong
  * @version 1.0
  */
 public class ForumConversion {
