@@ -91,21 +91,14 @@ public class Attach extends ForumsProcessor {
     		setIsNextPageInContext(false);
     		return;
         }
-        
-        Forum forum = forumFactory.getForum(forumID);
-        if (!messageIDStr.equals("")) {
-            ForumMessage message = forumFactory.getMessage(Long.parseLong(messageIDStr));
-            getRequest().setAttribute("message", message);
-            getRequest().setAttribute("thread", message.getForumThread());
-        } else {
-        	getRequest().setAttribute("message", getRequest().getAttribute("message"));
-        }
  
-        getRequest().setAttribute("forum", forum);
-        getRequest().setAttribute("postMode", postMode);
-
-        setNextPage("/post.jsp");
-		setIsNextPageInContext(true);
+        StringBuffer urlNext = new StringBuffer(getSessionInfo().getServletPath()).append("?module=Post");
+        urlNext.append("&").append(ForumConstants.FORUM_ID).append("=").append(forumIDStr);
+        urlNext.append("&").append(ForumConstants.MESSAGE_ID).append("=").append(messageIDStr);
+        urlNext.append("&").append(ForumConstants.TEMP_MESSAGE_ID).append("=").append(tempMessageIDStr);
+        urlNext.append("&").append(ForumConstants.POST_MODE).append("=").append(postMode);
+        setNextPage(urlNext.toString());
+		setIsNextPageInContext(false);
 	}
 	
 	/**
