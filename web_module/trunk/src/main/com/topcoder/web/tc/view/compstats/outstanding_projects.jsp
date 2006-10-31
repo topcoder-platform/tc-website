@@ -142,7 +142,7 @@
             </TD>
             <TD CLASS="headerC" width="20%">
                 <div id="container">
-                    <A href="/tc?module=Static&d1=digital_run&d2=description"><img class="popper" src="/i/interface/emblem/digital_run.gif" alt="The Digital Run" border="0" id="popper0" onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()"/></A>
+                    <A href="/tc?module=Static&d1=digital_run&d2=description"><img class="popper" src="/i/interface/emblem/digitalrun.png" alt="The Digital Run" border="0" id="popper0" onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()"/></A>
 
                     <div id="pop0" class="popUp" style="width:90px;">The Digital Run</div>
                 </div>
