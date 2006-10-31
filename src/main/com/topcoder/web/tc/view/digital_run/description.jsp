@@ -8,7 +8,7 @@
 
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_main"/>
+  <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 <jsp:include page="../script.jsp" />
 </head>
@@ -41,24 +41,30 @@
 <tr>
 <td align="left" style="padding-right:10px;border-right: 1px solid #999999;">
 <span class="subtitle">Design Cup Series</span><br>
-<A href="/tc?module=Static&d1=digital_run&d2=2006_des_overview">Details</A><br>
-<A href="/tc?&ph=112&module=LeaderBoard">Current leaderboard</A><br>
-<A href="/tc?module=RookieBoard&ph=112">Current ROTY leaderboard</A>
+<A href="/tc?module=Static&d1=digital_run&d2=2006_des_overview" class="bcLink">Details</A><br>
+<A href="/tc?&ph=112&module=LeaderBoard" class="bcLink">Current leaderboard</A><br>
+<A href="/tc?module=RookieBoard&ph=112" class="bcLink">Current ROTY leaderboard</A>
 </td>
 <td align="left" style="padding-left:10px;">
-<span class="subtitle">Development Cup Series</span><br>
-<A href="/tc?module=Static&d1=digital_run&d2=2006_dev_overview">Details</A><br>
-<A href="/tc?&ph=113&module=LeaderBoard">Current leaderboard</A><br>
-<A href="/tc?module=RookieBoard&ph=113">Current ROTY leaderboard</A>
+<span class="subtitle" class="bcLink">Development Cup Series</span><br>
+<A href="/tc?module=Static&d1=digital_run&d2=2006_dev_overview" class="bcLink">Details</A><br>
+<A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Current leaderboard</A><br>
+<A href="/tc?module=RookieBoard&ph=113" class="bcLink">Current ROTY leaderboard</A>
 </td>
 </tr>
-<tr>
-<td align="center" colspan="2"><span class="subtitle"><br><A href="/tc?module=Static&d1=digital_run&d2=2006_stage1_winners">Stage 1 Winners</A></span></td>
-</tr>
 </table>
+
+<br><br>
+
+<strong>
+<A href="/tc?module=Static&d1=digital_run&d2=2006_stage1_winners" class="bcLink">Stage 1 Winners</A>
+ | Stage 2 Winners Coming Soon
+</strong>
+
 </div>
-<br>
-<div align="center"><A href="/tc?module=Static&d1=features&d2=082106"><img src="/i/digital_run/stage1_feature.gif" alt="Stage 1 Analysis" border="0" /></A></div>
+<%--
+<div align="center"><A href="/tc?module=Static&d1=digital_run&d2=2006_des_prizes"><img src="/i/digital_run/designPrizesDoubled.png" alt="Design Prizes Doubled!" border="0" /></A></div>
+--%>
 <br>
 The Digital Run marks another stride for TopCoder in recognizing talent through competition. The Digital Run will reward the top software designers and developers, giving them placement points based on their performance. Place well in a competition, you earn points. Accumulate lots of points over the course of a Stage (4 per year) or year, you win. It's that simple.
 <br><br>
