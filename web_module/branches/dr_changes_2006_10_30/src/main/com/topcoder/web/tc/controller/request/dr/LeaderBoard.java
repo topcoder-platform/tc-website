@@ -121,7 +121,7 @@ public class LeaderBoard extends BaseBoard {
                 placementArray[i-1] = ((ResultSetRow) it.next()).getDoubleItem("prize_amount");
             }
         } catch (Exception e) {
-            throw new TCWebException("Command " + "leader_board_placement_prize" + " failed.");
+            throw new TCWebException("Command " + "leader_board_placement_prize" + " failed.", e);
         }
 
         return placementArray;
