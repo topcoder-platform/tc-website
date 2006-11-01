@@ -154,8 +154,9 @@
         </td>
     </tr>
 <rsc:iterator list="${payments2}" id="resultRow">
+	<tr>
         <td class="valule"><rsc:item name="payment_desc" row="<%=resultRow%>"/></td>
-        <td class="valueC"><rsc:item name="date_due" row="<%=resultRow%>"/></td>
+        <td class="valueC"><rsc:item name="date_due" row="<%=resultRow%>"  format="MM.dd.yy"/></td>
         <td class="valueR">Net Payment</td>
         <td class="valueC">Status</td>
         <td class="valueC">
@@ -163,6 +164,7 @@
                 <b>Date Paid            
             </c:if>&nbsp;
         </td>
+     </tr>
 </rsc:iterator>
 
 
