@@ -49,6 +49,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- Christian Science Monitor --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://www.csmonitor.com/2006/1101/p01s04-usec.htm" target="_blank"><img src="/i/pressroom/csmonitor_logo.jpg" alt="Christian Science Monitor" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.csmonitor.com/2006/1101/p01s04-usec.htm" target="_blank">How to build software? Henry Ford, meet eBay.</A></strong></font><br />
+                        "By tapping the best freelance programmers in the world, and letting them compete to write pieces of software, TopCoder and its competitors are creating a new kind of assembly line. In essence, they're dragging Henry Ford into the eBay era." <span class="prHead"> [November 1]</span></p>
+                        </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- TopCoder in China --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">

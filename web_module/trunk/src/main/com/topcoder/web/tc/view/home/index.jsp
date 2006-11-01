@@ -245,6 +245,11 @@
         <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            
+                <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/csmonitor_logo.jpg" width="80" height="32" alt="Christian Science Monitor" border="0" /></div>
+                How to build software? Henry Ford, meet eBay.
+                <A href="http://www.csmonitor.com/2006/1101/p01s04-usec.htm" target="_blank">...more</A><br>[November 1]<br><br>
 
                 <div style="float: right; padding-left: 5px;">
                 <img src="/i/pressroom/gigaOm_logo.jpg" width="80" height="26" alt="gigaOm" border="0" /></div>
@@ -267,12 +272,6 @@
                 TopCoder helps "free" AOL<br>
                 <A href="/i/pressroom/infoweek_excerpt.gif" target="_blank">excerpt</A>&#160;|&#160;
                 <A href="http://www.informationweek.com/internet/showArticle.jhtml?articleID=193104723" target="_blank">full story</A><br>[October 10]<br><br>
-            
-                <div style="float: right; padding-left: 5px;">
-                    <img src="/i/pressroom/opensource_logo.gif" width="68" height="23" alt="Open Source" border="0" /></div>
-                TopCoder featured on public radio's "Open Source" [PODCAST]<br>
-                <A href="/audio/open_source_060928_24kb.mp3" target="_blank">lo 6.8mb</A> &#160;|&#160;
-                <A href="/audio/open_source_060928_48kb.mp3" target="_blank">hi 13.8mb</A><br>[October 4]<br><br>
             
             </td>
         </tr>

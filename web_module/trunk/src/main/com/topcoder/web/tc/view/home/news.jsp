@@ -24,6 +24,20 @@
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 ------------------------%>
+<%--------------------------------------------------------%>
+   <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.01.06<br>12:15 PM</td>
+       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.csmonitor.com/2006/1101/p01s04-usec.htm">How to build software? Henry Ford, meet eBay.</A></span><br><br>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/csmonitor_logo.jpg" width="80" height="32" alt="Christian Science Monitor" border="0" /></div>
+       "By tapping the best freelance programmers in the world, and letting them compete to write pieces of software, TopCoder and its competitors are creating a new kind of assembly line. In essence, they're dragging Henry Ford into the eBay era."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://www.csmonitor.com/2006/1101/p01s04-usec.htm" target="_blank">full story</A> | 
+       <tc-webtag:forumLink forumID="506164" message="discuss this" /> | 
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
 
 <%--------------------------------------------------------%>
    <tr>
@@ -202,32 +216,4 @@ TCHS SRM 17 proved to be quite difficult, making for a very exciting challenge p
     <tc-webtag:forumLink forumID="506039" message="discuss this"/> |
     <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
 </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0"/><br>10.24.06<br>4:00 PM</td>
-     <td class="newsTextCell"><span class="newsTitle">
-    <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg_chat_101906">Bloomberg SRM 323 chat session transcript</span></A><br><br>
-      Bloomberg held a chat session in the arena recently, just prior to SRM 323, to discuss working at Bloomberg.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-     <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg_chat_101906">view</A> |
-     <tc-webtag:forumLink forumID="506076" message="discuss this"/> |
-     <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.24.06<br>12:45 PM</td>
-       <td class="newsTextCell"><span class="newsTitle"><A href="http://gigaom.com/2006/10/23/the-new-american-idol-the-coder/" target="_blank">The New American Idol&#8230; The Coder</A></span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/gigaOm_logo.jpg" width="80" height="26" alt="gigaOm" border="0" /></div>
-       Om Malik discusses his take on the newest trend of big technology companies promoting and webcasting <i>codercons</i>, aka marathon coder events where hackers jock for hacking props.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://gigaom.com/2006/10/23/the-new-american-idol-the-coder/" target="_blank">full story</A> | 
-       <tc-webtag:forumLink forumID="506156" message="discuss this" /> | 
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
 
