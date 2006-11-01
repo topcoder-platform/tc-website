@@ -26,6 +26,19 @@
 ------------------------%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>10.30.06<br>4:50 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      Online Review scheduled maintenance
+      </span><br><br>
+      TopCoder is upgrading the Online Review software.  An outage is expected from 6:30 PM ET 11/3 until approximately 4 AM ET 11/4.  Effected systems will include Online Review, the software website, reviewer registration and project registration.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <tc-webtag:forumLink forumID="506165" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.01.06<br>12:15 PM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="http://www.csmonitor.com/2006/1101/p01s04-usec.htm">How to build software? Henry Ford, meet eBay.</A></span><br><br>
        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/csmonitor_logo.jpg" width="80" height="32" alt="Christian Science Monitor" border="0" /></div>
@@ -197,23 +210,4 @@ The expected battle didn't happen because of <tc-webtag:handle coderId="10574855
        <tc-webtag:forumLink forumID="506157" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
-        <br>10.24.06<br>4:20 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm17">TCHS SRM 17 - Problem Set & Analysis</A></span><br><br>
-TCHS SRM 17 proved to be quite difficult, making for a very exciting challenge phase as half of the medium submissions alone were successfully challenged.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/eleusive_big2.jpg" alt="" width="55" height="61"/><br>by
-                <tc-webtag:handle coderId="8369955" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm17">full story</A> |
-    <tc-webtag:forumLink forumID="506039" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-</td></tr>
 
