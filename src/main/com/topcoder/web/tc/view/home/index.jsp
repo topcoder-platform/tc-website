@@ -278,27 +278,30 @@
         </tr>
         <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">October
+            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">November
                 Events:</A></td>
         </tr>
         <tr>
-            <td class="homeArrow">&#160;</td>
+            <td class="homeArrow">&#160; </td>
             <td class="homeText"><br>
-                <b>10.02</b> - SRM 321 - NSA - 9 PM<br><br>
-                <b>10.05</b> - Algo Elim Round 2A - NSA - 7 AM<br><br>
-                <b>10.05</b> - CDDC Round 1 Projects Posted - 9 AM<br><br>
-                <b>10.07</b> - Algo Elim Round 2B - Bloomberg - 1 PM<br><br>
-                <b>10.09</b> - SRM 322 - AOL - 9 PM<br><br>
-                <b>10.11</b> - Marathon Match 6 - 12 NOON<br><br>
-                <b>10.11</b> - Algo Elim Round 2C - UBS - 9 PM<br><br>
-                <b>10.14</b> - Algo Elim Round 3 - AOL - 1 PM<br><br>
-                <b>10.16</b> - TCHS SRM 16 - 6 AM<br><br>
-                <b>10.18</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 10 - 12 NOON<br><br>
-                <b>10.19</b> - CDDC Round 2 Projects Posted - 9 AM<br><br>
-                <b>10.19</b> - SRM 323 - Bloomberg - 11 AM<br><br>
-                <b>10.23</b> - TCHS SRM 17 - 7 PM<br><br>
-                <b>10.25</b> - SRM 324 - 7 AM<br><br>
-                <b>10.30</b> - TCHS SRM 18 - 2 PM<br><br>
+                <b>11.01</b> - Marathon Match 7 - 12 NOON<br><br>
+                <b>11.02</b> - CDDC Round 3 Projects Posted - 9 AM<br><br>
+                <b>11.02</b> - SRM 325 - AOL - 9 PM<br><br>
+                <b>11.06</b> - TCHS SRM 19 - 10 AM<br><br>
+                <b>11.11</b> - SRM 326 - NSA - 12 NOON<br><br>
+                <b>11.15</b> - Algo Room 1 - 9 AM PST<br><br>
+                <b>11.15</b> - CDDC 1 - 1 PM PST<br><br>
+                <b>11.15</b> - Algo Room 2 - 4 PM PST<br><br>
+                <b>11.15</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 11 - 12 NOON<br><br>
+                <b>11.16</b> - Algo Room 3 - 9 AM PST<br><br>
+                <b>11.16</b> - CDDC 2 - 1 PM PST<br><br>
+                <b>11.16</b> - Algo Wildcard - 4 PM PST<br><br>
+                <b>11.17</b> - CDDC Finals - 9 AM PST<br><br>
+                <b>11.17</b> - Algo Finals - 1:30 PM PST<br><br>
+                <b>11.20</b> - TCHS SRM 20 - 6 AM<br><br>
+                <b>11.19</b> - SRM 327 - 7 AM<br><br>
+                <b>11.27</b> - TCHS SRM 21 - 7 PM<br><br>
+                <b>11.29</b> - SRM 328 - 11 AM<br><br>
             </td>
         </tr>
 
