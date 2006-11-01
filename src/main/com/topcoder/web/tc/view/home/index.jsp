@@ -248,7 +248,7 @@
 
                 <div style="float: right; padding-left: 5px;">
                 <img src="/i/pressroom/gigaOm_logo.jpg" width="80" height="26" alt="gigaOm" border="0" /></div>
-                The New American Idol&#8230; The Coder</A>
+                The New American Idol&#8230; The Coder
                 <A href="http://gigaom.com/2006/10/23/the-new-american-idol-the-coder/" target="_blank">...more</A><br>[October 24]<br><br>
 
                 <div style="float: right; padding-left: 5px;">
