@@ -44,7 +44,7 @@
 <p>
     5.5.5 - 2006.11.01
     <ul>
-        <li>Double prizes for design DR stage 2.</li>
+        <li>Double prizes for design DR stage 3.</li>
 <%--
         <li>Schema was changed to store prizes in the DB so that different stages/seasons can have different prizes.</li>
 --%>
