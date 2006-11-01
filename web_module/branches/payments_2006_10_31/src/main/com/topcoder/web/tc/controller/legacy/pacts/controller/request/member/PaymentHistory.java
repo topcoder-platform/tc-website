@@ -42,6 +42,7 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             DataInterfaceBean dib = new DataInterfaceBean();
             getRequest().setAttribute("payments2" ,dib.getPaymentHistory(getUser().getId(), !fullList, sortCol, sortAscending));
 
+            getRequest().setAttribute("cr", getUser().getId() + "");
         	getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));
             setNextPage("pacts/client/paymentHistoryNew.jsp");
             setIsNextPageInContext(true);

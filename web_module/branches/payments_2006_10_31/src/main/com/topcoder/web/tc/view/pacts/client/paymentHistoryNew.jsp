@@ -10,6 +10,7 @@
 <c:set var="fullList" value="<%= request.getAttribute(PaymentHistory.FULL_LIST) %>"/>
 <c:set var="payments" value="<%= request.getAttribute(PaymentHistory.PAYMENTS) %>"/>
 <c:set var="payments2" value="<%= request.getAttribute("payments2") %>"/>
+<c:set var="cr" value="<%= request.getAttribute("cr") %>"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -145,20 +146,49 @@
         </td>
     </tr>
     <tr>
-        <td class="header"> <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Description</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Description</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Type</a></td>
-        <td class="headerC">Due Date</td>
-        <td class="headerR">Net Payment</td>
-        <td class="headerC">Status</td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Due Date</a></td>
+        <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Net Payment</a></td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Status</a></td>
         <td class="headerC">
             <c:if test="${fullList}" >
-                <b>Date Paid            
+                <b><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Date Paid</a>       
             </c:if>&nbsp;
         </td>
     </tr>
 <rsc:iterator list="${payments2}" id="resultRow">
+	<c:set var="typeId" value="<%= resultRow.getIntItem("payment_type_id") %>" />
+	<c:set var="algorithmRoundId" value="<%= resultRow.getIntItem("algorithm_round_id") %>" />
+	<c:set var="componentProjectId" value="<%= resultRow.getIntItem("component_project_id") %>" />
+	<c:set var="digitalRunStageId" value="<%= resultRow.getIntItem("digital_run_stage_id") %>" />
+	<c:set var="digitalRunSeasonId" value="<%= resultRow.getIntItem("digital_run_season_id") %>" />			
+	
     <tr class="<%=even?"light":"dark"%>">
-        <td class="value"><rsc:item name="payment_desc" row="<%=resultRow%>"/></td>
+        <td class="value"><rsc:item name="payment_desc" row="<%=resultRow%>"/>
+            <c:choose>
+                <c:when test="${(typeId == 1 || typeId == 22) && algorithmRoundId > 0}">
+                    <A href="/stat?c=coder_room_stats&cr=${cr}&rd=${algorithmRoundId}"><rsc:item name="payment_desc" row="<%=resultRow%>"/></A>
+                </c:when>
+                <c:when test="${(typeId == 6 || typeId == 7) && componentProjectId > 0}">
+                    <A href="/tc?module=CompContestDetails&pj=${componentProjectId}" class="bcLink"><rsc:item name="payment_desc" row="<%=resultRow%>"/></A>                    
+                </c:when>
+                <c:when test="${(typeId == 17 || typeId == 25) && digitalRunStageId > 0}">
+                    <A href="/tc?module=LeaderBoard&ph=112&staid=${digitalRunStageId}" class="bcLink"><rsc:item name="payment_desc" row="<%=resultRow%>"/></A>                    
+                </c:when>
+                <c:when test="${typeId == 18 && digitalRunSeasonId > 0}">
+                    <A href="/tc?module=RookieBoard&ph=112&seid=${digitalRunSeasonId}" class="bcLink"><rsc:item name="payment_desc" row="<%=resultRow%>"/></A>                    
+                </c:when>
+                <c:when test="${typeId == 21 && algorithmRoundId > 0}">
+                    <A href="/longcontest/?module=ViewOverview&rd=${algorithmRoundId}>" class="bcLink"><rsc:item name="payment_desc" row="<%=resultRow%>"/></A>                    
+                </c:when>                
+                <c:otherwise>
+                   <rsc:item name="payment_desc" row="<%=resultRow%>"/>
+                </c:otherwise>
+            </c:choose>
+        
+        
+        </td>
         <td class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></td>
         <td class="valueC"><rsc:item name="date_due" row="<%=resultRow%>"  format="MM/dd/yy"/></td>
         <td class="valueR"><rsc:item name="net_amount" row="<%=resultRow%>"  format="###,###,##0.00"/></td>
