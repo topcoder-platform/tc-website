@@ -299,7 +299,7 @@
                 <b>11.17</b> - CDDC Finals - 9 AM PST<br><br>
                 <b>11.17</b> - Algo Finals - 1:30 PM PST<br><br>
                 <b>11.20</b> - TCHS SRM 20 - 6 AM<br><br>
-                <b>11.19</b> - SRM 327 - 7 AM<br><br>
+                <b>11.22</b> - SRM 327 - 7 AM<br><br>
                 <b>11.27</b> - TCHS SRM 21 - 7 PM<br><br>
                 <b>11.29</b> - SRM 328 - 11 AM<br><br>
             </td>
