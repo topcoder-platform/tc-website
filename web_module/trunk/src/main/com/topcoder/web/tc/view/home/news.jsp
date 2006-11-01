@@ -25,9 +25,9 @@
 </td></tr>
 ------------------------%>
 
-<%------------------------------
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>11.01.06<br>9:00 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>11.01.06<br>10:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=digital_run&d2=2006_des_prizes">Design prizes <strong><em>DOUBLED</em></strong> for next Digital Run stage</A></span><br><br>
       For Stage 3 of the Digital Run, starting November 3, the Design Cup series will double its prize pool -- with a total of $150,000 up for grabs, don't miss out!
       </td>
@@ -37,7 +37,7 @@
         <tc-webtag:forumLink forumID="506162" message="discuss this"/> |
         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
---------------------------%>
+
 
 <%--------------------------------------------------------%>
    <tr>
