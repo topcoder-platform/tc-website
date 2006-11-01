@@ -35,7 +35,7 @@
 Register for the VeriSign Internal Coding Competition:<br/><br/>
 
 <form action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>" method="POST" name="regForm">
-<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.VERISIGN_06_REG_CONFIRM%>"/>
+<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.VICC_REG_CONFIRM%>"/>
 <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="companyId"/>"/>
 <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="eventId"/>"/>
 <table>

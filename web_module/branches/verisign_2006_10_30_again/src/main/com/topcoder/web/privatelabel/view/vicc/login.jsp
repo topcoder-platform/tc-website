@@ -41,7 +41,7 @@
                 <span class="bigTitle">Registration</span>
                 <br/><br/>
                 If you are not already a registered competitor, click
-                <a href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>?module=<%=Constants.VERISIGN_06_REG_MAIN%>&amp;<%=Constants.EVENT_ID%>=6&amp;<%=Constants.COMPANY_ID%>=17942">here</a>
+                <a href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>?module=<%=Constants.VICC_REG_MAIN%>&amp;<%=Constants.EVENT_ID%>=6&amp;<%=Constants.COMPANY_ID%>=17942">here</a>
                 to register
                 an account for the VeriSign Internal Coding Competition.
                 <br/><br/>
@@ -59,8 +59,8 @@
                 <br/><br/>
 
                 <form method="post" name="frmLogin" action="<%=sessionInfo.getSecureAbsoluteServletPath()%>">
-                    <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.VERISIGN_06_LOGIN%>">
-                    <input type="hidden" name="<%=Constants.EVENT_ID%>" value="5">
+                    <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.VICC_LOGIN%>">
+                    <input type="hidden" name="<%=Constants.EVENT_ID%>" value="7">
                     <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="17942">
                     <table align="center">
                         <tr valign="top">
