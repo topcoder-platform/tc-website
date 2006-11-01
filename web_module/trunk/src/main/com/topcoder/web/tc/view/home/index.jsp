@@ -106,16 +106,16 @@
             </map>
             <img src="/i/home/bloomberg_srm317.gif" alt="Bloomberg TCCC Sponsor of SRM 317" border="0" style="display:block;" usemap="#bbg_srm"/>
             --%>
-            <%-- SPONSORS 
+            <%-- SPONSORS --%>
             <map name="srm">
-            <area shape="rect" alt="" coords="1,1,264,85" href="/tc?module=MatchDetails&rd=10004" />
-            <area shape="rect" alt="" coords="1,96,264,135" href="/tc?module=Static&d1=pressroom&d2=art_091806" />
+            <area shape="rect" alt="" coords="1,1,264,85" href="/tc?module=MatchDetails&rd=10005" />
+            <area shape="rect" alt="" coords="1,96,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol" />
             </map>
-            <img src="/i/home/srm324_victor_lxd.png" alt="SRM 324 in memoriam: Victor_lxd" border="0" style="display:block;" usemap="#srm"/>
-            --%>
-            <%-- AOL mashups --%>
-            <A href="http://studio.topcoder.com/forums?module=Thread&threadID=123"><img src="/i/home/aol_mashups.gif" alt="AOL mashups" border="0" style="display:block;"/></A>
+            <img src="/i/home/srm325_aol.png" alt="SRM 325 sponsored by AOL" border="0" style="display:block;" usemap="#srm"/>
             
+            <%-- AOL mashups 
+            <A href="http://studio.topcoder.com/forums?module=Thread&threadID=123"><img src="/i/home/aol_mashups.gif" alt="AOL mashups" border="0" style="display:block;"/></A>
+            --%>
 
         </td></tr>
     </table>
