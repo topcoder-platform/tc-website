@@ -216,6 +216,7 @@ public interface PactsServices extends EJBObject {
 
     Map findStudioContests(String search) throws RemoteException, SQLException;
     
+    ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException,  SQLException;
     
     // ================== Methods from the Client Service ================== 
     

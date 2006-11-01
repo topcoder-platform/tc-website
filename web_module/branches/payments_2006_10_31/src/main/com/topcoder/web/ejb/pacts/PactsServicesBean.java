@@ -959,7 +959,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("pd.payment_method_id, pm.payment_method_desc, ");
         selectPaymentDetails.append("pa.first_name, pa.middle_name, pa.last_name, pa.address1, ");
         selectPaymentDetails.append("pa.address2, pa.city, pa.state_code, pa.zip, pa.country_code, ");
-        selectPaymentDetails.append("state.state_name, country.country_name, pd.date_modified, pd.date_due, ");
         selectPaymentDetails.append("pd.charity_ind, pa.address3, pa.province ");
         selectPaymentDetails.append("FROM payment p, payment_detail pd, status_lu s, ");
         selectPaymentDetails.append("modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
@@ -5716,6 +5715,26 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         deletePayment(payment.getId());
     }
 
+    
+    public ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws SQLException {
+        StringBuffer query = new StringBuffer(300);
+        query.append("SELECT pd.payment_desc, pd.date_due, pt.payment_type_desc, pd.net_amount, s.status_desc, date_paid ");
+        query.append("FROM payment p, payment_detail pd, status_lu s, payment_type_lu pt ");
+        query.append("WHERE p.most_recent_detail_id = pd.payment_detail_id ");
+        query.append("AND s.status_id = pd.status_id ");
+        query.append("AND pd.payment_type_id = pt.payment_type_id ");
+        query.append("AND p.user_id = " + userId);
+        
+        if (pendingOnly) {
+        	query.append(" AND pd.status_id IN (" + PactsConstants.PAYMENT_ON_HOLD_STATUS + "," + PactsConstants.PAYMENT_OWED_STATUS + "," + PactsConstants.PAYMENT_PENDING_STATUS + ")");
+        }
+        
+        query.append("ORDER BY " + sortColumn + (sortAscending? " ASC" : " DESC"));
+
+        return runSelectQuery(query.toString(), false);
+    }
+    
+    
     /**
      * Helper class to store a payment id and affidavit id
      *

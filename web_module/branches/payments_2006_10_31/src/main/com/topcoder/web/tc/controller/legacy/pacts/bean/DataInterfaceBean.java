@@ -1513,6 +1513,11 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.getPaymentComponentData(paymentIds);
     }
 
+    public ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.getPaymentHistory(userId, pendingOnly, sortColumn, sortAscending);    	
+    }
+    
     /**
      * Sets the status on all contest payments with Pending or On Hold status older than a specified time
      * to Expired. The time limit is specified in <tt>PactsConstants.java</tt>

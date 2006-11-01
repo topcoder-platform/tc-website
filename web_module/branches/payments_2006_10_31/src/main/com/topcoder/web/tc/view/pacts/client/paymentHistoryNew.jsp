@@ -5,8 +5,10 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+
 <c:set var="fullList" value="<%= request.getAttribute(PaymentHistory.FULL_LIST) %>"/>
 <c:set var="payments" value="<%= request.getAttribute(PaymentHistory.PAYMENTS) %>"/>
+<c:set var="payments2" value="<%= request.getAttribute("payments2") %>"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -19,7 +21,6 @@
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 </head>
-
 <body>
 
 <jsp:include page="../../top.jsp" >
@@ -132,6 +133,40 @@
 </div>
 </c:otherwise>    
 </c:choose>            
+
+
+<table cellpadding="0" cellspacing="0" class="stat" width="100%">
+<tbody>
+    <tr>
+        <td class="title" colspan="5">
+        Payments
+        </td>
+    </tr>
+    <tr>
+        <td class="header">Description</td>
+        <td class="headerC">Due Date</td>
+        <td class="headerR">Net Payment</td>
+        <td class="headerC">Status</td>
+        <td class="headerC">
+            <c:if test="${fullList}" >
+                <b>Date Paid            
+            </c:if>&nbsp;
+        </td>
+    </tr>
+<rsc:iterator list="${payments2}" id="resultRow">
+        <td class="valule"><rsc:item name="payment_desc" row="<%=resultRow%>"/></td>
+        <td class="valueC"><rsc:item name="date_due" row="<%=resultRow%>"/></td>
+        <td class="valueR">Net Payment</td>
+        <td class="valueC">Status</td>
+        <td class="valueC">
+            <c:if test="${fullList}" >
+                <b>Date Paid            
+            </c:if>&nbsp;
+        </td>
+</rsc:iterator>
+
+
+
 
 <!-- Center Column Ends -->
 
