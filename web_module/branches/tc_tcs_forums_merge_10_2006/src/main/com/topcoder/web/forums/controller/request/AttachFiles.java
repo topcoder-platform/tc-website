@@ -47,7 +47,6 @@ public class AttachFiles extends ForumsProcessor {
         if (postMode.equals("New")) {
             forumID = Long.parseLong(forumIDStr);
             forum = forumFactory.getForum(forumID);
-            message = (ForumMessage)getRequest().getAttribute("message");
         } else if (postMode.equals("Reply")) {
             messageID = Long.parseLong(messageIDStr);
             message = forumFactory.getMessage(messageID);

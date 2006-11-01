@@ -13,6 +13,8 @@ import com.jivesoftware.base.Log;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.forum.AttachmentException;
 import com.jivesoftware.forum.ForumMessage;
+import com.jivesoftware.forum.ForumThread;
+import com.jivesoftware.forum.Forum;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.PermissionException;
@@ -43,13 +45,17 @@ public class Attach extends ForumsProcessor {
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
         String textareaBody = ForumsUtil.createTextAreaBody(body);
         
-        long forumID = -1;
+        Forum forum = null;
+        ForumMessage message = null;
+        ForumThread thread = null;
+        
         if (postMode.equals("New")) {
-            forumID = Long.parseLong(forumIDStr);
+            forum = forumFactory.getForum(forumIDStr);
         } else if (postMode.equals("Edit") || postMode.equals("Reply")) {
             long messageID = Long.parseLong(messageIDStr);
-            ForumMessage message = forumFactory.getMessage(messageID);
-            forumID = message.getForum().getID();
+            message = forumFactory.getMessage(messageID);
+            thread = message.getForumThread();
+            forum = message.getForum();
         }
 
 		setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
@@ -69,19 +75,28 @@ public class Attach extends ForumsProcessor {
         if (postMode.equals("New") || postMode.equals("Reply")) {
         	messageToAttachTo = (ForumMessage) getRequest().getSession().getAttribute("tempMessage_" + tempMessageIDStr); 
         	if (messageToAttachTo == null) {
-            	messageToAttachTo = forumFactory.getForum(forumID).createMessage(user);
+            	messageToAttachTo = forum.createMessage(user);
             	getRequest().getSession().setAttribute("tempMessage_" + tempMessageIDStr, messageToAttachTo);
             }
-            getRequest().setAttribute("tempMessage", messageToAttachTo);
         } else if (postMode.equals("Edit")) {
             long messageID = Long.parseLong(messageIDStr);
             messageToAttachTo = forumFactory.getMessage(messageID);
-            forumID = messageToAttachTo.getForum().getID();
+            forum = messageToAttachTo.getForum();
         }
         
         log.debug("Attaching file(s) to message: " + messageToAttachTo);
         for(int fileIndex = 0; fileIndex < uploadedFiles.length; fileIndex++) {
         	attachFile(uploadedFiles[fileIndex], messageToAttachTo);
+        	if (!errors.isEmpty()) {
+                getRequest().setAttribute("postMode", postMode);
+        		getRequest().setAttribute("forum", forum);
+                getRequest().setAttribute("thread", thread);
+                getRequest().setAttribute("message", message);
+        		
+        		setNextPage("/attachfiles.jsp");
+        		setIsNextPageInContext(true);
+        		return;
+        	}
         }
 		
         if (postMode.equals("Edit")) {

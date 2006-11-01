@@ -10,8 +10,10 @@
                  com.topcoder.web.common.BaseProcessor,
                  java.util.*"
 %>
+<%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="studio.tld" prefix="studio" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
@@ -28,38 +30,78 @@
 
 <html>
 <head>
-<title>TopCoder Forums</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-   <jsp:include page="script.jsp" /> 
-        <jsp:include page="/style.jsp">
-          <jsp:param name="key" value="tc_forums"/>
-        </jsp:include>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>TopCoder Studio</title>
+
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_studio_forums"/>
+    </jsp:include>
 </head>
 
 <body>
 
-<jsp:include page="top.jsp" >
-    <jsp:param name="level1" value=""/>
-</jsp:include>
+<div align="center">
+    <div class="contentOut">
+        
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-   <tr valign="top">
+      <jsp:include page="top.jsp" />
 
-<!-- Left Column Begins-->
-      <td width="180">
-          <jsp:include page="includes/global_left.jsp">
-             <jsp:param name="node" value="forums"/>
-          </jsp:include>
-      </td>
-<!-- Left Column Ends -->
 
-<!-- Center Column Begins -->
-        <td width="100%" class="rtBody">
+        <jsp:include page="topNav.jsp">
+            <jsp:param name="node" value="none"/>
+        </jsp:include>
+        <div class="contentIn">
+            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
 
-            <jsp:include page="page_title.jsp" >
-                <jsp:param name="image" value="forums"/>
-                <jsp:param name="title" value="<%=pageTitle%>"/>
-            </jsp:include>
+            <div class="contentSpacer">
+
+				<table cellpadding="0" cellspacing="0" class="rtbcTable">
+                    <tr>
+                        <td class="categoriesBox" style="padding-right: 20px;">
+                            <jsp:include page="categoriesHeader.jsp"/>
+                        </td>
+                        <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
+                            <jsp:include page="searchHeader.jsp"/>
+                        </td>
+                        <td align="right" nowrap="nowrap" valign="top">
+                            <A href="?module=History" class="rtbcLink">My Post
+                                History</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Watches" class="rtbcLink">My
+                            Watches</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Settings" class="rtbcLink">User
+                            Settings</A><br/>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+						<td colspan="2" style="padding-bottom:3px;"><b>
+							<tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
+								<A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> >
+							</tc-webtag:iterator>
+							<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A>
+				            <%	if (thread != null) { %>
+								> <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>" class="rtbcLink"><%=thread.getName()%></A>
+				            <%	} %>
+				            <%	if (message.getID() > 0) { %>
+				            	> <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>" class="rtbcLink"><%=message.getSubject()%></A>
+				            <%	} else { %>
+								> <%=message.getSubject()%>
+							<%	} %>
+						</b></td>
+					   	<!--<td align="right" class="rtbc"><a href="javascript:toggle('Options')" class="rtbcLink">Options</a></td>-->
+					</tr>
+				</table>
+				
+				
+            </div>
+            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
+        </div>
+        <jsp:include page="foot.jsp"/>
+        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
+    </div>
+</div>
+
+</body>
+</html>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 	<tr>
@@ -90,6 +132,7 @@
 	</tr>
 </table>
 
+<div id="jive-attachfilepage"><br/>
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 	<tr>
 		</td><b>Use the form below to attach files to this message. 
@@ -108,6 +151,16 @@ if (errors.size() > 0) {
 }
 %>
 </span>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+var clicked = false;
+function isClicked() {
+    if (!clicked) { clicked = true; return true; }
+    return false;
+}
+//-->
+</script>
 
 <% HashMap actionGetFieldErrors = new HashMap(); %>
 <%  for (int i=0; i < attachManager.getMaxAttachmentsPerMessage(); i++) { %>
@@ -173,6 +226,8 @@ if (errors.size() > 0) {
 <%	} %>
 
 </form>
+
+</div>
 
 		</td>
 <!-- Center Column Ends -->
