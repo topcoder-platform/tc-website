@@ -91,80 +91,16 @@
 
 <br clear="all">
 
-<c:choose>
-<c:when test="${not empty payments}">
-<table cellpadding="0" cellspacing="0" class="stat" width="100%">
-<tbody>
-    <tr>
-        <td class="title" colspan="5">
-        Payments
-        </td>
-    </tr>
-    <tr>
-        <td class="header">Description</td>
-        <td class="headerC">Due Date</td>
-        <td class="headerR">Net Payment</td>
-        <td class="headerC">Status</td>
-        <td class="headerC">
-            <c:if test="${fullList}" >
-                <b>Date Paid            
-            </c:if>&nbsp;
-        </td>
-    </tr>
-    
-<% boolean even = true;%>
-<c:forEach items="${payments}" var="payment">
-<c:choose>
-<c:when test="${payment.typeId == 3}"><!-- problem (legacy) --></c:when>
-<c:when test="${payment.typeId == 4}"><!-- coder referral --></c:when>
-<c:when test="${payment.typeId == 5}"><!-- charity (legacay) --></c:when>
-<c:when test="${payment.typeId == 13}"><!-- studio --></c:when>
-<c:otherwise>
-    <tr class="<%=even?"light":"dark"%>">
-        <td class="value">
-            <c:choose>
-                <c:when test="${(payment.typeId == 1 || payment.typeId == 22) && payment.header.algorithmRoundId > 0}">
-                    <A href="/stat?c=coder_room_stats&cr=${payment.header.user.id}&rd=${payment.header.algorithmRoundId}"><c:out value="${payment.description}"/></A>
-                </c:when>
-                <c:when test="${(payment.typeId == 6 || payment.typeId == 7) && payment.header.componentProjectId > 0}">
-                    <A href="/tc?module=CompContestDetails&pj=${payment.header.componentProjectId}" class="bcLink"><c:out value="${payment.description}"/></A>                    
-                </c:when>
-                <c:when test="${(payment.typeId == 17 || payment.typeId == 25) && payment.header.digitalRunStageId > 0}">
-                    <A href="/tc?module=LeaderBoard&ph=112&staid=${payment.header.digitalRunStageId}" class="bcLink"><c:out value="${payment.description}"/></A>                    
-                </c:when>
-                <c:when test="${payment.typeId == 18 && payment.header.digitalRunSeasonId > 0}">
-                    <A href="/tc?module=RookieBoard&ph=112&seid=${payment.header.digitalRunStageId}" class="bcLink"><c:out value="${payment.description}"/></A>                    
-                </c:when>
-                <c:when test="${payment.typeId == 21 && payment.header.algorithmRoundId > 0}">
-                    <A href="/longcontest/?module=ViewOverview&rd=${payment.header.algorithmRoundId}>" class="bcLink"><c:out value="${payment.description}"/></A>                    
-                </c:when>                
-                <c:otherwise>
-                    <c:out value="${payment.description}"/>
-                </c:otherwise>
-            </c:choose>
-        </td>
-        <td class="valueC"><c:out value="${payment.dueDate}"/></td>
-        <td class="valueR">$<fmt:formatNumber value="${payment.netAmount}" pattern="###,##0.00" /></td>
-        <td class="valueC"><c:out escapeXml="false" value="${payment.statusDesc}"/></td>
-        <td class="valueC">
-            <c:if test="${fullList and payment.payDate != '00/00/0000'}" >
-                <c:out value="${payment.payDate}"/>            
-            </c:if>&nbsp;
-        </td>
-    </tr>
-<% even = !even;%>
-</c:otherwise>    
-</c:choose>    
-</c:forEach>    
-</tbody>
-</table>
-</c:when>
-<c:otherwise>
-<div align="center">
-<strong>No Payments Found</strong>
-</div>
-</c:otherwise>    
-</c:choose>            
+<form name="f" action="${sessionInfo.servletPath}" method="get">
+
+            <% if (rsc.croppedDataBefore() || rsc.croppedDataAfter()) { %>
+            <div class="pagingBox">
+        <%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+        | <%=(rsc.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+                
+            </div>
+            <% } %>
+
 
 <br>
 <% boolean even = true;%>
@@ -242,7 +178,7 @@
 </tbody>
 </table>
 
-<form name="f" action="${sessionInfo.servletPath}" method="get">
+
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="PaymentHistory"/>
         <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
         <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
