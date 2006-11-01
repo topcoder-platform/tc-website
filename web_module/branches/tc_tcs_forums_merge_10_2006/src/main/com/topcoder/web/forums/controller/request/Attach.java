@@ -50,7 +50,7 @@ public class Attach extends ForumsProcessor {
         ForumThread thread = null;
         
         if (postMode.equals("New")) {
-            forum = forumFactory.getForum(forumIDStr);
+            forum = forumFactory.getForum(Long.parseLong(forumIDStr));
         } else if (postMode.equals("Edit") || postMode.equals("Reply")) {
             long messageID = Long.parseLong(messageIDStr);
             message = forumFactory.getMessage(messageID);
