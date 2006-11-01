@@ -2,6 +2,7 @@
 <%@ page language="java"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
@@ -139,7 +140,7 @@
 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
 <tbody>
     <tr>
-        <td class="title" colspan="5">
+        <td class="title" colspan="6">
         Payments
         </td>
     </tr>
@@ -170,6 +171,8 @@
      </tr>
      <% even = !even;%>
 </rsc:iterator>
+</tbody>
+</table>
 <br>
 
 
