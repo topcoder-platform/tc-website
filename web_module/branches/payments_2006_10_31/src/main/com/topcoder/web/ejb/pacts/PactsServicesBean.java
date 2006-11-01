@@ -5718,7 +5718,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     
     public ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws SQLException {
         StringBuffer query = new StringBuffer(300);
-        query.append("SELECT pd.payment_desc, pd.date_due, pt.payment_type_desc, pd.net_amount, s.status_desc, date_paid ");
+        query.append("SELECT pd.payment_desc,pt.payment_type_desc, pd.date_due, pd.net_amount, s.status_desc, date_paid ");
         query.append("FROM payment p, payment_detail pd, status_lu s, payment_type_lu pt ");
         query.append("WHERE p.most_recent_detail_id = pd.payment_detail_id ");
         query.append("AND s.status_id = pd.status_id ");

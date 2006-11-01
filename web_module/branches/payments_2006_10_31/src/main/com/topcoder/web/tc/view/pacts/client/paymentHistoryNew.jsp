@@ -4,7 +4,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
 <c:set var="fullList" value="<%= request.getAttribute(PaymentHistory.FULL_LIST) %>"/>
 <c:set var="payments" value="<%= request.getAttribute(PaymentHistory.PAYMENTS) %>"/>
@@ -134,6 +134,7 @@
 </c:otherwise>    
 </c:choose>            
 
+<br>
 <% boolean even = true;%>
 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
 <tbody>
@@ -143,8 +144,8 @@
         </td>
     </tr>
     <tr>
-        <td class="header">Description</td>
-        <td class="header">Type</td>
+        <td class="header"> <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Description</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Type</a></td>
         <td class="headerC">Due Date</td>
         <td class="headerR">Net Payment</td>
         <td class="headerC">Status</td>
@@ -158,18 +159,18 @@
     <tr class="<%=even?"light":"dark"%>">
         <td class="value"><rsc:item name="payment_desc" row="<%=resultRow%>"/></td>
         <td class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></td>
-        <td class="valueC"><rsc:item name="date_due" row="<%=resultRow%>"  format="MM.dd.yy"/></td>
+        <td class="valueC"><rsc:item name="date_due" row="<%=resultRow%>"  format="MM/dd/yy"/></td>
         <td class="valueR"><rsc:item name="net_amount" row="<%=resultRow%>"  format="###,###,##0.00"/></td>
         <td class="valueC"><rsc:item name="status_desc" row="<%=resultRow%>" /></td>
         <td class="valueC">
             <c:if test="${fullList}" >
-                <b><rsc:item name="date_paid" row="<%=resultRow%>"  format="MM.dd.yy"/>          
+                <b><rsc:item name="date_paid" row="<%=resultRow%>"  format="MM/dd/yy"/>          
             </c:if>&nbsp;
         </td>
      </tr>
      <% even = !even;%>
 </rsc:iterator>
-
+<br>
 
 
 

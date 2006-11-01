@@ -25,7 +25,7 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
         	int sortCol = 0;
         	
         	if (getRequest().getParameter(DataAccessConstants.SORT_DIRECTION) != null) {
-        		sortCol = Integer.parseInt(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+        		sortCol = Integer.parseInt(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         	}
         	
             PaymentBean paymentBean = new PaymentBean();
