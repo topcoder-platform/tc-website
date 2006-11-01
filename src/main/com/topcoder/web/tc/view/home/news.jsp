@@ -26,11 +26,11 @@
 ------------------------%>
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>10.30.06<br>4:50 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>11.01.06<br>4:50 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       Online Review scheduled maintenance
       </span><br><br>
-      TopCoder is upgrading the Online Review software.  An outage is expected from 6:30 PM ET 11/3 until approximately 4 AM ET 11/4.  Effected systems will include Online Review, the software website, reviewer registration and project registration.
+      TopCoder is upgrading the Online Review software.  An outage is expected from 6:30 PM ET 11/3 until approximately 4 AM ET 11/4.  Affected systems will include Online Review, the software website, reviewer registration and project registration.
    </tr>
    <tr><td class="newsLinksCell">
          <tc-webtag:forumLink forumID="506165" message="discuss this" /> | 
