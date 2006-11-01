@@ -148,9 +148,9 @@
     <tr>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Description</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Type</a></td>
-        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Due Date</a></td>
-        <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Net Payment</a></td>
-        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Status</a></td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Due Date</a></td>
+        <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Net Payment</a></td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Status</a></td>
         <td class="headerC">
             <c:if test="${fullList}" >
                 <b><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Date Paid</a>       
@@ -158,14 +158,14 @@
         </td>
     </tr>
 <rsc:iterator list="${payments2}" id="resultRow">
-	<c:set var="typeId" value="<%= resultRow.getIntItem("payment_type_id") %>" />
-	<c:set var="algorithmRoundId" value="<%= resultRow.getIntItem("algorithm_round_id") %>" />
-	<c:set var="componentProjectId" value="<%= resultRow.getIntItem("component_project_id") %>" />
-	<c:set var="digitalRunStageId" value="<%= resultRow.getIntItem("digital_run_stage_id") %>" />
-	<c:set var="digitalRunSeasonId" value="<%= resultRow.getIntItem("digital_run_season_id") %>" />			
+	<c:set var="typeId" value="<%= resultRow.getStringItem("payment_type_id") %>" />
+	<c:set var="algorithmRoundId" value="<%= resultRow.getStringItem("algorithm_round_id") %>" />
+	<c:set var="componentProjectId" value="<%= resultRow.getStringItem("component_project_id") %>" />
+	<c:set var="digitalRunStageId" value="<%= resultRow.getStringItem("digital_run_stage_id") %>" />
+	<c:set var="digitalRunSeasonId" value="<%= resultRow.getStringItem("digital_run_season_id") %>" />			
 	
     <tr class="<%=even?"light":"dark"%>">
-        <td class="value"><rsc:item name="payment_desc" row="<%=resultRow%>"/>
+        <td class="value">
             <c:choose>
                 <c:when test="${(typeId == 1 || typeId == 22) && algorithmRoundId > 0}">
                     <A href="/stat?c=coder_room_stats&cr=${cr}&rd=${algorithmRoundId}"><rsc:item name="payment_desc" row="<%=resultRow%>"/></A>
