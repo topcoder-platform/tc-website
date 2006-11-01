@@ -9,6 +9,7 @@ import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
@@ -28,7 +29,7 @@ import java.util.*;
  * Base implementation for the dr boards.
  *
  * @author pulky
- * @version 1.0.2
+ * @version 1.0.3
  */
 public abstract class BaseBoard extends BaseProcessor {
     /**
@@ -53,6 +54,8 @@ public abstract class BaseBoard extends BaseProcessor {
 
     /**
      * The requested period
+     * 
+     * @since 1.0.3
      */
     protected String period = null;
 
@@ -297,4 +300,42 @@ public abstract class BaseBoard extends BaseProcessor {
         }
         return (ResultSetContainer) m.get(query);
     }
+    
+    /**
+     * Queries placement points for a particular board
+     * Retrieves an array of the placement points for a particualr period and phase
+     * 
+     * @since 1.0.3
+     */
+    protected double[] getPlacementPrize(String command, String period, String periodId, 
+        String phaseId) throws TCWebException {
+        double[] placementArray = null;
+
+        Request r = new Request();
+        r.setContentHandle(command);
+        r.setProperty(Constants.PHASE_ID, phaseId);
+        r.setProperty(period, periodId);
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+        Map m = null;
+        try {
+            m = dai.getData(r);
+
+            ResultSetContainer placementPoints = (ResultSetContainer) m.get(command);        
+        
+            placementArray = new double[placementPoints.size()];
+            int i = 1;
+            for (Iterator it = placementPoints.iterator(); it.hasNext(); i++) {
+                ResultSetRow row = (ResultSetRow) it.next();
+                if (row.getIntItem("place") != i) {
+                    throw new TCWebException("Wrong contest_prize for " + period + ": " + periodId + " phase " + phaseId);
+                }
+                placementArray[i-1] = row.getDoubleItem("prize_amount");
+            }
+        } catch (Exception e) {
+            throw new TCWebException("Command " + command + " failed.", e);
+        }
+
+        return placementArray;
+    }
+
 }

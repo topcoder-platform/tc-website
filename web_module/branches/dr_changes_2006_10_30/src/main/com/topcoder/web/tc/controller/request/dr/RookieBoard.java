@@ -37,16 +37,6 @@ public class RookieBoard extends BaseBoard {
     private static final Logger log = Logger.getLogger(RookieBoard.class);
 
     /**
-     * The design rookie placement prizes.
-     */
-    //private static final double[] designPlacementPrize = {10000.0, 7500.0, 5000.0, 2500.0, 1500.0, 1250.0, 750.0, 500.0, 500.0, 500.0};
-
-    /**
-     * The development rookie placement prizes.
-     */
-    //private static final double[] developmentPlacementPrize = {7500.0, 5000.0, 3000.0, 1500.0, 900.0, 750.0, 450.0, 300.0, 300.0, 300.0};
-
-    /**
      * Process the dr rookie board request.
      * Retrieves rookie list for development or design for a particular season.
      */
@@ -106,34 +96,13 @@ public class RookieBoard extends BaseBoard {
         return rookieBoardResult;
     }
     
+    /**
+     * Queries placement points for rookie board
+     * Retrieves an array of the placement points for a particualr season and phase
+     * 
+     * @since 1.0.3
+     */
     private double[] getPlacementPrize(String seasonId, String phaseId) throws TCWebException {
-        double[] placementArray = null;
-
-        Request r = new Request();
-        r.setContentHandle("rookie_board_placement_prize");
-        r.setProperty(Constants.PHASE_ID, phaseId);
-        r.setProperty(Constants.SEASON_ID, seasonId);
-        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
-        Map m = null;
-        try {
-            m = dai.getData(r);
-
-            ResultSetContainer placementPoints = (ResultSetContainer) m.get("rookie_board_placement_prize");        
-        
-            placementArray = new double[placementPoints.size()];
-            int i = 1;
-            for (Iterator it = placementPoints.iterator(); it.hasNext(); i++) {
-                ResultSetRow row = (ResultSetRow) it.next();
-                if (row.getIntItem("place") != i) {
-                    throw new TCWebException("Wrong contest_prize for stage " + seasonId + " phase " + phaseId);
-                }
-                placementArray[i-1] = row.getDoubleItem("prize_amount");
-            }
-        } catch (Exception e) {
-            throw new TCWebException("Command " + "rookie_board_placement_prize" + " failed.", e);
-        }
-
-        return placementArray;
+        return getPlacementPrize("rookie_board_placement_prize", Constants.SEASON_ID, seasonId, phaseId);
     }
-
 }
