@@ -108,6 +108,15 @@ public class Constants implements WebConstants {
     public static final String VERISIGN_06_CREDENTIALS_PAGE = "/verisign06/credentials.jsp";
     public static final String VERISIGN_06_CREDENTIALS_SENT_PAGE = "/verisign06/credentialsSent.jsp";
 
+    public static final String VICC_LOGIN_PAGE = "/vicc/login.jsp";
+    public static final String VICC_REG_PAGE = "/vicc/reg.jsp";
+    public static final String VICC_REG_CONFIRM_PAGE = "/vicc/confirm.jsp";
+    public static final String VICC_REG_SUCCESS_PAGE = "&d1=vicc&d2=regsuccess";
+    public static final String VICC_UPDATE_SUCCESS_PAGE = "&d1=vicc&d2=updatesuccess";
+    public static final String VICC_ACTIVATION_PAGE = "/vicc/activation.jsp";
+    public static final String VICC_CREDENTIALS_PAGE = "/vicc/credentials.jsp";
+    public static final String VICC_CREDENTIALS_SENT_PAGE = "/vicc/credentialsSent.jsp";
+
     public static String DEFAULT_PAGE;
 
     public static String DC_REG_PAGE;
@@ -223,6 +232,13 @@ public class Constants implements WebConstants {
     public static final String VERISIGN_06_ACTIVATION = "VeriSign06Activate";
     public static final String VERISIGN_06_CREDENTIALS = "VeriSign06Credentials";
     public static final String VERISIGN_06_LOGIN = "VeriSign06Login";
+
+    public static final String VICC_REG_MAIN = "VICCReg";
+    public static final String VICC_REG_CONFIRM = "VICCConfirm";
+    public static final String VICC_REG_SUBMIT = "VICCSubmit";
+    public static final String VICC_ACTIVATION = "VICCActivate";
+    public static final String VICC_CREDENTIALS = "VICCCredentials";
+    public static final String VICC_LOGIN = "VICCLogin";
 
 
     public static String VERIZON_REG_MAIN;
