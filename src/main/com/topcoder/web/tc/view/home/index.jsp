@@ -68,7 +68,10 @@
 <IMG SRC="/i/home/tccc06_webcast_20061011b.png" border="0" alt="TCCC06 Webcast" usemap="#tccc"/>
         </td>
         <td width="50%" align="right" valign="top" style="border-bottom: 1px solid #666666; padding:0px; margin:0px;">
+            &nbsp;
+            <%--
             <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>"><img src="/i/home/studioCorner.png" alt="TopCoder Studio" /></A>
+            --%>
         </td>
     </tr>
 </table>
