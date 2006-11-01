@@ -46,76 +46,76 @@ selections will be returned. Click on a Handle to view information about the Cod
       </td>
    </tr>
    <tr>
-      <td class="valueR" width="50%">
+      <td class="valueR" width="50%" style="border: 0px;">
          Handle:
       </td>
-      <td class="value" colspan="4">
+      <td class="value" colspan="4" style="border: 0px;">
          <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="20" onKeyPress="submitEnter(event)"/>
       </td>
    </tr>
    <tr>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          State:
       </td>
-      <td class="value" colspan="4">
+      <td class="value" colspan="4" style="border: 0px;">
          <tc-webtag:rscSelect name="<%=Constants.STATE_CODE%>" list="<%=memberSearch.getStateList()%>" fieldText="state_name" fieldValue="state_code"/>
       </td>
    </tr>
    <tr>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          Country:
       </td>
-      <td class="value" colspan="4">
+      <td class="value" colspan="4" style="border: 0px;">
          <tc-webtag:rscSelect name="<%=Constants.COUNTRY_CODE%>" list="<%=memberSearch.getCountryList()%>" fieldText="country_name" fieldValue="country_code"/>
       </td>
    </tr>
    <tr>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          School:
       </td>
-      <td class="value" colspan="4">
+      <td class="value" colspan="4" style="border: 0px;">
          <tc-webtag:textInput name="<%=Constants.SCHOOL_NAME%>" size="20" maxlength="150" onKeyPress="submitEnter(event)" escapeHtml="true"/>
       </td>
    </tr>
    <tr>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          <strong>Algorithm</strong> rating:
       </td>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          Min:
       </td>
-      <td class="value">
+      <td class="value" style="border: 0px;">
          <tc-webtag:textInput name="<%=Constants.MIN_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
       </td>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          Max:
       </td>
-      <td class="value" width="50%">
+      <td class="value" width="50%" style="border: 0px;">
          <tc-webtag:textInput name="<%=Constants.MAX_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
       </td>
    </tr>
    <tr>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          # of rated <strong>Algorithm</strong> events:
       </td>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          Min:
       </td>
-      <td class="value">
+      <td class="value" style="border: 0px;">
          <tc-webtag:textInput name="<%=Constants.MIN_NUM_RATINGS%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
       </td>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          Max:
       </td>
-      <td class="value">
+      <td class="value" style="border: 0px;">
          <tc-webtag:textInput name="<%=Constants.MAX_NUM_RATINGS%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
       </td>
    </tr>
    <tr>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          Max time since last <strong>Algorithm</strong> competition:
       </td>
-      <td class="value" colspan="4">
+      <td class="value" colspan="4" style="border: 0px;">
          <select name="<%=Constants.MAX_DAYS_SINCE_LAST_COMP%>" size="1">
          <option value="">None Specified</option>
          <option value="30" <%=memberSearch.getMaxDaysSinceLastComp()!=null&&memberSearch.getMaxDaysSinceLastComp().equals(new Integer(30))?"selected":""%>>
@@ -131,78 +131,78 @@ selections will be returned. Click on a Handle to view information about the Cod
       </td>
    </tr>
    <tr>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          <strong>Design</strong> rating:
       </td>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          Min:
       </td>
-      <td class="value">
+      <td class="value" style="border: 0px;">
          <tc-webtag:textInput name="<%=Constants.MIN_DESIGN_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
       </td>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          Max:
       </td>
-      <td class="value">
+      <td class="value" style="border: 0px;">
          <tc-webtag:textInput name="<%=Constants.MAX_DESIGN_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
       </td>
    </tr>
    <tr>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          <strong>Development</strong> rating:
       </td>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          Min:
       </td>
-      <td class="value">
+      <td class="value" style="border: 0px;">
          <tc-webtag:textInput name="<%=Constants.MIN_DEV_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
       </td>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          Max:
       </td>
-      <td class="value">
+      <td class="value" style="border: 0px;">
          <tc-webtag:textInput name="<%=Constants.MAX_DEV_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
       </td>
    </tr>
    <tr>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          <strong>High School</strong> rating:
       </td>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          Min:
       </td>
-      <td class="value">
+      <td class="value" style="border: 0px;">
          <tc-webtag:textInput name="<%=Constants.MIN_HS_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
       </td>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          Max:
       </td>
-      <td class="value">
+      <td class="value" style="border: 0px;">
          <tc-webtag:textInput name="<%=Constants.MAX_HS_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
       </td>
    </tr>
    <tr>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          # of rated <strong>High School</strong> events:
       </td>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          Min:
       </td>
-      <td class="value">
+      <td class="value" style="border: 0px;">
          <tc-webtag:textInput name="<%=Constants.MIN_NUM_HS_RATINGS%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
       </td>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          Max:
       </td>
-      <td class="value">
+      <td class="value" style="border: 0px;">
          <tc-webtag:textInput name="<%=Constants.MAX_NUM_HS_RATINGS%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
       </td>
    </tr>
    <tr>
-      <td class="valueR">
+      <td class="valueR" style="border: 0px;">
          Max time since last <strong>High School</strong> competition:
       </td>
-      <td class="value" colspan="4">
+      <td class="value" colspan="4" style="border: 0px;">
          <select name="<%=Constants.MAX_DAYS_SINCE_LAST_HS_COMP%>" size="1">
          <option value="">None Specified</option>
          <option value="30" <%=memberSearch.getMaxDaysSinceLastHSComp()!=null&&memberSearch.getMaxDaysSinceLastHSComp().equals(new Integer(30))?"selected":""%>>
@@ -218,7 +218,7 @@ selections will be returned. Click on a Handle to view information about the Cod
       </td>
    </tr>
    <tr>
-      <td class="valueC" colspan="5">
+      <td class="valueC" colspan="5" style="border: 0px;">
          <div style="padding:6px;">
          <A href="javascript:document.searchForm.submit()" class="bodyText"><img src="/i/search.gif" width="60" height="18" border="0"/></A>
          </div>
