@@ -57,7 +57,6 @@ public class LeaderBoard extends BaseBoard {
         boolean invert = sortDir.equals("desc");
 
         // break prizes ties
-        
         tieBreak(leaderBoardResult, getPlacementPrize(period, designBoard ? "112" : "113"), invert,
                 "dr_leader_tie_break_placement", "dr_leader_tie_break_score", Constants.STAGE_ID);
 
@@ -121,7 +120,7 @@ public class LeaderBoard extends BaseBoard {
 
         double prizePerPoint = 0;
         if (overallTopThirdPoints > 0) {
-            prizePerPoint = (getPoolPrize(period, designBoard ? "112" : "113")) / overallTopThirdPoints;
+            prizePerPoint = getPoolPrize(period, designBoard ? "112" : "113") / overallTopThirdPoints;
         }
         if (log.isDebugEnabled()) {
             log.debug("prizePerPoint: " + prizePerPoint);

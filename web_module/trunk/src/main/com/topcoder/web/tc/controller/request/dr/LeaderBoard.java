@@ -9,6 +9,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.LeaderBoardRow;
 
@@ -21,7 +22,7 @@ import java.util.List;
  * A processor to retrieve dr leader board.
  *
  * @author pulky
- * @version 1.0.2
+ * @version 1.0.3
  */
 public class LeaderBoard extends BaseBoard {
 
@@ -29,26 +30,6 @@ public class LeaderBoard extends BaseBoard {
      * The logger to log to.
      */
     private static final Logger log = Logger.getLogger(LeaderBoard.class);
-
-    /**
-     * The development prize pool for the top third.
-     */
-    private static final double DEVELOPMENT_POOL_PRIZE = 14000.0;
-
-    /**
-     * The design prize pool for the top third.
-     */
-    private static final double DESIGN_POOL_PRIZE = 28000.0;
-
-    /**
-     * The design leader placement prizes.
-     */
-    private static final double[] designPlacementPrize = {25000.0, 10000.0, 7000.0, 3000.0, 2000.0};
-
-    /**
-     * The development leader placement prizes.
-     */
-    private static final double[] developmentPlacementPrize = {12500.0, 5000.0, 3500.0, 1500.0, 1000.0};
 
     /**
      * Process the dr rookie board request.
@@ -76,7 +57,7 @@ public class LeaderBoard extends BaseBoard {
         boolean invert = sortDir.equals("desc");
 
         // break prizes ties
-        tieBreak(leaderBoardResult, designBoard ? designPlacementPrize : developmentPlacementPrize, invert,
+        tieBreak(leaderBoardResult, getPlacementPrize(period, designBoard ? "112" : "113"), invert,
                 "dr_leader_tie_break_placement", "dr_leader_tie_break_score", Constants.STAGE_ID);
 
         // sort
@@ -97,7 +78,7 @@ public class LeaderBoard extends BaseBoard {
      * @param rsc         the ResultSetContainer retrieved from DB
      * @param designBoard true if its a design board (false if development)
      */
-    private List processBoard(ResultSetContainer rsc, boolean designBoard) {
+    private List processBoard(ResultSetContainer rsc, boolean designBoard) throws TCWebException {
         long topThirdAttempt = 0;
 
         for (Iterator it = rsc.iterator(); it.hasNext();) {
@@ -139,7 +120,7 @@ public class LeaderBoard extends BaseBoard {
 
         double prizePerPoint = 0;
         if (overallTopThirdPoints > 0) {
-            prizePerPoint = (designBoard ? DESIGN_POOL_PRIZE : DEVELOPMENT_POOL_PRIZE) / overallTopThirdPoints;
+            prizePerPoint = getPoolPrize(period, designBoard ? "112" : "113") / overallTopThirdPoints;
         }
         if (log.isDebugEnabled()) {
             log.debug("prizePerPoint: " + prizePerPoint);
@@ -150,5 +131,26 @@ public class LeaderBoard extends BaseBoard {
             leaderBoardRow.setPointsPrize(leaderBoardRow.getPointsPrize() * prizePerPoint);
         }
         return leaderBoardResult;
+    }
+
+
+    /**
+     * Queries pool prize for leader board
+     * Retrieves the value of the pool prize for a particualr stage and phase
+     * 
+     * @since 1.0.3
+     */
+    private double getPoolPrize(String stageId, String phaseId) throws TCWebException {
+        return getPlacementPrize("leader_board_pool_prize", Constants.STAGE_ID, stageId, phaseId)[0];
+    }
+
+    /**
+     * Queries placement points for the leader board
+     * Retrieves an array of the placement points for a particular stage and phase
+     * 
+     * @since 1.0.3
+     */
+    private double[] getPlacementPrize(String stageId, String phaseId) throws TCWebException {
+        return getPlacementPrize("leader_board_placement_prize", Constants.STAGE_ID, stageId, phaseId);
     }
 }
