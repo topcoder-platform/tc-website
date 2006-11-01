@@ -113,17 +113,19 @@ public class ProjectTrackerV2Bean implements SessionBean {
             conn = dataSource.getConnection();
             results[0] = parseLongValue(getProjectInfo(conn, projectId, 23)); // Winner
 
-            long compVersId = parseLongValue(getProjectInfo(conn, projectId, 1)); // external id
+            long componentId = parseLongValue(getProjectInfo(conn, projectId, 2)); // external id
 
             psForum = conn.prepareStatement("SELECT fm.forum_id " + 
-            		"FROM forum_master fm, comp_forum_xref cfx " +
+            		"FROM forum_master fm, comp_forum_xref cfx, comp_versions cv " +
                     "WHERE fm.forum_id = cfx.forum_id " + 
-                    "AND cfx.comp_vers_id = ? " +
-                    "AND fm.status_id = 1"  + 
+                    "AND cfx.comp_vers_id = cv.comp_vers_id " +
+                    "AND cv.phase_id in (112, 113) " +
+                    "AND cv.component_id = ? " +
+                    "AND fm.status_id = 1 "  + 
                     "AND cfx.forum_type = " +
                     DEVLOPEMENT_FORUM_TYPE);
 
-            psForum.setLong(1, compVersId);
+            psForum.setLong(1, componentId);
             rsForum = psForum.executeQuery();
 
             if (rsForum.next()) {

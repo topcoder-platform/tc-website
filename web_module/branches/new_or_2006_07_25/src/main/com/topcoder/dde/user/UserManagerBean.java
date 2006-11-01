@@ -978,10 +978,12 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 
     private static final String componentInfo =
             "select cv.component_id , cv.phase_id , cv.version " +
-              " from project p " +
-              " inner join project_info pi_vi on p.project_id = pi_vi.project_id and pi_vi.project_info_type_id = 1 " +
-              " inner join comp_versions cv on cv.comp_vers_id = pi_vi.value " +
-              " where p.project_id = ? ";
+              " from project_info pi_vi, " +
+              "	comp_versions cv " +
+              "	where project_info_type_id = 2 " +
+              " and cv.component_id = pi_vi.value " +
+              " and cv.phase_id IN (112, 113) " +
+              " and pi_vi.project_id = ? ";
 
     private static final String getRating =
             " select rating from user_rating where phase_id = ? and user_id = ?";

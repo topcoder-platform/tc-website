@@ -217,21 +217,20 @@ public class RBoardApplicationBean extends BaseEJB {
         try {
             ps = conn.prepareStatement("select p.project_id, pi_cn.value as component_name, pi_vt.value as version_text, "
                 + "pt.name as project_type_name, cfx.forum_id, cfx.forum_type from project p "
-                + "inner join project_category_lu pt "
-                + "on p.project_category_id = pt.project_category_id "
-                + "inner join project_info pi_cn "
-                + "on p.project_id = pi_cn.project_id "
-                + "and pi_cn.project_info_type_id = 6 "
-        		+ "inner join project_info pi_vt "
-        		+ "on p.project_id = pi_vt.project_id "
-        		+ "and pi_vt.project_info_type_id = 7 "
-        		+ "inner join project_info pi_vi "
-        		+ "on p.project_id = pi_vi.project_id "
-        		+ "and pi_vi.project_info_type_id = 1 "
-        		+ "inner join comp_forum_xref cfx "
-        		+ "on cfx.comp_vers_id = pi_vi.value "
-        		+ "and cfx.forum_type = 2 "
-                + "where p.project_id = ?");
+                + ",project_category_lu pt "
+                + ",project_info pi_cn "
+        		+ ",project_info pi_vt "
+        		+ ",project_info pi_vi "
+        		+ ",comp_versions cv "
+        		+ ",comp_forum_xref cfx "
+                + "where p.project_id = ? " 
+                + "and p.project_category_id = pt.project_category_id "
+                + "and p.project_id = pi_cn.project_id and pi_cn.project_info_type_id = 6 "
+                + "and p.project_id = pi_vt.project_id and pi_vt.project_info_type_id = 7 "
+                + "and p.project_id = pi_vi.project_id and pi_vi.project_info_type_id = 2 "
+                + "and cv.component_id = pi_vi.value and cv.phase_id in (112, 113) "
+                + "and cfx.comp_vers_id = cv.comp_vers_id and cfx.forum_type = 2 "
+                );
             ps.setLong(1, projectId);
 
             rs = ps.executeQuery();
