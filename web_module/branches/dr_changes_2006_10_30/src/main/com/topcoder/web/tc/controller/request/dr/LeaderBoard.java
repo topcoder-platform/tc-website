@@ -4,13 +4,9 @@
 
 package com.topcoder.web.tc.controller.request.dr;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -20,7 +16,6 @@ import com.topcoder.web.tc.model.dr.LeaderBoardRow;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 /**
  * <strong>Purpose</strong>:
@@ -147,28 +142,6 @@ public class LeaderBoard extends BaseBoard {
      * @since 1.0.3
      */
     private double getPoolPrize(String stageId, String phaseId) throws TCWebException {
-/*        double poolPrize;
-
-        Request r = new Request();
-        r.setContentHandle("leader_board_pool_prize");
-        r.setProperty(Constants.PHASE_ID, phaseId);
-        r.setProperty(Constants.STAGE_ID, stageId);
-        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
-        Map m = null;
-        try {
-            m = dai.getData(r);
-
-            ResultSetContainer rscPoolPrize = (ResultSetContainer) m.get("leader_board_pool_prize");        
-
-            if (rscPoolPrize.size() != 1) {
-                throw new TCWebException("Wrong contest_prize for stage " + stageId + " phase " + phaseId);
-            }
-            poolPrize = ((ResultSetRow) rscPoolPrize.get(0)).getDoubleItem("prize_amount");
-        } catch (Exception e) {
-            throw new TCWebException("Command " + "leader_board_pool_prize" + " failed.", e);
-        }
-
-        return poolPrize;*/
         return getPlacementPrize("leader_board_pool_prize", Constants.STAGE_ID, stageId, phaseId)[0];
     }
 
