@@ -42,6 +42,16 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 <p>
+    5.5.5 - 2006.11.01
+    <ul>
+        <li>Double prizes for design DR stage 2.</li>
+<%--
+        <li>Schema was changed to store prizes in the DB so that different stages/seasons can have different prizes.</li>
+--%>
+    </ul>
+ </p>
+
+<p>
     5.5.4 - 2006.10.30
     <ul>
         <li>Fix member search so that it can search for HS only members</li>
