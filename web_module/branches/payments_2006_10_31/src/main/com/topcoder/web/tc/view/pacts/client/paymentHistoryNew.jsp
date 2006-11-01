@@ -134,7 +134,7 @@
 </c:otherwise>    
 </c:choose>            
 
-
+<% boolean even = true;%>
 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
 <tbody>
     <tr>
