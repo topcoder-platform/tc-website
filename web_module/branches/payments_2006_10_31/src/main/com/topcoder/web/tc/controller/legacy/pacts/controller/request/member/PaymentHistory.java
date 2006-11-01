@@ -1,9 +1,11 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.member;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.PaymentBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
@@ -21,6 +23,9 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
     protected void businessProcessing() throws TCWebException {
         try {
         	boolean fullList = "true".equals(getRequest().getParameter(FULL_LIST));
+            String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
+            String endRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
+
         	boolean sortAscending= "asc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         	int sortCol = 0;
         	
@@ -28,6 +33,20 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
         		sortCol = Integer.parseInt(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         	}
         	
+            // Normalizes optional parameters and sets defaults
+            if ("".equals(startRank) || Integer.parseInt(startRank) <= 0) {
+                startRank = "1";
+            }
+            setDefault(DataAccessConstants.START_RANK, startRank);
+
+            if ("".equals(endRank)) {
+                endRank = String.valueOf(Integer.parseInt(startRank) + 20); //Constants.DEFAULT_HISTORY);
+            } else if (Integer.parseInt(endRank) - Integer.parseInt(startRank) > Constants.MAX_HISTORY) {
+                endRank = String.valueOf(Integer.parseInt(startRank) + Constants.MAX_HISTORY);
+            }
+            setDefault(DataAccessConstants.END_RANK, endRank);
+
+            
             PaymentBean paymentBean = new PaymentBean();
             
             Payment[] payments = paymentBean.getPaymentDetailsForUser(getUser().getId(), new int[0], !fullList);
@@ -40,8 +59,9 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             getRequest().setAttribute(PAYMENTS, payments);
             
             DataInterfaceBean dib = new DataInterfaceBean();
-            getRequest().setAttribute("payments2" ,dib.getPaymentHistory(getUser().getId(), !fullList, sortCol, sortAscending));
-
+            ResultSetContainer rsc = new ResultSetContainer(dib.getPaymentHistory(getUser().getId(), !fullList, sortCol, sortAscending), Integer.parseInt(startRank), Integer.parseInt(endRank));
+            
+            getRequest().setAttribute("payments2", rsc);
             getRequest().setAttribute("cr", getUser().getId() + "");
         	getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));
             setNextPage("pacts/client/paymentHistoryNew.jsp");

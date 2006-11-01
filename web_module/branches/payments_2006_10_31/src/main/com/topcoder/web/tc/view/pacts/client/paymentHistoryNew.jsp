@@ -1,4 +1,9 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.controller.request.member.PaymentHistory" %>
+<%@ page language="java"
+         import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+		         com.topcoder.shared.dataAccess.DataAccessConstants,
+		         com.topcoder.web.tc.Constants" %>
+
 <%@ page language="java"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -12,6 +17,9 @@
 <c:set var="payments2" value="<%= request.getAttribute("payments2") %>"/>
 <c:set var="cr" value="<%= request.getAttribute("cr") %>"/>
 
+<%
+	ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("payments2");
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -22,6 +30,28 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
+
+    <script type="text/javascript">
+        function next() {
+            var myForm = document.f;
+            var oldStartRank = myForm.<%=DataAccessConstants.START_RANK%>.value;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value) + 1;
+            myForm.<%=DataAccessConstants.END_RANK%>.value = 2 * parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value) - parseInt(oldStartRank) + 1;
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+            myForm.submit();
+        }
+        function previous() {
+            var myForm = document.f;
+            var oldEndRank = myForm.<%=DataAccessConstants.END_RANK%>.value;
+            myForm.<%=DataAccessConstants.END_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - 1;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = 2 * parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - parseInt(oldEndRank) - 1;
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+            myForm.submit();
+        }
+    </script>
+
 </head>
 <body>
 
@@ -163,6 +193,12 @@
 	<c:set var="componentProjectId" value="<%= resultRow.getStringItem("component_project_id") %>" />
 	<c:set var="digitalRunStageId" value="<%= resultRow.getStringItem("digital_run_stage_id") %>" />
 	<c:set var="digitalRunSeasonId" value="<%= resultRow.getStringItem("digital_run_season_id") %>" />			
+	<c:choose>
+<c:when test="${typeId == 3}"><!-- problem (legacy) --></c:when>
+<c:when test="${typeId == 4}"><!-- coder referral --></c:when>
+<c:when test="${typeId == 5}"><!-- charity (legacay) --></c:when>
+<c:when test="${typeId == 13}"><!-- studio --></c:when>
+<c:otherwise>
 	
     <tr class="<%=even?"light":"dark"%>">
         <td class="value">
@@ -200,9 +236,28 @@
         </td>
      </tr>
      <% even = !even;%>
+     </c:otherwise>
+     </c:choose>
 </rsc:iterator>
 </tbody>
 </table>
+
+<form name="f" action="${sessionInfo.servletPath}" method="get">
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="PaymentHistory"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.START_RANK%>"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
+
+            <% if (rsc.croppedDataBefore() || rsc.croppedDataAfter()) { %>
+            <div class="pagingBox">
+        <%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+        | <%=(rsc.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+                
+            </div>
+            <% } %>
+</form>            
+
 <br>
 
 
