@@ -144,6 +144,7 @@
     </tr>
     <tr>
         <td class="header">Description</td>
+        <td class="header">Type</td>
         <td class="headerC">Due Date</td>
         <td class="headerR">Net Payment</td>
         <td class="headerC">Status</td>
@@ -154,17 +155,19 @@
         </td>
     </tr>
 <rsc:iterator list="${payments2}" id="resultRow">
-	<tr>
-        <td class="valule"><rsc:item name="payment_desc" row="<%=resultRow%>"/></td>
+    <tr class="<%=even?"light":"dark"%>">
+        <td class="value"><rsc:item name="payment_desc" row="<%=resultRow%>"/></td>
+        <td class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></td>
         <td class="valueC"><rsc:item name="date_due" row="<%=resultRow%>"  format="MM.dd.yy"/></td>
-        <td class="valueR">Net Payment</td>
-        <td class="valueC">Status</td>
+        <td class="valueR"><rsc:item name="net_amount" row="<%=resultRow%>"  format="###,###,##0.00"/></td>
+        <td class="valueC"><rsc:item name="status_desc" row="<%=resultRow%>" /></td>
         <td class="valueC">
             <c:if test="${fullList}" >
-                <b>Date Paid            
+                <b><rsc:item name="date_paid" row="<%=resultRow%>"  format="MM.dd.yy"/>          
             </c:if>&nbsp;
         </td>
      </tr>
+     <% even = !even;%>
 </rsc:iterator>
 
 
