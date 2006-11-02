@@ -3,7 +3,7 @@
     <property name="build" value="build"/>
     <property name="war.dir" value="${build}/wars"/>
     <property name="ear.dir" value="${build}/ears"/>
-    <property name="sar.dir" value="${build.dir}/sars"/>
+    <property name="sar.dir" value="${build}/sars"/>
     <property name="ejb_jars" value="${build}/ejb_jars"/>
     <property name="classes" value="${build}/classes"/>    
     <property name="testclasses" value="${build}/testcases"/>
