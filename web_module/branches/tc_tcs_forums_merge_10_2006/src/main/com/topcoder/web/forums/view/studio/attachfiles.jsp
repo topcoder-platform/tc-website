@@ -94,11 +94,10 @@
 				</table>
 				
 				<br>
-				<span class="small"><b>
+				<p><span class="small"><b>
 					Use the form below to attach files to this message. 
 					Maximum file size: <%=ForumsUtil.getFileSizeStr(attachManager.getMaxAttachmentSize()*1024)%>.
-				</b></span>
-				<br>
+				</b></span></p>
 				
 				<%  if (errors.get(ForumConstants.ATTACHMENT_ERROR) != null) { %>
 					<span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.ATTACHMENT_ERROR%>"><%=err%><br/></tc-webtag:errorIterator></span>
