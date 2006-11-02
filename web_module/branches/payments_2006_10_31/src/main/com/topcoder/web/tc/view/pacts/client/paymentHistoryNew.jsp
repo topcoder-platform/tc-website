@@ -157,7 +157,7 @@
         </td>
         <td class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></td>
         <td class="valueC"><rsc:item name="date_due" row="<%=resultRow%>"  format="MM/dd/yy"/></td>
-        <td class="valueR"><rsc:item name="net_amount" row="<%=resultRow%>"  format="###,###,##0.00"/></td>
+        <td class="valueR"><rsc:item name="net_amount" row="<%=resultRow%>"  format="$###,###,##0.00"/></td>
         <td class="valueC"><rsc:item name="status_desc" row="<%=resultRow%>" /></td>
         <td class="valueC">
             <c:if test="${fullList}" >
