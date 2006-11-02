@@ -145,7 +145,7 @@
         <c:when test="${statusId == 58}">
 	        <td class="valueC">
 	            <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavitId}">
-	                Affirmed on<br><rsc:item name="date_affirmed" row="<%=resultRow%>"/></c:out>
+	                Affirmed on<br><rsc:item name="date_affirmed" row="<%=resultRow%>"/>
 	            </a>                
 	        </td>
 	        <td class="valueC">&nbsp;</td>
