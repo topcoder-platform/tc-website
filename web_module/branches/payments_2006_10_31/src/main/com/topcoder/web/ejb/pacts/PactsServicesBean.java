@@ -5747,7 +5747,39 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return runSelectQuery(query.toString(), false);
     }
     
-    
+
+    /**
+     * Get the affidavits for an user.
+     * 
+     * @param userId user to retrieve its affidavits
+     * @param pendingOnly whether to retrieve just the pending affidavits
+     * @param sortColumn number of column for sort
+     * @param sortAscending whether to sort ascending	
+     * @return a ResultSetContainer with the affidavits
+     * @throws SQLException
+     */
+    public ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws SQLException {
+        StringBuffer query = new StringBuffer(300);
+    	
+        query.append("SELECT a.affidavit_id, a.affidavit_desc, a.notarized, a.affirmed, a.date_created, p.payment_id, pd.net_amount, pd.date_paid ");
+        query.append("FROM affidavit a, status_lu s, ");
+        query.append("OUTER (payment p, payment_detail pd) ");
+        query.append("WHERE p.payment_id = a.payment_id ");
+        query.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
+        query.append("AND a.status_id = s.status_id ");
+        query.append("AND a.date_created > mdy(1,1,2005) ");
+        query.append("AND a.user_id = " + userId);
+
+        if (pendingOnly) {
+        	query.append(" AND a.status_id = " + PactsConstants.AFFIDAVIT_PENDING_STATUS);
+        }
+        
+        query.append("ORDER BY " + sortColumn + (sortAscending? " ASC" : " DESC"));
+
+        return runSelectQuery(query.toString(), false);
+    }
+
+    	
     /**
      * Helper class to store a payment id and affidavit id
      *

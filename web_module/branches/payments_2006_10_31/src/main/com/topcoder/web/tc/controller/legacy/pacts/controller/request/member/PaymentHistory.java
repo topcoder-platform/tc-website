@@ -56,7 +56,6 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             setDefault(DataAccessConstants.SORT_DIRECTION, sortAscending + "");
             
             getRequest().setAttribute(PAYMENTS, rsc);
-            getRequest().setAttribute(PAYMENTS, rsc);
             getRequest().setAttribute(CODER, getUser().getId() + "");
         	getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));
             setNextPage(PactsConstants.PAYMENT_HISTORY_NEW_JSP);

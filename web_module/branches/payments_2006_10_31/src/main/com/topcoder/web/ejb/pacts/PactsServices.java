@@ -218,6 +218,8 @@ public interface PactsServices extends EJBObject {
     
     ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException,  SQLException;
     
+    ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException,  SQLException;
+    
     // ================== Methods from the Client Service ================== 
     
     BasePayment addPayment(BasePayment payment)  throws RemoteException, SQLException;
