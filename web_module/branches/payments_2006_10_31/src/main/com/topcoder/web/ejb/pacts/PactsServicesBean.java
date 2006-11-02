@@ -5761,7 +5761,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws SQLException {
         StringBuffer query = new StringBuffer(300);
     	
-        query.append("SELECT a.affidavit_id, a.affidavit_desc, a.notarized, a.affirmed, a.date_created, p.payment_id, pd.net_amount, pd.date_paid, a.status_id, ");
         query.append("SELECT a.affidavit_desc, ");
         query.append("CASE WHEN a.status_id = 57 THEN 'Affirm now' ");
         query.append("WHEN a.status_id = 58 THEN 'Affirmed on ' || a.date_affirmed ");
@@ -5779,13 +5778,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append("AND a.status_id = s.status_id ");
         query.append("AND a.status_id in (57,58,59) ");
         query.append("AND a.date_created > mdy(1,1,2005) ");
-        query.append("AND a.user_id = " + userId);
+        query.append("AND a.user_id = " + userId + " ");
 
         if (pendingOnly) {
-        	query.append(" AND a.status_id = " + PactsConstants.AFFIDAVIT_PENDING_STATUS);
+        	query.append(" AND a.status_id = " + PactsConstants.AFFIDAVIT_PENDING_STATUS + " ");
         }
         
-        query.append("ORDER BY " + sortColumn + (sortAscending? " ASC" : " DESC"));
+        query.append(" ORDER BY " + sortColumn + (sortAscending? " ASC " : " DESC "));
 
         return runSelectQuery(query.toString(), false);
     }
