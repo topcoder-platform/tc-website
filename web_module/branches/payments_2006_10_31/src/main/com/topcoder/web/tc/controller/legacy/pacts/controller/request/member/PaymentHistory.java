@@ -52,6 +52,10 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             DataInterfaceBean dib = new DataInterfaceBean();
             ResultSetContainer rsc = new ResultSetContainer(dib.getPaymentHistory(getUser().getId(), !fullList, sortCol, sortAscending), Integer.parseInt(startRank), Integer.parseInt(endRank));
             
+            setDefault(DataAccessConstants.SORT_COLUMN, sortCol + "");
+            setDefault(DataAccessConstants.SORT_DIRECTION, sortAscending + "");
+            
+            getRequest().setAttribute(PAYMENTS, rsc);
             getRequest().setAttribute(PAYMENTS, rsc);
             getRequest().setAttribute(CODER, getUser().getId() + "");
         	getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));

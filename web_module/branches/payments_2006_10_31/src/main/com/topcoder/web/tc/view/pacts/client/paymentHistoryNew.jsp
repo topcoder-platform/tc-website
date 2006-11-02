@@ -36,8 +36,8 @@
             var oldStartRank = myForm.<%=DataAccessConstants.START_RANK%>.value;
             myForm.<%=DataAccessConstants.START_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value) + 1;
             myForm.<%=DataAccessConstants.END_RANK%>.value = 2 * parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value) - parseInt(oldStartRank) + 1;
-            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
-            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+//            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getAttribute(DataAccessConstants.SORT_COLUMN)==null?"":request.getAttribute(DataAccessConstants.SORT_COLUMN)%>';
+//            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getAttribute(DataAccessConstants.SORT_DIRECTION)==null?"":request.getAttribute(DataAccessConstants.SORT_DIRECTION)%>';
             myForm.submit();
         }
         function previous() {
@@ -45,8 +45,8 @@
             var oldEndRank = myForm.<%=DataAccessConstants.END_RANK%>.value;
             myForm.<%=DataAccessConstants.END_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - 1;
             myForm.<%=DataAccessConstants.START_RANK%>.value = 2 * parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - parseInt(oldEndRank) - 1;
-            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
-            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+  //          myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getAttribute(DataAccessConstants.SORT_COLUMN)==null?"":request.getAttribute(DataAccessConstants.SORT_COLUMN)%>';
+    //        myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getAttribute(DataAccessConstants.SORT_DIRECTION)==null?"":request.getAttribute(DataAccessConstants.SORT_DIRECTION)%>';
             myForm.submit();
         }
     </script>
