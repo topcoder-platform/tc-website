@@ -227,7 +227,7 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr><td class="homeBigPromo">
             <%-- China --%>
-            <A href="/tc?module=Static&d1=features&d2=102606"><img src="/i/home/china_20061027.gif" alt="Now Open in China" border="0" style="display:block;" /></A>
+            <A href="/tc?module=Static&d1=pressroom&d2=art_110206"><img src="/i/home/china_20061102.png" alt="Now Open in China" border="0" style="display:block;" /></A>
             
             <%-- Maverick 
             <A href="/images/downloads/mavericks_at_work.pdf" target="_blank"><img src="/i/home/mavericks_100206.gif" alt="Mavericks at Work" border="0" style="display:block;" /></A>
@@ -249,6 +249,11 @@
         <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+
+                <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/businessweek_logo.gif" width="80" height="18" alt="BusinessWeek" border="0" /></div>
+                TopCoder members WishingBone and assistant in BusinessWeek
+                <A href="/tc?module=Static&d1=pressroom&d2=art_110206">...more</A><br>[November 2]<br><br>
             
                 <div style="float: right; padding-left: 5px;">
                 <img src="/i/pressroom/csmonitor_logo.jpg" width="80" height="32" alt="Christian Science Monitor" border="0" /></div>
@@ -270,13 +275,6 @@
             
                 TopCoder joins "Mavericks at Work" book tour
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_101006">...more</A><br>[October 10]<br><br>
-            
-                <div style="float: right; padding-left: 5px;">
-                    <img src="/i/pressroom/info_week_logo.gif" width="81" height="13" alt="InformationWeek" border="0" /></div>
-                TopCoder helps "free" AOL<br>
-                <A href="/i/pressroom/infoweek_excerpt.gif" target="_blank">excerpt</A>&#160;|&#160;
-                <A href="http://www.informationweek.com/internet/showArticle.jhtml?articleID=193104723" target="_blank">full story</A><br>[October 10]<br><br>
-            
             </td>
         </tr>
         <tr>

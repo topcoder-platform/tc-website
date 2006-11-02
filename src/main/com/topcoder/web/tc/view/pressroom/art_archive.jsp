@@ -37,6 +37,7 @@
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
 <!-- 2006  -->
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
+<tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_110206">A Growing Cadre Of Code Warriors</A> [November 2 - BusinessWeek]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.csmonitor.com/2006/1101/p01s04-usec.htm" target="_blank">How to build software? Henry Ford, meet eBay.</A> [November 1 - Christian Science Monitor]<br/></td></tr>
 <tr><td class="newsText"><A href="http://gigaom.com/2006/10/23/the-new-american-idol-the-coder/" target="_blank">The New American Idol&#8230; The Coder</A> [October 24 - gigaOm]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.wallstreetandtech.com/showArticle.jhtml;jsessionid=0U21ZF2KMDLJYQSNDLPCKHSCJUNN2JVN?articleID=193400878" target="_blank"><i>Wall Street & Technology</i> on TopCoder and UBS</A> [October 23 - Wall Street &amp; Technology]<br/></td></tr>
