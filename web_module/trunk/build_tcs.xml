@@ -81,8 +81,10 @@
         <pathelement location="${jars.dir}/tcs/magic_numbers/1.0/magic_numbers.jar"/>
         <!--pathelement location="${jars.dir}/tcs/xmi_parser/1.0/xmi_parser.jar"/-->
         <pathelement location="${jars.dir}/tcs/xmi_parser/1.1/xmi_parser.jar"/>
+<!--remove with new OR
         <pathelement location="${jars.dir}/tcs/application_screening/1.0/application_screening.jar"/>
-        <pathelement location="${jars.dir}/tcs/executable_wrapper.jar"/>        
+-->
+        <pathelement location="${jars.dir}/tcs/executable_wrapper.jar"/>
         <pathelement location="${jars.dir}/tcs/project_phases/2.0/project_phases.jar"/>
         <pathelement location="${jars.dir}/tcs/object_factory/2.0/object_factory.jar"/>
         <pathelement location="${jars.dir}/tcs/phase_management/1.0/phase_management.jar"/>
@@ -141,21 +143,6 @@
             <include name="com/topcoder/sql/**"/>
             <include name="com/topcoder/util/**"/>
             <include name="com/topcoder/security/**"/>
-<!--
-            <include name="com/topcoder/web/common/*"/>
-            <include name="com/topcoder/web/common/tag/HandleTag.java"/>
-            <include name="com/topcoder/web/common/model/**"/>
-            <include name="com/topcoder/web/common/security/**"/>
--->
-            <!--
-                        <exclude name="com/topcoder/web/common/model/IdGenerator.java"/>
-                        <exclude name="com/topcoder/web/common/model/LongHibernateProcessor.java"/>
-                        <exclude name="com/topcoder/web/common/model/ShortHibernateProcessor.java"/>
-                        <exclude name="com/topcoder/web/common/model/HibernateUtils.java"/>
-                        <exclude name="com/topcoder/web/common/ExtendedThreadLocalSessionContext.java"/>
-                        <exclude name="com/topcoder/web/common/model/TCInterceptor.java"/>
-            -->
-
         </javac>
     </target>
 
@@ -186,7 +173,8 @@
         </javac>
     </target>
 
-    <target name="war-or" depends="compile">
+<!--remove with new OR
+ <target name="war-or" depends="compile">
         <war warfile="${war.dir}/review.war" webxml="${resources.dir}/or/web.xml">
             <fileset dir="${web.dir}/online_review" excludes="${web.dir}/online_review/images"/>
             <classes dir="${classes.dir}">
@@ -215,7 +203,7 @@
                 <include name="review.tld"/>
             </webinf>
         </war>
-    </target>
+    </target>-->
 
     <target name="war-dde" depends="compile">
         <war warfile="${war.dir}/dde.war" webxml="${resources.dir}/dde/web.xml">
@@ -299,6 +287,7 @@
 
     </target>
 
+<!--remove with new OR
     <target name="package-EJB-Specification" depends="compile">
         <jar jarfile="${ejb.jars.dir}/Specification.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
@@ -311,6 +300,7 @@
             <metainf dir="${java.dir}/com/topcoder/apps/screening/application" includes="*.xml"/>
         </jar>
     </target>
+-->
 
 
     <target name="package-EJB-RBoard" depends="compile">
@@ -324,6 +314,7 @@
         </jar>
     </target>
 
+<!--remove with new OR
     <target name="build-sars" depends="compile">
         <jar jarfile="${sar.dir}/cache_refresher.sar" basedir="${classes.dir}"
              includes="com/topcoder/apps/review/cacherefresher/**">
@@ -338,10 +329,13 @@
         </jar>
 
     </target>
+-->
 
+<!--remove with new OR
     <target name="build-screening" depends="compile">
         <jar jarfile="${bin.dir}/screening.jar" basedir="${classes.dir}" includes="com/topcoder/apps/screening/**"/>
     </target>
+-->
 
     <target name="copy-conf">
         <copy todir="${jboss.conf.dir}">
@@ -469,11 +463,13 @@
                 <include name="xmi_parser.jar"/>
             </fileset>
         </copy>
+<!--remove with new OR
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${jars.dir}/tcs/application_screening/1.0">
                 <include name="application_screening.jar"/>
             </fileset>
         </copy>
+-->
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${jars.dir}/tcs/data_validation/1.0">
                 <include name="data_validation.jar"/>
@@ -514,11 +510,13 @@
                 <include name="id_generator.jar"/>
             </fileset>
         </copy>
+<!--
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${bin.dir}">
                 <include name="screening.jar"/>
             </fileset>
         </copy>
+-->
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${bin.dir}">
                 <include name="shared.jar"/>
@@ -532,11 +530,16 @@
         <antcall target="build-onsite"/>
     </target>
 
+<!--remove with new OR
     <target name="build-ear" depends="war-dde,war-or,build-ejbs,build-sars">
+-->
+    <target name="build-ear" depends="war-dde,build-ejbs">
         <ear earfile="${ear.dir}/dde.ear" appxml="${resources.dir}/dde/application.xml">
+<!-- remove with new OR
             <fileset dir="${sar.dir}">
                 <include name="*.sar"/>
             </fileset>
+-->
             <fileset dir="${ejb.jars.dir}">
                 <include name="*.jar"/>
                 <exclude name="Project.jar"/>
@@ -559,8 +562,10 @@
         <unwar src="${war.dir}/dde.war" dest="${jboss.deploy.dir}/dde.ear/dde.war/" overwrite="yes"/>
         <delete dir="${jboss.deploy.dir}/dde.ear/dde.war/META-INF"/>
 
+<!--remove with new OR
         <unwar src="${war.dir}/review.war" dest="${jboss.deploy.dir}/dde.ear/review.war/" overwrite="yes"/>
         <delete dir="${jboss.deploy.dir}/dde.ear/review.war/META-INF"/>
+-->
 
         <copy todir="${jboss.deploy.dir}">
             <fileset dir="${ejb.jars.dir}">
@@ -578,7 +583,10 @@
 
     </target>
 
+<!-- remove with new OR
     <target name="deploy" depends="build-ear,build-screening,build-onsite">
+-->
+    <target name="deploy" depends="build-ear,build-onsite">
         <antcall target="explode"/>
     </target>
 
