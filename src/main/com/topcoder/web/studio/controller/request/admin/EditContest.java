@@ -114,6 +114,10 @@ public class EditContest extends Base {
                     currConfig = contest.getConfig(curr);
                 }
                 String val = getRequest().getParameter(Constants.CONTEST_PROPERTY + CONTEST_PROPS[i]);
+                if (log.isDebugEnabled()) {
+                    log.debug("prop size " + (val==null?"null":String.valueOf(val.length())));
+                }
+
                 currConfig.setValue(StringUtils.checkNull(val).trim().length() == 0 ? null : val.trim());
             }
 
@@ -148,6 +152,11 @@ public class EditContest extends Base {
         String maxHeight = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MAX_HEIGHT);
         String viewableSubmissions = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.VIEWABLE_SUBMISSIONS);
         String forumId = getRequest().getParameter(Constants.FORUM_ID);
+
+
+        if (log.isDebugEnabled()) {
+            log.debug("prize desc size " + (prizeDesc==null?"null":String.valueOf(prizeDesc.length())));
+        }
 
         //validate
         ValidationResult nameResult = new ContestNameValidator().validate(new StringInput(name));
