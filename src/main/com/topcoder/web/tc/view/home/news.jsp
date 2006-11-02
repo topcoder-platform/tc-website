@@ -226,15 +226,3 @@ The expected battle didn't happen because of <tc-webtag:handle coderId="10574855
     <tc-webtag:forumLink forumID="506159" message="discuss this"/> |
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
-
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>10.25.06<br>1:00 PM</td>
-     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=10004">Ajax survey</A></span><br><br>
-      How much do you know about Ajax technologies?  Please take a moment to answer the following survey.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=ViewSurvey&sid=10004">view survey</A> | 
-        <tc-webtag:forumLink forumID="506158" message="discuss this"/> |
-         <A href="/tc?&module=SurveyList">archive</A>
-   </td></tr>
