@@ -237,7 +237,7 @@ function displayVotes(messageID, posVotes, negVotes) {
          <%  } %>
       </td>
    </tr>
-   	<% if (activeMessage.getAttachmentCount() > 0) { %>
+	<%	if (activeMessage.getAttachmentCount() > 0) { %>
 	<tr>
 		<td class="rtHeader" colspan="2">
 			Attachments:
@@ -249,7 +249,7 @@ function displayVotes(messageID, posVotes, negVotes) {
 			<% 	} %>
 		</td>
  	</tr>
-  	<% } %>
+	<% 	} %>
    <tr id="<%=msgBodyID%>">
    <td class="rtPosterCell">
       <div class="rtPosterSpacer">
