@@ -208,6 +208,7 @@
         <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
         <tc-webtag:hiddenInput name="<%=DataAccessConstants.START_RANK%>"/>
         <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
+        <input type="hidden" name="<%= AffidavitHistory.FULL_LIST %>" value="<c:out value="${fullList}"/>" />
 
             <% if (rsc.croppedDataBefore() || rsc.croppedDataAfter()) { %>
             <div class="pagingBox">

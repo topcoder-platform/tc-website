@@ -25,40 +25,12 @@ public class AffidavitHistory extends BaseProcessor implements PactsConstants {
 	
     protected void businessProcessing() throws TCWebException {
         try {
-        	/*
-        	boolean fullList = "true".equals(getRequest().getParameter(FULL_LIST));
-        	
-        	AffidavitBean bean = new AffidavitBean();
-            Affidavit[] affidavits;
-
-            if (fullList) {
-                affidavits = bean.getAffidavitsForUser(getUser().getId());
-            } else {
-                affidavits = bean.getPendingAffidavitsForUser(getUser().getId());
-            }
-
-            if (affidavits == null) {
-                affidavits = new Affidavit[0];
-            }
-            
-            getRequest().setAttribute(AFFIDAVITS, affidavits);
-            PaymentBean paymentBean = new PaymentBean();
-            for (int i=0; i<affidavits.length; i++) {
-            	if (affidavits[i].getPayment().getId() > 0) {
-            		Payment payment = paymentBean.getPayment(affidavits[i].getPayment().getId());
-            		affidavits[i].setPayDate(payment.getPayDate());
-            	}
-            }
-        	getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));
-            setNextPage("pacts/client/affidavitHistoryNew.jsp");
-            setIsNextPageInContext(true);*/
-        	
         	boolean fullList = "true".equals(getRequest().getParameter(FULL_LIST));
             String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
             String endRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
             String sortColStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
             
-        	boolean sortAscending= "asc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+        	boolean sortAscending= !"desc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         	int sortCol = 3;
         	
         	if (sortColStr.trim().length() > 0) {
