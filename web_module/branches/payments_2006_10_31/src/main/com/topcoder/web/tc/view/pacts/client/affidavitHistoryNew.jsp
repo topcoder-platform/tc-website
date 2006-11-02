@@ -6,6 +6,7 @@
 <%@ page language="java"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
@@ -109,26 +110,26 @@
     </tr>
     <tr>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">
-        Description
+        Description</a>
+        </td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">
+        Affirmation</a>
+        </td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">
+        Time Left</a>
+        </td>
+        <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">
+        Net Payment</a>
+        </td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">
+        Notarized</a>
+        </td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">
+        Status</a>
         </td>
         <td class="headerC">
-        Affirmation
-        </td>
-        <td class="headerC">
-        Time Left
-        </td>
-        <td class="headerR">
-        Net Payment
-        </td>
-        <td class="headerC">
-        Notarized
-        </td>
-        <td class="headerC">
-        Status
-        </td>
-        <td class="headerC">
-        <c:if test="${fullList}" >
-            <b>Date Paid</b>            
+        <c:if test="${fullList}" ><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">
+            <b>Date Paid</b>            </a>
         </c:if>&nbsp;
         </td>
     </tr>
@@ -159,7 +160,7 @@
         </td>
         <td class="valueC">
             <strong><a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavitId}">
-                daysLeftToAffirm days
+                 <rsc:item name="time_left" row="<%=resultRow%>"/> days
             </a></strong>            
         </td>
         </c:when>

@@ -5762,12 +5762,22 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         StringBuffer query = new StringBuffer(300);
     	
         query.append("SELECT a.affidavit_id, a.affidavit_desc, a.notarized, a.affirmed, a.date_created, p.payment_id, pd.net_amount, pd.date_paid, a.status_id, ");
-        query.append("s.status_desc, pd.date_paid ");
+        query.append("SELECT a.affidavit_desc, ");
+        query.append("CASE WHEN a.status_id = 57 THEN 'Affirm now' ");
+        query.append("WHEN a.status_id = 58 THEN 'Affirmed on ' || a.date_affirmed ");
+        query.append("ELSE 'Expired' END as affirmation_order, ");
+        query.append("CASE WHEN a.status_id = 57 THEN " + PactsConstants.AFFIDAVIT_EXPIRE_TIME + " units day - (today - a.date_created) || ' days' ");
+        query.append("WHEN a.status_id = 58 THEN '' ");
+        query.append("ELSE 'Expired' END as time_left_order, ");
+        query.append("pd.net_amount, a.notarized, s.status_desc, pd.date_paid, a.date_affirmed, ");
+        query.append("a.affidavit_id, a.affirmed, a.date_created, p.payment_id, ");
+        query.append(PactsConstants.AFFIDAVIT_EXPIRE_TIME + " units day -(today - a.date_created) as time_left, a.date_created, a.date_affirmed ");
         query.append("FROM affidavit a, status_lu s, ");
         query.append("OUTER (payment p, payment_detail pd) ");
         query.append("WHERE p.payment_id = a.payment_id ");
         query.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
         query.append("AND a.status_id = s.status_id ");
+        query.append("AND a.status_id in (57,58,59) ");
         query.append("AND a.date_created > mdy(1,1,2005) ");
         query.append("AND a.user_id = " + userId);
 
