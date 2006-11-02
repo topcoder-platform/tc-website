@@ -24,7 +24,7 @@
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 ------------------------%>
-<%---------------------------
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>11.02.06<br>11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -33,11 +33,11 @@
       AOL&#174; has opened up WebAIM, its latest API for its instant messaging platform, for your mixing and mashing pleasure. WebAIM allows users to integrate AIM services right into web pages and applications. Show us how you'd mash it up over at TopCoder Studio; $7,000 in prizes are up for grabs.
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=pressroom&d2=art_091806">details</A> |
+        <A href="/tc?module=Static&d1=sponsors&d2=aolMashups">details</A> |
          <tc-webtag:forumLink forumID="506160" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
------------------------------%>
+
 <%--------------------------------------------------------%>
    <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.02.06<br>1:40 PM</td>
@@ -209,20 +209,3 @@ The expected battle didn't happen because of <tc-webtag:handle coderId="10574855
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
 
-<%--------------------------------------------------------%>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>10.26.06<br>10:30 AM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=102606">TopCoder visits Dalian Software Park</A></span><br><br>
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/china_20061027.gif" width="80" height="38" alt="Now Open in China" border="0" /></div>
-            Recently, TopCoder's Yingying Wu hosted the company's first professional open house at Dalian Software Park, part of "the Silicon Valley of China."
-            </td>
-        </table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&amp;d1=features&amp;d2=102606">article</A> |
-    <tc-webtag:forumLink forumID="506159" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-</td></tr>
