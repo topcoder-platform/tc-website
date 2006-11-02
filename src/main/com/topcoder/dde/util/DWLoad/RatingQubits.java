@@ -86,12 +86,14 @@ public class RatingQubits {
             String sqlStr = "select distinct pr.project_id, round(substr(pi_rd.value, 1, 2)) as month, " +
             		"round(substr(pi_rd.value, 4, 2)) as day, round(substr(pi_rd.value, 7, 4)) as year " +
                     //"pi_vi.value as comp_vers_id " +
-                    "from project_result pr, project p, project_info pi_vi, project_info pi_rd " + //, outer comp_version_dates cd " +
+                    "from project_result pr, project p" +
+//                    ", project_info pi_vi" +
+                    ", project_info pi_rd " + //, outer comp_version_dates cd " +
                     "where p.project_id = pr.project_id " +
                     "and p.project_status_id in (3, 4, 5, 6, 7)  " +
                     "and p.project_category_id = 1 " +
                     "and pr.rating_ind = 1 " +
-                    "and pi_vi.project_id = p.project_id and pi_vi.project_info_type_id = 1 " +
+                    //"and pi_vi.project_id = p.project_id and pi_vi.project_info_type_id = 1 " +
                     "and pi_rd.project_id = p.project_id and pi_rd.project_info_type_id = 22 " +
                     //"and cd.comp_vers_id = pi_vi.value and cd.phase_id = 112 " +
 		            "order by year, month, day, 1";
@@ -111,12 +113,14 @@ public class RatingQubits {
             sqlStr = "select distinct pr.project_id, round(substr(pi_rd.value, 1, 2)) as month, " +
             		"round(substr(pi_rd.value, 4, 2)) as day, round(substr(pi_rd.value, 7, 4)) as year " +
 		            //"pi_vi.value as comp_vers_id " +
-		            "from project_result pr, project p, project_info pi_vi, project_info pi_rd " + //, outer comp_version_dates cd " +
+		            "from project_result pr, project p" +
+                    //", project_info pi_vi" +
+                    ", project_info pi_rd " + //, outer comp_version_dates cd " +
 		            "where p.project_id = pr.project_id " +
 		            "and p.project_status_id in (3, 4, 5, 6, 7)  " +
 		            "and p.project_category_id = 2 " +
 		            "and pr.rating_ind = 1 " +
-                    "and pi_vi.project_id = p.project_id and pi_vi.project_info_type_id = 1 " +
+                    //"and pi_vi.project_id = p.project_id and pi_vi.project_info_type_id = 1 " +
                     "and pi_rd.project_id = p.project_id and pi_rd.project_info_type_id = 22 " +
 		            //"and cd.comp_vers_id = pi_vi.value and cd.phase_id = 113 " +
                     "order by year, month, day, 1";
