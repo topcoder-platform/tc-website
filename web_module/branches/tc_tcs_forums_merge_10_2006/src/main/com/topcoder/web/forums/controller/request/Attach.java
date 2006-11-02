@@ -45,18 +45,7 @@ public class Attach extends ForumsProcessor {
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
         String textareaBody = ForumsUtil.createTextAreaBody(body);
         
-        Forum forum = null;
-        ForumMessage message = null;
-        ForumThread thread = null;
-        
-        if (postMode.equals("New")) {
-            forum = forumFactory.getForum(Long.parseLong(forumIDStr));
-        } else if (postMode.equals("Edit") || postMode.equals("Reply")) {
-            long messageID = Long.parseLong(messageIDStr);
-            message = forumFactory.getMessage(messageID);
-            thread = message.getForumThread();
-            forum = message.getForum();
-        }
+        Forum forum = forumFactory.getForum(Long.parseLong(forumIDStr));
 
 		setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
 		setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
@@ -81,7 +70,6 @@ public class Attach extends ForumsProcessor {
         } else if (postMode.equals("Edit")) {
             long messageID = Long.parseLong(messageIDStr);
             messageToAttachTo = forumFactory.getMessage(messageID);
-            forum = messageToAttachTo.getForum();
         }
         
         log.debug("Attaching file(s) to message: " + messageToAttachTo);
@@ -90,8 +78,8 @@ public class Attach extends ForumsProcessor {
         	if (!errors.isEmpty()) {
                 getRequest().setAttribute("postMode", postMode);
         		getRequest().setAttribute("forum", forum);
-                getRequest().setAttribute("thread", thread);
-                getRequest().setAttribute("message", message);
+                getRequest().setAttribute("thread", messageToAttachTo.getForumThread());
+                getRequest().setAttribute("message", messageToAttachTo);
         		
         		setNextPage("/attachfiles.jsp");
         		setIsNextPageInContext(true);
