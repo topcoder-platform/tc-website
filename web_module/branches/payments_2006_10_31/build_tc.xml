@@ -113,6 +113,7 @@
         <mkdir dir="${ejb_jars}"/>
         <mkdir dir="${war.dir}"/>
         <mkdir dir="${ear.dir}"/>
+        <mkdir dir="${sar.dir}"/>
     </target>
 
     <target name="compile_shared" depends="init">
@@ -1077,8 +1078,8 @@
     </target>
 
 
-    <target name="war-tc" depends="compile">
-        <war warfile="${war.dir}/tc.war" webxml="${resources}/tc/web.xml">
+    <target name="war-tc" depends="compile,build-sars">
+        <war warfile="${war.dir}/tc.war" webxml="${resources}/tc/web.xml">        
             <fileset dir="${java}/com/topcoder/web/tc/view">
                 <include name="**/*.*"/>
             </fileset>
@@ -1097,6 +1098,9 @@
                 <include name="calendar.jsp"/>
                 <include name="public_right.jsp"/>
             </fileset>
+            <fileset dir="${sar.dir}">
+                <include name="*.sar"/>
+            </fileset>            
             <classes dir="${classes}">
                 <include name="com/topcoder/web/tc/**/*.class"/>
                 <include name="com/fx4m/**/*.class"/>
