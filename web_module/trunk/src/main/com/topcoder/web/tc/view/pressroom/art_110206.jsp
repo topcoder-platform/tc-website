@@ -41,7 +41,7 @@
                     </jsp:include>
 
 <div align="right"><tc-webtag:forumLink forumID="506167" message="Discuss this article" /></div>
-
+<div align="center"><img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" border="0" /></div>
 <div align="center">
 <p><span class="bodyTitle">A Growing Cadre Of Code Warriors</span><br/>
 <span class="bodySubTitle"><em>China's young programming hotshots are gaining global attention</em></span><br /></p>

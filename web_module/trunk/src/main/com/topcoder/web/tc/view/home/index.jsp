@@ -226,9 +226,9 @@
 <td class="homeRightCol">
     <table border="0" cellpadding="0" cellspacing="0">
         <tr><td class="homeBigPromo">
-            <%-- China --%>
-            <A href="/tc?module=Static&d1=pressroom&d2=art_110206"><img src="/i/home/china_20061102.png" alt="Now Open in China" border="0" style="display:block;" /></A>
-            
+            <%-- China --%> 
+            <A href="/tc?module=Static&d1=pressroom&d2=art_110206"><img src="/i/home/china_20061102.png" alt="China &amp; BusinessWeek" border="0" style="display:block;" /></A>
+                       
             <%-- Maverick 
             <A href="/images/downloads/mavericks_at_work.pdf" target="_blank"><img src="/i/home/mavericks_100206.gif" alt="Mavericks at Work" border="0" style="display:block;" /></A>
             --%>
