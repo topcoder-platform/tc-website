@@ -159,7 +159,7 @@
         </javac>
     </target>
 
-    <target name="jar_common" depends="">
+    <target name="jar_common">
         <jar jarfile="${common.jar}">
             <fileset dir="${classes.dir}">
                 <include name="com/topcoder/web/common/**/*.class"/>
@@ -312,30 +312,6 @@
         </jar>
     </target>
 
-    <target name="package-EJB-Specification" depends="compile">
-        <jar jarfile="${ejb.jars.dir}/Specification.jar">
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/DBMS.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/logging/Logger.class"/>
-            <zipfileset dir="${classes.dir}"
-                        includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/apps/screening/application/*.class"/>
-            <metainf dir="${java.dir}/com/topcoder/apps/screening/application" includes="*.xml"/>
-        </jar>
-    </target>
-
-    <target name="package-EJB-Specification" depends="compile">
-        <jar jarfile="${ejb.jars.dir}/Specification.jar">
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/DBMS.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/logging/Logger.class"/>
-            <zipfileset dir="${classes.dir}"
-                        includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/apps/screening/application/*.class"/>
-            <metainf dir="${java.dir}/com/topcoder/apps/screening/application" includes="*.xml"/>
-        </jar>
-    </target>
 
     <target name="package-EJB-RBoard" depends="compile">
         <jar jarfile="${ejb.jars.dir}/RBoard.jar">
@@ -551,7 +527,7 @@
         </copy>
     </target>
 
-    <target name="build-site" depends="">
+    <target name="build-site">
         <antcall target="build-ear"/>
         <antcall target="build-onsite"/>
     </target>
@@ -576,7 +552,7 @@
         </ear>
     </target>
 
-    <target name="explode" depends="">
+    <target name="explode">
         <mkdir dir="${jboss.deploy.dir}/dde.ear"/>
         <unjar src="${ear.dir}/dde.ear" dest="${jboss.deploy.dir}/dde.ear" overwrite="yes"/>
 
