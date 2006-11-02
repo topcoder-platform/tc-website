@@ -168,9 +168,7 @@
                 target="1.4"
                 >
             <include name="com/topcoder/web/onsite/**"/>
-            <include name="com/topcoder/web/common/**"/>
             <include name="com/topcoder/web/ejb/project/**"/>
-            <exclude name="com/topcoder/web/common/tag/ForumLinkTag.java"/>
         </javac>
     </target>
 
@@ -213,7 +211,6 @@
                 <include name="com/topcoder/dde/servlet/**"/>
                 <include name="com/topcoder/dde/request/**"/>
                 <include name="com/topcoder/dde/util/**"/>
-                <include name="com/topcoder/web/common/**/*.class"/>
             </classes>
             <webinf dir="${resources.dir}/taglib">
                 <include name="tc-webtags.tld"/>
@@ -600,7 +597,6 @@
     <target name="build-onsite" depends="compile_onsite">
         <jar jarfile="${ejb.jars.dir}/Project.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/project/*.class"/>
             <metainf dir="${java.dir}/com/topcoder/web/ejb/project" includes="*.xml"/>
         </jar>
@@ -620,7 +616,6 @@
                 <include name="style.jsp"/>
             </fileset>
             <classes dir="${classes.dir}">
-                <include name="com/topcoder/web/common/**/*.class"/>
                 <include name="com/topcoder/web/onsite/**/*.class"/>
             </classes>
             <webinf dir="${resources.dir}/taglib">
