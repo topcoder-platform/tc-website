@@ -47,7 +47,8 @@ public class TCPhase extends Phase {
      * @param endDate the end date of the phase.
      */
     public TCPhase(Project project, Date startDate, Date endDate) {
-        super(project, startDate, 1);
+        //super(project, startDate, 1);
+    	super(project, endDate.getTime() - startDate.getTime());
         this.project = project;
         fixLength(startDate, endDate);
     }
@@ -62,7 +63,8 @@ public class TCPhase extends Phase {
      * @param dependencies the phases this one depends on.
      */
     public TCPhase(Project project, Date startDate, Date endDate, List dependencies) {
-        super(project, startDate, 1, dependencies);
+        //super(project, startDate, 1, dependencies);
+    	super(project, endDate.getTime() - startDate.getTime());
         this.project = project;
         fixLength( startDate, endDate);
     }
@@ -80,7 +82,8 @@ public class TCPhase extends Phase {
      *         non-positive.
      */
     public TCPhase(Project project, Date startDate, int length) {
-        super(project, startDate, length == 0? 1 : length );
+        //super(project, startDate, length == 0? 1 : length );
+    	super(project, length);
         this.project = project;
         if (length == 0) {
             setLength(0);
@@ -103,7 +106,8 @@ public class TCPhase extends Phase {
      *         list is not the same as the given one.
      */
     public TCPhase(Project project, Date startDate, int length, List dependencies) {
-        super(project, startDate, length == 0? 1 : length, dependencies);
+        //super(project, startDate, length == 0? 1 : length, dependencies);
+    	super(project, length);
         this.project = project;
         if (length == 0) {
             setLength(0);
@@ -129,7 +133,7 @@ public class TCPhase extends Phase {
      *
      * @return the length of phase in minutes.
      */
-    public int getLength() {
+    public long getLength() {
         return zeroLength? 0 : super.getLength();
     }
 
@@ -158,11 +162,11 @@ public class TCPhase extends Phase {
      */
     public Date calcEndDate() {
         if (zeroLength) {
-            return super.getStartDate();
+            return super.getScheduledEndDate();
         }
         // If endDate is not cached, we perform the calculation.
         if (endDate == null) {
-            endDate = project.getWorkdays().add(getStartDate(), WorkdaysUnitOfTime.MINUTES, getLength());
+            endDate = project.getWorkdays().add(super.getScheduledStartDate(), WorkdaysUnitOfTime.MINUTES, (int) getLength());
         }
 
         // Copy is made since Date is mutable.
@@ -177,7 +181,7 @@ public class TCPhase extends Phase {
      */
     void adjustStartDate(Date startDate) {
         endDate = null;
-        super.adjustStartDate(startDate);
+        //super.adjustStartDate(startDate);
     }
 
 

@@ -52,6 +52,9 @@
 <A href="/tc?module=RookieBoard&ph=113" class="bcLink">Current ROTY leaderboard</A>
 </td>
 </tr>
+<tr>
+<td align="center" colspan="2"><span class="subtitle"><br><A href="/tc?module=Static&d1=digital_run&d2=2006_stage1_winners">Stage 1 Winners</A></span></td>
+</tr>
 </table>
 
 <br><br>

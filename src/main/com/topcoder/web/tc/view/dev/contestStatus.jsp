@@ -126,13 +126,13 @@
             </td>
             <td class="value">
                 <% if (resultRow.getItem("winner").getResultData()!=null) { %>
-                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("winner") %>' context='<%=resultRow.getStringItem("phase")%>'/>
+                    <tc-webtag:handle coderId='<%=resultRow.getStringItem("winner") %>' context='<%=resultRow.getStringItem("phase")%>'/>
                 <% } %>
 
             </td>
             <td class="value">
                 <% if (resultRow.getItem("second").getResultData()!=null) { %>
-                <tc-webtag:handle coderId='<%=resultRow.getLongItem("second") %>' context='<%=resultRow.getStringItem("phase")%>'/>
+                <tc-webtag:handle coderId='<%=resultRow.getStringItem("second") %>' context='<%=resultRow.getStringItem("phase")%>'/>
                 <% } %>
             </td>
         </tr>

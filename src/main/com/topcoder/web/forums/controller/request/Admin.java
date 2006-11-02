@@ -214,7 +214,6 @@ public class Admin extends ForumsProcessor {
         s = s.replaceAll("<", "&lt;");
         s = s.replaceAll(">", "&gt;");
         //s = s.replaceAll("\"", "&quot;");
-        s = s.replaceAll("�", "'");
         s = s.replaceAll("&lt;[pP][rR][eE]&gt;", "<pre>");
         s = s.replaceAll("&lt;/[pP][rR][eE]&gt;", "</pre>");
         return s;

@@ -1,7 +1,7 @@
 /*
  * ProjectStatusManager.java
  *
- * Copyright � 2003, TopCoder, Inc. All rights reserved
+ * Copyright 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
@@ -59,8 +59,8 @@ public class ProjectStatusManager implements Refreshable {
         try {
             conn = Common.getDataSource().getConnection();
 
-            ps = conn.prepareStatement("SELECT ps.project_stat_id, ps.project_stat_name " +
-                    "FROM project_status ps");
+            ps = conn.prepareStatement("SELECT ps.project_status_id as project_stat_id, ps.name as project_stat_name " +
+                    "FROM project_status_lu ps");
             rs = ps.executeQuery();
 
             while (rs.next()) {

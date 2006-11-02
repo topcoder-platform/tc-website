@@ -59,7 +59,7 @@ public final class EditProjectAction extends ReviewAction {
             action = ((ProjectForm) form).getAction();
         }
 
-        // If the action is store timeline or cancel timeline, we don´t have to load again
+        // If the action is store timeline or cancel timeline, we don't have to load again
         // the project from the database because it is already in form.
         if (Constants.ACTION_STORE.equals(action) || Constants.ACTION_CANCEL.equals(action)) {
             ((ProjectForm) form).backFromTimeline();

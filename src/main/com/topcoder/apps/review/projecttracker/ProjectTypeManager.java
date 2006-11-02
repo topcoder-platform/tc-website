@@ -1,7 +1,7 @@
 /*
  * ProjectTypeManager.java
  *
- * Copyright � 2003, TopCoder, Inc. All rights reserved
+ * Copyright 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
@@ -59,8 +59,8 @@ public class ProjectTypeManager implements Refreshable {
         try {
             conn = Common.getDataSource().getConnection();
 
-            ps = conn.prepareStatement("SELECT pt.project_type_id, pt.project_type_name " +
-                    "FROM project_type pt");
+            ps = conn.prepareStatement("SELECT pt.project_category_id as project_type_id, pt.name as project_type_name " +
+                    "FROM project_category_lu pt");
             rs = ps.executeQuery();
 
             while (rs.next()) {

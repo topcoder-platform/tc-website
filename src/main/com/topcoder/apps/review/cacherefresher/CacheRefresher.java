@@ -88,7 +88,7 @@ public class CacheRefresher
      */
     public void startService() throws Exception {
         try {
-            Common.getFromCache("AggregationApprovalManager");
+            /*Common.getFromCache("AggregationApprovalManager");
             Common.getFromCache("AggregationResponseStatusManager");
             Common.getFromCache("EvaluationManager");
             Common.getFromCache("FinalFixStatusManager");
@@ -106,9 +106,7 @@ public class CacheRefresher
             timer = new Timer();
             timer.schedule(new RefreshTask(), REFRESH_DELAY * 60 * 1000, //initial delay
                     REFRESH_DELAY * 60 * 1000); //subsequent rate
-/*
-            isInitialized = String.valueOf(true);
-*/
+                    */
         } catch (Exception e) {
             logger.error("CacheRefresher: Exception on init: " + e);
             status = "Exception on init: " + e;

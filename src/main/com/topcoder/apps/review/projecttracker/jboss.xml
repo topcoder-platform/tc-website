@@ -16,6 +16,11 @@
       <local-jndi-name>com.topcoder.apps.review.projecttracker.ProjectTrackerLocalHome</local-jndi-name>
     </session>
     <session>
+      <ejb-name>ProjectTrackerV2</ejb-name>
+      <jndi-name>com.topcoder.apps.review.projecttracker.ProjectTrackerV2Home</jndi-name>
+      <local-jndi-name>com.topcoder.apps.review.projecttracker.ProjectTrackerV2LocalHome</local-jndi-name>
+    </session>
+    <session>
 <!--
       <depends>jboss.jca:service=LocalTxCM,name=InformixDS</depends>
 -->

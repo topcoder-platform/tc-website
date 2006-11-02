@@ -95,38 +95,37 @@ public class Submit extends ResumeRegSubmit {
                 buf.append("Thank you for registering for the Google Code Jam China.  We look forward to seeing you in the Arena!\n\n");
 
             } else {
-                mail.setSubject("重要信息 - Google中国编程挑战赛参赛激活电子邮件");
 
-                buf.append("您被邀请参加Google中国编程挑战赛，一项将会对得起您的时间，能力和个人兴趣的计算机编程比赛\n\n");
+                buf.append("您被�?请参加Google中国编程挑战赛，�?项将会对得起您的时间，能力和个人兴趣的计算机编程比赛\n\n");
 
                 buf.append("Google中国编程挑战赛参赛激活信息\n\n");
 
-                buf.append("您的Google激活代码是：");
+                buf.append("您的Google�?活代码是�?");
                 buf.append(code);
                 buf.append("\n\n");
 
-                buf.append("请到下面的互联网URL地址激活您的帐号：\n\n");
+                buf.append("请到下面的互联网URL地址�?活您的帐号：\n\n");
                 buf.append(getUrl(code));
                 buf.append("\n\n");
 
-                buf.append("如果您不能点击上面的网络地址，请拷贝那个地址到您浏览器的地址栏然后继续激活过程。如果那个网络地址分开到了两行，请注意两行都要拷贝到浏览器的地址栏，并且两行中间不能有空格。\n\n");
+                buf.append("如果您不能点击上面的网络地址，请拷贝那个地址到您浏览器的地址栏然后继续激活过程�?�如果那个网络地�?分开到了两行，请注意两行都要拷贝到浏览器的地�?栏，并且两行中间不能有空格�?�\n\n");
 
-                buf.append("使用您的帐号名和密码您可以登录到比赛竞技场，那里将是您参加Google中国编程挑战赛的地方。在那里您也可以训练和聊天。\n\n");
+                buf.append("使用您的帐号名和密码您可以登录到比赛竞技场，那里将是您参加Google中国编程挑战赛的地方。在那里您也可以训练和聊天�?�\n\n");
 
                 buf.append("比赛训练\n");
-                buf.append("在比赛竞技场里有一个训练室，在那里您可以在Google中国编程挑战赛正式比赛之前熟悉一下比赛环境。训练室中的题目和正式比赛时的题目形式非常相似。训练室开放时间：从格林威治＋8时区时间2005年11月21日上午9点到格林威治＋8时区时间2006年1月20日下午5点。\n\n");
+                buf.append("在比赛竞�?场里有一个训练室，在那里您可以在Google中国编程挑战赛正式比赛之前熟悉一下比赛环境�?�训练室中的题目和正式比赛时的题目形式非常相似�?�训练室�?放时间：从格林威治＋8时区时间2005�?11�?21日上�?9点到格林威治�?8时区时间2006�?1�?20日下�?5点�?�\n\n");
 
-                buf.append("按照如下说明可以进入训练室：访问网页http://www.topcoder.com/gcjc_zh，然后点击比赛竞技场（Competition Arena）标签。");
+                buf.append("按照如下说明可以进入训练室：访问网页http://www.topcoder.com/gcjc_zh，然后点击比赛竞�?场（Competition Arena）标签�??");
 
                 buf.append("参加资格赛\n");
-                buf.append("资格赛的比赛时间是：从格林威治＋8时区时间2005年12月12号星期一正午12点到格林威治＋8时区时间2005年12月13号星期二正午12点。您可以在此段时间中的任何时间参加比赛。您将会有一个小时的时间解答两个题目。我们推荐您在参加资格赛前使用训练室熟悉一下环境。\n\n");
+                buf.append("资格赛的比赛时间是：从格林威治＋8时区时间2005�?12�?12号星期一正午12点到格林威治�?8时区时间2005�?12�?13号星期二正午12点�?�您可以在此段时间中的任何时间参加比赛�?�您将会有一个小时的时间解答两个题目。我们推荐您在参加资格赛前使用训练室熟悉�?下环境�?�\n\n");
                 buf.append("运行竞技场程序\n");
-                buf.append("在合适的时间您可以按照以下说明运行并且登录比赛竞技场：访问网页http://www.topcoder.com/gcjc_zh，然后点击比赛竞技场（Competition Arena）标签。\n\n");
+                buf.append("在合适的时间您可以按照以下说明运行并且登录比赛竞�?场：访问网页http://www.topcoder.com/gcjc_zh，然后点击比赛竞�?场（Competition Arena）标签�?�\n\n");
 
                 buf.append("为了运行竞技场程序，您必须安装Java 1.4.x 运行环境。\n\n");
-                buf.append("我们建议您仔细阅读以下网页中的比赛说明：访问网页http://www.topcoder.com/gcjc_zh，然后点击上面的说明（Instructions）链接。\n\n");
+                buf.append("我们建议您仔细阅读以下网页中的比赛说明：访问网页http://www.topcoder.com/gcjc_zh，然后点击上面的说明（Instructions）链接�?�\n\n");
                 buf.append("如果您有关于参赛的任何问题，请将您的问题发至电子邮件地址：gcjc@topcoder.com\n\n");
-                buf.append("感谢您注册加入Google中国编程挑战赛。我们期待在竞技场中看到您的身影。\n\n");
+                buf.append("感谢您注册加入Google中国编程挑战赛�?�我们期待在竞技场中看到您的身影。\n\n");
 
             }
 

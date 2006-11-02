@@ -4,10 +4,8 @@
 
 package com.topcoder.dde.catalog;
 
-import com.topcoder.apps.review.document.DocumentManager;
-import com.topcoder.apps.review.document.DocumentManagerHome;
-import com.topcoder.apps.review.projecttracker.ProjectTracker;
-import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
+import com.topcoder.apps.review.projecttracker.ProjectTrackerV2;
+import com.topcoder.apps.review.projecttracker.ProjectTrackerV2Home;
 import com.topcoder.dde.DDEException;
 import com.topcoder.dde.forum.ForumModeratePermission;
 import com.topcoder.dde.forum.ForumPostPermission;
@@ -112,8 +110,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     private UserManagerLocalHome usermanHome;
     private PrincipalMgrRemoteHome principalmgrHome;
     private PolicyMgrRemoteHome policymgrHome;
-    private ProjectTrackerHome projectTrackerHome;
-    private DocumentManagerHome documentManagerHome;
+    private ProjectTrackerV2Home projectTrackerHome;
     private PolicyRemoteHome policyHome;
 
     public CatalogBean() {
@@ -206,13 +203,9 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
             log.debug("blah");
             // Online Review
-            projectTrackerHome = (ProjectTrackerHome) PortableRemoteObject.narrow(
-                    homeBindings.lookup(ProjectTrackerHome.EJB_REF_NAME),
-                    ProjectTrackerHome.class);
-            log.debug("blah");
-            documentManagerHome = (DocumentManagerHome) PortableRemoteObject.narrow(
-                    homeBindings.lookup(DocumentManagerHome.EJB_REF_NAME),
-                    DocumentManagerHome.class);
+            projectTrackerHome = (ProjectTrackerV2Home) PortableRemoteObject.narrow(
+                    homeBindings.lookup(ProjectTrackerV2Home.EJB_REF_NAME),
+                    ProjectTrackerV2Home.class);
             log.debug("blah");
         } catch (NamingException exception) {
             throw new EJBException(
@@ -1221,12 +1214,12 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 long compVersId = versionInfo.getVersionId();
                 if (isAggregated(1, compVersId)) {
                     list.add(new Document("Aggregate Design Scorecard",
-                            "/review/publicaggregation.do?id=" + getProjectId(1, compVersId),
+                            "/review/actions/ViewAggregation.do?method=viewAggregation&pid=" + getProjectId(1, compVersId),
                             Document.SCORECARD));
                 }
                 if (isAggregated(2, compVersId)) {
                     list.add(new Document("Aggregate Development Scorecard",
-                            "/review/publicaggregation.do?id=" + getProjectId(2, compVersId),
+                            "/review/actions/ViewAggregation.do?method=viewAggregation&pid=" + getProjectId(2, compVersId),
                             Document.SCORECARD));
                 }
 
@@ -2638,7 +2631,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
      */
     private long getProjectId(long projectType, long compVersId) throws CatalogException {
         try {
-            ProjectTracker pt = projectTrackerHome.create();
+            ProjectTrackerV2 pt = projectTrackerHome.create();
             return pt.getProjectIdByComponentVersionId(compVersId, projectType);
         } catch (RemoteException e) {
             ejbContext.setRollbackOnly();
@@ -2661,8 +2654,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         long projectId = getProjectId(projectType, compVersId);
         if (projectId < 0) return false;
         try {
-            DocumentManager dm = documentManagerHome.create();
-            return dm.isProjectAggregated(projectId);
+            ProjectTrackerV2 pt = projectTrackerHome.create();
+            return pt.isProjectAggregated(projectId);
         } catch (RemoteException e) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(e.toString());

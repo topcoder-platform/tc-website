@@ -311,6 +311,7 @@ public class AutoPilotTimer
     public void startService() throws Exception {
         try {
 
+        	/*
             timer = new Timer();
             Calendar c = Calendar.getInstance();
             String beginMonth = String.valueOf(c.get(Calendar.MONTH) + 1);
@@ -322,9 +323,7 @@ public class AutoPilotTimer
 
             timer.scheduleAtFixedRate(new SubmissionTask(), beginDate, //initial delay
                     DELAY * 60 * 1000); //subsequent rate
-/*
-            isInitialized = String.valueOf(true);
-*/
+            */        
         } catch (Exception e) {
             logger.error("AutoPilotTimer: Exception on init: " + e);
             status = "Exception on init: " + e;

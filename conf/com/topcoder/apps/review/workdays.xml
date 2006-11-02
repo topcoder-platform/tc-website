@@ -30,6 +30,5 @@
     <Value>SHORT</Value>
   </Property>
   <Property name="nonWorkdays">
-    <Value>1/1/2005</Value>
   </Property>
 </CMConfig>

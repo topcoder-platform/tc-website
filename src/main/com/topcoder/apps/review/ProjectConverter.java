@@ -7,8 +7,8 @@
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.persistence.Common;
-import com.topcoder.apps.review.projecttracker.ProjectTracker;
-import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
+import com.topcoder.apps.review.projecttracker.ProjectTrackerV2;
+import com.topcoder.apps.review.projecttracker.ProjectTrackerV2Home;
 import com.topcoder.apps.review.projecttracker.ProjectType;
 import com.topcoder.security.TCSubject;
 
@@ -42,10 +42,10 @@ public class ProjectConverter {
         return conn;
     }
 
-    private static ProjectTracker getProjectTracker() {
+    private static ProjectTrackerV2 getProjectTracker() {
         InitialContext initialContext = null;
-        ProjectTrackerHome ptHome;
-        ProjectTracker pt = null;
+        ProjectTrackerV2Home ptHome;
+        ProjectTrackerV2 pt = null;
         try {
             Hashtable env = new Hashtable();
             env.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
@@ -55,11 +55,11 @@ public class ProjectConverter {
             //initialContext = new InitialContext();
 
             java.lang.Object objRef =
-                    initialContext.lookup(ProjectTrackerHome.EJB_REF_NAME);
+                    initialContext.lookup(ProjectTrackerV2Home.EJB_REF_NAME);
             ptHome =
-                    (ProjectTrackerHome) PortableRemoteObject.narrow(
+                    (ProjectTrackerV2Home) PortableRemoteObject.narrow(
                             objRef,
-                            ProjectTrackerHome.class);
+                            ProjectTrackerV2Home.class);
             pt = ptHome.create();
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -76,7 +76,7 @@ public class ProjectConverter {
 
 
     public static void convert() throws SQLException, RemoteException {
-        ProjectTracker pt = getProjectTracker();
+        ProjectTrackerV2 pt = getProjectTracker();
         Connection conn = getInformixConnection();
 
         FileOutputStream logFile;
