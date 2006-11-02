@@ -332,6 +332,15 @@ public class RBoardApplicationBean extends BaseEJB {
             ps.setString(index++, String.valueOf(INTERNAL_ADMIN_USER));
             ps.setString(index++, String.valueOf(INTERNAL_ADMIN_USER));
             ps.executeUpdate();	
+            
+            String handle = getUserHandleInfo(conn, userId);
+            index = 1;
+            ps.setLong(index++, resourceId);
+            ps.setLong(index++, 2); // handle
+            ps.setString(index++, handle);
+            ps.setString(index++, String.valueOf(INTERNAL_ADMIN_USER));
+            ps.setString(index++, String.valueOf(INTERNAL_ADMIN_USER));
+            ps.executeUpdate();	
 
 	        // Registration Date.
             index = 1;
@@ -345,6 +354,27 @@ public class RBoardApplicationBean extends BaseEJB {
             Common.close(ps);
         } catch(SQLException e) {
         	e.printStackTrace();
+        }
+    }
+    
+    private static final String SELECT_HANDLER = "SELECT handle FROM USER WHERE user_id = ? ";
+
+    private String getUserHandleInfo(Connection conn, long userID)
+        throws SQLException {
+        PreparedStatement pstmt = conn.prepareStatement(SELECT_HANDLER);
+        pstmt.setLong(1, userID);
+
+        ResultSet rs = pstmt.executeQuery();
+
+        try {
+            if (rs.next()) {
+                return rs.getString(1);
+            }
+
+            return null;
+        } finally {
+            rs.close();
+            pstmt.close();
         }
     }
 

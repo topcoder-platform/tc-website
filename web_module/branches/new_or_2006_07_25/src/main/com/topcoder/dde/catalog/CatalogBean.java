@@ -1214,12 +1214,12 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 long compVersId = versionInfo.getVersionId();
                 if (isAggregated(1, compVersId)) {
                     list.add(new Document("Aggregate Design Scorecard",
-                            "/review/publicaggregation.do?id=" + getProjectId(1, compVersId),
+                            "/review/actions/ViewAggregation.do?method=viewAggregation&pid=" + getProjectId(1, compVersId),
                             Document.SCORECARD));
                 }
                 if (isAggregated(2, compVersId)) {
                     list.add(new Document("Aggregate Development Scorecard",
-                            "/review/publicaggregation.do?id=" + getProjectId(2, compVersId),
+                            "/review/actions/ViewAggregation.do?method=viewAggregation&pid=" + getProjectId(2, compVersId),
                             Document.SCORECARD));
                 }
 

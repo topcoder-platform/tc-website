@@ -80,7 +80,7 @@
       </td>
       <td width="25%" valign="top" align="right" style="padding: 0px 0px 0px 5px;">
       <%-- Submit --%>
-      <A class="bigButton" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">2: Submit</A>
+      <A class="bigButton" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/jsp/login.jsp?redirectToProjectID=<%= request.getAttribute("projectId") %>">2: Submit</A>
       </td>
    </tr>
    <% } else { %>
