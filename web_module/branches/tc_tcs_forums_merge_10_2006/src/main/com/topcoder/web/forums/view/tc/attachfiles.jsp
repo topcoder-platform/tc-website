@@ -99,31 +99,9 @@
 	</tr>
 </table>
 
-<span class="bigRed">
-<%
-if (errors.size() > 0) {
-	Iterator errorIter = errors.keySet().iterator();
-	while(errorIter.hasNext()) {
-		String key = (String) errorIter.next();
-		out.println(key + ": " + errors.get(key));
-	}
-}
-%>
-</span>
-
-<% HashMap actionGetFieldErrors = new HashMap(); %>
-<%  for (int i=0; i < attachManager.getMaxAttachmentsPerMessage(); i++) { %>
-<%      if (actionGetFieldErrors.containsKey("attachFile" + i)) { %>
-<span class="jive-error-text">
-        <%  List l = (List) actionGetFieldErrors.get("attachFile" + i);
-            for (int j = 0; j < l.size(); j++) {
-               	String error = (String) l.get(j); %>
-				<br> <%=StringUtils.escapeHTMLTags(error)%>
-        <%  } %>
-</span>
-    <% } %>
-<%  } %>
-<br>
+<%  if (errors.get(ForumConstants.ATTACHMENT_ERROR) != null) { %>
+	<span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.ATTACHMENT_ERROR%>"><%=err%><br/></tc-webtag:errorIterator></span>
+<% 	} %>
 
 <form name="form1" method="post" enctype="multipart/form-data" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
 <tc-webtag:hiddenInput name="module"/>
