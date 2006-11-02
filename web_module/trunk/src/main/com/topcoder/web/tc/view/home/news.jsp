@@ -24,6 +24,35 @@
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 ------------------------%>
+<%---------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>11.02.06<br>11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=sponsors&d2=aolMashups">Now open: AOL Mashup contest</A>
+      </span><br><br>
+      AOL&#174; has opened up WebAIM, its latest API for its instant messaging platform, for your mixing and mashing pleasure. WebAIM allows users to integrate AIM services right into web pages and applications. Show us how you'd mash it up over at TopCoder Studio; $7,000 in prizes are up for grabs.
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=pressroom&d2=art_091806">details</A> |
+         <tc-webtag:forumLink forumID="506160" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+-----------------------------%>
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.02.06<br>11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol">AOL chat session scheduled for SRM 325</A>
+        </span><br><br>
+      AOL will be in the arena at 8:00 PM on 11/02, just prior to SRM 325, to discuss working at AOL.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="506075" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>11.01.06<br>4:50 PM</td>
@@ -194,18 +223,4 @@ The expected battle didn't happen because of <tc-webtag:handle coderId="10574855
          <A href="/tc?module=ViewSurvey&sid=10004">view survey</A> | 
         <tc-webtag:forumLink forumID="506158" message="discuss this"/> |
          <A href="/tc?&module=SurveyList">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.25.06<br>10:00 AM</td>
-       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_102506">TC Launches Operations in China with New Beijing Appointment</A></span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/china_20061027.gif" width="80" height="38" alt="Now Open in China" border="0" /></div>
-       TopCoder today announced it has hired Yingying Wu as Vice President of Operations for TopCoder in Asia. Wu will oversee and manage TopCoder business relationships and will build TopCoder's market presence and member enrollment throughout the greater China and Asia region.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_102506" target="_blank">full story</A> | 
-       <tc-webtag:forumLink forumID="506157" message="discuss this" /> | 
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
