@@ -11,12 +11,13 @@ import org.jboss.system.ServiceMBeanSupport;
 
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 
-public class ExpireOldAffidavits extends ServiceMBeanSupport implements ServiceMBean { 
+public class ExpireOldAffidavits extends ServiceMBeanSupport implements ExpireOldAffidavitsMBean { 
 	
     private static Logger logger = Logger.getLogger(ExpireOldAffidavits.class);
     private static final String NAME = "ExpireOldAffidavits";
     private Timer timer;
-
+    private static String status = "Not Initialized";
+    
     /* (non-Javadoc)
      * @see org.jboss.system.ServiceMBean#getName()
      */
@@ -24,6 +25,11 @@ public class ExpireOldAffidavits extends ServiceMBeanSupport implements ServiceM
         return NAME;
     }
 
+    public String getInitStatus() {
+        return status;
+    }
+
+    
     public void startService() throws Exception {
         try {
             timer = new Timer();
@@ -31,8 +37,10 @@ public class ExpireOldAffidavits extends ServiceMBeanSupport implements ServiceM
 
         } catch (Exception e) {
             logger.error("ExpireOldAffidavits: Exception on init: " + e);
+            status = "Exception on init: " + e;
             throw e;
         }
+        status = "Initialized";
     }
 
     private class ExpireTask extends TimerTask {
