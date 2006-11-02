@@ -24,7 +24,7 @@
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 ------------------------%>
-<%--------------------------------------------------------%>
+<%-----------------------------
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>11.02.06<br>11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -37,7 +37,7 @@
          <tc-webtag:forumLink forumID="506160" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
-
+---------------------------%>
 <%--------------------------------------------------------%>
    <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.02.06<br>1:40 PM</td>
