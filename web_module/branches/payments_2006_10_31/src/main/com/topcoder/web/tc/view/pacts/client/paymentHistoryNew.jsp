@@ -14,11 +14,10 @@
 
 <c:set var="fullList" value="<%= request.getAttribute(PaymentHistory.FULL_LIST) %>"/>
 <c:set var="payments" value="<%= request.getAttribute(PaymentHistory.PAYMENTS) %>"/>
-<c:set var="payments2" value="<%= request.getAttribute("payments2") %>"/>
-<c:set var="cr" value="<%= request.getAttribute("cr") %>"/>
+<c:set var="cr" value="<%= request.getAttribute(PaymentHistory.CODER) %>"/>
 
 <%
-	ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("payments2");
+	ResultSetContainer rsc = (ResultSetContainer) request.getAttribute(PaymentHistory.PAYMENTS);
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -123,16 +122,14 @@
             </c:if>&nbsp;
         </td>
     </tr>
-<rsc:iterator list="${payments2}" id="resultRow">
+<rsc:iterator list="${payments}" id="resultRow">
 	<c:set var="typeId" value="<%= resultRow.getStringItem("payment_type_id") %>" />
 	<c:set var="algorithmRoundId" value="<%= resultRow.getStringItem("algorithm_round_id") %>" />
 	<c:set var="componentProjectId" value="<%= resultRow.getStringItem("component_project_id") %>" />
 	<c:set var="digitalRunStageId" value="<%= resultRow.getStringItem("digital_run_stage_id") %>" />
 	<c:set var="digitalRunSeasonId" value="<%= resultRow.getStringItem("digital_run_season_id") %>" />			
 	<c:choose>
-<c:when test="${typeId == 3}"><!-- problem (legacy) --></c:when>
 <c:when test="${typeId == 4}"><!-- coder referral --></c:when>
-<c:when test="${typeId == 5}"><!-- charity (legacay) --></c:when>
 <c:when test="${typeId == 13}"><!-- studio --></c:when>
 <c:otherwise>
 	

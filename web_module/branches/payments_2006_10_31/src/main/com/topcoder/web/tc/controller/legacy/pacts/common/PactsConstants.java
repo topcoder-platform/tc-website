@@ -423,6 +423,10 @@ public interface PactsConstants extends Constants {
     public static final String TAX_FORM_DETAILS_JSP = MEMBER_JSP_DIR + "TaxFormDetails.jsp";
     public static final String AFFIDAVIT_RENDER_JSP = MEMBER_JSP_DIR + "AffidavitRender.jsp";
 
+    public static final String PAYMENT_HISTORY_NEW_JSP = MEMBER_JSP_DIR + "paymentHistoryNew.jsp";
+    public static final String AFFIDAVIT_HISTORY_NEW_JSP = MEMBER_JSP_DIR + "affidavitHistoryNew.jsp";
+
+    
     // internal jsp page names (and loccations)
     public static final String INTERNAL_SEARCH_JSP = INTERNAL_JSP_DIR + "/search.jsp";
     public static final String INTERNAL_SEARCH_USERS_JSP = INTERNAL_JSP_DIR + "/searchUsers.jsp";
@@ -523,5 +527,8 @@ public interface PactsConstants extends Constants {
     public static final int TO_QUERY_OPTION = 1;
     public static final int PAYMENT_UPDATE_FORWARD_OPTION = 0;
 
+    public static final int PAYMENT_HISTORY_PAGE_SIZE = 20;
+    public static final int AFFIDAVIT_HISTORY_PAGE_SIZE = 20;
+    
 }
 

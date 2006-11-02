@@ -19,18 +19,20 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
 
 	public static final String FULL_LIST = "full_list";
 	public static final String PAYMENTS = "payments";
+	public static final String CODER = "cr";
 	
     protected void businessProcessing() throws TCWebException {
         try {
         	boolean fullList = "true".equals(getRequest().getParameter(FULL_LIST));
             String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
             String endRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
-
+            String sortColStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+            
         	boolean sortAscending= "asc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-        	int sortCol = 0;
+        	int sortCol = 3;
         	
-        	if (getRequest().getParameter(DataAccessConstants.SORT_DIRECTION) != null) {
-        		sortCol = Integer.parseInt(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+        	if (sortColStr.trim().length() > 0) {
+        		sortCol = Integer.parseInt(sortColStr);
         	}
         	
             // Normalizes optional parameters and sets defaults
@@ -40,31 +42,20 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             setDefault(DataAccessConstants.START_RANK, startRank);
 
             if ("".equals(endRank)) {
-                endRank = String.valueOf(Integer.parseInt(startRank) + 20); //Constants.DEFAULT_HISTORY);
+                endRank = String.valueOf(Integer.parseInt(startRank) + PactsConstants.PAYMENT_HISTORY_PAGE_SIZE); 
             } else if (Integer.parseInt(endRank) - Integer.parseInt(startRank) > Constants.MAX_HISTORY) {
                 endRank = String.valueOf(Integer.parseInt(startRank) + Constants.MAX_HISTORY);
             }
             setDefault(DataAccessConstants.END_RANK, endRank);
 
             
-            PaymentBean paymentBean = new PaymentBean();
-            
-            Payment[] payments = paymentBean.getPaymentDetailsForUser(getUser().getId(), new int[0], !fullList);
-            
-            if (payments == null) {
-            	payments = new Payment[0];            		
-            }
-
-            
-            getRequest().setAttribute(PAYMENTS, payments);
-            
             DataInterfaceBean dib = new DataInterfaceBean();
             ResultSetContainer rsc = new ResultSetContainer(dib.getPaymentHistory(getUser().getId(), !fullList, sortCol, sortAscending), Integer.parseInt(startRank), Integer.parseInt(endRank));
             
-            getRequest().setAttribute("payments2", rsc);
-            getRequest().setAttribute("cr", getUser().getId() + "");
+            getRequest().setAttribute(PAYMENTS, rsc);
+            getRequest().setAttribute(CODER, getUser().getId() + "");
         	getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));
-            setNextPage("pacts/client/paymentHistoryNew.jsp");
+            setNextPage(PactsConstants.PAYMENT_HISTORY_NEW_JSP);
             setIsNextPageInContext(true);
         } catch (Exception e) {
             throw new TCWebException(e);
