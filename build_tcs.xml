@@ -283,7 +283,9 @@
         </jar>
 
         <antcall target="package-EJB-RBoard"/>
+<!--remove with new OR
         <antcall target="package-EJB-Specification"/>
+-->
 
     </target>
 
@@ -544,7 +546,9 @@
                 <include name="*.jar"/>
                 <exclude name="Project.jar"/>
                 <exclude name="RBoard.jar"/>
+<!--remove with new OR
                 <exclude name="Specification.jar"/>
+-->
             </fileset>
             <fileset dir="${jars.dir}">
                 <include name="idgenerator.jar"/>
@@ -571,7 +575,9 @@
             <fileset dir="${ejb.jars.dir}">
                 <include name="Project.jar"/>
                 <include name="RBoard.jar"/>
+<!--remove with new OR
                 <include name="Specification.jar"/>
+-->
             </fileset>
         </copy>
 
