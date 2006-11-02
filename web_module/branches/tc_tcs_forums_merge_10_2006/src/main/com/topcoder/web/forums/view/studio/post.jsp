@@ -165,7 +165,15 @@
 						<tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
 						<tc-webtag:hiddenInput name="<%=ForumConstants.ATTACHMENT_ID%>"/>
 
-                        <tr><td class="rtHeader" colspan="2"><%=postHeading%></td></tr>
+                        <tr>
+							<td class="rtHeader" colspan="2">
+								<%	if (tempMessage == null || tempMessage.getSubject().trim().equals("")) { %>
+									<%=postHeading%>
+								<%	} else { %>
+									<%=tempMessage.getSubject().trim()%>
+								<%	} %>
+							</td>
+						</tr>
                         <% 	if (tempMessage != null && tempMessage.getAttachmentCount() > 0) { %>
 							<tr valign="middle">
 								<td class="rtHeader" colspan="2">

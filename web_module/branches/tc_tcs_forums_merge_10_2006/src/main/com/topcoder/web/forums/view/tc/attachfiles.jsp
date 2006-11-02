@@ -82,6 +82,8 @@
             <%	} %>
             <%	if (message.getID() > 0) { %>
             	> <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>" class="rtbcLink"><%=message.getSubject()%></A>
+            <%	} else if (message.getSubject().trim().equals("")) { %>
+            	> <%=pageTitle%>
             <%	} else { %>
 				> <%=message.getSubject()%>
 			<%	} %>
@@ -92,12 +94,8 @@
 
 <br>
 
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
-	<tr>
-		</td><b>Use the form below to attach files to this message. 
-		Maximum file size: <%=ForumsUtil.getFileSizeStr(attachManager.getMaxAttachmentSize()*1024)%>.</b></td>
-	</tr>
-</table>
+<b>Use the form below to attach files to this message. 
+Maximum file size: <%=ForumsUtil.getFileSizeStr(attachManager.getMaxAttachmentSize()*1024)%>.</b>
 
 <%  if (errors.get(ForumConstants.ATTACHMENT_ERROR) != null) { %>
 	<span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.ATTACHMENT_ERROR%>"><%=err%><br/></tc-webtag:errorIterator></span>
