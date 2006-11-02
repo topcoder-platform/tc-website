@@ -39,6 +39,24 @@
    </td></tr>
 ---------------------------%>
 <%--------------------------------------------------------%>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
+        <br>11.02.06<br>4:00 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=110206">TCCC Preview: China Steps Up</A></span><br><br>
+            The 2006 Collegiate Challenge will play host to 13 coders from China. This number is not just greater than the number of Chinese coders at the 2005 TCCC; it's 30% more than the number of Chinese coders at the 2005 TCCC, 2005 TCO and 2006 TCO combined.
+            </td>
+            <td class="newsPhoto"><img src="/i/m/kzimmerman_big.jpg" alt="" width="55" height="61"/><br>by
+                <tc-webtag:handle coderId="21196141" /></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&amp;d1=features&amp;d2=110206">article</A> |
+    <tc-webtag:forumLink forumID="506168" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
    <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.02.06<br>1:40 PM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=art_110206">TopCoder members WishingBone and assistant in BusinessWeek</A></span><br><br>
