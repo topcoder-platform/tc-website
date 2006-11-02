@@ -157,6 +157,11 @@
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
          </div>
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=10003">SRM 323</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg">Bloomberg</A><br>
+         11:00 AM
+         </div>
       </td>
       <td class="value">17
          <div class="tccc06">
@@ -167,6 +172,8 @@
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=onsite_schedule">Algo Finals</A></strong><br>
          1:30 PM PST
          </div>
+      </td>
+      <td class="value">18
       </td>
       <td class="value">18
       </td>
@@ -225,6 +232,7 @@
          </div>
       </td>
       <td class="empty">&#160;</td>
+
       <td class="empty">&#160;</td>
    </tr>
 

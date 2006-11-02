@@ -184,7 +184,6 @@ The expected battle didn't happen because of <tc-webtag:handle coderId="10574855
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 
-<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>10.25.06<br>1:00 PM</td>
      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=10004">Ajax survey</A></span><br><br>
@@ -210,4 +209,3 @@ The expected battle didn't happen because of <tc-webtag:handle coderId="10574855
        <tc-webtag:forumLink forumID="506157" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
-

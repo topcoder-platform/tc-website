@@ -6,14 +6,10 @@ import junit.framework.TestCase;
 import java.util.ArrayList;
 
 
-/**
- * <<<<<<< CondorcetSchulzeTestCase.java
- *
- * @author dok
+/** 
  * @author dok
  * @version $Revision$ $Date$
  *          Create Date: Aug 31, 2005
- *          >>>>>>> 1.3
  */
 public class CondorcetSchulzeTestCase extends TestCase {
 

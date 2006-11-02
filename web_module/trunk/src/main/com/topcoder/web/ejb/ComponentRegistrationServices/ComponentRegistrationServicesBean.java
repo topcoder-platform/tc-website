@@ -96,14 +96,11 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             //query.append("and p2.project_stat_id = 5 ) ");
             //query.append("and exists (select r_user_role_v_id from r_user_role where project_id = rur.project_id and r_role_id = 2 and cur_version = 1 and login_id = rur.login_id) )) ");
 
-
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, userId);
             ps.setLong(2, projectId);
             ps.setLong(3, projectId);
             ps.setLong(4, projectId);
-            //ps.setLong(5, projectId);
-            //ps.setLong(6, projectId);
 
             rs = ps.executeQuery();
             hasReviewed = rs.next();
@@ -138,14 +135,14 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             //this checks if the user is the winning designer for the project
 
             query.append("select 1 ");
-            query.append("from project_result pr, project p ");
-            query.append("where p.project_id = pr.project_id and p.cur_version = 1 ");
+            query.append("from project_result pr, project p, project_info pi ");
+            query.append("where p.project_id = pr.project_id and p.project_id = pi.project_id and pi.project_info_type_id = 1 ");
             query.append("and pr.placed = 1 ");
             query.append("and pr.passed_review_ind = 1 ");
-            query.append("and p.project_stat_id = 3 ");
-            query.append("and p.comp_vers_id = (select comp_vers_id from project where project_id = ? and cur_version = 1) ");
+            query.append("and p.project_status_id = 1 ");
+            query.append("and pi.value = (select value from project_info where project_id = ? and project_info_type_id = 1) ");
             query.append("and pr.user_id = ? ");
-            query.append("and p.project_type_id = 1 ");
+            query.append("and p.project_category_id = 1 ");
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, projectId);
@@ -181,25 +178,21 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
 
             StringBuffer query = new StringBuffer(1024);
 
-
             query.append("select '1' ");
             query.append("from project p ");
-            query.append(", phase_instance pi1 ");
+            query.append(", project_phase pi1 ");
             query.append("where p.project_id = ? ");
-            query.append("and p.cur_version = 1 ");
             query.append("and pi1.project_id = p.project_id ");
-            query.append("and pi1.phase_id = 1 ");
-            query.append("and pi1.cur_version = 1 ");
-            query.append("and pi1.start_date + ");
-            query.append(ComponentRegistrationServices.COMPONENT_REGISTRATION_LENGTH);
-            query.append(" units day > current ");
-            query.append("and pi1.start_date < current ");
+            query.append("and pi1.phase_type_id = 1 ");
+            query.append("and pi1.scheduled_end_time > current ");
+            query.append("and pi1.scheduled_start_time < current ");
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, projectId);
 
             rs = ps.executeQuery();
             regOpen = rs.next();
+            
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
@@ -228,11 +221,9 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
 
             StringBuffer query = new StringBuffer(1024);
 
-
-            query.append("select max_unrated_registrants ");
+            query.append("select 1000 as max_unrated_registrants ");
             query.append("from project p ");
             query.append("where p.project_id = ? ");
-            query.append("and p.cur_version = 1 ");
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, projectId);
@@ -272,10 +263,9 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             StringBuffer query = new StringBuffer(1024);
 
 
-            query.append("select max_rated_registrants ");
+            query.append("select 1000 as max_rated_registrants ");
             query.append("from project p ");
             query.append("where p.project_id = ? ");
-            query.append("and p.cur_version = 1 ");
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, projectId);

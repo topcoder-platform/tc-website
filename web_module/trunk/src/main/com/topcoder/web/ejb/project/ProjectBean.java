@@ -21,7 +21,7 @@ public class ProjectBean extends BaseEJB {
 
     public void updateForLock(long projectId, String dataSource) {
         log.debug("lock called on project " + projectId);
-        String query = "update project set project_id = project_id where project_id = ? and cur_version = 1";
+        String query = "update project set project_id = project_id where project_id = ?";
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -44,17 +44,14 @@ public class ProjectBean extends BaseEJB {
 
     public int getProjectTypeId(long projectId, String dataSource) {
         log.debug("get project type id called for project " + projectId);
-        return selectInt("project", "project_type_id", new String[]{"project_id", "cur_version"},
-                new String[]{String.valueOf(projectId), "1"}, dataSource).intValue();
+        return selectInt("project", "project_category_id", new String[]{"project_id"},
+                new String[]{String.valueOf(projectId)}, dataSource).intValue();
     }
 
     private static final String componentInfo =
-            "select cv.component_id " +
-            "  from project p " +
-              "   , comp_versions cv " +
-           "  where p.project_id = ? " +
-             "  and p.cur_version = 1 " +
-             "  and p.comp_vers_id = cv.comp_vers_id";
+            "select value as component_id from project_info " +
+            "  where project_id = ? " +
+            "  and project_info_type_id = 2 ";
 
     public long getComponentId(long projectId, String dataSource)  {
         Connection conn = null;
@@ -72,8 +69,6 @@ public class ProjectBean extends BaseEJB {
             } else {
                 throw new EJBException("Invalid project id specified: " + projectId);
             }
-
-
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
             throw new EJBException(e.getMessage());
@@ -84,8 +79,5 @@ public class ProjectBean extends BaseEJB {
             close(ps);
             close(conn);
         }
-
-
     }
-
 }

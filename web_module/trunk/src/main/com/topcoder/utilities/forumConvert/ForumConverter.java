@@ -335,7 +335,6 @@ public class ForumConverter {
 		s = s.replaceAll("<", "&lt;"); 
 		s = s.replaceAll(">", "&gt;");
 		s = s.replaceAll("\"", "&quot;");
-		s = s.replaceAll("’", "'");
 		return s;
     }
 }

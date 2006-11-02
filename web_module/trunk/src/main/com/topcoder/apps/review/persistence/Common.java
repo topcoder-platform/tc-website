@@ -1,13 +1,16 @@
 /*
  * Common.java
  *
- * Copyright � 2003, TopCoder, Inc. All rights reserved
+ * Copyright 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.persistence;
 
 import com.topcoder.apps.review.projecttracker.*;
 import com.topcoder.apps.review.security.AdminPermission;
+import com.topcoder.project.phases.template.ConfigurationException;
+import com.topcoder.project.phases.template.DefaultPhaseTemplate;
+import com.topcoder.project.phases.template.PhaseTemplate;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.policy.PolicyRemote;
 import com.topcoder.security.policy.PolicyRemoteHome;
@@ -95,12 +98,13 @@ public class Common {
                 newManager = (Refreshable) Class.forName("com.topcoder.apps.review.projecttracker." + key).newInstance();
             }
 
+            /* just ignore
             try {
                 //System.out.println("Common.addManager, class: " + newManager.getClass().getName());
                 newManager.refresh();
             } catch (RefreshException e) {
                 throw new RuntimeException(e);
-            }
+            }*/
 
             cache.put(key, newManager);
         } catch (InstantiationException e1) {
