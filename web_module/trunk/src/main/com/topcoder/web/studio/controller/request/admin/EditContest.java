@@ -169,8 +169,8 @@ public class EditContest extends Base {
             addError(Constants.CONTEST_PROPERTY + ContestProperty.CONTEST_OVERVIEW_TEXT, overviewResult.getMessage());
         }
 
-        ValidationResult prizeDescResult = new ContestOverviewValidator().validate(new StringInput(prizeDesc));
-        if (!overviewResult.isValid()) {
+        ValidationResult prizeDescResult = new PrizeDescriptionValidator().validate(new StringInput(prizeDesc));
+        if (!prizeDescResult.isValid()) {
             addError(Constants.CONTEST_PROPERTY + ContestProperty.PRIZE_DESCRIPTION, prizeDescResult.getMessage());
         }
 
