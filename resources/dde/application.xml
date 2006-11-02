@@ -7,12 +7,14 @@
     <module>
         <ejb>admin.jar</ejb>
     </module>
+<!--remove with new OR
     <module>
         <ejb>auto_pilot_timer.sar</ejb>
     </module>
     <module>
         <ejb>cache_refresher.sar</ejb>
     </module>
+-->
     <module>
         <ejb>catalog.jar</ejb>
     </module>
@@ -50,11 +52,13 @@
         </web>
     </module>
 
+<!--remove with new OR
     <module>
         <web>
             <web-uri>review.war</web-uri>
             <context-root>/review</context-root>
         </web>
     </module>
+-->
 
 </application>

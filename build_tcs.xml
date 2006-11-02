@@ -143,6 +143,7 @@
             <include name="com/topcoder/sql/**"/>
             <include name="com/topcoder/util/**"/>
             <include name="com/topcoder/security/**"/>
+            <exclude name="com/topcoder/apps/screening/**"/>
         </javac>
     </target>
 
