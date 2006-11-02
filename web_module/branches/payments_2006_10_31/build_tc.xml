@@ -484,7 +484,7 @@
 
     <target name="build-sars" depends="compile">
         <jar jarfile="${sar.dir}/expireOldAffidavits.sar" basedir="${classes}"
-             includes="com/topcoder/utilities/pacts/ExpireOldAffidavits.class">
+             includes="com/topcoder/utilities/pacts/ExpireOldAffidavits*">
             <metainf dir="${java}/com/topcoder/utilities/pacts" includes="*.xml"/>
         </jar>
 

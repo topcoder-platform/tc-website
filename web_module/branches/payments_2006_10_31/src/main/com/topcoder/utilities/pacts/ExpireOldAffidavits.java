@@ -6,11 +6,12 @@ import java.util.TimerTask;
 import javax.naming.NameNotFoundException;
 
 import org.apache.log4j.Logger;
+import org.jboss.system.ServiceMBean;
 import org.jboss.system.ServiceMBeanSupport;
 
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 
-public class ExpireOldAffidavits extends ServiceMBeanSupport { 
+public class ExpireOldAffidavits extends ServiceMBeanSupport implements ServiceMBean { 
 	
     private static Logger logger = Logger.getLogger(ExpireOldAffidavits.class);
     private static final String NAME = "ExpireOldAffidavits";
