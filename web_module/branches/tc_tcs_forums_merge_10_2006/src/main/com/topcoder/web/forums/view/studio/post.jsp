@@ -158,10 +158,10 @@
                 </div><br>
                 <table cellpadding="0" cellspacing="0" class="rtTable">
                     <form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
-                        <tc-webtag:hiddenInput name="module"/>
-                        <tc-webtag:hiddenInput name="<%=ForumConstants.FORUM_ID%>"/>
-                        <tc-webtag:hiddenInput name="<%=ForumConstants.MESSAGE_ID%>"/>
-                        <tc-webtag:hiddenInput name="<%=ForumConstants.TEMP_MESSAGE_ID%>"/>
+						<tc-webtag:hiddenInput name="module"/>
+						<tc-webtag:hiddenInput name="<%=ForumConstants.FORUM_ID%>"/>
+						<tc-webtag:hiddenInput name="<%=ForumConstants.MESSAGE_ID%>"/>
+						<tc-webtag:hiddenInput name="<%=ForumConstants.TEMP_MESSAGE_ID%>"/>
 						<tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
 						<tc-webtag:hiddenInput name="<%=ForumConstants.ATTACHMENT_ID%>"/>
 
