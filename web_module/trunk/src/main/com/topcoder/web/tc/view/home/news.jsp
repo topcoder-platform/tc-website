@@ -40,6 +40,20 @@
 -----------------------------%>
 <%--------------------------------------------------------%>
    <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.02.06<br>1:00 PM</td>
+       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=art_110206">TopCoder members WishingBone and assistant in BusinessWeek</A></span><br><br>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/businessweek_logo.gif" width="80" height="18" alt="BusinessWeek" border="0" /></div>
+       "After earning $200,000-plus from TopCoder&#8230; he now has enough cash to buy plenty more computers."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=pressroom&d2=art_110206">full story</A> | 
+       <tc-webtag:forumLink forumID="506167" message="discuss this" /> | 
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.02.06<br>11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol">AOL chat session scheduled for SRM 325</A>
