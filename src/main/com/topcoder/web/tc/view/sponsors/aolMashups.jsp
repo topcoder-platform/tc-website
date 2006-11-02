@@ -1,5 +1,6 @@
 <%@  page language="java"  %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -37,9 +38,20 @@
     <img src="/i/sponsor/bannerAOLMashups.png" alt="AOL Mashups" />
 </div>
 
-This skill-based Contest is designed to encourage the development and use of technologies and provides an opportunity for members of the TopCoder Community to create a description of an original application utilizing the specified technology. TopCoder, Inc. and Contest sponsors invite participants to submit entries for prizes to be awarded by the Contest judging team in accordance with these Terms and Conditions.  Each Contest may have a Contest sponsor, which will be identified in the contest description information.
+Are you a Web 2.0 visionary? Can you differentiate the cool-but-useless from what is genuinely, utterly awesome? We want your ideas. 
 <br><br>
-The Contest is designed to encourage the development and use of the specified technologies. Participation in the Contest is limited to registered members of the TopCoder Community. The Contest is not open to non-members or to the general public. Those wishing to learn more about the TopCoder Community can find more information at: <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>">http://studio.topcoder.com</A> 
+You've probably said "If I were running AOL, I would do things this way." Here's your chance!
+<br><br>
+As you may know, AOL has opened up its APIs for the development community to play with. Now it's taking things one step further, and challenging people to come up with the next killer mashup. Just show us how you would combine one or more of AOL's open APIs with something else - another open API, an RSS feed, or whatever - and you could win a cash prize, and some serious respect.
+<br><br>
+The first Mashup contest is now live at <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">the Studio</A>. In it, you're asked to combine AOL's new WebAIM API - which allows instant messaging to be integrated into a web page or application - with something else, to create an interesting and useful mashup. Full contest rules and guidelines are available at the Studio contests page.
+<br><br>
+Questions? Discuss them in <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">the Studio forum</A>.
+<br><br>
+<span class="subtitle">How does it work?</span><br>
+Once the contest starts, you'll have 10 days to lay out your vision for the mashup. Of course, 10 days is way too short to actually build the application, so all we're asking for is a visual representation of your idea  - you should show us how it looks, what it does, and why it's cool, but you don't have to worry about the underlying backend or actually integrating APIs. 
+<br><br>
+Winning entries will be featured on the TopCoder Studio site and on AOL's developer network at <A href="<tc-webtag:linkTracking link="http://developer.aol.com" refer="tc_mashups_page"/>">http://dev.aol.com</A> - and will receive a cash prize.
 </div>
 
         </td>
