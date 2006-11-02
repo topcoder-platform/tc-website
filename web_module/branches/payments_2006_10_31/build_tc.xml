@@ -3,8 +3,9 @@
     <property name="build" value="build"/>
     <property name="war.dir" value="${build}/wars"/>
     <property name="ear.dir" value="${build}/ears"/>
+    <property name="sar.dir" value="${build.dir}/sars"/>
     <property name="ejb_jars" value="${build}/ejb_jars"/>
-    <property name="classes" value="${build}/classes"/>
+    <property name="classes" value="${build}/classes"/>    
     <property name="testclasses" value="${build}/testcases"/>
     <property name="build.javadocs" value="${build}/javadocs"/>
     <property name="lib.dir" value="lib"/>
@@ -478,6 +479,14 @@
             <zipfileset dir="${classes}" includes="com/topcoder/ejb/ContestAdminServices/*.class"/>
             <metainf dir="${java}/com/topcoder/ejb/ContestAdminServices" includes="*.xml"/>
         </jar>
+    </target>
+
+    <target name="build-sars" depends="compile">
+        <jar jarfile="${sar.dir}/expireOldAffidavits.sar" basedir="${classes.dir}"
+             includes="com/topcoder/utilities/pacts/ExpireOldAffidavits.java">
+            <metainf dir="${java.dir}/com/topcoder/utilities/pacts" includes="*.xml"/>
+        </jar>
+
     </target>
 
 
