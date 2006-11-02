@@ -40,7 +40,7 @@
 -----------------------------%>
 <%--------------------------------------------------------%>
    <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.02.06<br>1:00 PM</td>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.02.06<br>1:40 PM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=art_110206">TopCoder members WishingBone and assistant in BusinessWeek</A></span><br><br>
        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/businessweek_logo.gif" width="80" height="18" alt="BusinessWeek" border="0" /></div>
        "After earning $200,000-plus from TopCoder&#8230; he now has enough cash to buy plenty more computers."
