@@ -1,5 +1,8 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.controller.request.member.AffidavitHistory" %>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
+
 <%@ page language="java"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -8,6 +11,10 @@
 
 <c:set var="fullList" value="<%= request.getAttribute(AffidavitHistory.FULL_LIST) %>"/>
 <c:set var="affidavits" value="<%= request.getAttribute(AffidavitHistory.AFFIDAVITS) %>"/>
+
+<%
+	ResultSetContainer rsc = (ResultSetContainer) request.getAttribute(AffidavitHistory.PAYMENTS);
+%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -19,6 +26,24 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
+
+<script type="text/javascript">
+    function next() {
+        var myForm = document.f;
+        var oldStartRank = myForm.<%=DataAccessConstants.START_RANK%>.value;
+        myForm.<%=DataAccessConstants.START_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value) + 1;
+        myForm.<%=DataAccessConstants.END_RANK%>.value = 2 * parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value) - parseInt(oldStartRank) + 1;
+        myForm.submit();
+    }
+    function previous() {
+        var myForm = document.f;
+        var oldEndRank = myForm.<%=DataAccessConstants.END_RANK%>.value;
+        myForm.<%=DataAccessConstants.END_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - 1;
+        myForm.<%=DataAccessConstants.START_RANK%>.value = 2 * parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - parseInt(oldEndRank) - 1;
+        myForm.submit();
+    }
+</script>
+
 </head>
 
 <body>
@@ -60,8 +85,20 @@
 
 <br clear="all">
 
-<c:choose>
-<c:when test="${not empty affidavits}">
+<% if (rsc.size() > 0) { %>
+<form name="f" action="${sessionInfo.servletPath}" method="get">
+
+            <% if (rsc.croppedDataBefore() || rsc.croppedDataAfter()) { %>
+            <div class="pagingBox">
+        <%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+        | <%=(rsc.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+                
+            </div>
+            <% } %>
+
+
+<br>
+<% boolean even = true;%>
 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
 <tbody>
     <tr>
@@ -70,7 +107,7 @@
         </td>
     </tr>
     <tr>
-        <td class="header">
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">
         Description
         </td>
         <td class="headerC">
@@ -95,78 +132,97 @@
         </td>
     </tr>
 <% boolean even = true;%>
-<c:forEach items="${affidavits}" var="affidavit">
+<rsc:iterator list="${affidavits}" id="resultRow">
+	<c:set var="statusId" value="<%= resultRow.getStringItem("status_id") %>" />
+	<c:set var="affidavitId" value="<%= resultRow.getStringItem("affidavit_id") %>" />
+	<c:set var="notarized" value="<%= resultRow.getIntItem("notarized") == 1 %>" />
+
     <tr class="<%=even?"light":"dark"%>">
         <td class="value">
-        <c:out value="${affidavit.header.description}"/>
+	        <rsc:item name="affidavit_desc" row="<%=resultRow%>"/>
         </td>
     <c:choose>
-        <c:when test="${affidavit.header.statusId == 58}">
-        <td class="valueC">
-            <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavit.header.id}">
-                Affirmed on<br><c:out value="${affidavit.affirmationDate}"></c:out>
-            </a>                
-        </td>
-        <td class="valueC">&nbsp;</td>
+        <c:when test="${statusId == 58}">
+	        <td class="valueC">
+	            <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavitId}">
+	                Affirmed on<br><rsc:item name="date_affirmed" row="<%=resultRow%>"/></c:out>
+	            </a>                
+	        </td>
+	        <td class="valueC">&nbsp;</td>
         </c:when>
-        <c:when test="${affidavit.header.statusId == 57}">
+        <c:when test="${statusId == 57}">
         <td class="valueC">
-            <strong><a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavit.header.id}">
+            <strong><a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavitId}">
                 Affirm now
             </a></strong>
         </td>
         <td class="valueC">
-            <strong><a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavit.header.id}">
-                <c:out value="${affidavit.daysLeftToAffirm}"/> days
+            <strong><a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavitId}">
+                daysLeftToAffirm days
             </a></strong>            
         </td>
         </c:when>
         <c:otherwise>
         <td class="valueC">
-            <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavit.header.id}" class="bigRed">
+            <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavitId}" class="bigRed">
                 Expired
             </a>
         </td>
         <td class="valueC">
-            <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavit.header.id}" class="bigRed">
+            <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavitId}" class="bigRed">
                 Expired
             </a>                
         </td>
         </c:otherwise>
     </c:choose>
         <td class="valueR">
-            <c:if test="${affidavit.payment.id > 0}">
-                <a href="/PactsMemberServlet?t=payments&c=payment_details&payment_id=${affidavit.payment.id}" >
-                    $<fmt:formatNumber value="${affidavit.payment.recentNetAmount}" pattern="###,###.00" />
-                </a>
-            </c:if>
+	        <rsc:item name="net_amount" row="<%=resultRow%>"  format="$###,###,##0.00"/>
         </td>
         <td class="valueC">
             <c:choose>
-                <c:when test="affidavit.header.notarized">yes</c:when>
+                <c:when test="${notarized}">yes</c:when>
                 <c:otherwise>no</c:otherwise>                 
             </c:choose>
         </td>
         <td class="valueC">
-            <c:out value="${affidavit.header.statusDesc}"/>
+            <rsc:item name="status_desc" row="<%=resultRow%>" />
         </td>
         <td class="valueC">
-            <c:if test="${fullList and affidavit.payDate != '00/00/0000'}" >
-                <c:out value="${affidavit.payDate}"/>            
+            <c:if test="${fullList}" >
+            	<b><rsc:item name="date_paid" row="<%=resultRow%>"  format="MM/dd/yy"/>                  
             </c:if>
         </td>
     </tr>
 <% even = !even;%>
-</c:forEach>
+</rsc:iterator>
 </tbody>
 </table>
-</c:when>
-<c:otherwise>
+
+
+
+
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AffidavitHistory"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.START_RANK%>"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
+
+            <% if (rsc.croppedDataBefore() || rsc.croppedDataAfter()) { %>
+            <div class="pagingBox">
+        <%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+        | <%=(rsc.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+                
+            </div>
+            <% } %>
+</form>            
+<% } else { %>
 <div align="center">
 <strong>No Affidavits Found</strong>
 </div>
-</c:otherwise>    
-</c:choose>            
+<% } %>
+<br>
+
+     
 
 
 <!-- Center Column Ends -->

@@ -5761,7 +5761,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws SQLException {
         StringBuffer query = new StringBuffer(300);
     	
-        query.append("SELECT a.affidavit_id, a.affidavit_desc, a.notarized, a.affirmed, a.date_created, p.payment_id, pd.net_amount, pd.date_paid ");
+        query.append("SELECT a.affidavit_id, a.affidavit_desc, a.notarized, a.affirmed, a.date_created, p.payment_id, pd.net_amount, pd.date_paid, a.status_id, ");
+        query.append("s.status_desc, pd.date_paid ");
         query.append("FROM affidavit a, status_lu s, ");
         query.append("OUTER (payment p, payment_detail pd) ");
         query.append("WHERE p.payment_id = a.payment_id ");
