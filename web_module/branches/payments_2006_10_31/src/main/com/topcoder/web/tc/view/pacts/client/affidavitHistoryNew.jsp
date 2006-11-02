@@ -8,12 +8,13 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
 <c:set var="fullList" value="<%= request.getAttribute(AffidavitHistory.FULL_LIST) %>"/>
 <c:set var="affidavits" value="<%= request.getAttribute(AffidavitHistory.AFFIDAVITS) %>"/>
 
 <%
-	ResultSetContainer rsc = (ResultSetContainer) request.getAttribute(AffidavitHistory.PAYMENTS);
+	ResultSetContainer rsc = (ResultSetContainer) request.getAttribute(AffidavitHistory.AFFIDAVITS);
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -98,7 +99,7 @@
 
 
 <br>
-<% boolean even = true;%>
+
 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
 <tbody>
     <tr>
@@ -135,7 +136,7 @@
 <rsc:iterator list="${affidavits}" id="resultRow">
 	<c:set var="statusId" value="<%= resultRow.getStringItem("status_id") %>" />
 	<c:set var="affidavitId" value="<%= resultRow.getStringItem("affidavit_id") %>" />
-	<c:set var="notarized" value="<%= resultRow.getIntItem("notarized") == 1 %>" />
+	<c:set var="notarized" value="<%= Boolean.valueOf(resultRow.getIntItem("notarized") == 1) %>" />
 
     <tr class="<%=even?"light":"dark"%>">
         <td class="value">
