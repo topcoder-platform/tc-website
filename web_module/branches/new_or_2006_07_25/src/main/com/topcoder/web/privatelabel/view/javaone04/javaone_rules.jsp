@@ -162,60 +162,6 @@
             <p class="regmiddle"><strong>About the Prizes</strong><br/>
 			Prizes will be awarded to each person who participates in the Qualification Rounds.  The winner of each day's competition will be
 			awarded a 'grand' prize.  The prizes are as follows:</p>
-<<<<<<< javaone_rules.jsp
-			
-<table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
-<tr>
-<td width="30%" class="sidebarTitle">Participant(s)</td>
-<td width="70%" class="sidebarTitle">Prize</td>
-</tr>
-
-<tr>
-<td width="30%" class="sidebarText" valign="top">Grand Prize (3)*</td>
-<td width="70%" class="sidebarText">
-<ul>
-<li>One complimentary full Conference pass to the 2005 JavaOne conference, valued at $1,995 (travel and lodging excluded)</li>
-<li>A collection of 23 <A href="Javascript:openWin('/pl/?&module=Static&d1=javaone05&d2=book_titles','comp',685,655);">Java Series Publications</a>, valued at over $950** </li>
-<li>One Zodiac Mobile Entertainment console and package from TapWave, valued at $625</li>
-</ul>
-</td>
-</tr>
-
-<tr>
-<td width="30%" class="sidebarText">1st Runner Up (3)*</td>
-<td width="70%" class="sidebarText">$500 gift certificate to redeem in the JavaOne Conference Retail Store</td>
-</tr>
-
-<tr>
-<td width="30%" class="sidebarText">2nd Runner Up (3)*</td>
-<td width="70%" class="sidebarText">$250 gift certificate to redeem in the JavaOne Conference Retail Store</td>
-</tr>
-
-<tr>
-<td width="30%" class="sidebarText">3rd Runner Up (3)*</td>
-<td width="70%" class="sidebarText">$125 gift certificate to redeem in the JavaOne Conference Retail Store</td>
-</tr>
-
-<tr>
-<td width="30%" class="sidebarText">First 1,000 Participants</td>
-<td width="70%" class="sidebarText">One JavaOne Coding Challenge T-Shirt and Messenger Bag</td>
-</tr>
-<tr>
-<td width="100%" class="sidebarText" colspan="2">
-*One Grand Prize and one 1st, 2nd, and 3rd Runner-Up prize awarded daily<br/>
-**Titles subject to change based on availability
-</td>
-
-</tr>
-</table>
-            
-            <p class="regmiddle">Prizes will be awarded daily at the conclusion of the competition. Any and all applicable taxes on 
-            prizes are the sole responsibility of the prizewinner.</p>	
-            
-            <p class="regmiddle">All contestants will only be allowed to win once during the competitions.  We will monitor all contestants 
-            to ensure their eligibility, and that they have not won in any of the prior competitions during the 2004 JavaOne Coding Challenge.</p>	
-            
-=======
 
 						<table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>

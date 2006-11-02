@@ -33,7 +33,7 @@
 
 <div class="fixedWidthBody">
 <jsp:include page="/page_title.jsp" >
-<jsp:param name="image" value="digital_run"/>
+<jsp:param name="image" value="digital_run_20061031"/>
 <jsp:param name="title" value="Development Cup Series"/>
 </jsp:include>
 

@@ -27,6 +27,7 @@
 <div align="left"><img src="/i/tournament/tccc06/bloomberg_logo.gif" alt="Bloomberg" border="0" /></div>
 <br><br>
 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg_chat_082406">SRM 317 Chat Transcript</A>
+ | <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg_chat_101906">SRM 323 Chat Transcript</A>
 <br><br>
 Bloomberg is proud to welcome the world's top programming talent to the
 2006 Top Coder Collegiate Challenge.  This presents an opportunity to

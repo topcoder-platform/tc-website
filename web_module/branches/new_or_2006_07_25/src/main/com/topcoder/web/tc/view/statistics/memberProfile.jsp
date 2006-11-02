@@ -1,9 +1,8 @@
 <%@  page language="java"
-    import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
-          java.util.Map"%>
+    import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,com.topcoder.shared.util.ApplicationServer,
+          com.topcoder.web.common.StringUtils"%>
 
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
-<%@ page import="com.topcoder.web.common.StringUtils"%>
+<%@ page import="java.util.Map"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -112,8 +111,10 @@ This member has not yet been rated in a competition.
 <% } %>
             <tr><td class="cat" nowrap="nowrap">Member Since:</td><td class="stat" align="right">
             <rsc:item name="member_since" set="<%=rscCoderData%>" format="MM.dd.yyyy"/></td></tr>
+             <% if (rscCoderData.getItem(0, "country_name").getResultData()!=null) { %>
             <tr><td class="cat">Country:</td><td class="stat" align="right"><div style="width: 100px;">
             <rsc:item name="country_name" set="<%=rscCoderData%>"/></div></td></tr>
+             <% } %>
             <% if (rscCoderData.getStringItem(0,"school_name")!=null) { %>
             <tr><td class="cat">School:</td><td class="stat" align="right">
             <rsc:item name="school_name" set="<%=rscCoderData%>"/></td></tr>
@@ -130,7 +131,7 @@ This member has not yet been rated in a competition.
          </table>
       </td>
       <td class="quoteCell">
-        <% if(!rscCoderData.getStringItem(0,"quote").equals("")) {%>
+        <% if(!"".equals(StringUtils.checkNull(rscCoderData.getStringItem(0,"quote")))) {%>
         <div class="quoteBox"><span class="quoteTitle">Quote:</span><br><br>
         <div align="center">"<%=StringUtils.htmlEncode(rscCoderData.getStringItem(0, "quote"))%>"</div></div>
         <%}%>

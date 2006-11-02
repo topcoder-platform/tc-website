@@ -37,6 +37,9 @@
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
 <!-- 2006  -->
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
+<tr><td class="newsText"><A href="http://www.csmonitor.com/2006/1101/p01s04-usec.htm" target="_blank">How to build software? Henry Ford, meet eBay.</A> [November 1 - Christian Science Monitor]<br/></td></tr>
+<tr><td class="newsText"><A href="http://gigaom.com/2006/10/23/the-new-american-idol-the-coder/" target="_blank">The New American Idol&#8230; The Coder</A> [October 24 - gigaOm]<br/></td></tr>
+<tr><td class="newsText"><A href="http://www.wallstreetandtech.com/showArticle.jhtml;jsessionid=0U21ZF2KMDLJYQSNDLPCKHSCJUNN2JVN?articleID=193400878" target="_blank"><i>Wall Street & Technology</i> on TopCoder and UBS</A> [October 23 - Wall Street &amp; Technology]<br/></td></tr>
 <tr><td class="newsText">TopCoder helps "free" AOL &#160; [October 10 - Information Week]<br>
        <A href="/i/pressroom/infoweek_excerpt.gif" target="_blank">excerpt</A>&#160;|&#160;
        <A href="http://www.informationweek.com/internet/showArticle.jhtml?articleID=193104723" target="_blank">full story</A><br/></td></tr>
@@ -62,7 +65,7 @@
 <tr><td class="newsText"><A href="http://www.cs.uga.edu/~acm/topcoder.html" target="_blank">TopCoder College Tour: Report from University of Georgia</A> [April 5 - UGA - ACM]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.whitworth.edu/Students/Whitworthian/V96/I14/Students-compete-in-online-competition.html" target="_blank">Students compete in online competition</A> [March 30 - The Whitworthian]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.adtmag.com/article.aspx?id=18109" target="_blank">SOA vendors partner with LogicLibrary to create integrated governance platform</A> [March 14 - ADT]<br/></td></tr>
-<tr><td class="newsText"><A href="http://www.wallstreetandtech.com/showArticle.jhtml?articleID=181502379" target="_blank">UBS Sponsors TopCoder Open</A> [March 13 - Wall Street & Technology]<br/></td></tr>
+<tr><td class="newsText"><A href="http://www.wallstreetandtech.com/showArticle.jhtml?articleID=181502379" target="_blank">UBS Sponsors TopCoder Open</A> [March 13 - Wall Street &amp; Technology]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.dnaindia.com/report.asp?NewsID=1017289&CatID=2" target="_blank">Code jockey contest returns to IT hub</A> [March 13 - DNA India]<br/></td></tr>
 <tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_031006">Exclusive: Interview with Pat Conley, VP VeriSign O&I and TopCoder Member</a> [March 10]<br/></td></tr>
 <tr><td class="newsText"><A href="http://thepost.baker.ohiou.edu/show_news.php?article=N3&date=030806" target="_blank">Gurus compete in coding competition</a> [March 8 - The Post Online]<br/></td></tr>

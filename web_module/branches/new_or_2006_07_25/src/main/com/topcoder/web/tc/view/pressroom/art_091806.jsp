@@ -39,7 +39,7 @@
                         <jsp:param name="title" value=""/>
                     </jsp:include>
 
-<div align="center"><span class="bodyTitle">In memoriam: Victor_lxd</span><br/></div>
+<div align="center"><span class="bodyTitle">In memoriam: victor_lxd</span><br/></div>
                         
 <p>
 We are deeply saddened to share the news that TopCoder member Xiao Dong Li - <tc-webtag:handle coderId="13377493" /> - passed away last week at the age of 26, due to injuries sustained in a car accident. He is survived by his wife, Cynthia Li, and his parents.

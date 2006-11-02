@@ -896,6 +896,7 @@
         </ear>
     </target>
 
+
     <target name="build-forums" depends="">
         <antcall target="war-forums"/>
         <antcall target="package-TCJive"/>

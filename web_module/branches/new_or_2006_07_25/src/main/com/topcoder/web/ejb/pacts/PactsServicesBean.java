@@ -4778,45 +4778,28 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Make sure the project exists; in the process, get the name and due date.
             // to_date(pi_c.value, '%m/%d/%Y %H:%M') + " + COMPONENT_DUE_DATE_INTERVAL + " UNITS DAY AS due_date 
             StringBuffer checkExists = new StringBuffer(300);
-            checkExists.append("SELECT pi_n.value, pi_c.value as due_date");
-            checkExists.append("FROM tcs_catalog:project p ");
-            checkExists.append("inner join tcs_catalog:project_info pi_n ");
-            checkExists.append("on p.project_id = pi_n.project_id ");
-            checkExists.append("AND pi_n.project_info_type_id = 6 ");
-            checkExists.append("inner join tcs_catalog:project_info pi_c ");
-            checkExists.append("on p.project_id = pi_c.project_id ");
-            checkExists.append("AND pi_c.project_info_type_id = 21 ");
-            checkExists.append("where p.project_id = ?");
+            checkExists.append("SELECT cc.component_name, NVL(p.complete_date,current) + " + COMPONENT_DUE_DATE_INTERVAL + " UNITS DAY AS due_date ");
+            checkExists.append("FROM tcs_catalog:project p, tcs_catalog:comp_versions cv, tcs_catalog:comp_catalog cc ");
+            checkExists.append("WHERE p.comp_vers_id = cv.comp_vers_id ");
+            checkExists.append("AND cv.component_id = cc.component_id ");
+            checkExists.append("AND p.project_id = " + projectId + " ");
+            checkExists.append("AND p.cur_version = 1");
             rsc = runSelectQuery(c, checkExists.toString(), false);
             if (rsc.getRowCount() != 1) {
                 throw new IllegalUpdateException("Project " + projectId + " does not exist or is not unique");
             }
             String componentName = rsc.getItem(0, 0).toString();
-            // current format is mm/dd/yyyy hh:mm
-            Object temp = rsc.getRow(0).getItem("due_date");            
-            String dueDate = null;
-            if (temp == null) {
-            	dueDate = "00/00/0000";
-            } else {
-            	Calendar cal = Calendar.getInstance();
-            	try {
-            		cal.setTime(DATE_FORMAT.parse(temp.toString()));
-            		// should advance 3 days
-            		cal.add(Calendar.DATE, 3);
-            		dueDate = DATE_FORMAT.format(cal.getTime()).substring(0, 10);
-            	} catch(Exception e) {
-            		dueDate = "00/00/0000";
-            	}
-            }
+
+            String dueDate = TCData.getTCDate(rsc.getRow(0), "due_date", null, true);
+
             int[] numWinners = new int[2];
             ResultSetContainer[] winners = new ResultSetContainer[2];
 
             // Get winning designers/developers to be paid
             if (status == ProjectStatus.ID_COMPLETED) {
-                StringBuffer getWinners = new StringBuffer(300);        
-                getWinners.append("select pr.placed, pr.user_id, payment as paid, pt.project_type_name, pr.old_reliability as reliability ");
-                getWinners.append("from tcs_catalog:project_result pr, tcs_catalog:project p, tcs_catalog:project_category_lu pt ");
-
+                StringBuffer getWinners = new StringBuffer(300);
+                getWinners.append("select pr.placed, pr.user_id, payment as paid, pt.project_type_name ");
+                getWinners.append("from tcs_catalog:project_result pr, tcs_catalog:project p, tcs_catalog:project_type pt ");
                 getWinners.append("where pr.project_id = " + projectId + " ");
                 getWinners.append("and pr.project_id = p.project_id ");
                 getWinners.append("and p.project_category_id = pt.project_category_id ");
@@ -5523,7 +5506,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             long paymentId;
 
             // Special treating for algorithm payments, because they have affidavits.
-            if (payment instanceof AlgorithmRoundReferencePayment) {
+            if (payment instanceof AlgorithmContestPayment ||
+            		payment instanceof AlgorithmTournamentPrizePayment ||
+            		payment instanceof MarathonMatchPayment) {
                 paymentId = makeNewAlgorithmPayment(c, p, (AlgorithmRoundReferencePayment) payment);
             } else {
                 paymentId = makeNewPayment(c, p, p.payReferrer());

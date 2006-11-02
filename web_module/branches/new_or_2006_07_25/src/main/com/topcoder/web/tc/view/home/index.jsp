@@ -67,7 +67,12 @@
 </map>
 <IMG SRC="/i/home/tccc06_webcast_20061011b.png" border="0" alt="TCCC06 Webcast" usemap="#tccc"/>
         </td>
-        <td width="50%" class="homeLogo" align="right">&#160;</td>
+        <td width="50%" align="right" valign="top" style="border-bottom: 1px solid #666666; padding:0px; margin:0px;">
+            &nbsp;
+            <%--
+            <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>"><img src="/i/home/studioCorner.png" alt="TopCoder Studio" /></A>
+            --%>
+        </td>
     </tr>
 </table>
 
@@ -95,9 +100,9 @@
             <%-- INTEL MTCS
             <A href="/longcontest/?module=Static&d1=intel_overview"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0" style="display:block;"/></A>
             --%>
-            <%-- DIGITAL RUN --%>
-            <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digital_run.png" alt="The Digital Run" border="0" style="display:block;"/></A>
-            
+            <%-- DIGITAL RUN 
+            <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalRunDesignDoubled.png" alt="The Digital Run" border="0" style="display:block;"/></A>
+            --%>
             <%-- bloomberg 
             <map name="bbg_srm">
             <area shape="rect" alt="" coords="88,2,265,92" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg" />
@@ -106,14 +111,16 @@
             </map>
             <img src="/i/home/bloomberg_srm317.gif" alt="Bloomberg TCCC Sponsor of SRM 317" border="0" style="display:block;" usemap="#bbg_srm"/>
             --%>
-            <%-- SPONSORS 
+            <%-- SPONSORS --%>
             <map name="srm">
-            <area shape="rect" alt="" coords="1,1,264,85" href="/tc?module=MatchDetails&rd=10003" />
-            <area shape="rect" alt="" coords="1,96,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg" />
+            <area shape="rect" alt="" coords="1,1,264,85" href="/tc?module=MatchDetails&rd=10005" />
+            <area shape="rect" alt="" coords="1,96,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol" />
             </map>
-            <img src="/i/home/srm323_bloomberg.png" alt="SRM 323 sponsored by Bloomberg" border="0" style="display:block;" usemap="#srm"/>
-            --%>
+            <img src="/i/home/srm325_aol.png" alt="SRM 325 sponsored by AOL" border="0" style="display:block;" usemap="#srm"/>
             
+            <%-- AOL mashups 
+            <A href="http://studio.topcoder.com/forums?module=Thread&threadID=123"><img src="/i/home/aol_mashups.gif" alt="AOL mashups" border="0" style="display:block;"/></A>
+            --%>
 
         </td></tr>
     </table>
@@ -176,7 +183,7 @@
 <td class="homeCentCol">
     <table border="0" cellpadding="0" cellspacing="0">
         <tr><td class="homeBigPromo">
-            <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp"><img src="/i/home/tcs_client_ubs.png" alt="TopCoder Software & UBS" border="0" style="display:block;" /></A>
+            <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp"><img src="/i/home/tcs_client_espn.png" alt="TopCoder Software & ESPN" border="0" style="display:block;" /></A>
         </td></tr>
     </table>
     <table border="0" cellpadding="0" cellspacing="0">
@@ -220,18 +227,15 @@
 <td class="homeRightCol">
     <table border="0" cellpadding="0" cellspacing="0">
         <tr><td class="homeBigPromo">
+            <%-- China --%>
+            <A href="/tc?module=Static&d1=features&d2=102606"><img src="/i/home/china_20061027.gif" alt="Now Open in China" border="0" style="display:block;" /></A>
+            
+            <%-- Maverick 
             <A href="/images/downloads/mavericks_at_work.pdf" target="_blank"><img src="/i/home/mavericks_100206.gif" alt="Mavericks at Work" border="0" style="display:block;" /></A>
-
-            <%-- WSJ   
+            --%>
+            <%-- WSJ
             <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0" style="display:block;" /></A>
             --%> 
-            <%-- TCCC & DR 
-<map name="tccc_cddc_dr">
-<area shape="rect" alt="" coords="1,1,130,139" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
-<area shape="rect" alt="" coords="140,1,269,139" href="/tc?module=Static&d1=digital_run&d2=description" />
-</map>
-<IMG SRC="/i/home/tccc06_digrun_sm.gif" border="0" alt="TCCC06 CDDC REGISTRATION OPEN & THE DIGITAL RUN" usemap="#tccc_cddc_dr" />
-            --%>
             <%-- Intel MTCS
                         <A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0"  style="display:block;" /></A>
             --%>
@@ -246,6 +250,21 @@
         <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            
+                <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/csmonitor_logo.jpg" width="80" height="32" alt="Christian Science Monitor" border="0" /></div>
+                How to build software? Henry Ford, meet eBay.
+                <A href="http://www.csmonitor.com/2006/1101/p01s04-usec.htm" target="_blank">...more</A><br>[November 1]<br><br>
+
+                <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/gigaOm_logo.jpg" width="80" height="26" alt="gigaOm" border="0" /></div>
+                The New American Idol&#8230; The Coder
+                <A href="http://gigaom.com/2006/10/23/the-new-american-idol-the-coder/" target="_blank">...more</A><br>[October 24]<br><br>
+
+                <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/wallstreetnTech_logo.gif" width="80" height="30" alt="Wall Street &amp; Technology" border="0" /></div>
+                <i>Wall Street & Technology</i> on TopCoder and UBS
+                <A href="http://www.wallstreetandtech.com/showArticle.jhtml;jsessionid=0U21ZF2KMDLJYQSNDLPCKHSCJUNN2JVN?articleID=193400878" target="_blank">...more</A><br>[October 23]<br><br>
 
                 AOL to Webcast TCCC06 Live on November 17
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_101106">...more</A><br>[October 11]<br><br>
@@ -259,45 +278,34 @@
                 <A href="/i/pressroom/infoweek_excerpt.gif" target="_blank">excerpt</A>&#160;|&#160;
                 <A href="http://www.informationweek.com/internet/showArticle.jhtml?articleID=193104723" target="_blank">full story</A><br>[October 10]<br><br>
             
-                <div style="float: right; padding-left: 5px;">
-                    <img src="/i/pressroom/opensource_logo.gif" width="68" height="23" alt="Open Source" border="0" /></div>
-                TopCoder featured on public radio's "Open Source" [PODCAST]<br>
-                <A href="/audio/open_source_060928_24kb.mp3" target="_blank">lo 6.8mb</A> &#160;|&#160;
-                <A href="/audio/open_source_060928_48kb.mp3" target="_blank">hi 13.8mb</A><br>[October 4]<br><br>
-            
-                New Software Assembly contest: $22,500 in prizes!
-                <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_costingEngineAdminTool">...more</A><br>[September 20]<br><br>
-
-                <div style="float: right; padding-left: 5px;">
-                <A href="http://studio.topcoder.com/"><img src="/i/pressroom/studio_logo.gif" width="86" height="42" alt="TopCoder Studio" border="0"/></A></div>
-                TopCoder Studio launches creative contests
-                <A href="http://studio.topcoder.com/">...more</A><br>[August 30]<br><br>
-
             </td>
         </tr>
         <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">October
+            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">November
                 Events:</A></td>
         </tr>
         <tr>
-            <td class="homeArrow">&#160;</td>
+            <td class="homeArrow">&#160; </td>
             <td class="homeText"><br>
-                <b>10.02</b> - SRM 321 - NSA - 9 PM<br><br>
-                <b>10.05</b> - Algo Elim Round 2A - NSA - 7 AM<br><br>
-                <b>10.05</b> - CDDC Round 1 Projects Posted - 9 AM<br><br>
-                <b>10.07</b> - Algo Elim Round 2B - Bloomberg - 1 PM<br><br>
-                <b>10.09</b> - SRM 322 - AOL - 9 PM<br><br>
-                <b>10.11</b> - Marathon Match 6 - 12 NOON<br><br>
-                <b>10.11</b> - Algo Elim Round 2C - UBS - 9 PM<br><br>
-                <b>10.14</b> - Algo Elim Round 3 - AOL - 1 PM<br><br>
-                <b>10.16</b> - TCHS SRM 16 - 6 AM<br><br>
-                <b>10.18</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 10 - 12 NOON<br><br>
-                <b>10.19</b> - CDDC Round 2 Projects Posted - 9 AM<br><br>
-                <b>10.19</b> - SRM 323 - Bloomberg - 11 AM<br><br>
-                <b>10.23</b> - TCHS SRM 17 - 7 PM<br><br>
-                <b>10.25</b> - SRM 324 - 7 AM<br><br>
-                <b>10.30</b> - TCHS SRM 18 - 2 PM<br><br>
+                <b>11.01</b> - Marathon Match 7 - 12 NOON<br><br>
+                <b>11.02</b> - CDDC Round 3 Projects Posted - 9 AM<br><br>
+                <b>11.02</b> - SRM 325 - AOL - 9 PM<br><br>
+                <b>11.06</b> - TCHS SRM 19 - 10 AM<br><br>
+                <b>11.11</b> - SRM 326 - NSA - 12 NOON<br><br>
+                <b>11.15</b> - Algo Room 1 - 9 AM PST<br><br>
+                <b>11.15</b> - CDDC 1 - 1 PM PST<br><br>
+                <b>11.15</b> - Algo Room 2 - 4 PM PST<br><br>
+                <b>11.15</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 11 - 12 NOON<br><br>
+                <b>11.16</b> - Algo Room 3 - 9 AM PST<br><br>
+                <b>11.16</b> - CDDC 2 - 1 PM PST<br><br>
+                <b>11.16</b> - Algo Wildcard - 4 PM PST<br><br>
+                <b>11.17</b> - CDDC Finals - 9 AM PST<br><br>
+                <b>11.17</b> - Algo Finals - 1:30 PM PST<br><br>
+                <b>11.20</b> - TCHS SRM 20 - 6 AM<br><br>
+                <b>11.22</b> - SRM 327 - 7 AM<br><br>
+                <b>11.27</b> - TCHS SRM 21 - 7 PM<br><br>
+                <b>11.29</b> - SRM 328 - 11 AM<br><br>
             </td>
         </tr>
 

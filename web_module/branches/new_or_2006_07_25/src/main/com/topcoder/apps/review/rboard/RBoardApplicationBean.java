@@ -611,7 +611,7 @@ public class RBoardApplicationBean extends BaseEJB {
             } catch (RowNotFoundException rnfe) {
                 throw new RBoardRegistrationException("Invalid request. Unknown review category.");
             }
-
+            
             long status = 0;
             try {
                 status = getStatus(conn, userId, phaseId - 111, catalogId);

@@ -46,6 +46,8 @@
 
 <!-- 2006 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
+<tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_102506">TopCoder Launches Operations in China with New Beijing Appointment</A> [October 25]<br/></td></tr>
+<tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_102306">Semifinalists Announced for 2006 TopCoder Collegiate Challenge Sponsored by AOL</A> [October 23]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_101106">AOL to Webcast TopCoder World Championship of Computer Programming Live on November 17</A> [October 11]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_101006">TopCoder Identified As Business Leader and Innovator In New Book "Mavericks at Work"</A> [October 10]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_082906">NSA Continues TopCoder Patronage with Support of 2006 TopCoder Collegiate Challenge in San Diego</A> [August 29]<br/></td></tr>

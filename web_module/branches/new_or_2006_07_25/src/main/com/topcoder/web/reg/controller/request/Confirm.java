@@ -132,13 +132,7 @@ public class Confirm extends Base {
                 s.setType(getFactory().getSchoolTypeDAO().find(new Integer((String) params.get(Constants.SCHOOL_TYPE))));
                 Address a = new Address();
                 a.setCity((String) params.get(Constants.SCHOOL_CITY));
-                if (hasParameter(params, Constants.SCHOOL_COUNTRY)) {
-                    a.setCountry(getFactory().getCountryDAO().find((String) params.get(Constants.SCHOOL_COUNTRY)));
-                    //make hs people's comp country be the country of their school
-                    if (getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
-                        u.getCoder().setCompCountry(a.getCountry());
-                    }
-                }
+                a.setCountry(getFactory().getCountryDAO().find((String) params.get(Constants.SCHOOL_COUNTRY)));
                 if (getFactory().getCountryDAO().getUS().equals(a.getCountry())) {
                     if (hasParameter(params, Constants.SCHOOL_STATE)) {
                         a.setState(getFactory().getStateDAO().find((String) params.get(Constants.SCHOOL_STATE)));
@@ -148,6 +142,12 @@ public class Confirm extends Base {
                 }
                 s.setAddress(a);
                 cs.setSchool(s);
+            }
+            if (!RegFieldHelper.getMainFieldSet(getRequestedTypes(), u).contains(Constants.COMP_COUNTRY_CODE)) {
+                //make hs people's comp country be the country of their school
+                if (getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
+                    u.getCoder().setCompCountry(cs.getSchool().getAddress().getCountry());
+                }
             }
 
             if (getFactory().getSchoolTypeDAO().find(SchoolType.HIGH_SCHOOL).equals(u.getCoder().getCurrentSchool().getSchool().getType()))

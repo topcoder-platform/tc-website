@@ -9,6 +9,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.RookieBoardRow;
 
@@ -29,16 +30,6 @@ public class RookieBoard extends BaseBoard {
      * The logger to log to.
      */
     private static final Logger log = Logger.getLogger(RookieBoard.class);
-
-    /**
-     * The design rookie placement prizes.
-     */
-    private static final double[] designPlacementPrize = {10000.0, 7500.0, 5000.0, 2500.0, 1500.0, 1250.0, 750.0, 500.0, 500.0, 500.0};
-
-    /**
-     * The development rookie placement prizes.
-     */
-    private static final double[] developmentPlacementPrize = {7500.0, 5000.0, 3000.0, 1500.0, 900.0, 750.0, 450.0, 300.0, 300.0, 300.0};
 
     /**
      * Process the dr rookie board request.
@@ -65,7 +56,7 @@ public class RookieBoard extends BaseBoard {
         boolean invert = sortDir.equals("desc");
 
         // break prizes ties
-        tieBreak(rookieBoardResult, (phase == 112) ? designPlacementPrize : developmentPlacementPrize, invert,
+        tieBreak(rookieBoardResult, getPlacementPrize(period, phase + ""), invert,
                 "dr_rookie_tie_break_placement", "dr_rookie_tie_break_score", Constants.SEASON_ID);
 
         // sort
@@ -98,5 +89,15 @@ public class RookieBoard extends BaseBoard {
             firstRow = false;
         }
         return rookieBoardResult;
+    }
+    
+    /**
+     * Queries placement points for rookie board
+     * Retrieves an array of the placement points for a particualr season and phase
+     * 
+     * @since 1.0.3
+     */
+    private double[] getPlacementPrize(String seasonId, String phaseId) throws TCWebException {
+        return getPlacementPrize("rookie_board_placement_prize", Constants.SEASON_ID, seasonId, phaseId);
     }
 }

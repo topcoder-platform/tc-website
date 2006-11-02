@@ -36,13 +36,12 @@ The finalists are sorted alphabetically.
       <td rowspan="3" valign="middle" align="center"><img src="/i/tournament/tccc06/champion.gif" alt="" border="0" /><%--<br><span class="bigTitle"><tc-webtag:handle coderId="7548200" context="development"/></span>--%></td>
    </tr>
    <tr>
-      <td style="padding: 15px" valign="middle" align="center">
+      <td style="padding: 15px" valign="middle" align="center">kBG="true"/><br><br>
       <tc-webtag:handle coderId="8347577" context="development" darkBG="true"/><br><br>
       <tc-webtag:handle coderId="20256177" context="development" darkBG="true"/><br><br>
       <tc-webtag:handle coderId="302810" context="development" darkBG="true"/><br><br>
       <tc-webtag:handle coderId="14788013" context="development" darkBG="true"/><br><br>
       <tc-webtag:handle coderId="9998760" context="development" darkBG="true"/><br><br>
-      <tc-webtag:handle coderId="13325985" context="development" darkBG="true"/><br><br>
       <tc-webtag:handle coderId="8375801" context="development" darkBG="true"/><br><br>
       <tc-webtag:handle coderId="10526732" context="development" darkBG="true"/>
       </td>

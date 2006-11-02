@@ -1,10 +1,12 @@
 package com.topcoder.utilities;
 
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCResourceBundle;
+import com.topcoder.shared.util.sql.InformixSimpleDataSource;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 /**
  *
@@ -18,8 +20,8 @@ public class RecalcPlacedDWOnly {
     public static void main(String[] args) {
         int roundId = Integer.parseInt(args[0]);
         try {
-            go(DBMS.getConnection(DBMS.DW_DATASOURCE_NAME), roundId);
-        } catch (SQLException e) {
+            go(new InformixSimpleDataSource(new TCResourceBundle("DBMS").getProperty("DW_CONNECT_STRING")).getConnection(), roundId);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -31,12 +33,12 @@ public class RecalcPlacedDWOnly {
         try {
             // update ROOM_RESULT.room_placed
             StringBuffer sqlStr = new StringBuffer();
-            sqlStr.append("SELECT rr.coder_id, r.room_id, rr.total_points ");
+            sqlStr.append("SELECT rr.coder_id, r.room_id, rr.final_points ");
             sqlStr.append("FROM room_result rr, room r ");
             sqlStr.append("WHERE r.room_id = rr.room_id ");
             sqlStr.append("AND rr.round_id = ? ");
             sqlStr.append("AND rr.attended = 'Y' ");
-            sqlStr.append("ORDER BY r.room_id, rr.total_points DESC");
+            sqlStr.append("ORDER BY r.room_id, rr.final_points DESC");
             ps = c.prepareStatement(sqlStr.toString());
             ps.setInt(1, roundId);
             rs = ps.executeQuery();
@@ -52,7 +54,7 @@ public class RecalcPlacedDWOnly {
 
                 int coderId = rs.getInt("coder_id");
                 int room = rs.getInt("room_id");
-                double points = rs.getDouble("total_points");
+                double points = rs.getDouble("final_points");
 
                 // Are we starting a new room?
                 if (room != lastRoom) {
@@ -85,17 +87,18 @@ public class RecalcPlacedDWOnly {
             ps.close();
             ps = null;
 
+/*
 
             // Set division_placed - where the coder placed in their division
             // get all the users in order for this division by points.
             sqlStr = new StringBuffer();
-            sqlStr.append("SELECT rr.coder_id, r.division_id, rr.total_points ");
+            sqlStr.append("SELECT rr.coder_id, r.division_id, rr.final_points ");
             sqlStr.append("FROM room_result rr, room r ");
             sqlStr.append("WHERE r.room_id = rr.room_id ");
             sqlStr.append("AND rr.round_id = ? ");
             sqlStr.append("AND rr.attended = 'Y' ");
             sqlStr.append("AND r.division_id <> -1 ");
-            sqlStr.append("ORDER BY r.division_id, rr.total_points DESC");
+            sqlStr.append("ORDER BY r.division_id, rr.final_points DESC");
             ps = c.prepareStatement(sqlStr.toString());
             ps.setInt(1, roundId);
             rs = ps.executeQuery();
@@ -113,7 +116,7 @@ public class RecalcPlacedDWOnly {
 
                 int coderId = rs.getInt("coder_id");
                 int divisionId = rs.getInt("division_id");
-                double points = rs.getDouble("total_points");
+                double points = rs.getDouble("final_points");
 
                 // Are we starting a new division?
                 if (divisionId != previousDivision) {
@@ -141,6 +144,7 @@ public class RecalcPlacedDWOnly {
             }
             ps.close();
             ps = null;
+*/
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

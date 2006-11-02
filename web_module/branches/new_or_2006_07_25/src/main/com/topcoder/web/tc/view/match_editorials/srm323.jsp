@@ -247,8 +247,8 @@ The following pseudocode illustrates this approach:
 <font color=blue>for</font> i = 2 <font color=blue>to</font> N <font color=blue>do begin</font> 
     minimum = min( <b>A</b>[<i>i</i>], <b>length</b> - <b>A</b>[<i>i</i>]) 
     maximum = max( <b>A</b>[<i>i</i>], <b>length</b> - <b>A</b>[<i>i</i>]) 
-    <font color=blue>if</font> minimum>A[i-1] <font color=blue>then</font> <b>B</b>[<i>i</i>] = minimum 
-    <font color=blue>else if</font> maximum>A[i-1] <font color=blue>then</font> <b>B</b>[<i>i</i>] = maximum 
+    <font color=blue>if</font> minimum>B[i-1] <font color=blue>then</font> <b>B</b>[<i>i</i>] = minimum 
+    <font color=blue>else if</font> maximum>B[i-1] <font color=blue>then</font> <b>B</b>[<i>i</i>] = maximum 
     <font color=blue>else return</font> "NO SOLUTION"                 
 <font color=blue>end</font> 
 </pre>

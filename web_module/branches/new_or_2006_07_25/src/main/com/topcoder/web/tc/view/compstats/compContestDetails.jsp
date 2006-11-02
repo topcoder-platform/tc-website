@@ -232,7 +232,7 @@
     <TD CLASS="tableHeader" rowspan="2" align="center">Final Score</TD>
     <TD CLASS="tableHeader" rowspan="2" align="center">
        <div class="container">
-           <a href='/tc?module=Static&d1=digital_run&d2=description'><img class="popper" src="/i/interface/emblem/digital_run.gif" alt="The Digital Run" border="0" onmouseover="popUp('popDR')" onmouseout="popHide()" /></a>
+           <a href='/tc?module=Static&d1=digital_run&d2=description'><img class="popper" src="/i/interface/emblem/digitalrun.png" alt="The Digital Run" border="0" onmouseover="popUp('popDR')" onmouseout="popHide()" /></a>
            <div id="popDR" class="popUp"><div>The Digital Run</div></div>
        </div>
         Points
