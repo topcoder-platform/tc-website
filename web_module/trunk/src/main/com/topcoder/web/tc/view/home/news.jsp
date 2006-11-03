@@ -42,13 +42,13 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.03.06<br>1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A href="/i/downloads/tccc06_program.pdf">TCCC '06 Program now available</A>
+        <A href="/i/downloads/tccc06_program.pdf">TCCC '06 Program now available</A> [PDF]
         </span><br><br>
       Get to know more about the TopCoder Collegiate Challenge '06 competitors, and preview the competitions, with this year's TCCC Program.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/i/downloads/tccc06_program.pdf">view</A>&#160;|&#160;
+         <A href="/i/downloads/tccc06_program.pdf">view</A> [PDF]&#160;|&#160;
          <tc-webtag:forumLink forumID="506169" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
