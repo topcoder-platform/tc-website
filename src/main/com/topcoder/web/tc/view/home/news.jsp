@@ -38,13 +38,13 @@
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 ---------------------------%>
-<%---------------------------
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.03.06<br>10:00 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.03.06<br>1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/i/downloads/tccc06_program.pdf">TCCC '06 Program now available</A>
         </span><br><br>
-      Get to know more about the TopCoder Collegiate Challenge '06 competitors, and preview the competitions,Êwith this year's TCCC Program.
+      Get to know more about the TopCoder Collegiate Challenge '06 competitors, and preview the competitions, with this year's TCCC Program.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -52,7 +52,6 @@
          <tc-webtag:forumLink forumID="506169" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
------------------------------%>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -220,20 +219,3 @@
     <tc-webtag:forumLink forumID="506161" message="discuss this"/> |
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>10.27.06<br>3:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="http://studio.topcoder.com/forums?module=Thread&threadID=123">Introducing AOL Mashups, at TopCoder Studio</A>
-      </span><br><br>
-      Are you a Web 2.0 visionary? Can you differentiate the cool-but-useless from what is genuinely, utterly awesome? We want your ideas. 
-      As you may know, AOL has opened up its APIs for the development community to play with. Now it's taking things one step further, and 
-      challenging people to come up with the next killer mashup.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://studio.topcoder.com/forums?module=Thread&threadID=123">view</A> | 
-         <tc-webtag:forumLink forumID="506160" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
