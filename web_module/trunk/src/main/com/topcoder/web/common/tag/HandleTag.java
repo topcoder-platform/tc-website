@@ -150,27 +150,30 @@ public class HandleTag extends TagSupport {
                     output.append(cssclass);
                 } else {
                     int rating = 0;
-                    if (algorithm) {
+                    // special case for admins
+                    if (rsc.getIntItem(0, "algorithm_rating") < 0) {
                         rating = rsc.getIntItem(0, "algorithm_rating");
-                    } else if (hsAlgorithm) {
-                        rating = rsc.getIntItem(0, "hs_algorithm_rating");
-                    } else if (design) {
-                        rating = rsc.getIntItem(0, "design_rating");
-                    } else if (development) {
-                        rating = rsc.getIntItem(0, "development_rating");
-                    } else if (component) {
-                        rating = max(rsc.getIntItem(0, "design_rating"),
-                                rsc.getIntItem(0, "development_rating"));
-                    } else if (hsOrAlgorithm) {
-                        rating = max(rsc.getIntItem(0, "hs_algorithm_rating"),
-                                rsc.getIntItem(0, "algorithm_rating"));
                     } else {
-                        // special case for admins
-                        if (rsc.getIntItem(0, "algorithm_rating") < 0) rating = rsc.getIntItem(0, "algorithm_rating");
-                        else rating = max(rsc.getIntItem(0, "algorithm_rating"),
-                                rsc.getIntItem(0, "hs_algorithm_rating"),
-                                rsc.getIntItem(0, "design_rating"),
-                                rsc.getIntItem(0, "development_rating"));
+                        if (algorithm) {
+                            rating = rsc.getIntItem(0, "algorithm_rating");
+                        } else if (hsAlgorithm) {
+                            rating = rsc.getIntItem(0, "hs_algorithm_rating");
+                        } else if (design) {
+                            rating = rsc.getIntItem(0, "design_rating");
+                        } else if (development) {
+                            rating = rsc.getIntItem(0, "development_rating");
+                        } else if (component) {
+                            rating = max(rsc.getIntItem(0, "design_rating"),
+                                    rsc.getIntItem(0, "development_rating"));
+                        } else if (hsOrAlgorithm) {
+                            rating = max(rsc.getIntItem(0, "hs_algorithm_rating"),
+                                    rsc.getIntItem(0, "algorithm_rating"));
+                        } else {
+                            rating = max(rsc.getIntItem(0, "algorithm_rating"),
+                                    rsc.getIntItem(0, "hs_algorithm_rating"),
+                                    rsc.getIntItem(0, "design_rating"),
+                                    rsc.getIntItem(0, "development_rating"));
+                        }
                     }
                     //log.debug("rating: " + rating + " rsc: " + rsc.toString());
                     output.append(getRatingCSS(rating));
