@@ -82,9 +82,11 @@ public class RatingQubits {
         ResultSet rs = null;
 
         try {
+        	// The rating_date format is MM/dd/yyyy hh:mm a
             //design
             String sqlStr = "select distinct pr.project_id, round(substr(pi_rd.value, 1, 2)) as month, " +
-            		"round(substr(pi_rd.value, 4, 2)) as day, round(substr(pi_rd.value, 7, 4)) as year " +
+            		"round(substr(pi_rd.value, 4, 2)) as day, round(substr(pi_rd.value, 7, 4)) as year," +
+            		"round(substr(pi_rd.value, 12, 2)) as hour " +
                     //"pi_vi.value as comp_vers_id " +
                     "from project_result pr, project p" +
 //                    ", project_info pi_vi" +
@@ -96,7 +98,7 @@ public class RatingQubits {
                     //"and pi_vi.project_id = p.project_id and pi_vi.project_info_type_id = 1 " +
                     "and pi_rd.project_id = p.project_id and pi_rd.project_info_type_id = 22 " +
                     //"and cd.comp_vers_id = pi_vi.value and cd.phase_id = 112 " +
-		            "order by year, month, day, 1";
+		            "order by year, month, day, hour, 1";
 
             ps = conn.prepareStatement(sqlStr);
             rs = ps.executeQuery();
@@ -111,7 +113,8 @@ public class RatingQubits {
             //dev
 
             sqlStr = "select distinct pr.project_id, round(substr(pi_rd.value, 1, 2)) as month, " +
-            		"round(substr(pi_rd.value, 4, 2)) as day, round(substr(pi_rd.value, 7, 4)) as year " +
+		    		"round(substr(pi_rd.value, 4, 2)) as day, round(substr(pi_rd.value, 7, 4)) as year," +
+		    		"round(substr(pi_rd.value, 12, 2)) as hour " +
 		            //"pi_vi.value as comp_vers_id " +
 		            "from project_result pr, project p" +
                     //", project_info pi_vi" +
@@ -123,7 +126,7 @@ public class RatingQubits {
                     //"and pi_vi.project_id = p.project_id and pi_vi.project_info_type_id = 1 " +
                     "and pi_rd.project_id = p.project_id and pi_rd.project_info_type_id = 22 " +
 		            //"and cd.comp_vers_id = pi_vi.value and cd.phase_id = 113 " +
-                    "order by year, month, day, 1";
+                    "order by year, month, day, hour, 1";
 
             ps = conn.prepareStatement(sqlStr);
             rs = ps.executeQuery();
