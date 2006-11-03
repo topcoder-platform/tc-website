@@ -467,7 +467,7 @@ public class ForumsUtil {
     // Specifying links in a category:
     // -------------------------------
     // linkNames = Article,Article (Part 2)
-    // link1 = tc?module=Static&d1=tutorials&d2=complexity1
+    // link = tc?module=Static&d1=tutorials&d2=complexity1
     // link2 = tc?module=Static&d1=tutorials&d2=complexity2
     //
     // Specifying links in a forum:
