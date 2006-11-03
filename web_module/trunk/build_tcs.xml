@@ -213,7 +213,6 @@
                 <include name="com/topcoder/dde/servlet/**"/>
                 <include name="com/topcoder/dde/request/**"/>
                 <include name="com/topcoder/dde/util/**"/>
-                <include name="com/topcoder/apps/review/ConfigHelper.class"/>
             </classes>
             <webinf dir="${resources.dir}/taglib">
                 <include name="tc-webtags.tld"/>
@@ -254,7 +253,7 @@
         </jar>
 
         <jar jarfile="${ejb.jars.dir}/notification.jar">
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/notification/**, com/topcoder/apps/review/ConfigHelper.class, com/topcoder/apps/review/EJBHelper.class, com.topcoder.apps.review.persistence.Common.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/notification/**, com/topcoder/apps/review/ConfigHelper.class, com/topcoder/apps/review/EJBHelper.class, com/topcoder/apps/review/persistence/Common.class"/>
             <metainf dir="${java.dir}/com/topcoder/dde/notification" includes="*.xml"/>
         </jar>
 
