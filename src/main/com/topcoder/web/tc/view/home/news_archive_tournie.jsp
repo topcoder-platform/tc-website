@@ -39,7 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<tr class="bodyText"><td nowrap="nowrap">11.03.06 1:00 PM - </td><td width="100%"><A href="/i/downloads/tccc06_program.pdf">TCCC '06 Program now available</A> [PDF]</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">11.03.06 1:00 PM - </td><td width="100%"><A href="/i/downloads/tccc06_program.pdf">TCCC06 Program now available</A> [PDF]</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.02.06 11:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol">AOL chat session scheduled for SRM 325</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.24.06 4:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg_chat_101906">Bloomberg SRM 323 chat session transcript</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.23.06 5:15 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_bracket">TCCC06 Algorithm Competition Semifinalists</A></td></tr>
