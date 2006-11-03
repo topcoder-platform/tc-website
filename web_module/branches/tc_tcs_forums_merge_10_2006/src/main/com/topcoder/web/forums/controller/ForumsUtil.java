@@ -459,10 +459,51 @@ public class ForumsUtil {
         return display.toString();
     }
     
-    // For creating links to news articles, match editorials and statistics pages, etc. in breadcrumb
+    // For creating links to news articles, match editorials and statistics pages, etc. in breadcrumb.
+    // The link names are specified by the "linkNames" property in either the forum or category - most links 
+    // in a category will follow the same format, but for exceptions, add the "linkNames" property to the 
+    // forum.
+    //
+    // Specifying links in a category:
+    // -------------------------------
+    // linkNames = Article,Article (Part 2)
+    // link1 = tc?module=Static&d1=tutorials&d2=complexity1
+    // link2 = tc?module=Static&d1=tutorials&d2=complexity2
+    //
+    // Specifying links in a forum:
+    // ----------------------------
+    // linkNames = Article,Article (Part 2)
+    // link_Article = tc?module=Static&d1=tutorials&d2=complexity1
+    // link_Article (Part 2) = tc?module=Static&d1=tutorials&d2=complexity2
+    //
     public static String createLinkString(Forum forum) {
-        String linkNames = forum.getForumCategory().getProperty(ForumConstants.PROPERTY_LINK_NAMES);
+    	String linkNames = forum.getProperty(ForumConstants.PROPERTY_LINK_NAMES);
         StringBuffer linkStr = new StringBuffer();
+    	if (linkNames != null) {
+    		String[] linkNamesArr = linkNames.split(",");
+    		if (linkNamesArr.length > 0) {
+    			linkStr.append("(");
+    			for (int i=0; i<linkNamesArr.length; i++) {
+    				String linkKey = ForumConstants.PROPERTY_LINK + "_" + linkNamesArr[i];
+    				String link = forum.getProperty(linkKey);
+					if (link == null) return "";	// only display if well-formed
+					if (link.startsWith("/")) {		// relative
+						link = ApplicationServer.SERVER_NAME + link;
+					}
+					if (!link.startsWith("http://") && !link.startsWith("https://")) {
+						link = "http://" + link;
+					}
+					linkStr.append("<a href=\""+link+"\" class=\"rtbcLink\">"+linkNamesArr[i]+"</a>");
+					if (i<linkNamesArr.length-1) {
+						linkStr.append("&#160;|&#160;");
+					}
+    			}
+    			linkStr.append(")");
+    		} 
+    		return linkStr.toString();
+    	}
+    	
+        linkNames = forum.getForumCategory().getProperty(ForumConstants.PROPERTY_LINK_NAMES);
         if (linkNames != null) {
         	String[] linkNamesArr = linkNames.split(",");
         	if (linkNamesArr.length > 0) {
@@ -470,7 +511,7 @@ public class ForumsUtil {
 				for (int i=0; i<linkNamesArr.length; i++) {
 					String linkKey = (i==0) ? ForumConstants.PROPERTY_LINK : ForumConstants.PROPERTY_LINK+(i+1);
 					String link = forum.getProperty(linkKey);
-					if (link == null) return "";	// only display if well-formed
+					if (link == null) break;		// displays links until one is not found
 					if (link.startsWith("/")) {		// relative
 						link = ApplicationServer.SERVER_NAME + link;
 					}
