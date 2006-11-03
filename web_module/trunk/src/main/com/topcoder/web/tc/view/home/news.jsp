@@ -64,7 +64,7 @@
    </tr>
    <tr><td class="newsLinksCell">
         <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">view</A> |
-         <tc-webtag:forumLink forumID="506160" message="discuss this" /> | 
+         <tc-webtag:forumLink forumID="506170" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
