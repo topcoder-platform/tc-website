@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-import javax.ejb.EJBObject;
+import javax.ejb.EJBLocalObject;
 import javax.jms.JMSException;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
