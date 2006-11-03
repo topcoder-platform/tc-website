@@ -493,10 +493,10 @@ public class ForumsUtil {
 					if (!link.startsWith("http://") && !link.startsWith("https://")) {
 						link = "http://" + link;
 					}
-					linkStr.append("<a href=\""+link+"\" class=\"rtbcLink\">"+linkNamesArr[i]+"</a>");
-					if (i<linkNamesArr.length-1) {
+					if (i>0) {
 						linkStr.append("&#160;|&#160;");
 					}
+					linkStr.append("<a href=\""+link+"\" class=\"rtbcLink\">"+linkNamesArr[i]+"</a>");
     			}
     			linkStr.append(")");
     		} 
@@ -518,10 +518,10 @@ public class ForumsUtil {
 					if (!link.startsWith("http://") && !link.startsWith("https://")) {
 						link = "http://" + link;
 					}
-					linkStr.append("<a href=\""+link+"\" class=\"rtbcLink\">"+linkNamesArr[i]+"</a>");
-					if (i<linkNamesArr.length-1) {
+					if (i>0) {
 						linkStr.append("&#160;|&#160;");
 					}
+					linkStr.append("<a href=\""+link+"\" class=\"rtbcLink\">"+linkNamesArr[i]+"</a>");
 				}
 				linkStr.append(")");
         	}
