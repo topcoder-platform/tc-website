@@ -1189,8 +1189,9 @@
                 <include name="ResumeServices.jar"/>
                 <include name="Survey.jar"/>
                 <include name="User.jar"/>
-                <include name="Util.jar"/>
-                
+                <include name="Util.jar"/>                
+            </fileset>
+            <fileset dir="${sar.dir}">
                 <include name="expireOldAffidavits.sar"/>
             </fileset>
         </copy>
