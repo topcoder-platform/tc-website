@@ -41,6 +41,15 @@
     <jsp:param name="image1" value="white"/>
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
+
+
+<p>
+    5.5.6 - 2006.11.02
+    <ul>
+        <li>New Online review.</li>
+    </ul>
+ </p>
+
 <p>
     5.5.5 - 2006.11.01
     <ul>
