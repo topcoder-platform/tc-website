@@ -14,8 +14,7 @@
             <ejb-name>PactsServices</ejb-name>
             <home>com.topcoder.web.ejb.pacts.PactsServicesHome</home>
             <remote>com.topcoder.web.ejb.pacts.PactsServices</remote>
-            <local-home>com.topcoder.web.ejb.pacts.PactsServicesLocalHome</home>
-            <local>com.topcoder.web.ejb.pacts.PactsServicesLocal</remote>
+            <local>com.topcoder.web.ejb.pacts.PactsServicesLocal</local>
             <ejb-class>com.topcoder.web.ejb.pacts.PactsServicesBean</ejb-class>
             <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
