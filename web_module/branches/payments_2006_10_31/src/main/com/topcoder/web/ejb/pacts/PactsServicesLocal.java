@@ -30,7 +30,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UpdateResults;
  * @see com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean
  */
 
-public interface PactsServicesLocal extends EJBObject {
+public interface PactsServicesLocal extends EJBLocalObject {
     // Object retrieval
     Map getAffidavit(long affidavitId) throws  SQLException;
 
