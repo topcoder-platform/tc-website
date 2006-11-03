@@ -459,10 +459,10 @@ public class ForumsUtil {
         return display.toString();
     }
     
-    // For creating links to news articles, match editorials and statistics pages, etc. in breadcrumb.
+    // Creates links to news articles, match editorials and statistics pages, etc. in breadcrumb.
     // The link names are specified by the "linkNames" property in either the forum or category - most links 
-    // in a category will follow the same format, but for exceptions, add the "linkNames" property to the 
-    // forum.
+    // in a category will follow the same format, but for exceptions, add a "linkNames" property to the 
+    // forum to override the default category link names.
     //
     // Specifying links in a category:
     // -------------------------------
