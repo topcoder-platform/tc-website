@@ -109,6 +109,9 @@ public class ReliabilityRating {
      * @throws Exception
      */
     public void caculateRilability(Connection c, int historyLength) throws Exception {
+        if (log.isDebugEnabled()) {
+            log.debug("before mark");
+        }
         int incExMarked = markForInclusionAndExclusion(c);
         log.info(incExMarked + " records marked for inclusion/exclusion");
 
