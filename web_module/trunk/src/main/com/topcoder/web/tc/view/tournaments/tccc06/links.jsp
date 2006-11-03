@@ -17,13 +17,19 @@
 <area shape="rect" alt="" coords="273,1, 366,20" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=overview" />
 </map>
 --%>
+<map name="webcastProgram">
+<area shape="rect" alt="" coords="1,1, 312,75" href="/movies/tournament/tccc06/tccc06AOLWebcast.mpeg" />
+<area shape="rect" alt="" coords="1,85, 312,129" href="/i/downloads/tccc06_program.pdf" />
+</map>
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <!-- LEVEL 1 TABS -->
 <% if (tabLev1.equals("overview")) {%>
 <tr>
     <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tccc06_logo_aol.gif" border="0"/></A></td>
-    <td valign="middle" align="center"><A href="/movies/tournament/tccc06/tccc06AOLWebcast.mpeg"><img src="/i/tournament/tccc06/webcastSneakPeek.png" border="0" alt="AOL Webcast Sneak Peek" /></A>
-    <%--<img src="/i/tournament/tccc06/headline_onsite.gif" border="0" alt="" usemap="#headline" />--%></td>
+    <td valign="middle" align="center"><img src="/i/tournament/tccc06/webcastProgram.gif" border="0" alt="AOL Webcast Sneak Peek &amp; TCCC06 Program" usemap="#webcastProgram"/>
+    <%--<A href="/movies/tournament/tccc06/tccc06AOLWebcast.mpeg"><img src="/i/tournament/tccc06/webcastSneakPeek.png" border="0" alt="AOL Webcast Sneak Peek" /></A>
+    <img src="/i/tournament/tccc06/headline_onsite.gif" border="0" alt="" usemap="#headline" />--%></td>
     <td valign="top" align="right" width="50%"><a href="/"><img src="/i/tournament/tccc06/tc_logo.gif" border="0"/></a></td>
 </tr>
 <tr><td class="topNavBox" colspan="3"><img src="/i/tournament/tccc06/tabs/L1_overviewOn.gif" alt="" border="0" usemap="#L1_tabs"/></td></tr>

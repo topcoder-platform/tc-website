@@ -46,9 +46,11 @@ November 15 - 17, 2006 at the San Diego Marriott Mission Valley, San Diego, Cali
 <span class="bodySubtitle">TCCC Prize Money:</span><br>
 Prizes for the Algorithm and Component competitions total $200,000
 <br><br>
+<%--
 <span class="bodySubtitle">Want to win a trip to the TCCC?</span><br>
 Refer your friends and classmates to TopCoder, and you could be our top <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps">Student Representative</A>.
 <br><br>
+--%>
 <%--<span class="bodySubtitle">Don't forget to take part in the 2006 TCCC Complete Coder Incentive Program!</span><br>
 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=ccip_description">Learn how</A> you can earn more prize money by participating in both Component and Algorithm competitions.
 <br><br>--%>
