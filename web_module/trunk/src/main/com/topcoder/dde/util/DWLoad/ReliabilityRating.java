@@ -1,5 +1,6 @@
 package com.topcoder.dde.util.DWLoad;
 
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.config.ConfigManagerException;
@@ -75,6 +76,8 @@ public class ReliabilityRating {
             Class.forName(jdbcDriver);
             c = DriverManager.getConnection(connectionURL);
             reliabilityRating.caculateRilability(c, Integer.parseInt(historyLength));
+        } catch (SQLException e) {
+            DBMS.printException(e);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
