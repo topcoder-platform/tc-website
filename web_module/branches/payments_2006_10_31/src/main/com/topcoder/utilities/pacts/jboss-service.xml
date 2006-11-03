@@ -4,5 +4,6 @@
 	<mbean code="com.topcoder.utilities.pacts.ExpireOldAffidavits"
 		name="topcoder.startup:name=ExpireOldAffidavits">
 		<attribute name="InitStatus"/>
+		<attribute name="RunningTime"/>10:25</attribute>
 	</mbean>
 </server>

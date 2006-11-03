@@ -17,6 +17,7 @@ public class ExpireOldAffidavits extends ServiceMBeanSupport implements ExpireOl
     private static final String NAME = "ExpireOldAffidavits";
     private Timer timer;
     private static String status = "Not Initialized";
+    private String runningTime = null;
     
     /* (non-Javadoc)
      * @see org.jboss.system.ServiceMBean#getName()
@@ -28,12 +29,22 @@ public class ExpireOldAffidavits extends ServiceMBeanSupport implements ExpireOl
     public String getInitStatus() {
         return status;
     }
+
+    public String getRunningTime() {
+		return runningTime;
+	}
+
+	public void setRunningTime(String runningTime) {
+		this.runningTime = runningTime;
+	}
+    
     
     public void startService() throws Exception {
         try {
             timer = new Timer();
             timer.scheduleAtFixedRate(new ExpireTask(), 0, 1 * 60 * 1000); 
 
+            logger.info("ExpireOldAffidavits will run daily at " + getRunningTime());
         } catch (Exception e) {
             logger.error("ExpireOldAffidavits: Exception on init: " + e);
             status = "Exception on init: " + e;
@@ -57,6 +68,7 @@ public class ExpireOldAffidavits extends ServiceMBeanSupport implements ExpireOl
             }
         }
     }
+
 
 
 }
