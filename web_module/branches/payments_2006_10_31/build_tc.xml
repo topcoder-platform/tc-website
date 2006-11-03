@@ -484,7 +484,9 @@
 
     <target name="build-sars" depends="compile">
         <jar jarfile="${sar.dir}/expireOldAffidavits.sar" basedir="${classes}"
-             includes="com/topcoder/utilities/pacts/ExpireOldAffidavits*">
+             includes="com/topcoder/utilities/pacts/ExpireOldAffidavits*,
+             		com/topcoder/web/tc/controller/legacy/pacts/bean/*.class
+             		com/topcoder/web/tc/controller/legacy/pacts/common*.class">
             <metainf dir="${java}/com/topcoder/utilities/pacts" includes="*.xml"/>
         </jar>
 
@@ -1188,6 +1190,8 @@
                 <include name="Survey.jar"/>
                 <include name="User.jar"/>
                 <include name="Util.jar"/>
+                
+                <include name="expireOldAffidavits.sar"/>
             </fileset>
         </copy>
         <unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes"/>
