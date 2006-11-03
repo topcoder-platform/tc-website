@@ -81,7 +81,7 @@
 <tr class="bodyText"><td nowrap="nowrap">05.09.05 11:20 AM - </td><td width="100%"><A href="/rtables/viewThread.jsp?forum=244237&thread=496018&mc=1">New Algorithm, Design, and Development rating formulas</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.03.05 4:15 PM - </td><td width="100%"><A href="/rtables/viewThread.jsp?forum=244237&thread=443165&mc=1">School name to be made public in Member Profiles</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.21.05 9:30 AM - </td><td width="100%"><A href="/tc">New /tc homepage</A></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">02.09.05 9:00 AM - </td><td width="100%"><A href="http://software.topcoder.com/components/subscriptions.jsp">Developer Subscriptions just became FREE</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">02.09.05 9:00 AM - </td><td width="100%"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/components/subscriptions.jsp">Developer Subscriptions just became FREE</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.07.05 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=pressroom&d2=pr_020705">TC Community Surpasses 50,000 Worldwide</A></td></tr>
 </table>
 
