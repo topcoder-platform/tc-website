@@ -28,7 +28,6 @@ public class ExpireOldAffidavits extends ServiceMBeanSupport implements ExpireOl
     public String getInitStatus() {
         return status;
     }
-
     
     public void startService() throws Exception {
         try {
