@@ -254,7 +254,7 @@
         </jar>
 
         <jar jarfile="${ejb.jars.dir}/notification.jar">
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/notification/**"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/notification/**, com/topcoder/apps/review/ConfigHelper.class"/>
             <metainf dir="${java.dir}/com/topcoder/dde/notification" includes="*.xml"/>
         </jar>
 
