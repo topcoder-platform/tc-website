@@ -487,7 +487,7 @@
              includes="com/topcoder/utilities/pacts/ExpireOldAffidavits*,
              		com/topcoder/web/tc/controller/legacy/pacts/bean/*.class,
              		com/topcoder/web/tc/controller/legacy/pacts/common/*.class,
-             		com/topcoder/web/ejb/pacts/Constants.class">
+             		com/topcoder/web/ejb/pacts/*.class">
 
             <metainf dir="${java}/com/topcoder/utilities/pacts" includes="*.xml"/>
         </jar>
@@ -508,6 +508,7 @@
         <antcall target="move-libs"/>
         <antcall target="move-conf"/>
         <antcall target="deploy-security"/>
+        <antcall target="build-sars"/>
 
     </target>
 
