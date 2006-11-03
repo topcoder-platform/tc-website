@@ -48,7 +48,7 @@ public class ExpireOldAffidavits extends ServiceMBeanSupport implements ExpireOl
 
             try {
             	DataInterfaceBean dib = new DataInterfaceBean();
-            	//dib.expireOldAffidavits();
+            	dib.expireOldAffidavits();
             	
             } catch (Exception e) {
                 if (!(e instanceof NameNotFoundException))
