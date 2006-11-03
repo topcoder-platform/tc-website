@@ -9,4 +9,10 @@ public interface ExpireOldAffidavitsMBean extends ServiceMBean {
      * @return init status for this MBean
      *******************************************************/
     public String getInitStatus();
+    
+    
+    public String getRunningTime();
+
+	public void setRunningTime(String runningTime);
+
 }
