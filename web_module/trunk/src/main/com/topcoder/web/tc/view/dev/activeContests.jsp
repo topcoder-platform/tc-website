@@ -2,9 +2,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ page import="java.util.Map" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="java.util.Map"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -141,7 +141,6 @@ position: relative;
                     <rsc:item name="component_name" row="<%=resultRow%>"/> Version
                     <rsc:item name="version_text" row="<%=resultRow%>"/>
                 </a>
-         <%=resultRow.getItem("max_unrated_registrants").getResultData()!=null && resultRow.getIntItem("max_unrated_registrants") == 0 ? "**" : ""%>
             </td>
             <td class="value">
                 <% if (resultRow.getIntItem("tourny_project")>0) { %>
@@ -227,7 +226,6 @@ position: relative;
                     <rsc:item name="component_name" row="<%=resultRow%>"/> Version
                     <rsc:item name="version_text" row="<%=resultRow%>"/>
                 </a>
-                <%=resultRow.getItem("max_unrated_registrants").getResultData()!=null && resultRow.getIntItem("max_unrated_registrants") == 0 ? "**" : ""%>
             </td>
             <td class="value">
                 <% if (resultRow.getIntItem("tourny_project")>0) { %>
@@ -271,7 +269,6 @@ position: relative;
     <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/components/subscriptions.jsp">Subscriptions</A> we sell, the more royalties we
     pay out to our winners! Please note
     that custom components do not get added to the catalog and therefore do not have royalties.</p>
-<p align="left">** Only rated members may register for this component</p>
 
 <%--
 <div style="float: left; padding-right: 5px;"><img src="/i/tournament/tco06/emblem.gif" alt="TCO06 Component Contest" border="0" /></div>
