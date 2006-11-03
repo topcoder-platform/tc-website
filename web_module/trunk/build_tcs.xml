@@ -213,6 +213,7 @@
                 <include name="com/topcoder/dde/servlet/**"/>
                 <include name="com/topcoder/dde/request/**"/>
                 <include name="com/topcoder/dde/util/**"/>
+                <include name="com/topcoder/apps/review/ConfigHelper.class"/>
             </classes>
             <webinf dir="${resources.dir}/taglib">
                 <include name="tc-webtags.tld"/>
