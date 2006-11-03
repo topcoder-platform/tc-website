@@ -75,7 +75,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             //whether or not they have reviewed the project previously, and the
             //repost status of the project
 
-            query.append("select * ");
+            query.append("select 1 ");
             query.append("from resource rur, resource_info ri ");
             query.append("where rur.resource_role_id in (4, 5, 6, 7) "); // reviewer and test case reviewer
             query.append("and rur.resource_id = ri.resource_id and ri.resource_info_type_id = 1 and ri.value = ? ");
