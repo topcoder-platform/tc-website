@@ -1,11 +1,19 @@
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="com.jivesoftware.forum.ForumFactory,
+				 com.jivesoftware.forum.ForumCategory,
+				 com.jivesoftware.forum.ForumPermissions,
+				 com.topcoder.shared.util.ApplicationServer,
+				 com.topcoder.web.forums.ForumConstants,
+				 com.topcoder.web.common.StringUtils,
+				 java.util.Iterator" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<% String unreadCategories = request.getAttribute("unreadCategories") == null ? "" : (String)request.getAttribute("unreadCategories");%>
+<% 	ForumFactory forumFactory = (ForumFactory)request.getAttribute("forumFactory"); %>
+<% 	String unreadCategories = request.getAttribute("unreadCategories") == null ? "" : (String)request.getAttribute("unreadCategories");%>
 
-<A class="<%=(unreadCategories.indexOf("roundtables")<0)?"rtLinkOld":"rtLinkBold"%>" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=13">Round Tables</A><br>
-<A class="<%=(unreadCategories.indexOf("matches")<0)?"rtLinkOld":"rtLinkBold"%>" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=14">Algorithm Matches</A><br>
-<A class="<%=(unreadCategories.indexOf("highschool")<0)?"rtLinkOld":"rtLinkBold"%>" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=21">High School Matches</A><br>
-<A class="<%=(unreadCategories.indexOf("assembly")<0)?"rtLinkOld":"rtLinkBold"%>" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=19">Assembly Contests</A><br>
-<A class="<%=(unreadCategories.indexOf("longcontests")<0)?"rtLinkOld":"rtLinkBold"%>" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=17">Marathon Matches</A><br>
-<A class="<%=(unreadCategories.indexOf("news")<0)?"rtLinkOld":"rtLinkBold"%>" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=8">News Discussions</A><br>
-<A class="<%=(unreadCategories.indexOf("sponsors")<0)?"rtLinkOld":"rtLinkBold"%>" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=6">Sponsor Discussions</A>
+<%	Iterator itCategories = forumFactory.getRootForumCategory().getCategories(); 
+	while (itCategories.hasNext()) {
+		ForumCategory category = (ForumCategory)itCategories.next();
+		String leftNavName = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME)); 
+		if (!leftNavName.equals("")) { %>
+			<A class="<%=(unreadCategories.indexOf(leftNavName)<0)?"rtLinkOld":"rtLinkBold"%>" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=category.getID()%>"><%=category.getName()%></A><br>
+		<%	} %>
+<%	} %>

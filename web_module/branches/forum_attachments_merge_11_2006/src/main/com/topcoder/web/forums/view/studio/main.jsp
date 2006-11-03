@@ -6,9 +6,7 @@
                  com.topcoder.web.common.StringUtils,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
-                 java.util.ArrayList,
-                 java.util.Calendar,
-                 java.util.Iterator"
+                 java.util.*"
         %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -17,7 +15,6 @@
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="categories" name="categories" type="java.util.ArrayList" toScope="request"/>
-<tc-webtag:useBean id="deepCategories" name="deepCategories" type="java.util.ArrayList" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
 <% User user = (User) request.getAttribute("user");
@@ -89,7 +86,7 @@
             } else {
                 //resultFilter.setNumResults(Integer.parseInt(category.getProperty("displayLimit")));
                 ArrayList forumsList = ForumsUtil.getForums(category, resultFilter, true);
-                ArrayList pageList = ForumsUtil.getForumsPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
+                ArrayList pageList = ForumsUtil.getPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
                 itForums = pageList.iterator();
                 itForumsCopy = pageList.iterator();
             }
@@ -175,7 +172,7 @@
 <% } %>
 
 <div style="float:right;">
-    <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=1"><img border="none" src="/i/forums/btn_rss.gif"/></a>
+    <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=1"><img alt="RSS" border="none" src="/i/forums/btn_rss.gif"/></a>
 </div>
 <span class="small">A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <%if (user != null) {%><A href="?module=Main&markRead=t" class="rtbcLink">(Mark
     all as read)</A><% } %><br>

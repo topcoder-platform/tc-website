@@ -8,9 +8,11 @@ import javax.naming.InitialContext;
 import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.Forum;
+import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.ForumPermissions;
+import com.jivesoftware.forum.Attachment;
 import com.jivesoftware.forum.WatchManager;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.TCContext;
@@ -21,6 +23,8 @@ import com.topcoder.web.ejb.messagehistory.MessageHistory;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
 import com.topcoder.shared.util.DBMS;
+
+import java.util.Iterator;
 
 /**
  * @author mtong
@@ -44,6 +48,7 @@ public class PostMessage extends ForumsProcessor {
         
         String forumIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.FORUM_ID));
         String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
+        String tempMessageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
 		String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
 		String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags
             (getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
@@ -85,6 +90,7 @@ public class PostMessage extends ForumsProcessor {
 		if (hasErrors()) {
 			setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
 			setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
+			setDefault(ForumConstants.TEMP_MESSAGE_ID, getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
 			setDefault(ForumConstants.POST_MODE, postMode);
 			setDefault(ForumConstants.MESSAGE_SUBJECT, subject);
             setDefault(ForumConstants.MESSAGE_BODY, textareaBody);
@@ -93,8 +99,10 @@ public class PostMessage extends ForumsProcessor {
                 getRequest().setAttribute("thread", thread);
                 getRequest().setAttribute("message", message);
             }
-
-			getRequest().setAttribute("forumFactory", forumFactory);
+            
+            ForumMessage tempMessage = (ForumMessage)getRequest().getSession().getAttribute("tempMessage_" + tempMessageIDStr); 
+            getRequest().setAttribute("tempMessage", tempMessage);
+            
 			getRequest().setAttribute("forum", forum);
             getRequest().setAttribute("postMode", postMode);
 
@@ -105,6 +113,12 @@ public class PostMessage extends ForumsProcessor {
 
         if (message == null || postMode.equals("Reply")) {
 			message = forum.createMessage(user);
+			ForumMessage tempMessage = (ForumMessage)getRequest().getSession().getAttribute("tempMessage_" + tempMessageIDStr);
+			Iterator itAttachments = tempMessage.getAttachments();
+			while (itAttachments.hasNext()) {
+				Attachment attachment = (Attachment)itAttachments.next();
+				message.createAttachment(attachment.getName(), attachment.getContentType(), attachment.getData());
+			}
 		}
         long histModificationDate = message.getModificationDate().getTime();
         String histSubject = message.getSubject();
@@ -126,7 +140,7 @@ public class PostMessage extends ForumsProcessor {
                 BaseProcessor.close(ctx);
             }
         }
-
+        
         WatchManager watchManager = forumFactory.getWatchManager();
 		if (thread != null) {
 			if (postMode.equals("Reply")) {
@@ -144,6 +158,11 @@ public class PostMessage extends ForumsProcessor {
                     watchManager.getTotalWatchCount(user, JiveConstants.THREAD) < ForumConstants.MAX_THREAD_WATCHES) {
                 watchManager.createWatch(user, thread);
             }
+		}
+		ForumCategory category = thread.getForum().getForumCategory();
+		while (category != null) {
+			category.setModificationDate(thread.getModificationDate());
+			category = category.getParentCategory();
 		}
 
 		setNextPage(getSessionInfo().getServletPath() + 

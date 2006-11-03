@@ -107,7 +107,6 @@ public class PostAnnouncement extends ForumsProcessor {
             setDefault(ForumConstants.ANNOUNCEMENT_BODY, textareaBody);
 
             getRequest().setAttribute("announcement", announcement);
-			getRequest().setAttribute("forumFactory", forumFactory);
             getRequest().setAttribute("category", category);
 			getRequest().setAttribute("forum", forum);
             getRequest().setAttribute("postMode", postMode);

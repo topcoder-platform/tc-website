@@ -16,6 +16,7 @@
                 com.jivesoftware.forum.ReadTracker,
                 com.jivesoftware.forum.RatingManagerFactory,
                 com.jivesoftware.forum.RatingManager,
+                com.jivesoftware.forum.Attachment,
                 java.text.NumberFormat,
                 java.text.DecimalFormat,
                 java.util.*,
@@ -367,6 +368,19 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
          <%  } %>
       </td>
    	</tr>
+   	<% if (message.getAttachmentCount() > 0) { %>
+	<tr>
+		<td class="rtHeader" colspan="2">
+			Attachments:
+			<%	Iterator attachments = message.getAttachments();
+				while(attachments.hasNext()) {
+					Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
+					<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" /></A>
+					<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
+			<% 	} %>
+		</td>
+ 	</tr>
+    <% } %>
    	<%   double pct = ratingCount<=0 ? 0 : 100*(double)(posRatings)/(double)(ratingCount);
         String msgBodyDisplay = ForumsUtil.collapsePost(user, pct, ratingCount, thread.getMessageCount())?"display:none":"";
    	%>
@@ -534,11 +548,11 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
         <%  } %>
    </b></td></tr>
 <% } else { %>
-    <td align="right"><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
+    <td align="right"><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" src="/i/interface/btn_rss.gif"/></a></td>
 <% } %>
 </table>
 <% if (paginator.getNumPages() > 1) { %>
-    <br><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img border="none" align="right" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a>
+    <br><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" align="right" src="/i/interface/btn_rss.gif"/></a>
 <% } %>
         <p><br></p>
         </td>

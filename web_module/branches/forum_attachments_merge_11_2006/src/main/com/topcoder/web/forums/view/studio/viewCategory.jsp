@@ -121,7 +121,7 @@
         <div style="float:right;" class="rtbc"><b>
             <% if (paginator.getPreviousPage()) { %>
             <A href="<%=prevLink%>" class="rtbcLink">
-                <<PREV</A>&#160;&#160;&#160;
+                << PREV</A>&#160;&#160;&#160;
             <% } %> [
             <% pages = paginator.getPages(5);
                 for (int i = 0; i < pages.length; i++) {
@@ -262,7 +262,7 @@
 
 <div>
     <div style="float:right;">
-        <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>"><img border="none" src="/i/forums/btn_rss.gif"/></a>
+        <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>"><img alt="RSS" border="none" src="/i/forums/btn_rss.gif"/></a>
     </div>
 <span class="small">
 <% if (forumCategory.getID() != 1) { %>

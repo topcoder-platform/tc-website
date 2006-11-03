@@ -63,7 +63,6 @@ public class RevisionHistory extends ForumsProcessor {
         String threadView = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_VIEW));
         getRequest().setAttribute("threadView", threadView);
         
-        getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("forum", message.getForum());
         getRequest().setAttribute("message", message);
         getRequest().setAttribute("revisionList", revisionList);

@@ -43,7 +43,6 @@ public class ForumList extends ForumsProcessor {
         
 		Iterator itForums = forumFactory.getRootForumCategory().getForums(resultFilter);
 
-        getRequest().setAttribute("forumFactory", forumFactory);
 		getRequest().setAttribute("forums", itForums);
         getRequest().setAttribute("categories", mainCategoryList);
         getRequest().setAttribute("deepCategories", deepCategoryList);

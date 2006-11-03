@@ -75,7 +75,6 @@ public class Thread extends ForumsProcessor {
             BaseProcessor.close(ctx);
         }
         
-		getRequest().setAttribute("forumFactory", forumFactory);
 		getRequest().setAttribute("forum", forum);
 		getRequest().setAttribute("thread", thread);
 		getRequest().setAttribute("paginator", paginator);
