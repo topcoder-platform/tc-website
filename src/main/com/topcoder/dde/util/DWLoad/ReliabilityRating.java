@@ -799,7 +799,7 @@ public class ReliabilityRating {
                 ps3.clearParameters();
                 ps3.setLong(2, unmarked.getLong("project_id"));
                 ps3.setLong(3, unmarked.getLong("user_id"));
-                int[] info = getPriorProjects(conn, unmarked.getLong("user_id"), unmarked.getLong("project_id"), unmarked.getInt("project_type_id"));
+                int[] info = getPriorProjects(conn, unmarked.getLong("user_id"), unmarked.getLong("project_id"), unmarked.getInt("project_category_id"));
                 if (info[RELIABLE_COUNT_IDX] > 0) {
                     //if they have previously had projects that were reliable, then this one counts
                     ps3.setInt(1, 1);
