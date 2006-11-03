@@ -1,6 +1,5 @@
 package com.topcoder.web.ejb.pacts;
 
-import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -1446,7 +1445,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return the map of (projectID, componentID) pairs
      * @throws SQLException If there was some error retrieving the data.
      */
-    public Map getPaymentComponentData(long[] paymentIds) throws RemoteException, SQLException {
+    public Map getPaymentComponentData(long[] paymentIds) throws SQLException {
         String paymentList = makeList(paymentIds);
         StringBuffer sb = new StringBuffer(300);
         sb.append("SELECT pd.component_project_id, cc.component_id ");
@@ -1472,7 +1471,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return  The created dates
      * @throws  SQLException If there is some problem retrieving the data
      */
-    public Map getCreationDates(long[] paymentIds) throws RemoteException, SQLException {
+    public Map getCreationDates(long[] paymentIds) throws SQLException {
         String paymentList = makeList(paymentIds);
         StringBuffer sb = new StringBuffer(300);
         sb.append("SELECT pdx.payment_id, min(pd.date_modified) as date_created ");
