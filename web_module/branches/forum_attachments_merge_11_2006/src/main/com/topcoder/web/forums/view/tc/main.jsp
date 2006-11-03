@@ -1,15 +1,15 @@
 <%@ page import="com.jivesoftware.base.User,
                  com.jivesoftware.forum.Forum,
+                 com.jivesoftware.forum.ForumCategory,
                  com.jivesoftware.forum.ReadTracker,
                  com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.WatchManager,
+                 com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.common.StringUtils,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
-                 com.topcoder.shared.util.ApplicationServer,
-                 java.util.ArrayList,
-                 java.util.Calendar,
-                 java.util.Iterator"
+                 com.topcoder.web.forums.util.ImageMapper,
+                 java.util.*"
         %>
 <%@ page contentType="text/html;charset=utf-8" %>
 
@@ -18,7 +18,6 @@
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="categories" name="categories" type="java.util.ArrayList" toScope="request"/>
-<tc-webtag:useBean id="deepCategories" name="deepCategories" type="java.util.ArrayList" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
 <% User user = (User) request.getAttribute("user");
@@ -117,13 +116,15 @@
     </tc-webtag:iterator>
 </table>
 <%  } %>
+--%>
 
+<%--
 <%  if (deepCategories.size() > 0) { %>
 <br><table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
-        <td class="rtHeader" width="80%">Category</td>
-        <td class="rtHeader" width="20%">T./M.</td>
-        <td class="rtHeader" align="center" colspan="2">Last Post</td>
+        <td class="rtHeader" width="100%">Category</td>
+        <td class="rtHeader"><div style="width:80px;">T./M.</div></td>
+        <td class="rtHeader" align="center" colspan="2"><div style="width:320px;">Last Post</div></td>
     </tr>
     <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)deepCategories.iterator()%>'>
         <%  trackerClass = (user == null || category.getMessageCount() <= 0 || readTracker.getReadStatus(user, category.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
@@ -135,18 +136,21 @@
                 <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="<%=trackerClass%>"><%=category.getName()%></A>
             <%  } %>
                 <% if (category.getDescription() != null) { %><br/><div class="rtDescIndent"><%=category.getDescription()%></div><% } %></td>
-            <td class="rtThreadCell"><%=category.getThreadCount()%>&#160;/&#160;<%=category.getMessageCount()%></td>
-            <% if (category.getMessageCount() > 0) { %>
+            <td class="rtThreadCell" style="width: 80px;"><%=category.getThreadCount()%>&#160;/&#160;<%=category.getMessageCount()%></td>
+            <% if (category.getLatestMessage() != null) { %>
                 <tc-webtag:useBean id="message" name="category" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
-                <td class="rtThreadCell"><b><tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></b></td>
+                <td class="rtThreadCell" style="width: 220px;"><b>
+                	<tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/>
+                </b></td>
                 <% if (message.getUser() != null) { %>
-                    <td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
+                	<td class="rtThreadCell" style="width: 100px;">
+                    <tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
                 <% } else { %>
-                    <td class="rtThreadCell">&nbsp;</td>
+                	<td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
                 <% } %>
             <% } else { %>
-                <td class="rtThreadCell">&nbsp;</td>
-                <td class="rtThreadCell">&nbsp;</td>
+                <td class="rtThreadCell" style="width: 220px;">&nbsp;</td>
+                <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
             <% } %>
         </tr>
     </tc-webtag:iterator>
@@ -162,9 +166,10 @@
 %>
 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)categories.iterator()%>'>
     <% String limit = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_DISPLAY_LIMIT));
-        if (!"0".equals(limit)) { %>
-    <% Iterator itForums = null, itForumsCopy = null;
-        int numActiveForums = 0;
+       if (!"0".equals(limit)) {
+       	Iterator itForums = null, itForumsCopy = null;
+       	Iterator itCategories = null, itCategoriesCopy = null;
+        int numActiveForums = 0, numActiveCategories = 0;
         if (!"".equals(limit)) {
             if (limit.endsWith("d")) {
                 int numDays = Integer.parseInt(limit.substring(0, limit.length() - 1));
@@ -176,20 +181,96 @@
                 itForumsCopy = category.getForums(resultFilter);
             } else {
                 //resultFilter.setNumResults(Integer.parseInt(category.getProperty("displayLimit")));
-                ArrayList forumsList = ForumsUtil.getForums(category, resultFilter, true);
-                ArrayList pageList = ForumsUtil.getForumsPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
-                itForums = pageList.iterator();
-                itForumsCopy = pageList.iterator();
+                if (category.getCategoryCount() > 0) {
+                	ArrayList categoriesList = ForumsUtil.getCategories(category, resultFilter, true);
+                	ArrayList pageList = ForumsUtil.getPage(categoriesList, 0, Integer.parseInt(category.getProperty("displayLimit")));
+                	itCategories = pageList.iterator();
+                	itCategoriesCopy = pageList.iterator();
+                } else {
+                	ArrayList forumsList = ForumsUtil.getForums(category, resultFilter, true);
+                	ArrayList pageList = ForumsUtil.getPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
+                	itForums = pageList.iterator();
+                	itForumsCopy = pageList.iterator();
+                }
             }
         } else {
             resultFilter.setNumResults(ResultFilter.NULL_INT);
             itForums = category.getForums(resultFilter);
             itForumsCopy = category.getForums(resultFilter);
         }
-        while (itForums.hasNext()) {
-            if (((Forum) itForums.next()).getMessageCount() > 0) numActiveForums++;
+        if (itCategories != null) {
+        	while (itCategories.hasNext()) {
+        		if (((ForumCategory) itCategories.next()).getMessageCount() > 0) numActiveCategories++;
+        	}
         }
-        if (numActiveForums > 0 || ("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)))) { %>
+  		if (itForums != null) {
+	        while (itForums.hasNext()) {
+	            if (((Forum) itForums.next()).getMessageCount() > 0) numActiveForums++;
+	        }
+        }
+        if (numActiveCategories > 0) { %>
+    <br>
+    <table cellpadding="0" cellspacing="0" class="rtTable">
+        <tr>
+            <td class="rtHeader" width="100%">
+                <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
+            </td>
+            <td class="rtHeader"><div style="width:80px;">T./M.</div></td>
+            <td class="rtHeader" align="center" colspan="2"><div style="width:320px;">Last Post</div></td>
+        </tr>
+        <tc-webtag:iterator id="subcategory" type="com.jivesoftware.forum.ForumCategory" iterator='<%=itCategoriesCopy%>'>
+            <% trackerClass = (user == null || subcategory.getMessageCount() <= 0 || readTracker.getReadStatus(user, subcategory.getLatestMessage()) == ReadTracker.READ
+                    || ("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, subcategory.getLatestMessage().getForumThread()))) ? "rtLinkOld" : "rtLinkBold"; %>
+            <% if (subcategory.getMessageCount() > 0 || ("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)))) { %>
+            <tr>
+                <td class="rtThreadCellWrap">
+                	<%	if ("software".equals(category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME))) { %>
+                		<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getPhaseIcon(subcategory)%>" alt="<%=ImageMapper.getPhaseText(subcategory)%>" width="25" height="17" border="0">
+						<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getTechnologyIcon(subcategory)%>" alt="<%=ImageMapper.getTechnologyText(subcategory)%>" border="0"/>
+					<%	} %>
+                    <% if (user == null) { %>
+                    <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=subcategory.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=subcategory.getMessageCount()%>" class="rtLinkNew"><%=subcategory.getName()%></A>
+                    <% } else { %>
+                    <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=subcategory.getID()%>" class="<%=trackerClass%>"><%=subcategory.getName()%></A>
+                    <% } %>
+                    <% if (subcategory.getDescription() != null) { %><br/>
+						<div class="rtDescIndent"><%=subcategory.getDescription()%></div>
+					<% } %>
+				</td>
+                <td class="rtThreadCell" style="width: 80px;"><%=subcategory.getThreadCount()%>
+                    &#160;/&#160;<%=subcategory.getMessageCount()%></td>
+                <% if (subcategory.getMessageCount() > 0) { %>
+                <tc-webtag:useBean id="message" name="subcategory" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
+                <td class="rtThreadCell" style="width: 220px;"><b>
+                    <tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></b>
+                </td>
+                <% if (message.getUser() != null) { %>
+                <td class="rtThreadCell" style="width: 100px;">
+                    <tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
+                <% } else { %>
+                <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
+                <% } %>
+                <% } else { %>
+                <td class="rtThreadCell" style="width: 220px;">&nbsp;</td>
+                <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
+                <% } %>
+            </tr>
+            <% } %>
+        </tc-webtag:iterator>
+        <% if (!"".equals(limit)) {
+            int limitCNT = -1;
+            try {
+                limitCNT = Integer.parseInt(limit);
+            } catch (Exception e) {
+            }
+            if (category.getForumCount() >= limitCNT) { %>
+        		<tr><td class="rtThreadCell" colspan="4">
+            		<A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtLinkNew">...more</A>
+        		</td></tr>
+        	<% } %>
+        <% } %>
+    </table>    
+    <%  } else if (numActiveForums > 0 || ("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)))) { %>
     <br>
     <table cellpadding="0" cellspacing="0" class="rtTable">
         <tr>
@@ -211,23 +292,24 @@
                     <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="<%=trackerClass%>"><%=forum.getName()%></A>
                     <% } %>
                     <% if (forum.getDescription() != null) { %><br/>
-
-                    <div class="rtDescIndent"><%=forum.getDescription()%></div><% } %></td>
+                    	<div class="rtDescIndent"><%=forum.getDescription()%></div>
+                    <% } %>
+                </td>
                 <td class="rtThreadCell" style="width: 80px;"><%=forum.getThreadCount()%>
                     &#160;/&#160;<%=forum.getMessageCount()%></td>
                 <% if (forum.getMessageCount() > 0) { %>
                 <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
-                <td class="rtThreadCell" style="width: 270px;"><b>
+                <td class="rtThreadCell" style="width: 220px;"><b>
                     <tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></b>
                 </td>
                 <% if (message.getUser() != null) { %>
                 <td class="rtThreadCell" style="width: 100px;">
                     <tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
                 <% } else { %>
-                <td class="rtThreadCell" style="width: 100px;"></td>
+                <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
                 <% } %>
                 <% } else { %>
-                <td class="rtThreadCell" style="width: 270px;">&nbsp;</td>
+                <td class="rtThreadCell" style="width: 220px;">&nbsp;</td>
                 <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
                 <% } %>
             </tr>
@@ -240,10 +322,10 @@
             } catch (Exception e) {
             }
             if (category.getForumCount() >= limitCNT) { %>
-        <tr><td class="rtThreadCell" colspan="4">
-            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtLinkNew">...more</A>
-        </td></tr>
-        <% } %>
+        		<tr><td class="rtThreadCell" colspan="4">
+            		<A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtLinkNew">...more</A>
+        		</td></tr>
+        	<% } %>
         <% } %>
     </table>
     <% } %>
@@ -257,7 +339,7 @@
             postings. <%if (user != null) {%><A href="?module=Main&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
             all as read)</A><%}%></td>
         <td align="right">
-            <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=1"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a>
+            <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=1"><img alt="RSS" border="none" src="/i/interface/btn_rss.gif"/></a>
         </td>
     </tr>
     <tr>
