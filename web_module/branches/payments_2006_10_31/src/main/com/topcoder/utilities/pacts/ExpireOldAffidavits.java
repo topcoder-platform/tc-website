@@ -1,12 +1,14 @@
 package com.topcoder.utilities.pacts;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import javax.naming.NameNotFoundException;
 
 import org.apache.log4j.Logger;
-import org.jboss.system.ServiceMBean;
 import org.jboss.system.ServiceMBeanSupport;
 
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
@@ -41,16 +43,26 @@ public class ExpireOldAffidavits extends ServiceMBeanSupport implements ExpireOl
     
     public void startService() throws Exception {
         try {
+        	Date start = getStartTime();
+        	
             timer = new Timer();
             timer.scheduleAtFixedRate(new ExpireTask(), 0, 1 * 60 * 1000); 
 
-            logger.info("ExpireOldAffidavits will run daily at " + getRunningTime());
+            logger.info("ExpireOldAffidavits will run daily at " + getRunningTime() + " starting at " + start);
         } catch (Exception e) {
             logger.error("ExpireOldAffidavits: Exception on init: " + e);
             status = "Exception on init: " + e;
             throw e;
         }
         status = "Initialized";
+    }
+    
+    private Date getStartTime() throws ParseException {
+    	SimpleDateFormat sdfDay = new SimpleDateFormat("yyyy.MM.dd");
+    	SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy.MM.dd h:mm a");
+    	
+    	String date = sdfDay.format(new Date()) + " " + getRunningTime();
+    	return sdfDate.parse(date);    	
     }
 
     private class ExpireTask extends TimerTask {
