@@ -221,7 +221,7 @@
 
              <hr width="100%" size="1px" noshade>
 
-<!-- ESPN begins -->
+<%-- ESPN begins 
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/espn_logo.png" alt="ESPN" border="0" /></td>
@@ -231,9 +231,10 @@
                      </td>
                 </tr>
             </table>
-<!-- ESPN ends -->
 
              <hr width="100%" size="1px" noshade>
+ESPN ends 
+--%>
 
 <!-- Ferguson begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
