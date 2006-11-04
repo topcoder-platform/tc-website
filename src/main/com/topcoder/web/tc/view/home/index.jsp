@@ -100,7 +100,7 @@
             <A href="/longcontest/?module=Static&d1=intel_overview"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0" style="display:block;"/></A>
             --%>
             <%-- DIGITAL RUN --%>
-            <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrun.png" alt="The Digital Run" border="0" style="display:block;"/></A>
+            <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrun20061104.png" alt="The Digital Run" border="0" style="display:block;"/></A>
             
             <%-- bloomberg 
             <map name="bbg_srm">
