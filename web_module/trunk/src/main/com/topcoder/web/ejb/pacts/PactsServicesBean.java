@@ -4800,17 +4800,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             int[] numWinners = new int[2];
             ResultSetContainer[] winners = new ResultSetContainer[2];
 
-            // Get winning designers/developers to be paid
-            if (status == ProjectStatus.ID_COMPLETED) {
+            // Get winning designers/developers to be paid for completed projects
+            if (status == 7) {
                 StringBuffer getWinners = new StringBuffer(300);
-                getWinners.append("select pr.placed, pr.user_id, payment as paid, pt.project_type_name ");
-                getWinners.append("from tcs_catalog:project_result pr, tcs_catalog:project p, tcs_catalog:project_type pt ");
+                getWinners.append("select pr.placed, pr.user_id, payment as paid, pcl.name ");
+                getWinners.append("from tcs_catalog:project_result pr, tcs_catalog:project p, tcs_catalog:project_category_lu pcl ");
                 getWinners.append("where pr.project_id = " + projectId + " ");
                 getWinners.append("and pr.project_id = p.project_id ");
-                getWinners.append("and p.project_category_id = pt.project_category_id ");
+                getWinners.append("and p.project_category_id = pcl.project_category_id ");
                 getWinners.append("and pr.placed IN (1,2) ");
                 getWinners.append("and pr.payment > 0 ");
                 getWinners.append("order by pr.placed");
+                                
                 winners[0] = runSelectQuery(c, getWinners.toString(), false);
                 numWinners[0] = winners[0].getRowCount();
             }
@@ -5219,12 +5220,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" and pi_rated.project_id = p.project_id ");
         query.append(" and pi_comp.project_info_type_id = 2 ");
         query.append(" and pi_comp.project_id = p.project_id ");
-        query.append(" and pi_vers.project_info_type_id = 7 ");
+        query.append(" and pi_vers.project_info_type_id = 1 ");
         query.append(" and pi_vers.project_id = p.project_id ");
-        query.append(" and cv.version = pi_vers.value ");
-        query.append(" and cv.component_id = c.component_id ");
+        query.append(" and cv.comp_vers_id  = pi_vers.value   ");
+        query.append(" and cv.component_id = c.component_id   ");
         query.append(" and " + filterCondition("component_name", search));
         query.append(" order by pi_rated.value ");
+
         
         ArrayList param = new ArrayList();
         param.add(search);
