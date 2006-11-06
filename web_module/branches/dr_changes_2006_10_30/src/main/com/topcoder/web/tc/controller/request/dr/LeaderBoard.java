@@ -4,9 +4,13 @@
 
 package com.topcoder.web.tc.controller.request.dr;
 
+import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -16,6 +20,7 @@ import com.topcoder.web.tc.model.dr.LeaderBoardRow;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <strong>Purpose</strong>:
@@ -51,7 +56,7 @@ public class LeaderBoard extends BaseBoard {
         ResultSetContainer rsc = retrieveBoardData(Constants.STAGE_ID, Constants.LEADER_BOARD_COMMAND, Constants.LEADER_BOARD_QUERY);
 
         // pre-process board for the prizes
-        List leaderBoardResult = processBoard(rsc, designBoard);
+        List leaderBoardResult = processBoard(rsc, designBoard, getTopPrizeFactor(period, designBoard ? "112" : "113"));
 
         String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         boolean invert = sortDir.equals("desc");
@@ -78,7 +83,37 @@ public class LeaderBoard extends BaseBoard {
      * @param rsc         the ResultSetContainer retrieved from DB
      * @param designBoard true if its a design board (false if development)
      */
-    private List processBoard(ResultSetContainer rsc, boolean designBoard) throws TCWebException {
+    private double getTopPrizeFactor(String stageId, String phaseId) throws TCWebException {
+            double topPrizeFactor = 3.0;
+
+            Request r = new Request();
+            r.setContentHandle("dr_stage_top_prize_factor");
+            r.setProperty(Constants.PHASE_ID, phaseId);
+            r.setProperty(Constants.STAGE_ID, stageId);
+            DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+            Map m = null;
+            try {
+                m = dai.getData(r);
+
+                ResultSetContainer rscTopFactor = (ResultSetContainer) m.get("dr_stage_top_prize_factor");        
+
+                if (rscTopFactor.size() != 1) {
+                    throw new TCWebException("Could not find top prize factor for the leader board.");
+                }
+            } catch (Exception e) {
+                throw new TCWebException("Command " + "dr_stage_top_prize_factor" + " failed.", e);
+            }
+
+            return placementArray;
+        }
+    
+    /**
+     * First processing of the board
+     *
+     * @param rsc         the ResultSetContainer retrieved from DB
+     * @param designBoard true if its a design board (false if development)
+     */
+    private List processBoard(ResultSetContainer rsc, boolean designBoard, double topPrizeFactor) throws TCWebException {
         long topThirdAttempt = 0;
 
         for (Iterator it = rsc.iterator(); it.hasNext();) {
@@ -87,7 +122,7 @@ public class LeaderBoard extends BaseBoard {
             }
         }
 
-        topThirdAttempt = Math.round(Math.ceil(topThirdAttempt / 3.0));
+        topThirdAttempt = Math.round(Math.ceil(topThirdAttempt / topPrizeFactor));
 
         long totalPoints = 0;
         long totalPointsThreshold = -1;
