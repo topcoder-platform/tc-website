@@ -39,6 +39,20 @@
    </td></tr>
 ---------------------------%>
 <%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>11.06.06<br>10:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=ViewSurvey&sid=8054">News Icons Contest Vote</A>
+      </span><br><br>
+      At the Studio, we recently ran a contest to redesign the news icons for this page (for an example icon, look a couple inches in &larr; that direction).  Here's your chance to pick the winner!
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=ViewSurvey&sid=8054">vote</A> |
+         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=21">discuss this</A> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
         <br>11.06.06<br>9:45 AM</td>
@@ -206,18 +220,4 @@ This 9pm EST SRM attracted many long established Topcoder members, but had sligh
     <tc-webtag:forumLink forumID="506040" message="discuss this"/> |
     <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
 </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>10.30.06<br>4:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      TopCoder members honor victor_lxd
-      </span><br><br>
-      In SRM 324, dedicated to the memory of <tc-webtag:handle coderId="13377493"/>, TopCoder members donated $3,253 of their winnings. With TopCoder's matching donation, and other donations from members, the total giving from the community to help <tc-webtag:handle coderId="13377493"/>'s family was more than $12,000. Thank you.
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=pressroom&d2=art_091806">learn more</A> |
-         <tc-webtag:forumLink forumID="506118" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
 
