@@ -4788,9 +4788,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             */
             
             checkExists.append("select c.component_name, current as due_date "); // FIX due date!!!
-            checkExists.append("from project p, ");
-            checkExists.append("comp_catalog c, ");
-            checkExists.append("project_info pi_comp, ");
+            checkExists.append("from tcs_catalog:project p, ");
+            checkExists.append("tcs_catalog:comp_catalog c, ");
+            checkExists.append("tcs_catalog:project_info pi_comp, ");
             checkExists.append("OUTER project_info pi_complete ");
             checkExists.append("where pi_comp.value = c.component_id ");
             checkExists.append("and pi_complete.project_info_type_id = 21 ");
