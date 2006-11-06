@@ -198,12 +198,22 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
          */
         private void lookupData(long projectId) throws SQLException {
             StringBuffer query = new StringBuffer(300);
-            query.append("SELECT cc.component_name, p.complete_date, p.project_type_id ");
-            query.append("FROM project p, comp_versions cv, comp_catalog cc ");
-            query.append("WHERE p.comp_vers_id = cv.comp_vers_id ");
-            query.append("AND cv.component_id = cc.component_id ");
-            query.append("AND p.project_id = " + projectId + " ");
-            query.append("AND p.cur_version = 1");
+
+            query.append("select c.component_name, pc.name as category_name, pi_complete.value as complete_date");
+            query.append("from project p, ");
+            query.append("comp_catalog c, ");
+            query.append("project_info pi_comp, ");
+            query.append("project_category_lu pc, ");
+            query.append("OUTER project_info pi_complete ");
+            query.append("where pi_comp.value = c.component_id ");
+            query.append("and pi_complete.project_info_type_id = 21 ");
+            query.append("and p.project_category_id = pc.project_category_id ");  
+            query.append("and pi_complete.project_id = p.project_id ");
+            query.append("and pi_comp.project_info_type_id = 2 ");
+            query.append("and pi_comp.project_id = p.project_id ");
+            query.append("and p.project_id = " + projectId);
+
+            
             ResultSetContainer rsc = runSelectQuery(DBMS.TCS_OLTP_DATASOURCE_NAME, query.toString());
 
             if (rsc.getRowCount() != 1) {
@@ -212,7 +222,7 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
 
             componentName = rsc.getStringItem(0, "component_name");
             completeDate =  rsc.getStringItem(0, "complete_date") == null? new Date() : rsc.getTimestampItem(0, "complete_date");
-            projectType = rsc.getIntItem(0, "project_type_id") == 1? "Design" : "Development";
+            projectType = rsc.getStringItem(0, "category_name");
         }
 
     }

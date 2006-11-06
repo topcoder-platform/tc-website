@@ -143,7 +143,7 @@
         </td>
         <td class="valueC">
             <c:choose>
-                <c:when test="affidavit.header.notarized">yes</c:when>
+                <c:when test="${affidavit.header.notarized}">yes</c:when>
                 <c:otherwise>no</c:otherwise>                 
             </c:choose>
         </td>
