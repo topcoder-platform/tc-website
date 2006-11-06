@@ -222,7 +222,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
                 Five<br>Prize</a>*</td>
         <td class="headerR" nowrap="nowrap" width="16%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top
-                Third<br>Prize</a>*</td>
+                Performer<br>Prize</a>*</td>
         <td class="headerR" style="border-right: 1px solid #999999;" width="16%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Total<br>
                 Prizes</a>*</td>
@@ -264,12 +264,12 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
             </c:if>
         </td>
         <td class="valueC">
-            <c:if test="${boardRow.topThird}">
+            <c:if test="${boardRow.topPerformer}">
                 <div class="container" id="container<%=i%>b">
                     <img src="/i/interface/emblem/prize.gif" class="emblem" alt="" border="0" onmouseover="popUp('pop<%=i%>c')" onmouseout="popHide()"/>
 
                     <div id="pop<%=i%>c" class="popUp"><div>Cash prize for placing in the <strong>Top
-                        Third</strong></div></div>
+                        Performers</strong></div></div>
                 </div>
             </c:if>
         </td>
