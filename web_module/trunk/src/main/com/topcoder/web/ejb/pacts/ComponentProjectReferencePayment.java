@@ -199,7 +199,7 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
         private void lookupData(long projectId) throws SQLException {
             StringBuffer query = new StringBuffer(300);
 
-            query.append("select c.component_name, pc.name as category_name, pi_complete.value as complete_date");
+            query.append("select c.component_name, pc.name as category_name, pi_complete.value as complete_date ");
             query.append("from project p, ");
             query.append("comp_catalog c, ");
             query.append("project_info pi_comp, ");
