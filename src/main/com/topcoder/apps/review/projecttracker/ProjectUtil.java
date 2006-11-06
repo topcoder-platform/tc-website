@@ -139,6 +139,16 @@ public class ProjectUtil {
         if (nr != 1) {
             throw new RuntimeException("Could not create External Reference ID resourceinfo !");
         }
+        
+        // handle 2
+        String handle = getUserHandleInfo(conn, userId);
+        index = 1;
+        ps.setLong(index++, resourceId);
+        ps.setLong(index++, 2); // handle
+        ps.setString(index++, handle);
+        ps.setString(index++, String.valueOf(userId));
+        ps.setString(index++, String.valueOf(userId));
+        ps.executeUpdate();	
 
         // Rating 4, 
         if (old_rating > 0) {
@@ -326,6 +336,27 @@ public class ProjectUtil {
         // Clean up this variable for reuse - bblais
         ps = null;
         return projectId;
+    }
+    
+    private static final String SELECT_HANDLER = "SELECT handle FROM USER WHERE user_id = ? ";
+
+    private static String getUserHandleInfo(Connection conn, long userID)
+        throws SQLException {
+        PreparedStatement pstmt = conn.prepareStatement(SELECT_HANDLER);
+        pstmt.setLong(1, userID);
+
+        ResultSet rs = pstmt.executeQuery();
+
+        try {
+            if (rs.next()) {
+                return rs.getString(1);
+            }
+
+            return null;
+        } finally {
+            rs.close();
+            pstmt.close();
+        }
     }
 
     /**
