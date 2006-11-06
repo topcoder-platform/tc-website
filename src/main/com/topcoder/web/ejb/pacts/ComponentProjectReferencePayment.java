@@ -1,6 +1,8 @@
 package com.topcoder.web.ejb.pacts;
 
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -221,7 +223,11 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
             }
 
             componentName = rsc.getStringItem(0, "component_name");
-            completeDate =  rsc.getStringItem(0, "complete_date") == null? new Date() : rsc.getTimestampItem(0, "complete_date");
+            try {
+				completeDate =  rsc.getStringItem(0, "complete_date") == null? new Date() : new SimpleDateFormat("MM/dd/yyyy HH:MM").parse(rsc.getStringItem(0, "complete_date"));
+			} catch (ParseException e) {
+				completeDate = new Date();
+			}
             projectType = rsc.getStringItem(0, "category_name");
         }
 
