@@ -13,6 +13,8 @@ import com.jivesoftware.base.User;
 import com.jivesoftware.base.filter.Profanity;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.Forum;
+import com.jivesoftware.forum.ForumCategoryNotFoundException;
+import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.QueryResult;
@@ -24,6 +26,7 @@ import com.jivesoftware.util.StringUtils;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.forums.model.TCAuthToken;
 import com.topcoder.web.forums.util.filter.TCHTMLFilter;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.dde.catalog.ComponentInfo;
@@ -540,6 +543,11 @@ public class ForumsUtil {
     	} else {
     		return formatter.format(((double)bytes)/1048576.0) + " MB";
     	}
+    }
+    
+    public static ForumCategory getMasterCategory(ForumCategory category) throws ForumCategoryNotFoundException {
+    	ForumFactory masterFactory = ForumFactory.getInstance(new TCAuthToken(100129));
+    	return masterFactory.getForumCategory(category.getID());
     }
 }
 

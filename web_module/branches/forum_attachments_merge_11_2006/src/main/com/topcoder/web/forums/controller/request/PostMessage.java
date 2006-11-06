@@ -159,11 +159,11 @@ public class PostMessage extends ForumsProcessor {
                 watchManager.createWatch(user, thread);
             }
 		}
-		//ForumCategory category = thread.getForum().getForumCategory();
-		//while (category != null) {
-		//	category.setModificationDate(thread.getModificationDate());
-		//	category = category.getParentCategory();
-		//}
+		ForumCategory category = ForumsUtil.getMasterCategory(thread.getForum().getForumCategory());
+		while (category != null) {
+			category.setModificationDate(thread.getModificationDate());
+			category = category.getParentCategory();
+		}
 
 		setNextPage(getSessionInfo().getServletPath() + 
 				"?module=Message&" + ForumConstants.MESSAGE_ID + "=" + message.getID());
