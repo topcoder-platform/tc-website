@@ -98,14 +98,14 @@ public class LeaderBoard extends BaseBoard {
             try {
                 m = dai.getData(r);
 
-                ResultSetContainer rscTopFactor = (ResultSetContainer) m.get("dr_stage_top_prize_factor");        
+                ResultSetContainer rscTopFactor = (ResultSetContainer) m.get("dr_stage_top_performers_factor");        
 
                 if (rscTopFactor.size() != 1) {
                     throw new TCWebException("Could not find top prize factor for the leader board.");
                 }
                 topPerformersFactor = rscTopFactor.getDoubleItem(0, "top_performers_factor"); 
             } catch (Exception e) {
-                throw new TCWebException("Command " + "dr_stage_top_performers_factorr" + " failed.", e);
+                throw new TCWebException("Command " + "dr_stage_top_performers_factor" + " failed.", e);
             }
 
             return topPerformersFactor;
