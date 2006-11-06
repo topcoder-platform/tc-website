@@ -73,17 +73,19 @@ public class RoundInfo extends BaseProcessor {
             ResultSetContainer rscComponentCoder = (ResultSetContainer)m.get(Constants.COMPONENT_CODER_QUERY);
             ResultSetContainer rscReviewerData = (ResultSetContainer)m.get(Constants.REVIEWER_DATA_QUERY);
             ResultSetContainer rscComponentScore = (ResultSetContainer)m.get(Constants.COMPONENT_SCORE_QUERY);
+            ResultSetContainer rscComponentTime = (ResultSetContainer)m.get(Constants.COMPONENT_TIME_QUERY);
 
             log.debug("Got " +  rscComponentData.size() + " rows for: " + Constants.COMPONENT_DATA_QUERY);
             log.debug("Got " +  rscComponentCoder.size() + " rows for: " + Constants.COMPONENT_CODER_QUERY);
             log.debug("Got " +  rscReviewerData.size() + " rows for: " + Constants.REVIEWER_DATA_QUERY);
             log.debug("Got " +  rscComponentScore.size() + " rows for: " + Constants.COMPONENT_SCORE_QUERY);
+            log.debug("Got " +  rscComponentTime.size() + " rows for: " + Constants.COMPONENT_TIME_QUERY);
 
             // these are ints due to compatibility issues with the front-end. (should be longs)
             int contestId = requestComponentRoundInfo.getContestID();
             int roundId = requestComponentRoundInfo.getRoundID();
             long componentId = requestComponentRoundInfo.getComponentID();
-            
+
             // first adds message for DefineComponentContest.
             mp.add(SpectatorMessagesHelper.getContestDefinitionMessage(rscComponentCoder, rscReviewerData, 
                 rscComponentData, contestId, roundId, componentId));
@@ -92,6 +94,8 @@ public class RoundInfo extends BaseProcessor {
             mp.addAll(SpectatorMessagesHelper.getScoresMessagePacket(rscComponentScore, contestId, roundId, 
                 componentId));
 
+            // add componentTimeUpdate
+            mp.addAll(SpectatorMessagesHelper.getComponentTimeUpdate(rscComponentTime, componentId));
         } catch (Exception e) {
             // do nothing, an empty message packet will be returned.
             e.printStackTrace();
