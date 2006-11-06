@@ -1,5 +1,6 @@
 <%@ page import="com.jivesoftware.forum.ForumMessage,
                  com.jivesoftware.forum.ForumThread,
+                 com.jivesoftware.forum.ForumPermissions,
                  com.jivesoftware.forum.Attachment,
                  com.topcoder.web.common.BaseProcessor,
                  com.topcoder.web.forums.ForumConstants,
@@ -233,8 +234,10 @@
                         <tr><td class="rtFooter">
                             <input type="image" src="/i/forums/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/>
                             <input type="image" src="/i/forums/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/>
-                        	<%	if (!postMode.equals("Edit")) { %>
-								<input type="image" src="/i/forums/attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
+                        	<%	if (forum.isAuthorized(ForumPermissions.CREATE_MESSAGE_ATTACHMENT)) { %>
+	                        	<%	if (!postMode.equals("Edit")) { %>
+									<input type="image" src="/i/forums/attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
+								<%	} %>
 							<%	} %>
                         </td></tr>
                     </form>

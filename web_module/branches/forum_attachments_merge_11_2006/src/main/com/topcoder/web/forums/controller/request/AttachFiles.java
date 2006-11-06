@@ -7,6 +7,7 @@ import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.forum.AttachmentException;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
+import com.jivesoftware.forum.ForumPermissions;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.database.DbAttachment;
 import com.topcoder.shared.security.ClassResource;
@@ -55,6 +56,13 @@ public class AttachFiles extends ForumsProcessor {
             thread = message.getForumThread();
         } else {
             addError(ForumConstants.MESSAGE_SUBJECT, ForumConstants.ERR_POST_MODE_UNRECOGNIZED);
+        }
+        
+        if (!forum.isAuthorized(ForumPermissions.CREATE_MESSAGE_ATTACHMENT)) {
+        	getRequest().setAttribute(BaseServlet.MESSAGE_KEY, ForumConstants.ERR_ATTACHMENT_PERMS);
+    		setNextPage("/errorPage.jsp");
+    		setIsNextPageInContext(true);
+    		return;
         }
         
         getRequest().setAttribute("forum", forum);

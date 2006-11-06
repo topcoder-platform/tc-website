@@ -14,7 +14,9 @@ import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.forum.AttachmentException;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.Forum;
+import com.jivesoftware.forum.ForumPermissions;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
@@ -45,6 +47,13 @@ public class Attach extends ForumsProcessor {
         String textareaBody = ForumsUtil.createTextAreaBody(body);
         
         Forum forum = forumFactory.getForum(Long.parseLong(forumIDStr));
+        
+        if (!forum.isAuthorized(ForumPermissions.CREATE_MESSAGE_ATTACHMENT)) {
+        	getRequest().setAttribute(BaseServlet.MESSAGE_KEY, ForumConstants.ERR_ATTACHMENT_PERMS);
+    		setNextPage("/errorPage.jsp");
+    		setIsNextPageInContext(true);
+    		return;
+        }
 
 		setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
 		setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));

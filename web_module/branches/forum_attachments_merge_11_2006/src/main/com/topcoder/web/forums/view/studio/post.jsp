@@ -4,6 +4,7 @@
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
                  com.jivesoftware.forum.Attachment,
+                 com.jivesoftware.forum.ForumPermissions,
                  java.util.*"
 %>
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -222,10 +223,12 @@
                         <tr><td class="rtFooter">
                             <input type="image" src="/i/forums/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/>
                             <input type="image" src="/i/forums/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/>
-                        	<%	if (postMode.equals("Edit")) { %>
-								<input type="image" src="/i/forums/attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='EditAttachments'"/>
-							<%	} else { %>
-								<input type="image" src="/i/forums/attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
+                        	<%	if (forum.isAuthorized(ForumPermissions.CREATE_MESSAGE_ATTACHMENT)) { %>
+	                        	<%	if (postMode.equals("Edit")) { %>
+									<input type="image" src="/i/forums/attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='EditAttachments'"/>
+								<%	} else { %>
+									<input type="image" src="/i/forums/attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
+								<%	} %>
 							<%	} %>
                         </td></tr>
                     </form>

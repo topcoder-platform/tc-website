@@ -5,6 +5,7 @@
                 com.jivesoftware.forum.stats.ViewCountManager,
                 com.jivesoftware.forum.ForumMessage,
                 com.jivesoftware.forum.ForumThread,
+                com.jivesoftware.forum.ForumPermissions,
                 com.jivesoftware.forum.Attachment,
                 com.jivesoftware.util.ByteFormat,
                 java.util.*,
@@ -209,8 +210,10 @@ function AllowTabCharacter() {
 	<td class="rtFooter">
 		<input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/>
 		<input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/>
-		<%	if (!postMode.equals("Edit")) { %>
-		<input type="image" src="/i/interface/btn_attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
+		<%	if (forum.isAuthorized(ForumPermissions.CREATE_MESSAGE_ATTACHMENT)) { %>
+			<%	if (!postMode.equals("Edit")) { %>
+			<input type="image" src="/i/interface/btn_attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
+			<%	} %>
 		<%	} %>
 	</td>
 </tr>

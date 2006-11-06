@@ -186,6 +186,8 @@ public interface ForumConstants {
         "Please enter some search terms.";
     public final static String ERR_NO_SEARCH_HANDLE =
         "No user exists with the specified handle.";;
+    public final static String ERR_ATTACHMENT_PERMS = 
+    	"You are not authorized to create or modify attachments in this forum.";
     public final static String ERR_ATTACHMENT_DELETE_PERMS = 
     	"You are not authorized to delete this attachment.";
     public final static String ERR_ATTACHMENT_NOT_FOUND = 

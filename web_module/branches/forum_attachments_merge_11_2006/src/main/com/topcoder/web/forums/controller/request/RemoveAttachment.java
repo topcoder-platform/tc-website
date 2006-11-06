@@ -8,7 +8,9 @@ package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.forum.AttachmentException;
+import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
+import com.jivesoftware.forum.ForumPermissions;
 import com.jivesoftware.forum.database.DbAttachment;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.BaseServlet;
@@ -55,6 +57,14 @@ public class RemoveAttachment extends ForumsProcessor {
     		setIsNextPageInContext(true);
     		return;
     	}
+    	
+    	Forum forum = forumFactory.getForum(Long.parseLong(forumIDStr));
+    	if (!forum.isAuthorized(ForumPermissions.CREATE_MESSAGE_ATTACHMENT)) {
+        	getRequest().setAttribute(BaseServlet.MESSAGE_KEY, ForumConstants.ERR_ATTACHMENT_PERMS);
+    		setNextPage("/errorPage.jsp");
+    		setIsNextPageInContext(true);
+    		return;
+        }
         
         try {
         	messageToRemoveFrom.deleteAttachment(attachment);
