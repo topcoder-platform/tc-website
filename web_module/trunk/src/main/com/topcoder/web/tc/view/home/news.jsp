@@ -39,6 +39,25 @@
    </td></tr>
 ---------------------------%>
 <%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
+        <br>11.06.06<br>9:45 AM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm325">SRM 325 - Problem Set & Analysis</A></span><br><br>
+This 9pm EST SRM attracted many long established Topcoder members, but had slightly below average numbers for a money SRM.  It would appear as if it were a great opportunity to win a little bit of cash, but the high number of targets competing made it a tricky proposition.
+            </td>
+            <td class="newsPhoto"><img src="/i/m/HiltonLange_big.jpg" alt="" width="55" height="61"/><br>by
+                <tc-webtag:handle coderId="10428762" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=match_editorials&d2=srm325">full story</A> |
+    <tc-webtag:forumLink forumID="506000" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.03.06<br>1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -202,20 +221,3 @@
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
-        <br>10.30.06<br>11:40 AM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=103006">TCCC Preview: Component Competitions</A></span><br><br>
-            With the competition enhancements first introduced at the 2006 TCO adding some interesting twists to the College Challenge's design and development finals, I am expecting an exciting contest in San Diego.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/AleaActaEst_big.jpg" alt="" width="55" height="61"/><br>by
-                <tc-webtag:handle coderId="252022" context="design"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&amp;d1=features&amp;d2=103006">article</A> |
-    <tc-webtag:forumLink forumID="506161" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-</td></tr>
