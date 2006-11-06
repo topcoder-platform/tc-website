@@ -42,6 +42,7 @@
 <%--
 <tr class="bodyText"><td nowrap="nowrap">11.02.06 11:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=sponsors&d2=aolMashups">Now open: AOL Mashup contest</A></td></tr>
 --%>
+<tr class="bodyText"><td nowrap="nowrap">11.06.06 10:30 AM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=8054">News Icons Contest Vote</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.03.06 10:30 AM - </td><td width="100%"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Updated Online Review now online</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.01.06 4:50 PM - </td><td width="100%">Online Review scheduled maintenance</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.30.06 4:00 PM - </td><td width="100%">TopCoder members honor victor_lxd</td></tr>
