@@ -5209,7 +5209,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" ' (' ||  NVL(pi_rated.value, 'UNKNWON')  || ')' as project_desc ");  
         query.append(" from project p, ");
         query.append(" comp_catalog c, ");
-=        query.append(" project_category_lu pc, ");
+        query.append(" project_category_lu pc, ");
         query.append(" project_info pi_comp, ");
         query.append(" OUTER project_info pi_rated ");
         query.append(" where pi_comp.value = c.component_id ");
