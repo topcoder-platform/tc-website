@@ -40,6 +40,7 @@
                 </jsp:include>
 
                 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">11.06.06 4:30 PM&#160;-&#160</td><td width="100%"><A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>//?module=ViewContestDetails&ct=2046">Arena Skin Contest</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.11.06 4:00 PM&#160;-&#160</td><td width="100%"><A href="/collegetour">TopCoder College Tour comes to Beijing</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.03.06 6:00 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home">New statistics in Algorithm Record Book</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.07.06 9:00 AM&#160;-&#160</td><td width="100%">AOL adds $5000 prize purse per match for SRMs <A href="/tc?module=MatchDetails&rd=9995">315</A>, <A href="/tc?module=MatchDetails&rd=10002">322</A>, and <A href="/tc?module=MatchDetails&rd=10005">325</A>.</td></tr>

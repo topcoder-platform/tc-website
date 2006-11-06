@@ -8,8 +8,8 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/longcontest/?module=ViewOverview&rd=10083">results</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="506055" message="discuss this" />&#160;|&#160;
+         <A href="/longcontest/?module=ViewOverview&rd=10083">results</A> | 
+         <tc-webtag:forumLink forumID="506055" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
 
@@ -24,8 +24,8 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=probabilities">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505831" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=tutorials&d2=probabilities">full story</A> | 
+         <tc-webtag:forumLink forumID="505831" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
 
@@ -42,8 +42,8 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm283">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505797" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm283">full story</A> | 
+         <tc-webtag:forumLink forumID="505797" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
  
@@ -55,7 +55,7 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?&module=ViewSurvey&sid=6535">view survey</A>&#160;|&#160;
+         <A href="/tc?&module=ViewSurvey&sid=6535">view survey</A> | 
          <A href="/tc?&module=SurveyList">archive</A>
    </td></tr>
 
@@ -68,8 +68,8 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_112105">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505831" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_112105">full story</A> | 
+       <tc-webtag:forumLink forumID="505831" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
@@ -84,8 +84,8 @@ OR
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-       <A href="http://www.ftponline.com/weblogger/forum.aspx?ID=13&DATE=11/01/2005&blog=#449" target="_blank">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505821" message="discuss this" />&#160;|&#160;
+       <A href="http://www.ftponline.com/weblogger/forum.aspx?ID=13&DATE=11/01/2005&blog=#449" target="_blank">full story</A> | 
+       <tc-webtag:forumLink forumID="505821" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
@@ -97,8 +97,8 @@ OR
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign">see all available jobs</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505771" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign">see all available jobs</A> | 
+         <tc-webtag:forumLink forumID="505771" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
@@ -110,8 +110,8 @@ OR
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=dev&d2=support&d3=reliability">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505807" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=dev&d2=support&d3=reliability">details</A> | 
+         <tc-webtag:forumLink forumID="505807" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 
@@ -123,8 +123,8 @@ OR
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_100505">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505806" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_100505">details</A> | 
+         <tc-webtag:forumLink forumID="505806" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
@@ -136,7 +136,7 @@ OR
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/i/tournament/tccc05/onsite_movies/reviewBoard.mov">watch movie</A>&#160;|&#160;
+         <A href="/i/tournament/tccc05/onsite_movies/reviewBoard.mov">watch movie</A> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
 
@@ -148,7 +148,7 @@ OR
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/rtables/viewThread.jsp?forum=7167&thread=488979&mc=1">full story</A>&#160;|&#160;
+         <A href="/rtables/viewThread.jsp?forum=7167&thread=488979&mc=1">full story</A> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
@@ -161,7 +161,7 @@ OR
       The third competition in the Intel Multi-Threading Competition Series is now open for registration.
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/longcontest/?module=ViewActiveContests&rt=15">view</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505951" message="discuss this" />&#160;|&#160;
+         <A href="/longcontest/?module=ViewActiveContests&rt=15">view</A> | 
+         <tc-webtag:forumLink forumID="505951" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
