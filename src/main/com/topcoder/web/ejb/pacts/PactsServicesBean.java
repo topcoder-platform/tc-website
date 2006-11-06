@@ -1312,7 +1312,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map getProjectTerminationStatusTypes() throws SQLException {
         StringBuffer sb = new StringBuffer(300);
-        sb.append("SELECT project_stat_id, project_stat_name FROM project_status ORDER BY 2");
+        sb.append("SELECT project_status_id, name FROM project_status_lu ORDER BY 2");
 
         Connection c = null;
 
@@ -5182,6 +5182,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     public Map findProjects(String search) throws SQLException {
         StringBuffer query = new StringBuffer(1000);
+        /*
         query.append(" select project_id, ");
         query.append(" component_name || ' ' || trim (version_text) || ");
         query.append("     case when p.project_type_id = 1 then ' Design' else ' Development' end || ");
@@ -5194,7 +5195,32 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" and " + filterCondition("component_name", search));
         query.append(" and cur_version = 1 ");
         query.append(" order by rating_date ");
-
+        */
+        
+        query.append(" select p.project_id,  ");
+        query.append(" component_name || ' ' || trim (version_text) || ' ' || ");
+        query.append(" pc.name || ");
+        query.append(" ' (' ||  NVL(pi_rated.value, 'UNKNWON')  || ')' as project_desc ");  
+        query.append(" from project p, ");
+        query.append(" comp_catalog c, ");
+        query.append(" comp_versions cv, ");
+        query.append(" project_category_lu pc, ");
+        query.append(" project_info pi_comp, ");
+        query.append(" project_info pi_vers,   ");  
+        query.append(" OUTER project_info pi_rated ");
+        query.append(" where pi_comp.value = c.component_id ");
+        query.append(" and p.project_category_id = pc.project_category_id ");
+        query.append(" and pi_rated.project_info_type_id = 22 ");
+        query.append(" and pi_rated.project_id = p.project_id ");
+        query.append(" and pi_comp.project_info_type_id = 2 ");
+        query.append(" and pi_comp.project_id = p.project_id ");
+        query.append(" and pi_vers.project_info_type_id = 7 ");
+        query.append(" and pi_vers.project_id = p.project_id ");
+        query.append(" and cv.version = pi_vers.value ");
+        query.append(" and cv.component_id = c.component_id ");
+        query.append(" and " + filterCondition("component_name", search));
+        query.append(" order by pi_rated.value ");
+        
         ArrayList param = new ArrayList();
         param.add(search);
         ResultSetContainer rsc = runSearchQuery(DBMS.TCS_OLTP_DATASOURCE_NAME, query.toString(), param, true);
