@@ -4791,7 +4791,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             checkExists.append("from tcs_catalog:project p, ");
             checkExists.append("tcs_catalog:comp_catalog c, ");
             checkExists.append("tcs_catalog:project_info pi_comp, ");
-            checkExists.append("OUTER project_info pi_complete ");
+            checkExists.append("OUTER tcs_catalog:project_info pi_complete ");
             checkExists.append("where pi_comp.value = c.component_id ");
             checkExists.append("and pi_complete.project_info_type_id = 21 ");
             checkExists.append("and pi_complete.project_id = p.project_id ");
