@@ -24,9 +24,9 @@
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 ------------------------%>
-<%-----------------------------
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>11.02.06<br>11:00 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>11.06.06<br>12:00 NOON</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=sponsors&d2=aolMashups">Now open: AOL Mashup contest</A>
       </span><br><br>
@@ -37,7 +37,7 @@
          <tc-webtag:forumLink forumID="506160" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
----------------------------%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>11.06.06<br>10:30 AM</td>
@@ -200,24 +200,3 @@ This 9pm EST SRM attracted many long established Topcoder members, but had sligh
         <tc-webtag:forumLink forumID="506117" message="discuss this"/> |
         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
-
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
-        <br>10.31.06<br>1:50 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm18">TCHS SRM 18 - Problem Set & Analysis</A></span><br><br>
-<tc-webtag:handle coderId="14886245" context="hs_algorithm"/> took first place in this match, thanks to seven successful challenges. He was followed by <tc-webtag:handle coderId="11972352" context="hs_algorithm"/>, in second place, with <tc-webtag:handle coderId="22652634" context="hs_algorithm"/> close behind in third.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/rusolis_big.jpg" alt="" width="55" height="61"/><br>by
-                <tc-webtag:handle coderId="20289593" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm18">full story</A> |
-    <tc-webtag:forumLink forumID="506040" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-</td></tr>
-
