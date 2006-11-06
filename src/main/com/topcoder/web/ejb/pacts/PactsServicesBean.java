@@ -5204,15 +5204,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         */
         
         query.append(" select p.project_id,  ");
-        query.append(" component_name || ' ' || trim (version_text) || ' ' || ");
+        query.append(" component_name || ' '  || ");
         query.append(" pc.name || ");
         query.append(" ' (' ||  NVL(pi_rated.value, 'UNKNWON')  || ')' as project_desc ");  
         query.append(" from project p, ");
         query.append(" comp_catalog c, ");
-        query.append(" comp_versions cv, ");
-        query.append(" project_category_lu pc, ");
+=        query.append(" project_category_lu pc, ");
         query.append(" project_info pi_comp, ");
-        query.append(" project_info pi_vers,   ");  
         query.append(" OUTER project_info pi_rated ");
         query.append(" where pi_comp.value = c.component_id ");
         query.append(" and p.project_category_id = pc.project_category_id ");
@@ -5220,10 +5218,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" and pi_rated.project_id = p.project_id ");
         query.append(" and pi_comp.project_info_type_id = 2 ");
         query.append(" and pi_comp.project_id = p.project_id ");
-        query.append(" and pi_vers.project_info_type_id = 1 ");
-        query.append(" and pi_vers.project_id = p.project_id ");
-        query.append(" and cv.comp_vers_id  = pi_vers.value   ");
-        query.append(" and cv.component_id = c.component_id   ");
         query.append(" and " + filterCondition("component_name", search));
         query.append(" order by pi_rated.value ");
 
