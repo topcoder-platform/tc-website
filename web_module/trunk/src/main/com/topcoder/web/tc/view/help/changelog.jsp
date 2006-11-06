@@ -47,6 +47,8 @@
     5.5.7 - 2006.11.XX
     <ul>
         <li>DR Top Third Prize enhanced to DR Top Performers Prize.</li>
+        <li>Fix bugs in PACTS internal due to changes in table schemas</li>
+        <li>Fix bug in members affidavit history: notarized was always showing "no"</li>
     </ul>
  </p>
 
