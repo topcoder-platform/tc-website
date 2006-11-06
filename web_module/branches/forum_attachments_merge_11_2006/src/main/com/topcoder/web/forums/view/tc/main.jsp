@@ -20,7 +20,7 @@
 <tc-webtag:useBean id="categories" name="categories" type="java.util.ArrayList" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
-<% User user = (User) request.getAttribute("user");
+<% 	User user = (User) request.getAttribute("user");
     ResultFilter resultFilter = (ResultFilter) request.getAttribute("resultFilter");
     ReadTracker readTracker = forumFactory.getReadTracker();
     WatchManager watchManager = forumFactory.getWatchManager();
