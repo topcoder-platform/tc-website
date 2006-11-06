@@ -4822,7 +4822,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getReviewers.append("inner join tcs_catalog:resource r ");
             getReviewers.append("on p.project_id = r.project_id ");
             getReviewers.append("and (r.resource_role_id >= 2 and r.resource_role_id <= 9) ");
-            getReviewers.append("inner join resource_info ri_u ");
+            getReviewers.append("inner join tcs_catalog:resource_info ri_u ");
             getReviewers.append("on r.resource_id = ri_u.resource_id ");
             getReviewers.append("and ri_u.resource_info_type_id = 1 ");
             getReviewers.append("and ri_u.value <> '0' ");
