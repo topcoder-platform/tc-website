@@ -4776,18 +4776,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
 
             // Make sure the project exists; in the process, get the name and due date.
-            // to_date(pi_c.value, '%m/%d/%Y %H:%M') + " + COMPONENT_DUE_DATE_INTERVAL + " UNITS DAY AS due_date 
             StringBuffer checkExists = new StringBuffer(300);
-            /*
-            checkExists.append("SELECT cc.component_name, NVL(p.complete_date,current) + " + COMPONENT_DUE_DATE_INTERVAL + " UNITS DAY AS due_date ");
-            checkExists.append("FROM tcs_catalog:project p, tcs_catalog:comp_versions cv, tcs_catalog:comp_catalog cc ");
-            checkExists.append("WHERE p.comp_vers_id = cv.comp_vers_id ");
-            checkExists.append("AND cv.component_id = cc.component_id ");
-            checkExists.append("AND p.project_id = " + projectId + " ");
-            checkExists.append("AND p.cur_version = 1");
-            */
-            
-            checkExists.append("select c.component_name, current as due_date "); // FIX due date!!!
+            checkExists.append("select c.component_name, current " + COMPONENT_DUE_DATE_INTERVAL + " as due_date "); 
             checkExists.append("from tcs_catalog:project p, ");
             checkExists.append("tcs_catalog:comp_catalog c, ");
             checkExists.append("tcs_catalog:project_info pi_comp, ");
@@ -4828,18 +4818,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Get review board members to be paid
             StringBuffer getReviewers = new StringBuffer(300);
             getReviewers.append("select ri_u.value as user_id, sum(round(ri_p.value)) as paid, max(pcl.name) as project_type_name ");
-            getReviewers.append("from project p ");
-            getReviewers.append("inner join resource r ");
+            getReviewers.append("from tcs_catalog:project p ");
+            getReviewers.append("inner join tcs_catalog:resource r ");
             getReviewers.append("on p.project_id = r.project_id ");
             getReviewers.append("and (r.resource_role_id >= 2 and r.resource_role_id <= 9) ");
             getReviewers.append("inner join resource_info ri_u ");
             getReviewers.append("on r.resource_id = ri_u.resource_id ");
             getReviewers.append("and ri_u.resource_info_type_id = 1 ");
             getReviewers.append("and ri_u.value <> '0' ");
-            getReviewers.append("inner join resource_info ri_p ");
+            getReviewers.append("inner join tcs_catalog:resource_info ri_p ");
             getReviewers.append("on r.resource_id = ri_p.resource_id ");
             getReviewers.append("and ri_p.resource_info_type_id = 7 ");
-            getReviewers.append("inner join project_category_lu pcl ");
+            getReviewers.append("inner join tcs_catalog:project_category_lu pcl ");
             getReviewers.append("on pcl.project_category_id = p.project_category_id ");
             getReviewers.append("where p.project_id = " + projectId + " ");
             getReviewers.append("group by ri_u.value");
