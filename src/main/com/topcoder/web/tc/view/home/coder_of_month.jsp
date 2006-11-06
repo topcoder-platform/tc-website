@@ -14,7 +14,7 @@
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;" width="100%">
          <strong><A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_ALGO_COM%>" class="gMetal">Algorithm</A></strong><br>
          <tc-webtag:handle coderId="19929536" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />:<br>
-         <span class="small">Won SRM 322 and TCCC06 2A, getting himself into the Top 10.
+         <span class="small">Won his room for SRM 322 and TCCC06 2A, getting himself into the Top 10.
          </span><br><br>
       </td>
    </tr>
