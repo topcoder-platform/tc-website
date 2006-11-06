@@ -78,7 +78,10 @@ public class LeaderBoard extends BaseBoard {
     }
 
     /**
-     * First processing of the board
+     * Gets the top X prize factor. 
+     * 
+     * Top Third: 3.0
+     * Top Halp: 2.0
      *
      * @param rsc         the ResultSetContainer retrieved from DB
      * @param designBoard true if its a design board (false if development)
@@ -100,11 +103,12 @@ public class LeaderBoard extends BaseBoard {
                 if (rscTopFactor.size() != 1) {
                     throw new TCWebException("Could not find top prize factor for the leader board.");
                 }
+                topPrizeFactor = rscTopFactor.getDoubleItem(0, "top_prize_factor"); 
             } catch (Exception e) {
                 throw new TCWebException("Command " + "dr_stage_top_prize_factor" + " failed.", e);
             }
 
-            return placementArray;
+            return topPrizeFactor;
         }
     
     /**
