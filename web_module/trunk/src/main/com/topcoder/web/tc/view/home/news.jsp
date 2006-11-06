@@ -41,6 +41,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>11.06.06<br>4:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>//?module=ViewContestDetails&ct=2046">Arena Skin Contest</A>
+        </span><br><br>
+        We're running a contest at the Studio to design a new skin for the arena (don't worry, the old one isn't going anywhere) and it could be your vision that we use as the new look of the arena. Oh yeah, the winner also gets $1000!
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>//?module=ViewContestDetails&ct=2046">contest details</A> | 
+         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">discuss this</A> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>11.06.06<br>10:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=ViewSurvey&sid=8054">News Icons Contest Vote</A>
@@ -82,8 +97,8 @@ This 9pm EST SRM attracted many long established Topcoder members, but had sligh
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/i/downloads/tccc06_program.pdf">view</A> [PDF]&#160;|&#160;
-         <tc-webtag:forumLink forumID="506169" message="discuss this" />&#160;|&#160;
+         <A href="/i/downloads/tccc06_program.pdf">view</A> [PDF] | 
+         <tc-webtag:forumLink forumID="506169" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
@@ -143,8 +158,8 @@ This 9pm EST SRM attracted many long established Topcoder members, but had sligh
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="506075" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol">details</A> | 
+         <tc-webtag:forumLink forumID="506075" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
