@@ -4,9 +4,13 @@
 
 package com.topcoder.web.tc.controller.request.dr;
 
+import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -16,6 +20,7 @@ import com.topcoder.web.tc.model.dr.LeaderBoardRow;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <strong>Purpose</strong>:
@@ -51,7 +56,7 @@ public class LeaderBoard extends BaseBoard {
         ResultSetContainer rsc = retrieveBoardData(Constants.STAGE_ID, Constants.LEADER_BOARD_COMMAND, Constants.LEADER_BOARD_QUERY);
 
         // pre-process board for the prizes
-        List leaderBoardResult = processBoard(rsc, designBoard);
+        List leaderBoardResult = processBoard(rsc, designBoard, getTopPerformersFactor(period, designBoard ? "112" : "113"));
 
         String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         boolean invert = sortDir.equals("desc");
@@ -73,25 +78,60 @@ public class LeaderBoard extends BaseBoard {
     }
 
     /**
-     * First processing of the board
+     * Gets the top X prize factor. 
+     * 
+     * Top Third: 3.0
+     * Top Half: 2.0
      *
      * @param rsc         the ResultSetContainer retrieved from DB
      * @param designBoard true if its a design board (false if development)
      */
-    private List processBoard(ResultSetContainer rsc, boolean designBoard) throws TCWebException {
-        long topThirdAttempt = 0;
+    private double getTopPerformersFactor(String stageId, String phaseId) throws TCWebException {
+            double topPerformersFactor = 3.0;
+
+            Request r = new Request();
+            r.setContentHandle("dr_stage_top_performers_factor");
+            r.setProperty(Constants.PHASE_ID, phaseId);
+            r.setProperty(Constants.STAGE_ID, stageId);
+            DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+            Map m = null;
+            try {
+                m = dai.getData(r);
+
+                ResultSetContainer rscTopFactor = (ResultSetContainer) m.get("dr_stage_top_prize_factor");        
+
+                if (rscTopFactor.size() != 1) {
+                    throw new TCWebException("Could not find top prize factor for the leader board.");
+                }
+                topPerformersFactor = rscTopFactor.getDoubleItem(0, "top_performers_factor"); 
+            } catch (Exception e) {
+                throw new TCWebException("Command " + "dr_stage_top_performers_factorr" + " failed.", e);
+            }
+
+            return topPerformersFactor;
+        }
+    
+    /**
+     * First processing of the board
+     *
+     * @param rsc         the ResultSetContainer retrieved from DB
+     * @param designBoard true if its a design board (false if development)
+     * @param topPerformersFactor the part of the board that will recieve top X prize.
+     */
+    private List processBoard(ResultSetContainer rsc, boolean designBoard, double topPerformersFactor) throws TCWebException {
+        long topBoardAttempt = 0;
 
         for (Iterator it = rsc.iterator(); it.hasNext();) {
             if (((ResultSetRow) it.next()).getLongItem("total_points") > 0) {
-                topThirdAttempt++;
+                topBoardAttempt++;
             }
         }
 
-        topThirdAttempt = Math.round(Math.ceil(topThirdAttempt / 3.0));
+        topBoardAttempt = Math.round(Math.ceil(topBoardAttempt / topPerformersFactor));
 
         long totalPoints = 0;
         long totalPointsThreshold = -1;
-        long overallTopThirdPoints = 0;
+        long overallTopBoardPoints = 0;
         ResultSetRow row = null;
         int i = 1;
         List leaderBoardResult = new ArrayList(rsc.size());
@@ -100,27 +140,27 @@ public class LeaderBoard extends BaseBoard {
             row = (ResultSetRow) it.next();
             totalPoints = row.getLongItem("total_points");
 
-            if (i == topThirdAttempt) {
+            if (i == topBoardAttempt) {
                 totalPointsThreshold = totalPoints;
             }
-            boolean inTopThird = false;
-            if (i <= topThirdAttempt || totalPoints == totalPointsThreshold) {
-                inTopThird = true;
-                overallTopThirdPoints += totalPoints;
+            boolean inTopBoard = false;
+            if (i <= topBoardAttempt || totalPoints == totalPointsThreshold) {
+                inTopBoard = true;
+                overallTopBoardPoints += totalPoints;
             }
 
             long phase = new Long(getRequest().getParameter(Constants.PHASE_ID)).longValue();
 
             leaderBoardResult.add(new LeaderBoardRow(row.getLongItem("stage_id"), phase, row
                     .getLongItem("rank"), row.getLongItem("user_id"), row
-                    .getStringItem("handle_lower"), totalPoints, inTopThird,
-                    false, inTopThird ? totalPoints : 0, 0, 0, row.getLongItem("outstanding_points")));
+                    .getStringItem("handle_lower"), totalPoints, inTopBoard,
+                    false, inTopBoard ? totalPoints : 0, 0, 0, row.getLongItem("outstanding_points")));
             i++;
         }
 
         double prizePerPoint = 0;
-        if (overallTopThirdPoints > 0) {
-            prizePerPoint = getPoolPrize(period, designBoard ? "112" : "113") / overallTopThirdPoints;
+        if (overallTopBoardPoints > 0) {
+            prizePerPoint = getPoolPrize(period, designBoard ? "112" : "113") / overallTopBoardPoints;
         }
         if (log.isDebugEnabled()) {
             log.debug("prizePerPoint: " + prizePerPoint);
