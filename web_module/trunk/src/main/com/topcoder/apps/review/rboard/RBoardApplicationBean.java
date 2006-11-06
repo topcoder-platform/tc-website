@@ -36,7 +36,6 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.util.idgenerator.IDGenerator;
 import com.topcoder.util.idgenerator.IDGeneratorFactory;
-import com.topcoder.util.idgenerator.IDGeneratorImpl;
 import com.topcoder.util.idgenerator.bean.IdGen;
 import com.topcoder.util.idgenerator.bean.IdGenHome;
 import com.topcoder.web.common.RowNotFoundException;
@@ -333,6 +332,31 @@ public class RBoardApplicationBean extends BaseEJB {
             ps.setString(index++, String.valueOf(INTERNAL_ADMIN_USER));
             ps.executeUpdate();	
 
+            String handle = getUserHandleInfo(conn, userId);
+            index = 1;
+            ps.setLong(index++, resourceId);
+            ps.setLong(index++, 2); // handle
+            ps.setString(index++, handle);
+            ps.setString(index++, String.valueOf(INTERNAL_ADMIN_USER));
+            ps.setString(index++, String.valueOf(INTERNAL_ADMIN_USER));
+            ps.executeUpdate();	
+            
+            index = 1;
+            ps.setLong(index++, resourceId);
+            ps.setLong(index++, 7); // payment
+            ps.setString(index++, "0");
+            ps.setString(index++, String.valueOf(INTERNAL_ADMIN_USER));
+            ps.setString(index++, String.valueOf(INTERNAL_ADMIN_USER));
+            ps.executeUpdate();	
+
+            index = 1;
+            ps.setLong(index++, resourceId);
+            ps.setLong(index++, 8); // payment status
+            ps.setString(index++, "No");
+            ps.setString(index++, String.valueOf(INTERNAL_ADMIN_USER));
+            ps.setString(index++, String.valueOf(INTERNAL_ADMIN_USER));
+            ps.executeUpdate();	
+
 	        // Registration Date.
             index = 1;
             ps.setLong(index++, resourceId);
@@ -345,6 +369,27 @@ public class RBoardApplicationBean extends BaseEJB {
             Common.close(ps);
         } catch(SQLException e) {
         	e.printStackTrace();
+        }
+    }
+    
+    private static final String SELECT_HANDLER = "SELECT handle FROM USER WHERE user_id = ? ";
+
+    private String getUserHandleInfo(Connection conn, long userID)
+        throws SQLException {
+        PreparedStatement pstmt = conn.prepareStatement(SELECT_HANDLER);
+        pstmt.setLong(1, userID);
+
+        ResultSet rs = pstmt.executeQuery();
+
+        try {
+            if (rs.next()) {
+                return rs.getString(1);
+            }
+
+            return null;
+        } finally {
+            rs.close();
+            pstmt.close();
         }
     }
 
@@ -469,22 +514,6 @@ public class RBoardApplicationBean extends BaseEJB {
             close(ps);
             close(conn);
         }
-    }
-
-    /**
-     * Resets cur_version for the submitter role of the specified user Id and project
-     *
-     * @param conn the connection being used
-     * @param userId the user id to reset.
-     * @param projectId the project id to reset
-     *
-     * @since 1.0.3
-     */
-    private void resetSubmitterRole(Connection conn, long userId, long projectId) {
-        update(conn, "r_user_role",
-            new String[]{"cur_version"}, new String[]{"0"},
-            new String[]{"project_id", "login_id", "r_role_id"},
-            new String[]{String.valueOf(projectId), String.valueOf(userId), "1"});
     }
 
     /**
