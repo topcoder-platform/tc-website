@@ -4778,12 +4778,27 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Make sure the project exists; in the process, get the name and due date.
             // to_date(pi_c.value, '%m/%d/%Y %H:%M') + " + COMPONENT_DUE_DATE_INTERVAL + " UNITS DAY AS due_date 
             StringBuffer checkExists = new StringBuffer(300);
+            /*
             checkExists.append("SELECT cc.component_name, NVL(p.complete_date,current) + " + COMPONENT_DUE_DATE_INTERVAL + " UNITS DAY AS due_date ");
             checkExists.append("FROM tcs_catalog:project p, tcs_catalog:comp_versions cv, tcs_catalog:comp_catalog cc ");
             checkExists.append("WHERE p.comp_vers_id = cv.comp_vers_id ");
             checkExists.append("AND cv.component_id = cc.component_id ");
             checkExists.append("AND p.project_id = " + projectId + " ");
             checkExists.append("AND p.cur_version = 1");
+            */
+            
+            checkExists.append("select c.component_name, current as due_date "); // FIX due date!!!
+            checkExists.append("from project p, ");
+            checkExists.append("comp_catalog c, ");
+            checkExists.append("project_info pi_comp, ");
+            checkExists.append("OUTER project_info pi_complete ");
+            checkExists.append("where pi_comp.value = c.component_id ");
+            checkExists.append("and pi_complete.project_info_type_id = 21 ");
+            checkExists.append("and pi_complete.project_id = p.project_id ");
+            checkExists.append("and pi_comp.project_info_type_id = 2 ");
+            checkExists.append("and pi_comp.project_id = p.project_id ");
+            checkExists.append("and p.project_id = " + projectId);
+            
             rsc = runSelectQuery(c, checkExists.toString(), false);
             if (rsc.getRowCount() != 1) {
                 throw new IllegalUpdateException("Project " + projectId + " does not exist or is not unique");
