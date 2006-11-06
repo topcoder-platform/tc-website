@@ -49,7 +49,7 @@
                             Project Id: <input type="text" name="<%=PactsConstants.PROJECT_ID%>" maxlength="10" size="10" value="<%=projID%>"/>
                         </td>
                         <td align="center">
-                            Status: <tc-webtag:rscSelect name="<%=PactsConstants.PROJECT_TERMINATION_STATUS%>" list='<%=statusList%>' fieldText="project_stat_name" fieldValue="project_stat_id" selectedValue="<%=projTermStatus%>"/>
+                            Status: <tc-webtag:rscSelect name="<%=PactsConstants.PROJECT_TERMINATION_STATUS%>" list='<%=statusList%>' fieldText="name" fieldValue="project_status_id" selectedValue="<%=projTermStatus%>"/>
                         </td>
                         <td align="center">
                             Client: <input type="text" name="<%=PactsConstants.PROJECT_CLIENT%>" maxlength="100" size="25" value="<%=client%>"/>
