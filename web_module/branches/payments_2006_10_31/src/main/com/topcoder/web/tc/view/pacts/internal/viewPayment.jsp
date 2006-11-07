@@ -157,7 +157,7 @@
 			 for <fmt:formatNumber value="${referred.netAmount}" pattern="#.00" />
 			(Payment
 			<a href="${pacts:viewPayment(referred.header.id)}">
-				 <c:out value="${referred.header id}" />
+				 <c:out value="${referred.header.id}" />
 				</a>)
 				</td>
 		</tr>
