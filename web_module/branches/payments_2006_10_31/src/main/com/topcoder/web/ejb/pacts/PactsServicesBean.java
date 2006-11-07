@@ -2416,8 +2416,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         int usePercent = 0;
         boolean dataFound = false;
 
-        if (p.getHeader().getTypeId() != COMPONENT_PAYMENT &&
-                p.getHeader().getTypeId() != REVIEW_BOARD_PAYMENT) {
+        if (p.getHeader().getTypeId() == ALGORITHM_CONTEST_PAYMENT || 
+        		p.getHeader().getTypeId() == MARATHON_MATCH_PAYMENT ||
+        		p.getHeader().getTypeId() == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT) {
             StringBuffer getUserWithholding = new StringBuffer(300);
             getUserWithholding.append("SELECT utf.withholding_amount, utf.withholding_percentage, ");
             getUserWithholding.append("utf.use_percentage ");
@@ -2426,6 +2427,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getUserWithholding.append("AND a.country_code = country.country_code ");
             getUserWithholding.append("and a.address_id = x.address_id ");
             getUserWithholding.append("and a.address_type_id = 2 ");
+            getUserWithholding.append("AND utf.status_id = 60 ");
             getUserWithholding.append("AND utf.user_id = " + p.getHeader().getUser().getId());
             ResultSetContainer rsc = runSelectQuery(c, getUserWithholding.toString(), false);
             if (rsc.getRowCount() > 0) {
