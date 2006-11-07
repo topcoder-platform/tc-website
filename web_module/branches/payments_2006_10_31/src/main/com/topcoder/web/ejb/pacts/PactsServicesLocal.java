@@ -230,21 +230,21 @@ public interface PactsServicesLocal extends EJBLocalObject {
     
     BasePayment addPayment(BasePayment payment)  throws  SQLException;
 
-    BasePayment updatePayment(BasePayment payment) throws  Exception;
+    BasePayment updatePayment(BasePayment payment) throws  SQLException;
 
-    List findPayments(int paymentTypeId) throws  Exception;
+    List findPayments(int paymentTypeId) throws  SQLException;
 
-    List findPayments(int paymentTypeId, long referenceId) throws  Exception;
+    List findPayments(int paymentTypeId, long referenceId) throws  SQLException;
 
-    List findCoderPayments(long coderId) throws  Exception;
+    List findCoderPayments(long coderId) throws  SQLException;
 
-    List findCoderPayments(long coderId, int paymentTypeId) throws  Exception;
+    List findCoderPayments(long coderId, int paymentTypeId) throws  SQLException;
 
-    List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws  Exception;
+    List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws  SQLException;
 
-    void deletePayment(long paymentId) throws  Exception;
+    void deletePayment(long paymentId) throws  SQLException;
 
-    void deletePayment(BasePayment payment) throws  Exception;
+    void deletePayment(BasePayment payment) throws  SQLException;
 
     BasePayment fillPaymentData(BasePayment payment) throws  SQLException;
 }

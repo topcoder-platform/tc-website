@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import javax.jms.JMSException;
@@ -1608,6 +1609,12 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServicesLocal ps = getEjbHandle();
         return ps.addPayment(payment);
     }
+    
+    public List findPayments(int paymentTypeId, long referenceId) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.findPayments(paymentTypeId, referenceId);
+    }
+
 
 }
 
