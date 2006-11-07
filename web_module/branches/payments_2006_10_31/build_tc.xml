@@ -483,8 +483,8 @@
     </target>
 
     <target name="build-sars" depends="compile">
-        <jar jarfile="${sar.dir}/expireOldAffidavits.sar" basedir="${classes}"
-             includes="com/topcoder/utilities/pacts/ExpireOldAffidavits*,
+        <jar jarfile="${sar.dir}/expireOldAffidavitsAndPayments.sar" basedir="${classes}"
+             includes="com/topcoder/utilities/pacts/ExpireOldAffidavitsAndPayments*,
              		com/topcoder/web/tc/controller/legacy/pacts/bean/*.class,
              		com/topcoder/web/tc/controller/legacy/pacts/common/*.class,
              		com/topcoder/web/ejb/pacts/*.class">
@@ -1195,7 +1195,7 @@
                 <include name="Util.jar"/>                
             </fileset>
             <fileset dir="${sar.dir}">
-                <include name="expireOldAffidavits.sar"/>
+                <include name="expireOldAffidavitsAndPayments.sar"/>
             </fileset>
         </copy>
         <unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes"/>
