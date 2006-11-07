@@ -1273,6 +1273,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
         } catch (SQLException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         } finally {
+            close(rs);
             close(ps);
             close(conn);
             close(ctx);
