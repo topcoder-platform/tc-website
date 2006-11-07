@@ -156,9 +156,7 @@
 			<a href="${pacts:viewUser(referred.header.user.id)}"><c:out value="${referred.header.user.handle}" /></a>
 			 for <fmt:formatNumber value="${referred.grossAmount}" pattern="#.00" />
 			(Payment
-			<a href="${pacts:viewPayment(referred.header.id)}">
-				 <c:out value="${referred.header.id}" />
-				</a>)
+			<a href="${pacts:viewPayment(referred.header.id)}"><c:out value="${referred.header.id}" /></a>)
 				</td>
 		</tr>
 </c:if>

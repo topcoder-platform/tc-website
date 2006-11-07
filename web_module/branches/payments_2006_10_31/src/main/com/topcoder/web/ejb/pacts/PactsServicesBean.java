@@ -2733,7 +2733,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c = DBMS.getConnection();
             c.setAutoCommit(false);
             setLockTimeout(c);
-            long paymentId = makeNewPayment(c, p, false);
+            long paymentId = makeNewPayment(c, p, true);
             c.commit();
             c.setAutoCommit(true);
             c.close();
