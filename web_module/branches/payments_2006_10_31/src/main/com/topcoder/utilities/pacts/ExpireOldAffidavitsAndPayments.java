@@ -62,7 +62,13 @@ public class ExpireOldAffidavitsAndPayments extends ServiceMBeanSupport implemen
     	SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy.MM.dd h:mm a");
     	
     	String date = sdfDay.format(new Date()) + " " + getRunningTime();
-    	return sdfDate.parse(date);    	
+    	Date d = sdfDate.parse(date);
+    	
+    	// if this was early today, move it for tomorrow same time.
+    	if (d.before(new Date())) {
+    		d.setTime(d.getTime() + 24 * 60 * 60 * 1000);
+    	}
+    	return d;
     }
 
     private class ExpireTask extends TimerTask {

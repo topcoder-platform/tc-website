@@ -154,7 +154,7 @@
 			<td><b>Paid referal to:</b></td>
 			<td>
 			<a href="${pacts:viewUser(referred.header.user.id)}"><c:out value="${referred.header.user.handle}" /></a>
-			 for <fmt:formatNumber value="${referred.netAmount}" pattern="#.00" />
+			 for <fmt:formatNumber value="${referred.grossAmount}" pattern="#.00" />
 			(Payment
 			<a href="${pacts:viewPayment(referred.header.id)}">
 				 <c:out value="${referred.header.id}" />
