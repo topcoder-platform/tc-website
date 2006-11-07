@@ -1048,6 +1048,21 @@ public class DataInterfaceBean implements PactsConstants {
     }
 
     /**
+     * Adds the specified payment to the database.  
+     *
+     * @param   p Data for the new payment.
+     * @throws  RemoteException If there is some communication problem with the EJB
+     * @throws  IllegalUpdateException If the user is trying to make an update that is not allowed.
+     * @throws  SQLException If there is some problem updating the data
+     * @return  The new payment's ID.
+     */
+    public long addPayment(Payment p, boolean payReferrer) throws RemoteException, IllegalUpdateException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.addPayment(p, payReferrer);
+    }
+
+
+    /**
      * Adds the specified payment to the database, and to the specified contract.  Does
      * not add a corresponding referral payment.
      *

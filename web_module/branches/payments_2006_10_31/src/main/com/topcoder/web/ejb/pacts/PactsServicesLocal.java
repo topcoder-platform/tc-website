@@ -126,6 +126,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
     long addContract(Contract c, String contractText) throws  SQLException;
 
     long addPayment(Payment p) throws  IllegalUpdateException, SQLException;
+    
+    long addPayment(Payment p, boolean payReferrer) throws  IllegalUpdateException, SQLException;
 
     long addContractPayment(long contractId, Payment p)
             throws  IllegalUpdateException, SQLException;

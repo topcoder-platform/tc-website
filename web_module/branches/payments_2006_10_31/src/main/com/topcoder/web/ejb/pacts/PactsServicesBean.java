@@ -2728,12 +2728,24 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException           If there is some problem updating the data
      */
     public long addPayment(Payment p) throws IllegalUpdateException, SQLException {
+    	return addPayment(p, false);
+    }
+    
+    /**
+     * Adds the specified payment to the database. 
+     *
+     * @param p Data for the new payment.
+     * @return The new payment's ID.
+     * @throws IllegalUpdateException If the user is trying to make some update that is not allowed
+     * @throws SQLException           If there is some problem updating the data
+     */
+    public long addPayment(Payment p, boolean payReferrer) throws IllegalUpdateException, SQLException {
         Connection c = null;
         try {
             c = DBMS.getConnection();
             c.setAutoCommit(false);
             setLockTimeout(c);
-            long paymentId = makeNewPayment(c, p, true);
+            long paymentId = makeNewPayment(c, p, payReferrer);
             c.commit();
             c.setAutoCommit(true);
             c.close();
