@@ -53,6 +53,18 @@
                         <H3>TopCoder Software Web Site Change Log</H3>
 
                         <p>
+                            2.0.1 - 2006.11.07
+                            <ul>
+                                <li>Fix bug in component download that did not allow a user to view the terms</li>
+                            </ul>
+                        </p>
+                        <p>
+                            2.0.0 - 2006.11.02
+                            <ul>
+                                <li>Release of new Online Review system</li>
+                            </ul>
+                        </p>
+                        <p>
                             1.0.6 - 2006.10.09
                             <ul>
                                 <li>Add the ability to exclude projects from the digital run</li>
