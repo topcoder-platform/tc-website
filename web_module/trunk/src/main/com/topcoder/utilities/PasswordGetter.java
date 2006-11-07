@@ -36,6 +36,7 @@ public class PasswordGetter {
 
         Context context = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
                 ApplicationServer.SECURITY_PROVIDER_URL);
+
         try {
 
             PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);

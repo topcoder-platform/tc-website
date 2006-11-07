@@ -129,7 +129,7 @@
         <div style="float:right;" class="rtbc"><b>
             <% if (paginator.getPreviousPage()) { %>
             <A href="<%=link%>&<%=ForumConstants.START_IDX%>=${paginator.previousPageStart}" class="rtbcLink">
-                <<PREV</A>&#160;&#160;&#160;
+                << PREV</A>&#160;&#160;&#160;
             <% } %> [
             <% pages = paginator.getPages(5);
                 for (int i = 0; i < pages.length; i++) {
@@ -265,7 +265,7 @@
 
 <div>
     <div style="float:right;">
-        <a href="?module=RSS&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>"><img border="none" src="/i/forums/btn_rss.gif"/></a>
+        <a href="?module=RSS&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>"><img alt="RSS" border="none" src="/i/forums/btn_rss.gif"/></a>
     </div>
     <span class="small">A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <%if (user != null) {%><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
         all as read)</A><% } %></span>

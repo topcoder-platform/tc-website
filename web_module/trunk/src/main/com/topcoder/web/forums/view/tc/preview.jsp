@@ -5,6 +5,9 @@
                 com.jivesoftware.forum.stats.ViewCountManager,
                 com.jivesoftware.forum.ForumMessage,
                 com.jivesoftware.forum.ForumThread,
+                com.jivesoftware.forum.ForumPermissions,
+                com.jivesoftware.forum.Attachment,
+                com.jivesoftware.util.ByteFormat,
                 java.util.*,
                 com.topcoder.shared.util.DBMS"
 %>
@@ -18,7 +21,6 @@
 <tc-webtag:useBean id="message" name="message" type="com.jivesoftware.forum.ForumMessage" toScope="request"/>
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
 <tc-webtag:useBean id="postMode" name="postMode" type="java.lang.String" toScope="request"/>
-<tc-webtag:useBean id="historyBean" name="historyBean" type="com.topcoder.web.ejb.messagehistory.MessageHistory" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
@@ -140,14 +142,27 @@ function AllowTabCharacter() {
          <%   } %>
         </td>
     </tr>
-   <tr>
-   <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
-   <%  if (ForumsUtil.displayMemberPhoto(user, user)) { %>
-      <img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
-   <%  } %>
-   <span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></A></div></td>
-   <td class="rtTextCell100"><%=message.getBody()%></td>
-   </tr>
+	<% 	if (message.getAttachmentCount() > 0) { %>
+		<tr>
+			<td class="rtHeader" colspan="2">
+				Attachments:
+				<%	Iterator attachments = message.getAttachments();
+					while(attachments.hasNext()) {
+						Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
+						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" /></A>
+						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
+				<% 	} %>
+			</td>
+		</tr>
+	<% } %>
+	<tr>
+	   <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
+	   <%  if (ForumsUtil.displayMemberPhoto(user, user)) { %>
+	      <img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
+	   <%  } %>
+	   <span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></A></div></td>
+	   <td class="rtTextCell100"><%=message.getBody()%></td>
+	</tr>
 </table>
 
 <span class="bodySubtitle">Edit Message</span><br/>
@@ -156,9 +171,23 @@ function AllowTabCharacter() {
 <tc-webtag:hiddenInput name="module"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.FORUM_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.MESSAGE_ID%>"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.TEMP_MESSAGE_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
 
 <tr><td class="rtHeader" colspan="2"><%=message.getSubject()%></td></tr>
+<% 	if (message.getAttachmentCount() > 0) { %>
+		<tr>
+			<td class="rtHeader" colspan="2">
+				Attachments:
+				<%	Iterator attachments = message.getAttachments();
+					while(attachments.hasNext()) {
+						Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
+						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" /></A>
+						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
+				<% 	} %>
+			</td>
+		</tr>
+<% } %>
 <tr>
 <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
 <%  if (ForumsUtil.displayMemberPhoto(user, user)) { %>
@@ -166,6 +195,9 @@ function AllowTabCharacter() {
 <%  } %>
 <span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></A></div></td>
 <td class="rtTextCell100">
+<% 	if (errors.get(ForumConstants.ATTACHMENT_ERROR) != null) { %>
+		<span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.ATTACHMENT_ERROR%>"><%=err%><br/></tc-webtag:errorIterator></span>
+<% 	} %>
 <% if (errors.get(ForumConstants.MESSAGE_SUBJECT) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=err%></tc-webtag:errorIterator><br/></span><% } %>
 <b>Subject:</b><br/><tc-webtag:textInput size="60" name="<%=ForumConstants.MESSAGE_SUBJECT%>" escapeHtml="false" onKeyPress="return noenter(event)"/><br/><br/>
 <% if (errors.get(ForumConstants.MESSAGE_BODY) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_BODY%>"><%=err%></tc-webtag:errorIterator><br/></span><% } %>
@@ -173,7 +205,19 @@ function AllowTabCharacter() {
 <br/><tc-webtag:textArea id="tcPreviewArea" rows="15" cols="72" name="<%=ForumConstants.MESSAGE_BODY%>" onKeyDown="AllowTabCharacter()"/>
 </td>
 </tr>
-<tr><td class="rtFooter"><input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/><input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/></td></tr>
+
+<tr>
+	<td class="rtFooter">
+		<input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/>
+		<input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/>
+		<%	if (forum.isAuthorized(ForumPermissions.CREATE_MESSAGE_ATTACHMENT)) { %>
+			<%	if (!postMode.equals("Edit")) { %>
+			<input type="image" src="/i/interface/btn_attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
+			<%	} %>
+		<%	} %>
+	</td>
+</tr>
+
 </form></table>
 
 <p><br/></p>

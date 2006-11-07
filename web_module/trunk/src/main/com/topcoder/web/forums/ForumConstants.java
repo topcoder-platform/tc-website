@@ -13,6 +13,7 @@ public interface ForumConstants {
 	public final static String FORUM_ID = "forumID";
 	public final static String THREAD_ID = "threadID";
 	public final static String MESSAGE_ID = "messageID";
+	public final static String TEMP_MESSAGE_ID = "tmID";
     public final static String USER_ID = "userID";
     public final static String ANNOUNCEMENT_ID = "annID";
     public final static String POLL_ID = "pollID";
@@ -30,6 +31,10 @@ public interface ForumConstants {
     public final static String ANNOUNCEMENT_BODY = "body";
     public final static String ANNOUNCEMENT_COMMAND = "cmd";
 	
+    public final static String ATTACHMENT_ID = "attID";
+    public final static String ATTACHMENT_ERROR = "attError";
+    public final static String ATTACHMENT_CONTENT_TYPE = "attContentType";
+    
 	public final static String START_IDX = "start";
 	public final static String POST_MODE = "mode";
     
@@ -38,6 +43,17 @@ public interface ForumConstants {
 
     public final static String SORT_FIELD = "sortField";
     public final static String SORT_ORDER = "sortOrder";
+    
+    public final static String FORUM_TYPE = "ft";
+    public final static int CUSTOMER_FORUM = 1;
+    public final static int DEVELOPER_FORUM = 2;
+    
+    public final static Long FORUM_MODERATE_PERMISSION = new Long(1);
+    public final static Long FORUM_POST_PERMISSION = new Long(2);
+    public final static Long FORUM_MODERATE_AND_POST_PERMISSION = new Long(3);
+    
+    public final static String SOFTWARE_MODERATORS_PREFIX = "Software_Moderators_";
+    public final static String SOFTWARE_USERS_PREFIX = "Software_Users_";
 
     // Extended Properties
     public final static String PROPERTY_HIDE_EMPTY_FORUMS = "hideEmptyForums";
@@ -49,7 +65,20 @@ public interface ForumConstants {
     public final static String PROPERTY_HIDE_MAIN_RSS = "hideMainRSS";
     public final static String PROPERTY_LINK_NAMES = "linkNames";
     public final static String PROPERTY_LINK = "link";
+    
+    public final static String PROPERTY_ARCHIVAL_STATUS = "archivalStatus";
+    public final static String PROPERTY_COMPONENT_PHASE = "componentPhase";
+    public final static String PROPERTY_COMPONENT_STATUS = "componentStatus";
+    public final static String PROPERTY_COMPONENT_VERSION_ID = "compVersionId";
+    public final static String PROPERTY_COMPONENT_ROOT_CATEGORY_ID = "compRootCategoryId";
+    public final static String PROPERTY_COMPONENT_TECH_TYPES = "compTechTypes";
+    public final static String PROPERTY_FORUM_TYPE = "forumType";
+    public final static String PROPERTY_VERSION_TEXT = "versionText";
 
+    public final static String PROPERTY_ARCHIVAL_STATUS_DELETED = "0";
+    public final static String PROPERTY_ARCHIVAL_STATUS_ACTIVE = "1";
+    public final static String PROPERTY_ARCHIVAL_STATUS_ARCHIVED = "2";
+    
     // Admin
     public final static String ADMIN_COMMAND = "cmd";
     public final static String ADMIN_COMMAND_HTML_ESCAPE = "htmlEscape";
@@ -57,6 +86,8 @@ public interface ForumConstants {
     public final static String ADMIN_COMMAND_CREATE_FORUMS_ALGO = "createForumsAlgo";
     public final static String ADMIN_COMMAND_DELETE_FORUMS_ALGO = "deleteForumsAlgo";
     public final static String ADMIN_ENABLE_RATINGS = "enableRatings";
+    public final static String ADMIN_CREATE_FORUM_FROM_EJB = "createForumFromEJB";
+    public final static String ADMIN_CONVERT_TCS_FORUMS = "convertTCSForums";
 
     public final static String ADMIN_MATCH = "match";
 
@@ -135,6 +166,8 @@ public interface ForumConstants {
         "You do not have permission to post a new message in this forum.";
     public final static String ERR_CANNOT_POST_ANNOUNCEMENT =
         "You do not have permission to post a new announcement.";
+    public final static String ERR_CANNOT_EDIT_FOREIGN_POST =
+    	"You cannot edit messages created by other users.";
     public final static String ERR_LONG_MESSAGE_SUBJECT =
         "Error: Message body exceeds " + MESSAGE_SUBJECT_MAX_LENGTH + " characters.";
     public final static String ERR_LONG_MESSAGE_BODY =
@@ -155,7 +188,13 @@ public interface ForumConstants {
     public final static String ERR_NO_SEARCH_TERMS =
         "Please enter some search terms.";
     public final static String ERR_NO_SEARCH_HANDLE =
-        "No user exists with the specified handle.";
+        "No user exists with the specified handle.";;
+    public final static String ERR_ATTACHMENT_PERMS = 
+    	"You are not authorized to create or modify attachments in this forum.";
+    public final static String ERR_ATTACHMENT_DELETE_PERMS = 
+    	"You are not authorized to delete this attachment.";
+    public final static String ERR_ATTACHMENT_NOT_FOUND = 
+    	"Message does not contain the specified attachment.";
     public final static String ERR_NO_POLL_ANSWER = 
     	"Please select an answer.";
     public final static String ERR_NO_POLL_ANSWERS = 

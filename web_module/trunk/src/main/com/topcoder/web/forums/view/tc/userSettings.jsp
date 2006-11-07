@@ -52,13 +52,13 @@ function toggleTabs(id) {
         document.getElementById('tabRate'+i).style.display = rateStyle;
     }
 
-    for (i=1; i<=11; i++) {
+    for (i=2; i<=11; i++) {
         document.getElementById('bodyGen'+i).style.display = genStyle;
     }
-    for (i=1; i<=5; i++) {
+    for (i=2; i<=5; i++) {
         document.getElementById('bodyWatch'+i).style.display = watchStyle;
     }
-    for (i=1; i<=4; i++) {
+    for (i=2; i<=4; i++) {
         document.getElementById('bodyRate'+i).style.display = rateStyle;
     }
     document.getElementById('infoRate').style.display = rateStyle;
@@ -105,27 +105,27 @@ function toggleTabs(id) {
 <table cellpadding="0" cellspacing="0" border="0" class="tabTable" style="clear:both;">
   <tr>
       <td id="tabGen1" width="0%" class="tabLeftOn">&#160;</td>
-      <td id="tabGen2" width="20%" class="tabTextOn"><A href="javascript:void(0)" onclick="toggleTabs('gen')" class="tabLink">General Settings</A></td>
+      <td id="tabGen2" width="20%" class="tabTextOn"><A href="javascript:void(0)" onclick="toggleTabs('gen')" class="rtbcLink"><b>General Settings</b></A></td>
       <td id="tabGen3" width="1%" valign="top"><img src="/i/stats/tabs/midOnOff.gif" alt="" border="0" /></td>
-      <td id="tabGen4" width="20%" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('watch')" class="tabLink">Watch Preferences</A></td>
+      <td id="tabGen4" width="20%" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('watch')" class="rtbcLink">Watch Preferences</A></td>
       <td id="tabGen5" width="1%" valign="top"><img src="/i/stats/tabs/midOffOff.gif" alt="" border="0" /></td>
-      <td id="tabGen6" width="20%" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('rate')" class="tabLink">Rating Preferences</A></td>
+      <td id="tabGen6" width="20%" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('rate')" class="rtbcLink">Rating Preferences</A></td>
       <td id="tabGen7" width="1%" valign="top"><img src="/i/stats/tabs/rightOff.gif" alt="" border="0" /></td>
 
       <td id="tabWatch1" width="0%" style="display:none" class="tabLeftOff">&#160;</td>
-      <td id="tabWatch2" width="20%" style="display:none" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('gen')" class="tabLink">General Settings</A></td>
+      <td id="tabWatch2" width="20%" style="display:none" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('gen')" class="rtbcLink">General Settings</A></td>
       <td id="tabWatch3" width="1%" style="display:none" valign="top"><img src="/i/stats/tabs/midOffOn.gif" alt="" border="0" /></td>
-      <td id="tabWatch4" width="20%" style="display:none" class="tabTextOn"><A href="javascript:void(0)" onclick="toggleTabs('watch')" class="tabLink">Watch Preferences</A></td>
+      <td id="tabWatch4" width="20%" style="display:none" class="tabTextOn"><A href="javascript:void(0)" onclick="toggleTabs('watch')" class="rtbcLink"><b>Watch Preferences</b></A></td>
       <td id="tabWatch5" width="1%" style="display:none" valign="top"><img src="/i/stats/tabs/midOnOff.gif" alt="" border="0" /></td>
-      <td id="tabWatch6" width="20%" style="display:none" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('rate')" class="tabLink">Rating Preferences</A></td>
+      <td id="tabWatch6" width="20%" style="display:none" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('rate')" class="rtbcLink">Rating Preferences</A></td>
       <td id="tabWatch7" width="1%" style="display:none" valign="top"><img src="/i/stats/tabs/rightOff.gif" alt="" border="0" /></td>
 
       <td id="tabRate1" width="0%" style="display:none" class="tabLeftOff">&#160;</td>
-      <td id="tabRate2" width="20%" style="display:none" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('gen')" class="tabLink">General Settings</A></td>
+      <td id="tabRate2" width="20%" style="display:none" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('gen')" class="rtbcLink">General Settings</A></td>
       <td id="tabRate3" width="1%" style="display:none" valign="top"><img src="/i/stats/tabs/midOffOff.gif" alt="" border="0" /></td>
-      <td id="tabRate4" width="20%" style="display:none" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('watch')" class="tabLink">Watch Preferences</A></td>
+      <td id="tabRate4" width="20%" style="display:none" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('watch')" class="rtbcLink">Watch Preferences</A></td>
       <td id="tabRate5" width="1%" style="display:none" valign="top"><img src="/i/stats/tabs/midOffOn.gif" alt="" border="0" /></td>
-      <td id="tabRate6" width="20%" style="display:none" class="tabTextOn"><A href="javascript:void(0)" onclick="toggleTabs('rate')" class="tabLink">Rating Preferences</A></td>
+      <td id="tabRate6" width="20%" style="display:none" class="tabTextOn"><A href="javascript:void(0)" onclick="toggleTabs('rate')" class="rtbcLink"><b>Rating Preferences</b></A></td>
       <td id="tabRate7" width="1%" style="display:none" valign="top"><img src="/i/stats/tabs/rightOn.gif" alt="" border="0" /></td>
 
       <td width="37%"></td>
@@ -136,9 +136,6 @@ function toggleTabs(id) {
 <tc-webtag:hiddenInput name="<%=ForumConstants.SETTINGS_SECTION%>" value="gen"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>" value="save"/>
 <table cellpadding="0" cellspacing="0" class="rtTable" style="width:100%;">
-   <tr id="bodyGen1">
-        <td class="rtHeader" colspan="2">General Settings</td>
-   </tr>
    <tr id="bodyGen2">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Forums per Category page:</strong></td>
       <td class="rtThreadCell" style="width:100%;">
@@ -310,9 +307,6 @@ function toggleTabs(id) {
       <label for="jiveDisplayAllMemberPhotosNo">No</label>
       </td>
    </tr>
-   <tr id="bodyWatch1">
-      <td class="rtHeader" colspan="2">Watch Preferences</td>
-   </tr>
    <tr id="bodyWatch2">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Always watch threads I create:</strong></td>
       <td class="rtThreadCell" style="width:100%;">
@@ -366,9 +360,6 @@ function toggleTabs(id) {
          </select>
          (<%= user.getEmail() %>)
       </td>
-   </tr>
-   <tr id="bodyRate1">
-        <td class="rtHeader" colspan="2">Rating Preferences</td>
    </tr>
    <tr id="bodyRate2">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Show ratings:</strong></td>

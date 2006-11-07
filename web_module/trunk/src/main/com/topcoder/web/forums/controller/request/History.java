@@ -84,7 +84,6 @@ public class History extends ForumsProcessor {
             BaseProcessor.close(ctx);
         }
 
-        getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("historyUser", historyUser);
         getRequest().setAttribute("messages", itMessages);
         getRequest().setAttribute("paginator", paginator);
