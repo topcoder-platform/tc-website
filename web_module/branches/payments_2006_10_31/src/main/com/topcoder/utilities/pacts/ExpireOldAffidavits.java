@@ -46,7 +46,7 @@ public class ExpireOldAffidavits extends ServiceMBeanSupport implements ExpireOl
         	Date start = getStartTime();
         	
             timer = new Timer();
-            timer.scheduleAtFixedRate(new ExpireTask(), 0, 1 * 60 * 1000); 
+            timer.scheduleAtFixedRate(new ExpireTask(), start, 1 * 60 * 1000); 
 
             logger.info("ExpireOldAffidavits will run daily at " + getRunningTime() + " starting at " + start);
         } catch (Exception e) {
@@ -73,6 +73,9 @@ public class ExpireOldAffidavits extends ServiceMBeanSupport implements ExpireOl
             	DataInterfaceBean dib = new DataInterfaceBean();
             	int n = dib.expireOldAffidavits();
             	logger.debug(n + " affidavits expired");
+            	
+            	n = dib.expireOldPayments();
+            	logger.debug(n + " payments expired");
             	
             } catch (Exception e) {
                 if (!(e instanceof NameNotFoundException))
