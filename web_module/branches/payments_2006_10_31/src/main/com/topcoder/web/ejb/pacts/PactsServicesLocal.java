@@ -230,7 +230,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
     
     BasePayment addPayment(BasePayment payment)  throws  SQLException;
 
-    BasePayment updatePayment(BasePayment payment) throws  SQLException;
+    BasePayment updatePayment(BasePayment payment) throws  Exception;
 
     List findPayments(int paymentTypeId) throws  SQLException;
 
