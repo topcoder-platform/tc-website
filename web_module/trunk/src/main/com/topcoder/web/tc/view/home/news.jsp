@@ -41,6 +41,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.07.06<br>12:00 NOON</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_110206">AOL SRM 325 chat session transcript</A>
+        </span><br><br>
+      AOL held a chat session in the arena recently, just prior to SRM 325, to discuss working at AOL.  Here's what everyone had to say.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_110206">details</A> | 
+         <tc-webtag:forumLink forumID="506075" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>11.06.06<br>4:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>//?module=ViewContestDetails&ct=2046">Arena Skin Contest</A>
@@ -204,15 +219,3 @@ This 9pm EST SRM attracted many long established Topcoder members, but had sligh
         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>10.31.06<br>3:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=activeContests">Latest Software Assembly winners claim $22,500 in prizes</A></span><br><br>
-      <tc-webtag:handle coderId="7389864" /> and <tc-webtag:handle coderId="10627428" /> are the latest TopCoder members to win the top spots in a Software Assembly competition. Roma came in first, winning $15,000, and Fvillaf took home $7,500 for his second-place finish in the Costing Engine and Admin Tool competition. Congratulations!
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <tc-webtag:forumLink forumID="506117" message="discuss this"/> |
-        <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
