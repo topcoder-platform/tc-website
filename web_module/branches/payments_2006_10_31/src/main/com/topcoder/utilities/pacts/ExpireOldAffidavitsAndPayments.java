@@ -13,7 +13,7 @@ import org.jboss.system.ServiceMBeanSupport;
 
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 
-public class ExpireOldAffidavitsAndPayments extends ServiceMBeanSupport implements ExpireOldAffidavitsMBean { 
+public class ExpireOldAffidavitsAndPayments extends ServiceMBeanSupport implements ExpireOldAffidavitsAndPaymentsMBean { 
 	
     private static Logger logger = Logger.getLogger(ExpireOldAffidavitsAndPayments.class);
     private static final String NAME = "ExpireOldAffidavits";
