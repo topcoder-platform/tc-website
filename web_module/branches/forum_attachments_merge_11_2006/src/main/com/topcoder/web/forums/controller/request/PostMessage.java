@@ -114,10 +114,12 @@ public class PostMessage extends ForumsProcessor {
         if (message == null || postMode.equals("Reply")) {
 			message = forum.createMessage(user);
 			ForumMessage tempMessage = (ForumMessage)getRequest().getSession().getAttribute("tempMessage_" + tempMessageIDStr);
-			Iterator itAttachments = tempMessage.getAttachments();
-			while (itAttachments.hasNext()) {
-				Attachment attachment = (Attachment)itAttachments.next();
-				message.createAttachment(attachment.getName(), attachment.getContentType(), attachment.getData());
+			if (tempMessage != null) {
+				Iterator itAttachments = tempMessage.getAttachments();
+				while (itAttachments.hasNext()) {
+					Attachment attachment = (Attachment)itAttachments.next();
+					message.createAttachment(attachment.getName(), attachment.getContentType(), attachment.getData());
+				}
 			}
 		}
         long histModificationDate = message.getModificationDate().getTime();
