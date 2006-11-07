@@ -204,7 +204,7 @@ class SpectatorMessagesHelper {
         final long componentId) {
         // builds the objects to be returned
         ArrayList componentTimeList = new ArrayList(rscComponentTime.size());
-        if (componentTimeList.size() > 0) {
+        if (rscComponentTime.size() > 0) {
             Iterator it = rscComponentTime.iterator();
             ResultSetContainer.ResultSetRow rsr;
             while (it.hasNext()) {
