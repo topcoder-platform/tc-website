@@ -2420,15 +2420,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         		p.getHeader().getTypeId() == MARATHON_MATCH_PAYMENT ||
         		p.getHeader().getTypeId() == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT) {
             StringBuffer getUserWithholding = new StringBuffer(300);
-            getUserWithholding.append("SELECT utf.withholding_amount, utf.withholding_percentage, ");
-            getUserWithholding.append("utf.use_percentage ");
-            getUserWithholding.append("FROM user_tax_form_xref utf, user_address_xref x, address a, country ");
-            getUserWithholding.append("WHERE x.user_id = " + p.getHeader().getUser().getId() + " ");
-            getUserWithholding.append("AND a.country_code = country.country_code ");
-            getUserWithholding.append("and a.address_id = x.address_id ");
-            getUserWithholding.append("and a.address_type_id = 2 ");
-            getUserWithholding.append("AND utf.status_id = 60 ");
-            getUserWithholding.append("AND utf.user_id = " + p.getHeader().getUser().getId());
+            getUserWithholding.append("SELECT withholding_amount, withholding_percentage, use_percentage,date_filed ");
+            getUserWithholding.append("FROM user_tax_form_xref ");
+            getUserWithholding.append("WHERE user_id =  " + p.getHeader().getUser().getId());
+            getUserWithholding.append("ORDER  by date_filed DESC ");
+            
             ResultSetContainer rsc = runSelectQuery(c, getUserWithholding.toString(), false);
             if (rsc.getRowCount() > 0) {
                 withholdAmount = TCData.getTCDouble(rsc.getRow(0), "withholding_amount");
