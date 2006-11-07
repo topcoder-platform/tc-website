@@ -5547,7 +5547,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException
      */
     public List findPayments(int paymentTypeId, long referenceId) throws SQLException {
-        return findCoderPayments(0, paymentTypeId, 0);
+        return findCoderPayments(0, paymentTypeId, referenceId);
     }
 
     /**

@@ -151,10 +151,14 @@
 		</tr>		
 <c:if test="${not empty referred}">
 		<tr>
-			<td><b>Referred by:</b></td>
-			<td><a href="${pacts:viewPayment(referred.id)}">
-				Payment <c:out value="${referred.id}" />
-				</a>
+			<td><b>Paid referal to:</b></td>
+			<td>
+			<a href="${pacts:viewUser(referred.header.user.id)}"><c:out value="${referred.header.user.handle}" /></a>
+			 for <fmt:formatNumber value="${referred.netAmount}" pattern="#.00" />
+			(Payment
+			<a href="${pacts:viewPayment(referred.header.id)}">
+				 <c:out value="${referred.header id}" />
+				</a>)
 				</td>
 		</tr>
 </c:if>

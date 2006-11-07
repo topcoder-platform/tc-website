@@ -31,15 +31,16 @@ public class ViewPayment extends BaseProcessor implements PactsConstants {
             search.put(PAYMENT_ID, payment_id + "");
 
             List l = bean.findPayments(CODER_REFERRAL_PAYMENT, payment.getId());
-            BasePayment bp = null;
+            
             if (l.size() > 0) {
             	if (l.size() > 1) {
             		log.warn("Payment " + payment.getId() + " referenced by more than 1 payment!");
             	}
-            	bp = (BasePayment) l.get(0);
+            	Payment referred = new Payment(bean.getPayment(((BasePayment) l.get(0)).getId()));
+                getRequest().setAttribute("referred", referred);
+            	
             }
             
-            getRequest().setAttribute("referred", bp);
             
             Map notes = bean.findNotes(search);
             getRequest().setAttribute(NOTE_HEADER_LIST, new NoteHeaderList(notes).getHeaderList());
