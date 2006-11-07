@@ -40,6 +40,25 @@
 -----------------------------%>
 
 <%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
+        <br>11.07.06<br>2:45 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm19">TCHS SRM 19 - Problem Set & Analysis</A></span><br><br>
+The latest round of the TCHS division led competitors through a minefield of darts, sales, and parts.  Oh my!
+            </td>
+            <td class="newsPhoto"><%--<img src="/i/m/HiltonLange_big.jpg" alt="" width="55" height="61"/><br>--%>by
+                <tc-webtag:handle coderId="7296000" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm19">full story</A> |
+    <tc-webtag:forumLink forumID="506041" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.07.06<br>12:00 NOON</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -205,17 +224,4 @@ This 9pm EST SRM attracted many long established Topcoder members, but had sligh
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>11.01.06<br>10:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=digital_run&d2=2006_des_prizes">Design prizes <strong><em>DOUBLED</em></strong> for next Digital Run stage</A></span><br><br>
-      For Stage 3 of the Digital Run, starting November 3, the Design Cup series will double its prize pool -- with a total of $150,000 up for grabs, don't miss out!
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=digital_run&d2=2006_des_prizes">details</A> | 
-        <tc-webtag:forumLink forumID="506162" message="discuss this"/> |
-        <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
 
