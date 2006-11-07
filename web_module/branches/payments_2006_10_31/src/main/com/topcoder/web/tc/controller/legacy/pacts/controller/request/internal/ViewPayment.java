@@ -27,10 +27,8 @@ public class ViewPayment extends BaseProcessor implements PactsConstants {
             Payment payment = new Payment(bean.getPayment(payment_id));
             getRequest().setAttribute(PACTS_INTERNAL_RESULT, payment);
 
-            Map search = new HashMap();
-            search.put(PAYMENT_ID, payment_id + "");
 
-            List l = bean.findPayments(CODER_REFERRAL_PAYMENT, payment.getId());
+            List l = bean.findPayments(CODER_REFERRAL_PAYMENT, payment_id);
             
             if (l.size() > 0) {
             	if (l.size() > 1) {
@@ -42,6 +40,8 @@ public class ViewPayment extends BaseProcessor implements PactsConstants {
             	
             }
             
+            Map search = new HashMap();
+            search.put(PAYMENT_ID, payment_id + "");
             
             Map notes = bean.findNotes(search);
             getRequest().setAttribute(NOTE_HEADER_LIST, new NoteHeaderList(notes).getHeaderList());

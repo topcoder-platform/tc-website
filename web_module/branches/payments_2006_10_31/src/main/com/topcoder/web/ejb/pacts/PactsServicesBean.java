@@ -5622,6 +5622,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             query.append("  pd.parent_payment_id=" + referenceId + ")");
         }
 
+        log.info(query);
         ResultSetContainer rsc = runSelectQuery(query.toString(), false);
 
         for (int i=0; i < rsc.getRowCount(); i++) {
