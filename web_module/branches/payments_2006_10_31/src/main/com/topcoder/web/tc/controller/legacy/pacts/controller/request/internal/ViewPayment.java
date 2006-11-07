@@ -36,6 +36,7 @@ public class ViewPayment extends BaseProcessor implements PactsConstants {
             	if (l.size() > 1) {
             		log.warn("Payment " + payment.getId() + " referenced by more than 1 payment!");
             	}
+            	log.info("referred payment: " + ((BasePayment) l.get(0)).getId());
             	Payment referred = new Payment(bean.getPayment(((BasePayment) l.get(0)).getId()));
                 getRequest().setAttribute("referred", referred);
             	
