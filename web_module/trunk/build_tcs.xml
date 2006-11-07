@@ -222,6 +222,11 @@
                 <include name="jstl.jar"/>
                 <include name="standard.jar"/>
             </lib>
+            <!-- temp fix until we figure out why the war isn't finding these classes from the jboss lib dir -->
+            <lib dir="${bin.dir}">
+                <include name="shared.jar"/>
+                <include name="tcwebcommon.jar"/>
+            </lib>
         </war>
     </target>
 
