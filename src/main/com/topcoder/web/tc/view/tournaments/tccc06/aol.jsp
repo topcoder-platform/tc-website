@@ -44,6 +44,7 @@
                <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_072206">SRM 312 Chat Transcript</A>
                | <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_080906">SRM 315 Chat Transcript</A>
                | <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_100906">SRM 322 Chat Transcript</A>
+               | <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_110206">SRM 325 Chat Transcript</A>
                </div>
                <br><br>
                 <span class="smallText">* The TopCoder Collegiate Challenge is sponsored by TopCoder, Inc. AOL LLC is not responsible for any aspect of the Challenge.</span>
