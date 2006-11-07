@@ -44,7 +44,6 @@ public class Watches extends ForumsProcessor {
         }
 
         Iterator itThreads = watchManager.getAllWatches(user, JiveConstants.THREAD);
-        getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("watchManager", watchManager);
         getRequest().setAttribute("threads", itThreads);
 

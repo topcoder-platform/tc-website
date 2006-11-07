@@ -22,7 +22,7 @@
 <tc-webtag:useBean id="historyBean" name="historyBean" type="com.topcoder.web.ejb.messagehistory.MessageHistory" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
-<% HashMap errors = (HashMap) request.getAttribute(BaseProcessor.ERRORS_KEY);
+<% 	HashMap errors = (HashMap) request.getAttribute(BaseProcessor.ERRORS_KEY);
     User user = (User) request.getAttribute("user");
     String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW));
     RatingManager ratingManager = RatingManagerFactory.getInstance(authToken);
@@ -256,7 +256,20 @@
                             <%   } %>
                 </td>
             </tr>
-            <% double pct = ratingCount <= 0 ? 0 : 100 * (double) (posRatings) / (double) (ratingCount);
+            <% 	if (message.getAttachmentCount() > 0) { %>
+			<tr>
+				<td class="rtHeader" colspan="2">
+					Attachments:
+					<%	Iterator attachments = message.getAttachments();
+						while(attachments.hasNext()) {
+							Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
+							<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" /></A>
+							<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
+					<% 	} %>
+				</td>
+		 	</tr>
+		  	<% 	} %>
+            <% 	double pct = ratingCount <= 0 ? 0 : 100 * (double) (posRatings) / (double) (ratingCount);
                 String msgBodyDisplay = ForumsUtil.collapsePost(user, pct, ratingCount, thread.getMessageCount()) ? "display:none" : "";
             %>
             <tr id="<%=msgBodyID%>" style="<%=msgBodyDisplay%>">
@@ -321,7 +334,7 @@
         <% } %>
     </td>
         <td width=1% align="right" valign="top">
-            <a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img border="none" src="/i/forums/btn_rss.gif"/></a>
+            <a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" src="/i/forums/btn_rss.gif"/></a>
         </td>
 </table>
 

@@ -3,18 +3,15 @@
  */
 package com.topcoder.web.forums.controller.request;
 
-import javax.naming.InitialContext;
+import java.util.Iterator;
 
-import com.jivesoftware.base.Log;
+import com.jivesoftware.forum.Attachment;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.ejb.messagehistory.MessageHistory;
 import com.topcoder.web.forums.controller.ForumsUtil;
 import com.topcoder.web.forums.ForumConstants;
 
@@ -29,7 +26,7 @@ public class PreviewMessage extends ForumsProcessor {
 		if (isGuest()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
-        
+		
         long forumID = -1;
         long threadID = -1;
         long messageID = -1;
@@ -40,6 +37,7 @@ public class PreviewMessage extends ForumsProcessor {
         
         String forumIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.FORUM_ID));
         String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
+        String tempMessageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
         String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
         String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags(
                 getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
@@ -60,24 +58,12 @@ public class PreviewMessage extends ForumsProcessor {
             addError(ForumConstants.MESSAGE_SUBJECT, ForumConstants.ERR_POST_MODE_UNRECOGNIZED);
         }
         
-        InitialContext ctx = null;
-        MessageHistory historyBean = null;
-        try {
-            ctx = TCContext.getInitial();
-            historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
-        } catch (Exception e) {
-            Log.error(e);
-        } finally {
-            BaseProcessor.close(ctx);
-        }
-        
-        getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("forum", forum);
         getRequest().setAttribute("postMode", postMode);
-        getRequest().setAttribute("historyBean", historyBean);
         
         setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
         setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
+        setDefault(ForumConstants.TEMP_MESSAGE_ID, getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
         setDefault(ForumConstants.POST_MODE, postMode);
         setDefault(ForumConstants.MESSAGE_SUBJECT, subject);
         setDefault(ForumConstants.MESSAGE_BODY, textareaBody);
@@ -105,15 +91,27 @@ public class PreviewMessage extends ForumsProcessor {
             addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_LONG_MESSAGE_BODY);
         }
 		if (hasErrors()) {
+			ForumMessage tempMessage = (ForumMessage)getRequest().getSession().getAttribute("tempMessage_" + tempMessageIDStr); 
+            getRequest().setAttribute("tempMessage", tempMessage);
             setNextPage("/post.jsp");
             setIsNextPageInContext(true);
             return;
 		}
 		
-        ForumMessage previewMessage = forum.createMessage(user);   // message for preview
-        previewMessage.setSubject(subject);
+        ForumMessage previewMessage = (ForumMessage)getRequest().getSession().getAttribute("tempMessage_" + tempMessageIDStr);
+        if (previewMessage == null) {
+        	previewMessage = forum.createMessage(user);
+        }
+		previewMessage.setSubject(subject);
         previewMessage.setBody(body);
-        
+        if (postMode.equals("Edit")) {
+	        Iterator itAttachments = message.getAttachments();
+			while (itAttachments.hasNext()) {
+				Attachment attachment = (Attachment)itAttachments.next();
+				previewMessage.createAttachment(attachment.getName(), attachment.getContentType(), attachment.getData());
+			}
+        }
+
         getRequest().setAttribute("message", previewMessage);        
         
         setNextPage("/preview.jsp");

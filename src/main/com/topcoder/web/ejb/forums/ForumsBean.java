@@ -24,6 +24,7 @@ import java.util.Iterator;
 public class ForumsBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(ForumsBean.class);
+    private static ForumFactory forumFactory = ForumFactory.getInstance(new TCAuthToken(100129));
 
     // Creates a new forum in the "Algorithm Matches" category of the forums for the given round.
     // Also sets the forum_id field of the corresponding row in DW.round.
@@ -75,4 +76,20 @@ public class ForumsBean extends BaseEJB {
     			new String[]{String.valueOf(threadID)}, 
     			DBMS.FORUMS_DATASOURCE_NAME).intValue();
     }
+    
+    // Software Forums
+    //public Forum getComponentCategory(long compVersionID, int forumType) throws ForumCategoryNotFoundException {
+    	// find a way to efficiently map a component to its category - retrieve from DB
+    	//forumFactory.getForumCategory(378).getCategories()
+    //}
+    
+    // test
+    public int numSoftwareCategories() throws ForumCategoryNotFoundException {
+    	return forumFactory.getForumCategory(378).getCategoryCount();
+    }
+    
+    public void addSoftwareCategory() throws ForumCategoryNotFoundException, UnauthorizedException {
+    	forumFactory.getForumCategory(378).createCategory("Test Category", "This is a test.");
+    }
+    // Software Forums - End
 }

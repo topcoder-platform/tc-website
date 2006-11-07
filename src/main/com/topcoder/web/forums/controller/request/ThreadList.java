@@ -71,7 +71,6 @@ public class ThreadList extends ForumsProcessor {
         AnnouncementManager announcementManager = forumFactory.getAnnouncementManager();
         Iterator itAnnounce = announcementManager.getAnnouncements(forum);
 
-        getRequest().setAttribute("forumFactory", forumFactory);
 		getRequest().setAttribute("forum", forum);
 		getRequest().setAttribute("threads", itThreads);
 		getRequest().setAttribute("paginator", paginator);

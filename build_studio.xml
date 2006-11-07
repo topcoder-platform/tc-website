@@ -39,6 +39,7 @@
         <pathelement location="${resources}/hibernate"/>
         <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
         <pathelement location="${jars.dir}/ifxjdbc.jar"/>
+    	<pathelement location="${jars.dir}/activation.jar"/>
 
         <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
         <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
@@ -227,6 +228,9 @@
                 <include name="standard.jar"/>
             </lib>
         </war>
+    	<delete file="${jboss_home}/server/default/deploy/studio.war"/>
+    	<unwar src="${war.dir}/studio.war" dest="${jboss_home}/server/default/deploy/studio.war/" overwrite="yes"/>
+    	<delete dir="${jboss_home}/server/default/deploy/studio.war/META-INF"/>
     </target>
 
     <target name="deploy-studio" depends="war-studio,build-security">

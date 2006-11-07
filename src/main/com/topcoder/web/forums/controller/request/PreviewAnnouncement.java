@@ -78,7 +78,6 @@ public class PreviewAnnouncement extends ForumsProcessor {
             addError(ForumConstants.MESSAGE_SUBJECT, ForumConstants.ERR_POST_MODE_UNRECOGNIZED);
         }
         
-        getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("category", category);
         getRequest().setAttribute("forum", forum);
         getRequest().setAttribute("postMode", postMode);

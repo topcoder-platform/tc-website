@@ -55,8 +55,6 @@ public class Admin extends ForumsProcessor {
             }
         }
 
-        getRequest().setAttribute("forumFactory", forumFactory);
-
         setNextPage("/admin.jsp");
         setIsNextPageInContext(true);
     }

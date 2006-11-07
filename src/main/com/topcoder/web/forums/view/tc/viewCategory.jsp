@@ -4,10 +4,11 @@
                  com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.WatchManager,
                  com.jivesoftware.forum.action.util.Page,
+                 com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.common.StringUtils,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
-                 com.topcoder.shared.util.ApplicationServer,
+                 com.topcoder.web.forums.util.ImageMapper,
                  java.util.Iterator"
         %>
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -20,7 +21,7 @@
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
-<% User user = (User) request.getAttribute("user");
+<%	User user = (User) request.getAttribute("user");
     ResultFilter resultFilter = (ResultFilter) request.getAttribute("resultFilter");
     ReadTracker readTracker = forumFactory.getReadTracker();
     WatchManager watchManager = forumFactory.getWatchManager();
@@ -32,9 +33,7 @@
     linkBuffer.append("&").append(ForumConstants.CATEGORY_ID).append("=").append(forumCategory.getID());
 
     StringBuffer forumLinkBuffer = new StringBuffer(linkBuffer.toString());
-    StringBuffer dateLinkBuffer = new StringBuffer(linkBuffer.toString());
-    forumLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.FORUM_NAME);
-    dateLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.MODIFICATION_DATE);
+    forumLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.FORUM_NAME);    
     if (sortField.equals(String.valueOf(JiveConstants.FORUM_NAME))) {
         if (sortOrder.equals(String.valueOf(ResultFilter.ASCENDING))) {
             forumLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
@@ -46,6 +45,10 @@
     } else {  // default
         forumLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
     }
+    String forumLink = forumLinkBuffer.toString();
+    
+    StringBuffer dateLinkBuffer = new StringBuffer(linkBuffer.toString());
+    dateLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.MODIFICATION_DATE);
     if (sortField.equals(String.valueOf(JiveConstants.MODIFICATION_DATE))) {
         if (sortOrder.equals(String.valueOf(ResultFilter.ASCENDING))) {
             dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
@@ -57,7 +60,6 @@
     } else {  // default
         dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
     }
-    String forumLink = forumLinkBuffer.toString();
     String dateLink = dateLinkBuffer.toString();
 
     if (!sortField.equals("")) {
@@ -122,9 +124,12 @@
                     <A href="?module=History" class="rtbcLink">My Post
                         History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User
                     Settings</A><br/>
-                    <div style="float:right; margin: 30px 0px 10px 10px;">
-                        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums"><img src="/i/roundTables/studioForums.png" alt="TopCoder Studio Forums" /></A>
-                    </div>
+                    <%	if (forumFactory.getRootForumCategory().equals(forumCategory) ||
+                    		forumFactory.getRootForumCategory().equals(forumCategory.getParentCategory())) { %>
+	                    <div style="float:right; margin: 30px 0px 10px 10px;">
+	                        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums"><img src="/i/roundTables/studioForums.png" alt="TopCoder Studio Forums" /></A>
+	                    </div>
+                    <%	} %>
                 </td>
             </tr>
             <tr><td colspan="2" style="padding-bottom:3px;"><b>
@@ -167,9 +172,10 @@
 <table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
         <td class="rtHeader" width="100%"><a href="<%=forumLink%>" class="rtbcLink">Forum</a></td>
-        <td class="rtHeader">T./M.</td>
-        <td class="rtHeader" align="center" colspan="2" nowrap="nowrap"><a href="<%=dateLink%>" class="rtbcLink">Last
-            Post</a></td>
+        <td class="rtHeader"><div style="width:80px;">T./M.</div></td>
+        <td class="rtHeader" align="center" colspan="2" nowrap="nowrap">
+        	<div style="width:320px;"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></div>
+        </td>
     </tr>
     <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
         <% trackerClass = (user == null || forum.getLatestMessage() == null || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ
@@ -184,33 +190,34 @@
                 <% if (forum.getDescription() != null) { %><br/>
 
                 <div class="rtDescIndent"><%=forum.getDescription()%></div><% } %></td>
-            <td class="rtThreadCell"><%=forum.getThreadCount()%>&#160;/&#160;<%=forum.getMessageCount()%></td>
+            <td class="rtThreadCell" style="width: 80px;"><%=forum.getThreadCount()%>&#160;/&#160;<%=forum.getMessageCount()%></td>
             <% if (forum.getMessageCount() > 0) { %>
             <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
-            <td class="rtThreadCell"><b>
+            <td class="rtThreadCell" style="width: 220px;"><b>
                 <tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></b>
             </td>
             <% if (message.getUser() != null) { %>
-            <td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
+            <td class="rtThreadCell" style="width: 100px;">
+            	<tc-webtag:handle coderId="<%=message.getUser().getID()%>"/>
+            </td>
             <% } else { %>
-            <td class="rtThreadCell">&nbsp;</td>
+            <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
             <% } %>
             <% } else { %>
-            <td class="rtThreadCell">&nbsp;</td>
-            <td class="rtThreadCell">&nbsp;</td>
+            <td class="rtThreadCell" style="width: 220px;">&nbsp;</td>
+            <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
             <% } %>
         </tr>
     </tc-webtag:iterator>
 </table>
-<% } %>
-
-<% if (forumCategory.getCategoryCount() > 0) { %>
-<% if (forumCategory.getForumCount() > 0) { %><br><% } %>
+<% } else if (forumCategory.getCategoryCount() > 0) { %>
 <table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
-        <td class="rtHeader" width="100%">Category</td>
-        <td class="rtHeader"><% if (forumCategory.getID() != 1) { %>T./M.<% } %></td>
-        <td class="rtHeader" align="center" colspan="2">Last Post</td>
+        <td class="rtHeader" width="100%"><a href="<%=forumLink%>" class="rtbcLink">Category</a></td>
+        <td class="rtHeader"><div style="width:80px;"><% if (forumCategory.getID() != 1) { %>T./M.<% } %></div></td>
+        <td class="rtHeader" align="center" colspan="2" nowrap="nowrap">
+        	<div style="width:320px;"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></div>
+        </td>
     </tr>
     <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categories")%>'>
         <% if (forumCategory.getID() == 1) {
@@ -222,6 +229,10 @@
         } %>
         <tr>
             <td class="rtThreadCellWrap">
+            	<%	if ("software".equals(forumCategory.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME))) { %>
+                	<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getPhaseIcon(category)%>" alt="<%=ImageMapper.getPhaseText(category)%>" width="25" height="17" border="0">
+					<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getTechnologyIcon(category)%>" alt="<%=ImageMapper.getTechnologyText(category)%>" border="0"/>
+				<%	} %>
                 <% if (user == null) { %>
                 <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=category.getMessageCount()%>" class="rtLinkNew"><%=category.getName()%></A>
                 <% } else { %>
@@ -230,21 +241,23 @@
                 <% if (category.getDescription() != null) { %><br/>
 
                 <div class="rtDescIndent"><%=category.getDescription()%></div><% } %></td>
-            <td class="rtThreadCell"><% if (forumCategory.getID() != 1) { %><%=category.getThreadCount()%>
-                &#160;/&#160;<%=category.getMessageCount()%><% } %></td>
+            <td class="rtThreadCell" style="width: 80px;"><% if (forumCategory.getID() != 1) { %>
+                <%=category.getThreadCount()%>&#160;/&#160;<%=category.getMessageCount()%><% } %></td>
             <% if (category.getLatestMessage() != null) { %>
             <tc-webtag:useBean id="message" name="category" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
-            <td class="rtThreadCell"><b>
+            <td class="rtThreadCell" style="width: 220px;"><b>
                 <tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></b>
             </td>
             <% if (message.getUser() != null) { %>
-            <td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
+            <td class="rtThreadCell" style="width: 100px;">
+            	<tc-webtag:handle coderId="<%=message.getUser().getID()%>"/>
+            </td>
             <% } else { %>
-            <td class="rtThreadCell">&nbsp;</td>
+            <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
             <% } %>
             <% } else { %>
-            <td class="rtThreadCell">&nbsp;</td>
-            <td class="rtThreadCell">&nbsp;</td>
+            <td class="rtThreadCell" style="width: 220px;">&nbsp;</td>
+            <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
             <% } %>
         </tr>
     </tc-webtag:iterator>
@@ -263,7 +276,7 @@
             all as read)</A><%}%></td>
         <% } %>
         <td align="right">
-            <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a>
+            <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>"><img alt="RSS" border="none" src="/i/interface/btn_rss.gif"/></a>
         </td>
     </tr>
 </table>

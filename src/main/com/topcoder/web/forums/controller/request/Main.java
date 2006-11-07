@@ -26,16 +26,11 @@ public class Main extends ForumsProcessor {
         resultFilter.setSortOrder(ResultFilter.DESCENDING);
 
         Iterator itCategories = forumFactory.getRootForumCategory().getCategories();
-        ArrayList mainCategoryList = new ArrayList();   // forums diplayed on main page
-        ArrayList deepCategoryList = new ArrayList();   // expanded in Category servlet
+        ArrayList categoryList = new ArrayList();   // forums diplayed on main page
         
         while (itCategories.hasNext()) {
             ForumCategory category = (ForumCategory)itCategories.next();
-            if (category.getCategoryCount() > 0) {
-                deepCategoryList.add(category);
-            } else {
-                mainCategoryList.add(category);
-            }
+            categoryList.add(category);
         }
         
         String markRead = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MARK_READ));
@@ -46,10 +41,8 @@ public class Main extends ForumsProcessor {
 
         Iterator itForums = forumFactory.getRootForumCategory().getForums(resultFilter);
 
-        getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("forums", itForums);
-        getRequest().setAttribute("categories", mainCategoryList);
-        getRequest().setAttribute("deepCategories", deepCategoryList);
+        getRequest().setAttribute("categories", categoryList);
         getRequest().setAttribute("resultFilter", resultFilter);
 
         if (markRead.equals("t")) {

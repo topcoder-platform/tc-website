@@ -2,9 +2,11 @@
 
 <%@ page import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.forums.ForumConstants,
+                 com.topcoder.shared.util.ApplicationServer,
                  com.jivesoftware.base.JiveGlobals,
                  com.jivesoftware.base.action.rss.RSSActionSupport,
                  com.jivesoftware.forum.ForumCategory,
+                 com.jivesoftware.forum.Attachment,
                  com.jivesoftware.util.StringUtils,
                  java.util.*,
                  java.text.SimpleDateFormat"

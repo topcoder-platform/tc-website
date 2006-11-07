@@ -13,6 +13,8 @@ import com.jivesoftware.base.User;
 import com.jivesoftware.base.filter.Profanity;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.Forum;
+import com.jivesoftware.forum.ForumCategoryNotFoundException;
+import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.QueryResult;
@@ -24,9 +26,15 @@ import com.jivesoftware.util.StringUtils;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.forums.model.TCAuthToken;
 import com.topcoder.web.forums.util.filter.TCHTMLFilter;
 import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.dde.catalog.ComponentInfo;
 
+import java.text.NumberFormat;
+import java.text.DecimalFormat;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.ArrayList;
 
@@ -37,7 +45,9 @@ public class ForumsUtil {
     protected static Logger log = Logger.getLogger(BaseProcessor.class);
     private static boolean filterHTMLEnabled
         = JiveGlobals.getJiveBooleanProperty("search.filterHTMLEnabled",true);
-
+    
+    public static long tempMessageID = 1L;
+    
     // use until Jive fixes its version of ForumThread.getLatestMessage()
     public static ForumMessage getLatestMessage(ForumThread thread) {
         ForumMessage lastPost = null;
@@ -219,7 +229,18 @@ public class ForumsUtil {
     public static ArrayList getForums(ForumCategory forumCategory, ResultFilter resultFilter,
             boolean excludeEmptyForums) {
         Iterator itForums = forumCategory.getForums(resultFilter);
-        ArrayList forumsList = new ArrayList();
+        return getForums(itForums, excludeEmptyForums);
+    }
+    
+    // Returns forums in a category and its subcategories, with empty forums omitted or placed at the list's end.
+    public static ArrayList getRecursiveForums(ForumCategory forumCategory, ResultFilter resultFilter,
+            boolean excludeEmptyForums) {
+    	Iterator itForums = forumCategory.getRecursiveForums(resultFilter);
+    	return getForums(itForums, excludeEmptyForums);
+    }
+    
+    public static ArrayList getForums(Iterator itForums, boolean excludeEmptyForums) {
+    	ArrayList forumsList = new ArrayList();
         ArrayList emptyForums = new ArrayList();
         while (itForums.hasNext()) {
             Forum f = (Forum)itForums.next();
@@ -234,13 +255,43 @@ public class ForumsUtil {
         }
         return forumsList;
     }
+    
+    // Returns categories in a category, with empty/inactive/unapproved categories omitted or placed at 
+    // the list's end.
+    public static ArrayList getCategories(ForumCategory forumCategory, ResultFilter resultFilter,
+            boolean excludeEmptyCategories) {
+        Iterator itCategories = forumCategory.getCategories();
+        ArrayList categoriesList = new ArrayList();
+        ArrayList emptyCategories = new ArrayList();
+        while (itCategories.hasNext()) {
+        	ForumCategory c = (ForumCategory)itCategories.next();
+        	String archivalStatus = c.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS);
+        	String componentStatus = c.getProperty(ForumConstants.PROPERTY_COMPONENT_STATUS);
+        	if (ForumConstants.PROPERTY_ARCHIVAL_STATUS_ARCHIVED.equals(archivalStatus) ||
+        			ForumConstants.PROPERTY_ARCHIVAL_STATUS_DELETED.equals(archivalStatus)) continue;
+        	if (componentStatus != null && !componentStatus.equals(String.valueOf(ComponentInfo.APPROVED))) continue;        	
+        	if (c.getMessageCount() > 0) {
+        		categoriesList.add(c);
+        	} else {
+        		emptyCategories.add(c);
+        	}
+        }
+        Collections.sort(categoriesList, 
+        		new JiveCategoryComparator(resultFilter.getSortField(), resultFilter.getSortOrder()));
+        Collections.sort(emptyCategories, 
+        		new JiveCategoryComparator(resultFilter.getSortField(), resultFilter.getSortOrder()));
+        if (!excludeEmptyCategories) {
+        	categoriesList.addAll(emptyCategories);
+        }
+        return categoriesList;
+    }
 
-    // Returns one page of forums in a category
-    public static ArrayList getForumsPage(ArrayList forumsList, int startIdx, int forumRange) {
-        int endIdx = Math.min(startIdx+forumRange, forumsList.size());
+    // Returns one page of items in a list
+    public static ArrayList getPage(ArrayList list, int startIdx, int forumRange) {
+        int endIdx = Math.min(startIdx+forumRange, list.size());
         ArrayList pageList = new ArrayList();
         for (int i=startIdx; i<endIdx; i++) {
-            pageList.add(forumsList.get(i));
+            pageList.add(list.get(i));
         }
         return pageList;
     }
@@ -411,17 +462,33 @@ public class ForumsUtil {
         return display.toString();
     }
     
-    // For creating links to news articles, match editorials and statistics pages, etc. in breadcrumb
+    // Creates links to news articles, match editorials and statistics pages, etc. in breadcrumb.
+    // The link names are specified by the "linkNames" property in either the forum or category - most links 
+    // in a category will follow the same format, but for exceptions, add a "linkNames" property to the 
+    // forum to override the default category link names.
+    //
+    // Specifying links in a category:
+    // -------------------------------
+    // linkNames = Article,Article (Part 2)
+    // link = tc?module=Static&d1=tutorials&d2=complexity1
+    // link2 = tc?module=Static&d1=tutorials&d2=complexity2
+    //
+    // Specifying links in a forum:
+    // ----------------------------
+    // linkNames = Article,Article (Part 2)
+    // link_Article = tc?module=Static&d1=tutorials&d2=complexity1
+    // link_Article (Part 2) = tc?module=Static&d1=tutorials&d2=complexity2
+    //
     public static String createLinkString(Forum forum) {
-        String linkNames = forum.getForumCategory().getProperty(ForumConstants.PROPERTY_LINK_NAMES);
+    	String linkNames = forum.getProperty(ForumConstants.PROPERTY_LINK_NAMES);
         StringBuffer linkStr = new StringBuffer();
-        if (linkNames != null) {
-        	String[] linkNamesArr = linkNames.split(",");
-        	if (linkNamesArr.length > 0) {
-        		linkStr.append("(");
-				for (int i=0; i<linkNamesArr.length; i++) {
-					String linkKey = (i==0) ? ForumConstants.PROPERTY_LINK : ForumConstants.PROPERTY_LINK+(i+1);
-					String link = forum.getProperty(linkKey);
+    	if (linkNames != null) {
+    		String[] linkNamesArr = linkNames.split(",");
+    		if (linkNamesArr.length > 0) {
+    			linkStr.append("(");
+    			for (int i=0; i<linkNamesArr.length; i++) {
+    				String linkKey = ForumConstants.PROPERTY_LINK + "_" + linkNamesArr[i];
+    				String link = forum.getProperty(linkKey);
 					if (link == null) return "";	// only display if well-formed
 					if (link.startsWith("/")) {		// relative
 						link = ApplicationServer.SERVER_NAME + link;
@@ -429,14 +496,83 @@ public class ForumsUtil {
 					if (!link.startsWith("http://") && !link.startsWith("https://")) {
 						link = "http://" + link;
 					}
-					linkStr.append("<a href=\""+link+"\" class=\"rtbcLink\">"+linkNamesArr[i]+"</a>");
-					if (i<linkNamesArr.length-1) {
+					if (i>0) {
 						linkStr.append("&#160;|&#160;");
 					}
+					linkStr.append("<a href=\""+link+"\" class=\"rtbcLink\">"+linkNamesArr[i]+"</a>");
+    			}
+    			linkStr.append(")");
+    		} 
+    		return linkStr.toString();
+    	}
+    	
+        linkNames = forum.getForumCategory().getProperty(ForumConstants.PROPERTY_LINK_NAMES);
+        if (linkNames != null) {
+        	String[] linkNamesArr = linkNames.split(",");
+        	if (linkNamesArr.length > 0) {
+        		linkStr.append("(");
+				for (int i=0; i<linkNamesArr.length; i++) {
+					String linkKey = (i==0) ? ForumConstants.PROPERTY_LINK : ForumConstants.PROPERTY_LINK+(i+1);
+					String link = forum.getProperty(linkKey);
+					if (link == null) break;		// displays links until one is not found
+					if (link.startsWith("/")) {		// relative
+						link = ApplicationServer.SERVER_NAME + link;
+					}
+					if (!link.startsWith("http://") && !link.startsWith("https://")) {
+						link = "http://" + link;
+					}
+					if (i>0) {
+						linkStr.append("&#160;|&#160;");
+					}
+					linkStr.append("<a href=\""+link+"\" class=\"rtbcLink\">"+linkNamesArr[i]+"</a>");
 				}
 				linkStr.append(")");
         	}
         }
         return linkStr.toString();
+    }
+    
+    // Converts a file size into a formatted string. Sizes of < 1 KB are expressed in B, < 1 MB are 
+    // expressed in KB, and >= 1 MB are expressed in MB.
+    public static String getFileSizeStr(long bytes) {
+    	NumberFormat formatter = new DecimalFormat("0.0");  
+    	if (bytes < 1024) {
+    		return bytes + " B";
+    	} else if (bytes < 1048576) {
+    		return formatter.format(((double)bytes)/1024.0) + " KB";
+    	} else {
+    		return formatter.format(((double)bytes)/1048576.0) + " MB";
+    	}
+    }
+    
+    public static ForumCategory getMasterCategory(ForumCategory category) throws ForumCategoryNotFoundException {
+    	ForumFactory masterFactory = ForumFactory.getInstance(new TCAuthToken(100129));
+    	return masterFactory.getForumCategory(category.getID());
+    }
+}
+
+class JiveCategoryComparator implements Comparator {
+	private int sortField;
+	private int sortOrder;
+	
+	public JiveCategoryComparator(int sortField, int sortOrder) {
+		this.sortField = sortField;
+		this.sortOrder = sortOrder;
+	}
+	
+	public final int compare(Object o1, Object o2) {
+		ForumCategory c1 = (ForumCategory)o1;
+		ForumCategory c2 = (ForumCategory)o2;
+		
+		int retVal = 0;
+		if (sortField == JiveConstants.FORUM_NAME) {
+			retVal = c1.getName().compareTo(c2.getName());
+		} else if (sortField == JiveConstants.MODIFICATION_DATE) {
+			retVal = c1.getModificationDate().compareTo(c2.getModificationDate());
+		}
+		if (sortOrder == ResultFilter.DESCENDING) {
+			retVal = -retVal;
+		}
+		return retVal;
     }
 }

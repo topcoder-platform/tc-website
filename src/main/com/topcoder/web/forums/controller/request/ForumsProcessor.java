@@ -39,6 +39,7 @@ public abstract class ForumsProcessor extends BaseProcessor {
     protected void businessProcessing() throws Exception {
         getRequest().setAttribute("authToken", authToken);
         getRequest().setAttribute("user", user);
+        getRequest().setAttribute("forumFactory", forumFactory);
 
         setUnreadCategories();
     }

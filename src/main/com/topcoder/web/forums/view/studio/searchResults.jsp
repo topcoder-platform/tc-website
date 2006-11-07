@@ -61,7 +61,7 @@
     <div style="float:right;"><b>
         <% if (paginator.getPreviousPage()) { %>
         <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
-            <<PREV</A>&#160;&#160;&#160;
+            << PREV</A>&#160;&#160;&#160;
         <% } %> [
         <% pages = paginator.getPages(5);
             for (int i = 0; i < pages.length; i++) {
@@ -118,7 +118,7 @@
     <div style="float:right;"><b>
         <% if (paginator.getPreviousPage()) { %>
         <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
-            <<PREV</A>&#160;&#160;&#160;
+            << PREV</A>&#160;&#160;&#160;
         <% } %> [
         <% pages = paginator.getPages(5);
             for (int i = 0; i < pages.length; i++) {
