@@ -127,7 +127,7 @@
         </jar>
     </target>
 
-    <target name="compile" depends="init,jar_shared,jar_common">
+    <target name="compile" depends="init,jar_shared">
         <javac
                 srcdir="${java.dir}"
                 destdir="${classes.dir}"
@@ -147,6 +147,7 @@
             <include name="com/topcoder/common/**"/>
             <include name="com/topcoder/web/common/**"/>
         </javac>
+        <antcall target="jar_common"/>
     </target>
 
     <target name="jar_common">
