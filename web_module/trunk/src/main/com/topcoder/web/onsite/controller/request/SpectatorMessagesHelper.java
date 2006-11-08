@@ -4,7 +4,6 @@
 
 package com.topcoder.web.onsite.controller.request;
 
-import com.topcoder.web.onsite.Constants;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import java.util.Iterator;
@@ -12,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.topcoder.shared.netCommon.messages.spectator.ComponentScoreUpdate;
 import com.topcoder.shared.netCommon.messages.spectator.ComponentAppeal;
+import com.topcoder.shared.netCommon.messages.spectator.ComponentTimeUpdate;
 import com.topcoder.shared.netCommon.messages.spectator.DefineComponentContest;
 import com.topcoder.shared.netCommon.messages.spectator.ComponentData;
 import com.topcoder.shared.netCommon.messages.spectator.ComponentCoder;
@@ -113,7 +113,7 @@ class SpectatorMessagesHelper {
         }
         return appealsList;
     }
-    
+
     /**
      * Builds and Gets the DefineComponentContest message for the processor.
      *
@@ -188,5 +188,33 @@ class SpectatorMessagesHelper {
             componentData,
             componentCoderList, 
             reviewerDataList);
+    }
+
+    /**
+     * Builds and Gets the ComponentTimeUpdate message for the processor.
+     *
+     * @param rscComponentTime the ResultSetContainer retrieved from the DB with the time data.
+     * @param componentId the component id of the required data.
+     *
+     * Notes: ComponentID are mirrored as requested by the front-end application.
+     *
+     * @return the builded objects (ComponentTimeUpdate list).
+     */
+    protected static List getComponentTimeUpdate(final ResultSetContainer rscComponentTime, 
+        final long componentId) {
+        // builds the objects to be returned
+        ArrayList componentTimeList = new ArrayList(rscComponentTime.size());
+        if (rscComponentTime.size() > 0) {
+            Iterator it = rscComponentTime.iterator();
+            ResultSetContainer.ResultSetRow rsr;
+            while (it.hasNext()) {
+                rsr = (ResultSetContainer.ResultSetRow) it.next();
+                componentTimeList.add(new ComponentTimeUpdate(
+                		componentId, 
+                    rsr.getTimestampItem("scheduled_start_time"), 
+                    rsr.getTimestampItem("scheduled_end_time")));
+            }
+        }
+        return componentTimeList;
     }
 }

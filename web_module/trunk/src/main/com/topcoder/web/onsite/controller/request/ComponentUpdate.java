@@ -67,21 +67,26 @@ public class ComponentUpdate extends BaseProcessor {
             Map m = getComponentUpdateData(requestComponentUpdate.getContestID());
             ResultSetContainer rscComponentAppeal = (ResultSetContainer)m.get(Constants.COMPONENT_APPEAL_QUERY);
             ResultSetContainer rscComponentScore = (ResultSetContainer)m.get(Constants.COMPONENT_SCORE_QUERY);
+            ResultSetContainer rscComponentTime = (ResultSetContainer)m.get(Constants.COMPONENT_TIME_QUERY);
             log.debug("Got " +  rscComponentAppeal.size() + " rows for: " + Constants.COMPONENT_APPEAL_QUERY);
             log.debug("Got " +  rscComponentScore.size() + " rows for: " + Constants.COMPONENT_SCORE_QUERY);
+            log.debug("Got " +  rscComponentTime.size() + " rows for: " + Constants.COMPONENT_TIME_QUERY);
 
             // these are ints due to compatibility issues with the front-end. (should be longs)
             int contestId = requestComponentUpdate.getContestID();
             int roundId = requestComponentUpdate.getRoundID();
             long componentId = requestComponentUpdate.getComponentID();
-                                    
+
             // adds all ComponentAppeal messages.
             mp.addAll(SpectatorMessagesHelper.getAppealsMessagePacket(rscComponentAppeal, contestId, roundId, 
                 componentId));
-    
+
             // adds all ComponentScoreUpdate messages.
             mp.addAll(SpectatorMessagesHelper.getScoresMessagePacket(rscComponentScore, contestId, roundId, 
                 componentId));
+
+            // add componentTimeUpdate
+            mp.addAll(SpectatorMessagesHelper.getComponentTimeUpdate(rscComponentTime, componentId));
         } catch (Exception e) {
             // do nothing, an empty message packet will be returned.
             e.printStackTrace();
