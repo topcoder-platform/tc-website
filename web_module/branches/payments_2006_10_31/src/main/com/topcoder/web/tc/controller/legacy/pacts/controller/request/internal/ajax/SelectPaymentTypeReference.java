@@ -42,8 +42,7 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                         }  else if (type == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT) {
                               map = dib.findRounds("%" + search + "%", ALGORITHM_TOURNAMENT_ROUND_TYPES);
                         } else if (type == PROBLEM_TESTING_PAYMENT) {
-                        	map = dib.findRounds("%" + search + "%", PROBLEM_TESTING_ROUND_TYPES);
-                        	optionalReference = true;
+                        	map = dib.findRounds("%" + search + "%", PROBLEM_TESTING_ROUND_TYPES);                        	
                         }
                         getRequest().setAttribute(ALGORITHM_ROUND_LIST, map.get(ALGORITHM_ROUND_LIST));
                         field = "algorithm_round_id";
@@ -88,7 +87,10 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                     field = "digital_run_season_id";
                     break;
             }
-
+            
+            if (type == PROBLEM_TESTING_PAYMENT) {
+            	optionalReference = true;
+            }
             
             setDefault("client", getRequest().getParameter("client"));
             getRequest().setAttribute("reference_type_id", refId + "");
