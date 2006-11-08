@@ -65,7 +65,7 @@
                         <c:when test="${roundUnknown}">
                         </c:when>                        
                         <c:when test="${empty rounds}">    
-                          <input type="hidden" name="missing_reference" value="Please select a round for the payment"/>
+                          <input type="hidden" name="missing_reference" value="Please select a round for the payment or check Round Unknown"/>
                           Enter search text for round name <input type="text" name="searchInput" value="${search}" />
                           <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          
@@ -90,7 +90,6 @@
 	                       </c:if>                                                                        
                         </c:otherwise>   
                         </c:choose>                                   
-X
                         <input type="checkbox" name="round_unknown_cbx" onClick="setRoundUnknown(this.checked)" <%= "true".equals(request.getAttribute("round_unknown"))? "checked=\"checked\"": ""  %>/>
                         Round Unknown<br/>                       
 
