@@ -60,7 +60,8 @@
                         </c:if>                                           
                      </c:when>                       
                      <c:when test="${refId == ALGORITHM_ROUND}">
-                        <tc-webtag:chkBox name="round_unknown" onClick="alert('hi')" />Round Unknown<br/>
+                        <input type="checkbox" name="round_unknown" onClick="alert('hi')"  <%= request.getAttribute("round_unknown") != null) ? "checked" : "" %> />Round Unknown<br/>
+                       
                         <c:choose>
                         <c:when test="${empty rounds}">    
                           <input type="hidden" name="missing_reference" value="Please select a round for the payment"/>
