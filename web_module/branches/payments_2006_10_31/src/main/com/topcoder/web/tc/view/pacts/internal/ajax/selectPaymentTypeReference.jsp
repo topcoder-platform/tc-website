@@ -91,7 +91,8 @@
                         </c:otherwise>   
                         </c:choose>                                   
 requestScope.roundUnknown=<c:out value="${requestScope.round_unknown}"></c:out>
-                        <input type="checkbox" name="round_unknown_cbx" onClick="setRoundUnknown(this.checked)"/>Round Unknown<br/>                       
+                        <input type="checkbox" name="round_unknown_cbx" onClick="setRoundUnknown(this.checked)" <%= "true".equals(request.getAttribute("round_unknown"))? "checked=\"checked\"": ""  %>/>
+                        Round Unknown<br/>                       
 
                      </c:when>                       
                      
