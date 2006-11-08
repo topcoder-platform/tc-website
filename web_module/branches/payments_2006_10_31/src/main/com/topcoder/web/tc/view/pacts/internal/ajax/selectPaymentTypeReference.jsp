@@ -91,7 +91,7 @@
                         </c:otherwise>   
                         </c:choose>                                   
 
-                        <input type="checkbox" name="round_unknown" onClick="setUnknownRound(this.checked)"/>Round Unknown<br/>                       
+                        <input type="checkbox" name="round_unknown" onClick="setRoundUnknown(this.checked)"/>Round Unknown<br/>                       
 
                      </c:when>                       
                      
