@@ -1,8 +1,7 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.topcoder.web.common.BaseProcessor;
@@ -28,9 +27,22 @@ public class ViewPayment extends BaseProcessor implements PactsConstants {
             Payment payment = new Payment(bean.getPayment(payment_id));
             getRequest().setAttribute(PACTS_INTERNAL_RESULT, payment);
 
+
+            List l = bean.findPayments(CODER_REFERRAL_PAYMENT, payment_id);
+            
+            if (l.size() > 0) {
+            	if (l.size() > 1) {
+            		log.warn("Payment " + payment.getId() + " referenced by more than 1 payment!");
+            	}
+            	log.info("referred payment: " + ((BasePayment) l.get(0)).getId());
+            	Payment referred = new Payment(bean.getPayment(((BasePayment) l.get(0)).getId()));
+                getRequest().setAttribute("referred", referred);
+            	
+            }
+            
             Map search = new HashMap();
             search.put(PAYMENT_ID, payment_id + "");
-
+            
             Map notes = bean.findNotes(search);
             getRequest().setAttribute(NOTE_HEADER_LIST, new NoteHeaderList(notes).getHeaderList());
 

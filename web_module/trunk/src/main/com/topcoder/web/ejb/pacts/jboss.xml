@@ -4,6 +4,7 @@
     <session>
       <ejb-name>PactsServices</ejb-name>
       <jndi-name>com.topcoder.web.ejb.pacts.PactsServicesHome</jndi-name>
+       <local-jndi-name>java:/com.topcoder.web.ejb.pacts.PactsServicesLocalHome</local-jndi-name>
     </session>
     <session>
       <ejb-name>PactsClientServices</ejb-name>

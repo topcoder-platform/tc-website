@@ -1449,7 +1449,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return the map of (projectID, componentID) pairs
      * @throws SQLException If there was some error retrieving the data.
      */
-    public Map getPaymentComponentData(long[] paymentIds) throws RemoteException, SQLException {
+    public Map getPaymentComponentData(long[] paymentIds) throws SQLException {
         String paymentList = makeList(paymentIds);
         StringBuffer sb = new StringBuffer(300);
         sb.append("SELECT pd.component_project_id, cc.component_id ");
@@ -1475,7 +1475,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return  The created dates
      * @throws  SQLException If there is some problem retrieving the data
      */
-    public Map getCreationDates(long[] paymentIds) throws RemoteException, SQLException {
+    public Map getCreationDates(long[] paymentIds) throws SQLException {
         String paymentList = makeList(paymentIds);
         StringBuffer sb = new StringBuffer(300);
         sb.append("SELECT pdx.payment_id, min(pd.date_modified) as date_created ");
@@ -2420,17 +2420,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         int usePercent = 0;
         boolean dataFound = false;
 
-        if (p.getHeader().getTypeId() != COMPONENT_PAYMENT &&
-                p.getHeader().getTypeId() != REVIEW_BOARD_PAYMENT) {
+        if (p.getHeader().getTypeId() == ALGORITHM_CONTEST_PAYMENT || 
+        		p.getHeader().getTypeId() == MARATHON_MATCH_PAYMENT ||
+        		p.getHeader().getTypeId() == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT) {
             StringBuffer getUserWithholding = new StringBuffer(300);
-            getUserWithholding.append("SELECT utf.withholding_amount, utf.withholding_percentage, ");
-            getUserWithholding.append("utf.use_percentage ");
-            getUserWithholding.append("FROM user_tax_form_xref utf, user_address_xref x, address a, country ");
-            getUserWithholding.append("WHERE x.user_id = " + p.getHeader().getUser().getId() + " ");
-            getUserWithholding.append("AND a.country_code = country.country_code ");
-            getUserWithholding.append("and a.address_id = x.address_id ");
-            getUserWithholding.append("and a.address_type_id = 2 ");
-            getUserWithholding.append("AND utf.user_id = " + p.getHeader().getUser().getId());
+            getUserWithholding.append("SELECT withholding_amount, withholding_percentage, use_percentage,date_filed ");
+            getUserWithholding.append("FROM user_tax_form_xref ");
+            getUserWithholding.append("WHERE user_id =  " + p.getHeader().getUser().getId());
+            getUserWithholding.append("ORDER  by date_filed DESC ");
+            
             ResultSetContainer rsc = runSelectQuery(c, getUserWithholding.toString(), false);
             if (rsc.getRowCount() > 0) {
                 withholdAmount = TCData.getTCDouble(rsc.getRow(0), "withholding_amount");
@@ -2734,12 +2732,24 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException           If there is some problem updating the data
      */
     public long addPayment(Payment p) throws IllegalUpdateException, SQLException {
+    	return addPayment(p, false);
+    }
+    
+    /**
+     * Adds the specified payment to the database. 
+     *
+     * @param p Data for the new payment.
+     * @return The new payment's ID.
+     * @throws IllegalUpdateException If the user is trying to make some update that is not allowed
+     * @throws SQLException           If there is some problem updating the data
+     */
+    public long addPayment(Payment p, boolean payReferrer) throws IllegalUpdateException, SQLException {
         Connection c = null;
         try {
             c = DBMS.getConnection();
             c.setAutoCommit(false);
             setLockTimeout(c);
-            long paymentId = makeNewPayment(c, p, false);
+            long paymentId = makeNewPayment(c, p, payReferrer);
             c.commit();
             c.setAutoCommit(true);
             c.close();
@@ -5196,20 +5206,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     public Map findProjects(String search) throws SQLException {
         StringBuffer query = new StringBuffer(1000);
-        /*
-        query.append(" select project_id, ");
-        query.append(" component_name || ' ' || trim (version_text) || ");
-        query.append("     case when p.project_type_id = 1 then ' Design' else ' Development' end || ");
-        query.append("       ' (' || trim(NVL(date(rating_date),'UNKNOWN')) || ')' as project_desc  ");
-        query.append(" from project p,");
-        query.append("      comp_versions cv,");
-        query.append("      comp_catalog c");
-        query.append(" where p.comp_vers_id = cv.comp_vers_id");
-        query.append(" and cv.component_id = c.component_id");
-        query.append(" and " + filterCondition("component_name", search));
-        query.append(" and cur_version = 1 ");
-        query.append(" order by rating_date ");
-        */
         
         query.append(" select p.project_id,  ");
         query.append(" component_name || ' '  || ");
@@ -5592,7 +5588,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException
      */
     public List findPayments(int paymentTypeId, long referenceId) throws SQLException {
-        return findCoderPayments(0, paymentTypeId, 0);
+        return findCoderPayments(0, paymentTypeId, referenceId);
     }
 
     /**
@@ -5757,6 +5753,81 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         deletePayment(payment.getId());
     }
 
+    /**
+     * Get the payments for an user.
+     * 
+     * @param userId user to retrieve its payments
+     * @param pendingOnly whether to retrieve just the pending payments
+     * @param sortColumn number of column for sort
+     * @param sortAscending whether to sort ascending	
+     * @return a ResultSetContainer with the payments
+     * @throws SQLException
+     */
+    public ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws SQLException {
+        StringBuffer query = new StringBuffer(300);
+        query.append("SELECT pd.payment_desc,pt.payment_type_desc, pd.date_due, pd.net_amount, s.status_desc, date_paid, pd.payment_type_id, ");
+        query.append("pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
+        query.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
+        query.append("pd.digital_run_season_id, pd.parent_payment_id ");        
+        query.append("FROM payment p, payment_detail pd, status_lu s, payment_type_lu pt ");
+        query.append("WHERE p.most_recent_detail_id = pd.payment_detail_id ");
+        query.append("AND s.status_id = pd.status_id ");
+        query.append("AND pd.payment_type_id = pt.payment_type_id ");
+        query.append("AND pd.payment_type_id not in (3,5) "); // deprecated payments
+        query.append("AND p.user_id = " + userId);
+        
+        if (pendingOnly) {
+        	query.append(" AND pd.status_id IN (" + PactsConstants.PAYMENT_ON_HOLD_STATUS + "," + PactsConstants.PAYMENT_OWED_STATUS + "," + PactsConstants.PAYMENT_PENDING_STATUS + ")");
+        }
+        
+        query.append("ORDER BY " + sortColumn + (sortAscending? " ASC" : " DESC"));
+
+        return runSelectQuery(query.toString(), false);
+    }
+    
+
+    /**
+     * Get the affidavits for an user.
+     * 
+     * @param userId user to retrieve its affidavits
+     * @param pendingOnly whether to retrieve just the pending affidavits
+     * @param sortColumn number of column for sort
+     * @param sortAscending whether to sort ascending	
+     * @return a ResultSetContainer with the affidavits
+     * @throws SQLException
+     */
+    public ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws SQLException {
+        StringBuffer query = new StringBuffer(300);
+    	
+        query.append("SELECT a.affidavit_desc, ");
+        query.append("CASE WHEN a.status_id = 57 THEN 'Affirm now' ");
+        query.append("WHEN a.status_id = 58 THEN 'Affirmed on ' || a.date_affirmed ");
+        query.append("ELSE 'Expired' END as affirmation_order, ");
+        query.append("CASE WHEN a.status_id = 57 THEN " + PactsConstants.AFFIDAVIT_EXPIRE_TIME + " units day - (today - a.date_created) || ' days' ");
+        query.append("WHEN a.status_id = 58 THEN '' ");
+        query.append("ELSE 'Expired' END as time_left_order, ");
+        query.append("pd.net_amount, a.notarized, s.status_desc, pd.date_paid, a.date_affirmed, ");
+        query.append("a.affidavit_id, a.affirmed, a.date_created, p.payment_id, a.status_id, ");
+        query.append(PactsConstants.AFFIDAVIT_EXPIRE_TIME + " units day -(today - a.date_created) as time_left, a.date_created, a.date_affirmed ");
+        query.append("FROM affidavit a, status_lu s, ");
+        query.append("OUTER (payment p, payment_detail pd) ");
+        query.append("WHERE p.payment_id = a.payment_id ");
+        query.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
+        query.append("AND a.status_id = s.status_id ");
+        query.append("AND a.status_id in (57,58,59) ");
+        query.append("AND a.date_created > mdy(1,1,2005) ");
+        query.append("AND a.user_id = " + userId + " ");
+
+        if (pendingOnly) {
+        	query.append(" AND a.status_id = " + PactsConstants.AFFIDAVIT_PENDING_STATUS + " ");
+        }
+        
+        query.append(" ORDER BY " + sortColumn + (sortAscending? " ASC " : " DESC "));
+
+        return runSelectQuery(query.toString(), false);
+    }
+
+    	
     /**
      * Helper class to store a payment id and affidavit id
      *

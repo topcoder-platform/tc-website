@@ -3,6 +3,7 @@
     <property name="build" value="build"/>
     <property name="war.dir" value="${build}/wars"/>
     <property name="ear.dir" value="${build}/ears"/>
+    <property name="sar.dir" value="${build}/sars"/>
     <property name="ejb_jars" value="${build}/ejb_jars"/>
     <property name="classes" value="${build}/classes"/>
     <property name="testclasses" value="${build}/testcases"/>
@@ -56,7 +57,7 @@
         <pathelement location="${jars.dir}/jboss/xercesImpl.jar"/>
         <pathelement location="${jars.dir}/jboss/xml-apis.jar"/>
         <pathelement location="${jars.dir}/jboss/mail.jar"/>
-
+        <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
 
         <pathelement location="${jive.dir}/jivebase.jar"/>
         <pathelement location="${jive.dir}/jiveforums.jar"/>
@@ -113,6 +114,7 @@
         <mkdir dir="${ejb_jars}"/>
         <mkdir dir="${war.dir}"/>
         <mkdir dir="${ear.dir}"/>
+        <mkdir dir="${sar.dir}"/>
     </target>
 
     <target name="compile_shared" depends="init">
@@ -481,6 +483,18 @@
         </jar>
     </target>
 
+    <target name="build-sars" depends="compile">
+        <jar jarfile="${sar.dir}/expireOldAffidavitsAndPayments.sar" basedir="${classes}"
+             includes="com/topcoder/utilities/pacts/ExpireOldAffidavitsAndPayments*,
+             		com/topcoder/web/tc/controller/legacy/pacts/bean/*.class,
+             		com/topcoder/web/tc/controller/legacy/pacts/common/*.class,
+             		com/topcoder/web/ejb/pacts/*.class">
+
+            <metainf dir="${java}/com/topcoder/utilities/pacts" includes="*.xml"/>
+        </jar>
+
+    </target>
+
 
     <target name="deploy">
         <antcall target="deploy-tc"/>
@@ -495,6 +509,7 @@
         <antcall target="move-libs"/>
         <antcall target="move-conf"/>
         <antcall target="deploy-security"/>
+        <antcall target="build-sars"/>
 
     </target>
 
@@ -1069,7 +1084,7 @@
     </target>
 
 
-    <target name="war-tc" depends="compile">
+    <target name="war-tc" depends="compile,build-sars">
         <war warfile="${war.dir}/tc.war" webxml="${resources}/tc/web.xml">
             <fileset dir="${java}/com/topcoder/web/tc/view">
                 <include name="**/*.*"/>
@@ -1088,6 +1103,9 @@
                 <include name="includes/modules/simpleSearch.jsp"/>
                 <include name="calendar.jsp"/>
                 <include name="public_right.jsp"/>
+            </fileset>
+            <fileset dir="${sar.dir}">
+                <include name="*.sar"/>
             </fileset>
             <classes dir="${classes}">
                 <include name="com/topcoder/web/tc/**/*.class"/>
@@ -1176,6 +1194,9 @@
                 <include name="Survey.jar"/>
                 <include name="User.jar"/>
                 <include name="Util.jar"/>
+            </fileset>
+            <fileset dir="${sar.dir}">
+                <include name="expireOldAffidavitsAndPayments.sar"/>
             </fileset>
         </copy>
         <unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes"/>

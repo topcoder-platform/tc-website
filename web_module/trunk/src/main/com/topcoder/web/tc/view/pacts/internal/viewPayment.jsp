@@ -12,7 +12,7 @@
 </head>
 <body>
 
-
+<c:set var="referred" value="<%= request.getAttribute("referred") %>"/>
 <c:set var="payment" value="<%= request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT) %>"/>
 <c:set var="notes" value="<%= request.getAttribute(PactsConstants.NOTE_HEADER_LIST) %>"/>
 <c:set var="COMPONENT_PAYMENT" value="<%= PactsConstants.COMPONENT_PAYMENT + "" %>" />
@@ -149,6 +149,18 @@
 				</c:choose>
 			</td>
 		</tr>		
+<c:if test="${not empty referred}">
+		<tr>
+			<td><b>Paid referal to:</b></td>
+			<td>
+			<a href="${pacts:viewUser(referred.header.user.id)}"><c:out value="${referred.header.user.handle}" /></a>
+			 for <fmt:formatNumber value="${referred.grossAmount}" pattern="#.00" />
+			(Payment
+			<a href="${pacts:viewPayment(referred.header.id)}"><c:out value="${referred.header.id}" /></a>)
+				</td>
+		</tr>
+</c:if>
+
 </table>
 
 <c:if test="${not empty notes}">
@@ -165,6 +177,7 @@
 		</select>
 	</form>
 </c:if>
+
 
 <br/>
 

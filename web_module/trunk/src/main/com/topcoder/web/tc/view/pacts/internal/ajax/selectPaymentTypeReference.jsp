@@ -15,7 +15,9 @@
 <c:set var="parentPayments" value="${requestScope.parent_reference_list}"/>
 <c:set var="refId" value="${requestScope.reference_type_id}"/>
 <c:set var="search" value="${requestScope.search}"/>
+<c:set var="optionalReference" value="${requestScope.optional_reference}"/>
 <c:set var="firstLoad" value="${not empty param.first_load}"/>
+<c:set var="roundUnknown" value="${not empty requestScope.round_unknown && requestScope.round_unknown== 'true'}"/>
 
 <c:set var="ALGORITHM_ROUND" value="<%= PactsConstants.REFERENCE_ALGORITHM_ROUND_ID + "" %>" />
 <c:set var="COMPONENT_PROJECT" value="<%= PactsConstants.REFERENCE_COMPONENT_PROJECT_ID + "" %>" />
@@ -35,7 +37,7 @@
               <td><b>Reference:</b></td>
               <td>
                  <c:choose>
-                     <c:when test="${refId == ALGORITHM_ROUND}">
+                     <c:when test="${refId == ALGORITHM_ROUND && !optionalReference}">
                         <c:choose>
                         <c:when test="${empty rounds}">    
                           <input type="hidden" name="missing_reference" value="Please select a round for the payment"/>
@@ -57,8 +59,41 @@
                             <script type="text/javascript">
                                 referenceChanged('algorithm_round_id');
                             </script>
-                        </c:if>
-                                            
+                        </c:if>                                           
+                     </c:when>                       
+                     <c:when test="${refId == ALGORITHM_ROUND && optionalReference}">
+                        <c:choose>
+                        <c:when test="${roundUnknown}">
+                        </c:when>                        
+                        <c:when test="${empty rounds}">    
+                          <input type="hidden" name="missing_reference" value="Please select a round for the payment or check Round Unknown"/>
+                          Enter search text for round name <input type="text" name="searchInput" value="${search}" />
+                          <input type="button" value="search" onClick="search()" />
+                            <c:if test="${not empty search}">          
+                                <font color="#FF0000">No rounds found containing <c:out value="${search}"/>. </font>
+                            </c:if>
+                            or: 
+	                        <c:if test="${not firstLoad}">  
+	                            <script type="text/javascript">
+                                	referenceChanged('algorithm_round_id');
+                            	</script>
+	                       </c:if>                                                                        
+                        </c:when>
+                        <c:otherwise>                   
+                             <tc-webtag:rscSelect name="algorithm_round_id" list="${rounds}" 
+                                     fieldText="round_desc" fieldValue="round_id"  selectedValue="${param.reference_id}"                      
+                                     useTopValue="false" onChange="referenceChanged('algorithm_round_id')" />
+                             <input type="button" value="do another search" onClick="typeChanged()" /> or: 
+	                        <c:if test="${not firstLoad}">  
+	                            <script type="text/javascript">
+                                	referenceChanged('algorithm_round_id');
+                            	</script>
+	                       </c:if>                                                                        
+                        </c:otherwise>   
+                        </c:choose>                                   
+                        <input type="checkbox" name="round_unknown_cbx" onClick="setRoundUnknown(this.checked)" <%= "true".equals(request.getAttribute("round_unknown"))? "checked=\"checked\"": ""  %>/>
+                        Round Unknown<br/>                       
+
                      </c:when>                       
                      
                      <c:when test="${refId == COMPONENT_PROJECT}">
