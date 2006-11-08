@@ -35,7 +35,7 @@
               <td><b>Reference:</b></td>
               <td>
                  <c:choose>
-                     <c:when test="${refId == ALGORITHM_ROUND}">
+                     <c:when test="${refId == 123456}">
                         <c:choose>
                         <c:when test="${empty rounds}">    
                           <input type="hidden" name="missing_reference" value="Please select a round for the payment"/>
@@ -57,8 +57,33 @@
                             <script type="text/javascript">
                                 referenceChanged('algorithm_round_id');
                             </script>
-                        </c:if>
-                                            
+                        </c:if>                                           
+                     </c:when>                       
+                     <c:when test="${refId == ALGORITHM_ROUND}">
+                        <tc-webtag:chkBox name="round_unknown" onClick="alert('hi')" />Round Unknown<br/>
+                        <c:choose>
+                        <c:when test="${empty rounds}">    
+                          <input type="hidden" name="missing_reference" value="Please select a round for the payment"/>
+                          Enter search text for round name: <input type="text" name="searchInput" value="${search}" />
+                          <input type="button" value="search" onClick="search()" />
+                            <c:if test="${not empty search}">          
+                                <font color="#FF0000">No rounds found containing <c:out value="${search}"/>. </font>
+                            </c:if>
+                          <br/>
+                        </c:when>
+                        <c:otherwise>                   
+                             <tc-webtag:rscSelect name="algorithm_round_id" list="${rounds}" 
+                                     fieldText="round_desc" fieldValue="round_id"  selectedValue="${param.reference_id}"                      
+                                     useTopValue="false" onChange="referenceChanged('algorithm_round_id')" />
+                             <input type="button" value="do another search" onClick="typeChanged()" />
+                        </c:otherwise>   
+                        </c:choose>                                   
+
+                        <c:if test="${not firstLoad}">  
+                            <script type="text/javascript">
+                                referenceChanged('algorithm_round_id');
+                            </script>
+                        </c:if>                                           
                      </c:when>                       
                      
                      <c:when test="${refId == COMPONENT_PROJECT}">
