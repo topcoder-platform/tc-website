@@ -43,6 +43,8 @@
 <script type="text/javascript" src="/js/taconite-parser.js"></script>
 <script type="text/javascript">
 
+var roundUnknown = false;
+
 function toggleDiv(divId, state) 
 {
     if(document.layers)   
@@ -72,6 +74,8 @@ function loaded() {
 function doSearch(text, mustSearch, firstLoad) {
     var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
     document.f.search_text.value = text;
+    document.f.round_unknown.value = roundUnknown;    
+    ajaxRequest.addNamedFormElements("round_unknown");
     ajaxRequest.addNamedFormElements("payment_type_id");
 
     if (firstLoad) {
@@ -90,15 +94,26 @@ function doSearch(text, mustSearch, firstLoad) {
 }
 
 
+
 function typeChanged()
 {
     document.f.reference_description.value = "";
     doSearch("", false, false);
 }
 
+function setRoundUnknown(value){
+   roundUnknown = value;
+   alert("unnk round ="+value);
+   typeChanged();   
+}
+
+
 function doReferenceChanged(refId) {
     var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=FillPaymentData');
     document.f.reference_id.value = refId;
+    document.f.round_unknown.value = roundUnknown;    
+    ajaxRequest.addNamedFormElements("round_unknown");
+    
     ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.addNamedFormElements("reference_id");
     ajaxRequest.addNamedFormElements("user_id");    
@@ -196,6 +211,7 @@ function searchKeyPress(e)
 <form name="f" action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
    <input type="hidden" name="module" value="EditPayment">
    <input type="hidden" name="search_text">
+   <input type="hidden" name="round_unknown">
    <input type="hidden" name="reference_id" value="<c:out value="${param.reference_id}" />">
    <input type="hidden" name="reference_description" value="<c:out value="${requestScope.reference_description}" />" >
    <input type="hidden" name="user_id" value="${user.id}" >   
