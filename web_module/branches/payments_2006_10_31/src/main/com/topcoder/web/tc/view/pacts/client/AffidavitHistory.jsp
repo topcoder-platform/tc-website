@@ -1,274 +1,251 @@
-<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.controller.request.member.AffidavitHistory" %>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
 
-<%@ page
-  language="java"
+<%@ page language="java"  %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
+
+<c:set var="fullList" value="<%= request.getAttribute(AffidavitHistory.FULL_LIST) %>"/>
+<c:set var="affidavits" value="<%= request.getAttribute(AffidavitHistory.AFFIDAVITS) %>"/>
+
+<%
+	ResultSetContainer rsc = (ResultSetContainer) request.getAttribute(AffidavitHistory.AFFIDAVITS);
 %>
 
-<HTML>
-<HEAD>
-<TITLE>TopCoder - PACTs</TITLE>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>TopCoder - PACTs</title>
+
+
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
-   <jsp:param name="key" value="tc_main"/>
+  <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
-<script language="JavaScript">
-<!--
-function goTo(selection){
-  sel = selection.options[selection.selectedIndex].value;
-  if (sel && sel != '#'){
-    window.location=sel;
-  }
-}
-// -->
+
+<script type="text/javascript">
+    function next() {
+        var myForm = document.f;
+        var oldStartRank = myForm.<%=DataAccessConstants.START_RANK%>.value;
+        myForm.<%=DataAccessConstants.START_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value) + 1;
+        myForm.<%=DataAccessConstants.END_RANK%>.value = 2 * parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value) - parseInt(oldStartRank) + 1;
+        myForm.submit();
+    }
+    function previous() {
+        var myForm = document.f;
+        var oldEndRank = myForm.<%=DataAccessConstants.END_RANK%>.value;
+        myForm.<%=DataAccessConstants.END_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - 1;
+        myForm.<%=DataAccessConstants.START_RANK%>.value = 2 * parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - parseInt(oldEndRank) - 1;
+        myForm.submit();
+    }
 </script>
- </HEAD>
- <BODY>
-   <jsp:include page="../../top.jsp" />
-   <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-     <TR>
-       <TD WIDTH="170" VALIGN="top">
+
+</head>
+
+<body>
+
+<jsp:include page="../../top.jsp" >
+    <jsp:param name="level1" value=""/>
+</jsp:include>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+   <tr valign="top">
+<!-- Left Column Begins-->
+        <td width="180">
          <jsp:include page="/includes/global_left.jsp">
             <jsp:param name="node" value="affidavits"/>
          </jsp:include>
-       </TD>
+        </td>
+<!-- Left Column Ends -->
+
 <!-- Center Column Begins -->
-         <td class="affidavitCell" width="100%" align="center" valign=top>
+<td width="100%" align="left" class="bodyColumn">
 
-        <jsp:include page="../../page_title.jsp" >
-            <jsp:param name="image" value="pact_s"/>
-            <jsp:param name="title" value="Affidavits"/>
-        </jsp:include>
+<jsp:include page="../../page_title.jsp" >
+<jsp:param name="image" value="pact_s"/>
+<jsp:param name="title" value="Affidavits"/>
+</jsp:include>
 
-<p class="bigRed" align="left">Learn <A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid" class="bigRed">How to Get Paid</A> from TopCoder for your competition winnings.</p>
 
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-   <TR>
-      <TD CLASS="affidavitText" COLSPAN="2">
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*,java.util.*,java.text.*,com.topcoder.shared.util.ApplicationServer" %>
+<div align="left">
+    <div style="float:right;">
+       <A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
+    </div>
+    <span class="bodySubtitle">Affidavits > </span><br>
+    <c:if test="${fullList}" >
+        View all | <a href="/PactsMemberServlet?module=AffidavitHistory&full_list=false" class="bcLink">View pending</a>
+    </c:if>
+    <c:if test="${not fullList}" >
+        <a href="/PactsMemberServlet?module=AffidavitHistory&full_list=true" class="bcLink">View all</a> | View pending
+    </c:if>
+</div>
 
-<%
-    Affidavit[] affidavits = null;
-       affidavits = (Affidavit[])
-       request.getAttribute(PactsConstants.PACTS_MEMBER_RESULT);
-       
-    Payment[] payments = null;
-       payments = (Payment[])
-       request.getAttribute(PactsConstants.PAYMENT_DETAIL_LIST);
-       
-    Map componentIdMap = (Map)request.getAttribute(PactsConstants.COMPONENT_DATA);
-    
-    String[] paymentCreationDates = (String[])request.getAttribute(PactsConstants.CREATION_DATE_LIST);
+<br clear="all">
 
-	String fullList = request.getParameter("full_list");
-	String href = new String("");
-	String desc = new String("");
-	String str = new String("");
-	java.util.Vector vec = new java.util.Vector();
+<% if (rsc.size() > 0) { %>
+<form name="f" action="${sessionInfo.servletPath}" method="get">
 
-    if(affidavits!=null || payments!=null) {
-	   out.print("<p>");
-	   if (fullList == null) {
-	   	  desc = "This page displays pending affidavits and payments. ";
-	   	  str = "(View all)";
-	      vec.add(new String("full_list=true"));
-	   } else {
-	   	  desc = "This page displays all affidavits and payments. ";
-	   	  str = "(View pending)";
-	   }
-	   href = PactsHtmlHelpers.createPactsHtmlHref(
-               PactsConstants.MEMBER_SERVLET_URL,
-               vec, PactsConstants.AFFIDAVIT_TASK,
-               PactsConstants.AFFIDAVIT_HISTORY_CMD, str, "bodyText");
-	   out.print(desc);
-	   out.print(href);
-	   out.print("</p><p></p>");
-	}
-	
-	PactsMemberTableModel tableData = null;
-	PactsHtmlTable table = null;
-	if (affidavits != null) {
-	   // build the affidavit table
-	   tableData = new PactsMemberTableModel(affidavits.length+1,6);
-	
-	   //set up the table title row
-	   tableData.setElement(0,0,"Affidavit Description");
-	   tableData.setElement(0,1,"Affidavit Affirmation");
-	   tableData.setElement(0,2,"Net Payment Amount");
-	   tableData.setElement(0,3,"Notarized");
-	   tableData.setElement(0,4,"Status");
-	   if (fullList != null) {
-	   	   tableData.setElement(0,5,"Date Paid");
-	   }
-	
-	   // fill in the data
-	   for(int i=1;i<=affidavits.length;i++) {
-	       // the description
-	       tableData.setElement(i,0,affidavits[i-1].getHeader().getDescription());
-	
-	       // affirmation
-	       vec.clear();
-	       if(affidavits[i-1].getHeader().isAffirmed()) {
-	           str = "affirmed on " + affidavits[i-1].getAffirmationDate() ;
-	       } else if(affidavits[i-1].getDaysLeftToAffirm()>0) {
-	            str = "click to affirm, " + affidavits[i-1].getDaysLeftToAffirm() +
-	                  " days left";
-	       } else {
-	      str = "expired, click here to view";
-	       }
-	
-	       vec.add(new String(PactsConstants.AFFIDAVIT_ID + "=" +
-	               affidavits[i-1].getHeader().getId()));
-	
-	       href = PactsHtmlHelpers.createPactsHtmlHref(
-	               PactsConstants.MEMBER_SERVLET_URL,
-	               vec, PactsConstants.AFFIDAVIT_TASK,
-	               PactsConstants.AFFIDAVIT_DETAILS_CMD, str, "bodyText");
-	       tableData.setElement(i,1,href);
-	
-	       // payment
-	            vec.clear();
-	        if (affidavits[i-1].getPayment().getId()<1) {
-	            vec.add("");
-	            href = "";
-	        } else {
-	            DecimalFormat decf = new DecimalFormat("0.00");
-	            str = "$" + decf.format(affidavits[i-1].getPayment().getRecentNetAmount());
-	            vec.add(new String(PactsConstants.PAYMENT_ID + "=" +
-	                    affidavits[i-1].getPayment().getId()));
-	            href = PactsHtmlHelpers.createPactsHtmlHref(
-	                    PactsConstants.MEMBER_SERVLET_URL,
-	                    vec, PactsConstants.PAYMENT_TASK,
-	                    PactsConstants.PAYMENT_DETAILS_CMD, str, "bodyText");
-	        }
-	       tableData.setElement(i,2,href);
-	
-	       // notarized
-	       str = (affidavits[i-1].getHeader().isNotarized()) ? "yes" : "no";
-	       tableData.setElement(i,3,str);
-	
-	       // status
-	       tableData.setElement(i,4,affidavits[i-1].getHeader().getStatusDesc());
-	
-		   // date paid
-		   if (fullList != null && affidavits[i-1].getPayDate() != null && !affidavits[i-1].getPayDate().equals("00/00/0000")) {
-		   		tableData.setElement(i,5,affidavits[i-1].getPayDate());
-		   }
-	   }
-    }
-%>
+            <% if (rsc.croppedDataBefore() || rsc.croppedDataAfter()) { %>
+            <div class="pagingBox">
+        <%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+        | <%=(rsc.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+                
+            </div>
+            <% } %>
 
-<table BGCOLOR="#FFFFFF" CELLPADDING=2 CELLSPACING=2 BORDER=0 WIDTH=100%>
-	<tr>
-		<td class="bodyText" width="35%"><b>Affidavit Description</b></td>
-		<td class="bodyText" width="20%"><b>Affidavit Affirmation</b></td>
-		<td class="bodyText" width="15%"><b>Net Payment Amount</b></td>
-		<td class="bodyText" width="10%"><b>Notarized</b></td>
-		<td class="bodyText" width="10%"><b>Status</b></td>
-		<td class="bodyText" width="10%"><b><% if (fullList != null) { %>Date Paid<% } %></b></td>
-	</tr>
-<%	if (affidavits != null) { %>
-<%	for(int i=1;i<=affidavits.length;i++) { %>
-	<tr>
-		<td class="bodyText" width="35%"><%=tableData.getElement(i,0)%></td>
-		<td class="bodyText" width="20%"><%=tableData.getElement(i,1)%></td>
-		<td class="bodyText" width="15%"><%=tableData.getElement(i,2)%></td>
-		<td class="bodyText" width="10%"><%=tableData.getElement(i,3)%></td>
-		<td class="bodyText" width="10%"><%=tableData.getElement(i,4)%></td>
-		<td class="bodyText" width="10%"><%	if (fullList != null) { %><%=tableData.getElement(i,5)%><% } %></td>
-	</tr>
-<%	} %>
-<%	} %>
-</table>
-    
-<P></P>    
-    
-<%    
-    if(payments!=null) {
-       // build the payment table
-	   tableData = new PactsMemberTableModel(payments.length+1,5);
-	
-	   //set up the table title row
-	   tableData.setElement(0,0,"Payment Description");
-	   tableData.setElement(0,1,"Due Date");
-	   tableData.setElement(0,2,"Net Payment Amount");
-	   tableData.setElement(0,3,"Status");
-	   if (fullList != null) {
-	   	   tableData.setElement(0,4,"Date Paid");
-	   }
-	   
-	   // fill in the data
-	   for(int i=1;i<=payments.length;i++) {
-	       // the description
-	       String description = payments[i-1].getDescription();
-	       if (description.indexOf(")") > -1) {
-	       		description = description.substring(description.indexOf(")")+1).trim();
-	       }
-	       String componentId = "";
-	       String projectId = String.valueOf(payments[i-1].getHeader().getComponentProjectId());
-	       if (componentIdMap.containsKey(projectId)) {
-	       		componentId = (String)componentIdMap.get(projectId);
-	       }
-	       if (!componentId.equals("")) {
-	       		String link = "<a href=\"http://"+ApplicationServer.SOFTWARE_SERVER_NAME+"/catalog/c_component.jsp?comp="+componentId+"&ver=1\">"+description+"</a>";
-	       		tableData.setElement(i,0,link);
-	       } else {
-	       		tableData.setElement(i,0,description);
-	       }
-	      
-	       // date created
-	       tableData.setElement(i,1,payments[i-1].getDueDate());
-	      
-	       // net amount
-	       DecimalFormat decf = new DecimalFormat("0.00");
-	       str = "$" + decf.format(payments[i-1].getNetAmount());
-	       tableData.setElement(i,2,str);
-	       
-	       // status
-	       tableData.setElement(i,3,payments[i-1].getStatusDesc());
-	       
-	       // date paid
-		   if (fullList != null && payments[i-1].getPayDate() != null && !payments[i-1].getPayDate().equals("00/00/0000")) {
-		   		tableData.setElement(i,4,payments[i-1].getPayDate());
-		   }
-	   }
-	}
-%>
 
-<table BGCOLOR="#FFFFFF" CELLPADDING=2 CELLSPACING=2 BORDER=0 WIDTH=100%>
-	<tr>
-		<td class="bodyText" width="35%"><b>Payment Description</b></td>
-		<td class="bodyText" width="20%"><b>Date Created</b></td>
-		<td class="bodyText" width="25%"><b>Net Payment Amount</b></td>
-		<td class="bodyText" width="10%"><b>Status</b></td>
-		<td class="bodyText" width="10%"><% if (fullList != null) { %><b>Date Paid</b><% } %></td>
-	</tr>
-<%	if (payments != null) { %>
-<%	for(int i=1;i<=payments.length;i++) { %>
-	<tr>
-		<td class="bodyText" width="35%"><%=tableData.getElement(i,0)%></td>
-		<td class="bodyText" width="20%"><%=tableData.getElement(i,1)%></td>
-		<td class="bodyText" width="25%"><%=tableData.getElement(i,2)%></td>
-		<td class="bodyText" width="10%"><%=tableData.getElement(i,3)%></td>
-		<td class="bodyText" width="10%"><% if (fullList != null) { %><%=tableData.getElement(i,4)%><% } %></td>
-	</tr>
-<%	} %>
-<%	} %>
+<br>
+
+<table cellpadding="0" cellspacing="0" class="stat" width="100%">
+<tbody>
+    <tr>
+        <td class="title" colspan="7">
+        Affidavits
+        </td>
+    </tr>
+    <tr>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">
+        Description</a>
+        </td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">
+        Affirmation</a>
+        </td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">
+        Time Left</a>
+        </td>
+        <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">
+        Net Payment</a>
+        </td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">
+        Notarized</a>
+        </td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">
+        Status</a>
+        </td>
+        <td class="headerC">
+        <c:if test="${fullList}" ><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">
+            <b>Date Paid</b>            </a>
+        </c:if>&nbsp;
+        </td>
+    </tr>
+<% boolean even = true;%>
+<rsc:iterator list="${affidavits}" id="resultRow">
+	<c:set var="statusId" value="<%= resultRow.getStringItem("status_id") %>" />
+	<c:set var="affidavitId" value="<%= resultRow.getStringItem("affidavit_id") %>" />
+	<c:set var="notarized" value="<%= Boolean.valueOf(resultRow.getIntItem("notarized") == 1) %>" />
+
+    <tr class="<%=even?"light":"dark"%>">
+        <td class="value">
+	        <rsc:item name="affidavit_desc" row="<%=resultRow%>"/>
+        </td>
+    <c:choose>
+        <c:when test="${statusId == 58}">
+	        <td class="valueC">
+	            <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavitId}">
+	                Affirmed on<br><rsc:item name="date_affirmed" row="<%=resultRow%>"  format="MM/dd/yy"/>
+	            </a>                
+	        </td>
+	        <td class="valueC">&nbsp;</td>
+        </c:when>
+        <c:when test="${statusId == 57}">
+        <td class="valueC">
+            <strong><a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavitId}">
+                Affirm now
+            </a></strong>
+        </td>
+        <td class="valueC">
+            <strong><a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavitId}">
+                 <rsc:item name="time_left" row="<%=resultRow%>"/> days
+            </a></strong>            
+        </td>
+        </c:when>
+        <c:otherwise>
+        <td class="valueC">
+            <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavitId}" class="bigRed">
+                Expired
+            </a>
+        </td>
+        <td class="valueC">
+            <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavitId}" class="bigRed">
+                Expired
+            </a>                
+        </td>
+        </c:otherwise>
+    </c:choose>
+        <td class="valueR">
+	        <rsc:item name="net_amount" row="<%=resultRow%>"  format="$###,###,##0.00"/>
+        </td>
+        <td class="valueC">
+            <c:choose>
+                <c:when test="${notarized}">yes</c:when>
+                <c:otherwise>no</c:otherwise>                 
+            </c:choose>
+        </td>
+        <td class="valueC">
+            <rsc:item name="status_desc" row="<%=resultRow%>" />
+        </td>
+        <td class="valueC">
+            <c:if test="${fullList}" >
+            	<b><rsc:item name="date_paid" row="<%=resultRow%>"  format="MM/dd/yy"/>                  
+            </c:if>
+        </td>
+    </tr>
+<% even = !even;%>
+</rsc:iterator>
+</tbody>
 </table>
 
-<P><BR/></P>
-      </TD>
-   </TR>
-</TABLE>
-       </TD>
-       <TD WIDTH="170" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0">
-         <jsp:include page="/public_right.jsp" />
-       </TD>
-    <!-- Gutter -->
-    <TD WIDTH="25" ><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
-     </TR>
-   </TABLE>
-   <jsp:include page="/foot.jsp" />
- </BODY>
-</HTML>
 
+
+
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AffidavitHistory"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.START_RANK%>"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
+        <input type="hidden" name="<%= AffidavitHistory.FULL_LIST %>" value="<c:out value="${fullList}"/>" />
+
+            <% if (rsc.croppedDataBefore() || rsc.croppedDataAfter()) { %>
+            <div class="pagingBox">
+        <%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+        | <%=(rsc.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+                
+            </div>
+            <% } %>
+</form>            
+<% } else { %>
+<div align="center">
+<strong>No Affidavits Found</strong>
+</div>
+<% } %>
+<br>
+
+     
+
+
+<!-- Center Column Ends -->
+
+<!-- Right Column Begins -->
+         <td width="170">
+            <jsp:include page="../../public_right.jsp">
+               <jsp:param name="level1" value="default"/>
+            </jsp:include>
+         </td>
+<!-- Right Column Ends -->
+
+<!-- Gutter -->
+         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+<!-- Gutter Ends -->
+    </tr>
+</table>
+
+<jsp:include page="/foot.jsp" />
+
+</body>
+
+</html>
