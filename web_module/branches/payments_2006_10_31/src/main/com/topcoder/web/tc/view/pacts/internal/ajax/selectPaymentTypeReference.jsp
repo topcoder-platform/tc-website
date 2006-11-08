@@ -90,7 +90,7 @@
 	                       </c:if>                                                                        
                         </c:otherwise>   
                         </c:choose>                                   
-
+requestScope.roundUnknown=<c:out value="${requestScope.roundUnknown}"></c:out>
                         <input type="checkbox" name="round_unknown" onClick="setRoundUnknown(this.checked)"/>Round Unknown<br/>                       
 
                      </c:when>                       

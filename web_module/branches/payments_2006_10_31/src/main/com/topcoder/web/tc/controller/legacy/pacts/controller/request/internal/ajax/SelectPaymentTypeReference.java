@@ -92,6 +92,7 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
             //getRequest().setAttribute("reference_field_name", field);
             getRequest().setAttribute("reference_id", getRequest().getParameter("reference_id"));
             getRequest().setAttribute("round_unknown", getRequest().getParameter("round_unknown"));
+            log.debug("round_unknown=" + getRequest().getParameter("round_unknown"));
             getRequest().setAttribute("search", search);
             setNextPage(INTERNAL_AJAX_SELECT_PAYMENT_TYPE_REFERENCE);
             setIsNextPageInContext(true);
