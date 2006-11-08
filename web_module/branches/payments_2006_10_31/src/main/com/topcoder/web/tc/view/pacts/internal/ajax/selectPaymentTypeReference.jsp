@@ -66,7 +66,7 @@
                         </c:when>                        
                         <c:when test="${empty rounds}">    
                           <input type="hidden" name="missing_reference" value="Please select a round for the payment"/>
-                          Enter search text for round name or click on Round Unknown: <input type="text" name="searchInput" value="${search}" />
+                          Enter search text for round name <input type="text" name="searchInput" value="${search}" />
                           <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          
                                 <font color="#FF0000">No rounds found containing <c:out value="${search}"/>. </font>
@@ -76,7 +76,6 @@
                                 	referenceChanged('algorithm_round_id');
                             	</script>
 	                       </c:if>                                                                        
-                          <br/>
                         </c:when>
                         <c:otherwise>                   
                              <tc-webtag:rscSelect name="algorithm_round_id" list="${rounds}" 
@@ -90,8 +89,8 @@
 	                       </c:if>                                                                        
                         </c:otherwise>   
                         </c:choose>                                   
-requestScope.roundUnknown=<c:out value="${requestScope.round_unknown}"></c:out>
-                        <input type="checkbox" name="round_unknown_cbx" onClick="setRoundUnknown(this.checked)" <%= "true".equals(request.getAttribute("round_unknown"))? "checked=\"checked\"": ""  %>/>
+
+                        or: <input type="checkbox" name="round_unknown_cbx" onClick="setRoundUnknown(this.checked)" <%= "true".equals(request.getAttribute("round_unknown"))? "checked=\"checked\"": ""  %>/>
                         Round Unknown<br/>                       
 
                      </c:when>                       
