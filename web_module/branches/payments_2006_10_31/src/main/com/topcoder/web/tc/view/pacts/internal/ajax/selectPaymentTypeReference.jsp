@@ -71,6 +71,7 @@
                             <c:if test="${not empty search}">          
                                 <font color="#FF0000">No rounds found containing <c:out value="${search}"/>. </font>
                             </c:if>
+                            or: 
 	                        <c:if test="${not firstLoad}">  
 	                            <script type="text/javascript">
                                 	referenceChanged('algorithm_round_id');
@@ -81,7 +82,7 @@
                              <tc-webtag:rscSelect name="algorithm_round_id" list="${rounds}" 
                                      fieldText="round_desc" fieldValue="round_id"  selectedValue="${param.reference_id}"                      
                                      useTopValue="false" onChange="referenceChanged('algorithm_round_id')" />
-                             <input type="button" value="do another search" onClick="typeChanged()" />
+                             <input type="button" value="do another search" onClick="typeChanged()" /> or: 
 	                        <c:if test="${not firstLoad}">  
 	                            <script type="text/javascript">
                                 	referenceChanged('algorithm_round_id');
@@ -89,8 +90,8 @@
 	                       </c:if>                                                                        
                         </c:otherwise>   
                         </c:choose>                                   
-
-                        or: <input type="checkbox" name="round_unknown_cbx" onClick="setRoundUnknown(this.checked)" <%= "true".equals(request.getAttribute("round_unknown"))? "checked=\"checked\"": ""  %>/>
+X
+                        <input type="checkbox" name="round_unknown_cbx" onClick="setRoundUnknown(this.checked)" <%= "true".equals(request.getAttribute("round_unknown"))? "checked=\"checked\"": ""  %>/>
                         Round Unknown<br/>                       
 
                      </c:when>                       
