@@ -4575,9 +4575,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             checkNew.append("SELECT COUNT(*) FROM affidavit WHERE round_id = " + roundId);
             ResultSetContainer rsc = runSelectQuery(c, checkNew.toString(), false);
             int existingAffidavits = Integer.parseInt(rsc.getItem(0, 0).toString());
-            if (existingAffidavits > 0) {
+            if (existingAffidavits > 0 && paymentTypeId != CHARITY_PAYMENT) {
                 throw new IllegalUpdateException("Data already generated for round " + roundId + "!");
             }
+            
 
             // Make sure the round exists; in the process, get the name and due date.
             StringBuffer checkExists = new StringBuffer(300);
@@ -4607,7 +4608,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getWinners.append("AND rr.coder_id = rp.coder_id ");
             getWinners.append("AND rr.round_id = rp.round_id ");
             if (paymentTypeId == CHARITY_PAYMENT) {
-            	getWinners.append("AND rp.payment_type_id = CHARITY_PAYMENT ");
+            	getWinners.append("AND rp.payment_type_id = " + CHARITY_PAYMENT + " ");
             }
             getWinners.append(" ORDER BY rr.room_id, rr.room_placed");
             ResultSetContainer winners = runSelectQuery(c, getWinners.toString(), false);
