@@ -1,17 +1,24 @@
 package com.topcoder.web.ejb.pacts;
 
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.tc.controller.legacy.pacts.common.*;
+import java.rmi.RemoteException;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
 
 import javax.ejb.EJBObject;
 import javax.jms.JMSException;
-import java.rmi.RemoteException;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
+import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.NoObjectFoundException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentNotReviewedException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UpdateResults;
 
 /**
  * The remote interface for the PACTS EJB.  See the <tt>PactsServicesBean</tt>
@@ -216,6 +223,9 @@ public interface PactsServices extends EJBObject {
 
     Map findStudioContests(String search) throws RemoteException, SQLException;
     
+    ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException,  SQLException;
+    
+    ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException,  SQLException;
     
     // ================== Methods from the Client Service ================== 
     

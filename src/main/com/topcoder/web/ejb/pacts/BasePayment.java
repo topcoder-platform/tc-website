@@ -232,7 +232,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     }
 
     public void setDescription(String description) {
-        fieldChanged(MODIFICATION_DESCRIPTION, !description.equals(this.description));
+        fieldChanged(MODIFICATION_DESCRIPTION, description != null && !description.equals(this.description));
         this.description = description;
     }
 
@@ -241,7 +241,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     }
 
     public void setDueDate(Date dueDate) {
-        fieldChanged(MODIFICATION_DATE_PAID, !dueDate.equals(this.dueDate));
+        fieldChanged(MODIFICATION_DATE_PAID, dueDate != null && !dueDate.equals(this.dueDate));
         this.dueDate = dueDate;
     }
 

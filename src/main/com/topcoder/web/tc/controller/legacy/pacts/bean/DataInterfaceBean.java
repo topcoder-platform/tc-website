@@ -6,24 +6,23 @@ import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import javax.jms.JMSException;
 import javax.naming.InitialContext;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.PactsServices;
 import com.topcoder.web.ejb.pacts.PactsServicesBean;
+import com.topcoder.web.ejb.pacts.PactsServicesLocal;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.AffidavitWithText;
@@ -36,7 +35,6 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentNotReviewedException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
-import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UnsupportedSearchException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UpdateResults;
@@ -84,11 +82,11 @@ public class DataInterfaceBean implements PactsConstants {
     // Get handle to the EJB.  All miscellaneous exceptions that can be
     // thrown by the various calls herein (CreateException, NamingException,
     // RemoteException) get packaged into a RemoteException for convenience.
-    private PactsServices getEjbHandle() throws RemoteException {
+    private PactsServicesLocal getEjbHandle() throws RemoteException {
         InitialContext c = null;
         try {
             c = TCContext.getInitial();
-            return (PactsServices) BaseProcessor.createEJB(c, PactsServices.class);
+            return (PactsServicesLocal) BaseProcessor.createLocalEJB(c, PactsServices.class);
         } catch (Exception e) {
             e.printStackTrace();
             throw new RemoteException(e.getMessage());
@@ -144,7 +142,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getAffidavit(long affidavitId) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getAffidavit(affidavitId);
     }
 
@@ -157,7 +155,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getContract(long contractId) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getContract(contractId);
     }
 
@@ -170,7 +168,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getNote(long noteId) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getNote(noteId);
     }
 
@@ -185,7 +183,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getPayment(long paymentId) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getPayment(paymentId);
     }
 
@@ -200,7 +198,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getPaymentAuditTrail(long paymentId) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getPaymentAuditTrail(paymentId);
     }
 
@@ -213,7 +211,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getUserProfile(long userId) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getUserProfile(userId);
     }
 
@@ -226,7 +224,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getUserProfileHeader(long userId) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getUserProfileHeader(userId);
     }
 
@@ -239,7 +237,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getTaxForm(long taxFormId) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getTaxForm(taxFormId);
     }
 
@@ -253,7 +251,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getUserTaxForm(long userId, long taxFormId) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getUserTaxForm(userId, taxFormId);
     }
 
@@ -270,7 +268,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getUserAffidavitList(long userId) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getUserAffidavitList(userId);
     }
 
@@ -283,7 +281,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getUserContractList(long userId) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getUserContractList(userId);
     }
 
@@ -296,7 +294,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getUserPaymentList(long userId) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getUserPaymentList(userId);
     }
 
@@ -311,7 +309,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getUserPaymentDetailsList(long userId, int[] paymentTypes, boolean pendingOnly) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getUserPaymentDetailsList(userId, paymentTypes, pendingOnly);
     }
 
@@ -324,7 +322,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getUserTaxFormList(long userId) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getUserTaxFormList(userId);
     }
 
@@ -348,7 +346,7 @@ public class DataInterfaceBean implements PactsConstants {
         if (!objectTypeHasNotes(objectType))
             throw new IllegalArgumentException("Object type " + objectType +
                     " does not exist or does not have notes");
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getNoteList(objectId, objectType, taxFormUserId);
     }
 
@@ -361,7 +359,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getContractPaymentList(long contractId) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getContractPaymentList(contractId);
     }
 
@@ -381,7 +379,7 @@ public class DataInterfaceBean implements PactsConstants {
         if (!objectTypeHasText(objectType))
             throw new IllegalArgumentException("Object type " + objectType +
                     " does not exist or does not have text");
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getText(objectId, objectType);
     }
 
@@ -397,7 +395,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getAffidavitTypes() throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getAffidavitTypes();
     }
 
@@ -409,7 +407,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getContractTypes() throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getContractTypes();
     }
 
@@ -421,7 +419,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getNoteTypes() throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getNoteTypes();
     }
 
@@ -433,7 +431,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getPaymentTypes() throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getPaymentTypes();
     }
 
@@ -445,7 +443,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getPaymentMethods() throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getPaymentMethods();
     }
 
@@ -457,7 +455,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getProjectTerminationStatusTypes() throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getProjectTerminationStatusTypes();
     }
 
@@ -469,7 +467,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getModificationRationales() throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getModificationRationales();
     }
 
@@ -481,7 +479,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getStatusCodes() throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getStatusCodes();
     }
 
@@ -498,7 +496,7 @@ public class DataInterfaceBean implements PactsConstants {
     public Map getStatusCodes(int objectType) throws RemoteException, SQLException {
         if (!objectTypeExists(objectType))
             throw new IllegalArgumentException("The specified object type " + objectType + " does not exist");
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getStatusCodes(objectType);
     }
 
@@ -510,7 +508,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getUserTypes() throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getUserTypes();
     }
 
@@ -522,7 +520,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getRounds() throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getRounds();
     }
 
@@ -534,7 +532,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getDemographicData(long userId) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getDemographicData(userId);
     }
 
@@ -546,7 +544,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getCreationDates(long[] paymentIds) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getCreationDates(paymentIds);
     }
 
@@ -665,7 +663,7 @@ public class DataInterfaceBean implements PactsConstants {
             if (!inputOk)
                 throw new InvalidSearchInputException("Value " + value + " invalid for " + key);
         }
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.findAffidavits(searchCriteria);
     }
 
@@ -714,7 +712,7 @@ public class DataInterfaceBean implements PactsConstants {
             if (!inputOk)
                 throw new InvalidSearchInputException("Value " + value + " invalid for " + key);
         }
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.findContracts(searchCriteria);
     }
 
@@ -727,7 +725,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map findNoteObjects(long noteId) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.findNoteObjects(noteId);
     }
 
@@ -778,7 +776,7 @@ public class DataInterfaceBean implements PactsConstants {
             if (!inputOk)
                 throw new InvalidSearchInputException("Value " + value + " invalid for " + key);
         }
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.findNotes(searchCriteria);
     }
 
@@ -835,7 +833,7 @@ public class DataInterfaceBean implements PactsConstants {
             if (!inputOk)
                 throw new InvalidSearchInputException("Value " + value + " invalid for " + key);
         }
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.findPayments(searchCriteria);
     }
 
@@ -877,7 +875,7 @@ public class DataInterfaceBean implements PactsConstants {
             if (!inputOk)
                 throw new InvalidSearchInputException("Value " + value + " invalid for " + key);
         }
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.findTaxForms(searchCriteria);
     }
 
@@ -925,7 +923,7 @@ public class DataInterfaceBean implements PactsConstants {
             if (!inputOk)
                 throw new InvalidSearchInputException("Value " + value + " invalid for " + key);
         }
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.findUserTaxForms(searchCriteria);
     }
 
@@ -975,7 +973,7 @@ public class DataInterfaceBean implements PactsConstants {
             if (!inputOk)
                 throw new InvalidSearchInputException("Value " + value + " invalid for " + key);
         }
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.findUsers(searchCriteria);
     }
 
@@ -994,7 +992,7 @@ public class DataInterfaceBean implements PactsConstants {
      */
     public long addAffidavit(Affidavit a, String affidavitText)
             throws RemoteException, IllegalUpdateException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.addAffidavit(a, affidavitText);
     }
 
@@ -1016,7 +1014,7 @@ public class DataInterfaceBean implements PactsConstants {
      */
     public long addAffidavit(Affidavit a, String affidavitText, Payment p)
             throws RemoteException, IllegalUpdateException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.addAffidavit(a, affidavitText, p);
     }
 
@@ -1030,7 +1028,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @return  The new contract's ID.
      */
     public long addContract(Contract c, String contractText) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.addContract(c, contractText);
     }
 
@@ -1045,9 +1043,24 @@ public class DataInterfaceBean implements PactsConstants {
      * @return  The new payment's ID.
      */
     public long addPayment(Payment p) throws RemoteException, IllegalUpdateException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.addPayment(p);
     }
+
+    /**
+     * Adds the specified payment to the database.  
+     *
+     * @param   p Data for the new payment.
+     * @throws  RemoteException If there is some communication problem with the EJB
+     * @throws  IllegalUpdateException If the user is trying to make an update that is not allowed.
+     * @throws  SQLException If there is some problem updating the data
+     * @return  The new payment's ID.
+     */
+    public long addPayment(Payment p, boolean payReferrer) throws RemoteException, IllegalUpdateException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.addPayment(p, payReferrer);
+    }
+
 
     /**
      * Adds the specified payment to the database, and to the specified contract.  Does
@@ -1061,7 +1074,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @return  The new payment's ID.
      */
     public long addContractPayment(long contractId, Payment p) throws RemoteException, IllegalUpdateException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.addContractPayment(contractId, p);
     }
 
@@ -1076,7 +1089,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @return  The new tax form's ID.
      */
     public long addTaxForm(TaxForm t, String taxFormText) throws RemoteException, IllegalUpdateException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.addTaxForm(t, taxFormText);
     }
 
@@ -1088,7 +1101,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some other problem updating the data
      */
     public void addUserTaxForm(TaxForm t) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         ps.addUserTaxForm(t);
     }
 
@@ -1115,7 +1128,7 @@ public class DataInterfaceBean implements PactsConstants {
         if (!objectTypeHasNotes(objectType))
             throw new IllegalArgumentException("Object type " + objectType +
                     " does not exist or does not have notes");
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.addObjectNote(objectId, objectType, taxFormUserId, n);
     }
 
@@ -1138,7 +1151,7 @@ public class DataInterfaceBean implements PactsConstants {
         if (!objectTypeHasNotes(objectType))
             throw new IllegalArgumentException("Object type " + objectType +
                     " does not exist or does not have notes");
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         ps.addObjectNoteLink(objectId, objectType, taxFormUserId, noteId);
     }
 
@@ -1160,7 +1173,7 @@ public class DataInterfaceBean implements PactsConstants {
      */
     public void affirmAffidavit(long affidavitId, String finalText, String coderBirthDate)
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         ps.affirmAffidavit(affidavitId, finalText, coderBirthDate);
     }
 
@@ -1240,7 +1253,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem updating the data
      */
     public void updateAffidavit(Affidavit a) throws RemoteException, NoObjectFoundException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         ps.updateAffidavit(a);
     }
 
@@ -1253,7 +1266,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem updating the data
      */
     public void updateContract(Contract c) throws RemoteException, NoObjectFoundException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         ps.updateContract(c);
     }
 
@@ -1272,7 +1285,7 @@ public class DataInterfaceBean implements PactsConstants {
      */
     public void updatePayment(Payment p)
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, PaymentPaidException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         ps.updatePayment(p);
     }
 
@@ -1286,7 +1299,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem updating the data
      */
     public void updateTaxForm(TaxForm t) throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         ps.updateTaxForm(t);
     }
 
@@ -1301,7 +1314,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem updating the data
      */
     public void updateUserTaxForm(TaxForm t) throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         ps.updateUserTaxForm(t);
     }
 
@@ -1322,7 +1335,7 @@ public class DataInterfaceBean implements PactsConstants {
         if (!objectTypeHasUpdatableText(objectType))
             throw new IllegalArgumentException("Object type " + objectType +
                     " does not exist or does not have updatable text");
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         ps.updateText(objectId, objectType, newText);
     }
 
@@ -1338,7 +1351,7 @@ public class DataInterfaceBean implements PactsConstants {
      */
     public UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId)
             throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.doBatchUpdatePaymentStatus(paymentId, statusId);
     }
 
@@ -1362,7 +1375,7 @@ public class DataInterfaceBean implements PactsConstants {
      */
     public void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
             throws RemoteException, IllegalUpdateException, JMSException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         ps.batchUpdatePaymentStatus(paymentId, statusId, userId);
     }
 
@@ -1380,7 +1393,7 @@ public class DataInterfaceBean implements PactsConstants {
      */
     public void reviewPayments(long paymentId[])
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         ps.reviewPayments(paymentId);
     }
 
@@ -1402,22 +1415,22 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem querying the database
      */
     public boolean canAffirmAffidavit(long userId, int affidavitTypeId) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.canAffirmAffidavit(userId, affidavitTypeId);
     }
 
     public boolean hasNotarizedAffidavit(long userId, int affidavitTypeId) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.hasNotarizedAffidavit(userId, affidavitTypeId);
     }
 
     public boolean hasAllDemographicAnswers(long userId) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.hasAllDemographicAnswers(userId);
     }
 
     public boolean hasTaxForm(long userId) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.hasTaxForm(userId);
     }
 
@@ -1437,7 +1450,7 @@ public class DataInterfaceBean implements PactsConstants {
      */
     public String[] printPayments() throws RemoteException, PaymentNotReviewedException, SQLException {
         log.debug("printPayments called...");
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.printPayments();
     }
 
@@ -1458,26 +1471,26 @@ public class DataInterfaceBean implements PactsConstants {
      */
     public int generateRoundPayments(long roundId, boolean makeChanges)
             throws RemoteException, IllegalUpdateException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.generateRoundPayments(roundId, makeChanges);
     }
 
     public int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges)
             throws RemoteException, IllegalUpdateException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.generateRoundPayments(roundId, affidavitTypeId, makeChanges);
     }
 
     public int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges, int paymentTypeId)
     		throws RemoteException, IllegalUpdateException, SQLException {
-    	PactsServices ps = getEjbHandle();
+    	PactsServicesLocal ps = getEjbHandle();
     	return ps.generateRoundPayments(roundId, affidavitTypeId, makeChanges, paymentTypeId);
     }
 
 
     public int generateRoundPayments(long roundId, boolean makeChanges, int paymentTypeId)
 			throws RemoteException, IllegalUpdateException, SQLException {
-    	PactsServices ps = getEjbHandle();
+    	PactsServicesLocal ps = getEjbHandle();
     	return ps.generateRoundPayments(roundId, makeChanges, paymentTypeId);
     }
 
@@ -1496,7 +1509,7 @@ public class DataInterfaceBean implements PactsConstants {
      */
     public int[] generateComponentPayments(long projectId, long status, String client, boolean makeChanges)
         throws IllegalUpdateException, RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.generateComponentPayments(projectId, status, client, makeChanges);
     }
 
@@ -1509,8 +1522,18 @@ public class DataInterfaceBean implements PactsConstants {
      * @return the map of (projectID, componentID) pairs
      */
     public Map getPaymentComponentData(long[] paymentIds) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getPaymentComponentData(paymentIds);
+    }
+
+    public ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getPaymentHistory(userId, pendingOnly, sortColumn, sortAscending);    	
+    }
+
+    public ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getAffidavitHistory(userId, pendingOnly, sortColumn, sortAscending);    	
     }
 
     /**
@@ -1522,7 +1545,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws SQLException If there was some error updating the data.
      */
     public int expireOldPayments() throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.expireOldPayments();
     }
 
@@ -1538,69 +1561,75 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws SQLException If there was some error updating the data.
      */
     public int expireOldAffidavits() throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.expireOldAffidavits();
     }
 
     public void createAffidavitTemplate(int affidavitTypeId, String text) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         ps.createAffidavitTemplate(affidavitTypeId, text);
     }
 
     public Payment getEmptyPayment(long userId) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getEmptyPayment(userId);
     }
 
     public Map findProblems(String search) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.findProblems(search);
     }
 
     public Map findProjects(String search) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.findProjects(search);
     }
 
     public Map findComponentContests(String search) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.findComponentContests(search);
     }
 
     public Map findStudioContests(String search) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.findStudioContests(search);
     }
 
     public Map findRounds(String search, int []roundTypes) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.findRounds(search,roundTypes);
     }
 
     public Map getDigitalRunSeasonList() throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getDigitalRunSeasonList();
     }
 
     public Map getDigitalRunStageList() throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.getDigitalRunStageList();
     }
 
     public Map findPaymentsByDescription(String search) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.findPaymentsByDescription(search);
     }
 
     public BasePayment fillPaymentData(BasePayment payment) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.fillPaymentData(payment);
     }
 
     public BasePayment addPayment(BasePayment payment) throws RemoteException, SQLException {
-        PactsServices ps = getEjbHandle();
+        PactsServicesLocal ps = getEjbHandle();
         return ps.addPayment(payment);
     }
+    
+    public List findPayments(int paymentTypeId, long referenceId) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.findPayments(paymentTypeId, referenceId);
+    }
+
 
 }
 

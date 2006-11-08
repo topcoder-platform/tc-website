@@ -75,7 +75,7 @@ public interface PactsConstants extends Constants {
     public static final int DUE_DATE_INTERVAL = 28;
 
     // How long before a contest payment expires after the due date, in days
-    public static final int PAYMENT_EXPIRE_TIME = 32;
+    public static final int PAYMENT_EXPIRE_TIME = 60;
 
 //  How long before a component payment comes due, in days
     public static final int COMPONENT_DUE_DATE_INTERVAL = 14;
@@ -238,6 +238,7 @@ public interface PactsConstants extends Constants {
     public static final int[] ALGORITHM_CONTEST_ROUND_TYPES= {1, 3, 12, 17};
     public static final int[] MARATHON_MATCH_ROUND_TYPES= {10, 13, 14, 15, 16};
     public static final int[] ALGORITHM_TOURNAMENT_ROUND_TYPES = {2, 18};
+    public static final int[] PROBLEM_TESTING_ROUND_TYPES = {1, 2, 3, 10, 12, 13, 14, 15, 16, 17, 18};
 
     //status_id
 
@@ -422,7 +423,7 @@ public interface PactsConstants extends Constants {
     public static final String TAX_FORM_HISTORY_JSP = MEMBER_JSP_DIR + "TaxFormHistory.jsp";
     public static final String TAX_FORM_DETAILS_JSP = MEMBER_JSP_DIR + "TaxFormDetails.jsp";
     public static final String AFFIDAVIT_RENDER_JSP = MEMBER_JSP_DIR + "AffidavitRender.jsp";
-
+    
     // internal jsp page names (and loccations)
     public static final String INTERNAL_SEARCH_JSP = INTERNAL_JSP_DIR + "/search.jsp";
     public static final String INTERNAL_SEARCH_USERS_JSP = INTERNAL_JSP_DIR + "/searchUsers.jsp";
@@ -523,5 +524,8 @@ public interface PactsConstants extends Constants {
     public static final int TO_QUERY_OPTION = 1;
     public static final int PAYMENT_UPDATE_FORWARD_OPTION = 0;
 
+    public static final int PAYMENT_HISTORY_PAGE_SIZE = 20;
+    public static final int AFFIDAVIT_HISTORY_PAGE_SIZE = 20;
+    
 }
 

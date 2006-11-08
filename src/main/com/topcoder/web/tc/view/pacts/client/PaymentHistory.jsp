@@ -1,148 +1,220 @@
-<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.controller.request.member.PaymentHistory" %>
+<%@ page language="java"
+         import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+		         com.topcoder.shared.dataAccess.DataAccessConstants,
+		         com.topcoder.web.tc.Constants" %>
 
+<%@ page language="java"  %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
-<%@ page
-  language="java"
-%>
-
-<HTML>
-<HEAD>
-<TITLE>TopCoder :: P.A.C.T.s</TITLE>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-<jsp:include page="/script.jsp" />
-<jsp:include page="/style.jsp">
-   <jsp:param name="key" value="tc_main"/>
-</jsp:include>
-<script language="JavaScript">
-<!--
-function goTo(selection){
-  sel = selection.options[selection.selectedIndex].value;
-  if (sel && sel != '#'){
-    window.location=sel;
-  }
-}
-// -->
-</script>
- </HEAD>
- <BODY>
-   <jsp:include page="../../top.jsp" />
-   <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-     <TR>
-       <TD WIDTH="170" VALIGN="top">
-         <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="affidavits"/>
-         </jsp:include>
-       </TD>
-       <TD WIDTH="4" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"></TD>
-       <TD CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
-        <jsp:include page="/body_top.jsp" >
-           <jsp:param name="image" value="pacts"/>
-           <jsp:param name="image1" value="steelblue"/>
-           <jsp:param name="title" value="Payments"/>
-        </jsp:include>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
-	<TR>
-		<TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-		<TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-<BR/>
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*,java.text.*" %>
+<c:set var="fullList" value="<%= request.getAttribute(PaymentHistory.FULL_LIST) %>"/>
+<c:set var="payments" value="<%= request.getAttribute(PaymentHistory.PAYMENTS) %>"/>
+<c:set var="cr" value="<%= request.getAttribute(PaymentHistory.CODER) %>"/>
 
 <%
-
-    PaymentHeader[] payments = null;
-        payments = (PaymentHeader [])
-	    request.getAttribute(PactsConstants.PACTS_MEMBER_RESULT);
-
-    if(payments!=null) {
-	// build the table
-	PactsMemberTableModel tableData = new PactsMemberTableModel(
-	                                        payments.length+1,4);
-
-	//set up the table title row
-	tableData.setElement(0,0,"Description");
-	tableData.setElement(0,1,"Net Payment Amount");
-	tableData.setElement(0,2,"Type of Payment");
-	tableData.setElement(0,3,"Status");
-
-	// fill in the data
-	String href;
-	String str;
-	java.util.Vector vec = new java.util.Vector();
-	for(int i=1;i<=payments.length;i++) {
-	    // the payment desc
-	    tableData.setElement(i,0,payments[i-1].getDescription());
-
-	    // the net payment amount
-	    vec.clear();
-	    DecimalFormat decf = new DecimalFormat("0.00");
-	    str = "$" + decf.format(payments[i-1].getRecentNetAmount());
-	    vec.add(new String(PactsConstants.PAYMENT_ID + "=" +
-	            payments[i-1].getId()));
-
-	    // you can send it to the generic payment details, it will forward
-            // if there is a special case
-	    href = PactsHtmlHelpers.createPactsHtmlHref(
-	            PactsConstants.MEMBER_SERVLET_URL,
-	            vec, PactsConstants.PAYMENT_TASK,
-	            PactsConstants.PAYMENT_DETAILS_CMD, str, "statText");
-	    tableData.setElement(i,1,href);
-
-	    // the type of payment
-	    tableData.setElement(i,2,payments[i-1].getType());
-
-	    // payment status
-	    tableData.setElement(i,3,payments[i-1].getRecentStatus());
-	}
-
-	PactsHtmlTable table = new PactsHtmlTable(tableData);
-
- 	table.setBgcolor("\"#001935\"");
- 	table.setCellSpacing("2");
- 	table.setCellPadding("2");
- 	table.setBorder("0");
- 	table.setWidth("100%");
- 	table.setColumnWidth(0, "35%");
- 	table.setColumnWidth(1, "30%");
- 	table.setColumnWidth(2, "25%");
- 	table.setColumnWidth(3, "10%");
- 	table.setRowColor(0,"\"#093158\"");
- 	table.setClassName("statText");
- 	table.setRowBold(0,true);
-	out.print(table.getHtml());
-    }
+	ResultSetContainer rsc = (ResultSetContainer) request.getAttribute(PaymentHistory.PAYMENTS);
 %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>TopCoder - PACTs</title>
 
-<P><BR/></P>
-		</TD>
-		<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="4" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-	</TR>
-	<TR>
-		<TD VALIGN="top" BACKGROUND="" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-		<TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="14"><IMG SRC="/i/table_mid_left2x.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-		<TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-		<TD VALIGN="top" BACKGROUND="" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-	</TR>
-	<TR>
-		<TD VALIGN="top" BACKGROUND="" WIDTH="11" ALIGN="right" ><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-		<TD VALIGN="top" BACKGROUND="" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-		<TD VALIGN="top" BACKGROUND="" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-		<TD VALIGN="top" BACKGROUND="" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-	</TR>
-</TABLE>
-       </TD>
-       <TD WIDTH="4" ><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"></TD>
-       <TD WIDTH="170" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0">
-         <jsp:include page="/public_right.jsp" />
-       </TD>
-    <!-- Gutter -->
-    <TD WIDTH="25" ><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
-     </TR>
-   </TABLE>
-   <jsp:include page="/foot.jsp" />
- </BODY>
-</HTML>
+
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
+
+    <script type="text/javascript">
+        function next() {
+            var myForm = document.f;
+            var oldStartRank = myForm.<%=DataAccessConstants.START_RANK%>.value;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value) + 1;
+            myForm.<%=DataAccessConstants.END_RANK%>.value = 2 * parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value) - parseInt(oldStartRank) + 1;
+            myForm.submit();
+        }
+        function previous() {
+            var myForm = document.f;
+            var oldEndRank = myForm.<%=DataAccessConstants.END_RANK%>.value;
+            myForm.<%=DataAccessConstants.END_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - 1;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = 2 * parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - parseInt(oldEndRank) - 1;
+            myForm.submit();
+        }
+    </script>
+
+</head>
+<body>
+
+<jsp:include page="../../top.jsp" >
+    <jsp:param name="level1" value=""/>
+</jsp:include>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+   <tr valign="top">
+<!-- Left Column Begins-->
+        <td width="180">
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="payments"/>
+         </jsp:include>
+        </td>
+<!-- Left Column Ends -->
+
+<!-- Center Column Begins -->
+<td width="100%" align="left" class="bodyColumn">
+
+<jsp:include page="../../page_title.jsp" >
+<jsp:param name="image" value="pact_s"/>
+<jsp:param name="title" value="Payments"/>
+</jsp:include>
+
+<div align="left">
+    <div style="float:right;">
+       <A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
+    </div>
+    <span class="bodySubtitle">Payments > </span><br>
+    <c:if test="${fullList}" >
+        View all | <a href="/PactsMemberServlet?module=PaymentHistory&full_list=false" class="bcLink">View pending</a>
+    </c:if>
+    <c:if test="${not fullList}" >
+        <a href="/PactsMemberServlet?module=PaymentHistory&full_list=true" class="bcLink">View all</a> | View pending
+    </c:if>
+</div>
+
+<br clear="all">
+
+<% if (rsc.size() > 0) { %>
+<form name="f" action="${sessionInfo.servletPath}" method="get">
+
+            <% if (rsc.croppedDataBefore() || rsc.croppedDataAfter()) { %>
+            <div class="pagingBox">
+        <%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+        | <%=(rsc.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+                
+            </div>
+            <% } %>
+
+
+<br>
+<% boolean even = true;%>
+<table cellpadding="0" cellspacing="0" class="stat" width="100%">
+<tbody>
+    <tr>
+        <td class="title" colspan="6">
+        Payments
+        </td>
+    </tr>
+    <tr>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Description</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Type</a></td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Due Date</a></td>
+        <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Net Payment</a></td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Status</a></td>
+        <td class="headerC">
+            <c:if test="${fullList}" >
+                <b><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Date Paid</a>       
+            </c:if>&nbsp;
+        </td>
+    </tr>
+<rsc:iterator list="${payments}" id="resultRow">
+	<c:set var="typeId" value="<%= resultRow.getStringItem("payment_type_id") %>" />
+	<c:set var="algorithmRoundId" value="<%= resultRow.getStringItem("algorithm_round_id") %>" />
+	<c:set var="componentProjectId" value="<%= resultRow.getStringItem("component_project_id") %>" />
+	<c:set var="digitalRunStageId" value="<%= resultRow.getStringItem("digital_run_stage_id") %>" />
+	<c:set var="digitalRunSeasonId" value="<%= resultRow.getStringItem("digital_run_season_id") %>" />			
+	<c:choose>
+<c:when test="${typeId == 4}"><!-- coder referral --></c:when>
+<c:when test="${typeId == 13}"><!-- studio --></c:when>
+<c:otherwise>
+	
+    <tr class="<%=even?"light":"dark"%>">
+        <td class="value">
+            <c:choose>
+                <c:when test="${(typeId == 1 || typeId == 22) && algorithmRoundId > 0}">
+                    <A href="/stat?c=coder_room_stats&cr=${cr}&rd=${algorithmRoundId}"><rsc:item name="payment_desc" row="<%=resultRow%>"/></A>
+                </c:when>
+                <c:when test="${(typeId == 6 || typeId == 7) && componentProjectId > 0}">
+                    <A href="/tc?module=CompContestDetails&pj=${componentProjectId}" class="bcLink"><rsc:item name="payment_desc" row="<%=resultRow%>"/></A>                    
+                </c:when>
+                <c:when test="${(typeId == 17 || typeId == 25) && digitalRunStageId > 0}">
+                    <A href="/tc?module=LeaderBoard&ph=112&staid=${digitalRunStageId}" class="bcLink"><rsc:item name="payment_desc" row="<%=resultRow%>"/></A>                    
+                </c:when>
+                <c:when test="${typeId == 18 && digitalRunSeasonId > 0}">
+                    <A href="/tc?module=RookieBoard&ph=112&seid=${digitalRunSeasonId}" class="bcLink"><rsc:item name="payment_desc" row="<%=resultRow%>"/></A>                    
+                </c:when>
+                <c:when test="${typeId == 21 && algorithmRoundId > 0}">
+                    <A href="/longcontest/?module=ViewOverview&rd=${algorithmRoundId}>" class="bcLink"><rsc:item name="payment_desc" row="<%=resultRow%>"/></A>                    
+                </c:when>                
+                <c:otherwise>
+                   <rsc:item name="payment_desc" row="<%=resultRow%>"/>
+                </c:otherwise>
+            </c:choose>
+        
+        
+        </td>
+        <td class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></td>
+        <td class="valueC"><rsc:item name="date_due" row="<%=resultRow%>"  format="MM/dd/yy"/></td>
+        <td class="valueR"><rsc:item name="net_amount" row="<%=resultRow%>"  format="$###,###,##0.00"/></td>
+        <td class="valueC"><rsc:item name="status_desc" row="<%=resultRow%>" /></td>
+        <td class="valueC">
+            <c:if test="${fullList}" >
+                <b><rsc:item name="date_paid" row="<%=resultRow%>"  format="MM/dd/yy"/>          
+            </c:if>&nbsp;
+        </td>
+     </tr>
+     <% even = !even;%>
+     </c:otherwise>
+     </c:choose>
+</rsc:iterator>
+</tbody>
+</table>
+
+
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="PaymentHistory"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.START_RANK%>"/>
+        <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
+        <input type="hidden" name="<%= PaymentHistory.FULL_LIST %>" value="<c:out value="${fullList}"/>" />
+
+            <% if (rsc.croppedDataBefore() || rsc.croppedDataAfter()) { %>
+            <div class="pagingBox">
+        <%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+        | <%=(rsc.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+                
+            </div>
+            <% } %>
+</form>            
+<% } else { %>
+<div align="center">
+<strong>No Payments Found</strong>
+</div>
+<% } %>
+<br>
+
+
+
+<!-- Center Column Ends -->
+
+<!-- Right Column Begins -->
+         <td width="170">
+            <jsp:include page="../../public_right.jsp">
+               <jsp:param name="level1" value="default"/>
+            </jsp:include>
+         </td>
+<!-- Right Column Ends -->
+
+<!-- Gutter -->
+         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+<!-- Gutter Ends -->
+    </tr>
+</table>
+
+<jsp:include page="/foot.jsp" />
+
+</body>
+
+</html>
