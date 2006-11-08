@@ -49,6 +49,7 @@
         <li>DR Top Third Prize enhanced to DR Top Performers Prize.</li>
         <li>Fix bugs in PACTS internal due to changes in table schemas</li>
         <li>Fix bug in members affidavit history: notarized was always showing "no"</li>
+        <li>Fix bug in generating algorithm payments; charity payments were missing</li>
     </ul>
  </p>
 
