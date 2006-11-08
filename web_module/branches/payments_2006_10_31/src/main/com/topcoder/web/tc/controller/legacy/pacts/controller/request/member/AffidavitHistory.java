@@ -60,7 +60,7 @@ public class AffidavitHistory extends BaseProcessor implements PactsConstants {
             getRequest().setAttribute(AFFIDAVITS, rsc);
             getRequest().setAttribute(CODER, getUser().getId() + "");
         	getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));
-            setNextPage(PactsConstants.AFFIDAVIT_HISTORY_NEW_JSP);
+            setNextPage(PactsConstants.AFFIDAVIT_HISTORY_JSP);
             setIsNextPageInContext(true);
         	
         } catch (Exception e) {

@@ -58,7 +58,7 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             getRequest().setAttribute(PAYMENTS, rsc);
             getRequest().setAttribute(CODER, getUser().getId() + "");
         	getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));
-            setNextPage(PactsConstants.PAYMENT_HISTORY_NEW_JSP);
+            setNextPage(PactsConstants.PAYMENT_HISTORY_JSP);
             setIsNextPageInContext(true);
         } catch (Exception e) {
             throw new TCWebException(e);
