@@ -43,12 +43,12 @@
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=102306"><strong>A Number or a String: <br>Parsing Your Input and Formatting Your Output in C++</strong></A>, by <tc-webtag:handle coderId="15635590" /><br>
 This article is focused on main fast-to-type and convenient means of parsing input and formatting output in cases that are typical for TopCoder problems. All methods are specific to C++, but Java and VB coders may find several helpful ideas.</li>
 --%>
+<li><A href="/tc?module=Static&amp;d1=features&amp;d2=110806"><strong>TopCoder @ Work: Your Career and the TCCC</strong></A>, by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /><br>
+With the Collegiate Challenge coming up, here is a look at how the decisions you make during college - and your TopCoder experience - can lay the foundation for a rewarding career.</li>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=110206"><strong>TCCC Preview: China Steps Up</strong></A>, by <tc-webtag:handle coderId="21196141" /><br>
 The 2006 Collegiate Challenge will play host to 13 coders from China, occupying seven slots among the Algorithm semifinalists, one in the Design finals, and six in the Development finals&#8230;</li>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=103006"><strong>TCCC Preview: Component Competitions</strong></A>, by <tc-webtag:handle coderId="252022" /><br>
 With the competition enhancements first introduced at the 2006 TCO adding some interesting twists to the College Challenge's design and development finals, I am expecting an exciting contest in San Diego.</li>
-<li><A href="/tc?module=Static&amp;d1=features&amp;d2=102606"><strong>TopCoder visits Dalian Software Park</strong></A><br>
-Last week TopCoder's Yingying Wu hosted the company's first professional open house at Dalian Software Park, part of "the Silicon Valley of China."</li>
 </ul>
 <span class="bodySubtitle">From the archives:</span><br>
 <ul>

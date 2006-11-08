@@ -50,6 +50,11 @@
                <td class="bodyText" nowrap=nowrap>Oct 26, 2006</td>
             </tr>--%>
             <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=110806"><strong>TopCoder @ Work: Your Career and the TCCC</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Nov 8, 2006</td>
+            </tr>
+            <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="21196141" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=110206"><strong>TCCC Preview: China Steps Up</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Nov 2, 2006</td>
