@@ -16,7 +16,7 @@
 <c:set var="refId" value="${requestScope.reference_type_id}"/>
 <c:set var="search" value="${requestScope.search}"/>
 <c:set var="firstLoad" value="${not empty param.first_load}"/>
-<c:set var="roundUnknown" value="${not empty requestScope.roundUnknown && requestScope.roundUnknown== 'true'}"/>
+<c:set var="roundUnknown" value="${not empty requestScope.round_unknown && requestScope.round_unknown== 'true'}"/>
 
 <c:set var="ALGORITHM_ROUND" value="<%= PactsConstants.REFERENCE_ALGORITHM_ROUND_ID + "" %>" />
 <c:set var="COMPONENT_PROJECT" value="<%= PactsConstants.REFERENCE_COMPONENT_PROJECT_ID + "" %>" />
@@ -90,8 +90,8 @@
 	                       </c:if>                                                                        
                         </c:otherwise>   
                         </c:choose>                                   
-requestScope.roundUnknown=<c:out value="${requestScope.roundUnknown}"></c:out>
-                        <input type="checkbox" name="round_unknown" onClick="setRoundUnknown(this.checked)"/>Round Unknown<br/>                       
+requestScope.roundUnknown=<c:out value="${requestScope.round_unknown}"></c:out>
+                        <input type="checkbox" name="round_unknown_cbx" onClick="setRoundUnknown(this.checked)"/>Round Unknown<br/>                       
 
                      </c:when>                       
                      
