@@ -16,9 +16,9 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
     protected void businessProcessing() throws TCWebException {
         try {
             int type = Integer.parseInt(getRequest().getParameter("payment_type_id"));
-            int refId =BasePayment.getReferenceTypeId(type);
+            int refId = BasePayment.getReferenceTypeId(type);
             String search = getRequest().getParameter("search_text");
-
+            boolean optionalReference = false;
             DataInterfaceBean dib = new DataInterfaceBean();
 
             Map map = null;
@@ -41,6 +41,9 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
 
                         }  else if (type == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT) {
                               map = dib.findRounds("%" + search + "%", ALGORITHM_TOURNAMENT_ROUND_TYPES);
+                        } else if (type == PROBLEM_TESTING_PAYMENT) {
+                        	map = dib.findRounds("%" + search + "%", PROBLEM_TESTING_ROUND_TYPES);
+                        	optionalReference = true;
                         }
                         getRequest().setAttribute(ALGORITHM_ROUND_LIST, map.get(ALGORITHM_ROUND_LIST));
                         field = "algorithm_round_id";
@@ -86,13 +89,12 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                     break;
             }
 
-
+            
             setDefault("client", getRequest().getParameter("client"));
             getRequest().setAttribute("reference_type_id", refId + "");
-            //getRequest().setAttribute("reference_field_name", field);
             getRequest().setAttribute("reference_id", getRequest().getParameter("reference_id"));
             getRequest().setAttribute("round_unknown", getRequest().getParameter("round_unknown"));
-            log.debug("round_unknown=" + getRequest().getParameter("round_unknown"));
+            getRequest().setAttribute("optional_reference", Boolean.valueOf(optionalReference));
             getRequest().setAttribute("search", search);
             setNextPage(INTERNAL_AJAX_SELECT_PAYMENT_TYPE_REFERENCE);
             setIsNextPageInContext(true);

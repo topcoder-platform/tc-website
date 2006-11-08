@@ -15,6 +15,7 @@
 <c:set var="parentPayments" value="${requestScope.parent_reference_list}"/>
 <c:set var="refId" value="${requestScope.reference_type_id}"/>
 <c:set var="search" value="${requestScope.search}"/>
+<c:set var="optionalReference" value="${requestScope.optional_reference}"/>
 <c:set var="firstLoad" value="${not empty param.first_load}"/>
 <c:set var="roundUnknown" value="${not empty requestScope.round_unknown && requestScope.round_unknown== 'true'}"/>
 
@@ -36,7 +37,7 @@
               <td><b>Reference:</b></td>
               <td>
                  <c:choose>
-                     <c:when test="${refId == 123456}">
+                     <c:when test="${refId == ALGORITHM_ROUND && !optionalReference}">
                         <c:choose>
                         <c:when test="${empty rounds}">    
                           <input type="hidden" name="missing_reference" value="Please select a round for the payment"/>
@@ -60,7 +61,7 @@
                             </script>
                         </c:if>                                           
                      </c:when>                       
-                     <c:when test="${refId == ALGORITHM_ROUND}">
+                     <c:when test="${refId == ALGORITHM_ROUND && optionalReference}">
                         <c:choose>
                         <c:when test="${roundUnknown}">
                         </c:when>                        
