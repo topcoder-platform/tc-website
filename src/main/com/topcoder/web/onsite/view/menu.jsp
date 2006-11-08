@@ -1,5 +1,5 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.onsite.Constants" %>
@@ -16,16 +16,16 @@
 
 <html>
 <head>
-<title>2006 TopCoder Open - Computer Programming Tournament</title>
-<link type="text/css" rel="stylesheet" href="http://<%=ApplicationServer.SERVER_NAME%>/css/TCO06style.css"/>
+<title>2006 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
+<link type="text/css" rel="stylesheet" href="http://<%=ApplicationServer.SERVER_NAME%>/css/TCCC06style.css"/>
 <link type="text/css" rel="stylesheet" href="http://<%=ApplicationServer.SERVER_NAME%>/css/coders.css"/>
 </head>
 <body>
 
 <div style="float:right;">
-<a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/tc_logo.gif" border=0/></a>
+<a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/tc_logo.gif" border=0/></a>
 </div>
-<A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/tco06_logo_AMDgrn.gif" border=0/></A>
+<A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/tccc06_logo_aol.gif" border=0/></A>
 
 <div style="padding: 20px 40px 200px 40px;" align="center">
    <div style="width: 500px;" align="center" class="bodyText">

@@ -65,7 +65,8 @@ public class Constants implements WebConstants {
     public static String REVIEWER_DATA_QUERY;
     public static String COMPONENT_SCORE_QUERY;
     public static String COMPONENT_APPEAL_QUERY;
-        
+    public static String COMPONENT_TIME_QUERY;
+
     static {
         initialize();
     }
