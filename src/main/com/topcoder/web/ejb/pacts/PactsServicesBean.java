@@ -4607,8 +4607,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getWinners.append("and a.address_type_id = 2 ");
             getWinners.append("AND rr.coder_id = rp.coder_id ");
             getWinners.append("AND rr.round_id = rp.round_id ");
-            if (paymentTypeId == CHARITY_PAYMENT) {
+            if (paymentTypeId == CHARITY_PAYMENT) { // this is just a temporary fix!
             	getWinners.append("AND rp.payment_type_id = " + CHARITY_PAYMENT + " ");
+            	paymentTypeId = 1;
             }
             getWinners.append(" ORDER BY rr.room_id, rr.room_placed");
             ResultSetContainer winners = runSelectQuery(c, getWinners.toString(), false);
@@ -4648,6 +4649,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 p.getHeader().getUser().setId(userId);
                 p.setEventDate(eventDate);
                 p.getHeader().setAlgorithmRoundId(roundId);
+                
                 if (TCData.getTCInt(winners.getRow(i), "payment_type_id") == CHARITY_PAYMENT) {
                  	p.setCharity(true);	
                 }
