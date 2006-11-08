@@ -265,7 +265,9 @@ Calendar.setup(
     <!--
 var defaultOverview= "General description of the contest goes here. Give background info, overview about what the client " +
 "is seeking, and general look and feel info.\n\n" +
-"Entries must be your original work, and must not infringe on the copyright or licenses of others. ";
+"Entries must be your original work, and must not infringe on the copyright or licenses of others. Stock art, clip art, " +
+"templates and other design elements from other sources are prohibited unless specifically permitted in the " +
+"Specification Document."
 var overviewText = getValue("document.editForm", "${overviewText}");
                        if ( overviewText==null || overviewText.length==0) {
                          putValue("document.editForm", "${overviewText}", defaultOverview);
