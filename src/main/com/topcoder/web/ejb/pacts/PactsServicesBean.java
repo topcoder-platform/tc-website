@@ -4596,7 +4596,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             Date eventDate = rsc.getTimestampItem(0, "end_date");
 
             StringBuffer getWinners = new StringBuffer(300);
-            getWinners.append("SELECT rr.room_id, rr.coder_id, rr.room_placed, rp.paid, a.country_code ");
+            getWinners.append("SELECT rr.room_id, rr.coder_id, rr.room_placed, rp.paid, a.country_code, rp.payment_type_id ");
             getWinners.append("FROM room_result rr, user u, user_address_xref x, address a, round_payment rp ");
             getWinners.append("WHERE rr.round_id = " + roundId + " ");
             getWinners.append("AND rp.paid > 0 ");
@@ -4606,7 +4606,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getWinners.append("and a.address_type_id = 2 ");
             getWinners.append("AND rr.coder_id = rp.coder_id ");
             getWinners.append("AND rr.round_id = rp.round_id ");
-            getWinners.append("AND rp.payment_type_id in (" + ALGORITHM_CONTEST_PAYMENT + "," + ALGORITHM_TOURNAMENT_PRIZE_PAYMENT + ")");            
+            if (paymentTypeId == CHARITY_PAYMENT) {
+            	getWinners.append("AND rp.payment_type_id = CHARITY_PAYMENT ");
+            }
             getWinners.append(" ORDER BY rr.room_id, rr.room_placed");
             ResultSetContainer winners = runSelectQuery(c, getWinners.toString(), false);
             int numWinners = winners.getRowCount();
@@ -4645,7 +4647,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 p.getHeader().getUser().setId(userId);
                 p.setEventDate(eventDate);
                 p.getHeader().setAlgorithmRoundId(roundId);
-
+                if (TCData.getTCInt(winners.getRow(i), "payment_type_id") == CHARITY_PAYMENT) {
+                 	p.setCharity(true);	
+                }
+                
                 String countryCode = winners.getItem(i, "country_code").toString();
                 String text = (String) textMap.get(countryCode);
                 if (text == null) {
