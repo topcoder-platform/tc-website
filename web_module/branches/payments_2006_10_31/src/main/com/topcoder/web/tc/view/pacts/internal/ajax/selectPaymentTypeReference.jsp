@@ -16,6 +16,7 @@
 <c:set var="refId" value="${requestScope.reference_type_id}"/>
 <c:set var="search" value="${requestScope.search}"/>
 <c:set var="firstLoad" value="${not empty param.first_load}"/>
+<c:set var="roundUnknown" value="${not empty requestScope.roundUnknown}"/>
 
 <c:set var="ALGORITHM_ROUND" value="<%= PactsConstants.REFERENCE_ALGORITHM_ROUND_ID + "" %>" />
 <c:set var="COMPONENT_PROJECT" value="<%= PactsConstants.REFERENCE_COMPONENT_PROJECT_ID + "" %>" />
@@ -60,16 +61,21 @@
                         </c:if>                                           
                      </c:when>                       
                      <c:when test="${refId == ALGORITHM_ROUND}">
-                        <input type="checkbox" name="round_unknown" onClick="alert('hi')"  <%= request.getAttribute("round_unknown") != null) ? "checked" : "" %> />Round Unknown<br/>
-                       
                         <c:choose>
+                        <c:when test="${roundUnknown}">
+                        </c:when>                        
                         <c:when test="${empty rounds}">    
                           <input type="hidden" name="missing_reference" value="Please select a round for the payment"/>
-                          Enter search text for round name: <input type="text" name="searchInput" value="${search}" />
+                          Enter search text for round name or click on Round Unknown: <input type="text" name="searchInput" value="${search}" />
                           <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          
                                 <font color="#FF0000">No rounds found containing <c:out value="${search}"/>. </font>
                             </c:if>
+	                        <c:if test="${not firstLoad}">  
+	                            <script type="text/javascript">
+                                	referenceChanged('algorithm_round_id');
+                            	</script>
+	                       </c:if>                                                                        
                           <br/>
                         </c:when>
                         <c:otherwise>                   
@@ -77,14 +83,16 @@
                                      fieldText="round_desc" fieldValue="round_id"  selectedValue="${param.reference_id}"                      
                                      useTopValue="false" onChange="referenceChanged('algorithm_round_id')" />
                              <input type="button" value="do another search" onClick="typeChanged()" />
+	                        <c:if test="${not firstLoad}">  
+	                            <script type="text/javascript">
+                                	referenceChanged('algorithm_round_id');
+                            	</script>
+	                       </c:if>                                                                        
                         </c:otherwise>   
                         </c:choose>                                   
 
-                        <c:if test="${not firstLoad}">  
-                            <script type="text/javascript">
-                                referenceChanged('algorithm_round_id');
-                            </script>
-                        </c:if>                                           
+                        <input type="checkbox" name="round_unknown" onClick="setUnknownRound(this.checked)"/>Round Unknown<br/>                       
+
                      </c:when>                       
                      
                      <c:when test="${refId == COMPONENT_PROJECT}">
