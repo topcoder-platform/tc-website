@@ -40,6 +40,21 @@
 -----------------------------%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.09.06<br>11:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_bracket">TCCC06 Algorithm Bracket Update</A>
+        </span><br><br>
+      Due to difficulties in traveling to San Diego there has been a last minute change to the Algorithm Competition lineup, and <tc-webtag:handle coderId="8365685" /> has replaced <tc-webtag:handle coderId="20315020" /> in the Semifinals.  As a result, there have been several changes to the Semifinalists bracket.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_bracket">details</A> | 
+         <tc-webtag:forumLink forumID="506172" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>11.09.06<br>10:45 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/longcontest/?module=ViewOverview&rd=10123">Intel&#174; Multi-Threading Competition 10 Results</A>
@@ -212,20 +227,5 @@ This 9pm EST SRM attracted many long established Topcoder members, but had sligh
        <A href="/tc?module=Static&d1=pressroom&d2=art_110206">full story</A> | 
        <tc-webtag:forumLink forumID="506167" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.02.06<br>11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol">AOL chat session scheduled for SRM 325</A>
-        </span><br><br>
-      AOL will be in the arena at 8:00 PM on 11/02, just prior to SRM 325, to discuss working at AOL.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol">details</A> | 
-         <tc-webtag:forumLink forumID="506075" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
