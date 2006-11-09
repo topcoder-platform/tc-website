@@ -44,7 +44,7 @@
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_bracket">TCCC06 Algorithm Bracket Update</A>
         </span><br><br>
-      Due to difficulties in traveling to San Diego there has been a last minute change to the Algorithm Competition lineup, and <tc-webtag:handle coderId="8365685" /> has replaced <tc-webtag:handle coderId="20315020" /> in the Semifinals.  As a result, there have been several changes to the Semifinalists bracket.
+      There has been a last minute change to the Algorithm Competition lineup, and <tc-webtag:handle coderId="8365685" /> has replaced <tc-webtag:handle coderId="20315020" /> in the Semifinals.  As a result, there have been several changes to the Semifinalists bracket.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
