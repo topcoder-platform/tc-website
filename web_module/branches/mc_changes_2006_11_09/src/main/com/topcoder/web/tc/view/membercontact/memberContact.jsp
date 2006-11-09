@@ -16,10 +16,15 @@
 <script type="text/javascript" src="/js/taconite-client.js"></script>
 <script type="text/javascript">
 
+<c:set value="<%=MemberContact.CAN_RECEIVE%>" var="canReceive"/>
+
 var prevCanSend = false;
 
 function canSend() {
    return document.f.<%= SendMail.TEXT %>.value != "" &&
+  		  <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
+          document.f.<%= SendMail.CONTACT_INF %>.value != "" &&
+		  </c:if>
            document.f.handleValid.value == "true";
 }
 
@@ -36,6 +41,13 @@ function validate(send) {
 }
 
 function textChanged() {
+    if (prevCanSend != canSend()) {
+		validate(false);
+	    prevCanSend = canSend();
+    }
+}
+
+function contactChanged() {
     if (prevCanSend != canSend()) {
 		validate(false);
 	    prevCanSend = canSend();
@@ -120,7 +132,6 @@ Use the message form below to contact the member of your choice, only one recipi
 <br><br>
 To block specific TopCoder members from contacting you, go to the <a href='/tc?module=BlackList'>black list</a> page.
 <br>
-<c:set value="<%=MemberContact.CAN_RECEIVE%>" var="canReceive"/>
 <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
 	To enable other rated TopCoder members to contact you, <a href='/tc?module=MemberContactEnable'>click here</a>
     <br>
@@ -155,6 +166,13 @@ To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.
 
 <textarea name='<%= SendMail.TEXT %>' id='<%= SendMail.TEXT %>' cols='50' rows='10' onKeyUp='textChanged()'></textarea>
 <br/><br/>
+
+<c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
+<span class="smallText">Since you do not have member contact enabled, you are required to let your recipient how to respond to you, it can be an email address, phone number or whatever you choose.  We will automatically include this information in your message.</span>
+<textarea name='<%= SendMail.CONTACT_INF %>' id='<%= SendMail..CONTACT_INF %>' cols='50' rows='2' onKeyUp='contactChanged()'></textarea>
+<br/><br/>
+</c:if>
+
 <input type='checkbox' name='<%= SendMail.SEND_COPY %>' />Send a copy to the email address in my TopCoder profile.
 <br/><br/>
 

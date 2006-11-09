@@ -29,6 +29,7 @@ import com.topcoder.web.tc.controller.request.membercontact.validation.HandleVal
 public class SendMail extends ShortHibernateProcessor {
 
     public static String TO_HANDLE = "th";
+    public static String CONTACT_INF = "ci";
     public static String TEXT = "txt";
     public static String SEND_COPY = "sc";
     public static String SEND = "send";
