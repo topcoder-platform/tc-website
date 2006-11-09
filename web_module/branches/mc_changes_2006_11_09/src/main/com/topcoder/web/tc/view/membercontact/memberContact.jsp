@@ -29,7 +29,7 @@ function canSend() {
 }
 
 function addMail() {
-   document.f.<%= SendMail.CONTACT_INF %>.value += <c:out value="${<%= MemberContact.SENDER_MAIL %>}" />;
+   document.f.<%= SendMail.CONTACT_INF %>.value += <c:out value="${sm}" />;
 }
 
 function validate(send) {
