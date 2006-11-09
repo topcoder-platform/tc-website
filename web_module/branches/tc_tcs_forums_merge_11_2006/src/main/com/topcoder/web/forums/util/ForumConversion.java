@@ -3,7 +3,12 @@
  */
 package com.topcoder.web.forums.util;
 
+import com.jivesoftware.base.Group;
+import com.jivesoftware.base.GroupManager;
 import com.jivesoftware.base.JiveGlobals;
+import com.jivesoftware.base.PermissionType;
+import com.jivesoftware.base.Permissions;
+import com.jivesoftware.base.PermissionsManager;
 import com.jivesoftware.base.UserManager;
 import com.jivesoftware.base.UserNotFoundException;
 
@@ -11,9 +16,12 @@ import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.ForumMessage;
+import com.jivesoftware.forum.ForumPermissions;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.util.idgenerator.bean.LocalIdGen;
+import com.topcoder.util.idgenerator.bean.LocalIdGenHome;
 import com.topcoder.web.forums.ForumConstants;
 
 import java.io.File;
@@ -32,6 +40,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.activation.MimetypesFileTypeMap;
+import javax.naming.Context;
+import javax.naming.InitialContext;
 
 /**
  * Uses the Jive API to create categories/forums/threads/messages with data retrieved from the old Topcoder
@@ -67,6 +77,11 @@ public class ForumConversion {
      * The statement to select forum data from old topcoder forum database.
      */
     private static PreparedStatement forumPS = null;
+    
+    /**
+     * The statement to insert rows into the "comp_jive_xref" table of the old topcoder forum database.
+     */
+    private static PreparedStatement insertCompJiveXrefPS = null;
 
     /**
      * The statement to select topic data from old topcoder forum database.
@@ -93,8 +108,24 @@ public class ForumConversion {
      */
     private static PreparedStatement techPS = null;
     
+    /**
+     * The statement to select an old forum ID from old topcoder forum database.
+     */
+    private static PreparedStatement oldForumPS = null;
+    
+    /**
+     * The statement to select forum security roles from old topcoder forum database.
+     */
+    private static PreparedStatement rolesPS = null;
+    
     static boolean ATTACHMENTS_ENABLED = true;
-
+    
+    private static Permissions moderatorPermissions = new Permissions(
+    		ForumPermissions.READ_FORUM | ForumPermissions.CREATE_THREAD | ForumPermissions.CREATE_MESSAGE |
+    		ForumPermissions.RATE_MESSAGE | ForumPermissions.FORUM_CATEGORY_ADMIN | ForumPermissions.CREATE_MESSAGE_ATTACHMENT);
+    private static Permissions userPermissions = new Permissions(
+    		ForumPermissions.READ_FORUM | ForumPermissions.CREATE_THREAD | ForumPermissions.CREATE_MESSAGE |
+    		ForumPermissions.RATE_MESSAGE);
     
     public static void convertForums(ForumFactory forumFactory) {       
     	if (!JiveGlobals.getJiveBooleanProperty("tc.convert.tcs.forums")) {
@@ -143,8 +174,15 @@ public class ForumConversion {
      */
     private static void convert(ForumCategory root, ForumFactory forumFactory) throws Exception {
         UserManager userManager = forumFactory.getUserManager();
+        GroupManager groupManager = forumFactory.getGroupManager();
         MimetypesFileTypeMap fileTypeMap = new MimetypesFileTypeMap();
     	
+        // for every forum converted, add an entry to tcs_catalog:comp_jive_xref, and 
+        // moderator/user permissions to the forum from existing roles (user_role_xref)
+        Context context = new InitialContext();
+        LocalIdGenHome localIdGenHome = (LocalIdGenHome) context.lookup(LocalIdGenHome.EJB_REF_NAME);
+        LocalIdGen localIdGen = localIdGenHome.create();
+        
     	// get forums from FORUM_MASTER table        
         forumPS = tcConn.prepareStatement(
                 "select m.forum_id, c.component_name, c.short_desc, m.status_id, m.create_time, "
@@ -165,6 +203,11 @@ public class ForumConversion {
         }
 
         rs.close();
+        
+        // the ps to insert rows into the comp_jive_xref table
+        insertCompJiveXrefPS = tcConn.prepareStatement("insert into " +
+        		"comp_jive_xref(xref_id, comp_vers_id, jive_category_id, forum_type) " +
+        		"values(?,?,?,?)");
 
         // the ps to get topics from forum_topics table
         topicPS = tcConn.prepareStatement("select topic_id, topic_name, topic_text, create_time from forum_topics "
@@ -188,10 +231,18 @@ public class ForumConversion {
         techPS = tcConn.prepareStatement("select tech.technology_type_id "
         		+ " from comp_forum_xref f, comp_technology tech "
 				+ " where f.forum_id = ? and f.comp_vers_id = tech.comp_vers_id");
+        
+        // the ps to get the old forum id from comp_forum_xref table
+        oldForumPS = tcConn.prepareStatement("select forum_id from comp_forum_xref "
+        		+ " where comp_vers_id = ? and forum_type = ?");
+        
+        // the ps to get the security roles from user_roles_xref table
+        rolesPS = tcConn.prepareStatement("select urx.login_id from user_role_xref urx, security_roles r "
+        		+ "where r.description like '? ?' and urx.role_id = r.role_id");
 
         int forumNum = 0;
         int totalForum = forums.size();
-
+        
         for (Iterator it = forums.iterator(); it.hasNext();) {
             forumNum++;
 
@@ -223,6 +274,35 @@ public class ForumConversion {
             category.setProperty(ForumConstants.PROPERTY_FORUM_TYPE, forum.getForumType() + "");
             category.setProperty(ForumConstants.PROPERTY_VERSION_TEXT, forum.getVersionText());
             
+            // set moderator, user permissions
+            Group moderatorGroup = groupManager.createGroup(ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX + category.getID());
+            Group userGroup = groupManager.createGroup(ForumConstants.GROUP_SOFTWARE_USERS_PREFIX + category.getID());
+            PermissionsManager categoryPermissionsManager = category.getPermissionsManager();
+            categoryPermissionsManager.addGroupPermission(moderatorGroup, PermissionType.ADDITIVE, moderatorPermissions.value());
+            categoryPermissionsManager.addGroupPermission(userGroup, PermissionType.ADDITIVE, userPermissions.value());
+            
+            oldForumPS.setLong(1, forum.getCompVersId());
+            oldForumPS.setLong(2, forum.getForumType());
+            rs = oldForumPS.executeQuery();
+            rs.next();
+            long oldForumID = rs.getLong(1);
+            
+            rolesPS.setString(1, "ForumModerator");
+            rolesPS.setLong(2, oldForumID);
+            rs = rolesPS.executeQuery();
+            while (rs.next()) {
+            	long userID = rs.getLong("login_id");
+            	moderatorGroup.addMember(userManager.getUser(userID));
+            }
+            
+            rolesPS.setString(1, "ForumUser");
+            rolesPS.setLong(2, oldForumID);
+            rs = rolesPS.executeQuery();
+            while (rs.next()) {
+            	long userID = rs.getLong("login_id");
+            	userGroup.addMember(userManager.getUser(userID));
+            }
+            
             // set technology types for this category
             techPS.setLong(1, forum.getId());
             // holds list of technology types in form "1,5,15"
@@ -236,6 +316,12 @@ public class ForumConversion {
             }
             category.setProperty(ForumConstants.PROPERTY_COMPONENT_TECH_TYPES, techTypeList.toString());
             rs.close();
+            
+            insertCompJiveXrefPS.setLong(1, localIdGen.nextId());
+            insertCompJiveXrefPS.setLong(2, forum.getCompVersId());
+            insertCompJiveXrefPS.setLong(3, category.getID());
+            insertCompJiveXrefPS.setLong(4, forum.getForumType());
+            insertCompJiveXrefPS.executeUpdate();
             
             // get topics in this forum           
             topicPS.setLong(1, forum.getId());
@@ -420,7 +506,7 @@ public class ForumConversion {
             }
             
             log.info(forumNum + " out of " + totalForum + " forums have been processed.");
-            if (forumNum >= 75) {
+            if (forumNum >= 25) {
             	break;
             }
         }

@@ -51,10 +51,11 @@ public interface ForumConstants {
     public final static Long FORUM_MODERATE_PERMISSION = new Long(1);
     public final static Long FORUM_POST_PERMISSION = new Long(2);
     public final static Long FORUM_MODERATE_AND_POST_PERMISSION = new Long(3);
-    
-    public final static String SOFTWARE_MODERATORS_PREFIX = "Software_Moderators_";
-    public final static String SOFTWARE_USERS_PREFIX = "Software_Users_";
 
+    // Groups
+    public final static String GROUP_SOFTWARE_MODERATORS_PREFIX = "Software_Moderators_";
+    public final static String GROUP_SOFTWARE_USERS_PREFIX = "Software_Users_";
+    
     // Extended Properties
     public final static String PROPERTY_HIDE_EMPTY_FORUMS = "hideEmptyForums";
     public final static String PROPERTY_HIDE_SEARCH_FORUMS = "hideSearchForums";

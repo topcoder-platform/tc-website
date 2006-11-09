@@ -53,6 +53,40 @@
 		<span class="rtbc"><a href="?module=Main" class="rtbcLink">Forums</a> > Change Log</span>
 
 		<!-- Links to versions -->
+
+<p>
+    <b>1.2.2 - 2006.11.02</b>
+    <ul>
+        <li>Updated category view to display categories with subcategories.</li>
+		<li>Added attachment support for messages.</li>
+    </ul>
+</p>
+
+<p>
+    <b>1.2.1 - 2006.09.11</b>
+    <ul>
+        <li>Added timezones to displayed dates.</li>
+		<li>Created a syntax highlighter for Python.</li>
+		<li>Added filters for limiting the maximum width of images and displaying shortened links.</li>
+    </ul>
+</p>
+
+<p>
+    <b>1.2.0 - 2006.08.14</b>
+    <ul>
+        <li>Deployed TopCoder Studio Forums (http://studio.topcoder.com/forums).</li>
+		<li>Fixed a case sensitivity error concerning [handle] tags.</li>
+    </ul>
+</p>
+
+<p>
+    <b>1.1.13 - 2006.07.17</b>
+    <ul>
+        <li>Fixed the view of collapsed posts in IE.</li>
+		<li>Fixed a database issue with read tracking.</li>
+		<li>Added support for header links (pointing to external websites, articles, etc.) for forum and thread views.</li>
+    </ul>
+</p>
 		
 <p>
     <b>1.1.12 - 2006.07.10</b>
@@ -84,7 +118,7 @@
 </p>
 
 <p>
-    <b>1.1.09 - 2006.03.02</b>
+    <b>1.1.9 - 2006.03.02</b>
     <ul>
         <li>Added message ratings.</li>
 		<li>Added tabs, ratings section to user settings.</li>
@@ -96,7 +130,7 @@
 </p>
 
 <p>
-    <b>1.1.081 - 2006.02.03</b>
+    <b>1.1.8.1 - 2006.02.03</b>
     <ul>
         <li>Updated watch emails to include the original message author's handle and a direct link to the message in the thread.</li> 
 		<li>Set visible date of announcements (sticky posts) as that of most recent update.</li>
@@ -104,7 +138,7 @@
 </p>
 
 <p>
-    <b>1.1.08 - 2006.01.31</b>
+    <b>1.1.8 - 2006.01.31</b>
     <ul>
     	<li>Created announcements (sticky posts).</li>
         <li>Fixed an issue where invalid usernames for [handle] tags would break subsequent handle tags.</li>
@@ -117,7 +151,7 @@
 </p>
 
 <p>
-    <b>1.1.07 - 2005.10.18</b>
+    <b>1.1.7 - 2005.10.18</b>
     <ul>
         <li>Extended "Mark watched threads as read" option to forum and category highlighting.</li>
 		<li>Updated [code], [cpp] filters to not strip trailing "L" characters for longs.</li>
@@ -133,7 +167,7 @@
 </p>
 
 <p>
-    <b>1.1.06 - 2005.09.14</b>
+    <b>1.1.6 - 2005.09.14</b>
     <ul>    
 		<li>Updated main page such that each forum can display its N most recent posts, or posts made within the last N days.</li>
 		<li>Displayed day of week in message headers.</li>
@@ -142,7 +176,7 @@
 </p>
 
 <p>
-    <b>1.1.05 - 2005.09.09</b>
+    <b>1.1.5 - 2005.09.09</b>
     <ul>
     	<li>Highlighted categories with unread forums in left navigation and category view.</li>
 		<li>Fixed pluralization of post and edit counts.</li>
@@ -151,7 +185,7 @@
 </p>
 
 <p>
-    <b>1.1.04 - 2005.08.30</b>
+    <b>1.1.4 - 2005.08.30</b>
     <ul>
      	<li>Created category view.</li>
 		<li>Added category tree to breadcrumbs on category, forum, thread, revision history, post, and preview pages.</li>
@@ -163,7 +197,7 @@
 </p>
 
 <p>
-    <b>1.1.03 - 2005.08.15</b>
+    <b>1.1.3 - 2005.08.15</b>
     <ul>
     	<li>Created revision history of messages.</li>
 		<li>Fixed code filter bug that eliminated starting characters of enclosed code blocks.</li>
@@ -174,7 +208,7 @@
 </p>
 
 <p>
-    <b>1.1.02 - 2005.08.03</b>
+    <b>1.1.2 - 2005.08.03</b>
     <ul>
     	<li>Added server-side read tracker for threads, forums, and categories.</li>
         <li>Added login redirect to main TopCoder login if forums can't be reached.</li>
@@ -187,7 +221,7 @@
 </p>
 
 <p>
-    <b>1.1.01 - 2005.07.20</b>
+    <b>1.1.1 - 2005.07.20</b>
     <ul>
         <li>Fixed an error with the bottom paginator of the flat thread view.</li>
 		<li>Displayed day of week in forums and thread lists.</li>
@@ -198,7 +232,7 @@
 </p>
 
 <p>
-	<b>1.1.00 - 2005.07.18</b>
+	<b>1.1 - 2005.07.18</b>
     <ul>
         <li>Deployed the current version of TopCoder Forums.</li>
 		<li>Stripped HTML from message subjects.</li>
