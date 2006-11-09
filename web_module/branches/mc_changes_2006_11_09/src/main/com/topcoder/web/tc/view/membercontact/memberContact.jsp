@@ -164,7 +164,7 @@ To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.
 it can be an email address, phone number or whatever you choose.  We will automatically include this information in your message.</span>
 <br/><br/>
 <textarea name='<%= SendMail.CONTACT_INF %>' id='<%= SendMail.CONTACT_INF %>' cols='50' rows='2' onKeyUp='textChanged()'></textarea>
-<a href="Javascript:addMail()">&lt;&lt; Add mail</a>
+<a href="Javascript:addMail();textChanged();">&lt;&lt; Add mail</a>
 <br/><br/>
 </c:if>
 
