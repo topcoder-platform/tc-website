@@ -155,6 +155,7 @@
                 <include name="resources/automatic_screening/com/topcoder/apps/**"/>
                 <include name="resources/automatic_screening/com/topcoder/file/**"/>
                 <include name="resources/automatic_screening/com/topcoder/util/**"/>
+                <include name="resources/onsite.properties"/>
             </fileset>
         </jar>
     </target>
