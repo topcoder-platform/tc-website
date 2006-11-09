@@ -633,6 +633,12 @@
             <webinf dir="${resources.dir}/onsite">
                 <include name="jboss-web.xml"/>
             </webinf>
+            <!-- temp fix until we figure out why the war isn't finding these classes from the jboss lib dir -->
+            <lib dir="${bin.dir}">
+                <include name="shared.jar"/>
+                <include name="tcwebcommon.jar"/>
+            </lib>
+            
         </war>
     </target>
 
