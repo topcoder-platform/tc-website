@@ -42,6 +42,12 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
+<p>
+    5.5.9 - 2006.11.xx
+    <ul>
+        <li>Fix bug in the member card preview.  It would error out if a person that is only rated in TC HS attempted to view his/her card</li>
+    </ul>
+ </p>
 
 <p>
     5.5.8 - 2006.11.08
