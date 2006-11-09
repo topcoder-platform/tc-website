@@ -61,6 +61,15 @@ public class SendMail extends ShortHibernateProcessor {
         String message = getRequest().getParameter(TEXT);
         boolean sendCopy = getRequest().getParameter(SEND_COPY) != null;
 
+        if (!sender.isMemberContactEnabled() && !hasParameter(CONTACT_INF)) {
+            throw new Exception("Sender don't have MC enabled and contact information was not provided.");
+        }
+        
+        String contactInf = "";
+        if (hasParameter(CONTACT_INF)) {
+            contactInf = "\n\nContact information: " + getRequest().getParameter(CONTACT_INF);
+        }
+
         // Check again that the user is valid, in case that someone has tweaked the jsp
         // or some kind of hack
         ValidationResult result = new HandleValidator(sender).validate(new StringInput(toHandle));
@@ -75,7 +84,7 @@ public class SendMail extends ShortHibernateProcessor {
         // send the original message
         TCSEmailMessage mail = new TCSEmailMessage();
         mail.setSubject(Constants.MEMBER_CONTACT_SUBJECT.replaceAll("%", sender.getHandle()));
-        mail.setBody(message);
+        mail.setBody(message + contactInf);
         mail.setToAddress(recipientEmail, TCSEmailMessage.TO);
         mail.setFromAddress(Constants.MEMBER_CONTACT_FROM_ADDRESS);
         EmailEngine.send(mail);
