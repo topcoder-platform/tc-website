@@ -93,12 +93,12 @@ public class Submit extends FullRegSubmit {
                 String code = user.getActivationCode(userId, db);
 
                 TCSEmailMessage mail = new TCSEmailMessage();
-                mail.setSubject("IMPORTANT - VeriSign Internal Coding Competitions Activation Email");
+                mail.setSubject("IMPORTANT - VeriSign Code Fest Activation Email");
 
                 StringBuffer buf = new StringBuffer(1000);
-                buf.append("Thank you for registering to participate in the VeriSign Internal Coding Competition\n\n");
+                buf.append("Thank you for registering to participate in the VeriSign Code Fest\n\n");
 
-                buf.append("VERISIGN INTERNAL CODING COMPETITION ACTIVATION INFORMATION\n\n");
+                buf.append("VERISIGN CODE FEST ACTIVATION INFORMATION\n\n");
 
                 buf.append("Your VeriSign activation code is ");
                 buf.append(code);
