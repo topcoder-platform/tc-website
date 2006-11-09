@@ -2,9 +2,9 @@ package com.topcoder.web.ejb.email;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.common.IdGeneratorClient;
 import com.topcoder.web.common.RowNotFoundException;
+import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
@@ -64,6 +64,7 @@ public class EmailBean extends BaseEJB {
                         "Updated " + rc + ", should have updated at least " +
                         "1."));
             }
+            close(ps);
 
             query = new StringBuffer(1024);
             query.append("UPDATE email ");
