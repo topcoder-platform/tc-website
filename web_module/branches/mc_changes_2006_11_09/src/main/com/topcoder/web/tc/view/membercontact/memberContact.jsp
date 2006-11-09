@@ -29,7 +29,7 @@ function canSend() {
 }
 
 function addMail() {
-   document.f.<%= SendMail.CONTACT_INF %>.value += <c:out value="${sm}" />;
+   document.f.<%= SendMail.CONTACT_INF %>.value += (String) request.getAttribute(MemberContact.SENDER_MAIL);/>";
 }
 
 function validate(send) {
