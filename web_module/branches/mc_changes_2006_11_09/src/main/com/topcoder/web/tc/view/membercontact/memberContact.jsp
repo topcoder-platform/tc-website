@@ -169,7 +169,7 @@ To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.
 
 <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
 <span class="smallText">Since you do not have member contact enabled, you are required to let your recipient how to respond to you, it can be an email address, phone number or whatever you choose.  We will automatically include this information in your message.</span>
-<textarea name='<%= SendMail.CONTACT_INF %>' id='<%= SendMail..CONTACT_INF %>' cols='50' rows='2' onKeyUp='contactChanged()'></textarea>
+<textarea name='<%= SendMail.CONTACT_INF %>' id='<%= SendMail.CONTACT_INF %>' cols='50' rows='2' onKeyUp='contactChanged()'></textarea>
 <br/><br/>
 </c:if>
 
