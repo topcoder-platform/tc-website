@@ -79,9 +79,9 @@ public class ForumConversion {
     private static PreparedStatement forumPS = null;
     
     /**
-     * The statement to insert rows into the "comp_jive_xref" table of the old topcoder forum database.
+     * The statement to update rows in the "comp_forum_xref" table of the old topcoder forum database.
      */
-    private static PreparedStatement insertCompJiveXrefPS = null;
+    private static PreparedStatement updateCompForumXrefPS = null;
 
     /**
      * The statement to select topic data from old topcoder forum database.
@@ -205,9 +205,9 @@ public class ForumConversion {
         rs.close();
         
         // the ps to insert rows into the comp_jive_xref table
-        insertCompJiveXrefPS = tcConn.prepareStatement("insert into " +
-        		"comp_jive_xref(xref_id, comp_vers_id, jive_category_id, forum_type) " +
-        		"values(?,?,?,?)");
+        updateCompForumXrefPS = tcConn.prepareStatement("update comp_jive_xref " 
+        		+ "set jive_category_id = ? " 
+        		+ "where comp_vers_id = ? and forum_type = ?");
 
         // the ps to get topics from forum_topics table
         topicPS = tcConn.prepareStatement("select topic_id, topic_name, topic_text, create_time from forum_topics "
@@ -317,11 +317,10 @@ public class ForumConversion {
             category.setProperty(ForumConstants.PROPERTY_COMPONENT_TECH_TYPES, techTypeList.toString());
             rs.close();
             
-            insertCompJiveXrefPS.setLong(1, localIdGen.nextId());
-            insertCompJiveXrefPS.setLong(2, forum.getCompVersId());
-            insertCompJiveXrefPS.setLong(3, category.getID());
-            insertCompJiveXrefPS.setLong(4, forum.getForumType());
-            insertCompJiveXrefPS.executeUpdate();
+            updateCompForumXrefPS.setLong(1, category.getID());
+            updateCompForumXrefPS.setLong(2, forum.getCompVersId());
+            updateCompForumXrefPS.setLong(3, forum.getForumType());
+            updateCompForumXrefPS.executeUpdate();
             
             // get topics in this forum           
             topicPS.setLong(1, forum.getId());
