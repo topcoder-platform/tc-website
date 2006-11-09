@@ -33,7 +33,7 @@ public class MemberContact extends ShortHibernateProcessor {
         User sender  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
         if (!Helper.isRated(getUser().getId()) && 
-                !SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
+                !SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(MemberContact.class))) {
             getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(true));
         } else if (Helper.isBanned(getUser().getId()) 
             	|| (Arrays.binarySearch(WebConstants.ACTIVE_STATI, sender.getStatus().charValue()) < 0)) {

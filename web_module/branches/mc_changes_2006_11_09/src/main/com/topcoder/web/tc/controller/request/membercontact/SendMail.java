@@ -41,7 +41,7 @@ public class SendMail extends ShortHibernateProcessor {
         User sender  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
         if (!Helper.isRated(getUser().getId()) && 
-                !SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
+                !SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(MemberContact.class))) {
             getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(true));
             setNextPage(Constants.MEMBER_CONTACT);
             setIsNextPageInContext(true);
