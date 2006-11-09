@@ -39,6 +39,21 @@
    </td></tr>
 -----------------------------%>
 <%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>11.09.06<br>10:45 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/longcontest/?module=ViewOverview&rd=10123">Intel&#174; Multi-Threading Competition 10 Results</A>
+      </span><br><br>
+      Congratulations to <tc-webtag:handle coderId="283329" /> for winning the Intel&#174; Multi-Threading Competition 10.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/longcontest/?module=ViewOverview&rd=10123">results</A> | 
+         <tc-webtag:forumLink forumID="506148" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
         <br>11.08.06<br>12:10 PM</td>
     <td class="newsTextCell">
@@ -212,18 +227,5 @@ This 9pm EST SRM attracted many long established Topcoder members, but had sligh
          <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol">details</A> | 
          <tc-webtag:forumLink forumID="506075" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>11.01.06<br>4:50 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      Online Review scheduled maintenance
-      </span><br><br>
-      TopCoder is upgrading the Online Review software.  An outage is expected from 6:30 PM ET 11/2 until approximately 4 AM ET 11/3.  Affected systems will include Online Review, the software website, reviewer registration and project registration.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <tc-webtag:forumLink forumID="506165" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
