@@ -96,9 +96,9 @@ public class Submit extends FullRegSubmit {
                 mail.setSubject("IMPORTANT - VeriSign Internal Coding Competitions Activation Email");
 
                 StringBuffer buf = new StringBuffer(1000);
-                buf.append("Thank you for registering to participate in the VeriSign Internal Coding Competitions\n\n");
+                buf.append("Thank you for registering to participate in the VeriSign Internal Coding Competition\n\n");
 
-                buf.append("VERISIGN INTERNAL CODING COMPETITIONS ACTIVATION INFORMATION\n\n");
+                buf.append("VERISIGN INTERNAL CODING COMPETITION ACTIVATION INFORMATION\n\n");
 
                 buf.append("Your VeriSign activation code is ");
                 buf.append(code);
@@ -113,7 +113,7 @@ public class Submit extends FullRegSubmit {
 
                 buf.append("Your handle and password will provide you with access to the Competition Arena, where you can practice and chat, and where you'll compete.\n\n");
 
-                buf.append("Remember you must register for each SRM.  Check the schedule for the time to register here:  http://").append(ApplicationServer.SERVER_NAME).append("/pl/?module=Static&d1=vicc&d2=schedule\n\n");
+                buf.append("**Remember you must also register for each SRM you wish to take part in.  Check the schedule for the time to register here:  http://").append(ApplicationServer.SERVER_NAME).append("/pl/?module=Static&d1=vicc&d2=schedule\n\n");
 
                 buf.append("PRACTICING FOR THE EVENT\n");
                 buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in any Single Round Matches (SRMs).  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.\n\n");
