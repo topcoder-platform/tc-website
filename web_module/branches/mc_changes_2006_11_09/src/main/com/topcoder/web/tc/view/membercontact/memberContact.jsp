@@ -28,6 +28,10 @@ function canSend() {
            document.f.handleValid.value == "true";
 }
 
+function addMail() {
+   document.f.<%= SendMail.CONTACT_INF %>.value += <c:out value="${<%= MemberContact.SENDER_MAIL %>}" />;
+}
+
 function validate(send) {
     var ajaxRequest = new AjaxRequest('/tc?module=ValidateHandle');
     ajaxRequest.addFormElementsById("<%= SendMail.TO_HANDLE %>");
@@ -159,6 +163,7 @@ To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.
 <span class="smallText">Since you do not have member contact enabled, you are required to let your recipient know how to respond to you, 
 it can be an email address, phone number or whatever you choose.  We will automatically include this information in your message.</span>
 <br/><br/>
+<a href="Javascript:addMail()" class="bcLink">Add mail &gt;&gt;</a>
 <textarea name='<%= SendMail.CONTACT_INF %>' id='<%= SendMail.CONTACT_INF %>' cols='50' rows='2' onKeyUp='textChanged()'></textarea>
 <br/><br/>
 </c:if>

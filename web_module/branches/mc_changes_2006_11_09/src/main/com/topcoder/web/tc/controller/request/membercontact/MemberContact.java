@@ -24,6 +24,7 @@ public class MemberContact extends ShortHibernateProcessor {
 
     public static String CONFIRM = "conf";
     public static String CAN_RECEIVE = "cr";
+    public static String SENDER_MAIL = "sm";
 
     protected void dbProcessing() throws Exception {
         if (!userIdentified()) {
@@ -41,6 +42,7 @@ public class MemberContact extends ShortHibernateProcessor {
         } else {
             if (!sender.isMemberContactEnabled()) {
                 getRequest().setAttribute(CAN_RECEIVE, String.valueOf(true));
+                getRequest().setAttribute(SENDER_MAIL, sender.getPrimaryEmailAddress().getAddress());
             }
         }
 
