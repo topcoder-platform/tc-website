@@ -163,8 +163,8 @@ To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.
 <span class="smallText">Since you do not have member contact enabled, you are required to let your recipient know how to respond to you, 
 it can be an email address, phone number or whatever you choose.  We will automatically include this information in your message.</span>
 <br/><br/>
-<a href="addMail()" class="bcLink">Add mail &gt;&gt;</a>
 <textarea name='<%= SendMail.CONTACT_INF %>' id='<%= SendMail.CONTACT_INF %>' cols='50' rows='2' onKeyUp='textChanged()'></textarea>
+<a href="Javascript:addMail()">&lt;&lt; Add mail</a>
 <br/><br/>
 </c:if>
 
