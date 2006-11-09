@@ -28,8 +28,15 @@ public class ValidateHandle extends ShortHibernateProcessor {
         ValidationResult textValidation = new NonEmptyValidator("Please enter the message text.")
             .validate(new StringInput(text));
 
+        ValidationResult contactValidation = ValidationResult.SUCCESS;
+        if (!hasParameter(SendMail.CONTACT_INF)) {
+            contactValidation = new NonEmptyValidator("Please enter the contact information.")
+            .validate(new StringInput(getRequest().getParameter(SendMail.CONTACT_INF)));
+        }
+        
         getRequest().setAttribute("handleValidation", handleValidation);
         getRequest().setAttribute("textValidation", textValidation);
+        getRequest().setAttribute("contactValidation", contactValidation);
 
         setNextPage(Constants.VALIDATE_HANDLE);
         setIsNextPageInContext(true);

@@ -32,6 +32,9 @@ function validate(send) {
     var ajaxRequest = new AjaxRequest('/tc?module=ValidateHandle');
     ajaxRequest.addFormElementsById("<%= SendMail.TO_HANDLE %>");
     ajaxRequest.addFormElementsById("<%= SendMail.TEXT %>");    
+    <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
+        ajaxRequest.addFormElementsById("<%= SendMail.CONTACT_INF %>");    
+	</c:if>
     if (send) {
         ajaxRequest.addFormElementsById("<%= SendMail.SEND %>");
     }
@@ -40,13 +43,6 @@ function validate(send) {
 }
 
 function textChanged() {
-    if (prevCanSend != canSend()) {
-		validate(false);
-	    prevCanSend = canSend();
-    }
-}
-
-function contactChanged() {
     if (prevCanSend != canSend()) {
 		validate(false);
 	    prevCanSend = canSend();
@@ -160,9 +156,10 @@ To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.
 <br/><br/>
 
 <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
-<span class="smallText">Since you do not have member contact enabled, you are required to let your recipient how to respond to you, it can be an email address, phone number or whatever you choose.  We will automatically include this information in your message.</span>
-<br/>
-<textarea name='<%= SendMail.CONTACT_INF %>' id='<%= SendMail.CONTACT_INF %>' cols='50' rows='2' onKeyUp='contactChanged()'></textarea>
+<span class="smallText">Since you do not have member contact enabled, you are required to let your recipient know how to respond to you, 
+it can be an email address, phone number or whatever you choose.  We will automatically include this information in your message.</span>
+<br/><br/>
+<textarea name='<%= SendMail.CONTACT_INF %>' id='<%= SendMail.CONTACT_INF %>' cols='50' rows='2' onKeyUp='textChanged()'></textarea>
 <br/><br/>
 </c:if>
 

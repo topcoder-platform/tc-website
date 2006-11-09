@@ -18,7 +18,7 @@
     </c:otherwise>
 </c:choose>
 <c:choose>
-    <c:when test="${textValidation.valid && handleValidation.valid}">
+    <c:when test="${textValidation.valid && handleValidation.valid && contactValidation.valid}">
         <tac:replaceChildren contextNodeID="btnSendDiv" parseOnServer="true">
                 <div>
                 	<A href="javascript:validate(true)" class="bodyText"><img src="/i/interface/btn_send.gif" border="0"/></A>
