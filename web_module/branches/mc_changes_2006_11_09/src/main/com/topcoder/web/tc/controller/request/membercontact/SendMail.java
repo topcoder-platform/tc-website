@@ -8,6 +8,7 @@ import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.WebConstants;
@@ -39,7 +40,8 @@ public class SendMail extends ShortHibernateProcessor {
 
         User sender  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
-        if (!Helper.isRated(getUser().getId())) {
+        if (!Helper.isRated(getUser().getId()) && 
+                !SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
             getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(true));
             setNextPage(Constants.MEMBER_CONTACT);
             setIsNextPageInContext(true);
