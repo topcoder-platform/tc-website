@@ -49,16 +49,128 @@
       <td class="tableHeader" align="center" nowrap="nowrap">Forums</td>
    </tr>
    <% boolean even = false; %>
+   <%-- POST FRIDAY NOV 10 probably
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value" nowrap>
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_orpheusGameServer">Orpheus Game Server and Client Modules</A>
+      </td>
+      <td class="valueC">
+      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Orpheus Game Server and Client Modules">register</A>
+        <!--
+        registration closed
+        -->
+      </td>
+      <td class="valueC">
+      &#160;
+      <!--   
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_orpheusGameServer">results</A>
+      -->
+      </td>
+      <td class="valueC">
+      &#160;
+      <!-- 
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_orpheusGameServer">standings</A>
+      -->
+      </td>
+      <td class="valueC">$30,000</td>
+      <td class="valueC">
+      11.17.2006 9:00 AM EST
+      </td>
+      <td class="valueC">
+      12.08.2006 9:00 AM EST
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506175">join a team</A>
+      <br>
+      <!--<A href="">discuss</A>-->
+      </td>
+   </tr>
+   <% even = !even;%>
+   --%>
+   <%-- POST MONDAY NOV 20
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value" nowrap>
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_orpheusAdmin">Orpheus Administration Module</A>
+      </td>
+      <td class="valueC">
+      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Orpheus Administration Module">register</A>
+        <!--
+        registration closed
+        -->
+      </td>
+      <td class="valueC">
+      &#160;
+      <!--   
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_orpheusAdmin">results</A>
+      -->
+      </td>
+      <td class="valueC">
+      &#160;
+      <!-- 
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_orpheusAdmin">standings</A>
+      -->
+      </td>
+      <td class="valueC">$8,000</td>
+      <td class="valueC">
+      11.20.2006 9:00 AM EST
+      </td>
+      <td class="valueC">
+      12.05.2006 9:00 AM EST
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506173">join a team</A>
+      <br>
+      <A href="">discuss</A>
+      </td>
+   </tr>
+   <% even = !even;%>
+   --%>
+   <%-- POST MONDAY NOV 20
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value" nowrap>
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_orpheusAuction">Orpheus Auction Module</A>
+      </td>
+      <td class="valueC">
+      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Orpheus Auction Module">register</A>
+        <!--
+        registration closed
+        -->
+      </td>
+      <td class="valueC">
+      &#160;
+      <!--   
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_orpheusAuction">results</A>
+      -->
+      </td>
+      <td class="valueC">
+      &#160;
+      <!-- 
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_orpheusAuction">standings</A>
+      -->
+      </td>
+      <td class="valueC">$8,000</td>
+      <td class="valueC">
+      11.20.2006 9:00 AM EST
+      </td>
+      <td class="valueC">
+      12.05.2006 9:00 AM EST
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506174">join a team</A>
+      <br>
+      <A href="">discuss</A>
+      </td>
+   </tr>
+   <% even = !even;%>
+   --%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value" nowrap>
       <img src="/i/development/smAOL_crop.gif" border="0" alt="" align="ABSMIDDLE" />
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_aolXmppGateway">AOL XMPP Gateway</A>
       </td>
       <td class="valueC">
-      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: AOL XMPP Gateway">register</A>
-        <%--
-        registration closed
-        --%>
+      <%--<A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: AOL XMPP Gateway">register</A>--%>
+      registration closed
       </td>
       <td class="valueC">
       &#160;
@@ -93,8 +205,8 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_equitraderFrontEnd">Equitrader Phase-2 Front End</A>
       </td>
       <td class="valueC">
-      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Equitrader Phase-2 Front End">register</A>
-      <%--registration closed--%>
+      <%--<A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Equitrader Phase-2 Front End">register</A>--%>
+      registration closed
       </td>
       <td class="valueC">
       &#160;
@@ -127,8 +239,8 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_equitraderBackTest">Equitrader Phase-2 Back-Test Environment</A>
       </td>
       <td class="valueC">
-      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Equitrader Phase-2 Back-Test Environment">register</A>
-      <%--registration closed--%>
+      <%--<A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Equitrader Phase-2 Back-Test Environment">register</A>--%>
+      registration closed
       </td>
       <td class="valueC">
       &#160;
