@@ -35,7 +35,7 @@
     <property name="debug" value="true"/>
     <property name="junitsummary" value="on"/>
 
-    <target name="main" depends="compile">
+    <target name="main" depends="compile_techassess">
     </target>
 
 
@@ -141,11 +141,14 @@
                 target="1.5"
                 >
             <include name="com/topcoder/web/codinginterface/**"/>
+            <include name="com/topcoder/common/**"/>
             <include name="com/topcoder/web/common/**"/>
         </javac>
+        <antcall target="jar_common"/>
     </target>
 
 
+<!--
     <target name="compile" depends="init,jar_shared">
         <javac
                 srcdir="${java}"
@@ -162,9 +165,9 @@
             <include name="com/topcoder/utilities/**"/>
             <include name="com/topcoder/web/**"/>
         </javac>
-        <antcall target="jar_common"/>
     </target>
 
+-->
 
     <target name="compile_shared" depends="init">
         <javac
