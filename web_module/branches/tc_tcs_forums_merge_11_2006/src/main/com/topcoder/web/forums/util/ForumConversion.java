@@ -5,10 +5,11 @@ package com.topcoder.web.forums.util;
 
 import com.jivesoftware.base.Group;
 import com.jivesoftware.base.GroupManager;
+import com.jivesoftware.base.GroupNotFoundException;
 import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.base.PermissionType;
-import com.jivesoftware.base.Permissions;
 import com.jivesoftware.base.PermissionsManager;
+import com.jivesoftware.base.User;
 import com.jivesoftware.base.UserManager;
 import com.jivesoftware.base.UserNotFoundException;
 
@@ -33,6 +34,7 @@ import java.sql.ResultSet;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -106,24 +108,29 @@ public class ForumConversion {
      */
     private static PreparedStatement techPS = null;
     
-    /**
-     * The statement to select an old forum ID from old topcoder forum database.
-     */
-    private static PreparedStatement oldForumPS = null;
-    
-    /**
-     * The statement to select forum security roles from old topcoder forum database.
-     */
-    private static PreparedStatement rolesPS = null;
+    private static PreparedStatement oldForumPS = null;	// determine old forum IDs
+    private static PreparedStatement rolesPS = null;	// select forum security roles
+    private static PreparedStatement adminPS = null;	// determines admin privileges for SW forums
+    private static PreparedStatement publicPS = null;		// determine public SW forums
     
     static boolean ATTACHMENTS_ENABLED = true;
     
+    private static long[] adminPermissions = {
+    	ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
+    	ForumPermissions.RATE_MESSAGE, ForumPermissions.FORUM_CATEGORY_ADMIN, 
+    	ForumPermissions.CREATE_MESSAGE_ATTACHMENT, ForumPermissions.CREATE_POLL, ForumPermissions.VOTE_IN_POLL,
+    	ForumPermissions.ANNOUNCEMENT_ADMIN};
+    private static long[] blockPermissions = {
+    	ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
+    	ForumPermissions.RATE_MESSAGE, ForumPermissions.CREATE_MESSAGE_ATTACHMENT, ForumPermissions.CREATE_POLL, 
+    	ForumPermissions.VOTE_IN_POLL, ForumPermissions.ANNOUNCEMENT_ADMIN};
     private static long[] moderatorPermissions = {
     	ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
-    	ForumPermissions.RATE_MESSAGE, ForumPermissions.FORUM_CATEGORY_ADMIN, ForumPermissions.CREATE_MESSAGE_ATTACHMENT};
+    	ForumPermissions.RATE_MESSAGE, ForumPermissions.FORUM_CATEGORY_ADMIN, 
+    	ForumPermissions.CREATE_MESSAGE_ATTACHMENT, ForumPermissions.CREATE_POLL, ForumPermissions.VOTE_IN_POLL};
     private static long[] userPermissions = {
 		ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
-		ForumPermissions.RATE_MESSAGE};
+		ForumPermissions.RATE_MESSAGE, ForumPermissions.CREATE_POLL, ForumPermissions.VOTE_IN_POLL};
     
     public static void convertForums(ForumFactory forumFactory) {       
     	if (!JiveGlobals.getJiveBooleanProperty("tc.convert.tcs.forums")) {
@@ -175,7 +182,36 @@ public class ForumConversion {
         GroupManager groupManager = forumFactory.getGroupManager();
         MimetypesFileTypeMap fileTypeMap = new MimetypesFileTypeMap();
 
-        Context context = new InitialContext();
+        // Create/fill SW forums admin group, if it does not already exist
+        Group swAdminGroup = null;
+        try {
+        	swAdminGroup = groupManager.getGroup(ForumConstants.GROUP_SOFTWARE_ADMINS);
+        } catch (GroupNotFoundException ge) {
+        	swAdminGroup = groupManager.createGroup(ForumConstants.GROUP_SOFTWARE_ADMINS);
+        }
+        
+        adminPS = tcConn.prepareStatement("select login_id from user_role_xref where role_id = 1");
+        ResultSet rs = adminPS.executeQuery();
+        while (rs.next()) {
+        	User user = userManager.getUser(rs.getLong(1));
+        	if (!swAdminGroup.isMember(user)) {
+        		swAdminGroup.addMember(user);
+        	}
+        }
+        rs.close();
+        
+        HashSet publicOldForumSet = new HashSet();
+        publicPS = tcConn.prepareStatement("select permission from security_perms p, security_roles r "
+        		+ " where p.permission like 'com.topcoder.dde.forum.ForumPostPermission %' "
+        		+ " and p.role_id = r.role_id and p.role_id = 2");
+        rs = publicPS.executeQuery();
+        while (rs.next()) {
+        	String[] ss = rs.getString(1).split(" ");
+        	publicOldForumSet.add(ss[1]);
+        }
+        rs.close();
+        
+        //Context context = new InitialContext();
         //LocalIdGenHome localIdGenHome = (LocalIdGenHome) context.lookup(LocalIdGenHome.EJB_REF_NAME);
         //LocalIdGen localIdGen = localIdGenHome.create();
         
@@ -188,7 +224,7 @@ public class ForumConversion {
                 + " f.comp_vers_id = v.comp_vers_id and v.component_id = c.component_id"
         );
 
-        ResultSet rs = forumPS.executeQuery();
+        rs = forumPS.executeQuery();
         List forums = new ArrayList();
 
         while (rs.next()) {
@@ -282,6 +318,14 @@ public class ForumConversion {
             rs = oldForumPS.executeQuery();
             rs.next();
             long oldForumID = rs.getLong(1);
+            rs.close();
+            
+            if (!publicOldForumSet.contains(String.valueOf(oldForumID))) {
+	            for (int i=0; i<blockPermissions.length; i++) {
+	            	categoryPermissionsManager.addAnonymousUserPermission(PermissionType.NEGATIVE, blockPermissions[i]);
+	            	categoryPermissionsManager.addRegisteredUserPermission(PermissionType.NEGATIVE, blockPermissions[i]);
+	            }
+            }
            
             // the ps to get the security roles from user_roles_xref table
             rolesPS = tcConn.prepareStatement("select urx.login_id from user_role_xref urx, security_roles r "
@@ -291,6 +335,7 @@ public class ForumConversion {
             	long userID = rs.getLong("login_id");
             	moderatorGroup.addMember(userManager.getUser(userID));
             }
+            rs.close();
             
             rolesPS = tcConn.prepareStatement("select urx.login_id from user_role_xref urx, security_roles r "
             		+ "where r.description = 'ForumUser " + oldForumID + "' and urx.role_id = r.role_id");
@@ -299,6 +344,7 @@ public class ForumConversion {
             	long userID = rs.getLong("login_id");
             	userGroup.addMember(userManager.getUser(userID));
             }
+            rs.close();
             
             // set technology types for this category
             techPS.setLong(1, forum.getId());

@@ -55,6 +55,7 @@ public interface ForumConstants {
     // Groups
     public final static String GROUP_SOFTWARE_MODERATORS_PREFIX = "Software_Moderators_";
     public final static String GROUP_SOFTWARE_USERS_PREFIX = "Software_Users_";
+    public final static String GROUP_SOFTWARE_ADMINS = "Software Admins";
     
     // Extended Properties
     public final static String PROPERTY_HIDE_EMPTY_FORUMS = "hideEmptyForums";

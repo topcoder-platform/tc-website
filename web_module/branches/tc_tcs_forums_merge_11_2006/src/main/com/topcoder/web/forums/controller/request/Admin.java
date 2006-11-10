@@ -94,7 +94,7 @@ public class Admin extends ForumsProcessor {
                 BaseProcessor.close(ctx);
             }
         } else if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
-            escapeHTML();
+            //escapeHTML();
         } else if (command.equals(ForumConstants.ADMIN_ENABLE_RATINGS)) {
             RatingManager ratingManager = RatingManagerFactory.getInstance(authToken);
             if (!ratingManager.isRatingsEnabled()) {
