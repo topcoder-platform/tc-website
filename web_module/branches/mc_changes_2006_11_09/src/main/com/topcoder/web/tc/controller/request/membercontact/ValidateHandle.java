@@ -31,10 +31,12 @@ public class ValidateHandle extends ShortHibernateProcessor {
             .validate(new StringInput(text));
 
         ValidationResult contactValidation = ValidationResult.SUCCESS;
-        log.info("has contact inf");
         if (hasParameter(SendMail.CONTACT_INF)) {
+            log.info("has contact inf");
             contactValidation = new NonEmptyValidator("Please enter the contact information.")
             .validate(new StringInput(getRequest().getParameter(SendMail.CONTACT_INF)));
+            log.info("text : " + getRequest().getParameter(SendMail.CONTACT_INF));
+            log.info("valid: " + contactValidation.isValid());
         }
         
         getRequest().setAttribute("handleValidation", handleValidation);
