@@ -30,7 +30,9 @@ public interface Constants {
     public static final int BUG_FIXES_PAYMENT = 23;
     public static final int RELIABILITY_BONUS_PAYMENT = 24;
     public static final int DIGITAL_RUN_TOP_THIRD_PAYMENT = 25;
-
+    public static final int ARCHITECTURE_REVIEW_PAYMENT = 26;
+    public static final int SPECIFICATION_REVIEW_PAYMENT = 27;
+    public static final int ASSEMBLY_COMPETITION_REVIEW = 28; 
 
     public static final int NO_REFERENCE = 0;
     public static final int REFERENCE_ALGORITHM_ROUND_ID = 1;
