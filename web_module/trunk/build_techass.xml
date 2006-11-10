@@ -278,7 +278,6 @@
         <copy file="${app_resources}/screening/ScreeningTester.properties" todir="${jboss_conf}" overwrite="true"/>
         <copy file="${app_resources}/screening/ScreeningApplicationServer.properties" todir="${jboss_conf}" overwrite="true"/>
 
-        <delete file="${jboss_deploy}/techassess.war"/>
         <unwar src="${war.dir}/techassess.war" dest="${jboss_deploy}/techassess.war/" overwrite="yes"/>
         <delete dir="${jboss_deploy}/techassess.war/META-INF"/>
         <antcall target="deploy-security"/>
