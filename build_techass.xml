@@ -274,8 +274,8 @@
         <copy file="${resources}/EmailEngineConfig.properties" todir="${jboss_conf}" overwrite="true"/>
         <copy file="${resources}/ProblemParser.properties" todir="${jboss_conf}" overwrite="true"/>
         <copy file="${resources}/cache.properties" todir="${jboss_conf}" overwrite="true"/>
-        <copy file="${app_resources}/ScreeningTester.properties" todir="${jboss_conf}" overwrite="true"/>
-        <copy file="${app_resources}/ScreeningApplicationServer.properties" todir="${jboss_conf}" overwrite="true"/>
+        <copy file="${app_resources}/screening/ScreeningTester.properties" todir="${jboss_conf}" overwrite="true"/>
+        <copy file="${app_resources}/screening/ScreeningApplicationServer.properties" todir="${jboss_conf}" overwrite="true"/>
 
         <delete file="${jboss_deploy}/techassess.war"/>
         <unwar src="${war.dir}/techassess.war" dest="${jboss_deploy}/techassess.war/" overwrite="yes"/>
