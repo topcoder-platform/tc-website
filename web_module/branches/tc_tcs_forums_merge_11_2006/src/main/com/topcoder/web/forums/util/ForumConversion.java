@@ -118,12 +118,12 @@ public class ForumConversion {
     
     static boolean ATTACHMENTS_ENABLED = true;
     
-    private static Permissions moderatorPermissions = new Permissions(
-    		ForumPermissions.READ_FORUM | ForumPermissions.CREATE_THREAD | ForumPermissions.CREATE_MESSAGE |
-    		ForumPermissions.RATE_MESSAGE | ForumPermissions.FORUM_CATEGORY_ADMIN | ForumPermissions.CREATE_MESSAGE_ATTACHMENT);
-    private static Permissions userPermissions = new Permissions(
-    		ForumPermissions.READ_FORUM | ForumPermissions.CREATE_THREAD | ForumPermissions.CREATE_MESSAGE |
-    		ForumPermissions.RATE_MESSAGE);
+    private static long[] moderatorPermissions = {
+    	ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
+    	ForumPermissions.RATE_MESSAGE, ForumPermissions.FORUM_CATEGORY_ADMIN, ForumPermissions.CREATE_MESSAGE_ATTACHMENT};
+    private static long[] userPermissions = {
+		ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
+		ForumPermissions.RATE_MESSAGE};
     
     public static void convertForums(ForumFactory forumFactory) {       
     	if (!JiveGlobals.getJiveBooleanProperty("tc.convert.tcs.forums")) {
@@ -274,8 +274,12 @@ public class ForumConversion {
             Group moderatorGroup = groupManager.createGroup(ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX + category.getID());
             Group userGroup = groupManager.createGroup(ForumConstants.GROUP_SOFTWARE_USERS_PREFIX + category.getID());
             PermissionsManager categoryPermissionsManager = category.getPermissionsManager();
-            categoryPermissionsManager.addGroupPermission(moderatorGroup, PermissionType.ADDITIVE, moderatorPermissions.value());
-            categoryPermissionsManager.addGroupPermission(userGroup, PermissionType.ADDITIVE, userPermissions.value());
+            for (int i=0; i<moderatorPermissions.length; i++) {
+            	categoryPermissionsManager.addGroupPermission(moderatorGroup, PermissionType.ADDITIVE, moderatorPermissions[i]);
+            }
+            for (int i=0; i<userPermissions.length; i++) {
+            	categoryPermissionsManager.addGroupPermission(userGroup, PermissionType.ADDITIVE, userPermissions[i]);
+            }
             
             oldForumPS.setLong(1, forum.getCompVersId());
             oldForumPS.setLong(2, forum.getForumType());
