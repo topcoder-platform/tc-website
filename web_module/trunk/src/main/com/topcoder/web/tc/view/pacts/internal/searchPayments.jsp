@@ -67,32 +67,32 @@
           </tr>
           <tr>
             <td>Creation Date:</td>
-			<td>Between <input type="text" name="<%= PactsConstants.EARLIEST_CREATION_DATE %>" size="10">
+			<td>Between <input type="text" name="<%= PactsConstants.EARLIEST_CREATION_DATE %>" id="<%= PactsConstants.EARLIEST_CREATION_DATE %>" size="10">
 				<button id="trigger_<%= PactsConstants.EARLIEST_CREATION_DATE %>">Set</button>			
-			and <input type="text" name="<%= PactsConstants.LATEST_CREATION_DATE %>" size="10">
+			and <input type="text" name="<%= PactsConstants.LATEST_CREATION_DATE %>" id="<%= PactsConstants.LATEST_CREATION_DATE %>" size="10">
 				<button id="trigger_<%= PactsConstants.LATEST_CREATION_DATE %>">Set</button></td>
           </tr>
           <tr>
             <td>Last Modification Date:</td>
-			<td>Between <input type="text" name="<%= PactsConstants.EARLIEST_MODIFICATION_DATE %>" size="10">
+			<td>Between <input type="text" name="<%= PactsConstants.EARLIEST_MODIFICATION_DATE %>" id="<%= PactsConstants.EARLIEST_MODIFICATION_DATE %>" size="10">
 				<button id="trigger_<%= PactsConstants.EARLIEST_MODIFICATION_DATE %>">Set</button>			
-			and <input type="text" name="<%= PactsConstants.LATEST_MODIFICATION_DATE %>" size="10">
+			and <input type="text" name="<%= PactsConstants.LATEST_MODIFICATION_DATE %>" id="<%= PactsConstants.LATEST_MODIFICATION_DATE %>" size="10">
 				<button id="trigger_<%= PactsConstants.LATEST_MODIFICATION_DATE %>">Set</button></td>
           </tr>
           
           
           <tr>
             <td>Pay Date:</td>
-			<td>Between <input type="text" name="<%= PactsConstants.EARLIEST_PAY_DATE %>" size="10">
+			<td>Between <input type="text" name="<%= PactsConstants.EARLIEST_PAY_DATE %>" id="<%= PactsConstants.EARLIEST_PAY_DATE %>" size="10">
 				<button id="trigger_<%= PactsConstants.EARLIEST_PAY_DATE %>">Set</button>			
-			and <input type="text" name="<%= PactsConstants.LATEST_PAY_DATE %>" size="10">
+			and <input type="text" name="<%= PactsConstants.LATEST_PAY_DATE %>" id="<%= PactsConstants.LATEST_PAY_DATE %>" size="10">
 				<button id="trigger_<%= PactsConstants.LATEST_PAY_DATE %>">Set</button></td>
           </tr>
           <tr>
             <td>Due Date:</td>
-			<td>Between <input type="text" name="<%= PactsConstants.EARLIEST_DUE_DATE %>" size="10">
+			<td>Between <input type="text" name="<%= PactsConstants.EARLIEST_DUE_DATE %>" id="<%= PactsConstants.EARLIEST_DUE_DATE %>" size="10">
 				<button id="trigger_<%= PactsConstants.EARLIEST_DUE_DATE %>">Set</button>			
-			and <input type="text" name="<%= PactsConstants.LATEST_DUE_DATE %>" size="10">
+			and <input type="text" name="<%= PactsConstants.LATEST_DUE_DATE %>" id="<%= PactsConstants.LATEST_DUE_DATE %>" size="10">
 				<button id="trigger_<%= PactsConstants.LATEST_DUE_DATE %>">Set</button></td>
 
           </tr>
