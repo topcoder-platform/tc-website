@@ -136,8 +136,8 @@
                 classpathref="class.path"
                 deprecation="${deprecation}"
                 debug="${debug}"
-                source="1.4"
-                target="1.4"
+                source="1.5"
+                target="1.5"
                 >
             <include name="com/topcoder/web/codinginterface/**"/>
             <include name="com/topcoder/web/common/**"/>
@@ -153,8 +153,8 @@
                 classpathref="class.path"
                 deprecation="${deprecation}"
                 debug="${debug}"
-                source="1.4"
-                target="1.4"
+                source="1.5"
+                target="1.5"
                 >
             <include name="com/topcoder/common/**"/>
             <include name="com/topcoder/ejb/**"/>
@@ -164,6 +164,23 @@
         </javac>
         <antcall target="jar_common"/>
     </target>
+
+
+    <target name="compile_shared" depends="init">
+        <javac
+                srcdir="${shared}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.5"
+                target="1.5"
+                >
+        </javac>
+        <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
+        <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
+    </target>
+
 
     <target name="javadocs">
         <mkdir dir="${build.javadocs}"/>
@@ -193,7 +210,7 @@
         </jar>
     </target>
 
-    <target name="jar_common" depends="">
+    <target name="jar_common">
         <jar jarfile="${common.jar}">
             <fileset dir="${classes}">
                 <include name="com/topcoder/web/common/**/*.class"/>
@@ -233,19 +250,18 @@
         </war>
     </target>
 
-    <target name="deploy-techassess" depends="war-techassess">
+    <target name="deploy" depends="war-techassess">
         <copy file="${shared.jar}" todir="${jboss_home}/server/all/lib" overwrite="true"/>
         <copy todir="${jboss_home}/server/all/deploy" overwrite="true">
             <fileset dir="${war.dir}">
                 <include name="techassess.war"/>
             </fileset>
         </copy>
+        <antcall target="expand"/>
     </target>
 
-    <target name="deploy-techassess-expanded" depends="war-techassess,expand-techassess">
-    </target>
 
-    <target name="expand-techassess" depends="">
+    <target name="expand">
         <copy file="${resources}/TechAssess.properties" todir="${jboss_home}/server/all/conf" overwrite="true"/>
         <copy file="${shared.jar}" todir="${jboss_home}/server/all/lib" overwrite="true"/>
         <delete file="${jboss_home}/server/all/deploy/techassess.war"/>
