@@ -30,7 +30,6 @@
                 	<select name="<%=PactsConstants.PAYMENT_TYPE_ID %>">
                 		<option value="<%= PactsConstants.ALGORITHM_CONTEST_PAYMENT %>">Regular round</option>
                 		<option value="<%= PactsConstants.ALGORITHM_TOURNAMENT_PRIZE_PAYMENT %>">Tournament round</option>
-                		<option value="<%= PactsConstants.CHARITY_PAYMENT %>">Just Charity payments</option>
                 	</select>
                 </td>
             </tr>
