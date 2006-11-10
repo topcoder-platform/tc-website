@@ -1924,16 +1924,16 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         InternalDispatchPaymentList bean =
                 new InternalDispatchPaymentList(request, response);
         PaymentHeader[] results = bean.get();
-        String[] creationDates = bean.getCreationDates(results);
         if (results.length != 1) {
             DataInterfaceBean dib = new DataInterfaceBean();
 
             request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PAYMENT_OBJ).get(STATUS_CODE_LIST));
             request.setAttribute(PACTS_INTERNAL_RESULT, results);
-            request.setAttribute(CREATION_DATE_LIST, creationDates);
             forward(INTERNAL_PAYMENT_LIST_JSP, request, response);
         } else {
-            InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
+        	forward(Links.viewPayment(results[0].getId()), request, response);        	
+/*            
+ 			InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
             Map search = new HashMap();
             search.put(PAYMENT_ID, "" + results[0].getId());
             request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
@@ -1942,6 +1942,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             request.setAttribute(PACTS_INTERNAL_RESULT, pb.get(results[0].getId()));
             request.setAttribute(CREATION_DATE, creationDates[0]);
             forward(INTERNAL_PAYMENT_JSP, request, response);
+            */
         }
     }
 
