@@ -4585,7 +4585,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             checkNew.append("SELECT COUNT(*) FROM affidavit WHERE round_id = " + roundId);
             ResultSetContainer rsc = runSelectQuery(c, checkNew.toString(), false);
             int existingAffidavits = Integer.parseInt(rsc.getItem(0, 0).toString());
-            if (existingAffidavits > 0 {
+            if (existingAffidavits > 0) {
                 throw new IllegalUpdateException("Data already generated for round " + roundId + "!");
             }
             
