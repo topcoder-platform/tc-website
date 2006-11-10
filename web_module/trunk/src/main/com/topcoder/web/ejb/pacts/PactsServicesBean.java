@@ -4844,6 +4844,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getReviewers.append("inner join tcs_catalog:resource_info ri_p ");
             getReviewers.append("on r.resource_id = ri_p.resource_id ");
             getReviewers.append("and ri_p.resource_info_type_id = 7 ");
+            getReviewers.append("inner join tcs_catalog: resource_info ri_ps "); // this is to filter by the payments that were marked as paid.
+    		getReviewers.append("on r.resource_id = ri_ps.resource_id  ");
+			getReviewers.append("and ri_ps.resource_info_type_id = 8 ");
+			getReviewers.append("and ri_ps.value = 'Yes' ");            
             getReviewers.append("inner join tcs_catalog:project_category_lu pcl ");
             getReviewers.append("on pcl.project_category_id = p.project_category_id ");
             getReviewers.append("where p.project_id = " + projectId + " ");
