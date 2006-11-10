@@ -6,6 +6,13 @@
 <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
 <title>PACTS</title>
+
+    <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
+    <script type="text/javascript" src="/js/jscal/calendar.js"></script>
+    <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
+    <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
+    <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
+
 </head>
 
 <body>
@@ -51,7 +58,10 @@
           </tr>
           <tr>
             <td>Creation Date:</td>
-<% out.println("            <td>Between <input type=\"text\" name=\""+PactsConstants.EARLIEST_CREATION_DATE+"\" size=\"10\"> and <input type=\"text\" name=\""+PactsConstants.LATEST_CREATION_DATE+"\" size=\"10\"></td>"); %>
+			<td>Between <input type="text" name="<%= PactsConstants.EARLIEST_CREATION_DATE %>" id="<%= PactsConstants.EARLIEST_CREATION_DATE %>" size="10">
+				<button id="trigger_<%= PactsConstants.EARLIEST_CREATION_DATE %>">Set</button>			
+			and <input type="text" name="<%= PactsConstants.LATEST_CREATION_DATE %>" id="<%= PactsConstants.LATEST_CREATION_DATE %>" size="10">
+				<button id="trigger_<%= PactsConstants.LATEST_CREATION_DATE %>">Set</button></td>
           </tr>
           <tr>
             <td>Is Affirmed:</td>
@@ -107,7 +117,32 @@
   </tr>
 </table>
 </center>
+<script language="javascript" type="text/javascript">
+    <!--
+Calendar.setup(
+{
+ inputField  : "<%= PactsConstants.EARLIEST_CREATION_DATE %>",  
+                    ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",    
+                    button      : "trigger_<%= PactsConstants.EARLIEST_CREATION_DATE %>",     
+                    showsTime   : false,
+                    singleClick  : false,
+                    cache       : true
+}
+);
 
+Calendar.setup(
+{
+ inputField  : "<%= PactsConstants.LATEST_CREATION_DATE %>",  
+                    ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",    
+                    button      : "trigger_<%= PactsConstants.LATEST_CREATION_DATE %>",     
+                    showsTime   : false,
+                    singleClick  : false,
+                    cache       : true
+}
+);
+
+-->
+</script>
 
 <jsp:include page="InternalFooter.jsp" flush="true" />
 </body>

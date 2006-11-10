@@ -6,6 +6,12 @@
 <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
 <title>PACTS</title>
+    <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
+    <script type="text/javascript" src="/js/jscal/calendar.js"></script>
+    <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
+    <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
+    <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
+
 </head>
 
 <body>
@@ -45,7 +51,11 @@
           </tr>
           <tr>
             <td>Date Filed:</td>
-<% out.println("            <td>Between <input type=\"text\" name=\""+PactsConstants.EARLIEST_DATE_FILED+"\" size=\"10\"> and <input type=\"text\" name=\""+PactsConstants.LATEST_DATE_FILED+"\" size=\"10\"></td>"); %>
+			<td>Between <input type="text" name="<%= PactsConstants.EARLIEST_DATE_FILED %>" id="<%= PactsConstants.EARLIEST_DATE_FILED %>" size="10">
+				<button id="trigger_<%= PactsConstants.EARLIEST_DATE_FILED %>">Set</button>			
+			and <input type="text" name="<%= PactsConstants.LATEST_DATE_FILED %>" id="<%= PactsConstants.LATEST_DATE_FILED %>" size="10">
+				<button id="trigger_<%= PactsConstants.LATEST_DATE_FILED %>">Set</button></td>
+
           </tr>
           <tr>
             <td>Status:</td>
@@ -68,6 +78,30 @@
 </table>
 </center>
 
+<script language="javascript" type="text/javascript">
+    <!--
+Calendar.setup(
+{
+ inputField  : "<%= PactsConstants.EARLIEST_DATE_FILED %>",  
+                    ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",    
+                    button      : "trigger_<%= PactsConstants.EARLIEST_DATE_FILED %>",     
+                    showsTime   : false,
+                    singleClick  : false,
+                    cache       : true
+}
+);
+
+Calendar.setup(
+{
+ inputField  : "<%= PactsConstants.LATEST_DATE_FILED %>",  
+                    ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",    
+                    button      : "trigger_<%= PactsConstants.LATEST_DATE_FILED %>",     
+                    showsTime   : false,
+                    singleClick  : false,
+                    cache       : true
+}
+);
+-->
 
 <jsp:include page="InternalFooter.jsp" flush="true" />
 </body>
