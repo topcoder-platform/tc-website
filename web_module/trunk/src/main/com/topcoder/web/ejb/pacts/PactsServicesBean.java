@@ -4585,7 +4585,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             checkNew.append("SELECT COUNT(*) FROM affidavit WHERE round_id = " + roundId);
             ResultSetContainer rsc = runSelectQuery(c, checkNew.toString(), false);
             int existingAffidavits = Integer.parseInt(rsc.getItem(0, 0).toString());
-            if (existingAffidavits > 0 && paymentTypeId != CHARITY_PAYMENT) {
+            if (existingAffidavits > 0 {
                 throw new IllegalUpdateException("Data already generated for round " + roundId + "!");
             }
             
@@ -4617,10 +4617,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getWinners.append("and a.address_type_id = 2 ");
             getWinners.append("AND rr.coder_id = rp.coder_id ");
             getWinners.append("AND rr.round_id = rp.round_id ");
-            if (paymentTypeId == CHARITY_PAYMENT) { // this is just a temporary fix!
-            	getWinners.append("AND rp.payment_type_id = " + CHARITY_PAYMENT + " ");
-            	paymentTypeId = 1;
-            }
             getWinners.append(" ORDER BY rr.room_id, rr.room_placed");
             ResultSetContainer winners = runSelectQuery(c, getWinners.toString(), false);
             int numWinners = winners.getRowCount();
