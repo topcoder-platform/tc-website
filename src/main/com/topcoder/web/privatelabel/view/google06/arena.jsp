@@ -54,9 +54,8 @@
 
                 <span class="bigBluetitle">Competition Arena</span>
                 <br><br>
+                The Google Code Jam 2006 Arena is no longer available.
                 <%--
-                The Google Code Jam 2006 Arena is not available yet.
-                --%>
                 <A href="/pl/?module=Google06Credentials&<%=Constants.COMPANY_ID%>=1865">Forgot your Google Code Jam
                     2006 password?</A>
 
@@ -89,8 +88,10 @@
                 <br><br>
                 If you experience problems loading or running the Competition Arena please contact
                 <A href="mailto:gcj@topcoder.com?subject=Question regarding Google Code Jam 2006">gcj@topcoder.com</A>.
+                --%>
 
 
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                 <br><br><br><br>
                 To find out more detailed information about the Google&#153; Code Jam 2006, please read the
