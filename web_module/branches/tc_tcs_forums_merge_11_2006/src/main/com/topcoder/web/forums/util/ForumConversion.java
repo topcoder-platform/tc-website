@@ -231,10 +231,6 @@ public class ForumConversion {
         // the ps to get the old forum id from comp_forum_xref table
         oldForumPS = tcConn.prepareStatement("select forum_id from comp_forum_xref "
         		+ " where comp_vers_id = ? and forum_type = ?");
-        
-        // the ps to get the security roles from user_roles_xref table
-        rolesPS = tcConn.prepareStatement("select urx.login_id from user_role_xref urx, security_roles r "
-        		+ "where r.description like '? ?' and urx.role_id = r.role_id");
 
         int forumNum = 0;
         int totalForum = forums.size();
@@ -286,17 +282,18 @@ public class ForumConversion {
             rs = oldForumPS.executeQuery();
             rs.next();
             long oldForumID = rs.getLong(1);
-            
-            rolesPS.setString(1, "ForumModerator");
-            rolesPS.setLong(2, oldForumID);
+           
+            // the ps to get the security roles from user_roles_xref table
+            rolesPS = tcConn.prepareStatement("select urx.login_id from user_role_xref urx, security_roles r "
+            		+ "where r.description = 'ForumModerator " + oldForumID + "' and urx.role_id = r.role_id");
             rs = rolesPS.executeQuery();
             while (rs.next()) {
             	long userID = rs.getLong("login_id");
             	moderatorGroup.addMember(userManager.getUser(userID));
             }
             
-            rolesPS.setString(1, "ForumUser");
-            rolesPS.setLong(2, oldForumID);
+            rolesPS = tcConn.prepareStatement("select urx.login_id from user_role_xref urx, security_roles r "
+            		+ "where r.description = 'ForumUser " + oldForumID + "' and urx.role_id = r.role_id");
             rs = rolesPS.executeQuery();
             while (rs.next()) {
             	long userID = rs.getLong("login_id");
