@@ -41,6 +41,7 @@ public class SendMail extends ShortHibernateProcessor {
 
         User sender  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
+        // users who have MemberContact Permission skips the rated validation.
         if (!Helper.isRated(getUser().getId()) && 
                 !SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(MemberContact.class))) {
             getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(true));
@@ -61,13 +62,15 @@ public class SendMail extends ShortHibernateProcessor {
         String message = getRequest().getParameter(TEXT);
         boolean sendCopy = getRequest().getParameter(SEND_COPY) != null;
 
+        // Check again that the the contact information is valid when the user cannot
+        // receive messages, in case that someone has tweaked the jsp or some kind of hack
         if (!sender.isMemberContactEnabled() && !hasParameter(CONTACT_INF)) {
             throw new Exception("Sender don't have MC enabled and contact information was not provided.");
         }
         
         String contactInf = "";
         if (hasParameter(CONTACT_INF)) {
-            contactInf = "\n\nContact information: " + getRequest().getParameter(CONTACT_INF);
+            contactInf = Constants.CONTACT_INFORMATION_TITLE + getRequest().getParameter(CONTACT_INF);
         }
 
         // Check again that the user is valid, in case that someone has tweaked the jsp

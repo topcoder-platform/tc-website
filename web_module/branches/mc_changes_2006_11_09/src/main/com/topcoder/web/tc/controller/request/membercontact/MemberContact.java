@@ -33,6 +33,7 @@ public class MemberContact extends ShortHibernateProcessor {
 
         User sender  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
+        // users who have MemberContact Permission skips the rated validation.
         if (!Helper.isRated(getUser().getId()) && 
                 !SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(MemberContact.class))) {
             getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(true));

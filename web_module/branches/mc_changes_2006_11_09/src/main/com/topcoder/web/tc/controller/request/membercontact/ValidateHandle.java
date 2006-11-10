@@ -24,18 +24,16 @@ public class ValidateHandle extends ShortHibernateProcessor {
 
         User user = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
-        log.info("starting validation");
-
         ValidationResult handleValidation = new HandleValidator(user).validate(new StringInput(handle));
         ValidationResult textValidation = new NonEmptyValidator("Please enter the message text.")
             .validate(new StringInput(text));
 
+        // forces non-empty contact information in case the user cannot receive message
+        // because of disables MC
         ValidationResult contactValidation = ValidationResult.SUCCESS;
         if (!user.isMemberContactEnabled()) {
             contactValidation = new NonEmptyValidator("Please enter the contact information.")
             .validate(new StringInput(getRequest().getParameter(SendMail.CONTACT_INF)));
-            log.info("text : " + getRequest().getParameter(SendMail.CONTACT_INF));
-            log.info("valid: " + contactValidation.isValid());
         }
         
         getRequest().setAttribute("handleValidation", handleValidation);
