@@ -47,6 +47,7 @@
     <ul>
         <li>Fix bug in the member card preview.  It would error out if a person that is only rated in TC HS attempted to view his/her card</li>
         <li>Add calendars in pacts internal search pages</li>
+        <li>Fix bug when loading ratings to DW to take into account when the user was not actually rated in the round</li>
     </ul>
  </p>
 
