@@ -46,6 +46,7 @@
     5.5.9 - 2006.11.xx
     <ul>
         <li>Fix bug in the member card preview.  It would error out if a person that is only rated in TC HS attempted to view his/her card</li>
+        <li>Add calendars in pacts internal search pages</li>
     </ul>
  </p>
 

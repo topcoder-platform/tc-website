@@ -102,6 +102,7 @@ Calendar.setup(
 }
 );
 -->
+</script>
 
 <jsp:include page="InternalFooter.jsp" flush="true" />
 </body>
