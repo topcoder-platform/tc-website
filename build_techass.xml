@@ -254,11 +254,6 @@
     </target>
 
     <target name="deploy" depends="war-techassess">
-        <copy todir="${jboss_deploy}" overwrite="true">
-            <fileset dir="${war.dir}">
-                <include name="techassess.war"/>
-            </fileset>
-        </copy>
         <antcall target="expand"/>
     </target>
 
