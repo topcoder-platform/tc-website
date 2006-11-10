@@ -5028,13 +5028,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             setLockTimeout(c);
 
             StringBuffer getPayments = new StringBuffer(300);
-            getPayments.append("SELECT payment_id FROM affidavit ");
-            getPayments.append("WHERE affidavit_type_id = " + CONTEST_WINNING_AFFIDAVIT + " ");
-            getPayments.append("AND date_created + " + AFFIDAVIT_EXPIRE_TIME + " UNITS DAY < TODAY ");
-            getPayments.append("AND status_id = " + AFFIDAVIT_PENDING_STATUS + " ");
-            getPayments.append("AND payment_id IS NOT NULL");
+            getPayments.append("SELECT p.payment_id FROM affidavit a, payment p ");
+            getPayments.append("WHERE a.affidavit_type_id = " + CONTEST_WINNING_AFFIDAVIT + " ");
+            getPayments.append("AND a.date_created + " + AFFIDAVIT_EXPIRE_TIME + " UNITS DAY < TODAY ");
+            getPayments.append("AND a.status_id = " + AFFIDAVIT_PENDING_STATUS + " ");
+            getPayments.append("AND p.most_recent_detail_id IS NOT NULL");
             ResultSetContainer payments = runSelectQuery(c, getPayments.toString(), false);
-
+            
             StringBuffer updateAffidavits = new StringBuffer(300);
             updateAffidavits.append("UPDATE affidavit SET status_id = " + AFFIDAVIT_EXPIRED_STATUS);
             updateAffidavits.append(" WHERE affidavit_type_id = " + CONTEST_WINNING_AFFIDAVIT);
