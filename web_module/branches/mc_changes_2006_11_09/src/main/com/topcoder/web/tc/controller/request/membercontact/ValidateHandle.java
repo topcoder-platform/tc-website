@@ -31,8 +31,7 @@ public class ValidateHandle extends ShortHibernateProcessor {
             .validate(new StringInput(text));
 
         ValidationResult contactValidation = ValidationResult.SUCCESS;
-        if (hasParameter(SendMail.CONTACT_INF)) {
-            log.info("has contact inf");
+        if (!user.isMemberContactEnabled()) {
             contactValidation = new NonEmptyValidator("Please enter the contact information.")
             .validate(new StringInput(getRequest().getParameter(SendMail.CONTACT_INF)));
             log.info("text : " + getRequest().getParameter(SendMail.CONTACT_INF));
