@@ -74,10 +74,12 @@ public class NewSchemaFixUtility extends DBUtility {
             }*/
             
             pcs = (PactsClientServices) createEJB();
-            processReviewersPaymentMDB();
-            //processProblemTestersPayments();
-            /*processProblemWritersPayments();
-            /*processReviewersPaymentInfo();
+
+            processProblemTestersPaymentsWithRounds();
+            processProblemTestersPaymentsNullRounds();
+            /*processReviewersPaymentMDB();
+            processProblemWritersPayments();
+            processReviewersPaymentInfo();
             processRoomResultAdditions();
             processRoomResultConflicts();
             processRoomResultCharities();
@@ -94,6 +96,84 @@ public class NewSchemaFixUtility extends DBUtility {
         }
     }
 
+
+    private void processProblemTestersPaymentsWithRounds() throws SQLException, RemoteException {
+        StringBuffer query = new StringBuffer(200);
+        query.append("select user_id, round_id, sum(money) as payment ");
+        query.append("from problem_testing_migration ");
+        query.append("where move = 'yes' and round_id is not null ");
+        query.append("and processed_ind = 0 ");
+        query.append("and not exists ( ");
+        query.append("select 'exist' from payment p, payment_detail pd ");
+        query.append("where p.most_recent_detail_id = pd.payment_detail_id ");
+        query.append("and pd.status_id <> 69 ");
+        query.append("and p.user_id = problem_testing_migration.user_id ");
+        query.append("and pd.algorithm_round_id = problem_testing_migration.round_id ");
+        query.append("and pd.payment_type_id = 14) ");
+        query.append("group by user_id, round_id ");
+
+        PreparedStatement psSelCompCompetitions = prepareStatement("informixoltp", query.toString());
+        log.debug("Processing problem testers payments:");
+
+        ResultSet rs = null;
+        try {            
+            rs = psSelCompCompetitions.executeQuery();
+            int i = 1;
+            for (; rs.next(); i++ ) {
+                pcs.addPayment(new ProblemTestingPayment(
+                        rs.getLong("user_id"),
+                        rs.getDouble("payment"),
+                        rs.getLong("round_id")));
+                if (i % 100 == 0) {
+                    log.debug(i + "...");
+                }
+            }
+            log.debug(i + " rows were processed...");
+        } finally {
+            DBMS.close(rs);
+            DBMS.close(psSelCompCompetitions);
+        }
+    }
+
+    private void processProblemTestersPaymentsNullRounds() throws SQLException, RemoteException {
+        StringBuffer query = new StringBuffer(200);
+        query.append("select user_id, contest, sum(money) as payment ");
+        query.append("from problem_testing_migration ");
+        query.append("where move = 'yes' and round_id is null ");
+        query.append("and processed_ind = 0 ");
+        query.append("and not exists ( ");
+        query.append("select 'exist' from payment p, payment_detail pd ");
+        query.append("where p.most_recent_detail_id = pd.payment_detail_id ");
+        query.append("and pd.status_id <> 69 ");
+        query.append("and p.user_id = problem_testing_migration.user_id ");
+        query.append("and pd.algorithm_round_id = problem_testing_migration.round_id ");
+        query.append("and pd.payment_type_id = 14) ");
+        query.append("group by user_id, contest ");
+
+        PreparedStatement psSelCompCompetitions = prepareStatement("informixoltp", query.toString());
+        log.debug("Processing problem testers payments:");
+
+        ResultSet rs = null;
+        try {            
+            rs = psSelCompCompetitions.executeQuery();
+            int i = 1;
+            for (; rs.next(); i++ ) {
+                pcs.addPayment(new ProblemTestingPayment(
+                        rs.getLong("user_id"),
+                        rs.getDouble("payment"),
+                        rs.getString("contest")));
+                if (i % 100 == 0) {
+                    log.debug(i + "...");
+                }
+            }
+            log.debug(i + " rows were processed...");
+        } finally {
+            DBMS.close(rs);
+            DBMS.close(psSelCompCompetitions);
+        }
+    }
+    
+/*
     private void processReviewersPaymentMDB() throws SQLException, RemoteException {
         StringBuffer query = new StringBuffer(200);
         query.append("select rpm.coder_id, rpm.project_id, sum(rpm.total_amount) as payment ");
@@ -131,47 +211,8 @@ public class NewSchemaFixUtility extends DBUtility {
             DBMS.close(psSelCompCompetitions);
         }
     }
-
-    private void processProblemTestersPayments() throws SQLException, RemoteException {
-        StringBuffer query = new StringBuffer(200);
-        query.append("select user_id, round_id, sum(money) as payment ");
-        query.append("from problem_testing_migration ");
-        query.append("where move = 'yes' ");
-        query.append("and processed_ind = 0 ");
-        query.append("and not exists ( ");
-        query.append("select 'exist' from payment p, payment_detail pd ");
-        query.append("where p.most_recent_detail_id = pd.payment_detail_id ");
-        query.append("and pd.status_id <> 69 ");
-        query.append("and p.user_id = problem_testing_migration.user_id ");
-        query.append("and pd.algorithm_round_id = problem_testing_migration.round_id ");
-        query.append("and pd.payment_type_id = 14) ");
-        query.append("group by user_id, round_id ");
-
-        PreparedStatement psSelCompCompetitions = prepareStatement("informixoltp", query.toString());
-        log.debug("Processing problem testers payments:");
-
-        ResultSet rs = null;
-        try {            
-            rs = psSelCompCompetitions.executeQuery();
-            int i = 1;
-            for (; rs.next(); i++ ) {
-                pcs.addPayment(new ProblemTestingPayment(
-                        rs.getLong("user_id"),
-                        rs.getDouble("payment"),
-                        rs.getLong("round_id")));
-                if (i % 100 == 0) {
-                    log.debug(i + "...");
-                }
-            }
-            log.debug(i + " rows were processed...");
-        } finally {
-            DBMS.close(rs);
-            DBMS.close(psSelCompCompetitions);
-        }
-    }
-
-    
-/*    private void processProblemWritersPayments() throws SQLException, RemoteException {
+     
+    private void processProblemWritersPayments() throws SQLException, RemoteException {
         StringBuffer query = new StringBuffer(200);
         query.append("select user_id, problem_id, sum(money) as payment ");
         query.append("from excelwriter ");
