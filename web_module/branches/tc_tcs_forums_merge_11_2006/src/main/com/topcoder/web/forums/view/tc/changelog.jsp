@@ -74,7 +74,7 @@
 <p>
     <b>1.2.0 - 2006.08.14</b>
     <ul>
-        <li>Deployed TopCoder Studio Forums (http://studio.topcoder.com/forums).</li>
+        <li>Deployed <a href="http://studio.topcoder.com/forums" class="rtbcLink">TopCoder Studio Forums</a>.</li>
 		<li>Fixed a case sensitivity error concerning [handle] tags.</li>
     </ul>
 </p>

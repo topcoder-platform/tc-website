@@ -20,8 +20,6 @@ import com.jivesoftware.forum.ForumPermissions;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.util.idgenerator.bean.LocalIdGen;
-import com.topcoder.util.idgenerator.bean.LocalIdGenHome;
 import com.topcoder.web.forums.ForumConstants;
 
 import java.io.File;
@@ -176,12 +174,10 @@ public class ForumConversion {
         UserManager userManager = forumFactory.getUserManager();
         GroupManager groupManager = forumFactory.getGroupManager();
         MimetypesFileTypeMap fileTypeMap = new MimetypesFileTypeMap();
-    	
-        // for every forum converted, add an entry to tcs_catalog:comp_jive_xref, and 
-        // moderator/user permissions to the forum from existing roles (user_role_xref)
+
         Context context = new InitialContext();
-        LocalIdGenHome localIdGenHome = (LocalIdGenHome) context.lookup(LocalIdGenHome.EJB_REF_NAME);
-        LocalIdGen localIdGen = localIdGenHome.create();
+        //LocalIdGenHome localIdGenHome = (LocalIdGenHome) context.lookup(LocalIdGenHome.EJB_REF_NAME);
+        //LocalIdGen localIdGen = localIdGenHome.create();
         
     	// get forums from FORUM_MASTER table        
         forumPS = tcConn.prepareStatement(
