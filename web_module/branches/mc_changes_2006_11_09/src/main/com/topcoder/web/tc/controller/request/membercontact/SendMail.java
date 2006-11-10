@@ -70,7 +70,7 @@ public class SendMail extends ShortHibernateProcessor {
         
         String contactInf = "";
         if (hasParameter(CONTACT_INF)) {
-            contactInf = Constants.CONTACT_INFORMATION_TITLE + getRequest().getParameter(CONTACT_INF);
+            contactInf = "\n\n" + Constants.CONTACT_INFORMATION_TITLE + getRequest().getParameter(CONTACT_INF);
         }
 
         // Check again that the user is valid, in case that someone has tweaked the jsp
