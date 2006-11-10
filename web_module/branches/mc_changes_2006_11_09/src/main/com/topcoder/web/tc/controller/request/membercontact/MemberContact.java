@@ -38,8 +38,8 @@ public class MemberContact extends ShortHibernateProcessor {
                 !SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(MemberContact.class))) {
             getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(true));
         } else if (Helper.isBanned(getUser().getId()) 
-            	|| (Arrays.binarySearch(WebConstants.ACTIVE_STATI, sender.getStatus().charValue()) < 0)) {
-            getRequest().setAttribute(Helper.BANNED, String.valueOf(true));        	
+                || (Arrays.binarySearch(WebConstants.ACTIVE_STATI, sender.getStatus().charValue()) < 0)) {
+            getRequest().setAttribute(Helper.BANNED, String.valueOf(true));         
         } else {
             if (!sender.isMemberContactEnabled()) {
                 getRequest().setAttribute(CAN_RECEIVE, String.valueOf(true));

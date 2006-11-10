@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page language="java"
          import="com.topcoder.web.tc.controller.request.membercontact.MemberContact,
-		         com.topcoder.web.tc.controller.request.membercontact.SendMail,
+                 com.topcoder.web.tc.controller.request.membercontact.SendMail,
                  com.topcoder.web.tc.controller.request.membercontact.Helper"
           %>
 <%@ taglib uri="common-functions" prefix="cf" %>
@@ -22,9 +22,9 @@ var prevCanSend = false;
 
 function canSend() {
    return document.f.<%= SendMail.TEXT %>.value != "" &&
-  		  <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
+          <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
           document.f.<%= SendMail.CONTACT_INF %>.value != "" &&
-		  </c:if>
+          </c:if>
            document.f.handleValid.value == "true";
 }
 
@@ -38,7 +38,7 @@ function validate(send) {
     ajaxRequest.addFormElementsById("<%= SendMail.TEXT %>");    
     <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
         ajaxRequest.addFormElementsById("<%= SendMail.CONTACT_INF %>");    
-	</c:if>
+    </c:if>
     if (send) {
         ajaxRequest.addFormElementsById("<%= SendMail.SEND %>");
     }
@@ -48,8 +48,8 @@ function validate(send) {
 
 function textChanged() {
     if (prevCanSend != canSend()) {
-		validate(false);
-	    prevCanSend = canSend();
+        validate(false);
+        prevCanSend = canSend();
     }
 }
 
@@ -76,8 +76,8 @@ function keyPress(e) {
 function init() {
     document.f.<%= SendMail.TO_HANDLE %>.focus();
 <c:if test="${not empty param.th}" >
-	validate(false);
-    document.f.<%= SendMail.TEXT %>.focus();	
+    validate(false);
+    document.f.<%= SendMail.TEXT %>.focus();    
 </c:if>
 }
 
@@ -125,7 +125,7 @@ Use the message form below to contact the member of your choice, only one recipi
 To block specific TopCoder members from contacting you, go to the <a href='/tc?module=BlackList'>black list</a> page.
 <br>
 <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
-	To enable other rated TopCoder members to contact you, <a href='/tc?module=MemberContactEnable'>click here</a>
+    To enable other rated TopCoder members to contact you, <a href='/tc?module=MemberContactEnable'>click here</a>
     <br>
 </c:if>
 <br>
