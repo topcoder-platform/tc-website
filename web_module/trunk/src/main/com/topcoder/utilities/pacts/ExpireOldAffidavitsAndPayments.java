@@ -73,15 +73,15 @@ public class ExpireOldAffidavitsAndPayments extends ServiceMBeanSupport implemen
 
     private class ExpireTask extends TimerTask {
         public void run() {
-            logger.debug("ExpireOldAffidavitsAndPayments Fired");
+            logger.info("ExpireOldAffidavitsAndPayments Fired");
 
             try {
             	DataInterfaceBean dib = new DataInterfaceBean();
             	int n = dib.expireOldAffidavits();
-            	logger.debug(n + " affidavits expired");
+            	logger.info(n + " affidavits expired");
             	
             	n = dib.expireOldPayments();
-            	logger.debug(n + " payments expired");
+            	logger.info(n + " payments expired");
             	
             } catch (Exception e) {
                 if (!(e instanceof NameNotFoundException))
