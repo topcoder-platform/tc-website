@@ -42,13 +42,13 @@ public class ViewActiveContests extends Base {
             getRequest().setAttribute("resultMap", getDataAccess().getData(r));
 
             SortInfo s = new SortInfo();
-            s.addDefault(4, "asc");
             s.addDefault(3, "asc");
-            s.addDefault(8, "asc");
-            s.addDefault(11, "desc");
-            s.addDefault(7, "desc");
-            s.addDefault(2, "desc");
+            s.addDefault(2, "asc");
+            s.addDefault(7, "asc");
+            s.addDefault(10, "desc");
+            s.addDefault(6, "desc");
             s.addDefault(1, "desc");
+            s.addDefault(0, "desc");
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
             
             setNextPage("/dev/activeContests.jsp");
