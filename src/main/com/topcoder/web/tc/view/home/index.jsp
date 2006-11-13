@@ -63,7 +63,7 @@
         <td class="BIGPromoBox" align="center">
 <map name="tccc">
 <area shape="rect" alt="" coords="1,1,230,149" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
-<area shape="rect" alt="" coords="235,30,485,125" href="/tc?module=Static&d1=pressroom&d2=pr_101106" />
+<area shape="rect" alt="" coords="235,30,485,125" href="http://www.prnewswire.com/mnr/topcoder/26099/" />
 </map>
 <IMG SRC="/i/home/tccc06_webcast_20061011b.png" border="0" alt="TCCC06 Webcast" usemap="#tccc"/>
         </td>
@@ -226,8 +226,11 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr><td class="homeBigPromo">
             <%-- China --%> 
+            <A href="http://www.prnewswire.com/mnr/topcoder/26099/"><img src="/i/home/aolWebcast_20061113.jpg" alt="Meet the TCCC webcast team" border="0" style="display:block;" /></A>
+            
+            <%-- China 
             <A href="/tc?module=Static&d1=pressroom&d2=art_110206"><img src="/i/home/china_20061102.png" alt="China &amp; BusinessWeek" border="0" style="display:block;" /></A>
-                       
+            --%>            
             <%-- Maverick 
             <A href="/images/downloads/mavericks_at_work.pdf" target="_blank"><img src="/i/home/mavericks_100206.gif" alt="Mavericks at Work" border="0" style="display:block;" /></A>
             --%>
@@ -270,7 +273,7 @@
                 <A href="http://www.wallstreetandtech.com/showArticle.jhtml;jsessionid=0U21ZF2KMDLJYQSNDLPCKHSCJUNN2JVN?articleID=193400878" target="_blank">...more</A><br>[October 23]<br><br>
 
                 AOL to Webcast TCCC06 Live on November 17
-                <A href="/tc?module=Static&d1=pressroom&d2=pr_101106">...more</A><br>[October 11]<br><br>
+                <A href="http://www.prnewswire.com/mnr/topcoder/26099/">...more</A><br>[October 11]<br><br>
             
                 TopCoder joins "Mavericks at Work" book tour
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_101006">...more</A><br>[October 10]<br><br>
