@@ -35,7 +35,7 @@
                 <tr><td class="bodyText"><div align="right"><A href="/tc?module=Static&d1=pressroom&d2=index">Current News</A>&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=pressroom&d2=pr_archive">Press Releases Archive</A>&#160;&#160;|&#160;&#160;<strong>Articles Archive</strong></div></td></tr>
             </table>
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
-<!-- 2006  -->
+<!-- 2006  --> 
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
 <tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_110206">A Growing Cadre Of Code Warriors</A> [November 2 - BusinessWeek]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.csmonitor.com/2006/1101/p01s04-usec.htm" target="_blank">How to build software? Henry Ford, meet eBay.</A> [November 1 - Christian Science Monitor]<br/></td></tr>

@@ -49,6 +49,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- AOL TCCC webcast team --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://www.prnewswire.com/mnr/topcoder/26099/"><img src="/i/pressroom/aol_logo.jpg" alt="AOL logo" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.prnewswire.com/mnr/topcoder/26099/">Meet the AOL TCCC Webcast Team</A></strong></font><br />
+                        AOL today announced that ESPN's Jeremy Schaap will join TopCoder veterans John Dethridge and Ken_Vogel to host the live webcast of the TCCC finals. The webcast will be broadcast live on November 17, starting at 1:30 p.m. PST (21:30 GMT). <span class="prHead"> [November 13]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- China TopCoders in BusinessWeek --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -94,7 +109,7 @@
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<%-- Wall Street & Technology --%>
+<%-- gigaOm --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
