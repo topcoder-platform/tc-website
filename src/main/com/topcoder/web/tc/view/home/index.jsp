@@ -225,7 +225,7 @@
 <td class="homeRightCol">
     <table border="0" cellpadding="0" cellspacing="0">
         <tr><td class="homeBigPromo">
-            <%-- China --%> 
+            <%-- AOL webcast team --%> 
             <A href="http://www.prnewswire.com/mnr/topcoder/26099/"><img src="/i/home/aolWebcast_20061113.jpg" alt="Meet the TCCC webcast team" border="0" style="display:block;" /></A>
             
             <%-- China 

@@ -41,7 +41,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.13.06<br>11:00 AM</td>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.13.06<br>11:30 AM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="http://www.prnewswire.com/mnr/topcoder/26099/" target="_blank">Meet the AOL TCCC Webcast Team</A></span><br><br>
        <div style="float: right; padding-left: 7px;"><img src="/i/pressroom/aol_logo.jpg" width="80" height="38" alt="AOL logo" border="0" /></div>
        AOL today announced that ESPN's Jeremy Schaap will join TopCoder veterans <tc-webtag:handle coderId="270505" /> and <tc-webtag:handle coderId="154754" /> to host the live webcast of the TCCC finals. The webcast will be broadcast live on November 17, starting at 1:30 p.m. PST (21:30 GMT).
