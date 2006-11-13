@@ -38,6 +38,23 @@
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 -----------------------------%>
+<%--------------------------------------------------------%>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
+        <br>11.13.06<br>4:00 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=111306">TCCC Preview: Meet the bloggers</A></span><br><br>
+            "It's really amazing to think that in just a couple days I'll be sitting in a room with some of the best programmers in the world, and it won't be a chat room."
+            </td>
+            <td class="newsPhoto"><img src="/i/m/RRLevering_big.jpg" alt="" width="55" height="61"/>&#160;<img src="/i/m/Churchillio_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="344462" /> &amp; <tc-webtag:handle coderId="21181561" /></td></tr>
+        </table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&amp;d1=features&amp;d2=111306">article</A> |
+    <tc-webtag:forumLink forumID="506177" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+</td></tr>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -119,7 +136,7 @@
             <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=110806">TopCoder @ Work: Your Career and the TCCC</A></span><br><br>
             With the Collegiate Challenge coming up, here is a look at how the decisions you make during college - and your TopCoder experience - can lay the foundation for a rewarding career.
             </td>
-            <td class="newsPhoto"><img src="/i/m/timmac_big.jpg" alt="" width="55" height="61"/><img src="/i/m/rhudson_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td></tr>
+            <td class="newsPhoto"><img src="/i/m/timmac_big.jpg" alt="" width="55" height="61"/>&#160;<img src="/i/m/rhudson_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td></tr>
         </table>
     </td>
 </tr>
@@ -211,17 +228,3 @@ This 9pm EST SRM attracted many long established Topcoder members, but had sligh
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.03.06<br>1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/i/downloads/tccc06_program.pdf">TCCC06 Program now available</A> [PDF]
-        </span><br><br>
-      Get to know more about the 2006 TopCoder Collegiate Challenge competitors, and preview the competitions, with this year's TCCC Program.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/i/downloads/tccc06_program.pdf">view</A> [PDF] | 
-         <tc-webtag:forumLink forumID="506169" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
