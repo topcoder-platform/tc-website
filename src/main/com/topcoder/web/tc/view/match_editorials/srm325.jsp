@@ -47,7 +47,7 @@
     <A href="/stat?c=round_overview&er=5&rd=10005">Match Overview</A><br>
     <tc-webtag:forumLink forumID="506000" message="Discuss this match" />
 </div>
-<span class="bodySubtitle">SRM 325</span><br>Thursday, November , 2006
+<span class="bodySubtitle">SRM 325</span><br>Thursday, November 2, 2006
 <br><br>
 
 <h2>Match summary</h2>

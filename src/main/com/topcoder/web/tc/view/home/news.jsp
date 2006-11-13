@@ -39,6 +39,25 @@
    </td></tr>
 -----------------------------%>
 <%--------------------------------------------------------%>
+<tr>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
+        <br>11.13.06<br>5:00 PM</td>
+    <td class="newsTextCell">
+        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm326">SRM 326 - Problem Set & Analysis</A></span><br><br>
+<tc-webtag:handle coderId="10574855" context="algorithm"/> continued his streak of impressive performances with a fairly wide margin of victory on a difficult problem set.  He was followed in Div I by targeteer <tc-webtag:handle coderId="19849563" context="algorithm"/> and standout TCHS competitor <tc-webtag:handle coderId="14886245" context="algorithm"/>.
+            </td>
+            <td class="newsPhoto"><img src="/i/m/jmzero_big.jpg" alt="" width="55" height="61"/><br>by
+                <tc-webtag:handle coderId="15498334" context="algorithm"/></td></tr></table>
+    </td>
+</tr>
+<tr><td class="newsLinksCell">
+    <A href="/tc?module=Static&d1=match_editorials&d2=srm326">full story</A> |
+    <tc-webtag:forumLink forumID="506001" message="discuss this"/> |
+    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+</td></tr>
+
+<%--------------------------------------------------------%>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
         <br>11.13.06<br>4:00 PM</td>
     <td class="newsTextCell">
@@ -208,23 +227,4 @@ The latest round of the TCHS division led competitors through a minefield of dar
          <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=21">discuss this</A> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
-        <br>11.06.06<br>9:45 AM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm325">SRM 325 - Problem Set & Analysis</A></span><br><br>
-This 9pm EST SRM attracted many long established Topcoder members, but had slightly below average numbers for a money SRM.  It would appear as if it were a great opportunity to win a little bit of cash, but the high number of targets competing made it a tricky proposition.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/HiltonLange_big.jpg" alt="" width="55" height="61"/><br>by
-                <tc-webtag:handle coderId="10428762" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=match_editorials&d2=srm325">full story</A> |
-    <tc-webtag:forumLink forumID="506000" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
 
