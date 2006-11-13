@@ -45,9 +45,9 @@ public class ViewActiveContests extends Base {
             SortInfo s = new SortInfo();
             s.addDefault(3, "asc");   // Catalog    
             s.addDefault(2, "asc");   // Component  
-            s.addDefault(5, "asc");   // rated Registrants
-            s.addDefault(6, "asc");   // unrated Registrants
-            s.addDefault(7, "asc");   // total Registrants
+            s.addDefault(5, "desc");   // rated Registrants
+            s.addDefault(6, "desc");   // unrated Registrants
+            s.addDefault(7, "desc");   // total Registrants
             s.addDefault(10, "desc"); // Reg. End   
             s.addDefault(6, "desc");  // Submissions
             s.addDefault(1, "desc");  // Payment    
