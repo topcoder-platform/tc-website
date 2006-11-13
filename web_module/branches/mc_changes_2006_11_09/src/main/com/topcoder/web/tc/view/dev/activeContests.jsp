@@ -104,14 +104,14 @@ position: relative;
         <td class="title" colspan="9">Active Component Design Contests</td>
     </tr>
    <tr>
-      <td class="headerC">Catalog</td>
-      <td class="header" width="100%">Component</td>
+      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Catalog</a></td>
+      <td class="header" width="100%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Component</a></td>
       <td class="header">&#160;</td>
-      <td class="headerC" style="width: 80px;">Registrants<br/>Rated/Unrated</td>
-      <td class="headerC" style="width: 130px;">Registration Ends</td>
-      <td class="headerC" style="width: 80px;">Submissions</td>
-      <td class="headerR" style="width: 65px;">Payment*</td>
-      <td class="headerC" style="width: 130px;">Submit by</td>
+      <td class="headerC" style="width: 80px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Registrants<br/>Rated/Unrated</a></td>
+      <td class="headerC" style="width: 130px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Registration Ends</a></td>
+      <td class="headerC" style="width: 80px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Submit by</a>Submissions</td>
+      <td class="headerR" style="width: 65px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Submit by</a>Payment*</td>
+      <td class="headerC" style="width: 130px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Submit by</a></td>
    </tr>
 
     <% boolean even = false; %>
@@ -159,7 +159,7 @@ position: relative;
             </td>
             <td class="valueC" nowrap="nowrap">
                 <% if (resultRow.getBooleanItem("is_reg_closed")) { %>
-                <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
+                <rsc:item name="reg_end_date" row="<%=resultRow%>" / at="MM.dd.yyyy hh:mm a z"/>
                 <% } else { %>
                 <strong><rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/></strong>
                 <% } %>
