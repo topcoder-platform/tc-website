@@ -5,6 +5,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.common.model.SortInfo;
 
 /**
  * @author dok
@@ -25,6 +26,17 @@ public class ViewActiveContests extends Base {
             Request r = new Request();
             r.setContentHandle("active_contests");
             getRequest().setAttribute("resultMap", getDataAccess().getData(r));
+
+            SortInfo s = new SortInfo();
+            s.addDefault(4, "asc");
+            s.addDefault(3, "asc");
+            s.addDefault(8, "asc");
+            s.addDefault(11, "desc");
+            s.addDefault(7, "desc");
+            s.addDefault(2, "desc");
+            s.addDefault(1, "desc");
+            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+            
             setNextPage("/dev/activeContests.jsp");
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
