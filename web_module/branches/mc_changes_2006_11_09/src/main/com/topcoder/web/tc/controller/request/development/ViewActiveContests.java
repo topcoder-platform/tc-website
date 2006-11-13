@@ -25,7 +25,7 @@ public class ViewActiveContests extends Base {
             getRequest().setAttribute("phase_id_is_design", new Boolean(phase_id == SoftwareComponent.DESIGN_PHASE));
 
 
-            // Gets the rest of the optional parameters.
+            // Gets sort parameters.
             String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
@@ -41,14 +41,17 @@ public class ViewActiveContests extends Base {
             r.setProperty(DataAccessConstants.SORT_QUERY, "active_contests");
             getRequest().setAttribute("resultMap", getDataAccess().getData(r));
 
+            // defines column's default sort.
             SortInfo s = new SortInfo();
-            s.addDefault(3, "asc");
-            s.addDefault(2, "asc");
-            s.addDefault(7, "asc");
-            s.addDefault(10, "desc");
-            s.addDefault(6, "desc");
-            s.addDefault(1, "desc");
-            s.addDefault(0, "desc");
+            s.addDefault(3, "asc");   // Catalog    
+            s.addDefault(2, "asc");   // Component  
+            s.addDefault(5, "asc");   // rated Registrants
+            s.addDefault(6, "asc");   // unrated Registrants
+            s.addDefault(7, "asc");   // total Registrants
+            s.addDefault(10, "desc"); // Reg. End   
+            s.addDefault(6, "desc");  // Submissions
+            s.addDefault(1, "desc");  // Payment    
+            s.addDefault(0, "desc");  // Submit by  
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
             
             setNextPage("/dev/activeContests.jsp");
