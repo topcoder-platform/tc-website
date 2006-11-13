@@ -1,5 +1,6 @@
 package com.topcoder.web.tc.controller.request.development;
 
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
@@ -22,9 +23,22 @@ public class ViewActiveContests extends Base {
                 throw new TCWebException("Missing or invalid phase_id parameter (" + PHASE_ID_KEY + ") expected)");
             }
             getRequest().setAttribute("phase_id_is_design", new Boolean(phase_id == SoftwareComponent.DESIGN_PHASE));
-            
+
+
+            // Gets the rest of the optional parameters.
+            String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+            String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+
+            setDefault(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+            setDefault(DataAccessConstants.SORT_COLUMN, getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+
             Request r = new Request();
             r.setContentHandle("active_contests");
+            if (!(sortCol.equals("") || sortDir.equals(""))) {
+                r.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
+                r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
+            }
+            r.setProperty(DataAccessConstants.SORT_QUERY, "active_contests");
             getRequest().setAttribute("resultMap", getDataAccess().getData(r));
 
             SortInfo s = new SortInfo();
