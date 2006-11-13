@@ -12,7 +12,7 @@
 <% ResultSetContainer generalInfo = null;
     generalInfo = (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("general_problem_info");
     if (generalInfo.isEmpty())
-        generalInfo = (ResultSetContainer) ((Map) request.getAttribute("div21Results")).get("general_problem_info");%>
+        generalInfo = (ResultSetContainer) ((Map) request.getAttribute("div2Results")).get("general_problem_info");%>
 <% ResultSetContainer divisionInfo = (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("problem_division_info"); %>
 
 <% ResultSetContainer div1Lang = (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("problem_detail_by_language"); %>
