@@ -12,13 +12,19 @@
 <% ResultSetContainer generalInfo = null;
     generalInfo = (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("general_problem_info");
     if (generalInfo.isEmpty())
-        generalInfo = (ResultSetContainer) ((Map) request.getAttribute("div21Results")).get("general_problem_info");%>
+        generalInfo = (ResultSetContainer) ((Map) request.getAttribute("div2Results")).get("general_problem_info");%>
 <% ResultSetContainer divisionInfo = (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("problem_division_info"); %>
 
 <% ResultSetContainer div1Lang = (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("problem_detail_by_language"); %>
 <% ResultSetContainer div2Lang = (ResultSetContainer) ((Map) request.getAttribute("div2Results")).get("problem_detail_by_language"); %>
 <% ResultSetContainer div1Overall = (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("problem_detail_overall"); %>
 <% ResultSetContainer div2Overall = (ResultSetContainer) ((Map) request.getAttribute("div2Results")).get("problem_detail_overall"); %>
+<% ResultSetContainer writers = (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("problem_writers"); 
+	if (writers.isEmpty()) {
+		writers = (ResultSetContainer) ((Map) request.getAttribute("div2Results")).get("problem_writers"); 
+	}
+
+%>
 <% SimpleDateFormat sdfTime = new SimpleDateFormat("H:mm:ss.S");
     sdfTime.setTimeZone(java.util.TimeZone.getTimeZone("GMT"));%>
 <% String forumID = generalInfo.getItem(0, "forum_id").toString(); %>
@@ -122,6 +128,41 @@
             <% } %>
         </td>
     </tr>
+<% 
+	if (writers.isEmpty()) {
+%>    
+    <tr>
+        <td class="statTextBig" nowrap=nowrap>
+            Writer:
+        </td>
+        <td class="statText">
+            Unknown
+        </td>
+    </tr>
+<% } else if (writers.size() == 1) { %>    
+    <tr>
+        <td class="statTextBig" nowrap=nowrap>
+            Writer:
+        </td>
+        <td class="statText">
+            <tc-webtag:handle coderId='<%=writers.getLongItem(0, "coder_id")%>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
+        </td>
+    </tr>
+<% } else { %>
+    <tr>
+        <td class="statTextBig" nowrap=nowrap>
+            Writers:
+        </td>
+        <td class="statText">
+            <% for (int i = 0; i < writers.size(); i++) { %>
+            	<tc-webtag:handle coderId='<%=writers.getLongItem(i, "coder_id")%>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
+            	<% if (i == (writers.size() - 2)) { %> and 
+            	<% } else if (i < (writers.size() - 2)) {%> ,<%} %>
+            <% } %>
+        </td>
+    </tr>
+
+<% } %>
 
     <tr><td class="bodyText"><br/></td><tr/>
 </table>
