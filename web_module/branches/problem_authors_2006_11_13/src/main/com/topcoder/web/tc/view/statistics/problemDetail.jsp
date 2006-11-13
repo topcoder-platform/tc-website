@@ -27,7 +27,7 @@
 %>
 <% SimpleDateFormat sdfTime = new SimpleDateFormat("H:mm:ss.S");
     sdfTime.setTimeZone(java.util.TimeZone.getTimeZone("GMT"));%>
-<% String forumID = "123";%>
+<% String forumID = generalInfo.getItem(0, "forum_id").toString(); %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 
 <html>
