@@ -196,13 +196,13 @@ position: relative;
       <td class="header" style="width: 55px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Catalog</a></td>
       <td class="header" width="100%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Component</a></td>
       <td class="header">&#160;</td>
-      <td class="headerC" style="width: 80px;">
+      <td class="headerC" style="width: 90px;">
       <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Registrants</a><br/>
       <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Rated</a>/
       <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Unrated</a>
       </td>
-      <td class="headerC" style="width: 130px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Registration Ends</a></td>
-      <td class="headerC" style="width: 80px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Submissions</a></td>
+      <td class="headerC" style="width: 125px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Registration Ends</a></td>
+      <td class="headerC" style="width: 75px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Submissions</a></td>
       <td class="headerR" style="width: 65px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Payment*</a></td>
       <td class="headerC" style="width: 130px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Submit by</a></td>
    </tr>
