@@ -215,7 +215,13 @@ function submitEnter(e) {
     <td align="left" class="statText">
         <tc-webtag:textInput name="<%=Constants.MAX_DIV2_SUCCESS%>" size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
 </tr>
-
+<tr>
+    <td colspan="2" class="errorText" align="center">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.WRITER%>"><%=err%><br/></tc-webtag:errorIterator>
+    </td>
+    <td colspan="2" class="errorText" align="center">        
+    </td>
+</tr>
 <tr>
     <td align="right" class="statText">Writer:</td>
     <td align="left" class="statText">
