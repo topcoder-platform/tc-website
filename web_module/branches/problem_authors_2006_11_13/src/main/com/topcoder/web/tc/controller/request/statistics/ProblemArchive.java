@@ -47,6 +47,7 @@ public class ProblemArchive extends Base {
             String maxDiv2Success = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_DIV2_SUCCESS));
             String div1Level = StringUtils.checkNull(getRequest().getParameter(Constants.DIV1_LEVEL));
             String div2Level = StringUtils.checkNull(getRequest().getParameter(Constants.DIV2_LEVEL));
+            String writer = StringUtils.checkNull(getRequest().getParameter(Constants.WRITER));
 
             ArrayList filters = new ArrayList();
             if (!className.equals("")) {
@@ -105,7 +106,15 @@ public class ProblemArchive extends Base {
                 filters.add(new Equals(new Integer(div2Level), "div2_level"));
                 setDefault(Constants.DIV2_LEVEL, div2Level);
             }
+            if (!writer.equals("")) {
+                if (log.isDebugEnabled()) {
+                    log.debug("add writer filter: " + writer);
+                }
+                filters.add(new Contains(writer, "writers"));
+                setDefault(Constants.WRITER, writer);
+            }
 
+            
             if (filters.size() > 0) {
                 rsc = new ResultSetContainer(rsc, (ResultFilter[]) filters.toArray(new ResultFilter[0]));
             }

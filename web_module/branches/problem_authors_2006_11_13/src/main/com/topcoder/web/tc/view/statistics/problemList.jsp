@@ -62,6 +62,7 @@ function previous() {
     void add(StringBuffer buf, String key, String val) {
         if (key.equals(Constants.CLASS_NAME)
                 || key.equals(Constants.CATEGORY)
+                || key.equals(Constants.WRITER)                
                 || key.equals(Constants.MIN_DIV1_SUCCESS)
                 || key.equals(Constants.MIN_DIV2_SUCCESS)
                 || key.equals(Constants.MAX_DIV1_SUCCESS)
@@ -214,6 +215,15 @@ function submitEnter(e) {
     <td align="left" class="statText">
         <tc-webtag:textInput name="<%=Constants.MAX_DIV2_SUCCESS%>" size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
 </tr>
+
+<tr>
+    <td align="right" class="statText">Writer:</td>
+    <td align="left" class="statText">
+        <tc-webtag:textInput name="<%=Constants.WRITER%>" size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
+    <td align="right" class="statText"></td>
+    <td align="left" class="statText"></td>
+</tr>
+
 
 <tr>
     <td colspan="4" class="statText" align="center">
