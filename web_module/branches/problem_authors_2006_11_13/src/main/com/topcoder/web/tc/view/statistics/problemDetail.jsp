@@ -155,7 +155,7 @@
         </td>
         <td class="statText">
             <% for (int i = 0; i < writers.size(); i++) { %>
-            	<tc-webtag:handle coderId='<%=writers.getLongItem(i, "coder_id")%>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
+            	<tc-webtag:handle coderId='<%=writers.getLongItem(i, "writer_id")%>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
             	<% if (i == (writers.size() - 2)) { %> and 
             	<% } else if (i < (writers.size() - 2)) {%> ,<%} %>
             <% } %>
