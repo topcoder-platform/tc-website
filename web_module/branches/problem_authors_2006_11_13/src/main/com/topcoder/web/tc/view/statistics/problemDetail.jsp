@@ -145,7 +145,7 @@
             Writer:
         </td>
         <td class="statText">
-            <tc-webtag:handle coderId='<%=writers.getLongItem(0, "coder_id")%>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
+            <tc-webtag:handle coderId='<%=writers.getLongItem(0, "writer_id")%>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
         </td>
     </tr>
 <% } else { %>
