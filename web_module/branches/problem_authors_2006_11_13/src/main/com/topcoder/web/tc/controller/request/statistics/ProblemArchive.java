@@ -110,7 +110,7 @@ public class ProblemArchive extends Base {
                 if (log.isDebugEnabled()) {
                     log.debug("add writer filter: " + writer);
                 }
-                filters.add(new Contains(writer, "writers"));
+                filters.add(new ContainsElement(writer, "writers"));
                 setDefault(Constants.WRITER, writer);
             }
 
