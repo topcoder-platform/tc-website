@@ -194,6 +194,7 @@ public class AnswerInput extends BaseTag {
     }
 
     private String buildDropDown() {
+        log.info("buildDropDown");
         setName(PREFIX + question.getId());
         StringBuffer s = new StringBuffer(2000);
         s.append("<select");
@@ -217,6 +218,7 @@ public class AnswerInput extends BaseTag {
 
             if (getDefaultValue() != null && getDefaultValue().equals(new Long(a.getId()))) {
                 s.append(" selected");
+                log.info("Selected: " + a.getId());
             }
             
             s.append(">");
