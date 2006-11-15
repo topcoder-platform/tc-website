@@ -175,7 +175,7 @@
                                 src="/i/results.gif" width="60" height="18" border="0"/></a>
                         <img src="/i/clear.gif" width="10" height="18" border="0"/>
                         <% } %>
-
+						already: <%= alreadyResponded.booleanValue() %>
                         <% if (!alreadyResponded.booleanValue()) { %>
                         <a href="javascript: document.surveyForm.submit();"><img src="/i/submit.gif" width="60" height="18" border="0"/></a>
                         <% } %>
