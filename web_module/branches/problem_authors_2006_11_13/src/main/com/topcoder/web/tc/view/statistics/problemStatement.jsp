@@ -10,7 +10,7 @@
           java.awt.*,
           java.io.StringReader"
 %>
-
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
 <HTML>
