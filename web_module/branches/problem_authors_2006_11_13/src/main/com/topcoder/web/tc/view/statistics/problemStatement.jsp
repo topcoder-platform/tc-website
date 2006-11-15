@@ -110,6 +110,17 @@ if (rsc!=null && !rsc.isEmpty()) {
                  <TR>
                    <TD CLASS="statText" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="16" BORDER="0"></TD>
                  </TR>
+                 <TR>
+                   <TD CLASS="statText" COLSPAN="7">
+                      This problem was used in rounds:
+   <rsc:iterator list="<%=rounds%>" id="resultRow">
+   	<br><a href="/tc?module=ProblemDetail&rd=<%= resultRow.getIntItem("round_id") %>&pm=<%=  resultRow.getIntItem("problem_id") %>"><rsc:item name="round_name" row="<%=resultRow%>"/></a>
+   </rsc:iterator>
+                   
+                   </TD>
+                 </TR>
+
+
                </TABLE>
              </TD>
            </TR>
@@ -127,16 +138,13 @@ if (rsc!=null && !rsc.isEmpty()) {
        <TD WIDTH="180" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="180" HEIGHT="1" BORDER="0">
          <jsp:include page="../public_right.jsp" />
        </TD>
+       
     <!-- Gutter -->
     <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
      </TR>
    </TABLE>
    
-   This problem was used in:
-   <rsc:iterator list="<%=rounds%>" id="resultRow">
-   	<a href="/tc?module=ProblemDetail&rd=<%= resultRow.getIntItem("round_id") %>&pm=<%= problem.getProblemId()%>"><rsc:item name="round_name" row="<%=resultRow%>"/></a>
-   </rsc:iterator>
    
    <jsp:include page="../foot.jsp" />
  </BODY>
