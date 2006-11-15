@@ -47,7 +47,7 @@ The Orpheus game is an on-line scavenger hunt, in which players search the Inter
 The administration server will be implemented as a J2EE web application, involving servlets and JSPs backed by an EJB-based interface to persistent storage.
 <br><br>
 <span class="bodySubtitle">Competition Overview</span><br>
-This competition involves assembling the administration server.  The greatest part of the application is implemented by custom and generic components that have recently been completed.  The main tasks will involve configuring these components, writing application deployment descriptors, converting the existing HTML prototype to JSP, and comprehensive unit testing to ensure correct operation.
+This competition involves assembling the administration server.  The greatest part of the application is implemented by custom and generic components that have recently been completed.  The main tasks will involve configuring these components, writing application deployment descriptors, converting the existing HTML prototype to JSP, and comprehensive unit testing to ensure correct operation.  Teams will be required to commit their in-progress work to TopCoder's Subversion repository at the midpoint of the competition.
 <br><br>
 <div align="right"><A href="/tc?module=Static&d1=features&d2=061906"><img src="/i/development/assembly/learn_more.gif" alt="Want to Learn More?" border="0" /></A></div>
 
@@ -59,11 +59,11 @@ Each team will be responsible for creating their working environment. The workin
 <li>Linux</li>
 <li>Microsoft SQL Server 2005</li>
 </ul>
-
+<%--
 <div class="sectionHeader">Documentation</div>
-Documentation/Specifications are available in the application forums <%--<A href="https://software.topcoder.com/forum/c_forum.jsp?f=24428969">here</A>--%><A href="">here</A>.
+Documentation/Specifications are available in the application forums <A href="https://software.topcoder.com/forum/c_forum.jsp?f=24428969">here</A>.
 <br><br>
-
+--%>
 <div class="sectionHeader">Payment</div>
 TopCoder will compensate teams with first and second place submissions. Initial payment for the winning team will be distributed in two installments. The first installment will be paid when the winning solution with review board requirements and suggestions integrated is accepted by TopCoder. The second installment will be paid upon completion of application deployment.
 <br><br>
@@ -97,10 +97,13 @@ All submissions are required to be submitted by the end of Competition Phase. Th
       <td><strong>Phase</strong></td><td align="right"><strong>Start</strong></td><td align="right"><strong>End</strong></td>
    </tr>
    <tr>
-      <td>Team Creation:</td><td align="right">11.14.2006</td><td align="right">11.20.2006</td>
+      <td>Team Creation:</td><td align="right">11.15.2006</td><td align="right">11.20.2006</td>
    </tr>
    <tr>
-      <td>Competition Phase:</td><td align="right">11.14.2006</td><td align="right">12.05.2006</td>
+      <td>Competition Phase:</td><td align="right">11.15.2006</td><td align="right">12.05.2006</td>
+   </tr>
+   <tr>
+      <td>Interim deliverables due:</td><td align="right">11.27.2006</td><td align="right">11.27.2006</td>
    </tr>
    <tr>
       <td>Review Phase:</td><td align="right">12.05.2006</td><td align="right">12.12.2006</td>

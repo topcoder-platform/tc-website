@@ -49,7 +49,6 @@
       <td class="tableHeader" align="center" nowrap="nowrap">Forums</td>
    </tr>
    <% boolean even = false; %>
-   <%-- POST FRIDAY NOV 10 probably --%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value" nowrap>
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_orpheusGameServer">Orpheus Game Server and Client Modules</A>
@@ -82,33 +81,31 @@
       <td class="valueC" nowrap="nowrap">
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506175">join a team</A>
       <br>
-      <!--<A href="">discuss</A>-->
+      <%--<A href="">discuss</A>--%>
       </td>
    </tr>
    <% even = !even;%>
-   
-   <%-- POST MONDAY NOV 20
    <tr class="<%=even?"dark":"light"%>">
       <td class="value" nowrap>
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_orpheusAdmin">Orpheus Administration Module</A>
       </td>
       <td class="valueC">
       <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Orpheus Administration Module">register</A>
-        <!--
+        <%--
         registration closed
-        -->
+        --%>
       </td>
       <td class="valueC">
       &#160;
-      <!--   
+      <%--   
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_orpheusAdmin">results</A>
-      -->
+      --%>
       </td>
       <td class="valueC">
       &#160;
-      <!-- 
+      <%-- 
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_orpheusAdmin">standings</A>
-      -->
+      --%>
       </td>
       <td class="valueC">$8,000</td>
       <td class="valueC">
@@ -120,33 +117,31 @@
       <td class="valueC" nowrap="nowrap">
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506173">join a team</A>
       <br>
-      <A href="">discuss</A>
+      <%--<A href="">discuss</A>--%>
       </td>
    </tr>
    <% even = !even;%>
-   --%>
-   <%-- POST MONDAY NOV 20
    <tr class="<%=even?"dark":"light"%>">
       <td class="value" nowrap>
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_orpheusAuction">Orpheus Auction Module</A>
       </td>
       <td class="valueC">
       <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Orpheus Auction Module">register</A>
-        <!--
+        <%--
         registration closed
-        -->
+        --%>
       </td>
       <td class="valueC">
       &#160;
-      <!--   
+      <%--   
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_orpheusAuction">results</A>
-      -->
+      --%>
       </td>
       <td class="valueC">
       &#160;
-      <!-- 
+      <%-- 
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_orpheusAuction">standings</A>
-      -->
+      --%>
       </td>
       <td class="valueC">$8,000</td>
       <td class="valueC">
@@ -158,11 +153,10 @@
       <td class="valueC" nowrap="nowrap">
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506174">join a team</A>
       <br>
-      <A href="">discuss</A>
+      <%--<A href="">discuss</A>--%>
       </td>
    </tr>
    <% even = !even;%>
-   --%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value" nowrap>
       <img src="/i/development/smAOL_crop.gif" border="0" alt="" align="ABSMIDDLE" />
