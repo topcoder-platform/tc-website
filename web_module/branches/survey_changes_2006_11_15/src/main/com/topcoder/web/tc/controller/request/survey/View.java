@@ -63,7 +63,7 @@ public class View extends SurveyData {
                 log.info("setDefault: " + AnswerInput.PREFIX + row.getLongItem("question_id"));
                 log.info("value: " + row.getStringItem("response"));
             } else if (styleId == Question.SINGLE_CHOICE) {
-                setDefault(AnswerInput.PREFIX + row.getLongItem("question_id"), String.valueOf(row.getLongItem("answer_id")));
+                setDefault(AnswerInput.PREFIX + row.getLongItem("question_id"), new Long(row.getLongItem("answer_id")));
                 log.info("setDefault: " + AnswerInput.PREFIX + row.getLongItem("question_id"));
                 log.info("value: " + row.getLongItem("answer_id"));
             } else if (styleId == Question.MULTIPLE_CHOICE) {
