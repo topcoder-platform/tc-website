@@ -44,6 +44,12 @@
 
 
 <p>
+    5.5.9 - 2006.11.XX
+    <ul>
+        <li>Design and Development Active Contests columns are now sorteable</li>
+    </ul>
+ </p>
+<p>
     5.5.8 - 2006.11.08
     <ul>
         <li>Fix bug in generating algorithm payments; charity payments were missing</li>
