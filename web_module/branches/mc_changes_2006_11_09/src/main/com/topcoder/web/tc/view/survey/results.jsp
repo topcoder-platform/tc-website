@@ -79,7 +79,7 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
                         </td>
                      </tr>
                      <tr>
-                        <td class="header">Answer</td>
+                        <td class="header">A-nswer</td>
                         <td class="headerR">Responses</td>
                         <td class="headerR">My Vote</td>
                         <td class="headerR">Percentage</td>
