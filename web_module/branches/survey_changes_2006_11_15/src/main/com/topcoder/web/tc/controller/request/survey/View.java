@@ -22,6 +22,7 @@ public class View extends SurveyData {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         try {
             if (alreadyResponded()) {
+                log.info("Already responded...");
 /*                SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
                 setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=SurveyResults&" + Constants.SURVEY_ID + "=" + survey.getId());
                setIsNextPageInContext(false);*/
@@ -45,6 +46,7 @@ public class View extends SurveyData {
     }
 
     private void setResponseDefaults(long userId, long surveyId) throws Exception {
+        log.info("Setting defaults...");
         Request req = new Request();
         DataAccessInt dataAccess = getDataAccess(true);
         req.setContentHandle("response_detail");
