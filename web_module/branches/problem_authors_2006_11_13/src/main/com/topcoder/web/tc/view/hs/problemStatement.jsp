@@ -28,8 +28,8 @@
     </jsp:include>
 </head>
 <%
-	ResultSetContainer rounds = (ResultSetContainer) queryEntries.get("rounds_for_problem");
     Map queryEntries = (Map) request.getAttribute("QUERY_RESPONSE");
+	ResultSetContainer rounds = (ResultSetContainer) queryEntries.get("rounds_for_problem");
     ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Problem_Statement");
     ResultSetContainer.ResultSetRow resultRow_0 = null;
     String sClassName = null;
