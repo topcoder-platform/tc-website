@@ -13,6 +13,7 @@
         %>
 
 <%@ page language="java" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -27,19 +28,18 @@
     </jsp:include>
 </head>
 <%
-
     Map queryEntries = (Map) request.getAttribute("QUERY_RESPONSE");
+	ResultSetContainer rounds = (ResultSetContainer) queryEntries.get("rounds_for_problem");
     ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Problem_Statement");
     ResultSetContainer.ResultSetRow resultRow_0 = null;
     String sClassName = null;
     String sProblemText = null;
     Problem problem = null;
-    int algoType = 1;
     if (rsc != null && !rsc.isEmpty()) {
         resultRow_0 = rsc.isValidRow(0) ? rsc.getRow(0) : null;
         sClassName = resultRow_0 != null ? resultRow_0.getItem("class_name").toString() : "";
         sProblemText = resultRow_0 != null ? resultRow_0.getItem("problem_text").toString() : "";
-        algoType = resultRow_0 != null ? resultRow_0.getIntItem("algo_rating_type_id") : 1;
+//        algoType = resultRow_0 != null ? resultRow_0.getIntItem("algo_rating_type_id") : 1;
         // jeddie 09/05/02 - put problem text into a Reader, create default language, and use ProblemComponentRenderer
         StringReader reader = new StringReader(sProblemText);
         ProblemComponent arrProblemComponent[] = new ProblemComponent[1];
@@ -63,7 +63,7 @@
         <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="node" value="<%= algoType == 2? "m_hs_stats" : "m_algo_stats"%>"/>
+                <jsp:param name="node" value="m_hs_stats"/>
             </jsp:include>
         </td>
         <!-- Left Column Ends -->
@@ -86,6 +86,13 @@
             <% } else { %>
             Problem Statement not available.
             <% } %>
+<br/>
+                      This problem was used for:
+   <rsc:iterator list="<%=rounds%>" id="resultRow">
+   	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/tc?module=ProblemDetail&rd=<%= resultRow.getIntItem("round_id") %>&pm=<%=  resultRow.getIntItem("problem_id") %>"><rsc:item name="round_name" row="<%=resultRow%>"/></a>
+   </rsc:iterator>
+                   
+
 
         </td>
         <!-- Center Column Ends -->

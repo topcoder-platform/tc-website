@@ -12,7 +12,7 @@
 <% ResultSetContainer generalInfo = null;
     generalInfo = (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("general_problem_info");
     if (generalInfo.isEmpty())
-        generalInfo = (ResultSetContainer) ((Map) request.getAttribute("div21Results")).get("general_problem_info");%>
+        generalInfo = (ResultSetContainer) ((Map) request.getAttribute("div2Results")).get("general_problem_info");%>
 <% ResultSetContainer divisionInfo = (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("problem_division_info"); %>
 
 <% ResultSetContainer div1Lang = (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("problem_detail_by_language"); %>
@@ -110,6 +110,19 @@
             <rsc:item set="<%=generalInfo%>" name="categories"/>
         </td>
     </tr>
+    <tr>
+        <td class="statTextBig" nowrap=nowrap>
+            Writer:
+        </td>
+        <td class="statText">
+        	<%  if (generalInfo.getItem(0, "writer_id").getResultData() != null) {%>
+            <tc-webtag:handle coderId='<%=generalInfo.getLongItem(0, "writer_id")%>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
+            <% } else { %>
+            	Unknown
+            <% } %>
+        </td>
+    </tr>
+
     <tr>
         <td class="statTextBig" valign="top" colspan="2">
             <div style="float:left; padding-right: 5px;">
