@@ -300,7 +300,7 @@ function submitEnter(e) {
                 <TD CLASS="statText" HEIGHT="13" ALIGN="left">
                     <rsc:item name="contest_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></TD>
                 <TD CLASS="statText" HEIGHT="13" ALIGN="left">
-                	<% String writerIds[] = resultRow.getStringItem("writers_id").split();
+                	<% String writerIds[] = resultRow.getStringItem("writers_id").split(",");
                 	   for (int i = 0; i < writerIds.length; i++) {%>
 				            <tc-webtag:handle coderId='<%= writerIds[i].trim() %>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
                 	   	
