@@ -259,7 +259,7 @@ function submitEnter(e) {
                 <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="2"/><%=addParams(request)%>" class="statText"><b>Date</b></a>
             </TD>
             <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="10%">
-                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="18"/><%=addParams(request)%>" class="statText"><b>Writers</b></a>
+                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="18"/><%=addParams(request)%>" class="statText"><b>Writer</b></a>
             </TD>
             <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="20%"><b>Categories</b>
             </TD>
@@ -299,15 +299,7 @@ function submitEnter(e) {
                 </TD>
                 <TD CLASS="statText" HEIGHT="13" ALIGN="left">
                     <rsc:item name="contest_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></TD>
-                <TD CLASS="statText" HEIGHT="13" ALIGN="left">
-                	<% String writerIds[] = resultRow.getStringItem("writers_id").split(",");
-                	   for (int i = 0; i < writerIds.length; i++) {
-                	   			if (writerIds[i].trim().length() > 0) {%>
-				            <tc-webtag:handle coderId='<%= writerIds[i].trim() %>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
-                	   			 <%	if (i < (writerIds.length - 1)) { %>, <% } %>
-                	   		<% } 
-                	   }%>
-                
+                <TD CLASS="statText" HEIGHT="13" ALIGN="left"><tc-webtag:handle coderId='<%= resultRow.getLongItem("writer_id") %>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
                 </TD>
                 <TD CLASS="statText" HEIGHT="13" ALIGN="left"><rsc:item name="categories" row="<%=resultRow%>"/></TD>
                 <TD CLASS="statText" HEIGHT="13" ALIGN="right"><rsc:item name="div1_level" row="<%=resultRow%>"/></TD>
