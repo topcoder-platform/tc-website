@@ -286,7 +286,7 @@ function submitEnter(e) {
             <TR>
                 <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                 <TD CLASS="statText" HEIGHT="13">
-                    <A HREF="/stat?c=problem_statement&pm=<rsc:item name="problem_id" row="<%=resultRow%>"/>&rd=<rsc:item name="round_id" row="<%=resultRow%>"/>" class="statText">
+                    <A HREF="/stat?c=problem_statement&pm=<rsc:item name="problem_id" row="<%=resultRow%>"/> />" class="statText">
                         <rsc:item name="problem_name" row="<%=resultRow%>"/></A></TD>
                 <TD CLASS="statText" HEIGHT="13" ALIGN="left" NOWRAP="on">
                     <% if (resultRow.getIntItem("algo_rating_type_id") == Constants.TC_ALGO_RATING_TYPE_ID) { %>

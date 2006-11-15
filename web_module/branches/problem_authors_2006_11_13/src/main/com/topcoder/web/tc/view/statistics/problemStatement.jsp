@@ -47,6 +47,7 @@
          </TABLE>
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 <%
+ResultSetContainer rounds = (ResultSetContainer) queryEntries.get("rounds_for_problem");
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Problem_Statement");
 ResultSetContainer.ResultSetRow resultRow_0 = null;
 String sClassName = null;
@@ -131,6 +132,12 @@ if (rsc!=null && !rsc.isEmpty()) {
     <!-- Gutter Ends -->
      </TR>
    </TABLE>
+   
+   This problem was used in:
+   <rsc:iterator list="<%=rounds%>" id="resultRow">
+   	<a href="/tc?module=ProblemDetail&rd=<%= resultRow.getIntItem("round_id") %>&pm=<%= problem.getProblemId()%>"><rsc:item name="round_name" row="<%=resultRow%>"/></a>
+   </rsc:iterator>
+   
    <jsp:include page="../foot.jsp" />
  </BODY>
 </HTML>
