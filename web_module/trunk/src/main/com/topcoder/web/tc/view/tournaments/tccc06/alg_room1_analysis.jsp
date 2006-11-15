@@ -28,11 +28,11 @@
             
 <div style="float: right;">
 <p align="center"><span class="bodyText" align="center"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=photos">See more photos!</a></span></p>
-<img src="/i/tournament/tccc06/onsitePhotos/shotRoom1.jpg" alt="" class="photoFrameBig" /><br>
+<img src="/i/tournament/tccc06/onsitePhotos/shotRoom1b.jpg" alt="" class="photoFrameBig" /><br>
 </div>
 
 <p style="vertical-align:top;">
-<span class="bigTitle">ACRush wins Room 1</span>
+<span class="bigTitle">Ying wins Room 1</span>
 <br><br>
 <img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
 <tc-webtag:forumLink forumID="506181" message="Discuss this match" /><br>
@@ -113,10 +113,6 @@ Finally we do bisection starting with lo=0 and hi = 10^99   (overkill, since the
 by <tc-webtag:handle coderId="277659" context="algorithm"/>
 <br><br>
 <p>
-Amazing is an easy editorial; here's what I have.  Note taht I have
-actually improved my solution (at least in elegance).
-
-<p>
 Exhaustive search won't quite work.  Ten trips, with eleven endpoints,
 each of which can be any of ten cities, gives an overall count of 
 10^11 routes to evaluate.  If it were just five trips, we could do it.
@@ -132,7 +128,7 @@ scan the lists with two pointers, at every step keeping the total
 as close to our target as possible.  The following elegant code
 does that, given a target and sorted arrays a and b: 
 </p>
-<code>
+<pre>
 int i = 0 ;
 int j = b.length - 1 ;
 int best = Math.abs(a[i] + b[j] - target) ;
@@ -146,7 +142,7 @@ while (true) {
    else
       break ;
 }
-</code>
+</pre>
 <p>
 It essentially iterates over one array, tracking the value in the other 
 array that takes us closest to the target.  At each step it uses the
