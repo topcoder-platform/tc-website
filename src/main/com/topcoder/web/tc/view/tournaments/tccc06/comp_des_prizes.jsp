@@ -43,7 +43,7 @@
 </tr>
 </table>
 <br><br>
-The following is a list of competitors who passed screening on at least one component, earning a TCO06 tshirt:
+The following is a list of competitors who passed screening on at least one component, earning a tccc06 tshirt:
 <br><br>
 <tc-webtag:handle coderId="20188980" darkBG="true" /><br>
 <tc-webtag:handle coderId="154254" darkBG="true" /><br>
