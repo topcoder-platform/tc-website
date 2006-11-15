@@ -27,7 +27,7 @@
     </jsp:include>
 </head>
 <%
-
+	ResultSetContainer rounds = (ResultSetContainer) queryEntries.get("rounds_for_problem");
     Map queryEntries = (Map) request.getAttribute("QUERY_RESPONSE");
     ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Problem_Statement");
     ResultSetContainer.ResultSetRow resultRow_0 = null;
@@ -85,6 +85,13 @@
             <% } else { %>
             Problem Statement not available.
             <% } %>
+<br/>
+                      This problem was used for:
+   <rsc:iterator list="<%=rounds%>" id="resultRow">
+   	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/tc?module=ProblemDetail&rd=<%= resultRow.getIntItem("round_id") %>&pm=<%=  resultRow.getIntItem("problem_id") %>"><rsc:item name="round_name" row="<%=resultRow%>"/></a>
+   </rsc:iterator>
+                   
+
 
         </td>
         <!-- Center Column Ends -->
