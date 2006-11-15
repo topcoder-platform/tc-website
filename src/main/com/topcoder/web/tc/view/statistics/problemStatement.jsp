@@ -10,7 +10,7 @@
           java.awt.*,
           java.io.StringReader"
 %>
-
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
 <HTML>
@@ -21,6 +21,12 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_main"/>
 </jsp:include>
+
+<style type="text/css">
+a:link {color: white}
+a:visited {color: white}
+</style>
+
  </HEAD>
  <body text="#FFFFFF">
    <jsp:include page="../top.jsp" />
@@ -47,6 +53,7 @@
          </TABLE>
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 <%
+ResultSetContainer rounds = (ResultSetContainer) queryEntries.get("rounds_for_problem");
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Problem_Statement");
 ResultSetContainer.ResultSetRow resultRow_0 = null;
 String sClassName = null;
@@ -109,6 +116,17 @@ if (rsc!=null && !rsc.isEmpty()) {
                  <TR>
                    <TD CLASS="statText" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="16" BORDER="0"></TD>
                  </TR>
+                 <TR>
+                   <TD CLASS="statText" COLSPAN="7">
+                      This problem was used for:
+   <rsc:iterator list="<%=rounds%>" id="resultRow">
+   	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/tc?module=ProblemDetail&rd=<%= resultRow.getIntItem("round_id") %>&pm=<%=  resultRow.getIntItem("problem_id") %>"><rsc:item name="round_name" row="<%=resultRow%>"/></a>
+   </rsc:iterator>
+                   
+                   </TD>
+                 </TR>
+
+
                </TABLE>
              </TD>
            </TR>
@@ -126,11 +144,14 @@ if (rsc!=null && !rsc.isEmpty()) {
        <TD WIDTH="180" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="180" HEIGHT="1" BORDER="0">
          <jsp:include page="../public_right.jsp" />
        </TD>
+       
     <!-- Gutter -->
     <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
      </TR>
    </TABLE>
+   
+   
    <jsp:include page="../foot.jsp" />
  </BODY>
 </HTML>

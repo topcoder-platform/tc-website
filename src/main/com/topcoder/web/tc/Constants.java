@@ -254,6 +254,7 @@ public class Constants implements WebConstants {
     public static String MAX_DIV2_SUCCESS;
     public static String DIV1_LEVEL;
     public static String DIV2_LEVEL;
+    public static String WRITER;
 
     public static String JOB_HIT_MESSAGE_NOT_REGISTERED;
     public static String JOB_HIT_MESSAGE_UN_REGISTERED;
