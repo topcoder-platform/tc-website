@@ -115,7 +115,11 @@
             Writer:
         </td>
         <td class="statText">
+        	<%  if (generalInfo.getItem(0, "writer_id").getResultData() != null) {%>
             <tc-webtag:handle coderId='<%=generalInfo.getLongItem(0, "writer_id")%>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
+            <% } else { %>
+            	Unknown
+            <% } %>
         </td>
     </tr>
 

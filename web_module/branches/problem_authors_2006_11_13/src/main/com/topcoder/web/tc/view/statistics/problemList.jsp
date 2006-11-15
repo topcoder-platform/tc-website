@@ -299,7 +299,10 @@ function submitEnter(e) {
                 </TD>
                 <TD CLASS="statText" HEIGHT="13" ALIGN="left">
                     <rsc:item name="contest_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></TD>
-                <TD CLASS="statText" HEIGHT="13" ALIGN="left"><tc-webtag:handle coderId='<%= resultRow.getLongItem("writer_id") %>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
+                <TD CLASS="statText" HEIGHT="13" ALIGN="left">        	
+                	<%  if (resultRow.getItem(0, "writer_id").getResultData() != null)  {%>               
+                		<tc-webtag:handle coderId='<%= resultRow.getLongItem("writer_id") %>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
+                	<% } %>
                 </TD>
                 <TD CLASS="statText" HEIGHT="13" ALIGN="left"><rsc:item name="categories" row="<%=resultRow%>"/></TD>
                 <TD CLASS="statText" HEIGHT="13" ALIGN="right"><rsc:item name="div1_level" row="<%=resultRow%>"/></TD>
