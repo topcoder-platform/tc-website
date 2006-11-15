@@ -9,7 +9,7 @@
 <script language="JavaScript" type="text/javascript">
 <!-- Hide from non-JavaScript browsers
 
-var imageDir = "/i/tournament/tco06/onsite_photos/";
+var imageDir = "/i/tournament/tccc06/onsitePhotos/";
 var imageNum = 1;
 var totalImages = 150;
 
@@ -113,7 +113,7 @@ function changeImage(place, imageIndex) {
                     <td class="terciary">
                         <input type="hidden" name="module" value="Static"/>
                         <input type="hidden" name="d1" value="tournaments"/>
-                        <input type="hidden" name="d2" value="tco06"/>
+                        <input type="hidden" name="d2" value="tccc06"/>
                         <input type="hidden" name="d3" value="photos"/>
                         <input type="text" value="1" name="<%=CURR_IMAGE_KEY%>" size="3"/> of 
                         <script language="JavaScript"><!--

@@ -60,7 +60,7 @@
             Here are the winners of the last two Logo Design Contests to further inspire your creativity:<br><br>
             
             <table cellpadding="10" cellspacing="0" align="center" border="0">
-            <tr><td><img src="/i/tournament/tco06/tco06_logo_solo.gif" alt="TCO06 logo" border="0" /></td></tr>
+            <tr><td><img src="/i/tournament/tccc06/tccc06_logo_solo.gif" alt="tccc06 logo" border="0" /></td></tr>
             <tr><td><img src="/i/tournament/tco05/tco05_logo_solo.gif" alt="TCO05 logo" border="0" /></td></tr>
             </table>
             <br><br>

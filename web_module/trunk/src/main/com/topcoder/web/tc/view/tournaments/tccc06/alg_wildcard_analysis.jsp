@@ -27,8 +27,8 @@
       <div class="bodySpacer">
             
 <div style="float: right;">
-<p align="center"><span class="bodyText" align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=photos">See more photos!</a></span></p>
-<img src="/i/tournament/tco06/onsite_photos/shot_wildcard.jpg" alt="" class="photoFrameBig" /><br>
+<p align="center"><span class="bodyText" align="center"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=photos">See more photos!</a></span></p>
+<img src="/i/tournament/tccc06/onsitePhotos/shot_wildcard.jpg" alt="" class="photoFrameBig" /><br>
 </div>
 
 <p>
@@ -96,7 +96,7 @@ at the leftmost column of the board.
 Let's draw two polylines consisting of <b>k</b> segments each from the initial 
 position of the bishop, like it is shown on the figure. 
 <br><br>
-<div align="center"><img src="/i/srm/tco06_wildcard.gif"/></div>
+<div align="center"><img src="/i/srm/tccc06_wildcard.gif"/></div>
 <br><br>
 Clearly bishop can visit all the squares of its color left to the column where <b>k</b>-th segments of 
 the polylines intersect. From the part of the board laying to the right of the intersection 

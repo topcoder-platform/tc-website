@@ -31,8 +31,8 @@
 
             
 <div style="float: right;">
-<p align="center"><span class="bodyText" align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=photos">See more photos!</a></span></p>
-<img src="/i/tournament/tco06/onsite_photos/shot_design.jpg" alt="" class="photoFrameBig" /><br>
+<p align="center"><span class="bodyText" align="center"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=photos">See more photos!</a></span></p>
+<img src="/i/tournament/tccc06/onsitePhotos/shot_design.jpg" alt="" class="photoFrameBig" /><br>
 </div>
 
 <p>by <strong>the Design Review Board</strong><br>

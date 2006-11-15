@@ -72,19 +72,19 @@
                   <td class="advanceDk" align="center">3</td>
                   <td class="advanceDk" align="center">20</td>
                   <td class="advanceDk" align="center">6</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Relation_Pops.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Relation_Pops.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">93.56</td>
                   <td class="advanceDk" align="center">96.43</td>
                   <td class="advanceDk" align="center">1</td>
                   <td class="advanceDk" align="center">20</td>
                   <td class="advanceDk" align="center">20</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/XSD2DDL_Pops.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/XSD2DDL_Pops.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">88.85</td>
                   <td class="advanceDk" align="center">96.34</td>
                   <td class="advanceDk" align="center">1</td>
                   <td class="advanceDk" align="center">60</td>
                   <td class="advanceDk" align="center">60</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/DataView_Decorator_Pops.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/DataView_Decorator_Pops.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;"><strong>86</strong></td>
                </tr>
                <tr>
@@ -94,19 +94,19 @@
                   <td class="advanceDk" align="center">1</td>
                   <td class="advanceDk" align="center">42</td>
                   <td class="advanceDk" align="center">42</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Relation_nicka81.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Relation_nicka81.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">89.93</td>
                   <td class="advanceDk" align="center">94.27</td>
                   <td class="advanceDk" align="center">3</td>
                   <td class="advanceDk" align="center">42</td>
                   <td class="advanceDk" align="center">14</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/XSD2DDL_nicka81.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/XSD2DDL_nicka81.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">83.73</td>
                   <td class="advanceDk" align="center">92.39</td>
                   <td class="advanceDk" align="center">4</td>
                   <td class="advanceDk" align="center">16</td>
                   <td class="advanceDk" align="center">4</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Result_Set_Collection_Decorator_nicka81.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Result_Set_Collection_Decorator_nicka81.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;"><strong>60</strong></td>
                </tr>
                <tr>
@@ -116,19 +116,19 @@
                   <td class="advanceDk" align="center">2</td>
                   <td class="advanceDk" align="center">50</td>
                   <td class="advanceDk" align="center">25</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Relation_adic.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Relation_adic.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">93.02</td>
                   <td class="advanceDk" align="center">96.12</td>
                   <td class="advanceDk" align="center">2</td>
                   <td class="advanceDk" align="center">15</td>
                   <td class="advanceDk" align="center">7</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/XSD2DDL_adic.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/XSD2DDL_adic.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">85.33</td>
                   <td class="advanceDk" align="center">94.06</td>
                   <td class="advanceDk" align="center">3</td>
                   <td class="advanceDk" align="center">35</td>
                   <td class="advanceDk" align="center">11</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Relation_adic.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Relation_adic.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;"><strong>43</strong></td>
                </tr>
                <tr>
@@ -138,19 +138,19 @@
                   <td class="advanceDk" align="center">4</td>
                   <td class="advanceDk" align="center">30</td>
                   <td class="advanceDk" align="center">7</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Relation_kyky.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Relation_kyky.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">64.52</td>
                   <td class="advanceDk" align="center">69.21</td>
                   <td class="advanceDk" align="center">8</td>
                   <td class="advanceDk" align="center">10</td>
                   <td class="advanceDk" align="center">1</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/XSD2DDL_kyky.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/XSD2DDL_kyky.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">86.24</td>
                   <td class="advanceDk" align="center">96.06</td>
                   <td class="advanceDk" align="center">2</td>
                   <td class="advanceDk" align="center">60</td>
                   <td class="advanceDk" align="center">30</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Result_Set_Collection_Decorator_kyky.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Result_Set_Collection_Decorator_kyky.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;"><strong>38</strong></td>
                </tr>
                <tr>
@@ -160,19 +160,19 @@
                   <td class="advanceDk" align="center">5</td>
                   <td class="advanceDk" align="center">36</td>
                   <td class="advanceDk" align="center">7</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Relation_aubergineanode.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Relation_aubergineanode.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">83.57</td>
                   <td class="advanceDk" align="center">85.43</td>
                   <td class="advanceDk" align="center">5</td>
                   <td class="advanceDk" align="center">10</td>
                   <td class="advanceDk" align="center">2</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/XSD2DDL_aubergineanode.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/XSD2DDL_aubergineanode.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">84.22</td>
                   <td class="advanceDk" align="center">91.75</td>
                   <td class="advanceDk" align="center">5</td>
                   <td class="advanceDk" align="center">54</td>
                   <td class="advanceDk" align="center">10</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Result_Set_Collection_Decorator_aubergineanode.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Result_Set_Collection_Decorator_aubergineanode.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;"><strong>19</strong></td>
                </tr>
                <tr>
@@ -182,19 +182,19 @@
                   <td class="advanceDk" align="center">6</td>
                   <td class="advanceDk" align="center">24</td>
                   <td class="advanceDk" align="center">4</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Relation_ThinMan.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Relation_ThinMan.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">83.79</td>
                   <td class="advanceDk" align="center">86.79</td>
                   <td class="advanceDk" align="center">4</td>
                   <td class="advanceDk" align="center">24</td>
                   <td class="advanceDk" align="center">6</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/XSD2DDL_ThinMan.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/XSD2DDL_ThinMan.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">78.26</td>
                   <td class="advanceDk" align="center">83.70</td>
                   <td class="advanceDk" align="center">6</td>
                   <td class="advanceDk" align="center">52</td>
                   <td class="advanceDk" align="center">8</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Result_Set_Collection_Decorator_ThinMan.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Result_Set_Collection_Decorator_ThinMan.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;"><strong>18</strong></td>
                </tr>
                <tr>
@@ -204,19 +204,19 @@
                   <td class="advanceDk" align="center">7</td>
                   <td class="advanceDk" align="center">35</td>
                   <td class="advanceDk" align="center">5</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Relation_real_vg.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Relation_real_vg.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">73.85</td>
                   <td class="advanceDk" align="center">77.53</td>
                   <td class="advanceDk" align="center">7</td>
                   <td class="advanceDk" align="center">30</td>
                   <td class="advanceDk" align="center">4</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/XSD2DDL_real_vg.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/XSD2DDL_real_vg.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">72.99</td>
                   <td class="advanceDk" align="center">79.98</td>
                   <td class="advanceDk" align="center">7</td>
                   <td class="advanceDk" align="center">35</td>
                   <td class="advanceDk" align="center">5</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Result_Set_Collection_Decorator_real_vg.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Result_Set_Collection_Decorator_real_vg.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;"><strong>14</strong></td>
                </tr>
                <tr>
@@ -226,19 +226,19 @@
                   <td class="advanceDk" align="center">8</td>
                   <td class="advanceDk" align="center">10</td>
                   <td class="advanceDk" align="center">1</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Relation_AleaActaEst.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Relation_AleaActaEst.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">80.72</td>
                   <td class="advanceDk" align="center">82.10</td>
                   <td class="advanceDk" align="center">6</td>
                   <td class="advanceDk" align="center">45</td>
                   <td class="advanceDk" align="center">7</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/XSD2DDL_AleaActaEst.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/XSD2DDL_AleaActaEst.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">62.72</td>
                   <td class="advanceDk" align="center">67.67</td>
                   <td class="advanceDk" align="center">8</td>
                   <td class="advanceDk" align="center">45</td>
                   <td class="advanceDk" align="center">5</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Result_Set_Collection_Decorator_AleaActaEst.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Result_Set_Collection_Decorator_AleaActaEst.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;"><strong>13</strong></td>
                </tr>
             </table>
