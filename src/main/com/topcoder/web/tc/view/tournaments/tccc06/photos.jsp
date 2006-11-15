@@ -11,7 +11,7 @@
 
 var imageDir = "/i/tournament/tccc06/onsitePhotos/";
 var imageNum = 1;
-var totalImages = 150;
+var totalImages = 14;
 
 <%
     final String CURR_IMAGE_KEY = "currImage";
@@ -88,10 +88,10 @@ function changeImage(place, imageIndex) {
             
 <span class="bigTitle">Onsite Photos</span>
 <br><br>
-<%--
             <a name="spot"></a>
             <p class="terciary"><div align="center" nowrap="nowrap">
                 <a href="Javascript:void changeImage('slideImg', 1);">Reception</a>
+<%--
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 13);">Room 1</a>
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 32);">Component Finals 1</a>
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 49);">Room 2</a>
@@ -104,6 +104,7 @@ function changeImage(place, imageIndex) {
                 <a href="Javascript:void changeImage('slideImg', 111);">Algorithm Finals</a>
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 131);">Winners</a>
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 145);">Press Conference</a>
+--%>            
 
                 
             </div></p>
@@ -127,8 +128,6 @@ function changeImage(place, imageIndex) {
             <div align="center">
                 <img src="" width="448" height="336" name="slideImg" class="photoFrameBig">
             </div>
---%>            
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
         </div>
       </td>
