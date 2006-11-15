@@ -156,7 +156,7 @@
                             <td width="100%">
                                 <%=answerText%>
                             </td>
-                            <td align="right" <%= alreadyResponded.booleanValue() ? "" : " enabled='false'"%>>
+                            <td align="right" <%= alreadyResponded.booleanValue() ? " enabled='false'" : ""%>>
                                 <%=answerInput%>
                             </td>
                         </tr>
