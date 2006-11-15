@@ -20,14 +20,13 @@ public class ProblemStatement extends Base {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }
             
-            if (!hasParameter("pm") || !hasParameter("rd")) {
-                throw new TCWebException("pm and rd parameters are required");                
+            if (!hasParameter("pm")) {
+                throw new TCWebException("pm parameters is required");                
             } 
             
             Request r = new Request();
             r.setContentHandle("problem_statement");
             r.setProperty("pm", getRequest().getParameter("pm"));
-            r.setProperty("rd", getRequest().getParameter("rd"));
             
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
