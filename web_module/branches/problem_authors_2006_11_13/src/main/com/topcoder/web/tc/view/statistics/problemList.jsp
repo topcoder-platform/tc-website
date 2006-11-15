@@ -304,8 +304,8 @@ function submitEnter(e) {
                 	   for (int i = 0; i < writerIds.length; i++) {
                 	   			if (writerIds[i].trim().length() > 0) {%>
 				            <tc-webtag:handle coderId='<%= writerIds[i].trim() %>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
-                	   	
-                	   <% } 
+                	   			 <%	if (i < (writerIds.length - 1)) { %>, <% } %>
+                	   		<% } 
                 	   }%>
                 
                 </TD>
