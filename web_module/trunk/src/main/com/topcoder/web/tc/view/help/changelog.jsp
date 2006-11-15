@@ -58,6 +58,7 @@
 --%>
         </li>
         <li>Fix when generating payment component, the reviewers must get paid just what is marked as paid</li>
+        <li>Add problem writer to the problem details and problem archive pages</li>
     </ul>
  </p>
 
