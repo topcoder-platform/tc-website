@@ -177,9 +177,8 @@
                         <% } %>
 
                         <% if (!alreadyResponded.booleanValue()) { %>
-                        <a href="javascript: document.surveyForm.submit();"><img src="/i/submit.gif" width="60"
+                        <a href="javascript: document.surveyForm.submit();"><img src="/i/submit.gif" width="60" height="18" border="0"/></a>
                         <% } %>
-                                                                                 height="18" border="0"/></a>
                     </td>
                 </tr>
             </table>
