@@ -26,7 +26,7 @@
 ------------------------%>
 <%---------------------------  AOL MASHUPS, NOT SURE WHEN THIS WILL GO UP AGAIN
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>11.06.06<br>12:00 NOON</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>11.15.06<br>7:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=sponsors&d2=aolMashups">Now open: AOL Mashup contest</A>
       </span><br><br>
@@ -38,6 +38,21 @@
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 -----------------------------%>
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.15.06<br>3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room1_analysis">ACRush wins Room 1</A>
+        </span><br><br>
+      The TCCC kicked off this morning in San Diego with an exciting first round.  Most competitors were able to submit the easy problem relatively quickly, with <tc-webtag:handle coderId="19849563" context="algorithm"/> leading the pack.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room1_analysis">details</A> | 
+         <tc-webtag:forumLink forumID="506181" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
 <tr>
     <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
@@ -213,18 +228,3 @@ The latest round of the TCHS division led competitors through a minefield of dar
          <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=23">discuss this</A> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>11.06.06<br>10:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=ViewSurvey&sid=8054">News Icons Contest Vote</A>
-      </span><br><br>
-      At the Studio, we recently ran a contest to redesign the news icons for this page (for an example icon, look a couple inches in &larr; that direction).  Here's your chance to pick the winner!
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=ViewSurvey&sid=8054">vote</A> |
-         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=21">discuss this</A> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
