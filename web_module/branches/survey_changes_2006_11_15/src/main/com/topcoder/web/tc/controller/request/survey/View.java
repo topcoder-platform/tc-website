@@ -28,13 +28,15 @@ public class View extends SurveyData {
                setIsNextPageInContext(false);*/
                 // sets all defaults
                 setResponseDefaults(getUser().getId(), survey.getId());
-                
+                getRequest().setAttribute("alreadyResponded", new Boolean("true"));
+
                 setNextPage(Constants.SURVEY_VIEW);
             } else if (isSRMSurvey() && !hasSurveyClosed()) {
                 throw new NavigationException("Sorry, you can not answer this survey at this time.");
             } else if (survey.getEndDate().before(new Date()) || survey.getStartDate().after(new Date())) {
                 throw new NavigationException("Sorry, you can not answer this survey at this time.");
             } else {
+                getRequest().setAttribute("alreadyResponded", new Boolean("false"));
                 setNextPage(Constants.SURVEY_VIEW);
             }
         } catch (TCWebException e) {

@@ -214,6 +214,11 @@ public class AnswerInput extends BaseTag {
             s.append("<option value=\"");
             s.append(a.getId());
             s.append("\"");
+
+            if (getDefaultValue() != null && getDefaultValue().equals(new Long(a.getId()))) {
+                s.append(" selected");
+            }
+            
             s.append(">");
             s.append(a.getText());
             s.append("</option>\n");

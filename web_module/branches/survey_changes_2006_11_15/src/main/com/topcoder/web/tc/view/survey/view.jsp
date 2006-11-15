@@ -8,7 +8,8 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<% List questionInfo = (List) request.getAttribute("questionInfo");%>
+<% List questionInfo = (List) request.getAttribute("questionInfo");
+ Boolean alreadyResponded = (Boolean) request.getAttribute("alreadyResponded");%>
 <jsp:useBean id="surveyInfo" scope="request" class="com.topcoder.web.tc.model.Survey"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <html>
@@ -175,7 +176,9 @@
                         <img src="/i/clear.gif" width="10" height="18" border="0"/>
                         <% } %>
 
+                        <% if (!alreadyResponded.booleanValue()) { %>
                         <a href="javascript: document.surveyForm.submit();"><img src="/i/submit.gif" width="60"
+                        <% } %>
                                                                                  height="18" border="0"/></a>
                     </td>
                 </tr>
