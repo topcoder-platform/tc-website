@@ -60,11 +60,17 @@ public class View extends SurveyData {
             //int typeId = row.getIntItem("question_type_id");
             if  (styleId == Question.LONG_ANSWER || styleId == Question.SHORT_ANSWER) {
                 setDefault(AnswerInput.PREFIX + row.getLongItem("question_id"), row.getStringItem("response"));
+                log.info("setDefault: " + AnswerInput.PREFIX + row.getLongItem("question_id"));
+                log.info("value: " + row.getStringItem("response"));
             } else if (styleId == Question.SINGLE_CHOICE) {
-                setDefault(AnswerInput.PREFIX + row.getLongItem("question_id"), row.getStringItem("response"));
+                setDefault(AnswerInput.PREFIX + row.getLongItem("question_id"), String.valueOf(row.getLongItem("answer_id")));
+                log.info("setDefault: " + AnswerInput.PREFIX + row.getLongItem("question_id"));
+                log.info("value: " + row.getLongItem("answer_id"));
             } else if (styleId == Question.MULTIPLE_CHOICE) {
                 setDefault(AnswerInput.PREFIX + row.getLongItem("question_id") + 
-                    "," + row.getLongItem("answer_id"), row.getStringItem("response"));
+                    "," + row.getLongItem("answer_id"), "true");
+                log.info("setDefault: " + AnswerInput.PREFIX + row.getLongItem("question_id"));
+                log.info("value: " + "true");
             }
         }
     }
