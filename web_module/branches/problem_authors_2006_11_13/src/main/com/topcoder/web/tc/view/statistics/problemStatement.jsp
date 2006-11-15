@@ -21,6 +21,12 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_main"/>
 </jsp:include>
+
+<style type="text/css">
+a:link {color: white; text-decoration: none}
+a:visited {color: white; text-decoration: none}
+</style>
+
  </HEAD>
  <body text="#FFFFFF">
    <jsp:include page="../top.jsp" />
@@ -114,7 +120,7 @@ if (rsc!=null && !rsc.isEmpty()) {
                    <TD CLASS="statText" COLSPAN="7">
                       This problem was used in rounds:
    <rsc:iterator list="<%=rounds%>" id="resultRow">
-   	<br><a href="/tc?module=ProblemDetail&rd=<%= resultRow.getIntItem("round_id") %>&pm=<%=  resultRow.getIntItem("problem_id") %>"><rsc:item name="round_name" row="<%=resultRow%>"/></a>
+   	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/tc?module=ProblemDetail&rd=<%= resultRow.getIntItem("round_id") %>&pm=<%=  resultRow.getIntItem("problem_id") %>"><rsc:item name="round_name" row="<%=resultRow%>"/></a>
    </rsc:iterator>
                    
                    </TD>
