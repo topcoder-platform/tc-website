@@ -118,7 +118,7 @@ if (rsc!=null && !rsc.isEmpty()) {
                  </TR>
                  <TR>
                    <TD CLASS="statText" COLSPAN="7">
-                      This problem was used in rounds:
+                      This problem was used for:
    <rsc:iterator list="<%=rounds%>" id="resultRow">
    	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/tc?module=ProblemDetail&rd=<%= resultRow.getIntItem("round_id") %>&pm=<%=  resultRow.getIntItem("problem_id") %>"><rsc:item name="round_name" row="<%=resultRow%>"/></a>
    </rsc:iterator>
