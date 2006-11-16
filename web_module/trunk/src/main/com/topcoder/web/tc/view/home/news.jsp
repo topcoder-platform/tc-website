@@ -26,6 +26,21 @@
 ------------------------%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.15.06<br>9:20 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room2_analysis">mathijs wins Room 2</A>
+        </span><br><br>
+      Round 2 turned out to be a bit more standard, as many coders chugged through all three problems.  As per usual, most coders breezed through the easy problem, and some made short work of the medium, while a few were tripped up.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room2_analysis">details</A> | 
+         <tc-webtag:forumLink forumID="506182" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.15.06<br>8:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         Component <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary">Development</A> Part 1 Analyses
@@ -194,24 +209,5 @@
     <A href="/tc?module=Static&amp;d1=features&amp;d2=110806">article</A> |
     <tc-webtag:forumLink forumID="506171" message="discuss this"/> |
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-</td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
-        <br>11.07.06<br>2:45 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm19">TCHS SRM 19 - Problem Set & Analysis</A></span><br><br>
-The latest round of the TCHS division led competitors through a minefield of darts, sales, and parts.  Oh my!
-            </td>
-            <td class="newsPhoto"><%--<img src="/i/m/HiltonLange_big.jpg" alt="" width="55" height="61"/><br>--%>by
-                <tc-webtag:handle coderId="7296000" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm19">full story</A> |
-    <tc-webtag:forumLink forumID="506041" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
 </td></tr>
 
