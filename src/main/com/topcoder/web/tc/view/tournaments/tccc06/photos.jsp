@@ -11,7 +11,7 @@
 
 var imageDir = "/i/tournament/tccc06/onsitePhotos/";
 var imageNum = 1;
-var totalImages = 97;
+var totalImages = 146;
 
 <%
     final String CURR_IMAGE_KEY = "currImage";
@@ -93,8 +93,8 @@ function changeImage(place, imageIndex) {
                 <a href="Javascript:void changeImage('slideImg', 1);">Reception</a>
                  | <a href="Javascript:void changeImage('slideImg', 15);">Room 1</a>
                  | <a href="Javascript:void changeImage('slideImg', 65);">Room 2</a>
+                 | <a href="Javascript:void changeImage('slideImg', 98);">Room 3</a>
 <%--
-                 | <a href="Javascript:void changeImage('slideImg', 74);">Room 3</a>
                  | <a href="Javascript:void changeImage('slideImg', 90);">WildCard</a>
 
 
