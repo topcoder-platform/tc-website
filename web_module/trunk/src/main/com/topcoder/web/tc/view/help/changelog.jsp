@@ -60,6 +60,7 @@
         <li>Fix when generating payment component, the reviewers must get paid just what is marked as paid</li>
         <li>Add problem writer to the problem details and problem archive pages</li>
         <li>Fix a problem in IE when pasting a large text in member contact</li>
+        <!-- <li>Add reviewer role in component stats page for development</li> -->
     </ul>
  </p>
 
