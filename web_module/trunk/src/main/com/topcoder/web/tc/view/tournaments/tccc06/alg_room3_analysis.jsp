@@ -26,186 +26,158 @@
       <td valign="top" align="center">
       <div class="bodySpacer">
             
+            
 <div style="float: right;">
 <p align="center"><span class="bodyText" align="center"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=photos">See more photos!</a></span></p>
-<img src="/i/tournament/tccc06/onsitePhotos/shot_room3.jpg" alt="" class="photoFrameBig" /><br>
+<img src="/i/tournament/tccc06/onsitePhotos/shotRoom3.jpg" alt="" class="photoFrameBig" /><br>
 </div>
 
 <p style="vertical-align:top;">
-<span class="bigTitle">tomek wins Room 3</span>
+<span class="bigTitle">Petr wins Room 3</span>
 <br><br>
 <img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-<tc-webtag:forumLink forumID="505963" message="Discuss this match" /><br>
-Thursday, May 4, 2006<br>
+<tc-webtag:forumLink forumID="506183" message="Discuss this match" /><br>
+Thursday, November 16, 2006<br>
 Introduction by <tc-webtag:handle coderId="159052" context="algorithm"/>
-<br><br>
-Semifinal round 3 proved to be the most exciting so far with tight
-races and a slew of challenges.   The match started out slowly with many 
-competitors taking over half an hour to submit the easy problem.  The
-medium problem didn't prove much easier and it was about an hour
-before anyone had two submissions.  John Dethridge tried to skip the
-medium after he submitted the easy, but he quickly gave up, and went
-back, getting the fastest time on the medium.  Going into the
-challenge phase, John Dethridge had the lead, followed by ploh,
-tomek, and halyvin, each less than a challenge away.  
-<br><br>
-The challenges phase yielded no fewer than 16 challenges, 6 of which
-were successful.  With 2 of the successful challenges, tomek moved up
-into first place, while ploh and John Dethridge both dropped 25
-points.  The system testing phase proved uneventful by comparison, and
-the top 6 remained unchanged: tomek and JD move on to the finals,
-while ploh, reid, liympanda, and JongMan will have to fight it out in 
-the wildcard round.</p>
+<br /><br />
+Coders started out strong on day 2, with <tc-webtag:handle coderId="10574855" context="algorithm"/> leading the pack and submitting the easy problem after 9 minutes.  He and <tc-webtag:handle coderId="8355516" context="algorithm"/> both made short work on of the medium problem, though <tc-webtag:handle coderId="10574855" context="algorithm"/> found a bug and had to resubmit his.  The hard problem proved difficult for everyone but <tc-webtag:handle coderId="10574855" context="algorithm"/> and <tc-webtag:handle coderId="251074" context="algorithm"/>, each of whom scored over 700 points on it.
 
-<h1>TaylorAlgebra</h1>
-by <tc-webtag:handle coderId="251317" context="algorithm"/>
-<br><br>
-As done in Apostol's wonderful calculus text, we define the nth Taylor operator (it takes a
-function and produces the corresponding finite Taylor series).  This problem explores how
-derivatives and integrals interact with the Taylor operator (and requires no knowledge of
-calculus).  To solve the task at hand, we recursively descend into the given nested formula keeping
-track of the number of D's and I's we have accumulated, and cancelling appropriately (no sense in
-having both D's and I's).  Upon finding
-a T, we compute the maximum number of D's (or I's) that can be pushed deeper without violating the
-numeric constraints.  When we hit the deepest nesting level of the expression, we are left with an
-'f'.  As we climb out of our recursive calls, we construct the return value by surrounding the
-current formula with the correct number of D's, I's, and T's that were accumulated at that level (of
-the recursion).
+<p>The challenge phase proved very exciting as <tc-webtag:handle coderId="10574855" context="algorithm"/> extended his already substantial lead with six successful challenges.  As long as his hard submission held up, he was ensured a spot in the finals.  While the system tests managed to take down two of the remaining hard submissions, neither of them was <tc-webtag:handle coderId="10574855" context="algorithm"/>'s and so he coasted into the finals.  In second, <tc-webtag:handle coderId="251074" context="algorithm"/> was the the only other coder to solve the hard problem successfully.  <tc-webtag:handle coderId="8355516" context="algorithm"/>, <tc-webtag:handle coderId="263396" context="algorithm"/>, <tc-webtag:handle coderId="15805598" context="algorithm"/>, and <tc-webtag:handle coderId="8365685" context="algorithm"/> will
+all get a second chanced later today.</p>
 
-<h1>ModelRailroad</h1>
-by <tc-webtag:handle coderId="277659" context="algorithm"/>
-<br><br>
-This problem has two parts:  calculating the number of
-configurations, and handling the symmetry.  Consider
-the number of consecutive straight sections as we go around
-the circle as six numbers a, b, c, d, e, and f.  In order
-for the loop to be closed, a+b must equal d+e, and b+c must
-equal e+f.  These two equations also imply a third, that
-c+d=f+a.  Using these equations, we can set any four of
-the variables (say, a, b, c, and d) and compute the other
-two.  Thus one possible solution is to iterate over all
-possible values for a, b, c, and d, compute the other two,
-and if they are nonnegative, consider it a found configuration.
-This runs too slowly.
-<br><br>
-We can eliminate one of the loops by giving only a, b, and
-c values, and then computing the range of values d can take
-on that would result in a valid configuration.  These
-equations can be calcuated by considering the equations
-above, keeping d as a variable, and solving them for
-e and f nonnegative, and the sum of all six numbers less
-than straight.  The lower bound on d is the greater of
-0 and a-c, and the upper bounds on d is the lesser of
-a+b and n-a-2*(b+c).  Sum up the count of all possible
-configurations, and call this n1.
-<br><br>
-This lets us enumerate all configurations ignoring symmetry.
-To handle symmetry, we calculate in addition to the above
-number the count of positions that have 6-symmetry (all six
-60 degree rotations are identical); 3-symmetry (all three
-120 degree rotations are identical), and 2-symmetry (both
-180 degree rotations are identical).  We call these values
-n6, n3, and n2, respectively.  Each of these can be
-calculated very quickly because the number of free variables
-is reduced to 1, 2, and 3, respectively.
-<br><br>
-To calculate the final answer, consider that every position
-whose greatest symmetry is 1-symmetry has been counted six
-times in n1 and no times in any of n2, n3, or n6.  Every
-position whose greatest symmetry is 2-symmetry has been
-counted three times in n1 and three times in n2.  Every
-position whose greatest symmetry is 3-symmetry has been
-counted twice in n1 and twice in n3.  Every position
-that exhibits 6-symmetry has been counted once in each
-of n1, n2, n3, and n6.  If sn is the number of positions
-that have a greatest symmetry of n, then we have the following
-equations:
+<h1>CodeSet</h1>
+by <tc-webtag:handle coderId="159052" context="algorithm"/>
+
+<p>Competitors should have been familiar with many of the concepts in this problem.  Prefix-free encodings can be represented as a binary
+tree, where the leaves are the codes.  Thus, the number of valid codes
+of size <tt>k</tt> is just the number of binary trees with labeled
+leaves.  Coders with a strong math background will immediately
+recognize that this value can be computed in closed form using Catalan
+numbers.</p>
+<p>However, the fact that we must include our favorite bit string throws
+a wrench in this simple elegant solution, and now we need to do a bit
+of dynamic programming to get the answer.  First, we note that the
+number of binary trees with <tt>k</tt> leaves, <tt>C<sub>k</sub></tt> 
+can be computed as the sum from <tt>i=1</tt> to <tt>k-1</tt> of
+<tt>C<sub>i</sub>*C<sub>k-i</sub></tt>.  This works because we can
+think of installing a split at the root dividing the leaves into
+groups of size <tt>i</tt> and <tt>k-i</tt>.  Now, to figure things out
+including the favorite, we can think of our favorite sequence as just
+being a sequence of zeros.  Then, when we compute the sum mentioned
+above, we need to add another parameter, the length of the sequence of
+zeros that must be included.  This value will either be an integer, or
+null, where null indicates that the sequence of zeros has gone down
+another path, so it doesn't apply.  So, in the case where this
+parameter is not null, our recurrence changes to
+compute <tt>C<sub>k,j</sub></tt>, where j is the length of the
+sequence of zeros that must be included, by taking the sum over
+<tt>i</tt> of <tt>C<sub>i,j-1</sub>*C<sub>k-i,null</sub></tt>.  In other words,
+we send the sequence of zeros down the left branch, which
+trims off the leading zero, hence reducing j by 1.  The computation of
+<tt>C<sub>k,null</sub></tt> is as discussed for the case where we
+don't need to worry about the favorite.  The last thing to think about
+are the base cases, but these are straightforward, and can be seen in
+the code below.
 <pre>
-n1 = 6 * s1 + 3 * s2 + 2 * s3 + s6
-n2 = 3 * s2 + s6
-n3 = 2 * s3 + s6
-n6 = s6
-</pre>
-The answer we desire is s1+s2+s3+s6, and we can easily solve
-these equations to find that that answer is simply
-(n1+2*n2+3*n3+2*n6)/6.
+int[][] a = new int[100][100];
+int go(int n, int k){
+	if(n == 1) return k &lt;= 0 ? 1 : 0;
+	else if(n&lt;1 || k == 0)return 0;
+	if(a[n][k+1]&gt;0)return a[n][k+1];
+	int ret = 0;
+	for(int i= 1; i&lt;n; i++){
+		ret += go(i,k==-1?-1:k-1)*go(n-i,-1);
+	}
+	return a[n][k+1]=ret;
+}
+public int numSets(int n, String favorite){
+	return go(n,favorite.length());
+}
+</pre></p>
 
+<h1>CCWTurning</h1>
+by <tc-webtag:handle coderId="159052" context="algorithm"/>
 
-<h1>CompressedStringSearch</h1>
-by <tc-webtag:handle coderId="277659" context="algorithm"/>
-<br><br>
-Operating on compressed representations of data is frequently key to
-high-performance algorithms.  Sparse matrices and Binary Decision Diagrams
-are just two examples of common data structures that are just compressed
-representations of more natural formats.  Indeed, memoization itself
-simply compresses the expression graph.  It is no surprise, then, that
-memoization is key to this problem.
-<br><br>
-The first step to the solution of this problem is to ignore the
-compression, and just consider calculating a string match by walking
-the haystack character by character.  At any given point, the state
-is the maximum number of characters in the needle that have been
-successfully matched.  For every new character in haystack we see,
-we calculate the next state based on the current state and the
-new character.  When we reach a state that indicates we have
-matched all characters, we have found our match.
-<br><br>
-Because of needles like "aabab" and input like "aabaabab", we cannot
-simply start over at the beginning of needle every time we find a
-mismatched character.  Instead, when we find a mismatch, we want
-to find out the longest prefix of needle that is a suffix of the
-part of haystack we have examined so far.
-There are many ways to compute this state machine.  Perhaps the easiest
-is to simply use a loop like the following:
-<pre>
-      for (int i=0; i&lt;needle.length(); i++) {
-         String p = needle.substring(0, i) ;
-         char c = needle.charAt(i) ;
-         for (int j=0; j+i&lt;=needle.length(); j++)
-            if (needle.substring(j, j+i).equals(p))
-               nextState[j+i][c] = (i+1) ;
-      }
-</pre>
-This works great so long as we have no compression.  As it turns
-out, it is easy to add compression too; just consider a character
-that represents a compressed string as another character, and
-calculate what the next state is for a given input state.
-With the potential of compressed strings representing huge
-haystacks, this may seem to run too slow, but memoization makes
-it easily run in time.
-<br><br>
-The only remaining complication is remembering the offset where
-we found the needle.  To do this we simply calculate how many
-total uncompressed characters we have consumed, and when we find
-a match, return that value less the length of the needle.  In
-order to keep the code clean, we can use an exception to return
-the final match position.  Note that we can memoize both length
-and search easily.
-<pre>
-   long length(char a) { // memoize this for speed
-      if (!inDictionary(a))
-         return 1 ;
-      long r = 0 ;
-      for (char c : expansion(a))
-         r += length(c) ;
-      return r ;
-   }
-   int search(String haystack, long pos, int state) throws Found {
-      for (char c : haystack) {
-         if (state == needle.length())
-            throw new Found(pos-needle.length()) ;
-         if (not_calculated(nextState[state][c]))
-            nextState[state][c] = search(expansion(c), pos, state) ;
-         state = nextState[state][c] ;
-         pos += length(c) ;
-      }
-      if (state == needle.length())
-         throw new Found(pos-needle.length()) ;
-   }
-</pre>
-The rest is straightforward; if we get an exception indicating
-the string was found, we extract the found position from that
-exception and return it; otherwise, we return -1.
+<p>It turns out that a brute force solution will solve this problem with
+plenty of time to spare.  In other words, for each segment in the
+path, branch on all possible point we could put the next point.  It's
+not hard to convince yourself that there will be at most 2 points.
+However, 30<sup>2</sup> is too big, and so we need to work a bit
+harder to convince ourselves that the brute force method will indeed
+run fast enough.  Consider two adjacent segment lengths,
+<tt>p<sub>i</sub></tt> and <tt>p<sub>i+1</sub></tt>.  If
+<tt>p<sub>i+1</sub> %le; p<sub>i</sub></tt>, then there is only one
+place we can put the end point of <tt>p<sub>i+1</sub></tt> (try
+drawing a circle with a directed chord and you'll quickly convince
+yourself).  This leaves the case where <tt>p<sub>i+1</sub> &gt;
+p<sub>i</sub></tt>.  In this case, there are indeed two places we
+could potentially put the endpoint of <tt>p<sub>i+1</sub></tt>.
+However, if <tt>p<sub>i+2</sub> &gt; p<sub>i+1</sub></tt>, then one of
+these two placements will lead to a dead end.  Furthermore, if
+<tt>p<sub>i+2</sub> &le; p<sub>i+1</sub></tt>, there is only one
+choice.  In other words, when we branch two ways, only one of those
+two ways can branch again.<p/>
+<p>Once you convince yourself that things will be fast enough, its just a
+bit of geometry to implement everything.</p>  
+
+<h1>Repeated Addition</h1>
+by <tc-webtag:handle coderId="7390467" context="algorithm"/>
+
+<p>Start off by aligning the rightmost (least significant) digits of
+the number we're adding to and X.</p>
+
+<p>Let N be the number written on paper. Observe that, when doing long
+addition, the carry-over between digits is either 0 or 1. Consider how
+N<sub>i</sub> (digit i of N, with digit 0 being the least significant)
+changes when X is added once, depending on X<sub>i</sub> (the
+corresponding digit in X):</p>
+
+<ul>
+
+<li>If X<sub>i</sub> is 0, then N<sub>i</sub> changes only when there
+is carry-over from the previous digit.</li>
+
+<li>If X<sub>i</sub> is between 1 and 8, then N<sub>i</sub> always
+changes.</li>
+
+<li>If X<sub>i</sub> is 9, then N<sub>i</sub> changes unless there is
+carry-over from the previous digit.</li>
+
+</ul>
+
+<p>Knowing that we will be doing exactly (B-A)/X additions, the only
+unknowns in the list above are the amounts of carry-over between
+digits. If we knew carry<sub>i</sub>, the total amount of carry-over
+coming out of position i when doing all the additions, we could
+calculate the exact number of times each of the digits changes:</p>
+
+<ul>
+
+<li>If X<sub>i</sub> is 0, then N<sub>i</sub> changes
+carry<sub>i-1</sub> times.</li>
+
+<li>If X<sub>i</sub> is between 1 and 8, then N<sub>i</sub> changes
+(B-A)/X*X times.</li>
+
+<li>If X<sub>i</sub> is 9, then N<sub>i</sub> changes
+(B-A)/X*X &ndash; carry<sub>i-1</sub> times.</li>
+
+</ul>
+
+<p>For a single position, carry-over is generated when the digit
+in that position passes the boundary between 9 and 0. If we write the
+total amount that is added to a position, the amount of carry-over is
+obtained by dropping the least significant digit of that total. For
+example, if we start off at 0 and add 7 sixteen times, we will have
+totalled 112; the digit itself will be 2 and will have will generated
+carry-over 11 (of 16) times. We also have to account for carry-over
+from the previous digit. The final formula for the total amount of
+carry-over generated in position i is carry<sub>i</sub> =
+floor((A<sub>i</sub> + (B-A)/X*X<sub>i</sub> + carry<sub>i-1</sub>) /
+10).</p>
+
+<p>The final quirk in the problem was to handle newly appearing digits
+as not changing.</p>
         </div>
       </td>
         

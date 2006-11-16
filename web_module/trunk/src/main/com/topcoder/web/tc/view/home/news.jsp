@@ -26,6 +26,21 @@
 ------------------------%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.16.06<br>3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room3_analysis">Petr wins Room 3</A>
+        </span><br><br>
+      Coders started out strong on day 2, with <tc-webtag:handle coderId="10574855" context="algorithm"/> leading the pack and submitting the easy problem after 9 minutes.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room3_analysis">details</A> | 
+         <tc-webtag:forumLink forumID="506183" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.16.06<br>2:25 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=overview">TCCC06: Day 1 blogs now online</A>
@@ -191,20 +206,5 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_bracket">details</A> | 
          <tc-webtag:forumLink forumID="506172" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>11.09.06<br>10:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/longcontest/?module=ViewOverview&rd=10123">Intel&#174; Multi-Threading Competition 10 Results</A>
-      </span><br><br>
-      Congratulations to <tc-webtag:handle coderId="283329" /> for winning the Intel&#174; Multi-Threading Competition 10.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/longcontest/?module=ViewOverview&rd=10123">results</A> | 
-         <tc-webtag:forumLink forumID="506148" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
 
