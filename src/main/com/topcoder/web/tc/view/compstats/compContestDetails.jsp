@@ -318,7 +318,7 @@
         </TD>
         <% } else { %>
         <TD class="<%=even?"statLt":"statDk"%>" align="center">
-	        <rsc:item row="<%=review_resp_desc%>" />        
+	        <rsc:item row="<%=resultRow%>" name="review_resp_desc" />        
             <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>&rid=<%=reviewers.getLongItem(0, "reviewer_id")%>'
                class="bcLink">
                 <rsc:item row="<%=resultRow%>" name="score1" format="0.00"/>
