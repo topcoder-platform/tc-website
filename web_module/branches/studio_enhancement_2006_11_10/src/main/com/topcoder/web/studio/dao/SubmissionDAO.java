@@ -11,4 +11,9 @@ public interface SubmissionDAO {
     void saveOrUpdate(Submission s);
 
     Submission find(Long id);
+
+    void changeRank(Integer newRank, Submission s);
+
+    public void changeRank(Integer newRank, Long submissionId, Long userId);
+
 }

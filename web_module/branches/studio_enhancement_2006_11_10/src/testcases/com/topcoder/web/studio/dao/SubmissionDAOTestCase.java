@@ -11,6 +11,7 @@ import com.topcoder.web.studio.model.*;
  *          Create Date: Jul 20, 2006
  */
 public class SubmissionDAOTestCase extends TCHibernateTestCase {
+/*
     public void testSaveOrUpdate() {
         Submission s = new Submission();
 
@@ -25,6 +26,7 @@ public class SubmissionDAOTestCase extends TCHibernateTestCase {
         p.setPath("stuff");
         s.setPath(p);
         s.setType(StudioDAOUtil.getFactory().getSubmissionTypeDAO().find(SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE));
+        s.setRank(new Integer(1));
 
         StudioDAOUtil.getFactory().getSubmissionDAO().saveOrUpdate(s);
 
@@ -52,5 +54,41 @@ public class SubmissionDAOTestCase extends TCHibernateTestCase {
         assertTrue("failed to associate result", new1.getResult() != null);
 
 
+    }
+*/
+
+
+    public void testUpdateRank() {
+
+        Submission s = new Submission();
+
+        User dok = DAOUtil.getFactory().getUserDAO().find(new Long(132456));
+        Contest c = (Contest) StudioDAOUtil.getFactory().getContestDAO().getContests().get(0);
+        s.setContest(c);
+        s.setSubmitter(dok);
+        s.setMimeType(StudioDAOUtil.getFactory().getMimeTypeDAO().find(new Integer(1)));
+        s.setOriginalFileName("kickin");
+        s.setSystemFileName("kicking it");
+        FilePath p = new FilePath();
+        p.setPath("stuff");
+        s.setPath(p);
+        s.setRank(new Integer(1));
+        s.setType(StudioDAOUtil.getFactory().getSubmissionTypeDAO().find(SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE));
+
+        StudioDAOUtil.getFactory().getSubmissionDAO().saveOrUpdate(s);
+
+
+        tearDown();
+        setUp();
+
+        SubmissionDAO dao = StudioDAOUtil.getFactory().getSubmissionDAO();
+        Submission new1 = dao.find(s.getId());
+        log.debug("in between");
+        dao.changeRank(new Integer(2), new1.getId(), new1.getSubmitter().getId());
+        tearDown();
+        setUp();
+        dao = StudioDAOUtil.getFactory().getSubmissionDAO();
+        Submission new2 = dao.find(s.getId());
+        assertTrue("new rank not set", new2.getRank().intValue()==2);
     }
 }

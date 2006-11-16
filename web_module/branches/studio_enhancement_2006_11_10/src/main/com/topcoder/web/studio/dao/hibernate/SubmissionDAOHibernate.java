@@ -3,6 +3,7 @@ package com.topcoder.web.studio.dao.hibernate;
 import com.topcoder.web.common.dao.hibernate.Base;
 import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.Submission;
+import org.hibernate.Query;
 
 /**
  * @author dok
@@ -16,5 +17,59 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
 
     public Submission find(Long id) {
         return (Submission) super.find(Submission.class, id);
+    }
+
+    public void changeRank(Integer newRank, Submission s) {
+            StringBuffer buf = new StringBuffer(100);
+            buf.append("update Submission s set rank = ");
+            if (newRank.compareTo(s.getRank())>0) {
+                //going up
+                buf.append("rank-1 ");
+            } else if (newRank.compareTo(s.getRank())<0) {
+                //going down
+                buf.append("rank+1 ");
+            }
+            buf.append("where s.submitter.id = ? and s.contest.id = ? ");
+            if (newRank.compareTo(s.getRank())!=0) {
+                Query q = session.createQuery(buf.toString());
+                q.setLong(0, s.getSubmitter().getId().longValue());
+                q.setLong(1, s.getContest().getId().longValue());
+                q.executeUpdate();
+
+                s.setRank(newRank);
+                saveOrUpdate(s);
+            }
+    }
+
+    public void changeRank(Integer newRank, Long submissionId, Long userId) {
+            Query submissionQuery = session.createQuery("select s.rank, s.contest.id from Submission s where s.id=? and s.submitter.id=?");
+        submissionQuery.setLong(0, submissionId.longValue());
+        submissionQuery.setLong(1, userId.longValue());
+
+        Object[] result = (Object[])submissionQuery.uniqueResult();
+        log.debug("here");
+        Integer oldRank = (Integer)result[0];
+        Long contestId = (Long)result[1];
+        StringBuffer buf = new StringBuffer(100);
+
+            buf.append("update Submission s set rank = ");
+            if (newRank.compareTo(oldRank)<0) {
+                buf.append("rank-1 ");
+            } else if (newRank.compareTo(oldRank)>0) {
+                buf.append("rank+1 ");
+            }
+            buf.append("where s.submitter.id = ? and s.contest.id = ? ");
+            if (newRank.compareTo(oldRank)!=0) {
+                Query q = session.createQuery(buf.toString());
+                q.setLong(0, userId.longValue());
+                q.setLong(1, contestId.longValue());
+                q.executeUpdate();
+                log.debug("after first");
+
+                Query update = session.createQuery("update Submission set rank = ? where submission_id = ?");
+                update.setInteger(0, newRank.intValue());
+                update.setLong(1, submissionId.longValue());
+                update.executeUpdate();
+            }
     }
 }
