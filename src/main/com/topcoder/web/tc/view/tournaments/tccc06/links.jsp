@@ -21,13 +21,19 @@
 <area shape="rect" alt="" coords="1,1, 312,75" href="/movies/tournament/tccc06/tccc06AOLWebcast.mpeg" />
 <area shape="rect" alt="" coords="1,85, 312,129" href="/i/downloads/tccc06_program.pdf" />
 </map>
+<map name="photosblogs">
+<area shape="rect" alt="" coords="1,1, 64,16" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=photos" />
+<area shape="rect" alt="" coords="82,1, 135,16" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=overview" />
+</map>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <!-- LEVEL 1 TABS -->
 <% if (tabLev1.equals("overview")) {%>
 <tr>
     <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tccc06_logo_aol.gif" border="0"/></A></td>
-    <td valign="middle" align="center"><img src="/i/tournament/tccc06/webcastProgram.gif" border="0" alt="AOL Webcast Sneak Peek &amp; TCCC06 Program" usemap="#webcastProgram"/>
+    <td valign="middle" align="center">
+        <div><img src="/i/tournament/tccc06/webcastProgram.gif" border="0" alt="AOL Webcast Sneak Peek &amp; TCCC06 Program" usemap="#webcastProgram"/></div>
+        <div style="margin-top:25px;"><img src="/i/tournament/tccc06/photosBlogs.png" border="0" alt="" usemap="#photosblogs"/></div>
     <%--<A href="/movies/tournament/tccc06/tccc06AOLWebcast.mpeg"><img src="/i/tournament/tccc06/webcastSneakPeek.png" border="0" alt="AOL Webcast Sneak Peek" /></A>
     <img src="/i/tournament/tccc06/headline_onsite.gif" border="0" alt="" usemap="#headline" />--%></td>
     <td valign="top" align="right" width="50%"><a href="/"><img src="/i/tournament/tccc06/tc_logo.gif" border="0"/></a></td>
@@ -117,12 +123,12 @@
 <% } else { %>
    <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_bracket"><img src="/i/tournament/tccc06/tabs/L2_advancersOff.gif" alt="" border="0" /></A></td>
 <% } %>
-<%--
 <% if (tabLev2.equals("summary")) {%>
-   <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_finals_analysis"><img src="/i/tournament/tccc06/tabs/L2_summaryOn.gif" alt="" border="0" /></A></td>
+   <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room1_analysis"><img src="/i/tournament/tccc06/tabs/L2_summaryOn.gif" alt="" border="0" /></A></td>
 <% } else { %>
-   <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_finals_analysis"><img src="/i/tournament/tccc06/tabs/L2_summaryOff.gif" alt="" border="0" /></A></td>
+   <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room1_analysis"><img src="/i/tournament/tccc06/tabs/L2_summaryOff.gif" alt="" border="0" /></A></td>
 <% } %>
+<%--
 --%>
 <% } else if (tabLev1.equals("component")) { %>
 <% if (tabLev2.equals("details")) {%>
@@ -188,8 +194,8 @@
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=photos"><% if (tabLev3.equals("photos")) {%><img src="/i/tournament/tccc06/tabs/L3_photosOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_photosOff.gif" border="0" /><% } %></a></td>
                 <%--
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies"><% if (tabLev3.equals("movies")) {%><img src="/i/tournament/tccc06/tabs/L3_moviesOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_moviesOff.gif" border="0" /><% } %></a></td>
-                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogger_winners"><% if (tabLev3.equals("blogs")) {%><img src="/i/tournament/tccc06/tabs/L3_blogsOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_blogsOff.gif" border="0" /><% } %></a></td>
                 --%>
+                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=overview"><% if (tabLev3.equals("blogs")) {%><img src="/i/tournament/tccc06/tabs/L3_blogsOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_blogsOff.gif" border="0" /><% } %></a></td>
                 <% } else if (tabLev2.equals("student_reps")) {%>
                 <%--
                 <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps"><% if (tabLev3.equals("details")) {%><img src="/i/tournament/tccc06/tabs/L3_detailsOn.gif" border="0"/><% } else { %><img src="/i/tournament/tccc06/tabs/L3_detailsOff.gif" border="0"/><% } %></a></td>
@@ -221,10 +227,12 @@
                 <%--
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=odds_semi" target="_blank"><% if (tabLev3.equals("odds")) {%><img src="/i/tournament/tccc06/tabs/L3_oddsOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_oddsOff.gif" border="0" /><% } %></a></td>
                 --%>
-                <%--
                 <% } else if (tabLev2.equals("summary")) {%>
+                <%--
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_sum_onlinerounds"><% if (tabLev3.equals("online")) {%><img src="/i/tournament/tccc06/tabs/L3_onlineroundsOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_onlineroundsOff.gif" border="0" /><% } %></a></td>
+                --%>
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room1_analysis"><% if (tabLev3.equals("room1")) {%><img src="/i/tournament/tccc06/tabs/L3_room1On.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_room1Off.gif" border="0" /><% } %></a></td>
+                <%--
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room2_analysis"><% if (tabLev3.equals("room2")) {%><img src="/i/tournament/tccc06/tabs/L3_room2On.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_room2Off.gif" border="0" /><% } %></a></td>
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room3_analysis"><% if (tabLev3.equals("room3")) {%><img src="/i/tournament/tccc06/tabs/L3_room3On.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_room3Off.gif" border="0" /><% } %></a></td>
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_wildcard_analysis"><% if (tabLev3.equals("wildcard")) {%><img src="/i/tournament/tccc06/tabs/L3_wildcardOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_wildcardOff.gif" border="0" /><% } %></a></td>
