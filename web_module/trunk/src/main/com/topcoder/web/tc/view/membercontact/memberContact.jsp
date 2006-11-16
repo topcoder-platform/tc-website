@@ -24,16 +24,9 @@ function canSend() {
 }
 
 
-function isEmpty(s) {
-    for (var i = 0; i < s.length; i++) {
-       if (s[i] != ' ' && s[i] != '\n' && s[i] != '\t')  return false;
-    }
-    return true;
-}
-
 function validate(send) {
     var ajaxRequest = new AjaxRequest('/tc?module=ValidateHandle');
-    document.f.%= SendMail.HAS_TEXT %>.value = isEmpty(document.f.%= SendMail.TEXT %>.value)? "" : "true";
+    document.f.%= SendMail.HAS_TEXT %>.value = document.f.%= SendMail.TEXT %>.value != ""? "true" : "";
     ajaxRequest.addFormElementsById("<%= SendMail.TO_HANDLE %>");
     ajaxRequest.addFormElementsById("<%= SendMail.HAS_TEXT %>");    
     if (send) {
