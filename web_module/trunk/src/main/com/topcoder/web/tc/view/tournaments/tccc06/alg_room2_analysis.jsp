@@ -35,7 +35,7 @@
 <span class="bigTitle">mathijs wins Room 2</span>
 <br><br>
 <img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-<tc-webtag:forumLink forumID="506181" message="Discuss this match" /><br>
+<tc-webtag:forumLink forumID="506182" message="Discuss this match" /><br>
 Wednesday, November 15, 2006<br>
 Introduction by <tc-webtag:handle coderId="159052" context="algorithm"/>
 <br /><br />
