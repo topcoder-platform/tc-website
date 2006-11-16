@@ -20,27 +20,25 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
     }
 
     public void changeRank(Integer newRank, Submission s) {
-            StringBuffer buf = new StringBuffer(100);
-            buf.append("update Submission s set rank = ");
-            if (newRank.compareTo(s.getRank())>0) {
-                //going up
-                buf.append("rank-1 ");
-            } else if (newRank.compareTo(s.getRank())<0) {
-                //going down
-                buf.append("rank+1 ");
-            }
-            buf.append("where s.submitter.id = ? and s.contest.id = ? ");
-            if (newRank.compareTo(s.getRank())!=0) {
-                Query q = session.createQuery(buf.toString());
-                q.setLong(0, s.getSubmitter().getId().longValue());
-                q.setLong(1, s.getContest().getId().longValue());
-                q.executeUpdate();
+        StringBuffer buf = new StringBuffer(100);
+        buf.append("update Submission s set rank = ");
+        if (newRank.compareTo(s.getRank()) < 0) {
+            buf.append("rank-1 ");
+        } else if (newRank.compareTo(s.getRank()) > 0) {
+            buf.append("rank+1 ");
+        }
+        buf.append("where s.submitter.id = ? and s.contest.id = ? ");
+        if (newRank.compareTo(s.getRank()) != 0) {
+            Query q = session.createQuery(buf.toString());
+            q.setLong(0, s.getSubmitter().getId().longValue());
+            q.setLong(1, s.getContest().getId().longValue());
+            q.executeUpdate();
 
-                s.setRank(newRank);
-                saveOrUpdate(s);
-            }
+            s.setRank(newRank);
+            saveOrUpdate(s);
+        }
     }
-
+/*
     public void changeRank(Integer newRank, Long submissionId, Long userId) {
             Query submissionQuery = session.createQuery("select s.rank, s.contest.id from Submission s where s.id=? and s.submitter.id=?");
         submissionQuery.setLong(0, submissionId.longValue());
@@ -71,5 +69,5 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
                 update.setLong(1, submissionId.longValue());
                 update.executeUpdate();
             }
-    }
+    }*/
 }
