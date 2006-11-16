@@ -578,7 +578,7 @@ public class ProjectUtil {
     	try {
 			return new DefaultPhaseTemplate(DefaultPhaseTemplate.class.getName());
 		} catch (ConfigurationException e) {
-			throw new RuntimeException("Failed to get phase template", e);
+			throw new RuntimeException("Failed to get phase template, cause: " + e.getMessage(), e);
 		}
     }
 
@@ -638,8 +638,8 @@ public class ProjectUtil {
         int index = 1;
         ps.setLong(index++, Long.parseLong(denpendencyId));
         ps.setLong(index++, Long.parseLong(denpendentId));
-        ps.setDate(index++, denpendency.getScheduledStartDate() == null ? null : new Date(denpendency.getScheduledStartDate().getTime()));
-        ps.setDate(index++, denpendent.getScheduledStartDate() == null ? null : new Date(denpendent.getScheduledStartDate().getTime()));
+        ps.setBoolean(index++, d.isDependencyStart());
+        ps.setBoolean(index++, d.isDependentStart());
         ps.setLong(index++, d.getLagTime());
         ps.setString(index++, String.valueOf(userId));
         ps.setString(index++, String.valueOf(userId));
