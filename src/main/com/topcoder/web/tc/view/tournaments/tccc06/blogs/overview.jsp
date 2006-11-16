@@ -33,6 +33,14 @@
 <table cellpadding="2" cellspacing="0" width="500" class="bodyText">
    <tr>
       <td align="center">
+      <img src="/i/m/RRLevering_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="344462" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=RRLevering02">"Component Competitions Round 1"</span></A><br>
+      [November 15 - 6:30 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
       <img src="/i/m/Churchillio_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
       <span class="smallHandle"><tc-webtag:handle coderId="21181561" darkBG="true" /></span>
       </td>
