@@ -26,6 +26,22 @@
 ------------------------%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.15.06<br>8:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        Component <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary">Development</A> Part 1 Analyses
+        </span><br><br>
+        Part 1 of the CDDC is over, here's how it went.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary">design</A> |
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary">development</A> | 
+        <tc-webtag:forumLink forumID="506186" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>11.15.06<br>7:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=sponsors&d2=aolMashups">Now open: AOL Mashup contest</A>
@@ -199,17 +215,3 @@ The latest round of the TCHS division led competitors through a minefield of dar
     <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
 </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.07.06<br>12:00 NOON</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_110206">AOL SRM 325 chat session transcript</A>
-        </span><br><br>
-      AOL held a chat session in the arena recently, just prior to SRM 325, to discuss working at AOL.  Here's what everyone had to say.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_110206">details</A> | 
-         <tc-webtag:forumLink forumID="506075" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
