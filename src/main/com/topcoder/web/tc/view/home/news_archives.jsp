@@ -23,7 +23,7 @@
         <td><A href="/tc?module=Static&d1=home&d2=news_archive_comp">Component Competition News</A></td>
     </tr>
     <tr class="bodyText">
-        <td><A href="/tc?&module=SurveyList"><img src="/i/home/icons/survey.gif" alt="Surveys" border="0"/></A></td>
+        <td><A href="/tc?&module=SurveyList"><img src="/i/home/icons/v2/survey.png" alt="Surveys" border="0"/></A></td>
         <td><A href="/tc?&module=SurveyList">Surveys</A></td>
         <td>
             <A href="/tc?module=Static&d1=match_editorials&d2=archive"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0"/></A>
@@ -56,7 +56,7 @@
         </td>
         <td><A href="/tc?module=Static&d1=home&d2=news_archive_movies">Movies</A></td>
         <td>
-            <A href="/tc?module=Static&d1=home&d2=news_archive_podcast"><img src="/i/home/icons/headphones.gif" alt="Podcasts" border="0"/></A>
+            <A href="/tc?module=Static&d1=home&d2=news_archive_podcast"><img src="/i/home/icons/v2/audio.png" alt="Podcasts" border="0"/></A>
         </td>
         <td><A href="/tc?module=Static&d1=home&d2=news_archive_podcast">Podcasts</A></td>
     </tr>
