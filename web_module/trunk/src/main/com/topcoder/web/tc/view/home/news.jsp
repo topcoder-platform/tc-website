@@ -7,7 +7,7 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 <%--------------------------------
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Educational Content" border="0"/>
         <br>10.26.06<br>10:00 AM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -26,7 +26,7 @@
 ------------------------%>
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.15.06<br>9:20 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.15.06<br>9:20 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room2_analysis">mathijs wins Room 2</A>
         </span><br><br>
@@ -41,7 +41,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.15.06<br>8:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.15.06<br>8:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         Component <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary">Development</A> Part 1 Analyses
         </span><br><br>
@@ -57,7 +57,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>11.15.06<br>7:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General Competition News" border="0" /><br>11.15.06<br>7:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=sponsors&d2=aolMashups">Now open: AOL Mashup contest</A>
       </span><br><br>
@@ -71,7 +71,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.15.06<br>3:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.15.06<br>3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room1_analysis">Ying wins Room 1</A>
         </span><br><br>
@@ -86,7 +86,7 @@
 
 <%--------------------------------------------------------%>
 <tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0"/>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0"/>
         <br>11.13.06<br>5:00 PM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -104,7 +104,7 @@
 </td></tr>
 
 <%--------------------------------------------------------%>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Educational Content" border="0"/>
         <br>11.13.06<br>4:00 PM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -123,7 +123,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.13.06<br>11:30 AM</td>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>11.13.06<br>11:30 AM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="http://www.prnewswire.com/mnr/topcoder/26099/" target="_blank">Meet the AOL TCCC Webcast Team</A></span><br><br>
        <div style="float: right; padding-left: 7px;"><img src="/i/pressroom/aol_logo.jpg" width="80" height="38" alt="AOL logo" border="0" /></div>
        AOL today announced that ESPN's Jeremy Schaap will join TopCoder veterans <tc-webtag:handle coderId="270505" /> and <tc-webtag:handle coderId="154754" /> to host the live webcast of the TCCC finals. The webcast will be broadcast live on November 17, starting at 1:30 p.m. PST (21:30 GMT).
@@ -137,7 +137,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>11.10.06<br>12:10 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br>11.10.06<br>12:10 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_orpheusGameServer">New Assembly contest online: $45,000 in prizes!</A></span><br><br>
       The Orpheus Game Server and Client Modules assembly contest is now open for registration, with a first prize of $30,000 and a second prize of $15,000.
       </td>
@@ -150,7 +150,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.10.06<br>9:30 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.10.06<br>9:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA chat session scheduled for SRM 326</A>
         </span><br><br>
@@ -165,7 +165,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.09.06<br>11:30 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.09.06<br>11:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_bracket">TCCC06 Algorithm Bracket Update</A>
         </span><br><br>
@@ -180,7 +180,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>11.09.06<br>10:45 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>11.09.06<br>10:45 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/longcontest/?module=ViewOverview&rd=10123">Intel&#174; Multi-Threading Competition 10 Results</A>
       </span><br><br>
@@ -194,7 +194,7 @@
    </td></tr>
 
 <%--------------------------------------------------------%>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0"/>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Educational Content" border="0"/>
         <br>11.08.06<br>12:10 PM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
