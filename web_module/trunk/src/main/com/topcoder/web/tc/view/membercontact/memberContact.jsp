@@ -24,10 +24,18 @@ function canSend() {
 }
 
 
+function isEmpty(s) {
+    for (var i = 0; i < s.length; i++) {
+       if (s[i] != ' ' && s[i] != '\n' && s[i] != '\t')  return false;
+    }
+    return true;
+}
+
 function validate(send) {
     var ajaxRequest = new AjaxRequest('/tc?module=ValidateHandle');
+    document.f.%= SendMail.HAS_TEXT %>.value = isEmpty(document.f.%= SendMail.TEXT %>.value)? "" : "true";
     ajaxRequest.addFormElementsById("<%= SendMail.TO_HANDLE %>");
-    ajaxRequest.addFormElementsById("<%= SendMail.TEXT %>");    
+    ajaxRequest.addFormElementsById("<%= SendMail.HAS_TEXT %>");    
     if (send) {
         ajaxRequest.addFormElementsById("<%= SendMail.SEND %>");
     }
@@ -147,6 +155,7 @@ To block specific TopCoder members from contacting you, go to the <a href='/tc?m
 
 <br>
 <input type="hidden" id="<%= SendMail.SEND %>" name="<%= SendMail.SEND %>" value="true" />
+<input type="hidden" id="<%= SendMail.HAS_TEXT %>" name="<%= SendMail.HAS_TEXT %>" value="" />
 
 To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HANDLE %>' size='12' onBlur='validate(false)' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
 <div id="validationHandle"> </div>
