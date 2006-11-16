@@ -74,9 +74,9 @@
       <tc-webtag:handle coderId="10157606" context="algorithm"/><br>
       <tc-webtag:handle coderId="262056" context="algorithm"/><br>
       <tc-webtag:handle coderId="11829284" context="algorithm"/><br>
+      <tc-webtag:handle coderId="10574855" context="algorithm"/><br>
+      <tc-webtag:handle coderId="251074" context="algorithm"/><br>
       <%-- FINALS 
-      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
-      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
       <tc-webtag:handle coderId="000000" context="algorithm"/><br>
       <tc-webtag:handle coderId="000000" context="algorithm"/><br>
         --%>
@@ -127,11 +127,11 @@
       <tc-webtag:handle coderId="20286298" context="algorithm"/><br>
       <tc-webtag:handle coderId="20635649" context="algorithm"/><br>
       <tc-webtag:handle coderId="310723" context="algorithm"/><br>
+      <tc-webtag:handle coderId="8355516" context="algorithm"/><br>
+      <tc-webtag:handle coderId="263396" context="algorithm"/><br>
+      <tc-webtag:handle coderId="15805598" context="algorithm"/><br>
+      <tc-webtag:handle coderId="8365685" context="algorithm"/><br>
       <%-- WILDCARD ROOM 
-      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
-      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
-      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
-      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
         --%>
       </td>
       <td rowspan="2" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
@@ -177,7 +177,6 @@
       <td rowspan="2" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
       <td valign="middle"><img src="/i/tournament/tccc06/bracket_bar.gif" alt="" border="0" /></td>
       <td style="padding: 15px" valign="middle" align="center">
-      <%-- WILDCARD ROOM --%>
       &#160;
       </td>
       <td rowspan="2" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
