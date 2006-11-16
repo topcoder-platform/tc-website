@@ -15,11 +15,6 @@ import java.rmi.RemoteException;
 
 import java.sql.*;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
-import java.util.Locale;
-
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.ejb.SessionBean;
@@ -151,6 +146,7 @@ public class ProjectTrackerV2Bean implements SessionBean {
      * @throws RuntimeException DOCUMENT ME!
      */
     public long getProjectIdByComponentVersionId(long compVersId, long projectType) {
+    	log.debug("PT.getProjectIdByComponentVersionId; compVersId: " + compVersId + " projectType: " + projectType);
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -187,6 +183,7 @@ public class ProjectTrackerV2Bean implements SessionBean {
      * @return true if project is aggregated
      */
     public boolean isProjectAggregated(long projectId) throws RemoteException {
+    	log.debug("PT.isProjectAggregated; projectId: " + projectId);
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -216,6 +213,8 @@ public class ProjectTrackerV2Bean implements SessionBean {
      * @return the User for the PM
      */
     public User getPM(long projectId) {
+    	log.debug("PT.getPM; projectId: " + projectId);
+
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -279,6 +278,8 @@ public class ProjectTrackerV2Bean implements SessionBean {
     public long createProject(String projectName, String projectVersion, long compVersId, long projectTypeId,
         String overview, Date[] dates, TCSubject requestor, long levelId)
         throws BaseException {
+        log.debug("PT.createProject; projectName: " + projectName + " ,compVersId: " + compVersId 
+        		+ " ,projectTypeId: " + projectTypeId + " ,projectVersion: " + projectVersion+ " ,requestor: " + requestor.getUserId());
 
         Connection conn = null;
 
@@ -287,7 +288,7 @@ public class ProjectTrackerV2Bean implements SessionBean {
             return ProjectUtil.createProject(conn, projectVersion, compVersId, projectTypeId, requestor.getUserId());
         } catch (SQLException e) {
             ejbContext.setRollbackOnly();
-            throw new RuntimeException("SQLException: " + e.getMessage());
+            throw new RuntimeException("SQLException: " + e.getMessage(), e);
         } finally {
             Common.close(conn);
         }
@@ -328,6 +329,7 @@ public class ProjectTrackerV2Bean implements SessionBean {
      * @param newVersion DOCUMENT ME!
      */
     public void versionRename(long compVersId, String oldVersion, String newVersion) {
+        log.debug("ProjectTrackerBean.versionRename");
         ddeRename(-1, compVersId, null, null, oldVersion, newVersion);
     }
 
@@ -339,12 +341,13 @@ public class ProjectTrackerV2Bean implements SessionBean {
      * @param newName DOCUMENT ME!
      */
     public void componentRename(long componentId, String oldName, String newName) {
+        log.debug("ProjectTrackerBean.componentRename");
         ddeRename(componentId, -1, oldName, newName, null, null);
     }
 
     private void ddeRename(long componentId, long compVersId, String oldName, String newName, String oldVersion,
         String newVersion) {
-    	// No any role need to be created in new OR
+        log.debug("ProjectTrackerBean.ddeRename");
     }
 
     /**

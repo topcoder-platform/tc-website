@@ -4,7 +4,6 @@
 
 package com.topcoder.dde.catalog;
 
-import com.topcoder.apps.review.document.DocumentManager;
 import com.topcoder.apps.review.document.DocumentManagerHome;
 import com.topcoder.apps.review.projecttracker.*;
 import com.topcoder.dde.forum.ForumModeratePermission;
@@ -12,8 +11,6 @@ import com.topcoder.dde.forum.ForumPostPermission;
 import com.topcoder.dde.notification.Notification;
 import com.topcoder.dde.notification.NotificationHome;
 import com.topcoder.dde.persistencelayer.interfaces.*;
-import com.topcoder.dde.forum.ForumPostPermission;
-import com.topcoder.dde.forum.ForumModeratePermission;
 import com.topcoder.forum.*;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.RolePrincipal;
@@ -804,6 +801,7 @@ public class ComponentManagerBean
 
     public void updateVersionInfo(ComponentVersionInfo info, TCSubject requestor, long levelId)
             throws CatalogException {
+        log.debug("updateVersionInfo: ");
 
         log.debug("public: " + info.getPublicForum());
 
@@ -885,6 +883,7 @@ public class ComponentManagerBean
         }
 
         long newForum = -1;
+
 
         // If the version is changing to specification or development
         // Makes sure the specification forum is created even if the component
@@ -985,6 +984,9 @@ public class ComponentManagerBean
             }
         }
 
+        log.debug("info.getPhase(): " + info.getPhase());
+        log.debug("versionBean.getPhaseId(): " + versionBean.getPhaseId());
+
         // Create Online Review project on phase changes
         if ((versionBean.getPhaseId() == ComponentVersionInfo.COLLABORATION
                 && info.getPhase() == ComponentVersionInfo.SPECIFICATION) ||
@@ -1045,6 +1047,7 @@ public class ComponentManagerBean
 
                 }
 
+                log.debug("createProject, adding PM to notification." + versionBean.getCompCatalog().getComponentName());
                 long projectId = pt.createProject(
                         versionBean.getCompCatalog().getComponentName(),
                         info.getVersionLabel(),
@@ -1054,6 +1057,7 @@ public class ComponentManagerBean
                         null,
                         requestor,
                         levelId);
+                log.debug("createdProject, projectId." + projectId);
 
                 if (newForum >= 0) {
 
