@@ -39,7 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<tr class="bodyText"><td nowrap="nowrap">11.15.06 3:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room1_analysis">ACRush wins Room 1</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">11.15.06 3:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room1_analysis">Ying wins Room 1</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.10.06 9:30 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA chat session scheduled for SRM 326</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.09.06 11:30 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_bracket">TCCC06 Algorithm Bracket Update</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.07.06 12:00 NOON - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_110206">AOL SRM 325 chat session transcript</A></td></tr>

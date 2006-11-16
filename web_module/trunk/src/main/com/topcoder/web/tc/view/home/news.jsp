@@ -24,7 +24,7 @@
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
 ------------------------%>
-<%---------------------------  AOL MASHUPS, NOT SURE WHEN THIS WILL GO UP AGAIN
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>11.15.06<br>7:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -37,12 +37,12 @@
          <tc-webtag:forumLink forumID="506160" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
------------------------------%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.15.06<br>3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room1_analysis">ACRush wins Room 1</A>
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room1_analysis">Ying wins Room 1</A>
         </span><br><br>
       The TCCC kicked off this morning in San Diego with an exciting first round.  Most competitors were able to submit the easy problem relatively quickly, with <tc-webtag:handle coderId="19849563" context="algorithm"/> leading the pack.
       </td>
@@ -212,19 +212,4 @@ The latest round of the TCHS division led competitors through a minefield of dar
          <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_110206">details</A> | 
          <tc-webtag:forumLink forumID="506075" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>11.06.06<br>4:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>//?module=ViewContestDetails&ct=2046">Arena Skin Contest</A>
-        </span><br><br>
-        We're running a contest at the Studio to design a new skin for the arena (don't worry, the old one isn't going anywhere) and it could be your vision that we use as the new look of the arena. Oh yeah, the winner also gets $1000!
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>//?module=ViewContestDetails&ct=2046">contest details</A> | 
-         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=23">discuss this</A> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
