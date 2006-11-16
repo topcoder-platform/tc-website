@@ -26,6 +26,21 @@
 ------------------------%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.16.06<br>2:25 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=overview">TCCC06: Day 1 blogs now online</A>
+        </span><br><br>
+      With Day 1 of the Collegiate Challenge done, relive the onsite experience through <tc-webtag:handle coderId="344462"/> and <tc-webtag:handle coderId="21181561"/>'s blogs.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=overview">view</A> | 
+         <tc-webtag:forumLink forumID="506180" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.15.06<br>9:20 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room2_analysis">mathijs wins Room 2</A>
@@ -192,22 +207,4 @@
          <tc-webtag:forumLink forumID="506148" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Educational Content" border="0"/>
-        <br>11.08.06<br>12:10 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=110806">TopCoder @ Work: Your Career and the TCCC</A></span><br><br>
-            With the Collegiate Challenge coming up, here is a look at how the decisions you make during college - and your TopCoder experience - can lay the foundation for a rewarding career.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/timmac_big.jpg" alt="" width="55" height="61"/>&#160;<img src="/i/m/rhudson_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td></tr>
-        </table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&amp;d1=features&amp;d2=110806">article</A> |
-    <tc-webtag:forumLink forumID="506171" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-</td></tr>
 
