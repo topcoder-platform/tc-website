@@ -37,10 +37,22 @@
 --%>
 
 by <strong>the Development Review Board</strong><br />
-<em>TopCoder Members</em><br />
-Wednesday, November 15, 2006<br />
-<br />
-<b>Round 1: Rename Package Ant Task / Rename Namespace NAnt Task</b>
+<em>TopCoder Members</em>
+<br /><br>
+
+<strong>Thursday, November 16, 2006</strong><br />
+<strong>Round 2: XMI Reader</strong><br> 
+by <tc-webtag:handle coderId="20076717" context="development"/>
+<br /><br />
+TopCoder is building its own UML tool that -- like Poseidon -- is based on <a href="http://en.wikipedia.org/wiki/XMI" target="_blank">XMI standards</a>. The XMIReader component is used to read and parse XMI files. This component only reads the file and parses it as a standard XML file, while providing a framework for handling each element type. To reduce the memory usage, the component uses SAX instead of DOM.
+<br /><br />
+Compared with the other UML components, this one is much easier. It registers handlers for element types and uses them to parse the corresponding XMI elements. However, the handlers are not in the scope of this component, there are only two classes to implement and the logic is straightforward, so it should be relatively easy. 
+<br /><br />
+One note, though: Of the two versions, the .NET version includes one potential trap. The .NET version of the component must process an empty element as if it were the end of an element. If not, the component will encounter an infinite loop. To ensure that this works, the developers should test their submissions against a real XMI file (like the one in the docs directory). 
+<br /><br />
+
+<strong>Wednesday, November 15, 2006</strong><br />
+<strong>Round 1: Rename Package Ant Task / Rename Namespace NAnt Task</strong><br>
 by <tc-webtag:handle coderId="297731" context="development"/>
 <br /><br />
 The Rename package Ant task and Rename namespace NAnt task components were about building functionality to enable source code to be modified automatically while still remaining consistent with the original intent. 

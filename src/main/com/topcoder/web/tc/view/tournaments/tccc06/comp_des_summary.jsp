@@ -38,10 +38,22 @@
 --%>
 
 by <strong>the Design Review Board</strong><br />
-<em>TopCoder Members</em><br />
-Wednesday, November 15, 2006
+<em>TopCoder Members</em>
 <br /><br />
-<b>Round 1: AutoComplete Text Box</b>
+
+<strong>Thursday, November 16, 2006</strong><br />
+<strong>Round 2: Logger</strong><br>
+by <tc-webtag:handle coderId="286907" context="design"/>
+<br /><br />
+Logger is a high performance logging framework that provides the TopCoder parallel to libraries such as log4j or log4net.  The competitors are expected to implement a set of requirements and also keep issues such as thread safety and efficiency in mind.  The initial features include a class registration mechanism and multi-level filtering strategy.
+<br /><br />
+Being a huge undertaking in itself, with all aspects to be evaluated, it also tends to make competitors aim high because logging is so common and everyone just sees too much of the great libraries. It’s usually a harder task for a designer to pick what to do than how to do it.  I think for this very first rollout of the component the focus should be put on usability and extensibility, as those things are not likely to improve once fixed.
+<br /><br />
+Many of the designs do not lack for features, but several went for extra functionality before the basics were properly pulled together. One or two of the submissions that I particularly liked provided a clean API and pieced things together -- as well as adding some features that naturally arose from design decisions -- rather than simply adding new methods and requiring developers to do extra work.
+<br /><br />
+
+<strong>Wednesday, November 15, 2006</strong><br />
+<strong>Round 1: AutoComplete Text Box</strong><br>
 by <tc-webtag:handle coderId="10348862" context="design"/>
 <br /><br />
 The AutoComplete TextBox component provides a HTML text box tag, which, with the help of JavaScript, will automatically display a list of auto complete options that can be selected by the user. The JavaScript code must communicate with a Servlet using AJAX and, preferably, JSON for the messages’ format. The component must provide a concrete implementation of the Servlet, using a database. Performance is also a requirement, as the auto complete options must be shown in real time.
