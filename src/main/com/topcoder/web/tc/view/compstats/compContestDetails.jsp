@@ -92,7 +92,9 @@
         imgName = "/i/development/smNetCustom.gif";
     }
 
-	boolean canDownloadSubm = ((Boolean) request.getAttribute("isComplete")).booleanValue();
+    boolean canDownloadSubm = ((Boolean) request.getAttribute("isComplete")).booleanValue();
+    boolean isDev = "113".equals(projectInfo.getStringItem(0, "phase_id"));
+
 %>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -318,21 +320,21 @@
         </TD>
         <% } else { %>
         <TD class="<%=even?"statLt":"statDk"%>" align="center">
-	        <%=reviewers.getLongItem(0, "review_resp_desc")%>
+	        <%=isDev? reviewers.getStringItem(0, "review_resp_desc") + "<br>" : ""%>
             <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>&rid=<%=reviewers.getLongItem(0, "reviewer_id")%>'
                class="bcLink">
                 <rsc:item row="<%=resultRow%>" name="score1" format="0.00"/>
             </A>
         </TD>
         <TD class="<%=even?"statLt":"statDk"%>" align="center">
-	        <%=reviewers.getLongItem(1, "review_resp_desc")%>
+	        <%=isDev? reviewers.getStringItem(1, "review_resp_desc") + "<br>" : ""%>
             <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>&rid=<%=reviewers.getLongItem(1, "reviewer_id")%>'
                class="bcLink">
                 <rsc:item row="<%=resultRow%>" name="score2" format="0.00"/>
             </A>
         </TD>
         <TD class="<%=even?"statLt":"statDk"%>" align="center">
-            	        <%=reviewers.getLongItem(2, "review_resp_desc")%>
+	        <%=isDev? reviewers.getStringItem(2, "review_resp_desc") + "<br>" : ""%>
             <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>&rid=<%=reviewers.getLongItem(2, "reviewer_id")%>'
                class="bcLink">
                 <rsc:item row="<%=resultRow%>" name="score3" format="0.00"/>
