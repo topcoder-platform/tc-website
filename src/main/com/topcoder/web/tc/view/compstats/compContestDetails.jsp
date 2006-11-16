@@ -253,15 +253,15 @@
     <TD CLASS="tableHeader" align="center" colspan="2">unknown*</TD>
     <% } else if (reviewers.size() == 3) {
     %>
-    <TD CLASS="tableHeader" align="center"><%=isDev? reviewers.getStringItem(0, "review_resp_desc") + "<br>" : ""%>
+    <TD CLASS="tableHeader" align="center"><!-- %=isDev? reviewers.getStringItem(0, "review_resp_desc") + "<br>" : ""% -->
 	<tc-webtag:handle
             coderId='<%= reviewers.getLongItem(0, "reviewer_id") %>'
             context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></TD>
-    <TD CLASS="tableHeader" align="center"><%=isDev? reviewers.getStringItem(1, "review_resp_desc") + "<br>" : ""%>
+    <TD CLASS="tableHeader" align="center"><!-- %=isDev? reviewers.getStringItem(1, "review_resp_desc") + "<br>" : ""% -->
 	<tc-webtag:handle
             coderId='<%= reviewers.getLongItem(1, "reviewer_id") %>'
             context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></TD>
-    <TD CLASS="tableHeader" align="center"><%=isDev? reviewers.getStringItem(2, "review_resp_desc") + "<br>" : ""%>
+    <TD CLASS="tableHeader" align="center"><!-- %=isDev? reviewers.getStringItem(2, "review_resp_desc") + "<br>" : ""% -->
     	<tc-webtag:handle
             coderId='<%= reviewers.getLongItem(2, "reviewer_id") %>'
             context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></TD>
