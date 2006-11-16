@@ -35,6 +35,7 @@
 <div class="fixedWidthBody" style="margin-bottom: 40px;">
 
 <%--
+--%>
 <div align="center">
     <img src="/i/sponsor/bannerAOLMashups.png" alt="AOL Mashups" />
 </div>
@@ -53,7 +54,6 @@ Questions? Discuss them in <A href="http://<%=ApplicationServer.STUDIO_SERVER_NA
 Once the contest starts, you'll have 10 days to lay out your vision for the mashup. Of course, 10 days is way too short to actually build the application, so all we're asking for is a visual representation of your idea  - you should show us how it looks, what it does, and why it's cool, but you don't have to worry about the underlying backend or actually integrating APIs. 
 <br><br>
 Winning entries will be featured on the TopCoder Studio site and on AOL's developer network at <A href="<tc-webtag:linkTracking link="http://developer.aol.com" refer="tc_mashups_page"/>" target="_blank">http://dev.aol.com</A> - and will receive a cash prize.
---%>
 
 </div>
 
