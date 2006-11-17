@@ -177,7 +177,7 @@
                 <TD class="valueR"><rsc:item name="new_rating" row="<%=resultRow%>"/></TD>
                 <TD class="valueR"><rsc:item name="vol" row="<%=resultRow%>"/></TD>
                 <TD class="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></TD>
-                <TD class="valueC"><rsc:item name="percentile" row="<%=resultRow%>"/></TD>                
+                <TD class="valueC"><rsc:item name="percentile" row="<%=resultRow%>" format="#0.00" /></TD>                
             </tr>
             <%even = !even;%>
         </rsc:iterator>
