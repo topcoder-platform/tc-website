@@ -87,6 +87,8 @@
                         <A href="/tc?module=ComponentRecordbook&c=most_reviews&type=development">development</A> |
                         <A href="/tc?module=ComponentRecordbook&c=most_reviews&type=component">overall</A>
 
+                        <br><br>
+
                         <strong>Most Submission Reviews</strong><br>
                         <A href="/tc?module=ComponentRecordbook&c=most_submission_reviews&type=design">design</A> |
                         <A href="/tc?module=ComponentRecordbook&c=most_submission_reviews&type=development">development</A> |
