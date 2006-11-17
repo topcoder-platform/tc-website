@@ -26,6 +26,20 @@
 ------------------------%>
 <%--------------------------------------------------------%>
    <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>11.17.06<br>12:15 PM</td>
+       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.internetnews.com/dev-news/article.php/3644456" target="_blank">Who is the Top Coder?</A></span><br><br>
+       <div style="float: right; padding-left: 7px;"><img src="/i/pressroom/internetnews_logo.gif" width="81" height="11" alt="internetnews.com logo" border="0" /></div>
+       Coding as competitive sport? You bet, complete with a famous ESPN anchor and $200,000 in prizes. It's called the TopCoder Collegiate Challenge and the finals are being webcast live Friday thanks to sponsor AOL.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://www.internetnews.com/dev-news/article.php/3644456" target="_blank">full story</A> | 
+       <tc-webtag:forumLink forumID="506187" message="discuss this" /> | 
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.17.06<br>1:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_wildcard_analysis">Eryx wins the WildCard Round</A>
@@ -165,7 +179,7 @@
 </td></tr>
 
 <%--------------------------------------------------------%>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Educational Content" border="0"/>
+    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0"/>
         <br>11.13.06<br>4:00 PM</td>
     <td class="newsTextCell">
         <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -196,7 +210,7 @@
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
+<%------------------------------------------------
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Software Competition News" border="0" /><br>11.10.06<br>12:10 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_orpheusGameServer">New Assembly contest online: $45,000 in prizes!</A></span><br><br>
@@ -208,19 +222,4 @@
          <tc-webtag:forumLink forumID="506175" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.10.06<br>9:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA chat session scheduled for SRM 326</A>
-        </span><br><br>
-      NSA will be in the arena at 11AM on November 11, just prior to SRM 326, to discuss working at NSA.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">details</A> | 
-         <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
+--------%>
