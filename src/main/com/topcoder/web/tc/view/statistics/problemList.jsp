@@ -321,7 +321,7 @@ function submitEnter(e) {
             <TD colspan="12"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
         </TR>
         <TR>
-            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" HEIGHT="16" colspan="10" ALIGN="center">
+            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" HEIGHT="16" colspan="11" ALIGN="center">
             </TD>
         </TR>
         <TR>
