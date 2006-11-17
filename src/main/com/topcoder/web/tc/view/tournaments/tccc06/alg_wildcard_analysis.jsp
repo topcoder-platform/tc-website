@@ -36,13 +36,23 @@
 <br><br>
 <img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
 <tc-webtag:forumLink forumID="506184" message="Discuss this match" /><br>
+
 Thursday, November 16, 2006<br>
-Introduction by <tc-webtag:handle coderId="159052" context="algorithm"/>
-<br><br>
-Introduction: Coming soon...
+Introduction by <a href="/tc?module=MemberProfile&amp;cr=159052&tab=alg" class="coderTextYellow">lbackstrom</a>
+
+<p>The wildcard round proved particularly difficult, even as wildcard
+rounds go.  Though the easy problem was straightforward if you saw the
+trick to it (and <tc-webtag:handle coderId="260835" context="algorithm"/> scored over 248 points on it), the other two
+problems were fiendishly difficult.  Despite their best efforts, none
+of the competitors were able to successfully solve either of them, and
+only one of them even had a solution that made it as far as the system
+test phase.  In the end, it came down to challenges, and <tc-webtag:handle coderId="8355516" context="algorithm"/> and
+<tc-webtag:handle coderId="7459080" context="algorithm"/> had the most.</p>
+<p>Congratulations, and good luck to all the
+finalists!</p>
 
 <h1>AlmostBipartiteMatching</h1>
-by <tc-webtag:handle coderId="15231364" context="algorithm"/>
+by <a href="/tc?module=MemberProfile&amp;cr=15231364&tab=alg" class="coderTextRed">soul-net</a>
 <p>This one was my gift for theory lovers. Solving this problem was all about thinking
 and, if you wanted a lot of points, maybe having faith instead of proofs. Since I
 have no rush for points now, I'll give you a formal proof. As complicated as the
@@ -55,6 +65,7 @@ and some edges that connect them. Let's call the total number
 of nodes of the graph <tt>n</tt>. Of course, <tt>n</tt> = <b>nA</b> + <b>nB</b>. The maximum
 possible matching is then floor(<tt>n</tt>/2) (having all nodes matched, or all but one if <tt>n</tt> is odd, is the best we can do). If a simple path has an even number of nodes <tt>k</tt>,
 all its members can be perfectly matched (0 with 1, 2 with 3, ... and <tt>k</tt>-2 with
+
 <tt>k</tt>-1). If <tt>k</tt> is odd, this strategy leaves one node alone. Then, if <b>nA</b>
 or <b>nB</b> is even, we can obtain a maximum matching. If both are even, we have perfect
 matching, and if one is even and one is odd, we have a matching of all nodes but one, which
@@ -94,8 +105,98 @@ for(int i=0;i&lt;edgesA.length;++i) if (edgesA[i]%2==0 && edgesB[i]%2==0) return
 return n/2-1;
 </pre>
 
-<h1>AlmostBipartiteMatching</h1>
-Coming soon...
+
+<h1>Regulars</h1>
+by <tc-webtag:handle coderId="159052" context="algorithm"/>
+
+<p>A regular expression can be converted into a <a
+href="http://en.wikipedia.org/wiki/Deterministic_finite_state_machine" target="_blank">DFA</a>,
+and it is easiest to think about this problem in those terms.  Once we
+have a DFA, we just need to write a simple dynamic program the
+computes the number of accepted strings of a particular length that
+start in a particular state.  Since our DFA will have two outgoing
+edges from every node, the number of accepted strings of length
+<tt>k</tt> is simply the sum of the number of strings from those two
+successor states, but of length <tt>k-1</tt>.</p>  
+
+<p>Unfortunately, converting into a DFA is non-trivial.  Luckily, we
+don't have to actually do an explicit conversion.  Instead, we can do
+things implicitly by considering that after some sequence of zeros and
+ones, we have advanced some part of the way through the regular
+expression.  Of course, there are different places we could be in the
+regular expression, depending on what choices we make, but there is a
+well-defined set of locations, which is not hard to compute.  For
+example, if the current set is <tt>S</tt>, and I append a '1', it is easy to
+compute the set of possible next positions.  For each position <tt>p</tt> in <tt>S</tt>,
+if <tt>p</tt> corresponds to a "1*" then I can stay at <tt>p</tt>, or advance.  If <tt>p</tt>
+    corresponds to a '1' not followed by a '*', I must advance.  Of
+    course, if <tt>p</tt> corresponds to something like "1*1*" I might advance
+    all the way to the end, but this is all easy to compute.<br/>
+    </p>
+
+<p>The trick is to observe that each set of possible states, <tt>S</tt>,
+corresponds to a state in the DFA that would represent the expression.
+Furthermore, because the regular expression language being used is so
+simple, the number of possible sets of states remains relatively
+small.  This allows us to write a dynamic program that takes a set <tt>S</tt>
+and a length as its state space:</p>
+<pre>
+    int[] ch;
+    boolean[] b;
+    int ptr;
+    HashMap&lt;String, Long&gt; hm = new HashMap();
+    long go(long pos, int left){
+        long ret = 0;
+        if((pos &amp; (1l&lt;&lt;ptr))&gt;0)ret = 1;
+        if(left == 0){
+            return ret;
+        }
+        String key = pos+" "+left;
+        if(hm.containsKey(key))return hm.get(key);
+        long zer = 0, one = 0;
+        for(int i = 0; i&lt;ptr; i++){
+            if(((1l&lt;&lt;i)&amp;pos)&gt;0){
+                if(ch[i] == 0){
+                    zer |= 1l&lt;&lt;(i+1);
+                    if(b[i])
+                        zer |= 1l&lt;&lt;i;
+                }else {
+                    one |= 1l&lt;&lt;(i+1);
+                    if(b[i])
+                        one |= 1l&lt;&lt;i;
+                }
+            }
+        }
+        for(int i = 0; i&lt;ptr; i++){
+            if(b[i] &amp;&amp; ((1l &lt;&lt; i) &amp; one)&gt;0){
+                one |= 1l&lt;&lt;(i+1);
+            }
+            if(b[i] &amp;&amp; ((1l &lt;&lt; i) &amp; zer)&gt;0){
+                zer |= 1l&lt;&lt;(i+1);
+            }
+        }
+        ret += go(one,left-1) + go(zer,left-1);
+        hm.put(key,ret);
+        return ret;
+    }
+    public long stringCt(String regex, int maxLen){
+        ch = new int[regex.length()];
+        b = new boolean[ch.length];
+        for(int i = 0; i&lt;regex.length(); i++){
+            if(regex.charAt(i) == '*'){
+                b[ptr-1] = true;
+            }else{
+                ch[ptr++] = regex.charAt(i)-'0';
+            }
+        }
+        long pos = 1;
+        for(int i = 0; i&lt;ptr; i++){
+            if(b[i])pos |= 1l&lt;&lt;(i+1);
+            else break;
+        }
+        return go(pos,maxLen);
+    }
+</pre>
         </div>
       </td>
         
