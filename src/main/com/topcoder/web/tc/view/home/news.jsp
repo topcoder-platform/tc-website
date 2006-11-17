@@ -35,7 +35,7 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_wildcard_analysis">details</A> | 
-         <tc-webtag:forumLink forumID="506183" message="discuss this" /> | 
+         <tc-webtag:forumLink forumID="506184" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 

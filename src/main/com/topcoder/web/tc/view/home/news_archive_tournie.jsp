@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">11.16.06 2:25 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_wildcard_analysis">Eryx wins the WildCard Round</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.16.06 5:45 PM - </td><td width="100%">Component <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary">Development</A> Part 2 Details</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.16.06 2:25 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room3_analysis">Petr wins Room 3</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.16.06 2:25 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=overview">TCCC06: Day 1 blogs now online</A></td></tr>
