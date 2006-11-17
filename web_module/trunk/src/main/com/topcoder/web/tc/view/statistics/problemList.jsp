@@ -243,7 +243,7 @@ function submitEnter(e) {
 
     <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#001B35" WIDTH="100%">
         <TR>
-            <TD colspan="11" class="statText"><%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+            <TD colspan="12" class="statText"><%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
                 | <%=(rsc.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>" : "next &gt;&gt;")%></TD>
         </TR>
         <TR>
@@ -280,7 +280,7 @@ function submitEnter(e) {
                 <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
         </TR>
         <TR>
-            <TD colspan="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+            <TD colspan="12"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
         </TR>
         <rsc:iterator list="<%=rsc%>" id="resultRow">
             <TR>
@@ -318,26 +318,26 @@ function submitEnter(e) {
             </TR>
         </rsc:iterator>
         <TR>
-            <TD colspan="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
+            <TD colspan="12"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
         </TR>
         <TR>
             <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" HEIGHT="16" colspan="10" ALIGN="center">
             </TD>
         </TR>
         <TR>
-            <TD colspan="11" class="statText"><%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+            <TD colspan="12" class="statText"><%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
                 | <%=(rsc.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>" : "next &gt;&gt;")%></TD>
         </TR>
 
         <TR>
-            <TD colspan="11" VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+            <TD colspan="12" VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
         </TR>
         <TR>
-            <TD colspan="11" ALIGN="center" CLASS="statText">
+            <TD colspan="12" ALIGN="center" CLASS="statText">
             </TD>
         </TR>
         <TR>
-            <TD colspan="11" VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+            <TD colspan="12" VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
         </TR>
     </TABLE>
 </form>
