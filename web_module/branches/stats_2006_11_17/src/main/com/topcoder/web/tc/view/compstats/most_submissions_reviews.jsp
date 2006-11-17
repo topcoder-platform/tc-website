@@ -20,7 +20,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
     <% boolean even = false; %>
     <rsc:iterator list="<%=rsc%>" id="row">
         <tr class="<%=even?"dark":"light"%>">
-        <td class="valueC"></td>
+        <td class="valueC"><rsc:item name="rank" row="<%=row%>"/></td>
         <td class="value"><tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=type%>'/></td>
         <td class="valueR"><rsc:item name="reviews" row="<%=row%>" format="0"/></td>
         </tr>
