@@ -36,6 +36,14 @@
       <img src="/i/m/RRLevering_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
       <span class="smallHandle"><tc-webtag:handle coderId="344462" darkBG="true" /></span>
       </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=RRLevering06">"A different battlefield"</span></A><br>
+      [November 17 - 3:00 AM]</td>
+   </tr>
+   <tr>
+      <td align="center">
+      <img src="/i/m/RRLevering_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="344462" darkBG="true" /></span>
+      </td>
       <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=RRLevering05">"Behind the scenes with the component reviewers"</span></A><br>
       [November 16 - 8:30 PM]</td>
    </tr>
