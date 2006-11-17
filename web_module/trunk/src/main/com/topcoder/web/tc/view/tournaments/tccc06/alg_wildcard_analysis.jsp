@@ -28,106 +28,74 @@
             
 <div style="float: right;">
 <p align="center"><span class="bodyText" align="center"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=photos">See more photos!</a></span></p>
-<img src="/i/tournament/tccc06/onsitePhotos/shot_wildcard.jpg" alt="" class="photoFrameBig" /><br>
+<img src="/i/tournament/tccc06/onsitePhotos/shotWildcard.jpg" alt="" class="photoFrameBig" /><br>
 </div>
 
 <p>
-<span class="bigTitle">andrewzta wins the WildCard</span>
+<span class="bigTitle">Eryx wins the WildCard</span>
 <br><br>
 <img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-<tc-webtag:forumLink forumID="505964" message="Discuss this match" /><br>
-Thursday, May 4, 2006<br>
+<tc-webtag:forumLink forumID="506184" message="Discuss this match" /><br>
+Thursday, November 16, 2006<br>
 Introduction by <tc-webtag:handle coderId="159052" context="algorithm"/>
 <br><br>
-The wildcard round has always proved to be one of the most exciting
-parts of TopCoder finals.  The competitors are already all warmed up,
-and the competition is always extremely fierce.  TCO '06 was certainly
-no exception and no one was sure what would happen until the system
-test finished.
-<br><br>
-Most of the 12 competitors breezed through the easy problem, almost
-all of them solving it in the first 15 minutes (it took po only 7).
-The medium problem proved quite difficult for everyone though.
-Only reid was able to submit it quickly, for 363 points.  natori
-checked in next, but for only 281.  ploh and andrewzta were not far
-behind, each submitting it with about half an hour to go.  But, they
-would all have to hope reid would fail a problem, as he scored a solid
-616 on the hard, and saved plenty of time to test his code and work on
-challenges.  The other competitors were far from calling it quits
-though, as both andrewzta and SnapDragon submitted the hard problem in
-the final minutes of the round.  Since reid had to resubmit the
-medium, this left andrewzta on top, followed by reid in second, and
-SnapDragon in third.  Of the competitors with only easy and medium
-submissions, natori stood on top, over 100 points above the next
-coder.
-<br><br> 
-The challenge phase was not so exciting as the coding phase, but it
-did result in ploh netting 75 points at the expense of reid and
-JongMan's mediums.  Unfortunately for reid and SnapDragon, the dust
-had not settled yet, and the system testing phase brought down both of
-their hard submissions.  This left andrewzta on top, with the only
-successful hard submission from any of the rounds so far.  natori, the
-only one to successfully solve the medium problem, took second.  Good
-luck to everyone in the finals tomorrow!
-</p>
+Introduction: Coming soon...
 
-<h1>TrafficMonitor</h1>
-by <tc-webtag:handle coderId="251317" context="algorithm"/>
-<br><br>
-The problem begins with an important structural consideration: each pair of nodes is connected by at
-most 1 path.  This is another way of saying the underlying graph of the network is a forest.  Since
-(non-trivial) forests always have leaves, we can use a leaf-driven approach to solve the task.  The
-link connected to a leaf must be monitored, so this forces one of two vertices to have a monitor
-(the leaf or its neighbor).
-<br><br>
-It is always optimal to choose the leaf's neighbor (why?), so we do so, and remove all newly monitored
-edges from the network.  This leaves a smaller network, which can be simiilarly solved (by
-induction).
+<h1>AlmostBipartiteMatching</h1>
+by <tc-webtag:handle coderId="15231364" context="algorithm"/>
+<p>This one was my gift for theory lovers. Solving this problem was all about thinking
+and, if you wanted a lot of points, maybe having faith instead of proofs. Since I
+have no rush for points now, I'll give you a formal proof. As complicated as the
+problem statement may sound, carefully looking at the shape of the graphs lead to
+an incredibly short solution (especially for an onsite!). Anyway, let's start from
+the beginning:</p>
 
-<h1>BishopOnTheBoard</h1>
-by <tc-webtag:handle coderId="7485898" context="algorithm"/>
-<br><br>
-In case of <b>k</b> equals to 1, it is easy to calculate the answer by trying all possible moves. 
-Let's find solution for cases <b>k</b> &gt; 1. If  <b>x</b> &gt; 0, 
-let's solve the problem for the parts of the board to the left of <b>x</b> 
-and to the right independently. So now we can assume that the bishop stands 
-at the leftmost column of the board. 
-<br><br>
-Let's draw two polylines consisting of <b>k</b> segments each from the initial 
-position of the bishop, like it is shown on the figure. 
-<br><br>
-<div align="center"><img src="/i/srm/tccc06_wildcard.gif"/></div>
-<br><br>
-Clearly bishop can visit all the squares of its color left to the column where <b>k</b>-th segments of 
-the polylines intersect. From the part of the board laying to the right of the intersection 
-bishop can visit only squares from the colored triangles. The number of 
-the reachable squares in the described area can be easily calculated by iterating through 
-the x-coordinate till the end of the last segment of the polylines or the 
-end of the border, whatever comes first.
+<p>We have two <a href="http://en.wikipedia.org/wiki/Simple_path" target="_blank">simple paths</a>
+and some edges that connect them. Let's call the total number
+of nodes of the graph <tt>n</tt>. Of course, <tt>n</tt> = <b>nA</b> + <b>nB</b>. The maximum
+possible matching is then floor(<tt>n</tt>/2) (having all nodes matched, or all but one if <tt>n</tt> is odd, is the best we can do). If a simple path has an even number of nodes <tt>k</tt>,
+all its members can be perfectly matched (0 with 1, 2 with 3, ... and <tt>k</tt>-2 with
+<tt>k</tt>-1). If <tt>k</tt> is odd, this strategy leaves one node alone. Then, if <b>nA</b>
+or <b>nB</b> is even, we can obtain a maximum matching. If both are even, we have perfect
+matching, and if one is even and one is odd, we have a matching of all nodes but one, which
+is as good as it can get.</p>
 
-<h1>MapFolder</h1>
-by <tc-webtag:handle coderId="159544" context="algorithm"/>
-<br><br>
-This problem is hard primarily because the problem domain (paper folding) is unfamiliar. Actually pulling out a piece of paper and folding it helps.
-<br><br>
-First observe that whenever there are whole columns that have a common map fold direction (all 'u' or all 'd') there cannot be a legal row fold. Second notice that after a fold has been made, the only part of the map that matters for future folding is the bigger of the two areas divided by the fold. So we keep track of the "active" rectangular part of the map. Awe continue to fold, this active region will become smaller and smaller until it is just a single row and column indicating a complete folding of the map.
-<br><br>
-So the algorithm (using a rotate method to avoid code duplication for rows and columns) becomes
+<p>Now, we only need to take care of the case in which <b>nA</b> and <b>nB</b> are odd. If we
+use the previous strategy in this case, we leave two nodes unmatched -- we have a way of
+obtaining the second best possible match, so we need to check if a perfect match can
+be achieved. If it can, then we return <tt>n</tt>/2; otherwise, we return <tt>n</tt>/2-1.</p>
+
+<p>Let's suppose there is in fact a perfect match. Let's call red nodes to the nodes in A
+matched to a member of A and to the nodes in B matched to a member of B; and blue nodes
+to the rest (matched to a member of the other set). Let's call red edges to edges connecting
+red nodes and blue edges to edges connecting blue nodes. Edges not used in the matching are
+gray. Both A and B have an odd number of elements, and so they have one more node with even
+index than nodes with odd index. All red edges have one endpoint with an odd index and one
+endpoint with an even index (because of the shape of the graph); therefore, half of the red
+nodes have an odd index and the other half an even index. Since overall there are
+<tt>n</tt>/2-1 nodex with odd index and <tt>n</tt>/2+1 nodex with even index, the difference
+of 2 nodes is in the blue set. Finally, since less than half the set of blue nodes has an
+odd index, there is an edge that has both endpoints with even index.</p>
+
+<p>Using an edge with both endpoints with even indices we can easily construct a perfect matching,
+since the removal of those endpoints partitions each simple path in zero, one or two simple paths
+of even size (you can check this claim on your own as a homework) and in each of those paths,
+the strategy described at the beginning can be used to achieve a perfect match.</p>
+
+<p>Altogether, checking whether the most perfect match exists is checking if any of <b>nA</b> or
+<b>nB</b> is even OR if there is an edge with both endpoints in even indices. If that happens,
+we return <tt>n</tt>/2, otherwise, we return <tt>n</tt>/2-1 (remember that an "almost perfect" match
+is always possible). Java code follows:</p>
+
 <pre>
-activeRegion = whole map.
-ct = foldColumns(activeRegion)  //does column folds sequence, modifying activeRegion
-size = area of the activeRegion
-while(size>1)
-   rotate everything 90 degrees
-      ct += foldColumns( activeRegion )
-      if(  size == area of activeRegion ) return -1    //NO PROGRESS
-      size = area of activeRegion
-return ct
+int n=nA+nB;
+if (nA%2==0||nB%2==0) return n/2;
+for(int i=0;i&lt;edgesA.length;++i) if (edgesA[i]%2==0 && edgesB[i]%2==0) return n/2;
+return n/2-1;
 </pre>
-So that leaves foldColumns: how to choose a minimum sequence of column folds. No matter what sequence you choose you will finish with the same size active region, but the number of folds required varies. Greedy methods do not work (e.g. always fold nearest the middle).  One approach is to do a breath-first search, starting with the entire active Region. Do all legal single folds of that to determine all sub-regions that we can reduce to in one fold. Continue on until we find the first sub-region which allows no further column folding.  Then reset the activeRegion to that sub-region and report how many folds were used.
-<br><br>
-Determining if a fold is legal requires verifying that all the map fold directions on the fold are the same, and that for all the positions in the active region their reflections across the fold have opposite directions.  There are a variety of data structures that can be used for the bread-first search, but you cannot afford to allow duplicate sub-regions to propagate or the process can time out.
-<br><br>
+
+<h1>AlmostBipartiteMatching</h1>
+Coming soon...
         </div>
       </td>
         
