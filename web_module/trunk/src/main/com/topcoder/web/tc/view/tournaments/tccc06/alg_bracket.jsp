@@ -66,7 +66,10 @@
       </td>
       <td valign="middle"><img src="/i/tournament/tccc06/bracket_bar.gif" alt="" border="0" /></td>
       <td style="padding: 15px" valign="middle" align="center">
-      &#160;
+      <tc-webtag:handle coderId="260835" context="algorithm"/><br>
+      <tc-webtag:handle coderId="9927526" context="algorithm"/><br>
+      <tc-webtag:handle coderId="7459080" context="algorithm"/><br>
+      <tc-webtag:handle coderId="15094447" context="algorithm"/><br>
       </td>
       <td valign="middle">&#160;</td>
       <td rowspan="9" style="padding: 15px" valign="middle" align="center">
@@ -119,20 +122,11 @@
       <td rowspan="2" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
       <td valign="middle"><img src="/i/tournament/tccc06/bracket_bar.gif" alt="" border="0" /></td>
       <td style="padding: 15px" valign="middle" align="center">
-      <tc-webtag:handle coderId="260835" context="algorithm"/><br>
-      <tc-webtag:handle coderId="9927526" context="algorithm"/><br>
-      <tc-webtag:handle coderId="7459080" context="algorithm"/><br>
-      <tc-webtag:handle coderId="15094447" context="algorithm"/><br>
+      <%-- WILDCARD ROOM --%>
       <tc-webtag:handle coderId="8357090" context="algorithm"/><br>
       <tc-webtag:handle coderId="20286298" context="algorithm"/><br>
       <tc-webtag:handle coderId="20635649" context="algorithm"/><br>
       <tc-webtag:handle coderId="310723" context="algorithm"/><br>
-      <tc-webtag:handle coderId="8355516" context="algorithm"/><br>
-      <tc-webtag:handle coderId="263396" context="algorithm"/><br>
-      <tc-webtag:handle coderId="15805598" context="algorithm"/><br>
-      <tc-webtag:handle coderId="8365685" context="algorithm"/><br>
-      <%-- WILDCARD ROOM 
-        --%>
       </td>
       <td rowspan="2" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
       <td valign="middle"><img src="/i/tournament/tccc06/bracket_bar.gif" alt="" border="0" /></td>
@@ -177,7 +171,10 @@
       <td rowspan="2" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
       <td valign="middle"><img src="/i/tournament/tccc06/bracket_bar.gif" alt="" border="0" /></td>
       <td style="padding: 15px" valign="middle" align="center">
-      &#160;
+      <tc-webtag:handle coderId="8355516" context="algorithm"/><br>
+      <tc-webtag:handle coderId="263396" context="algorithm"/><br>
+      <tc-webtag:handle coderId="15805598" context="algorithm"/><br>
+      <tc-webtag:handle coderId="8365685" context="algorithm"/><br>
       </td>
       <td rowspan="2" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
    </tr>
