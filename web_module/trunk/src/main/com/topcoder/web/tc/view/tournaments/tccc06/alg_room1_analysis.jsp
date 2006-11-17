@@ -86,7 +86,7 @@ The pseudocode for solving the problem of minimizing the bottom size given some 
 <pre>
 top box area = roof_area;
 for each box down
-	minO = smallest allowed so previous box doesn't overhang too much
+    minO = smallest allowed so previous box doesn't overhang too much
             if(this is bottom box)
                   minS = smallest area that will support all previous boxes
             else

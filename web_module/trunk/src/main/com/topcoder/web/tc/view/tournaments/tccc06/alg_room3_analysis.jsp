@@ -102,7 +102,7 @@ by <tc-webtag:handle coderId="159052" context="algorithm"/>
 plenty of time to spare.  In other words, for each segment in the
 path, branch on all possible point we could put the next point.  It's
 not hard to convince yourself that there will be at most 2 points.
-However, 30<sup>2</sup> is too big, and so we need to work a bit
+However, 2<sup>30</sup> is too big, and so we need to work a bit
 harder to convince ourselves that the brute force method will indeed
 run fast enough.  Consider two adjacent segment lengths,
 <tt>p<sub>i</sub></tt> and <tt>p<sub>i+1</sub></tt>.  If
