@@ -76,9 +76,9 @@
       <tc-webtag:handle coderId="11829284" context="algorithm"/><br>
       <tc-webtag:handle coderId="10574855" context="algorithm"/><br>
       <tc-webtag:handle coderId="251074" context="algorithm"/><br>
+      <tc-webtag:handle coderId="8355516" context="algorithm"/><br>
+      <tc-webtag:handle coderId="7459080" context="algorithm"/><br>
       <%-- FINALS 
-      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
-      <tc-webtag:handle coderId="000000" context="algorithm"/><br>
         --%>
       </td>
    </tr>
