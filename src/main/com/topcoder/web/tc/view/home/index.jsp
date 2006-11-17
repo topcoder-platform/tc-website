@@ -253,6 +253,11 @@
             <td class="homeText"><br>
 
                 <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/internetnews_logo.gif" width="81" height="11" alt="internetnews.com logo" border="0" /></div>
+                Who is the Top Coder?
+                <A href="http://www.internetnews.com/dev-news/article.php/3644456">...more</A><br>[November 17]<br><br>
+
+                <div style="float: right; padding-left: 5px;">
                 <img src="/i/pressroom/businessweek_logo.gif" width="80" height="18" alt="BusinessWeek" border="0" /></div>
                 TopCoder members WishingBone and assistant in BusinessWeek
                 <A href="/tc?module=Static&d1=pressroom&d2=art_110206">...more</A><br>[November 2]<br><br>
@@ -274,9 +279,6 @@
 
                 AOL to Webcast TCCC06 Live on November 17
                 <A href="http://www.prnewswire.com/mnr/topcoder/26099/">...more</A><br>[October 11]<br><br>
-            
-                TopCoder joins "Mavericks at Work" book tour
-                <A href="/tc?module=Static&d1=pressroom&d2=pr_101006">...more</A><br>[October 10]<br><br>
             </td>
         </tr>
         <tr>

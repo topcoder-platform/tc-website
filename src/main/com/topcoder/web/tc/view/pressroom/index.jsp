@@ -49,6 +49,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- internetnews.com --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://www.internetnews.com/dev-news/article.php/3644456"><img src="/i/pressroom/internetnews_logo.gif" alt="internetnews.com logo" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.internetnews.com/dev-news/article.php/3644456">Who is the Top Coder?</A></strong></font><br />
+                        Coding as competitive sport? You bet, complete with a famous ESPN anchor and $200,000 in prizes. It's called the TopCoder Collegiate Challenge and the finals are being webcast live Friday thanks to sponsor AOL. <span class="prHead"> [November 17]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- AOL TCCC webcast team --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
