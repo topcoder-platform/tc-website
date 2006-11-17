@@ -106,6 +106,23 @@ return n/2-1;
 </pre>
 
 
+<h1>SingleElimination</h1>
+by <tc-webtag:handle coderId="159052" context="algorithm"/>
+<p>The medium problem caused serious headaches for both the competitors and the TC staff.  In particular, the problem statement listed claimed that inputs of size 16 were allowed, but the system only allowed the competitors to test inputs up to size 8.  In fact, none of the TC solutions were quite fast enough to work with size 16 inputs, pointing to how hard it would be to solve with 16.</p>
+
+<p>When the contradiction was discovered, the decision was made that the best thing to do was to allow inputs of size 16, since that was what the problem statement said.  It was felt that it wouldn't be fair to a competitor who spent time trying to solve the size 16 version if the limit was set at 8, and the only way to see the bug was to try to test with a size 16 input, which a competitor would likely not do until he thought he had solved the problem.  Of course, the whole situation was very unfortunate, as it caused the problem to be all but unsolvable, and it had adverse effects for some of the competitors.  In the end, no one, including the testers, had a solution that was quite fast enough, but TC was able to give the reference solution a little extra time so that the challenge phase could go forward and system tests could be run with size 16 inputs.  Below is an explanation of the solution to the problem, which works with size 8 inputs:</p>
+
+<p>It is not necessary to test all 8! possible orders of teams to find the best solution, because many orders are equivalent. For example, swapping team 1 and team 2, or teams 1-4 with teams 5-8 will not affect the outcome.</p>
+
+<p>First, note that with 4 teams, there are only three orders worth considering: { 0, 1, 2, 3 }, { 0, 2, 1, 3 }, and { 0, 3, 1, 2 }. All other orders are equivalent to one of these three.</p>
+
+<p>To enumerate all interesting orders of 8 teams, we can start by selecting 3 of the remaining 7 teams to join the team we care about in the top half of the order. For each of the 35 (7 choose 3) possibilities, we can compute our team's best probability of winning by considering each of the three orders for these four teams. Call the greatest of these probabilities P<sub>1</sub>.</p>
+
+<p>Next, we consider each of the 3 unique orders for the bottom 4 teams in the order, and compute the probability of <i>each</i> of these teams advancing to the final match. (These probabilities should sum to 1.0, of course.) Given these lists, we can compute our team's probability of winning the final match for each of the three orders. Call the greatest of these probabilities P<sub>2</sub>.</p>
+
+<p>The maximum of P<sub>1</sub> * P<sub>2</sub> for each of the 35 possibilities is the solution to this problem for the N=8 case.</p>
+
+
 <h1>Regulars</h1>
 by <tc-webtag:handle coderId="159052" context="algorithm"/>
 

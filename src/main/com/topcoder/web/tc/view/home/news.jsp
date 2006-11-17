@@ -26,6 +26,22 @@
 ------------------------%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.17.06<br>5:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        Component <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary">Development</A> Part 3 Details
+        </span><br><br>
+        Here are some details on the components that the finalists are competing on for day 3.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary">design</A> |
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary">development</A> | 
+        <tc-webtag:forumLink forumID="506186" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.17.06<br>4:20 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="http://dev.aol.com/video">TCCC AOL webcast live now</A>
@@ -193,20 +209,3 @@
     <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
 </td></tr>
 
-<%--------------------------------------------------------%>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0"/>
-        <br>11.13.06<br>4:00 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=111306">TCCC Preview: Meet the bloggers</A></span><br><br>
-            "It's really amazing to think that in just a couple days I'll be sitting in a room with some of the best programmers in the world, and it won't be a chat room."
-            </td>
-            <td class="newsPhoto"><img src="/i/m/RRLevering_big.jpg" alt="" width="55" height="61"/>&#160;<img src="/i/m/Churchillio_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="344462" /> &amp; <tc-webtag:handle coderId="21181561" /></td></tr>
-        </table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&amp;d1=features&amp;d2=111306">article</A> |
-    <tc-webtag:forumLink forumID="506177" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-</td></tr>
