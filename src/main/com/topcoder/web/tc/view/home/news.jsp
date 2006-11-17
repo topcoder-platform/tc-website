@@ -26,6 +26,21 @@
 ------------------------%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.17.06<br>1:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_wildcard_analysis">Eryx wins the WildCard Round</A>
+        </span><br><br>
+      It was an exciting round as the last two competitors earned a spot in the Final Round.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_wildcard_analysis">details</A> | 
+         <tc-webtag:forumLink forumID="506183" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.16.06<br>5:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         Component <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary">Development</A> Part 2 Details
@@ -209,19 +224,3 @@
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.09.06<br>11:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_bracket">TCCC06 Algorithm Bracket Update</A>
-        </span><br><br>
-      There has been a last minute change to the Algorithm Competition lineup, and <tc-webtag:handle coderId="8365685" /> has replaced <tc-webtag:handle coderId="20315020" /> in the Semifinals.  As a result, there have been several changes to the Semifinalists bracket.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_bracket">details</A> | 
-         <tc-webtag:forumLink forumID="506172" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-</table>
