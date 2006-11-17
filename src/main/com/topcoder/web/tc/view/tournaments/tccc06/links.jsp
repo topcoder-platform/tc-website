@@ -17,6 +17,7 @@
 <area shape="rect" alt="" coords="273,1, 366,20" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=overview" />
 </map>
 --%>
+<%--
 <map name="webcastProgram">
 <area shape="rect" alt="" coords="1,1, 312,75" href="/movies/tournament/tccc06/tccc06AOLWebcast.mpeg" />
 <area shape="rect" alt="" coords="1,85, 312,129" href="/i/downloads/tccc06_program.pdf" />
@@ -25,6 +26,14 @@
 <area shape="rect" alt="" coords="1,1, 64,16" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=photos" />
 <area shape="rect" alt="" coords="82,1, 135,16" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=overview" />
 </map>
+--%>
+<map name="webcastWatchNow">
+<area shape="rect" alt="" coords="1,1, 285,45" href="http://dev.aol.com/video" />
+<area shape="rect" alt="" coords="23,70, 102,87" href="/i/downloads/tccc06_program.pdf" />
+<area shape="rect" alt="" coords="123,70, 188,87" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=photos" />
+<area shape="rect" alt="" coords="200,70, 260,87" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=overview" />
+</map>
+
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <!-- LEVEL 1 TABS -->
@@ -32,9 +41,10 @@
 <tr>
     <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tccc06_logo_aol.gif" border="0"/></A></td>
     <td valign="middle" align="center">
-        <div><img src="/i/tournament/tccc06/webcastProgram.gif" border="0" alt="AOL Webcast Sneak Peek &amp; TCCC06 Program" usemap="#webcastProgram"/></div>
+    <div><img src="/i/tournament/tccc06/webcastWatchNow.gif" border="0" alt="AOL Webcast" usemap="#webcastWatchNow"/></div>
+    <%--<div><img src="/i/tournament/tccc06/webcastProgram.gif" border="0" alt="AOL Webcast Sneak Peek &amp; TCCC06 Program" usemap="#webcastProgram"/></div>
         <div style="margin-top:25px;"><img src="/i/tournament/tccc06/photosBlogs.png" border="0" alt="" usemap="#photosblogs"/></div>
-    <%--<A href="/movies/tournament/tccc06/tccc06AOLWebcast.mpeg"><img src="/i/tournament/tccc06/webcastSneakPeek.png" border="0" alt="AOL Webcast Sneak Peek" /></A>
+    <A href="/movies/tournament/tccc06/tccc06AOLWebcast.mpeg"><img src="/i/tournament/tccc06/webcastSneakPeek.png" border="0" alt="AOL Webcast Sneak Peek" /></A>
     <img src="/i/tournament/tccc06/headline_onsite.gif" border="0" alt="" usemap="#headline" />--%></td>
     <td valign="top" align="right" width="50%"><a href="/"><img src="/i/tournament/tccc06/tc_logo.gif" border="0"/></a></td>
 </tr>
