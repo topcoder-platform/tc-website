@@ -27,6 +27,7 @@ public class ComponentRecordbook extends Static {
                         !handle.equals("high_scores") &&
                         !handle.equals("largest_comp_prize") &&
                         !handle.equals("most_reviews") &&
+                        !handle.equals("most_submissions_reviews") &&
                         !handle.equals("most_submissions") &&
                         !handle.equals("most_wins") &&
                         !handle.equals("overall_money") &&
