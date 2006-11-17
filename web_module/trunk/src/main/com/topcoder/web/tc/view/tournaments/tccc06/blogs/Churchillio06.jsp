@@ -62,7 +62,7 @@ With a much larger gap between the top 10 spots than the second round, the chall
 9:35 <tc-webtag:handle coderId="10597114" context="algorithm"/> fails a challenge<br />
 9:08 <tc-webtag:handle coderId="10574855" context="algorithm"/> has a success vs. < tc-webtag:handle coderId="302501" context="algorithm"/><br />
 9:07 <tc-webtag:handle coderId="10425804" context="algorithm"/> fails a challenge attempt<br />
-8:50 < tc-webtag:handle coderId="302501" context="algorithm"/> has a success vs. <tc-webtag:handle coderId="10425804" context="algorithm"/><br />
+8:50 <tc-webtag:handle coderId="302501" context="algorithm"/> has a success vs. <tc-webtag:handle coderId="10425804" context="algorithm"/><br />
 8:30 <tc-webtag:handle coderId="8355516" context="algorithm"/> has a successful challenge<br />
 8:20 <tc-webtag:handle coderId="10574855" context="algorithm"/> has another success! <br />
 8:00 <tc-webtag:handle coderId="10574855" context="algorithm"/> succeeds again in foiling problem 2<br />
@@ -71,9 +71,9 @@ With a much larger gap between the top 10 spots than the second round, the chall
 4:00 <tc-webtag:handle coderId="8355516" context="algorithm"/> fails an attempt at <tc-webtag:handle coderId="251074" context="algorithm"/>’s problem<br />
 3:10 <tc-webtag:handle coderId="10574855" context="algorithm"/> has his 6th challenge pass, now having 300 bonus points<br />
 2:10 <tc-webtag:handle coderId="8518361" context="algorithm"/> has a success against <tc-webtag:handle coderId="8365685" context="algorithm"/>, moving him from 4th to 8th place<br />
-1:45 <TC-WEBTAG:HANDLE CODERID="15805598" CONTEXT="ALGORITHM"/> has a success vs. <tc-webtag:handle coderId="251074" context="algorithm"/>’s 500 pointer<br />
+1:45 <tc-webtag:handle coderId="15805598" context="ALGORITHM"/> has a success vs. <tc-webtag:handle coderId="251074" context="algorithm"/>’s 500 pointer<br />
 0:45 <tc-webtag:handle coderId="8518361" context="algorithm"/> fails against <tc-webtag:handle coderId="10574855" context="algorithm"/>’s 500 point question<br />
-0:24 <TC-WEBTAG:HANDLE CODERID="302501" CONTEXT="ALGORITHM"/> fails a try against <tc-webtag:handle coderId="10574855" context="algorithm"/> as well. 
+0:24 <tc-webtag:handle coderId="302501" context="ALGORITHM"/> fails a try against <tc-webtag:handle coderId="10574855" context="algorithm"/> as well. 
 <br /><br />
 So <tc-webtag:handle coderId="10574855" context="algorithm"/> got 6 successful challenges, bringing his score up to 1687. Before system tests, people note that even if he hadn’t opened a problem he would still be in 8th place, based solely on challenge points. You can take a look at the challenge scoreboard here:
 <br /><br />
