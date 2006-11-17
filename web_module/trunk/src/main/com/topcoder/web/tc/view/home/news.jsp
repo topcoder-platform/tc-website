@@ -26,6 +26,21 @@
 ------------------------%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.17.06<br>4:20 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="http://dev.aol.com/video">TCCC AOL webcast live now</A>
+        </span><br><br>
+      Go to dev.aol.com now to watch the TopCoder College Challenge webcast, live from San Diego.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://dev.aol.com/video">watch now</A> | 
+         <tc-webtag:forumLink forumID="506188" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>11.17.06<br>12:15 PM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="http://www.internetnews.com/dev-news/article.php/3644456" target="_blank">Who is the Top Coder?</A></span><br><br>
        <div style="float: right; padding-left: 7px;"><img src="/i/pressroom/internetnews_logo.gif" width="81" height="11" alt="internetnews.com logo" border="0" /></div>
@@ -195,31 +210,3 @@
     <tc-webtag:forumLink forumID="506177" message="discuss this"/> |
     <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
 </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>11.13.06<br>11:30 AM</td>
-       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.prnewswire.com/mnr/topcoder/26099/" target="_blank">Meet the AOL TCCC Webcast Team</A></span><br><br>
-       <div style="float: right; padding-left: 7px;"><img src="/i/pressroom/aol_logo.jpg" width="80" height="38" alt="AOL logo" border="0" /></div>
-       AOL today announced that ESPN's Jeremy Schaap will join TopCoder veterans <tc-webtag:handle coderId="270505" /> and <tc-webtag:handle coderId="154754" /> to host the live webcast of the TCCC finals. The webcast will be broadcast live on November 17, starting at 1:30 p.m. PST (21:30 GMT).
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://www.prnewswire.com/mnr/topcoder/26099/" target="_blank">full story</A> | 
-       <tc-webtag:forumLink forumID="506176" message="discuss this" /> | 
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
-   </td></tr>
-
-<%------------------------------------------------
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Software Competition News" border="0" /><br>11.10.06<br>12:10 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_orpheusGameServer">New Assembly contest online: $45,000 in prizes!</A></span><br><br>
-      The Orpheus Game Server and Client Modules assembly contest is now open for registration, with a first prize of $30,000 and a second prize of $15,000.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_orpheusGameServer">details</A> | 
-         <tc-webtag:forumLink forumID="506175" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
---------%>
