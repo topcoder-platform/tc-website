@@ -6,24 +6,51 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
-<%--------------------------------
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Educational Content" border="0"/>
-        <br>10.26.06<br>10:00 AM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=102306">A Number or a String: <br>Parsing Your Input and Formatting Your Output in C++.</A></span><br><br>
-            This article is focused on main fast-to-type and convenient means of parsing input and formatting output in cases that are typical for TopCoder problems. All methods are specific to C++, but Java and VB coders may find several helpful ideas.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/Nickolas_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15635590"/></td></tr>
-        </table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&amp;d1=features&amp;d2=102306">article</A> |
-    <tc-webtag:forumLink forumID="506153" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-</td></tr>
-------------------------%>
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.17.06<br>8:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_finals_analysis">Congratulations to Petr, TCCC06 Algorithm Champion</A>
+        </span><br><br>
+        This year's final round was bigger and better than any before.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_finals_analysis">full story</A> | 
+        <tc-webtag:forumLink forumID="506185" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.17.06<br>8:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary">Congratulations to nicka81, TCCC06 Design Champion</A>
+        </span><br><br>
+        This year's final round was bigger and better than any before.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary">full story</A> | 
+        <tc-webtag:forumLink forumID="506186" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.17.06<br>8:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary">Congratulations to PE, TCCC06 Development Champion</A>
+        </span><br><br>
+        This year's final round was bigger and better than any before.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary">full story</A> | 
+        <tc-webtag:forumLink forumID="506186" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.17.06<br>5:30 PM</td>
