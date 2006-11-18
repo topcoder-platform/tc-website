@@ -36,6 +36,30 @@
       <img src="/i/m/Churchillio_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
       <span class="smallHandle"><tc-webtag:handle coderId="21181561" darkBG="true" /></span>
       </td>
+      <td width="100%"><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=Churchillio08">"Final Round - FIGHT!"</span></A><br>
+      [November 17 - 7:30 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
+      <img src="/i/m/RRLevering_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="344462" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=RRLevering08">"Behind the Scenes at the Webcast"</span></A><br>
+      [November 17 - 6:30 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
+      <img src="/i/m/RRLevering_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="344462" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=RRLevering07">"Component Finals, Round 3"</span></A><br>
+      [November 17 - 5:00 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
+      <img src="/i/m/Churchillio_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="21181561" darkBG="true" /></span>
+      </td>
       <td width="100%"><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=Churchillio07">"Wildcard Wars, episode 4: A New Hope, or The Empire Strikes Back?"</span></A><br>
       [November 17 - 2:00 PM]</td>
    </tr>

@@ -39,6 +39,9 @@ by <strong>the Design Review Board</strong><br>
 <em>TopCoder Members</em>
 <br><br>
 
+After three days of on-site finals, <tc-webtag:handle coderId="293874" context="design"/> emerged as the winner of the 2006 TopCoder Collegiate Challenge Component Design competition, taking home the top prize of $25,000. <tc-webtag:handle coderId="10425804" context="design"/> scored well enough for second place, and <tc-webtag:handle coderId="275640" context="design"/> took third. Congratulations to all the finalists, and especially <tc-webtag:handle coderId="293874" context="design"/>!
+<br><br>
+
 <strong>Friday, November 17, 2006</strong><br>
 <strong>Round 3: Configuration API</strong><br>
 by <tc-webtag:handle coderId="10348862" context="design"/>
