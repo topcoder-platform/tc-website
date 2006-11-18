@@ -27,7 +27,7 @@
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary">Congratulations to nicka81, TCCC06 Design Champion</A>
         </span><br><br>
-        This year's final round was bigger and better than any before.
+        After three days of on-site finals, <tc-webtag:handle coderId="293874" context="design"/> emerged as the winner of the 2006 TopCoder Collegiate Challenge Component Design competition.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -42,7 +42,7 @@
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary">Congratulations to PE, TCCC06 Development Champion</A>
         </span><br><br>
-        This year's final round was bigger and better than any before.
+        <tc-webtag:handle coderId="9998760" context="development"/> is the winner of the 2006 TopCoder Collegiate Challenge Component Development competition and the $15,000 top prize.
       </td>
    </tr>
    <tr><td class="newsLinksCell">

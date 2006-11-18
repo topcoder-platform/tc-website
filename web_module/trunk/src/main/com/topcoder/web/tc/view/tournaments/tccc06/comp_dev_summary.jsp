@@ -38,7 +38,10 @@ by <strong>the Development Review Board</strong><br>
 <em>TopCoder Members</em>
 <br><br>
 
-<strong>Thursday, November 16, 2006</strong><br>
+<tc-webtag:handle coderId="9998760" context="development"/> is the winner of the 2006 TopCoder Collegiate Challenge Component Development competition and the $15,000 top prize. <tc-webtag:handle coderId="14788013" context="development"/> gave a strong performance in second place, and <tc-webtag:handle coderId="302810" context="development"/> came in third. Congratulations to all the finalists, and particularly <tc-webtag:handle coderId="9998760" context="development"/>!
+<br><br>
+
+<strong>Friday, November 17, 2006</strong><br>
 <strong>Round 3: Client Logic for Firefox</strong><br>
 by <tc-webtag:handle coderId="299979" context="development"/>
 <br><br>
