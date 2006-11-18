@@ -31,7 +31,7 @@
 <img src="/i/tournament/tccc06/onsitePhotos/shotDesign.jpg" alt="" class="photoFrameBig" /><br>
 </div>
 
-<span class="bigTitle">nicka81 is the new Component Design Champions</span>
+<span class="bigTitle">nicka81 is the new Component Design Champion</span>
 <br><br>
 
             

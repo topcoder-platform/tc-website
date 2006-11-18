@@ -31,7 +31,7 @@
 <img src="/i/tournament/tccc06/onsitePhotos/shotDevelopment.jpg" alt="" class="photoFrameBig" /><br>
 </div>
 
-<span class="bigTitle">PE is the new Component Development Champions</span>
+<span class="bigTitle">PE is the new Component Development Champion</span>
 <br><br>
 
 by <strong>the Development Review Board</strong><br>
