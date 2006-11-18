@@ -26,17 +26,15 @@
       <td valign="top" align="center">
       <div class="bodySpacer">
             
-<span class="bigTitle">Component Design Finals Summary</span>
+<div style="float: right;">
+<p align="center"><span class="bodyText" align="center"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=photos">See more photos!</a></span></p>
+<img src="/i/tournament/tccc06/onsitePhotos/shotDesign.jpg" alt="" class="photoFrameBig" /><br>
+</div>
+
+<span class="bigTitle">nicka81 is the new Component Design Champions</span>
 <br><br>
 
             
-<%--
-<div style="float: right;">
-<p align="center"><span class="bodyText" align="center"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=photos">See more photos!</a></span></p>
-<img src="/i/tournament/tccc06/onsitePhotos/shot_design.jpg" alt="" class="photoFrameBig" /><br>
-</div>
---%>
-
 by <strong>the Design Review Board</strong><br>
 <em>TopCoder Members</em>
 <br><br>
