@@ -26,15 +26,13 @@
       <td valign="top" align="center">
       <div class="bodySpacer">
             
-<span class="bigTitle">Component Development Finals Summary</span>
-<br><br>
-
-<%--
 <div style="float: right;">
 <p align="center"><span class="bodyText" align="center"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=photos">See more photos!</a></span></p>
-<img src="/i/tournament/tccc06/onsitePhotos/shot_development.jpg" alt="" class="photoFrameBig" /><br>
+<img src="/i/tournament/tccc06/onsitePhotos/shotDevelopment.jpg" alt="" class="photoFrameBig" /><br>
 </div>
---%>
+
+<span class="bigTitle">PE is the new Component Development Champions</span>
+<br><br>
 
 by <strong>the Development Review Board</strong><br>
 <em>TopCoder Members</em>

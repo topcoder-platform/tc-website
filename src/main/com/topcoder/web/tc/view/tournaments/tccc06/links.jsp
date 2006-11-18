@@ -10,28 +10,13 @@
     <area shape="poly" alt="" coords="392,29, 364,1, 536,1, 564,29" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_description"/>
     <%--<area shape="poly" alt="" coords="570,29, 542,1, 795,1, 823,29" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=ccip_description" />--%>
 </map>
-<%--
-<map name="headline">
-<area shape="rect" alt="" coords="1,1, 116,20" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=photos" />
-<area shape="rect" alt="" coords="139,1, 250,20" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies" />
-<area shape="rect" alt="" coords="273,1, 366,20" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=overview" />
-</map>
---%>
-<%--
-<map name="webcastProgram">
-<area shape="rect" alt="" coords="1,1, 312,75" href="/movies/tournament/tccc06/tccc06AOLWebcast.mpeg" />
-<area shape="rect" alt="" coords="1,85, 312,129" href="/i/downloads/tccc06_program.pdf" />
-</map>
-<map name="photosblogs">
-<area shape="rect" alt="" coords="1,1, 64,16" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=photos" />
-<area shape="rect" alt="" coords="82,1, 135,16" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=overview" />
-</map>
---%>
-<map name="webcastWatchNow">
-<area shape="rect" alt="" coords="1,1, 285,45" href="http://dev.aol.com/video" />
-<area shape="rect" alt="" coords="23,70, 102,87" href="/i/downloads/tccc06_program.pdf" />
-<area shape="rect" alt="" coords="123,70, 188,87" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=photos" />
-<area shape="rect" alt="" coords="200,70, 260,87" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=overview" />
+<map name="programPhotosBlogs">
+<area shape="rect" alt="" coords="65,1, 115,115" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_finals_analysis" />
+<area shape="rect" alt="" coords="120,1, 170,115" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary" />
+<area shape="rect" alt="" coords="175,1, 225,115" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary" />
+<area shape="rect" alt="" coords="23,152, 102,166" href="/i/downloads/tccc06_program.pdf" />
+<area shape="rect" alt="" coords="123,152, 188,166" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=photos" />
+<area shape="rect" alt="" coords="200,152, 260,166" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=overview" />
 </map>
 
 
@@ -41,11 +26,8 @@
 <tr>
     <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tccc06_logo_aol.gif" border="0"/></A></td>
     <td valign="middle" align="center">
-    <div><img src="/i/tournament/tccc06/webcastWatchNow.gif" border="0" alt="AOL Webcast" usemap="#webcastWatchNow"/></div>
-    <%--<div><img src="/i/tournament/tccc06/webcastProgram.gif" border="0" alt="AOL Webcast Sneak Peek &amp; TCCC06 Program" usemap="#webcastProgram"/></div>
-        <div style="margin-top:25px;"><img src="/i/tournament/tccc06/photosBlogs.png" border="0" alt="" usemap="#photosblogs"/></div>
-    <A href="/movies/tournament/tccc06/tccc06AOLWebcast.mpeg"><img src="/i/tournament/tccc06/webcastSneakPeek.png" border="0" alt="AOL Webcast Sneak Peek" /></A>
-    <img src="/i/tournament/tccc06/headline_onsite.gif" border="0" alt="" usemap="#headline" />--%></td>
+    <div><img src="/i/tournament/tccc06/winners.png" border="0" alt="AOL Webcast" usemap="#programPhotosBlogs"/></div>
+    </td>
     <td valign="top" align="right" width="50%"><a href="/"><img src="/i/tournament/tccc06/tc_logo.gif" border="0"/></a></td>
 </tr>
 <tr><td class="topNavBox" colspan="3"><img src="/i/tournament/tccc06/tabs/L1_overviewOn.gif" alt="" border="0" usemap="#L1_tabs"/></td></tr>
@@ -53,9 +35,7 @@
 <tr>
     <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tccc06_logo_aol.gif" border="0"/></A></td>
     <td valign="middle" align="center">
-        <div><A href="/movies/tournament/tccc06/tccc06AOLWebcast.mpeg"><img src="/i/tournament/tccc06/webcastSneakPeek.png" border="0" alt="AOL Webcast Sneak Peek" /></A></div>
-        <div style="margin-top:25px;"><img src="/i/tournament/tccc06/photosBlogs.png" border="0" alt="" usemap="#photosblogs"/></div>
-    <%--<A href="/tc?module=TCCC06ViewAlgoReg"><img src="/i/tournament/tccc06/bnr_register_now.gif" border="0" alt="" /></A>--%>
+    <div><img src="/i/tournament/tccc06/winners.png" border="0" alt="AOL Webcast" usemap="#programPhotosBlogs"/></div>
     </td>
     <td valign="top" align="right" width="50%"><a href="/"><img src="/i/tournament/tccc06/tc_logo.gif" border="0"/></a></td>
 </tr>
@@ -64,9 +44,7 @@
 <tr>
     <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tccc06_logo_aol.gif" border="0"/></A></td>
     <td valign="middle" align="center">
-        <div><A href="/movies/tournament/tccc06/tccc06AOLWebcast.mpeg"><img src="/i/tournament/tccc06/webcastSneakPeek.png" border="0" alt="AOL Webcast Sneak Peek" /></A></div>
-        <div style="margin-top:25px;"><img src="/i/tournament/tccc06/photosBlogs.png" border="0" alt="" usemap="#photosblogs"/></div>
-    <%--<A href="/tc?module=TCCC06ComponentTerms"><img src="/i/tournament/tccc06/bnr_register_now.gif" border="0" alt=""/></A>--%>
+    <div><img src="/i/tournament/tccc06/winners.png" border="0" alt="AOL Webcast" usemap="#programPhotosBlogs"/></div>
     </td>
     <td valign="top" align="right" width="50%"><a href="/"><img src="/i/tournament/tccc06/tc_logo.gif" border="0"/></a></td>
 </tr>
@@ -140,9 +118,9 @@
    <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_bracket"><img src="/i/tournament/tccc06/tabs/L2_advancersOff.gif" alt="" border="0" /></A></td>
 <% } %>
 <% if (tabLev2.equals("summary")) {%>
-   <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_wildcard_analysis"><img src="/i/tournament/tccc06/tabs/L2_summaryOn.gif" alt="" border="0" /></A></td>
+   <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_finals_analysis"><img src="/i/tournament/tccc06/tabs/L2_summaryOn.gif" alt="" border="0" /></A></td>
 <% } else { %>
-   <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_wildcard_analysis"><img src="/i/tournament/tccc06/tabs/L2_summaryOff.gif" alt="" border="0" /></A></td>
+   <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_finals_analysis"><img src="/i/tournament/tccc06/tabs/L2_summaryOff.gif" alt="" border="0" /></A></td>
 <% } %>
 <%--
 --%>
@@ -251,8 +229,8 @@
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room2_analysis"><% if (tabLev3.equals("room2")) {%><img src="/i/tournament/tccc06/tabs/L3_room2On.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_room2Off.gif" border="0" /><% } %></a></td>
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room3_analysis"><% if (tabLev3.equals("room3")) {%><img src="/i/tournament/tccc06/tabs/L3_room3On.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_room3Off.gif" border="0" /><% } %></a></td>
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_wildcard_analysis"><% if (tabLev3.equals("wildcard")) {%><img src="/i/tournament/tccc06/tabs/L3_wildcardOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_wildcardOff.gif" border="0" /><% } %></a></td>
-                <%--
                    <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_finals_analysis"><% if (tabLev3.equals("finals")) {%><img src="/i/tournament/tccc06/tabs/L3_finalsOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_finalsOff.gif" border="0" /><% } %></a></td>
+                <%--
                 --%>
 
                 <% } %>
