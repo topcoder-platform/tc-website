@@ -458,7 +458,7 @@ pageContext.setAttribute("resultSet", rscDefense);
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="10%">Succeeded</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%" ALIGN="right">Challenge Time</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="10%" ALIGN="right">Points</TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="top" WIDTH="10%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
                    <TD COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
