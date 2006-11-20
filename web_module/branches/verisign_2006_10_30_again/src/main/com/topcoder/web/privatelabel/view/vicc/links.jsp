@@ -7,7 +7,7 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr>
     <td width="80%" valign="middle" align="left" style="padding: 10px 0px 15px 45px;">
-        <a href="/pl/?module=Static&d1=vicc&d2=description"><img src="/i/events/verisign06/verisign_logo.gif" alt="VeriSign" border="0"/></a>
+        <a href="/pl/?module=Static&d1=vicc&d2=description"><img src="/i/events/verisign06/verisignCodeFest.gif" alt="VeriSign Code Fest" border="0"/></a>
     </td>
     <td width="20%" valign="top" align="right" style="padding: 0px 20px 0px 0px;">
         <a href="/"><img src="/i/events/verisign06/ver_pbtc_logo.gif" border="0"/></a></td>

@@ -51,8 +51,8 @@
                 to run the Competition Arena as a <a
                     href="Javascript:openWin('?module=Static&d1=vicc&d2=quick_launch','comp',300,275);">Java
                 Applet</A>.
-                <br><br> <br><br> <br><br>
-
+                <br><br><br><br><br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br>
                 <br/><br/>
             </div>
         </td>
