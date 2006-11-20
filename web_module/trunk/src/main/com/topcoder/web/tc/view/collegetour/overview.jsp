@@ -56,7 +56,7 @@
 
                 <!-- ends -->
 
-                <% if ("".equals(request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID))) { %>
+                <% if ("22".equals(request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID))) { %>
                 <p>
                     <h2>TopCoder College Tour SRM Overview</h2>
 
