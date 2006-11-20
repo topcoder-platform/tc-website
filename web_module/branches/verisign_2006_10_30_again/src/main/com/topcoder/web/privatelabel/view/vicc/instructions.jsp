@@ -27,7 +27,7 @@
 <span class="bigTitle">Instructions</span><br/><br/>
 <span class="bodySubtitle">How to Register for the VeriSign Internal Coding Competition</span><br>
 Click
-<a href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>?module=<%=Constants.VERISIGN_06_REG_MAIN%>&amp;<%=Constants.EVENT_ID%>=6&amp;<%=Constants.COMPANY_ID%>=17942">here</a>
+<a href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>?module=<%=Constants.VICC_REG_MAIN%>&amp;<%=Constants.EVENT_ID%>=6&amp;<%=Constants.COMPANY_ID%>=17942">here</a>
 to register.
 <br><br>
 
