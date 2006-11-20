@@ -1,6 +1,6 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import com.topcoder.shared.common.ApplicationServer;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.messaging.messages.AdminSubmitRequest;

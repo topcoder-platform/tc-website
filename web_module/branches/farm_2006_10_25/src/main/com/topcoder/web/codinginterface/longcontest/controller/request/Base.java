@@ -1,6 +1,6 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import com.topcoder.shared.common.ApplicationServer;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.common.ServicesConstants;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;

@@ -4,7 +4,7 @@ import com.topcoder.server.ejb.DBServices.DBServices;
 import com.topcoder.server.ejb.DBServices.DBServicesHome;
 import com.topcoder.server.ejb.TestServices.TestServices;
 import com.topcoder.server.ejb.TestServices.TestServicesHome;
-import com.topcoder.shared.common.ApplicationServer;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
