@@ -64,8 +64,9 @@ if (!forumIDStr.equals("")) {
     forumID = Integer.parseInt(forumIDStr);
 }
 
-java.text.SimpleDateFormat sdfTime = new java.text.SimpleDateFormat("H:mm:ss.SSS");
-sdfTime.setTimeZone(java.util.TimeZone.getTimeZone("GMT"));
+java.text.SimpleDateFormat challengeTime = new java.text.SimpleDateFormat("mm:ss.SSS");
+challengeTime.setTimeZone(java.util.TimeZone.getTimeZone("GMT"));
+
 
 %>
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
@@ -326,6 +327,8 @@ if (pageContext.getAttribute("cr").toString().length()>0){
   ResultSetContainer rscProblems = (ResultSetContainer) queryEntries.get("Coder_Problems");
 if (rscProblems != null && rscProblems.size() > 0) {
   pageContext.setAttribute("resultSet", rscProblems);
+  java.text.SimpleDateFormat sdfTime = new java.text.SimpleDateFormat("H:mm:ss.SSS");
+  sdfTime.setTimeZone(java.util.TimeZone.getTimeZone("GMT"));
   %>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
@@ -415,7 +418,7 @@ pageContext.setAttribute("resultSet", rscChallenge);
                    <TD CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 6 /* class name */ + "]" %>'/></TD>
                    <TD CLASS="statText"><%= resultRow.getItem(8).toString().equals("Y")?"Yes":"No"%></TD>
                    <TD CLASS="statText" ALIGN="right">
-                   <%= sdfTime.format(new java.sql.Time(Long.parseLong(resultRow.getItem("time_elapsed").toString()))).toString() %>                   
+                   <%= challengeTime.format(new java.sql.Time(Long.parseLong(resultRow.getItem("time_elapsed").toString()))).toString() %>                   
                    </TD>
                    <TD CLASS="statText" ALIGN="right">
                    
@@ -473,7 +476,7 @@ pageContext.setAttribute("resultSet", rscDefense);
                    <TD CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 6 /* class name */ + "]" %>'/></TD>
                    <TD CLASS="statText"><%= resultRow.getItem(8).toString().equals("Y")?"Yes":"No"%></TD>
                    <TD CLASS="statText" ALIGN="right">
-                   <%= sdfTime.format(new java.sql.Time(Long.parseLong(resultRow.getItem("time_elapsed").toString()))).toString() %>                   
+                   <%= challengeTime.format(new java.sql.Time(Long.parseLong(resultRow.getItem("time_elapsed").toString()))).toString() %>                   
                    </TD>
                    <TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 9 /* challenge pts */ + "].resultData" %>'/></TD>
                    <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
