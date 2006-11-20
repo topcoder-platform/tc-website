@@ -399,7 +399,7 @@ pageContext.setAttribute("resultSet", rscChallenge);
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%">Defendant</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%">Problem</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="10%">Succeeded</TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="10%" ALIGN="right">Challenge Time</TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%" ALIGN="right">Challenge Time</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="10%" ALIGN="right">Points</TD>
                      <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="10%" ALIGN="right">&#160;</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
@@ -455,9 +455,9 @@ pageContext.setAttribute("resultSet", rscDefense);
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%" HEIGHT="18">Defendant</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%">Challenger</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%">Problem</TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%">Succeeded</TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="10%">Succeeded</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%" ALIGN="right">Challenge Time</TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%" ALIGN="right">Points</TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="10%" ALIGN="right">Points</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
