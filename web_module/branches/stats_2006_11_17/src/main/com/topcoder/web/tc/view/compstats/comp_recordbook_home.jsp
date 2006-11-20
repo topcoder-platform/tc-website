@@ -61,6 +61,13 @@
 
                         <br><br>
 
+                        <strong>Best Average Component Contest Score</strong><br>
+                        <A href="/tc?module=ComponentRecordbook&c=avg_score&type=design">design</A> |
+                        <A href="/tc?module=ComponentRecordbook&c=avg_scoret&type=development">development</A> |
+                        <A href="/tc?module=ComponentRecordbook&c=avg_score&type=component">overall</A>
+
+                        <br><br>
+
                         <strong>Most Component Contest Wins</strong><br>
                         <A href="/tc?module=ComponentRecordbook&c=most_wins&type=design">design</A> |
                         <A href="/tc?module=ComponentRecordbook&c=most_wins&type=development">development</A> |
@@ -132,6 +139,14 @@
                         <A href="/tc?module=ComponentRecordbook&c=appeal_percentage&type=design">design</A> |
                         <A href="/tc?module=ComponentRecordbook&c=appeal_percentage&type=development">development</A> |
                         <A href="/tc?module=ComponentRecordbook&c=appeal_percentage&type=component">overall</A>
+
+                        <br><br>
+
+                        <strong>Impressive Debuts</strong><br>
+                        <A href="/tc?module=ComponentRecordbook&c=impressive_debut&type=design">design</A> |
+                        <A href="/tc?module=ComponentRecordbook&c=impressive_debut&type=development">development</A> |
+                        <A href="/tc?module=ComponentRecordbook&c=impressive_debut&type=component">overall</A>
+
                     </td>
                 </tr>
             </table>
