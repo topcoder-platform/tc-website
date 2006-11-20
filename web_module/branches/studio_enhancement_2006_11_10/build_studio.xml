@@ -158,7 +158,7 @@
         </jar>
     </target>
 
-    <target name="jar_common" depends="">
+    <target name="jar_common">
         <jar jarfile="${common.jar}">
             <fileset dir="${classes}">
                 <include name="com/topcoder/web/common/**/*.class"/>
@@ -241,7 +241,7 @@
         <antcall target="expand-studio"/>
     </target>
 
-    <target name="expand-studio" depends="">
+    <target name="expand-studio">
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcjive.jar"/>
