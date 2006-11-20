@@ -395,13 +395,13 @@ pageContext.setAttribute("resultSet", rscChallenge);
                  </TR>
                  <TR VALIGN="middle">
                    <TD BACKGROUND="/i/steel_blue_bg.gif"  WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%" HEIGHT="18">Challenger</TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%">Defendant</TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%">Problem</TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="10%">Succeeded</TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%" ALIGN="right">Challenge Time</TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="10%" ALIGN="right">Points</TD>
-                     <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="10%" ALIGN="right">&#160;</TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="13%" HEIGHT="18">Challenger</TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="13%">Defendant</TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="22%">Problem</TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="13%">Succeeded</TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="13%" ALIGN="right">Challenge Time</TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="13%" ALIGN="right">Points</TD>
+                     <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="13%" ALIGN="right">&#160;</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
@@ -452,13 +452,13 @@ pageContext.setAttribute("resultSet", rscDefense);
                  </TR>
                  <TR VALIGN="middle"> 
                    <TD BACKGROUND="/i/steel_blue_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%" HEIGHT="18">Defendant</TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%">Challenger</TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%">Problem</TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%">Succeeded</TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%" ALIGN="right">Challenge Time</TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%" ALIGN="right">Points</TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="top" WIDTH="20%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="15%" HEIGHT="18">Defendant</TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="15%">Challenger</TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="25%">Problem</TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="15%">Succeeded</TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="15%" ALIGN="right">Challenge Time</TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="15%" ALIGN="right">Points</TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
                    <TD COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
