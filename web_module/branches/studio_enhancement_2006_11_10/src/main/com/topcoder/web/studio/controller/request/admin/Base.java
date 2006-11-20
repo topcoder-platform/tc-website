@@ -28,7 +28,7 @@ import java.util.Set;
 public abstract class Base extends ShortHibernateProcessor {
     protected static final Integer[] CONTEST_PROPS = {ContestProperty.MIN_HEIGHT, ContestProperty.MAX_HEIGHT, ContestProperty.MIN_WIDTH,
             ContestProperty.MAX_WIDTH, ContestProperty.CONTEST_OVERVIEW_TEXT, ContestProperty.PRIZE_DESCRIPTION,
-            ContestProperty.VIEWABLE_SUBMISSIONS};
+            ContestProperty.VIEWABLE_SUBMISSIONS, ContestProperty.MAX_SUBMISSIONS};
 
 
     protected void loadGeneralEditContestData() throws Exception {
