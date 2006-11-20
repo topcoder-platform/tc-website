@@ -366,7 +366,7 @@
                 <tc-webtag:handle coderId="<%= resultRow.getItem("defendant_id").toString() %>" context='hs_algorithm'/></td>
             <td class="value"><rsc:item name="class_name" row="<%=resultRow%>"/></td>
             <td class="value"><rsc:item name="succeeded" row="<%=resultRow%>"/></td>
-            <td class="valueC"><%= challengeTime.format(new java.sql.Time(resultRow.getLongItem("time_elapsed"))).toString() %></td>            
+            <td class="valueC"> <%= resultRow.getItem("time_elapsed").getResultData() == null? "" : challengeTime.format(new java.sql.Time(Long.parseLong(resultRow.getItem("time_elapsed").toString()))).toString() %>                   </td>            
             <td class="valueR"><rsc:item name="challenger_points" row="<%=resultRow%>" format="0.00"/></td>
             <td class="valueC">
                 <A href='tc?module=HSProblemSolution&amp;cr=<%=resultRow.getItem("defendant_id").toString()%>&amp;rd=<%=round.getRoundId()%>&amp;pm=<%= resultRow.getIntItem("problem_id") %>#Defenses'>
@@ -401,7 +401,7 @@
                 <tc-webtag:handle coderId="<%= resultRow.getItem("challenger_id").toString() %>" context='hs_algorithm'/></td>
             <td class="value"><rsc:item name="class_name" row="<%=resultRow%>"/></td>
             <td class="value"><rsc:item name="succeeded" row="<%=resultRow%>"/></td>
-            <td class="valueC"><%= challengeTime.format(new java.sql.Time(resultRow.getLongItem("time_elapsed"))).toString() %></td>                        
+            <td class="valueC"> <%= resultRow.getItem("time_elapsed").getResultData() == null? "" : challengeTime.format(new java.sql.Time(Long.parseLong(resultRow.getItem("time_elapsed").toString()))).toString() %></td>                        
             <td class="valueR"><rsc:item name="defendant_points" row="<%=resultRow%>" format="0.00"/></td>
             <td class="valueC">&#160;</td>
         </tr>

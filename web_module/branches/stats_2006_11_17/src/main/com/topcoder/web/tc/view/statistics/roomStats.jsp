@@ -418,7 +418,7 @@ pageContext.setAttribute("resultSet", rscChallenge);
                    <TD CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 6 /* class name */ + "]" %>'/></TD>
                    <TD CLASS="statText"><%= resultRow.getItem(8).toString().equals("Y")?"Yes":"No"%></TD>
                    <TD CLASS="statText" ALIGN="right">
-                   <%= challengeTime.format(new java.sql.Time(Long.parseLong(resultRow.getItem("time_elapsed").toString()))).toString() %>                   
+                   <%= resultRow.getItem("time_elapsed").getResultData() == null? "" : challengeTime.format(new java.sql.Time(Long.parseLong(resultRow.getItem("time_elapsed").toString()))).toString() %>                   
                    </TD>
                    <TD CLASS="statText" ALIGN="right">
                    
@@ -476,7 +476,7 @@ pageContext.setAttribute("resultSet", rscDefense);
                    <TD CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 6 /* class name */ + "]" %>'/></TD>
                    <TD CLASS="statText"><%= resultRow.getItem(8).toString().equals("Y")?"Yes":"No"%></TD>
                    <TD CLASS="statText" ALIGN="right">
-                   <%= challengeTime.format(new java.sql.Time(Long.parseLong(resultRow.getItem("time_elapsed").toString()))).toString() %>                   
+                   <%= resultRow.getItem("time_elapsed").getResultData() == null? "" : challengeTime.format(new java.sql.Time(Long.parseLong(resultRow.getItem("time_elapsed").toString()))).toString() %>                   
                    </TD>
                    <TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 9 /* challenge pts */ + "].resultData" %>'/></TD>
                    <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
