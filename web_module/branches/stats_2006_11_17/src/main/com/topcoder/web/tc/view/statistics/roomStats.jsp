@@ -385,10 +385,10 @@ pageContext.setAttribute("resultSet", rscChallenge);
 %>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" COLSPAN="8" HEIGHT="18" VALIGN="middle" CLASS="statText">&#160;Challenges</TD>
+                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" COLSPAN="9" HEIGHT="18" VALIGN="middle" CLASS="statText">&#160;Challenges</TD>
                  </TR>
                  <TR>
-                   <TD COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+                   <TD COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR VALIGN="middle">
                    <TD BACKGROUND="/i/steel_blue_bg.gif"  WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
@@ -396,12 +396,13 @@ pageContext.setAttribute("resultSet", rscChallenge);
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%">Defendant</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%">Problem</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="10%">Succeeded</TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="10%" ALIGN="right">Challenge Time</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="10%" ALIGN="right">Points</TD>
                      <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="10%" ALIGN="right">&#160;</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+                   <TD COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
            <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
               <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 4 /*"defendent Rank"*/ + "]" %>'/>
@@ -414,8 +415,9 @@ pageContext.setAttribute("resultSet", rscChallenge);
                    <TD CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 6 /* class name */ + "]" %>'/></TD>
                    <TD CLASS="statText"><%= resultRow.getItem(8).toString().equals("Y")?"Yes":"No"%></TD>
                    <TD CLASS="statText" ALIGN="right">
-                   
-                   <%= sdfTime.format(new java.sql.Time(Long.parseLong(resultRow.getItem("submit_time").toString()))).toString() %>
+                   <%= sdfTime.format(new java.sql.Time(Long.parseLong(resultRow.getItem("time_elapsed").toString()))).toString() %>                   
+                   </TD>
+                   <TD CLASS="statText" ALIGN="right">
                    
                    <bean:write format="0.00" name="resultRow" property='<%= "item[" + 9 /* challenge pts */ + "].resultData" %>'/></TD>
                      <TD CLASS="statText" ALIGN="right"><A href="/stat?c=problem_solution&rm=<%=pageContext.getAttribute("rm") %>&rd=<%=pageContext.getAttribute("rd") %>&pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>&cr=<rsc:item row="<%=resultRow%>" name="defendant_id"/>#defenses" CLASS="statText">details</a></TD>
@@ -427,10 +429,10 @@ pageContext.setAttribute("resultSet", rscChallenge);
          </logic:iterate>
 
                  <TR>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD CLASS="statText" COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="16" BORDER="0"></TD>
+                   <TD CLASS="statText" COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="16" BORDER="0"></TD>
                  </TR>
                </TABLE>
 <% } %>
@@ -440,10 +442,10 @@ pageContext.setAttribute("resultSet", rscDefense);
 %>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" COLSPAN="7" HEIGHT="18" VALIGN="middle" CLASS="statText">&#160;Defenses</TD>
+                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" COLSPAN="8" HEIGHT="18" VALIGN="middle" CLASS="statText">&#160;Defenses</TD>
                  </TR>
                  <TR>
-                   <TD COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+                   <TD COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR VALIGN="middle">
                    <TD BACKGROUND="/i/steel_blue_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
@@ -451,11 +453,12 @@ pageContext.setAttribute("resultSet", rscDefense);
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%">Challenger</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%">Problem</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%">Succeeded</TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%" ALIGN="right">Challenge Time</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%" ALIGN="right">Points</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+                   <TD COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
 
            <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
@@ -469,11 +472,14 @@ pageContext.setAttribute("resultSet", rscDefense);
                    </TD>
                    <TD CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 6 /* class name */ + "]" %>'/></TD>
                    <TD CLASS="statText"><%= resultRow.getItem(8).toString().equals("Y")?"Yes":"No"%></TD>
+                   <TD CLASS="statText" ALIGN="right">
+                   <%= sdfTime.format(new java.sql.Time(Long.parseLong(resultRow.getItem("time_elapsed").toString()))).toString() %>                   
+                   </TD>
                    <TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 9 /* challenge pts */ + "].resultData" %>'/></TD>
                    <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"></TD>
+                   <TD COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"></TD>
                  </TR>
          </logic:iterate>
 
