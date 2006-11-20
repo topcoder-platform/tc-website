@@ -33,7 +33,7 @@
 <span class="bigTitle">An Evening Off</span><br>
 11.16.06 2:00 AM
 <br><br>
-<img src="/i/m/RRLevering_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<img src="/i/m/RRLevering_big2.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
 By&#160;<tc-webtag:handle coderId="344462" darkBG="true" /><br />
 <span class="smallText"><em>TopCoder Member</em></span>
 <br clear="all" />

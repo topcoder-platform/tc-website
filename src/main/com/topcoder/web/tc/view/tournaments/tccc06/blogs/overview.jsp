@@ -27,13 +27,13 @@
 <span class="bigTitle">Member Blogs</span>
 <br><br>
 
-<%-- RRLevering  344462   RRLevering_big.jpg --%>
+<%-- RRLevering  344462   RRLevering_big2.jpg --%>
 <%-- Churchillio 21181561 Churchillio_big.jpg --%>
 
 <table cellpadding="2" cellspacing="0" width="500" class="bodyText">
    <tr>
       <td align="center">
-      <img src="/i/m/RRLevering_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <img src="/i/m/RRLevering_big2.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
       <span class="smallHandle"><tc-webtag:handle coderId="344462" darkBG="true" /></span>
       </td>
       <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=RRLevering09">"Final thoughts"</span></A><br>
@@ -49,7 +49,7 @@
    </tr>
    <tr>
       <td align="center">
-      <img src="/i/m/RRLevering_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <img src="/i/m/RRLevering_big2.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
       <span class="smallHandle"><tc-webtag:handle coderId="344462" darkBG="true" /></span>
       </td>
       <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=RRLevering08">"Behind the Scenes at the Webcast"</span></A><br>
@@ -57,7 +57,7 @@
    </tr>
    <tr>
       <td align="center">
-      <img src="/i/m/RRLevering_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <img src="/i/m/RRLevering_big2.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
       <span class="smallHandle"><tc-webtag:handle coderId="344462" darkBG="true" /></span>
       </td>
       <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=RRLevering07">"Component Finals, Round 3"</span></A><br>
@@ -73,7 +73,7 @@
    </tr>
    <tr>
       <td align="center">
-      <img src="/i/m/RRLevering_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <img src="/i/m/RRLevering_big2.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
       <span class="smallHandle"><tc-webtag:handle coderId="344462" darkBG="true" /></span>
       </td>
       <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=RRLevering06">"A different battlefield"</span></A><br>
@@ -81,7 +81,7 @@
    </tr>
    <tr>
       <td align="center">
-      <img src="/i/m/RRLevering_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <img src="/i/m/RRLevering_big2.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
       <span class="smallHandle"><tc-webtag:handle coderId="344462" darkBG="true" /></span>
       </td>
       <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=RRLevering05">"Behind the scenes with the component reviewers"</span></A><br>
@@ -89,7 +89,7 @@
    </tr>
    <tr>
       <td align="center">
-      <img src="/i/m/RRLevering_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <img src="/i/m/RRLevering_big2.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
       <span class="smallHandle"><tc-webtag:handle coderId="344462" darkBG="true" /></span>
       </td>
       <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=RRLevering04">"Component Finals, Round 2"</span></A><br>
@@ -105,7 +105,7 @@
    </tr>
    <tr>
       <td align="center">
-      <img src="/i/m/RRLevering_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <img src="/i/m/RRLevering_big2.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
       <span class="smallHandle"><tc-webtag:handle coderId="344462" darkBG="true" /></span>
       </td>
       <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=RRLevering03">"An Evening Off"</span></A><br>
@@ -121,7 +121,7 @@
    </tr>
    <tr>
       <td align="center">
-      <img src="/i/m/RRLevering_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <img src="/i/m/RRLevering_big2.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
       <span class="smallHandle"><tc-webtag:handle coderId="344462" darkBG="true" /></span>
       </td>
       <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=RRLevering02">"Component Competitions Round 1"</span></A><br>
@@ -145,7 +145,7 @@
    </tr>
    <tr>
       <td align="center">
-      <img src="/i/m/RRLevering_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <img src="/i/m/RRLevering_big2.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
       <span class="smallHandle"><tc-webtag:handle coderId="344462" darkBG="true" /></span>
       </td>
       <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=RRLevering01">"Jetlag and swag"</span></A><br>
