@@ -545,7 +545,7 @@
                 <include name="ProblemParser.properties"/>
                 <include name="Resume.properties"/>
                 <include name="Registration.properties"/>
-                <include name="tc.PROPERTIES"/>
+                <include name="TC.properties"/>
                 <include name="PactsInternalServlet.properties"/>
                 <include name="cache.properties"/>
                 <include name="Email.properties"/>
