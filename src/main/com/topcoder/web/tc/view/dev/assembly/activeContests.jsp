@@ -107,7 +107,7 @@
       </td>
       <td class="valueC">$8,000</td>
       <td class="valueC">
-      11.20.2006 9:00 AM EST
+      11.23.2006 9:00 AM EST
       </td>
       <td class="valueC">
       12.05.2006 9:00 AM EST
@@ -143,7 +143,7 @@
       </td>
       <td class="valueC">$8,000</td>
       <td class="valueC">
-      11.20.2006 9:00 AM EST
+      11.23.2006 9:00 AM EST
       </td>
       <td class="valueC">
       12.05.2006 9:00 AM EST
