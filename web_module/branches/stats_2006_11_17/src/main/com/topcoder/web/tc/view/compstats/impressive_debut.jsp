@@ -28,7 +28,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
     </rsc:iterator>
 </table>
 <span class="bodyText">
-<strong>Record:</strong> Best debut rating.
+<strong>Record:</strong> Best debut rating.  This rating is based on the coder's first rating.
 </span>
 
 </div>
