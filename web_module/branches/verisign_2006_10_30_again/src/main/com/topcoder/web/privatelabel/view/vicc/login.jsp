@@ -51,9 +51,9 @@
                 to update your registration information, please login below:
                 <br/><br/>
 
-                Note: If you participated in the TopCoder VeriSign Sponsor Track
+                 <b>NOTE: If you participated in the TopCoder VeriSign Sponsor Track
                 competition, you do NOT need to register a new account. You may use
-                your existing account credentials to login to the Competition Arena.
+                your existing account credentials to login to the Competition Arena.</b>
 
                 <br/><br/>
 

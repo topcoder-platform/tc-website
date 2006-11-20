@@ -399,7 +399,7 @@ simply type the following in the white chat line at the bottom of the applet:
 An administrator will respond to your question in the chat area.
 <br/><br/>
 If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to
-<A href="mailto:service@topcoder.com">service@topcoder.com</A> . Please include a detailed description of the problem
+<A href="mailto:verisign@topcoder.com">verisign@topcoder.com</A> . Please include a detailed description of the problem
 that you are having.
 </div>
 </td>

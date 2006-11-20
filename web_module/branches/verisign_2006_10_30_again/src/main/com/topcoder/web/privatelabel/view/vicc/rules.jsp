@@ -109,7 +109,14 @@ By participating in the tournament, you agree to be bound by these rules and to 
 TopCoder, which are final, binding and conclusive in all matters.
 <br/><br/>
 
-<span class="bigRed">Contestants must not cheat; all ideas for any code and/or challenge submitted must be the contestant's alone.</span>
+<span class="bigRed">Contestants must not cheat. All ideas for code and/or challenge
+submitted must be the contestant's alone. TopCoder uses the word "cheat"
+to mean collaboration of any sort - including, but not limited to,
+working with another competitor, submitting code that was not fully
+authored by you, and using resources, software, etc. that are not
+allowed in TopCoder competitions. TopCoder reserves the right, in its
+sole discretion, to remove any competitor from the tournament who it
+suspects has cheated.</span>
 <br/><br/>
 Winners in each round of competition will be those competitors that score the most points in their
 respective rooms. All decisions relating to the viability of submissions, the ranking of submissions and
