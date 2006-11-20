@@ -4,7 +4,7 @@
 <head>
     <jsp:include page="/script.jsp"/>
 
-    <title>VeriSign Internal Coding Competition, Powered by TopCoder</title>
+    <title>VeriSign Code Fest, Powered by TopCoder</title>
     <link type="text/css" rel="stylesheet" href="/css/verisign06.css"/>
 </head>
 <body>
@@ -24,7 +24,7 @@
                 <span class="bigTitle">Registration Successful!</span>
                 <br/><br/>
 
-                In order to be eligible to compete in the VeriSign Internal Coding Competition,
+                In order to be eligible to compete in the VeriSign Code Fest,
                 you must activate your account by following the directions sent to the email
                 address provided during registration.
                 <br><br>

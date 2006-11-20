@@ -4,35 +4,35 @@
 <head>
     <jsp:include page="/script.jsp"/>
 
-    <title>VeriSign Internal Coding Competition, Powered by TopCoder</title>
+    <title>VeriSign Code Fest, Powered by TopCoder</title>
     <link type="text/css" rel="stylesheet" href="/css/verisign06.css"/>
 </head>
 
 <body>
 
-<!-- Tab barlinks-->
+<%-- Tab barlinks--%>
 <jsp:include page="links.jsp">
     <jsp:param name="tabLev2" value="details"/>
     <jsp:param name="tabLev3" value="rules"/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-<!-- Body-->
+<%-- Body--%>
 <tr valign="top">
 <td valign="top" align="center">
 <div class="bodySpacer">
 
 
-<span class="bigTitle">VeriSign&#174; Internal Coding Competition</span>
+<span class="bigTitle">VeriSign&#174; Code Fest</span>
 <br/><br/>
 <span class="bodySubtitle">Official Rules and Regulations</span>
 <br/><br/>
-<!--<a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<%--<a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="#registration">Registration</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="#qualification">Qualification Round</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="#structure">Round Structure</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="#conditions">Conditions&nbsp;of&nbsp;Participation</a>
-<br /><br /> -->
+<br /><br /> --%>
 
 <span class="bigRed">No purchase necessary to enter or win.</span>
 <br/><br/>
@@ -54,13 +54,15 @@ are ineligible to enter the tournament.
 Each competition room will have a maximum of 20 coders.
 <br/><br/>
 
-<!--<a name="eligibility"></a>
-<a href="#top"><img src="/i/events/verisign06/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>-->
+<%--<a name="eligibility"></a>
+<a href="#top"><img src="/i/events/verisign06/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>--%>
 <span class="bodySubtitle">About the Matches</span>
 <br/><br/>
-<b>When to start the Online Single Round Matches</b><br/>
-Members must register for the Single Round Matches. Registration is for two (2) hours
-and 55 minutes prior to the start of the round. To register, login to the Arena applet,
+<b>Registering for the Online Single Round Matches</b><br/>
+Members must first be registered on the VeriSign Internal Coding Competition website by choosing the "Register" tab above.
+<br/><br/>
+Members must also register for each Single Round Match. Registration is for two (2) hours
+and 55 minutes prior to the start of the round. To register, login to the Arena applet (see arena tab above), 
 click on the 'Main' menu, and choose the option for 'Registration'. Members from all over the country
 will be participating in this event, but <em>all start times will be communicated as Eastern Time, so
     contestants in different time zones must adjust accordingly</em>. All competitors who have registered
@@ -114,9 +116,9 @@ respective rooms. All decisions relating to the viability of submissions, the ra
 all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its
 designee and shall be final and binding in all respects.
 <br/><br/>
-VeriSign will distribute prizes for the SRMs that are scheduled for April 25, 2006 and May 17, 2006. Prizes are as
-follows:
+VeriSign may distribute prizes for each SRM.
 <br/><br/>
+<%--
 <table width="500" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
     <tr>
         <td class="sidebarTitle" colspan="2">SRM Prizes*</td>
@@ -142,7 +144,7 @@ follows:
     </tr>
 </table>
 <br/>
-
+--%>
 By participating in these Single Round Matches (SRMs), a winner releases and agrees to hold harmless
 TopCoder and VeriSign, their affiliates, subsidiaries, sponsors, advertising and promotion agencies, and prize
 suppliers, and all of their respective directors, officers, employees, representatives and agents, from

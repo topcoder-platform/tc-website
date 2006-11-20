@@ -4,7 +4,7 @@
 <head>
     <jsp:include page="/script.jsp"/>
 
-    <title>VeriSign Internal Coding Competition, Powered by TopCoder</title>
+    <title>VeriSign Code Fest, Powered by TopCoder</title>
     <link type="text/css" rel="stylesheet" href="/css/verisign06.css"/>
 </head>
 
@@ -22,28 +22,15 @@
 <td valign="top" align="center">
 <div class="bodySpacer">
 
-<span class="bigTitle">VeriSign&#174; Internal Coding Competition</span>
+<span class="bigTitle">VeriSign&#174; Code Fest</span>
 <br/><br/>
-Welcome to the 2006 VeriSign Internal Coding Competition! By participating, you can earn cash prizes and a seat at the
-first-ever VeriSign Technical Symposium (VTS) in Williamsburg, VA from June 11-13.
+Welcome to the VeriSign Code Fest -- VeriSign's annual internal coding competition, powered by TopCoder. Code Fest is a great way for members of the VeriSign Technical Community to come together and have some fun! Participants can earn cash prizes and the opportunity to compete in the Code Fest Finals at the second annual VeriSign Technical Symposium (VTS) in San Diego, California, August 12-15, 2007.
 <br/><br/>
-The Internal Coding Competition is only one of the ways we can come together as a technical community. In the upcoming
-months, you will receive even more information on the engineering community Web site, which will help all of us:
-<ul>
-    <li>share information and code</li>
-    <li>promote the development and use of best practices</li>
-    <li>facilitate access to and adoption of the Common Application Framework (CAF)*</li>
-    <li>foster a company-wide engineers' network</li>
-</ul>
-
-The VeriSign Internal Coding Competition consists of Single Round Matches (SRM) <b>exclusively for VeriSign
-    employees</b>. The SRM is a timed contest where participants compete online to solve the same problems under the
-same time constraints. You can compete in Java, C++, C#, or VB.
-
+This year's Code Fest consists of three Single Round Matches (SRM) <b>exclusively for VeriSign employees</b> and the TopCoder Sponsor Track.  First place finishers from each will advance to the VTS finals. The SRMs are timed contests where participants compete online to solve the same problems under the same time constraints. You can compete in Java, C++, C#, or VB.   As a sponsor of the TopCoder Open (TCO), VeriSign employees can compete in the TopCoder Sponsor Track competition which is a series of SRMs -- more information will be provided later. 
 <br/><br/>
-<span class="bodySubtitle">See how a Single Round Match (SRM) works and how to register to compete <a href="/pl/?module=Static&d1=vicc&d2=instructions">here</a>.</span>
+Check out these <a href="/pl/?module=Static&d1=vicc&d2=instructions">instructions</a> on how a Single Round Match (SRM) works and how to register.
 <br/><br/>
-<span class="bodySubtitle">Current Events Schedule:</span><br/>
+<span class="bodySubtitle">Code Fest Schedule:</span><br/>
 <br/>
 
 <table width="500" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
@@ -59,44 +46,54 @@ same time constraints. You can compete in Java, C++, C#, or VB.
         <td class="sidebarText">&#160;</td>
     </tr>
     <tr valign="top">
-        <td class="sidebarText">SRM 1, April 25, 2006</td>
-        <td class="sidebarText">7:00 - 9:55 AM*</td>
-        <td class="sidebarText">10:00 AM*</td>
+        <td class="sidebarText"><b>SRM 1</b> <br>December 19, 2006</td>
+        <td class="sidebarText">6:00 - 8:55 PM*</td>
+        <td class="sidebarText">9:00 PM*</td>
         <td class="sidebarText">All participants</td>
     </tr>
     <tr valign="top">
-        <td class="sidebarText">SRM 2, May 17, 2006</td>
-        <td class="sidebarText">6:00 - 8:55 PM*</td>
-        <td class="sidebarText">9:00 PM*</td>
+        <td class="sidebarText"><b>SRM 2</b> <br>February 15, 2007</td>
+        <td class="sidebarText">TBD</td>
+        <td class="sidebarText">TBD</td>
+        <td class="sidebarText">All participants</td>
+    </tr>
+    <tr valign="top">
+        <td class="sidebarText"><b>TopCoder Sponsor Track</b> <br>April 3 - May 12, 2007</td>
+        <td class="sidebarText">TBD</td>
+        <td class="sidebarText">TBD</td>
+        <td class="sidebarText">All participants</td>
+    </tr>
+    <tr valign="top">
+        <td class="sidebarText"><b>SRM 3</b> <br>June 12, 2007</td>
+        <td class="sidebarText">TBD</td>
+        <td class="sidebarText">TBD</td>
         <td class="sidebarText">All participants</td>
     </tr>
     <tr>
         <td class="sidebarText" colspan="4">&#160;</td>
     </tr>
     <tr valign="top">
-        <td class="sidebarText">Finals <br>June 13, 2006</td>
+        <td class="sidebarText"><b>VTS Finals</b> <br>August 13, 2007</td>
         <td class="sidebarText">&#160;</td>
         <td class="sidebarText">TBD</td>
         <td class="sidebarText">Championship Round <br>5 participants</td>
     </tr>
     <tr valign="top">
-        <td class="sidebarText" colspan="4">*All times are Eastern Daylight Time. <br>NOTE: In the event that a round
-            must be cancelled for any reason, the round will be held the following day at the same time.
+        <td class="sidebarText" colspan="4">*All times are Eastern Time. <br>NOTE: In the event that a round must be cancelled for any reason, 
+        the round will be held the following day at the same time. 
         </td>
     </tr>
 </table>
 <br/>
-The top two scores from each SRM will be invited to compete in the final round on June 13, 2006 at the first-ever
-VeriSign Technical Symposium.<br/><br/>
 
 <a name="prizes"></a>
 <span class="bodySubtitle">Prizes:</span><br/>
-Cash prizes are as follows for each SRM:
+Cash prizes are as follows:
 <br/><br/>
 
 <table width="500" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
     <tr>
-        <td class="sidebarTitle" colspan="2">SRM Prizes*</td>
+        <td class="sidebarTitle" colspan="2">SRM Prizes**</td>
     </tr>
     <tr>
         <td class="sidebarText"><b>1st Place Finisher</b></td>
@@ -104,28 +101,36 @@ Cash prizes are as follows for each SRM:
     </tr>
     <tr>
         <td class="sidebarText">2nd Place Finisher</td>
-        <td class="sidebarText">$750 and a trip to the VTS finals</td>
+        <td class="sidebarText">$750</td>
     </tr>
     <tr>
         <td class="sidebarText">3rd Place Finisher</td>
         <td class="sidebarText">$500</td>
     </tr>
     <tr>
-        <td class="sidebarText" colspan="2">*VeriSign's first place winner of the 2006 Sponsor Track may participate but
-            is not eligible to win prize money in the VeriSign internal SRMs in April and May, 2006. The first and
-            second place winners of the VeriSign internal SRM in April, 2006 may participate but are not eligible to win
-            prize money in the internal SRM in May, 2006.
-        </td>
+        <td class="sidebarTitle" colspan="2">Sponsor Track Prizes**</td>
+    </tr>
+    <tr>
+        <td class="sidebarText"><b>1st Place Finisher</b></td>
+        <td class="sidebarText"><b>$2,500 and a trip to the VTS finals</b></td>
+    </tr>
+    <tr>
+        <td class="sidebarText">2nd Place Finisher</td>
+        <td class="sidebarText">$1,500</td>
+    </tr>
+    <tr>
+        <td class="sidebarText">3rd Place Finisher</td>
+        <td class="sidebarText">$750</td>
     </tr>
 </table>
 <br/>
 
-Winners from the Sponsor Track and the two SRMs will compete on-site at the VTS for the following great prizes:
+The first-place winners from the Sponsor Track and the three SRMs plus one wild card from the second-place finishers will 
+compete onsite at the VTS for the following great prizes:
 <br/><br/>
-
 <table width="300" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
     <tr>
-        <td class="sidebarTitle" colspan="2">Finals Prizes</td>
+        <td class="sidebarTitle" colspan="2">Finals Prizes**</td>
     </tr>
     <tr>
         <td class="sidebarText"><b>1st Place Finisher</b></td>
@@ -149,13 +154,11 @@ Winners from the Sponsor Track and the two SRMs will compete on-site at the VTS 
     </tr>
 </table>
 <br/><br/>
-The competition is free. You must be a registered VeriSign employee who is at least 18 years old to be eligible to
-participate. See the official <a href="/pl/?module=Static&d1=vicc&d2=rules">rules and regulations</a> for more details.
+** Prize amounts are in US Dollars or country equivalent.
 <br/><br/>
-*The Common Application Framework (CAF) is a set of reusable infrastructure components and best practices for building
-transaction-oriented applications in Java/J2EE. Learn more about CAF components, reference applications, and
-documentation by accessing: <a href="/?t=sponsor&c=link&link=http://portal.vrsn.com/sites/cafinfo/default.aspx">CAF
-    SharePoint site</a> or contact <a href="mailto:afinan@verisign.com">Angelique Finan</a>
+The first place winners in the SRMs and Sponsor Track may participate but are not eligible to win prize money in any of the other SRMs that lead up to the 2007 VTS finals.
+<br/><br/>
+The competition is free. You must be a registered VeriSign employee who is at least 18 years old to be eligible to participate. See the official rules and regulations for more details. Questions? Contact <a href="mailto:afinan@verisign.com">Angelique Finan</a> at 703.948.4409. 
 </div>
 </td>
 

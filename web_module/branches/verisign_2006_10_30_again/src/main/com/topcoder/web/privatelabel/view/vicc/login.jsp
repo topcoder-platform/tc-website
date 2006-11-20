@@ -9,7 +9,7 @@
 <head>
     <jsp:include page="/script.jsp"/>
 
-    <title>VeriSign Internal Coding Competition, Powered by TopCoder</title>
+    <title>VeriSign Code Fest, Powered by TopCoder</title>
     <link type="text/css" rel="stylesheet" href="/css/verisign06.css"/>
     <SCRIPT type="text/javascript">
         function submitEnter(e) {
@@ -43,13 +43,12 @@
                 If you are not already a registered competitor, click
                 <a href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>?module=<%=Constants.VICC_REG_MAIN%>&amp;<%=Constants.EVENT_ID%>=6&amp;<%=Constants.COMPANY_ID%>=17942">here</a>
                 to register
-                an account for the VeriSign Internal Coding Competition.
+                an account for the VeriSign Code Fest.
                 <br/><br/>
 
                 <b>Update your registration information</b><br/>
-                If you have already registered for the VeriSign Internal Coding
-                Competition and would like to update your registration information,
-                please login below:
+                If you have already registered for the VeriSign Code Fest and would like 
+                to update your registration information, please login below:
                 <br/><br/>
 
                 Note: If you participated in the TopCoder VeriSign Sponsor Track

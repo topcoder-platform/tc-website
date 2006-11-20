@@ -4,7 +4,7 @@
 <head>
     <jsp:include page="/script.jsp"/>
 
-    <title>VeriSign Internal Coding Competition, Powered by TopCoder</title>
+    <title>VeriSign Code Fest, Powered by TopCoder</title>
     <link type="text/css" rel="stylesheet" href="/css/verisign06.css"/>
 </head>
 
@@ -51,7 +51,7 @@
                 to run the Competition Arena as a <a
                     href="Javascript:openWin('?module=Static&d1=vicc&d2=quick_launch','comp',300,275);">Java
                 Applet</A>.
-                <br><br>
+                <br><br> <br><br> <br><br>
 
                 <br/><br/>
             </div>

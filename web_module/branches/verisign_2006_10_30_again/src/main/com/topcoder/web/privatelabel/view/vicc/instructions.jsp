@@ -6,7 +6,7 @@
 <head>
     <jsp:include page="/script.jsp"/>
 
-    <title>VeriSign Internal Coding Competition, Powered by TopCoder</title>
+    <title>VeriSign Code Fest, Powered by TopCoder</title>
     <link type="text/css" rel="stylesheet" href="/css/verisign06.css"/>
 </head>
 
@@ -25,7 +25,7 @@
 <div class="bodySpacer">
 
 <span class="bigTitle">Instructions</span><br/><br/>
-<span class="bodySubtitle">How to Register for the VeriSign Internal Coding Competition</span><br>
+<span class="bodySubtitle">How to Register for the VeriSign Code Fest</span><br>
 Click
 <a href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>?module=<%=Constants.VICC_REG_MAIN%>&amp;<%=Constants.EVENT_ID%>=6&amp;<%=Constants.COMPANY_ID%>=17942">here</a>
 to register.
@@ -106,7 +106,7 @@ Coding Phase.
 <span class="bodySubtitle">Coding Phase</span><br>
 The Coding Phase is the period during which each contestant attempts to create solutions to three problem statements.
 <br><br>
-In the Single Round Matches for the VeriSign Internal Coding Competition, the Coding Phase will last 75 minutes and the
+In the Single Round Matches for the VeriSign Code Fest, the Coding Phase will last 75 minutes and the
 contestants will be given three problems to solve.
 <br><br>
 
@@ -145,7 +145,7 @@ definitions that your solution must adhere to, all of the constraints for any in
 clarify the statement.
 <br/><br/>
 <strong>Choosing a Language</strong><br/>
-The VeriSign Internal Coding Competition allow coders to utilize Java, C++, C# or Visual Basic as a competition
+The VeriSign Code Fest allow coders to utilize Java, C++, C# or Visual Basic as a competition
 programming
 language. You have the option to choose a programming language on a problem-by-problem basis. It is legal for you to use
 any programming languages to solve each of the problems in a single competition. For this reason, you have the option of
