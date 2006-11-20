@@ -130,7 +130,7 @@ public class EditContest extends Base {
             contest.setFileTypes(fts);
 
             if (log.isDebugEnabled()) {
-                log.debug("overview size " + contest.getOverview().getValue());
+                log.debug("overview size " + contest.getOverview().getValue() == null ? "null" : "" + contest.getOverview().getValue().length());
             }
 
             StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
