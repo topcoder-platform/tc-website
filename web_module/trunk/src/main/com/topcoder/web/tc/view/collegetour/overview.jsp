@@ -59,7 +59,7 @@
                 <% if ("22".equals(request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID))) { %>
                 <p>
                     <h2>TopCoder College Tour SRM Overview</h2>
-
+<br />
                     <h3>The Event</h3>
                     TopCoder is sponsoring an onsite programming competition at <%=request.getAttribute(Constants.SCHOOL_NAME)%>
                     on <tc-webtag:format object="<%=conf.get(new Integer(Constants.ROUND_START_PROP_ID))%>" format="MM.dd.yyyy"/>. <br/><br/>
@@ -72,9 +72,9 @@
                     the <%=conf.get(new Integer(Constants.LOCATION_PROP_ID))%>. This event is being run in conjunction
                     with <A href="/tc?module=MatchDetails&rd=<%=request.getAttribute(Constants.ROUND_ID)%>"><%=request.getAttribute(Constants.ROUND_NAME)%></A>.
                     In addition to registering with TopCoder, all competitors must register
-                    <a href="/tc?module=CollegeTourViewReg&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">here</a> and be onsite for the competition.
-                    After the event ends, pizza will be served and a TopCoder representative will be present to discuss
-                    TopCoder competitions and employment services.
+                    <a href="/tc?module=CollegeTourViewReg&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">here</a>.
+
+                    <br />
 
                     <h3>Prizes</h3>
 
@@ -100,6 +100,7 @@
                     place prize, the 2nd place finisher will receive the 2nd place prize, and the 3rd place finisher
                     will receive the 3rd place prize.
 
+      <br />
                     <h3>Event Schedule</h3>
 
                     The timeline for the day of the event:
@@ -107,7 +108,6 @@
                         <li><tc-webtag:format object="<%=conf.get(new Integer(Constants.EVENT_START_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/> - Computer lab opens & competitors set up </li>
                         <li><tc-webtag:format object="<%=conf.get(new Integer(Constants.ROUND_START_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/> - Competition starts </li>
                         <li><tc-webtag:format object="<%=conf.get(new Integer(Constants.ROUND_END_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/> - Competition ends </li>
-                        <li><tc-webtag:format object="<%=conf.get(new Integer(Constants.RESULTS_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/> - Pizza, Results, TopCoder presentation </li>
                     </ul><br/>
 
                     <strong><%=conf.get(new Integer(Constants.RECRUITER_NAME_PROP_ID))%></strong>, a TopCoder representative, will be present to explain the TopCoder
@@ -120,6 +120,7 @@
                 <p>
                     <h2>TopCoder College Tour SRM Overview</h2>
 
+                    <br />
                     <h3>The Event</h3>
                     TopCoder is sponsoring an onsite programming competition at <%=request.getAttribute(Constants.SCHOOL_NAME)%>
                     on <tc-webtag:format object="<%=conf.get(new Integer(Constants.ROUND_START_PROP_ID))%>" format="MM.dd.yyyy"/>. <br/><br/>
@@ -136,7 +137,7 @@
                     After the event ends, pizza will be served and a TopCoder representative will be present to discuss
                     TopCoder competitions and employment services.
 
-                    <h3>Prizes</h3>
+                    <br /><h3>Prizes</h3>
 
                     <ul>
                         <% if (conf.containsKey(new Integer(Constants.FIRST_PLACE_PROP_ID))) {%>
@@ -156,7 +157,7 @@
                     place prize, the 2nd place finisher will receive the 2nd place prize, and the 3rd place finisher
                     will receive the 3rd place prize.
 
-                    <h3>Event Schedule</h3>
+                    <br /><h3>Event Schedule</h3>
 
                     The timeline for the day of the event:
                     <ul>
