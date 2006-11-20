@@ -450,7 +450,7 @@ pageContext.setAttribute("resultSet", rscDefense);
                  <TR>
                    <TD COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                 <TR VALIGN="middle">
+                 <TR VALIGN="middle"> 
                    <TD BACKGROUND="/i/steel_blue_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%" HEIGHT="18">Defendant</TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="20%">Challenger</TD>
