@@ -111,15 +111,16 @@ public class ForumConversion {
     private static PreparedStatement oldForumPS = null;	// determine old forum IDs
     private static PreparedStatement rolesPS = null;	// select forum security roles
     private static PreparedStatement adminPS = null;	// determines admin privileges for SW forums
-    private static PreparedStatement publicPS = null;		// determine public SW forums
+    private static PreparedStatement publicPS = null;	// determine public SW forums
     
     static boolean ATTACHMENTS_ENABLED = true;
-    
+
+    // New administrators will need to be added to the "Software Administrators" group manually,
+    // unless this is integrated into the "knighting" process.
     private static long[] adminPermissions = {
     	ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
-    	ForumPermissions.RATE_MESSAGE, ForumPermissions.FORUM_CATEGORY_ADMIN, 
-    	ForumPermissions.CREATE_MESSAGE_ATTACHMENT, ForumPermissions.CREATE_POLL, ForumPermissions.VOTE_IN_POLL,
-    	ForumPermissions.ANNOUNCEMENT_ADMIN};
+    	ForumPermissions.RATE_MESSAGE, ForumPermissions.CREATE_MESSAGE_ATTACHMENT, ForumPermissions.CREATE_POLL, 
+    	ForumPermissions.VOTE_IN_POLL, ForumPermissions.ANNOUNCEMENT_ADMIN, ForumPermissions.FORUM_CATEGORY_ADMIN};
     private static long[] blockPermissions = {
     	ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
     	ForumPermissions.RATE_MESSAGE, ForumPermissions.CREATE_MESSAGE_ATTACHMENT, ForumPermissions.CREATE_POLL, 
@@ -140,7 +141,7 @@ public class ForumConversion {
     	
         try {
             fileDir = bundle.getProperty("forums_attachment_dir");
-            rootCategoryId = Long.parseLong(bundle.getProperty("forums_root_category_id"));
+            rootCategoryId = Long.parseLong(bundle.getProperty("tcs_forums_root_category_id"));
             tcConn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
             
             if (!fileDir.endsWith("/")) {
@@ -182,7 +183,16 @@ public class ForumConversion {
         GroupManager groupManager = forumFactory.getGroupManager();
         MimetypesFileTypeMap fileTypeMap = new MimetypesFileTypeMap();
 
-        // Create/fill SW forums admin group, if it does not already exist
+        // Remove old software user/moderator groups
+        Iterator itGroups = groupManager.getGroups();
+        while (itGroups.hasNext()) {
+        	Group group = (Group)itGroups.next();
+        	if (group.getName().startsWith(ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX) ||
+        			group.getName().startsWith(ForumConstants.GROUP_SOFTWARE_USERS_PREFIX)) {
+        		groupManager.deleteGroup(group);
+        	}
+        }
+        
         Group swAdminGroup = null;
         try {
         	swAdminGroup = groupManager.getGroup(ForumConstants.GROUP_SOFTWARE_ADMINS);
@@ -199,6 +209,10 @@ public class ForumConversion {
         	}
         }
         rs.close();
+        
+        for (int i=0; i<adminPermissions.length; i++) {
+        	root.getPermissionsManager().addGroupPermission(swAdminGroup, PermissionType.ADDITIVE, adminPermissions[i]);
+        }
         
         HashSet publicOldForumSet = new HashSet();
         publicPS = tcConn.prepareStatement("select permission from security_perms p, security_roles r "
@@ -303,8 +317,10 @@ public class ForumConversion {
             category.setProperty(ForumConstants.PROPERTY_VERSION_TEXT, forum.getVersionText());
             
             // set moderator, user permissions
-            Group moderatorGroup = groupManager.createGroup(ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX + category.getID());
-            Group userGroup = groupManager.createGroup(ForumConstants.GROUP_SOFTWARE_USERS_PREFIX + category.getID());
+            Group moderatorGroup = groupManager.createGroup(ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX + category.getID());  // close resultset
+            Group userGroup = groupManager.createGroup(ForumConstants.GROUP_SOFTWARE_USERS_PREFIX + category.getID());	// close resultset
+            moderatorGroup.setDescription(category.getName());
+            userGroup.setDescription(category.getName());
             PermissionsManager categoryPermissionsManager = category.getPermissionsManager();
             for (int i=0; i<moderatorPermissions.length; i++) {
             	categoryPermissionsManager.addGroupPermission(moderatorGroup, PermissionType.ADDITIVE, moderatorPermissions[i]);

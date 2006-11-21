@@ -1,7 +1,9 @@
 <%@ page import="javax.naming.*,
                  com.topcoder.dde.notification.NotificationEvent,
                  com.topcoder.dde.notification.NotificationHome,
-                 com.topcoder.dde.notification.Notification" %>
+                 com.topcoder.dde.notification.Notification,
+                 com.jivesoftware.forum.ForumCategory,
+                 com.jivesoftware.base.Group" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
@@ -9,9 +11,13 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.lang.reflect.*" %>
+<%@ page import="javax.naming.Context" %>
 
 <%@ page import="com.topcoder.dde.catalog.*" %>
 <%@ page import="com.topcoder.dde.forum.*" %>
+<%@ page import="com.topcoder.web.ejb.forums.*" %>
+<%@ page import="com.topcoder.shared.util.TCContext" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="session.jsp" %>
@@ -33,7 +39,15 @@
 %>
 
 
-<%
+<%	Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
+	Forums forums = null;
+	try {
+		ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
+		forums = forumsHome.create();
+	} catch (Exception e) { 
+    	debug.addMsg("user admin", "error initializing Forums EJB");
+    }
+
     long lngPrincipal = 0;
 
     com.topcoder.security.UserPrincipal selectedPrincipal = null;
@@ -102,6 +116,16 @@
                 strError += "GeneralSecurityException occurred while assigning role: " + gse.getMessage();
             }
         }
+        
+        if (action.equalsIgnoreCase("Assign Forums Role")) {
+        	long userID = Long.parseLong(request.getParameter("user"));
+        	long groupID = Long.parseLong(request.getParameter("selForumsRole"));
+        	try {
+        		forums.assignRole(userID, groupID);
+        	} catch (Exception e) {
+        		strError += "Error occurred while assigning forums role: " + e.getMessage();
+        	}
+        }
 
         if (action.equalsIgnoreCase("RemoveRole")) {
             debug.addMsg("user admin", "removing role");
@@ -116,6 +140,16 @@
             } catch (GeneralSecurityException gse) {
                 strError += "GeneralSecurityException occurred while unassigning role: " + gse.getMessage();
             }
+        }
+        
+        if (action.equalsIgnoreCase("RemoveForumsRole")) {
+        	long userID = Long.parseLong(request.getParameter("user"));
+        	long groupID = Long.parseLong(request.getParameter("groupID"));
+        	try {
+        		forums.removeRole(userID, groupID);
+        	} catch (Exception e) {
+        		strError += "Error occurred while removing forums role: " + e.getMessage();
+        	}
         }
 
         // Handle the actions specific to notification event assignments
@@ -413,8 +447,7 @@
             }
 	%>
 				<tr valign="top">
-					<td class="forumText"><%= roleName %> <%= associatedLabel %>
-                                        </td>
+					<td class="forumText"><%= roleName %> <%= associatedLabel %></td>
 					<td class="forumTextCenter"><strong><a href="user_admin.jsp?lngPrincipal=<%= lngPrincipal %>&role=<%= user_roles[i].getId() %>&a=RemoveRole">Remove Role</a></strong></td>
 				</tr>
 	<% } %>
@@ -465,6 +498,49 @@
 			</table>
 <!-- User Roles ends -->
 
+<!-- Forum Roles begins -->
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+		<tr><td class="adminSubhead">Forum Roles</td></tr>
+	</table>
+	
+	<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
+		<tr valign="top">
+			<td width="80%" class="adminTitle">Role Name</td>
+			<td width="20%" class="adminTitleCenter">Action</td>
+		</tr>
+		<tr valign="top">
+		<%	try {
+				Iterator itForumRoles = forums.getSoftwareRoles(selectedUser.getId());
+				while (itForumRoles.hasNext()) {
+					com.jivesoftware.base.Group group = (Group)itForumRoles.next(); 
+					associatedLabel = "(" + group.getDescription() + ")"; %>
+					<td class="forumText"><%=group.getName()%> <%=associatedLabel%></td>
+					<td class="forumTextCenter"><strong><a href="user_admin.jsp?groupID=<%=group.getID()%>&a=RemoveForumsRole">Remove Role</a></strong></td>	
+		<%		}
+	        } catch (Exception e) { 
+	        	debug.addMsg("user admin", "error displaying user's forum roles");
+	        } %> 
+		</tr>
+		<tr valign="top">
+			<td class="forumSubject">
+				<select class="adminForm" name="selForumRole">
+				<%	try {
+						Iterator itForumRoles = forums.getAllSoftwareRoles();
+						while (itForumRoles.hasNext()) {
+							com.jivesoftware.base.Group group = (Group)itForumRoles.next(); 
+							associatedLabel = "(" + group.getDescription() + ")"; %>			
+							<option value="<%=group.getID()%>"><%=group.getName()%> <%=associatedLabel%></option>
+				<%		}
+			        } catch (Exception e) { 
+			        	debug.addMsg("user admin", "error displaying user's forum roles");
+			        } %>
+                </select>
+            </td>
+			<td class="forumSubjectCenter"><input class="adminButton" type="submit" name="a" value="Assign Forum Role"></input></td>
+		</tr>
+		<tr><td class="adminTitle" colspan="2"><img src="/images/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
+	</table>
+<!-- Forum Roles ends -->
 
 <!-- User Notification Events begins -->
 

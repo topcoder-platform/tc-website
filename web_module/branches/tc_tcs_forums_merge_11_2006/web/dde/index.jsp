@@ -7,6 +7,10 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.lang.reflect.*" %>
+<%@ page import="com.topcoder.util.idgenerator.bean.*" %>
+<%@ page import="javax.naming.Context" %>
+<%@ page import="javax.naming.InitialContext.*" %>
+<%@	page import="javax.rmi.PortableRemoteObject" %>
 
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
@@ -94,7 +98,10 @@
                     <img src="/images/promos/promo_morris.jpg" alt="Mike Morris Promo" border="0" usemap="#morris_promo"/>
                     </td>
                 </tr>
-
+				<%	InitialContext context = new InitialContext();
+            		Object o = context.lookup("idgenerator/IdGenEJB");
+           	 		IdGenHome idGenHome = (IdGenHome) PortableRemoteObject.narrow(o, IdGenHome.class);
+            		IdGen idGen = idGenHome.create(); %>
             </table>
 
 		<!--	<jsp:include page="/includes/customers_featured.jsp" flush="true" />-->

@@ -35,7 +35,7 @@ import javax.sql.DataSource;
  * @version 1.0
  */
 public class ProjectTrackerV2Bean implements SessionBean {
-    private static final int DEVLOPEMENT_FORUM_TYPE = 2;
+    private static final int DEVELOPMENT_FORUM_TYPE = 2;
     private Logger log;
     private SessionContext ejbContext;
     private DataSource dataSource;
@@ -123,7 +123,7 @@ public class ProjectTrackerV2Bean implements SessionBean {
                     "AND cv.component_id = ? " +
                     "AND fm.status_id = 1 "  + 
                     "AND cfx.forum_type = " +
-                    DEVLOPEMENT_FORUM_TYPE);
+                    DEVELOPMENT_FORUM_TYPE);
 
             psForum.setLong(1, componentId);
             rsForum = psForum.executeQuery();
