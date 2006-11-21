@@ -125,6 +125,7 @@ This problem allows manual parsing, though the corresponding code is rather leng
 	{ if (s[i]==' ') 		//check if the current char is a delimiter
 	   { if (tmp.size()&gt;0)
 	      { // process the current fragment tmp
+	           tmp="";
 	      }
 	   } 
 	  else tmp+=s[i];
