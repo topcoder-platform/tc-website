@@ -86,7 +86,7 @@
                 <h1>Submit Your Design</h1>
 
                 <div align="center">
-                    <div align="left" style="width:500px;">
+                    <div align="left" style="width:500px; margin-top: 20px;">
                         <p>Thank you for accepting the terms of the contest. Please use the form below to upload your
                             submission:</p>
 
@@ -139,7 +139,7 @@
         <td class="headerW"><div>&nbsp;</div></td>
         <td class="headerC" >
         Ranking
-        <div><A href="#"><img src="/i/layout/btnUpdate.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateOn.png';" onmouseout="this.src = '/i/layout/btnUpdate.png';" /></A></div>
+        <div><A href="#"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';" /></A></div>
         </td>
         <td class="header" colspan="2" width="33%">
         Submission
@@ -151,7 +151,7 @@
         Passed / Failed
         </td>
         <td class="headerC" nowrap>
-        Raise / Lower<br>Ranking
+        Move Up /<br>Move Down
         </td>
         <td class="headerC" nowrap>
         Move to<br>Top
@@ -180,11 +180,11 @@
         <span class="bigGreen">Passed</span>
         </td>
         <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
         </td>
         <td class="valueC">
-        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
+        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
         </td>
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
@@ -210,11 +210,11 @@
         <span class="bigGreen">Passed</span>
         </td>
         <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
         </td>
         <td class="valueC">
-        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
+        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
         </td>
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
@@ -240,11 +240,11 @@
         <span class="bigGreen">Passed</span>
         </td>
         <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
         </td>
         <td class="valueC">
-        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
+        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
         </td>
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
@@ -270,11 +270,11 @@
         <span class="bigGreen">Passed</span>
         </td>
         <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
         </td>
         <td class="valueC">
-        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
+        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
         </td>
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
@@ -300,11 +300,11 @@
         Pending
         </td>
         <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
         </td>
         <td class="valueC">
-        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
+        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
         </td>
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
@@ -330,11 +330,11 @@
         Pending
         </td>
         <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
         </td>
         <td class="valueC">
-        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
+        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
         </td>
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
@@ -360,8 +360,8 @@
         Pending
         </td>
         <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Lower priority" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
         </td>
         <td class="valueC">
         <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
@@ -390,8 +390,8 @@
         Pending
         </td>
         <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Lower priority" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
         </td>
         <td class="valueC">
         <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
@@ -420,8 +420,8 @@
         Pending
         </td>
         <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Lower priority" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
         </td>
         <td class="valueC">
         <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
@@ -450,8 +450,8 @@
         Pending
         </td>
         <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Lower priority" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
         </td>
         <td class="valueC">
         <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
@@ -480,8 +480,8 @@
         Pending
         </td>
         <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Lower priority" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
         </td>
         <td class="valueC">
         <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
@@ -510,8 +510,8 @@
         Pending
         </td>
         <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Lower priority" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
         </td>
         <td class="valueC">
         <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
@@ -540,8 +540,8 @@
         Pending
         </td>
         <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Lower priority" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
         </td>
         <td class="valueC">
         <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
@@ -570,8 +570,8 @@
         Pending
         </td>
         <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Raise priority" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Lower priority" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
+        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
         </td>
         <td class="valueC">
         <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
@@ -601,7 +601,7 @@
         </td>
         <td class="valueC">
         <div align="center" style="margin:2px;"><img src="/i/layout/btnMoveUpNA.png" alt="Raise priority" /></div>
-        <div align="center" style="margin:2px;"><img src="/i/layout/btnMoveDownNA.png" alt="Lower priority" /></div>
+        <div align="center" style="margin:2px;"><img src="/i/layout/btnMoveDownNA.png" alt="Move down" /></div>
         </td>
         <td class="valueC">
         <div align="center"><img src="/i/layout/btnMoveToTopNA.png" alt="Move to top" /></div>
@@ -631,7 +631,7 @@
         </td>
         <td class="valueC">
         <div align="center" style="margin:2px;"><img src="/i/layout/btnMoveUpNA.png" alt="Raise priority" /></div>
-        <div align="center" style="margin:2px;"><img src="/i/layout/btnMoveDownNA.png" alt="Lower priority" /></div>
+        <div align="center" style="margin:2px;"><img src="/i/layout/btnMoveDownNA.png" alt="Move down" /></div>
         </td>
         <td class="valueC">
         <div align="center"><img src="/i/layout/btnMoveToTopNA.png" alt="Move to top" /></div>
@@ -661,7 +661,7 @@
         </td>
         <td class="valueC">
         <div align="center" style="margin:2px;"><img src="/i/layout/btnMoveUpNA.png" alt="Raise priority" /></div>
-        <div align="center" style="margin:2px;"><img src="/i/layout/btnMoveDownNA.png" alt="Lower priority" /></div>
+        <div align="center" style="margin:2px;"><img src="/i/layout/btnMoveDownNA.png" alt="Move down" /></div>
         </td>
         <td class="valueC">
         <div align="center"><img src="/i/layout/btnMoveToTopNA.png" alt="Move to top" /></div>
@@ -678,6 +678,7 @@
 <br><br>
 <strong>NOTE:</strong> green rows indicate submissions that you have selected to be considered for this contest
 </div>
+
             </div>
             <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
         </div>
