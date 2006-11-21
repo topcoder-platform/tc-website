@@ -46,9 +46,9 @@
         </td>
         <td><A href="/tc?module=Static&d1=tutorials&d2=alg_index">Tutorial</A></td>
         <td>
-            <A href="/tc?module=Static&d1=tutorials&d2=alg_index"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0"/></A>
+            <A href="/tc?module=Static&d1=features&d2=archive"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0"/></A>
         </td>
-        <td><A href="/tc?module=Static&d1=tutorials&d2=alg_index">Feature Article</A></td>
+        <td><A href="/tc?module=Static&d1=features&d2=archive">Feature Article</A></td>
     </tr>
     <tr class="bodyText">
         <td>

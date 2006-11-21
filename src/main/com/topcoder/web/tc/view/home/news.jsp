@@ -8,6 +8,24 @@
 </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0" /><br>11.21.06<br>10:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=112106">A Number or a String:<br>
+      Parsing Your Input and Formatting Your Output in C++</A></span><br><br>
+       This article is focused on main fast-to-type and convenient means of parsing input and formatting output in cases that are typical for TopCoder problems. All methods are specific to C++, but Java and VB coders may find several helpful ideas.</td>
+         <td class="newsPhoto"><img src="/i/m/Nickolas_big.jpg"  alt="" width="55" height="61"/><br>by 
+         <tc-webtag:handle coderId="15635590" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=112106">full story</A> | 
+         <tc-webtag:forumLink forumID="506153" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.17.06<br>8:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_finals_analysis">Congratulations to Petr, TCCC06 Algorithm Champion</A>
@@ -171,68 +189,4 @@
          <tc-webtag:forumLink forumID="506182" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.15.06<br>8:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        Component <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary">Development</A> Part 1 Details
-        </span><br><br>
-        Part 1 of the CDDC is over, here's how it went.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary">design</A> |
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary">development</A> | 
-        <tc-webtag:forumLink forumID="506186" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General Competition News" border="0" /><br>11.15.06<br>7:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=sponsors&d2=aolMashups">Now open: AOL Mashup contest</A>
-      </span><br><br>
-      AOL&#174; has opened up WebAIM, its latest API for its instant messaging platform, for your mixing and mashing pleasure. WebAIM allows users to integrate AIM services right into web pages and applications. Show us how you'd mash it up over at TopCoder Studio; $7,000 in prizes are up for grabs.
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=sponsors&d2=aolMashups">details</A> |
-         <tc-webtag:forumLink forumID="506160" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.15.06<br>3:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room1_analysis">Ying wins Room 1</A>
-        </span><br><br>
-      The TCCC kicked off this morning in San Diego with an exciting first round.  Most competitors were able to submit the easy problem relatively quickly, with <tc-webtag:handle coderId="19849563" context="algorithm"/> leading the pack.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room1_analysis">details</A> | 
-         <tc-webtag:forumLink forumID="506181" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-<tr>
-    <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0"/>
-        <br>11.13.06<br>5:00 PM</td>
-    <td class="newsTextCell">
-        <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm326">SRM 326 - Problem Set & Analysis</A></span><br><br>
-<tc-webtag:handle coderId="10574855" context="algorithm"/> continued his streak of impressive performances with a fairly wide margin of victory on a difficult problem set.  He was followed in Div I by targeteer <tc-webtag:handle coderId="19849563" context="algorithm"/> and standout TCHS competitor <tc-webtag:handle coderId="14886245" context="algorithm"/>.
-            </td>
-            <td class="newsPhoto"><img src="/i/m/jmzero_big.jpg" alt="" width="55" height="61"/><br>by
-                <tc-webtag:handle coderId="15498334" context="algorithm"/></td></tr></table>
-    </td>
-</tr>
-<tr><td class="newsLinksCell">
-    <A href="/tc?module=Static&d1=match_editorials&d2=srm326">full story</A> |
-    <tc-webtag:forumLink forumID="506001" message="discuss this"/> |
-    <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-</td></tr>
 
