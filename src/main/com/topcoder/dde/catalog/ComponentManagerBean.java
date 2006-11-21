@@ -1044,7 +1044,7 @@ public class ComponentManagerBean
 
 
                 }
-/*
+
                 long projectId = pt.createProject(
                         versionBean.getCompCatalog().getComponentName(),
                         info.getVersionLabel(),
@@ -1054,13 +1054,11 @@ public class ComponentManagerBean
                         null,
                         requestor,
                         levelId);
-*/
-                if (newForum >= 0) {
 
+                if (newForum >= 0) {
                     log.debug("New forum created, adding PM to notification.");
 
-
-                    //User pm = pt.getPM(projectId);
+                    User pm = pt.getPM(projectId);
 
                     NotificationHome notificationHome = (NotificationHome)
                                 PortableRemoteObject.narrow(
@@ -1069,21 +1067,21 @@ public class ComponentManagerBean
 
                     Notification notification = notificationHome.create();
 
-                    //if (pm == null) {
-                    //    log.debug("The PM can't be retrieved for this project.  Notification not added.");
-                    //} else {
+                    if (pm == null) {
+                        log.debug("The PM can't be retrieved for this project.  Notification not added.");
+                    } else {
                         // Generate the description if it hasn't been generated yet
                         if (description == null) {
                             description = createNotificationEventDescription("Forum Post");
                         }
 
-//                        notification.createNotification("com.topcoder.dde.forum.ForumPostEvent " + newForum,
-  //                                pm.getId(),
-    //                            Notification.FORUM_POST_TYPE_ID, description);
                         notification.createNotification("com.topcoder.dde.forum.ForumPostEvent " + newForum,
-                                  156859,
+                                  pm.getId(),
                                 Notification.FORUM_POST_TYPE_ID, description);
-                    //}
+                    //    notification.createNotification("com.topcoder.dde.forum.ForumPostEvent " + newForum,
+                    //              156859,
+                     //           Notification.FORUM_POST_TYPE_ID, description);
+                    }
                 }
 
             } catch (ClassCastException e) {
