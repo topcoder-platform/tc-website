@@ -4,12 +4,13 @@ import com.topcoder.server.ejb.DBServices.DBServices;
 import com.topcoder.server.ejb.DBServices.DBServicesHome;
 import com.topcoder.server.ejb.TestServices.TestServices;
 import com.topcoder.server.ejb.TestServices.TestServicesHome;
+import com.topcoder.server.farm.compiler.CompilerTimeoutException;
+import com.topcoder.services.message.handler.LongSubmitter;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.language.*;
-import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.messaging.messages.LongCompileRequest;
 import com.topcoder.shared.messaging.messages.LongCompileResponse;
 import com.topcoder.shared.problem.DataType;
@@ -39,7 +40,8 @@ import java.util.Map;
  * @version 1.0
  */
 public class Submit extends Base {
-
+    private static final LongSubmitter longSubmitter = new LongSubmitter(ApplicationServer.WEB_SERVER_ID);
+    
     private static final String NEAR_END =
             "Note: There are less than " + Constants.SUBMISSION_RATE / 60 + " hours remaining in this event.  " +
                     "If you make\na full submission at any point between now and the end of the event\nyou will " +
@@ -243,22 +245,19 @@ public class Submit extends Base {
                     longCompResult.createLongCompResult(rid, getUser().getId(), DBMS.JTS_OLTP_DATASOURCE_NAME);
                     longCompResult.setAttended(rid, getUser().getId(), true, DBMS.JTS_OLTP_DATASOURCE_NAME);
                 }
-
                 try {
-                    // Send the request!
-                    send(lcr, language);
-                } catch (ServerBusyException sbe) {
-                    throw new NavigationException("A submit request is already being processed.");
-                }
-
-                // Tell the user that the code is compiling...
-                showProcessingPage();
-
-                try {
-
-                    // Get the compilation response
-                    LongCompileResponse res = receive(30 * 1000, uid, cid);
-
+                    lock();
+                    
+                    LongCompileResponse res = null;
+                    try {
+                        //Tell the user that the code is compiling...
+                        showProcessingPage();
+                        
+                        res = longSubmitter.submitLong(lcr);
+                    } finally { 
+                        unlock();
+                    }
+    
                     // Records errors and other info
                     if (res.getCompileStatus()) { // everything went ok! :)
                         closeProcessingPage(buildProcessorRequestString("SubmitSuccess",
@@ -279,7 +278,7 @@ public class Submit extends Base {
                                 new String[]{Constants.ROUND_ID, Constants.CONTEST_ID, Constants.COMPONENT_ID, Constants.LANGUAGE_ID},
                                 new String[]{String.valueOf(rid), String.valueOf(cd), String.valueOf(cid), String.valueOf(language)}));
                     }
-                } catch (TimeOutException e) {
+                } catch (CompilerTimeoutException e) {
                     log.debug("compilation timed out...");
                     // The compilation timed out
                     log.debug("set message in session to code compilation request timed out");
@@ -296,8 +295,9 @@ public class Submit extends Base {
                     closeProcessingPage(buildProcessorRequestString("Submit",
                             new String[]{Constants.ROUND_ID, Constants.CONTEST_ID, Constants.COMPONENT_ID, Constants.LANGUAGE_ID},
                             new String[]{String.valueOf(rid), String.valueOf(cd), String.valueOf(cid), String.valueOf(language)}));
+                } catch (ServerBusyException sbe) {
+                    throw new NavigationException("A submit request is already being processed.");
                 }
-
             } else if (action.equals("save")) { // user is saving code
                 boolean res = saveCode(code, language, uid, cd, rid, cid);
 
