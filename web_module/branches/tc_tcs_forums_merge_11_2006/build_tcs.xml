@@ -327,6 +327,14 @@
             <metainf dir="${java.dir}/com/topcoder/apps/review/rboard" includes="*.xml"/>
         </jar>
     </target>
+	
+	<target name="package-EJB-ForumsBean" depends="compile">
+        <jar jarfile="${ejb.jars.dir}/forums.jar">
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/forums/*.class"/>
+            <metainf dir="${java.dir}/com/topcoder/web/ejb/forums" includes="*.xml"/>
+        </jar>
+    </target>
 
 <!--remove with new OR
     <target name="build-sars" depends="compile">
@@ -580,7 +588,7 @@
             </fileset>
         </ear>
     </target>
-
+	
     <target name="explode">
         <mkdir dir="${jboss.deploy.dir}/dde.ear"/>
         <unjar src="${ear.dir}/dde.ear" dest="${jboss.deploy.dir}/dde.ear" overwrite="yes"/>
@@ -615,6 +623,7 @@
     <target name="deploy" depends="build-ear,build-screening,build-onsite">
 -->
     <target name="deploy" depends="build-ear,build-onsite">
+    	<antcall target="package-EJB-ForumsBean"/>
         <antcall target="explode"/>
     </target>
 
