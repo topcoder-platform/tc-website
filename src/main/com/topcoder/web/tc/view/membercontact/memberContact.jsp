@@ -26,7 +26,7 @@ function canSend() {
 
 function validate(send) {
     var ajaxRequest = new AjaxRequest('/tc?module=ValidateHandle');
-    document.f.%= SendMail.HAS_TEXT %>.value = document.f.%= SendMail.TEXT %>.value != ""? "true" : "";
+    document.f.<%= SendMail.HAS_TEXT %>.value = document.f.<%= SendMail.TEXT %>.value != ""? "true" : "";
     ajaxRequest.addFormElementsById("<%= SendMail.TO_HANDLE %>");
     ajaxRequest.addFormElementsById("<%= SendMail.HAS_TEXT %>");    
     if (send) {
