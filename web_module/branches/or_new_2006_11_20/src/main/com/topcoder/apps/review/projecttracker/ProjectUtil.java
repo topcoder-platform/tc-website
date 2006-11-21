@@ -100,25 +100,18 @@ public class ProjectUtil {
 
         // add reliability_ind and old_reliability
         ps = conn.prepareStatement("INSERT INTO project_result " +
-                "(project_id, user_id, rating_ind, reliability_ind, valid_submission_ind, old_rating, old_reliability) " +
-                "values (?, ?, ?, ?, ?, ?, ?)");
+                "(project_id, user_id, rating_ind, valid_submission_ind, old_rating) " +
+                "values (?, ?, ?, ?, ?, ?)");
 
         ps.setLong(1, projectId);
         ps.setLong(2, userId);
         ps.setLong(3, 0);
         ps.setLong(4, 0);
-        ps.setLong(5, 0);
 
         if (old_rating == 0) {
-            ps.setNull(6, Types.DOUBLE);
+            ps.setNull(5, Types.DOUBLE);
         } else {
-            ps.setDouble(6, old_rating);
-        }
-
-        if (oldReliability == 0) {
-            ps.setNull(7, Types.DOUBLE);
-        } else {
-            ps.setDouble(7, oldReliability);
+            ps.setDouble(5, old_rating);
         }
 
         ps.execute();
