@@ -39,7 +39,7 @@ public class ComponentRecordbook extends Static {
                         !handle.equals("consecutive_winnings") &&
                         !handle.equals("consecutive_paid") &&
                         !handle.equals("consecutive_rating_increase") &&
-                        !handle.equals("biggest_rating_gains")
+                        !handle.equals("highest_rating_gains")
                 ) throw new TCWebException("Invalid c parameter: " + handle);
         getRequest().setAttribute("handle", handle);
 
