@@ -73,7 +73,7 @@ Check out these <a href="/pl/?module=Static&d1=vicc&d2=instructions">instruction
         <td class="sidebarText" colspan="4">&#160;</td>
     </tr>
     <tr valign="top">
-        <td class="sidebarText"><b>VTS Finals</b> <br>August 13, 2007</td>
+        <td class="sidebarText"><b>VTS Finals</b> <br>August 14, 2007</td>
         <td class="sidebarText">&#160;</td>
         <td class="sidebarText">TBD</td>
         <td class="sidebarText">Championship Round <br>5 participants</td>

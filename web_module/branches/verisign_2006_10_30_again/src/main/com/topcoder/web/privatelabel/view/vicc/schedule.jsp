@@ -37,25 +37,25 @@
         <td class="sidebarText">&#160;</td>
     </tr>
     <tr valign="top">
-        <td class="sidebarText">SRM 1, December 19, 2006</td>
+        <td class="sidebarText"><b>SRM 1</b> <br>December 19, 2006</td>
         <td class="sidebarText">6:00 - 8:55 PM*</td>
         <td class="sidebarText">9:00 PM*</td>
         <td class="sidebarText">All participants</td>
     </tr>
     <tr valign="top">
-        <td class="sidebarText">SRM 2, February 15, 2007</td>
+        <td class="sidebarText"><b>SRM 2</b> <br>February 15, 2007</td>
         <td class="sidebarText">TBD</td>
         <td class="sidebarText">TBD</td>
         <td class="sidebarText">All participants</td>
     </tr>
     <tr valign="top">
-        <td class="sidebarText">TopCoder Sponsor Track<br>April 3 - May 12, 2007</td>
+        <td class="sidebarText"><b>TopCoder Sponsor Track</b> <br>April 3 - May 12, 2007</td>
         <td class="sidebarText">TBD</td>
         <td class="sidebarText">TBD</td>
         <td class="sidebarText">All participants</td>
     </tr>
     <tr valign="top">
-        <td class="sidebarText">SRM 3, June 12, 2007</td>
+        <td class="sidebarText"><b>SRM 3</b> <br>June 12, 2007</td>
         <td class="sidebarText">TBD</td>
         <td class="sidebarText">TBD</td>
         <td class="sidebarText">All participants</td>
@@ -64,7 +64,7 @@
         <td class="sidebarText" colspan="4">&#160;</td>
     </tr>
     <tr valign="top">
-        <td class="sidebarText">VTS Finals <br>August 13, 2007</td>
+        <td class="sidebarText"><b>VTS Finals</b> <br>August 14, 2007</td>
         <td class="sidebarText">&#160;</td>
         <td class="sidebarText">TBD</td>
         <td class="sidebarText">Championship Round <br>5 participants</td>

@@ -23,7 +23,7 @@
             Tuesday, June 12, 2007
             <br/><br/>
             <b>Championship Round</b><br/>
-            Monday, August 13, 2007
+            Tuesday, August 14, 2007
         </td>
     </tr>
     <tr>

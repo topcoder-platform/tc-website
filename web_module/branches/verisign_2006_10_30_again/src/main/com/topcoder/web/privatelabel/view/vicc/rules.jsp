@@ -59,7 +59,7 @@ Each competition room will have a maximum of 20 coders.
 <span class="bodySubtitle">About the Matches</span>
 <br/><br/>
 <b>Registering for the Online Single Round Matches</b><br/>
-Members must first be registered on the VeriSign Code Fest website by choosing the "Register" tab above.
+Members must first be registered on the VeriSign Code Fest website by choosing the "Registration" tab above.
 <br/><br/>
 Members must also register for each Single Round Match. Registration is for two (2) hours
 and 55 minutes prior to the start of the round. To register, login to the Arena applet (see arena tab above), 
