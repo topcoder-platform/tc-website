@@ -29,14 +29,15 @@ public class ViewActiveContests extends Base {
             String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
-            setDefault(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-            setDefault(DataAccessConstants.SORT_COLUMN, getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
             Request r = new Request();
             r.setContentHandle("active_contests");
             log.info("sortCol:" + sortCol);
             log.info("sortDir:" + sortDir);
             if (!(sortCol.equals("") || sortDir.equals(""))) {
+                setDefault(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+                setDefault(DataAccessConstants.SORT_COLUMN, getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+
                 r.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
                 r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
                 log.info("sorting");
