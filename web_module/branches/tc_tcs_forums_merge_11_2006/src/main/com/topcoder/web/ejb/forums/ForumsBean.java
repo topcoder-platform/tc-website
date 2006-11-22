@@ -11,15 +11,16 @@ import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumCategoryNotFoundException;
+import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.base.Group;
-import com.jivesoftware.base.GroupNotFoundException;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.User;
 import com.jivesoftware.base.UserNotFoundException;
 
-import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 
 /**
@@ -157,6 +158,9 @@ public class ForumsBean extends BaseEJB {
     		}
     	}
     	
+    	Collections.sort(softwareGroupList, 
+    			new JiveGroupComparator("name", ResultFilter.ASCENDING));
+    	
     	String[][] softwareGroupData = new String[softwareGroupList.size()][3];
     	for (int i=0; i<softwareGroupData.length; i++) {
     		Group group = (Group)softwareGroupList.get(i);
@@ -179,6 +183,9 @@ public class ForumsBean extends BaseEJB {
     		}
     	}
     	
+    	Collections.sort(softwareGroupList, 
+    			new JiveGroupComparator("name", ResultFilter.ASCENDING));
+    	
     	String[][] softwareGroupData = new String[softwareGroupList.size()][3];
     	for (int i=0; i<softwareGroupData.length; i++) {
     		Group group = (Group)softwareGroupList.get(i);
@@ -189,4 +196,28 @@ public class ForumsBean extends BaseEJB {
     	return softwareGroupData;
     }
     // Software Forums - End
+}
+
+class JiveGroupComparator implements Comparator {
+	private String sortField;
+	private int sortOrder;
+	
+	public JiveGroupComparator(String sortField, int sortOrder) {
+		this.sortField = sortField;
+		this.sortOrder = sortOrder;
+	}
+	
+	public final int compare(Object o1, Object o2) {
+		Group g1 = (Group)o1;
+		Group g2 = (Group)o2;
+		
+		int retVal = 0;
+		if (sortField.equals("name")) {
+			retVal = g1.getName().compareTo(g2.getName());
+		}
+		if (sortOrder == ResultFilter.DESCENDING) {
+			retVal = -retVal;
+		}
+		return retVal;
+    }
 }
