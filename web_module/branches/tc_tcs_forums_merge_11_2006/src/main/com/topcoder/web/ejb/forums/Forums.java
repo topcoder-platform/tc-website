@@ -2,7 +2,6 @@ package com.topcoder.web.ejb.forums;
 
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 import javax.ejb.EJBException;
 
@@ -18,9 +17,9 @@ public interface Forums extends EJBObject {
     
     public void removeRole(long userID, long groupID) throws EJBException, RemoteException;
     
-    public ArrayList getSoftwareCategories() throws EJBException, RemoteException;
+    public String[][] getSoftwareCategoriesData() throws EJBException, RemoteException;
     
-    public ArrayList getSoftwareRoles(long userID) throws EJBException, RemoteException;
+    public String[][] getSoftwareRolesData(long userID) throws EJBException, RemoteException;
     
-    public ArrayList getAllSoftwareRoles() throws EJBException, RemoteException;
+    public String[][] getAllSoftwareRolesData() throws EJBException, RemoteException;
 }

@@ -11,18 +11,22 @@ import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumCategoryNotFoundException;
+import com.jivesoftware.base.Group;
 import com.jivesoftware.base.GroupNotFoundException;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.User;
 import com.jivesoftware.base.UserNotFoundException;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
  * This class handles interaction with the Jive database.
- *
+ * Please update the code if you know of a way to use Jive objects remotely, instead of using primitives. 
+ * Keep in mind that most Jive proxy objects are not serializable.
+ * 
  * @author mtong
  */
 
@@ -115,18 +119,25 @@ public class ForumsBean extends BaseEJB {
     	//forumFactory.getForumCategory(378).getCategories()
     //}
     
-    public ArrayList getSoftwareCategories() {
-    	ArrayList softwareCategories = new ArrayList();
+    public String[][] getSoftwareCategoriesData() {
     	try {
-    		softwareCategories.add(forumFactory.getForumCategory(TCS_FORUMS_ROOT_CATEGORY_ID).getCategories());
-    		return softwareCategories;
+        	String[][] softwareCategoriesData = new String[forumFactory.getForumCategory(TCS_FORUMS_ROOT_CATEGORY_ID).getCategoryCount()][2];
+    		Iterator itCategories = forumFactory.getForumCategory(TCS_FORUMS_ROOT_CATEGORY_ID).getCategories();
+    		int row = 0;
+    		while (itCategories.hasNext()) {
+    			ForumCategory category = (ForumCategory)itCategories.next();
+    			softwareCategoriesData[row][0] = String.valueOf(category.getID());
+    			softwareCategoriesData[row][1] = String.valueOf(category.getName());
+    			row++;
+    		}
+    		return softwareCategoriesData;
     	} catch (ForumCategoryNotFoundException fe) {
     		log.info("*** error in obtaining software categories: " + fe);
     		return null;
     	}
     }
     
-    public ArrayList getSoftwareRoles(long userID) {
+    public String[][] getSoftwareRolesData(long userID) {
     	User user = null;
     	try {
     		user = forumFactory.getUserManager().getUser(userID);
@@ -145,10 +156,18 @@ public class ForumsBean extends BaseEJB {
     			softwareGroupList.add(group);
     		}
     	}
-    	return softwareGroupList;
+    	
+    	String[][] softwareGroupData = new String[softwareGroupList.size()][3];
+    	for (int i=0; i<softwareGroupData.length; i++) {
+    		Group group = (Group)softwareGroupList.get(i);
+    		softwareGroupData[i][0] = String.valueOf(group.getID());
+    		softwareGroupData[i][1] = String.valueOf(group.getName());
+    		softwareGroupData[i][2] = String.valueOf(group.getDescription());
+    	}
+    	return softwareGroupData;
     }
     
-    public ArrayList getAllSoftwareRoles() {
+    public String[][] getAllSoftwareRolesData() {
     	Iterator itGroups = forumFactory.getGroupManager().getGroups();
     	ArrayList softwareGroupList = new ArrayList();
     	while (itGroups.hasNext()) {
@@ -159,7 +178,15 @@ public class ForumsBean extends BaseEJB {
     			softwareGroupList.add(group);
     		}
     	}
-    	return softwareGroupList;
+    	
+    	String[][] softwareGroupData = new String[softwareGroupList.size()][3];
+    	for (int i=0; i<softwareGroupData.length; i++) {
+    		Group group = (Group)softwareGroupList.get(i);
+    		softwareGroupData[i][0] = String.valueOf(group.getID());
+    		softwareGroupData[i][1] = String.valueOf(group.getName());
+    		softwareGroupData[i][2] = String.valueOf(group.getDescription());
+    	}
+    	return softwareGroupData;
     }
     // Software Forums - End
 }

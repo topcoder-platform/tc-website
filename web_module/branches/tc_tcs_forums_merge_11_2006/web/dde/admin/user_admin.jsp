@@ -1,9 +1,7 @@
 <%@ page import="javax.naming.*,
                  com.topcoder.dde.notification.NotificationEvent,
                  com.topcoder.dde.notification.NotificationHome,
-                 com.topcoder.dde.notification.Notification,
-                 com.jivesoftware.forum.ForumCategory,
-                 com.jivesoftware.base.Group" %>
+                 com.topcoder.dde.notification.Notification" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
@@ -510,26 +508,30 @@
 		</tr>
 		<tr valign="top">
 		<%	try {
-				Iterator itForumRoles = forums.getSoftwareRoles(selectedUser.getId());
-				while (itForumRoles.hasNext()) {
-					com.jivesoftware.base.Group group = (Group)itForumRoles.next(); 
-					associatedLabel = "(" + group.getDescription() + ")"; %>
-					<td class="forumText"><%=group.getName()%> <%=associatedLabel%></td>
-					<td class="forumTextCenter"><strong><a href="user_admin.jsp?groupID=<%=group.getID()%>&a=RemoveForumsRole">Remove Role</a></strong></td>	
+				String[][] itForumRoles = forums.getSoftwareRolesData(selectedUser.getId());
+				for (int i=0; i<itForumRoles.length; i++) {
+					String associatedLabel = "(" + itForumRoles[i][2] + ")"; %>
+					<td class="forumText"><%=itForumRoles[i][1]%> <%=associatedLabel%></td>
+					<td class="forumTextCenter"><strong><a href="user_admin.jsp?groupID=<%=itForumRoles[i][0]%>&a=RemoveForumsRole">Remove Role</a></strong></td>	
 		<%		}
-	        } catch (Exception e) { 
-	        	debug.addMsg("user admin", "error displaying user's forum roles");
+	        } catch (Exception e) { %> ERROR! <%=e.toString()%> ID: <%=selectedUser.getId()%> URL: <%=ApplicationServer.FORUMS_HOST_URL%>
+	        <%	StackTraceElement[] ss = e.getStackTrace(); 
+	        	for (int i=0; i<ss.length; i++) { %>
+	        		<%=ss[i].toString()%><br>
+	        <%	} %>
+	        cause: <%=((java.lang.reflect.UndeclaredThrowableException)e).getCause()%><br>
+	        undeclared throwable: <%=((java.lang.reflect.UndeclaredThrowableException)e).getUndeclaredThrowable()%>
+	    <%    	debug.addMsg("user admin", "error displaying user's forum roles");
 	        } %> 
 		</tr>
 		<tr valign="top">
 			<td class="forumSubject">
 				<select class="adminForm" name="selForumRole">
 				<%	try {
-						Iterator itForumRoles = forums.getAllSoftwareRoles();
-						while (itForumRoles.hasNext()) {
-							com.jivesoftware.base.Group group = (Group)itForumRoles.next(); 
-							associatedLabel = "(" + group.getDescription() + ")"; %>			
-							<option value="<%=group.getID()%>"><%=group.getName()%> <%=associatedLabel%></option>
+						String[][] itForumRoles = forums.getAllSoftwareRolesData();
+						for (int i=0; i<itForumRoles.length; i++) {
+							String associatedLabel = "(" + itForumRoles[i][2] + ")"; %>			
+							<option value="<%=itForumRoles[i][0]%>"><%=itForumRoles[i][1]%> <%=associatedLabel%></option>
 				<%		}
 			        } catch (Exception e) { 
 			        	debug.addMsg("user admin", "error displaying user's forum roles");
