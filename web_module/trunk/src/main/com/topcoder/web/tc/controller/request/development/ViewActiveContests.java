@@ -38,7 +38,7 @@ public class ViewActiveContests extends Base {
                 r.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
                 r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
             }
-            r.setProperty(DataAccessConstants.SORT_QUERY, "active_contests");
+            //r.setProperty(DataAccessConstants.SORT_QUERY, "active_contests");
             getRequest().setAttribute("resultMap", getDataAccess().getData(r));
 
             // defines column's default sort.
