@@ -120,7 +120,7 @@
         <td class="headerE"><div>&nbsp;</div></td>
     </tr>
     <% boolean even = true; int i = 1; %>
-    <tr class="<%=even?"highlightLt":"highlightLtDk"%>">
+    <tr class="<%=even?"highlightLt":"highlightDk"%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
@@ -150,7 +150,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++; %>
-    <tr class="<%=even?"highlightLt":"highlightLtDk"%>">
+    <tr class="<%=even?"highlightLt":"highlightDk"%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
@@ -180,7 +180,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++; %>
-    <tr class="<%=even?"highlightLt":"highlightLtDk"%>">
+    <tr class="<%=even?"highlightLt":"highlightDk"%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
@@ -210,7 +210,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++; %>
-    <tr class="<%=even?"highlightLt":"highlightLtDk"%>">
+    <tr class="<%=even?"highlightLt":"highlightDk"%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
@@ -240,7 +240,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++; %>
-    <tr class="<%=even?"highlightLt":"highlightLtDk"%>">
+    <tr class="<%=even?"highlightLt":"highlightDk"%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
