@@ -115,16 +115,18 @@ public class ForumsBean extends BaseEJB {
     	//forumFactory.getForumCategory(378).getCategories()
     //}
     
-    public Iterator getSoftwareCategories() {
+    public ArrayList getSoftwareCategories() {
+    	ArrayList softwareCategories = new ArrayList();
     	try {
-    		return forumFactory.getForumCategory(TCS_FORUMS_ROOT_CATEGORY_ID).getCategories();
+    		softwareCategories.add(forumFactory.getForumCategory(TCS_FORUMS_ROOT_CATEGORY_ID).getCategories());
+    		return softwareCategories;
     	} catch (ForumCategoryNotFoundException fe) {
     		log.info("*** error in obtaining software categories: " + fe);
     		return null;
     	}
     }
     
-    public Iterator getSoftwareRoles(long userID) {
+    public ArrayList getSoftwareRoles(long userID) {
     	User user = null;
     	try {
     		user = forumFactory.getUserManager().getUser(userID);
@@ -143,10 +145,10 @@ public class ForumsBean extends BaseEJB {
     			softwareGroupList.add(group);
     		}
     	}
-    	return softwareGroupList.iterator();
+    	return softwareGroupList;
     }
     
-    public Iterator getAllSoftwareRoles() {
+    public ArrayList getAllSoftwareRoles() {
     	Iterator itGroups = forumFactory.getGroupManager().getGroups();
     	ArrayList softwareGroupList = new ArrayList();
     	while (itGroups.hasNext()) {
@@ -157,7 +159,7 @@ public class ForumsBean extends BaseEJB {
     			softwareGroupList.add(group);
     		}
     	}
-    	return softwareGroupList.iterator();
+    	return softwareGroupList;
     }
     // Software Forums - End
 }
