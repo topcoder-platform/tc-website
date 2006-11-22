@@ -112,6 +112,7 @@ public class ForumsBean extends BaseEJB {
     }
     
     public Iterator getSoftwareRoles(long userID) throws UserNotFoundException {
+    	log.info("*** start: getSoftwareRoles()");
     	User user = forumFactory.getUserManager().getUser(userID);
     	Iterator itGroups = forumFactory.getGroupManager().getUserGroups(user);
     	ArrayList softwareGroupList = new ArrayList();
@@ -123,10 +124,12 @@ public class ForumsBean extends BaseEJB {
     			softwareGroupList.add(group);
     		}
     	}
+    	log.info("*** return: getSoftwareRoles()");
     	return softwareGroupList.iterator();
     }
     
     public Iterator getAllSoftwareRoles() throws UserNotFoundException {
+    	log.info("*** start: getAllSoftwareRoles()");
     	Iterator itGroups = forumFactory.getGroupManager().getGroups();
     	ArrayList softwareGroupList = new ArrayList();
     	while (itGroups.hasNext()) {
@@ -137,6 +140,7 @@ public class ForumsBean extends BaseEJB {
     			softwareGroupList.add(group);
     		}
     	}
+    	log.info("*** return: getAllSoftwareRoles()");
     	return softwareGroupList.iterator();
     }
     // Software Forums - End
