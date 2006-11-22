@@ -23,7 +23,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
         <td class="valueC"><rsc:item name="rank" row="<%=row%>"/></td>
         <td class="value"><tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=type%>'/></td>
         <td class="valueR"><rsc:item name="rating_change" row="<%=row%>" format="0"/></td>
-        <td class="valueR">
+        <td class="value">
            <A HREF="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=row%>"/>" CLASS="statLink">
 				<rsc:item name="component_name" row="<%=row%>" />
            </A>        
