@@ -80,7 +80,7 @@ Check out these <a href="/pl/?module=Static&d1=vicc&d2=instructions">instruction
     </tr>
     <tr valign="top">
         <td class="sidebarText" colspan="4">*All times are Eastern Time. <br>NOTE: In the event that a round must be cancelled for any reason, 
-        the round will be held the following day at the same time. 
+        the round will be held <br> the following day at the same time. 
         </td>
     </tr>
 </table>
