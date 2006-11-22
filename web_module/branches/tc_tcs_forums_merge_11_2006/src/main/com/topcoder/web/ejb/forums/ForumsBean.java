@@ -159,7 +159,7 @@ public class ForumsBean extends BaseEJB {
     	}
     	
     	Collections.sort(softwareGroupList, 
-    			new JiveGroupComparator("name", ResultFilter.ASCENDING));
+    			new JiveGroupComparator("description", ResultFilter.ASCENDING));
     	
     	String[][] softwareGroupData = new String[softwareGroupList.size()][3];
     	for (int i=0; i<softwareGroupData.length; i++) {
@@ -184,7 +184,7 @@ public class ForumsBean extends BaseEJB {
     	}
     	
     	Collections.sort(softwareGroupList, 
-    			new JiveGroupComparator("name", ResultFilter.ASCENDING));
+    			new JiveGroupComparator("description", ResultFilter.ASCENDING));
     	
     	String[][] softwareGroupData = new String[softwareGroupList.size()][3];
     	for (int i=0; i<softwareGroupData.length; i++) {
@@ -212,8 +212,12 @@ class JiveGroupComparator implements Comparator {
 		Group g2 = (Group)o2;
 		
 		int retVal = 0;
-		if (sortField.equals("name")) {
+		if (sortField.equals("id")) {
+			retVal = String.valueOf(g1.getID()).compareTo(String.valueOf(g2.getID()));
+		} else if (sortField.equals("name")) {
 			retVal = g1.getName().compareTo(g2.getName());
+		} else if (sortField.equals("description")) {
+			retVal = g1.getDescription().compareTo(g2.getDescription());
 		}
 		if (sortOrder == ResultFilter.DESCENDING) {
 			retVal = -retVal;
