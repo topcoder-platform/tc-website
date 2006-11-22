@@ -24,11 +24,6 @@
         // -->
     </script>
     <STYLE TYPE="text/css">
-        img.emblem {
-            float: left;
-            margin: 0px 0px 0px 0px;
-        }
-
         div.container {
             display: block;
             width: 20px;
@@ -125,7 +120,7 @@
         <td class="headerE"><div>&nbsp;</div></td>
     </tr>
     <% boolean even = true; int i = 1; %>
-    <tr class="<%=even?"highlight":"highdark"%>">
+    <tr class="<%=even?"highlightLt":"highlightLtDk"%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
@@ -155,7 +150,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++; %>
-    <tr class="<%=even?"highlight":"highdark"%>">
+    <tr class="<%=even?"highlightLt":"highlightLtDk"%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
@@ -185,7 +180,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++; %>
-    <tr class="<%=even?"highlight":"highdark"%>">
+    <tr class="<%=even?"highlightLt":"highlightLtDk"%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
@@ -215,7 +210,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++; %>
-    <tr class="<%=even?"highlight":"highdark"%>">
+    <tr class="<%=even?"highlightLt":"highlightLtDk"%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
@@ -245,7 +240,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++; %>
-    <tr class="<%=even?"highlight":"highdark"%>">
+    <tr class="<%=even?"highlightLt":"highlightLtDk"%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
