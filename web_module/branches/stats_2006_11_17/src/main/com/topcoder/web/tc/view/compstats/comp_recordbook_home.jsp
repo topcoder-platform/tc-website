@@ -101,6 +101,13 @@
                         <A href="/tc?module=ComponentRecordbook&c=most_submissions_reviews&type=development">development</A> |
                         <A href="/tc?module=ComponentRecordbook&c=most_submissions_reviews&type=component">overall</A>
 
+                        <br><br>
+
+                        <strong>Highest Rating Point Gain</strong><br>
+                        <A href="/tc?module=ComponentRecordbook&c=higest_rating_gains&type=design">design</A> |
+                        <A href="/tc?module=ComponentRecordbook&c=higest_rating_gains&type=development">development</A> |
+                        <A href="/tc?module=ComponentRecordbook&c=higest_rating_gains&type=component">overall</A>
+
                     </td>
                     <td width="50%" style="padding-left:10px;">
 
