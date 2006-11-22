@@ -147,6 +147,29 @@
                         <A href="/tc?module=ComponentRecordbook&c=impressive_debut&type=development">development</A> |
                         <A href="/tc?module=ComponentRecordbook&c=impressive_debut&type=component">overall</A>
 
+
+                        <br><br>
+
+                        <strong>Consecutive Winnings</strong><br>
+                        <A href="/tc?module=ComponentRecordbook&c=consecutive_winnings&type=design">design</A> |
+                        <A href="/tc?module=ComponentRecordbook&c=consecutive_winnings&type=development">development</A> |
+                        <A href="/tc?module=ComponentRecordbook&c=consecutive_winnings&type=component">overall</A>
+
+                        <br><br>
+
+                        <strong>Consecutive 1st or 2nd place</strong><br>
+                        <A href="/tc?module=ComponentRecordbook&c=consecutive_paid&type=design">design</A> |
+                        <A href="/tc?module=ComponentRecordbook&c=consecutive_paid&type=development">development</A> |
+                        <A href="/tc?module=ComponentRecordbook&c=consecutive_paid&type=component">overall</A>
+
+
+                        <br><br>
+
+                        <strong>Consecutive Rating Increase</strong><br>
+                        <A href="/tc?module=ComponentRecordbook&c=consecutive_rating_increase&type=design">design</A> |
+                        <A href="/tc?module=ComponentRecordbook&c=consecutive_rating_increase&type=development">development</A> |
+                        <A href="/tc?module=ComponentRecordbook&c=consecutive_rating_increase&type=component">overall</A>
+
                     </td>
                 </tr>
             </table>
