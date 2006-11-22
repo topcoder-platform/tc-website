@@ -6,11 +6,6 @@ import java.util.Iterator;
 
 import javax.ejb.EJBException;
 
-import com.jivesoftware.base.GroupNotFoundException;
-import com.jivesoftware.base.UnauthorizedException;
-import com.jivesoftware.base.UserNotFoundException;
-import com.jivesoftware.forum.ForumCategoryNotFoundException;
-
 public interface Forums extends EJBObject {
     
     public void createMatchForum(int roundID) throws EJBException, RemoteException;
@@ -19,15 +14,13 @@ public interface Forums extends EJBObject {
     
     public int getThreadMessageCount(int threadID) throws EJBException, RemoteException;
     
-    public void assignRole(long userID, long groupID) throws EJBException, RemoteException,
-		UserNotFoundException, UnauthorizedException, GroupNotFoundException;
+    public void assignRole(long userID, long groupID) throws EJBException, RemoteException;
     
-    public void removeRole(long userID, long groupID) throws EJBException, RemoteException,
-    	UserNotFoundException, UnauthorizedException, GroupNotFoundException;
+    public void removeRole(long userID, long groupID) throws EJBException, RemoteException;
     
-    public Iterator getSoftwareCategories() throws EJBException, RemoteException, ForumCategoryNotFoundException;
+    public Iterator getSoftwareCategories() throws EJBException, RemoteException;
     
-    public Iterator getSoftwareRoles(long userID) throws EJBException, RemoteException, UserNotFoundException;
+    public Iterator getSoftwareRoles(long userID) throws EJBException, RemoteException;
     
-    public Iterator getAllSoftwareRoles() throws EJBException, RemoteException, UserNotFoundException;
+    public Iterator getAllSoftwareRoles() throws EJBException, RemoteException;
 }

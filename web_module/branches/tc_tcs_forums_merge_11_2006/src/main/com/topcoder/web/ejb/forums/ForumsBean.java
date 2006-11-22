@@ -85,19 +85,27 @@ public class ForumsBean extends BaseEJB {
     			DBMS.FORUMS_DATASOURCE_NAME).intValue();
     }
     
-    public void assignRole(long userID, long groupID) throws UserNotFoundException, UnauthorizedException, GroupNotFoundException {
-    	User user = forumFactory.getUserManager().getUser(userID);
-    	com.jivesoftware.base.Group group = forumFactory.getGroupManager().getGroup(groupID);
-    	if (group.getName().toLowerCase().indexOf("admin") != -1) {		// cannot add to administrative groups
-    		group.addMember(user);
+    public void assignRole(long userID, long groupID) {
+    	try {
+	    	User user = forumFactory.getUserManager().getUser(userID);
+	    	com.jivesoftware.base.Group group = forumFactory.getGroupManager().getGroup(groupID);
+	    	if (group.getName().toLowerCase().indexOf("admin") != -1) {		// cannot add to administrative groups
+	    		group.addMember(user);
+	    	}
+    	} catch (Exception e) {
+    		log.info("*** error in assigning role: " + e);
     	}
     }
     
-    public void removeRole(long userID, long groupID) throws UserNotFoundException, UnauthorizedException, GroupNotFoundException {
-    	User user = forumFactory.getUserManager().getUser(userID);
-    	com.jivesoftware.base.Group group = forumFactory.getGroupManager().getGroup(groupID);
-    	if (group.getName().toLowerCase().indexOf("admin") != -1) {		// cannot remove admins
-    		group.removeMember(user);
+    public void removeRole(long userID, long groupID) {
+    	try {
+	    	User user = forumFactory.getUserManager().getUser(userID);
+	    	com.jivesoftware.base.Group group = forumFactory.getGroupManager().getGroup(groupID);
+	    	if (group.getName().toLowerCase().indexOf("admin") != -1) {		// cannot remove admins
+	    		group.removeMember(user);
+	    	}
+    	} catch (Exception e) {
+    		log.info("*** error in removing role: " + e);
     	}
     }
     
@@ -107,13 +115,24 @@ public class ForumsBean extends BaseEJB {
     	//forumFactory.getForumCategory(378).getCategories()
     //}
     
-    public Iterator getSoftwareCategories() throws ForumCategoryNotFoundException {
-    	return forumFactory.getForumCategory(TCS_FORUMS_ROOT_CATEGORY_ID).getCategories();
+    public Iterator getSoftwareCategories() {
+    	try {
+    		return forumFactory.getForumCategory(TCS_FORUMS_ROOT_CATEGORY_ID).getCategories();
+    	} catch (ForumCategoryNotFoundException fe) {
+    		log.info("*** error in obtaining software categories: " + fe);
+    		return null;
+    	}
     }
     
-    public Iterator getSoftwareRoles(long userID) throws UserNotFoundException {
-    	log.info("*** start: getSoftwareRoles()");
-    	User user = forumFactory.getUserManager().getUser(userID);
+    public Iterator getSoftwareRoles(long userID) {
+    	User user = null;
+    	try {
+    		user = forumFactory.getUserManager().getUser(userID);
+    	} catch (UserNotFoundException ue) {
+    		log.info("*** error in obtaining software roles: " + ue);
+    		return null;
+    	}
+    	
     	Iterator itGroups = forumFactory.getGroupManager().getUserGroups(user);
     	ArrayList softwareGroupList = new ArrayList();
     	while (itGroups.hasNext()) {
@@ -124,12 +143,10 @@ public class ForumsBean extends BaseEJB {
     			softwareGroupList.add(group);
     		}
     	}
-    	log.info("*** return: getSoftwareRoles()");
     	return softwareGroupList.iterator();
     }
     
-    public Iterator getAllSoftwareRoles() throws UserNotFoundException {
-    	log.info("*** start: getAllSoftwareRoles()");
+    public Iterator getAllSoftwareRoles() {
     	Iterator itGroups = forumFactory.getGroupManager().getGroups();
     	ArrayList softwareGroupList = new ArrayList();
     	while (itGroups.hasNext()) {
@@ -140,7 +157,6 @@ public class ForumsBean extends BaseEJB {
     			softwareGroupList.add(group);
     		}
     	}
-    	log.info("*** return: getAllSoftwareRoles()");
     	return softwareGroupList.iterator();
     }
     // Software Forums - End
