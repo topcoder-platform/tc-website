@@ -34,9 +34,12 @@ public class ViewActiveContests extends Base {
 
             Request r = new Request();
             r.setContentHandle("active_contests");
+            log.info("sortCol:" + sortCol);
+            log.info("sortDir:" + sortDir);
             if (!(sortCol.equals("") || sortDir.equals(""))) {
                 r.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
                 r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
+                log.info("sorting");
             }
             //r.setProperty(DataAccessConstants.SORT_QUERY, "active_contests");
             getRequest().setAttribute("resultMap", getDataAccess().getData(r));
