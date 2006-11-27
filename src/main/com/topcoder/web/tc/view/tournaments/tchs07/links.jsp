@@ -17,7 +17,7 @@
 
 <div id="leftnav">
 <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview"<% if (tabLev1.equals("overview")) {%> class="on"<% } %>>OVERVIEW</A>
-<A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onsiteschedule"<% if (tabLev1.equals("onsiteschedule")) {%> class="on"<% } %>>ONSITE SCHEDULE</A>
+<A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=schedule"<% if (tabLev1.equals("schedule")) {%> class="on"<% } %>>SCHEDULE</A>
 <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=rules"<% if (tabLev1.equals("rules")) {%> class="on"<% } %>>RULES</A>
 <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=sponsors"<% if (tabLev1.equals("sponsors")) {%> class="on"<% } %>>SPONSORS</A>
 <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=purdue"<% if (tabLev1.equals("purdue")) {%> class="on"<% } %>>PURDUE</A>
