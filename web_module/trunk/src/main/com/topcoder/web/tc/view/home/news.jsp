@@ -9,6 +9,40 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>11.27.06<br>11:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm327">SRM 327 - Problem Set & Analysis</A></span><br><br>
+        After winning the TCCC '06, <tc-webtag:handle coderId="10574855" context="algorithm"/> took his hand at writing the problems for SRM 327. Unfortunately he stumbled onto a trap that has befallen other algorithm greats before.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/Ryan_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="284007" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=srm327">full story</A> | 
+        <tc-webtag:forumLink forumID="506002" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>11.27.06<br>11:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_10">Intel&#174; Multi-Threading 10 - Analysis</A></span><br><br>
+        Graph coloring is a widely studied subject, which made this Intel Multi-Threaded competition very interesting because a wide variety of algorithms could be used to approximate this NP complete problem.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/JacoCronje_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="283329" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_10">full story</A> | 
+        <tc-webtag:forumLink forumID="506148" message="discuss this" /> | 
+        <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>11.21.06<br>4:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -145,52 +179,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_wildcard_analysis">details</A> | 
          <tc-webtag:forumLink forumID="506184" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.16.06<br>5:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        Component <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary">Development</A> Part 2 Details
-        </span><br><br>
-        Here are some details on the components that the finalists are competing on for day 2.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary">design</A> |
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary">development</A> | 
-        <tc-webtag:forumLink forumID="506186" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.16.06<br>3:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room3_analysis">Petr wins Room 3</A>
-        </span><br><br>
-      Coders started out strong on day 2, with <tc-webtag:handle coderId="10574855" context="algorithm"/> leading the pack and submitting the easy problem after 9 minutes.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room3_analysis">details</A> | 
-         <tc-webtag:forumLink forumID="506183" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.16.06<br>2:25 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=overview">TCCC06: Day 1 blogs now online</A>
-        </span><br><br>
-      With Day 1 of the Collegiate Challenge done, relive the onsite experience through <tc-webtag:handle coderId="344462"/> and <tc-webtag:handle coderId="21181561"/>'s blogs.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=overview">view</A> | 
-         <tc-webtag:forumLink forumID="506180" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
