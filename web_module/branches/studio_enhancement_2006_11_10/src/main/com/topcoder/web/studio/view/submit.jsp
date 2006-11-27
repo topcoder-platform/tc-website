@@ -167,7 +167,7 @@
 
 <c:forEach items="${submissions}" var="submission">
     <c:choose>
-        <c:when test="${submission.rank>contest.maxSubmissions.value}">
+        <c:when test="${submission.rank != null && submission.rank>contest.maxSubmissions.value}">
             <tr class="<%=even ? "light" : "dark"%>" id="tr${submission.rank}">
         </c:when>
         <c:otherwise>
