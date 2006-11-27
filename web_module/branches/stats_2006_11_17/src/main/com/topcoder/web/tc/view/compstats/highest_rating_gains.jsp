@@ -14,7 +14,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
 <div style="float:right;"><A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">back to table of contents</A></div>
 <jsp:include page="dev_design_links.jsp"/>
 <br><br>
-<table class="stat" cellpadding="0" cellspacing="0" width="400" style="float: left; margin-right: 15px; margin-bottom: 15px;">
+<table class="stat" cellpadding="0" cellspacing="0" width="100%" style="float: left; margin-right: 15px; margin-bottom: 15px;">
     <tr><td class="title" colspan="5">Highest Rating Gains</td></tr>
     <tr>
     	<td class="headerC">Rank</td>
@@ -37,7 +37,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
     </rsc:iterator>
 </table>
 <span class="bodyText">
-<strong>Record:</strong> Highest rating point gain after submitting a project.
+<strong>Record:</strong> Largest rating point gain in a single contest.  The competitor must have been rated in the contest in order to be included in this list.
 </span>
 </div>
 </html>

@@ -105,7 +105,7 @@
 
                         <strong>Highest Rating Point Gain</strong><br>
                         <A href="/tc?module=ComponentRecordbook&c=highest_rating_gains&type=design">design</A> |
-                        <A href="/tc?module=ComponentRecordbook&c=highest_rating_gains&type=development">development</A> |
+                        <A href="/tc?module=ComponentRecordbook&c=highest_rating_gains&type=development">development</A>
                     </td>
                     <td width="50%" style="padding-left:10px;">
 
