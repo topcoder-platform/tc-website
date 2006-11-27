@@ -15,7 +15,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
 <jsp:include page="dev_design_no_overall_links.jsp"/>
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%" style="float: left; margin-bottom: 15px;">
-    <tr><td class="title" colspan="5">Highest Rating Gains</td></tr>
+    <tr><td class="title" colspan="5">Highest Rating Point Gain</td></tr>
     <tr>
     	<td class="headerC">Rank</td>
    	    <td class="header">Coder</td>
