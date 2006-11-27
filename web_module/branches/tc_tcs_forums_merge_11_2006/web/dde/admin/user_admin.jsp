@@ -36,7 +36,6 @@
     String action = request.getParameter("a");
 %>
 
-
 <%	Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
 	Forums forums = null;
 	try {
@@ -115,9 +114,9 @@
             }
         }
         
-        if (action.equalsIgnoreCase("Assign Forums Role")) {
+        if (action.equalsIgnoreCase("Assign Forum Role")) {
         	long userID = Long.parseLong(request.getParameter("user"));
-        	long groupID = Long.parseLong(request.getParameter("selForumsRole"));
+        	long groupID = Long.parseLong(request.getParameter("selForumRole"));
         	try {
         		forums.assignRole(userID, groupID);
         	} catch (Exception e) {
@@ -140,11 +139,10 @@
             }
         }
         
-        if (action.equalsIgnoreCase("RemoveForumsRole")) {
-        	long userID = Long.parseLong(request.getParameter("user"));
+        if (action.equalsIgnoreCase("RemoveForumRole")) {
         	long groupID = Long.parseLong(request.getParameter("groupID"));
         	try {
-        		forums.removeRole(userID, groupID);
+        		forums.removeRole(selectedPrincipal.getId(), groupID);
         	} catch (Exception e) {
         		strError += "Error occurred while removing forums role: " + e.getMessage();
         	}
@@ -510,18 +508,15 @@
 		<%	try {
 				String[][] itForumRoles = forums.getSoftwareRolesData(selectedUser.getId());
 				for (int i=0; i<itForumRoles.length; i++) {
-					String associatedLabel = "(" + itForumRoles[i][2] + ")"; %>
+					String associatedLabel = ""; 
+					if (!itForumRoles[i][2].trim().equals("")) {
+						associatedLabel = "(" + itForumRoles[i][2] + ")"; 
+					}	%>
 					<td class="forumText"><%=itForumRoles[i][1]%> <%=associatedLabel%></td>
-					<td class="forumTextCenter"><strong><a href="user_admin.jsp?groupID=<%=itForumRoles[i][0]%>&a=RemoveForumsRole">Remove Role</a></strong></td>	
+					<td class="forumTextCenter"><strong><a href="user_admin.jsp?lngPrincipal=<%=lngPrincipal%>&groupID=<%=itForumRoles[i][0]%>&a=RemoveForumRole">Remove Role</a></strong></td>	
 		<%		}
-	        } catch (Exception e) { %> ERROR! <%=e.toString()%> ID: <%=selectedUser.getId()%> URL: <%=ApplicationServer.FORUMS_HOST_URL%>
-	        <%	StackTraceElement[] ss = e.getStackTrace(); 
-	        	for (int i=0; i<ss.length; i++) { %>
-	        		<%=ss[i].toString()%><br>
-	        <%	} %>
-	        cause: <%=((java.lang.reflect.UndeclaredThrowableException)e).getCause()%><br>
-	        undeclared throwable: <%=((java.lang.reflect.UndeclaredThrowableException)e).getUndeclaredThrowable()%>
-	    <%    	debug.addMsg("user admin", "error displaying user's forum roles");
+	        } catch (Exception e) {
+	        	debug.addMsg("user admin", "error displaying user's forum roles");
 	        } %> 
 		</tr>
 		<tr valign="top">
@@ -530,7 +525,10 @@
 				<%	try {
 						String[][] itForumRoles = forums.getAllSoftwareRolesData();
 						for (int i=0; i<itForumRoles.length; i++) {
-							String associatedLabel = "(" + itForumRoles[i][2] + ")"; %>			
+							String associatedLabel = ""; 
+							if (!itForumRoles[i][2].trim().equals("")) {
+								associatedLabel = "(" + itForumRoles[i][2] + ")"; 
+							} %>			
 							<option value="<%=itForumRoles[i][0]%>"><%=itForumRoles[i][1]%> <%=associatedLabel%></option>
 				<%		}
 			        } catch (Exception e) { 
