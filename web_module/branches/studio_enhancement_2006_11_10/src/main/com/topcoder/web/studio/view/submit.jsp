@@ -207,7 +207,7 @@
     </td>
 
     <c:choose>
-        <c:when test="submission.review.status.id==failed">
+        <c:when test="${submission.review.status.id==failed}">
             <td class="valueC">
                 <div align="center" style="margin:2px;"><img src="/i/layout/btnMoveUpNA.png" alt="Raise priority"/>
                 </div>
