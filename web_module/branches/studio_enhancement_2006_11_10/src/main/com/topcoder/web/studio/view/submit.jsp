@@ -167,7 +167,7 @@
 
 <c:forEach items="${submissions}" var="submission">
     <c:choose>
-        <c:when test="submission.rank<=contest.maxSubmissions">
+        <c:when test="contest.maxSubmission=null || submission.rank<=contest.maxSubmissions">
             <tr class="<%=even ? "highlightLt" : "highlightDk"%>" id="tr${submission.rank}">
         </c:when>
         <c:otherwise>
@@ -200,7 +200,7 @@
     </td>
 
     <c:choose>
-        <c:when test="submission.review.status.id=failed">
+        <c:when test="submission.review.status.id==failed">
             <td class="valueC">
                 <div align="center" style="margin:2px;"><img src="/i/layout/btnMoveUpNA.png" alt="Raise priority"/>
                 </div>
