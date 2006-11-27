@@ -15,19 +15,23 @@ if (type == null) type = HandleTag.COMPONENT; %>
 <jsp:include page="dev_design_links.jsp"/>
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="400" style="float: left; margin-right: 15px; margin-bottom: 15px;">
-    <tr><td class="title" colspan="4">Highest Rating Gains</td></tr>
-    <tr><td class="headerC">Rank</td><td class="header">Coder</td><td class="headerR">Gain</td><td class="headerC">Project</td></tr>
+    <tr><td class="title" colspan="5">Highest Rating Gains</td></tr>
+    <tr>
+    	<td class="headerC">Rank</td>
+   	    <td class="header">Coder</td>
+   	    <td class="headerR">Gain</td>
+        <td class="header">Contest</td>
+        <td class="headerC">Date</td>   	    
+   	</tr>
     <% boolean even = false; %>
     <rsc:iterator list="<%=rsc%>" id="row">
         <tr class="<%=even?"dark":"light"%>">
         <td class="valueC"><rsc:item name="rank" row="<%=row%>"/></td>
         <td class="value"><tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=type%>'/></td>
         <td class="valueR"><rsc:item name="rating_change" row="<%=row%>" format="0"/></td>
-        <td class="value">
-           <A HREF="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=row%>"/>" CLASS="statLink">
-				<rsc:item name="component_name" row="<%=row%>" />
-           </A>        
-        </td>        
+        <td class="value"><A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=row%>"/>"><rsc:item name="name" row="<%=row%>"/></A></td>
+        <td class="valueR"><rsc:item name="date" row="<%=row%>" format="MM.dd.yyyy"/></td>
+        
         </tr>
     <% even = !even;%>
     </rsc:iterator>
