@@ -15,13 +15,13 @@
         <img src="/i/tournament/tchs07/contentN.png" alt="contentN" />
 
         <jsp:include page="links.jsp" >
-        <jsp:param name="tabLev1" value="schedule"/>
+        <jsp:param name="tabLev1" value="onsiteschedule"/>
         <jsp:param name="tabLev2" value=""/>
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>
 
         <div class="contentSpacer">
-          <h2>Events Schedule</h2>
+          <h2>Onsite Schedule</h2>
 
             <div align="center">
             <table border="0" cellpadding="5" cellspacing="0" width="400">
