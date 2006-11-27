@@ -64,95 +64,52 @@ The Problems
 <font size="+2"> 
 <b><a href="/stat?c=problem_statement&amp;pm=6736&amp;rd=10006" name="6736">AdditionCycles</a></b> 
 </font> 
-
 <A href="Javascript:openProblemRating(6736)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
 <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506001" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
-
 <br> 
-
 Used as: Division Two - Level One: <blockquote><table cellspacing="2"> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Value</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       250 
-
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Submission Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      505 / 540 (93.52%) 
-
+      501 / 536 (93.47%) 
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Success Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      471 / 505 (93.27%) 
-
+      468 / 501 (93.41%) 
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>High Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      <b>aboya</b> for 249.45 points (1 mins 20 secs) 
-
+      <b>nfs</b> for 247.59 points (2 mins 48 secs) 
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Average Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      212.68 (for 471 correct submissions) 
-
+      212.16 (for 468 correct submissions) 
     </td> 
-
   </tr> 
-
 </table></blockquote> 
+ 
 
 <p>The main challenge here is separating a number into individual digits.  This can be done a couple different ways:</p>
 
@@ -166,185 +123,97 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
 <p><tc-webtag:handle coderId="21886152" context="algorithm"/>, the overall Div 2 winner, got a head start on the "shortest solution" competition by processing each step with the following terse bit of code: i=i%10*10+(i%10+i/10)%10; </p>
  
 <font size="+2"> 
-
 <b><a href="/stat?c=problem_statement&amp;pm=6803&amp;rd=10006" name="6803">PositiveID</a></b> 
-
 </font> 
-
 <A href="Javascript:openProblemRating(6803)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
-
 <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506001" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
-
 <br> 
-
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2"> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Value</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       500 
-
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Submission Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      279 / 540 (51.67%) 
-
+      277 / 536 (51.68%) 
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Success Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      168 / 279 (60.22%) 
-
+      168 / 277 (60.65%) 
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>High Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>miroslavb</b> for 463.93 points (8 mins 2 secs) 
-
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Average Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      310.26 (for 168 correct submissions) 
-
+      308.76 (for 168 correct submissions) 
     </td> 
-
   </tr> 
-
 </table></blockquote> 
 
  
 
 Used as: Division One - Level One: <blockquote><table cellspacing="2"> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Value</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       250 
-
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Submission Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       415 / 451 (92.02%) 
-
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Success Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       365 / 415 (87.95%) 
-
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>High Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>uxy</b> for 247.99 points (2 mins 33 secs) 
-
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Average Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      199.09 (for 365 correct submissions) 
-
+      198.76 (for 365 correct submissions) 
     </td> 
-
   </tr> 
-
 </table></blockquote> 
 
 <p>Basically, the problem here is to discover the largest set of facts that apply to more than one suspect (and thus don't identify one subject uniquely).  The key realization to solving this problem is that we only have to consider two suspects at a time.  We don't have to worry about whether a set of facts applies to 3 or more suspects, as if a set of facts applies to 2 suspects that is enough.  On the other side, if a given set of facts doesn't apply completely to at least two suspects then it will either apply to no subjects or it will identify one suspect uniquely.  This leads to a fairly simple strategy: for each possible pair of suspects we count how many characteristics they share.  We then return the maximum number of shared characteristics found for any pairing.</p>
@@ -353,99 +222,52 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
  
 
 <font size="+2"> 
-
 <b><a href="/stat?c=problem_statement&amp;pm=6731&amp;rd=10006" name="6731">PoolFiller</a></b> 
-
 </font> 
-
 <A href="Javascript:openProblemRating(6731)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
-
 <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506001" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
-
 <br> 
-
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2"> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Value</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       1000 
-
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Submission Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      67 / 540 (12.41%) 
-
+      65 / 536 (12.13%) 
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Success Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      16 / 67 (23.88%) 
-
+      15 / 65 (23.08%) 
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>High Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      <b>aboya</b> for 998.46 points (1 mins 7 secs) 
-
+      <b>VictorAlushin</b> for 833.92 points (13 mins 14 secs) 
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Average Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      607.77 (for 16 correct submissions) 
-
+      581.72 (for 15 correct submissions) 
     </td> 
-
   </tr> 
-
 </table></blockquote> 
 
 
@@ -465,99 +287,52 @@ Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
  
 
 <font size="+2"> 
-
 <b><a href="/stat?c=problem_statement&amp;pm=6730&amp;rd=10006" name="6730">InscribedTriangles</a></b> 
-
 </font> 
-
 <A href="Javascript:openProblemRating(6730)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
-
 <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506001" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
-
 <br> 
-
 Used as: Division One - Level Two: <blockquote><table cellspacing="2"> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Value</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       550 
-
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Submission Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       87 / 451 (19.29%) 
-
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Success Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       33 / 87 (37.93%) 
-
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>High Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Petr</b> for 473.30 points (11 mins 50 secs) 
-
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Average Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       283.62 (for 33 correct submissions) 
-
     </td> 
-
   </tr> 
-
 </table></blockquote> 
 
 <p>Geometry problems have a reputation for being tricky, and this problem will do nothing to dispel that perception.  Since there are too many possible angles to try a brute force solution, we need to prune the possibilities we consider by having some idea of what our possible maximum triangles can look like.  We can categorize these possible maximum triangles by the number of points that are constrained in at least one direction (ie. points that lie on the edge of a degree range):</p>
@@ -585,99 +360,52 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
  
 
 <font size="+2"> 
-
 <b><a href="/stat?c=problem_statement&amp;pm=6597&amp;rd=10006" name="6597">BerryPacker</a></b> 
-
 </font> 
-
 <A href="Javascript:openProblemRating(6597)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
-
 <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506001" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
-
 <br> 
-
 Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Value</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       1000 
-
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Submission Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       34 / 451 (7.54%) 
-
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Success Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       17 / 34 (50.00%) 
-
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>High Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Petr</b> for 712.08 points (19 mins 49 secs) 
-
     </td> 
-
   </tr> 
-
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Average Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       515.40 (for 17 correct submissions) 
-
     </td> 
-
   </tr> 
-
 </table></blockquote> 
 
 <p>The first thing we need to know in order to decide how to do the packing is the total number of boxes we are going to use - we'll refer to this as <b>n</b>.  This number is difficult to decide on, but for any given <b>n</b> the value of the best packing can be determined fairly quickly.  Therefore, we simply try every possible <b>n</b>.</p>
