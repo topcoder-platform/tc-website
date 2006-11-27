@@ -227,13 +227,12 @@ public class ProjectUtil {
         		"	from comp_versions cv       " +
         		"	,comp_catalog cc       " +
         		"	,categories pcat " +
-        		"where cv.phase_id-111 = ? " +
-        		"and cc.component_id = cv.component_id " +
+        		"where cc.component_id = cv.component_id " +
         		"and cc.status_id = 102     " +
         		"and pcat.category_id = cc.root_category_id " +
         		"and cv.comp_vers_id = ?;");
-        ps.setLong(1, projectTypeId);
-        ps.setLong(2, compVersId);
+        ps.setLong(1, compVersId);
+        rs = ps.executeQuery();
 
         if (!rs.next()) {
             throw new BaseException("Online Review: root_category_id does not exists, projectTypeId: " + projectTypeId + " compVersId: " + compVersId);

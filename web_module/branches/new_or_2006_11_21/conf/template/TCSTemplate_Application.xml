@@ -43,7 +43,7 @@
 		</Phase>
 
 		<Phase id="finalFixesPhase" length="86400000" type="final_fixes">
-			<Dependency id="aggregationReviewPhase" isDependencyStart="false" isDependentStart="true" lagTime="0"/>
+			<Dependency id="aggregationPhase" isDependencyStart="false" isDependentStart="true" lagTime="0"/>
 		</Phase>
 
 		<Phase id="finalReviewPhase" length="86400000" type="final_review">

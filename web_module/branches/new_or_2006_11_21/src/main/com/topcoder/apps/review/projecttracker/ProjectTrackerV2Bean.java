@@ -299,9 +299,9 @@ public class ProjectTrackerV2Bean implements SessionBean {
         try {
             conn = dataSource.getConnection();
             return ProjectUtil.createProject(conn, projectVersion, compVersId, projectTypeId, requestor.getUserId());
-        } catch (SQLException e) {
+        } catch (Exception e) {
             ejbContext.setRollbackOnly();
-            throw new RuntimeException("SQLException: " + e.getMessage(), e);
+            throw new RuntimeException("Create project: " + e.getMessage(), e);
         } finally {
             Common.close(conn);
         }
