@@ -58,6 +58,7 @@ public class ViewSubmission extends ShortHibernateProcessor {
                 //registered
                 setDefault(Constants.CONTEST_ID, contestId.toString());
                 getRequest().setAttribute("contest", c);
+                getRequest().setAttribute("submissions", cFactory.getSubmissionDAO().getSubmissions(u, c));
                 setNextPage("/submit.jsp");
                 setIsNextPageInContext(true);
             }
