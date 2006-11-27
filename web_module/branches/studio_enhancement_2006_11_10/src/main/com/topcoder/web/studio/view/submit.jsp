@@ -178,7 +178,14 @@
         <div>&nbsp;</div>
     </td>
     <td class="valueC">
-        <input type="text" maxlength="3" class="" name="" value="${submission.rank}" size="1" align="center">
+        <c:choose>
+            <c:when test="submission.review.status.id==failed">
+                <input type="text" maxlength="3" class="" name="" value="${submission.rank}" size="1" align="center" disabled>
+            </c:when>
+            <c:otherwise>
+                <input type="text" maxlength="3" class="" name="" value="${submission.rank}" size="1" align="center">
+            </c:otherwise>
+        </c:choose>
     </td>
     <td class="value">
             ${submission.originalFileName}
