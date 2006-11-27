@@ -1,49 +1,21 @@
 <%
-    String selectedTab = request.getParameter("selectedTab") == null ? "" : request.getParameter("selectedTab");
+    String tabLev1 = request.getParameter("tabLev1") == null ? "" : request.getParameter("tabLev1");
+    String tabLev2 = request.getParameter("tabLev2") == null ? "" : request.getParameter("tabLev2");
+    String tabLev3 = request.getParameter("tabLev3") == null ? "" : request.getParameter("tabLev3");
 %>
-<div align="left"">
-    <!-- Overview tab -->
-    <% if (selectedTab.equals("overview")) {%>
-    <span class="leftNavOn">Overview</span><br>
-          <img src="images/nav_ruleOn.gif"  style="padding: 0px 0px 5px 101px;" border="0" alt="" /><br>
-    <% } else { %>
-    <span class="leftNavOff"><A class="navLink" href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">Overview</a></span><br>
-          <img src="images/nav_ruleOff.gif"  style="padding: 0px 0px 5px 101px;" border="0" alt="" /><br>
-    <% } %>
 
-    <!-- Schedule tab -->
-    <% if (selectedTab.equals("schedule")) {%>
-    <span class="leftNavOn">Schedule</span><br>
-          <img src="images/nav_ruleOn.gif"  style="padding: 0px 0px 5px 101px;" border="0" alt="" /><br>
-    <% } else { %>
-    <span class="leftNavOff"><a class="navLink" href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=schedule">Schedule</a></span><br>
-          <img src="images/nav_ruleOff.gif"  style="padding: 0px 0px 5px 101px;" border="0" alt="" /><br>
-    <% } %>
+<div class="tourneyLogo">
+<map name="tchslogo">
+<area href="/tchs07" alt="TCHS07" shape="poly" coords="1,1,266,1,266,100,66,100,66,142,1,142" >
+</map>
+<img src="/i/tournament/tchs07/tchs07.png" alt="TCHS07" usemap="#tchslogo" />
+</div>
 
-    <!-- Rules tab -->
-    <% if (selectedTab.equals("rules")) {%>
-    <span class="leftNavOn">Rules</span><br>
-          <img src="images/nav_ruleOn.gif"  style="padding: 0px 0px 5px 101px;" border="0" alt="" /><br>
-    <% } else { %>
-    <span class="leftNavOff"><a class="navLink" href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=rules">Rules</a></span><br>
-          <img src="images/nav_ruleOff.gif"  style="padding: 0px 0px 5px 101px;" border="0" alt="" /><br>
-    <% } %>
-
-    <!-- Sponsors tab -->
-    <% if (selectedTab.equals("sponsors")) {%>
-    <span class="leftNavOn">Sponsors</span><br>
-          <img src="images/nav_ruleOn.gif"  style="padding: 0px 0px 5px 101px;" border="0" alt="" /><br>
-    <% } else { %>
-    <span class="leftNavOff"><a class="navLink" href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">Rules</a></span><br>
-          <img src="images/nav_ruleOff.gif"  style="padding: 0px 0px 5px 101px;" border="0" alt="" /><br>
-    <% } %>
-
-    <!-- Purdue tab -->
-    <% if (selectedTab.equals("purdue")) {%>
-    <span class="leftNavOn">Purdue</span><br>
-          <img src="images/nav_ruleOn.gif"  style="padding: 0px 0px 5px 101px;" border="0" alt="" /><br>
-    <% } else { %>
-    <a class="navLink" href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">Rules</a></span><br>
-          <img src="images/nav_ruleOff.gif"  style="padding: 0px 0px 5px 101px;" border="0" alt="" /><br>
-    <% } %>
+<div id="leftnav">
+<A href=""<% if (tabLev1.equals("overview")) {%> class="on"<% } %>>OVERVIEW</A>
+<A href=""<% if (tabLev1.equals("onlineschedule")) {%> class="on"<% } %>>ONLINE SCHEDULE</A>
+<A href=""<% if (tabLev1.equals("onsiteschedule")) {%> class="on"<% } %>>ONSITE SCHEDULE</A>
+<A href=""<% if (tabLev1.equals("rules")) {%> class="on"<% } %>>RULES</A>
+<A href=""<% if (tabLev1.equals("sponsors")) {%> class="on"<% } %>>SPONSORS</A>
+<A href=""<% if (tabLev1.equals("purdue")) {%> class="on"<% } %>>PURDUE</A>
 </div>

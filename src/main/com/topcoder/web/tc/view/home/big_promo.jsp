@@ -7,7 +7,6 @@
 <area shape="rect" alt="" coords="410,5,460,105" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary" />
 </map>
 <IMG SRC="/i/home/tccc06_winners.png" border="0" alt="TCCC06 Finals" usemap="#tccc"/>
---%>
 
 <map name="ArenaAOLMashups">
 <area shape="rect" alt="" coords="195,1,300,45" href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>" />
@@ -15,3 +14,6 @@
 <area shape="rect" alt="" coords="265,50,490,145" href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2045" />
 </map>
 <IMG SRC="/i/home/arenaNaolmashups.png" border="0" alt="ArenaAOLMashups" usemap="#ArenaAOLMashups"/>
+--%>
+
+<A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2045"><img src="/i/home/aolMashups20061102.png" alt="AOL Mashups" /></A>
