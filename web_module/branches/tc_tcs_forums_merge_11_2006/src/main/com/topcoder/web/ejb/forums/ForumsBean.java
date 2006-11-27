@@ -94,7 +94,7 @@ public class ForumsBean extends BaseEJB {
     	try {
 	    	User user = forumFactory.getUserManager().getUser(userID);
 	    	com.jivesoftware.base.Group group = forumFactory.getGroupManager().getGroup(groupID);
-	    	if (group.getName().toLowerCase().indexOf("admin") == -1) {		// cannot add to administrative groups
+	    	if (group.getName().equals("Software Admins") || group.getName().toLowerCase().indexOf("admin") == -1) {
 	    		group.addMember(user);
 	    	}
     	} catch (Exception e) {
@@ -106,7 +106,7 @@ public class ForumsBean extends BaseEJB {
     	try {
 	    	User user = forumFactory.getUserManager().getUser(userID);
 	    	com.jivesoftware.base.Group group = forumFactory.getGroupManager().getGroup(groupID);
-	    	if (group.getName().toLowerCase().indexOf("admin") == -1) {		// cannot remove admins
+	    	if (group.getName().equals("Software Admins") || group.getName().toLowerCase().indexOf("admin") == -1) {
 	    		group.removeMember(user);
 	    	}
     	} catch (Exception e) {
