@@ -44,7 +44,7 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
     }
 
     public List getSubmissions(User u, Contest c) {
-        Query q = session.createQuery("from Submission s where s.submitter.id = ? and s.contest.id = ? order by s.rank asc");
+        Query q = session.createQuery("from Submission s where s.submitter.id = ? and s.contest.id = ? order by s.review.status.id asc, s.rank asc");
         q.setLong(0, u.getId().longValue());
         q.setLong(1, c.getId().longValue());
         return q.list();
