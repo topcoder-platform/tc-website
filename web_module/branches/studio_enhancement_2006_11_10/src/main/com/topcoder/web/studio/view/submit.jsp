@@ -167,7 +167,7 @@
 
 <c:forEach items="${submissions}" var="submission">
     <c:choose>
-        <c:when test="submission.rank>contest.maxSubmissions">
+        <c:when test="${submission.rank>contest.maxSubmissions}">
             <tr class="<%=even ? "light" : "dark"%>" id="tr${submission.rank}">
         </c:when>
         <c:otherwise>
@@ -179,7 +179,7 @@
     </td>
     <td class="valueC">
         <c:choose>
-            <c:when test="submission.review.status.id==failed">
+            <c:when test="${submission.review.status.id==failed}">
                 <input type="text" maxlength="3" class="" name="" value="${submission.rank}" size="1" align="center" disabled>
             </c:when>
             <c:otherwise>
