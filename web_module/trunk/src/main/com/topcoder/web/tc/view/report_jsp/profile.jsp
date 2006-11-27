@@ -3,6 +3,7 @@
  *  profile.jsp
  */
 --%>
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@ page
         language="java"
         import="com.topcoder.common.web.data.report.Constants,
@@ -41,6 +42,7 @@
 <html>
 <head>
     <title>TopCoder Reporting</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 
 <body>
