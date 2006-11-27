@@ -185,7 +185,7 @@
     </td>
     <td class="value">
         <div class="container">
-            <a href=""><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop${submission.id}')" onmouseout="popHide()"/></a>
+            <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}"><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop${submission.id}')" onmouseout="popHide()"/></a>
 
             <div id="pop${submission.id}" class="popUp">
                 <div>View submission</div>
