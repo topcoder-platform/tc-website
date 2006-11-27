@@ -14,12 +14,12 @@ if (type == null) type = HandleTag.COMPONENT; %>
 <div style="float:right;"><A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">back to table of contents</A></div>
 <jsp:include page="dev_design_no_overall_links.jsp"/>
 <br><br>
-<table class="stat" cellpadding="0" cellspacing="0" width="270" style="float: left; margin-right: 15px; margin-bottom: 15px;">
+<table class="stat" cellpadding="0" cellspacing="0" width="100%" style="float: left; margin-bottom: 15px;">
     <tr><td class="title" colspan="6">Most Consecutive Wins</td></tr>
     <tr>
     	<td class="headerC">Rank</td>
     	<td class="header">Coder</td>
-        <td class="headerC" width="100%" nowrap>Consecutive<br>Rating<br>Increases</td>
+        <td class="headerC" width="100%" nowrap>Consecutive<br>Wins</td>
         <td class="headerC" colspan="3">Duration</td>    	
     	</tr>
     <% boolean even = false; %>
