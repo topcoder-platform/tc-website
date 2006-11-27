@@ -28,7 +28,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
     </rsc:iterator>
 </table>
 <span class="bodyText">
-<strong>Record:</strong> Consecutive rating increase streaks.
+<strong>Record:</strong> The longest streaks where a competitor increased their rating.
 </span>
 
 </div>

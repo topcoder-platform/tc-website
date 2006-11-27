@@ -28,7 +28,8 @@ if (type == null) type = HandleTag.COMPONENT; %>
     </rsc:iterator>
 </table>
 <span class="bodyText">
-<strong>Record:</strong> Consecutive 1st place streaks.
+<strong>Record:</strong> The longest streaks where a competitor came in first place for every contest.  
+Only those contests where the competitor was rated and received at least the minimum score are included.
 </span>
 
 </div>

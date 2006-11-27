@@ -63,9 +63,7 @@
 
                         <strong>Best Average Component Contest Score</strong><br>
                         <A href="/tc?module=ComponentRecordbook&c=avg_score&type=design">design</A> |
-                        <A href="/tc?module=ComponentRecordbook&c=avg_score&type=development">development</A> |
-                        <A href="/tc?module=ComponentRecordbook&c=avg_score&type=component">overall</A>
-
+                        <A href="/tc?module=ComponentRecordbook&c=avg_score&type=development">development</A> 
                         <br><br>
 
                         <strong>Most Component Contest Wins</strong><br>
@@ -149,32 +147,22 @@
 
                         <strong>Impressive Debuts</strong><br>
                         <A href="/tc?module=ComponentRecordbook&c=impressive_debut&type=design">design</A> |
-                        <A href="/tc?module=ComponentRecordbook&c=impressive_debut&type=development">development</A> |
-                        <A href="/tc?module=ComponentRecordbook&c=impressive_debut&type=component">overall</A>
-
-
+                        <A href="/tc?module=ComponentRecordbook&c=impressive_debut&type=development">development</A> 
                         <br><br>
 
-                        <strong>Consecutive Winnings</strong><br>
+                        <strong>Consecutive Wins</strong><br>
                         <A href="/tc?module=ComponentRecordbook&c=consecutive_winnings&type=design">design</A> |
-                        <A href="/tc?module=ComponentRecordbook&c=consecutive_winnings&type=development">development</A> |
-                        <A href="/tc?module=ComponentRecordbook&c=consecutive_winnings&type=component">overall</A>
-
+                        <A href="/tc?module=ComponentRecordbook&c=consecutive_winnings&type=development">development</A>
                         <br><br>
 
-                        <strong>Consecutive 1st or 2nd place</strong><br>
+                        <strong>Consecutive Top 2 finishes</strong><br>
                         <A href="/tc?module=ComponentRecordbook&c=consecutive_paid&type=design">design</A> |
-                        <A href="/tc?module=ComponentRecordbook&c=consecutive_paid&type=development">development</A> |
-                        <A href="/tc?module=ComponentRecordbook&c=consecutive_paid&type=component">overall</A>
-
-
+                        <A href="/tc?module=ComponentRecordbook&c=consecutive_paid&type=development">development</A> 
                         <br><br>
 
                         <strong>Consecutive Rating Increase</strong><br>
                         <A href="/tc?module=ComponentRecordbook&c=consecutive_rating_increase&type=design">design</A> |
-                        <A href="/tc?module=ComponentRecordbook&c=consecutive_rating_increase&type=development">development</A> |
-                        <A href="/tc?module=ComponentRecordbook&c=consecutive_rating_increase&type=component">overall</A>
-
+                        <A href="/tc?module=ComponentRecordbook&c=consecutive_rating_increase&type=development">development</A>
                     </td>
                 </tr>
             </table>

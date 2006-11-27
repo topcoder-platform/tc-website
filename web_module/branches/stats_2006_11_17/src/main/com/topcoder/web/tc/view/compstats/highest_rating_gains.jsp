@@ -14,7 +14,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
 <div style="float:right;"><A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">back to table of contents</A></div>
 <jsp:include page="dev_design_links.jsp"/>
 <br><br>
-<table class="stat" cellpadding="0" cellspacing="0" width="100%" style="float: left; margin-right: 15px; margin-bottom: 15px;">
+<table class="stat" cellpadding="0" cellspacing="0" width="100%" style="float: left; margin-bottom: 15px;">
     <tr><td class="title" colspan="5">Highest Rating Gains</td></tr>
     <tr>
     	<td class="headerC">Rank</td>
