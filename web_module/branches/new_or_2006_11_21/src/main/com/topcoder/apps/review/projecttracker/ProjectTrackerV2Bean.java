@@ -156,9 +156,14 @@ public class ProjectTrackerV2Bean implements SessionBean {
             conn = dataSource.getConnection();
 
             // Find projectId with compVersId and projectType
-            ps = conn.prepareStatement("select max(p.project_id) from project p " +
-                    "inner join project_info pi on pi.project_id = p.project_id and pi.project_info_type_id = 1 and pi.value = ? " +
-                    "where p.project_category_id = ? ");
+            ps = conn.prepareStatement(
+            		"select max(p.project_id) " +
+            		"from project p," +
+            		"	project_info pi " +
+                    "where pi.project_id = p.project_id " +
+                    "and pi.project_info_type_id = 1 " +
+                    "and pi.value = ? " +
+                    "and p.project_category_id = ? ");
             ps.setLong(1, compVersId);
             ps.setLong(2, projectType);
             rs = ps.executeQuery();
@@ -192,8 +197,14 @@ public class ProjectTrackerV2Bean implements SessionBean {
             conn = dataSource.getConnection();
 
             // Find the review which made by aggregator and its review is completed 
-            ps = conn.prepareStatement("select review_id from review r, resource res  " +
-                    "where committed = 1 and r.resource_id = res.resource_id and res.resource_role_id = 8 and res.project_id = ? ");
+            ps = conn.prepareStatement(
+            		"select review_id " +
+            		"	from review r, " +
+            		"	resource res  " +
+                    "where committed = 1 " +
+                    "and r.resource_id = res.resource_id " +
+                    "and res.resource_role_id = 8 " +
+                    "and res.project_id = ? ");
             ps.setLong(1, projectId);
             rs = ps.executeQuery();
 
@@ -227,7 +238,9 @@ public class ProjectTrackerV2Bean implements SessionBean {
             		"from resource r, " +
             		"outer(security_user su, user u, email e), " +
             		"resource_info ri " +
-            		"where ri.resource_id = r.resource_id and ri.resource_info_type_id = 1 and r.resource_role_id = 13 " +
+            		"where ri.resource_id = r.resource_id " +
+            		"and ri.resource_info_type_id = 1 " +
+            		"and r.resource_role_id = 13 " +
             		"and r.project_id = ? " +
             		"and su.login_id = ri.value " +
             		"and su.login_id = u.user_id " +

@@ -199,15 +199,17 @@ public class ProjectUtil {
         PreparedStatement ps = null;
         ResultSet rs = null;
         ps = conn.prepareStatement("SELECT p.project_id " + 
-        		"FROM project p " + 
-        		"inner join project_info pi_vi " +
-                "on p.project_id = pi_vi.project_id " +
-                "and pi_vi.project_info_type_id = 1 and pi_vi.value = ? " + // 1 is external id
-                "inner join project_info pi_vt " + 
-                "on p.project_id = pi_vt.project_id " +
-                "and pi_vt.project_info_type_id = 7 and pi_vt.value = ? " + // 7 is project_version
-                "where p.project_status_id in (1, 7) " + // 1 is active, 7 is complete
-                "	and p.project_category_id = ?");
+        		"FROM project p, " +
+        		"	project_info pi_vi, " +
+        		"	project_info pi_vt " +
+                "where p.project_id = pi_vi.project_id " +
+                "and pi_vi.project_info_type_id = 1 " +
+                "and pi_vi.value = ? " + // 1 is external id
+                "and p.project_id = pi_vt.project_id " +
+                "and pi_vt.project_info_type_id = 7 " +
+                "and pi_vt.value = ? " + // 7 is project_version
+                "and p.project_status_id in (1, 7) " + // 1 is active, 7 is complete
+                "and p.project_category_id = ?");
         ps.setString(1, String.valueOf(compVersId)); // In project_info, value field is string type
         ps.setString(2, projectVersion);
         ps.setLong(3, projectTypeId);
@@ -217,6 +219,27 @@ public class ProjectUtil {
             throw new BaseException("Online Review: A project already exists! Terminate it before changing phase!");
         }
 
+        close(rs);
+        close(ps);
+
+        ps = conn.prepareStatement(
+        		"select root_category_id " +
+        		"	from comp_versions cv       " +
+        		"	,comp_catalog cc       " +
+        		"	,categories pcat " +
+        		"where cv.phase_id-111 = ? " +
+        		"and cc.component_id = cv.component_id " +
+        		"and cc.status_id = 102     " +
+        		"and pcat.category_id = cc.root_category_id " +
+        		"and cv.comp_vers_id = ?;");
+        ps.setLong(1, projectTypeId);
+        ps.setLong(2, compVersId);
+
+        if (!rs.next()) {
+            throw new BaseException("Online Review: root_category_id does not exists, projectTypeId: " + projectTypeId + " compVersId: " + compVersId);
+        }
+
+        long rootCategoryId = rs.getLong(1);
         close(rs);
         close(ps);
 
@@ -256,55 +279,66 @@ public class ProjectUtil {
         close(ps);
 
         // Create phase instances for project
-        PhaseTemplate template = getPhaseTemplate();
-        String templateName = (projectTypeId == 1) ? "Design" : "Development";
-        com.topcoder.project.phases.Project project = template.applyTemplate(templateName);
-        com.topcoder.project.phases.Phase[] phases = project.getAllPhases();
-        for (int i = 0; i < phases.length; i++) {
-        	phases[i].setFixedStartDate(phases[i].calcStartDate());
-        	phases[i].setScheduledStartDate(phases[i].calcStartDate());
-        	phases[i].setScheduledEndDate(phases[i].calcEndDate());
-        	phases[i].setPhaseStatus(PhaseStatus.SCHEDULED);
+        if (rootCategoryId == 5801776 
+        		|| rootCategoryId == 5801777 
+        		|| rootCategoryId == 5801778 
+        		|| rootCategoryId == 5801779 
+        		|| rootCategoryId == 9926572) {
+	        PhaseTemplate template = getPhaseTemplate();
+	        String templateName = (projectTypeId == 1) ? "Design" : "Development";
+	        if (rootCategoryId == 9926572) {
+	        	templateName = "Application";
+	        }
+	        com.topcoder.project.phases.Project project = template.applyTemplate(templateName);
+	        if (project == null) {
+	        	throw new BaseException("Online Review: project template does not exists, templateName: " + templateName + " Please make sure Project_Phase_Template_Config.xml is configured well!");
+	        }
+	        com.topcoder.project.phases.Phase[] phases = project.getAllPhases();
+	        for (int i = 0; i < phases.length; i++) {
+	        	phases[i].setFixedStartDate(phases[i].calcStartDate());
+	        	phases[i].setScheduledStartDate(phases[i].calcStartDate());
+	        	phases[i].setScheduledEndDate(phases[i].calcEndDate());
+	        	phases[i].setPhaseStatus(PhaseStatus.SCHEDULED);
+	        }
+	        Map phaseIds = new HashMap();
+	        Set dependencies = new HashSet();
+
+	        // insert default scorecards
+	        long screenTemplateId = getScorecardId(conn, projectTypeId, 1);
+	        long reviewTemplateId = getScorecardId(conn, projectTypeId, 2);
+	
+	        for (int i = 0; i < phases.length; i++) {
+	            long phaseId = nextId(PROJECT_PHASE_ID_SEQ);
+	            createPhase(conn, projectId, phaseId, phases[i], modUserId);
+	
+	            if (phases[i].getPhaseType().getId() == PHASE_TYPE_SCREEN) {
+	                // Create scorecard id
+	                // 1, 'Scorecard ID'
+	                createPhaseCriteria(conn, phaseId, 1, String.valueOf(screenTemplateId), modUserId);
+	            }
+	
+	            if (phases[i].getPhaseType().getId() == PHASE_TYPE_REVIEW) {
+	                // Create scorecard id
+	                // 1, 'Scorecard ID'
+	                createPhaseCriteria(conn, phaseId, 1, String.valueOf(reviewTemplateId), modUserId);
+	            }
+	
+	            if (phases[i].getPhaseType().getId() == PHASE_TYPE_SUBMISSION) {
+	                // Manual Screening
+	                // 5, 'Manual Screening'
+	                createPhaseCriteria(conn, phaseId, 5, "Yes", modUserId);
+	            }
+	
+	            phaseIds.put(phases[i], String.valueOf(phaseId));
+	            dependencies.addAll(Arrays.asList(phases[i].getAllDependencies()));
+	        }
+
+	        // Prepare phase dependency
+	        for (Iterator iter = dependencies.iterator(); iter.hasNext();) {
+	            Dependency d = (Dependency) iter.next();
+	            createPhaseDependency(conn, phaseIds, d, modUserId);
+	        }
         }
-        Map phaseIds = new HashMap();
-        Set dependencies = new HashSet();
-
-        // insert default scorecards
-        long screenTemplateId = getScorecardId(conn, projectTypeId, 1);
-        long reviewTemplateId = getScorecardId(conn, projectTypeId, 2);
-
-        for (int i = 0; i < phases.length; i++) {
-            long phaseId = nextId(PROJECT_PHASE_ID_SEQ);
-            createPhase(conn, projectId, phaseId, phases[i], modUserId);
-
-            if (phases[i].getPhaseType().getId() == PHASE_TYPE_SCREEN) {
-                // Create scorecard id
-                // 1, 'Scorecard ID'
-                createPhaseCriteria(conn, phaseId, 1, String.valueOf(screenTemplateId), modUserId);
-            }
-
-            if (phases[i].getPhaseType().getId() == PHASE_TYPE_REVIEW) {
-                // Create scorecard id
-                // 1, 'Scorecard ID'
-                createPhaseCriteria(conn, phaseId, 1, String.valueOf(reviewTemplateId), modUserId);
-            }
-
-            if (phases[i].getPhaseType().getId() == PHASE_TYPE_SUBMISSION) {
-                // Manual Screening
-                // 5, 'Manual Screening'
-                createPhaseCriteria(conn, phaseId, 5, "Yes", modUserId);
-            }
-
-            phaseIds.put(phases[i], String.valueOf(phaseId));
-            dependencies.addAll(Arrays.asList(phases[i].getAllDependencies()));
-        }
-
-        // Prepare phase dependency
-        for (Iterator iter = dependencies.iterator(); iter.hasNext();) {
-            Dependency d = (Dependency) iter.next();
-            createPhaseDependency(conn, phaseIds, d, modUserId);
-        }
-
         // Prepare resource for pm
         ps = conn.prepareStatement("INSERT INTO resource " + 
         		"(resource_id, resource_role_id, project_id, create_user, create_date, modify_user, modify_date) " +
