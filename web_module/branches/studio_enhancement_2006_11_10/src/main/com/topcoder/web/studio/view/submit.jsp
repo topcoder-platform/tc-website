@@ -60,101 +60,158 @@
 <body>
 
 <div align="center">
-    <div class="contentOut">
-        <jsp:include page="top.jsp"/>
-        <jsp:include page="topNav.jsp">
-            <jsp:param name="node" value="contests"/>
-        </jsp:include>
-        <div class="contentIn">
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
+<div class="contentOut">
+<jsp:include page="top.jsp"/>
+<jsp:include page="topNav.jsp">
+    <jsp:param name="node" value="contests"/>
+</jsp:include>
+<div class="contentIn">
+<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
 
-            <div class="contentSpacer">
+<div class="contentSpacer">
 
 
-                <div class="linkBox"><studio:forumLink forumID="${contest.forumId}"/></div>
+<div class="linkBox">
+    <studio:forumLink forumID="${contest.forumId}"/>
+</div>
 
-                <div class="breadcrumb">
-                    <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A> &gt;
-                    ${contest.name}
-                </div>
+<div class="breadcrumb">
+    <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A> &gt;
+    ${contest.name}
+</div>
 
-                <h1>Submit Your Design</h1>
+<h1>Submit Your Design</h1>
 
-                <div align="center">
-                    <div align="left" style="width:500px; margin-top: 20px;">
-                        <p>Thank you for accepting the terms of the contest. Please use the form below to upload your
-                            submission:</p>
+<div align="center">
+    <div align="left" style="width:500px; margin-top: 20px;">
+        <p>Thank you for accepting the terms of the contest. Please use the form below to upload your
+            submission:</p>
 
-                        <p>The maximum file size per submission is 2MB.</p>
+        <p>The maximum file size per submission is 2MB.</p>
 
-                        <p>
-                            Only the following file types will be accepted:
-                            <ul>
-                                <c:forEach items="${contest.fileTypes}" var="fileType">
-                                    <li>
-                                            ${fileType.description}
-                                    </li>
-                                </c:forEach>
-                            </ul>
+        <p>
+            Only the following file types will be accepted:
+            <ul>
+                <c:forEach items="${contest.fileTypes}" var="fileType">
+                    <li>
+                            ${fileType.description}
+                    </li>
+                </c:forEach>
+            </ul>
 
-                        </p>
+        </p>
 
-                        <div align="center">
-                            <form action="${sessionInfo.servletPath}" method="POST" name="submission" enctype="multipart/form-data">
-                                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
-                                <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+        <div align="center">
+            <form action="${sessionInfo.servletPath}" method="POST" name="submission" enctype="multipart/form-data">
+                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
+                <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
-                                <p>
-                                    <b>My design:</b><br/>
+                <p>
+                    <b>My design:</b><br/>
                                     <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>">${err}
                                         <br></tc-webtag:errorIterator></span>
-                                    <input type="file" name="<%=Constants.SUBMISSION%>">
-                                </p>
+                    <input type="file" name="<%=Constants.SUBMISSION%>">
+                </p>
 
-                                <p>
-                                    <input type="image" src="/i/layout/btnSubmit.png" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'">
-                                    <input type="image" src="/i/layout/btnSubmitToTop.png" onmouseover="this.src='/i/layout/btnSubmitToTopOn.png'" onmouseout="this.src='/i/layout/btnSubmitToTop.png'">
-                                </p>
-                            </form>
-                        </div>
+                <p>
+                    <input type="image" src="/i/layout/btnSubmit.png" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'">
+                    <input type="image" src="/i/layout/btnSubmitToTop.png" onmouseover="this.src='/i/layout/btnSubmitToTopOn.png'" onmouseout="this.src='/i/layout/btnSubmitToTop.png'">
+                </p>
+            </form>
+        </div>
 
-                    </div>
-                </div>
+    </div>
+</div>
 
 
 <div style="margin: 40px 0px 20px 0px;">
 <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
 <tbody>
-    <tr>
-        <td class="NW">&nbsp;</td>
-        <td class="title" colspan="7">My Ranked Submissions for this contest</td>
-        <td class="NE">&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="headerW"><div>&nbsp;</div></td>
-        <td class="headerC" >
+<tr>
+    <td class="NW">&nbsp;</td>
+    <td class="title" colspan="7">My Ranked Submissions for this contest</td>
+    <td class="NE">&nbsp;</td>
+</tr>
+<tr>
+    <td class="headerW">
+        <div>&nbsp;</div>
+    </td>
+    <td class="headerC">
         Ranking
-        <div><A href="#"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';" /></A></div>
-        </td>
-        <td class="header" colspan="2" width="33%">
+        <div>
+            <A href="#"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></A>
+        </div>
+    </td>
+    <td class="header" colspan="2" width="33%">
         Submission
-        </td>
-        <td class="headerC" width="33%">
+    </td>
+    <td class="headerC" width="33%">
         Date Submitted
-        </td>
-        <td class="headerC" width="33%">
+    </td>
+    <td class="headerC" width="33%">
         Passed / Failed
-        </td>
-        <td class="headerC" nowrap>
+    </td>
+    <td class="headerC" nowrap>
         Move Up /<br>Move Down
-        </td>
-        <td class="headerC" nowrap>
+    </td>
+    <td class="headerC" nowrap>
         Move to<br>Top
+    </td>
+    <td class="headerE">
+        <div>&nbsp;</div>
+    </td>
+</tr>
+<% boolean even = true;
+    int i = 1; %>
+<c:forEach items="${submissions}" var="submission">
+    <tr class="<%=even?"highlightLt":"highlightDk"%>" id="tr<%=i%>">
+        <td class="valueW">
+            <div>&nbsp;</div>
         </td>
-        <td class="headerE"><div>&nbsp;</div></td>
+        <td class="valueC">
+            <input type="text" maxlength="3" class="" name="" value="${submission.rank}" size="1" align="center">
+        </td>
+        <td class="value">
+                ${submission.originalFileName}
+        </td>
+        <td class="value">
+            <div class="container">
+                <a href=""><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop${submission.id}')" onmouseout="popHide()"/></a>
+
+                <div id="pop${submission.id}" class="popUp">
+                    <div>View submission</div>
+                </div>
+            </div>
+        </td>
+        <td class="valueC">
+            FIX ME
+        </td>
+        <td class="valueC">
+            <span class="bigGreen">${submission.review.status.description}</span>
+        </td>
+        <td class="valueC">
+            <div align="center" style="margin:2px;">
+                <A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></A>
+            </div>
+            <div align="center" style="margin:2px;">
+                <A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';"/></A>
+            </div>
+        </td>
+        <td class="valueC">
+            <div align="center">
+                <A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></A>
+            </div>
+        </td>
+        <td class="valueE">
+            <div>&nbsp;</div>
+        </td>
     </tr>
-    <% boolean even = true; int i = 1; %>
-    <tr class="<%=even?"highlightLt":"highlightDk"%>">
+    <% even = !even;
+        i++; %>
+</c:forEach>
+
+<%--
+    <tr class="<%=even?"highlightLt":"highlightDk"%>" id="tr<%=i%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
@@ -184,7 +241,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++; %>
-    <tr class="<%=even?"highlightLt":"highlightDk"%>">
+    <tr class="<%=even?"highlightLt":"highlightDk"%>" id="tr<%=i%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
@@ -214,7 +271,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++; %>
-    <tr class="<%=even?"highlightLt":"highlightDk"%>">
+    <tr class="<%=even?"highlightLt":"highlightDk"%>" id="tr<%=i%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
@@ -244,37 +301,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++; %>
-    <tr class="<%=even?"highlightLt":"highlightDk"%>">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="valueC">
-        <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
-        </td>
-        <td class="value">
-        studio_submission_2.zip
-        </td>
-        <td class="value">
-            <div class="container">
-                <a href=""><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()"/></a>
-                <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-            </div>
-        </td>
-        <td class="valueC">
-        11.03.2006 17:19 EST
-        </td>
-        <td class="valueC">
-        <span class="bigGreen">Passed</span>
-        </td>
-        <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
-        </td>
-        <td class="valueC">
-        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
-        </td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <% even = !even; i++; %>
-    <tr class="<%=even?"highlightLt":"highlightDk"%>">
+    <tr class="<%=even?"highlightLt":"highlightDk"%>" id="tr<%=i%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
@@ -304,7 +331,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++; %>
-    <tr class="<%=even?"light":"dark"%>">
+    <tr class="<%=even?"light":"dark"%>" id="tr<%=i%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
@@ -334,7 +361,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++; %>
-    <tr class="<%=even?"light":"dark"%>">
+    <tr class="<%=even?"light":"dark"%>" id="tr<%=i%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
@@ -364,7 +391,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++;%>
-    <tr class="<%=even?"light":"dark"%>">
+    <tr class="<%=even?"light":"dark"%>" id="tr<%=i%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
@@ -394,7 +421,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++;%>
-    <tr class="<%=even?"light":"dark"%>">
+    <tr class="<%=even?"light":"dark"%>" id="tr<%=i%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
@@ -424,7 +451,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++;%>
-    <tr class="<%=even?"light":"dark"%>">
+    <tr class="<%=even?"light":"dark"%>" id="tr<%=i%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
@@ -454,7 +481,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++;%>
-    <tr class="<%=even?"light":"dark"%>">
+    <tr class="<%=even?"light":"dark"%>" id="tr<%=i%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
@@ -484,7 +511,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++;%>
-    <tr class="<%=even?"light":"dark"%>">
+    <tr class="<%=even?"light":"dark"%>" id="tr<%=i%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
@@ -514,7 +541,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++;%>
-    <tr class="<%=even?"light":"dark"%>">
+    <tr class="<%=even?"light":"dark"%>" id="tr<%=i%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
@@ -544,7 +571,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++;%>
-    <tr class="<%=even?"light":"dark"%>">
+    <tr class="<%=even?"light":"dark"%>" id="tr<%=i%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
@@ -574,7 +601,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++;%>
-    <tr class="<%=even?"light":"dark"%>">
+    <tr class="<%=even?"light":"dark"%>" id="tr<%=i%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="" size="1" align="center" disabled>
@@ -604,7 +631,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++;%>
-    <tr class="<%=even?"light":"dark"%>">
+    <tr class="<%=even?"light":"dark"%>" id="tr<%=i%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="" size="1" align="center" disabled>
@@ -634,7 +661,7 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++;%>
-    <tr class="<%=even?"light":"dark"%>">
+    <tr class="<%=even?"light":"dark"%>" id="tr<%=i%>">
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="valueC">
         <input type="text" maxlength="3" class="" name="" value="" size="1" align="center" disabled>
@@ -664,22 +691,23 @@
         <td class="valueE"><div>&nbsp;</div></td>
     </tr>
     <% even = !even; i++;%>
-    <tr>
-        <td class="SW" colspan="8">&nbsp;</td>
-        <td class="SE">&nbsp;</td>
-    </tr>
+--%>
+<tr>
+    <td class="SW" colspan="8">&nbsp;</td>
+    <td class="SE">&nbsp;</td>
+</tr>
 </tbody>
 </table>
 <br><br>
 <strong>NOTE:</strong> green rows indicate submissions that you have selected to be considered for this contest
 </div>
 
-            </div>
-            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-        </div>
-        <jsp:include page="foot.jsp"/>
-        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-    </div>
+</div>
+<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
+</div>
+<jsp:include page="foot.jsp"/>
+<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
+</div>
 </div>
 
 </body>
