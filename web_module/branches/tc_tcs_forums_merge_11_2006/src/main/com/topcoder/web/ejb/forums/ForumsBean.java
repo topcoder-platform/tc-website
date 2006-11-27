@@ -92,11 +92,13 @@ public class ForumsBean extends BaseEJB {
     
     public void assignRole(long userID, long groupID) {
     	try {
+    		log.info("assignRole called: userID = " + userID + " | groupID = " + groupID);
 	    	User user = forumFactory.getUserManager().getUser(userID);
 	    	com.jivesoftware.base.Group group = forumFactory.getGroupManager().getGroup(groupID);
 	    	if (group.getName().toLowerCase().indexOf("admin") != -1) {		// cannot add to administrative groups
 	    		group.addMember(user);
 	    	}
+	    	log.info("assignRole complete");
     	} catch (Exception e) {
     		log.info("*** error in assigning role: " + e);
     	}
@@ -104,11 +106,13 @@ public class ForumsBean extends BaseEJB {
     
     public void removeRole(long userID, long groupID) {
     	try {
+    		log.info("removeRole called: userID = " + userID + " | groupID = " + groupID);
 	    	User user = forumFactory.getUserManager().getUser(userID);
 	    	com.jivesoftware.base.Group group = forumFactory.getGroupManager().getGroup(groupID);
 	    	if (group.getName().toLowerCase().indexOf("admin") != -1) {		// cannot remove admins
 	    		group.removeMember(user);
 	    	}
+	    	log.info("removeRole complete");
     	} catch (Exception e) {
     		log.info("*** error in removing role: " + e);
     	}
