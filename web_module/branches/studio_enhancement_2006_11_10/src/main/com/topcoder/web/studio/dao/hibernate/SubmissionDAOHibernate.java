@@ -1,9 +1,13 @@
 package com.topcoder.web.studio.dao.hibernate;
 
 import com.topcoder.web.common.dao.hibernate.Base;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.dao.SubmissionDAO;
+import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.Submission;
 import org.hibernate.Query;
+
+import java.util.List;
 
 /**
  * @author dok
@@ -38,7 +42,15 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
             saveOrUpdate(s);
         }
     }
-/*
+
+    public List getSubmissions(User u, Contest c) {
+        Query q = session.createQuery("from Submission s where s.submitter.id = ? and s.contest.id = ?");
+        q.setLong(0, u.getId().longValue());
+        q.setLong(1, c.getId().longValue());
+        return q.list();
+
+    }
+    /*
     public void changeRank(Integer newRank, Long submissionId, Long userId) {
             Query submissionQuery = session.createQuery("select s.rank, s.contest.id from Submission s where s.id=? and s.submitter.id=?");
         submissionQuery.setLong(0, submissionId.longValue());
