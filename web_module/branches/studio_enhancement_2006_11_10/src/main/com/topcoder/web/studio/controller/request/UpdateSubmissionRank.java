@@ -29,6 +29,7 @@ public class UpdateSubmissionRank extends ShortHibernateProcessor {
             throw new NavigationException("Illegal operation attempted, submission doesn't belong to current user.");
         }
 
+        dao = StudioDAOUtil.getFactory().getSubmissionDAO();
         getRequest().setAttribute("submissions", dao.getSubmissions(s.getSubmitter(), s.getContest()));
         getRequest().setAttribute("contest", s.getContest());
         setIsNextPageInContext(true);
