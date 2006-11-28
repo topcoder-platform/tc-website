@@ -12,7 +12,7 @@
 
 <div align="center" style="background: transparent;">
     <div class="content">
-        <img src="/i/tournament/tchs07/contentN.png" alt="contentN" />
+        <img src="/i/tournament/tchs07/contentN.png" alt="contentN" style="display: block;" />
 
         <jsp:include page="links.jsp" >
         <jsp:param name="tabLev1" value="onsiteschedule"/>
