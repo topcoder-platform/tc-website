@@ -124,13 +124,19 @@ public class Submit extends ShortHibernateProcessor {
                     fos.write(fileBytes);
                     fos.close();
 
+                    Integer maxRank = cFactory.getSubmissionDAO().getMaxRank(c, u);
+                    if (maxRank == null) {
+                        s.setRank(new Integer(1));
+                    } else {
+                        s.setRank(new Integer(maxRank.intValue() + 1));
+                    }
+
                     cFactory.getSubmissionDAO().saveOrUpdate(s);
                     markForCommit();
                     closeConversation();
                     beginCommunication();
 
                     cFactory = StudioDAOUtil.getFactory();
-                    cFactory.getSubmissionDAO().changeRank(new Integer(1), cFactory.getSubmissionDAO().find(s.getId()));
 
                     getRequest().setAttribute("submissions", cFactory.getSubmissionDAO().getSubmissions(u, c));
                     getRequest().setAttribute("contest", c);
