@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
-<li><A href="/tc?module=Static&amp;d1=features&amp;d2=112106"><strong>A Number or a String: <br>Parsing Your Input and Formatting Your Output in C++</strong></A>, by <tc-webtag:handle coderId="15635590" /><br>
+<li><A href="/tc?module=Static&d1=features&d2=112806"><strong>Digital Run Stage 2: Going for the win</strong></A>, by <tc-webtag:handle coderId="287614" /><br>
+Over the course of just ten weeks of the stage, <tc-webtag:handle coderId="287614" context="design"/> competed on 35 components, winning 28 and taking second place on 7. Here, he tells us how he did it.</li>
+<li><A href="/tc?module=Static&d1=features&d2=112106"><strong>A Number or a String: <br>Parsing Your Input and Formatting Your Output in C++</strong></A>, by <tc-webtag:handle coderId="15635590" /><br>
 This article is focused on main fast-to-type and convenient means of parsing input and formatting output in cases that are typical for TopCoder problems. All methods are specific to C++, but Java and VB coders may find several helpful ideas.</li>
-<li><A href="/tc?module=Static&amp;d1=features&amp;d2=111306"><strong>TCCC Preview: Meet the bloggers</strong></A>, by <tc-webtag:handle coderId="344462" /> &amp; <tc-webtag:handle coderId="21181561" /><br>
+<li><A href="/tc?module=Static&d1=features&d2=111306"><strong>TCCC Preview: Meet the bloggers</strong></A>, by <tc-webtag:handle coderId="344462" /> & <tc-webtag:handle coderId="21181561" /><br>
 "It's really amazing to think that in just a couple days I'll be sitting in a room with some of the best programmers in the world, and it won't be a chat room."</li>
-<li><A href="/tc?module=Static&amp;d1=features&amp;d2=110806"><strong>TopCoder @ Work: Your Career and the TCCC</strong></A>, by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /><br>
-With the Collegiate Challenge coming up, here is a look at how the decisions you make during college - and your TopCoder experience - can lay the foundation for a rewarding career.</li>
 </ul>
 <span class="bodySubtitle">From the archives:</span><br>
 <ul>
