@@ -16,7 +16,15 @@ import java.util.List;
  */
 public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
     public void saveOrUpdate(Submission s) {
+        if (s.isNew()) {
+            Query q = session.createQuery("select max(s.rank) from Submission where s.contest.id = ? and s.submitter.id = ?");
+            q.setLong(0, s.getSubmitter().getId().longValue());
+            q.setLong(1, s.getContest().getId().longValue());
+            Integer maxRank = (Integer) q.uniqueResult();
+            s.setRank(new Integer(maxRank.intValue() + 1));
+        }
         super.saveOrUpdate(s);
+
     }
 
     public Submission find(Long id) {
@@ -26,16 +34,29 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
     public void changeRank(Integer newRank, Submission s) {
         StringBuffer buf = new StringBuffer(100);
         buf.append("update Submission s set rank = ");
-        if (newRank.compareTo(s.getRank()) < 0) {
-            buf.append("rank-1 ");
-        } else if (newRank.compareTo(s.getRank()) > 0) {
+        if (newRank.compareTo(s.getRank()) > 0) {
+            //they's bumping it up, making it's rank better
             buf.append("rank+1 ");
-        }
-        buf.append("where s.submitter.id = ? and s.contest.id = ? ");
-        if (newRank.compareTo(s.getRank()) != 0) {
+            buf.append("where s.submitter.id = ? and s.contest.id = ? and rank between ? and ?");
+
             Query q = session.createQuery(buf.toString());
             q.setLong(0, s.getSubmitter().getId().longValue());
             q.setLong(1, s.getContest().getId().longValue());
+            q.setInteger(2, newRank.intValue());
+            q.setInteger(3, s.getRank().intValue());
+            q.executeUpdate();
+
+            s.setRank(newRank);
+            saveOrUpdate(s);
+        } else if (newRank.compareTo(s.getRank()) < 0) {
+            //they're dropping it down, making it's rank worse
+            buf.append("rank-1 ");
+            buf.append("where s.submitter.id = ? and s.contest.id = ? and rank between ? and ?");
+            Query q = session.createQuery(buf.toString());
+            q.setLong(0, s.getSubmitter().getId().longValue());
+            q.setLong(1, s.getContest().getId().longValue());
+            q.setInteger(2, s.getRank().intValue());
+            q.setInteger(3, newRank.intValue());
             q.executeUpdate();
 
             s.setRank(newRank);
