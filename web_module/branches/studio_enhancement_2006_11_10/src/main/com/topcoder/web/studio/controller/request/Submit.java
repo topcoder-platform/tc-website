@@ -127,6 +127,13 @@ public class Submit extends ShortHibernateProcessor {
                     cFactory.getSubmissionDAO().saveOrUpdate(s);
                     markForCommit();
 
+                    markForCommit();
+                    closeConversation();
+                    beginCommunication();
+
+                    cFactory = StudioDAOUtil.getFactory();
+                    cFactory.getSubmissionDAO().changeRank(new Integer(1), cFactory.getSubmissionDAO().find(s.getId()));
+
                     getRequest().setAttribute("submissions", cFactory.getSubmissionDAO().getSubmissions(u, c));
                     getRequest().setAttribute("contest", c);
                     setNextPage("/submissionSuccess.jsp");
