@@ -133,6 +133,7 @@
 <div style="margin: 40px 0px 20px 0px;">
 <form name="submissionForm" method="POST" action="${sessionInfo.servletPath}">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="BatchUpdateRank"/>
+<tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>" value="${contest.id}"/>
 <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
 <thead>
     <tr>
