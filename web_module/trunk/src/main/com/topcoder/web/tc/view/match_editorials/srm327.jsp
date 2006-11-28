@@ -516,7 +516,7 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
   </tr> 
 </table></blockquote> 
 <p>
-of your favorite algebra teacher. She often has to create tests to 
+Think of your favorite algebra teacher. She often has to create tests to 
 give to her students to make sure they know how to solve quadratic 
 equations. Wouldn't it be nice if she had a program in which she could input a solution and generate many quadratic equations with that solution? (Of course it might not be the best test if all of 
 the questions have the same answer). QuadraticEquations problem is much like 
