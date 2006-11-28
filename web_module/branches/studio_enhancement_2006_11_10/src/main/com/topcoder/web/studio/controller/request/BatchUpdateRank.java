@@ -1,19 +1,16 @@
 package com.topcoder.web.studio.controller.request;
 
 import com.topcoder.web.common.HibernateUtils;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.validation.IntegerValidator;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
-import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.model.Submission;
 
-import java.util.Date;
-import java.util.Enumeration;
+import java.util.*;
 
 /**
  * @author dok
@@ -23,74 +20,85 @@ import java.util.Enumeration;
 public class BatchUpdateRank extends BaseSubmissionDataProcessor {
     protected void dbProcessing() throws Exception {
 
-        //figure out all the submissions we're changing
-        //validate that they can be updated etc.
-        //if so, update
-        //commit and reload
+        Long contestId = new Long(getRequest().getParameter(Constants.CONTEST_ID));
 
         SubmissionDAO dao = StudioDAOUtil.getFactory().getSubmissionDAO();
         String paramName;
         String newRank;
         Integer newRankInt;
-        Submission currSubmission;
+        Submission currSubmission = null;
         Date now = new Date();
-        Contest contest=null;
+        List userSubmissions = dao.getSubmissions(contestId, new Long(getUser().getId()));
+        Integer maxRank = null;
         for (Enumeration paramNames = getRequest().getParameterNames(); paramNames.hasMoreElements();) {
-            paramName = (String)paramNames.nextElement();
+            paramName = (String) paramNames.nextElement();
             if (paramName.startsWith(Constants.SUBMISSION_ID)) {
                 newRank = getRequest().getParameter(paramName);
                 ValidationResult r = new IntegerValidator("Please enter a valid number.").validate(new StringInput(newRank));
                 if (!r.isValid()) {
                     addError(paramName, r.getMessage());
                 } else {
-                    currSubmission = dao.find(new Long(paramName.substring(Constants.SUBMISSION_ID.length())));
-                    if (contest ==null) {
-                        contest = currSubmission.getContest();
-                    } else {
-                        if (log.isDebugEnabled()) {
-                            log.debug("curr contest: " + currSubmission.getContest().getId() + " " +
-                                    currSubmission.getContest().hashCode() + " first contest: " + contest.getId() + " " + contest.hashCode());
-                            log.debug("is currsubmission in the session " + HibernateUtils.getSession().contains(currSubmission));
-                            log.debug("is curr contest in the session " + HibernateUtils.getSession().contains(currSubmission.getContest()));
-                            log.debug("is first contest in the session " + HibernateUtils.getSession().contains(contest));
-                        }
-                        if (!currSubmission.getContest().equals(contest)) {
-                            throw new NavigationException("All the submissions being updated must be part of the same contest.");
-                        }
-                    }
+                    currSubmission = findSubmission(userSubmissions,
+                            new Long(paramName.substring(Constants.SUBMISSION_ID.length())));
                     if (now.before(currSubmission.getContest().getStartTime()) ||
-                                now.after(currSubmission.getContest().getEndTime()) ||
-                                !ContestStatus.ACTIVE.equals(currSubmission.getContest().getStatus().getId())) {
-                            addError(paramName, "Sorry, you make a change to a submission for a contest that is not active.");
-                    } else if (currSubmission.getSubmitter().getId().longValue() != getUser().getId()) {
-                        throw new NavigationException("Illegal operation attempted, submission doesn't belong to current user.");
+                            now.after(currSubmission.getContest().getEndTime()) ||
+                            !ContestStatus.ACTIVE.equals(currSubmission.getContest().getStatus().getId())) {
+                        addError(paramName, "Sorry, you make a change to a submission for a contest that is not active.");
                     } else {
+                        if (maxRank==null) {
+                            maxRank = dao.getMaxRank(currSubmission.getContest(), currSubmission.getSubmitter());
+                        }
                         newRankInt = new Integer(newRank);
-                        Integer maxRank = dao.getMaxRank(currSubmission.getContest(), currSubmission.getSubmitter());
                         if (newRankInt.intValue() > 0 && newRankInt.intValue() <= maxRank.intValue()) {
                             currSubmission.setRank(newRankInt);
-                            dao.saveOrUpdate(currSubmission);
-
-                            markForCommit();
-                            closeConversation();
-
-                            beginCommunication();
-
-                            HibernateUtils.getSession().refresh(currSubmission);
-                            dao = StudioDAOUtil.getFactory().getSubmissionDAO();
-                            loadSubmissionData(currSubmission.getSubmitter(), currSubmission.getContest(),
-                                    dao, maxRank);
-                            setIsNextPageInContext(true);
-                            setNextPage("submitTableBody.jsp");
                         } else {
                             addError(paramName, "Rank must be between 1 and " + maxRank);
                         }
 
+                    }
                 }
             }
         }
 
 
+        HashSet hash = new HashSet();
+        Submission sub;
+        for (Iterator it = userSubmissions.iterator(); it.hasNext();) {
+            sub = (Submission)it.next();
+            if (hash.contains(sub.getRank())) {
+                addError(Constants.SUBMISSION_ID+sub.getId(), "Be sure you rank each of your submissions uniquely, there can be no ties.");
+            }
+            hash.add(sub.getRank());
+        }
+
+        if (!hasErrors()) {
+            for (Iterator it = userSubmissions.iterator(); it.hasNext();) {
+                dao.saveOrUpdate((Submission)it.next());
+            }
+
+            markForCommit();
+            closeConversation();
+
+            beginCommunication();
+
+            Submission s = (Submission)userSubmissions.get(0);
+            HibernateUtils.getSession().refresh(s);
+            dao = StudioDAOUtil.getFactory().getSubmissionDAO();
+            loadSubmissionData(s.getSubmitter(), s.getContest(), dao, maxRank);
+            setIsNextPageInContext(true);
+            setNextPage("submitTableBody.jsp");
+
+        }
     }
-}
+
+    private Submission findSubmission(List submissions, Long id) {
+        Submission curr = null;
+        for (Iterator it= submissions.iterator();it.hasNext();) {
+            curr = (Submission)it.next();
+            if (curr.getId().equals(id)) {
+                return curr;
+            }
+        }
+        return null;
+    }
 }
