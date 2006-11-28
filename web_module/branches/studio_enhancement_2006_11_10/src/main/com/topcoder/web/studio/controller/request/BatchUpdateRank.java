@@ -1,7 +1,7 @@
 package com.topcoder.web.studio.controller.request;
 
+import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.validation.IntegerValidator;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
@@ -20,7 +20,7 @@ import java.util.Enumeration;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Nov 20, 2006
  */
-public class BatchUpdateRank extends ShortHibernateProcessor {
+public class BatchUpdateRank extends BaseSubmissionDataProcessor {
     protected void dbProcessing() throws Exception {
 
         //figure out all the submissions we're changing
@@ -50,6 +50,9 @@ public class BatchUpdateRank extends ShortHibernateProcessor {
                         if (log.isDebugEnabled()) {
                             log.debug("curr contest: " + currSubmission.getContest().getId() + " " +
                                     currSubmission.getContest().hashCode() + " first contest: " + contest.getId() + " " + contest.hashCode());
+                            log.debug("is currsubmission in the session " + HibernateUtils.getSession().contains(currSubmission));
+                            log.debug("is curr contest in the session " + HibernateUtils.getSession().contains(currSubmission.getContest()));
+                            log.debug("is first contest in the session " + HibernateUtils.getSession().contains(contest));
                         }
                         if (!currSubmission.getContest().equals(contest)) {
                             throw new NavigationException("All the submissions being updated must be part of the same contest.");
@@ -73,11 +76,8 @@ public class BatchUpdateRank extends ShortHibernateProcessor {
 
                             beginCommunication();
 
-                            dao = StudioDAOUtil.getFactory().getSubmissionDAO();
-                            getRequest().setAttribute("submissions",
-                                    dao.getSubmissions(currSubmission.getSubmitter(), currSubmission.getContest()));
-                            getRequest().setAttribute("contest", currSubmission.getContest());
-
+                            loadSubmissionData(currSubmission.getSubmitter(), currSubmission.getContest(),
+                                    StudioDAOUtil.getFactory().getSubmissionDAO(), maxRank);
                             setIsNextPageInContext(true);
                             setNextPage("submitTableBody.jsp");
                         } else {
