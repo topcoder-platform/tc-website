@@ -25,9 +25,9 @@
           
           <h3>Registration</h3>
           <b>OPENS</b>: Tuesday, February 13, 2007 at 9:00 AM EST<br>
-          <b>CLOSES</b>: Sunday February 25, 2007 at 6:00 PM EST
+          <b>CLOSES</b>: Sunday, February 25, 2007 at 6:00 PM EST
           <br><br>
-          In order to be eligible to compete in the tournament, each competitor must be a registered TopCoder high School member and have registered separately for the tournament. There is no limit to the number of registrants for the competition, however each individual may only register once.
+          In order to be eligible to compete in the tournament, each competitor must be a registered TopCoder High School member and have registered separately for the tournament. There is no limit to the number of registrants for the competition, however each individual may only register once.
           <br><br>
           <h3>Online Elimination Rounds</h3>
             <div align="center">
@@ -143,7 +143,7 @@
                    <td class="sidebarText">25</td>
             </tr>
             <tr><td class="sidebarText">Online Round #4 - Beta Region</td>
-                   <td class="sidebarText">Monday, April16, 2007<br>
+                   <td class="sidebarText">Monday, Aprill 16, 2007<br>
                    Register:  11:00 AM - 1:55 PM EDT<br>
                    START:    2:00 PM EDT</td>
                    <td class="sidebarText">100</td>
@@ -153,9 +153,20 @@
             the round will take place the following day at the same time.</td></tr>
             </table>
             </div>
-
+        <br><br>
+        <h3>Find start times in your time zone</h3>
+        Below is a list of start times for the various rounds. Click the time that corresponds to the round you are interested in to see what time coding begins in your time zone.
+        <br><br>
+        <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=2&day=26&year=2007&hour=6&min=0&sec=0&p1=179">6:00 AM EST</A>&#160;
+        <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=2&day=26&year=2007&hour=10&min=0&sec=0&p1=179">10:00 AM EST</A>&#160;
+        <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=2&day=26&year=2007&hour=14&min=0&sec=0&p1=179">2:00 PM EST</A>&#160;
+        <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=2&day=26&year=2007&hour=21&min=0&sec=0&p1=179">9:00 PM EST</A>
+        <br><br>
+        <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=19&year=2007&hour=6&min=0&sec=0&p1=179">6:00 AM EDT</A>&#160;
+        <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=19&year=2007&hour=10&min=0&sec=0&p1=179">10:00 AM EDT</A>&#160;
+        <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=19&year=2007&hour=14&min=0&sec=0&p1=179">2:00 PM EDT</A>&#160;
+        <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=19&year=2007&hour=21&min=0&sec=0&p1=179">9:00 PM EDT</A>
         </div>
-
         <div class="footer">
             Copyright &#169; 2000-2006, TopCoder, Inc. All rights reserved.
         </div>
