@@ -76,30 +76,57 @@
                     <c:otherwise>
                         <td class="valueC">
                             <div align="center" style="margin:2px;">
+                            <c:choose>
+                                <c:when test="${submission.rank==1}">
+                                    <img src="/i/layout/btnMoveUp.png" alt="Move up"
+                                         onmouseover="this.src = '/i/layout/btnMoveUpOn.png';"
+                                         onmouseout="this.src = '/i/layout/btnMoveUp.png';"/>
+                                </c:when>
+                                <c:otherwise>
                                 <A href="#" onclick="changeRank(${submission.rank-1}, ${submission.id});return false;"
                                    onfocus="this.blur();">
                                     <img src="/i/layout/btnMoveUp.png" alt="Move up"
                                          onmouseover="this.src = '/i/layout/btnMoveUpOn.png';"
                                          onmouseout="this.src = '/i/layout/btnMoveUp.png';"/>
                                 </A>
+                                </c:otherwise>
+                            </c:choose>
                             </div>
                             <div align="center" style="margin:2px;">
+                            <c:choose>
+                                <c:when test="${submission.rank==maxRank}">
+                                    <img src="/i/layout/btnMoveDown.png" alt="Move down"
+                                         onmouseover="this.src = '/i/layout/btnMoveDownOn.png';"
+                                         onmouseout="this.src = '/i/layout/btnMoveDown.png';"/>
+                                </c:when>
+                                <c:otherwise>
                                 <A href="#" onclick="changeRank(${submission.rank+1}, ${submission.id});return false;"
                                    onfocus="this.blur();">
                                     <img src="/i/layout/btnMoveDown.png" alt="Move down"
                                          onmouseover="this.src = '/i/layout/btnMoveDownOn.png';"
                                          onmouseout="this.src = '/i/layout/btnMoveDown.png';"/>
                                 </A>
+                                </c:otherwise>
+                            </c:choose>
                             </div>
                         </td>
                         <td class="valueC">
                             <div align="center">
+                            <c:choose>
+                                <c:when test="${submission.rank==1}">
+                                    <img src="/i/layout/btnMoveToTop.png" alt="Move to top"
+                                         onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';"
+                                         onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/>
+                                </c:when>
+                                <c:otherwise>
                                 <A href="#" onclick="changeRank(1, ${submission.id});return false;"
                                    onfocus="this.blur();">
                                     <img src="/i/layout/btnMoveToTop.png" alt="Move to top"
                                          onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';"
                                          onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/>
                                 </A>
+                                </c:otherwise>
+                            </c:choose>
                             </div>
                         </td>
                     </c:otherwise>
