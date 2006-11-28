@@ -4986,11 +4986,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             int rowCount = payments.getRowCount();
             long p[] = new long[rowCount];
 
-            log.debug("rowCount=" +rowCount);
-
             for (int i = 0; i < rowCount; i++) {
             	p[i] = payments.getLongItem(i, 0);
-            	log.debug("expire "  + p[i]);
             }
 
             batchUpdateStatus(c, p, PAYMENT_EXPIRED_STATUS);
