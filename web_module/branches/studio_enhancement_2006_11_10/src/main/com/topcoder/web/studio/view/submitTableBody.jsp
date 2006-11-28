@@ -3,6 +3,18 @@
 <%@ page contentType="text/xml" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+    <script language="javascript" type="text/javascript">
+        <!--
+        function changeRank(newRank, submissionId) {
+            var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=UpdateSubmissionRank&<%=Constants.SUBMISSION_RANK%>=' + newRank + '&<%=Constants.SUBMISSION_ID%>=' + submissionId);
+            //    ajaxRequest.setPostRequest(loaded);
+            //    ajaxRequest.setPreRequest(loading);
+            ajaxRequest.sendRequest();
+        }
+
+        // -->
+    </script>
+
 <taconite-root xml:space="preserve">
     <taconite-replace-children contextNodeID="submissions" parseInBrowser="true">
         <% boolean even = true;%>
