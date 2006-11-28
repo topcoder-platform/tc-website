@@ -2,9 +2,10 @@
 <%@page contentType="text/xml"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
+<c:if test="request[ts]!=null">
 <taconite-root xml:space="preserve">
     <taconite-replace-children contextNodeID="submissions" parseInBrowser="true">
+</c:if>
 <% boolean even = true;%>
 <c:set value="<%=ReviewStatus.FAILED%>" var="failed"/>
 
@@ -83,5 +84,8 @@
     </tr>
     <% even = !even;%>
 </c:forEach>
+<c:if test="requst[ts]!=null">
+
     </taconite-replace-children>
  </taconite-root>
+ </c:if>
