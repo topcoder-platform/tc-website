@@ -18,6 +18,11 @@ public interface ForumConstants {
     public final static String ANNOUNCEMENT_ID = "annID";
     public final static String POLL_ID = "pollID";
     
+    public final static String FORUM_NAME = "name";
+    public final static String FORUM_DESCRIPTION = "desc";
+    public final static int FORUM_NAME_MAX_LENGTH = 250;
+    public final static int FORUM_DESCRIPTION_MAX_LENGTH = 1000;
+    
     public final static String THREAD_VIEW = "view";
     public final static String THREAD_ERROR = "error";
     
@@ -67,6 +72,7 @@ public interface ForumConstants {
     public final static String PROPERTY_HIDE_MAIN_RSS = "hideMainRSS";
     public final static String PROPERTY_LINK_NAMES = "linkNames";
     public final static String PROPERTY_LINK = "link";
+    public final static String PROPERTY_MODIFY_FORUMS = "modifyForums";
     
     public final static String PROPERTY_ARCHIVAL_STATUS = "archivalStatus";
     public final static String PROPERTY_COMPONENT_PHASE = "componentPhase";
@@ -162,6 +168,8 @@ public interface ForumConstants {
         "Please include a message subject.";
     public final static String ERR_EMPTY_MESSAGE_BODY =
         "Please include a message body.";
+    public final static String ERR_EMPTY_FORUM_NAME =
+        "Please include a forum name.";
     public final static String ERR_CANNOT_POST_THREAD =
         "You do not have permission to post a new thread in this forum.";
     public final static String ERR_CANNOT_POST_MESSAGE =
@@ -171,9 +179,13 @@ public interface ForumConstants {
     public final static String ERR_CANNOT_EDIT_FOREIGN_POST =
     	"You cannot edit messages created by other users.";
     public final static String ERR_LONG_MESSAGE_SUBJECT =
-        "Error: Message body exceeds " + MESSAGE_SUBJECT_MAX_LENGTH + " characters.";
+        "Error: Message subject exceeds " + MESSAGE_SUBJECT_MAX_LENGTH + " characters.";
     public final static String ERR_LONG_MESSAGE_BODY =
         "Error: Message body exceeds " + MESSAGE_BODY_MAX_LENGTH + " characters.";
+    public final static String ERR_LONG_FORUM_NAME =
+        "Error: Forum name exceeds " + FORUM_NAME_MAX_LENGTH + " characters.";
+    public final static String ERR_LONG_FORUM_DESCRIPTION =
+        "Error: Forum description exceeds " + FORUM_DESCRIPTION_MAX_LENGTH + " characters.";
     public final static String ERR_FORUM_RANGE_EXCEEDED =
         "Error: Forum view range exceeded.";
     public final static String ERR_THREAD_RANGE_EXCEEDED =

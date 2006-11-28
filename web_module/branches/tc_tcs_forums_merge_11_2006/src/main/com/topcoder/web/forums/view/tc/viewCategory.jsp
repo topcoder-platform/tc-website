@@ -121,9 +121,12 @@
                     <jsp:include page="searchHeader.jsp"/>
                 </td>
                 <td align="right" nowrap="nowrap" valign="top">
-                    <A href="?module=History" class="rtbcLink">My Post
-                        History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User
-                    Settings</A><br/>
+                	<%	boolean canCreateForums = forumCategory.isAuthorized(Permissions.SYSTEM_ADMIN) || 
+        					forumCategory.isAuthorized(ForumPermissions.FORUM_CATEGORY_ADMIN);
+        				if (canCreateForums) {	%>
+        					<A href="?module=CreateForum&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>" class="rtbcLink">Create Forum</A>&#160; |&#160; 
+        			<%	} %>
+                    <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
                     <%	if (forumFactory.getRootForumCategory().equals(forumCategory) ||
                     		forumFactory.getRootForumCategory().equals(forumCategory.getParentCategory())) { %>
 	                    <div style="float:right; margin: 30px 0px 10px 10px;">

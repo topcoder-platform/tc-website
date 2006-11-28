@@ -199,6 +199,7 @@ public class ForumConversion {
         } catch (GroupNotFoundException ge) {
         	swAdminGroup = groupManager.createGroup(ForumConstants.GROUP_SOFTWARE_ADMINS);
         }
+        swAdminGroup.setDescription(ForumConstants.GROUP_SOFTWARE_ADMINS);
         
         adminPS = tcConn.prepareStatement("select login_id from user_role_xref where role_id = 1");
         ResultSet rs = adminPS.executeQuery();
