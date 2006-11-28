@@ -40,7 +40,7 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
         buf.append("update Submission s set rank = ");
         if (newRank.compareTo(s.getRank()) < 0) {
             //they's bumping it up, making it's rank better
-            buf.append("rank+1 ");
+            buf.append("rank-1 ");
             buf.append("where s.submitter.id = ? and s.contest.id = ? and rank between ? and ? and s.id != ?");
 
             Query q = session.createQuery(buf.toString());
@@ -55,7 +55,7 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
             saveOrUpdate(s);
         } else if (newRank.compareTo(s.getRank()) > 0) {
             //they're dropping it down, making it's rank worse
-            buf.append("rank-1 ");
+            buf.append("rank+1 ");
             buf.append("where s.submitter.id = ? and s.contest.id = ? and rank between ? and ?and s.id != ?");
             Query q = session.createQuery(buf.toString());
             q.setLong(0, s.getSubmitter().getId().longValue());
