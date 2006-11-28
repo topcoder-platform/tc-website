@@ -23,7 +23,7 @@
         <div class="contentSpacer">
           <h2>2007 TopCoder&#174; High School Tournament<br> Official Rules and Regulations</h2>
           
-          <span class="error">No purchase necessary to enter or win.  Void where prohibited.<span>
+          <span class="error">No purchase necessary to enter or win.  Void where prohibited.</span>
           <br><br>
           <h3>Overview of the Tournament</h3>
           The 2007 TopCoder High School ("TCHS") Tournament will take place between February 26 and May 19, 2006.  It will consist of four (4) online Regional elimination rounds and two (2) onsite final rounds, being the Semifinal and Championship Rounds.  The top 25 finishers in the online Regional rounds will advance to the onsite Semifinal and Championship rounds, being held on the campus of Purdue University in West Lafayette, Indiana, USA on May 19, 2007.
@@ -195,18 +195,18 @@
              </ul>
           </li>
           </ul>
-          <br>
           <h3>Online Regional Round #2</h3>
           <ul>
           <li>Up to 100 spots will be open for individuals.  The remaining 400 spots will be open for teams.  If there are less than 100 individuals, we will allow more teams to compete until the 500 spots are filled or there are no teams left.</li>
           <li>Teams will advance until the 500 spots have been filled.  If the number of available spots left within that 500 is not large enough to fully accommodate the next team, the full team will advance.</li>
           </ul>
           <h3>Online Regional Round #3</h3>
+          <ul>
           <li>Up to 50 spots will be open for individuals.  The remaining 200 spots will be open for teams.  If there are less than 50 individuals, we will allow more teams to compete until the 50 spots are filled or there are no teams left.</li>
           <li>Teams will advance until the 250 spots have been filled.  If the number of available spots left within that 250 is not large enough to fully accommodate the next team, the full team will advance.</li>
           </ul>
-          <br>
           <h3>Online Regional Round #4</h3>
+          <ul>
           <li>Up to 20 spots will be open for individuals.  The remaining 80 spots will be open for teams.  If there are less than 20 individuals, we will allow more teams to compete until the 20 spots are filled or there are no teams left.</li>
           <li>Teams will advance until the 100 spots have been filled.  If the number of available spots left within that 100 is not large enough to fully accommodate the next team, the full team will advance.</li>
           </ul>
@@ -221,7 +221,6 @@
           <li>If a tie still remains, then by best average team/individual placement at the start of the tournament.</li>
           <li>If a tie still remains, all tied coders will advance to the next round.</li>
           </ul>
-          <br>
           <h3>Competition Round Structure</h3>
           Each online and onsite round of competition consists of three phases: Coding Phase, Challenge Phase, and System Testing Phase. (Note: The format of these competition rounds is similar to the format of TopCoder High School Single Round Matches.  The rules in place for TCHS Single Round Matches as of February 26, 2007 will also apply to the online and onsite rounds of the TCHS Tournament.)
           <ul>
@@ -229,7 +228,6 @@
           <li><b>The Challenge Phase</b> is a timed event wherein each competitor has a chance to challenge the functionality of other competitors' code. A successful challenge will result in a loss of the original problem submission points by the defendant, and a 50-point reward for the challenger.  Unsuccessful challengers will incur a point reduction of 25 points as a penalty, applied against their total score in that round of competition.  During the TCHS Tournament, the Challenge Phase will last 10 minutes.</li>
           <li><b>The System Testing Phase</b> is applied to all submitted code that has not already been successfully challenged. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given problem. All successful challenges from the Challenge Phase will be added to the sets of inputs for the System Testing Phase.</li>
           </ul>
-          <br>
           <h3>Onsite Semifinal and Championship Rounds</h3>
           The twenty-five (25) advancers from each Online Regional Round #4 will travel to the campus of Purdue University on Friday, May 18, 2007 to compete in the Semifinal round of the TCHS Tournament being held on Saturday, May 19, 2007.  All contestants must arrive at the campus of Purdue University no later than 4:00 PM EDT on Friday, May 18, 2007.  All contestants must confirm their attendance at the onsite rounds no later than 8:00 AM EDT (UTC/GMT -4) on Monday, April 23, 2007.  That is, contestants must have acquired any necessary travel visas and know for certain that they can travel to the U.S. by that date and time.  To confirm attendance, contestants MUST email a copy of their travel visa to TopCoder no later than 8:00 AM EDT (UTC/GMT -4) on Monday, April 23, 2007.  All three members of a team must be able to travel to the U.S.  If any team member is unable to attend the onsite rounds, the team will forfeit its eligibility to receive any prizes awarded to onsite finalists, and the team’s spot in the tournament will be given to the eligible next team from Online Round #4.  If an individual is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive any prizes awarded to onsite finalists, and his/her spot in the tournament will be given to the next eligible individual from Online Round #4.
           <br><br>
@@ -266,7 +264,6 @@
           <li>If a tie still remains in the Semifinal Round, then all tied teams/individuals will advance to the Championship Round</li>
           <li>If a tie still remains in the Championship Round, then the prize will be distributed equally among the tied teams or individuals</li>
           </ul>
-          <br>
           <h3>Conditions of Participation</h3>
           By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters.  
           <br><br>

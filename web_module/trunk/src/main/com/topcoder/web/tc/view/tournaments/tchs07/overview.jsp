@@ -22,7 +22,7 @@
 
         <div class="contentSpacer">
           <h2>2007 TopCoder&#174; High School Tournament</h2>
-          The inaugural installment of the TopCoder High School Tournament has arrived!  In keeping with TopCoder's competitive model, the tournament will bring together some of the most talented high school students in a heated battle for bragging rights and scholarships worth over <b>$XXXX</b>.   We are excited to have partnered with <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=purdue">Purdue University</A> to show off their campus and your talent in the onsite finals at their brand new CS facility -- the <A href="http://www.cs.purdue.edu/news/7-20-06lawsonupdate.shtml" target="_blank">Lawson Building</A>.  
+          The inaugural installment of the TopCoder High School Tournament has arrived!  In keeping with TopCoder's competitive model, the tournament will bring together some of the most talented high school students in a heated battle for bragging rights and scholarships worth over <b>$XXXX</b>.   We are excited to have partnered with <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=purdue">Purdue University</A> to show off their campus and your talent in the onsite finals at their brand new CS facility -- the <A href="http://www.cs.purdue.edu/about_us/lawson/" target="_blank">Lawson Building</A>.  
           <br><br>
           <h3>Important Dates:</h3>
           Registration opens: February 13, 2007<br>
