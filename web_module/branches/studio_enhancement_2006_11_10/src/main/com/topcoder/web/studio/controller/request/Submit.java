@@ -140,7 +140,7 @@ public class Submit extends ShortHibernateProcessor {
                     nextPage.append(getSessionInfo().getServletPath());
                     nextPage.append("?" + Constants.MODULE_KEY + "=ViewSubmissionSuccess&");
                     nextPage.append(Constants.SUBMISSION_ID + "=").append(s.getId());
-                    setNextPage(buf.toString());
+                    setNextPage(nextPage.toString());
                     setIsNextPageInContext(false);
 
 
