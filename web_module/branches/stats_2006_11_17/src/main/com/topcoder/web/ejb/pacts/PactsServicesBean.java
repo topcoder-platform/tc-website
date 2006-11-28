@@ -4972,20 +4972,31 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c = DBMS.getConnection();
             c.setAutoCommit(false);
             setLockTimeout(c);
+            
+            StringBuffer query = new StringBuffer(300);
+            
+            query.append(" SELECT p.payment_id "); 
+            query.append(" from payment_detail pd, payment p");
+            query.append(" WHERE payment_type_id = " + ALGORITHM_CONTEST_PAYMENT);
+            query.append(" AND pd.payment_detail_id = p.most_recent_detail_id");
+            query.append(" AND status_id IN (" + PAYMENT_ON_HOLD_STATUS + "," + PAYMENT_PENDING_STATUS + ") ");
+            query.append(" AND today - " + PAYMENT_EXPIRE_TIME + " units day > date_due");
+            ResultSetContainer payments = runSelectQuery(c, query.toString(), false);
 
-            StringBuffer updatePayments = new StringBuffer(300);
-            updatePayments.append("update payment_detail ");
-            updatePayments.append("set status_id = " + PAYMENT_EXPIRED_STATUS + " ");
-            updatePayments.append("where payment_type_id = " + ALGORITHM_CONTEST_PAYMENT + " and status_id IN (" +
-                    PAYMENT_ON_HOLD_STATUS + "," + PAYMENT_PENDING_STATUS + ") ");
-            updatePayments.append("and today - " + PAYMENT_EXPIRE_TIME + " units day > date_due");
-            int rowsUpdated = runUpdateQuery(c, updatePayments.toString(), false);
-
+            int rowCount = payments.getRowCount();
+            long p[] = new long[rowCount];
+            
+            for (int i = 0; i < rowCount; i++) {
+            	p[i] = payments.getLongItem(i, 0);
+            }
+            
+            batchUpdateStatus(c, p, PAYMENT_EXPIRED_STATUS);
+            
             c.commit();
             c.setAutoCommit(true);
             c.close();
             c = null;
-            return rowsUpdated;
+            return rowCount;
         } catch (Exception e) {
             printException(e);
             try {
