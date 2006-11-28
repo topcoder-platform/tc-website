@@ -5,7 +5,7 @@
     <jsp:include page="/script.jsp"/>
 
     <title>VeriSign Code Fest, Powered by TopCoder</title>
-    <link type="text/css" rel="stylesheet" href="/css/verisign06.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/vicc.css"/>
 </head>
 
 <body>
@@ -27,12 +27,6 @@
 <br/><br/>
 <span class="bodySubtitle">Official Rules and Regulations</span>
 <br/><br/>
-<%--<a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-<a href="#registration">Registration</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-<a href="#qualification">Qualification Round</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-<a href="#structure">Round Structure</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-<a href="#conditions">Conditions&nbsp;of&nbsp;Participation</a>
-<br /><br /> --%>
 
 <span class="bigRed">No purchase necessary to enter or win.</span>
 <br/><br/>
@@ -54,8 +48,6 @@ are ineligible to enter the tournament.
 Each competition room will have a maximum of 20 coders.
 <br/><br/>
 
-<%--<a name="eligibility"></a>
-<a href="#top"><img src="/i/events/verisign06/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>--%>
 <span class="bodySubtitle">About the Matches</span>
 <br/><br/>
 <b>Registering for the Online Single Round Matches</b><br/>

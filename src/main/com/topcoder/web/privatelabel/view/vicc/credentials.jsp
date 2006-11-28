@@ -7,7 +7,7 @@
 <head>
 
     <title>VeriSign Code Fest, Powered by TopCoder</title>
-    <link type="text/css" rel="stylesheet" href="/css/verisign06.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/vicc.css"/>
     <jsp:include page="../script.jsp"/>
 </head>
 <body>
