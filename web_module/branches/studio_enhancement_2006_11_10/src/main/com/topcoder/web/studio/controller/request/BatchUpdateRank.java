@@ -43,7 +43,7 @@ public class BatchUpdateRank extends ShortHibernateProcessor {
                 if (!r.isValid()) {
                     addError(paramName, r.getMessage());
                 } else {
-                    currSubmission = dao.find(new Long(paramName.substring(Constants.SUBMISSION_ID.length()-1)));
+                    currSubmission = dao.find(new Long(paramName.substring(Constants.SUBMISSION_ID.length())));
                     if (contest ==null) {
                         contest = currSubmission.getContest();
                     } else {
