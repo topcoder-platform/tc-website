@@ -119,7 +119,9 @@
 
                 <p>
                     <input type="image" src="/i/layout/btnSubmit.png" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'">
-                    <input type="image" src="/i/layout/btnSubmitToTop.png" onmouseover="this.src='/i/layout/btnSubmitToTopOn.png'" onmouseout="this.src='/i/layout/btnSubmitToTop.png'">
+                </p>
+                <p>
+                    as rank:&nbsp;<input type="text" value="1" maxlength="3" size="1" align="center" />
                 </p>
             </form>
         </div>
