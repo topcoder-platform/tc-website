@@ -5,7 +5,10 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
+import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.model.Submission;
+
+import java.util.Date;
 
 /**
  * @author dok
@@ -18,7 +21,13 @@ public class UpdateSubmissionRank extends ShortHibernateProcessor {
         String submissionId = getRequest().getParameter(Constants.SUBMISSION_ID);
         SubmissionDAO dao = StudioDAOUtil.getFactory().getSubmissionDAO();
         Submission s = dao.find(new Long(submissionId));
-        if (s.getSubmitter().getId().longValue() == getUser().getId()) {
+
+        Date now = new Date();
+        if (now.before(s.getContest().getStartTime()) ||
+                now.after(s.getContest().getEndTime()) ||
+                !ContestStatus.ACTIVE.equals(s.getContest().getStatus().getId())) {
+            throw new NavigationException("Sorry, you make a change to a submission for a contest that is not active.");
+        } else if (s.getSubmitter().getId().longValue() == getUser().getId()) {
             int newRank = Integer.parseInt(getRequest().getParameter(Constants.SUBMISSION_RANK));
             Integer maxRank = dao.getMaxRank(s.getContest(), s.getSubmitter());
             getRequest().setAttribute("maxRank", maxRank);
