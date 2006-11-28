@@ -70,8 +70,9 @@
 <IMG SRC="/i/home/tccc06_winners.png" border="0" alt="TCCC06 Finals" usemap="#tccc"/>
         </td>
         <td width="50%" align="right" valign="top" style="border-bottom: 1px solid #666666; padding:0px; margin:0px;">
-            <%--&nbsp;--%>
+            <%--&nbsp;
             <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2045"><img src="/i/home/studioDogEar_20061102.png" alt="TopCoder Studio & AOL Mashups" /></A>
+            --%>
         </td>
     </tr>
 </table>
@@ -227,21 +228,12 @@
 <td class="homeRightCol">
     <table border="0" cellpadding="0" cellspacing="0">
         <tr><td class="homeBigPromo">
-            <%-- AOL webcast team --%> 
+            <%-- AOL webcast team 
             <A href="http://dev.aol.com/video"><img src="/i/home/aolWebcast_20061113.jpg" alt="Meet the TCCC webcast team" border="0" style="display:block;" /></A>
+            --%>
+            <%-- AOL Mashups --%>
+            <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2045"><img src="/i/home/aolmashups_sm.jpg" alt="AOL Mashups" border="0" style="display:block;" /></A>
             
-            <%-- China 
-            <A href="/tc?module=Static&d1=pressroom&d2=art_110206"><img src="/i/home/china_20061102.png" alt="China &amp; BusinessWeek" border="0" style="display:block;" /></A>
-            --%>            
-            <%-- Maverick 
-            <A href="/images/downloads/mavericks_at_work.pdf" target="_blank"><img src="/i/home/mavericks_100206.gif" alt="Mavericks at Work" border="0" style="display:block;" /></A>
-            --%>
-            <%-- WSJ
-            <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0" style="display:block;" /></A>
-            --%> 
-            <%-- Intel MTCS
-                        <A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0"  style="display:block;" /></A>
-            --%>
         </td></tr>
     </table>
     <table border="0" cellpadding="0" cellspacing="0">
