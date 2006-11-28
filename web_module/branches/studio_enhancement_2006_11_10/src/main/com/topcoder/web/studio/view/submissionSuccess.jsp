@@ -66,7 +66,9 @@
 
             <div class="contentSpacer">
 
-                <div class="linkBox"><studio:forumLink forumID="${contest.forumId}"/></div>
+                <div class="linkBox">
+                    <studio:forumLink forumID="${contest.forumId}"/>
+                </div>
 
                 <div class="breadcrumb">
                     <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A>
@@ -88,557 +90,58 @@
                     </div>
                 </div>
 
-<div style="margin: 40px 0px 20px 0px;">
-<table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
-<tbody>
-    <tr>
-        <td class="NW">&nbsp;</td>
-        <td class="title" colspan="7">My Ranked Submissions for this contest</td>
-        <td class="NE">&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="headerW"><div>&nbsp;</div></td>
-        <td class="headerC" >
-        Ranking
-        <div><A href="#"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';" /></A></div>
-        </td>
-        <td class="header" colspan="2" width="33%">
-        Submission
-        </td>
-        <td class="headerC" width="33%">
-        Date Submitted
-        </td>
-        <td class="headerC" width="33%">
-        Passed / Failed
-        </td>
-        <td class="headerC" nowrap>
-        Move Up /<br>Move Down
-        </td>
-        <td class="headerC" nowrap>
-        Move to<br>Top
-        </td>
-        <td class="headerE"><div>&nbsp;</div></td>
-    </tr>
-    <% boolean even = true; int i = 1; %>
-    <tr class="<%=even?"highlightLt":"highlightDk"%>">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="valueC">
-        <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
-        </td>
-        <td class="value">
-        studio_submission_2.zip
-        </td>
-        <td class="value">
-            <div class="container">
-                <a href=""><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()"/></a>
-                <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-            </div>
-        </td>
-        <td class="valueC">
-        11.03.2006 17:19 EST
-        </td>
-        <td class="valueC">
-        <span class="bigGreen">Passed</span>
-        </td>
-        <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
-        </td>
-        <td class="valueC">
-        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
-        </td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <% even = !even; i++; %>
-    <tr class="<%=even?"highlightLt":"highlightDk"%>">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="valueC">
-        <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
-        </td>
-        <td class="value">
-        studio_submission_2.zip
-        </td>
-        <td class="value">
-            <div class="container">
-                <a href=""><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()"/></a>
-                <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-            </div>
-        </td>
-        <td class="valueC">
-        11.03.2006 17:19 EST
-        </td>
-        <td class="valueC">
-        <span class="bigGreen">Passed</span>
-        </td>
-        <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
-        </td>
-        <td class="valueC">
-        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
-        </td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <% even = !even; i++; %>
-    <tr class="<%=even?"highlightLt":"highlightDk"%>">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="valueC">
-        <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
-        </td>
-        <td class="value">
-        studio_submission_2.zip
-        </td>
-        <td class="value">
-            <div class="container">
-                <a href=""><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()"/></a>
-                <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-            </div>
-        </td>
-        <td class="valueC">
-        11.03.2006 17:19 EST
-        </td>
-        <td class="valueC">
-        <span class="bigGreen">Passed</span>
-        </td>
-        <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
-        </td>
-        <td class="valueC">
-        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
-        </td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <% even = !even; i++; %>
-    <tr class="<%=even?"highlightLt":"highlightDk"%>">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="valueC">
-        <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
-        </td>
-        <td class="value">
-        studio_submission_2.zip
-        </td>
-        <td class="value">
-            <div class="container">
-                <a href=""><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()"/></a>
-                <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-            </div>
-        </td>
-        <td class="valueC">
-        11.03.2006 17:19 EST
-        </td>
-        <td class="valueC">
-        <span class="bigGreen">Passed</span>
-        </td>
-        <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
-        </td>
-        <td class="valueC">
-        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
-        </td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <% even = !even; i++; %>
-    <tr class="<%=even?"highlightLt":"highlightDk"%>">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="valueC">
-        <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
-        </td>
-        <td class="value">
-        studio_submission_2.zip
-        </td>
-        <td class="value">
-            <div class="container">
-                <a href=""><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()"/></a>
-                <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-            </div>
-        </td>
-        <td class="valueC">
-        11.03.2006 17:19 EST
-        </td>
-        <td class="valueC">
-        Pending
-        </td>
-        <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
-        </td>
-        <td class="valueC">
-        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
-        </td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <% even = !even; i++; %>
-    <tr class="<%=even?"light":"dark"%>">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="valueC">
-        <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
-        </td>
-        <td class="value">
-        studio_submission_2.zip
-        </td>
-        <td class="value">
-            <div class="container">
-                <a href=""><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()"/></a>
-                <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-            </div>
-        </td>
-        <td class="valueC">
-        11.03.2006 17:19 EST
-        </td>
-        <td class="valueC">
-        Pending
-        </td>
-        <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
-        </td>
-        <td class="valueC">
-        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
-        </td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <% even = !even; i++; %>
-    <tr class="<%=even?"light":"dark"%>">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="valueC">
-        <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
-        </td>
-        <td class="value">
-        studio_submission_3.zip
-        </td>
-        <td class="value">
-            <div class="container">
-                <a href=""><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()"/></a>
-                <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-            </div>
-        </td>
-        <td class="valueC">
-        11.04.2006 17:19 EST
-        </td>
-        <td class="valueC">
-        Pending
-        </td>
-        <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
-        </td>
-        <td class="valueC">
-        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
-        </td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <% even = !even; i++;%>
-    <tr class="<%=even?"light":"dark"%>">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="valueC">
-        <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
-        </td>
-        <td class="value">
-        studio_submission_3.zip
-        </td>
-        <td class="value">
-            <div class="container">
-                <a href=""><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()"/></a>
-                <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-            </div>
-        </td>
-        <td class="valueC">
-        11.04.2006 17:19 EST
-        </td>
-        <td class="valueC">
-        Pending
-        </td>
-        <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
-        </td>
-        <td class="valueC">
-        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
-        </td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <% even = !even; i++;%>
-    <tr class="<%=even?"light":"dark"%>">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="valueC">
-        <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
-        </td>
-        <td class="value">
-        studio_submission_3.zip
-        </td>
-        <td class="value">
-            <div class="container">
-                <a href=""><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()"/></a>
-                <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-            </div>
-        </td>
-        <td class="valueC">
-        11.04.2006 17:19 EST
-        </td>
-        <td class="valueC">
-        Pending
-        </td>
-        <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
-        </td>
-        <td class="valueC">
-        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
-        </td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <% even = !even; i++;%>
-    <tr class="<%=even?"light":"dark"%>">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="valueC">
-        <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
-        </td>
-        <td class="value">
-        studio_submission_3.zip
-        </td>
-        <td class="value">
-            <div class="container">
-                <a href=""><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()"/></a>
-                <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-            </div>
-        </td>
-        <td class="valueC">
-        11.04.2006 17:19 EST
-        </td>
-        <td class="valueC">
-        Pending
-        </td>
-        <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
-        </td>
-        <td class="valueC">
-        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
-        </td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <% even = !even; i++;%>
-    <tr class="<%=even?"light":"dark"%>">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="valueC">
-        <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
-        </td>
-        <td class="value">
-        studio_submission_3.zip
-        </td>
-        <td class="value">
-            <div class="container">
-                <a href=""><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()"/></a>
-                <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-            </div>
-        </td>
-        <td class="valueC">
-        11.04.2006 17:19 EST
-        </td>
-        <td class="valueC">
-        Pending
-        </td>
-        <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
-        </td>
-        <td class="valueC">
-        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
-        </td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <% even = !even; i++;%>
-    <tr class="<%=even?"light":"dark"%>">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="valueC">
-        <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
-        </td>
-        <td class="value">
-        studio_submission_3.zip
-        </td>
-        <td class="value">
-            <div class="container">
-                <a href=""><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()"/></a>
-                <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-            </div>
-        </td>
-        <td class="valueC">
-        11.04.2006 17:19 EST
-        </td>
-        <td class="valueC">
-        Pending
-        </td>
-        <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
-        </td>
-        <td class="valueC">
-        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
-        </td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <% even = !even; i++;%>
-    <tr class="<%=even?"light":"dark"%>">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="valueC">
-        <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
-        </td>
-        <td class="value">
-        studio_submission_3.zip
-        </td>
-        <td class="value">
-            <div class="container">
-                <a href=""><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()"/></a>
-                <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-            </div>
-        </td>
-        <td class="valueC">
-        11.04.2006 17:19 EST
-        </td>
-        <td class="valueC">
-        Pending
-        </td>
-        <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
-        </td>
-        <td class="valueC">
-        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
-        </td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <% even = !even; i++;%>
-    <tr class="<%=even?"light":"dark"%>">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="valueC">
-        <input type="text" maxlength="3" class="" name="" value="<%=i%>" size="1" align="center">
-        </td>
-        <td class="value">
-        studio_submission_3.zip
-        </td>
-        <td class="value">
-            <div class="container">
-                <a href=""><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()"/></a>
-                <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-            </div>
-        </td>
-        <td class="valueC">
-        11.04.2006 17:19 EST
-        </td>
-        <td class="valueC">
-        Pending
-        </td>
-        <td class="valueC">
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';" /></A></div>
-        <div align="center" style="margin:2px;"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';" /></A></div>
-        </td>
-        <td class="valueC">
-        <div align="center"><A href="" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';" /></A></div>
-        </td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <% even = !even; i++;%>
-    <tr class="<%=even?"light":"dark"%>">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="valueC">
-        <input type="text" maxlength="3" class="" name="" value="" size="1" align="center" disabled>
-        </td>
-        <td class="value">
-        studio_submission_1.zip
-        </td>
-        <td class="value">
-            <div class="container">
-                <a href=""><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()"/></a>
-                <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-            </div>
-        </td>
-        <td class="valueC">
-        11.02.2006 17:19 EST
-        </td>
-        <td class="valueC">
-        <span class="bigRed">Failed</span>
-        </td>
-        <td class="valueC">
-        <div align="center" style="margin:2px;"><img src="/i/layout/btnMoveUpNA.png" alt="Raise priority" /></div>
-        <div align="center" style="margin:2px;"><img src="/i/layout/btnMoveDownNA.png" alt="Move down" /></div>
-        </td>
-        <td class="valueC">
-        <div align="center"><img src="/i/layout/btnMoveToTopNA.png" alt="Move to top" /></div>
-        </td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <% even = !even; i++;%>
-    <tr class="<%=even?"light":"dark"%>">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="valueC">
-        <input type="text" maxlength="3" class="" name="" value="" size="1" align="center" disabled>
-        </td>
-        <td class="value">
-        studio_submission_1.zip
-        </td>
-        <td class="value">
-            <div class="container">
-                <a href=""><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()"/></a>
-                <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-            </div>
-        </td>
-        <td class="valueC">
-        11.02.2006 17:19 EST
-        </td>
-        <td class="valueC">
-        <span class="bigRed">Failed</span>
-        </td>
-        <td class="valueC">
-        <div align="center" style="margin:2px;"><img src="/i/layout/btnMoveUpNA.png" alt="Raise priority" /></div>
-        <div align="center" style="margin:2px;"><img src="/i/layout/btnMoveDownNA.png" alt="Move down" /></div>
-        </td>
-        <td class="valueC">
-        <div align="center"><img src="/i/layout/btnMoveToTopNA.png" alt="Move to top" /></div>
-        </td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <% even = !even; i++;%>
-    <tr class="<%=even?"light":"dark"%>">
-        <td class="valueW"><div>&nbsp;</div></td>
-        <td class="valueC">
-        <input type="text" maxlength="3" class="" name="" value="" size="1" align="center" disabled>
-        </td>
-        <td class="value">
-        studio_submission_1.zip
-        </td>
-        <td class="value">
-            <div class="container">
-                <a href=""><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()"/></a>
-                <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-            </div>
-        </td>
-        <td class="valueC">
-        11.02.2006 17:19 EST
-        </td>
-        <td class="valueC">
-        <span class="bigRed">Failed</span>
-        </td>
-        <td class="valueC">
-        <div align="center" style="margin:2px;"><img src="/i/layout/btnMoveUpNA.png" alt="Raise priority" /></div>
-        <div align="center" style="margin:2px;"><img src="/i/layout/btnMoveDownNA.png" alt="Move down" /></div>
-        </td>
-        <td class="valueC">
-        <div align="center"><img src="/i/layout/btnMoveToTopNA.png" alt="Move to top" /></div>
-        </td>
-        <td class="valueE"><div>&nbsp;</div></td>
-    </tr>
-    <% even = !even; i++;%>
-    <tr>
-        <td class="SW" colspan="8">&nbsp;</td>
-        <td class="SE">&nbsp;</td>
-    </tr>
-</tbody>
-</table>
-<br><br>
-<strong>NOTE:</strong> green rows indicate submissions that you have selected to be considered for this contest
-</div>
+                <div style="margin: 40px 0px 20px 0px;">
+                    <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
+                        <thead>
+                            <tr>
+                                <td class="NW">&nbsp;</td>
+                                <td class="title" colspan="7">My Ranked Submissions for this contest</td>
+                                <td class="NE">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="headerW">
+                                    <div>&nbsp;</div>
+                                </td>
+                                <td class="headerC">
+                                    Ranking
+                                    <div>
+                                        <A href="#"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></A>
+                                    </div>
+                                </td>
+                                <td class="header" colspan="2" width="33%">
+                                    Submission
+                                </td>
+                                <td class="headerC" width="33%">
+                                    Date Submitted
+                                </td>
+                                <td class="headerC" width="33%">
+                                    Passed / Failed
+                                </td>
+                                <td class="headerC" nowrap>
+                                    Move Up /<br>Move Down
+                                </td>
+                                <td class="headerC" nowrap>
+                                    Move to<br>Top
+                                </td>
+                                <td class="headerE">
+                                    <div>&nbsp;</div>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody id="submissions">
+                            <jsp:include page="submitTableBody.jsp"/>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td class="SW" colspan="8">&nbsp;</td>
+                                <td class="SE">&nbsp;</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <br><br>
+                    <strong>NOTE:</strong> green rows indicate submissions that you have selected to be considered for
+                    this contest
+                </div>
 
 
             </div>
