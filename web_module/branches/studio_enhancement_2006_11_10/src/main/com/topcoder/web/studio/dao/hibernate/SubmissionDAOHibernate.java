@@ -22,7 +22,7 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
             q.setLong(1, s.getContest().getId().longValue());
             Integer maxRank = (Integer) q.uniqueResult();
             if (maxRank == null) {
-                s.setRank(new Integer(1));
+                s.setRank(new Integer(0));
             } else {
                 s.setRank(new Integer(maxRank.intValue() + 1));
             }
@@ -38,9 +38,9 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
     public void changeRank(Integer newRank, Submission s) {
         StringBuffer buf = new StringBuffer(100);
         buf.append("update Submission s set rank = ");
-        if (newRank.compareTo(s.getRank()) > 0) {
+        if (newRank.compareTo(s.getRank()) < 0) {
             //they's bumping it up, making it's rank better
-            buf.append("rank+1 ");
+            buf.append("rank-1 ");
             buf.append("where s.submitter.id = ? and s.contest.id = ? and rank between ? and ? and s.id != ?");
 
             Query q = session.createQuery(buf.toString());
@@ -53,9 +53,9 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
 
             s.setRank(newRank);
             saveOrUpdate(s);
-        } else if (newRank.compareTo(s.getRank()) < 0) {
+        } else if (newRank.compareTo(s.getRank()) > 0) {
             //they're dropping it down, making it's rank worse
-            buf.append("rank-1 ");
+            buf.append("rank+1 ");
             buf.append("where s.submitter.id = ? and s.contest.id = ? and rank between ? and ?and s.id != ?");
             Query q = session.createQuery(buf.toString());
             q.setLong(0, s.getSubmitter().getId().longValue());
