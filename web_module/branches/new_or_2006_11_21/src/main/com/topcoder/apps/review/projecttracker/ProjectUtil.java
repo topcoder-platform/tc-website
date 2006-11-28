@@ -38,6 +38,7 @@ import com.topcoder.util.idgenerator.IDGeneratorFactory;
  * @version 1.0
  */
 public class ProjectUtil {
+    private static final int PHASE_TYPE_REGISTRATION = 1;
     private static final int PHASE_TYPE_SUBMISSION = 2;
     private static final int PHASE_TYPE_SCREEN = 3;
     private static final int PHASE_TYPE_REVIEW = 4;
@@ -198,6 +199,31 @@ public class ProjectUtil {
     static long createProject(Connection conn, String projectVersion, long compVersId, long projectTypeId, long modUserId, long forumId) throws SQLException, BaseException {
         PreparedStatement ps = null;
         ResultSet rs = null;
+
+        ps = conn.prepareStatement(
+        		"select root_category_id " +
+        		"	from comp_versions cv       " +
+        		"	,comp_catalog cc       " +
+        		"	,categories pcat " +
+        		"where cc.component_id = cv.component_id " +
+        		"and cc.status_id = 102     " +
+        		"and pcat.category_id = cc.root_category_id " +
+        		"and cv.comp_vers_id = ?;");
+        ps.setLong(1, compVersId);
+        rs = ps.executeQuery();
+
+        if (!rs.next()) {
+            throw new BaseException("Online Review: root_category_id does not exists, projectTypeId: " + projectTypeId + " compVersId: " + compVersId);
+        }
+
+        long rootCategoryId = rs.getLong(1);
+        close(rs);
+        close(ps);
+        
+        if (rootCategoryId == 9926572) {
+        	projectTypeId = (projectTypeId == 1 ? 6: 10); // 6 means Specification, 10 means Deployment
+        }
+
         ps = conn.prepareStatement("SELECT p.project_id " + 
         		"FROM project p, " +
         		"	project_info pi_vi, " +
@@ -219,26 +245,6 @@ public class ProjectUtil {
             throw new BaseException("Online Review: A project already exists! Terminate it before changing phase!");
         }
 
-        close(rs);
-        close(ps);
-
-        ps = conn.prepareStatement(
-        		"select root_category_id " +
-        		"	from comp_versions cv       " +
-        		"	,comp_catalog cc       " +
-        		"	,categories pcat " +
-        		"where cc.component_id = cv.component_id " +
-        		"and cc.status_id = 102     " +
-        		"and pcat.category_id = cc.root_category_id " +
-        		"and cv.comp_vers_id = ?;");
-        ps.setLong(1, compVersId);
-        rs = ps.executeQuery();
-
-        if (!rs.next()) {
-            throw new BaseException("Online Review: root_category_id does not exists, projectTypeId: " + projectTypeId + " compVersId: " + compVersId);
-        }
-
-        long rootCategoryId = rs.getLong(1);
         close(rs);
         close(ps);
 
@@ -305,11 +311,23 @@ public class ProjectUtil {
 	        // insert default scorecards
 	        long screenTemplateId = getScorecardId(conn, projectTypeId, 1);
 	        long reviewTemplateId = getScorecardId(conn, projectTypeId, 2);
-	
+
 	        for (int i = 0; i < phases.length; i++) {
 	            long phaseId = nextId(PROJECT_PHASE_ID_SEQ);
 	            createPhase(conn, projectId, phaseId, phases[i], modUserId);
 	
+	            if (phases[i].getPhaseType().getId() == PHASE_TYPE_REGISTRATION) {
+	                // Registration Number
+	                createPhaseCriteria(conn, phaseId, 2, "0", modUserId);
+	            }
+
+	            if (phases[i].getPhaseType().getId() == PHASE_TYPE_SUBMISSION) {
+	                // Submission Number
+	                createPhaseCriteria(conn, phaseId, 3, "0", modUserId);
+	            }
+                // 5, 'Manual Screening'
+                createPhaseCriteria(conn, phaseId, 5, "No", modUserId);
+
 	            if (phases[i].getPhaseType().getId() == PHASE_TYPE_SCREEN) {
 	                // Create scorecard id
 	                // 1, 'Scorecard ID'
@@ -320,12 +338,6 @@ public class ProjectUtil {
 	                // Create scorecard id
 	                // 1, 'Scorecard ID'
 	                createPhaseCriteria(conn, phaseId, 1, String.valueOf(reviewTemplateId), modUserId);
-	            }
-	
-	            if (phases[i].getPhaseType().getId() == PHASE_TYPE_SUBMISSION) {
-	                // Manual Screening
-	                // 5, 'Manual Screening'
-	                createPhaseCriteria(conn, phaseId, 5, "Yes", modUserId);
 	            }
 	
 	            phaseIds.put(phases[i], String.valueOf(phaseId));
