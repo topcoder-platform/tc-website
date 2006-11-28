@@ -39,8 +39,9 @@
             <tr><td colspan="2" class="sidebarTitle">Sunday, May 20, 2007</td></tr>
             <tr><td class="sidebarText" nowrap="nowrap">8:00 am - 3:00 pm</td><td class="sidebarText">Check Out &amp; Departure</td></tr>
             </table>
+            <br><br>
+            <span class="small">Times of onsite events are subject to change with or without notice.</span>
             </div>
-
         </div>
 
         <div class="footer">

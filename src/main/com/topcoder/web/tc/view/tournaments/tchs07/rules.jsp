@@ -26,7 +26,7 @@
           <span class="error">No purchase necessary to enter or win.  Void where prohibited.</span>
           <br><br>
           <h3>Overview of the Tournament</h3>
-          The 2007 TopCoder High School ("TCHS") Tournament will take place between February 26 and May 19, 2006.  It will consist of four (4) online Regional elimination rounds and two (2) onsite final rounds, being the Semifinal and Championship Rounds.  The top 25 finishers in the online Regional rounds will advance to the onsite Semifinal and Championship rounds, being held on the campus of Purdue University in West Lafayette, Indiana, USA on May 19, 2007.
+          The 2007 TopCoder High School ("TCHS") Tournament will take place between February 26 and May 19, 2006.  It will consist of four (4) online Regional elimination rounds and two (2) onsite final rounds, being the Semifinal and Championship Rounds.  The prize purse for this competition is at least $50,000 in scholarships and other prizes.  Up to sixteen (16) competitors will win a scholarship, and for competing in Online Round #2, up to 2,000 competitors will receive a participatory prize. The top 25 finishers in the online Regional rounds will advance to the onsite Semifinal and Championship rounds, being held on the campus of Purdue University in West Lafayette, Indiana, USA on May 19, 2007.
           <br><br>
           <h3>Eligibility</h3>
           TopCoder members meeting the following criteria are eligible to compete in the TCHS Tournament: 
@@ -51,7 +51,7 @@
           <br><br>
           Everyone who competes in an online round must register for each round in the TopCoder Competition Arena no later than five (5) minutes prior to the start of the online round.  TopCoder will communicate each Online Regional Round in Eastern Standard Time (UTC/GMT -5) or Eastern Daylight Time (UTC/GMT -4), as appropriate.  <b>Contestants may be located and competing in time zones other than Eastern Standard/Daylight Time and must adjust accordingly.</b>  If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition. 
           <br><br>
-          Countries have been assigned to a particular region <A href="/tc?module=Static&d1=hs&d2=regions">here</A>.  Competitors may only compete in the Regional Round for their country’s region.
+          Countries have been assigned to a particular region <A href="/tc?module=Static&d1=hs&d2=regions">here</A>.  Competitors may only compete in the Regional Round for their country's region.
           <br><br>
           All competitors in a Region will be randomly assigned to virtual competition rooms. Rooms will be created such that each room has a maximum of 25 competitors. The number of rooms in each Regional round is maximum # advancers in the round/25.
           <br><br>
@@ -170,7 +170,7 @@
                    <td class="sidebarText">25</td>
             </tr>
             <tr><td class="sidebarText">Online Round #4 - Beta Region</td>
-                   <td class="sidebarText">Monday, April16, 2007<br>
+                   <td class="sidebarText">Monday, April 16, 2007<br>
                    Register:  11:00 AM - 1:55 PM EDT<br>
                    START:    2:00 PM EDT</td>
                    <td class="sidebarText">100</td>
@@ -224,16 +224,24 @@
           <h3>Competition Round Structure</h3>
           Each online and onsite round of competition consists of three phases: Coding Phase, Challenge Phase, and System Testing Phase. (Note: The format of these competition rounds is similar to the format of TopCoder High School Single Round Matches.  The rules in place for TCHS Single Round Matches as of February 26, 2007 will also apply to the online and onsite rounds of the TCHS Tournament.)
           <ul>
-          <li><b>The Coding Phase</b> is a timed event where all contestants are presented with the same three questions representing three levels of complexity and, accordingly, three levels of point earnings potential. Points for a problem are awarded upon submission of any solution that successfully compiles and are calculated on the total time elapsed from the time the problem was opened until the time it was submitted.  During the TCHS Tournament, the Coding Phase will last 85 minutes.</li>
-          <li><b>The Challenge Phase</b> is a timed event wherein each competitor has a chance to challenge the functionality of other competitors' code. A successful challenge will result in a loss of the original problem submission points by the defendant, and a 50-point reward for the challenger.  Unsuccessful challengers will incur a point reduction of 25 points as a penalty, applied against their total score in that round of competition.  During the TCHS Tournament, the Challenge Phase will last 10 minutes.</li>
+          <li><b>The Coding Phase</b> is a timed event where all contestants are presented with the same three questions representing three levels of complexity and, accordingly, three levels of point earnings potential. Points for a problem are awarded upon submission of any solution that successfully compiles and are calculated on the total time elapsed from the time the problem was opened until the time it was submitted.  During the onsite rounds of the TCHS Tournament, the Coding Phase will last 85 minutes.</li>
+          <li><b>The Challenge Phase</b> is a timed event wherein each competitor has a chance to challenge the functionality of other competitors' code. A successful challenge will result in a loss of the original problem submission points by the defendant, and a 50-point reward for the challenger.  Unsuccessful challengers will incur a point reduction of 25 points as a penalty, applied against their total score in that round of competition.  During the onsite rounds of the TCHS Tournament, the Challenge Phase will last 10 minutes.</li>
           <li><b>The System Testing Phase</b> is applied to all submitted code that has not already been successfully challenged. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given problem. All successful challenges from the Challenge Phase will be added to the sets of inputs for the System Testing Phase.</li>
           </ul>
           <h3>Onsite Semifinal and Championship Rounds</h3>
-          The twenty-five (25) advancers from each Online Regional Round #4 will travel to the campus of Purdue University on Friday, May 18, 2007 to compete in the Semifinal round of the TCHS Tournament being held on Saturday, May 19, 2007.  All contestants must arrive at the campus of Purdue University no later than 4:00 PM EDT on Friday, May 18, 2007.  All contestants must confirm their attendance at the onsite rounds no later than 8:00 AM EDT (UTC/GMT -4) on Monday, April 23, 2007.  That is, contestants must have acquired any necessary travel visas and know for certain that they can travel to the U.S. by that date and time.  To confirm attendance, contestants MUST email a copy of their travel visa to TopCoder no later than 8:00 AM EDT (UTC/GMT -4) on Monday, April 23, 2007.  All three members of a team must be able to travel to the U.S.  If any team member is unable to attend the onsite rounds, the team will forfeit its eligibility to receive any prizes awarded to onsite finalists, and the team’s spot in the tournament will be given to the eligible next team from Online Round #4.  If an individual is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive any prizes awarded to onsite finalists, and his/her spot in the tournament will be given to the next eligible individual from Online Round #4.
+          <b>Important Information:</b><br>
+          <b>Travel Confirmation</b><br>
+          The twenty-five (25) advancers from each Online Regional Round #4 will travel to the campus of Purdue University on Friday, May 18, 2007 to compete in the Semifinal round of the TCHS Tournament being held on Saturday, May 19, 2007. All contestants must arrive at the campus of Purdue University no later than 4:00 PM EDT on Friday, May 18, 2007.
           <br><br>
-          At the end of each Online Regional Round #2, TopCoder will issue letters at the request of international competitors who require one to obtain a travel visa to enter the United States.  Visa letters can be requested by emailing Jessie D’Amato Ford at jdamato@topcoder.com and must be requested by Wednesday, April 11, 2007 at 5:00 PM EDT (UTC/GMT -4).  Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline.  The cost of obtaining a visa is the sole responsibility of the competitor.
+          All contestants must confirm their attendance at the onsite rounds no later than 8:00 AM EDT (UTC/GMT -4) on Monday, April 23, 2007. That is, contestants must have acquired any necessary travel visas and know for certain that they can travel to the U.S. by that date and time.  In order for a finalist to confirm attendance for the onsite finals, it is necessary to show proof of visa and/or passport by the deadline (8:00 AM EDT (UTC/GMT -4) on Monday, April 23, 2007) if the finalist is required for travel from outside the United States.  Finalists may do this by emailing a copy of their documents to Jessie D'Amato Ford at <A href="mailto:jdamato@topcoder.com">jdamato@topcoder.com</a>.  <b>Competitors who fail to meet this requirement by the deadline will not be able to attend the onsite finals and will be replaced as an onsite finalist.</b>
           <br><br>
-          Travel arrangements to Indianapolis, Indiana, USA are the responsibility of each competitor.  TopCoder may assist in making the reservations, but the cost is the responsibility of each competitor.  Each team is required to travel with an adult chaperone (i.e., a person who is 18 years of age or older).  The cost of the chaperone’s travel arrangements to Indianapolis, Indiana, USA is his/her responsibility.
+          All three members of a team must be able to travel to the U.S. If any team member is unable to attend the onsite rounds, the team will forfeit its eligibility to receive any prizes awarded to onsite finalists, and the team's spot in the tournament will be given to the eligible next team from Online Round #4. If an individual is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive any prizes awarded to onsite finalists, and his/her spot in the tournament will be given to the next eligible individual from Online Round #4.
+          <br><br>
+          <b>Visa Assistance</b><br>
+          At the end of each Online Regional Round #2, TopCoder will issue visa invitation letters at the request of international competitors who require one to obtain a travel visa to enter the United States. Visa invitation letters can be requested by emailing Jessie D'Amato Ford at jdamato@topcoder.com and must be requested by Wednesday, April 11, 2007 at 5:00 PM EDT (UTC/GMT -4). Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor.  If you fail to request a visa invitation letter by the date above you we will not be able to assist you in the process.
+          <br><br>
+          <b>Other</b><br>
+          Travel arrangements to Indianapolis, Indiana, USA are the responsibility of each competitor.  TopCoder may assist in making the reservations, but the cost is the responsibility of each competitor.  Each team is required to travel with an adult chaperone (i.e., a person who is 18 years of age or older).  The cost of the chaperone's travel arrangements to Indianapolis, Indiana, USA is his/her responsibility.
           <br><br>
           TopCoder will provide ground transportation from the Indianapolis airport to the Purdue University campus and back to the Indianapolis airport.  TopCoder will also provide campus lodging accommodations on May 18 and 19, 2007 for finalists and chaperones, as well as all meals (breakfast, lunch and dinner) for each contestant on May 19, 2007.  All other expenses are the responsibility of the contestant.  
           <br><br>
@@ -251,7 +259,7 @@
             </tr>
              <tr>
                    <td class="sidebarText">Championship Round</td>
-                   <td class="sidebarText">Saturday, May 19, 2007 @ 3:00 PMM</td>
+                   <td class="sidebarText">Saturday, May 19, 2007 @ 3:00 PM</td>
             </tr>
           </table>
           </div>
@@ -264,6 +272,74 @@
           <li>If a tie still remains in the Semifinal Round, then all tied teams/individuals will advance to the Championship Round</li>
           <li>If a tie still remains in the Championship Round, then the prize will be distributed equally among the tied teams or individuals</li>
           </ul>
+          
+          <h3>About the Prizes</h3>
+          The tournament will award participatory prizes to up to 2,000 competitors and at least $50,000 in scholarships and prizes.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  Prizes will be distributed as follows:
+          <br><br>
+          <b>Teams:</b><br>
+          Total of $18,000 distributed as follows:<br>
+          First place team:  $12,000* (Each onsite finalist will receive $4,000)<br>
+          Second place team:  $6,000* (Each onsite finalist will receive $2,000)
+          <br><br>
+          <b>Individuals:</b>
+          <br><br>
+          <div align="center">
+          <table border="0" cellpadding="5" cellspacing="0" width="400">
+            <tr>
+                   <td class="sidebarTitle">Competitor(s)</td>
+                   <td class="sidebarTitle">Prize</td>
+            </tr>
+             <tr>
+                   <td class="sidebarText">First place finisher</td>
+                   <td class="sidebarText">$10,000</td>
+            </tr>
+             <tr>
+                   <td class="sidebarText">Second place finisher</td>
+                   <td class="sidebarText">$6,000</td>
+             <tr>
+                   <td class="sidebarText">Third place finisher</td>
+                   <td class="sidebarText">$4,000</td>
+            </tr>
+             <tr>
+                   <td class="sidebarText">Fourth place finisher</td>
+                   <td class="sidebarText">$2,000</td>
+            </tr>
+             <tr>
+                   <td class="sidebarText">Fifth place finisher</td>
+                   <td class="sidebarText">$2,000</td>
+            </tr>
+             <tr>
+                   <td class="sidebarText">Sixth place finisher</td>
+                   <td class="sidebarText">$2,000</td>
+            </tr>
+             <tr>
+                   <td class="sidebarText">Seventh place finisher</td>
+                   <td class="sidebarText">$1,500</td>
+            </tr>
+             <tr>
+                   <td class="sidebarText">Eighth place finisher</td>
+                   <td class="sidebarText">$1,500</td>
+            </tr>
+             <tr>
+                   <td class="sidebarText">Ninth place finisher</td>
+                   <td class="sidebarText">$1,500</td>
+            </tr>
+             <tr>
+                   <td class="sidebarText">Nenth place finisher</td>
+                   <td class="sidebarText">$1,500</td>
+            </tr>
+             <tr>
+                   <td class="sidebarText">Up to 500 competitors who compete in each Online Regional Round #2</td>
+                   <td class="sidebarText">Limited edition 2007 TopCoder High School Tournament t-shirt</td>
+            </tr>
+             <tr>
+                   <td class="sidebarText" colspan="2">* Prize will be awarded at the conclusion of the Championship Round. 
+                   Winners must be <b>present</b> at the onsite rounds to receive prize. TopCoder reserves the right to increase the 
+                   total prize purse or change the prize breakdown distribution at its sole discretion at any point during the tournament.</td>
+            </tr>
+          </table>
+          </div>
+          <br><br>
           <h3>Conditions of Participation</h3>
           By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters.  
           <br><br>
@@ -304,7 +380,7 @@
           <br><br>
           By participating in a tournament and redeeming a prize, a winner releases and agrees to hold harmless TopCoder, its affiliates, subsidiaries, advertising and promotion agencies, sponsors, and prize suppliers, and all of their respective directors, officers, employees, representatives and agents, from and against any and all liability for any loss, property damage or damage to person, including without limitation, death and injury, due in whole or in part, directly or indirectly, from or arising out of participation in this tournament, or participation in any tournament-related activity, or the receipt, use or misuse of a prize. TopCoder specifically disclaims all liability associated with, and makes no warranties with regard to, any prize given.
           <br><br>
-          In addition, all prizewinners agree to cooperate with TopCoder's publicity efforts, without further compensation. This includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, where legal, for this or similar future tournaments, and to use the statements made by, or attributed to, the winners relating to TopCoder and any and all rights to said use, without further compensation.  Furthermore, all prizewinners agree to promptly notify TopCoder if a third-party, including tournament sponsors, contacts the prizewinner regarding employment opportunities and/or media interest/interview as a result of the prizewinner’s participation in the tournament.
+          In addition, all prizewinners agree to cooperate with TopCoder's publicity efforts, without further compensation. This includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, where legal, for this or similar future tournaments, and to use the statements made by, or attributed to, the winners relating to TopCoder and any and all rights to said use, without further compensation.  Furthermore, all prizewinners agree to promptly notify TopCoder if a third-party, including tournament sponsors, contacts the prizewinner regarding employment opportunities and/or media interest/interview as a result of the prizewinner's participation in the tournament.
           <br><br>
           TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with competing in this tournament, and to take any other action it deems appropriate, for no reason or any reason whatsoever, including if TopCoder suspects competitors of cheating, tampering with the entry process, the operation of the Web site, or the tournament process, or otherwise being in violation of the rules. TopCoder reserves the right to cancel, terminate or modify the tournament if it is not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.
           <br><br>
