@@ -15,6 +15,7 @@ public class AnswerInput extends BaseTag {
     public static final String PREFIX = "question_";
     public static final String ANSWER_TEXT = "answerText";
 
+    private boolean enabled = true;
     private String styleClass;
     private Question question;
     private Iterator answers;
@@ -31,6 +32,10 @@ public class AnswerInput extends BaseTag {
 
     public void setQuestion(Question question) {
         this.question = question;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     public int doStartTag() throws JspException {
@@ -112,6 +117,9 @@ public class AnswerInput extends BaseTag {
         StringBuffer s = new StringBuffer(200);
         if (question.getStyleId() == Question.LONG_ANSWER) {
             s.append("<textarea ");
+            if (!enabled) {
+                s.append(" disabled ");
+            }
             s.append("cols=\"").append(55).append("\" ");
             s.append("rows=\"").append(6).append("\" ");
             s.append("wrap=\"").append("virtual").append("\" ");
@@ -127,6 +135,9 @@ public class AnswerInput extends BaseTag {
             s.append("</textarea>");
         } else {
             s.append("<input type=\"text\" size=\"40\" maxlength=\"255\"");
+            if (!enabled) {
+                s.append(" disabled ");
+            }
             s.append(" name=\"");
             s.append(name);
             s.append("\"");
@@ -151,6 +162,9 @@ public class AnswerInput extends BaseTag {
         s.append("<input type=\"checkbox\" name=\"");
         s.append(name);
         s.append("\"");
+        if (!enabled) {
+            s.append(" disabled ");
+        }
         if (id != null) {
             s.append(" id=\"").append(id).append("\" ");
         }
@@ -174,6 +188,9 @@ public class AnswerInput extends BaseTag {
         s.append("<input type=\"radio\" name=\"");
         s.append(name);
         s.append("\"");
+        if (!enabled) {
+            s.append(" disabled ");
+        }
         if (id != null) {
             s.append(" id=\"").append(id).append("\" ");
         }
@@ -197,6 +214,9 @@ public class AnswerInput extends BaseTag {
         setName(PREFIX + question.getId());
         StringBuffer s = new StringBuffer(2000);
         s.append("<select");
+        if (!enabled) {
+            s.append(" disabled ");
+        }
         if (name != null) {
             s.append(" name=\"" + name + "\"");
         }

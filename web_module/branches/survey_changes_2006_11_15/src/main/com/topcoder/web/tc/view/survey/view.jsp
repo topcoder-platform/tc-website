@@ -151,12 +151,12 @@
                         </td>
                     </tr>
                     <% boolean even = false; %>
-                    <tc:answerInput id="answerInput" question="<%=question%>">
+                    <tc:answerInput id="answerInput" question="<%=question%>" enabled="<%=!alreadyResponded.booleanValue()%>">
                         <tr class="<%=even?"formTextOdd":"formTextEven"%>">
                             <td width="100%">
                                 <%=answerText%>
                             </td>
-                            <td align="right" <%= alreadyResponded.booleanValue() ? " disabled='true'" : ""%>>
+                            <td align="right">
                                 <%=answerInput%>
                             </td>
                         </tr>
