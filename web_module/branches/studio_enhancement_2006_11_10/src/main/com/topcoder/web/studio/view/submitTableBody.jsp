@@ -1,9 +1,10 @@
-<%@ page import="com.topcoder.web.studio.Constants"%><%@ page import="com.topcoder.web.studio.model.ReviewStatus"%>
-<%@page contentType="text/xml"%>
+<%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="com.topcoder.web.studio.model.ReviewStatus" %>
+<%@ page contentType="text/xml" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:if test="request[ts]!=null">
-<taconite-root xml:space="preserve">
+    <taconite-root xml:space="preserve">
     <taconite-replace-children contextNodeID="submissions" parseInBrowser="true">
 </c:if>
 <% boolean even = true;%>
@@ -24,7 +25,8 @@
     <td class="valueC">
         <c:choose>
             <c:when test="${submission.review.status.id==failed}">
-                <input type="text" maxlength="3" class="" name="" value="${submission.rank}" size="1" align="center" disabled/>
+                <input type="text" maxlength="3" class="" name="" value="${submission.rank}" size="1" align="center"
+                       disabled="disabled"/>
             </c:when>
             <c:otherwise>
                 <input type="text" maxlength="3" class="" name="" value="${submission.rank}" size="1" align="center"/>
@@ -36,7 +38,10 @@
     </td>
     <td class="value">
         <div class="container">
-            <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}"><img src="/i/layout/magnify.gif" alt="View submission" border="0" onmouseover="popUp('pop${submission.id}')" onmouseout="popHide()"/></a>
+            <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
+                <img src="/i/layout/magnify.gif" alt="View submission" border="0"
+                     onmouseover="popUp('pop${submission.id}')" onmouseout="popHide()"/>
+            </a>
 
             <div id="pop${submission.id}" class="popUp">
                 <div>View submission</div>
@@ -53,26 +58,45 @@
     <c:choose>
         <c:when test="${submission.review.status.id==failed}">
             <td class="valueC">
-                <div align="center" style="margin:2px;"><img src="/i/layout/btnMoveUpNA.png" alt="Raise priority"/>
+                <div align="center" style="margin:2px;">
+                    <img src="/i/layout/btnMoveUpNA.png" alt="Raise priority"/>
                 </div>
-                <div align="center" style="margin:2px;"><img src="/i/layout/btnMoveDownNA.png" alt="Move down"/></div>
+                <div align="center" style="margin:2px;">
+                    <img src="/i/layout/btnMoveDownNA.png" alt="Move down"/>
+                </div>
             </td>
             <td class="valueC">
-                <div align="center"><img src="/i/layout/btnMoveToTopNA.png" alt="Move to top"/></div>
+                <div align="center">
+                    <img src="/i/layout/btnMoveToTopNA.png" alt="Move to top"/>
+                </div>
             </td>
         </c:when>
         <c:otherwise>
             <td class="valueC">
                 <div align="center" style="margin:2px;">
-                    <A href="#" onclick="changeRank(${submission.rank-1}, ${submission.id});return false;" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></A>
+                    <A href="#" onclick="changeRank(${submission.rank-1}, ${submission.id});return false;"
+                       onfocus="this.blur();">
+                        <img src="/i/layout/btnMoveUp.png" alt="Move up"
+                             onmouseover="this.src = '/i/layout/btnMoveUpOn.png';"
+                             onmouseout="this.src = '/i/layout/btnMoveUp.png';"/>
+                    </A>
                 </div>
                 <div align="center" style="margin:2px;">
-                    <A href="#" onclick="changeRank(${submission.rank+1}, ${submission.id});return false;" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';"/></A>
+                    <A href="#" onclick="changeRank(${submission.rank+1}, ${submission.id});return false;"
+                       onfocus="this.blur();">
+                        <img src="/i/layout/btnMoveDown.png" alt="Move down"
+                             onmouseover="this.src = '/i/layout/btnMoveDownOn.png';"
+                             onmouseout="this.src = '/i/layout/btnMoveDown.png';"/>
+                    </A>
                 </div>
             </td>
             <td class="valueC">
                 <div align="center">
-                    <A href="#" onclick="changeRank(1, ${submission.id});return false;" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></A>
+                    <A href="#" onclick="changeRank(1, ${submission.id});return false;" onfocus="this.blur();">
+                        <img src="/i/layout/btnMoveToTop.png" alt="Move to top"
+                             onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';"
+                             onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/>
+                    </A>
                 </div>
             </td>
         </c:otherwise>
@@ -87,5 +111,5 @@
 <c:if test="requst[ts]!=null">
 
     </taconite-replace-children>
- </taconite-root>
- </c:if>
+    </taconite-root>
+</c:if>
