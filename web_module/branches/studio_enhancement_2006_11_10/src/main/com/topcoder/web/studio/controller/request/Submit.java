@@ -140,6 +140,7 @@ public class Submit extends ShortHibernateProcessor {
                     cFactory = StudioDAOUtil.getFactory();
                     c = cFactory.getContestDAO().find(contestId);
                     u = factory.getUserDAO().find(new Long(getUser().getId()));
+                    getRequest().setAttribute("maxRank", cFactory.getSubmissionDAO().getMaxRank(c, u));
 
                     getRequest().setAttribute("submissions", cFactory.getSubmissionDAO().getSubmissions(u, c));
                     getRequest().setAttribute("contest", c);
