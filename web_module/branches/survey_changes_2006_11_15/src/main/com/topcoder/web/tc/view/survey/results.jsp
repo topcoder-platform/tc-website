@@ -69,18 +69,19 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
                <tc:questionIterator list="<%=questionInfo%>" id="question">
                   <table width="510" border="0" cellpadding="5" cellspacing="0" class="stat">
                      <tr class="light">
-                        <td class="value" valign="top" align = "center"colspan="4">
+                        <td class="value" valign="top" align = "center"colspan="5">
                         <tc:sponsorImage src="<%=question.getImagePath()%>" href="<%=question.getLink()%>" alt="survey logo" width="160" height="95" align="center" border="0"/>
                         </td>
                      </tr>
                      <tr class="light">
-                        <td colspan="4" class="light" valign="top" width="100%">
+                        <td colspan="5" class="light" valign="top" width="100%">
                            <span class="subtitle"><jsp:getProperty name="question" property="text"/></span><br/><br/>
                         </td>
                      </tr>
                      <tr>
-                        <td class="header">Answer</td>
+                        <td class="header">A-nswer</td>
                         <td class="headerR">Responses</td>
+                        <td class="headerR">My Vote</td>
                         <td class="headerR">Percentage</td>
                         <td class="header"><div style="width:100px;">&#160;</div></td>
                      </tr>
@@ -92,6 +93,9 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
                         </td>
                         <td class="valueR">
                           <rsc:item row="<%=answer%>" name="count"/>
+                        </td>
+                        <td class="valueC">
+                          <rsc:item row="<%=answer%>" name="my_vote"/>
                         </td>
                         <td class="valueR">
                            <rsc:item row="<%=answer%>" name="percentage" format="0.00"/>%
