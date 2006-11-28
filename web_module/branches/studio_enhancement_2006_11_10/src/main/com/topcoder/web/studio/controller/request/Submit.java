@@ -133,19 +133,17 @@ public class Submit extends ShortHibernateProcessor {
                     }
 
                     cFactory.getSubmissionDAO().saveOrUpdate(s);
+
                     markForCommit();
-                    closeConversation();
-                    beginCommunication();
 
-                    cFactory = StudioDAOUtil.getFactory();
-                    c = cFactory.getContestDAO().find(contestId);
-                    u = factory.getUserDAO().find(new Long(getUser().getId()));
-                    getRequest().setAttribute("maxRank", cFactory.getSubmissionDAO().getMaxRank(c, u));
+                    StringBuffer nextPage = new StringBuffer(50);
+                    nextPage.append(getSessionInfo().getServletPath());
+                    nextPage.append("?" + Constants.MODULE_KEY + "=ViewSubmissionSuccess&");
+                    nextPage.append(Constants.SUBMISSION_ID + "=").append(s.getId());
+                    setNextPage(buf.toString());
+                    setIsNextPageInContext(false);
 
-                    getRequest().setAttribute("submissions", cFactory.getSubmissionDAO().getSubmissions(u, c));
-                    getRequest().setAttribute("contest", c);
-                    setNextPage("/submissionSuccess.jsp");
-                    setIsNextPageInContext(true);
+
                 }
 
             }
