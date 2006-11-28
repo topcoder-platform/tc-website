@@ -96,9 +96,8 @@
                 </div>
 
                 <div style="margin: 40px 0px 20px 0px;">
-                    <form name="submissionForm" method="POST" action="${sessionInfo.servletPath}">
+                    <form name="submissionForm">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="BatchUpdateRank"/>
-                    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>" value="${contest.id}"/>
                     <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
                         <thead>
                             <tr>
@@ -113,7 +112,7 @@
                                 <td class="headerC">
                                     Ranking
                                     <div>
-                                        <A href="#"onclick="document.submissionForm.submit();return false;"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></A>
+                                        <A href="#"onclick="batchUpdate();return false;"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></A>
                                     </div>
                                 </td>
                                 <td class="header" colspan="2" width="33%">

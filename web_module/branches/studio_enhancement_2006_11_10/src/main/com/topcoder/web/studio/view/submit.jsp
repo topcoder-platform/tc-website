@@ -27,7 +27,6 @@
             objPopUp.style.visibility = 'hidden';
             objPopUp = null;
         }
-
         // -->
     </script>
     <STYLE TYPE="text/css">
@@ -108,8 +107,6 @@
         <div align="center">
             <form action="${sessionInfo.servletPath}" method="POST" name="submission" enctype="multipart/form-data">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
-                <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-
                 <p>
                     <b>My design:</b><br/>
                                     <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>">${err}
@@ -131,7 +128,7 @@
 
 
 <div style="margin: 40px 0px 20px 0px;">
-<form name="submissionForm" method="POST" action="${sessionInfo.servletPath}">
+<form name="submissionForm">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="BatchUpdateRank"/>
 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>" value="${contest.id}"/>
 <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
@@ -148,7 +145,7 @@
         <td class="headerC">
             Ranking
             <div>
-                <A href="#" onclick="document.submissionForm.submit();return false;"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></A>
+                <A href="#" onclick="batchUpdate();return false;"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></A>
             </div>
         </td>
         <td class="header" colspan="2" width="33%">
