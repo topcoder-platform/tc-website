@@ -52,7 +52,7 @@ ajaxRequest.sendRequest();
 <div>&#160;</div>
 </td>
 <td class="valueC">
-<tc-webtag:errorIterator id="err" name="${submissionId}${submission.id}"><span class="bigRed">${err}</span><br /></tc-webtag:errorIterator>
+<tc-webtag:errorIterator id="err" name="${submissionId}${submission.id}"><tr><td class="valueC" colspan="9"><span class="bigRed">${err}</span></td></tr></tc-webtag:errorIterator>
 <c:choose>
 <c:when test="${submission.review.status.id==failed}">
 <%-- doesn't matter what goes in here, we're not populating it because it failed--%>
