@@ -71,6 +71,7 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
             hash.add(sub.getRank());
         }
 
+        Submission s = (Submission)userSubmissions.get(0);
         if (!hasErrors()) {
             for (Iterator it = userSubmissions.iterator(); it.hasNext();) {
                 dao.saveOrUpdate((Submission)it.next());
@@ -81,14 +82,21 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
 
             beginCommunication();
 
-            Submission s = (Submission)userSubmissions.get(0);
             HibernateUtils.getSession().refresh(s);
             dao = StudioDAOUtil.getFactory().getSubmissionDAO();
-            loadSubmissionData(s.getSubmitter(), s.getContest(), dao, maxRank);
-            setIsNextPageInContext(true);
-            setNextPage("submitTableBody.jsp");
-
         }
+
+        loadSubmissionData(s.getSubmitter(), s.getContest(), dao, maxRank);
+        //override so that the user gets their data back to them
+        for (Enumeration paramNames = getRequest().getParameterNames(); paramNames.hasMoreElements();) {
+            paramName = (String) paramNames.nextElement();
+            setDefault(paramName, getRequest().getParameter(paramName));
+        }
+        
+        setIsNextPageInContext(true);
+        setNextPage("submitTableBody.jsp");
+
+
     }
 
     private Submission findSubmission(List submissions, Long id) {
