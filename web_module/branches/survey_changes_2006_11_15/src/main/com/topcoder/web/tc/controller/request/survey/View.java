@@ -22,10 +22,9 @@ public class View extends SurveyData {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         try {
             if (alreadyResponded()) {
-                log.info("Already responded...");
-/*                SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-                setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=SurveyResults&" + Constants.SURVEY_ID + "=" + survey.getId());
-               setIsNextPageInContext(false);*/
+                // we'll display user's response.
+                log.debug("Already responded...");
+                
                 // sets all defaults
                 setResponseDefaults(getUser().getId(), survey.getId());
                 getRequest().setAttribute("alreadyResponded", new Boolean("true"));
@@ -47,8 +46,14 @@ public class View extends SurveyData {
         setIsNextPageInContext(true);
     }
 
+    /**
+     * First processing of the board
+     *
+     * @param userId the user id
+     * @param surveyId the survey id
+     */
     private void setResponseDefaults(long userId, long surveyId) throws Exception {
-        log.info("Setting defaults...");
+        log.debug("Setting defaults...");
         Request req = new Request();
         DataAccessInt dataAccess = getDataAccess(true);
         req.setContentHandle("response_detail");
@@ -61,20 +66,19 @@ public class View extends SurveyData {
             row = (ResultSetContainer.ResultSetRow) it.next();
 
             int styleId = row.getIntItem("question_style_id");
-            //int typeId = row.getIntItem("question_type_id");
             if  (styleId == Question.LONG_ANSWER || styleId == Question.SHORT_ANSWER) {
                 setDefault(AnswerInput.PREFIX + row.getLongItem("question_id"), row.getStringItem("response"));
-                log.info("setDefault: " + AnswerInput.PREFIX + row.getLongItem("question_id"));
-                log.info("value: " + row.getStringItem("response"));
+                log.debug("setDefault: " + AnswerInput.PREFIX + row.getLongItem("question_id"));
+                log.debug("value: " + row.getStringItem("response"));
             } else if (styleId == Question.SINGLE_CHOICE) {
                 setDefault(AnswerInput.PREFIX + row.getLongItem("question_id"), new Long(row.getLongItem("answer_id")));
-                log.info("setDefault: " + AnswerInput.PREFIX + row.getLongItem("question_id"));
-                log.info("value: " + row.getLongItem("answer_id"));
+                log.debug("setDefault: " + AnswerInput.PREFIX + row.getLongItem("question_id"));
+                log.debug("value: " + row.getLongItem("answer_id"));
             } else if (styleId == Question.MULTIPLE_CHOICE) {
                 setDefault(AnswerInput.PREFIX + row.getLongItem("question_id") + 
                     "," + row.getLongItem("answer_id"), "true");
-                log.info("setDefault: " + AnswerInput.PREFIX + row.getLongItem("question_id"));
-                log.info("value: " + "true");
+                log.debug("setDefault: " + AnswerInput.PREFIX + row.getLongItem("question_id"));
+                log.debug("value: " + "true");
             }
         }
     }

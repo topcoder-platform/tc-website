@@ -215,6 +215,7 @@ public class AnswerInput extends BaseTag {
             s.append(a.getId());
             s.append("\"");
 
+            // add the posibility to specify a default value.
             if (getDefaultValue() != null && getDefaultValue().equals(new Long(a.getId()))) {
                 s.append(" selected");
             }
