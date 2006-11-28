@@ -1,8 +1,10 @@
 package com.topcoder.web.studio.controller.request;
 
 import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.SubmissionDAO;
+import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.Submission;
 
 import java.util.Iterator;
@@ -15,15 +17,15 @@ import java.util.List;
  */
 abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
 
-    void loadSubmissionData(Submission s, SubmissionDAO dao) {
-        Integer maxRank = dao.getMaxRank(s.getContest(), s.getSubmitter());
-        loadSubmissionData(s, dao, maxRank);
+    void loadSubmissionData(User u, Contest c, SubmissionDAO dao) {
+        Integer maxRank = dao.getMaxRank(c, u);
+        loadSubmissionData(u, c, dao, maxRank);
     }
 
-    void loadSubmissionData(Submission s, SubmissionDAO dao, Integer maxRank) {
+    void loadSubmissionData(User u, Contest c, SubmissionDAO dao, Integer maxRank) {
         getRequest().setAttribute("maxRank", maxRank);
 
-        List submissions = dao.getSubmissions(s.getSubmitter(), s.getContest());
+        List submissions = dao.getSubmissions(u, c);
 
         Submission curr;
         for (Iterator it = submissions.iterator(); it.hasNext();) {
@@ -32,7 +34,7 @@ abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
         }
 
         getRequest().setAttribute("submissions", submissions);
-        getRequest().setAttribute("contest", s.getContest());
+        getRequest().setAttribute("contest", c);
 
     }
 

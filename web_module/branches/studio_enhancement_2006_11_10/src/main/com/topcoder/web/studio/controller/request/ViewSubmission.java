@@ -3,7 +3,6 @@ package com.topcoder.web.studio.controller.request;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
@@ -20,10 +19,7 @@ import java.util.Date;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 20, 2006
  */
-public class ViewSubmission extends ShortHibernateProcessor {
-    //check if they're registered
-    //if not, go to reg page
-    //if so, go to submission page
+public class ViewSubmission extends BaseSubmissionDataProcessor {
 
     protected void dbProcessing() throws Exception {
         if (userLoggedIn()) {
@@ -57,9 +53,7 @@ public class ViewSubmission extends ShortHibernateProcessor {
             } else {
                 //registered
                 setDefault(Constants.CONTEST_ID, contestId.toString());
-                getRequest().setAttribute("maxRank", cFactory.getSubmissionDAO().getMaxRank(c, u));
-                getRequest().setAttribute("contest", c);
-                getRequest().setAttribute("submissions", cFactory.getSubmissionDAO().getSubmissions(u, c));
+                loadSubmissionData(u, c, cFactory.getSubmissionDAO());
                 setNextPage("/submit.jsp");
                 setIsNextPageInContext(true);
             }

@@ -40,7 +40,7 @@ public class UpdateSubmissionRank extends BaseSubmissionDataProcessor {
                 dao = StudioDAOUtil.getFactory().getSubmissionDAO();
                 s = dao.find(new Long(submissionId));
             }
-            loadSubmissionData(s, dao, maxRank);
+            loadSubmissionData(s.getSubmitter(), s.getContest(), dao, maxRank);
 
             setIsNextPageInContext(true);
             setNextPage("submitTableBody.jsp");
