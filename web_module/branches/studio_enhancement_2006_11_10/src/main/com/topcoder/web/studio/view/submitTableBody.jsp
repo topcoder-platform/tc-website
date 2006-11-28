@@ -19,7 +19,7 @@
         </c:otherwise>
     </c:choose>
     <td class="valueW">
-        <div>&nbsp;</div>
+        <div>&#160;</div>
     </td>
     <td class="valueC">
         <c:choose>
@@ -79,7 +79,7 @@
     </c:choose>
 
     <td class="valueE">
-        <div>&nbsp;</div>
+        <div>&#160;</div>
     </td>
     </tr>
     <% even = !even;%>
