@@ -78,9 +78,7 @@
                             <div align="center" style="margin:2px;">
                             <c:choose>
                                 <c:when test="${submission.rank==1}">
-                                    <img src="/i/layout/btnMoveUp.png" alt="Move up"
-                                         onmouseover="this.src = '/i/layout/btnMoveUpOn.png';"
-                                         onmouseout="this.src = '/i/layout/btnMoveUp.png';"/>
+                                    <img src="/i/layout/btnMoveUpNA.png" alt="Raise priority"/>
                                 </c:when>
                                 <c:otherwise>
                                 <A href="#" onclick="changeRank(${submission.rank-1}, ${submission.id});return false;"
@@ -95,9 +93,7 @@
                             <div align="center" style="margin:2px;">
                             <c:choose>
                                 <c:when test="${submission.rank==maxRank}">
-                                    <img src="/i/layout/btnMoveDown.png" alt="Move down"
-                                         onmouseover="this.src = '/i/layout/btnMoveDownOn.png';"
-                                         onmouseout="this.src = '/i/layout/btnMoveDown.png';"/>
+                                    <img src="/i/layout/btnMoveDownNA.png" alt="Move down"/>
                                 </c:when>
                                 <c:otherwise>
                                 <A href="#" onclick="changeRank(${submission.rank+1}, ${submission.id});return false;"
@@ -114,9 +110,7 @@
                             <div align="center">
                             <c:choose>
                                 <c:when test="${submission.rank==1}">
-                                    <img src="/i/layout/btnMoveToTop.png" alt="Move to top"
-                                         onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';"
-                                         onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/>
+                                    <img src="/i/layout/btnMoveToTopNA.png" alt="Move to top"/>
                                 </c:when>
                                 <c:otherwise>
                                 <A href="#" onclick="changeRank(1, ${submission.id});return false;"
