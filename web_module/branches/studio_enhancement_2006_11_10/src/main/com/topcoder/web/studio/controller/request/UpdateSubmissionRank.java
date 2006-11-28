@@ -19,22 +19,24 @@ public class UpdateSubmissionRank extends ShortHibernateProcessor {
         SubmissionDAO dao = StudioDAOUtil.getFactory().getSubmissionDAO();
         Submission s = dao.find(new Long(submissionId));
         if (s.getSubmitter().getId().longValue() == getUser().getId()) {
-            String newRank = getRequest().getParameter(Constants.SUBMISSION_RANK);
-            dao.changeRank(new Integer(newRank), s);
+            int newRank = Integer.parseInt(getRequest().getParameter(Constants.SUBMISSION_RANK));
+            if (newRank > 0 && newRank <= dao.getMaxRank(s.getContest(), s.getSubmitter()).intValue()) {
+                dao.changeRank(new Integer(newRank), s);
 
-            markForCommit();
-            closeConversation();
+                markForCommit();
+                closeConversation();
 
-            beginCommunication();
+                beginCommunication();
 
-            dao = StudioDAOUtil.getFactory().getSubmissionDAO();
-            s = dao.find(new Long(submissionId));
+                dao = StudioDAOUtil.getFactory().getSubmissionDAO();
+                s = dao.find(new Long(submissionId));
 
-            getRequest().setAttribute("submissions", dao.getSubmissions(s.getSubmitter(), s.getContest()));
-            getRequest().setAttribute("contest", s.getContest());
+                getRequest().setAttribute("submissions", dao.getSubmissions(s.getSubmitter(), s.getContest()));
+                getRequest().setAttribute("contest", s.getContest());
 
-            setIsNextPageInContext(true);
-            setNextPage("submitTableBody.jsp");
+                setIsNextPageInContext(true);
+                setNextPage("submitTableBody.jsp");
+            }
         } else {
             throw new NavigationException("Illegal operation attempted, submission doesn't belong to current user.");
         }
