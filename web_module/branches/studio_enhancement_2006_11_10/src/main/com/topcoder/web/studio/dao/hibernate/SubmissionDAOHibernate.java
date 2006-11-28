@@ -81,6 +81,20 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
         return q.list();
 
     }
+
+    public List getSubmissions(Long contestId, Long submitterId) {
+        Query q = session.createQuery("from Submission s " +
+                "left join fetch s.review " +
+                "left join fetch s.result " +
+                "where s.submitter.id = ? " +
+                "and s.contest.id = ? " +
+                "order by case when s.rank is null then 10000 else s.rank end asc");
+        q.setLong(0, submitterId.longValue());
+        q.setLong(1, contestId.longValue());
+        return q.list();
+
+    }
+
     /*
     public void changeRank(Integer newRank, Long submissionId, Long userId) {
             Query submissionQuery = session.createQuery("select s.rank, s.contest.id from Submission s where s.id=? and s.submitter.id=?");
