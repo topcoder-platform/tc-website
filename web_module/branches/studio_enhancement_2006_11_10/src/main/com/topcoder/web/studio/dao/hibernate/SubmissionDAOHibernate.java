@@ -18,8 +18,8 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
     public void saveOrUpdate(Submission s) {
         if (s.isNew()) {
             Query q = session.createQuery("select max(s.rank) from Submission s where s.contest.id = ? and s.submitter.id = ?");
-            q.setLong(0, s.getSubmitter().getId().longValue());
-            q.setLong(1, s.getContest().getId().longValue());
+            q.setLong(0, s.getContest().getId().longValue());
+            q.setLong(1, s.getSubmitter().getId().longValue());
             Integer maxRank = (Integer) q.uniqueResult();
             if (log.isDebugEnabled()) {
                 log.debug("maxRank " + maxRank);
