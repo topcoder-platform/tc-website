@@ -21,6 +21,9 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
             q.setLong(0, s.getSubmitter().getId().longValue());
             q.setLong(1, s.getContest().getId().longValue());
             Integer maxRank = (Integer) q.uniqueResult();
+            if (log.isDebugEnabled()) {
+                log.debug("maxRank " + maxRank);
+            }
             if (maxRank == null) {
                 s.setRank(new Integer(0));
             } else {
