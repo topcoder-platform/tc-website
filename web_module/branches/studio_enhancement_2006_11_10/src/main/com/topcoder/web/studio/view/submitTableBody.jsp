@@ -63,15 +63,15 @@
         <c:otherwise>
             <td class="valueC">
                 <div align="center" style="margin:2px;">
-                    <A href="#" onclick="changeRank(${submission.rank-1}, submission.id);return false;" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></A>
+                    <A href="#" onclick="changeRank(${submission.rank-1}, ${submission.id});return false;" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></A>
                 </div>
                 <div align="center" style="margin:2px;">
-                    <A href="#" onclick="changeRank(${submission.rank+1}, submission.id);return false;" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';"/></A>
+                    <A href="#" onclick="changeRank(${submission.rank+1}, ${submission.id});return false;" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';"/></A>
                 </div>
             </td>
             <td class="valueC">
                 <div align="center">
-                    <A href="#" onclick="changeRank(1, submission.id);return false;" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></A>
+                    <A href="#" onclick="changeRank(1, ${submission.id});return false;" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></A>
                 </div>
             </td>
         </c:otherwise>
