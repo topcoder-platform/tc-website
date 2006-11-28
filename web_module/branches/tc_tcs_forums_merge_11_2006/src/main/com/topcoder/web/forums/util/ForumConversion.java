@@ -117,21 +117,18 @@ public class ForumConversion {
 
     // New administrators will need to be added to the "Software Administrators" group manually,
     // unless this is integrated into the "knighting" process.
-    private static long[] adminPermissions = {
+    private final static long[] ADMIN_PERMS = {
     	ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
     	ForumPermissions.RATE_MESSAGE, ForumPermissions.CREATE_MESSAGE_ATTACHMENT, ForumPermissions.CREATE_POLL, 
     	ForumPermissions.VOTE_IN_POLL, ForumPermissions.ANNOUNCEMENT_ADMIN, ForumPermissions.FORUM_CATEGORY_ADMIN};
-    private static long[] blockPermissions = {
+    private final static long[] BLOCK_PERMS = {
     	ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
     	ForumPermissions.RATE_MESSAGE, ForumPermissions.CREATE_MESSAGE_ATTACHMENT, ForumPermissions.CREATE_POLL, 
     	ForumPermissions.VOTE_IN_POLL, ForumPermissions.ANNOUNCEMENT_ADMIN};
-    private static long[] moderatorPermissions = {
+    private final static long[] MODERATOR_PERMS = {
     	ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
     	ForumPermissions.RATE_MESSAGE, ForumPermissions.FORUM_CATEGORY_ADMIN, 
     	ForumPermissions.CREATE_MESSAGE_ATTACHMENT, ForumPermissions.CREATE_POLL, ForumPermissions.VOTE_IN_POLL};
-    private static long[] userPermissions = {
-		ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
-		ForumPermissions.RATE_MESSAGE, ForumPermissions.CREATE_POLL, ForumPermissions.VOTE_IN_POLL};
     
     public static void convertForums(ForumFactory forumFactory) {       
     	if (!JiveGlobals.getJiveBooleanProperty("tc.convert.tcs.forums")) {
@@ -211,8 +208,12 @@ public class ForumConversion {
         }
         rs.close();
         
-        for (int i=0; i<adminPermissions.length; i++) {
-        	root.getPermissionsManager().addGroupPermission(swAdminGroup, PermissionType.ADDITIVE, adminPermissions[i]);
+        for (int i=0; i<ADMIN_PERMS.length; i++) {
+        	root.getPermissionsManager().addGroupPermission(swAdminGroup, PermissionType.ADDITIVE, ADMIN_PERMS[i]);
+        }
+        for (int i=0; i<BLOCK_PERMS.length; i++) {
+        	root.getPermissionsManager().addAnonymousUserPermission(PermissionType.NEGATIVE, BLOCK_PERMS[i]);
+        	root.getPermissionsManager().addRegisteredUserPermission(PermissionType.NEGATIVE, BLOCK_PERMS[i]);
         }
         
         HashSet publicOldForumSet = new HashSet();
@@ -323,11 +324,11 @@ public class ForumConversion {
             moderatorGroup.setDescription(category.getName());
             userGroup.setDescription(category.getName());
             PermissionsManager categoryPermissionsManager = category.getPermissionsManager();
-            for (int i=0; i<moderatorPermissions.length; i++) {
-            	categoryPermissionsManager.addGroupPermission(moderatorGroup, PermissionType.ADDITIVE, moderatorPermissions[i]);
+            for (int i=0; i<MODERATOR_PERMS.length; i++) {
+            	categoryPermissionsManager.addGroupPermission(moderatorGroup, PermissionType.ADDITIVE, MODERATOR_PERMS[i]);
             }
-            for (int i=0; i<userPermissions.length; i++) {
-            	categoryPermissionsManager.addGroupPermission(userGroup, PermissionType.ADDITIVE, userPermissions[i]);
+            for (int i=0; i<ForumConstants.REGISTERED_PERMS.length; i++) {
+            	categoryPermissionsManager.addGroupPermission(userGroup, PermissionType.ADDITIVE, ForumConstants.REGISTERED_PERMS[i]);
             }
             
             oldForumPS.setLong(1, forum.getCompVersId());
@@ -338,9 +339,9 @@ public class ForumConversion {
             rs.close();
             
             if (!publicOldForumSet.contains(String.valueOf(oldForumID))) {
-	            for (int i=0; i<blockPermissions.length; i++) {
-	            	categoryPermissionsManager.addAnonymousUserPermission(PermissionType.NEGATIVE, blockPermissions[i]);
-	            	categoryPermissionsManager.addRegisteredUserPermission(PermissionType.NEGATIVE, blockPermissions[i]);
+	            for (int i=0; i<BLOCK_PERMS.length; i++) {
+	            	categoryPermissionsManager.addAnonymousUserPermission(PermissionType.NEGATIVE, BLOCK_PERMS[i]);
+	            	categoryPermissionsManager.addRegisteredUserPermission(PermissionType.NEGATIVE, BLOCK_PERMS[i]);
 	            }
             }
            

@@ -4,6 +4,7 @@
 package com.topcoder.web.forums;
 
 import com.jivesoftware.base.JiveGlobals;
+import com.jivesoftware.forum.ForumPermissions;
 
 /**
  * @author mtong
@@ -163,6 +164,13 @@ public interface ForumConstants {
     public final static int MAX_DISPLAYED_FORUMS_PER_CATEGORY = 15;
     public final static int MAX_POLL_CHOICES = 100;
 
+    // Permissions
+    public final static long[] ANONYMOUS_PERMS = {
+		ForumPermissions.READ_FORUM };
+    public final static long[] REGISTERED_PERMS = {
+		ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
+		ForumPermissions.RATE_MESSAGE, ForumPermissions.CREATE_POLL, ForumPermissions.VOTE_IN_POLL};
+    
     // Error messages
     public final static String ERR_EMPTY_MESSAGE_SUBJECT =
         "Please include a message subject.";

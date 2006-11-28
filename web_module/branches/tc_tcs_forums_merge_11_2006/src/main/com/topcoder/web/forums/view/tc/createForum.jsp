@@ -141,7 +141,7 @@ function AllowTabCharacter() {
 		<%  if (errors.get(ForumConstants.FORUM_NAME) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.FORUM_NAME%>"><%=err%><br/></tc-webtag:errorIterator></span><% } %>
 		<b>Name:</b><br/><tc-webtag:textInput size="60" name="<%=ForumConstants.FORUM_NAME%>" escapeHtml="false" onKeyPress="return noenter(event)"/><br/><br/>
 		<%  if (errors.get(ForumConstants.FORUM_DESCRIPTION) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.FORUM_DESCRIPTION%>"><%=err%><br/></tc-webtag:errorIterator></span><% } %>
-		<b>Description:</b></font><br/><tc-webtag:textArea id="tcPostArea" rows="15" cols="72" name="<%=ForumConstants.FORUM_NAME%>" onKeyDown="AllowTabCharacter()"/>
+		<b>Description:</b></font><br/><tc-webtag:textArea id="tcPostArea" rows="15" cols="72" name="<%=ForumConstants.FORUM_DESCRIPTION%>" onKeyDown="AllowTabCharacter()"/>
 		</td>
 	</tr>
 	
