@@ -1,7 +1,6 @@
 package com.topcoder.web.studio.controller.request;
 
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
@@ -15,7 +14,7 @@ import java.util.Date;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Nov 20, 2006
  */
-public class UpdateSubmissionRank extends ShortHibernateProcessor {
+public class UpdateSubmissionRank extends BaseSubmissionDataProcessor {
     protected void dbProcessing() throws Exception {
 
         String submissionId = getRequest().getParameter(Constants.SUBMISSION_ID);
@@ -30,7 +29,6 @@ public class UpdateSubmissionRank extends ShortHibernateProcessor {
         } else if (s.getSubmitter().getId().longValue() == getUser().getId()) {
             int newRank = Integer.parseInt(getRequest().getParameter(Constants.SUBMISSION_RANK));
             Integer maxRank = dao.getMaxRank(s.getContest(), s.getSubmitter());
-            getRequest().setAttribute("maxRank", maxRank);
             if (newRank > 0 && newRank <= maxRank.intValue()) {
                 dao.changeRank(new Integer(newRank), s);
 
@@ -42,8 +40,7 @@ public class UpdateSubmissionRank extends ShortHibernateProcessor {
                 dao = StudioDAOUtil.getFactory().getSubmissionDAO();
                 s = dao.find(new Long(submissionId));
             }
-            getRequest().setAttribute("submissions", dao.getSubmissions(s.getSubmitter(), s.getContest()));
-            getRequest().setAttribute("contest", s.getContest());
+            loadSubmissionData(s, dao, maxRank);
 
             setIsNextPageInContext(true);
             setNextPage("submitTableBody.jsp");
