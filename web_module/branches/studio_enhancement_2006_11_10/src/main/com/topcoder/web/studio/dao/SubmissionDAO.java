@@ -24,4 +24,6 @@ public interface SubmissionDAO {
 
     List getSubmissions(User u, Contest c);
 
+    Integer getMaxRank(Contest contest, User submitter);
+
 }
