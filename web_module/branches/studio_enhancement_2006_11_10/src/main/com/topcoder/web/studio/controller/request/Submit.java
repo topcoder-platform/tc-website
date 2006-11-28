@@ -126,8 +126,6 @@ public class Submit extends ShortHibernateProcessor {
 
                     cFactory.getSubmissionDAO().saveOrUpdate(s);
                     markForCommit();
-
-                    markForCommit();
                     closeConversation();
                     beginCommunication();
 

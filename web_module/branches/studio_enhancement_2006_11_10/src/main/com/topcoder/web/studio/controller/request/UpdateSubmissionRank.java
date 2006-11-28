@@ -21,6 +21,10 @@ public class UpdateSubmissionRank extends ShortHibernateProcessor {
         if (s.getSubmitter().getId().longValue() == getUser().getId()) {
             String newRank = getRequest().getParameter(Constants.SUBMISSION_RANK);
             dao.changeRank(new Integer(newRank), s);
+            markForCommit();
+            closeConversation();
+            beginCommunication();
+
         } else {
             throw new NavigationException("Illegal operation attempted, submission doesn't belong to current user.");
         }
