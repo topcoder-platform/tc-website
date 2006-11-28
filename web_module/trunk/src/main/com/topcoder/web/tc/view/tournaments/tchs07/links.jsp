@@ -20,6 +20,6 @@
 <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineschedule"<% if (tabLev1.equals("onlineschedule")) {%> class="on"<% } %>>ONLINE SCHEDULE</A>
 <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onsiteschedule"<% if (tabLev1.equals("onsiteschedule")) {%> class="on"<% } %>>ONSITE SCHEDULE</A>
 <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=rules"<% if (tabLev1.equals("rules")) {%> class="on"<% } %>>RULES</A>
-<A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=sponsors"<% if (tabLev1.equals("sponsors")) {%> class="on"<% } %>>SPONSORS</A>
+<%--<A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=sponsors"<% if (tabLev1.equals("sponsors")) {%> class="on"<% } %>>SPONSORS</A>--%>
 <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=purdue"<% if (tabLev1.equals("purdue")) {%> class="on"<% } %>>PURDUE</A>
 </div>
