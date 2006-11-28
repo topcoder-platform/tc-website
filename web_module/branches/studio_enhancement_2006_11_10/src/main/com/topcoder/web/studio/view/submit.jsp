@@ -29,7 +29,7 @@
         }
 
         function changeRank(newRank, submissionId) {
-            var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=UpdateSubmissionrank&<%=Constants.SUBMISSION_RANK%>=' + newRank + '&<%=Constants.SUBMISSION_ID%>' + submissionId);
+            var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=UpdateSubmissionRank&<%=Constants.SUBMISSION_RANK%>=' + newRank + '&<%=Constants.SUBMISSION_ID%>' + submissionId);
             //    ajaxRequest.setPostRequest(loaded);
             //    ajaxRequest.setPreRequest(loading);
             ajaxRequest.sendRequest();
