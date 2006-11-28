@@ -43,6 +43,28 @@
 </jsp:include>
 
 <p>
+    5.5.10 - 2006.11.xx
+    <ul>
+        <li>Fix a bug when expiring old payments</li>
+<%--
+        <li>Add in rating history the percentile column.</li>
+        <li>Add a column "Challenge Time"  for challenges and defenses for regular and hs competitions stats</li>
+        <li>Add testers in problem detail</li>
+        <li>New component stats added
+            <ul>
+                <li>Best Average Component Contest Score</li>
+                <li>Most Submission Reviews</li>
+                <li>Highest Rating Point Gain</li>
+                <li>Impressive Debuts</li>
+                <li>Consecutive Winnings</li>
+                <li>Consecutive 1st or 2nd place</li>
+                <li>Consecutive Rating Increase</li>
+            </ul>
+        </li>
+        
+--%>
+    </ul>
+
     5.5.9 - 2006.11.20
     <ul>
         <li>Design and Development Active Contests columns are now sorteable</li>
