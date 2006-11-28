@@ -36,6 +36,10 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
     }
 
     public void changeRank(Integer newRank, Submission s) {
+        if (log.isDebugEnabled()) {
+            log.debug("newRank: " + newRank + " oldRank: " + s.getRank());
+        }
+
         StringBuffer buf = new StringBuffer(100);
         buf.append("update Submission s set rank = ");
         if (newRank.compareTo(s.getRank()) < 0) {
