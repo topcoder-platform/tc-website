@@ -20,7 +20,9 @@ public class UpdateSubmissionRank extends ShortHibernateProcessor {
         Submission s = dao.find(new Long(submissionId));
         if (s.getSubmitter().getId().longValue() == getUser().getId()) {
             int newRank = Integer.parseInt(getRequest().getParameter(Constants.SUBMISSION_RANK));
-            if (newRank > 0 && newRank <= dao.getMaxRank(s.getContest(), s.getSubmitter()).intValue()) {
+            Integer maxRank = dao.getMaxRank(s.getContest(), s.getSubmitter());
+            getRequest().setAttribute("maxRank", maxRank);
+            if (newRank > 0 && newRank <= maxRank.intValue()) {
                 dao.changeRank(new Integer(newRank), s);
 
                 markForCommit();

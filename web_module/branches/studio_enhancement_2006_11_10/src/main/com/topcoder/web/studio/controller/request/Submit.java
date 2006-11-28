@@ -125,6 +125,7 @@ public class Submit extends ShortHibernateProcessor {
                     fos.close();
 
                     Integer maxRank = cFactory.getSubmissionDAO().getMaxRank(c, u);
+                    getRequest().setAttribute("maxRank", maxRank);
                     if (maxRank == null) {
                         s.setRank(new Integer(1));
                     } else {

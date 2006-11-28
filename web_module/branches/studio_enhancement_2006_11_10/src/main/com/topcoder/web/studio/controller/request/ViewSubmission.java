@@ -57,6 +57,7 @@ public class ViewSubmission extends ShortHibernateProcessor {
             } else {
                 //registered
                 setDefault(Constants.CONTEST_ID, contestId.toString());
+                getRequest().setAttribute("maxRank", cFactory.getSubmissionDAO().getMaxRank(c, u));
                 getRequest().setAttribute("contest", c);
                 getRequest().setAttribute("submissions", cFactory.getSubmissionDAO().getSubmissions(u, c));
                 setNextPage("/submit.jsp");
