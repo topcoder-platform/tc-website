@@ -16,4 +16,4 @@
 <IMG SRC="/i/home/arenaNaolmashups.png" border="0" alt="ArenaAOLMashups" usemap="#ArenaAOLMashups"/>
 --%>
 
-<A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2045"><img src="/i/home/aolMashups20061102.png" alt="AOL Mashups" /></A>
+<A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2045"><img src="/i/home/aolmashups20061128.jpg" alt="AOL Mashups" /></A>

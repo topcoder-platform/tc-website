@@ -9,6 +9,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0" /><br>11.28.06<br>4:10 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=112806">Digital Run Stage 2: Going for the win</A></span><br><br>
+       Over the course of just ten weeks of the stage, <tc-webtag:handle coderId="287614" context="design"/> competed on 35 components, winning 28 and taking second place on 7. Here, he tells us how he did it.</td>
+         <td class="newsPhoto"><img src="/i/m/argolite_big.jpg"  alt="" width="55" height="61"/><br>by 
+         <tc-webtag:handle coderId="287614" context="design"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=112806">full story</A> | 
+         <tc-webtag:forumLink forumID="506190" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>11.27.06<br>11:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -165,20 +182,5 @@
        <A href="http://www.internetnews.com/dev-news/article.php/3644456" target="_blank">full story</A> | 
        <tc-webtag:forumLink forumID="506187" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.17.06<br>1:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_wildcard_analysis">Eryx wins the WildCard Round</A>
-        </span><br><br>
-      It was an exciting round as the last two competitors earned a spot in the Final Round.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_wildcard_analysis">details</A> | 
-         <tc-webtag:forumLink forumID="506184" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
