@@ -7,7 +7,7 @@
     <jsp:include page="/script.jsp"/>
 
     <title>VeriSign Code Fest, Powered by TopCoder</title>
-    <link type="text/css" rel="stylesheet" href="/css/verisign06.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/vicc.css"/>
 </head>
 
 <body>
@@ -39,7 +39,7 @@ Once the Competition Arena launches, you will be presented with a login screen.
 
 <br/><br/>
 
-<div align="center"><img src="/i/events/verisign06/arena1_ver.gif" alt="" border="0"/></div>
+<div align="center"><img src="/i/events/vicc/arena1_ver.gif" alt="" border="0"/></div>
 <br/><br/>
 
 From here, you need simply type in your handle and the password that you chose during the registration process. Once you
@@ -47,7 +47,7 @@ log in, you will initially be placed in the main chat lobby.
 
 <br/><br/>
 
-<div align="center"><img src="/i/events/verisign06/arena2_ver.gif" alt="" border="0"/></div>
+<div align="center"><img src="/i/events/vicc/arena2_ver.gif" alt="" border="0"/></div>
 <br/><br/>
 <span class="bodySubtitle">How to Register for a Single Round Match</span><br/>
 Registration for a Single Round Match is open two hours and 55 minutes prior to the start of the contest.
@@ -98,7 +98,7 @@ Coding Phase.
 
 <br/><br/>
 
-<div align="center"><img src="/i/events/verisign06/arena3_ver.gif" alt="" border="0"/></div>
+<div align="center"><img src="/i/events/vicc/arena3_ver.gif" alt="" border="0"/></div>
 <br/><br/><br/>
 
 <span class="bodySubtitle">Coding Phase</span><br>
@@ -132,7 +132,7 @@ statement is shown, and the solutions are coded, compiled, tested, and submitted
 
 <br/><br/>
 
-<div align="center"><img src="/i/events/verisign06/arena4_ver.gif" alt="" border="0"/></div>
+<div align="center"><img src="/i/events/vicc/arena4_ver.gif" alt="" border="0"/></div>
 <br/><br/>
 
 <blockquote>
@@ -247,7 +247,7 @@ most recent successfully compiled code. The following is an example of an unsucc
 
 <br/><br/>
 
-<div align="center"><img src="/i/events/verisign06/arena5.gif" alt="" border="0"/></div>
+<div align="center"><img src="/i/events/vicc/arena5.gif" alt="" border="0"/></div>
 <br/><br/>
 
 <strong>User Testing</strong><br/>
@@ -278,7 +278,7 @@ When you click on the "Test" button from within the coding window, the "Problem 
 
 <br/><br/>
 
-<div align="center"><img src="/i/events/verisign06/arena6.gif" alt="" border="0"/></div>
+<div align="center"><img src="/i/events/vicc/arena6.gif" alt="" border="0"/></div>
 <br/><br/>
 
 The problem arguments window is where you will create the test case with which you wish to use to test your code. You
@@ -363,7 +363,7 @@ To challenge a competitor's submission, open the summary window in the competiti
 
 <br/><br/>
 
-<div align="center"><img src="/i/events/verisign06/arena7.gif" alt="" border="0"/></div>
+<div align="center"><img src="/i/events/vicc/arena7.gif" alt="" border="0"/></div>
 <br/><br/>
 
 Double click on any of the point values (shown in green) to view the source code for that submission. When viewing the
