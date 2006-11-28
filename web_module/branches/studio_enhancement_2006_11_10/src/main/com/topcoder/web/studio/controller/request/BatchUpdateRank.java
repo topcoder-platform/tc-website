@@ -76,8 +76,10 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
 
                             beginCommunication();
 
+                            HibernateUtils.getSession().refresh(currSubmission);
+                            dao = StudioDAOUtil.getFactory().getSubmissionDAO();
                             loadSubmissionData(currSubmission.getSubmitter(), currSubmission.getContest(),
-                                    StudioDAOUtil.getFactory().getSubmissionDAO(), maxRank);
+                                    dao, maxRank);
                             setIsNextPageInContext(true);
                             setNextPage("submitTableBody.jsp");
                         } else {
