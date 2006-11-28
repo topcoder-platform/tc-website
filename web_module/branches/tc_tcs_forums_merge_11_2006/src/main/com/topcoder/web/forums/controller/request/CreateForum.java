@@ -30,20 +30,11 @@ public class CreateForum extends ForumsProcessor {
         long categoryID = Long.parseLong(getRequest().getParameter(ForumConstants.CATEGORY_ID));
         ForumCategory category = forumFactory.getForumCategory(categoryID);
         
-        // To create a new forum, the user must have moderator/admin permissions, and the category or an ancestor 
+        // To create a new forum, the user must have moderator/admin permissions, and the category 
         // must have the PROPERTY_MODIFY_FORUMS permission set to true.
-        boolean canModifyForums = false;
-        ForumCategory tempCategory = category;
-        while (tempCategory != null) {
-        	if ("true".equals(tempCategory.getProperty(ForumConstants.PROPERTY_MODIFY_FORUMS))) {
-        		canModifyForums = true;
-        		break;
-        	}
-        	tempCategory = category.getParentCategory(); 
-        }
         boolean isAuthorized = category.isAuthorized(Permissions.SYSTEM_ADMIN) || 
         		category.isAuthorized(ForumPermissions.FORUM_CATEGORY_ADMIN);
-        if (!canModifyForums || !isAuthorized) {
+        if (!"true".equals(category.getProperty(ForumConstants.PROPERTY_MODIFY_FORUMS)) || !isAuthorized) {
             setNextPage(getSessionInfo().getServletPath() + "?module=Main");
             setIsNextPageInContext(false);
             return;

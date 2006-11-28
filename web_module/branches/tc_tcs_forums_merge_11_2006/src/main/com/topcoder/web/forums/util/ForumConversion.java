@@ -317,8 +317,9 @@ public class ForumConversion {
             		forum.getRootCategoryId() + "");
             category.setProperty(ForumConstants.PROPERTY_FORUM_TYPE, forum.getForumType() + "");
             category.setProperty(ForumConstants.PROPERTY_VERSION_TEXT, forum.getVersionText());
+            category.setProperty(ForumConstants.PROPERTY_MODIFY_FORUMS, "true");
             
-            // set moderator, user permissions
+            // set moderator, user, admin permissions
             Group moderatorGroup = groupManager.createGroup(ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX + category.getID());  // close resultset
             Group userGroup = groupManager.createGroup(ForumConstants.GROUP_SOFTWARE_USERS_PREFIX + category.getID());	// close resultset
             moderatorGroup.setDescription(category.getName());
@@ -330,6 +331,9 @@ public class ForumConversion {
             for (int i=0; i<ForumConstants.REGISTERED_PERMS.length; i++) {
             	categoryPermissionsManager.addGroupPermission(userGroup, PermissionType.ADDITIVE, ForumConstants.REGISTERED_PERMS[i]);
             }
+            for (int i=0; i<ADMIN_PERMS.length; i++) {
+            	categoryPermissionsManager.addGroupPermission(swAdminGroup, PermissionType.ADDITIVE, ADMIN_PERMS[i]);
+            }
             
             oldForumPS.setLong(1, forum.getCompVersId());
             oldForumPS.setLong(2, forum.getForumType());
@@ -338,10 +342,12 @@ public class ForumConversion {
             long oldForumID = rs.getLong(1);
             rs.close();
             
-            if (!publicOldForumSet.contains(String.valueOf(oldForumID))) {
-	            for (int i=0; i<BLOCK_PERMS.length; i++) {
-	            	categoryPermissionsManager.addAnonymousUserPermission(PermissionType.NEGATIVE, BLOCK_PERMS[i]);
-	            	categoryPermissionsManager.addRegisteredUserPermission(PermissionType.NEGATIVE, BLOCK_PERMS[i]);
+            if (publicOldForumSet.contains(String.valueOf(oldForumID))) {
+            	for (int i=0; i<ForumConstants.ANONYMOUS_PERMS.length; i++) {
+                	categoryPermissionsManager.addAnonymousUserPermission(PermissionType.ADDITIVE, ForumConstants.ANONYMOUS_PERMS[i]);	
+            	}
+	            for (int i=0; i<ForumConstants.REGISTERED_PERMS.length; i++) {
+	            	categoryPermissionsManager.addRegisteredUserPermission(PermissionType.ADDITIVE, ForumConstants.REGISTERED_PERMS[i]);
 	            }
             }
            

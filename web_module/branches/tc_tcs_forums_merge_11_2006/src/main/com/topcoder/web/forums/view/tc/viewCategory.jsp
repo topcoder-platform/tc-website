@@ -123,9 +123,9 @@
                     <jsp:include page="searchHeader.jsp"/>
                 </td>
                 <td align="right" nowrap="nowrap" valign="top">
-                	<%	boolean canCreateForums = forumCategory.isAuthorized(Permissions.SYSTEM_ADMIN) || 
+                	<%	boolean isAuthorized = forumCategory.isAuthorized(Permissions.SYSTEM_ADMIN) || 
         					forumCategory.isAuthorized(ForumPermissions.FORUM_CATEGORY_ADMIN);
-        				if (canCreateForums) {	%>
+        				if ("true".equals(category.getProperty(ForumConstants.PROPERTY_MODIFY_FORUMS)) && isAuthorized) {	%>
         					<A href="?module=CreateForum&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.POST_MODE%>=New" class="rtbcLink">Create Forum</A>&#160; |&#160; 
         			<%	} %>
                     <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
