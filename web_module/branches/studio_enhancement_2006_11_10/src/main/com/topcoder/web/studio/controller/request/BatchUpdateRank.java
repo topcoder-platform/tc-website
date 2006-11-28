@@ -47,6 +47,9 @@ public class BatchUpdateRank extends ShortHibernateProcessor {
                     if (contest ==null) {
                         contest = currSubmission.getContest();
                     } else {
+                        if (log.isDebugEnabled()) {
+                            log.debug("curr contest: " + currSubmission.getContest().getId() + " first contest: " + contest.getId());
+                        }
                         if (!currSubmission.getContest().equals(contest)) {
                             throw new NavigationException("All the submissions being updated must be part of the same contest.");
                         }
