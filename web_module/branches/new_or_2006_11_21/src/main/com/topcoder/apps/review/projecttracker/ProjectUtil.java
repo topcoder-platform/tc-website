@@ -195,7 +195,7 @@ public class ProjectUtil {
         close(ps);    	
     }
 
-    static long createProject(Connection conn, String projectVersion, long compVersId, long projectTypeId, long modUserId) throws SQLException, BaseException {
+    static long createProject(Connection conn, String projectVersion, long compVersId, long projectTypeId, long modUserId, long forumId) throws SQLException, BaseException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         ps = conn.prepareStatement("SELECT p.project_id " + 
@@ -261,7 +261,7 @@ public class ProjectUtil {
         ps.executeUpdate();
         close(ps);
 
-        prepareProjectInfo(conn, compVersId, projectId, modUserId);
+        prepareProjectInfo(conn, compVersId, projectId, modUserId, forumId);
 
         // Prepare project_audit the modify reason is Created
         ps = conn.prepareStatement("INSERT INTO project_audit " +
@@ -363,6 +363,17 @@ public class ProjectUtil {
         ps.setString(index++, String.valueOf(modUserId));
         ps.setString(index++, String.valueOf(modUserId));
         ps.executeUpdate();
+        
+        // handle 2
+        String handle = getUserHandleInfo(conn, modUserId);
+        index = 1;
+        ps.setLong(index++, resourceId);
+        ps.setLong(index++, 2); // handle
+        ps.setString(index++, handle);
+        ps.setString(index++, String.valueOf(modUserId));
+        ps.setString(index++, String.valueOf(modUserId));
+        ps.executeUpdate();	
+
         close(ps);
 
         // Clean up this variable for reuse - bblais
@@ -463,13 +474,12 @@ public class ProjectUtil {
 		}
     }
 
-    private static void prepareProjectInfo(Connection conn, long compVersId, long projectId, long modUserId) throws SQLException {
+    private static void prepareProjectInfo(Connection conn, long compVersId, long projectId, long modUserId, long forumId) throws SQLException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         long componentId = -1;
         int version = -1;
         String versionText = "";
-        long forumId = -1;
         long rootCatagoryId = -1;
         String componentName = "";
         float price = (float) 0.0;
@@ -491,16 +501,17 @@ public class ProjectUtil {
         close(ps);
         
         // forum id
-        ps = conn.prepareStatement("SELECT * FROM comp_forum_xref where comp_vers_id = ?  and forum_type = 2");
-        ps.setLong(1, compVersId);
-        rs = ps.executeQuery();
-        if (rs.next()) {
-        	forumId = rs.getLong("forum_id");
-        }            
+        if (forumId == -1) {
+	        ps = conn.prepareStatement("SELECT * FROM comp_forum_xref where comp_vers_id = ?  and forum_type = 2");
+	        ps.setLong(1, compVersId);
+	        rs = ps.executeQuery();
+	        if (rs.next()) {
+	        	forumId = rs.getLong("forum_id");
+	        }
+	        close(rs);
+	        close(ps);
+        }
 
-        close(rs);
-        close(ps);
-        
         // root category id
         ps = conn.prepareStatement("SELECT * FROM comp_catalog where component_id = ?");
         ps.setLong(1, componentId);

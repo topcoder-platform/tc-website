@@ -289,7 +289,7 @@ public class ProjectTrackerV2Bean implements SessionBean {
      * @throws RuntimeException if error occurs
      */
     public long createProject(String projectName, String projectVersion, long compVersId, long projectTypeId,
-        String overview, Date[] dates, TCSubject requestor, long levelId)
+        String overview, Date[] dates, TCSubject requestor, long levelId, long forumId)
         throws BaseException {
         log.debug("PT.createProject; projectName: " + projectName + " ,compVersId: " + compVersId 
         		+ " ,projectTypeId: " + projectTypeId + " ,projectVersion: " + projectVersion+ " ,requestor: " + requestor.getUserId());
@@ -298,7 +298,7 @@ public class ProjectTrackerV2Bean implements SessionBean {
 
         try {
             conn = dataSource.getConnection();
-            return ProjectUtil.createProject(conn, projectVersion, compVersId, projectTypeId, requestor.getUserId());
+            return ProjectUtil.createProject(conn, projectVersion, compVersId, projectTypeId, requestor.getUserId(), forumId);
         } catch (Exception e) {
             ejbContext.setRollbackOnly();
             throw new RuntimeException("Create project: " + e.getMessage(), e);
