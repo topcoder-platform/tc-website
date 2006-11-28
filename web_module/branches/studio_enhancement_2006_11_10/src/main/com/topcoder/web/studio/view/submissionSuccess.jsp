@@ -1,4 +1,6 @@
+<%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="studio.tld" prefix="studio" %>
 
@@ -94,6 +96,9 @@
                 </div>
 
                 <div style="margin: 40px 0px 20px 0px;">
+                    <form name="submissionForm" method="POST" action="${sessionInfo.servletPath}">
+                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="BatchUpdateRank"/>
+
                     <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
                         <thead>
                             <tr>
@@ -108,7 +113,7 @@
                                 <td class="headerC">
                                     Ranking
                                     <div>
-                                        <A href="#"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></A>
+                                        <A href="#"onclick="document.submissionForm.submit();return false;"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></A>
                                     </div>
                                 </td>
                                 <td class="header" colspan="2" width="33%">
@@ -141,6 +146,7 @@
                             </tr>
                         </tfoot>
                     </table>
+                        </form>
                     <br><br>
                     <strong>NOTE:</strong> green rows indicate submissions that you have selected to be considered for
                     this contest

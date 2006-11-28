@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.ReviewStatus" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page contentType="text/xml" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -18,6 +19,7 @@
     </script>
         <% boolean even = true;%>
         <c:set value="<%=ReviewStatus.FAILED%>" var="failed"/>
+        <c:set value="<%=Constants.SUBMISSION_ID%>" var="submissionId"/>
 
 <%--crappy looking to save space on the transmission--%>
 <c:forEach items="${submissions}" var="submission">
@@ -34,15 +36,14 @@
 <div>&#160;</div>
 </td>
 <td class="valueC">
+<tc-webtag:errorIterator id="err" name="${submissionId+submission.id}"><span class="bigRed">${err}</span><br /></tc-webtag:errorIterator>
 <c:choose>
 <c:when test="${submission.review.status.id==failed}">
-<input type="text" maxlength="3" class="" name="" value="${submission.rank}" size="1"
-align="center"
-disabled="disabled"/>
+<%-- doesn't matter what goes in here, we're not populating it because it failed--%>
+<input type="text" maxlength="3" size="1" align="center" disabled="disabled"/>
 </c:when>
 <c:otherwise>
-<input type="text" maxlength="3" class="" name="" value="${submission.rank}" size="1"
-align="center"/>
+<tc-webtag:textInput name="${submissionId+submission.id}" maxlength="3" size="1"/>
 </c:otherwise>
 </c:choose>
 </td>
