@@ -3,6 +3,8 @@
 <%@ page contentType="text/xml" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<taconite-root xml:space="preserve">
+    <taconite-replace-children contextNodeID="submissions" parseInBrowser="true">
     <script language="javascript" type="text/javascript">
         <!--
         function changeRank(newRank, submissionId) {
@@ -14,9 +16,6 @@
 
         // -->
     </script>
-
-<taconite-root xml:space="preserve">
-    <taconite-replace-children contextNodeID="submissions" parseInBrowser="true">
         <% boolean even = true;%>
         <c:set value="<%=ReviewStatus.FAILED%>" var="failed"/>
 

@@ -6,6 +6,9 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/javascript" src="/js/taconite-client.js"></script>
+    <script type="text/javascript" src="/js/taconite-parser.js"></script>
+
     <title>TopCoder Studio</title>
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
