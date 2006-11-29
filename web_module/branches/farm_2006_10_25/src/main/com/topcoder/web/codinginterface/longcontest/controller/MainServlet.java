@@ -28,34 +28,25 @@ import javax.servlet.ServletException;
 public class MainServlet extends BaseServlet {
 
     private final static Logger log = Logger.getLogger(MainServlet.class);
-    private static QueueMessageSender sender = null;
-    private static WebQueueResponseManager receiver = null;
+//    private static QueueMessageSender sender = null;
+//    private static WebQueueResponseManager receiver = null;
 
     public void init(ServletConfig config) throws ServletException {
         log.debug("loading up the longcontest servlet");
         super.init(config);
-
-        Context context = null;
-        try {
-            context = TCContext.getInitial();
-        } catch (NamingException e) {
-            throw new ServletException(e);
-        }
-
-        log.debug("create queue message sender");
-        sender = new QueueMessageSender(ApplicationServer.JMS_FACTORY,
-                DBMS.COMPILE_QUEUE, context);
-        sender.setPersistent(true);
-        sender.setDBPersistent(false);
-        sender.setFaultTolerant(false);
-        log.info("created queue message sender");
-
-        log.debug("create queue response manager");
-        receiver = new WebQueueResponseManager(ApplicationServer.JMS_FACTORY,
-                DBMS.LONG_RESPONSE_QUEUE, context,
-                "serverID = " + ApplicationServer.WEB_SERVER_ID,
-                new WebResponsePool());
-        log.info("created queue response manager");
+//
+//        Context context = null;
+//        try {
+//            context = TCContext.getInitial();
+//        } catch (NamingException e) {
+//            throw new ServletException(e);
+//        }
+//
+//        log.debug("create queue message sender");
+//        log.info("created queue message sender");
+//
+//        log.debug("create queue response manager");
+//        log.info("created queue response manager");
 
 /*
         Constants.initialize();
@@ -77,8 +68,8 @@ public class MainServlet extends BaseServlet {
         rp = (Base) Class.forName(processorName).newInstance();
         rp.setRequest(request);
         rp.setResponse(response);
-        rp.setSender(sender);
-        rp.setReceiver(receiver);
+//        rp.setSender(sender);
+//        rp.setReceiver(receiver);
         rp.setAuthentication(authentication);
         rp.process();
         log.debug("done process");

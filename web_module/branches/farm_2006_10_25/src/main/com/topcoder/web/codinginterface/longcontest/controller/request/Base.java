@@ -14,15 +14,11 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.language.BaseLanguage;
-import com.topcoder.shared.messaging.QueueMessageSender;
-import com.topcoder.shared.messaging.TimeOutException;
-import com.topcoder.shared.messaging.messages.LongCompileResponse;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.codinginterface.messaging.WebQueueResponseManager;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.SessionInfo;
@@ -38,8 +34,7 @@ public abstract class Base extends BaseProcessor {
 
     protected static final Logger log = Logger.getLogger(Base.class);
 
-    private QueueMessageSender sender = null;
-    private WebQueueResponseManager receiver = null;
+    
     private ImageInfo sponsorImage = null;
     private static final Set locks = new HashSet();
 
@@ -102,13 +97,13 @@ public abstract class Base extends BaseProcessor {
 
     }
 
-    public void setReceiver(WebQueueResponseManager receiver) {
-        this.receiver = receiver;
-    }
-
-    public void setSender(QueueMessageSender sender) {
-        this.sender = sender;
-    }
+//    public void setReceiver(WebQueueResponseManager receiver) {
+//        this.receiver = receiver;
+//    }
+//
+//    public void setSender(QueueMessageSender sender) {
+//        this.sender = sender;
+//    }
 
 
 
@@ -195,17 +190,6 @@ public abstract class Base extends BaseProcessor {
         buf.append("</script>");
         getResponse().getWriter().print(buf.toString());
         getResponse().flushBuffer();
-    }
-
-    protected LongCompileResponse receive(int waitTime, long coderID, long componentID) throws TimeOutException {
-        try {
-            LongCompileResponse ls = (LongCompileResponse) receiver.receive(waitTime, coderID + ":" + componentID, getResponse());
-            return ls;
-        } catch (TimeOutException e) {
-            throw e;
-        } finally {
-            unlock();
-        }
     }
 
     protected void unlock() {
