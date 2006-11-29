@@ -43,7 +43,7 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
                     if (now.before(currSubmission.getContest().getStartTime()) ||
                             now.after(currSubmission.getContest().getEndTime()) ||
                             !ContestStatus.ACTIVE.equals(currSubmission.getContest().getStatus().getId())) {
-                        addError(paramName, "Sorry, you make a change to a submission for a contest that is not active.");
+                        addError(paramName, "Sorry, you can not make a change to a submission for a contest that is not active.");
                     } else {
                         if (maxRank==null) {
                             maxRank = dao.getMaxRank(currSubmission.getContest(), currSubmission.getSubmitter());
