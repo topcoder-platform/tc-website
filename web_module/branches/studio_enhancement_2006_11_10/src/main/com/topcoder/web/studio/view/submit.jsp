@@ -31,7 +31,9 @@
         function changeRank(newRank, submissionId) {
         var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=UpdateSubmissionRank&<%=Constants.SUBMISSION_RANK%>=' + newRank + '&<%=Constants.SUBMISSION_ID%>=' + submissionId);
             ajaxRequest.setPostRequest(fader);
-            ajaxRequest.setPreRequest(yellower);
+        <%--
+                    ajaxRequest.setPreRequest(yellower);
+        --%>
         ajaxRequest.sendRequest();
         }
         function fader() {
