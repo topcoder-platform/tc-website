@@ -53,6 +53,7 @@ public class ViewSubmission extends BaseSubmissionDataProcessor {
             } else {
                 //registered
                 setDefault(Constants.CONTEST_ID, contestId.toString());
+                setDefault(Constants.SUBMISSION_RANK, "1");
                 loadSubmissionData(u, c, cFactory.getSubmissionDAO());
                 setNextPage("/submit.jsp");
                 setIsNextPageInContext(true);
