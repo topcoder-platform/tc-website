@@ -278,16 +278,18 @@
           <br><br>
           <b>Teams:</b><br>
           Total of $18,000 distributed as follows:<br>
+          <div class="indent">
           First place team:  $12,000* (Each onsite finalist will receive $4,000)<br>
           Second place team:  $6,000* (Each onsite finalist will receive $2,000)
-          <br><br>
+          </div>
+          <br>
           <b>Individuals:</b>
           <br><br>
           <div align="center">
           <table border="0" cellpadding="5" cellspacing="0" width="400">
             <tr>
                    <td class="sidebarTitle">Competitor(s)</td>
-                   <td class="sidebarTitle">Prize</td>
+                   <td class="sidebarTitle">Prize*</td>
             </tr>
              <tr>
                    <td class="sidebarText">First place finisher</td>
@@ -325,20 +327,17 @@
                    <td class="sidebarText">$1,500</td>
             </tr>
              <tr>
-                   <td class="sidebarText">Nenth place finisher</td>
+                   <td class="sidebarText">Tenth place finisher</td>
                    <td class="sidebarText">$1,500</td>
             </tr>
              <tr>
                    <td class="sidebarText">Up to 500 competitors who compete in each Online Regional Round #2</td>
                    <td class="sidebarText">Limited edition 2007 TopCoder High School Tournament t-shirt</td>
             </tr>
-             <tr>
-                   <td class="sidebarText" colspan="2">* Prize will be awarded at the conclusion of the Championship Round. 
-                   Winners must be <b>present</b> at the onsite rounds to receive prize. TopCoder reserves the right to increase the 
-                   total prize purse or change the prize breakdown distribution at its sole discretion at any point during the tournament.</td>
-            </tr>
           </table>
           </div>
+          <br><br>
+          * Prize will be awarded at the conclusion of the Championship Round. Winners must be <b>present</b> at the onsite rounds to receive prize. TopCoder reserves the right to increase the total prize purse or change the prize breakdown distribution at its sole discretion at any point during the tournament.
           <br><br>
           <h3>Conditions of Participation</h3>
           By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters.  
