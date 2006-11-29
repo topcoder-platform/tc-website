@@ -11,6 +11,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <script type="text/javascript" src="/js/taconite-client.js"></script>
     <script type="text/javascript" src="/js/taconite-parser.js"></script>
+    <script type="text/javascript" src="/js/fat.js"></script>
 
     <title>TopCoder Studio</title>
     <jsp:include page="style.jsp">
@@ -29,11 +30,14 @@
         }
         function changeRank(newRank, submissionId) {
         var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=UpdateSubmissionRank&<%=Constants.SUBMISSION_RANK%>=' + newRank + '&<%=Constants.SUBMISSION_ID%>=' + submissionId);
+            ajaxRequest.setPostRequest(fader);
         <%--
-            ajaxRequest.setPostRequest(loaded);
             ajaxRequest.setPreRequest(loading);
         --%>
         ajaxRequest.sendRequest();
+        }
+        function fader() {
+            Fat.fade_element('fade');
         }
         function batchUpdate() {
         var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=BatchUpdateRank&<%=Constants.CONTEST_ID%>=${contest.id}');
@@ -129,7 +133,7 @@
                                 <td class="headerC">
                                     Ranking
                                     <div>
-                                        <A href="#"onclick="batchUpdate();return false;"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></A>
+                                        <A href="#" onclick="batchUpdate();return false;"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></A>
                                     </div>
                                 </td>
                                 <td class="header" colspan="2" width="33%">

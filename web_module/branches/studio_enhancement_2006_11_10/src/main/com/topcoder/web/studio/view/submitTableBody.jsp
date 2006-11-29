@@ -31,7 +31,14 @@ crappy looking to save space on the transmission
 </c:otherwise>
 </c:choose>
 <tc-webtag:errorIterator id="err" name="${submissionId}${submission.id}"><tr class="${cssClass}"><td class="value" colspan="9"><span class="bigRed">${err}</span></td></tr></tc-webtag:errorIterator>
+<c:choose>
+<c:when test="${newRank==submission.rank}">
+<tr class="${cssClass}" id="fade">
+</c:when>
+<c:otherwise>
 <tr class="${cssClass}">
+</c:otherwise>
+</c:choose>
 <td class="valueW">
 <div>&#160;</div>
 </td>
