@@ -21,6 +21,7 @@ crappy looking to save space on the transmission
 <c:set value="<%=ReviewStatus.FAILED%>" var="failed"/>
 <c:set value="<%=Constants.SUBMISSION_ID%>" var="submissionId"/>
 
+<% int col = 0;%>
 <c:forEach items="${submissions}" var="submission">
 <c:choose>
 <c:when test="${submission.rank == null || submission.rank>contest.maxSubmissions.value}">
@@ -39,10 +40,10 @@ crappy looking to save space on the transmission
 <tr class="${cssClass}">
 </c:otherwise>
 </c:choose>
-<td class="valueW">
+<td class="valueW" id="fade<%=col++%>">
 <div>&#160;</div>
 </td>
-<td class="valueC">
+<td class="valueC" id="fade<%=col++%>">
 <c:choose>
 <c:when test="${submission.review.status.id==failed}">
 <%-- doesn't matter what goes in here, we're not populating it because it failed--%>
@@ -53,10 +54,10 @@ crappy looking to save space on the transmission
 </c:otherwise>
 </c:choose>
 </td>
-<td class="value">
+<td class="value" id="fade<%=col++%>">
 ${submission.originalFileName}
 </td>
-<td class="value">
+<td class="value" id="fade<%=col++%>">
 <div class="container">
 <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
 <img src="/i/layout/magnify.gif" alt="View submission" border="0"
@@ -67,10 +68,10 @@ onmouseover="popUp('pop${submission.id}')" onmouseout="popHide()"/>
 </div>
 </div>
 </td>
-<td class="valueC">
+<td class="valueC" id="fade<%=col++%>">
 FIX ME
 </td>
-<td class="valueC">
+<td class="valueC" id="fade<%=col++%>">
 <c:choose>
 <c:when test="${submission.review.status!=null}">
 <span class="bigGreen">${submission.review.status.description}</span>
@@ -82,7 +83,7 @@ FIX ME
 </td>
 <c:choose>
 <c:when test="${submission.review.status.id==failed}">
-<td class="valueC">
+<td class="valueC" id="fade<%=col++%>">
 <div align="center" style="margin:2px;">
 <img src="/i/layout/btnMoveUpNA.png" alt="Raise priority"/>
 </div>
@@ -90,14 +91,14 @@ FIX ME
 <img src="/i/layout/btnMoveDownNA.png" alt="Move down"/>
 </div>
 </td>
-<td class="valueC">
+<td class="valueC" id="fade<%=col++%>">
 <div align="center">
 <img src="/i/layout/btnMoveToTopNA.png" alt="Move to top"/>
 </div>
 </td>
 </c:when>
 <c:otherwise>
-<td class="valueC">
+<td class="valueC" id="fade<%=col++%>">
 <div align="center" style="margin:2px;">
 <c:choose>
 <c:when test="${submission.rank==1}">
@@ -129,7 +130,7 @@ onmouseout="this.src = '/i/layout/btnMoveDown.png';"/>
 </c:choose>
 </div>
 </td>
-<td class="valueC">
+<td class="valueC" id="fade<%=col++%>">
 <div align="center">
 <c:choose>
 <c:when test="${submission.rank==1}">
@@ -148,7 +149,7 @@ onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/>
 </td>
 </c:otherwise>
 </c:choose>
-<td class="valueE">
+<td class="valueE" id="fade<%=col++%>">
 <div>&#160;</div>
 </td>
 </tr>
