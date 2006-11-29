@@ -9,9 +9,9 @@ import javax.naming.InitialContext;
 
 import com.topcoder.server.ejb.DBServices.DBServices;
 import com.topcoder.server.ejb.DBServices.DBServicesHome;
+import com.topcoder.server.ejb.TestServices.CompilationTimeoutException;
 import com.topcoder.server.ejb.TestServices.TestServices;
 import com.topcoder.server.ejb.TestServices.TestServicesLocator;
-import com.topcoder.server.farm.compiler.CompilerTimeoutException;
 import com.topcoder.shared.common.ApplicationServer;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -287,7 +287,7 @@ public class Submit extends Base {
                                 new String[]{Constants.ROUND_ID, Constants.CONTEST_ID, Constants.COMPONENT_ID, Constants.LANGUAGE_ID},
                                 new String[]{String.valueOf(rid), String.valueOf(cd), String.valueOf(cid), String.valueOf(language)}));
                     }
-                } catch (CompilerTimeoutException e) {
+                } catch (CompilationTimeoutException e) {
                     log.debug("compilation timed out...");
                     // The compilation timed out
                     log.debug("set message in session to code compilation request timed out");
