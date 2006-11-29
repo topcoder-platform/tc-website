@@ -32,18 +32,11 @@ crappy looking to save space on the transmission
 </c:otherwise>
 </c:choose>
 <tc-webtag:errorIterator id="err" name="${submissionId}${submission.id}"><tr class="${cssClass}"><td class="value" colspan="9"><span class="bigRed">${err}</span></td></tr></tc-webtag:errorIterator>
-<c:choose>
-<c:when test="${newRank==submission.rank}">
 <tr class="${cssClass}">
-</c:when>
-<c:otherwise>
-<tr class="${cssClass}">
-</c:otherwise>
-</c:choose>
-<td class="valueW" id="fade<%=col++%>">
+<td class="valueW" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
 <div>&#160;</div>
 </td>
-<td class="valueC" id="fade<%=col++%>">
+<td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
 <c:choose>
 <c:when test="${submission.review.status.id==failed}">
 <%-- doesn't matter what goes in here, we're not populating it because it failed--%>
@@ -54,10 +47,10 @@ crappy looking to save space on the transmission
 </c:otherwise>
 </c:choose>
 </td>
-<td class="value" id="fade<%=col++%>">
+<td class="value" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
 ${submission.originalFileName}
 </td>
-<td class="value" id="fade<%=col++%>">
+<td class="value" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
 <div class="container">
 <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
 <img src="/i/layout/magnify.gif" alt="View submission" border="0"
@@ -68,10 +61,10 @@ onmouseover="popUp('pop${submission.id}')" onmouseout="popHide()"/>
 </div>
 </div>
 </td>
-<td class="valueC" id="fade<%=col++%>">
+<td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
 FIX ME
 </td>
-<td class="valueC" id="fade<%=col++%>">
+<td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
 <c:choose>
 <c:when test="${submission.review.status!=null}">
 <span class="bigGreen">${submission.review.status.description}</span>
@@ -83,7 +76,7 @@ FIX ME
 </td>
 <c:choose>
 <c:when test="${submission.review.status.id==failed}">
-<td class="valueC" id="fade<%=col++%>">
+<td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
 <div align="center" style="margin:2px;">
 <img src="/i/layout/btnMoveUpNA.png" alt="Raise priority"/>
 </div>
@@ -91,14 +84,14 @@ FIX ME
 <img src="/i/layout/btnMoveDownNA.png" alt="Move down"/>
 </div>
 </td>
-<td class="valueC" id="fade<%=col++%>">
+<td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
 <div align="center">
 <img src="/i/layout/btnMoveToTopNA.png" alt="Move to top"/>
 </div>
 </td>
 </c:when>
 <c:otherwise>
-<td class="valueC" id="fade<%=col++%>">
+<td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
 <div align="center" style="margin:2px;">
 <c:choose>
 <c:when test="${submission.rank==1}">
@@ -130,7 +123,7 @@ onmouseout="this.src = '/i/layout/btnMoveDown.png';"/>
 </c:choose>
 </div>
 </td>
-<td class="valueC" id="fade<%=col++%>">
+<td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
 <div align="center">
 <c:choose>
 <c:when test="${submission.rank==1}">
@@ -149,7 +142,7 @@ onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/>
 </td>
 </c:otherwise>
 </c:choose>
-<td class="valueE" id="fade<%=col++%>">
+<td class="valueE" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
 <div>&#160;</div>
 </td>
 </tr>

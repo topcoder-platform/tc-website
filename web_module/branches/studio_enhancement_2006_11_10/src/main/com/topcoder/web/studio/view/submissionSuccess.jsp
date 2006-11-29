@@ -47,6 +47,17 @@
             Fat.fade_element('fade7');
             Fat.fade_element('fade8');
         }
+        function yellower() {
+            Fat.set_bgcolor('fade0', '#FFFF33');
+            Fat.set_bgcolor('fade1', '#FFFF33');
+            Fat.set_bgcolor('fade2', '#FFFF33');
+            Fat.set_bgcolor('fade3', '#FFFF33');
+            Fat.set_bgcolor('fade4', '#FFFF33');
+            Fat.set_bgcolor('fade5', '#FFFF33');
+            Fat.set_bgcolor('fade6', '#FFFF33');
+            Fat.set_bgcolor('fade7', '#FFFF33');
+            Fat.set_bgcolor('fade8', '#FFFF33');
+        }
         function batchUpdate() {
         var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=BatchUpdateRank&<%=Constants.CONTEST_ID%>=${contest.id}');
         <c:forEach items="${submissions}" var="submission">
