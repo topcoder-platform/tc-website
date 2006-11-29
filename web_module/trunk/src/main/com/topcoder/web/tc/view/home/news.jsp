@@ -7,22 +7,47 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 
-<%--------------------------------------------------------%>
+<%----------------------------
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0" /><br>11.28.06<br>4:10 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=112806">Digital Run Stage 2: Going for the win</A></span><br><br>
-       Over the course of just ten weeks of the stage, <tc-webtag:handle coderId="287614" context="design"/> competed on 35 components, winning 28 and taking second place on 7. Here, he tells us how he did it.</td>
-         <td class="newsPhoto"><img src="/i/m/argolite_big.jpg"  alt="" width="55" height="61"/><br>by 
-         <tc-webtag:handle coderId="287614" context="design"/></td></tr></table>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Component Competition News" border="0" /><br>11.29.06<br>6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">New Listings in the Component Record Book</A>
+        </span><br><br>
+      There are new records for 
+        Best Average Component Contest Score, 
+        Most Submission Reviews, 
+        Highest Rating Point Gain, 
+        Impressive Debuts, 
+        Consecutive Winnings, 
+        Consecutive 1st or 2nd place, 
+        and Consecutive Rating Increase.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=112806">full story</A> | 
-         <tc-webtag:forumLink forumID="506190" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+         <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">details</A> | 
+         <tc-webtag:forumLink forumID="506192" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
+----------------------------%>
+
+<%--------------------------------------------------------%>
+    <tr>
+        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0" /><br>11.28.06<br>4:10 PM</td>
+        <td class="newsTextCell">
+            <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle">
+            <A href="/tc?module=Static&d1=features&d2=112806">Digital Run Stage 2: Going for the win</A>
+            </span><br><br>
+            Over the course of just ten weeks of the stage, <tc-webtag:handle coderId="287614" context="design"/> competed on 35 components, winning 28 and taking second place on 7. Here, he tells us how he did it.</td>
+            <td class="newsPhoto"><img src="/i/m/argolite_big.jpg"  alt="" width="55" height="61"/><br>by 
+            <tc-webtag:handle coderId="287614" context="design"/></td></tr></table>
+        </td>
+    </tr>
+    <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=features&d2=112806">full story</A> | 
+        <tc-webtag:forumLink forumID="506190" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+    </td></tr>
 
 <%--------------------------------------------------------%>
    <tr>

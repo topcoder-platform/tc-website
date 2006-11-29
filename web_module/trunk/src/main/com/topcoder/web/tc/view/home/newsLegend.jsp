@@ -13,6 +13,23 @@
          <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
 
+<%----------------FEATURE----------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0" /><br>11.28.06<br>4:10 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=112806">Digital Run Stage 2: Going for the win</A></span><br><br>
+       Over the course of just ten weeks of the stage, <tc-webtag:handle coderId="287614" context="design"/> competed on 35 components, winning 28 and taking second place on 7. Here, he tells us how he did it.</td>
+         <td class="newsPhoto"><img src="/i/m/argolite_big.jpg"  alt="" width="55" height="61"/><br>by 
+         <tc-webtag:handle coderId="287614" context="design"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=112806">full story</A> | 
+         <tc-webtag:forumLink forumID="506190" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
 <%----------------EDUCATIONAL CONTENT-------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>06.21.05<br>11:15 AM</td>
@@ -104,14 +121,14 @@ OR
 
 <%------------------COMPONENT COMPETITIONS--------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>10.05.05<br>9:25 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=dev&d2=support&d3=reliability">Reliability Rating changes</A></span><br><br>
-      Your Reliability Rating is now broken down into Design and Development and only accounts for your last 15 projects.
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Component Competition News" border="0" /><br>11.29.06<br>6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">New Listings in the Component Record Book</A></span><br><br>
+      There are new records for 
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=dev&d2=support&d3=reliability">details</A> | 
-         <tc-webtag:forumLink forumID="505807" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">details</A> | 
+         <tc-webtag:forumLink forumID="506192" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 
