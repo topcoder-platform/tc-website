@@ -51,14 +51,13 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
             saveOrUpdate(s);
         } else if (s.getRank()==null) {
             buf.append("rank+1 ");
-            buf.append("where s.submitter.id = ? and s.contest.id = ? and rank between ? and ? and s.id != ?");
+            buf.append("where s.submitter.id = ? and s.contest.id = ? and rank between ? and ?");
 
             Query q = session.createQuery(buf.toString());
             q.setLong(0, s.getSubmitter().getId().longValue());
             q.setLong(1, s.getContest().getId().longValue());
             q.setInteger(2, newRank.intValue());
             q.setInteger(3, Integer.MAX_VALUE);
-            q.setLong(4, s.getId().longValue());
             q.executeUpdate();
 
             s.setRank(newRank);
