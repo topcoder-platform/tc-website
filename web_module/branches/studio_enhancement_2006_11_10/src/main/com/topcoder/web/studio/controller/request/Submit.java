@@ -5,7 +5,6 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
@@ -16,6 +15,7 @@ import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
+import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.*;
 import com.topcoder.web.studio.validation.SubmissionValidator;
 
@@ -28,7 +28,7 @@ import java.util.Date;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 20, 2006
  */
-public class Submit extends ShortHibernateProcessor {
+public class Submit extends BaseSubmissionDataProcessor {
     private File f = null;
 
     protected void dbProcessing() throws Exception {
@@ -46,6 +46,7 @@ public class Submit extends ShortHibernateProcessor {
 
             StudioDAOFactory cFactory = StudioDAOUtil.getFactory();
             DAOFactory factory = DAOUtil.getFactory();
+            SubmissionDAO dao = cFactory.getSubmissionDAO();
 
             Contest c = cFactory.getContestDAO().find(contestId);
             Date now = new Date();
@@ -85,6 +86,7 @@ public class Submit extends ShortHibernateProcessor {
                 if (hasErrors()) {
                     setDefault(Constants.CONTEST_ID, contestId.toString());
                     setDefault(Constants.SUBMISSION_RANK, rank);
+                    loadSubmissionData(u, c, dao);
                     getRequest().setAttribute("contest", c);
                     setNextPage("/submit.jsp");
                     setIsNextPageInContext(true);
@@ -134,21 +136,21 @@ public class Submit extends ShortHibernateProcessor {
                     fos.write(fileBytes);
                     fos.close();
 
-                    Integer maxRank = cFactory.getSubmissionDAO().getMaxRank(c, u);
+                    Integer maxRank = dao.getMaxRank(c, u);
                     Integer one = new Integer(1);
                     getRequest().setAttribute("maxRank", maxRank);
                     if (maxRank == null) {
                         s.setRank(one);
-                        cFactory.getSubmissionDAO().saveOrUpdate(s);
+                        dao.saveOrUpdate(s);
                     } else {
                         Integer newRank = new Integer(rank);
                         if (newRank.compareTo(maxRank)>0) {
                             s.setRank(new Integer(maxRank.intValue()+1));
-                            cFactory.getSubmissionDAO().saveOrUpdate(s);
+                            dao.saveOrUpdate(s);
                         } else if (newRank.compareTo(one)<0) {
-                            cFactory.getSubmissionDAO().changeRank(one, s);
+                            dao.changeRank(one, s);
                         } else {
-                            cFactory.getSubmissionDAO().changeRank(newRank, s);
+                            dao.changeRank(newRank, s);
                         }
                     }
 
