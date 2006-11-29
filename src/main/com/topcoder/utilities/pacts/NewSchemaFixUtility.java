@@ -134,7 +134,7 @@ public class NewSchemaFixUtility extends DBUtility {
             log.debug(i + " rows were processed...");
             
             PreparedStatement psUpdNullProjects = prepareStatement("informixoltp", 
-                "update payment_detail set project_id = null where payment_type_id = 7 and component_project_id = 10001001");
+                "update payment_detail set component_project_id = null where payment_type_id = 7 and component_project_id = 10001001");
             i = psUpdNullProjects.executeUpdate();
             log.debug(i + " null projects updated...");
         } finally {
