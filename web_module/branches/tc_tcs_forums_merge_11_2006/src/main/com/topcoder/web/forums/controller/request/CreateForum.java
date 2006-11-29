@@ -52,6 +52,9 @@ public class CreateForum extends ForumsProcessor {
         	long forumID = Long.parseLong(getRequest().getParameter(ForumConstants.FORUM_ID));
             forum = forumFactory.getForum(forumID);
             getRequest().setAttribute("forum", forum);
+            
+            setDefault(ForumConstants.FORUM_NAME, forum.getName());
+            setDefault(ForumConstants.FORUM_DESCRIPTION, forum.getDescription());
         }
         
         if (status.equals(ForumConstants.STATUS_CREATE)) {
@@ -73,7 +76,7 @@ public class CreateForum extends ForumsProcessor {
             if (hasErrors()) {
             	setDefault(ForumConstants.FORUM_NAME, name);
                 setDefault(ForumConstants.FORUM_DESCRIPTION, description);
-                
+            	
             	setNextPage("/createForum.jsp");
         		setIsNextPageInContext(true);
         		return;
@@ -89,7 +92,7 @@ public class CreateForum extends ForumsProcessor {
         	setNextPage(getSessionInfo().getServletPath() + 
         			"?module=Category&" + ForumConstants.CATEGORY_ID + "=" + categoryID);
         	setIsNextPageInContext(false);
-        } else {
+        } else {        	
         	setNextPage("/createForum.jsp");
     		setIsNextPageInContext(true);
         }

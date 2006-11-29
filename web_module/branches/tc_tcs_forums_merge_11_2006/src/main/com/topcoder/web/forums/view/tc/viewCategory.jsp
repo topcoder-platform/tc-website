@@ -125,7 +125,7 @@
                 <td align="right" nowrap="nowrap" valign="top">
                 	<%	boolean isAuthorized = forumCategory.isAuthorized(Permissions.SYSTEM_ADMIN) || 
         					forumCategory.isAuthorized(ForumPermissions.FORUM_CATEGORY_ADMIN);
-        				if ("true".equals(category.getProperty(ForumConstants.PROPERTY_MODIFY_FORUMS)) && isAuthorized) {	%>
+        				if ("true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_MODIFY_FORUMS)) && isAuthorized) {	%>
         					<A href="?module=CreateForum&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.POST_MODE%>=New" class="rtbcLink">Create Forum</A>&#160; |&#160; 
         			<%	} %>
                     <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
@@ -193,8 +193,11 @@
                 <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="<%=trackerClass%>"><%=forum.getName()%></A>
                 <% } %>
                 <% if (forum.getDescription() != null) { %><br/>
-
-                <div class="rtDescIndent"><%=forum.getDescription()%></div><% } %></td>
+	                <div class="rtDescIndent"><%=forum.getDescription()%>
+	                	(<A href="?module=CreateForum&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&<%=ForumConstants.POST_MODE%>=Edit" class="rtbcLink">Edit</A>)
+	                </div>
+                <% } %>
+            </td>
             <td class="rtThreadCell" style="width: 80px;"><%=forum.getThreadCount()%>&#160;/&#160;<%=forum.getMessageCount()%></td>
             <% if (forum.getMessageCount() > 0) { %>
             <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
