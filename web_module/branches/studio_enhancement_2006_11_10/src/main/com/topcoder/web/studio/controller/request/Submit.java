@@ -9,7 +9,9 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.validation.IntegerValidator;
 import com.topcoder.web.common.validation.ObjectInput;
+import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
@@ -39,6 +41,8 @@ public class Submit extends ShortHibernateProcessor {
             } catch (NumberFormatException e) {
                 throw new NavigationException("Invalid contest specified.");
             }
+
+            String rank = getRequest().getParameter(Constants.SUBMISSION_RANK);
 
             StudioDAOFactory cFactory = StudioDAOUtil.getFactory();
             DAOFactory factory = DAOUtil.getFactory();
@@ -73,6 +77,10 @@ public class Submit extends ShortHibernateProcessor {
                     addError(Constants.SUBMISSION, submissionResult.getMessage());
                 }
 
+                ValidationResult rankResult = new IntegerValidator("Please input a valid integer for rank.").validate(new StringInput(rank));
+                if (!rankResult.isValid()) {
+                    addError(Constants.SUBMISSION_RANK, rankResult.getMessage());
+                }
 
                 if (hasErrors()) {
                     setDefault(Constants.CONTEST_ID, contestId.toString());
@@ -126,14 +134,25 @@ public class Submit extends ShortHibernateProcessor {
                     fos.close();
 
                     Integer maxRank = cFactory.getSubmissionDAO().getMaxRank(c, u);
+                    Integer one = new Integer(1);
                     getRequest().setAttribute("maxRank", maxRank);
+                    boolean updateRanks = true;
                     if (maxRank == null) {
-                        s.setRank(new Integer(1));
+                        s.setRank(one);
+                        cFactory.getSubmissionDAO().saveOrUpdate(s);
                     } else {
-                        s.setRank(new Integer(maxRank.intValue() + 1));
+                        Integer newRank = new Integer(rank);
+                        if (newRank.compareTo(maxRank)>0) {
+                            s.setRank(new Integer(maxRank.intValue()+1));
+                            cFactory.getSubmissionDAO().saveOrUpdate(s);
+                        } else if (newRank.compareTo(one)<0) {
+                            s.setRank(one);
+                            cFactory.getSubmissionDAO().changeRank(newRank, s);
+                        } else {
+                            s.setRank(newRank);
+                            cFactory.getSubmissionDAO().changeRank(newRank, s);
+                        }
                     }
-
-                    cFactory.getSubmissionDAO().saveOrUpdate(s);
 
                     markForCommit();
 

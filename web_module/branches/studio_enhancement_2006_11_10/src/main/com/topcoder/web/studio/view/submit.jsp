@@ -121,7 +121,7 @@
         <div align="center">
             <form action="${sessionInfo.servletPath}" method="POST" name="submission" enctype="multipart/form-data">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
-                <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>" value="${contest.id}"/>
+                <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
                 <p>
                     <b>My design:</b><br/>
                                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
@@ -133,7 +133,9 @@
                     <input type="image" src="/i/layout/btnSubmit.png" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'">
                 </p>
                 <p>
-                    as rank:&nbsp;<input type="text" value="1" maxlength="3" size="1" />
+                    <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_RANK%>"><span class="bigRed">${err}</span>
+                        <br></tc-webtag:errorIterator>
+                    as rank:&nbsp;<tc-webtag:textInput name="<%=Constants.SUBMISSION_RANK%>" maxlength="3" size="1"/>
                 </p>
             </form>
         </div>
