@@ -123,7 +123,7 @@ function AllowTabCharacter() {
 </table>
 
 <br>
-<table cellpadding="0" cellspacing="0" class="rtTable">
+<table cellpadding="0" cellspacing="0" class="rtTable" width=100%>
 <form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
 <tc-webtag:hiddenInput name="module"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>"/>
@@ -131,7 +131,7 @@ function AllowTabCharacter() {
 <tc-webtag:hiddenInput name="<%=ForumConstants.FORUM_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
 	<tr>
-		<td class="rtHeader" colspan="2">
+		<td class="rtHeader">
 			<%=postHeading%>
 		</td>
 	</tr>
