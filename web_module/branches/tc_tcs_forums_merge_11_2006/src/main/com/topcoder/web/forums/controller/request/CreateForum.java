@@ -47,9 +47,10 @@ public class CreateForum extends ForumsProcessor {
         getRequest().setAttribute("forumCategory", category);
         getRequest().setAttribute("postMode", postMode);
         
+        Forum forum = null;
         if (postMode.equals("Edit")) {
         	long forumID = Long.parseLong(getRequest().getParameter(ForumConstants.FORUM_ID));
-            Forum forum = forumFactory.getForum(forumID);
+            forum = forumFactory.getForum(forumID);
             getRequest().setAttribute("forum", forum);
         }
         
@@ -78,7 +79,12 @@ public class CreateForum extends ForumsProcessor {
         		return;
             }
         	
-            forumFactory.createForum(name, description, category);
+            if (postMode.equals("New")) {
+            	forumFactory.createForum(name, description, category);
+            } else if (postMode.equals("Edit")) {
+            	forum.setName(name);
+            	forum.setDescription(description);
+            }
             
         	setNextPage(getSessionInfo().getServletPath() + 
         			"?module=Category&" + ForumConstants.CATEGORY_ID + "=" + categoryID);
