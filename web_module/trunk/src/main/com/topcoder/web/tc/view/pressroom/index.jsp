@@ -49,6 +49,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- AOL mash up --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_113006"><img src="/i/pressroom/aol_logo.jpg" alt="AOL logo" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_113006">AOL and TopCoder Announce Web AIM Mashup Competition</A></strong></font><br />
+                        Top Prize of $5,000 for Developer With Most Innovative Web AIM Mashup Concept. <span class="prHead"> [November 30]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- Gartner CIO Summit --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">

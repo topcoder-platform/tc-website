@@ -7,6 +7,9 @@
 <table width="530" border="0" cellspacing="0" cellpadding="4">
 
    <tr><td class="prHead">
+         <A href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_112906" target="_blank">TopCoder to Present Keynote Address: Future of Virtual Communities as Business; at Gartner CIO Summit 2006</A> [November 29]
+   </td></tr>
+   <tr><td class="prHead">
          <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/csmonitor_logo.jpg" width="80" height="32" alt="Christian Science Monitor" border="0" /></div>
          <A href="http://www.wallstreetandtech.com/showArticle.jhtml;jsessionid=0U21ZF2KMDLJYQSNDLPCKHSCJUNN2JVN?articleID=193400878" target="_blank">How to build software? Henry Ford, meet eBay.</A> [November 1]
    </td></tr>
