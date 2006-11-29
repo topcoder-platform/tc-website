@@ -108,8 +108,7 @@
 
         <p>The maximum file size per submission is 2MB.</p>
 
-        <p>
-            Only the following file types will be accepted:
+            <p>Only the following file types will be accepted:</p>
             <ul>
                 <c:forEach items="${contest.fileTypes}" var="fileType">
                     <li>
@@ -118,7 +117,6 @@
                 </c:forEach>
             </ul>
 
-        </p>
 
         <div align="center">
             <form action="${sessionInfo.servletPath}" method="POST" name="submission" enctype="multipart/form-data">
@@ -134,7 +132,7 @@
                     <input type="image" src="/i/layout/btnSubmit.png" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'">
                 </p>
                 <p>
-                    as rank:&nbsp;<input type="text" value="1" maxlength="3" size="1" align="center" />
+                    as rank:&nbsp;<input type="text" value="1" maxlength="3" size="1" />
                 </p>
             </form>
         </div>

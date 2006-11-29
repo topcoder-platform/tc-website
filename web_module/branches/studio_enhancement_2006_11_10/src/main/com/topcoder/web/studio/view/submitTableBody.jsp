@@ -12,9 +12,11 @@ crappy looking to save space on the transmission
 **************************************************
 --%>
 
-
+<c:if test="${param.ts!=null}">
 <taconite-root xml:space="preserve">
     <taconite-replace-children contextNodeID="submissions" parseInBrowser="true">
+</c:if>
+
 <% boolean even = true;%>
 <c:set value="<%=ReviewStatus.FAILED%>" var="failed"/>
 <c:set value="<%=Constants.SUBMISSION_ID%>" var="submissionId"/>
@@ -29,7 +31,7 @@ crappy looking to save space on the transmission
 </c:otherwise>
 </c:choose>
 <tc-webtag:errorIterator id="err" name="${submissionId}${submission.id}"><tr class="${cssClass}"><td class="value" colspan="9"><span class="bigRed">${err}</span></td></tr></tc-webtag:errorIterator>
-<tr class="${cssClass}" id="tr${submission.rank}">
+<tr class="${cssClass}">
 <td class="valueW">
 <div>&#160;</div>
 </td>
@@ -37,7 +39,7 @@ crappy looking to save space on the transmission
 <c:choose>
 <c:when test="${submission.review.status.id==failed}">
 <%-- doesn't matter what goes in here, we're not populating it because it failed--%>
-<input type="text" maxlength="3" size="1" align="center" disabled="disabled"/>
+<input type="text" maxlength="3" size="1" disabled="disabled"/>
 </c:when>
 <c:otherwise>
 <tc-webtag:textInput name="${submissionId}${submission.id}" maxlength="3" size="1"/>
@@ -146,6 +148,7 @@ onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/>
 <% even = !even;%>
 </c:forEach>
 
+<c:if test="${param.ts!=null}">
     </taconite-replace-children>
 </taconite-root>
-
+</c:if>
