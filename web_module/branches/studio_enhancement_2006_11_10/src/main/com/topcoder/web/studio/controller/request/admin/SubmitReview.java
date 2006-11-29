@@ -108,9 +108,9 @@ public class SubmitReview extends Base {
 
         TCSEmailMessage mail = new TCSEmailMessage();
         if (ReviewStatus.PASSED.equals(status.getId())) {
-            mail.setSubject("Your TopCoder(R) Studio submission submission passed review");
+            mail.setSubject("Your TopCoder(R) Studio submission passed review");
         } else if (ReviewStatus.FAILED.equals(status.getId())) {
-            mail.setSubject("Your TopCoder(R) Studio submission submission failed review");
+            mail.setSubject("Your TopCoder(R) Studio submission failed review");
         } else {
             throw new Exception("Invalid review status: " + status.getId());
         }
