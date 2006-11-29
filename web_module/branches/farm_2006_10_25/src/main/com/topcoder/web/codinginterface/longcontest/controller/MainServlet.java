@@ -1,14 +1,11 @@
 package com.topcoder.web.codinginterface.longcontest.controller;
 
-import com.topcoder.shared.messaging.QueueMessageSender;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+
 import com.topcoder.shared.security.Resource;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
-import com.topcoder.web.codinginterface.messaging.WebQueueResponseManager;
-import com.topcoder.web.codinginterface.messaging.WebResponsePool;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.RequestProcessor;
 import com.topcoder.web.common.TCRequest;
@@ -16,11 +13,6 @@ import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
-
-import javax.naming.Context;
-import javax.naming.NamingException;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
 
 /**
  * User: lars
