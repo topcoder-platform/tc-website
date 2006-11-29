@@ -125,8 +125,8 @@
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
                 <p>
                     <b>My design:</b><br/>
-                                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>">${err}
-                                        <br></tc-webtag:errorIterator></span>
+                                    <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
+                                        <br></tc-webtag:errorIterator>
                     <input type="file" name="<%=Constants.SUBMISSION%>">
                 </p>
 
@@ -144,7 +144,7 @@
 
 
 <div style="margin: 40px 0px 20px 0px;">
-<form name="submissionForm">
+<form name="submissionForm" action="#">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="BatchUpdateRank"/>
 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>" value="${contest.id}"/>
 <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">

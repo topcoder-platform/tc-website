@@ -113,7 +113,7 @@
                 </div>
 
                 <div style="margin: 40px 0px 20px 0px;">
-                    <form name="submissionForm">
+                    <form name="submissionForm" action="#">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="BatchUpdateRank"/>
                     <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
                         <thead>
