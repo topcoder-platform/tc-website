@@ -49,6 +49,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- Gartner CIO Summit --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_112906"><img src="/i/pressroom/gartner_logo.gif" alt="Gartner" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_112906">TopCoder to Present Keynote Address: Future of Virtual Communities as Business; at Gartner CIO Summit 2006</A></strong></font><br />
+                        Jack Hughes, TopCoder Chairman and Founder To Discuss Managing Social Network Web Communities as a New Model for Global Productivity.<span class="prHead"> [November 29]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- TCCC06 Champions --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
