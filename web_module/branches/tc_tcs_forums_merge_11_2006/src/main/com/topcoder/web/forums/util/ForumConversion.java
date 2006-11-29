@@ -208,11 +208,6 @@ public class ForumConversion {
         }
         rs.close();
         
-        for (int i=0; i<BLOCK_PERMS.length; i++) {
-        	root.getPermissionsManager().addAnonymousUserPermission(PermissionType.NEGATIVE, BLOCK_PERMS[i]);
-        	root.getPermissionsManager().addRegisteredUserPermission(PermissionType.NEGATIVE, BLOCK_PERMS[i]);
-        }
-        
         HashSet publicOldForumSet = new HashSet();
         publicPS = tcConn.prepareStatement("select permission from security_perms p, security_roles r "
         		+ " where p.permission like 'com.topcoder.dde.forum.ForumPostPermission %' "
@@ -340,12 +335,10 @@ public class ForumConversion {
             rs.close();
             
             if (!publicOldForumSet.contains(String.valueOf(oldForumID))) {
-            	for (int i=0; i<ForumConstants.ANONYMOUS_PERMS.length; i++) {
-                	categoryPermissionsManager.addAnonymousUserPermission(PermissionType.NEGATIVE, ForumConstants.ANONYMOUS_PERMS[i]);	
+            	for (int i=0; i<BLOCK_PERMS.length; i++) {
+                	categoryPermissionsManager.addAnonymousUserPermission(PermissionType.NEGATIVE, BLOCK_PERMS[i]);	
+	            	categoryPermissionsManager.addRegisteredUserPermission(PermissionType.NEGATIVE, BLOCK_PERMS[i]);
             	}
-	            for (int i=0; i<ForumConstants.REGISTERED_PERMS.length; i++) {
-	            	categoryPermissionsManager.addRegisteredUserPermission(PermissionType.NEGATIVE, ForumConstants.REGISTERED_PERMS[i]);
-	            }
             }
            
             // the ps to get the security roles from user_roles_xref table
