@@ -75,9 +75,13 @@ public class NewSchemaFixUtility extends DBUtility {
             
             pcs = (PactsClientServices) createEJB();
 
-            processProblemTestersPaymentsWithRounds();
+            processReviewersPaymentMDBStatusNullProjId(4);
+            processReviewersPaymentMDBStatusNullProjId(5);
+            processReviewersPaymentMDBStatusNullProjId(6);
+            processReviewersPaymentMDBStatusNullProjId(7);
+            /*processProblemTestersPaymentsWithRounds();
             processProblemTestersPaymentsNullRounds();
-            /*processReviewersPaymentMDB();
+            processReviewersPaymentMDB();
             processProblemWritersPayments();
             processReviewersPaymentInfo();
             processRoomResultAdditions();
@@ -96,7 +100,50 @@ public class NewSchemaFixUtility extends DBUtility {
         }
     }
 
+    private void processReviewersPaymentMDBStatusNullProjId(int status) throws SQLException, RemoteException {
+        StringBuffer query = new StringBuffer(200);
+        query.append("select rpm.coder_id, rpm.project_id, sum(rpm.total_amount) as payment ");
+        query.append("from rboard_payment_migration rpm ");
+        query.append("where processed_ind = " + status + " ");
+        query.append("and not exists ( ");
+        query.append("select * from payment p, payment_detail pd ");
+        query.append("where p.most_recent_detail_id = pd.payment_detail_id ");
+        query.append("and pd.status_id <> 69 ");
+        query.append("and p.user_id = rpm.coder_id ");
+        query.append("and pd.component_project_id = rpm.project_id ");
+        query.append("and pd.payment_type_id = 7) ");
+        query.append("group by rpm.coder_id, rpm.project_id ");
 
+
+        PreparedStatement psSelRevPayments = prepareStatement("informixoltp", query.toString());
+        log.debug("Processing reviewers payments (MDB - Status " + (status * -1 + 2) + "):");
+
+        ResultSet rs = null;
+        try {            
+            rs = psSelRevPayments.executeQuery();
+            int i = 1;
+            for (; rs.next(); i++ ) {
+                pcs.addPayment(new ReviewBoardPayment(
+                        rs.getLong("coder_id"),
+                        rs.getDouble("payment"),
+                        rs.getObject("project_id") == null ? 10001001 : rs.getLong("project_id")));
+                if (i % 10 == 0) {
+                    log.debug(i + "...");
+                }
+            }
+            log.debug(i + " rows were processed...");
+            
+            PreparedStatement psUpdNullProjects = prepareStatement("informixoltp", 
+                "update payment_detail set project_id = null where payment_type_id = 7 and component_project_id = 10001001");
+            i = psUpdNullProjects.executeUpdate();
+            log.debug(i + " null projects updated...");
+        } finally {
+            DBMS.close(rs);
+            DBMS.close(psSelRevPayments);
+        }
+    }
+
+/*
     private void processProblemTestersPaymentsWithRounds() throws SQLException, RemoteException {
         StringBuffer query = new StringBuffer(200);
         query.append("select user_id, round_id, sum(money) as payment ");
@@ -173,7 +220,6 @@ public class NewSchemaFixUtility extends DBUtility {
         }
     }
     
-/*
     private void processReviewersPaymentMDB() throws SQLException, RemoteException {
         StringBuffer query = new StringBuffer(200);
         query.append("select rpm.coder_id, rpm.project_id, sum(rpm.total_amount) as payment ");
