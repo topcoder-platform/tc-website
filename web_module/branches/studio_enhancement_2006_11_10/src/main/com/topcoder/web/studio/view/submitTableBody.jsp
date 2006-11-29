@@ -21,8 +21,8 @@ crappy looking to save space on the transmission
 <c:set value="<%=ReviewStatus.FAILED%>" var="failed"/>
 <c:set value="<%=Constants.SUBMISSION_ID%>" var="submissionId"/>
 
-<% int col = 0;%>
 <c:forEach items="${submissions}" var="submission">
+<% int col = 0;%>
 <c:choose>
 <c:when test="${submission.rank == null || submission.rank>contest.maxSubmissions.value}">
 <c:set value="<%=even ? "light" : "dark"%>" var="cssClass"/>
@@ -34,7 +34,7 @@ crappy looking to save space on the transmission
 <tc-webtag:errorIterator id="err" name="${submissionId}${submission.id}"><tr class="${cssClass}"><td class="value" colspan="9"><span class="bigRed">${err}</span></td></tr></tc-webtag:errorIterator>
 <c:choose>
 <c:when test="${newRank==submission.rank}">
-<tr class="${cssClass}" id="fade">
+<tr class="${cssClass}">
 </c:when>
 <c:otherwise>
 <tr class="${cssClass}">
