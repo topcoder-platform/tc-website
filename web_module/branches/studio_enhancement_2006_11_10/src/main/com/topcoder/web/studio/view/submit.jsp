@@ -29,12 +29,21 @@
             objPopUp = null;
         }
         function changeRank(newRank, submissionId) {
-            var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=UpdateSubmissionRank&<%=Constants.SUBMISSION_RANK%>=' + newRank + '&<%=Constants.SUBMISSION_ID%>=' + submissionId);
-        <%--
-            ajaxRequest.setPostRequest(loaded);
-            ajaxRequest.setPreRequest(loading);
-        --%>
-            ajaxRequest.sendRequest();
+        var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=UpdateSubmissionRank&<%=Constants.SUBMISSION_RANK%>=' + newRank + '&<%=Constants.SUBMISSION_ID%>=' + submissionId);
+            ajaxRequest.setPostRequest(fader);
+            ajaxRequest.setPreRequest(yellower);
+        ajaxRequest.sendRequest();
+        }
+        function fader() {
+            Fat.fade_element('fade0');
+            Fat.fade_element('fade1');
+            Fat.fade_element('fade2');
+            Fat.fade_element('fade3');
+            Fat.fade_element('fade4');
+            Fat.fade_element('fade5');
+            Fat.fade_element('fade6');
+            Fat.fade_element('fade7');
+            Fat.fade_element('fade8');
         }
         function batchUpdate() {
             var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=BatchUpdateRank&<%=Constants.CONTEST_ID%>=${contest.id}');
