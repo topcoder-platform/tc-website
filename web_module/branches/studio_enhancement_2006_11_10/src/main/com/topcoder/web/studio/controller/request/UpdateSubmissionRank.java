@@ -29,6 +29,7 @@ public class UpdateSubmissionRank extends BaseSubmissionDataProcessor {
                 addError(Constants.SUBMISSION_ID+submissionId, "Sorry, you can not make a change to a submission for a contest that is not active.");
             } else if (s.getSubmitter().getId().longValue() == getUser().getId()) {
                 int newRank = Integer.parseInt(getRequest().getParameter(Constants.SUBMISSION_RANK));
+                getRequest().setAttribute("newRank", getRequest().getParameter(Constants.SUBMISSION_RANK));
                 if (newRank > 0 && newRank <= maxRank.intValue()) {
                     dao.changeRank(new Integer(newRank), s);
                     markForCommit();
