@@ -72,6 +72,10 @@ public class SubmitReview extends Base {
             sr.setText(getRequest().getParameter(Constants.SUBMISSION_REVIEW_TEXT));
             StudioDAOUtil.getFactory().getSubmissionReviewDAO().saveOrUpdate(sr);
 
+            if (sr.getStatus().getId().equals(ReviewStatus.FAILED)) {
+                StudioDAOUtil.getFactory().getSubmissionDAO().changeRank(null, s);
+            }
+
             Long submitterId = s.getSubmitter().getId();
 
             markForCommit();
