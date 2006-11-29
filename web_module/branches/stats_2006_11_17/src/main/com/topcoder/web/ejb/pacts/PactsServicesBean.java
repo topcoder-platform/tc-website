@@ -4991,7 +4991,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
             
             batchUpdateStatus(c, p, PAYMENT_EXPIRED_STATUS);
-            
+             
             c.commit();
             c.setAutoCommit(true);
             c.close();

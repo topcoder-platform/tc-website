@@ -117,7 +117,11 @@
                     This chart shows the coders that have participated in the most rated events.<br/>
                     <a href="/stat?c=rated_events">Overall</a>
                 </td>
-                <td>&nbsp;</td>
+                <td>
+                    <strong>Consecutive SRM Appearances</strong><br>
+                    This chart represents the longest consecutive appearances in Single Round Matches.<br>
+                    <a href="/stat?&amp;c=consecutive_srm_appearances">Overall</a>
+                </td>
             </tr>
         </table>
 
