@@ -19,7 +19,7 @@ public class PlaceValidator implements Validator {
     }
 
     public ValidationResult validate(ValidationInput input) {
-        ValidationResult ret = new NonEmptyValidator("Please enter the value the prize place.").validate(input);
+        ValidationResult ret = new NonEmptyValidator("Please enter the value for the prize place.").validate(input);
         if (ret.isValid()) {
             Integer place = null;
             try {
