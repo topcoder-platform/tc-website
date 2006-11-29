@@ -61,6 +61,11 @@
 
                         <br><br>
 
+                        <strong>Best Average Component Contest Score</strong><br>
+                        <A href="/tc?module=ComponentRecordbook&c=avg_score&type=design">design</A> |
+                        <A href="/tc?module=ComponentRecordbook&c=avg_score&type=development">development</A> 
+                        <br><br>
+
                         <strong>Most Component Contest Wins</strong><br>
                         <A href="/tc?module=ComponentRecordbook&c=most_wins&type=design">design</A> |
                         <A href="/tc?module=ComponentRecordbook&c=most_wins&type=development">development</A> |
@@ -87,6 +92,18 @@
                         <A href="/tc?module=ComponentRecordbook&c=most_reviews&type=development">development</A> |
                         <A href="/tc?module=ComponentRecordbook&c=most_reviews&type=component">overall</A>
 
+                        <br><br>
+
+                        <strong>Most Submission Reviews</strong><br>
+                        <A href="/tc?module=ComponentRecordbook&c=most_submissions_reviews&type=design">design</A> |
+                        <A href="/tc?module=ComponentRecordbook&c=most_submissions_reviews&type=development">development</A> |
+                        <A href="/tc?module=ComponentRecordbook&c=most_submissions_reviews&type=component">overall</A>
+
+                        <br><br>
+
+                        <strong>Highest Rating Point Gain</strong><br>
+                        <A href="/tc?module=ComponentRecordbook&c=highest_rating_gains&type=design">design</A> |
+                        <A href="/tc?module=ComponentRecordbook&c=highest_rating_gains&type=development">development</A>
                     </td>
                     <td width="50%" style="padding-left:10px;">
 
@@ -125,6 +142,27 @@
                         <A href="/tc?module=ComponentRecordbook&c=appeal_percentage&type=design">design</A> |
                         <A href="/tc?module=ComponentRecordbook&c=appeal_percentage&type=development">development</A> |
                         <A href="/tc?module=ComponentRecordbook&c=appeal_percentage&type=component">overall</A>
+
+                        <br><br>
+
+                        <strong>Impressive Debuts</strong><br>
+                        <A href="/tc?module=ComponentRecordbook&c=impressive_debut&type=design">design</A> |
+                        <A href="/tc?module=ComponentRecordbook&c=impressive_debut&type=development">development</A> 
+                        <br><br>
+
+                        <strong>Consecutive Wins</strong><br>
+                        <A href="/tc?module=ComponentRecordbook&c=consecutive_winnings&type=design">design</A> |
+                        <A href="/tc?module=ComponentRecordbook&c=consecutive_winnings&type=development">development</A>
+                        <br><br>
+
+                        <strong>Consecutive Top 2 finishes</strong><br>
+                        <A href="/tc?module=ComponentRecordbook&c=consecutive_paid&type=design">design</A> |
+                        <A href="/tc?module=ComponentRecordbook&c=consecutive_paid&type=development">development</A> 
+                        <br><br>
+
+                        <strong>Consecutive Rating Increase</strong><br>
+                        <A href="/tc?module=ComponentRecordbook&c=consecutive_rating_increase&type=design">design</A> |
+                        <A href="/tc?module=ComponentRecordbook&c=consecutive_rating_increase&type=development">development</A>
                     </td>
                 </tr>
             </table>

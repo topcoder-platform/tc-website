@@ -23,16 +23,23 @@ public class ComponentRecordbook extends Static {
         if (
                 !handle.equals("appeal_percentage") &&
                         !handle.equals("avg_placement") &&
+                        !handle.equals("avg_score") &&
                         !handle.equals("component_money") &&
                         !handle.equals("high_scores") &&
                         !handle.equals("largest_comp_prize") &&
                         !handle.equals("most_reviews") &&
+                        !handle.equals("most_submissions_reviews") &&
                         !handle.equals("most_submissions") &&
                         !handle.equals("most_wins") &&
                         !handle.equals("overall_money") &&
                         !handle.equals("royalties") &&
                         !handle.equals("tournament_money") &&
-                        !handle.equals("win_percentage")
+                        !handle.equals("win_percentage") &&
+                        !handle.equals("impressive_debut") &&
+                        !handle.equals("consecutive_winnings") &&
+                        !handle.equals("consecutive_paid") &&
+                        !handle.equals("consecutive_rating_increase") &&
+                        !handle.equals("highest_rating_gains")
                 ) throw new TCWebException("Invalid c parameter: " + handle);
         getRequest().setAttribute("handle", handle);
 

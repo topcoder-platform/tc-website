@@ -12,13 +12,20 @@
 <% ResultSetContainer generalInfo = null;
     generalInfo = (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("general_problem_info");
     if (generalInfo.isEmpty())
-        generalInfo = (ResultSetContainer) ((Map) request.getAttribute("div2Results")).get("general_problem_info");%>
+        generalInfo = (ResultSetContainer) ((Map) request.getAttribute("div2Results")).get("general_problem_info");
+        
+        %>
 <% ResultSetContainer divisionInfo = (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("problem_division_info"); %>
 
 <% ResultSetContainer div1Lang = (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("problem_detail_by_language"); %>
 <% ResultSetContainer div2Lang = (ResultSetContainer) ((Map) request.getAttribute("div2Results")).get("problem_detail_by_language"); %>
 <% ResultSetContainer div1Overall = (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("problem_detail_overall"); %>
 <% ResultSetContainer div2Overall = (ResultSetContainer) ((Map) request.getAttribute("div2Results")).get("problem_detail_overall"); %>
+<% ResultSetContainer testers =  (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("problem_testers");
+if (testers.isEmpty())
+	testers = (ResultSetContainer) ((Map) request.getAttribute("div2Results")).get("problem_testers");
+%>
+
 <% SimpleDateFormat sdfTime = new SimpleDateFormat("H:mm:ss.S");
     sdfTime.setTimeZone(java.util.TimeZone.getTimeZone("GMT"));%>
 <% String forumID = generalInfo.getItem(0, "forum_id").toString(); %>
@@ -103,7 +110,7 @@
         </td>
     </tr>
     <tr>
-        <td class="statTextBig" nowrap=nowrap>
+        <td class="statTextBig" nowrap="nowrap">
             Categories:
         </td>
         <td class="statText">
@@ -111,7 +118,7 @@
         </td>
     </tr>
     <tr>
-        <td class="statTextBig" nowrap=nowrap>
+        <td class="statTextBig" nowrap="nowrap" >
             Writer:
         </td>
         <td class="statText">
@@ -120,6 +127,22 @@
             <% } else { %>
             	Unknown
             <% } %>
+        </td>
+    </tr>
+    <tr>
+        <td class="statTextBig" nowrap="nowrap" >
+            <%= testers.size() > 1? "Testers: " : "Tester:" %>
+        </td>
+        <td class="statText">
+        	<%  if (testers.size() == 0 ) {%>
+            	Unknown
+            <% } else { 
+            	for (int i = 0; i < testers.size(); i++) {
+            		if (i>0) {%>, <% } %>
+            		<tc-webtag:handle coderId='<%=testers.getLongItem(i, "tester_id")%>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
+            
+				
+            <% } } %>
         </td>
     </tr>
 
