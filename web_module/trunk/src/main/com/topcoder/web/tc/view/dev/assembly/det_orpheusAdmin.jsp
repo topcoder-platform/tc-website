@@ -67,7 +67,7 @@ Documentation/Specifications are available in the application forums <A href="ht
 <div class="sectionHeader">Payment</div>
 TopCoder will compensate teams with first and second place submissions. Initial payment for the winning team will be distributed in two installments. The first installment will be paid when the winning solution with review board requirements and suggestions integrated is accepted by TopCoder. The second installment will be paid upon completion of application deployment.
 <br><br>
-<b>Note:</b> To be eligible to win this competition you must submit your code on the Interim Deliverable date (December 06, 2006).  A bonus of $1,000 will be paid to any registrants that make a reasonable interim submission on this date, and who win one of the final prizes.
+<b>Note:</b> To be eligible to win this competition you must submit your code on the Interim Deliverable date (December 06, 2006).  A bonus of $1,000 will be paid to any registrant who makes a reasonable interim submission on this date, and who also wins one of the final prizes.
 <br><br>
 <strong>Winning Team</strong><br>
 Total Payment - $14,000
