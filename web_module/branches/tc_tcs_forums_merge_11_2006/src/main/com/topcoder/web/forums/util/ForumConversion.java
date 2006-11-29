@@ -208,9 +208,6 @@ public class ForumConversion {
         }
         rs.close();
         
-        for (int i=0; i<ADMIN_PERMS.length; i++) {
-        	root.getPermissionsManager().addGroupPermission(swAdminGroup, PermissionType.ADDITIVE, ADMIN_PERMS[i]);
-        }
         for (int i=0; i<BLOCK_PERMS.length; i++) {
         	root.getPermissionsManager().addAnonymousUserPermission(PermissionType.NEGATIVE, BLOCK_PERMS[i]);
         	root.getPermissionsManager().addRegisteredUserPermission(PermissionType.NEGATIVE, BLOCK_PERMS[i]);
@@ -342,12 +339,12 @@ public class ForumConversion {
             long oldForumID = rs.getLong(1);
             rs.close();
             
-            if (publicOldForumSet.contains(String.valueOf(oldForumID))) {
+            if (!publicOldForumSet.contains(String.valueOf(oldForumID))) {
             	for (int i=0; i<ForumConstants.ANONYMOUS_PERMS.length; i++) {
-                	categoryPermissionsManager.addAnonymousUserPermission(PermissionType.ADDITIVE, ForumConstants.ANONYMOUS_PERMS[i]);	
+                	categoryPermissionsManager.addAnonymousUserPermission(PermissionType.NEGATIVE, ForumConstants.ANONYMOUS_PERMS[i]);	
             	}
 	            for (int i=0; i<ForumConstants.REGISTERED_PERMS.length; i++) {
-	            	categoryPermissionsManager.addRegisteredUserPermission(PermissionType.ADDITIVE, ForumConstants.REGISTERED_PERMS[i]);
+	            	categoryPermissionsManager.addRegisteredUserPermission(PermissionType.NEGATIVE, ForumConstants.REGISTERED_PERMS[i]);
 	            }
             }
            

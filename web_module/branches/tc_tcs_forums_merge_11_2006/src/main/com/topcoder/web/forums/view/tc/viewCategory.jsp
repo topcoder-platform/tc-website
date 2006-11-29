@@ -125,7 +125,8 @@
                 <td align="right" nowrap="nowrap" valign="top">
                 	<%	boolean isAuthorized = forumCategory.isAuthorized(Permissions.SYSTEM_ADMIN) || 
         					forumCategory.isAuthorized(ForumPermissions.FORUM_CATEGORY_ADMIN);
-        				if ("true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_MODIFY_FORUMS)) && isAuthorized) {	%>
+        				boolean canModifyForums = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_MODIFY_FORUMS)) && isAuthorized;
+        				if (canModifyForums) {	%>
         					<A href="?module=CreateForum&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.POST_MODE%>=New" class="rtbcLink">Create Forum</A>&#160; |&#160; 
         			<%	} %>
                     <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
@@ -194,7 +195,9 @@
                 <% } %>
                 <% if (forum.getDescription() != null) { %><br/>
 	                <div class="rtDescIndent"><%=forum.getDescription()%>
+	                	<%	if (canModifyForums) { %>
 	                	(<A href="?module=CreateForum&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&<%=ForumConstants.POST_MODE%>=Edit" class="rtbcLink">Edit</A>)
+	                	<%	} %>
 	                </div>
                 <% } %>
             </td>
