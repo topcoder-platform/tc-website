@@ -132,7 +132,7 @@
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
     <tc-webtag:hiddenInput name="<%=Constants.CODER_ID%>"/>
     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-        <tr><td class="title" colspan="7">
+        <tr><td class="title" colspan="8">
             Algorithm Competition History
         </td></tr>
         <tr>
@@ -157,6 +157,9 @@
             <TD CLASS="headerC">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("rank")%>" includeParams="true"/>">Rank</a>
             </TD>
+            <TD CLASS="headerC">
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("percentile")%>" includeParams="true"/>">Percentile</a>
+            </TD>
         </tr>
         <%boolean even = true;%>
         <rsc:iterator list="<%=rsc2%>" id="resultRow">
@@ -174,6 +177,7 @@
                 <TD class="valueR"><rsc:item name="new_rating" row="<%=resultRow%>"/></TD>
                 <TD class="valueR"><rsc:item name="vol" row="<%=resultRow%>"/></TD>
                 <TD class="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></TD>
+                <TD class="valueC"><rsc:item name="percentile" row="<%=resultRow%>" format="#0.00" /></TD>                
             </tr>
             <%even = !even;%>
         </rsc:iterator>
