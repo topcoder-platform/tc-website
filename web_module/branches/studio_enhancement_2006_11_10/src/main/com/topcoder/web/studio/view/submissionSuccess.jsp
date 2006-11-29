@@ -3,6 +3,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -26,6 +27,22 @@
             objPopUp.style.visibility = 'hidden';
             objPopUp = null;
         }
+        function changeRank(newRank, submissionId) {
+        var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=UpdateSubmissionRank&<%=Constants.SUBMISSION_RANK%>=' + newRank + '&<%=Constants.SUBMISSION_ID%>=' + submissionId);
+        <%--
+            ajaxRequest.setPostRequest(loaded);
+            ajaxRequest.setPreRequest(loading);
+        --%>
+        ajaxRequest.sendRequest();
+        }
+        function batchUpdate() {
+        var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=BatchUpdateRank&<%=Constants.CONTEST_ID%>=${contest.id}');
+        <c:forEach items="${submissions}" var="submission">
+        ajaxRequest.addNamedFormElements("<%=Constants.SUBMISSION_ID%>${submission.id}");
+        </c:forEach>
+        ajaxRequest.sendRequest();
+        }
+                
         // -->
     </script>
     <STYLE TYPE="text/css">

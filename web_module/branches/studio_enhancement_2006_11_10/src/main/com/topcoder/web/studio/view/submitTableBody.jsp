@@ -15,25 +15,6 @@ crappy looking to save space on the transmission
 
 <taconite-root xml:space="preserve">
     <taconite-replace-children contextNodeID="submissions" parseInBrowser="true">
-<script language="javascript" type="text/javascript">
-<!--
-function changeRank(newRank, submissionId) {
-var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=UpdateSubmissionRank&<%=Constants.SUBMISSION_RANK%>=' + newRank + '&<%=Constants.SUBMISSION_ID%>=' + submissionId);
-<%--
-    ajaxRequest.setPostRequest(loaded);
-    ajaxRequest.setPreRequest(loading);
---%>
-ajaxRequest.sendRequest();
-}
-function batchUpdate() {
-var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=BatchUpdateRank&<%=Constants.CONTEST_ID%>=${contest.id}');
-<c:forEach items="${submissions}" var="submission">
-ajaxRequest.addNamedFormElements("<%=Constants.SUBMISSION_ID%>${submission.id}");
-</c:forEach>
-ajaxRequest.sendRequest();
-}
-// -->
-</script>
 <% boolean even = true;%>
 <c:set value="<%=ReviewStatus.FAILED%>" var="failed"/>
 <c:set value="<%=Constants.SUBMISSION_ID%>" var="submissionId"/>
@@ -81,7 +62,14 @@ onmouseover="popUp('pop${submission.id}')" onmouseout="popHide()"/>
 FIX ME
 </td>
 <td class="valueC">
+<c:choose>
+<c:when test="${submission.review.status!=null}">
 <span class="bigGreen">${submission.review.status.description}</span>
+</c:when>
+<c:otherwise>
+&#160;
+</c:otherwise>
+</c:choose>
 </td>
 <c:choose>
 <c:when test="${submission.review.status.id==failed}">
