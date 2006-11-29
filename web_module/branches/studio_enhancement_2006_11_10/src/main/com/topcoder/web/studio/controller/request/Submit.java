@@ -84,6 +84,7 @@ public class Submit extends ShortHibernateProcessor {
 
                 if (hasErrors()) {
                     setDefault(Constants.CONTEST_ID, contestId.toString());
+                    setDefault(Constants.SUBMISSION_RANK, rank);
                     getRequest().setAttribute("contest", c);
                     setNextPage("/submit.jsp");
                     setIsNextPageInContext(true);
@@ -136,7 +137,6 @@ public class Submit extends ShortHibernateProcessor {
                     Integer maxRank = cFactory.getSubmissionDAO().getMaxRank(c, u);
                     Integer one = new Integer(1);
                     getRequest().setAttribute("maxRank", maxRank);
-                    boolean updateRanks = true;
                     if (maxRank == null) {
                         s.setRank(one);
                         cFactory.getSubmissionDAO().saveOrUpdate(s);
@@ -146,10 +146,8 @@ public class Submit extends ShortHibernateProcessor {
                             s.setRank(new Integer(maxRank.intValue()+1));
                             cFactory.getSubmissionDAO().saveOrUpdate(s);
                         } else if (newRank.compareTo(one)<0) {
-                            s.setRank(one);
-                            cFactory.getSubmissionDAO().changeRank(newRank, s);
+                            cFactory.getSubmissionDAO().changeRank(one, s);
                         } else {
-                            s.setRank(newRank);
                             cFactory.getSubmissionDAO().changeRank(newRank, s);
                         }
                     }
