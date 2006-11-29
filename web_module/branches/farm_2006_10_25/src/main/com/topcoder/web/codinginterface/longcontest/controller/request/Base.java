@@ -1,7 +1,13 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.common.ServicesConstants;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -10,7 +16,6 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.language.BaseLanguage;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.messaging.TimeOutException;
-import com.topcoder.shared.messaging.messages.BaseLongContestRequest;
 import com.topcoder.shared.messaging.messages.LongCompileResponse;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
@@ -24,14 +29,12 @@ import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.ImageInfo;
 
-import java.io.IOException;
-import java.util.*;
-
 /**
  * @author dok
  * @version $Revision$ $Date$
  */
 public abstract class Base extends BaseProcessor {
+    
 
     protected static final Logger log = Logger.getLogger(Base.class);
 
@@ -73,7 +76,6 @@ public abstract class Base extends BaseProcessor {
 
     }
 
-
     protected void loadSponsorImage() throws Exception {
         log.debug("loadSponsorImage called...");
         String round = getRequest().getParameter(Constants.ROUND_ID);
@@ -108,24 +110,7 @@ public abstract class Base extends BaseProcessor {
         this.sender = sender;
     }
 
-    protected void send(BaseLongContestRequest sub, int language) throws TCWebException, ServerBusyException {
-        // This is a synchronous message
-        if (sub.isSynchronous()) {
-            lock();
-        }
 
-        HashMap hm = new HashMap();
-        hm.put("pendingAction", new Integer(ServicesConstants.LONG_COMPILE_ACTION));
-        hm.put("appletServerId", new Integer(ApplicationServer.WEB_SERVER_ID));
-        hm.put("socketServerId", new Integer(ApplicationServer.WEB_SERVER_ID));
-        hm.put("submitTime", new Long(System.currentTimeMillis()));
-        hm.put("language", new Integer(language));
-        hm.put("roundType", getRequest().getAttribute(Constants.ROUND_TYPE_ID));
-        long before = System.currentTimeMillis();
-        sender.sendMessage(hm, sub);
-        log.info("long compile took " + (System.currentTimeMillis() - before) + " milliseconds");
-
-    }
 
     protected void lock() throws TCWebException, ServerBusyException {
         synchronized (locks) {

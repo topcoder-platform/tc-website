@@ -1,16 +1,27 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
+import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import javax.naming.InitialContext;
+
 import com.topcoder.server.ejb.DBServices.DBServices;
 import com.topcoder.server.ejb.DBServices.DBServicesHome;
 import com.topcoder.server.ejb.TestServices.TestServices;
-import com.topcoder.server.ejb.TestServices.TestServicesHome;
+import com.topcoder.server.ejb.TestServices.TestServicesLocator;
 import com.topcoder.server.farm.compiler.CompilerTimeoutException;
-import com.topcoder.services.message.handler.LongSubmitter;
-import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.common.ApplicationServer;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.language.*;
+import com.topcoder.shared.language.BaseLanguage;
+import com.topcoder.shared.language.CPPLanguage;
+import com.topcoder.shared.language.CSharpLanguage;
+import com.topcoder.shared.language.JavaLanguage;
+import com.topcoder.shared.language.PythonLanguage;
+import com.topcoder.shared.language.VBLanguage;
 import com.topcoder.shared.messaging.messages.LongCompileRequest;
 import com.topcoder.shared.messaging.messages.LongCompileResponse;
 import com.topcoder.shared.problem.DataType;
@@ -20,18 +31,17 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.render.DataTypeRenderer;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.longcompresult.LongCompResult;
 import com.topcoder.web.ejb.longcompresult.LongCompResultLocal;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
-
-import javax.naming.InitialContext;
-import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Allows a coder to submit code for a round.
@@ -40,8 +50,7 @@ import java.util.Map;
  * @version 1.0
  */
 public class Submit extends Base {
-    private static final LongSubmitter longSubmitter = new LongSubmitter(ApplicationServer.WEB_SERVER_ID);
-    
+
     private static final String NEAR_END =
             "Note: There are less than " + Constants.SUBMISSION_RATE / 60 + " hours remaining in this event.  " +
                     "If you make\na full submission at any point between now and the end of the event\nyou will " +
@@ -238,7 +247,7 @@ public class Submit extends Base {
                 }
                 //todo bad, those should all be long
                 LongCompileRequest lcr = new LongCompileRequest(uid, cid, rid, cd,
-                        language, ApplicationServer.WEB_SERVER_ID, code, examplesOnly);
+                        language, com.topcoder.shared.util.ApplicationServer.WEB_SERVER_ID, code, examplesOnly);
 
                 LongCompResultLocal longCompResult = (LongCompResultLocal) createLocalEJB(getInitialContext(), LongCompResult.class);
                 if (!longCompResult.exists(rid, getUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) {
@@ -253,7 +262,7 @@ public class Submit extends Base {
                         //Tell the user that the code is compiling...
                         showProcessingPage();
                         
-                        res = longSubmitter.submitLong(lcr);
+                        res = TestServicesLocator.getService().submitLong(lcr);
                     } finally { 
                         unlock();
                     }
@@ -384,8 +393,7 @@ public class Submit extends Base {
         }
 
         // Find the TestServices bean so we could save the code.
-        TestServicesHome t = (TestServicesHome) ctx.lookup(ApplicationServer.TEST_SERVICES);
-        TestServices ts = t.create();
+        TestServices ts = TestServicesLocator.getService();
 
         // Save the code!
         return ts.saveLongComponent(cd, rid, cid, uid, code, lang).isSuccess();
