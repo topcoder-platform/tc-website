@@ -246,6 +246,9 @@
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
 
+                TopCoder to Present Keynote Address: Future of Virtual Communities as Business; at Gartner CIO Summit 2006
+                <A href="/tc?module=Static&d1=pressroom&d2=pr_112906">...more</A><br>[November 29]<br><br>
+
                 <div style="float: right; padding-left: 5px;">
                 <img src="/i/pressroom/internetnews_logo.gif" width="81" height="11" alt="internetnews.com logo" border="0" /></div>
                 Who is the Top Coder?
@@ -271,8 +274,6 @@
                 <i>Wall Street & Technology</i> on TopCoder and UBS
                 <A href="http://www.wallstreetandtech.com/showArticle.jhtml;jsessionid=0U21ZF2KMDLJYQSNDLPCKHSCJUNN2JVN?articleID=193400878" target="_blank">...more</A><br>[October 23]<br><br>
 
-                AOL to Webcast TCCC06 Live on November 17
-                <A href="http://dev.aol.com/video">...more</A><br>[October 11]<br><br>
             </td>
         </tr>
         <tr>
