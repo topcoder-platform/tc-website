@@ -30,13 +30,14 @@ public class Submit extends ShortHibernateProcessor {
     private File f = null;
 
     protected void dbProcessing() throws Exception {
+        //todo take user submitted rank and use that for this new submission
         if (userLoggedIn()) {
             Long contestId;
 
             try {
                 contestId = new Long(getRequest().getParameter(Constants.CONTEST_ID));
             } catch (NumberFormatException e) {
-                throw new NavigationException("Invalid Contest Specified");
+                throw new NavigationException("Invalid contest specified.");
             }
 
             StudioDAOFactory cFactory = StudioDAOUtil.getFactory();

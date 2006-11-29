@@ -1,6 +1,8 @@
 package com.topcoder.web.studio.controller.request;
 
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
@@ -14,6 +16,8 @@ import com.topcoder.web.studio.model.Submission;
 public class ViewSubmissionSuccess extends BaseSubmissionDataProcessor {
     protected void dbProcessing() throws Exception {
 
+        if (userLoggedIn()) {
+
         String submissionId = getRequest().getParameter(Constants.SUBMISSION_ID);
         SubmissionDAO dao = StudioDAOUtil.getFactory().getSubmissionDAO();
         Submission s = dao.find(new Long(submissionId));
@@ -23,6 +27,9 @@ public class ViewSubmissionSuccess extends BaseSubmissionDataProcessor {
             setNextPage("submissionSuccess.jsp");
         } else {
             throw new NavigationException("Illegal operation attempted, submission doesn't belong to current user.");
+        }
+        } else {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
     }
 }
