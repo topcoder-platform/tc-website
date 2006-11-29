@@ -121,6 +121,7 @@
         <div align="center">
             <form action="${sessionInfo.servletPath}" method="POST" name="submission" enctype="multipart/form-data">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
+                <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>" value="${contest.id}"/>
                 <p>
                     <b>My design:</b><br/>
                                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
