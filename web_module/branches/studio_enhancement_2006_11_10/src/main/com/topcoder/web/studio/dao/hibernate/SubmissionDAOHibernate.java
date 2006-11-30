@@ -65,14 +65,13 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
         } else if (newRank.compareTo(s.getRank()) < 0) {
             //they's bumping it up, making it's rank better
             buf.append("rank+1 ");
-            buf.append("where s.submitter.id = ? and s.contest.id = ? and rank between ? and ? and s.id != ?");
+            buf.append("where s.submitter.id = ? and s.contest.id = ? and rank between ? and ?");
 
             Query q = session.createQuery(buf.toString());
             q.setLong(0, s.getSubmitter().getId().longValue());
             q.setLong(1, s.getContest().getId().longValue());
             q.setInteger(2, newRank.intValue());
-            q.setInteger(3, s.getRank().intValue());
-            q.setLong(4, s.getId().longValue());
+            q.setInteger(3, s.getRank().intValue()-1);
             q.executeUpdate();
 
             s.setRank(newRank);
@@ -80,13 +79,12 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
         } else if (newRank.compareTo(s.getRank()) > 0) {
             //they're dropping it down, making it's rank worse
             buf.append("rank-1 ");
-            buf.append("where s.submitter.id = ? and s.contest.id = ? and rank between ? and ? and s.id != ?");
+            buf.append("where s.submitter.id = ? and s.contest.id = ? and rank between ? and ?");
             Query q = session.createQuery(buf.toString());
             q.setLong(0, s.getSubmitter().getId().longValue());
             q.setLong(1, s.getContest().getId().longValue());
-            q.setInteger(2, s.getRank().intValue());
+            q.setInteger(2, s.getRank().intValue()+1);
             q.setInteger(3, newRank.intValue());
-            q.setLong(4, s.getId().longValue());
             q.executeUpdate();
 
             s.setRank(newRank);
