@@ -73,7 +73,7 @@ Each team will be responsible for creating their working environment. The workin
 <li>Oracle 10G</li>
 <li>Apache TomCat</li>
 <li>AJAX</li>
-<li>ILOG Charts (<A href="http://www.ilog.com" target="_blank">www.ilog.com</A>) Ð Licenses will be available to registered teams.</li>
+<li>ILOG Charts (<A href="http://www.ilog.com" target="_blank">www.ilog.com</A>) - Licenses will be available to registered teams.</li>
 </ul>
 <%--
 <div class="sectionHeader">Documentation</div>
@@ -84,7 +84,7 @@ Documentation/Specifications are available in the application forums <A href="ht
 TopCoder will compensate teams with first and second place submissions. Initial payment for the winning team will be distributed in two installments. First Milestone: When the winning solution is submitted and review board suggestions are integrated. Second Milestone: Marked by the completion of the Deployment phase of the project.
 <br><br>
 <strong>Winning Team</strong><br>
-Total Payment - $8,000
+Total Payment - $10,000
 <br><br>
 <strong>Second Place Team</strong><br>
 Total Payment - $4,000
