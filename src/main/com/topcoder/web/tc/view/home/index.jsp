@@ -300,6 +300,18 @@
                 <b>11.22</b> - SRM 327 - 7 AM<br><br>
                 <b>11.27</b> - TCHS SRM 21 - 7 PM<br><br>
                 <b>11.29</b> - SRM 328 - 11 AM<br><br>
+<%-- DECEMBER EVENTS 
+                <b>12.04</b> - TCHS SRM 22 - 2 PM<br><br>
+                <b>12.06</b> - Marathon Match 8 - 12 NOON<br><br>
+                <b>12.09</b> - SRM 329 - 12 Noon<br><br>
+                <b>12.11</b> - TCHS SRM 23 - 10 AM<br><br>
+                <b>12.13</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 12 - 12 NOON<br><br>
+                <b>12.13</b> - SRM 330 - 9 PM<br><br>
+                <b>12.18</b> - TCHS SRM 24 - 6 AM<br><br>
+                <b>12.21</b> - SRM 331 - 7 AM<br><br>
+                <b>12.27</b> - TCHS SRM 25 - 7 PM<br><br>
+                <b>12.28</b> - SRM 332 - 9 PM<br><br>
+--%>
             </td>
         </tr>
 
