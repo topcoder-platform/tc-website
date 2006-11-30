@@ -102,7 +102,7 @@ Show submissions by (Enter Handle):
 <tbody>
 <tr>
     <td class="NW">&nbsp;</td>
-    <td class="title" colspan="9">Submissions</td>
+    <td class="title" colspan="8">Submissions</td>
     <td class="NE">&nbsp;</td>
 </tr>
 <tr>
@@ -164,7 +164,7 @@ Show submissions by (Enter Handle):
             <span class="coderText"><rsc:item name="submitter_handle" row="<%=resultRow%>"/></span>
         </td>
         <td class="value">
-            <span class="coderText"><rsc:item name="submitter_rank" row="<%=resultRow%>"/></span>
+            <rsc:item name="submitter_rank" row="<%=resultRow%>"/>
         </td>
         <td class="value">
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
@@ -210,7 +210,7 @@ Show submissions by (Enter Handle):
     </tr>
 </rsc:iterator>
 <tr>
-    <td class="SW" colspan="9">&nbsp;</td>
+    <td class="SW" colspan="8">&nbsp;</td>
     <td class="SE">&nbsp;</td>
 </tr>
 </tbody>
