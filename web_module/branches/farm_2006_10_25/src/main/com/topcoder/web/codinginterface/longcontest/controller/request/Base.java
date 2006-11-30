@@ -30,11 +30,8 @@ import com.topcoder.web.common.model.ImageInfo;
  * @version $Revision$ $Date$
  */
 public abstract class Base extends BaseProcessor {
-    
-
     protected static final Logger log = Logger.getLogger(Base.class);
 
-    
     private ImageInfo sponsorImage = null;
     private static final Set locks = new HashSet();
 
@@ -96,16 +93,6 @@ public abstract class Base extends BaseProcessor {
         }
 
     }
-
-//    public void setReceiver(WebQueueResponseManager receiver) {
-//        this.receiver = receiver;
-//    }
-//
-//    public void setSender(QueueMessageSender sender) {
-//        this.sender = sender;
-//    }
-
-
 
     protected void lock() throws TCWebException, ServerBusyException {
         synchronized (locks) {

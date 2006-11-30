@@ -20,34 +20,11 @@ import com.topcoder.web.common.security.WebAuthentication;
 public class MainServlet extends BaseServlet {
 
     private final static Logger log = Logger.getLogger(MainServlet.class);
-//    private static QueueMessageSender sender = null;
-//    private static WebQueueResponseManager receiver = null;
 
     public void init(ServletConfig config) throws ServletException {
         log.debug("loading up the longcontest servlet");
         super.init(config);
-//
-//        Context context = null;
-//        try {
-//            context = TCContext.getInitial();
-//        } catch (NamingException e) {
-//            throw new ServletException(e);
-//        }
-//
-//        log.debug("create queue message sender");
-//        log.info("created queue message sender");
-//
-//        log.debug("create queue response manager");
-//        log.info("created queue response manager");
-
-/*
-        Constants.initialize();
-
-        if (!Constants.isInitialized())
-            throw new ServletException("Constants did not initialize properly");
-*/
     }
-
 
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
         return true;
@@ -60,8 +37,6 @@ public class MainServlet extends BaseServlet {
         rp = (Base) Class.forName(processorName).newInstance();
         rp.setRequest(request);
         rp.setResponse(response);
-//        rp.setSender(sender);
-//        rp.setReceiver(receiver);
         rp.setAuthentication(authentication);
         rp.process();
         log.debug("done process");
