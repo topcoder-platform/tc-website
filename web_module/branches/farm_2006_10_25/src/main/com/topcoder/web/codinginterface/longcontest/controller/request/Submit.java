@@ -1,6 +1,7 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
 import java.io.StringReader;
+import java.rmi.ServerException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -260,6 +261,11 @@ public class Submit extends Base {
                         showProcessingPage();
                         
                         res = TestServicesLocator.getService().submitLong(lcr);
+                    } catch (ServerException e) {
+                        if (e.getCause() != null) {
+                            throw (Exception) e.getCause();
+                        }
+                        throw e;
                     } finally { 
                         unlock();
                     }
