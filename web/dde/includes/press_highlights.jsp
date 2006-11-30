@@ -7,6 +7,9 @@
 <table width="530" border="0" cellspacing="0" cellpadding="4">
 
    <tr><td class="prHead">
+         <A href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_113006" target="_blank">AOL and TopCoder Announce Web AIM Mashup Competition</A> [November 30]
+   </td></tr>
+   <tr><td class="prHead">
          <A href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_112906" target="_blank">TopCoder to Present Keynote Address: Future of Virtual Communities as Business; at Gartner CIO Summit 2006</A> [November 29]
    </td></tr>
    <tr><td class="prHead">
@@ -23,14 +26,6 @@
          <A href="/audio/open_source_060928_24kb.mp3" target="_blank">low bandwidth</A> (6.8mb)
    </td></tr>
    <tr><td class="prHead"><A href="http://www.topcoder.com/images/downloads/mavericks_at_work.pdf" target="_blank">TopCoder featured in new book <i>Mavericks at Work</i></A> [October 2]</td></tr>
-   <tr><td class="prHead">
-         <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/wsjreprint_logo.gif" width="70" height="29" alt="Wall Street Journal WebReprint" border="0" /></div>
-         <A href="http://webreprints.djreprints.com/1466111183234.html" target="_blank">Cause for Concern? Americans Are Scarce In Top Tech Contest</A> [May 10]
-   </td></tr>
-   <tr><td class="prHead">
-         <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/computerworld.gif" width="88" height="23" alt="Computerworld" border="0" /></div>
-         <A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9000323" target="_blank">Programming contest garners enterprise interest</A> [May 10]
-   </td></tr>
 
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
 
