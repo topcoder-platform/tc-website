@@ -55,11 +55,10 @@
                 <jsp:param name="image" value="<%=image%>"/>
                 <jsp:param name="title" value="Queue Status"/>
             </jsp:include>
+            
+            <span class="bodySubtitle">System Tests Remaining: <%=systemTestCount%></span><br/><br/>
 
             <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
-            	<tr>
-            		<td>System Tests Remaining: ${systemTests}</td>
-            	</tr>
                 <tr>
                     <td>
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
