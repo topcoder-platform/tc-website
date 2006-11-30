@@ -49,6 +49,7 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
 
             s.setRank(newRank);
             saveOrUpdate(s);
+            session.flush();
         } else if (s.getRank()==null) {
             buf.append("rank+1 ");
             buf.append("where s.submitter.id = ? and s.contest.id = ? and rank between ? and ?");
@@ -62,6 +63,7 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
 
             s.setRank(newRank);
             saveOrUpdate(s);
+            session.flush();
         } else if (newRank.compareTo(s.getRank()) < 0) {
             //they's bumping it up, making it's rank better
             buf.append("rank+1 ");
@@ -76,6 +78,7 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
 
             s.setRank(newRank);
             saveOrUpdate(s);
+            session.flush();
         } else if (newRank.compareTo(s.getRank()) > 0) {
             //they're dropping it down, making it's rank worse
             buf.append("rank-1 ");
@@ -89,6 +92,7 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
 
             s.setRank(newRank);
             saveOrUpdate(s);
+            session.flush();
         }
     }
 
