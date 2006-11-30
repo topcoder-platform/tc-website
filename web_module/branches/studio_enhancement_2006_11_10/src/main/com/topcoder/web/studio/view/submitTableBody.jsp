@@ -62,7 +62,7 @@ onmouseover="popUp('pop${submission.id}')" onmouseout="popHide()"/>
 </div>
 </td>
 <td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
-FIX ME
+<tc-webtag:format object="${submission.submissionDate}" format="EEEE, MMMM d, yyyy 'at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
 </td>
 <td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
 <c:choose>

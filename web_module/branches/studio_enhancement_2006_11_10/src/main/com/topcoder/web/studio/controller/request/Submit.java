@@ -21,6 +21,7 @@ import com.topcoder.web.studio.validation.SubmissionValidator;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -124,6 +125,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                     s.setPath(p);
                     s.setSystemFileName(System.currentTimeMillis() + ext);
                     s.setType(cFactory.getSubmissionTypeDAO().find(SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE));
+                    s.setSubmissionDate(new Timestamp(System.currentTimeMillis()));
 
                     if (log.isDebugEnabled()) {
                         log.debug("creating file: " + p.getPath() + s.getSystemFileName());

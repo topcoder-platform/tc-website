@@ -3,6 +3,8 @@ package com.topcoder.web.studio.model;
 import com.topcoder.web.common.model.Base;
 import com.topcoder.web.common.model.User;
 
+import java.sql.Timestamp;
+
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -20,6 +22,7 @@ public class Submission extends Base {
     private SubmissionReview review;
     private ContestResult result;
     private Integer rank;
+    private Timestamp submissionDate;
 
     public Long getId() {
         return id;
@@ -108,5 +111,14 @@ public class Submission extends Base {
 
     public void setRank(Integer rank) {
         this.rank = rank;
+    }
+
+
+    public Timestamp getSubmissionDate() {
+        return submissionDate;
+    }
+
+    public void setSubmissionDate(Timestamp submissionDate) {
+        this.submissionDate = submissionDate;
     }
 }
