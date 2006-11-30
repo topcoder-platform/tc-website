@@ -47,6 +47,7 @@
 		<Property name="template_files">
 			<Value>/home/onlinereview/jboss-4.0.2/server/default/conf/template/TCSTemplate_Design.xml</Value>
 			<Value>/home/onlinereview/jboss-4.0.2/server/default/conf/template/TCSTemplate_Development.xml</Value>
+			<Value>/home/onlinereview/jboss-4.0.2/server/default/conf/template/TCSTemplate_Application.xml</Value>
 		</Property>
 	</Config>
 
