@@ -5,14 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import javax.naming.InitialContext;
-
 import com.topcoder.server.ejb.DBServices.DBServices;
-import com.topcoder.server.ejb.DBServices.DBServicesHome;
+import com.topcoder.server.ejb.DBServices.DBServicesLocator;
 import com.topcoder.server.ejb.TestServices.CompilationTimeoutException;
 import com.topcoder.server.ejb.TestServices.TestServices;
 import com.topcoder.server.ejb.TestServices.TestServicesLocator;
-import com.topcoder.shared.common.ApplicationServer;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -382,9 +379,7 @@ public class Submit extends Base {
         log.debug("saveCode called... lang=" + lang + " uid=" + uid + " cd=" + cd + " rid=" + rid + " cid=" + cid);
 
         // Find the DB_Services bean so we could set the problem state to open before saving the code.
-        InitialContext ctx = getInitialContext();
-        DBServicesHome dbsHome = (DBServicesHome) ctx.lookup(ApplicationServer.DB_SERVICES);
-        DBServices dbs = dbsHome.create();
+        DBServices dbs = DBServicesLocator.getService();
 
 
         if (!dbs.isLongComponentOpened((int) uid, (int) rid, (int) cid))
