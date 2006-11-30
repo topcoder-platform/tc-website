@@ -246,6 +246,9 @@
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
 
+                AOL and TopCoder Announce Web AIM Mashup Competition
+                <A href="/tc?module=Static&d1=pressroom&d2=pr_113006">...more</A><br>[November 30]<br><br>
+
                 TopCoder to Present Keynote Address: Future of Virtual Communities as Business; at Gartner CIO Summit 2006
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_112906">...more</A><br>[November 29]<br><br>
 
@@ -268,11 +271,6 @@
                 <img src="/i/pressroom/gigaOm_logo.jpg" width="80" height="26" alt="gigaOm" border="0" /></div>
                 The New American Idol&#8230; The Coder
                 <A href="http://gigaom.com/2006/10/23/the-new-american-idol-the-coder/" target="_blank">...more</A><br>[October 24]<br><br>
-
-                <div style="float: right; padding-left: 5px;">
-                <img src="/i/pressroom/wallstreetnTech_logo.gif" width="80" height="30" alt="Wall Street &amp; Technology" border="0" /></div>
-                <i>Wall Street & Technology</i> on TopCoder and UBS
-                <A href="http://www.wallstreetandtech.com/showArticle.jhtml;jsessionid=0U21ZF2KMDLJYQSNDLPCKHSCJUNN2JVN?articleID=193400878" target="_blank">...more</A><br>[October 23]<br><br>
 
             </td>
         </tr>
