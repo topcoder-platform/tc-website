@@ -14,6 +14,7 @@
 <%@ taglib uri="codinginterface.tld" prefix="ci" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <jsp:useBean id="result" type="java.util.List" scope="request"/>
+<jsp:useBean id="systemTestCount" type="java.lang.Number" scope="request"/>
 <jsp:useBean id="sortLinkBase" class="java.lang.String" scope="request"/>
 <jsp:useBean id="prevPageLink" class="java.lang.String" scope="request"/>
 <jsp:useBean id="nextPageLink" class="java.lang.String" scope="request"/>
@@ -56,6 +57,9 @@
             </jsp:include>
 
             <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
+            	<tr>
+            		<td>System Tests Remaining: ${systemTests}</td>
+            	</tr>
                 <tr>
                     <td>
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
