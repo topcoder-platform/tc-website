@@ -84,7 +84,12 @@
                     <br/>
 
 
-                    Reviewer: ${submissionReview.reviewer.handle}<br>
+                    <c:if test="${submissionReview.reviewer!=null}">
+                        Reviewer: ${submissionReview.reviewer.handle}<br>
+                    </c:if>
+                    <c:if test="${submission.rank!=null}">
+                        Submitter Rank: ${submission.rank}<br>
+                    </c:if>
                     Status:
                     <tc-webtag:objectSelect name="<%=Constants.REVIEW_STATUS_ID%>" list="${reviewStatuses}" valueField="id" textField="description" onChange="choose()"/>
                     <br><br>
