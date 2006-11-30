@@ -84,12 +84,15 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
         }
 
         loadSubmissionData(s.getSubmitter(), s.getContest(), dao, maxRank);
-        //override so that the user gets their data back to them
-        for (Enumeration paramNames = getRequest().getParameterNames(); paramNames.hasMoreElements();) {
-            paramName = (String) paramNames.nextElement();
-            setDefault(paramName, getRequest().getParameter(paramName));
+
+        if (hasErrors()) {
+            //override so that the user gets their data back to them
+            for (Enumeration paramNames = getRequest().getParameterNames(); paramNames.hasMoreElements();) {
+                paramName = (String) paramNames.nextElement();
+                setDefault(paramName, getRequest().getParameter(paramName));
+            }
         }
-        
+
         setIsNextPageInContext(true);
         setNextPage("submitTableBody.jsp");
 
