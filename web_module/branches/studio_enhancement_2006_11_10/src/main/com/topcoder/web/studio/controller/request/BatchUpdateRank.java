@@ -30,7 +30,8 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
         Date now = new Date();
         List userSubmissions = dao.getSubmissions(contestId, new Long(getUser().getId()));
         Integer maxRank = null;
-        TreeMap changes = new TreeMap();
+        ArrayList newRanks = new ArrayList(userSubmissions.size());
+        ArrayList changedSubmissions = new ArrayList(userSubmissions.size());
         for (Enumeration paramNames = getRequest().getParameterNames(); paramNames.hasMoreElements();) {
             paramName = (String) paramNames.nextElement();
             if (paramName.startsWith(Constants.SUBMISSION_ID)) {
@@ -56,21 +57,21 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
                             newRankInt = maxRank;
                         }
                         if (!newRankInt.equals(currSubmission.getRank())) {
-                            changes.put(newRankInt, currSubmission);
+                            newRanks.add(newRankInt);
+                            changedSubmissions.add(currSubmission);
                         }
                     }
                 }
             }
         }
 
-
+//todo make it smarter, since the transaction isn't yet commited, it seems to be confused since we're updated the same rows
+        //todo multiple times.  perhaps we have to do it all here in the processor instead or something.
         Submission s = (Submission)userSubmissions.get(0);
         if (!hasErrors()) {
-            ArrayList a = new ArrayList(changes.keySet());
-            Collections.reverse(a);
 
-            for (int i=0; i<a.size(); i++) {
-                dao.changeRank((Integer)a.get(i) ,(Submission)changes.get(a.get(i)));
+            for (int i=0; i<newRanks.size(); i++) {
+                dao.changeRank((Integer)newRanks.get(i), (Submission)changedSubmissions.get(i));
             }
 
             markForCommit();
@@ -92,6 +93,10 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
         setIsNextPageInContext(true);
         setNextPage("submitTableBody.jsp");
 
+
+    }
+
+    private void changeRank(int idx, List submissions) {
 
     }
 
