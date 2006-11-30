@@ -33,14 +33,14 @@
 
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="calendar"/>
-<jsp:param name="title" value="December 2006"/>
+<jsp:param name="title" value="May 2007"/>
 </jsp:include>
 
 <div style="float:right;white-space:nowrap;">All times are <A target="_blank" href="http://www.timeanddate.com/worldclock/city.html?n=98">Eastern Time</A> unless stated otherwise.  &#160; &#160; </div>
 
-<strong><A href="/tc?module=Static&d1=calendar&d2=nov_06" class="prevNext">&lt; prev</A> | <A href="/tc?module=Static&d1=calendar&d2=jan_07" class="prevNext">next &gt;</A></strong>
+<strong><A href="/tc?module=Static&d1=calendar&d2=apr_07" class="prevNext">&lt; prev</A> <%--| <A href="/tc?module=Static&d1=calendar&d2=jun_07" class="prevNext">next &gt;</A>--%></strong>
 <jsp:include page="dropdown.jsp" >
-<jsp:param name="currMonth" value="dec_06"/>
+<jsp:param name="currMonth" value="may_07"/>
 </jsp:include>
 
 <table cellspacing="0" cellpadding="0" class="calendar" width="100%">
@@ -57,148 +57,133 @@
    <tr>
       <td class="empty">&#160;<br><br><br><br><br></td>
       <td class="empty">&#160;</td>
-      <td class="empty">&#160;</td>
-      <td class="empty">&#160;</td>
-      <td class="empty">&#160;</td>
       <td class="value">1
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=10671">SRM 347</A></strong><br>
+         7:00 AM
+         </div>
       </td>
       <td class="value">2
-      </td>
-   </tr>
-   
-   <tr>
-      <td class="value">3
-      </td>
-      <td class="value">4
-         <div class="hs">
-         <strong><A href="/tc?module=MatchDetails&rd=10074">TCHS SRM 22 - Beta</A></strong><br>
-         2:00 PM
-         </div>
-      </td>
-      <td class="value">5
-      </td>
-      <td class="value">6
-         <div class="long">
+        <%-- <div class="long">
          <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 8</A></strong><br>
          12:00 NOON
-         </div>
+         </div>--%>
+      <%--   <div class="tco07">
+         <strong><A href=""><img src="/i/interface/emblem/tco07.gif" alt="TCO07" border="0"/><br>TCO Round 2C</A></strong><br>
+         9:00 PM 
+         </div>--%>
       </td>
-      <td class="value">7
+      <td class="value">3
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
          </div>
+      </td>
+      <td class="value">4
+      </td>
+      <td class="value">5
+      <%--   <div class="tco07">
+         <strong><A href=""><img src="/i/interface/emblem/tco07.gif" alt="TCO07" border="0"/><br>TCO Round 3 - All</A></strong><br>
+         1:00 PM 
+         </div>--%>
+      </td>
+   </tr>
+
+   <tr>
+      <td class="value">6
+      </td>
+      <td class="value">7
       </td>
       <td class="value">8
       </td>
       <td class="value">9
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10009">SRM 329</A></strong><br>
-         12:00 NOON
-         </div>
-      </td>
-   </tr>
-   
-   <tr>
-
-      <td class="value">10
-      </td>
-      <td class="value">11
-         <div class="hs">
-         <strong><A href="/tc?module=MatchDetails&rd=10075">TCHS SRM 23 - Gamma</A></strong><br>
-         10:00 AM
-         </div>
-      </td>
-      <td class="value">12
-      </td>
-      <td class="value">13
-         <div class="long">
-         <strong><A href="/longcontest/?module=Static&d1=intel_rules">Intel&#174; Multi-threading Competition 12</A></strong><br>
-         12:00 NOON
-         </div>
-         <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10010">SRM 330</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10672">SRM 348</A></strong><br>
          9:00 PM
          </div>
       </td>
-      <td class="value">14
+      <td class="value">10
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
          </div>
       </td>
+      <td class="value">11
+      </td>
+      <td class="value">12
+      </td>
+   </tr>
+
+   <tr>
+      <td class="value">13
+      </td>
+      <td class="value">14
+      </td>
       <td class="value">15
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=10673">SRM 349</A></strong><br>
+         11:00 AM
+         </div>
       </td>
       <td class="value">16
       </td>
-   </tr>
-   
-   <tr>
       <td class="value">17
-      </td>
-      <td class="value">18
-         <div class="hs">
-         <strong><A href="/tc?module=MatchDetails&rd=10076">TCHS SRM 24 - Delta</A></strong><br>
-         6:00 AM
-         </div>
-      </td>
-      <td class="value">19
-      </td>
-      <td class="value">20
-      </td>
-      <td class="value">21
-         <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10011">SRM 331</A></strong><br>
-         7:00 AM
-         </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
          </div>
+      </td>
+      <td class="value">18
+      </td>
+      <td class="value">19
+      </td>
+   </tr>
+
+   <tr>
+      <td class="value">20
+      </td>
+      <td class="value">21
       </td>
       <td class="value">22
       </td>
       <td class="value">23
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=10674">SRM 350</A></strong><br>
+         9:00 PM
+         </div>
       </td>
-   </tr>
-   
-   <tr>
       <td class="value">24
+         <div class="des_dev">
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         9:00 AM
+         </div>
       </td>
       <td class="value">25
       </td>
       <td class="value">26
       </td>
+   </tr>
+
+   <tr>
       <td class="value">27
-         <div class="hs">
-         <strong><A href="/tc?module=MatchDetails&rd=10077">TCHS SRM 25 - Alpha</A></strong><br>
-         7:00 PM
-         </div>
       </td>
       <td class="value">28
+      </td>
+      <td class="value">29
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=10675">SRM 351</A></strong><br>
+         7:00 AM
+         </div>
+      </td>
+      <td class="value">30
+      </td>
+      <td class="value">31
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
          </div>
-         <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10012">SRM 332</A></strong><br>
-         9:00 PM
-         </div>
-      </td>
-      <td class="value">29
-      </td>
-      <td class="value">30
-      </td>
-   </tr>
-   
-   <tr>
-      <td class="value">31
       </td>
       <td class="empty">&#160;<br><br><br><br><br></td>
-      <td class="empty">&#160;</td>
-      <td class="empty">&#160;</td>
-      <td class="empty">&#160;</td>
-      <td class="empty">&#160;</td>
       <td class="empty">&#160;</td>
    </tr>
 
