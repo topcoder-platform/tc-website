@@ -238,7 +238,7 @@
           All three members of a team must be able to travel to the U.S. If any team member is unable to attend the onsite rounds, the team will forfeit its eligibility to receive any prizes awarded to onsite finalists, and the team's spot in the tournament will be given to the eligible next team from Online Round #4. If an individual is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive any prizes awarded to onsite finalists, and his/her spot in the tournament will be given to the next eligible individual from Online Round #4.
           <br><br>
           <b>Visa Assistance</b><br>
-          At the end of each Online Regional Round #2, TopCoder will issue visa invitation letters at the request of international competitors who require one to obtain a travel visa to enter the United States. Visa invitation letters can be requested by emailing Jessie D'Amato Ford at jdamato@topcoder.com and must be requested by Wednesday, April 11, 2007 at 5:00 PM EDT (UTC/GMT -4). Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor.  If you fail to request a visa invitation letter by the date above you we will not be able to assist you in the process.
+          At the end of each Online Regional Round #2, TopCoder will issue visa invitation letters at the request of international competitors who require one to obtain a travel visa to enter the United States. Visa invitation letters can be requested by emailing Jessie D'Amato Ford at <A href="mailto:jdamato@topcoder.com">jdamato@topcoder.com</a> and must be requested by Wednesday, April 11, 2007 at 5:00 PM EDT (UTC/GMT -4). Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor.  If you fail to request a visa invitation letter by the date above you we will not be able to assist you in the process.
           <br><br>
           <b>Other</b><br>
           Travel arrangements to Indianapolis, Indiana, USA are the responsibility of each competitor.  TopCoder may assist in making the reservations, but the cost is the responsibility of each competitor.  Each team is required to travel with an adult chaperone (i.e., a person who is 18 years of age or older).  The cost of the chaperone's travel arrangements to Indianapolis, Indiana, USA is his/her responsibility.
@@ -346,6 +346,11 @@
           <br><br>
           All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.
           <br><br>
+          All contestants who advance to Online Regional Round 3 must complete the following items and submit them to TopCoder by 5:00 PM EDT (UTC/GMT -4) on Monday, March 19, 2007:
+          <ul>
+          <li>Update your profile</li>
+          <li>Please submit a head shot by emailing <A href="mailto:memberphotos@topcoder.com">memberphotos@topcoder.com</A>, if we do not have one on file for you. If you also want your photo to be posted on your member profile on the TopCoder website, please submit your photo by clicking the "Click here to send your photo" link in the Update Profile section.</li>
+          </ul>
           All contestants who advance to the onsite tournament rounds must complete the following items and submit them to TopCoder by 5:00 PM EDT (UTC/GMT -4) on Wednesday, April 25, 2007:
           <ul>
           <li>Competitor questionnaire - the questions and responses will be published in the 2007 TopCoder High School Tournament Program</li>
@@ -367,6 +372,7 @@
               <li>TopCoder must receive the original signed Travel Waiver. The document must be postmarked by April 25, 2007, and must be sent in such a manner that it will arrive at TopCoder no later than May 4, 2007.</li>
               </ul>
           </li>
+          <li>Letter from your high school on official stationary that states you are currently a full time student. The letter must be written in English and signed by an official school staff member. The letter must be sent directly to TopCoder, Inc., Attn: Jessie D'Amato Ford, 703 Hebron Avenue, Glastonbury, CT, 06033, USA, and must arrive no later than May 4, 2007.</li>
           </ul>
 
           Failure to submit the above items on time will result in a forfeiture of advancement as an onsite finalist.  In that case, the next highest scorer(s) from Online Regional Round #4 will advance.
