@@ -98,12 +98,7 @@ onmouseover="popUp('pop${submission.id}')" onmouseout="popHide()"/>
 <img src="/i/layout/btnMoveUpNA.png" alt="Raise priority"/>
 </c:when>
 <c:otherwise>
-<A href="#" onclick="changeRank(${submission.rank-1}, ${submission.id});return false;"
-onfocus="this.blur();">
-<img src="/i/layout/btnMoveUp.png" alt="Move up"
-onmouseover="this.src = '/i/layout/btnMoveUpOn.png';"
-onmouseout="this.src = '/i/layout/btnMoveUp.png';"/>
-</A>
+<A href="#" onclick="changeRank(${submission.rank-1}, ${submission.id});return false;" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></A>
 </c:otherwise>
 </c:choose>
 </div>
@@ -113,12 +108,7 @@ onmouseout="this.src = '/i/layout/btnMoveUp.png';"/>
 <img src="/i/layout/btnMoveDownNA.png" alt="Move down"/>
 </c:when>
 <c:otherwise>
-<A href="#" onclick="changeRank(${submission.rank+1}, ${submission.id});return false;"
-onfocus="this.blur();">
-<img src="/i/layout/btnMoveDown.png" alt="Move down"
-onmouseover="this.src = '/i/layout/btnMoveDownOn.png';"
-onmouseout="this.src = '/i/layout/btnMoveDown.png';"/>
-</A>
+<A href="#" onclick="changeRank(${submission.rank+1}, ${submission.id});return false;" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';"/></A>
 </c:otherwise>
 </c:choose>
 </div>
@@ -130,12 +120,7 @@ onmouseout="this.src = '/i/layout/btnMoveDown.png';"/>
 <img src="/i/layout/btnMoveToTopNA.png" alt="Move to top"/>
 </c:when>
 <c:otherwise>
-<A href="#" onclick="changeRank(1, ${submission.id});return false;"
-onfocus="this.blur();">
-<img src="/i/layout/btnMoveToTop.png" alt="Move to top"
-onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';"
-onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/>
-</A>
+<A href="#" onclick="changeRank(1, ${submission.id});return false;" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></A>
 </c:otherwise>
 </c:choose>
 </div>
