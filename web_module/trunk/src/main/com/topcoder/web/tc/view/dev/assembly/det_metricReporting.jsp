@@ -87,7 +87,7 @@ TopCoder will compensate teams with first and second place submissions. Initial 
 Total Payment - $10,000
 <br><br>
 <strong>Second Place Team</strong><br>
-Total Payment - $4,000
+Total Payment - $5,000
 <br><br>
 
 <div class="sectionHeader">Eligibility</div>
