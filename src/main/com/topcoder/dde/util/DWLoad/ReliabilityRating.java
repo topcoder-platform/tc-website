@@ -671,6 +671,7 @@ public class ReliabilityRating {
                 ps2.setInt(1, reliableSubmissionInd);
                 ps2.setLong(2, rs.getLong("user_id"));
                 ps2.setLong(3, rs.getLong("project_id"));
+
                 ret += ps2.executeUpdate();
             }
 
@@ -734,6 +735,11 @@ public class ReliabilityRating {
     }
 
 
+    private final static String adjustReliabilityInd =
+            "update project_result " +
+                    "set reliability_ind = null " +
+                    "where new_reliability is null and reliability_ind = 0 and current_reliability_ind is null ";
+
     private final static String markIncluded =
             "update project_result " +
                     "set reliability_ind = 1 " +
@@ -778,13 +784,17 @@ public class ReliabilityRating {
 
 
         PreparedStatement ps = null;
+        PreparedStatement ps1 = null;
         PreparedStatement ps2 = null;
         PreparedStatement ps3 = null;
         ResultSet unmarked = null;
         int ret = 0;
         try {
-
+        	
             //mark the easy ones..people that scored over the min
+        	ps1 = conn.prepareStatement(adjustReliabilityInd);
+        	ps1.executeUpdate();
+
             ps = conn.prepareStatement(markIncluded);
             ps.setInt(1, MIN_PASSING_SCORE);
             ret = ps.executeUpdate();
@@ -811,11 +821,12 @@ public class ReliabilityRating {
                 } else {
                     //we don't know enough yet to mark them as either included or excluded.  basically, they have at least
                     //one project prior to this one that isn't complete, so we can't decide on this one yet.
-                    //log.info("got " + info[RELIABLE_COUNT_IDX] + " " + info[PROJECT_COUNT_IDX] + " " + info[MARKED_COUNT_IDX] + " " + unmarked.getLong("user_id") + " " + unmarked.getLong("project_id"));
+                    log.info("got " + info[RELIABLE_COUNT_IDX] + " " + info[PROJECT_COUNT_IDX] + " " + info[MARKED_COUNT_IDX] + " " + unmarked.getLong("user_id") + " " + unmarked.getLong("project_id"));
                 }
             }
         } finally {
             close(unmarked);
+            close(ps1);
             close(ps);
             close(ps2);
             close(ps3);

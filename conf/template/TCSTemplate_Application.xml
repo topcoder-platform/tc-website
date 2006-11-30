@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- A template which defines a set of project phases -->
-<Template name="Development">
+<Template name="Application">
 <!--	 An enumeration of project phase types defined in this template -->
 	<PhaseTypes>
 		<PhaseType id="registration" typeId="1" typeName="Registration"/>
@@ -56,5 +56,7 @@
 
 		<Phase id="finalReviewPhase" length="86400000" type="final_review">
 			<Dependency id="finalFixesPhase" isDependencyStart="false" isDependentStart="true" lagTime="0"/>
-		</Phase>	</Phases>
+		</Phase>
+
+	</Phases>
 </Template>
