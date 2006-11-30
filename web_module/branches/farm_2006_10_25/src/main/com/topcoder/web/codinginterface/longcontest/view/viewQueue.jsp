@@ -86,7 +86,7 @@
                             <tr><td colspan="6" class="statDk">There are currently no submissions in the queue.</td></tr>
                             <% } %>
                             <%boolean even = true;%>
-                            <rsc:iterator list="<%=result%>" id="resultRow">
+                            <logic:iterate collection="<%=result%>" id="resultRow" type="com.topcoder.server.ejb.TestServices.LongTestQueueStatusItem">
                                 <tr>
                                     <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
                                         <tc-webtag:handle coderId='<%=resultRow.getUserId()%>'/>
@@ -98,7 +98,7 @@
                                     	<%=resultRow.getLanguageName()%>
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center">
-                                        <rsc:format object="<%=resultRow.getQueueDate()%>" format="MM.dd.yyyy HH:mm:ss"/>
+                                        <tc-webtag:format object="<%=resultRow.getQueueDate()%>" format="MM.dd.yyyy HH:mm:ss"/>
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="right">
                                         <%=resultRow.getSubmissionType()%>
@@ -108,7 +108,7 @@
                                     </td>
                                 </tr>
                                 <%even = !even;%>
-                            </rsc:iterator>
+                            </logic:iterate>
                         </TABLE>
                     </TD>
                 </tr>
