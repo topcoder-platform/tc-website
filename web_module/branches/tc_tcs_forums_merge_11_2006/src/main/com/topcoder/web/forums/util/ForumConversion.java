@@ -245,7 +245,7 @@ public class ForumConversion {
         rs.close();
         
         // the ps to insert rows into the comp_jive_xref table
-        updateCompForumXrefPS = tcConn.prepareStatement("update comp_jive_xref " 
+        updateCompForumXrefPS = tcConn.prepareStatement("update comp_forum_xref " 
         		+ "set jive_category_id = ? " 
         		+ "where comp_vers_id = ? and forum_type = ?");
 
