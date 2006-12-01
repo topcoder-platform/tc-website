@@ -113,7 +113,7 @@
       <td class="valueC" nowrap="nowrap">
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506195">join a team</A>
       <br>
-      <A href="">discuss</A>
+      <%--<A href="">discuss</A>--%>
       </td>
    </tr>
    <% even = !even;%>
