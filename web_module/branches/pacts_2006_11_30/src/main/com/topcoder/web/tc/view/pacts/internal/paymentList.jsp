@@ -40,23 +40,27 @@
 	</tr>
 	<c:forEach var="payment" items="${paymentList}">
 		<tr>
-		<td></td>
+		<td><input type="checkbox" name="payment_id" value="${payment.id}" checked></td>
 		<td><c:out value="${payment.user.first}" /></td>
 		<td><c:out value="${payment.user.last}" /></td>
 		<td><a href="${pacts:viewUser(payment.user.id)}"><c:out value="${payment.user.handle}" /></td>
-		<td><b>Description</b></td>
-		<td><b>Gross</b></td>
-		<td><b>Tax</b></td>
-		<td><b>Net</b></td>
-		<td><b>Type</b></td>
-		<td><b>Method</b></td>
-		<td><b>Status</b></td>
-		<td><b>Client</b></td>
-		<td><b>Created</b></td>
-		<td><b>Modified</b></td>
-		<td><b>Reviewed</b></td>
+		<td><a href="${pacts:viewPayment(payment.id)}"><c:out value="${payment.description}" /></td>
+		<td><fmt:formatNumber value="${payment.grossAmount}" pattern="###,###.00" /></td>
+		<td><fmt:formatNumber value="${payment.grossAmount - payment.netAmount}" pattern="###,###.00" /></td>
+		<td><fmt:formatNumber value="${payment.netAmount}" pattern="#.00" /></td>
+		<td><c:out value="${payment.header.type}" /></td>
+		<td><c:out value="${payment.header.method}" /></td>
+		<td><c:out value="${payment.statusDesc}" /></td>
+		<td><c:out value="${payment.header.client}" /></td>
+		<td><c:out value="${payment.header.createDate}" /> </td>
+		<td><c:out value="${payment.header.modifyDate}" /> </td>
+		<td><c:choose>
+				<c:when test="${payment.reviewed}">Yes</c:when>
+				<c:otherwise>No</c:otherwise>
+			</c:choose>
+		</td>
 		</tr>
-=	</c:forEach>
+	</c:forEach>
 	
 	</table>
 
