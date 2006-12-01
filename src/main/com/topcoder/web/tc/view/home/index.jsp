@@ -246,6 +246,11 @@
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
 
+                <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/success_logo.png" width="67" height="21" alt="Success Magazine" border="0" /></div>
+                Maverick Rules for Success
+                <A href="/pdfs/press_room/success200612.pdf">...more</A><br>[November]<br><br>
+
                 AOL and TopCoder Announce Web AIM Mashup Competition
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_113006">...more</A><br>[November 30]<br><br>
 
@@ -266,11 +271,6 @@
                 <img src="/i/pressroom/csmonitor_logo.jpg" width="80" height="32" alt="Christian Science Monitor" border="0" /></div>
                 How to build software? Henry Ford, meet eBay.
                 <A href="http://www.csmonitor.com/2006/1101/p01s04-usec.htm" target="_blank">...more</A><br>[November 1]<br><br>
-
-                <div style="float: right; padding-left: 5px;">
-                <img src="/i/pressroom/gigaOm_logo.jpg" width="80" height="26" alt="gigaOm" border="0" /></div>
-                The New American Idol&#8230; The Coder
-                <A href="http://gigaom.com/2006/10/23/the-new-american-idol-the-coder/" target="_blank">...more</A><br>[October 24]<br><br>
 
             </td>
         </tr>

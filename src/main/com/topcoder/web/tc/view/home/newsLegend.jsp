@@ -15,7 +15,7 @@
 
 <%----------------FEATURE----------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0" /><br>11.28.06<br>4:10 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>11.28.06<br>4:10 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=112806">Digital Run Stage 2: Going for the win</A></span><br><br>
@@ -78,31 +78,29 @@
 
 <%------------------PRESSROOM--------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.21.05<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_112105">Component Competition Winnings Surpass $1 Million</A></span><br><br>
-      Contributions to TopCoder Software Competitions and Projects Show Attractive Returns for Global Programming Community from Countries Including China, Russian Federation and Romania As Royalty Payments Grow.
-      <br><br>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>12.01.06<br>11:15 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/success200612.pdf">Maverick Rules for Success</A> [PDF]</span><br><br>
+      "Our panelists hail from a wide range of industries, but they agree on a critical element of success in the 21st century: You can't do big things with your company or career if you're content with doing things a little better than everyone else."
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_112105">full story</A> | 
-       <tc-webtag:forumLink forumID="505831" message="discuss this" /> | 
+       <A href="/pdfs/press_room/success200612.pdf">full story</A> | 
+       <tc-webtag:forumLink forumID="506198" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
 OR
 
    <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.21.05<br>9:35 AM</td>
-       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.ftponline.com/weblogger/forum.aspx?ID=13&DATE=11/01/2005&blog=#449" target="_blank">Spirited Reusable Component Development</A></span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/ftponline_logo.gif" width="67" height="18" alt="FTP Online" border="0" /></div>
-"The key to TopCoder's approach is the building of reusable components that can be adopted by customers to not only help these organizations save money on software development, but to employ a rigorous engineering methodology that lays out the metrics for the application project deliverables."
-      <br><br>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>12.01.06<br>11:15 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/success200612.pdf">Maverick Rules for Success</A> [PDF]</span><br><br>
+        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/success_logo.png" width="67" height="21" alt="Success Magazine" border="0" /></div>
+      "Our panelists hail from a wide range of industries, but they agree on a critical element of success in the 21st century: You can't do big things with your company or career if you're content with doing things a little better than everyone else."
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-       <A href="http://www.ftponline.com/weblogger/forum.aspx?ID=13&DATE=11/01/2005&blog=#449" target="_blank">full story</A> | 
-       <tc-webtag:forumLink forumID="505821" message="discuss this" /> | 
+       <A href="/pdfs/press_room/success200612.pdf">full story</A> | 
+       <tc-webtag:forumLink forumID="506198" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
