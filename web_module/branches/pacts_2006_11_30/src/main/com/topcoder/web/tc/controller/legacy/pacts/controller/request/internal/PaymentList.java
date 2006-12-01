@@ -78,6 +78,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             }
             
             if (results.length != 1) {
+                setDefault("status_id", PactsConstants.READY_TO_PRINT_STATUS + "");
+            	
                 getRequest().setAttribute(STATUS_CODE_LIST, getStatusList());                
                 getRequest().setAttribute(PAYMENTS, payments);
                 getRequest().setAttribute(RELIABILITY, reliability);

@@ -1,7 +1,5 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.PaymentList" %>
-<%@ page import="java.util.Map" %>
-<%@ page import="com.topcoder.web.common.BaseProcessor" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -19,9 +17,26 @@
     <title>PACTS - Payment List</title>
 </head>
 <body>
+<script type="text/javascript">
+<!--
+  function checkAll(check) {
+    var elements = document.thislist.elements;
+    for (i=0; i<document.thislist.elements.length; i++) {
+      if (document.thislist.elements[i].type=="checkbox") {
+        document.thislist.elements[i].checked = (check==true);
+      }
+    }
+  }
+-->
+</script>
+
 <h1>PACTS</h1>
 <h2>Payment List</h2>
 
+
+<a href="Javascript:checkAll(true)">check all</a>  <a href="Javascript:checkAll(false)">uncheck all</a>
+
+<c:set var="totalNet" value="0" />
 <table id="datatable" border="0" cellpadding="5" cellspacing="0">
 	<tr>
 		<td></td>
@@ -47,7 +62,7 @@
 				<c:set var="composed" value="true" />			
 				<c:set var="mark" value="*" />
 			</c:if>
-	
+		<c:set var="totalNet" value="${totalNet + payment.recentNetAmout}" />
 		<tr>
 		<td><input type="checkbox" name="payment_id" value="${payment.id}" checked></td>
 		<td><c:out value="${payment.user.first}" /></td>
@@ -74,8 +89,15 @@
 		</td>
 		</tr>
 	</c:forEach>
+	<tr>
+		<td colspan="7"><b>Total Net Amount:</b>
+		</td>
+		<td><fmt:formatNumber value="${totalNet}" pattern="###,###.00" /></td>
+		<td colspan="7"></td>
+	</tr>
 	
 	</table>
+<a href="Javascript:checkAll(true)">check all</a>  <a href="Javascript:checkAll(false)">uncheck all</a>
 
            <tc-webtag:rscSelect name="status_id" list="${statusList}" fieldText="status_desc" fieldValue="status_id" useTopValue="false" />        
 
