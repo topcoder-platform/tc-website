@@ -49,6 +49,20 @@
     </td></tr>
 ---------------------%>
 <%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General Competition News" border="0" /><br>12.01.06<br>9:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=calendar&d2=jan_07">Events Calendar updated through May 2007</A>
+      </span><br><br>
+      See what's happening in the coming months. 
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=calendar&d2=jan_07">view</A> | 
+         <tc-webtag:forumLink forumID="506197" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
     <tr>
         <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0" /><br>11.28.06<br>4:10 PM</td>
         <td class="newsTextCell">
@@ -212,18 +226,3 @@
          <tc-webtag:forumLink forumID="506188" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>11.17.06<br>12:15 PM</td>
-       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.internetnews.com/dev-news/article.php/3644456" target="_blank">Who is the Top Coder?</A></span><br><br>
-       <div style="float: right; padding-left: 7px;"><img src="/i/pressroom/internetnews_logo.gif" width="81" height="11" alt="internetnews.com logo" border="0" /></div>
-       Coding as competitive sport? You bet, complete with a famous ESPN anchor and $200,000 in prizes. It's called the TopCoder Collegiate Challenge and the finals are being webcast live Friday thanks to sponsor AOL.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://www.internetnews.com/dev-news/article.php/3644456" target="_blank">full story</A> | 
-       <tc-webtag:forumLink forumID="506187" message="discuss this" /> | 
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
