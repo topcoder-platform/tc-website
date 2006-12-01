@@ -2,11 +2,9 @@ package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
@@ -26,13 +24,19 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
    	
 	public static final String PAYMENTS = "payments";
 	public static final String RELIABILITY = "reliability";
+	public static final String GROUP_RELIABILITY = "gr";
+	public static final String TOGGLE_GROUP_RELIABILITY = "tgr";
     
     protected void businessProcessing() throws TCWebException {
 
     	
-        try {        	
+        try {
+        	boolean groupRel = "true".equals(getRequest().getParameter(GROUP_RELIABILITY));
         	String requestQuery = INTERNAL_SERVLET_URL + "?" + getRequest().getQueryString();
             getRequest().setAttribute("query", requestQuery);
+            
+            
+            
 
             DataInterfaceBean dib = new DataInterfaceBean();
 
@@ -62,7 +66,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 	results[i].setType(results[i].getType().substring(0, pos) );
                 }
                 
-            	if (results[i].getTypeId() != PactsConstants.RELIABILITY_BONUS_PAYMENT) {
+            	if (!groupRel || results[i].getTypeId() != PactsConstants.RELIABILITY_BONUS_PAYMENT) {
             		payments.add(results[i]);
             	} else {
             		Long parentId = new Long(results[i].getParentPaymentId());
@@ -83,7 +87,11 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 getRequest().setAttribute(STATUS_CODE_LIST, getStatusList());                
                 getRequest().setAttribute(PAYMENTS, payments);
                 getRequest().setAttribute(RELIABILITY, reliability);
+                getRequest().setAttribute(GROUP_RELIABILITY, Boolean.valueOf(groupRel));
 
+                String toggle = requestQuery.replaceAll(GROUP_RELIABILITY + "=" + groupRel, "") + "&" + GROUP_RELIABILITY + "=" + !groupRel;
+                getRequest().setAttribute(TOGGLE_GROUP_RELIABILITY, toggle);
+                
                 setNextPage(INTERNAL_PAYMENT_LIST_JSP);
             } else {
                 setNextPage(Links.viewPayment(results[0].getId()));

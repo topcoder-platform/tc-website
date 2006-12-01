@@ -9,6 +9,8 @@
 <c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />
 <c:set var="paymentList" value="<%= request.getAttribute(PaymentList.PAYMENTS) %>" />
 <c:set var="reliabilityMap" value="<%= request.getAttribute(PaymentList.RELIABILITY) %>" />
+<c:set var="groupReliability" value="<%= request.getAttribute(PaymentList.GROUP_RELIABILITY) %>" />
+<c:set var="toggleGroupReliability" value="<%= request.getAttribute(PaymentList.TOGGLE_GROUP_RELIABILITY) %>" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -37,7 +39,12 @@
 	<input type=hidden name="<%=PactsConstants.TASK_STRING%>" value="<%=PactsConstants.PAYMENT_TASK%>">
 	<input type=hidden name="query" value="${query}">
 
-<a href="${query}">Group</a> 
+<a href="${toggleGroupReliability}">
+	<c:choose>
+		<c:when test="${groupReliability}">Ungroup component and reliabilities</c:when>
+		<c:otherwise>Group component with their reliabilities</c:otherwise>
+	</c:choose>
+</a><br>
 
 <a href="Javascript:checkAll(true)">check all</a> -
  <a href="Javascript:checkAll(false)">uncheck all</a> <br>
