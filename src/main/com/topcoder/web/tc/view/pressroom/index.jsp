@@ -49,6 +49,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- Success --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/pdfs/press_room/success200612.pdf"><img src="/i/pressroom/success_logo.png" alt="Success logo" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/pdfs/press_room/success200612.pdf">Maverick Rules for Success</A> [PDF]</strong></font><br />
+                        Our panelists hail from a wide range of industries, but they agree on a critical element of success in the 21st century: You can't do big things with your company or career if you're content with doing things a little better than everyone else. <span class="prHead"> [November]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- AOL mash up --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
