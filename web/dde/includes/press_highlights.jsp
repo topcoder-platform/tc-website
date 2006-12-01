@@ -7,6 +7,10 @@
 <table width="530" border="0" cellspacing="0" cellpadding="4">
 
    <tr><td class="prHead">
+         <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/success_logo.png" width="67" height="21" alt="Success Magazine" border="0" /></div>
+         <A href="http://www.topcoder.com/pdfs/press_room/success200612.pdf">Maverick Rules for Success</A> [PDF] [November]
+   </td></tr>
+   <tr><td class="prHead">
          <A href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_113006" target="_blank">AOL and TopCoder Announce Web AIM Mashup Competition</A> [November 30]
    </td></tr>
    <tr><td class="prHead">
@@ -25,7 +29,6 @@
          <A href="/audio/open_source_060928_48kb.mp3" target="_blank">TopCoder featured on public radio's "Open Source"</A> [PODCAST] [October 4]<br>
          <A href="/audio/open_source_060928_24kb.mp3" target="_blank">low bandwidth</A> (6.8mb)
    </td></tr>
-   <tr><td class="prHead"><A href="http://www.topcoder.com/images/downloads/mavericks_at_work.pdf" target="_blank">TopCoder featured in new book <i>Mavericks at Work</i></A> [October 2]</td></tr>
 
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
 
