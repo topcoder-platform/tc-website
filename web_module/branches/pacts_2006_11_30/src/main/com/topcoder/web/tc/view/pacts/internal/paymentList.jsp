@@ -62,7 +62,7 @@
 				<c:set var="composed" value="true" />			
 				<c:set var="mark" value="*" />
 			</c:if>
-		<c:set var="totalNet" value="${totalNet + payment.recentNetAmout}" />
+		<c:set var="totalNet" value="${totalNet + payment.recentNetAmount}" />
 		<tr>
 		<td><input type="checkbox" name="payment_id" value="${payment.id}" checked></td>
 		<td><c:out value="${payment.user.first}" /></td>
