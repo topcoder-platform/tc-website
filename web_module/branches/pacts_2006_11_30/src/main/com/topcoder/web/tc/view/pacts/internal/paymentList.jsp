@@ -50,7 +50,7 @@
 		<td><fmt:formatNumber value="${payment.recentNetAmount}" pattern="#.00" /></td>
 		<td><c:out value="${payment.type}" /></td>
 		<td><c:out value="${payment.method}" /></td>
-		<td><c:out value="${payment.statusDesc}" /></td>
+		<td><c:out value="${payment.recentStatus}" /></td>
 		<td><c:out value="${payment.client}" /></td>
 		<td><c:out value="${payment.createDate}" /> </td>
 		<td><c:out value="${payment.modifyDate}" /> </td>
