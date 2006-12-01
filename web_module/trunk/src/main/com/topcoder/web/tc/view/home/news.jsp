@@ -31,6 +31,20 @@
 ----------------------------%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>12.01.06<br>11:15 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/success200612.pdf">Maverick Rules for Success</A> [PDF]</span><br><br>
+        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/success_logo.png" width="67" height="21" alt="Success Magazine" border="0" /></div>
+      "Our panelists hail from a wide range of industries, but they agree on a critical element of success in the 21st century: You can't do big things with your company or career if you're content with doing things a little better than everyone else."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/pdfs/press_room/success200612.pdf">full story</A> | 
+       <tc-webtag:forumLink forumID="506198" message="discuss this" /> | 
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.01.06<br>11:05 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -209,22 +223,6 @@
    </tr>
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary">full story</A> | 
-        <tc-webtag:forumLink forumID="506186" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.17.06<br>5:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        Component <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary">Development</A> Part 3 Details
-        </span><br><br>
-        Here are some details on the components that the finalists are competing on for day 3.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary">design</A> |
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary">development</A> | 
         <tc-webtag:forumLink forumID="506186" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
