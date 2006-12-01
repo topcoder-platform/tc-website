@@ -70,7 +70,7 @@
 <IMG SRC="/i/home/tccc06_winners.png" border="0" alt="TCCC06 Finals" usemap="#tccc"/>
         </td>
         <td width="50%" align="right" valign="top" style="border-bottom: 1px solid #666666; padding:0px; margin:0px;">
-            <%--&nbsp;
+            &nbsp;<%--
             <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2045"><img src="/i/home/studioDogEar_20061102.png" alt="TopCoder Studio & AOL Mashups" /></A>
             --%>
         </td>
