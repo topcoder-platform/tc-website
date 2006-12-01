@@ -45,9 +45,9 @@
 		<td><c:out value="${payment.user.last}" /></td>
 		<td><a href="${pacts:viewUser(payment.user.id)}"><c:out value="${payment.user.handle}" /></td>
 		<td><a href="${pacts:viewPayment(payment.id)}"><c:out value="${payment.description}" /></td>
-		<td><fmt:formatNumber value="${payment.grossAmount}" pattern="###,###.00" /></td>
-		<td><fmt:formatNumber value="${payment.grossAmount - payment.netAmount}" pattern="###,###.00" /></td>
-		<td><fmt:formatNumber value="${payment.netAmount}" pattern="#.00" /></td>
+		<td><fmt:formatNumber value="${payment.recentGrossAmount}" pattern="###,###.00" /></td>
+		<td><fmt:formatNumber value="${payment.recentGrossAmount - payment.recentNetAmount}" pattern="###,###.00" /></td>
+		<td><fmt:formatNumber value="${payment.recentNetAmount}" pattern="#.00" /></td>
 		<td><c:out value="${payment.header.type}" /></td>
 		<td><c:out value="${payment.header.method}" /></td>
 		<td><c:out value="${payment.statusDesc}" /></td>
