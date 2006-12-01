@@ -58,12 +58,15 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             for (int i = 0; i < results.length; i++) {
             	if (results[i].getTypeId() != PactsConstants.RELIABILITY_BONUS_PAYMENT) {
             		payments.add(results[i]);
+            		log.debug("added non-reliablity:" + results[i].getId());
             	} else {
             		Long parentId = new Long(results[i].getParentPaymentId());
             		if (ids.contains(parentId)) {
             			reliability.put(parentId, results[i]);
+                		log.debug("map reliablity:" + results[i].getId() + " to " + results[i].getParentPaymentId());
             		} else {
             			payments.add(results[i]);            			
+                		log.debug("added reliablity:" + results[i].getId());
             		}
             	}            	
             }

@@ -46,7 +46,7 @@
 		<td><c:out value="${payment.user.first}" /></td>
 		<td><c:out value="${payment.user.last}" /></td>
 		<td><a href="${pacts:viewUser(payment.user.id)}"><c:out value="${payment.user.handle}" /></td>
-		<td><a href="${pacts:viewPayment(payment.id)}"><c:out value="${payment.description}" />
+		<td><a href="${pacts:viewPayment(payment.id)}"><c:out value="${payment.description}" />rel=<c:out value="${ reliabilityMap[payment.id]}" />
 			<c:if test="${not empty reliabilityMap[payment.id]}">+ Reliability</c:if>
 		</td>
 		<td><fmt:formatNumber value="${payment.recentGrossAmount}" pattern="###,###.00" /></td>
