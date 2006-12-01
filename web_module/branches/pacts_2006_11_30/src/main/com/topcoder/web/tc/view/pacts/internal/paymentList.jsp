@@ -20,10 +20,10 @@
 <script type="text/javascript">
 <!--
   function checkAll(check) {
-    var elements = document.thislist.elements;
-    for (i=0; i<document.thislist.elements.length; i++) {
-      if (document.thislist.elements[i].type=="checkbox") {
-        document.thislist.elements[i].checked = (check==true);
+    var elements = document.f.elements;
+    for (i=0; i<document.f.elements.length; i++) {
+      if (document.f.elements[i].type=="checkbox") {
+        document.f.elements[i].checked = (check==true);
       }
     }
   }
@@ -33,8 +33,11 @@
 <h1>PACTS</h1>
 <h2>Payment List</h2>
 
+<form name="f" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="POST">
 
-<a href="Javascript:checkAll(true)">check all</a>  <a href="Javascript:checkAll(false)">uncheck all</a>
+
+<a href="Javascript:checkAll(true)">check all</a> -
+ <a href="Javascript:checkAll(false)">uncheck all</a> <br>
 
 <c:set var="totalNet" value="0" />
 <table id="datatable" border="0" cellpadding="5" cellspacing="0">
@@ -73,9 +76,9 @@
 			     <a href="${pacts:viewPayment(reliabilityMap[payment.id])}">Reliability</a>
 			</c:if>
 		</td>
-		<td><fmt:formatNumber value="${payment.recentGrossAmount}" pattern="###,###.00" /><c:out value="${mark}" /></td>
-		<td><fmt:formatNumber value="${payment.recentGrossAmount - payment.recentNetAmount}" pattern="###,###.00" /><c:out value="${mark}" /></td>
-		<td><fmt:formatNumber value="${payment.recentNetAmount}" pattern="#.00" /><c:out value="${mark}" /></td>
+		<td align="left" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
+		<td align="left" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount - payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
+		<td align="left" nowrap>$<fmt:formatNumber value="${payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
 		<td><c:out value="${payment.type}" /></td>
 		<td><c:out value="${payment.method}" /></td>
 		<td><c:out value="${payment.recentStatus}" /></td>
@@ -92,16 +95,18 @@
 	<tr>
 		<td colspan="7"><b>Total Net Amount:</b>
 		</td>
-		<td><fmt:formatNumber value="${totalNet}" pattern="###,###.00" /></td>
+		<td align="left" nowrap>$<fmt:formatNumber value="${totalNet}" pattern="###,###.00" /></td>
 		<td colspan="7"></td>
 	</tr>
 	
 	</table>
-<a href="Javascript:checkAll(true)">check all</a>  <a href="Javascript:checkAll(false)">uncheck all</a>
+<a href="Javascript:checkAll(true)">check all</a> -
+ <a href="Javascript:checkAll(false)">uncheck all</a> <br>
 
            <tc-webtag:rscSelect name="status_id" list="${statusList}" fieldText="status_desc" fieldValue="status_id" useTopValue="false" />        
 
 
+</form>
 <jsp:include page="InternalFooter.jsp" flush="true"/>
 </body>
 </html>
