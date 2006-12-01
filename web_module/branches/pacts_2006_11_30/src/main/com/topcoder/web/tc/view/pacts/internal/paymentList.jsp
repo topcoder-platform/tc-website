@@ -39,6 +39,10 @@
 		<td><b>Reviewed</b></td>
 	</tr>
 	<c:forEach var="payment" items="${paymentList}">
+ 	    <%
+	            int pos = "${payment.type}".indexOf("Payment");
+            String type = pos >= 0? "${payment.type}".substring(0, pos) : "${payment.type}";
+        %>
 		<tr>
 		<td><input type="checkbox" name="payment_id" value="${payment.id}" checked></td>
 		<td><c:out value="${payment.user.first}" /></td>
@@ -48,7 +52,7 @@
 		<td><fmt:formatNumber value="${payment.recentGrossAmount}" pattern="###,###.00" /></td>
 		<td><fmt:formatNumber value="${payment.recentGrossAmount - payment.recentNetAmount}" pattern="###,###.00" /></td>
 		<td><fmt:formatNumber value="${payment.recentNetAmount}" pattern="#.00" /></td>
-		<td><c:out value="${payment.type}" /></td>
+		<td><%= type %></td>
 		<td><c:out value="${payment.method}" /></td>
 		<td><c:out value="${payment.recentStatus}" /></td>
 		<td><c:out value="${payment.client}" /></td>
