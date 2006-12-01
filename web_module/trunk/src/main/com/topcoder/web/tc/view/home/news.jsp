@@ -31,7 +31,7 @@
 ----------------------------%>
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>12.01.06<br>11:15 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>12.01.06<br>NOON</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/success200612.pdf">Maverick Rules for Success</A> [PDF]</span><br><br>
         <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/success_logo.png" width="67" height="21" alt="Success Magazine" border="0" /></div>
       "Our panelists hail from a wide range of industries, but they agree on a critical element of success in the 21st century: You can't do big things with your company or career if you're content with doing things a little better than everyone else."
