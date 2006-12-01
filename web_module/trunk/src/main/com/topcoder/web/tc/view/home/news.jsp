@@ -30,6 +30,23 @@
    </td></tr>
 ----------------------------%>
 <%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.01.06<br>11:05 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm328">SRM 328 - Problem Set & Analysis</A></span><br><br>
+        More than 1,000 coders took the opportunity to practice their algorithmic skills and, with several targets competing, SRM 328 was bound to be an exciting event.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/_efer__big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8593420" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=srm328">full story</A> | 
+        <tc-webtag:forumLink forumID="506003" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
     <tr>
         <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0" /><br>12.01.06<br>10:30 AM</td>
         <td class="newsTextCell">
@@ -212,17 +229,3 @@
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.17.06<br>4:20 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="http://dev.aol.com/video">TCCC AOL webcast live now</A>
-        </span><br><br>
-      Go to dev.aol.com now to watch the TopCoder College Challenge webcast, live from San Diego.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://dev.aol.com/video">watch now</A> | 
-         <tc-webtag:forumLink forumID="506188" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
