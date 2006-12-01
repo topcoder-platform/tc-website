@@ -76,9 +76,9 @@
 			     <a href="${pacts:viewPayment(reliabilityMap[payment.id])}">Reliability</a>
 			</c:if>
 		</td>
-		<td align="left" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
-		<td align="left" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount - payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
-		<td align="left" nowrap>$<fmt:formatNumber value="${payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
+		<td align="right" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
+		<td align="right" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount - payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
+		<td align="right" nowrap>$<fmt:formatNumber value="${payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
 		<td><c:out value="${payment.type}" /></td>
 		<td><c:out value="${payment.method}" /></td>
 		<td><c:out value="${payment.recentStatus}" /></td>
@@ -95,7 +95,7 @@
 	<tr>
 		<td colspan="7"><b>Total Net Amount:</b>
 		</td>
-		<td align="left" nowrap>$<fmt:formatNumber value="${totalNet}" pattern="###,###.00" /></td>
+		<td align="right" nowrap>$<fmt:formatNumber value="${totalNet}" pattern="###,###.00" /></td>
 		<td colspan="7"></td>
 	</tr>
 	
@@ -103,7 +103,10 @@
 <a href="Javascript:checkAll(true)">check all</a> -
  <a href="Javascript:checkAll(false)">uncheck all</a> <br>
 
-           <tc-webtag:rscSelect name="status_id" list="${statusList}" fieldText="status_desc" fieldValue="status_id" useTopValue="false" />        
+<input type="submit" name="<%=PactsConstants.CMD_STRING %>" value="<%=PactsConstants.REVIEW_CMD  %>"><br>
+<input type="submit" name="<%=PactsConstants.CMD_STRING %>" value="<%=PactsConstants.STATUS_CMD  %>">
+
+           <tc-webtag:rscSelect name="status_id" list="${statusList}" fieldText="status_desc" fieldValue="status_id" useTopValue="false" /> <br>
 
 
 </form>
