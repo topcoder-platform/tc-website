@@ -276,31 +276,11 @@
         </tr>
         <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">November
-                Events:</A></td>
+            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">December Events:</A></td>
         </tr>
         <tr>
             <td class="homeArrow">&#160; </td>
             <td class="homeText"><br>
-                <b>11.01</b> - Marathon Match 7 - 12 NOON<br><br>
-                <b>11.02</b> - CDDC Round 3 Projects Posted - 9 AM<br><br>
-                <b>11.02</b> - SRM 325 - AOL - 9 PM<br><br>
-                <b>11.06</b> - TCHS SRM 19 - 10 AM<br><br>
-                <b>11.11</b> - SRM 326 - NSA - 12 NOON<br><br>
-                <b>11.15</b> - Algo Room 1 - 9 AM PST<br><br>
-                <b>11.15</b> - CDDC 1 - 1 PM PST<br><br>
-                <b>11.15</b> - Algo Room 2 - 4 PM PST<br><br>
-                <b>11.15</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 11 - 12 NOON<br><br>
-                <b>11.16</b> - Algo Room 3 - 9 AM PST<br><br>
-                <b>11.16</b> - CDDC 2 - 1 PM PST<br><br>
-                <b>11.16</b> - Algo Wildcard - 4 PM PST<br><br>
-                <b>11.17</b> - CDDC Finals - 9 AM PST<br><br>
-                <b>11.17</b> - Algo Finals - 1:30 PM PST<br><br>
-                <b>11.20</b> - TCHS SRM 20 - 6 AM<br><br>
-                <b>11.22</b> - SRM 327 - 7 AM<br><br>
-                <b>11.27</b> - TCHS SRM 21 - 7 PM<br><br>
-                <b>11.29</b> - SRM 328 - 11 AM<br><br>
-<%-- DECEMBER EVENTS 
                 <b>12.04</b> - TCHS SRM 22 - 2 PM<br><br>
                 <b>12.06</b> - Marathon Match 8 - 12 NOON<br><br>
                 <b>12.09</b> - SRM 329 - 12 Noon<br><br>
@@ -311,7 +291,6 @@
                 <b>12.21</b> - SRM 331 - 7 AM<br><br>
                 <b>12.27</b> - TCHS SRM 25 - 7 PM<br><br>
                 <b>12.28</b> - SRM 332 - 9 PM<br><br>
---%>
             </td>
         </tr>
 
