@@ -29,7 +29,25 @@
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 ----------------------------%>
-
+<%-----------------------------------feature POST FRIDAY MORNING
+    <tr>
+        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0" /><br>12.01.06<br>10:00 AM</td>
+        <td class="newsTextCell">
+            <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+            <td valign="top"><span class="newsTitle">
+            <A href="/tc?module=Static&d1=features&d2=120106">TopCoder @ Work: Professional Ethics</A>
+            </span><br><br>
+            By providing near limitless flexibility and unparalleled access to resources, technology has lubricated the downward slide of ethics in the workplace. However, it's up to you to transcend distractions and figure out your own ethical standards: what is right, what is wrong, and what is fair.</td>
+            <td class="newsPhoto"><img src="/i/m/timmac_big.jpg"  alt="" width="55" height="61"/>&#160;<img src="/i/m/rhudson_big.jpg"  alt="" width="55" height="61"/><br>by 
+            <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td></tr></table>
+        </td>
+    </tr>
+    <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=features&d2=120106">full story</A> | 
+        <tc-webtag:forumLink forumID="506196" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+    </td></tr>
+---------------------%>
 <%--------------------------------------------------------%>
     <tr>
         <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0" /><br>11.28.06<br>4:10 PM</td>
