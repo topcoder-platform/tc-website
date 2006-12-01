@@ -41,19 +41,26 @@
 		<td><b>Reviewed</b></td>
 	</tr>
 	<c:forEach var="payment" items="${paymentList}">
+			<c:set var="composed" value="false" />	
+			<c:set var="mark" value="" />
+			<c:if test="${not empty reliabilityMap[payment.id]}"> 	
+				<c:set var="composed" value="true" />			
+				<c:set var="mark" value="*" />
+			</c:if>
+	
 		<tr>
 		<td><input type="checkbox" name="payment_id" value="${payment.id}" checked></td>
 		<td><c:out value="${payment.user.first}" /></td>
 		<td><c:out value="${payment.user.last}" /></td>
 		<td><a href="${pacts:viewUser(payment.user.id)}"><c:out value="${payment.user.handle}" /></td>
 		<td><a href="${pacts:viewPayment(payment.id)}"><c:out value="${payment.description}" /></a>
-			<c:if test="${not empty reliabilityMap[payment.id]}"> + 
+			<c:if test="${composed}"> + 
 			     <a href="${pacts:viewPayment(reliabilityMap[payment.id])}">Reliability</a>
 			</c:if>
 		</td>
-		<td><fmt:formatNumber value="${payment.recentGrossAmount}" pattern="###,###.00" /></td>
-		<td><fmt:formatNumber value="${payment.recentGrossAmount - payment.recentNetAmount}" pattern="###,###.00" /></td>
-		<td><fmt:formatNumber value="${payment.recentNetAmount}" pattern="#.00" /></td>
+		<td><fmt:formatNumber value="${payment.recentGrossAmount}" pattern="###,###.00" /><c:out value="${mark}" /></td>
+		<td><fmt:formatNumber value="${payment.recentGrossAmount - payment.recentNetAmount}" pattern="###,###.00" /><c:out value="${mark}" /></td>
+		<td><fmt:formatNumber value="${payment.recentNetAmount}" pattern="#.00" /><c:out value="${mark}" /></td>
 		<td><c:out value="${payment.type}" /></td>
 		<td><c:out value="${payment.method}" /></td>
 		<td><c:out value="${payment.recentStatus}" /></td>
