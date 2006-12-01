@@ -34,6 +34,8 @@
 <h2>Payment List</h2>
 
 <form name="f" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="POST">
+	<input type=hidden name="<%=PactsConstants.TASK_STRING%>" value="<%=PactsConstants.PAYMENT_TASK%>">
+	<input type=hidden name="query" value="${query}">
 
 
 <a href="Javascript:checkAll(true)">check all</a> -
