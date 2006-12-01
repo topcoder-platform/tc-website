@@ -31,6 +31,25 @@
 ----------------------------%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.01.06<br>2:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm21">TCHS SRM 21 - Problem Set & Analysis</A></span><br><br>
+In total there were 278 submissions for HS SRM 21 by 148 members. 
+Continuing his impressive performance, <tc-webtag:handle coderId="11972352" context="hs_algorithm"/> 
+enjoyed another HS SRM win with 1708.72 points.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/zhuzeyuan_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="19929536" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm21">full story</A> | 
+        <tc-webtag:forumLink forumID="506043" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>12.01.06<br>NOON</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/success200612.pdf">Maverick Rules for Success</A> [PDF]</span><br><br>
         <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/success_logo.png" width="67" height="21" alt="Success Magazine" border="0" /></div>
@@ -208,21 +227,6 @@
    </tr>
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary">full story</A> | 
-        <tc-webtag:forumLink forumID="506186" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.17.06<br>8:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary">Congratulations to PE, TCCC06 Development Champion</A>
-        </span><br><br>
-        <tc-webtag:handle coderId="9998760" context="development"/> is the winner of the 2006 TopCoder Collegiate Challenge Component Development competition and the $15,000 top prize.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary">full story</A> | 
         <tc-webtag:forumLink forumID="506186" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
