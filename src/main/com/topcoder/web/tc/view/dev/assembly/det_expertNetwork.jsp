@@ -76,11 +76,11 @@ Each team will be responsible for creating their working environment. The workin
 <li>Microsoft Internet Explorer</li>
 <li>Mozilla Firefox</li>
 </ul>
-
+<%--
 <div class="sectionHeader">Documentation</div>
 Documentation/Specifications are available in the application forums <A href="#">here</A>.
 <br><br>
-
+--%>
 <div class="sectionHeader">Payment</div>
 TopCoder will compensate teams with first and second place submissions. Initial payment for the winning team will be distributed in two installments. The first installment will be paid when the winning solution with review board requirements and suggestions integrated is accepted by TopCoder. The second installment will be paid upon completion of application deployment.
 <br><br>
