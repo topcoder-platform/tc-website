@@ -46,7 +46,7 @@ Over the course of just ten weeks of the stage, <tc-webtag:handle coderId="28761
 <li><A href="/tc?module=Static&d1=features&d2=112106"><strong>A Number or a String: <br>Parsing Your Input and Formatting Your Output in C++</strong></A>, by <tc-webtag:handle coderId="15635590" /><br>
 This article is focused on main fast-to-type and convenient means of parsing input and formatting output in cases that are typical for TopCoder problems. All methods are specific to C++, but Java and VB coders may find several helpful ideas.</li>
 </ul>
-<span class="bodySubtitle">From the archives:</span><br>
+<span class="bodySubtitle">From the archives: </span><br>
 <ul>
 <li><A href="/tc?module=Static&d1=features&d2=022006"><strong>GCC Hacks: Abusing C++ Extensions for Fun and Profit</strong></A>, by <tc-webtag:handle coderId="251074" /><br>
 GCC provides a number of extensions to the C++ language and standard library&#8230; Several of these extensions can be put to use in a TopCoder round. Some will make your program faster; others will save you typing.</ul>
