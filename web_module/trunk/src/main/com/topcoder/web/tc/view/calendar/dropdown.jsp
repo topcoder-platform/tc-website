@@ -3,7 +3,7 @@
 %>
 <form><select name="month" size="1" onchange="window.location='/tc?module=Static&d1=calendar&d2='+this.options[this.selectedIndex].value">
 
-   <option value="thisMonth">-------- 2006 --------</option>
+   <option value="jun_06">-------- 2006 --------</option>
    <option value="jun_06"<% if (currMonth.equals("jun_06")) { %> selected<% } %>>June</option>
    <option value="jul_06"<% if (currMonth.equals("jul_06")) { %> selected<% } %>>July</option>
    <option value="aug_06"<% if (currMonth.equals("aug_06")) { %> selected<% } %>>August</option>
