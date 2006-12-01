@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.PaymentList" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="com.topcoder.web.common.BaseProcessor" %>
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -8,7 +9,8 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />
-<c:set var="paymentList" value="<%= request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT) %>" />
+<c:set var="paymentList" value="<%= request.getAttribute(PaymentList.PAYMENTS) %>" />
+<c:set var="reliabilityMap" value="<%= request.getAttribute(PaymentList.RELIABILITY) %>" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -39,20 +41,18 @@
 		<td><b>Reviewed</b></td>
 	</tr>
 	<c:forEach var="payment" items="${paymentList}">
- 	    <%
-	            int pos = "${payment.type}".indexOf("Payment");
-            String type = pos >= 0? "${payment.type}".substring(0, pos) : "${payment.type}";
-        %>
 		<tr>
 		<td><input type="checkbox" name="payment_id" value="${payment.id}" checked></td>
 		<td><c:out value="${payment.user.first}" /></td>
 		<td><c:out value="${payment.user.last}" /></td>
 		<td><a href="${pacts:viewUser(payment.user.id)}"><c:out value="${payment.user.handle}" /></td>
-		<td><a href="${pacts:viewPayment(payment.id)}"><c:out value="${payment.description}" /></td>
+		<td><a href="${pacts:viewPayment(payment.id)}"><c:out value="${payment.description}" />
+			<c:if test="${not empty reliabilityMap[payment.id]}">+ Reliability</c:if>
+		</td>
 		<td><fmt:formatNumber value="${payment.recentGrossAmount}" pattern="###,###.00" /></td>
 		<td><fmt:formatNumber value="${payment.recentGrossAmount - payment.recentNetAmount}" pattern="###,###.00" /></td>
 		<td><fmt:formatNumber value="${payment.recentNetAmount}" pattern="#.00" /></td>
-		<td><%= type %></td>
+		<td><c:out value="${payment.type}" /></td>
 		<td><c:out value="${payment.method}" /></td>
 		<td><c:out value="${payment.recentStatus}" /></td>
 		<td><c:out value="${payment.client}" /></td>

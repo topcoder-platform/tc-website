@@ -1,7 +1,12 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
@@ -18,8 +23,13 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
  * @author  cucu
  */
 public class PaymentList extends PactsBaseProcessor implements PactsConstants {
-
+   	
+	public static final String PAYMENTS = "payments";
+	public static final String RELIABILITY = "reliability";
+    
     protected void businessProcessing() throws TCWebException {
+
+    	
         try {        	
         	String requestQuery = INTERNAL_SERVLET_URL + "?" + getRequest().getQueryString();
             getRequest().setAttribute("query", requestQuery);
@@ -27,15 +37,41 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             DataInterfaceBean dib = new DataInterfaceBean();
 
             Map query = getQuery(getRequest());
-            Map payments = dib.findPayments(query);
+            Map paymentMap = dib.findPayments(query);
 
-            PaymentHeaderList phl = new PaymentHeaderList(payments);
+            PaymentHeaderList phl = new PaymentHeaderList(paymentMap);
             
             PaymentHeader[] results = phl.getHeaderList();
-                        
+
+            Set ids = new HashSet();
+
+            // Add all the payment id's to a set
+            for (int i = 0; i < results.length; i++) {
+            	if (results[i].getTypeId() != PactsConstants.RELIABILITY_BONUS_PAYMENT) {
+            		ids.add(new Long(results[i].getId()));
+            	}
+            }
+
+            List payments = new ArrayList();
+            Map reliability = new HashMap();
+            
+            for (int i = 0; i < results.length; i++) {
+            	if (results[i].getTypeId() != PactsConstants.RELIABILITY_BONUS_PAYMENT) {
+            		payments.add(results[i]);
+            	} else {
+            		Long parentId = new Long(results[i].getParentPaymentId());
+            		if (ids.contains(parentId)) {
+            			reliability.put(parentId, results[i]);
+            		} else {
+            			payments.add(results[i]);            			
+            		}
+            	}            	
+            }
+            
             if (results.length != 1) {
-                getRequest().setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PAYMENT_OBJ).get(STATUS_CODE_LIST));
-                getRequest().setAttribute(PACTS_INTERNAL_RESULT, results);
+                getRequest().setAttribute(STATUS_CODE_LIST, getStatusList());                
+                getRequest().setAttribute(PAYMENTS, payments);
+                getRequest().setAttribute(RELIABILITY, reliability);
 
                 setNextPage(INTERNAL_PAYMENT_LIST_JSP);
             } else {
