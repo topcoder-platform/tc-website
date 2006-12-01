@@ -31,7 +31,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
 
     	
         try {
-        	boolean groupRel = "true".equals(getRequest().getParameter(GROUP_RELIABILITY));
+        	boolean groupRel = !"false".equals(getRequest().getParameter(GROUP_RELIABILITY));
         	String requestQuery = INTERNAL_SERVLET_URL + "?" + getRequest().getQueryString();
             getRequest().setAttribute("query", requestQuery);
             

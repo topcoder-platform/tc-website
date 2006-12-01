@@ -39,12 +39,14 @@
 	<input type=hidden name="<%=PactsConstants.TASK_STRING%>" value="<%=PactsConstants.PAYMENT_TASK%>">
 	<input type=hidden name="query" value="${query}">
 
-<a href="${toggleGroupReliability}">
-	<c:choose>
-		<c:when test="${groupReliability}">Ungroup component and reliabilities</c:when>
-		<c:otherwise>Group component with their reliabilities</c:otherwise>
-	</c:choose>
-</a><br>
+<c:if test="${reliabilityMap.size > 0 }">
+	<a href="${toggleGroupReliability}">
+		<c:choose>
+			<c:when test="${groupReliability}">Ungroup component and reliabilities</c:when>
+			<c:otherwise>Group component with their reliabilities</c:otherwise>
+		</c:choose>
+	</a><br>
+</c:if>
 
 <a href="Javascript:checkAll(true)">check all</a> -
  <a href="Javascript:checkAll(false)">uncheck all</a> <br>
