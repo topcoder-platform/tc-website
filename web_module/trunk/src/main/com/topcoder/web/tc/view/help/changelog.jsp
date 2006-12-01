@@ -46,7 +46,6 @@
     5.5.10 - 2006.11.xx
     <ul>
         <li>Fix a bug when expiring old payments</li>
-<%--
         <li>Add in rating history the percentile column.</li>
         <li>Add a column "Challenge Time"  for challenges and defenses for regular and hs competitions stats</li>
         <li>Add testers in problem detail</li>
@@ -61,8 +60,7 @@
                 <li>Consecutive Rating Increase</li>
             </ul>
         </li>
-        
---%>
+        <li>Fix utility to pay reliability bonus to work with the new Online Review schema</li>
     </ul>
 
     5.5.9 - 2006.11.20
