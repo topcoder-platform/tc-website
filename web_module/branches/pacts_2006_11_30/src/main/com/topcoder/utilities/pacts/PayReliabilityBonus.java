@@ -47,8 +47,7 @@ public class PayReliabilityBonus extends DBUtility {
         query.append("AND p.most_recent_detail_id = pd.payment_detail_id ");      
         query.append("AND pr.reliability_ind = 1 ");
         query.append("AND pr.project_id = pro.project_id ");
-        query.append("AND pro.cur_version = 1 ");
-        query.append("AND pro.project_stat_id = 4 ");
+        query.append("AND pro.project_status_id = 4 ");
         query.append("AND old_reliability >= 0.8 ");
         query.append("AND not exists ");
         query.append("   (SELECT 1 FROM payment_detail pd2 ");
@@ -114,8 +113,9 @@ public class PayReliabilityBonus extends DBUtility {
         super.processParams();
 
         onlyAnalyze = (String) params.get("onlyAnalyze");
-        if (onlyAnalyze == null)
-            setUsageError("Please specify a onlyAnalyze.\n");
+        if (onlyAnalyze == null) {
+        	onlyAnalyze = "false";
+        }
         params.remove("onlyAnalyze");
 
         log.debug("onlyAnalyze : " + onlyAnalyze);
