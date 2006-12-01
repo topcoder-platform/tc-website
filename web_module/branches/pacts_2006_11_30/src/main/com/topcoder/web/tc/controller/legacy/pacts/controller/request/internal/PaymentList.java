@@ -43,12 +43,12 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             
             PaymentHeader[] results = phl.getHeaderList();
 
-            Set ids = new HashSet();
+            Map ids = new HashMap();
 
             // Add all the payment id's to a set
             for (int i = 0; i < results.length; i++) {
             	if (results[i].getTypeId() != PactsConstants.RELIABILITY_BONUS_PAYMENT) {
-            		ids.add(new Long(results[i].getId()));
+            		ids.put(new Long(results[i].getId()), results[i]);
             	}
             }
 
@@ -61,8 +61,11 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             		log.debug("added non-reliablity:" + results[i].getId());
             	} else {
             		Long parentId = new Long(results[i].getParentPaymentId());
-            		if (ids.contains(parentId)) {
-            			reliability.put(parentId, results[i]);
+            		PaymentHeader parent = (PaymentHeader) ids.get(parentId);
+            		if (parent != null) {
+            			reliability.put(parentId, new Long(results[i].getId()));
+            			parent.setRecentGrossAmount(parent.getRecentGrossAmount() + results[i].getRecentGrossAmount());
+            			parent.setRecentNetAmount(parent.getRecentNetAmount() + results[i].getRecentNetAmount());
                 		log.debug("map reliablity:" + results[i].getId() + " to " + results[i].getParentPaymentId());
             		} else {
             			payments.add(results[i]);            			
