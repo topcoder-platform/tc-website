@@ -48,12 +48,12 @@
 		<td><fmt:formatNumber value="${payment.recentGrossAmount}" pattern="###,###.00" /></td>
 		<td><fmt:formatNumber value="${payment.recentGrossAmount - payment.recentNetAmount}" pattern="###,###.00" /></td>
 		<td><fmt:formatNumber value="${payment.recentNetAmount}" pattern="#.00" /></td>
-		<td><c:out value="${payment.header.type}" /></td>
-		<td><c:out value="${payment.header.method}" /></td>
+		<td><c:out value="${payment.type}" /></td>
+		<td><c:out value="${payment.method}" /></td>
 		<td><c:out value="${payment.statusDesc}" /></td>
-		<td><c:out value="${payment.header.client}" /></td>
-		<td><c:out value="${payment.header.createDate}" /> </td>
-		<td><c:out value="${payment.header.modifyDate}" /> </td>
+		<td><c:out value="${payment.client}" /></td>
+		<td><c:out value="${payment.createDate}" /> </td>
+		<td><c:out value="${payment.modifyDate}" /> </td>
 		<td><c:choose>
 				<c:when test="${payment.reviewed}">Yes</c:when>
 				<c:otherwise>No</c:otherwise>
