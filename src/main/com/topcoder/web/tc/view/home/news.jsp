@@ -29,9 +29,9 @@
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 ----------------------------%>
-<%-----------------------------------feature POST FRIDAY MORNING
+<%--------------------------------------------------------%>
     <tr>
-        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0" /><br>12.01.06<br>10:00 AM</td>
+        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0" /><br>12.01.06<br>10:30 AM</td>
         <td class="newsTextCell">
             <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
             <td valign="top"><span class="newsTitle">
@@ -47,7 +47,7 @@
         <tc-webtag:forumLink forumID="506196" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
     </td></tr>
----------------------%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General Competition News" border="0" /><br>12.01.06<br>9:30 AM</td>
