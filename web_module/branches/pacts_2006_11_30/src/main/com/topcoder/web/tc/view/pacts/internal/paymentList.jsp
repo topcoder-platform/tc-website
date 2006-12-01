@@ -37,6 +37,7 @@
 	<input type=hidden name="<%=PactsConstants.TASK_STRING%>" value="<%=PactsConstants.PAYMENT_TASK%>">
 	<input type=hidden name="query" value="${query}">
 
+<a href="${query}">Group</a> 
 
 <a href="Javascript:checkAll(true)">check all</a> -
  <a href="Javascript:checkAll(false)">uncheck all</a> <br>
@@ -105,10 +106,10 @@
 <a href="Javascript:checkAll(true)">check all</a> -
  <a href="Javascript:checkAll(false)">uncheck all</a> <br>
 
-<input type="submit" name="<%=PactsConstants.CMD_STRING %>" value="<%=PactsConstants.REVIEW_CMD  %>"><br>
+<input type="submit" name="<%=PactsConstants.CMD_STRING %>" value="<%=PactsConstants.REVIEW_CMD  %>"><br><br>
 <input type="submit" name="<%=PactsConstants.CMD_STRING %>" value="<%=PactsConstants.STATUS_CMD  %>">
 
-           <tc-webtag:rscSelect name="status_id" list="${statusList}" fieldText="status_desc" fieldValue="status_id" useTopValue="false" /> <br>
+           <tc-webtag:rscSelect name="status_id" list="${statusList}" fieldText="status_desc" fieldValue="status_id" useTopValue="false" /> <br><br>
 
 
 </form>
