@@ -85,10 +85,44 @@
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value" nowrap>
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_expertNetwork">Expert Network Application</A>
+      </td>
+      <td class="valueC">
+      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Expert Network Application">register</A>
+      <%--registration closed--%>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%--   
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_expertNetwork">results</A>
+      --%>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%-- 
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_expertNetwork">standings</A>
+      --%>
+      </td>
+      <td class="valueC">$12,800</td>
+      <td class="valueC">
+      12.08.2006 9:00 AM EST
+      </td>
+      <td class="valueC">
+      12.22.2006 9:00 AM EST
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506195">join a team</A>
+      <br>
+      <A href="">discuss</A>
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value" nowrap>
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_orpheusAdmin">Orpheus Administration Module</A>
       </td>
       <td class="valueC">
-      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Orpheus Administration Module">register</A>
+      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Expert Network Application">register</A>
       <%--registration closed--%>
       </td>
       <td class="valueC">
