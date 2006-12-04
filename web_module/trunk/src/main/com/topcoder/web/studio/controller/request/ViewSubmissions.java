@@ -54,7 +54,7 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         r.setContentHandle("submissions");
         r.setProperty(Constants.CONTEST_ID, contestId);
 
-        if (c.getMaxSubmissions().getValue()!=null) {
+        if (c.getMaxSubmissions()!=null && c.getMaxSubmissions().getValue()!=null) {
             r.setProperty(Constants.SUBMISSION_RANK, c.getMaxSubmissions().getValue());
         }
 
