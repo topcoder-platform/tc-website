@@ -31,6 +31,23 @@
 ----------------------------%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>12.04.06<br>2:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">The 2007 TopCoder High School Tournament</A></span><br><br>
+The inaugural installment of the TopCoder High School Tournament is
+coming to Purdue University! The tournament will bring together some of
+the most talented high school students in a heated battle for bragging
+rights and scholarships worth at least $50,000. Registrations starts
+February 13, 2007. </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">full story</A> | 
+        <tc-webtag:forumLink forumID="506199" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.01.06<br>2:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -213,21 +230,6 @@ enjoyed another HS SRM win with 1708.72 points.
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_finals_analysis">full story</A> | 
         <tc-webtag:forumLink forumID="506185" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.17.06<br>8:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary">Congratulations to nicka81, TCCC06 Design Champion</A>
-        </span><br><br>
-        After three days of on-site finals, <tc-webtag:handle coderId="293874" context="design"/> emerged as the winner of the 2006 TopCoder Collegiate Challenge Component Design competition.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary">full story</A> | 
-        <tc-webtag:forumLink forumID="506186" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
