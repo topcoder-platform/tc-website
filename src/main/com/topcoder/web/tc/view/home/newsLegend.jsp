@@ -9,7 +9,7 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/longcontest/?module=ViewOverview&rd=10649">results</A> | 
-         <tc-webtag:forumLink forumID="506055" message="discuss this" /> | 
+         <tc-webtag:forumLink forumID="506179" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
 
