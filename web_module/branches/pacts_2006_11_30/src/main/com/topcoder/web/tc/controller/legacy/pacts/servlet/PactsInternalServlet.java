@@ -591,19 +591,11 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                         return;
                     }
                     if (command.equals(REVIEW_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true))
-                            doReviewPayments(request, response);
-                        else {
-                            throw new NavigationException("Invalid Payment ID or No Payment ID Specified");
-                        }
+                        doReviewPayments(request, response);
                         return;
                     }
                     if (command.equals(STATUS_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true))
-                            doPaymentStatus(request, response);
-                        else {
-                            throw new NavigationException("Invalid Payment ID or No Payment ID Specified");
-                        }
+                        doPaymentStatus(request, response);
                         return;
                     }
                     if (command.equals(FILE_CMD)) {
@@ -2721,6 +2713,25 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         forward(INTERNAL_ERROR_JSP, request, response);
     }
 
+    private long[] parsePayments(String[] values) {
+        List payments = new ArrayList();
+
+        for (int n = 0; n < values.length; n++) {
+        	String s[] = values[n].split(",");
+        	for (int i = 0; i < s.length; i++) {
+        		payments.add(s[i]);
+        	}
+        }
+        
+        long[] paymentsArray = new long[payments.size()];
+        for (int n = 0; n < payments.size(); n++) {
+        	paymentsArray[n] = Long.parseLong((String) payments.get(n));
+        	log.debug("add payment " + paymentsArray[n]);
+        }
+        
+        return paymentsArray;
+    }
+    
     private void doPaymentStatus(HttpServletRequest request, HttpServletResponse response) throws Exception {
         try {
             WebAuthentication auth = createAuthentication(HttpObjectFactory.createRequest(request),
@@ -2732,24 +2743,11 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
             String[] values = request.getParameterValues(PAYMENT_ID);
 
-            List payments = new ArrayList();
-
-            for (int n = 0; n < values.length; n++) {
-            	String s[] = values[n].split(",");
-            	for (int i = 0; i < s.length; i++) {
-            		payments.add(s[i]);
-            	}
-            }
-            
-            long[] paymentsArray = new long[payments.size()];
-            for (int n = 0; n < payments.size(); n++) {
-            	paymentsArray[n] = Long.parseLong((String) payments.get(n));
-            }
-            
+            long[] payments = parsePayments(values);     
 
             DataInterfaceBean dib = new DataInterfaceBean();
 
-            dib.batchUpdatePaymentStatus(paymentsArray, Integer.parseInt(request.getParameter("status_id")), userId);
+            dib.batchUpdatePaymentStatus(payments, Integer.parseInt(request.getParameter("status_id")), userId);
 
             request.setAttribute("message", "Payments Being Updated in the Background");
             if (PAYMENT_UPDATE_FORWARD_OPTION == TO_QUERY_OPTION)
@@ -2767,10 +2765,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             log.debug("doReviewPayments<br>");
 
             String[] values = request.getParameterValues(PAYMENT_ID);
-            long[] payments = new long[values.length];
-            for (int n = 0; n < values.length; n++) {
-                payments[n] = Long.parseLong(values[n]);
-            }
+            long[] payments = parsePayments(values);
 
             DataInterfaceBean dib = new DataInterfaceBean();
 
