@@ -23,7 +23,7 @@
                     </Property>
                     <Property name="jdbc_url">
                         <Value>
-                            jdbc:informix-sqli://65.112.118.221:1526/informixoltp:INFORMIXSERVER=devinformix10_shm</Value>
+                            jdbc:informix-sqli://63.118.154.190:1526/informixoltp:INFORMIXSERVER=devinformix10_shm</Value>
                     </Property>
                     <Property name="user">
                         <Value>coder</Value>

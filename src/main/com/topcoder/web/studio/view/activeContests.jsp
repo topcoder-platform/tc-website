@@ -108,10 +108,8 @@
                                 <rsc:item name="submission_count" row="<%=resultRow%>"/>
                             </td>
 
-                            <td class="valueC">
-                                <div align="right">
-                                    <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" class="btn_submit">
-                                        &nbsp;</A></div>
+                            <td class="valueR">
+                                <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" onfocus="this.blur();"><img src="/i/layout/btnSubmitOrganize.png" alt="Move up" onmouseover="this.src = '/i/layout/btnSubmitOrganizeOn.png';" onmouseout="this.src = '/i/layout/btnSubmitOrganize.png';" style="margin: 6px 0px 6px 0px;" /></A>
                             </td>
 
                             <td class="valueE"><div>&nbsp;</div></td>

@@ -16,6 +16,7 @@ public class ContestProperty extends Base {
     public static final Integer MAX_WIDTH = new Integer(5);
     public static final Integer MIN_HEIGHT = new Integer(6);
     public static final Integer MAX_HEIGHT = new Integer(7);
+    public static final Integer MAX_SUBMISSIONS = new Integer(8);
 
 
     private Integer id;

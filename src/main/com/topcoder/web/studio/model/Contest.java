@@ -110,6 +110,10 @@ public class Contest extends Base {
         return getConfig(StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.VIEWABLE_SUBMISSIONS));
     }
 
+    public ContestConfig getMaxSubmissions() {
+        return getConfig(StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.MAX_SUBMISSIONS));
+    }
+
     public Set getDocuments() {
         return documents;
     }

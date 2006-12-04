@@ -115,7 +115,7 @@ public class EditContest extends Base {
                 }
                 String val = getRequest().getParameter(Constants.CONTEST_PROPERTY + CONTEST_PROPS[i]);
                 if (log.isDebugEnabled()) {
-                    log.debug("prop size " + (val==null?"null":String.valueOf(val.length())));
+                    log.debug("prop size " + (val == null ? "null" : String.valueOf(val.length())));
                 }
 
                 currConfig.setValue(StringUtils.checkNull(val).trim().length() == 0 ? null : val.trim());
@@ -129,6 +129,9 @@ public class EditContest extends Base {
             }
             contest.setFileTypes(fts);
 
+            if (log.isDebugEnabled()) {
+                log.debug("overview size " + contest.getOverview().getValue() == null ? "null" : "" + contest.getOverview().getValue().length());
+            }
 
             StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
             markForCommit();
@@ -151,11 +154,12 @@ public class EditContest extends Base {
         String minHeight = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MIN_HEIGHT);
         String maxHeight = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MAX_HEIGHT);
         String viewableSubmissions = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.VIEWABLE_SUBMISSIONS);
+        String maxSubmissions = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MAX_SUBMISSIONS);
         String forumId = getRequest().getParameter(Constants.FORUM_ID);
 
 
         if (log.isDebugEnabled()) {
-            log.debug("prize desc size " + (prizeDesc==null?"null":String.valueOf(prizeDesc.length())));
+            log.debug("prize desc size " + (prizeDesc == null ? "null" : String.valueOf(prizeDesc.length())));
         }
 
         //validate
@@ -207,6 +211,12 @@ public class EditContest extends Base {
                 new ViewableSubmissionsValidator().validate(new StringInput(viewableSubmissions));
         if (!viewableSubmissionsResult.isValid()) {
             addError(Constants.CONTEST_PROPERTY + ContestProperty.VIEWABLE_SUBMISSIONS, viewableSubmissionsResult.getMessage());
+        }
+
+        ValidationResult maxSubmissionsResult =
+                new MaxSubmissionsValidator().validate(new StringInput(maxSubmissions));
+        if (!maxSubmissionsResult.isValid()) {
+            addError(Constants.CONTEST_PROPERTY + ContestProperty.MAX_SUBMISSIONS, maxSubmissionsResult.getMessage());
         }
 
 
