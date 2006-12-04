@@ -105,7 +105,7 @@ public class NewSchemaFixUtility extends DBUtility {
 
     private void processProblemTestersPaymentsNullRounds() throws SQLException, RemoteException {
         StringBuffer query = new StringBuffer(200);
-        query.append("select user_id, contest, money as payment, date(date) as payment_date ");
+        query.append("select user_id, contest, money as payment, payment_date ");
         query.append("from problem_testing_migration ");
         query.append("where processed_ind in (-2, -3) ");
 
