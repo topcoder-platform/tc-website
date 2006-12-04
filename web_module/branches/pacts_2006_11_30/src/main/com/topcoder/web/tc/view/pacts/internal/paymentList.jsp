@@ -41,8 +41,8 @@
 
 	<a href="${toggleGroupReliability}">
 		<c:choose>
-			<c:when test="${groupReliability}">Ungroup component and reliabilities</c:when>
-			<c:otherwise>Group component with their reliabilities</c:otherwise>
+			<c:when test="${groupReliability}">Ungroup components and reliabilities</c:when>
+			<c:otherwise>Group components with their reliabilities</c:otherwise>
 		</c:choose>
 	</a><br>
 
@@ -77,7 +77,14 @@
 			</c:if>
 		<c:set var="totalNet" value="${totalNet + payment.recentNetAmount}" />
 		<tr>
-		<td><input type="checkbox" name="payment_id" value="${payment.id}" checked></td>
+		<td> <c:choose>
+				<c:when test="${composed}">
+					<input type="checkbox" name="payment_id" value="${payment.id},${reliabilityMap[payment.id]}" checked></c:when>
+				<c:otherwise>
+					<input type="checkbox" name="payment_id" value="${payment.id}" checked></c:otherwise>
+			</c:choose>
+		
+		</td>
 		<td><c:out value="${payment.user.first}" /></td>
 		<td><c:out value="${payment.user.last}" /></td>
 		<td><a href="${pacts:viewUser(payment.user.id)}"><c:out value="${payment.user.handle}" /></td>
@@ -112,6 +119,7 @@
 	</table>
 <a href="Javascript:checkAll(true)">check all</a> -
  <a href="Javascript:checkAll(false)">uncheck all</a> <br>
+<br>
 
 <input type="submit" name="<%=PactsConstants.CMD_STRING %>" value="<%=PactsConstants.REVIEW_CMD  %>"><br><br>
 <input type="submit" name="<%=PactsConstants.CMD_STRING %>" value="<%=PactsConstants.STATUS_CMD  %>">

@@ -15,9 +15,11 @@ package com.topcoder.web.tc.controller.legacy.pacts.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
@@ -55,7 +57,6 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchNote;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchNoteList;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchPactsEntryList;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchPayment;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchPaymentAuditTrail;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchPaymentList;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchTaxForm;
@@ -2730,14 +2731,25 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             log.debug("doPaymentStatus<br>");
 
             String[] values = request.getParameterValues(PAYMENT_ID);
-            long[] payments = new long[values.length];
+
+            List payments = new ArrayList();
+
             for (int n = 0; n < values.length; n++) {
-                payments[n] = Long.parseLong(values[n]);
+            	String s[] = values[n].split(",");
+            	for (int i = 0; i < s.length; i++) {
+            		payments.add(s[i]);
+            	}
             }
+            
+            long[] paymentsArray = new long[payments.size()];
+            for (int n = 0; n < payments.size(); n++) {
+            	paymentsArray[n] = Long.parseLong((String) payments.get(n));
+            }
+            
 
             DataInterfaceBean dib = new DataInterfaceBean();
 
-            dib.batchUpdatePaymentStatus(payments, Integer.parseInt(request.getParameter("status_id")), userId);
+            dib.batchUpdatePaymentStatus(paymentsArray, Integer.parseInt(request.getParameter("status_id")), userId);
 
             request.setAttribute("message", "Payments Being Updated in the Background");
             if (PAYMENT_UPDATE_FORWARD_OPTION == TO_QUERY_OPTION)
