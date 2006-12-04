@@ -24,7 +24,12 @@ import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.policy.PermissionCollection;
 import com.topcoder.security.policy.PolicyRemoteHome;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.util.config.*;
+import com.topcoder.web.ejb.forums.Forums;
+import com.topcoder.web.ejb.forums.ForumsHome;
 import com.topcoder.dde.catalog.Catalog;
 
 import javax.ejb.*;
@@ -1090,21 +1095,26 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             }
 
 
+            String forumDbName = DBMS.getDbName(DBMS.FORUMS_DATASOURCE_NAME);
             query = new StringBuffer(500);
-            query.append("SELECT f.forum_id, f.create_time, f.closed_time, ");
-            query.append("       f.status_id, v.version, v.version_text    ");
-            query.append("  FROM forum_master f, comp_versions v,          ");
-            query.append("       comp_forum_xref x, comp_catalog c         ");
-            query.append(" WHERE x.forum_id = f.forum_id                   ");
+            query.append("SELECT cat.category_id, cat.creationdate, cat.modificationdate, ");
+            query.append("       p.propvalue, v.version, v.version_text    ");
+            query.append("  FROM ");
+            query.append(forumDbName).append(":jivecategory cat, ");
+            query.append(forumDbName).append(":jivecategoryprop p, ");
+            query.append("		 comp_versions v, comp_forum_xref x, comp_catalog c ");
+            query.append(" WHERE x.jive_category_id = cat.category_id      ");
             query.append("   AND x.comp_vers_id = v.comp_vers_id           ");
             query.append("   AND c.component_id = ?                        ");
             query.append("   AND c.component_id = v.component_id           ");
-            query.append("   AND ( NOT ( f.status_id = ? ) )               ");
+            query.append("	 AND cat.categoryid = p.categoryid			   ");
+            query.append("	 AND p.name = 'forumType'					   ");
+            query.append("   AND ( NOT ( f.status_id = ? ) )               "); 
             if (version < 0)
                 query.append("   AND c.current_version = v.version ");
             else
-                query.append("   AND ? = v.version ");
-
+                query.append("   AND ? = v.version ");   
+            
             try {
 
                 ps = c.prepareStatement(query.toString());
@@ -1115,8 +1125,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
                 List list = new ArrayList();
                 while (rs.next())
-                    list.add(new Forum(rs.getLong(1), rs.getDate(2),
-                            rs.getDate(3), rs.getLong(4), rs.getLong(5), rs.getString(6)));
+                    list.add(new Forum(rs.getLong(1), new Date(rs.getLong(2)),
+                            new Date(rs.getLong(3)), rs.getLong(4), rs.getLong(5), rs.getString(6)));
 
                 forums = (Forum[]) list.toArray(new Forum[0]);
 
@@ -1636,7 +1646,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
          * This is a convenience method to create the security roles for forums.
          * Currently, it has to call createRoles with null for the requestor.
          * This only works because createRoles has not implemented permission
-         * checking  yet. This functionality does not really belong in the
+         * checking yet. This functionality does not really belong in the
          * component catalog.
          */
         PermissionCollection perms = null;
@@ -1778,6 +1788,43 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                     + exception.toString());
         }
 
+        // create new category/forums (call forums EJB), comp_forum_xref link, permissions
+        // see what the createForum() and compforumHome.create() EJB calls accomplish, then replicate
+        Forums forums = null;
+        try {
+            Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
+    		ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
+    		forums = forumsHome.create();
+    	} catch (NamingException e) { 
+    		ejbContext.setRollbackOnly();
+            throw new CatalogException(
+                    "Failed to connect to forums server EJB: "
+                    + e.toString());
+        } catch (CreateException e) { 
+    		ejbContext.setRollbackOnly();
+            throw new CatalogException(e.toString());
+        } catch (RemoteException e) { 
+    		ejbContext.setRollbackOnly();
+            throw new CatalogException(e.toString());
+        }
+        
+    	try {
+    		forums.createSoftwareComponentForums(newComponent.getComponentName(), newComponent.getShortDesc(), 
+    				newVersion.getVersionText(), Long.parseLong(getConfigValue("collab_forum_template")));
+    	} catch (ConfigManagerException cme) {
+    		log.warn("Encountered a configuration manager exception reading collab_forum_template property");
+    		ejbContext.setRollbackOnly();
+            throw new CatalogException(cme.toString());
+    	} catch (NumberFormatException nfe) {
+    		log.warn("Failed to parse the collab_forum_template property");
+    		ejbContext.setRollbackOnly();
+            throw new CatalogException(nfe.toString());
+    	} catch (RemoteException e) {
+    		ejbContext.setRollbackOnly();
+            throw new CatalogException(e.toString());
+    	}
+    	
+    	// TODO: remove when complete
         long newForum;
         try {
             com.topcoder.forum.Forum forum = new com.topcoder.forum.Forum();
@@ -1806,6 +1853,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                     "Failed to create new collaboration forum for component: "
                     + exception.toString());
         }
+        // TODO: remove when complete (end)
 
         createComponentRole(((Long) newComponent.getPrimaryKey()).longValue());
 

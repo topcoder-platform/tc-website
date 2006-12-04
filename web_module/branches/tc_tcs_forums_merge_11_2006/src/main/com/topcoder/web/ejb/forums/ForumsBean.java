@@ -3,6 +3,7 @@ package com.topcoder.web.ejb.forums;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.web.forums.controller.ForumsUtil;
 import com.topcoder.web.forums.model.TCAuthToken;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;
@@ -13,11 +14,17 @@ import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumCategoryNotFoundException;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.base.Group;
+import com.jivesoftware.base.GroupManager;
+import com.jivesoftware.base.PermissionType;
+import com.jivesoftware.base.PermissionsManager;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.User;
 import com.jivesoftware.base.UserNotFoundException;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -194,6 +201,63 @@ public class ForumsBean extends BaseEJB {
     		softwareGroupData[i][2] = String.valueOf(group.getDescription());
     	}
     	return softwareGroupData;
+    }
+    
+    // Create a new component category and constituent forums
+    // - add properties, moderator/user/admin permissions
+    public ForumCategory createSoftwareComponentForums(String componentName, String description, String versionText, long templateId) {
+    	try {
+    		String categoryName = ForumsUtil.getComponentCategoryName(componentName, versionText, templateId);
+    		ForumCategory newCategory = forumFactory.getForumCategory(TCS_FORUMS_ROOT_CATEGORY_ID).createCategory(categoryName, description);
+    		newCategory.setProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS, ForumConstants.PROPERTY_ARCHIVAL_STATUS_ACTIVE);
+    		newCategory.setProperty(ForumConstants.PROPERTY_MODIFY_FORUMS, "true");
+    		newCategory.setProperty(ForumConstants.PROPERTY_VERSION_TEXT, versionText);
+    		
+    		Connection forumsConn = DBMS.getConnection(DBMS.FORUMS_DATASOURCE_NAME);
+    		PreparedStatement forumsPS = forumsConn.prepareStatement(
+    				"select name, description from template_forum t " +
+    				"where t.template_id = ? order by t.display_order, t.template_forum_id");
+    		forumsPS.setLong(1, templateId);
+    		ResultSet rs = forumsPS.executeQuery();
+    		while (rs.next()) {
+    			forumFactory.createForum(rs.getString("name"), rs.getString("description"), newCategory);
+    		}
+    		
+    		createSoftwareComponentPermissions(newCategory, false);
+    		return newCategory;
+    	} catch (Exception e) {
+    		log.info("*** error in creating software component forums: " + e);
+    	}
+    	return null;
+    }
+    
+    private void createSoftwareComponentPermissions(ForumCategory category, boolean isPublic) {
+    	GroupManager groupManager = forumFactory.getGroupManager();
+    	try {
+	    	Group swAdminGroup = groupManager.getGroup(ForumConstants.GROUP_SOFTWARE_ADMINS);
+	    	Group moderatorGroup = groupManager.createGroup(ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX + category.getID());  // close resultset
+	        Group userGroup = groupManager.createGroup(ForumConstants.GROUP_SOFTWARE_USERS_PREFIX + category.getID());	// close resultset
+	        moderatorGroup.setDescription(category.getName());
+	        userGroup.setDescription(category.getName());
+	        PermissionsManager categoryPermissionsManager = category.getPermissionsManager();
+	        for (int i=0; i<ForumConstants.MODERATOR_PERMS.length; i++) {
+	        	categoryPermissionsManager.addGroupPermission(moderatorGroup, PermissionType.ADDITIVE, ForumConstants.MODERATOR_PERMS[i]);
+	        }
+	        for (int i=0; i<ForumConstants.REGISTERED_PERMS.length; i++) {
+	        	categoryPermissionsManager.addGroupPermission(userGroup, PermissionType.ADDITIVE, ForumConstants.REGISTERED_PERMS[i]);
+	        }
+	        for (int i=0; i<ForumConstants.ADMIN_PERMS.length; i++) {
+	        	categoryPermissionsManager.addGroupPermission(swAdminGroup, PermissionType.ADDITIVE, ForumConstants.ADMIN_PERMS[i]);
+	        }
+	        if (!isPublic) {
+		        for (int i=0; i<ForumConstants.SW_BLOCK_PERMS.length; i++) {
+	            	categoryPermissionsManager.addAnonymousUserPermission(PermissionType.NEGATIVE, ForumConstants.SW_BLOCK_PERMS[i]);	
+	            	categoryPermissionsManager.addRegisteredUserPermission(PermissionType.NEGATIVE, ForumConstants.SW_BLOCK_PERMS[i]);
+	        	}
+	        }
+    	} catch (Exception e) {
+    		log.info("*** error in creating software component permissions: " + e);
+    	}
     }
     // Software Forums - End
 }

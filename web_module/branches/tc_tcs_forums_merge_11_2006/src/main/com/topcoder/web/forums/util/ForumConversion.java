@@ -22,6 +22,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.web.forums.controller.ForumsUtil;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -114,21 +115,6 @@ public class ForumConversion {
     private static PreparedStatement publicPS = null;	// determine public SW forums
     
     static boolean ATTACHMENTS_ENABLED = true;
-
-    // New administrators will need to be added to the "Software Administrators" group manually,
-    // unless this is integrated into the "knighting" process.
-    private final static long[] ADMIN_PERMS = {
-    	ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
-    	ForumPermissions.RATE_MESSAGE, ForumPermissions.CREATE_MESSAGE_ATTACHMENT, ForumPermissions.CREATE_POLL, 
-    	ForumPermissions.VOTE_IN_POLL, ForumPermissions.ANNOUNCEMENT_ADMIN, ForumPermissions.FORUM_CATEGORY_ADMIN};
-    private final static long[] BLOCK_PERMS = {
-    	ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
-    	ForumPermissions.RATE_MESSAGE, ForumPermissions.CREATE_MESSAGE_ATTACHMENT, ForumPermissions.CREATE_POLL, 
-    	ForumPermissions.VOTE_IN_POLL, ForumPermissions.ANNOUNCEMENT_ADMIN};
-    private final static long[] MODERATOR_PERMS = {
-    	ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
-    	ForumPermissions.RATE_MESSAGE, ForumPermissions.FORUM_CATEGORY_ADMIN, 
-    	ForumPermissions.CREATE_MESSAGE_ATTACHMENT, ForumPermissions.CREATE_POLL, ForumPermissions.VOTE_IN_POLL};
     
     public static void convertForums(ForumFactory forumFactory) {       
     	if (!JiveGlobals.getJiveBooleanProperty("tc.convert.tcs.forums")) {
@@ -284,20 +270,8 @@ public class ForumConversion {
 
             // create a category for topcoder forum
             ForumMaster forum = (ForumMaster) it.next();
-            String categoryName = forum.getName();
-            if (forum.getVersionText() != null && !forum.getVersionText().trim().equals("")) {
-            	boolean wellFormatted = forum.getVersionText().trim().matches("\\d+(\\.\\d+)*\\w?");    	
-            	if (wellFormatted) {
-                	categoryName += " v" + forum.getVersionText().trim();            		
-            	} else {
-            		categoryName += " (" + forum.getVersionText().trim() + ")";
-            	}
-            }
-            if (forum.getForumType() == ForumConstants.CUSTOMER_FORUM) {
-            	categoryName += " - " + "Customer Forum";
-            } else if (forum.getForumType() == ForumConstants.DEVELOPER_FORUM) {
-            	categoryName += " - " + "Developer Forum";
-            }
+            String categoryName = ForumsUtil.getComponentCategoryName(forum.getName(), forum.getVersionText(),
+            		forum.getForumType());
             ForumCategory category = root.createCategory(categoryName, forum.getDesc());
             category.setCreationDate(forum.getCreation());
             category.setModificationDate(forum.getCreation());
@@ -317,14 +291,14 @@ public class ForumConversion {
             moderatorGroup.setDescription(category.getName());
             userGroup.setDescription(category.getName());
             PermissionsManager categoryPermissionsManager = category.getPermissionsManager();
-            for (int i=0; i<MODERATOR_PERMS.length; i++) {
-            	categoryPermissionsManager.addGroupPermission(moderatorGroup, PermissionType.ADDITIVE, MODERATOR_PERMS[i]);
+            for (int i=0; i<ForumConstants.MODERATOR_PERMS.length; i++) {
+            	categoryPermissionsManager.addGroupPermission(moderatorGroup, PermissionType.ADDITIVE, ForumConstants.MODERATOR_PERMS[i]);
             }
             for (int i=0; i<ForumConstants.REGISTERED_PERMS.length; i++) {
             	categoryPermissionsManager.addGroupPermission(userGroup, PermissionType.ADDITIVE, ForumConstants.REGISTERED_PERMS[i]);
             }
-            for (int i=0; i<ADMIN_PERMS.length; i++) {
-            	categoryPermissionsManager.addGroupPermission(swAdminGroup, PermissionType.ADDITIVE, ADMIN_PERMS[i]);
+            for (int i=0; i<ForumConstants.ADMIN_PERMS.length; i++) {
+            	categoryPermissionsManager.addGroupPermission(swAdminGroup, PermissionType.ADDITIVE, ForumConstants.ADMIN_PERMS[i]);
             }
             
             oldForumPS.setLong(1, forum.getCompVersId());
@@ -335,9 +309,9 @@ public class ForumConversion {
             rs.close();
             
             if (!publicOldForumSet.contains(String.valueOf(oldForumID))) {
-            	for (int i=0; i<BLOCK_PERMS.length; i++) {
-                	categoryPermissionsManager.addAnonymousUserPermission(PermissionType.NEGATIVE, BLOCK_PERMS[i]);	
-	            	categoryPermissionsManager.addRegisteredUserPermission(PermissionType.NEGATIVE, BLOCK_PERMS[i]);
+            	for (int i=0; i<ForumConstants.SW_BLOCK_PERMS.length; i++) {
+                	categoryPermissionsManager.addAnonymousUserPermission(PermissionType.NEGATIVE, ForumConstants.SW_BLOCK_PERMS[i]);	
+	            	categoryPermissionsManager.addRegisteredUserPermission(PermissionType.NEGATIVE, ForumConstants.SW_BLOCK_PERMS[i]);
             	}
             }
            
@@ -670,9 +644,14 @@ class ForumMaster {
      * @param id forum id.
      * @param name forum name.
      * @param desc forum description.
-     * @param status forum phase.
      * @param status forum status.
      * @param creation forum creation time.
+     * @param compVersId component version id.
+     * @param versionText component version text.
+     * @param componentPhase component phase.
+     * @param forumType forum type.
+     * @param rootCategoryId root category id.
+     * @param componentStatus component status.
      */
     public ForumMaster(long id, String name, String desc, long status, Date creation, long compVersId, 
     		String versionText, long componentPhase, long forumType, long rootCategoryId, long componentStatus) {

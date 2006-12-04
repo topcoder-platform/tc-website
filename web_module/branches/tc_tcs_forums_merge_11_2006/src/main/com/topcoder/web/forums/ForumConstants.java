@@ -170,6 +170,18 @@ public interface ForumConstants {
     public final static long[] REGISTERED_PERMS = {
 		ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
 		ForumPermissions.RATE_MESSAGE, ForumPermissions.CREATE_POLL, ForumPermissions.VOTE_IN_POLL};
+    public final static long[] ADMIN_PERMS = {
+    	ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
+    	ForumPermissions.RATE_MESSAGE, ForumPermissions.CREATE_MESSAGE_ATTACHMENT, ForumPermissions.CREATE_POLL, 
+    	ForumPermissions.VOTE_IN_POLL, ForumPermissions.ANNOUNCEMENT_ADMIN, ForumPermissions.FORUM_CATEGORY_ADMIN};
+    public final static long[] MODERATOR_PERMS = {
+    	ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
+    	ForumPermissions.RATE_MESSAGE, ForumPermissions.FORUM_CATEGORY_ADMIN, 
+    	ForumPermissions.CREATE_MESSAGE_ATTACHMENT, ForumPermissions.CREATE_POLL, ForumPermissions.VOTE_IN_POLL};
+    public final static long[] SW_BLOCK_PERMS = {	    // permissions blocked in software component forums
+    	ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
+    	ForumPermissions.RATE_MESSAGE, ForumPermissions.CREATE_MESSAGE_ATTACHMENT, ForumPermissions.CREATE_POLL, 
+    	ForumPermissions.VOTE_IN_POLL, ForumPermissions.ANNOUNCEMENT_ADMIN};
     
     // Error messages
     public final static String ERR_EMPTY_MESSAGE_SUBJECT =

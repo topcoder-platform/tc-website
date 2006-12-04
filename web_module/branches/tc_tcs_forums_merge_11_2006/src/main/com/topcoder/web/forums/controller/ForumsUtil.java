@@ -549,6 +549,23 @@ public class ForumsUtil {
     	ForumFactory masterFactory = ForumFactory.getInstance(new TCAuthToken(100129));
     	return masterFactory.getForumCategory(category.getID());
     }
+    
+    public static String getComponentCategoryName(String name, String versionText, long forumType) {
+        if (versionText != null && !versionText.trim().equals("")) {
+        	boolean wellFormatted = versionText.trim().matches("\\d+(\\.\\d+)*\\w?");    	
+        	if (wellFormatted) {
+            	name += " v" + versionText.trim();            		
+        	} else {
+        		name += " (" + versionText.trim() + ")";
+        	}
+        }
+        if (forumType == ForumConstants.CUSTOMER_FORUM) {
+        	name += " - " + "Customer Forum";
+        } else if (forumType == ForumConstants.DEVELOPER_FORUM) {
+        	name += " - " + "Developer Forum";
+        }
+        return name;
+    }
 }
 
 class JiveCategoryComparator implements Comparator {
