@@ -45,6 +45,7 @@
 <p>
     5.5.10 - 2006.11.xx
     <ul>
+        <li>Fix a bug to consider only active inquired projects for low reliability registration limits</li>
         <li>Fix a bug when expiring old payments</li>
         <li>Add in rating history the percentile column.</li>
         <li>Add a column "Challenge Time"  for challenges and defenses for regular and hs competitions stats</li>
