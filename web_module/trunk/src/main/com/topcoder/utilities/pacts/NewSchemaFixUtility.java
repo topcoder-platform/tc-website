@@ -140,13 +140,14 @@ public class NewSchemaFixUtility extends DBUtility {
 
     private void processProblemTestersPaymentsNullRounds() throws SQLException, RemoteException {
         StringBuffer query = new StringBuffer(200);
-        query.append("select user_id, contest, money as payment, date(date) as date ");
+        query.append("select user_id, contest, money as payment, date(date) as payment_date ");
         query.append("from problem_testing_migration ");
         query.append("where processed_ind in (-2, -3) ");
 
         PreparedStatement psSelCompCompetitions = prepareStatement("informixoltp", query.toString());
         log.debug("Processing problem testers payments:");
 
+        
         ResultSet rs = null;
         try {            
             rs = psSelCompCompetitions.executeQuery();
@@ -157,7 +158,7 @@ public class NewSchemaFixUtility extends DBUtility {
                         rs.getDouble("payment"),
                         rs.getString("contest"));
                 
-                ptm.setDueDate(rs.getDate("date"));
+                ptm.setDueDate(rs.getDate("payment_date"));
                 
                 pcs.addPayment(ptm);
                 if (i % 10 == 0) {
