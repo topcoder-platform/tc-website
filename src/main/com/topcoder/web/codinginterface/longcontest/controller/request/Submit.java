@@ -1,15 +1,14 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
 import com.topcoder.server.ejb.DBServices.DBServices;
-import com.topcoder.server.ejb.DBServices.DBServicesHome;
+import com.topcoder.server.ejb.DBServices.DBServicesLocator;
+import com.topcoder.server.ejb.TestServices.CompilationTimeoutException;
 import com.topcoder.server.ejb.TestServices.TestServices;
-import com.topcoder.server.ejb.TestServices.TestServicesHome;
-import com.topcoder.shared.common.ApplicationServer;
+import com.topcoder.server.ejb.TestServices.TestServicesLocator;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.language.*;
-import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.messaging.messages.LongCompileRequest;
 import com.topcoder.shared.messaging.messages.LongCompileResponse;
 import com.topcoder.shared.problem.DataType;
@@ -26,8 +25,8 @@ import com.topcoder.web.ejb.longcompresult.LongCompResult;
 import com.topcoder.web.ejb.longcompresult.LongCompResultLocal;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 
-import javax.naming.InitialContext;
 import java.io.StringReader;
+import java.rmi.ServerException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -236,29 +235,31 @@ public class Submit extends Base {
                 }
                 //todo bad, those should all be long
                 LongCompileRequest lcr = new LongCompileRequest(uid, cid, rid, cd,
-                        language, ApplicationServer.WEB_SERVER_ID, code, examplesOnly);
+                        language, com.topcoder.shared.util.ApplicationServer.WEB_SERVER_ID, code, examplesOnly);
 
                 LongCompResultLocal longCompResult = (LongCompResultLocal) createLocalEJB(getInitialContext(), LongCompResult.class);
                 if (!longCompResult.exists(rid, getUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) {
                     longCompResult.createLongCompResult(rid, getUser().getId(), DBMS.JTS_OLTP_DATASOURCE_NAME);
                     longCompResult.setAttended(rid, getUser().getId(), true, DBMS.JTS_OLTP_DATASOURCE_NAME);
                 }
-
                 try {
-                    // Send the request!
-                    send(lcr, language);
-                } catch (ServerBusyException sbe) {
-                    throw new NavigationException("A submit request is already being processed.");
-                }
-
-                // Tell the user that the code is compiling...
-                showProcessingPage();
-
-                try {
-
-                    // Get the compilation response
-                    LongCompileResponse res = receive(30 * 1000, uid, cid);
-
+                    lock();
+                    
+                    LongCompileResponse res = null;
+                    try {
+                        //Tell the user that the code is compiling...
+                        showProcessingPage();
+                        
+                        res = TestServicesLocator.getService().submitLong(lcr);
+                    } catch (ServerException e) {
+                        if (e.getCause() != null) {
+                            throw (Exception) e.getCause();
+                        }
+                        throw e;
+                    } finally { 
+                        unlock();
+                    }
+    
                     // Records errors and other info
                     if (res.getCompileStatus()) { // everything went ok! :)
                         closeProcessingPage(buildProcessorRequestString("SubmitSuccess",
@@ -279,7 +280,7 @@ public class Submit extends Base {
                                 new String[]{Constants.ROUND_ID, Constants.CONTEST_ID, Constants.COMPONENT_ID, Constants.LANGUAGE_ID},
                                 new String[]{String.valueOf(rid), String.valueOf(cd), String.valueOf(cid), String.valueOf(language)}));
                     }
-                } catch (TimeOutException e) {
+                } catch (CompilationTimeoutException e) {
                     log.debug("compilation timed out...");
                     // The compilation timed out
                     log.debug("set message in session to code compilation request timed out");
@@ -296,8 +297,9 @@ public class Submit extends Base {
                     closeProcessingPage(buildProcessorRequestString("Submit",
                             new String[]{Constants.ROUND_ID, Constants.CONTEST_ID, Constants.COMPONENT_ID, Constants.LANGUAGE_ID},
                             new String[]{String.valueOf(rid), String.valueOf(cd), String.valueOf(cid), String.valueOf(language)}));
+                } catch (ServerBusyException sbe) {
+                    throw new NavigationException("A submit request is already being processed.");
                 }
-
             } else if (action.equals("save")) { // user is saving code
                 boolean res = saveCode(code, language, uid, cd, rid, cid);
 
@@ -373,9 +375,7 @@ public class Submit extends Base {
         log.debug("saveCode called... lang=" + lang + " uid=" + uid + " cd=" + cd + " rid=" + rid + " cid=" + cid);
 
         // Find the DB_Services bean so we could set the problem state to open before saving the code.
-        InitialContext ctx = getInitialContext();
-        DBServicesHome dbsHome = (DBServicesHome) ctx.lookup(ApplicationServer.DB_SERVICES);
-        DBServices dbs = dbsHome.create();
+        DBServices dbs = DBServicesLocator.getService();
 
 
         if (!dbs.isLongComponentOpened((int) uid, (int) rid, (int) cid))
@@ -384,8 +384,7 @@ public class Submit extends Base {
         }
 
         // Find the TestServices bean so we could save the code.
-        TestServicesHome t = (TestServicesHome) ctx.lookup(ApplicationServer.TEST_SERVICES);
-        TestServices ts = t.create();
+        TestServices ts = TestServicesLocator.getService();
 
         // Save the code!
         return ts.saveLongComponent(cd, rid, cid, uid, code, lang).isSuccess();

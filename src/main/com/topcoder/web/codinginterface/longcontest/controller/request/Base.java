@@ -1,23 +1,16 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import com.topcoder.shared.common.ApplicationServer;
-import com.topcoder.shared.common.ServicesConstants;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.language.BaseLanguage;
-import com.topcoder.shared.messaging.QueueMessageSender;
-import com.topcoder.shared.messaging.TimeOutException;
-import com.topcoder.shared.messaging.messages.BaseLongContestRequest;
-import com.topcoder.shared.messaging.messages.LongCompileResponse;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.codinginterface.messaging.WebQueueResponseManager;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.SessionInfo;
@@ -32,11 +25,8 @@ import java.util.*;
  * @version $Revision$ $Date$
  */
 public abstract class Base extends BaseProcessor {
-
     protected static final Logger log = Logger.getLogger(Base.class);
 
-    private QueueMessageSender sender = null;
-    private WebQueueResponseManager receiver = null;
     private ImageInfo sponsorImage = null;
     private static final Set locks = new HashSet();
 
@@ -73,7 +63,6 @@ public abstract class Base extends BaseProcessor {
 
     }
 
-
     protected void loadSponsorImage() throws Exception {
         log.debug("loadSponsorImage called...");
         String round = getRequest().getParameter(Constants.ROUND_ID);
@@ -97,33 +86,6 @@ public abstract class Base extends BaseProcessor {
                 getRequest().setAttribute(Constants.SPONSOR_IMAGE, sponsorImage);
             }
         }
-
-    }
-
-    public void setReceiver(WebQueueResponseManager receiver) {
-        this.receiver = receiver;
-    }
-
-    public void setSender(QueueMessageSender sender) {
-        this.sender = sender;
-    }
-
-    protected void send(BaseLongContestRequest sub, int language) throws TCWebException, ServerBusyException {
-        // This is a synchronous message
-        if (sub.isSynchronous()) {
-            lock();
-        }
-
-        HashMap hm = new HashMap();
-        hm.put("pendingAction", new Integer(ServicesConstants.LONG_COMPILE_ACTION));
-        hm.put("appletServerId", new Integer(ApplicationServer.WEB_SERVER_ID));
-        hm.put("socketServerId", new Integer(ApplicationServer.WEB_SERVER_ID));
-        hm.put("submitTime", new Long(System.currentTimeMillis()));
-        hm.put("language", new Integer(language));
-        hm.put("roundType", getRequest().getAttribute(Constants.ROUND_TYPE_ID));
-        long before = System.currentTimeMillis();
-        sender.sendMessage(hm, sub);
-        log.info("long compile took " + (System.currentTimeMillis() - before) + " milliseconds");
 
     }
 
@@ -210,17 +172,6 @@ public abstract class Base extends BaseProcessor {
         buf.append("</script>");
         getResponse().getWriter().print(buf.toString());
         getResponse().flushBuffer();
-    }
-
-    protected LongCompileResponse receive(int waitTime, long coderID, long componentID) throws TimeOutException {
-        try {
-            LongCompileResponse ls = (LongCompileResponse) receiver.receive(waitTime, coderID + ":" + componentID, getResponse());
-            return ls;
-        } catch (TimeOutException e) {
-            throw e;
-        } finally {
-            unlock();
-        }
     }
 
     protected void unlock() {
