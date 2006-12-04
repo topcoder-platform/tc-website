@@ -14,7 +14,7 @@
             Tuesday, December 19, 2006
             <br/><br/>
             <b>SRM 2</b><br/>
-            Thursday, February 15, 2007
+            Friday, February 16, 2007
             <br/><br/>
             <b>TopCoder Sponsor Track</b><br/>
             April 3 - May 12, 2007
