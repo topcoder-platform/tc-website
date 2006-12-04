@@ -253,6 +253,7 @@ public class ReliabilityRating {
                     " and pr.user_id = ?" +
                     " and p.project_category_id+111 = ?" +
                     " and pr.project_id = pi.project_id" +
+                    " and p.project_status_id IN (4,5,6,7)" + 
                     " and pi.phase_type_id = 2" + // phase type 2 is submission
                     " and pr.reliability_ind = 1" +
                     " and pr.reliable_submission_ind is not null" +
@@ -753,7 +754,7 @@ public class ReliabilityRating {
         " , component_inquiry ci " +
         "where ((pr.final_score is not null " +
         "and pr.final_score < ?) " +
-        "or (pr.final_score is null and p.project_status_id in (3,4,5,6,7))) " +
+        "or (pr.final_score is null and p.project_status_id in (4,5,6,7))) " +
         "and pr.reliability_ind is null  " +
         "and pr.project_id = p.project_id " +
         "and ci.project_id = pr.project_id " +
