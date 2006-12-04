@@ -31,6 +31,34 @@
 ----------------------------%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>12.04.06<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=11060">Arena Skin Contest Vote</A></span><br><br>
+      The 5 finalists in our Studio contest to redesign the TopCoder Arena are ready, and now YOU pick the winner.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=ViewSurvey&sid=11060">vote</A> | 
+         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=23">discuss this</A> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>12.04.06<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/longcontest/?module=ViewOverview&rd=10649">Intel&#174; Multi-Threading Competition 11 Results</A>
+      </span><br><br>
+      The Intel&#174; Multi-Threading Competition 11 results are in. Congratulations to the first place winner, <tc-webtag:handle coderId="7504863" />.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/longcontest/?module=ViewOverview&rd=10649">results</A> | 
+         <tc-webtag:forumLink forumID="506179" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>12.04.06<br>2:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">The 2007 TopCoder High School Tournament</A></span><br><br>
@@ -198,38 +226,5 @@ enjoyed another HS SRM win with 1708.72 points.
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm20">full story</A> | 
         <tc-webtag:forumLink forumID="506042" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0" /><br>11.21.06<br>10:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=112106">A Number or a String:<br>
-      Parsing Your Input and Formatting Your Output in C++</A></span><br><br>
-       This article is focused on main fast-to-type and convenient means of parsing input and formatting output in cases that are typical for TopCoder problems. All methods are specific to C++, but Java and VB coders may find several helpful ideas.</td>
-         <td class="newsPhoto"><img src="/i/m/Nickolas_big.jpg"  alt="" width="55" height="61"/><br>by 
-         <tc-webtag:handle coderId="15635590" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=112106">full story</A> | 
-         <tc-webtag:forumLink forumID="506153" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>11.17.06<br>8:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_finals_analysis">Congratulations to Petr, TCCC06 Algorithm Champion</A>
-        </span><br><br>
-        This year's final round was bigger and better than any before.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_finals_analysis">full story</A> | 
-        <tc-webtag:forumLink forumID="506185" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
