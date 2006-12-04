@@ -26,13 +26,18 @@
 
             <div class="contentSpacer">
                 <p>
-                    1.2.0 - 2006.12.xx
+                    1.2.0 - 2006.12.04
                     <ul>
                         <li>Add user submission ranking system.</li>
                         <li>Add submission limit system.</li>
                         <li>Fix subject of the review response email so that it only contains the word "submission"
                             once.
                         </li>
+                        <li>For contests where there are submission limits, only include those that count in the
+                            submissions column of active and past contests pages.</li>
+                        <li>For contests where there are submission limits, only include those that
+                            count on the submissions page.</li>
+
                     </ul>
                 </p>
                 <p>
