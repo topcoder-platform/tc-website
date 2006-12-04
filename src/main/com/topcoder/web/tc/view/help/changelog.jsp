@@ -43,7 +43,7 @@
 </jsp:include>
 
 <p>
-    5.5.10 - 2006.11.xx
+    5.5.10 - 2006.12.04
     <ul>
         <li>Fix a bug to consider only active inquired projects for low reliability registration limits</li>
         <li>Fix a bug when expiring old payments</li>
