@@ -40,10 +40,10 @@ crappy looking to save space on the transmission
 <c:choose>
 <c:when test="${submission.review.status.id==failed}">
 <%-- doesn't matter what goes in here, we're not populating it because it failed--%>
-<input type="text" maxlength="3" size="1" disabled="disabled"/>
+<input type="text" maxlength="3" size="2" disabled="disabled"/>
 </c:when>
 <c:otherwise>
-<tc-webtag:textInput name="${submissionId}${submission.id}" maxlength="3" size="1"/>
+<tc-webtag:textInput name="${submissionId}${submission.id}" maxlength="3" size="2"/>
 </c:otherwise>
 </c:choose>
 </td>
