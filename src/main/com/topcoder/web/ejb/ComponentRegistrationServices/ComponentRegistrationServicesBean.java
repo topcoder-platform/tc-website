@@ -453,11 +453,14 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             " select count(*)" +
               " from component_inquiry ci" +
                  " , project_phase pi" +
+                 " , project p" +
              " where ci.project_id = pi.project_id" +
                " and pi.phase_type_id = 2 " +
                " and ci.phase = ?" +
                " and ci.user_id = ?" +
-               " and pi.scheduled_end_time > current";
+               " and pi.scheduled_end_time > current" +
+               " and pi.project_id = p.project_id" + 
+               " and p.project_status_id = 1";
 
     public boolean isUserReliableEnough(long phaseId, long userId, String dataSource) throws EJBException {
         //if their reliability is < 70 %
