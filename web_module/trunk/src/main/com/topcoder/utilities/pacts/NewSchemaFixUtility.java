@@ -113,6 +113,8 @@ public class NewSchemaFixUtility extends DBUtility {
         log.debug("Processing problem testers payments:");
 
         
+        
+        
         ResultSet rs = null;
         try {            
             rs = psSelCompCompetitions.executeQuery();
