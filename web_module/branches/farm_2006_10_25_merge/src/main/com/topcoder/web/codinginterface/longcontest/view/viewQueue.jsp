@@ -13,13 +13,12 @@
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
 <%@ taglib uri="codinginterface.tld" prefix="ci" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
-<jsp:useBean id="resultMap" type="java.util.Map" scope="request"/>
+<jsp:useBean id="result" type="java.util.List" scope="request"/>
+<jsp:useBean id="systemTestCount" type="java.lang.Number" scope="request"/>
 <jsp:useBean id="sortLinkBase" class="java.lang.String" scope="request"/>
 <jsp:useBean id="prevPageLink" class="java.lang.String" scope="request"/>
 <jsp:useBean id="nextPageLink" class="java.lang.String" scope="request"/>
-<%
-    ResultSetContainer queue= (ResultSetContainer) resultMap.get("long_contest_queue_status");
-%>
+
 <% String image = "long_comps_topcoder";%>
 
 <html>
@@ -56,6 +55,10 @@
                 <jsp:param name="image" value="<%=image%>"/>
                 <jsp:param name="title" value="Queue Status"/>
             </jsp:include>
+            
+            <logic:notEqual name="systemTestCount" value="0">
+	            <span class="bodySubtitle">System Tests Remaining: <%=systemTestCount%></span><br/><br/>
+	        </logic:notEqual>    
 
             <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
                 <tr>
@@ -84,33 +87,33 @@
                                     Tests Remaining
                                 </td>
                             </tr>
-                            <% if (queue.isEmpty()) { %>
+                            <% if (result.isEmpty()) { %>
                             <tr><td colspan="6" class="statDk">There are currently no submissions in the queue.</td></tr>
                             <% } %>
                             <%boolean even = true;%>
-                            <rsc:iterator list="<%=queue%>" id="resultRow">
+                            <logic:iterate collection="<%=result%>" id="resultRow" type="com.topcoder.server.ejb.TestServices.LongTestQueueStatusItem">
                                 <tr>
                                     <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
-                                        <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>'/>
+                                        <tc-webtag:handle coderId='<%=resultRow.getUserId()%>'/>
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
-                                        <A href="?module=ViewStandings&rd=<rsc:item name="round_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/> &gt; <rsc:item name="round_name" row="<%=resultRow%>"/></A>
+                                        <A href="?module=ViewStandings&rd=<%=resultRow.getRoundId()%>"><%=resultRow.getContestName()%> &gt; <%=resultRow.getRoundName()%></A>
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
-                                        <rsc:item name="language_name" row="<%=resultRow%>"/>
+                                    	<%=resultRow.getLanguageName()%>
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center">
-                                        <rsc:item name="queue_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm:ss"/>
+                                        <tc-webtag:format object="<%=resultRow.getQueueDate()%>" format="MM.dd.yyyy HH:mm:ss"/>
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="right">
-                                        <rsc:item name="submission_type" row="<%=resultRow%>"/>
+                                        <%=resultRow.getSubmissionType()%>
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="right">
-                                        <rsc:item name="tests" row="<%=resultRow%>"/>
+                                        <%=resultRow.getCount()%>
                                     </td>
                                 </tr>
                                 <%even = !even;%>
-                            </rsc:iterator>
+                            </logic:iterate>
                         </TABLE>
                     </TD>
                 </tr>
