@@ -62,6 +62,7 @@
             </ul>
         </li>
         <li>Fix utility to pay reliability bonus to work with the new Online Review schema</li>
+        <li>Add Consecutive SRM Appearances to Algorithm Record Book</li>
     </ul>
 
     5.5.9 - 2006.11.20
