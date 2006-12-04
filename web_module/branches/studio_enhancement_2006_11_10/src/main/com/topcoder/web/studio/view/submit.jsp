@@ -147,7 +147,7 @@
                 <p>
                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_RANK%>"><span class="bigRed">${err}</span>
                         <br></tc-webtag:errorIterator>
-                    as rank:&nbsp;<tc-webtag:textInput name="<%=Constants.SUBMISSION_RANK%>" maxlength="3" size="1"/>
+                    as rank:&nbsp;<tc-webtag:textInput name="<%=Constants.SUBMISSION_RANK%>" maxlength="3" size="2"/>
                 </p>
             </form>
         </div>
@@ -164,7 +164,7 @@
 <thead>
     <tr>
         <td class="NW">&nbsp;</td>
-        <td class="title" colspan="7">My Ranked Submissions for this contest</td>
+        <td class="title" colspan="7">My Submission Favorites for this contest</td>
         <td class="NE">&nbsp;</td>
     </tr>
     <tr>
