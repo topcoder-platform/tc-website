@@ -1,14 +1,14 @@
 <%----------------MARATHON MATCH-------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>07.05.06<br>5:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>12.04.06<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-      <A href="/longcontest/?module=ViewOverview&rd=10083">Intel&#174; Multi-Threading Competition 6 Results</A>
+      <A href="/longcontest/?module=ViewOverview&rd=10649">Intel&#174; Multi-Threading Competition 11 Results</A>
       </span><br><br>
-      Congratulations to <tc-webtag:handle coderId="283329" /> for winning the Intel&#174; Multi-Threading Competition 6.
+      The Intel&#174; Multi-Threading Competition 11 results are in. Congratulations to the first place winner, <tc-webtag:handle coderId="7504863" />.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/longcontest/?module=ViewOverview&rd=10083">results</A> | 
+         <A href="/longcontest/?module=ViewOverview&rd=10649">results</A> | 
          <tc-webtag:forumLink forumID="506055" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
@@ -157,13 +157,14 @@ OR
 
 <%------------------ALGORITHM COMPETITION--------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>03.18.05<br>3:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewThread.jsp?forum=7167&thread=488979&mc=1">Small change to Unused Code Rule, new problem timeout limit, and more...</A></span><br><br>
-      For the first SRM in April (April 2) we're going to be making a few changes and adding some new features.
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>12.04.06<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=11060">Arena Skin Contest Vote</A></span><br><br>
+      The 5 finalists are ready, and now you pick the winner.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/rtables/viewThread.jsp?forum=7167&thread=488979&mc=1">full story</A> | 
+         <A href="/tc?module=ViewSurvey&sid=11060">vote</A> | 
+         <A href="/forums?module=ThreadList&forumID=23">discuss this</A> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
