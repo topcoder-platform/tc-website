@@ -162,9 +162,10 @@
 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>" value="${contest.id}"/>
 
 <div align="center">
-   <strong>In the table below</strong> you can rank your submissions for this contest.
-   <br><span style="background: #a2d0a2;">Green rows</span> indicate submissions that will be considered for this contest.
-   <br>Submissions that have <span class="bigRed">failed</span> can not be ranked or considered for this contest.
+   <strong>In the table below</strong> you can rank your submissions.
+   <br><span style="background: #a2d0a2;">Green rows</span> indicate preferred submissions that will count for this contest.
+   <br>Submissions that have <span class="bigRed">failed</span> can not be ranked, and are automatically moved to the bottom of the page.
+   <br>If one of your preferred submissions fails after the submission phase, the next passing submission will take its place.
 </div>
 
 <br><br>
