@@ -26,14 +26,28 @@
 
             <div class="contentSpacer">
                 <p>
+                    1.2.0 - 2006.12.04
+                    <ul>
+                        <li>Add user submission ranking system.</li>
+                        <li>Add submission limit system.</li>
+                        <li>Fix subject of the review response email so that it only contains the word "submission"
+                            once.
+                        </li>
+                        <li>For contests where there are submission limits, only include those that count in the
+                            submissions column of active and past contests pages.</li>
+                        <li>For contests where there are submission limits, only include those that
+                            count on the submissions page.</li>
+
+                    </ul>
+                </p>
+                <p>
                     1.1.2 - 2006.09.xx
                     <ul>
                         <li>Cache submissions on submission page for full length. No need to only cache for 1
-                            hour since we don't show them until submission phase is closed.</li>
+                            hour since we don't show them until submission phase is closed.
+                        </li>
+                        <li>Fix bug on submissions page where it only showed 19 submission per page.</li>
                     </ul>
-                <ul>
-                    <li>Fix bug on submissions page where it only showed 19 submission per page.</li>
-                </ul>
                 </p>
 
                 <p>
@@ -41,7 +55,8 @@
                     <ul>
                         <li>Do not allow the viewing of submissions until the contest is over</li>
                         <li>Show image files directly on the admin submission detail page rather than requiring a
-                            click</li>
+                            click
+                        </li>
                         <li>When declaring winners, refresh the cached home page data</li>
                     </ul>
                 </p>
@@ -50,12 +65,14 @@
                     1.1.0 - 2006.09.05
                     <ul>
                         <li>Add the ability for admins to specify what types of files will be allowed on a per contest
-                            basis</li>
+                            basis
+                        </li>
                         <li>Add the ability for admins to specify whether submissions are viewable or not</li>
                         <li>Show winners on active contests page</li>
                         <li>Show winners on past contests page</li>
                         <li>Improve permissions error message hinting that not being registered for Studio could be a
-                            factor</li>
+                            factor
+                        </li>
                         <li>Add # submissions to active contest pages</li>
                         <li>Add # submissions to past contest pages</li>
                         <li>Attempt to fix login bug where the cookie doesn't last as long as it should.</li>

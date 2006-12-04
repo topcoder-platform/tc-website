@@ -169,12 +169,15 @@
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${maxHeight}">${err}
                     <br></tc-webtag:errorIterator></span>
     </td>
-</tr>        <tr>
+</tr>
+<tr>
     <td class="name">
         Height Requirements (px):
     </td>
     <td class="value">
-        <tc-webtag:textInput name="${minHeight}" size="4"/> to <tc-webtag:textInput name="${maxHeight}" size="4"/>
+        <tc-webtag:textInput name="${minHeight}" size="4"/>
+        to
+        <tc-webtag:textInput name="${maxHeight}" size="4"/>
     </td>
 </tr>
 
@@ -192,12 +195,15 @@
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${maxWidth}">${err}
                     <br></tc-webtag:errorIterator></span>
     </td>
-</tr>        <tr>
+</tr>
+<tr>
     <td class="name">
         Width Requirements (px):
     </td>
     <td class="value">
-        <tc-webtag:textInput name="${minWidth}" size="4"/> to <tc-webtag:textInput name="${maxWidth}" size="4"/>
+        <tc-webtag:textInput name="${minWidth}" size="4"/>
+        to
+        <tc-webtag:textInput name="${maxWidth}" size="4"/>
     </td>
 </tr>
 
@@ -209,12 +215,30 @@
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${viewSubmissions}">${err}
                     <br></tc-webtag:errorIterator></span>
     </td>
-</tr>        <tr>
+</tr>
+<tr>
     <td class="name">
         Are submissions viewable?:
     </td>
     <td class="value">
         <tc-webtag:listSelect name="${viewSubmissions}" useTopValue="false" list="${viewSubmissionAnswers}"/>
+    </td>
+</tr>
+
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.MAX_SUBMISSIONS%>" var="maxSubmissions"/>
+
+<tr>
+    <td colspan="2">
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${maxSubmissions}">${err}
+                    <br></tc-webtag:errorIterator></span>
+    </td>
+</tr>
+<tr>
+    <td class="name">
+        Max # of submissions (leave empty if there should be no max):
+    </td>
+    <td class="value">
+        <tc-webtag:textInput name="${maxSubmissions}" size="4"/>
     </td>
 </tr>
 
@@ -327,9 +351,11 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 
     <p>
         <c:forEach items="${contest.prizes}" var="prize">
-            Place: ${prize.place} Prize: <fmt:formatNumber value="${prize.amount}" type="currency"/>
+            Place: ${prize.place} Prize:
+            <fmt:formatNumber value="${prize.amount}" type="currency"/>
             <button onClick="document.removePrizeForm.<%=Constants.PRIZE_PLACE%>.value ='${prize.place}'">
-                Remove</button>
+                Remove
+            </button>
             <br>
         </c:forEach>
     </p>
@@ -363,8 +389,10 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
                 Amount:
             </td>
             <td class="value">
-                <tc-webtag:textInput name="${prizeValue}"/><button name="submit" value="submit" type="submit">
-                Add</button>
+                <tc-webtag:textInput name="${prizeValue}"/>
+                <button name="submit" value="submit" type="submit">
+                    Add
+                </button>
             </td>
         </tr>
     </table>
@@ -385,7 +413,8 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
                     ${document.originalFileName}</a>
             <button onClick="document.removeDocForm.<%=Constants.DOCUMENT_ID%>.value ='${document.id}'">
-                Remove</button>
+                Remove
+            </button>
             <br>
         </c:forEach>
     </p>

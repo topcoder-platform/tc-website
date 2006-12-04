@@ -54,8 +54,9 @@ public class ViewSubmissions extends Base {
             query.append(" select u.handle as submitter_handle ");
             query.append(" , s.submitter_id ");
             query.append(" , s.original_file_name ");
-            query.append(" , s.create_date as submit_date ");
+            query.append(" , s.submission_date as submit_date ");
             query.append(" , s.submission_id ");
+            query.append(" , s.rank as submitter_rank");
 
             from.append(" from submission s ");
             from.append(" , user u ");
@@ -72,11 +73,12 @@ public class ViewSubmissions extends Base {
             query.append("select u.handle as submitter_handle");
             query.append(" , s.submitter_id");
             query.append(" , s.original_file_name");
-            query.append(" , s.create_date as submit_date");
+            query.append(" , s.submission_date as submit_date");
             query.append(" , sr.modify_date as review_date");
             query.append(" , u1.handle as reviewer_handle");
             query.append(" , sr.reviewer_id");
             query.append(" , rs.review_status_desc");
+            query.append(" , s.rank as submitter_rank");
             query.append(" , s.submission_id");
 
             from.append(" from submission s");

@@ -5,20 +5,23 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.validation.IntegerValidator;
 import com.topcoder.web.common.validation.ObjectInput;
+import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
+import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.*;
 import com.topcoder.web.studio.validation.SubmissionValidator;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -26,21 +29,25 @@ import java.util.Date;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 20, 2006
  */
-public class Submit extends ShortHibernateProcessor {
+public class Submit extends BaseSubmissionDataProcessor {
     private File f = null;
 
     protected void dbProcessing() throws Exception {
+        //todo take user submitted rank and use that for this new submission
         if (userLoggedIn()) {
             Long contestId;
 
             try {
                 contestId = new Long(getRequest().getParameter(Constants.CONTEST_ID));
             } catch (NumberFormatException e) {
-                throw new NavigationException("Invalid Contest Specified");
+                throw new NavigationException("Invalid contest specified.");
             }
+
+            String rank = getRequest().getParameter(Constants.SUBMISSION_RANK);
 
             StudioDAOFactory cFactory = StudioDAOUtil.getFactory();
             DAOFactory factory = DAOUtil.getFactory();
+            SubmissionDAO dao = cFactory.getSubmissionDAO();
 
             Contest c = cFactory.getContestDAO().find(contestId);
             Date now = new Date();
@@ -72,9 +79,15 @@ public class Submit extends ShortHibernateProcessor {
                     addError(Constants.SUBMISSION, submissionResult.getMessage());
                 }
 
+                ValidationResult rankResult = new IntegerValidator("Please input a valid integer for rank.").validate(new StringInput(rank));
+                if (!rankResult.isValid()) {
+                    addError(Constants.SUBMISSION_RANK, rankResult.getMessage());
+                }
 
                 if (hasErrors()) {
                     setDefault(Constants.CONTEST_ID, contestId.toString());
+                    setDefault(Constants.SUBMISSION_RANK, rank);
+                    loadSubmissionData(u, c, dao);
                     getRequest().setAttribute("contest", c);
                     setNextPage("/submit.jsp");
                     setIsNextPageInContext(true);
@@ -112,6 +125,7 @@ public class Submit extends ShortHibernateProcessor {
                     s.setPath(p);
                     s.setSystemFileName(System.currentTimeMillis() + ext);
                     s.setType(cFactory.getSubmissionTypeDAO().find(SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE));
+                    s.setSubmissionDate(new Timestamp(System.currentTimeMillis()));
 
                     if (log.isDebugEnabled()) {
                         log.debug("creating file: " + p.getPath() + s.getSystemFileName());
@@ -124,12 +138,34 @@ public class Submit extends ShortHibernateProcessor {
                     fos.write(fileBytes);
                     fos.close();
 
-                    cFactory.getSubmissionDAO().saveOrUpdate(s);
+                    Integer maxRank = dao.getMaxRank(c, u);
+                    Integer one = new Integer(1);
+                    getRequest().setAttribute("maxRank", maxRank);
+                    if (maxRank == null) {
+                        s.setRank(one);
+                        dao.saveOrUpdate(s);
+                    } else {
+                        Integer newRank = new Integer(rank);
+                        if (newRank.compareTo(maxRank)>0) {
+                            s.setRank(new Integer(maxRank.intValue()+1));
+                            dao.saveOrUpdate(s);
+                        } else if (newRank.compareTo(one)<0) {
+                            dao.changeRank(one, s);
+                        } else {
+                            dao.changeRank(newRank, s);
+                        }
+                    }
+
                     markForCommit();
 
-                    getRequest().setAttribute("contest", c);
-                    setNextPage("/submissionSuccess.jsp");
-                    setIsNextPageInContext(true);
+                    StringBuffer nextPage = new StringBuffer(50);
+                    nextPage.append(getSessionInfo().getServletPath());
+                    nextPage.append("?" + Constants.MODULE_KEY + "=ViewSubmissionSuccess&");
+                    nextPage.append(Constants.SUBMISSION_ID + "=").append(s.getId());
+                    setNextPage(nextPage.toString());
+                    setIsNextPageInContext(false);
+
+
                 }
 
             }

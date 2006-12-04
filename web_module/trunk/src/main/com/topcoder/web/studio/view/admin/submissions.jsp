@@ -102,7 +102,7 @@ Show submissions by (Enter Handle):
 <tbody>
 <tr>
     <td class="NW">&nbsp;</td>
-    <td class="title" colspan="7">Submissions</td>
+    <td class="title" colspan="8">Submissions</td>
     <td class="NE">&nbsp;</td>
 </tr>
 <tr>
@@ -111,6 +111,9 @@ Show submissions by (Enter Handle):
     <%-- need to add 1 for all the sorts because the resultsetcontainer is 0 based, and sql is 1 based--%>
     <td class="header">
         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submitter_handle")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submitter</a>
+    </td>
+    <td class="header">
+        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submitter_rank")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submitter Rank</a>
     </td>
     <td class="header">
         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("original_file_name")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submission</a>
@@ -159,6 +162,9 @@ Show submissions by (Enter Handle):
         <td class="valueW"><div>&nbsp;</div></td>
         <td class="value">
             <span class="coderText"><rsc:item name="submitter_handle" row="<%=resultRow%>"/></span>
+        </td>
+        <td class="value">
+            <rsc:item name="submitter_rank" row="<%=resultRow%>"/>
         </td>
         <td class="value">
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
