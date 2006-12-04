@@ -121,6 +121,12 @@
                         <br><br>
                         Thank you.
                         <br><br>
+                        <div align="center">
+                        <A href="#" onclick="" onfocus="this.blur();"><img src="/i/layout/btnSubmitAnother.png" alt="submit another"
+                        onmouseover="this.src = '/i/layout/btnSubmitAnotherOn.png';"
+                        onmouseout="this.src = '/i/layout/btnSubmitAnother.png';"/>
+                        </A>
+                        </div>
                     </div>
                 </div>
 
