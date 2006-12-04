@@ -1,16 +1,18 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import com.topcoder.shared.common.ApplicationServer;
+
+import com.topcoder.server.ejb.TestServices.TestServicesLocator;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.messaging.messages.AdminSubmitRequest;
+import com.topcoder.shared.messaging.messages.LongCompileResponse;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
-import com.topcoder.web.common.TCWebException;
 
 import java.util.Enumeration;
 
@@ -77,18 +79,19 @@ public class AdminForceSubmit extends Base {
         return ((ResultSetContainer) getDataAccess().getData(r).get("long_contest_submission_text")).getStringItem(0, "submission_text");
     }
 
-    private void submit(long coderId, long componentId, long roundId, long contestId, int languageId, String code) throws TCWebException {
+    private LongCompileResponse submit(long coderId, long componentId, long roundId, long contestId, int languageId, String code) throws Exception {
         log.debug("submit: " + coderId + " " + componentId + " " + roundId + " " + contestId + " " + languageId);
         AdminSubmitRequest lcr = new AdminSubmitRequest(coderId, componentId, roundId, contestId,
                 languageId, ApplicationServer.WEB_SERVER_ID, code);
-
         try {
-            send(lcr, languageId);
+            lock();
+            try {
+                return TestServicesLocator.getService().adminSubmitLong(lcr);
+            } finally {
+                unlock();
+            }
         } catch (ServerBusyException sbe) {
             throw new NavigationException("A submit request is already being processed.");
         }
-
-        //this request doesn't have a response, so no need to receive anything
-
     }
 }
