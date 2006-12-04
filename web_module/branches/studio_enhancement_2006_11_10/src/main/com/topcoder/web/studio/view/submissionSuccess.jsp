@@ -130,11 +130,17 @@
                 <div style="margin: 40px 0px 20px 0px;">
                     <form name="submissionForm" action="#">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="BatchUpdateRank"/>
+<div align="center">
+   <strong>In the table below</strong> you can rank your submissions for this contest.
+   <br><span style="background: #a2d0a2;">Green rows</span> indicate submissions that will be considered for this contest.
+   <br>Submissions that have <span class="bigRed">failed</span> can not be ranked or considered for this contest.
+</div>
+<br><br>
                     <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
                         <thead>
                             <tr>
                                 <td class="NW">&nbsp;</td>
-                                <td class="title" colspan="7">My Ranked Submissions for this contest</td>
+                                <td class="title" colspan="7">My Favorites</td>
                                 <td class="NE">&nbsp;</td>
                             </tr>
                             <tr>
