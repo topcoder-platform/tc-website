@@ -49,7 +49,7 @@
     <A href="/tc?module=HSRoundOverview&rd=10072&snid=1&er=5">Match Overview</A><br>
 
 <tc-webtag:forumLink forumID="506042" message="Discuss this match" /></div>
-<span class="bodySubtitle">TCHS SRM 20</span><br>Monday, November 14, 2006
+<span class="bodySubtitle">TCHS SRM 20</span><br>Monday, November 20, 2006
 <br><br>
 
 <h2>Match summary</h2> 
