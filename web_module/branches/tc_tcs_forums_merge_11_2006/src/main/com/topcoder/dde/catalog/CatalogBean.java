@@ -1855,6 +1855,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         */
     	
     	// TODO: remove when complete
+    	/*
         long newForum;
         try {
             com.topcoder.forum.Forum forum = new com.topcoder.forum.Forum();
@@ -1883,6 +1884,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                     "Failed to create new collaboration forum for component: "
                     + exception.toString());
         }
+        */
         // TODO: remove when complete (end)
 
         createComponentRole(((Long) newComponent.getPrimaryKey()).longValue());
