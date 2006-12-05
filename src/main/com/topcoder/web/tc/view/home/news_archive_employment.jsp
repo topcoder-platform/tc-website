@@ -38,6 +38,7 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">12.05.06 6:15 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=about&d2=deployment_engineer">Job Opening at TopCoder: Deployment Engineer</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.29.06 9:45 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA chat session scheduled for SRM 318</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.07.06 9:00 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=about&d2=graphic_designer">TopCoder Software is hiring graphic designers</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.16.06 6:00 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=contracting&d2=tcs_chat_021506">TopCoder Software Chat from Feb 15</A></td></tr>

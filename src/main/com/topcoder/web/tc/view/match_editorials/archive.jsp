@@ -44,7 +44,13 @@
    <tr><td valign="middle" class="bodyText" colspan="2">
    <strong>November</strong>
    </td></tr>
+   <tr><td class="bodyText">11.29.06</td><td class="bodyText" nowrap="0" width="100%">SRM 328 - <a href="/tc?module=Static&d1=match_editorials&d2=srm328">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">11.22.06</td><td class="bodyText" nowrap="0" width="100%">SRM 327 - <a href="/tc?module=Static&d1=match_editorials&d2=srm327">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">11.17.06</td><td class="bodyText" nowrap="0">TCCC06 - Finals Room - <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_finals_analysis">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">11.16.06</td><td class="bodyText" nowrap="0">TCCC06 - WildCard Room - <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_wildcard_analysis">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">11.16.06</td><td class="bodyText" nowrap="0">TCCC06 - Semifinals Room 3 - <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room3_analysis">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">11.15.06</td><td class="bodyText" nowrap="0">TCCC06 - Semifinals Room 2 - <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room2_analysis">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">11.15.06</td><td class="bodyText" nowrap="0">TCCC06 - Semifinals Room 1 - <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_room1_analysis">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">11.11.06</td><td class="bodyText" nowrap="0" width="100%">SRM 326 - <a href="/tc?module=Static&d1=match_editorials&d2=srm326">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">11.02.06</td><td class="bodyText" nowrap="0" width="100%">SRM 325 - <a href="/tc?module=Static&d1=match_editorials&d2=srm325">Problem Set & Analysis</a></td></tr>
 
@@ -99,11 +105,11 @@
    <tr><td class="bodyText">05.18.06</td><td class="bodyText" nowrap="0" width="100%">SRM 303 - <a href="/tc?module=Static&d1=match_editorials&d2=srm303">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">05.11.06</td><td class="bodyText" nowrap="0" width="100%">SRM 302 - <a href="/tc?module=Static&d1=match_editorials&d2=srm302">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">05.09.06</td><td class="bodyText" nowrap="0" width="100%">SRM 301 - <a href="/tc?module=Static&d1=match_editorials&d2=srm301">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">05.05.05</td><td class="bodyText" nowrap="0">TCO06 - Finals Room - <a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_finals_analysis">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">05.04.05</td><td class="bodyText" nowrap="0">TCO06 - WildCard Room - <a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_wildcard_analysis">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">05.04.05</td><td class="bodyText" nowrap="0">TCO06 - Semifinals Room 3 - <a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room3_analysis">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">05.04.05</td><td class="bodyText" nowrap="0">TCO06 - Semifinals Room 2 - <a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room2_analysis">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">05.03.05</td><td class="bodyText" nowrap="0">TCO06 - Semifinals Room 1 - <a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room1_analysis">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">05.05.06</td><td class="bodyText" nowrap="0">TCO06 - Finals Room - <a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_finals_analysis">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">05.04.06</td><td class="bodyText" nowrap="0">TCO06 - WildCard Room - <a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_wildcard_analysis">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">05.04.06</td><td class="bodyText" nowrap="0">TCO06 - Semifinals Room 3 - <a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room3_analysis">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">05.04.06</td><td class="bodyText" nowrap="0">TCO06 - Semifinals Room 2 - <a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room2_analysis">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">05.03.06</td><td class="bodyText" nowrap="0">TCO06 - Semifinals Room 1 - <a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room1_analysis">Problem Set & Analysis</a></td></tr>
 
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>April</strong></td></tr>
