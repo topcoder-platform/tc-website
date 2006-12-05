@@ -40,10 +40,28 @@
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
-         <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tccc06_narrow.gif" alt="2006 TopCoder Collegiate Challenge" border="0" /></A><br></td>
+         <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview"><img src="/i/tournament/tchs07_narrow.png" alt="2006 TopCoder Hish School Tournament" border="0" /></A><br></td>
+         <td width="100%">
+         <span class="bodySubtitle">2007 TopCoder&#174; High School Tournament</span>
+         <br><br>
+         May 18-20<br>
+         Purdue University<br>
+         West Lafayette, IN, USA<br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">Details</A>
+         <br>
+         <A href="http://studio.topcoder.com/?module=ViewContestDetails&ct=2030">Logo Contest</A>
+         </td>
+      </tr>
+   </table>
+
+   <div class="sectionHeader" width="100%">Past Tournaments</div>
+   <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
+      <tr valign="top">
+         <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/photo_tccc06.jpg" alt="2006 TopCoder Collegiate Challenge" border="0" /></A><br></td>
          <td width="100%">
          <span class="bodySubtitle">2006 TopCoder&#174; Collegiate Challenge Sponsored by AOL</span>
          <br><br>
+         <div style="float: right;"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc06&amp;d3=about"><img src="/i/pressroom/tccc06_logo.gif" alt="" border="0" /></A></div>
          November 14-18<br>
          San Diego Marriott Mission Valley<br>
          San Diego, CA, USA<br>
@@ -54,7 +72,8 @@
       </tr>
    </table>
 
-   <div class="sectionHeader" width="100%">Past Tournaments</div>
+   <hr width="100%" size="1" noshade="noshade" />
+
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
          <td style="padding-right: 8px;"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=about"><img src="/i/tournament/photo_tco06.jpg" alt="2006 TopCoder Open" border="0" /></A><br></td>
