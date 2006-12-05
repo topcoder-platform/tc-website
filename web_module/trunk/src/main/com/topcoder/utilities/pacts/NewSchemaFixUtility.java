@@ -18,9 +18,9 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.sql.DBUtility;
 import com.topcoder.web.ejb.pacts.PactsClientServices;
 import com.topcoder.web.ejb.pacts.PactsClientServicesHome;
-import com.topcoder.web.ejb.pacts.ProblemTestingPayment;
+import com.topcoder.web.ejb.pacts.ProblemWritingPayment;;
+/*import com.topcoder.web.ejb.pacts.ProblemTestingPayment;
 import com.topcoder.web.ejb.pacts.ReviewBoardPayment;
-/*import com.topcoder.web.ejb.pacts.ProblemWritingPayment;;
 import com.topcoder.web.ejb.pacts.AlgorithmContestPayment;
 import com.topcoder.web.ejb.pacts.CharityPayment;
 import com.topcoder.web.ejb.pacts.ComponentWinningPayment;
@@ -75,15 +75,18 @@ public class NewSchemaFixUtility extends DBUtility {
             
             pcs = (PactsClientServices) createEJB();
 
+
+            processProblemWritersPayments();
+            processProblemWritersPaymentsNullReference();
+
             //processProblemTestersPaymentsWithRounds();
-            processProblemTestersPaymentsNullRounds();
+            //processProblemTestersPaymentsNullRounds();
 
             /*processReviewersPaymentMDBStatusNullProjId(4);
             processReviewersPaymentMDBStatusNullProjId(5);
             processReviewersPaymentMDBStatusNullProjId(6);
             processReviewersPaymentMDBStatusNullProjId(7);
             processReviewersPaymentMDB();
-            processProblemWritersPayments();
             processReviewersPaymentInfo();
             processRoomResultAdditions();
             processRoomResultConflicts();
@@ -101,8 +104,81 @@ public class NewSchemaFixUtility extends DBUtility {
         }
     }
 
+    private void processProblemWritersPayments() throws SQLException, RemoteException {
+        StringBuffer query = new StringBuffer(200);
+        query.append("select user_id, problem_id, sum(money) as payment ");
+        query.append("from problem_writing_migration ");
+        query.append("where processed_ind = 0 ");
+        query.append("and not exists ( ");
+        query.append("select 'exist' from payment p, payment_detail pd ");
+        query.append("where p.most_recent_detail_id = pd.payment_detail_id ");
+        query.append("and pd.status_id <> 69 ");
+        query.append("and p.user_id = problem_writing_migration.user_id ");
+        query.append("and pd.algorithm_problem_id = problem_writing_migration.problem_id ");
+        query.append("and pd.payment_type_id = 15) ");
+        query.append("group by user_id, problem_id ");
 
 
+        PreparedStatement psSelCompCompetitions = prepareStatement("informixoltp", query.toString());
+        log.debug("Processing problem writers payments:");
+
+        ResultSet rs = null;
+        try {            
+            rs = psSelCompCompetitions.executeQuery();
+            int i = 1;
+            for (; rs.next(); i++ ) {
+                pcs.addPayment(new ProblemWritingPayment(
+                        rs.getLong("user_id"),
+                        rs.getDouble("payment"),
+                        rs.getLong("problem_id")));
+                if (i % 10 == 0) {
+                    log.debug(i + "...");
+                }
+            }
+            log.debug(i + " rows were processed...");
+        } finally {
+            DBMS.close(rs);
+            DBMS.close(psSelCompCompetitions);
+        }
+    }
+    
+    
+    private void processProblemWritersPaymentsNullReference() throws SQLException, RemoteException {
+        StringBuffer query = new StringBuffer(200);
+        query.append("select user_id, class, money as payment, payment_date ");
+        query.append("from problem_writing_migration ");
+        query.append("where processed_ind = -3 ");
+
+        PreparedStatement psSelCompCompetitions = prepareStatement("informixoltp", query.toString());
+        log.debug("Processing problem writing payments: (null reference)");
+      
+        ResultSet rs = null;
+        try {            
+            rs = psSelCompCompetitions.executeQuery();
+            int i = 1;
+            for (; rs.next(); i++ ) {
+                ProblemWritingPayment ptm = new ProblemWritingPayment(
+                        rs.getLong("user_id"),
+                        rs.getDouble("payment"),
+                        i*-1);
+                
+                ptm.setDueDate(rs.getDate("payment_date"));
+                ptm.setDescription("Problem " + rs.getString("class") + " writing");
+                
+                pcs.addPayment(ptm);
+                if (i % 10 == 0) {
+                    log.debug(i + "...");
+                }
+            }
+            log.debug(i + " rows were processed...");
+        } finally {
+            DBMS.close(rs);
+            DBMS.close(psSelCompCompetitions);
+        }
+    }
+
+
+/*
     private void processProblemTestersPaymentsNullRounds() throws SQLException, RemoteException {
         StringBuffer query = new StringBuffer(200);
         query.append("select user_id, contest, money as payment, payment_date ");
@@ -138,10 +214,6 @@ public class NewSchemaFixUtility extends DBUtility {
             DBMS.close(psSelCompCompetitions);
         }
     }
-    
-
-    
-/*
 
  private void processProblemTestersPaymentsWithRounds() throws SQLException, RemoteException {
         StringBuffer query = new StringBuffer(200);
@@ -263,46 +335,6 @@ public class NewSchemaFixUtility extends DBUtility {
         }
     }
      
-    private void processProblemWritersPayments() throws SQLException, RemoteException {
-        StringBuffer query = new StringBuffer(200);
-        query.append("select user_id, problem_id, sum(money) as payment ");
-        query.append("from excelwriter ");
-        query.append("where user_id is not null ");
-        query.append("and problem_id is not null ");
-        query.append("and move = 'yes' ");
-        query.append("and processed_ind = 0 ");
-        query.append("and not exists ( ");
-        query.append("select 'exist' from payment p, payment_detail pd ");
-        query.append("where p.most_recent_detail_id = pd.payment_detail_id ");
-        query.append("and pd.status_id <> 69 ");
-        query.append("and p.user_id = excelwriter.user_id ");
-        query.append("and pd.algorithm_problem_id = excelwriter.problem_id ");
-        query.append("and pd.payment_type_id = 15) ");
-        query.append("group by user_id, problem_id ");
-
-
-        PreparedStatement psSelCompCompetitions = prepareStatement("informixoltp", query.toString());
-        log.debug("Processing problem writers payments:");
-
-        ResultSet rs = null;
-        try {            
-            rs = psSelCompCompetitions.executeQuery();
-            int i = 1;
-            for (; rs.next(); i++ ) {
-                pcs.addPayment(new ProblemWritingPayment(
-                        rs.getLong("user_id"),
-                        rs.getDouble("payment"),
-                        rs.getLong("problem_id")));
-                if (i % 100 == 0) {
-                    log.debug(i + "...");
-                }
-            }
-            log.debug(i + " rows were processed...");
-        } finally {
-            DBMS.close(rs);
-            DBMS.close(psSelCompCompetitions);
-        }
-    }
     
     private void processReviewersPaymentInfo() throws SQLException, RemoteException {
         StringBuffer query = new StringBuffer(200);
