@@ -107,6 +107,7 @@ public class ReliabilityRating {
             "(select project_id from project where project_category_id+111 = ?)";
 
     /**
+     *
      * @param c
      * @param historyLength
      * @throws Exception
@@ -147,12 +148,14 @@ public class ReliabilityRating {
      *
      * @param conn
      * @param users
+     * @param historyLength
+     * @param phaseId
      * @return the number of records updated/inserted
+     * @throws SQLException
      */
     public int updateReliability(Connection conn, Set users, int historyLength, long phaseId) throws SQLException {
         //log.info("updateReliability(conn, users, " + historyLength + ", " + phaseId + ") called");
         int ret = 0;
-        PreparedStatement ps = null;
         PreparedStatement ps2 = null;
         PreparedStatement insert = null;
         PreparedStatement update = null;
@@ -162,7 +165,6 @@ public class ReliabilityRating {
 
         try {
 
-            ps = conn.prepareStatement(reliabilityData);
             ps2 = conn.prepareStatement(updateProjectResult);
             insert = conn.prepareStatement(insertUserReliability);
             update = conn.prepareStatement(updateUserReliability);
@@ -227,7 +229,6 @@ public class ReliabilityRating {
             }
         } finally {
             close(rs);
-            close(ps);
             close(ps2);
             close(insert);
             close(update);
@@ -646,7 +647,9 @@ public class ReliabilityRating {
      * meets three of those criteria but scores less than the min
      * reliable score, then set to 0.
      *
+     * @param conn
      * @return the number of records marked
+     * @throws SQLException
      */
     private int markNewReliableResults(Connection conn) throws SQLException {
         PreparedStatement ps = null;
@@ -704,8 +707,10 @@ public class ReliabilityRating {
      * before the change date that should be included in the calculation
      * to 1 if it's a valid submission and 0 if not.
      *
+     *
      * @param conn
      * @return the number of records marks
+     * @throws SQLException
      */
     private int markOldReliableResults(Connection conn) throws SQLException {
         PreparedStatement ps = null;
@@ -779,6 +784,7 @@ public class ReliabilityRating {
      *
      * @param conn
      * @return how many records we marked
+     * @throws SQLException
      */
     private int markForInclusionAndExclusion(Connection conn) throws SQLException {
 
