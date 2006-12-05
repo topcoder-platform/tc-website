@@ -203,8 +203,7 @@
       </td>
       <td class="value">30
       </td>
-      <td class="value">31
-      </td>
+      <td class="empty">&#160;<br><br><br><br><br></td>
       <td class="empty">&#160;<br><br><br><br><br></td>
       <td class="empty">&#160;</td>
       <td class="empty">&#160;</td>
