@@ -67,11 +67,13 @@ Documentation/Specifications are available in the application forums <A href="ht
 <div class="sectionHeader">Payment</div>
 TopCoder will compensate teams with first and second place submissions.  Initial payment for the winning team will be distributed in two installments.  The first installment will be paid when the winning solution with review board requirements and suggestions integrated is accepted by TopCoder.  The second installment will be paid upon completion of application deployment.
 <br><br>
+<b>Note:</b> To be eligible to win this competition you must submit your code on the Interim Deliverable date (December 12th, 2006, 9 a.m.).  
+<br><br>
 <strong>Winning Team</strong><br>
-Total Payment - $8,000
+Total Payment - $14,000
 <br><br>
 <strong>Second Place Team</strong><br>
-Total Payment - $4,000
+Total Payment - $7,000
 <br><br>
 
 <div class="sectionHeader">Eligibility</div>
@@ -97,27 +99,28 @@ All submissions are required to be submitted by the end of Competition Phase. Th
       <td><strong>Phase</strong></td><td align="right"><strong>Start</strong></td><td align="right"><strong>End</strong></td>
    </tr>
    <tr>
-      <td>Team Creation:</td><td align="right">11.15.2006</td><td align="right">11.23.2006</td>
+      <td>Team Creation:</td><td align="right">12.05.2006</td><td align="right">12.08.2006</td>
    </tr>
    <tr>
-      <td>Competition Phase:</td><td align="right">11.15.2006</td><td align="right">12.05.2006</td>
+      <td>Competition Phase:</td><td align="right">12.05.2006</td><td align="right">12.18.2006</td>
    </tr>
    <tr>
-      <td>Interim deliverables due:</td><td align="right">11.27.2006</td><td align="right">11.27.2006</td>
+      <td>Interim deliverables due:</td><td align="right">12.12.2006</td><td align="right">12.12.2006</td>
    </tr>
    <tr>
-      <td>Review Phase:</td><td align="right">12.05.2006</td><td align="right">12.12.2006</td>
+      <td>Review Phase:</td><td align="right">12.18.2006</td><td align="right">12.22.2006</td>
    </tr>
    <tr>
-      <td>Feedback Phase:</td><td align="right">12.12.2006</td><td align="right">12.13.2006</td>
+      <td>Feedback Phase:</td><td align="right">12.22.2006</td><td align="right">12.26.2006</td>
    </tr>
 </table>
 </div>
 <br><br>
 <div class="sectionHeader">Registration</div>
+<%--
 Registration is closed.
 <br><br>
-<%--
+--%>
 To sign up as a Team Captain or a Free Agent, send an email to <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Orpheus Auction Module">AssemblyCompetitions@topcoder.com</A>.  In the email, include the following information:
 <ul>
 <li>Handle</li>
@@ -130,7 +133,7 @@ To sign up as a Team Captain or a Free Agent, send an email to <A href="mailto:A
    <li>Note that for this competition, all team members, including the Team Captain, will receive an equal percentage of the prize money.</li>
    </ul>
 </ul>
---%>
+
 <div class="sectionHeader">Submission</div>
 Once your team has working code you are ready to submit, you can do so by emailing your source code to <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Submission: Orpheus Auction Module">AssemblySubmissions@topcoder.com</A> before the end of the Competition Phase.  Your team can submit code as many times as you wish before the submission deadline without any penalties.  The last code submitted prior to the deadline will be used as your final submission.
 <br><br>
