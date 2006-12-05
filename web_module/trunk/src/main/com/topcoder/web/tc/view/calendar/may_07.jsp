@@ -136,6 +136,14 @@
       <td class="value">18
       </td>
       <td class="value">19
+         <div class="tchs07">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onsiteschedule">TCHS07 Semifinal Round</A></strong><br>
+         10:00 AM
+         </div>
+         <div class="tchs07">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onsiteschedule">TCHS07 Championship Round</A></strong><br>
+         2:30 PM
+         </div>
       </td>
    </tr>
 

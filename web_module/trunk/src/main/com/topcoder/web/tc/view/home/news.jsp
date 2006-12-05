@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br>12.05.06<br>3:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=activeContests">Three Assembly Competitions open: $55,000+ in prizes</A></span><br><br>
+      The Orpheus Auction Module, Metric Reporting System, and Expert Network Application assembly contests are all open for registration this week. First prizes for each range from $10,000 to $14,000, with $55,200 in total prizes available.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=dev&d2=assembly&d3=activeContests">view</A> | 
+         <tc-webtag:forumLink forumID="506200" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Component Competition News" border="0" /><br>12.04.06<br>9:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">New Records in the Component Record Book</A>
@@ -192,21 +205,3 @@ enjoyed another HS SRM win with 1708.72 points.
         <tc-webtag:forumLink forumID="506002" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>11.27.06<br>11:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_10">Intel&#174; Multi-Threading 10 - Analysis</A></span><br><br>
-        Graph coloring is a widely studied subject, which made this Intel Multi-Threaded competition very interesting because a wide variety of algorithms could be used to approximate this NP complete problem.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/JacoCronje_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="283329" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_10">full story</A> | 
-        <tc-webtag:forumLink forumID="506148" message="discuss this" /> | 
-        <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
