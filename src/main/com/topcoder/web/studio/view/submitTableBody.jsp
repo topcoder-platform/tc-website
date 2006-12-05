@@ -68,7 +68,7 @@ onmouseover="popUp('pop${submission.id}')" onmouseout="popHide()"/>
 <td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
 <c:choose>
 <c:when test="${submission.review.status==null}">
-${submission.review.status.description}
+Pending
 </c:when>
 <c:otherwise>
 <c:if test="${submission.review.status.id==failed}">
