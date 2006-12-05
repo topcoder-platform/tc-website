@@ -9,7 +9,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br>12.05.06<br>3:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br>12.05.06<br>5:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=activeContests">Three Assembly Competitions open: $55,000+ in prizes</A></span><br><br>
       The Orpheus Auction Module, Metric Reporting System, and Expert Network Application assembly contests are all open for registration this week. First prizes for each range from $10,000 to $14,000, with $55,200 in total prizes available.
       </td>
