@@ -78,7 +78,7 @@
         <!--required for aol alerts only -->
         <pathelement location="${jars.dir}/tcs/alerts_wrapper/1.0/java_alerts_wrapper.jar"/>
         <pathelement location="${jars.dir}/tcs/logging_wrapper.jar"/>
-        <pathelement location="${jars.dir}/tcs/object_factory/2.0/object_factory.jar"/>
+        <pathelement location="${jars.dir}/tcs/object_factory/2.0.1/object_factory.jar"/>
 
         <!-- TCS Other -->
         <pathelement location="${jars.dir}/tcs/catalog.jar"/>
@@ -611,7 +611,7 @@
             <fileset dir="${jars.dir}/tcs/alerts_wrapper/1.0">
                 <include name="java_alerts_wrapper.jar"/>
             </fileset>
-            <fileset dir="${jars.dir}/tcs/object_factory/2.0">
+            <fileset dir="${jars.dir}/tcs/object_factory/2.0.1">
                 <include name="object_factory.jar"/>
             </fileset>
             <fileset dir="${jars.dir}/tcs">
