@@ -2726,7 +2726,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         long[] paymentsArray = new long[payments.size()];
         for (int n = 0; n < payments.size(); n++) {
         	paymentsArray[n] = Long.parseLong((String) payments.get(n));
-        	log.debug("add payment " + paymentsArray[n]);
         }
         
         return paymentsArray;

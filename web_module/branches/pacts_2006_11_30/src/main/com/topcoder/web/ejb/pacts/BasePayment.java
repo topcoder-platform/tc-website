@@ -373,11 +373,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
                 eventDate = new Date();
             }
 
-            // Calculate the due date as the event date + an interval depending on the type
-            Calendar dueDate = Calendar.getInstance();
-            dueDate.setTime(eventDate);
-            dueDate.add(Calendar.DAY_OF_YEAR, getDueDateInterval(payment.getPaymentType()));
-            return dueDate.getTime();
+            return getDueDate(eventDate, payment.getPaymentType());
         }
 
         /**
@@ -569,14 +565,15 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         }
 
         /**
-         * Get the interval in days from an event (srm, contest finalization...) to the payment.
+         * Get the due date for the payment.
          *
+         * @param eventDate the date the event took place.
          * @param paymentTypeId type id of the payment
-         * @return the interval in days from an event (srm, contest finalization...) to the payment.
+         * @return the due date for the payment.
          */
-        protected int getDueDateInterval(int paymentTypeId) throws SQLException {
+        protected Date getDueDate(Date eventDate, int paymentTypeId) throws SQLException {
             StringBuffer query = new StringBuffer(100);
-            query.append(" SELECT due_date_interval ");
+            query.append(" SELECT due_date_interval, pay_on_day ");
             query.append(" FROM payment_type_lu ");
             query.append(" WHERE payment_type_id = " + paymentTypeId);
 
@@ -585,7 +582,20 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             if (rsc.getRowCount() != 1) {
                 throw new IllegalArgumentException("Payment type not found: " + paymentTypeId);
             }
-            return rsc.getIntItem(0, 0);
+            
+            Calendar dueDateCal = Calendar.getInstance();
+            
+            if (rsc.getItem(0, "due_date_interval").getResultData() != null) {
+            	int days = rsc.getIntItem(0, "due_date_interval");
+                dueDateCal.setTime(eventDate);
+                dueDateCal.add(Calendar.DAY_OF_YEAR, days);
+            } else {
+                dueDateCal.setTime(eventDate);
+                dueDateCal.add(Calendar.MONTH, 1);
+                dueDateCal.set(Calendar.DAY_OF_MONTH, rsc.getIntItem(0, "pay_on_day"));            	
+            }
+            
+            return dueDateCal.getTime(); 
         }
 
         /**
