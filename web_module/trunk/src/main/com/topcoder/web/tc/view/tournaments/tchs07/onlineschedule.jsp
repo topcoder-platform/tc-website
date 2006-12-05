@@ -143,7 +143,7 @@
                    <td class="sidebarText">25</td>
             </tr>
             <tr><td class="sidebarText">Online Round #4 - Beta Region</td>
-                   <td class="sidebarText">Monday, Aprill 16, 2007<br>
+                   <td class="sidebarText">Monday, April 16, 2007<br>
                    Register:  11:00 AM - 1:55 PM EDT<br>
                    START:    2:00 PM EDT</td>
                    <td class="sidebarText">100</td>

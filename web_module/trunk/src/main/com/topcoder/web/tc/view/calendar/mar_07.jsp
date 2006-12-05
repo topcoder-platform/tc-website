@@ -77,14 +77,14 @@
       <td class="value">5
       </td>
       <td class="value">6
-       <%--  <div class="hs">
-         <strong><A href="">TCHS Delta Round 1</A></strong><br>
+         <div class="tchs07">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineschedule">Delta Round 1</A></strong><br>
          6:00 AM
-         </div>--%>
-       <%--  <div class="hs">
-         <strong><A href="">TCHS Beta Round 1</A></strong><br>
+         </div>
+         <div class="tchs07">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineschedule">Beta Round 1</A></strong><br>
          2:00 PM
-         </div>--%>
+         </div>
       </td>
       <td class="value">7
         <%-- <div class="long">
@@ -97,14 +97,14 @@
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
          </div>
-       <%--  <div class="hs">
-         <strong><A href="">TCHS Gamma Round 2</A></strong><br>
+         <div class="tchs07">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineschedule">Gamma Round 2</A></strong><br>
          10:00 AM
-         </div>--%>
-       <%--  <div class="hs">
-         <strong><A href="">TCHS Alpha Round 2</A></strong><br>
+         </div>
+         <div class="tchs07">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineschedule">Alpha Round 2</A></strong><br>
          9:00 PM
-         </div>--%>
+         </div>
       </td>
       <td class="value">9
       </td>
@@ -120,17 +120,17 @@
       <td class="value">11
       </td>
       <td class="value">12
-       <%--  <div class="hs">
-         <strong><A href="">TCHS Delta Round 2</A></strong><br>
+         <div class="tchs07">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineschedule">Delta Round 2</A></strong><br>
          6:00 AM
-         </div>--%>
+         </div>
+         <div class="tchs07">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineschedule">Beta Round 2</A></strong><br>
+         2:00 PM
+         </div>
       <%--   <div class="tco07">
          <strong><A href=""><img src="/i/interface/emblem/tco07.gif" alt="TCO07" border="0"/><br>TCO Algo Registration Opens</A></strong><br>
          9:00 AM 
-         </div>--%>
-       <%--  <div class="hs">
-         <strong><A href="">TCHS Beta Round 2</A></strong><br>
-         2:00 PM
          </div>--%>
       </td>
       <td class="value">13
@@ -157,14 +157,14 @@
       <td class="value">18
       </td>
       <td class="value">19
-       <%--  <div class="hs">
-         <strong><A href="">TCHS Gamma Round 3</A></strong><br>
+         <div class="tchs07">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineschedule">Gamma Round 3</A></strong><br>
          10:00 AM
-         </div>--%>
-       <%--  <div class="hs">
-         <strong><A href="">TCHS Alpha Round 3</A></strong><br>
+         </div>
+         <div class="tchs07">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineschedule">Alpha Round 3</A></strong><br>
          9:00 PM
-         </div>--%>
+         </div>
       </td>
       <td class="value">20
       </td>
@@ -190,14 +190,14 @@
       <td class="value">25
       </td>
       <td class="value">26
-       <%--  <div class="hs">
-         <strong><A href="">TCHS Delta Round 3</A></strong><br>
+         <div class="tchs07">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineschedule">Delta Round 3</A></strong><br>
          6:00 AM
-         </div>--%>
-       <%--  <div class="hs">
-         <strong><A href="">TCHS Beta Round 3</A></strong><br>
+         </div>
+         <div class="tchs07">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineschedule">Beta Round 3</A></strong><br>
          2:00 PM
-         </div>--%>
+         </div>
       </td>
       <td class="value">27
       </td>

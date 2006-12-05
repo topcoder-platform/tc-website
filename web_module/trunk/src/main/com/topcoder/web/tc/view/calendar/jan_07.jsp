@@ -65,6 +65,10 @@
          </div>
       </td>
       <td class="value">3
+         <div class="long">
+         <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 9</A></strong><br>
+         12:00 NOON
+         </div>
       </td>
       <td class="value">4
          <div class="des_dev">
@@ -94,10 +98,6 @@
       <td class="value">9
       </td>
       <td class="value">10
-        <%-- <div class="long">
-         <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 8</A></strong><br>
-         12:00 NOON
-         </div>--%>
       </td>
       <td class="value">11
          <div class="des_dev">
@@ -131,6 +131,10 @@
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10659">SRM 335</A></strong><br>
          7:00 AM
+         </div>
+         <div class="long">
+         <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 10</A></strong><br>
+         12:00 NOON
          </div>
         <%-- <div class="long">
          <strong><A href="/longcontest/?module=Static&d1=intel_rules">Intel&#174; Multi-threading Competition 12</A></strong><br>
@@ -190,6 +194,10 @@
       <td class="value">30
       </td>
       <td class="value">31
+         <div class="long">
+         <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 11</A></strong><br>
+         12:00 NOON
+         </div>
       </td>
       <td class="empty">&#160;<br><br><br><br><br></td>
       <td class="empty">&#160;</td>

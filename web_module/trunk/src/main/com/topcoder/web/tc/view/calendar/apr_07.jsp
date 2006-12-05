@@ -91,14 +91,14 @@
       <td class="value">8
       </td>
       <td class="value">9
-       <%--  <div class="hs">
-         <strong><A href="">TCHS Gamma Round 4</A></strong><br>
+         <div class="tchs07">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineschedule">Gamma Round 4</A></strong><br>
          10:00 AM
-         </div>--%>
-       <%--  <div class="hs">
-         <strong><A href="">TCHS Alpha Round 4</A></strong><br>
+         </div>
+         <div class="tchs07">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineschedule">Alpha Round 4</A></strong><br>
          9:00 PM
-         </div>--%>
+         </div>
       </td>
       <td class="value">10
       </td>
@@ -132,14 +132,14 @@
       <td class="value">15
       </td>
       <td class="value">16
-       <%--  <div class="hs">
-         <strong><A href="">TCHS Delta Round 4</A></strong><br>
+         <div class="tchs07">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineschedule">Delta Round 4</A></strong><br>
          6:00 AM
-         </div>--%>
-       <%--  <div class="hs">
-         <strong><A href="">TCHS Beta Round 4</A></strong><br>
+         </div>
+         <div class="tchs07">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineschedule">Beta Round 4</A></strong><br>
          2:00 PM
-         </div>--%>
+         </div>
       </td>
       <td class="value">17
       </td>

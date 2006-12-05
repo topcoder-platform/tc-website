@@ -118,15 +118,20 @@
          </div>
       </td>
       <td class="value">13
+         <div class="tchs07">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=rules">TCHS07 All Regions Registration Opens</A></strong><br>
+         9:00 AM
+         </div>
       </td>
       <td class="value">14
-         <%--<div class="hs">
-         <strong><A href="">TCHS All Regions Registration Opens</A></strong>
-         </div>--%>
-        <%-- <div class="long">
+         <%-- <div class="long">
          <strong><A href="/longcontest/?module=Static&d1=intel_rules">Intel&#174; Multi-threading Competition 12</A></strong><br>
          12:00 NOON
          </div>--%>
+        <div class="long">
+         <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 12</A></strong><br>
+         12:00 NOON
+         </div>
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10663">SRM 339</A></strong><br>
          9:00 PM
@@ -171,23 +176,24 @@
    
    <tr>
       <td class="value">25
-         <%--<div class="hs">
-         <strong><A href="">TCHS All Regions Registration Closes</A></strong>
-         </div>--%>
+         <div class="tchs07">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=rules">TCHS07 All Regions Registration Closes</A></strong><br>
+         6:00 PM
+         </div>
       </td>
       <td class="value">26
       <%--   <div class="tco07">
          <strong><A href=""><img src="/i/interface/emblem/tco07.gif" alt="TCO07" border="0"/><br>TCO CDDC Registration Opens</A></strong><br>
          9:00 AM 
          </div>--%>
-       <%--  <div class="hs">
-         <strong><A href="">TCHS Gamma Round 1</A></strong><br>
+         <div class="tchs07">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineschedule">Gamma Round 1</A></strong><br>
          10:00 AM
-         </div>--%>
-       <%--  <div class="hs">
-         <strong><A href="">TCHS Alpha Round 1</A></strong><br>
+         </div>
+         <div class="tchs07">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineschedule">Alpha Round 1</A></strong><br>
          9:00 PM
-         </div>--%>
+         </div>
       </td>
       <td class="value">27
       </td>
