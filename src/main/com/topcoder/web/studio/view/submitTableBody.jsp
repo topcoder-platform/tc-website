@@ -19,6 +19,7 @@ crappy looking to save space on the transmission
 
 <% boolean even = true;%>
 <c:set value="<%=ReviewStatus.FAILED%>" var="failed"/>
+<c:set value="<%=ReviewStatus.PASSED%>" var="passed"/>
 <c:set value="<%=Constants.SUBMISSION_ID%>" var="submissionId"/>
 
 <c:forEach items="${submissions}" var="submission">
@@ -66,11 +67,16 @@ onmouseover="popUp('pop${submission.id}')" onmouseout="popHide()"/>
 </td>
 <td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
 <c:choose>
-<c:when test="${submission.review.status!=null}">
-<span class="bigGreen">${submission.review.status.description}</span>
+<c:when test="${submission.review.status==null}">
+${submission.review.status.description}
 </c:when>
 <c:otherwise>
-&#160;
+<c:if test="${submission.review.status.id==failed}">
+<span class="bigRed">${submission.review.status.description}</span>
+</c:if>
+<c:if test="${submission.review.status.id==passed}">
+<span class="bigGreen">${submission.review.status.description}</span>
+</c:if>
 </c:otherwise>
 </c:choose>
 </td>
