@@ -14,6 +14,8 @@ if (type == null) type = HandleTag.COMPONENT; %>
 <div style="float:right;"><A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">back to table of contents</A></div>
 <jsp:include page="dev_design_links.jsp"/>
 <br><br>
+<strong>Record:</strong> Winners of the largest prizes for a single Design or Development Competition.  This does not include reliability bonuses.
+<br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%" style="float: left; margin-bottom: 15px;">
     <tr><td class="title" colspan="5">Largest Single Component Contest Prizes</td></tr>
     <tr>
@@ -35,8 +37,5 @@ if (type == null) type = HandleTag.COMPONENT; %>
     <% even = !even;%>
     </rsc:iterator>
 </table>
-<span class="bodyText">
-<strong>Record:</strong> Winners of the largest prizes for a single Design or Development Competition.  This does not include reliability bonuses.
-</span>
 </div>
 </html>

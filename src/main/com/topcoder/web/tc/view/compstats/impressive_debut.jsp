@@ -14,15 +14,17 @@ if (type == null) type = HandleTag.COMPONENT; %>
 <div style="float:right;"><A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">back to table of contents</A></div>
 <jsp:include page="dev_design_no_overall_links.jsp"/>
 <br><br>
+<strong>Record:</strong> Best debut rating.  This rating is based on the coder's first rating.
+<br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%" style="float: left; margin-bottom: 15px;">
     <tr><td class="title" colspan="5">Impressive Debut</td></tr>
     <tr>
-    	<td class="headerC">Rank</td>
-   	    <td class="header">Coder</td>
-   	    <td class="headerR">Debut Rating</td>
+        <td class="headerC">Rank</td>
+        <td class="header">Coder</td>
+        <td class="headerR">Debut Rating</td>
         <td class="header">Contest</td>
-        <td class="headerC">Date</td>   	    
-   	</tr>
+        <td class="headerC">Date</td>           
+       </tr>
 
     <% boolean even = false; %>
     <rsc:iterator list="<%=rsc%>" id="row">
@@ -36,9 +38,6 @@ if (type == null) type = HandleTag.COMPONENT; %>
     <% even = !even;%>
     </rsc:iterator>
 </table>
-<span class="bodyText">
-<strong>Record:</strong> Best debut rating.  This rating is based on the coder's first rating.
-</span>
 
 </div>
 </html>
