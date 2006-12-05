@@ -140,14 +140,13 @@
                                         <br></tc-webtag:errorIterator>
                     <input type="file" name="<%=Constants.SUBMISSION%>">
                 </p>
-
-                <p>
-                    <input type="image" src="/i/layout/btnSubmit.png" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'">
-                </p>
                 <p>
                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_RANK%>"><span class="bigRed">${err}</span>
                         <br></tc-webtag:errorIterator>
                     as rank:&nbsp;<tc-webtag:textInput name="<%=Constants.SUBMISSION_RANK%>" maxlength="3" size="2"/>
+                </p>
+                <p>
+                    <input type="image" src="/i/layout/btnSubmit.png" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'">
                 </p>
             </form>
         </div>
