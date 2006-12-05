@@ -590,7 +590,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
                 dueDateCal.setTime(eventDate);
                 dueDateCal.add(Calendar.DAY_OF_YEAR, days);
             } else {
-                dueDateCal.setTime(eventDate);
+                dueDateCal.setTime(new Date());
                 dueDateCal.add(Calendar.MONTH, 1);
                 dueDateCal.set(Calendar.DAY_OF_MONTH, rsc.getIntItem(0, "pay_on_day"));            	
             }
