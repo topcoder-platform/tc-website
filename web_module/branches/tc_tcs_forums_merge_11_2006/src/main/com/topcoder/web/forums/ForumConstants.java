@@ -5,6 +5,8 @@ package com.topcoder.web.forums;
 
 import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.forum.ForumPermissions;
+import com.topcoder.dde.catalog.Catalog;
+import com.topcoder.dde.catalog.ComponentVersionInfo;
 
 /**
  * @author mtong
@@ -75,15 +77,21 @@ public interface ForumConstants {
     public final static String PROPERTY_LINK = "link";
     public final static String PROPERTY_MODIFY_FORUMS = "modifyForums";
     
-    public final static String PROPERTY_ARCHIVAL_STATUS = "archivalStatus";
-    public final static String PROPERTY_COMPONENT_PHASE = "componentPhase";
-    public final static String PROPERTY_COMPONENT_STATUS = "componentStatus";
-    public final static String PROPERTY_COMPONENT_VERSION_ID = "compVersionId";
+    /* See Catalog.JAVA_CATALOG, etc. Determines technology icon displayed by the ImageMapper. */
     public final static String PROPERTY_COMPONENT_ROOT_CATEGORY_ID = "compRootCategoryId";
+    
+    /* See ComponentVersionInfo.COLLABORATION, etc. Determines phase icon displayed by the ImageMapper. */
+    public final static String PROPERTY_COMPONENT_PHASE = "componentPhase";		
+    
+    /* See ComponentInfo.APPROVED, etc. Only approved components are displayed. */
+    public final static String PROPERTY_COMPONENT_STATUS = "componentStatus";
+    
+    public final static String PROPERTY_COMPONENT_VERSION_ID = "compVersionId";
     public final static String PROPERTY_COMPONENT_TECH_TYPES = "compTechTypes";
     public final static String PROPERTY_FORUM_TYPE = "forumType";
     public final static String PROPERTY_VERSION_TEXT = "versionText";
 
+    public final static String PROPERTY_ARCHIVAL_STATUS = "archivalStatus";
     public final static String PROPERTY_ARCHIVAL_STATUS_DELETED = "0";
     public final static String PROPERTY_ARCHIVAL_STATUS_ACTIVE = "1";
     public final static String PROPERTY_ARCHIVAL_STATUS_ARCHIVED = "2";

@@ -204,12 +204,19 @@ public class ForumsBean extends BaseEJB {
     }
     
     // Create a new component category and constituent forums
-    // - add properties, moderator/user/admin permissions
-    public ForumCategory createSoftwareComponentForums(String componentName, String description, String versionText, long templateId) {
+    public ForumCategory createSoftwareComponentForums(String componentName, long componentID,
+    		long versionID, long phaseID, long componentStatusID, long rootCategoryID, String description, 
+    		String versionText, long templateID) {
+    	log.info("******** called ForumsBean.createSoftwareComponentForums()");
     	try {
-    		String categoryName = ForumsUtil.getComponentCategoryName(componentName, versionText, templateId);
+    		String categoryName = ForumsUtil.getComponentCategoryName(componentName, versionText, templateID);
     		ForumCategory newCategory = forumFactory.getForumCategory(TCS_FORUMS_ROOT_CATEGORY_ID).createCategory(categoryName, description);
     		newCategory.setProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS, ForumConstants.PROPERTY_ARCHIVAL_STATUS_ACTIVE);
+    		newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_PHASE, String.valueOf(phaseID));
+    		newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_ROOT_CATEGORY_ID, String.valueOf(rootCategoryID));
+    		newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_STATUS, String.valueOf(componentStatusID));
+    		newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID, String.valueOf(versionID));
+    		newCategory.setProperty(ForumConstants.PROPERTY_FORUM_TYPE, String.valueOf(templateID));
     		newCategory.setProperty(ForumConstants.PROPERTY_MODIFY_FORUMS, "true");
     		newCategory.setProperty(ForumConstants.PROPERTY_VERSION_TEXT, versionText);
     		
@@ -217,11 +224,26 @@ public class ForumsBean extends BaseEJB {
     		PreparedStatement forumsPS = forumsConn.prepareStatement(
     				"select name, description from template_forum t " +
     				"where t.template_id = ? order by t.display_order, t.template_forum_id");
-    		forumsPS.setLong(1, templateId);
+    		forumsPS.setLong(1, templateID);
     		ResultSet rs = forumsPS.executeQuery();
     		while (rs.next()) {
     			forumFactory.createForum(rs.getString("name"), rs.getString("description"), newCategory);
     		}
+    		forumsConn.close();
+    		forumsPS.close();
+    		rs.close();
+    		
+    		Connection tcsConn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
+    		PreparedStatement tcsPS = tcsConn.prepareStatement(
+    				"insert into comp_forum_xref(comp_forum_id, comp_vers_id, forum_type, jive_category_id) " +
+	        		"values(?,?,?,?) ");
+    		tcsPS.setLong(1, componentID);
+    		tcsPS.setLong(2, versionID);
+    		tcsPS.setLong(3, templateID);
+    		tcsPS.setLong(4, newCategory.getID());
+    		tcsPS.executeUpdate();
+    		tcsConn.close();
+    		tcsPS.close();
     		
     		createSoftwareComponentPermissions(newCategory, false);
     		return newCategory;

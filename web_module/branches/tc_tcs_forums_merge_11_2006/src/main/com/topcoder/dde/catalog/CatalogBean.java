@@ -102,7 +102,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     private LocalDDECompCategoriesHome compcatsHome;
     private LocalDDECompKeywordsHome keywordsHome;
     private LocalDDECompTechnologyHome comptechHome;
-    private LocalDDECompForumXrefHome compforumHome;
+    private LocalDDECompForumXrefHome compforumHome;	// TODO: remove
     private LocalDDECategoriesHome categoriesHome;
     private LocalDDETechnologyTypesHome technologiesHome;
     private LocalDDERolesHome rolesHome;
@@ -153,7 +153,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                     homeBindings.lookup(LocalDDECompTechnologyHome.EJB_REF_NAME);
             log.debug("blah");
             compforumHome = (LocalDDECompForumXrefHome)
-                    homeBindings.lookup(LocalDDECompForumXrefHome.EJB_REF_NAME);
+                    homeBindings.lookup(LocalDDECompForumXrefHome.EJB_REF_NAME);	// TODO: remove
             log.debug("blah");
             categoriesHome = (LocalDDECategoriesHome)
                     homeBindings.lookup(LocalDDECategoriesHome.EJB_REF_NAME);
@@ -1701,9 +1701,9 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             throw new EJBException(exception.toString());
         }
     }
-
+    
     public ComponentSummary requestComponent(ComponentRequest request)
-            throws CatalogException {
+            throws CatalogException, NamingException, SQLException {
         if (request == null) {
             throw new CatalogException(
                     "Null specified for component request");
@@ -1788,8 +1788,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                     + exception.toString());
         }
 
-        // create new category/forums (call forums EJB), comp_forum_xref link, permissions
-        // see what the createForum() and compforumHome.create() EJB calls accomplish, then replicate
         Forums forums = null;
         try {
             Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
@@ -1809,8 +1807,12 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         }
         
     	try {
-    		forums.createSoftwareComponentForums(newComponent.getComponentName(), newComponent.getShortDesc(), 
+    		log.info("******* calling createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
+    		forums.createSoftwareComponentForums(newComponent.getComponentName(), ((Long)newComponent.getPrimaryKey()).longValue(),
+    				((Long)newVersion.getPrimaryKey()).longValue(), newVersion.getPhaseId(), 
+    				newComponent.getRootCategory(), newComponent.getStatusId(), newComponent.getShortDesc(), 
     				newVersion.getVersionText(), Long.parseLong(getConfigValue("collab_forum_template")));
+    		log.info("******* finished createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
     	} catch (ConfigManagerException cme) {
     		log.warn("Encountered a configuration manager exception reading collab_forum_template property");
     		ejbContext.setRollbackOnly();
@@ -1822,7 +1824,35 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     	} catch (RemoteException e) {
     		ejbContext.setRollbackOnly();
             throw new CatalogException(e.toString());
-    	}
+    	}    	
+    	
+    	/*	TODO: remove
+        Connection c = null;
+        PreparedStatement ps = null;
+        try {
+	        c = getConnection();
+	        StringBuffer query = new StringBuffer(200);
+	        query.append("INSERT INTO comp_forum_xref(comp_forum_id, comp_vers_id, forum_type, jive_category_id) ");
+	        query.append("		VALUES(?,?,?,?) ");
+			ps = c.prepareStatement(query.toString());
+	        ps.executeUpdate();
+        } finally {
+            try {
+                if (ps != null) {
+                    ps.close();
+                    ps = null;
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                if (c != null) {
+                    c.close();
+                    c = null;
+                }
+            } catch (SQLException e) {
+            }
+        }
+        */
     	
     	// TODO: remove when complete
         long newForum;

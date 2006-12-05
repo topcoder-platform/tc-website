@@ -4,7 +4,6 @@
 
 package com.topcoder.dde.catalog;
 
-import com.topcoder.apps.review.document.DocumentManager;
 import com.topcoder.apps.review.document.DocumentManagerHome;
 import com.topcoder.apps.review.projecttracker.*;
 import com.topcoder.dde.forum.ForumModeratePermission;
@@ -12,8 +11,6 @@ import com.topcoder.dde.forum.ForumPostPermission;
 import com.topcoder.dde.notification.Notification;
 import com.topcoder.dde.notification.NotificationHome;
 import com.topcoder.dde.persistencelayer.interfaces.*;
-import com.topcoder.dde.forum.ForumPostPermission;
-import com.topcoder.dde.forum.ForumModeratePermission;
 import com.topcoder.forum.*;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.RolePrincipal;
@@ -400,6 +397,9 @@ public class ComponentManagerBean
                 bean.getComments(), bean.getPhaseId(),
                 new Date(bean.getPhaseTime().getTime()), bean.getPrice());
 
+        // update the public forum flag
+        //versionId = ((Long) bean.getPrimaryKey()).longValue();
+                
         // look for the public forum flag
         try {
             long forumId = 0;

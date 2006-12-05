@@ -335,6 +335,7 @@ public class ForumConversion {
             rs.close();
             
             // set technology types for this category
+            /*
             techPS.setLong(1, forum.getId());
             // holds list of technology types in form "1,5,15"
             StringBuffer techTypeList = new StringBuffer();
@@ -347,7 +348,9 @@ public class ForumConversion {
             }
             category.setProperty(ForumConstants.PROPERTY_COMPONENT_TECH_TYPES, techTypeList.toString());
             rs.close();
+            */
             
+            // link comp_forum_xref entries to Jive categories
             updateCompForumXrefPS.setLong(1, category.getID());
             updateCompForumXrefPS.setLong(2, forum.getCompVersId());
             updateCompForumXrefPS.setLong(3, forum.getForumType());

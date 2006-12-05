@@ -25,6 +25,8 @@ public interface Forums extends EJBObject {
     
     public String[][] getAllSoftwareRolesData() throws EJBException, RemoteException;
     
-    public ForumCategory createSoftwareComponentForums(String componentName, String description, String versionText, long templateId)
+    public ForumCategory createSoftwareComponentForums(String componentName, long componentID, long versionID,
+    		long phaseID, long componentStatusID, long rootCategoryID, String description, String versionText, 
+    		long templateID)
     	throws EJBException, RemoteException;
 }

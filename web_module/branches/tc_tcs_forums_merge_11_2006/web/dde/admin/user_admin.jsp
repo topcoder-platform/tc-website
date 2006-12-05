@@ -504,7 +504,6 @@
 			<td width="80%" class="adminTitle">Role Name</td>
 			<td width="20%" class="adminTitleCenter">Action</td>
 		</tr>
-		<tr valign="top">
 		<%	try {
 				String[][] itForumRoles = forums.getSoftwareRolesData(selectedUser.getId());
 				for (int i=0; i<itForumRoles.length; i++) {
@@ -512,13 +511,14 @@
 					if (!itForumRoles[i][2].trim().equals("")) {
 						associatedLabel = "(" + itForumRoles[i][2] + ")"; 
 					}	%>
-					<td class="forumText"><%=itForumRoles[i][1]%> <%=associatedLabel%></td>
-					<td class="forumTextCenter"><strong><a href="user_admin.jsp?lngPrincipal=<%=lngPrincipal%>&groupID=<%=itForumRoles[i][0]%>&a=RemoveForumRole">Remove Role</a></strong></td>	
+					<tr valign="top">
+						<td class="forumText"><%=itForumRoles[i][1]%> <%=associatedLabel%></td>
+						<td class="forumTextCenter"><strong><a href="user_admin.jsp?lngPrincipal=<%=lngPrincipal%>&groupID=<%=itForumRoles[i][0]%>&a=RemoveForumRole">Remove Role</a></strong></td>	
+					</tr>
 		<%		}
 	        } catch (Exception e) {
 	        	debug.addMsg("user admin", "error displaying user's forum roles");
 	        } %> 
-		</tr>
 		<tr valign="top">
 			<td class="forumSubject">
 				<select class="adminForm" name="selForumRole">
