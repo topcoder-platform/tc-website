@@ -16,6 +16,9 @@
     </module>
 -->
     <module>
+        <ejb>forum.jar</ejb>
+    </module>
+    <module>
         <ejb>catalog.jar</ejb>
     </module>
     <module>
@@ -26,9 +29,6 @@
     </module>
     <module>
         <ejb>ddesubmission.jar</ejb>
-    </module>
-    <module>
-        <ejb>forum.jar</ejb>
     </module>
     <module>
         <ejb>idgenerator.jar</ejb>

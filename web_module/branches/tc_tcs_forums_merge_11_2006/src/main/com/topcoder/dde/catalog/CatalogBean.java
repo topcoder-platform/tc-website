@@ -1788,7 +1788,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                     + exception.toString());
         }
 
-        /*
         Forums forums = null;
         try {
             Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
@@ -1826,7 +1825,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     		ejbContext.setRollbackOnly();
             throw new CatalogException(e.toString());
     	}    	
-    	*/
     	
     	/*	TODO: remove
         Connection c = null;
