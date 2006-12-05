@@ -1855,7 +1855,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         */
     	
     	// TODO: remove when complete
-    	/*
         long newForum;
         try {
             com.topcoder.forum.Forum forum = new com.topcoder.forum.Forum();
@@ -1873,7 +1872,12 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             compforumHome.create(newForum, Forum.COLLABORATION, newVersion);
             createForumRoles(newForum, Forum.COLLABORATION);
 
-        } catch (ForumException exception) {
+        } catch (Exception e) {
+        	ejbContext.setRollbackOnly();
+        	throw new CatalogException();
+        }
+        /*
+        catch (ForumException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
                     "Failed to create new collaboration forum for component: "
