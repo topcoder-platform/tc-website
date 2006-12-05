@@ -43,6 +43,10 @@
 </jsp:include>
 
 <p>
+    5.5.11 - 2006.12.xx
+    <ul>
+        <li>Fix round types that are shown when creating payments in pacts.</li>
+    </ul>
     5.5.10 - 2006.12.04
     <ul>
         <li>Fix a bug to consider only active inquired projects for low reliability registration limits</li>

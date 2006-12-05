@@ -235,10 +235,10 @@ public interface PactsConstants extends Constants {
     public static final int DATE = 4;
     public static final int STRING = 5;
 
-    public static final int[] ALGORITHM_CONTEST_ROUND_TYPES= {1, 3, 12, 17};
-    public static final int[] MARATHON_MATCH_ROUND_TYPES= {10, 13, 14, 15, 16};
+    public static final int[] ALGORITHM_CONTEST_ROUND_TYPES = {1, 17};
+    public static final int[] MARATHON_MATCH_ROUND_TYPES= {13, 15};
     public static final int[] ALGORITHM_TOURNAMENT_ROUND_TYPES = {2, 18};
-    public static final int[] PROBLEM_TESTING_ROUND_TYPES = {1, 2, 3, 10, 12, 13, 14, 15, 16, 17, 18};
+    public static final int[] PROBLEM_TESTING_ROUND_TYPES = {1, 2, 10, 13, 15, 17, 18};
 
     //status_id
 
