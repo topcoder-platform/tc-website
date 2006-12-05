@@ -7,11 +7,11 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 
-<%----------------------------
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Component Competition News" border="0" /><br>11.29.06<br>6:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Component Competition News" border="0" /><br>12.04.06<br>9:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">New Listings in the Component Record Book</A>
+        <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">New Records in the Component Record Book</A>
         </span><br><br>
       There are new records for 
         Best Average Component Contest Score, 
@@ -28,7 +28,7 @@
          <tc-webtag:forumLink forumID="506192" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
-----------------------------%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>12.04.06<br>5:00 PM</td>
@@ -208,23 +208,5 @@ enjoyed another HS SRM win with 1708.72 points.
         <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_10">full story</A> | 
         <tc-webtag:forumLink forumID="506148" message="discuss this" /> | 
         <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>11.21.06<br>4:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm20">TCHS SRM 20 - Problem Set & Analysis</A></span><br><br>
-        By now, HS SRMs are well underway, with incredibly gifted high schoolers from around the world competing
-        regularly, and HS SRM 20 was no exception.
-      </td>
-      <td class="newsPhoto"><%--<img src="/i/m/gevak_big2.jpg" alt="" width="55" height="61"/><br>--%>by <tc-webtag:handle coderId="343655" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm20">full story</A> | 
-        <tc-webtag:forumLink forumID="506042" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
