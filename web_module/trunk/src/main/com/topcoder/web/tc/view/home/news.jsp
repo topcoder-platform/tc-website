@@ -24,7 +24,7 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">details</A> | 
+         <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">view</A> | 
          <tc-webtag:forumLink forumID="506192" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
