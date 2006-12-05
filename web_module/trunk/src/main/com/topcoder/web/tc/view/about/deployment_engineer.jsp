@@ -59,39 +59,56 @@
                 <tr valign="top">
                     <td class="bodyText" width="100%"><br/>
 
-<P>
-<B>Internal TopCoder Developer</B>
-</P>
+                       <h3>Deployment Engineer</h3>
 
-<p>
-TopCoder is looking to hire a full-time software developer to design and implement enhancements to TopCoder's internal systems.  Candidates must work well under pressure in a high-risk environment and must have good communication skills.
-</p>
-<p><b>Responsibilities</b></p>
+
+<strong>Job Description:</strong><br>
+The Deployment Engineer will work with TopCoder Project Managers and Software Architects in configuring, installing, and running applications created through the TopCoder competition process.  This opportunity seeks a candidate who has prior experience in running a diverse IT environment, with a broad range of skills.
 <ul>
-<li>Implement enhancements to the TopCoder competition engine and TopCoder website</li>
-<li>Design and develop new functionality to compliment TopCoder's internal systems and private label software offerings </li>
-<li>Setup and administration of TopCoder SRMs, private label competitions, and major tournaments</li>
+<li>Take a functioning application from the TopCoder development process and configure, install/compile, and deploy it in a development or production environment.</li>
+<li>Ability to diagnose and troubleshoot errors from applications independently or with team members.</li>
+<li>Communicate project status, errors, and other items with the TopCoder team.</li>
+<li>Create documentation of your process.</li>
+<li>Ability to work with clients and communicate with them regarding errors and project status when necessary.</li>
 </ul>
-
-<p><b>Environment</b></p>
+<strong>Additional Responsibilities:</strong>
 <ul>
-<li>TopCoder's systems are written mostly in Java - with some C++ and Microsoft .Net</li>
-<li>TopCoder's development environment consists of mostly Linux and Solaris, with some Windows 2000</li>
+<li>Keep organized and work on multiple projects simultaneously.</li>
+<li>Ability to work in a dynamic and fluid role.</li>
+<li>Work with no supervision and take the initiative.</li>
+<li>Required to travel and work from home.</li>
 </ul>
-
-<p><b>Requirements</b></p>
+<strong>Technical Skills:</strong>
 <ul>
-<li>You must have knowledge of Java and C++ - knowledge of C# and VB.NET a plus</li>
-<li>You must have some experience with relational databases</li>
-<li>You must be a logical thinker and a fast learner</li>
-<li>You must be willing to relocate to the Hartford, CT area</li>
+<li>Experience operating in production and development IT environments.</li>
+<li>Windows 2003 Server Standard.</li>
+<li>Redhat Enterprise Linux.</li>
+<li>Basic IT security methods (users, groups, filesystem, directory services, etc).</li>
+<li>TCP/IP networking and related applications (ping, netstat, dns).</li>
+<li>Troubleshooting in the OSI 7 Layer model.</li>
+<li>Linux shell scripting command (bash, grep).</li>
+<li>Familiar with the following would be a plus.</li>
+    <ul>
+    <li>VMWare</li>
+    <li>Java and installing of the jdk</li>
+    <li>Apache Software Group products (Apache 2, Tomcat, Ant)</li>
+    <li>JBoss</li>
+    <li>Database products (MS SQL/Oracle)</li>
+    <li>MS .Net</li>
+    <li>IIS</li>
+    </ul>
+<li>No prior programming experience is required, though being familiar with Java or .NET would be a plus.</li>
+</ul>
+<strong>Professional Skills:</strong>
+<ul>
+<li>Ability to communicate with others.</li>
+<li>A desire to always learn more.</li>
 </ul>
 
                         <p>
-                        <a href="/tc?module=JobHit&jid=320&jt=4">Apply for this job.<a/>
+                        <a href="/tc?module=JobHit&jid=374&jt=4">Apply for this job.<a/>
                         </p>
                         <p><br /></p>
-
                     </td>
                 </tr>
             </table>
