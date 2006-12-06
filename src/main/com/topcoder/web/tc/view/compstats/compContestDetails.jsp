@@ -219,7 +219,7 @@
                 <div align="center"><img src="/i/interface/emblem/failure.png" alt="" border="0" onmouseover="popUp(this,'popFailure')" onmouseout="popHide()" /></div>     
              <% } %>
 
-                <tc-webtag:handle coderId='<%= reviewers.getLongItem(k, "reviewer_id") %>' context='<%= projectInfo.getStringItem(k, "phase_desc") %>'/>
+                <tc-webtag:handle coderId='<%= reviewers.getLongItem(k, "reviewer_id") %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/>
             </TD>
         <% } %>
     <% } %>
