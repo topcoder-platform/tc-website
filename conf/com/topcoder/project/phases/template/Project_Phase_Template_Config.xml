@@ -45,9 +45,9 @@
     <Config name="com.topcoder.project.phases.template.persistence.XmlPhaseTemplatePersistence">
         <!-- XML files from which the templates will be loaded. -->
         <Property name="template_files">
-            <Value>/home/apps/jboss-4.0.2/server/default/conf/template/TCSTemplate_Design.xml</Value>
-            <Value>/home/apps/jboss-4.0.2/server/default/conf/template/TCSTemplate_Development.xml</Value>
-            <Value>/home/apps/jboss-4.0.2/server/default/conf/template/TCSTemplate_Application.xml</Value>
+            <Value>/home/onlinereview/jboss-4.0.2/server/default/conf/template/TCSTemplate_Design.xml</Value>
+            <Value>/home/onlinereview/jboss-4.0.2/server/default/conf/template/TCSTemplate_Development.xml</Value>
+            <Value>/home/onlinereview/jboss-4.0.2/server/default/conf/template/TCSTemplate_Application.xml</Value>
         </Property>
     </Config>
 
@@ -88,7 +88,7 @@
                         <Value>String</Value>
                     </Property>
                     <Property name="value">
-                        <Value>/home/apps/jboss-4.0.2/server/default/conf/com/topcoder/apps/review/workdays.xml</Value>
+                        <Value>/home/onlinereview/jboss-4.0.2/server/default/conf/com/topcoder/apps/review/workdays.xml</Value>
                     </Property>
                 </Property>
                 <Property name="param2">
