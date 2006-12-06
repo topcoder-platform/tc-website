@@ -1788,6 +1788,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                     + exception.toString());
         }
 
+        /*
         Forums forums = null;
         try {
             Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
@@ -1805,6 +1806,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     		ejbContext.setRollbackOnly();
             throw new CatalogException(e.toString());
         }
+        */
         
         /*
     	try {
@@ -1874,11 +1876,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             compforumHome.create(newForum, Forum.COLLABORATION, newVersion);
             createForumRoles(newForum, Forum.COLLABORATION);
 
-        } catch (Exception e) {
-        	ejbContext.setRollbackOnly();
-        	throw new CatalogException();
-        }
-        /*
+        } 
         catch (ForumException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
@@ -1890,7 +1888,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                     "Failed to create new collaboration forum for component: "
                     + exception.toString());
         }
-        */
         // TODO: remove when complete (end)
 
         createComponentRole(((Long) newComponent.getPrimaryKey()).longValue());
