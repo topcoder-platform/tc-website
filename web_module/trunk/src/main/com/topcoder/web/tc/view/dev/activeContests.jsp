@@ -19,47 +19,6 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
-<script language="javascript" type="text/javascript">
-<!--
-var objPopUp = null;
-function popUp(event,objectID){
-   objPopTrig = document.getElementById(event);
-   objPopUp = document.getElementById(objectID);
-   xPos = objPopTrig.offsetLeft+10;
-   yPos = objPopTrig.offsetTop + objPopTrig.offsetHeight - 5;
-   if(xPos + objPopUp.offsetWidth > document.body.clientWidth) xPos = xPos - objPopUp.offsetWidth;
-   if(yPos + objPopUp.offsetHeight > document.body.clientHeight) yPos = yPos - objPopUp.offsetHeight - objPopTrig.offsetHeight;
-   objPopUp.style.left = xPos + 'px';
-   objPopUp.style.top = yPos + 'px';
-   objPopUp.style.visibility = 'visible';
-}
-function popHide(){
-   objPopUp.style.visibility = 'hidden';
-   objPopUp = null;
-}
-
-// -->
-</script>
-<STYLE TYPE="text/css">
-.popUp
-{
-width: 150px;
-font-size: 10px;
-text-align: center;
-background-color: #FFFFCC;
-visibility: hidden;
-margin: 10px;
-padding: 3px;
-position: absolute;
-white-space: nowrap;
-border: solid 1px black;
-z-index: 1;
-}
-#container
-{
-position: relative;
-}
-</STYLE>
 </head>
 
 <body>
@@ -146,10 +105,8 @@ position: relative;
             </td>
             <td class="value">
                 <% if (resultRow.getIntItem("tourny_project")>0) { %>
-                     <div id="container">
-                        <img src="/i/tournament/tccc06/emblem.png" alt="" border="0" id="pop<rsc:item name="project_id" row="<%=resultRow%>"/>" onmouseover="popUp(this.id,'popUp<rsc:item name="project_id" row="<%=resultRow%>"/>')" onmouseout="popHide()"/>
-                        <div id="popUp<rsc:item name="project_id" row="<%=resultRow%>"/>" class="popUp">Eligible for the TCCC06 CDDC</div>
-                     </div>
+                    <div id="popUp<rsc:item name="project_id" row="<%=resultRow%>"/>" class="popUp"><div>Eligible for the TCCC06 CDDC</div></div>
+                    <div align="center"><a href='/tc?module=Static&d1=digital_run&d2=description'><img class="emblem" src="/i/tournament/tccc06/emblem.png" alt="" border="0" onmouseover="popUp(this,'popUp<rsc:item name="project_id" row="<%=resultRow%>"/>')" onmouseout="popHide()" /></a></div>
                 <% } %>
             </td>
             <td class="valueC">
@@ -235,10 +192,8 @@ position: relative;
             </td>
             <td class="value">
                 <% if (resultRow.getIntItem("tourny_project")>0) { %>
-                     <div id="container">
-                        <img src="/i/tournament/tccc06/emblem.png" alt="" border="0" id="pop<rsc:item name="project_id" row="<%=resultRow%>"/>" onmouseover="popUp(this.id,'popUp<rsc:item name="project_id" row="<%=resultRow%>"/>')" onmouseout="popHide()"/>
-                        <div id="popUp<rsc:item name="project_id" row="<%=resultRow%>"/>" class="popUp">Eligible for the TCCC06 CDDC</div>
-                     </div>
+                    <div id="popUp<rsc:item name="project_id" row="<%=resultRow%>"/>" class="popUp"><div>Eligible for the TCCC06 CDDC</div></div>
+                    <div align="center"><a href='/tc?module=Static&d1=digital_run&d2=description'><img class="emblem" src="/i/tournament/tccc06/emblem.png" alt="" border="0" onmouseover="popUp(this,'popUp<rsc:item name="project_id" row="<%=resultRow%>"/>')" onmouseout="popHide()" /></a></div>
                 <% } %>
             </td>
             <td class="valueC">

@@ -184,9 +184,7 @@
     <TD CLASS="headerC" rowspan="2">Initial Score</TD>
     <TD CLASS="headerC" rowspan="2">Final Score</TD>
     <TD CLASS="headerC" rowspan="2">
-        <div id="popDR" class="popUp">
-            <div>Digital Run</div>
-        </div>
+        <div id="popDR" class="popUp"><div>Digital Run</div></div>
         <a href='/tc?module=Static&d1=digital_run&d2=description'><img class="emblem" src="/i/interface/emblem/digitalrun.png" alt="" border="0" onmouseover="popUp(this,'popDR')" onmouseout="popHide()" /></a>
         Points
     </TD>
