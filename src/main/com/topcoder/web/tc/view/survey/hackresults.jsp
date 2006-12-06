@@ -191,9 +191,7 @@
             height: 50px;
         }
     </STYLE>
-<SCRIPT LANGUAGE="JavaScript" SRC="/js/popup.js"></SCRIPT>
-    <script type="text/javascript">
-    </script>
+    <SCRIPT LANGUAGE="JavaScript" SRC="/js/popup.js"></SCRIPT>
 </head>
 
 <body>
@@ -255,7 +253,6 @@
                         <tc-webtag:useBean id="candidate" name="result" type="com.topcoder.web.common.voting.Candidate"
                                            toScope="page" property="candidate"/>
                         <td valign="top" align="left">
-                            <div id="container">
                                     ${candidate.name}
                                     <%--
                                                                     <img src="${candidate.name}" alt="" class="logoSmall" id="popper${candidate.id}"
@@ -263,7 +260,6 @@
 
                                                                     <div id="pop${candidate.id}" class="popUp"><img src="${candidate.name}"/></div>
                                     --%>
-                            </div>
                         </td>
                     </tr>
                 </tc-webtag:listIterator>
