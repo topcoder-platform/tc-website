@@ -49,6 +49,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- IEEE software --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/pdfs/press_room/ieeeSoftware_20061206.pdf"><img src="/i/pressroom/ieeesoftware_logo.png" alt="IEEE Software logo" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/pdfs/press_room/ieeeSoftware_20061206.pdf">Programming Contests Show Impressive Growth</A> [PDF]</strong></font><br />
+                        Global software programming contests are expanding in number, size, and scope. Student programmers and, increasingly, their professional colleagues are taking the opportunity to 'show their stuff' under the trying conditions of controlled competition. <span class="prHead"> [December 6]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- Success --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
