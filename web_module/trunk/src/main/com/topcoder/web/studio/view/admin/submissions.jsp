@@ -210,7 +210,7 @@ Show submissions by (Enter Handle):
     </tr>
 </rsc:iterator>
 <tr>
-    <td class="SW" colspan="8">&nbsp;</td>
+    <td class="SW" colspan="9">&nbsp;</td>
     <td class="SE">&nbsp;</td>
 </tr>
 </tbody>
