@@ -15,7 +15,7 @@
 <c:set var="affidavits" value="<%= request.getAttribute(AffidavitHistory.AFFIDAVITS) %>"/>
 
 <%
-	ResultSetContainer rsc = (ResultSetContainer) request.getAttribute(AffidavitHistory.AFFIDAVITS);
+    ResultSetContainer rsc = (ResultSetContainer) request.getAttribute(AffidavitHistory.AFFIDAVITS);
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -135,22 +135,22 @@
     </tr>
 <% boolean even = true;%>
 <rsc:iterator list="${affidavits}" id="resultRow">
-	<c:set var="statusId" value="<%= resultRow.getStringItem("status_id") %>" />
-	<c:set var="affidavitId" value="<%= resultRow.getStringItem("affidavit_id") %>" />
-	<c:set var="notarized" value="<%= Boolean.valueOf(resultRow.getIntItem("notarized") == 1) %>" />
+    <c:set var="statusId" value="<%= resultRow.getStringItem("status_id") %>" />
+    <c:set var="affidavitId" value="<%= resultRow.getStringItem("affidavit_id") %>" />
+    <c:set var="notarized" value="<%= Boolean.valueOf(resultRow.getIntItem("notarized") == 1) %>" />
 
     <tr class="<%=even?"light":"dark"%>">
         <td class="value">
-	        <rsc:item name="affidavit_desc" row="<%=resultRow%>"/>
+            <rsc:item name="affidavit_desc" row="<%=resultRow%>"/>
         </td>
     <c:choose>
         <c:when test="${statusId == 58}">
-	        <td class="valueC">
-	            <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavitId}">
-	                Affirmed on<br><rsc:item name="date_affirmed" row="<%=resultRow%>"  format="MM/dd/yy"/>
-	            </a>                
-	        </td>
-	        <td class="valueC">&nbsp;</td>
+            <td class="valueC">
+                <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavitId}">
+                    Affirmed on<br><rsc:item name="date_affirmed" row="<%=resultRow%>"  format="MM/dd/yy"/>
+                </a>                
+            </td>
+            <td class="valueC">&nbsp;</td>
         </c:when>
         <c:when test="${statusId == 57}">
         <td class="valueC">
@@ -165,7 +165,7 @@
             </a></strong>            
          <% } else { %>
            -         
-         <% %>
+         <% }  %>
             
             
         </td>
@@ -184,7 +184,7 @@
         </c:otherwise>
     </c:choose>
         <td class="valueR">
-	        <rsc:item name="net_amount" row="<%=resultRow%>"  format="$###,###,##0.00"/>
+            <rsc:item name="net_amount" row="<%=resultRow%>"  format="$###,###,##0.00"/>
         </td>
         <td class="valueC">
             <c:choose>
@@ -197,7 +197,7 @@
         </td>
         <td class="valueC">
             <c:if test="${fullList}" >
-            	<b><rsc:item name="date_paid" row="<%=resultRow%>"  format="MM/dd/yy"/>                  
+                <b><rsc:item name="date_paid" row="<%=resultRow%>"  format="MM/dd/yy"/>                  
             </c:if>
         </td>
     </tr>
