@@ -159,9 +159,15 @@
             </a></strong>
         </td>
         <td class="valueC">
+        <% if (resultRow.getIntItem("affidavit_type_id") == 1) { %>
             <strong><a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${affidavitId}">
                  <rsc:item name="time_left" row="<%=resultRow%>"/> days
             </a></strong>            
+         <% } else { %>
+           -         
+         <% %>
+            
+            
         </td>
         </c:when>
         <c:otherwise>

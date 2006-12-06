@@ -5819,7 +5819,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append("ELSE 'Expired' END as time_left_order, ");
         query.append("pd.net_amount, a.notarized, s.status_desc, pd.date_paid, a.date_affirmed, ");
         query.append("a.affidavit_id, a.affirmed, a.date_created, p.payment_id, a.status_id, ");
-        query.append(PactsConstants.AFFIDAVIT_EXPIRE_TIME + " units day -(today - a.date_created) as time_left, a.date_created, a.date_affirmed ");
+        query.append(PactsConstants.AFFIDAVIT_EXPIRE_TIME + " units day -(today - a.date_created) as time_left, a.date_created, a.date_affirmed, a.affidavit_type_id ");
         query.append("FROM affidavit a, status_lu s, ");
         query.append("OUTER (payment p, payment_detail pd) ");
         query.append("WHERE p.payment_id = a.payment_id ");
