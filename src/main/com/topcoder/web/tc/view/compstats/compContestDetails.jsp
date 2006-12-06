@@ -209,7 +209,7 @@
             %>
             <TD CLASS="headerC">
             <%  if("Stress".equalsIgnoreCase(reviewers.getStringItem(k, "review_resp_desc"))) { %>
-                <div id="popStress" class="popUp"><div>Stress</div></div>c
+                <div id="popStress" class="popUp"><div>Stress</div></div>
                 <div align="center"><img src="/i/interface/emblem/stress.png" alt="" border="0" onmouseover="popUp(this,'popStress')" onmouseout="popHide()" /></div>
              <% } else if("Accuracy".equalsIgnoreCase(reviewers.getStringItem(k, "review_resp_desc"))) { %>
                 <div id="popAccuracy" class="popUp"><div>Accuracy</div></div>
