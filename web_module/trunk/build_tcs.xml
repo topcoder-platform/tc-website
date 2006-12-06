@@ -369,6 +369,7 @@
                 <include name="com/topcoder/util/IDGenerator.xml"/>
                 <include name="mail_templates/*.xsl"/>
                 <include name="template/*.xml"/>
+		<include name="template/*.xsd"/>
             </fileset>
             <fileset dir="${resources.dir}">
                 <include name="ApplicationServer.properties"/>
