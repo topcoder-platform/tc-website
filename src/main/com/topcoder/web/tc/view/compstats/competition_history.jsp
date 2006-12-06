@@ -17,6 +17,7 @@
     </jsp:include>
     <jsp:include page="baseHRef.jsp"/>
     <jsp:include page="../script.jsp"/>
+    <SCRIPT LANGUAGE="JavaScript" SRC="/js/popup.js"></SCRIPT>
     <script type="text/javascript">
         function next() {
             var myForm = document.competitionHistoryForm;
@@ -36,49 +37,7 @@
             myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
             myForm.submit();
         }
-        var objPopUp = null;
-        function popUp(event, objectID) {
-            objPopTrig = document.getElementById(event);
-            objPopUp = document.getElementById(objectID);
-            xPos = objPopTrig.offsetLeft + 15;
-            yPos = objPopTrig.offsetTop + objPopTrig.offsetHeight - 5;
-            if (xPos + objPopUp.offsetWidth > document.body.clientWidth) xPos = xPos - objPopUp.offsetWidth;
-            if (yPos + objPopUp.offsetHeight > document.body.clientHeight) yPos = yPos - objPopUp.offsetHeight - objPopTrig.offsetHeight;
-            objPopUp.style.left = xPos + 'px';
-            objPopUp.style.top = yPos + 'px';
-            objPopUp.style.visibility = 'visible';
-        }
-        function popHide() {
-            objPopUp.style.visibility = 'hidden';
-            objPopUp = null;
-        }
     </script>
-    <STYLE TYPE="text/css">
-        .popper {
-            display: block;
-            margin: 0px auto 0px auto;
-        }
-
-        #container {
-            text-align: center;
-            position: relative;
-            margin: 0px;
-            padding: 0px;
-        }
-
-        .popUp {
-            font-size: 10px;
-            text-align: center;
-            background-color: #FFFFCC;
-            visibility: hidden;
-            margin: 10px;
-            padding: 3px;
-            position: absolute;
-            white-space: nowrap;
-            border: solid 1px black;
-            z-index: 1;
-        }
-    </STYLE>
 </HEAD>
 
 <BODY>
@@ -187,11 +146,8 @@
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Rating</a>
             </TD>
             <TD CLASS="headerC" WIDTH="9%">
-                <div id="container">
-                    <A href="/tc?module=Static&d1=digital_run&d2=description"><img class="popper" src="/i/interface/emblem/digitalrun.png" alt="The Digital Run" border="0" id="popper0" onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()"/></A>
-
-                    <div id="pop0" class="popUp" style="width:90px;">The Digital Run</div>
-                </div>
+                <div id="popDR" class="popUp"><div>Digital Run</div></div>
+                <div align="center"><a href='/tc?module=Static&d1=digital_run&d2=description'><img class="emblem" src="/i/interface/emblem/digitalrun.png" alt="" border="0" onmouseover="popUp(this,'popDR')" onmouseout="popHide()" /></a></div>
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Points</a>
             </TD>
             <TD CLASS="headerR" WIDTH="9%" align="right">&#160;</TD>
