@@ -230,7 +230,6 @@ public class ForumsBean extends BaseEJB {
     			forumFactory.createForum(rs.getString("name"), rs.getString("description"), newCategory);
     		}
     		forumsConn.close();
-    		forumsPS.close();
     		rs.close();
     		
     		Connection tcsConn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
@@ -243,7 +242,6 @@ public class ForumsBean extends BaseEJB {
     		tcsPS.setLong(4, newCategory.getID());
     		tcsPS.executeUpdate();
     		tcsConn.close();
-    		tcsPS.close();
     		
     		createSoftwareComponentPermissions(newCategory, false);
     		return newCategory;
