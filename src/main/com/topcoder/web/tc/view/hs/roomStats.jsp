@@ -17,6 +17,7 @@
 <title>TopCoder High School Competitions</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/popup.js"></SCRIPT>
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
     <jsp:param name="key" value="tc_stats"/>
