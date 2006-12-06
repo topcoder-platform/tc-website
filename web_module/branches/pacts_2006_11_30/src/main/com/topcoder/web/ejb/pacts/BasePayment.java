@@ -36,6 +36,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     private final int paymentTypeId;
     private String referenceDescription = null;
     private boolean charity = false;
+    private double totalAmount;    
+    private int installmentNumber;    
 
     // Date when the event happened.  It is not stored in the database, but needed to know if referrals must be paid.
     private Date eventDate;
@@ -74,6 +76,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         this.paymentTypeId = paymentTypeId;
         this.coderId = coderId;
         this.grossAmount = grossAmount;
+        this.totalAmount = grossAmount;
+        this.installmentNumber = 1;
         this.placed = placed;
     }
 
@@ -308,8 +312,27 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 	public void setCharity(boolean charity) {
 		this.charity = charity;
 	}
+		
 
-    /**
+    public int getInstallmentNumber() {
+		return installmentNumber;
+	}
+
+	public void setInstallmentNumber(int installmentNumber) {
+        fieldChanged(MODIFICATION_GROSS_AMOUNT, installmentNumber != this.installmentNumber);
+		this.installmentNumber = installmentNumber;
+	}
+
+	public double getTotalAmount() {
+		return totalAmount;
+	}
+
+	public void setTotalAmount(double totalAmount) {
+        fieldChanged(MODIFICATION_GROSS_AMOUNT, totalAmount != this.totalAmount);		
+		this.totalAmount = totalAmount;
+	}
+
+	/**
      * Set the status id.
      * If the value changes, statusDesc is set to null, because that value must be looked up from DB.
      *
