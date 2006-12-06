@@ -16,4 +16,4 @@
 <IMG SRC="/i/home/arenaNaolmashups.png" border="0" alt="ArenaAOLMashups" usemap="#ArenaAOLMashups"/>
 --%>
 
-<A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2045"><img src="/i/home/aolmashups20061128.jpg" alt="AOL Mashups" /></A>
+<A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview"><IMG SRC="/i/home/tchs_promo_120406.png" border="0" alt="The 2007 TopCoder High School Tournament" /></A>
