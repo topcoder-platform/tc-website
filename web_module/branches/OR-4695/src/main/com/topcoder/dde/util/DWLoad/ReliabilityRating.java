@@ -253,7 +253,6 @@ public class ReliabilityRating {
                     " and pr.user_id = ?" +
                     " and p.project_category_id+111 = ?" +
                     " and pr.project_id = pi.project_id" +
-                    " and p.project_status_id IN (4,5,6,7)" + 
                     " and pi.phase_type_id = 2" + // phase type 2 is submission
                     " and pr.reliability_ind = 1" +
                     " and pr.reliable_submission_ind is not null" +
