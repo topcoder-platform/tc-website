@@ -14,53 +14,7 @@
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
-    <script language="javascript" type="text/javascript">
-        <!--
-        var objPopUp = null;
-        function popUp(popper,popupID) {
-            objPopUp = document.getElementById(popupID);
-            objPopUp.style.display = 'block';
-            var x = popper.offsetLeft + popper.width;
-            var y = popper.offsetHeight;
-            objPopUp.style.left = x + 'px';
-            objPopUp.style.top = y + 'px';
-        }
-        function popHide() {
-            objPopUp.style.display = 'none';
-            objPopUp = null;
-        }
-        // -->
-    </script>
-    <STYLE TYPE="text/css">
-        img.emblem {
-            display: block;
-            z-index: 1;
-        }
-
-        div.container {
-            position: relative;
-            width: 100%; 
-            margin: 0px;
-            padding: 0px;
-        }
-
-        div.popUp {
-            display: none;
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            z-index: 2;
-        }
-
-        div.popUp div {
-            float: left;
-            line-height: normal;
-            background: #FFFFCC;
-            border: 1px solid #999999;
-            padding: 6px;
-            white-space: nowrap;
-        }
-    </STYLE>
+    <SCRIPT LANGUAGE="JavaScript" SRC="/js/popup.js"></SCRIPT>
 </head>
 
 <body >
@@ -230,12 +184,10 @@
     <TD CLASS="headerC" rowspan="2">Initial Score</TD>
     <TD CLASS="headerC" rowspan="2">Final Score</TD>
     <TD CLASS="headerC" rowspan="2">
-        <div class="container" align="center">
-            <a href='/tc?module=Static&d1=digital_run&d2=description'><img class="emblem" src="/i/interface/emblem/digitalrun.png" alt="" border="0" onmouseover="popUp(this,'popDR')" onmouseout="popHide()" /></a>
-            <div id="popDR" class="popUp">
-                <div>Digital Run</div>
-            </div>
+        <div id="popDR" class="popUp">
+            <div>Digital Run</div>
         </div>
+        <a href='/tc?module=Static&d1=digital_run&d2=description'><img class="emblem" src="/i/interface/emblem/digitalrun.png" alt="" border="0" onmouseover="popUp(this,'popDR')" onmouseout="popHide()" /></a>
         Points
     </TD>
     <TD CLASS="headerC">&nbsp;</TD>
@@ -255,35 +207,23 @@
     <% } else if (reviewers.size() == 3) {
     %>
     <TD CLASS="headerC"><!-- %=isDev? reviewers.getStringItem(0, "review_resp_desc") + "<br>" : ""% -->
-<%--
-        <div class="container" align="center">
-            <div id="popStress" class="popUp">
-                <div>Stress</div>
-            </div>
-        </div>
-        <div align="center"><img class="emblem" src="/i/interface/emblem/stress.png" style="display:block;" alt="" border="0" onmouseover="popUp(this,'popStress')" onmouseout="popHide()" /></div>
+<%-- THIS IS WHAT NEEDS TO DISPLAY FOR A STRESS SYMBOL
+        <div id="popStress" class="popUp"><div>Stress</div></div>
+        <div align="center"><img src="/i/interface/emblem/stress.png" alt="" border="0" onmouseover="popUp(this,'popStress')" onmouseout="popHide()" /></div>
 --%>
         <tc-webtag:handle coderId='<%= reviewers.getLongItem(0, "reviewer_id") %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/>
     </TD>
     <td class="headerC">
-<%--
-        <div class="container" align="center">
-            <div id="popAccuracy" class="popUp">
-                <div>Accuracy</div>
-            </div>
-        </div>
-        <div align="center"><img class="emblem" src="/i/interface/emblem/accuracy.png" style="display:block;" alt="" border="0" onmouseover="popUp(this,'popAccuracy')" onmouseout="popHide()" /></div>
---%>
+<%-- THIS IS WHAT NEEDS TO DISPLAY FOR AN ACCURACY SYMBOL
+        <div id="popAccuracy" class="popUp"><div>Accuracy</div></div>
+        <div align="center"><img src="/i/interface/emblem/accuracy.png" alt="" border="0" onmouseover="popUp(this,'popAccuracy')" onmouseout="popHide()" /></div>
         <tc-webtag:handle coderId='<%= reviewers.getLongItem(1, "reviewer_id") %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></TD>
+--%>
     </td>
     <TD CLASS="headerC"><!-- %=isDev? reviewers.getStringItem(2, "review_resp_desc") + "<br>" : ""% -->
-<%--
-        <div class="container" align="center">
-            <div id="popFailure" class="popUp">
-                <div>Failure</div>
-            </div>
-        </div>
-        <div align="center"><img class="emblem" src="/i/interface/emblem/failure.png" style="display:block;" alt="" border="0" onmouseover="popUp(this,'popFailure')" onmouseout="popHide()" /></div>
+<%-- THIS IS WHAT NEEDS TO DISPLAY FOR A FAILURE SYMBOL
+        <div id="popFailure" class="popUp"><div>Failure</div></div>
+        <div align="center"><img src="/i/interface/emblem/failure.png" alt="" border="0" onmouseover="popUp(this,'popFailure')" onmouseout="popHide()" /></div>
 --%>
         <tc-webtag:handle coderId='<%= reviewers.getLongItem(2, "reviewer_id") %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/>
     </TD>
@@ -364,10 +304,8 @@
         </TD>
 <% if (canDownloadSubm) { %>
         <TD class="valueC" nowrap="nowrap">
-        <div class="container" align="center">
-            <div id="pop<%=i%>" class="popUp">
-                <div>Download submission</div>
-            </div>
+        <div id="pop<%=i%>" class="popUp">
+            <div>Download submission</div>
         </div>
         <a href='/tc?module=DownloadSubmission&cr=<%= resultRow.getLongItem("user_id") %>&pj=<%= projectId %>&st=1&ph=<%= projectInfo.getStringItem(0, "phase_id") %>'>
         <img src="/i/interface/emblem/disk.gif" alt="Download submission" border="0" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()" /></a>
