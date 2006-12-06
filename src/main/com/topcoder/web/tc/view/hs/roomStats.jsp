@@ -99,45 +99,11 @@
             window.location = '/longcontest/?module=ViewOverview&rd=' + sel;
         }
     }
-    var objPopUp = null;
-    function popUp(event, objectID) {
-        objPopTrig = document.getElementById(event);
-        objPopUp = document.getElementById(objectID);
-        xPos = objPopTrig.offsetLeft + objPopTrig.offsetWidth;
-        yPos = objPopTrig.offsetTop + objPopTrig.offsetHeight;
-        if (xPos + objPopUp.offsetWidth > document.body.clientWidth) xPos = xPos - objPopUp.offsetWidth;
-        if (yPos + objPopUp.offsetHeight > document.body.clientHeight) yPos = yPos - objPopUp.offsetHeight - objPopTrig.offsetHeight;
-        objPopUp.style.left = xPos + 'px';
-        objPopUp.style.top = yPos + 'px';
-        objPopUp.style.visibility = 'visible';
-    }
-    function popHide() {
-        objPopUp.style.visibility = 'hidden';
-        objPopUp = null;
-    }
     // -->
 </script>
 
 
 <STYLE TYPE="text/css">
-    #popBox {
-        position: relative;
-    }
-
-    #popBox div {
-        float: left;
-        width: 150px;
-        position: absolute;
-        font-size: 11px;
-        font-weight: bold;
-        background-color: #FFFFCC;
-        visibility: hidden;
-        padding: 3px;
-        border: 1px solid #000000;
-        z-index: 2;
-        white-space: normal;
-    }
-
     /* table cells were wrapping after minus sign */
     table.stat td.value, table.stat td.valueC, table.stat td.valueR {
         white-space: nowrap;
@@ -247,11 +213,8 @@
         </td>
 
         <td class="value" nowrap>
-            <div id="popBox">
-                <div id="d_CODERID_<%=resultRow.getItem("coder_id").toString() %>">
-                    <rsc:item name="team_name" row="<%=resultRow%>"/></div>
-            </div>
-            <A href="/tc?module=HSTeamResults&rd=<%= round.getRoundId() %>&tmid=<%= resultRow.getItem("team_id") %>" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID_<%=resultRow.getItem("coder_id").toString() %>')" onmouseout="popHide()">
+            <div id="d_CODERID_<%=resultRow.getItem("coder_id").toString() %>" class="popUp"><div><rsc:item name="team_name" row="<%=resultRow%>"/></div></div>
+            <A href="/tc?module=HSTeamResults&rd=<%= round.getRoundId() %>&tmid=<%= resultRow.getItem("team_id") %>" id="a_CODERID" onmouseover="popUp(this,'d_CODERID_<%=resultRow.getItem("coder_id").toString() %>')" onmouseout="popHide()">
                 <%= Base.cutTeamName(resultRow.getStringItem("team_name")) %></A>
         </td>
 
