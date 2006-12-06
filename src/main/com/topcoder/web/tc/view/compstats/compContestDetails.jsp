@@ -205,28 +205,23 @@
     <TD CLASS="headerC">unknown*</TD>
     <TD CLASS="headerC" colspan="2">unknown*</TD>
     <% } else if (reviewers.size() == 3) {
-    %>
-    <TD CLASS="headerC"><!-- %=isDev? reviewers.getStringItem(0, "review_resp_desc") + "<br>" : ""% -->
-<%-- THIS IS WHAT NEEDS TO DISPLAY FOR A STRESS SYMBOL
-        <div id="popStress" class="popUp"><div>Stress</div></div>
-        <div align="center"><img src="/i/interface/emblem/stress.png" alt="" border="0" onmouseover="popUp(this,'popStress')" onmouseout="popHide()" /></div>
---%>
-        <tc-webtag:handle coderId='<%= reviewers.getLongItem(0, "reviewer_id") %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/>
-    </TD>
-    <td class="headerC">
-<%-- THIS IS WHAT NEEDS TO DISPLAY FOR AN ACCURACY SYMBOL
-        <div id="popAccuracy" class="popUp"><div>Accuracy</div></div>
-        <div align="center"><img src="/i/interface/emblem/accuracy.png" alt="" border="0" onmouseover="popUp(this,'popAccuracy')" onmouseout="popHide()" /></div>
-        <tc-webtag:handle coderId='<%= reviewers.getLongItem(1, "reviewer_id") %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></TD>
---%>
-    </td>
-    <TD CLASS="headerC"><!-- %=isDev? reviewers.getStringItem(2, "review_resp_desc") + "<br>" : ""% -->
-<%-- THIS IS WHAT NEEDS TO DISPLAY FOR A FAILURE SYMBOL
-        <div id="popFailure" class="popUp"><div>Failure</div></div>
-        <div align="center"><img src="/i/interface/emblem/failure.png" alt="" border="0" onmouseover="popUp(this,'popFailure')" onmouseout="popHide()" /></div>
---%>
-        <tc-webtag:handle coderId='<%= reviewers.getLongItem(2, "reviewer_id") %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/>
-    </TD>
+        for (int k = 0; k < 3; k++) { 
+            %>
+            <TD CLASS="headerC">
+            <%  if("Stress".equalsIgnoreCase(reviewers.getStringItem(k, "review_resp_desc"))) { %>
+                <div id="popStress" class="popUp"><div>Stress</div></div>c
+                <div align="center"><img src="/i/interface/emblem/stress.png" alt="" border="0" onmouseover="popUp(this,'popStress')" onmouseout="popHide()" /></div>
+             <% } else if("Accuracy".equalsIgnoreCase(reviewers.getStringItem(k, "review_resp_desc"))) { %>
+                <div id="popAccuracy" class="popUp"><div>Accuracy</div></div>
+                <div align="center"><img src="/i/interface/emblem/accuracy.png" alt="" border="0" onmouseover="popUp(this,'popAccuracy')" onmouseout="popHide()" /></div>
+             <% } else if("Failure".equalsIgnoreCase(reviewers.getStringItem(k, "review_resp_desc"))) { %>
+                <div id="popFailure" class="popUp"><div>Failure</div></div>
+                <div align="center"><img src="/i/interface/emblem/failure.png" alt="" border="0" onmouseover="popUp(this,'popFailure')" onmouseout="popHide()" /></div>     
+             <% } %>
+
+                <tc-webtag:handle coderId='<%= reviewers.getLongItem(k, "reviewer_id") %>' context='<%= projectInfo.getStringItem(k, "phase_desc") %>'/>
+            </TD>
+        <% } %>
     <% } %>
 
 </tr>
