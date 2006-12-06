@@ -14,6 +14,7 @@
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_reg"/>
     </jsp:include>
+    <SCRIPT LANGUAGE="JavaScript" SRC="/js/popup.js"></SCRIPT>
     <script language="javascript" type="text/javascript">
         <!--
         function openWin(url, name, w, h) {
@@ -21,25 +22,6 @@
             win.location.href = url;
             win.focus();
         }
-        var objPopUp = null;
-        function popUpUnder(event, objectID) {
-            objPopTrig = document.getElementById(event);
-            alert(objPopTrig);
-            objPopUp = document.getElementById(objectID);
-            xPos = objPopTrig.offsetLeft;
-            if (xPos + objPopUp.offsetWidth > document.body.clientWidth) xPos = xPos - objPopUp.offsetWidth;
-            objPopUp.style.left = xPos + 'px';
-            objPopUp.style.display = 'block';
-        }
-        function popUp(objectID) {
-            objPopUp = document.getElementById(objectID);
-            objPopUp.style.visibility = 'visible';
-        }
-        function popHide() {
-            objPopUp.style.visibility = 'hidden';
-            objPopUp = null;
-        }
-
         // -->
     </script>
 </head>
@@ -81,7 +63,7 @@
 
             <c:set value="<%=Constants.REGISTRATION_TYPE%>" var="regType"/>
             <span class="bigRed"><tc-webtag:errorIterator id="err" name="${regType}">${err}
-                <br/></tc-webtag:errorIterator></span>
+                <br></tc-webtag:errorIterator></span>
 
             <c:set value="<%=BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
             <% int i = 0;%>
@@ -93,15 +75,12 @@
                     <c:otherwise><img src="/i/interface/cbox_grayedout.gif" alt=""/>
                         <tc-webtag:hiddenInput name="${regTypeKey}" value="on"/></c:otherwise>
                 </c:choose>
-                ${type.name} <A href="javascript:void(0)" onmouseover="popUp('popUp<%=i%>')" onmouseout="popHide()">tell
-                me more...</A><br/>
+                ${type.name} <br><A href="javascript:void(0)" onmouseover="popUp(this,'popUp<%=i%>')" onmouseout="popHide()">tell
+                me more...</A><br>
 
-                <div id="container">
-                    <div id="popUp<%=i%>" class="popUp">${type.description}
-                    </div>
-                </div>
+                <div id="popUp<%=i%>" class="popUp"><div style="width: 400px; white-space: normal;">${type.description}</div></div>
 
-                <br/><br/>
+                <br><br>
                 <%i++;%>
             </c:forEach>
 
