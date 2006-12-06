@@ -1806,6 +1806,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             throw new CatalogException(e.toString());
         }
         
+        /*
     	try {
     		log.info("******* calling createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
     		forums.createSoftwareComponentForums(newComponent.getComponentName(), ((Long)newComponent.getPrimaryKey()).longValue(),
@@ -1824,7 +1825,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     	} catch (RemoteException e) {
     		ejbContext.setRollbackOnly();
             throw new CatalogException(e.toString());
-    	}    	
+    	}
+    	*/
     	
     	/*	TODO: remove
         Connection c = null;
