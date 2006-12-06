@@ -21,6 +21,7 @@
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
+    <SCRIPT LANGUAGE="JavaScript" SRC="/js/popup.js"></SCRIPT>
     <script type="text/javascript">
         function submitEnter(e) {
             var keycode;
@@ -46,47 +47,8 @@
             myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
             myForm.submit();
         }
-        var objPopUp = null;
-        function popUp(objectID) {
-            objPopUp = document.getElementById(objectID);
-            objPopUp.style.visibility = 'visible';
-        }
-        function popHide() {
-            objPopUp.style.visibility = 'hidden';
-            objPopUp = null;
-        }
     </script>
     <style type="text/css">
-        img.emblem {
-            float: left;
-            margin: 0px 0px 0px 0px;
-        }
-
-        div.container {
-            display: block;
-            text-align: center;
-            position: relative;
-            margin: 0px;
-            padding: 0px;
-        }
-
-        div.popUp {
-            visibility: hidden;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 1;
-        }
-
-        div.popUp div {
-            font-size: 11px;
-            width: 200px;
-            background: #FFFFCC;
-            border: 1px solid #999999;
-            padding: 6px;
-            text-align: left;
-        }
-
         div.maxWidth {
         /* recognized by everything but IE */
             max-width: 650px; /* only recognized by IE, unfortunately it invalidates CSS */
@@ -238,22 +200,14 @@ Please select a <strong>season</strong><br>
             <c:if test="${boardRow.potential}">***</c:if></td>
         <td class="valueC">
             <c:if test="${boardRow.winTrip}">
-                <div class="container">
-                    <img src="/i/interface/emblem/trip.gif" class="emblem" alt="" border="0" onmouseover="popUp('pop<%=i%>a')" onmouseout="popHide()"/>
-
-                    <div id="pop<%=i%>a" class="popUp"><div>Trip to the next TCO Finals for finishing as the
-                        <strong>Rookie of the Year</strong></div></div>
-                </div>
+                <div id="pop<%=i%>a" class="popUp"><div>Trip to the next TCO Finals for finishing as the <strong>Rookie of the Year</strong></div></div>
+                <div align="center"><img src="/i/interface/emblem/trip.gif" alt="" border="0" onmouseover="popUp(this,'pop<%=i%>a')" onmouseout="popHide()" /></div>
             </c:if>
         </td>
         <td class="valueC">
             <c:if test="${boardRow.placementPrize>0}">
-                <div class="container">
-                    <img src="/i/interface/emblem/prize.gif" class="emblem" alt="" border="0" onmouseover="popUp('pop<%=i%>b')" onmouseout="popHide()"/>
-
-                    <div id="pop<%=i%>b" class="popUp"><div>Cash prize for placing in the <strong>Top
-                        Ten</strong></div></div>
-                </div>
+                <div id="pop<%=i%>b" class="popUp"><div>Cash prize for placing in the <strong>Top Ten</strong></div></div>
+                <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop<%=i%>b')" onmouseout="popHide()" /></div>
             </c:if>
         </td>
         <td class="valueR">

@@ -24,6 +24,7 @@
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
+    <SCRIPT LANGUAGE="JavaScript" SRC="/js/popup.js"></SCRIPT>
     <script type="text/javascript">
         function submitEnter(e) {
             var keycode;
@@ -52,8 +53,9 @@
     </script>
     <style type="text/css">
         #maxWidth {
-            max-width: 650px; /* only recognized by IE, unfortunately it invalidates CSS */
-        /* if the body is wider than 1024, this div is 650, otherwise auto */
+            max-width: 650px; 
+            /* only recognized by IE, unfortunately it invalidates CSS */
+            /* if the body is wider than 1024, this div is 650, otherwise auto */
             width: expression( document . body . clientWidth > 1024 ? "650px": "auto" );
         }
     </style>
@@ -207,19 +209,19 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
         <td class="valueC">
             <c:if test="${boardRow.winTrip}">
                 <div id="pop<%=i%>a" class="popUp"><div>Trip to the next TCO Finals for placing in the <strong>Top Five</strong></div></div>
-                <div align="center"><a href='/tc?module=Static&d1=digital_run&d2=description'><img src="/i/interface/emblem/trip.gif" alt="" border="0" onmouseover="popUp(this,'pop<%=i%>a')" onmouseout="popHide()" /></a></div>
+                <div align="center"><img src="/i/interface/emblem/trip.gif" alt="" border="0" onmouseover="popUp(this,'pop<%=i%>a')" onmouseout="popHide()" /></div>
             </c:if>
         </td>
         <td class="valueC">
             <c:if test="${boardRow.winTrip}">
                 <div id="pop<%=i%>b" class="popUp"><div>Cash prize for placing in the <strong>Top Five</strong></div></div>
-                <div align="center"><a href='/tc?module=Static&d1=digital_run&d2=description'><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop<%=i%>b')" onmouseout="popHide()" /></a></div>
+                <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop<%=i%>b')" onmouseout="popHide()" /></div>
             </c:if>
         </td>
         <td class="valueC">
             <c:if test="${boardRow.topPerformer}">
                 <div id="pop<%=i%>c" class="popUp"><div>Cash prize for placing in the <strong>Top Performers</strong></div></div>
-                <div align="center"><a href='/tc?module=Static&d1=digital_run&d2=description'><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop<%=i%>c')" onmouseout="popHide()" /></a></div>
+                <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop<%=i%>c')" onmouseout="popHide()" /></div>
             </c:if>
         </td>
         <td class="valueR">
