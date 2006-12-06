@@ -7,6 +7,10 @@
 <table width="530" border="0" cellspacing="0" cellpadding="4">
 
    <tr><td class="prHead">
+         <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/ieeesoftware_logo.png" width="67" height="25" alt="IEEE Software logo" border="0" /></div>
+         <A href="http://www.topcoder.com/pdfs/press_room/ieeeSoftware_20061206.pdf">Programming Contests Show Impressive Growth</A> [PDF] [December 6]
+   </td></tr>
+   <tr><td class="prHead">
          <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/success_logo.png" width="67" height="21" alt="Success Magazine" border="0" /></div>
          <A href="http://www.topcoder.com/pdfs/press_room/success200612.pdf">Maverick Rules for Success</A> [PDF] [November]
    </td></tr>
@@ -23,11 +27,6 @@
    <tr><td class="prHead">
          <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/wallstreetnTech_logo.gif" width="80" height="30" alt="Wall Street &amp; Technology" border="0" /></div>
          <A href="http://www.wallstreetandtech.com/showArticle.jhtml;jsessionid=0U21ZF2KMDLJYQSNDLPCKHSCJUNN2JVN?articleID=193400878" target="_blank"><i>Wall Street & Technology</i> on TopCoder and UBS</A> [October 23]
-   </td></tr>
-   <tr><td class="prHead">
-         <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/opensource_logo.gif" width="68" height="23" alt="Open Source" border="0" /></div>
-         <A href="/audio/open_source_060928_48kb.mp3" target="_blank">TopCoder featured on public radio's "Open Source"</A> [PODCAST] [October 4]<br>
-         <A href="/audio/open_source_060928_24kb.mp3" target="_blank">low bandwidth</A> (6.8mb)
    </td></tr>
 
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
