@@ -46,6 +46,7 @@
     5.5.11 - 2006.12.xx
     <ul>
         <li>Fix round types that are shown when creating payments in pacts.</li>
+        <li>In affidivt list for users, the days to expire is not shown anymore if the affidavit is not of contest winning type (the only type being currently expired)</li>
     </ul>
     5.5.10 - 2006.12.04
     <ul>
