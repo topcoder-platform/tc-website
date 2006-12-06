@@ -9,6 +9,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.06.06<br>10:15 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm22">TCHS SRM 22 - Problem Set & Analysis</A></span><br><br>
+The relatively simple easy and medium helped the match start with a blast. Within 20 minutes, most of the coders submitted the first two problems and moved on to the hard.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/myprasanna_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="13366203" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm22">full story</A> | 
+        <tc-webtag:forumLink forumID="506044" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/employment.png" alt="Employment Opportunities" border="0" /><br>12.05.06<br>6:15 PM</td>
       <td class="newsTextCell">
         <span class="newsTitle"><A href="/tc?module=Static&d1=about&d2=deployment_engineer">Job Opening at TopCoder: Deployment Engineer</A></span><br><br>
@@ -117,7 +134,7 @@ enjoyed another HS SRM win with 1708.72 points.
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm21">full story</A> | 
         <tc-webtag:forumLink forumID="506043" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
@@ -183,23 +200,4 @@ enjoyed another HS SRM win with 1708.72 points.
          <tc-webtag:forumLink forumID="506197" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-    <tr>
-        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0" /><br>11.28.06<br>4:10 PM</td>
-        <td class="newsTextCell">
-            <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle">
-            <A href="/tc?module=Static&d1=features&d2=112806">Digital Run Stage 2: Going for the win</A>
-            </span><br><br>
-            Over the course of just ten weeks of the stage, <tc-webtag:handle coderId="287614" context="design"/> competed on 35 components, winning 28 and taking second place on 7. Here, he tells us how he did it.</td>
-            <td class="newsPhoto"><img src="/i/m/argolite_big.jpg"  alt="" width="55" height="61"/><br>by 
-            <tc-webtag:handle coderId="287614" context="design"/></td></tr></table>
-        </td>
-    </tr>
-    <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=features&d2=112806">full story</A> | 
-        <tc-webtag:forumLink forumID="506190" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-    </td></tr>
 
