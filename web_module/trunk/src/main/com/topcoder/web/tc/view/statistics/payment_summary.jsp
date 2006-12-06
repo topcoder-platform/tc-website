@@ -17,25 +17,6 @@
     </jsp:include>
     <jsp:include page="baseHRef.jsp"/>
     <jsp:include page="/script.jsp"/>
-
-    <script type="text/javascript">
-        var objPopUp = null;
-        function popUp(event, objectID) {
-            objPopTrig = document.getElementById(event);
-            objPopUp = document.getElementById(objectID);
-            xPos = objPopTrig.offsetLeft + 15;
-            yPos = objPopTrig.offsetTop + objPopTrig.offsetHeight - 5;
-            if (xPos + objPopUp.offsetWidth > document.body.clientWidth) xPos = xPos - objPopUp.offsetWidth;
-            if (yPos + objPopUp.offsetHeight > document.body.clientHeight) yPos = yPos - objPopUp.offsetHeight - objPopTrig.offsetHeight;
-            objPopUp.style.left = xPos + 'px';
-            objPopUp.style.top = yPos + 'px';
-            objPopUp.style.visibility = 'visible';
-        }
-        function popHide() {
-            objPopUp.style.visibility = 'hidden';
-            objPopUp = null;
-        }
-    </script>
 </HEAD>
 
 <BODY>
