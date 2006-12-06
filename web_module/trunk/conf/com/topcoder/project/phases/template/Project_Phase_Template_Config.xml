@@ -17,13 +17,11 @@
         <Property name="start_date_generator">
             <!-- class of the StartDateGenerator -->
             <Property name="class">
-                <Value>com.topcoder.project.phases.template.startdategenerator.RelativeWeekTimeStartDateGenerator
-                </Value>
+                <Value>com.topcoder.project.phases.template.startdategenerator.RelativeWeekTimeStartDateGenerator</Value>
             </Property>
             <!-- namespace from which the StartDateGenerator will be created, optional, if not provided, no arg ctor will be used to create the startDateGenerator. -->
             <Property name="namespace">
-                <Value>com.topcoder.project.phases.template.startdategenerator.RelativeWeekTimeStartDateGenerator
-                </Value>
+                <Value>com.topcoder.project.phases.template.startdategenerator.RelativeWeekTimeStartDateGenerator</Value>
             </Property>
         </Property>
         <!-- configuration for workdays, the workdays will be created with Object Factory -->
