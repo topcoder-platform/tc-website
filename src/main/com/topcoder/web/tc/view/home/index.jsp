@@ -248,10 +248,15 @@
         <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            
+                <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/ieeesoftware_logo.png" width="67" height="25" alt="IEEE Software" border="0" /></div>
+                Programming Contests Show Impressive Growth [PDF]
+                <A href="/pdfs/press_room/ieeeSoftware_20061206.pdf">...more</A><br>[December 6]<br><br>
 
                 <div style="float: right; padding-left: 5px;">
                 <img src="/i/pressroom/success_logo.png" width="67" height="21" alt="Success Magazine" border="0" /></div>
-                Maverick Rules for Success
+                Maverick Rules for Success [PDF]
                 <A href="/pdfs/press_room/success200612.pdf">...more</A><br>[November]<br><br>
 
                 AOL and TopCoder Announce Web AIM Mashup Competition
@@ -269,11 +274,6 @@
                 <img src="/i/pressroom/businessweek_logo.gif" width="80" height="18" alt="BusinessWeek" border="0" /></div>
                 TopCoder members WishingBone and assistant in BusinessWeek
                 <A href="/tc?module=Static&d1=pressroom&d2=art_110206">...more</A><br>[November 2]<br><br>
-            
-                <div style="float: right; padding-left: 5px;">
-                <img src="/i/pressroom/csmonitor_logo.jpg" width="80" height="32" alt="Christian Science Monitor" border="0" /></div>
-                How to build software? Henry Ford, meet eBay.
-                <A href="http://www.csmonitor.com/2006/1101/p01s04-usec.htm" target="_blank">...more</A><br>[November 1]<br><br>
 
             </td>
         </tr>

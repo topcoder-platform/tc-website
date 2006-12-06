@@ -37,6 +37,7 @@
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
 <!-- 2006  --> 
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
+<tr><td class="newsText"><A href="/pdfs/press_room/ieeeSoftware_20061206.pdf">Programming Contests Show Impressive Growth</A> [PDF] [December 6 - IEEE Software]<br/></td></tr>
 <tr><td class="newsText"><A href="/pdfs/press_room/success200612.pdf">Maverick Rules for Success</A> [PDF] [November - Success]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.internetnews.com/dev-news/article.php/3644456">Who is the Top Coder?</A> [November 17 - internetnews.com]<br/></td></tr>
 <tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_110206">A Growing Cadre Of Code Warriors</A> [November 2 - BusinessWeek]<br/></td></tr>

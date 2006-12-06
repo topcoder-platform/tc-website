@@ -9,6 +9,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>12.06.06<br>1:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/ieeeSoftware_20061206.pdf">Programming Contests Show Impressive Growth</A> [PDF]</span><br><br>
+        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/ieeesoftware_logo.png" width="67" height="25" alt="IEEE Software" border="0" /></div>
+      "Global software programming contests are expanding in number, size, and scope. Student programmers and, increasingly, their professional colleagues are taking the opportunity to 'show their stuff' under the trying conditions of controlled competition."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/pdfs/press_room/ieeeSoftware_20061206.pdf">full story</A> | 
+       <tc-webtag:forumLink forumID="506203" message="discuss this" /> | 
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.06.06<br>10:15 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -186,18 +200,3 @@ enjoyed another HS SRM win with 1708.72 points.
         <tc-webtag:forumLink forumID="506196" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
     </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General Competition News" border="0" /><br>12.01.06<br>9:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=calendar&d2=jan_07">Events Calendar updated through May 2007</A>
-      </span><br><br>
-      See what's happening in the coming months. 
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=calendar&d2=jan_07">view</A> | 
-         <tc-webtag:forumLink forumID="506197" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
