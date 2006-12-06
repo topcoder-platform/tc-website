@@ -233,9 +233,11 @@
             <%-- AOL webcast team 
             <A href="http://dev.aol.com/video"><img src="/i/home/aolWebcast_20061113.jpg" alt="Meet the TCCC webcast team" border="0" style="display:block;" /></A>
             --%>
-            <%-- AOL Mashups --%>
+            <%-- AOL Mashups 
             <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2045"><img src="/i/home/aolmashups_sm.jpg" alt="AOL Mashups" border="0" style="display:block;" /></A>
-            
+            --%>
+            <%-- WSJ --%> 
+            <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0" style="display:block;" /></A>
         </td></tr>
     </table>
     <table border="0" cellpadding="0" cellspacing="0">
