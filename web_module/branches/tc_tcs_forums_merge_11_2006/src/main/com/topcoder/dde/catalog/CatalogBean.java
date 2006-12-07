@@ -1788,7 +1788,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                     + exception.toString());
         }
 
-        /*
         Forums forums = null;
         try {
             Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
@@ -1806,9 +1805,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     		ejbContext.setRollbackOnly();
             throw new CatalogException(e.toString());
         }
-        */
         
-        /*
     	try {
     		log.info("******* calling createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
     		forums.createSoftwareComponentForums(newComponent.getComponentName(), ((Long)newComponent.getPrimaryKey()).longValue(),
@@ -1828,7 +1825,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     		ejbContext.setRollbackOnly();
             throw new CatalogException(e.toString());
     	}
-    	*/
     	
     	/*	TODO: remove
         Connection c = null;
@@ -1878,11 +1874,25 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
         } 
         catch (ForumException exception) {
+            log.info("***** START STACK TRACE *****");
+        	StackTraceElement[] st = exception.getStackTrace();
+            for (int i=0; i<st.length; i++) {
+            	log.info(st[i]);
+            }
+            log.info("***** END STACK TRACE *****");
+        	
             ejbContext.setRollbackOnly();
             throw new CatalogException(
                     "Failed to create new collaboration forum for component: "
                     + exception.toString());
         } catch (CreateException exception) {
+            log.info("***** START STACK TRACE *****");
+        	StackTraceElement[] st = exception.getStackTrace();
+            for (int i=0; i<st.length; i++) {
+            	log.info(st[i]);
+            }
+            log.info("***** END STACK TRACE *****");
+        	
             ejbContext.setRollbackOnly();
             throw new CatalogException(
                     "Failed to create new collaboration forum for component: "
