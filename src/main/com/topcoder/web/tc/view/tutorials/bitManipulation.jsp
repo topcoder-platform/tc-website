@@ -75,10 +75,10 @@ By&#160;<tc-webtag:handle coderId="251074" context="algorithm"/><br />
 <br/>
 
 <span class="bodySubtitle">Introduction</span><br>
-        Most of the optimisations that go into TopCoder contests
+        Most of the optimizations that go into TopCoder contests
         are high-level; that is, they affect the algorithm rather than
         the implementation. However, one of the most useful and
-        effective low-level optimisations is bit manipulation, or
+        effective low-level optimizations is bit manipulation, or
         using the bits of an integer to represent a set. Not only does
         it produce an order-of-magnitude improvement in both speed and
         size, it can often simplify code at the same time.
@@ -280,7 +280,7 @@ I'll start by briefly recapping the basics, before going on to cover more advanc
         <span class="bodySubtitle">Cute tricks</span><br>
         There are a few other tricks that can be done with bit
         manipulation. They're good for amazing your friends, but
-        generally not worth the effect to use in practise.
+        generally not worth the effect to use in practice.
         <dl>
             <dt>Reversing the bits in an integer</dt>
             <dd>
