@@ -9,6 +9,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Educational Content" border="0" /><br>12.07.06<br>1:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=bitManipulation">A bit of fun: fun with bits</A></span><br><br>
+       One of the most useful and effective low-level optimisations is bit manipulation, or using the bits of an integer to represent a set.</td>
+      <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="251074" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=bitManipulation">full story</A> | 
+         <tc-webtag:forumLink forumID="506204" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>12.06.06<br>1:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/ieeeSoftware_20061206.pdf">Programming Contests Show Impressive Growth</A> [PDF]</span><br><br>
         <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/ieeesoftware_logo.png" width="67" height="25" alt="IEEE Software" border="0" /></div>
@@ -181,22 +197,3 @@ enjoyed another HS SRM win with 1708.72 points.
         <tc-webtag:forumLink forumID="506003" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-    <tr>
-        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0" /><br>12.01.06<br>10:30 AM</td>
-        <td class="newsTextCell">
-            <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-            <td valign="top"><span class="newsTitle">
-            <A href="/tc?module=Static&d1=features&d2=120106">TopCoder @ Work: Professional Ethics</A>
-            </span><br><br>
-            By providing near limitless flexibility and unparalleled access to resources, technology has lubricated the downward slide of ethics in the workplace. However, it's up to you to transcend distractions and figure out your own ethical standards: what is right, what is wrong, and what is fair.</td>
-            <td class="newsPhoto"><img src="/i/m/timmac_big.jpg"  alt="" width="55" height="61"/>&#160;<img src="/i/m/rhudson_big.jpg"  alt="" width="55" height="61"/><br>by 
-            <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td></tr></table>
-        </td>
-    </tr>
-    <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=features&d2=120106">full story</A> | 
-        <tc-webtag:forumLink forumID="506196" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-    </td></tr>

@@ -64,7 +64,7 @@
    <jsp:param name="title" value="&#160;"/>
 </jsp:include>
 
-<div style="float: right;"><tc-webtag:forumLink forumID="505895" message="Discuss this article" /></div>
+<div style="float: right;"><tc-webtag:forumLink forumID="506204" message="Discuss this article" /></div>
 <span class="bodyTitle">A bit of fun: fun with bits</span>
 
 
