@@ -17,7 +17,7 @@
     </jsp:include>
     <jsp:include page="baseHRef.jsp"/>
     <jsp:include page="../script.jsp"/>
-    <SCRIPT LANGUAGE="JavaScript" SRC="/js/popup.js"></SCRIPT>
+    <script type="text/javascript" src="/js/popup.js"></script>
     <script type="text/javascript">
         function next() {
             var myForm = document.competitionHistoryForm;

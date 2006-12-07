@@ -21,7 +21,7 @@
 <jsp:include page="/style.jsp">
     <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
-<SCRIPT LANGUAGE="JavaScript" SRC="/js/popup.js"></SCRIPT>
+<script type="text/javascript" src="/js/popup.js"></script>
 
 <%
     Map resultMap = (Map) request.getAttribute("resultMap");

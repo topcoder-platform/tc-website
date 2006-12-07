@@ -191,7 +191,7 @@
             height: 50px;
         }
     </STYLE>
-    <SCRIPT LANGUAGE="JavaScript" SRC="/js/popup.js"></SCRIPT>
+    <script type="text/javascript" src="/js/popup.js"></script>
 </head>
 
 <body>
