@@ -232,7 +232,8 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
                 throw new IllegalArgumentException("Project " + projectId + " does not exist or is not unique");
             }
 
-            componentName = "(" + rsc.getStringItem(0, "category_name") + ", v" +  rsc.getStringItem(0, "version_text") + ") " + rsc.getStringItem(0, "component_name");
+            componentName = "(" + rsc.getStringItem(0, "category_name") + ", v" +  
+            	rsc.getStringItem(0, "version_text").trim() + ") " + rsc.getStringItem(0, "component_name");
                        		
             try {
 				completeDate =  rsc.getStringItem(0, "complete_date") == null? new Date() : new SimpleDateFormat("MM/dd/yyyy HH:MM").parse(rsc.getStringItem(0, "complete_date"));

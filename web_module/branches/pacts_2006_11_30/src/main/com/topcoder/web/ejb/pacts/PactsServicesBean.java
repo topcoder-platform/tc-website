@@ -2581,7 +2581,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             case REFERENCE_PARENT_PAYMENT_ID: setNullableLong(ps, 20, p.getHeader().getParentPaymentId());  break;
             }
             ps.setBoolean(21, p.isCharity());
-            ps.setDouble(22, p.getTotalAmount());
+            ps.setDouble(22, p.getTotalAmount() == 0? p.getGrossAmount() : p.getTotalAmount()); // default to gross amount if not filled.
             ps.setInt(23, p.getInstallmentNumber());
             ps.executeUpdate();
 
@@ -4745,16 +4745,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy hh:mm", Locale.US);
+    
     /**
      * Generates all the payments for the people who won money for the given project (designers, developers,
-     * and review board members). Returns the number of payments generated.
-     *
+     * and review board members). If it is a development project, it may pay the missing 25% to the designer.
+     * It doesn't insert the payments in the DB, just generates and return them.
+     * 
      * @param projectId The ID of the project
      * @param status The project's status (see /topcoder/apps/review/projecttracker/ProjectStatus.java)
      * @param client The project's client (optional)
      * @param makeChanges If true, updates the database; if false, logs
      * the changes that would have been made had this parameter been true.
-     * @return The number of component payments generated, followed by the number of review board payments generated.
+     * @return The generated payments in a List of BasePayment
      * @throws IllegalUpdateException If the affidavit/payment information
      * has already been generated for this round.
      * @throws SQLException If there was some error updating the data.
@@ -4772,16 +4774,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
             setLockTimeout(c);
 
-            // Get list of users with taxforms
-            StringBuffer getUsers = new StringBuffer(300);
-            getUsers.append(" SELECT u.user_id FROM user u, user_tax_form_xref utfx ")
-                    .append(" , tcs_catalog:project_result pr where u.user_id = utfx.user_id and u.user_id = pr.user_id ")
-                    .append(" and utfx.user_id = pr.user_id and pr.project_id = " + projectId);
-            ResultSetContainer rscUser = runSelectQuery(c, getUsers.toString(), false);
-            HashSet userTaxFormSet = new HashSet();
-            for (i = 0; i < rscUser.getRowCount(); i++) {
-                userTaxFormSet.add(new Long(rscUser.getItem(i, 0).toString()));
-            }
 
             // Make sure we haven't done this before for this project.
             StringBuffer checkNew = new StringBuffer(300);
@@ -4879,13 +4871,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             category = "(" + categoryRsc.getItem(0, 1).toString() + ", v" +
                 categoryRsc.getItem(0, 2).toString().trim() + ")";
 
+            List payments = new ArrayList();
             for (int j = 0; j < numWinners.length; j++) {
                 for (i = 0; i < numWinners[j]; i++) {
                     long userId = Long.parseLong(winners[j].getItem(i, "user_id").toString());
 
+//                    BasePayment.createPayment(paymentTypeId, coderId, grossAmount, referenceId);
+                    
                     Payment p = new Payment();
                     p.setGrossAmount(TCData.getTCDouble(winners[j].getRow(i), "paid"));
-                    p.setStatusId(userTaxFormSet.contains(new Long(userId)) ? PAYMENT_OWED_STATUS : PAYMENT_ON_HOLD_STATUS);
+  //                  p.setStatusId(userTaxFormSet.contains(new Long(userId)) ? PAYMENT_OWED_STATUS : PAYMENT_ON_HOLD_STATUS);
                     if (j == 0) {
                         String projectType = winners[j].getItem(i, 3).toString();
                         String placed = winners[j].getItem(i, 0).toString();
@@ -5224,13 +5219,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         StringBuffer query = new StringBuffer(1000);
 
         query.append(" select p.project_id,  ");
-        query.append(" component_name || ' '  || ");
+        query.append(" '(' ||  cat.category_name || ', v' ||  substr(pi_rt.value,1,length(pi_rt.value)) || ') ' || component_name || ' '  || ");
         query.append(" pc.name || ");
         query.append(" ' (' ||  NVL(pi_rated.value, 'UNKNWON')  || ')' as project_desc ");
         query.append(" from project p, ");
         query.append(" comp_catalog c, ");
         query.append(" project_category_lu pc, ");
         query.append(" project_info pi_comp, ");
+        query.append("project_info pi_rt, ");
+        query.append("project_info pi_ri, ");
+        query.append("categories cat,  ");        
         query.append(" OUTER project_info pi_rated ");
         query.append(" where pi_comp.value = c.component_id ");
         query.append(" and p.project_category_id = pc.project_category_id ");
@@ -5238,6 +5236,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" and pi_rated.project_id = p.project_id ");
         query.append(" and pi_comp.project_info_type_id = 2 ");
         query.append(" and pi_comp.project_id = p.project_id ");
+        query.append("and pi_rt.project_id = p.project_id ");
+        query.append("and pi_rt.project_info_type_id = 7 ");
+        query.append("and pi_ri.project_id = p.project_id ");
+        query.append("and pi_ri.project_info_type_id = 5 ");
+        query.append("and pi_ri.value = cat.category_id ");
+        query.append("and cat.parent_category_id is null ");        
         query.append(" and " + filterCondition("component_name", search));
         query.append(" order by pi_rated.value ");
 
@@ -5602,14 +5606,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     			" from project p," +
     			"     project_info vers " +
     			" where p.project_id = vers.project_id " +
-    			" and vers.project_info_type_id = 2 " +
+    			" and vers.project_info_type_id = 1 " +
     			" and project_status_id = 7 " +
     			" and project_category_id = 1 " +
     			" and value = (select value " +
     			"              from project p," +
     			"              project_info vers " +
     			"              where p.project_id = vers.project_id " +
-    			"              and vers.project_info_type_id = 2 " +
+    			"              and vers.project_info_type_id = 1 " +
     			"              and project_status_id = 7" +
     			" and p.project_id = " + projectId + ")";
     	
