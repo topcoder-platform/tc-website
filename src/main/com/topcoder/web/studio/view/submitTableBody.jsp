@@ -52,18 +52,15 @@ crappy looking to save space on the transmission
 ${submission.originalFileName}
 </td>
 <td class="value" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
-<div class="container">
-<a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
-<img src="/i/layout/magnify.gif" alt="View submission" border="0"
-onmouseover="popUp('pop${submission.id}')" onmouseout="popHide()"/>
-</a>
-<div id="pop${submission.id}" class="popUp">
-<div>View submission</div>
-</div>
-</div>
+
+<div id="pop${submission.id}" class="popUp"><div>View submission</div></div>
+<A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
+<img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop${submission.id}')" onmouseout="popHide()" />
+</A>
+
 </td>
 <td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
-<tc-webtag:format object="${submission.submissionDate}" format="EEEE, MMMM d, yyyy 'at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
+<tc-webtag:format object="${submission.submissionDate}" format="EEEE, MMMM d, yyyy '<br>' HH:mm z" timeZone="${sessionInfo.timezone}"/>
 </td>
 <td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
 <c:choose>
