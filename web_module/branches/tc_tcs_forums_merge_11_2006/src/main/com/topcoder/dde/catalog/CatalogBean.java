@@ -1672,7 +1672,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 policyManager.addPermissions(specUserRole, perms, null);
             }
 
-            role = principalManager.createRole("ForumModerator " + forumId, null);
+            role = principalManager.createRole("ForumModerator " + forumId, null);	// the problem is here
             perms = new PermissionCollection();
             perms.addPermission(new ForumModeratePermission(forumId));
             policyManager.addPermissions(role, perms, null);
@@ -1693,10 +1693,19 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                     "Failed to create security roles for forum: "
                     + exception.toString());
         } catch (GeneralSecurityException exception) {
+            log.info("***** START STACK TRACE *****");
+        	StackTraceElement[] st = exception.getStackTrace();
+            for (int i=0; i<st.length; i++) {
+            	log.info(st[i]);
+            }
+            log.info("***** END STACK TRACE *****");
+        	
             ejbContext.setRollbackOnly();
-            throw new CatalogException(
-                    "Failed to create security roles for forum: "
-                    + exception.toString());
+            String strError = "Failed to create security roles for forum: ";
+            for (int i=0; i<st.length; i++) {
+            	strError += "\n" + st[i];
+            }
+            throw new CatalogException(strError);
         } catch (RemoteException exception) {
             throw new EJBException(exception.toString());
         }
@@ -1874,25 +1883,11 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
         } 
         catch (ForumException exception) {
-            log.info("***** START STACK TRACE *****");
-        	StackTraceElement[] st = exception.getStackTrace();
-            for (int i=0; i<st.length; i++) {
-            	log.info(st[i]);
-            }
-            log.info("***** END STACK TRACE *****");
-        	
             ejbContext.setRollbackOnly();
             throw new CatalogException(
                     "Failed to create new collaboration forum for component: "
                     + exception.toString());
         } catch (CreateException exception) {
-            log.info("***** START STACK TRACE *****");
-        	StackTraceElement[] st = exception.getStackTrace();
-            for (int i=0; i<st.length; i++) {
-            	log.info(st[i]);
-            }
-            log.info("***** END STACK TRACE *****");
-        	
             ejbContext.setRollbackOnly();
             throw new CatalogException(
                     "Failed to create new collaboration forum for component: "
