@@ -246,7 +246,7 @@
         </TD>
         <TD class="value">
             <% if (resultRow.getIntItem("passed_screening") == 1) { %>
-            <img src="/i/stats/pass.gif" alt="pass" border="0"/>
+            <img src="/i/interface/greencheck.png" alt="pass" border="0"/>
             <% } else { %>
             <img src="/i/stats/fail.gif" alt="fail" border="0"/>
             <% } %>
