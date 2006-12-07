@@ -19,7 +19,7 @@
 
     <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
     <script type="text/javascript"> _uacct = "UA-321688-2"; urchinTracker(); </script>
-    <script language="JavaScript" SRC="/js/popup.js"></script>
+    <script type="text/javascript" src="/js/popup.js"></script>
 </head>
 
 <body>

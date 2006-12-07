@@ -17,7 +17,7 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    <script language="JavaScript" SRC="/js/popup.js"></script>
+    <script type="text/javascript" src="/js/popup.js"></script>
     <script language="javascript" type="text/javascript">
         <!--
         function changeRank(newRank, submissionId) {
