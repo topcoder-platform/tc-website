@@ -20,7 +20,7 @@
 <body>
 
 <div align="center">
-    <div class="contentOut">
+    <div id="contentOut" class="contentOut">
         <div class="topBox">
             <div class="logoBox">
                 <A href="/"><img src="/i/studio_logo.gif" alt="TopCoder Studio"/></A>
@@ -37,7 +37,7 @@
             <A href="/?module=Static&d1=contactUs">Contact Us</A>
         </div>
 
-        <div class="contentIn">
+        <div id="contentIn" class="contentIn">
             <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
 
             <div class="contentSpacer">
