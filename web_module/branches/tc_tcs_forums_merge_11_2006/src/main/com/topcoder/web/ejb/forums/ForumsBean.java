@@ -204,6 +204,7 @@ public class ForumsBean extends BaseEJB {
     }
     
     // Create a new component category and constituent forums
+    // TODO: Ideally rolls back if any error occurs.
     public ForumCategory createSoftwareComponentForums(String componentName, long componentID,
     		long versionID, long phaseID, long componentStatusID, long rootCategoryID, String description, 
     		String versionText, long templateID) {
@@ -229,8 +230,18 @@ public class ForumsBean extends BaseEJB {
     		while (rs.next()) {
     			forumFactory.createForum(rs.getString("name"), rs.getString("description"), newCategory);
     		}
+    		//forumsConn.close();
+    		//forumsPS.close();
+    		//rs.close();
     		
     		Connection tcsConn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
+    		PreparedStatement testPS = tcsConn.prepareStatement(
+    				"select count(*) from comp_versions where comp_vers_id = ?");
+    		testPS.setLong(1, versionID);
+    		rs = forumsPS.executeQuery();
+    		rs.next();
+    		log.info("@@@@@@@@@@@@@@@@@@@ count: " + rs.getInt(0));
+    		
     		PreparedStatement tcsPS = tcsConn.prepareStatement(
     				"insert into comp_forum_xref(comp_forum_id, comp_vers_id, forum_type, jive_category_id) " +
 	        		"values(?,?,?,?) ");
@@ -239,11 +250,13 @@ public class ForumsBean extends BaseEJB {
     		tcsPS.setLong(3, templateID);
     		tcsPS.setLong(4, newCategory.getID());
     		tcsPS.executeUpdate();
+    		//tcsConn.close();
+    		//tcsPS.close();
     		
     		createSoftwareComponentPermissions(newCategory, false);
     		return newCategory;
     	} catch (Exception e) {
-    		log.info("*** error in creating software component forums: " + e);
+    		log.info("@@@@@@@@@@@@@@@@@@@ error in creating software component forums: " + e);
     	}
     	return null;
     }

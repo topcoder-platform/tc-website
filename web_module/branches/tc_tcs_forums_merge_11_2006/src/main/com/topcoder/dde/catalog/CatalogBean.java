@@ -1693,19 +1693,9 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                     "Failed to create security roles for forum: "
                     + exception.toString());
         } catch (GeneralSecurityException exception) {
-            log.info("***** START STACK TRACE *****");
-        	StackTraceElement[] st = exception.getStackTrace();
-            for (int i=0; i<st.length; i++) {
-            	log.info(st[i]);
-            }
-            log.info("***** END STACK TRACE *****");
-        	
-            ejbContext.setRollbackOnly();
-            String strError = "Failed to create security roles for forum: ";
-            for (int i=0; i<st.length; i++) {
-            	strError += "\n" + st[i];
-            }
-            throw new CatalogException(strError);
+            throw new CatalogException(
+                    "Failed to create security roles for forum: "
+                    + exception.toString());
         } catch (RemoteException exception) {
             throw new EJBException(exception.toString());
         }
@@ -1818,9 +1808,9 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     	try {
     		log.info("******* calling createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
     		forums.createSoftwareComponentForums(newComponent.getComponentName(), ((Long)newComponent.getPrimaryKey()).longValue(),
-    				((Long)newVersion.getPrimaryKey()).longValue(), newVersion.getPhaseId(), 
-    				newComponent.getRootCategory(), newComponent.getStatusId(), newComponent.getShortDesc(), 
-    				newVersion.getVersionText(), Long.parseLong(getConfigValue("collab_forum_template")));
+    				((Long)newVersion.getPrimaryKey()).longValue(), newVersion.getPhaseId(), newComponent.getStatusId(), 
+    				newComponent.getRootCategory(), newComponent.getShortDesc(), newVersion.getVersionText(), 
+    				Long.parseLong(getConfigValue("collab_forum_template")));
     		log.info("******* finished createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
     	} catch (ConfigManagerException cme) {
     		log.warn("Encountered a configuration manager exception reading collab_forum_template property");
