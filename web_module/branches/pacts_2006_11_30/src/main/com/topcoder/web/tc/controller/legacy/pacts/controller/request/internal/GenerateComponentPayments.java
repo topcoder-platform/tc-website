@@ -1,11 +1,13 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
+import java.util.List;
 import java.util.Map;
 
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
@@ -29,10 +31,22 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             String client = StringUtils.checkNull(getRequest().getParameter(PROJECT_CLIENT)).trim();
             if (!projectID.equals("") && !projectTermStatus.equals("")) {
                 DataInterfaceBean bean = new DataInterfaceBean();
-                int[] counts;
+                int[] counts = new int[2];
+                counts[0] =0;
+                counts[1] =0;
                 log.debug("status type " + getRequest().getParameter(PROJECT_TERMINATION_STATUS));
-                counts = bean.generateComponentPayments(Long.parseLong(projectID),
-                        Integer.parseInt(projectTermStatus), client, true);
+                
+                List l = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client);
+                
+                // TODO: Enhance! need an addPayments method! 
+                for (int i = 0; i < l.size(); i++) {
+                	BasePayment p = (BasePayment) l.get(i);
+                	p = bean.addPayment(p);
+                	log.debug("added payment with id=" + p.getId());
+                	if (p.getPaymentType() == PactsConstants.COMPONENT_PAYMENT) counts[0]++;
+                	if (p.getPaymentType() == PactsConstants.REVIEW_BOARD_PAYMENT) counts[1]++;
+                }
+                
                 addError(PROJECT_ID, "Success: " + counts[0] + " design/dev payments generated, " +
                         counts[1] + " review board payments generated");
             } else {

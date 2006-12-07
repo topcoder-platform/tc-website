@@ -190,7 +190,7 @@ public interface PactsServices extends EJBObject {
     int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges, int paymentTypeId)
     	throws IllegalUpdateException, RemoteException, SQLException;
 
-    int[] generateComponentPayments(long projectId, long status, String client, boolean makeChanges)
+    List generateComponentPayments(long projectId, long status, String client)
             throws IllegalUpdateException, RemoteException, SQLException;
 
     int expireOldPayments() throws RemoteException, SQLException;

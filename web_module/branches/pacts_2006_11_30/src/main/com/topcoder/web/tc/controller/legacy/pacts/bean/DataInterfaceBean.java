@@ -1496,21 +1496,23 @@ public class DataInterfaceBean implements PactsConstants {
 
     /**
      * Generates all the payments for the people who won money for the given project (designers, developers,
-     * and review board members). Returns the number of payments generated.
-     *
+     * and review board members). If it is a development project, it may pay the missing 25% to the designer.
+     * It doesn't insert the payments in the DB, just generates and return them.
+     * 
      * @param projectId The ID of the project
      * @param status The project's status (see /topcoder/apps/review/projecttracker/ProjectStatus.java)
+     * @param client The project's client (optional)
      * @param makeChanges If true, updates the database; if false, logs
      * the changes that would have been made had this parameter been true.
-     * @return The number of component payments generated, followed by the number of review board payments generated.
+     * @return The generated payments in a List of BasePayment
      * @throws IllegalUpdateException If the affidavit/payment information
      * has already been generated for this round.
      * @throws SQLException If there was some error updating the data.
      */
-    public int[] generateComponentPayments(long projectId, long status, String client, boolean makeChanges)
+    public List generateComponentPayments(long projectId, long status, String client)
         throws IllegalUpdateException, RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
-        return ps.generateComponentPayments(projectId, status, client, makeChanges);
+        return ps.generateComponentPayments(projectId, status, client);
     }
 
 
