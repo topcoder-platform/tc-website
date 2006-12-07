@@ -60,7 +60,7 @@ ${submission.originalFileName}
 
 </td>
 <td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
-<tc-webtag:format object="${submission.submissionDate}" format="EEEE, MMMM d, yyyy '<br>' HH:mm z" timeZone="${sessionInfo.timezone}"/>
+<tc-webtag:format object="${submission.submissionDate}" format="EEEE, MMMM d, yyyy '<br />' HH:mm z" timeZone="${sessionInfo.timezone}"/>
 </td>
 <td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
 <c:choose>
