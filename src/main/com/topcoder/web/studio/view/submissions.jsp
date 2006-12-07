@@ -20,6 +20,7 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
+    <script language="JavaScript" SRC="/js/popup.js"></script>
     <script type="text/javascript"><!--
     function next() {
     <%--we're using sublist on the back end, so we need to work with 0 based indexes rather than 1 --%>
@@ -45,64 +46,17 @@
         myForm.submit();
     }
     //--></script>
-    <script language="javascript" type="text/javascript">
-        <!--
-        var objPopUp = null;
-        function popUp(objectID) {
-            objPopUp = document.getElementById(objectID);
-            objPopUp.style.visibility = 'visible';
-        }
-        function popHide() {
-            objPopUp.style.visibility = 'hidden';
-            objPopUp = null;
-        }
-        // -->
-    </script>
-    <STYLE TYPE="text/css">
-        img.emblem {
-            float: left;
-            margin: 0px 0px 0px 0px;
-        }
-
-        div.container {
-            display: block;
-            width: 20px;
-            text-align: center;
-            position: relative;
-            margin: 0px;
-            padding: 0px;
-        }
-
-        div.popUp {
-            visibility: hidden;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 1;
-        }
-
-        div.popUp div {
-            float: left;
-            font-size: 11px;
-            line-height: normal;
-            background: #FFFFCC;
-            border: 1px solid #999999;
-            padding: 6px;
-            text-align: left;
-            white-space: nowrap;
-        }
-    </STYLE>
 </head>
 
 <body>
 
 <div align="center">
-<div class="contentOut">
+<div id="contentOut" class="contentOut">
 <jsp:include page="top.jsp"/>
 <jsp:include page="topNav.jsp">
     <jsp:param name="node" value="contests"/>
 </jsp:include>
-<div class="contentIn">
+<div id="contentIn" class="contentIn">
 <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
 
 <div class="contentSpacer">
@@ -199,11 +153,10 @@
                         </c:when>
                         <c:otherwise>
                             <div align="center">
-                                <div class="container">
-                                    <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>"><img src="/i/layout/magnify.gif" alt="Download submission" border="0" onmouseover="popUp('pop<%=i%>')" onmouseout="popHide()"/></a>
-
-                                    <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-                                </div>
+                            <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
+                            <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
+                            <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()" />
+                            </A>
                             </div>
                         </c:otherwise>
                     </c:choose>
