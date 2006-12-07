@@ -4824,7 +4824,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         rsc = runSelectQuery(getReviewers.toString(), false);
 
         for (int i = 0; i < rsc.size(); i++) {
-        	long coderId = rsc.getLongItem(i, "user_id");
+        	log.debug(rsc.getStringItem(i, "user_id"));
+        	long coderId = Long.parseLong(rsc.getStringItem(i, "user_id"));
         	double amount = rsc.getDoubleItem(i, "paid" );
         	payments.add(new ReviewBoardPayment(coderId, amount, client, projectId)); 
         }
