@@ -37,7 +37,7 @@
 <body>
 
 <div align="center">
-    <div class="contentOut">
+    <div id="contentOut" class="contentOut">
 
         <jsp:include page="top.jsp">
             <jsp:param name="section" value="login"/>
@@ -46,7 +46,7 @@
             <jsp:param name="node" value="none"/>
         </jsp:include>
 
-        <div class="contentIn">
+        <div id="contentIn" class="contentIn">
 
 
             <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>

@@ -19,15 +19,6 @@
     </jsp:include>
     <script language="javascript" type="text/javascript">
         <!--
-        var objPopUp = null;
-        function popUp(objectID) {
-            objPopUp = document.getElementById(objectID);
-            objPopUp.style.visibility = 'visible';
-        }
-        function popHide() {
-            objPopUp.style.visibility = 'hidden';
-            objPopUp = null;
-        }
         function changeRank(newRank, submissionId) {
         var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=UpdateSubmissionRank&<%=Constants.SUBMISSION_RANK%>=' + newRank + '&<%=Constants.SUBMISSION_ID%>=' + submissionId);
             ajaxRequest.setPostRequest(fader);
@@ -57,45 +48,16 @@
                 
         // -->
     </script>
-    <STYLE TYPE="text/css">
-        div.container {
-            display: block;
-            width: 20px;
-            text-align: center;
-            position: relative;
-            margin: 0px;
-            padding: 0px;
-        }
-
-        div.popUp {
-            visibility: hidden;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 1;
-        }
-
-        div.popUp div {
-            float: left;
-            font-size: 11px;
-            line-height: normal;
-            background: #FFFFCC;
-            border: 1px solid #999999;
-            padding: 6px;
-            text-align: left;
-            white-space: nowrap;
-        }
-    </STYLE>
 </head>
 
 <body>
 <div align="center">
-    <div class="contentOut">
+    <div id="contentOut" class="contentOut">
         <jsp:include page="top.jsp"/>
         <jsp:include page="topNav.jsp">
             <jsp:param name="node" value="contests"/>
         </jsp:include>
-        <div class="contentIn">
+        <div id="contentIn" class="contentIn">
             <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
 
             <div class="contentSpacer">

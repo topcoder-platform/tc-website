@@ -16,12 +16,12 @@
 <body>
 
 <div align="center">
-    <div class="contentOut">
+    <div id="contentOut" class="contentOut">
         <jsp:include page="top.jsp"/>
         <jsp:include page="topNav.jsp">
             <jsp:param name="node" value="contests"/>
         </jsp:include>
-        <div class="contentIn">
+        <div id="contentIn" class="contentIn">
             <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
 
             <div class="contentSpacer">
