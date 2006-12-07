@@ -78,11 +78,11 @@
       </td>
       <td width="25%" valign="top" align="right" style="padding: 0px 5px 0px 0px;">
       <%-- Register --%>
-         <div class="bigButton">1: Register</div>
+         <div class="bigButton" style="width: 100px;">1: Register</div>
       </td>
       <td width="25%" valign="top" align="right" style="padding: 0px 0px 0px 5px;">
       <%-- Submit --%>
-      <A class="bigButton" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">2: Submit</A>
+      <A class="bigButton" style="width: 100px;" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">2: Submit</A>
       </td>
    </tr>
 <% } else { %>
@@ -100,10 +100,10 @@
       </div>
       </td>
       <td width="40%" align="right" style="padding: 0px 5px 10px 0px;">
-         <A class="bigButton" href="/tc?module=ViewProjectRegistration&<%=Constants.PROJECT_ID%>=<%= request.getAttribute("projectId") %>">1: Register</A>
+         <A class="bigButton" style="width: 100px;" href="/tc?module=ViewProjectRegistration&<%=Constants.PROJECT_ID%>=<%= request.getAttribute("projectId") %>">1: Register</A>
       </td>
       <td width="25%" align="right" style="padding: 0px 0px 10px 5px;">
-      <A class="bigButton" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">2: Submit</A>
+      <A class="bigButton" style="width: 100px;" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">2: Submit</A>
       </td>
    </tr>
    <tr>
