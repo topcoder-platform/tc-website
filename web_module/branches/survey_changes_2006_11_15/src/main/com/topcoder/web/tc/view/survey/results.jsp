@@ -79,9 +79,9 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
                         </td>
                      </tr>
                      <tr>
-                        <td class="header">A-nswer</td>
-                        <td class="headerR">Responses</td>
-                        <td class="headerR">My Vote</td>
+                        <td class="header" width="100%">Answer</td>
+                        <td class="headerR">Votes</td>
+                        <td class="headerC" nowrap="nowrap">My Vote</td>
                         <td class="headerR">Percentage</td>
                         <td class="header"><div style="width:100px;">&#160;</div></td>
                      </tr>
@@ -96,6 +96,7 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
                         </td>
                         <td class="valueC">
                           <rsc:item row="<%=answer%>" name="my_vote"/>
+                              <img src="/i/interface/redcheck.png" alt="My vote" />
                         </td>
                         <td class="valueR">
                            <rsc:item row="<%=answer%>" name="percentage" format="0.00"/>%
