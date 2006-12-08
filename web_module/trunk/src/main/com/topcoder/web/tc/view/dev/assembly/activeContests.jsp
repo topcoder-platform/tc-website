@@ -137,12 +137,12 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_expertNetwork">standings</A>
       --%>
       </td>
-      <td class="valueC">$12,800</td>
+      <td class="valueC">$14,000</td>
       <td class="valueC">
-      12.08.2006 9:00 AM EST
+      12.10.2006 9:00 AM EST
       </td>
       <td class="valueC">
-      12.22.2006 9:00 AM EST
+      12.24.2006 9:00 AM EST
       </td>
       <td class="valueC" nowrap="nowrap">
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506195">join a team</A>
