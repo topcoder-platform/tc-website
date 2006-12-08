@@ -238,6 +238,8 @@ public class ForumsBean extends BaseEJB {
     		PreparedStatement testPS = tcsConn.prepareStatement(
     				"select count(*) as cnt from comp_versions where comp_vers_id = ?");
     		testPS.setLong(1, versionID);
+       		log.info("versionID: " + versionID);
+       		log.info("query: " + testPS.toString());
     		rs = testPS.executeQuery();
     		rs.next();
     		log.info("versionID: " + versionID);
@@ -258,6 +260,10 @@ public class ForumsBean extends BaseEJB {
     		return newCategory;
     	} catch (Exception e) {
     		log.info("@@@@@@@@@@@@@@@@@@@ error in creating software component forums: " + e);
+    		StackTraceElement[] ste = e.getStackTrace();
+    		for (int i=0; i<ste.length; i++) {
+    			log.info(ste[i]);
+    		}
     	}
     	return null;
     }
