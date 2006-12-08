@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>12.08.06<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/movies/tournament/tccc06/final_webcast_preview.mov">TCCC06 Webcast Highlights</A></span><br><br>
+        Watch a short video of highlights from the 2006 TCCC webcast. The full replay of the webcast is coming soon.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/movies/tournament/tccc06/final_webcast_preview.mov">view</A> | 
+        <tc-webtag:forumLink forumID="506209" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>12.08.06<br>3:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.chinadaily.com.cn/china/2006-12/08/content_754200.htm">Undergraduate VP of multinational company</A></span><br><br>
         <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/chinadaily_logo.png" alt="China Daily logo" width="67" height="25" border="0" /></div>
@@ -179,19 +192,5 @@ enjoyed another HS SRM win with 1708.72 points.
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm21">full story</A> | 
         <tc-webtag:forumLink forumID="506043" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>12.01.06<br>NOON</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/success200612.pdf">Maverick Rules for Success</A> [PDF]</span><br><br>
-        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/success_logo.png" width="67" height="21" alt="Success Magazine" border="0" /></div>
-      "Our panelists hail from a wide range of industries, but they agree on a critical element of success in the 21st century: You can't do big things with your company or career if you're content with doing things a little better than everyone else."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/pdfs/press_room/success200612.pdf">full story</A> | 
-       <tc-webtag:forumLink forumID="506198" message="discuss this" /> | 
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
