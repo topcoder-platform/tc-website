@@ -67,7 +67,7 @@
 <td width="100%" align="center" class="bodyColumn">
 
 <div align="center">
-<div class="maxWidth">
+<div class="maxWidthBody">
 
 <% if (request.getParameter(Constants.PHASE_ID).equals("113")) { %>
 <jsp:include page="/page_title.jsp">
