@@ -240,7 +240,7 @@ public class ForumsBean extends BaseEJB {
     		testPS.setLong(1, versionID);
     		rs = forumsPS.executeQuery();
     		rs.next();
-    		log.info("@@@@@@@@@@@@@@@@@@@ count: " + rs.getInt(0));
+    		log.info("@@@@@@@@@@@@@@@@@@@ count: " + rs.getInt(1));
     		
     		PreparedStatement tcsPS = tcsConn.prepareStatement(
     				"insert into comp_forum_xref(comp_forum_id, comp_vers_id, forum_type, jive_category_id) " +
