@@ -236,11 +236,12 @@ public class ForumsBean extends BaseEJB {
     		
     		Connection tcsConn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
     		PreparedStatement testPS = tcsConn.prepareStatement(
-    				"select count(*) from comp_versions where comp_vers_id = ?");
+    				"select count(*) as cnt from comp_versions where comp_vers_id = ?");
     		testPS.setLong(1, versionID);
     		rs = testPS.executeQuery();
     		rs.next();
-    		log.info("@@@@@@@@@@@@@@@@@@@ count: " + rs.getInt(1));
+    		log.info("versionID: " + versionID);
+    		log.info("@@@@@@@@@@@@@@@@@@@ count: " + rs.getInt("cnt"));
     		
     		PreparedStatement tcsPS = tcsConn.prepareStatement(
     				"insert into comp_forum_xref(comp_forum_id, comp_vers_id, forum_type, jive_category_id) " +
