@@ -238,7 +238,7 @@ public class ForumsBean extends BaseEJB {
     		PreparedStatement testPS = tcsConn.prepareStatement(
     				"select count(*) from comp_versions where comp_vers_id = ?");
     		testPS.setLong(1, versionID);
-    		rs = forumsPS.executeQuery();
+    		rs = testPS.executeQuery();
     		rs.next();
     		log.info("@@@@@@@@@@@@@@@@@@@ count: " + rs.getInt(1));
     		
