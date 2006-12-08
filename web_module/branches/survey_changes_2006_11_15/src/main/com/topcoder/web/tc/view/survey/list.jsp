@@ -32,7 +32,6 @@
         }
     </script>
 
-
 </head>
 
 <body>
@@ -44,17 +43,17 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 
-        <!-- Left Column Begins -->
-        <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="node" value="competitor_surveys"/>
-            </jsp:include>
-        </td>
-        <!-- Left Column Ends -->
+<!-- Left Column Begins -->
+<td width="180">
+<jsp:include page="/includes/global_left.jsp">
+<jsp:param name="node" value="competitor_surveys"/>
+</jsp:include>
+</td>
+<!-- Left Column Ends -->
 
-        <td width="100%" align="center" class="bodyColumn">
+<td width="100%" align="center" class="bodyColumn">
 
-            <div class="fixedWidthBody">
+<div class="maxWidthBody">
 
                 <jsp:include page="../page_title.jsp">
                     <jsp:param name="image" value="surveys"/>
@@ -69,13 +68,13 @@
                     | <%=(surveyList.croppedDataAfter() ? "<a href=\"#\" onclick=\"next();return false;\"class=\"bcLink\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
                 </div>
                 <div align="center">
-                <table cellpadding="0" cellspacing="0" class="stat" style="width: 510px">
+                <table cellpadding="0" cellspacing="0" class="stat">
                 <tbody>
                     <tr>
                         <td class="headerC">Date</td>
-                        <td class="header" width="100%">Survey</td>
-                        <td class="headerC"><div style="width:80px;">&nbsp;</div></td>
-                        <td class="headerC"><div style="width:80px;">&nbsp;</div></td>
+                        <td class="header">Survey</td>
+                        <td class="headerC"><div style="width:70px;">&nbsp;</div></td>
+                        <td class="headerC"><div style="width:70px;">&nbsp;</div></td>
                         <td class="headerC">&nbsp;</td>
                     </tr>
                     <form name="surveyListForm" action="${sessionInfo.servletPath}" method="get">
@@ -84,7 +83,7 @@
 
                         <% boolean even = false; %>
                         <rsc:iterator list="<%=surveyList%>" id="survey">
-                            <tr class="<%=even?"light":"dark"%>">
+                            <tr class="<%=even?"dark":"light"%>">
                                 <td class="valueC"><rsc:item row="<%=survey%>" name="date" format="MM.dd.yyyy"/></td>
                                 <td class="value">
                                     <rsc:item row="<%=survey%>" name="question_text"/>

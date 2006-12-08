@@ -87,7 +87,7 @@
 
 <td width="100%" align="center" class="bodyColumn">
 
-<div class="fixedWidthBody">
+<div class="maxWidthBody">
 
             <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="surveys"/>
@@ -128,7 +128,7 @@
             <%--todo move this to the controller, that's where it belongs --%>
             <tc:questionIterator list="<%=questionInfo%>" id="question">
                 <% resultsViewable |= (!(question.getStyleId() == Question.LONG_ANSWER || question.getStyleId() == Question.SHORT_ANSWER) && question.getTypeId() != Question.GENERAL_DO_NOT_SHOW_RESULTS_TYPE && surveyInfo.areResultsViewable());%>
-                <table cellpadding="0" cellspacing="0" class="stat" style="width: 510px">
+                <table cellpadding="0" cellspacing="0" class="stat">
                 <tbody>
                     <tr class="light">
                         <td colspan="2" align="center">
@@ -157,7 +157,7 @@
                     </tr>
                     <% boolean even = false; %>
                     <tc:answerInput id="answerInput" question="<%=question%>" enabled="<%=!alreadyResponded.booleanValue()%>">
-                        <tr class="<%=even?"dark":"light"%>">
+                        <tr class="<%=even?"light":"dark"%>">
                             <td class="value" width="100%">
                                 <%=answerText%>
                             </td>

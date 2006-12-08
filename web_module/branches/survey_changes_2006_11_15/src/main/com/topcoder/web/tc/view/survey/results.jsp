@@ -45,14 +45,10 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
         </td>
 <!-- Left Column Ends -->
 
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1"></td>
-<!-- Gutter Ends -->
-
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyColumn">
 
-<div class="fixedWidthBody">
+<div class="maxWidthBody">
 
 <jsp:include page="/page_title.jsp" >
 <jsp:param name="image" value="surveys"/>
@@ -67,7 +63,7 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
 
             <div align="center">
                <tc:questionIterator list="<%=questionInfo%>" id="question">
-                  <table width="510" border="0" cellpadding="5" cellspacing="0" class="stat">
+                  <table border="0" cellpadding="5" cellspacing="0" class="stat">
                      <tr class="light">
                         <td class="value" valign="top" align = "center"colspan="5">
                         <tc:sponsorImage src="<%=question.getImagePath()%>" href="<%=question.getLink()%>" alt="survey logo" width="160" height="95" align="center" border="0"/>

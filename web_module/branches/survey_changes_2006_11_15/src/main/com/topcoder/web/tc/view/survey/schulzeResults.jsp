@@ -120,8 +120,11 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-<td width="100%" class="bodyText" valign="top">
-    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="bodyText">
+<td width="100%" align="center" class="bodyColumn">
+
+<div class="maxWidthBody">
+
+    <table border="0" cellpadding="10" cellspacing="0" class="bodyText">
         <tr>
             <td class="bodyText" width="100%"><img src="/i/header_questions.gif" width="210" height="26"
                                                    border="0"><br/>
@@ -129,9 +132,6 @@
                 <p align="right" class="bodyText"><a href="/tc?module=SurveyList">Archive</a></p></td>
         </tr>
     </table>
-
-    <div align="center">
-        <div align="left" style="width: 600px;">
 
             <% if (surveyInfo.getText() != null) { %>
             <span class="bodyTitle"><jsp:getProperty name="surveyInfo" property="text"/></span><br>
@@ -173,7 +173,7 @@
                 You can see that matrix here. Each cell (row,col) indicates how many times row was preferred over col.
                 If row beat col, the cell will be red.
             </p>
-            <table width="600" border="0" cellpadding="0" cellspacing="0" class="formFrame" align="center">
+            <table border="0" cellpadding="0" cellspacing="0" class="formFrame" align="center">
                 <% int size = results.getSumMatrix().getCandidates().length;
                 %> <tr><td></td> <%
                 for (int i = 0; i < size; i++) {
@@ -196,10 +196,8 @@
                 </tr>
                 <% } %>
             </table>
-            <p><br></p>
-        </div>
-    </div>
 
+</div>
 </td>
 <!-- Center Column Ends -->
 
