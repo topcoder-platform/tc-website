@@ -40,8 +40,13 @@
         <tr>
             <td style="padding: 0px 10px 0px 0px; border-right: 1px dashed #999999;">
 
+<%--
                 <div>
                     <A href="/?module=ViewContestDetails&ct=2045"><img src="/i/home/aolMashups20061102.png" alt="AOL Mashups"/></A>
+                </div>
+--%>
+                <div>
+                     <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/home/register_now.gif" alt="Register now"/></A>
                 </div>
 
                 <div>
@@ -55,9 +60,11 @@
             <td valign="top" style="padding-left: 10px;">
 
                 <h1>Welcome to TopCoder Studio</h1>
+<%--
                  <div style="float:right; margin: 0px 0px 10px 10px;">
                      <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/home/register_now.gif" alt="Register now"/></A>
                  </div>
+--%>
                 Welcome to TopCoder Studio - the best place on the web for showing off your creative
                 skills in a competitive environment and getting paid for being the best!
                 <br><br>
