@@ -51,14 +51,6 @@
             myForm.submit();
         }
     </script>
-    <style type="text/css">
-        #maxWidth {
-            max-width: 650px; 
-            /* only recognized by IE, unfortunately it invalidates CSS */
-            /* if the body is wider than 1024, this div is 650, otherwise auto */
-            width: expression( document . body . clientWidth > 1024 ? "650px": "auto" );
-        }
-    </style>
 </head>
 
 <body>
