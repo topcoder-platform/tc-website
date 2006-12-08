@@ -323,7 +323,7 @@ public class ProjectUtil {
 
 	            if (phases[i].getPhaseType().getId() == PHASE_TYPE_SUBMISSION) {
 	                // Submission Number
-	                createPhaseCriteria(conn, phaseId, 3, "0", modUserId);
+	                createPhaseCriteria(conn, phaseId, 3, "1", modUserId);
 	            }
                 // 5, 'Manual Screening'
                 createPhaseCriteria(conn, phaseId, 5, "No", modUserId);
