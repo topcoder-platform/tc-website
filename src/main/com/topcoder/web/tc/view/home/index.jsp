@@ -236,8 +236,11 @@
             <%-- AOL Mashups 
             <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2045"><img src="/i/home/aolmashups_sm.jpg" alt="AOL Mashups" border="0" style="display:block;" /></A>
             --%>
-            <%-- WSJ --%> 
+            <%-- WSJ  
             <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0" style="display:block;" /></A>
+            --%>
+            <%-- AOL webcast team --%>
+            <A href="/movies/tournament/tccc06/final_webcast_preview.mov"><img src="/i/home/tccc_webcast_20061208.jpg" alt="TCCC Webcast Highlights" border="0" style="display:block;" /></A>
         </td></tr>
     </table>
     <table border="0" cellpadding="0" cellspacing="0">
@@ -250,6 +253,11 @@
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
             
+                <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/chinadaily_logo.png" alt="China Daily logo" width="67" height="25" border="0" /></div>
+                Undergraduate VP of multinational company
+                <A href="http://www.chinadaily.com.cn/china/2006-12/08/content_754200.htm">...more</A><br>[December 8]<br><br>
+
                 <div style="float: right; padding-left: 5px;">
                 <img src="/i/pressroom/ieeesoftware_logo.png" width="67" height="25" alt="IEEE Software" border="0" /></div>
                 Programming Contests Show Impressive Growth [PDF]
@@ -270,11 +278,6 @@
                 <img src="/i/pressroom/internetnews_logo.gif" width="81" height="11" alt="internetnews.com logo" border="0" /></div>
                 Who is the Top Coder?
                 <A href="http://www.internetnews.com/dev-news/article.php/3644456">...more</A><br>[November 17]<br><br>
-
-                <div style="float: right; padding-left: 5px;">
-                <img src="/i/pressroom/businessweek_logo.gif" width="80" height="18" alt="BusinessWeek" border="0" /></div>
-                TopCoder members WishingBone and assistant in BusinessWeek
-                <A href="/tc?module=Static&d1=pressroom&d2=art_110206">...more</A><br>[November 2]<br><br>
 
             </td>
         </tr>

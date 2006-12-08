@@ -9,6 +9,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>12.08.06<br>3:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.chinadaily.com.cn/china/2006-12/08/content_754200.htm">Undergraduate VP of multinational company</A></span><br><br>
+        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/chinadaily_logo.png" alt="China Daily logo" width="67" height="25" border="0" /></div>
+      Wu Yingying, 21, holding patents for three of her 100 inventions, has become Asia operations vice president with TopCoder, a Connecticut-based multinational company, before her graduation.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://www.chinadaily.com.cn/china/2006-12/08/content_754200.htm">full story</A> | 
+       <tc-webtag:forumLink forumID="506208" message="discuss this" /> | 
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Educational Content" border="0" /><br>12.07.06<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -181,19 +195,3 @@ enjoyed another HS SRM win with 1708.72 points.
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.01.06<br>11:05 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm328">SRM 328 - Problem Set & Analysis</A></span><br><br>
-        More than 1,000 coders took the opportunity to practice their algorithmic skills and, with several targets competing, SRM 328 was bound to be an exciting event.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/_efer__big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8593420" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=srm328">full story</A> | 
-        <tc-webtag:forumLink forumID="506003" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
