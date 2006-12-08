@@ -40,6 +40,8 @@
 
 <span class="bigTitle">Expert Network Application</span>
 <br><br>
+<span class="bigRed">NOTE: Registration has been extended for this contest. Please see new Timeline and Milestones dates below.</span>
+<br><br>
 <div class="sectionHeader">Overview</div>
 <span class="bodySubtitle">Application Overview</span><br>
 The Expert Network application is the first release of a community web site. It includes one piece for experts to register themselves and view/edit their profile and an admin tool to approve experts and search through registered experts and view their profiles. Both pieces will be web based applications.
@@ -85,10 +87,10 @@ Documentation/Specifications are available in the application forums <A href="#"
 TopCoder will compensate teams with first and second place submissions. Initial payment for the winning team will be distributed in two installments. The first installment will be paid when the winning solution with review board requirements and suggestions integrated is accepted by TopCoder. The second installment will be paid upon completion of application deployment.
 <br><br>
 <strong>Winning Team</strong><br>
-Total Payment - $12,800
+Total Payment - $14,000
 <br><br>
 <strong>Second Place Team</strong><br>
-Total Payment - $6,400
+Total Payment - $7,000
 <br><br>
 
 <div class="sectionHeader">Eligibility</div>
@@ -114,16 +116,16 @@ All submissions are required to be submitted by the end of Competition Phase. Th
       <td><strong>Phase</strong></td><td align="right"><strong>Start</strong></td><td align="right"><strong>End</strong></td>
    </tr>
    <tr>
-      <td>Team Creation:</td><td align="right">12.01.2006</td><td align="right">12.08.2006</td>
+      <td>Team Creation:</td><td align="right">12.01.2006</td><td align="right">12.10.2006</td>
    </tr>
    <tr>
-      <td>Competition Phase:</td><td align="right">12.01.2006</td><td align="right">12.22.2006</td>
+      <td>Competition Phase:</td><td align="right">12.01.2006</td><td align="right">12.24.2006</td>
    </tr>
    <tr>
-      <td>Review Phase:</td><td align="right">12.22.2006</td><td align="right">12.29.2006</td>
+      <td>Review Phase:</td><td align="right">12.24.2006</td><td align="right">12.31.2006</td>
    </tr>
    <tr>
-      <td>Feedback Phase:</td><td align="right">12.30.2006</td><td align="right">01.03.2007</td>
+      <td>Feedback Phase:</td><td align="right">01.01.2007</td><td align="right">01.04.2007</td>
    </tr>
 </table>
 </div>
@@ -138,16 +140,16 @@ At intervals during the competition phase, assembly teams will be expected to de
       <td width="80"><strong>Date</strong></td><td width="450"><strong>Deliverables</strong></td>
    </tr>
    <tr>
-      <td valign="top">12.10.2006</td><td valign="top">Working web site, including converted ASPs and configured application components</td>
+      <td valign="top">12.12.2006</td><td valign="top">Working web site, including converted ASPs and configured application components</td>
    </tr>
    <tr>
-      <td valign="top">12.16.2006</td><td valign="top">Functioning Registration pages</td>
+      <td valign="top">12.18.2006</td><td valign="top">Functioning Registration pages</td>
    </tr>
    <tr>
-      <td valign="top">12.18.2006</td><td valign="top">Functioning Administration pages</td>
+      <td valign="top">12.20.2006</td><td valign="top">Functioning Administration pages</td>
    </tr>
    <tr>
-      <td valign="top">12.22.2006</td><td valign="top">Complete, fully-functioning submission, including unit tests</td>
+      <td valign="top">12.24.2006</td><td valign="top">Complete, fully-functioning submission, including unit tests</td>
    </tr>
 </table>
 </div>
