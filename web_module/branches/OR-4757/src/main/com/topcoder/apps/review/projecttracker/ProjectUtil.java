@@ -365,7 +365,7 @@ public class ProjectUtil {
         close(ps);
 
         // External Reference ID
-        ps = conn.prepareStatement("INSERT INTO resource_info " + 
+        ps = conn.prepareStatement("INSERT INTO resource_info  " + 
         		"(resource_id, resource_info_type_id, value, create_user, create_date, modify_user, modify_date) " +
         		" VALUES (?, ?, ?, ?, CURRENT, ?, CURRENT)");
         index = 1;
