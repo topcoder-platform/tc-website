@@ -124,17 +124,15 @@
 
 <div class="maxWidthBody">
 
-    <table border="0" cellpadding="10" cellspacing="0" class="bodyText">
-        <tr>
-            <td class="bodyText" width="100%"><img src="/i/header_questions.gif" width="210" height="26"
-                                                   border="0"><br/>
+            <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="surveys"/>
+            <jsp:param name="title" value="Results"/>
+            </jsp:include>
 
-                <p align="right" class="bodyText"><a href="/tc?module=SurveyList">Archive</a></p></td>
-        </tr>
-    </table>
+            <div align="right"><a href="/tc?module=SurveyList" class="bcLink">Archive</a></div>
 
             <% if (surveyInfo.getText() != null) { %>
-            <span class="bodyTitle"><jsp:getProperty name="surveyInfo" property="text"/></span><br>
+            <h3 align="left" class="bodyTitle"><jsp:getProperty name="surveyInfo" property="text"/></h3>
             <% } %>
 
             <br><br>
