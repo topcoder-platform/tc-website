@@ -5415,42 +5415,58 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * An instance of a subclass of BasePayment must be passed.
      *
      * @param payment payment to add.
+     * @param conn connection to use.
      * @return payment the payment added.
      * @throws SQLException
      */
-    public BasePayment addPayment(BasePayment payment) throws SQLException {
-        Connection c = null;
-
+    private BasePayment addPayment(BasePayment payment, Connection conn) throws Exception {
         BasePayment.Processor processor = payment.getProcessor();
 
         if (processor.isDuplicated(payment)) {
             throw new IllegalArgumentException("Payment is already in the database.");
         }
 
+        processor.fillData(payment);
+
+        Payment p = createPayment(payment);
+
+
+        long paymentId;
+
+        // Special treating for algorithm payments, because they have affidavits.
+        if (payment instanceof AlgorithmContestPayment ||
+        		payment instanceof AlgorithmTournamentPrizePayment ||
+        		payment instanceof MarathonMatchPayment) {
+            paymentId = makeNewAlgorithmPayment(conn, p, (AlgorithmRoundReferencePayment) payment);
+        } else {
+            paymentId = makeNewPayment(conn, p, p.payReferrer());
+        }
+
+        payment.setId(paymentId);
+        payment.setNetAmount(p.getNetAmount());
+        payment.resetModificationRationale();
+
+        return payment;
+    }
+
+    /**
+     * Add a payment in the database.
+     * An instance of a subclass of BasePayment must be passed.
+     *
+     * @param payment payment to add.
+     * @return payment the payment added.
+     * @throws SQLException
+     */
+    public BasePayment addPayment(BasePayment payment) throws SQLException {
+        Connection c = null;
+
         try {
             c = DBMS.getConnection();
             c.setAutoCommit(false);
             setLockTimeout(c);
 
-            processor.fillData(payment);
+            payment = addPayment(payment, c);
 
-            Payment p = createPayment(payment);
-
-
-            long paymentId;
-
-            // Special treating for algorithm payments, because they have affidavits.
-            if (payment instanceof AlgorithmContestPayment ||
-            		payment instanceof AlgorithmTournamentPrizePayment ||
-            		payment instanceof MarathonMatchPayment) {
-                paymentId = makeNewAlgorithmPayment(c, p, (AlgorithmRoundReferencePayment) payment);
-            } else {
-                paymentId = makeNewPayment(c, p, p.payReferrer());
-            }
-
-            payment.setId(paymentId);
-            payment.setNetAmount(p.getNetAmount());
-            payment.resetModificationRationale();
             c.commit();
 
             return payment;
@@ -5518,7 +5534,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     		l.add(p);
     	} else if (projectType == DEVELOPMENT_PROJECT) {
     		long designProject = getDesignProject(projectId);
-    		
+
+    		// add the development payment as it is 
+    		l.add(new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed));
+
     		if (designProject > 0) {
 	        	String query = "SELECT sum(gross_amount) as amount_paid " + 
 					"     , max(total_amount) as total_amount " +
@@ -5535,16 +5554,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	
 	    		if (rsc.size() != 0) {
 	        		int installment = rsc.getIntItem(0, "installment_number") + 1;
-	        		double amount = rsc.getIntItem(0, "total_amount") - rsc.getIntItem(0, "amount_paid");
+	        		double totalAmount = rsc.getIntItem(0, "amount_paid");
+	        		double paid = rsc.getIntItem(0, "amount_paid");
 	        		String client2 = rsc.getStringItem(0,"client");
 	        		long coderId2 = rsc.getLongItem(0, "user_id");
 	        		
-	        		// add the development payment as it is 
-	        		l.add(new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed));
 	        		
 	        		// create the design project
-	        		BasePayment p = new ComponentWinningPayment(coderId2, amount, client2, designProject, 1);
-	        		p.setGrossAmount(grossAmount * DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT);
+	        		BasePayment p = new ComponentWinningPayment(coderId2, totalAmount, client2, designProject, 1);
+	        		p.setGrossAmount(totalAmount - paid);
 	        		p.setInstallmentNumber(installment);
 	        		
 	        		l.add(p);    			
