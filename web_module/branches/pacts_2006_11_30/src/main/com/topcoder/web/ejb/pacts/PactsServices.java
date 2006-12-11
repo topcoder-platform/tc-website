@@ -230,7 +230,9 @@ public interface PactsServices extends EJBObject {
     // ================== Methods from the Client Service ================== 
     
     BasePayment addPayment(BasePayment payment)  throws RemoteException, SQLException;
-
+    
+    List addPayments(List payments) throws RemoteException, SQLException;
+    
     BasePayment updatePayment(BasePayment payment) throws RemoteException, Exception;
 
     List findPayments(int paymentTypeId) throws RemoteException, Exception;

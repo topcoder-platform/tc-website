@@ -1,5 +1,6 @@
 package com.topcoder.web.ejb.pacts;
 
+import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -230,8 +231,10 @@ public interface PactsServicesLocal extends EJBLocalObject {
     
     // ================== Methods from the Client Service ================== 
     
-    BasePayment addPayment(BasePayment payment)  throws  SQLException;
-
+    BasePayment addPayment(BasePayment payment)  throws SQLException;
+    
+    List addPayments(List payments) throws SQLException;
+    
     BasePayment updatePayment(BasePayment payment) throws  Exception;
 
     List findPayments(int paymentTypeId) throws  SQLException;

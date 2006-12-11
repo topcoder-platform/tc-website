@@ -5485,6 +5485,46 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
+    /**
+     * Adds many payments at once in one transaction, so if one fails, it rolls back.
+     * 
+     * @param payments payments to add to DB.
+     * @return a list of the payments added, with the information completed (payment_id, net amount calculated)
+     * 
+     * @throws SQLException
+     */
+    public List addPayments(List payments) throws SQLException {
+        Connection c = null;
+
+        try {
+            c = DBMS.getConnection();
+            c.setAutoCommit(false);
+            setLockTimeout(c);
+
+            List p = new ArrayList();
+            
+            for (int i = 0; i < payments.size(); i++) {
+            	p.add(addPayment((BasePayment) payments.get(i), c));
+            }
+
+            c.commit();
+
+            return p;
+        } catch (SQLException e) {
+            rollback(c);
+            printException(e);
+            throw e;
+        } catch (Exception e) {
+            rollback(c);
+            printException(e);
+            throw new SQLException(e.getMessage());
+        } finally {
+            setAutoCommit(c, true);
+            close(c);
+            c = null;
+        }
+    }
+
     private long getDesignProject(long projectId) throws SQLException {
     	String query = "select p.project_id " +
     			" from tcs_catalog:project p," +
@@ -5554,7 +5594,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	
 	    		if (rsc.size() != 0) {
 	        		int installment = rsc.getIntItem(0, "installment_number") + 1;
-	        		double totalAmount = rsc.getIntItem(0, "amount_paid");
+	        		double totalAmount = rsc.getIntItem(0, "total_amount");
 	        		double paid = rsc.getIntItem(0, "amount_paid");
 	        		String client2 = rsc.getStringItem(0,"client");
 	        		long coderId2 = rsc.getLongItem(0, "user_id");

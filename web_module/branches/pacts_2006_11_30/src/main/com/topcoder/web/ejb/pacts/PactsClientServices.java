@@ -34,6 +34,14 @@ public interface PactsClientServices extends EJBObject {
     BasePayment addPayment(BasePayment payment)  throws RemoteException, SQLException;
 
     /**
+     * Adds many payments at once in one transaction, so if one fails, it rolls back.
+     * 
+     * @param payments payments to add to DB.
+     * @return a list of the payments added, with the information completed (payment_id, net amount calculated)
+     */
+    public List addPayments(List payments) throws RemoteException, SQLException;
+
+    /**
      * Update a payment.
      * The payment must be already saved in the database, or an exception will be thrown.
      *
