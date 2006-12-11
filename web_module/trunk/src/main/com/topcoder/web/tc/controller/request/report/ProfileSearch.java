@@ -338,13 +338,16 @@ public class ProfileSearch extends Base {
             query.append('\n');
         }
         query.append(buildCoderConstraints(request, skill));
-        int sc = Integer.parseInt(request.getParameter("order"));
-        int so = Integer.parseInt(request.getParameter("sort"));
-        query.append("  ORDER BY ");
-        query.append(sc);
-        if (so == 1 && sc < 7 || so == -1 && sc >= 7) query.append(" ASC\n");
-        else
-            query.append(" DESC\n");
+        
+        if (!countOnly) {
+	        int sc = Integer.parseInt(request.getParameter("order"));
+	        int so = Integer.parseInt(request.getParameter("sort"));
+	        query.append("  ORDER BY ");
+	        query.append(sc);
+	        if (so == 1 && sc < 7 || so == -1 && sc >= 7) query.append(" ASC\n");
+	        else
+	            query.append(" DESC\n");
+        }
         headers.addAll(skillsHeaders);
         return query.toString();
     }
