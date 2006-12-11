@@ -247,6 +247,7 @@ public class ReliabilityRating {
                     " from project_result pr" +
                     " , component_inquiry ci" +
                     " , project_phase pi" +
+                    " , project_phase pi2" +
                     " , project p" +
                     " where ci.project_id = pr.project_id" +
                     " and pr.user_id = ci.user_id" +
@@ -255,6 +256,10 @@ public class ReliabilityRating {
                     " and p.project_category_id+111 = ?" +
                     " and pr.project_id = pi.project_id" +
                     " and pi.phase_type_id = 2" + // phase type 2 is submission
+                    " and pr.project_id = pi2.project_id" +
+                    " and pi2.phase_type_id = 4" + // phase type 4 is review
+                    " and (p.project_status_id IN (4,5,6,7) " +
+                    "	OR (p.project_status_id = 1 and pi2.phase_status_id = 3))" +                     
                     " and pr.reliability_ind = 1" +
                     " and pr.reliable_submission_ind is not null" +
                     " order by ci.create_time asc";
