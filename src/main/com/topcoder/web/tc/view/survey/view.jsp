@@ -8,7 +8,8 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<% List questionInfo = (List) request.getAttribute("questionInfo");%>
+<% List questionInfo = (List) request.getAttribute("questionInfo");
+ Boolean alreadyResponded = (Boolean) request.getAttribute("alreadyResponded");%>
 <jsp:useBean id="surveyInfo" scope="request" class="com.topcoder.web.tc.model.Survey"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <html>
@@ -19,7 +20,7 @@
 
     <jsp:include page="/script.jsp"/>
     <jsp:include page="/style.jsp">
-        <jsp:param name="key" value="tc_main"/>
+        <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
 
     <STYLE TYPE="text/css">
@@ -59,14 +60,18 @@
 
 <td width="100%" align="center" class="bodyColumn">
 
-<div class="fixedWidthBody">
+<div class="maxWidthBody">
 
             <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="surveys"/>
-            <jsp:param name="title" value="&nbsp;"/>
+            <jsp:param name="title" value="Vote"/>
             </jsp:include>
-            <p align="right" class="bodyText"><a href="/tc?module=SurveyList">Archive</a></p>
 
+            <div align="right"><a href="/tc?module=SurveyList" class="bcLink">Archive</a></div>
+
+        <% if (alreadyResponded.booleanValue()) { %>
+             <span class="bigRed">You have already voted for this survey.  Your response is below:</span>
+        <% } %>
 
         <% if (surveyInfo.getText() != null) { %>
         <p class="bodyTitle">
@@ -99,60 +104,66 @@
             <%--todo move this to the controller, that's where it belongs --%>
             <tc:questionIterator list="<%=questionInfo%>" id="question">
                 <% resultsViewable |= (!(question.getStyleId() == Question.LONG_ANSWER || question.getStyleId() == Question.SHORT_ANSWER) && question.getTypeId() != Question.GENERAL_DO_NOT_SHOW_RESULTS_TYPE && surveyInfo.areResultsViewable());%>
-                <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
-                    <tr>
-                        <td colspan="2" class="bodySubtitle" valign="top" width="100%" align="center">
+                <table cellpadding="0" cellspacing="0" class="stat">
+                <tbody>
+                    <tr class="light">
+                        <td colspan="2" align="center">
                             <tc:sponsorImage src="<%=question.getImagePath()%>" href="<%=question.getLink()%>"
                                              alt="survey logo" width="160" height="95" align="center" border="0"/>
                         </td>
                     </tr>
-                    <tr>
-                        <td colspan="2" class="bodySubtitle" valign="top" width="100%">
+                    <tr class="light">
+                        <td colspan="2"><span class="subtitle">
                             <%=questionInfo.size() > 1 ? i + ". " : ""%>
                             <jsp:getProperty name="question" property="text"/>
-                            <br/><br/>
+                            <br /><br />
+                            </span>
                             <hr width="100%" size="1" noshade/>
                         </td>
 
                     </tr>
-                    <tr>
-                        <td colspan="2" class="errorText">
+                    <tr class="light">
+                        <td colspan="2">
+                            <span class="bigRed">
                             <tc-webtag:errorIterator id="err"
-                                                     name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%><br/>
+                                                     name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%><br />
                             </tc-webtag:errorIterator>
+                            </span>
                         </td>
                     </tr>
                     <% boolean even = false; %>
-                    <tc:answerInput id="answerInput" question="<%=question%>">
-                        <tr class="<%=even?"formTextOdd":"formTextEven"%>">
-                            <td width="100%">
+                    <tc:answerInput id="answerInput" question="<%=question%>" enabled="<%=!alreadyResponded.booleanValue()%>">
+                        <tr class="<%=even?"light":"dark"%>">
+                            <td class="value" width="100%">
                                 <%=answerText%>
                             </td>
-                            <td align="right">
+                            <td class="valueR">
                                 <%=answerInput%>
                             </td>
                         </tr>
                         <% even = !even; %>
                     </tc:answerInput>
+                </tbody>
                 </table>
-                <p><br/></p>
+                <p><br /></p>
                 <% i++;%>
             </tc:questionIterator>
-            <table class="bodyText" align="center">
+            <div align="center">
+            <table cellpadding="6" cellspacing="0">
                 <tr>
-                    <td>
                         <% if (resultsViewable) { %>
-
-                        <a href="?<%=Constants.MODULE_KEY%>=SurveyResults&<%=Constants.SURVEY_ID%>=<%=surveyInfo.getId()%>"><img
-                                src="/i/results.gif" width="60" height="18" border="0"/></a>
-                        <img src="/i/clear.gif" width="10" height="18" border="0"/>
+                        <td>
+                        <a class="button" href="?<%=Constants.MODULE_KEY%>=SurveyResults&<%=Constants.SURVEY_ID%>=<%=surveyInfo.getId()%>">Results</a>
+                        </td>
                         <% } %>
-
-                        <a href="javascript: document.surveyForm.submit();"><img src="/i/submit.gif" width="60"
-                                                                                 height="18" border="0"/></a>
-                    </td>
+                        <% if (!alreadyResponded.booleanValue()) { %>
+                        <td>
+                        <a class="button" href="javascript: document.surveyForm.submit();">Submit</a>
+                        </td>
+                        <% } %>
                 </tr>
             </table>
+            </div>
         </form>
 
 </div>

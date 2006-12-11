@@ -220,21 +220,19 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-<td width="100%" class="bodyText" valign="top">
-    <table width="100%" border="0" cellpadding="10" cellspacing="0" class="bodyText">
-        <tr>
-            <td class="bodyText" width="100%"><img src="/i/header_questions.gif" width="210" height="26"
-                                                   border="0"><br/>
+<td width="100%" align="center" class="bodyColumn">
 
-                <p align="right" class="bodyText"><a href="/tc?module=SurveyList">Archive</a></p></td>
-        </tr>
-    </table>
+<div class="maxWidthBody">
 
-    <div align="center">
-        <div align="left" style="width: 600px;">
+            <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="surveys"/>
+            <jsp:param name="title" value="Results"/>
+            </jsp:include>
+
+            <div align="right"><a href="/tc?module=SurveyList" class="bcLink">Archive</a></div>
 
             <% if (surveyInfo.getText() != null) { %>
-            <span class="bodyTitle"><%=surveyInfo.getText()%></span><br>
+            <h3 align="left" class="bodyTitle"><%=surveyInfo.getText()%></h3>
             <% } %>
 
             <br><br>
@@ -295,9 +293,8 @@
                 <% } %>
             </table>
             <p><br></p>
-        </div>
-    </div>
 
+</div>
 </td>
 <!-- Center Column Ends -->
 
