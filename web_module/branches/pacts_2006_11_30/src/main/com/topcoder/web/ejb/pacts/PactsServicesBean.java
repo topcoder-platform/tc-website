@@ -4795,7 +4795,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             	long coderId = Long.parseLong(rsc.getItem(i, "user_id").toString());
             	double amount = rsc.getDoubleItem(i, "paid" );
             	int placed = rsc.getIntItem(i, "placed" );
-            	payments.add(generateComponentUserPayments(coderId, amount, client, projectId, placed)); 
+            	payments.addAll(generateComponentUserPayments(coderId, amount, client, projectId, placed)); 
             }            
         }
 
