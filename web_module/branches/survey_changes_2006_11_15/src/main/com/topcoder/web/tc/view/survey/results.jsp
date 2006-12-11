@@ -91,8 +91,9 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
                           <rsc:item row="<%=answer%>" name="count"/>
                         </td>
                         <td class="valueC">
-                          <rsc:item row="<%=answer%>" name="my_vote"/>
-                              <img src="/i/interface/redcheck.png" alt="My vote" />
+                            <%if (answer.getIntItem("my_vote") == 1) {%>
+	                            <img src="/i/interface/redcheck.png" alt="My vote" />
+                            <%} else {%>&nbsp;<%}%>
                         </td>
                         <td class="valueR">
                            <rsc:item row="<%=answer%>" name="percentage" format="0.00"/>%

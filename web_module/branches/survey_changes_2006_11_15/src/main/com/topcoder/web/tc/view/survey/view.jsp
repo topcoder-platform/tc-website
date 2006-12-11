@@ -96,7 +96,9 @@
 
             <div align="right"><a href="/tc?module=SurveyList" class="bcLink">Archive</a></div>
 
-        <span class="bigRed">You have already voted for this survey.  Your response is below:</span>
+        <% if (alreadyResponded.booleanValue()) { %>
+             <span class="bigRed">You have already voted for this survey.  Your response is below:</span>
+        <% } %>
 
         <% if (surveyInfo.getText() != null) { %>
         <p class="bodyTitle">
