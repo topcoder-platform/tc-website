@@ -186,7 +186,7 @@
 <td class="homeCentCol">
     <table border="0" cellpadding="0" cellspacing="0">
         <tr><td class="homeBigPromo">
-            <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp"><img src="/i/home/tcs_client_verisign.png" alt="TopCoder & VeriSign" border="0" style="display:block;" /></A>
+            <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp"><img src="/i/home/tcs_client_ubs.png" alt="TopCoder & UBS" border="0" style="display:block;" /></A>
         </td></tr>
     </table>
     <table border="0" cellpadding="0" cellspacing="0">
