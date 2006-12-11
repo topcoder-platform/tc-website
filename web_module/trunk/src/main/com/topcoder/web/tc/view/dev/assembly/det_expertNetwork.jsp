@@ -40,8 +40,8 @@
 
 <span class="bigTitle">Expert Network Application</span>
 <br><br>
-<span class="bigRed">NOTE: Registration has been extended for this contest. Please see new Timeline and Milestones dates below.</span>
-<br><br>
+<%--<span class="bigRed">NOTE: Registration has been extended for this contest. Please see new Timeline and Milestones dates below.</span>
+<br><br>--%>
 <div class="sectionHeader">Overview</div>
 <span class="bodySubtitle">Application Overview</span><br>
 The Expert Network application is the first release of a community web site. It includes one piece for experts to register themselves and view/edit their profile and an admin tool to approve experts and search through registered experts and view their profiles. Both pieces will be web based applications.
@@ -155,17 +155,16 @@ At intervals during the competition phase, assembly teams will be expected to de
 </div>
 <br><br>
 <div class="sectionHeader">Registration</div>
-<%--
 Registration is closed.
 <br><br>
---%>
+<%--
 To sign up, please send an email to <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Expert Network Application">AssemblyCompetitions@topcoder.com</A>.  In the email, include the following information:
 <ul>
 <li>Handle</li>
 <li>First &amp; Last Name</li>
 <li>Complete name of Assembly Competition project</li>
 </ul>
-
+--%>
 <div class="sectionHeader">Submission</div>
 Once your team has working code you are ready to submit, you can do so by emailing your source code to <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Submission: Expert Network Application">AssemblySubmissions@topcoder.com</A> before the end of the Competition Phase.  Your team can submit code as many times as you wish before the submission deadline without any penalties.  The last code submitted prior to the deadline will be used as your final submission.
 <br><br>
