@@ -5478,8 +5478,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     			" and project_status_id = 7 " +
     			" and project_category_id = 1 " +
     			" and value = (select value " +
-    			"              from project p," +
-    			"              project_info vers " +
+    			"              from tcs_catalog:project p," +
+    			"              tcs_catalog:project_info vers " +
     			"              where p.project_id = vers.project_id " +
     			"              and vers.project_info_type_id = 1 " +
     			"              and project_status_id = 7" +
