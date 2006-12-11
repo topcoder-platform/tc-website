@@ -143,13 +143,8 @@
 %>
 <p>
 
+<a href="PactsInternalServlet?modue=PaymentList&user_id=<%= user.getHeader().getId() %>">Search for User's Payments</a><br>
     <%
-        out.println("<a href=\"" + PactsConstants.INTERNAL_SERVLET_URL + "?");
-        out.print(PactsConstants.TASK_STRING + "=" + PactsConstants.LIST_TASK + "&");
-        out.println(PactsConstants.CMD_STRING + "=" + PactsConstants.PAYMENT_CMD + "&");
-        out.println(PactsConstants.USER_ID + "=" + user.getHeader().getId());
-        out.println("\">Search for User's Payments</a><br>");
-
         out.println("<a href=\"" + PactsConstants.INTERNAL_SERVLET_URL + "?");
         out.print(PactsConstants.TASK_STRING + "=" + PactsConstants.LIST_TASK + "&");
         out.println(PactsConstants.CMD_STRING + "=" + PactsConstants.AFFIDAVIT_CMD + "&");
