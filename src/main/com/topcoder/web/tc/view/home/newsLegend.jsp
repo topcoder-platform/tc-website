@@ -170,14 +170,14 @@ OR
 
 <%-------------------GENERAL TC NEWS-------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>03.22.06<br>3:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>12.11.06<br>4:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-      <A href="/longcontest/?module=ViewActiveContests&rt=15">Intel Multi-Threading Competition 3 is underway</A>
-      </span><br><br>
-      The third competition in the Intel Multi-Threading Competition Series is now open for registration.
+        <A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid">"How to get paid" updated</A></span><br><br>
+        As TopCoder has grown, our ability to effectively manage member payments has become a growing challenge. To help make the process more predictable, members will now receive one regularly scheduled monthly payment for any and all money earned during the previous month.
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/longcontest/?module=ViewActiveContests&rt=15">view</A> | 
-         <tc-webtag:forumLink forumID="505951" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+        <A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid">details</A> | 
+        <tc-webtag:forumLink forumID="506210" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
+
