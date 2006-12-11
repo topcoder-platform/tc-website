@@ -31,9 +31,10 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             String client = StringUtils.checkNull(getRequest().getParameter(PROJECT_CLIENT)).trim();
             if (!projectID.equals("") && !projectTermStatus.equals("")) {
                 DataInterfaceBean bean = new DataInterfaceBean();
-                int[] counts = new int[2];
+                int[] counts = new int[3];
                 counts[0] =0;
                 counts[1] =0;
+                counts[2] =0;
                 log.debug("status type " + getRequest().getParameter(PROJECT_TERMINATION_STATUS));
                 
                 List l = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client);
@@ -44,13 +45,20 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 	BasePayment p = (BasePayment) l.get(i);
                 	if (p.getPaymentType() == PactsConstants.COMPONENT_PAYMENT) counts[0]++;
                 	if (p.getPaymentType() == PactsConstants.REVIEW_BOARD_PAYMENT) counts[1]++;
+                	
+                	List refer = bean.findPayments(CODER_REFERRAL_PAYMENT, p.getId());
+                	if (refer.size() > 0) {
+                		counts[2]++;
+                		BasePayment pr = (BasePayment) refer.get(0);
+                    	ids.append(pr.getId()).append(',');
+                	}
                 	ids.append(p.getId()).append(',');
                 }
                 
                 getRequest().setAttribute(PAYMENT_ID, ids.substring(0, ids.length() > 0? ids.length() -1 : 0).toString());
                 
-                addError(PROJECT_ID, "Success: " + counts[0] + " design/dev payments generated, " +
-                        counts[1] + " review board payments generated");
+                addError(PROJECT_ID, "Success: " + counts[0] + " design/dev, " +
+                        counts[1] + " review board, " + counts[2] + " referral payments generated");
             } else {
                 if (projectID.equals("")) {
                     addError(PROJECT_ID, "Error: Missing project id");
