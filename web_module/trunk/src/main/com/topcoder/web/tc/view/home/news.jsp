@@ -7,6 +7,20 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 
+<%----------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>12.11.06<br>4:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid">"How to get paid" updated</A></span><br><br>
+        As TopCoder has grown, our ability to effectively manage member payments has become a growing challenge. To help make the process more predictable, members will now receive one regularly scheduled monthly payment for any and all money earned during the previous month.
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid">details</A> | 
+        <tc-webtag:forumLink forumID="506210" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+----------------------------%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.11.06<br>12:30 PM</td>
@@ -173,22 +187,5 @@ We are currently looking to fill an opening for a <A href="/tc?module=Static&d1=
          <A href="/longcontest/?module=ViewOverview&rd=10649">results</A> | 
          <tc-webtag:forumLink forumID="506179" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>12.04.06<br>2:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">The 2007 TopCoder High School Tournament</A></span><br><br>
-The inaugural installment of the TopCoder High School Tournament is
-coming to Purdue University! The tournament will bring together some of
-the most talented high school students in a heated battle for bragging
-rights and scholarships worth at least $50,000. Registrations starts
-February 13, 2007. </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">full story</A> | 
-        <tc-webtag:forumLink forumID="506199" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
