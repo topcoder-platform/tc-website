@@ -63,7 +63,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private static final Logger log = Logger.getLogger(PactsServicesBean.class);
     private static QueueMessageSender pactsMsgSender = null;
     private static final int DESIGN_PROJECT = 1;
-    private static final int DEVELOPMENT_PROJECT = 1;
+    private static final int DEVELOPMENT_PROJECT = 2;
     private static final double DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
 
     // Initialize the message queue
