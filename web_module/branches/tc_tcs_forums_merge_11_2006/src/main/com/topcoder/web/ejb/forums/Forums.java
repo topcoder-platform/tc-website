@@ -28,5 +28,5 @@ public interface Forums extends EJBObject {
     public ForumCategory createSoftwareComponentForums(String componentName, long componentID, long versionID,
     		long phaseID, long componentStatusID, long rootCategoryID, String description, String versionText, 
     		long templateID)
-    	throws EJBException, RemoteException;
+    	throws EJBException, RemoteException, Exception;
 }

@@ -207,7 +207,7 @@ public class ForumsBean extends BaseEJB {
     // TODO: Ideally rolls back if any error occurs.
     public ForumCategory createSoftwareComponentForums(String componentName, long componentID,
     		long versionID, long phaseID, long componentStatusID, long rootCategoryID, String description, 
-    		String versionText, long templateID) {
+    		String versionText, long templateID) throws Exception {
     	log.info("******** called ForumsBean.createSoftwareComponentForums()");
     	try {
     		String categoryName = ForumsUtil.getComponentCategoryName(componentName, versionText, templateID);
@@ -234,41 +234,15 @@ public class ForumsBean extends BaseEJB {
     		//forumsPS.close();
     		//rs.close();
     		
-    		Connection tcsConn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
-    		PreparedStatement testPS = tcsConn.prepareStatement(
-    				"select count(*) as cnt from comp_versions where comp_vers_id = ?");
-    		testPS.setLong(1, versionID);
-       		log.info("versionID: " + versionID);
-       		log.info("query: " + testPS.toString());
-    		rs = testPS.executeQuery();
-    		rs.next();
-    		log.info("versionID: " + versionID);
-    		log.info("@@@@@@@@@@@@@@@@@@@ count: " + rs.getInt("cnt"));
-    		
-    		PreparedStatement tcsPS = tcsConn.prepareStatement(
-    				"insert into comp_forum_xref(comp_forum_id, comp_vers_id, forum_type, jive_category_id) " +
-	        		"values(?,?,?,?) ");
-    		tcsPS.setLong(1, componentID);
-    		tcsPS.setLong(2, versionID);
-    		tcsPS.setLong(3, templateID);
-    		tcsPS.setLong(4, newCategory.getID());
-    		tcsPS.executeUpdate();
-    		//tcsConn.close();
-    		//tcsPS.close();
-    		
     		createSoftwareComponentPermissions(newCategory, false);
     		return newCategory;
     	} catch (Exception e) {
-    		log.info("@@@@@@@@@@@@@@@@@@@ error in creating software component forums: " + e);
-    		StackTraceElement[] ste = e.getStackTrace();
-    		for (int i=0; i<ste.length; i++) {
-    			log.info(ste[i]);
-    		}
+    		logException(e, "error in creating software component forums");
+    		throw e;
     	}
-    	return null;
     }
     
-    private void createSoftwareComponentPermissions(ForumCategory category, boolean isPublic) {
+    private void createSoftwareComponentPermissions(ForumCategory category, boolean isPublic) throws Exception {
     	GroupManager groupManager = forumFactory.getGroupManager();
     	try {
 	    	Group swAdminGroup = groupManager.getGroup(ForumConstants.GROUP_SOFTWARE_ADMINS);
@@ -293,10 +267,19 @@ public class ForumsBean extends BaseEJB {
 	        	}
 	        }
     	} catch (Exception e) {
-    		log.info("*** error in creating software component permissions: " + e);
+    		logException(e, "error in creating software component permissions");
+    		throw e;
     	}
     }
     // Software Forums - End
+    
+    private void logException(Exception e, String msg) {
+    	log.info("***" + msg + ": " + e);
+    	StackTraceElement[] ste = e.getStackTrace();
+		for (int i=0; i<ste.length; i++) {
+			log.info(ste[i]);
+		}
+    }
 }
 
 class JiveGroupComparator implements Comparator {

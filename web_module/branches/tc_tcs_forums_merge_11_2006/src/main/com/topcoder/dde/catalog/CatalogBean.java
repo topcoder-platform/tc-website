@@ -4,6 +4,7 @@
 
 package com.topcoder.dde.catalog;
 
+import com.jivesoftware.forum.ForumCategory;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerV2;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerV2Home;
 import com.topcoder.dde.DDEException;
@@ -1805,25 +1806,34 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             throw new CatalogException(e.toString());
         }
         
-    	try {
-    		log.info("******* calling createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
-    		forums.createSoftwareComponentForums(newComponent.getComponentName(), ((Long)newComponent.getPrimaryKey()).longValue(),
-    				((Long)newVersion.getPrimaryKey()).longValue(), newVersion.getPhaseId(), newComponent.getStatusId(), 
-    				newComponent.getRootCategory(), newComponent.getShortDesc(), newVersion.getVersionText(), 
-    				Long.parseLong(getConfigValue("collab_forum_template")));
-    		log.info("******* finished createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
-    	} catch (ConfigManagerException cme) {
-    		log.warn("Encountered a configuration manager exception reading collab_forum_template property");
-    		ejbContext.setRollbackOnly();
-            throw new CatalogException(cme.toString());
-    	} catch (NumberFormatException nfe) {
-    		log.warn("Failed to parse the collab_forum_template property");
-    		ejbContext.setRollbackOnly();
-            throw new CatalogException(nfe.toString());
-    	} catch (RemoteException e) {
-    		ejbContext.setRollbackOnly();
-            throw new CatalogException(e.toString());
+        ForumCategory category = null;
+        if (!ejbContext.getRollbackOnly()) {
+	    	try {
+	    		log.info("******* calling createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
+	    		category = forums.createSoftwareComponentForums(newComponent.getComponentName(), ((Long)newComponent.getPrimaryKey()).longValue(),
+	    				((Long)newVersion.getPrimaryKey()).longValue(), newVersion.getPhaseId(), newComponent.getStatusId(), 
+	    				newComponent.getRootCategory(), newComponent.getShortDesc(), newVersion.getVersionText(), 
+	    				Long.parseLong(getConfigValue("collab_forum_template")));
+	    		//compforumHome.create(category, Forum.COLLABORATION, newVersion);
+	    		log.info("******* finished createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
+	    	} catch (ConfigManagerException cme) {
+	    		log.warn("Encountered a configuration manager exception reading collab_forum_template property");
+	    		ejbContext.setRollbackOnly();
+	            throw new CatalogException(cme.toString());
+	    	} catch (NumberFormatException nfe) {
+	    		log.warn("Failed to parse the collab_forum_template property");
+	    		ejbContext.setRollbackOnly();
+	            throw new CatalogException(nfe.toString());
+	    	} catch (RemoteException e) {
+	    		ejbContext.setRollbackOnly();
+	            throw new CatalogException(e.toString());
+	    	} catch (Exception e) {
+	    		ejbContext.setRollbackOnly();
+	            throw new CatalogException(e.toString());
+	    	}
     	}
+        // modify for jive_category_id
+        // compforumHome.create(newForum, Forum.COLLABORATION, newVersion);
     	
     	/*	TODO: remove
         Connection c = null;
@@ -1852,9 +1862,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             }
         }
         */
-    	
+
     	// TODO: remove when complete
-        long newForum;
         try {
             com.topcoder.forum.Forum forum = new com.topcoder.forum.Forum();
             try {
@@ -1867,10 +1876,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 log.warn("Failed to parse the collab_forum_template property");
                 forum = forumadminHome.create().createForum(forum);
             }
-            newForum = forum.getId();
-            compforumHome.create(newForum, Forum.COLLABORATION, newVersion);
-            createForumRoles(newForum, Forum.COLLABORATION);
-
+            compforumHome.create(forum.getId(), category.getID(), Forum.COLLABORATION, newVersion);
+            createForumRoles(forum.getId(), Forum.COLLABORATION);
         } 
         catch (ForumException exception) {
             ejbContext.setRollbackOnly();
