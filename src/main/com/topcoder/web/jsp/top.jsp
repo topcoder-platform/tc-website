@@ -10,104 +10,35 @@
     String level1 = request.getParameter("level1")==null?"competition":request.getParameter("level1");
 
 %>
-<script language="javascript" type="text/javascript">
-<!--
-var objPopUp = null;
-function popUpUnder(event,objectID){
-   objPopTrig = document.getElementById(event);
-   alert(objPopTrig);
-   objPopUp = document.getElementById(objectID);
-   xPos = objPopTrig.offsetLeft;
-   if(xPos + objPopUp.offsetWidth > document.body.clientWidth) xPos = xPos - objPopUp.offsetWidth;
-   objPopUp.style.left = xPos + 'px';
-   objPopUp.style.display = 'block';
-}
-function popDescription(objectID){
-   objPopUp = document.getElementById(objectID);
-   objPopUp.style.visibility = 'visible';
-//   objPopUp.style.display = 'block';
-}
-function hideDescription(){
-   objPopUp.style.visibility = 'hidden';
-//   objPopUp.style.display = 'none';
-   objPopUp = null;
-}
-
-// -->
-</script>
-<STYLE TYPE="text/css">
-div.topBar, div.topBar div, div.memberCountBox
-{
-color: #FFFFFF;
-font-size: 11px;
-}
-div.memberCountBox
-{
-position:absolute;
-top:5;
-left:3;
-z-index:1;
-}
-div.topBar
-{
-background: #FFFFFF url(/i/interface/top_bg.gif) top center repeat-x;
-vertical-align: top;
-padding: 5px 10px 80px 3px;
-white-space: nowrap;
-}
-div.launchPopUp
-{
-font-size: 11px;
-background-color: #FFFFCC;
-visibility: hidden;
-position: absolute;
-padding: 3px 5px 3px 5px;
-border: solid 1px black;
-font-weight:bold;
-z-index: 3;
-}
-#outerLogo
-{
-width: 360px;
-position: relative;
-z-index: 2;
-}
-#innerLogo
-{
-position: absolute;
-left: 0px;
-}
-</STYLE>
+<script type="text/javascript" src="/js/popup.js"></script>
 
 <%----------LAUNCH BAR-------------%>
-<div id="launch0" class="launchPopUp" style="left:73;top:65;">Competitions Home</div>
-<div id="launch1" class="launchPopUp" style="left:108;top:65;">Launch Algorithm Competitions Arena</div>
-<div id="launch2" class="launchPopUp" style="left:155;top:65;">Launch High School Competitions Arena</div>
-<div id="launch3" class="launchPopUp" style="left:181;top:65;">Component Design Active Contests</div>
-<div id="launch4" class="launchPopUp" style="left:207;top:65;">Component Development Active Contests</div>
-<div id="launch5" class="launchPopUp" style="left:252;top:65;">Marathon Match Active Contests</div>
+<div id="launch0" class="popUp"><div><strong>Competitions Home</strong></div></div>
+<div id="launch1" class="popUp"><div><strong>Launch Algorithm Competitions Arena</strong></div></div>
+<div id="launch2" class="popUp"><div><strong>Launch High School Competitions Arena</strong></div></div>
+<div id="launch3" class="popUp"><div><strong>Component Design Active Contests</strong></div></div>
+<div id="launch4" class="popUp"><div><strong>Component Development Active Contests</strong></div></div>
+<div id="launch5" class="popUp"><div><strong>Marathon Match Active Contests</strong></div></div>
+
 <map name="competeBar">
-<area shape="rect" alt="" coords="0,0,66,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc" onmouseover="popDescription('launch0')" onmouseout="hideDescription()" />
-<area shape="rect" alt="" coords="68,0,106,30" href="javascript:arena();" onmouseover="popDescription('launch1')" onmouseout="hideDescription()" />
-<area shape="rect" alt="" coords="107,0,153,30" href="javascript:arena();" onmouseover="popDescription('launch2')" onmouseout="hideDescription()" />
-<area shape="rect" alt="" coords="154,0,179,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=112" onmouseover="popDescription('launch3')" onmouseout="hideDescription()" />
-<area shape="rect" alt="" coords="180,0,205,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=113" onmouseover="popDescription('launch4')" onmouseout="hideDescription()" />
-<area shape="rect" alt="" coords="206,0,250,30" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewActiveContests" onmouseover="popDescription('launch5')" onmouseout="hideDescription()" />
+<area shape="rect" alt="" coords="0,0,66,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc" onmouseover="popShow(73,65,'launch0')" onmouseout="popHide()" />
+<area shape="rect" alt="" coords="68,0,106,30" href="javascript:arena();" onmouseover="popShow(108,65,'launch1')" onmouseout="popHide()" />
+<area shape="rect" alt="" coords="107,0,153,30" href="javascript:arena();" onmouseover="popShow(155,65,'launch2')" onmouseout="popHide()" />
+<area shape="rect" alt="" coords="154,0,179,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=112" onmouseover="popShow(181,65,'launch3')" onmouseout="popHide()" />
+<area shape="rect" alt="" coords="180,0,205,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=113" onmouseover="popShow(207,65,'launch4')" onmouseout="popHide()" />
+<area shape="rect" alt="" coords="206,0,250,30" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewActiveContests" onmouseover="popShow(252,65,'launch5')" onmouseout="popHide()" />
 </map>
 <%---------------------------------%>
 
-<div id="register_now_container" style="position:absolute; left:0; top:31px; width:100%;">
-   <div style="position:absolute; left:0px; top:0px;">
+<div style="position: absolute; left:0; top:31px; background: transparent;">
    <img src="/i/interface/competeBar.gif" alt="" usemap="#competeBar"/>
-   </div>
-   <% if ( !sessionInfo.isAnonymous() ) { %>
-   <div style="float:right; width:790px;" align="right"><A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false"><img src="/i/interface/update_my_profile.gif" alt="Update My Profile" style="display:block;"/></A></div>
-   <% } else { %>
-   <div style="float:right; width:790px;" align="right"><A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/interface/register_now.gif" alt="Register Now" style="display:block;"/></A></div>
-   <%}%>
 </div>
-<%--
---%>
+
+<% if ( !sessionInfo.isAnonymous() ) { %>
+<div style="position: absolute; right:0px; top:31px;"><A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false"><img src="/i/interface/update_my_profile.gif" alt="Update My Profile" style="display:block;"/></A></div>
+<% } else { %>
+<div style="position: absolute; right:0px; top:31px;"><A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/interface/register_now.gif" alt="Register Now" style="display:block;"/></A></div>
+<%}%>
 
 <div align="center" style="margin: 0px 290px 0px 280px;">
    <div id="outerLogo">
