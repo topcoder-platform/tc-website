@@ -4795,7 +4795,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             	long coderId = Long.parseLong(rsc.getItem(i, "user_id").toString());
             	double amount = rsc.getDoubleItem(i, "paid" );
             	int placed = rsc.getIntItem(i, "placed" );
-            	payments.add(new ComponentWinningPayment(coderId, amount, client, projectId, placed)); 
+            	payments.add(generateComponentUserPayments(coderId, amount, client, projectId, placed)); 
             }            
         }
 
@@ -5500,7 +5500,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @param projectId project that is being paid.
      * @param placed the place of the coder in the contest.
      */
-    public List createComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException {
+    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException {
     	int projectType = getProjectType(projectId);
     	
 		
