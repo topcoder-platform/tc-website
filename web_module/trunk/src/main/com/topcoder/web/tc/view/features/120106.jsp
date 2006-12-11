@@ -14,17 +14,6 @@
 </jsp:include>
 <SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 
-<style type="text/css">
-.GAtableText
-{
-   color: #333;
-   font-size: 11px;
-   font-weight: normal;
-   line-height: 14px;
-   background-color: #EEEEEE
-}
-</style>
-
 </head>
 
 <body>
@@ -142,6 +131,8 @@ So what do you do? Quality, in and of itself, is not what a company really wants
 <br><br>
 <span class="subtitle">For Further Thought</span><br>
 In light of the complex social issues and compounding confusion that can stem from workplace politics, these examples are all relatively simple. In our second installment, we'll consider some circumstances that call for an even greater level of personal judgment, and where a good solution may not exist at all. In the meantime, tell us how you've handled these issues, or others that you have encountered, in the <tc-webtag:forumLink forumID="506196" message="forums" />.
+<br><br>
+<A href="/tc?module=Static&d1=features&d2=121106">Part 2</A>
 <br><br>
         </td>
 <!-- Center Column Ends -->
