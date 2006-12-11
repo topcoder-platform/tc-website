@@ -830,7 +830,7 @@ public class DataInterfaceBean implements PactsConstants {
 			   String []s = value.split(",");
 			   inputOk = true;
 			   for (int j = 0; j < s.length && inputOk; j++) {
-				   inputOk = validateInput(value, INTEGER);
+				   inputOk = validateInput(s[j], INTEGER);
 			   }
 		   } else throw new UnsupportedSearchException("Search by " + key + " not supported");
 
