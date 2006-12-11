@@ -9,6 +9,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.11.06<br>12:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm329">SRM 329 - Problem Set & Analysis</A></span><br><br>
+Over 1100 coders registered for this round. In division 1, <tc-webtag:handle coderId="251074" context="algorithm"/> was first to submit all three problems, but eventually the current TCO and TCCC champion <tc-webtag:handle coderId="10574855" context="algorithm"/> took  first place, scoring over 1500 points in the coding phase and securing his victory with a successful challenge.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/dmytro_big3.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7546003" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=srm329">full story</A> | 
+        <tc-webtag:forumLink forumID="506004" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>12.08.06<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/movies/tournament/tccc06/final_webcast_preview.mov">TCCC06 Webcast Highlights</A></span><br><br>
@@ -173,24 +190,5 @@ February 13, 2007. </td>
         <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">full story</A> | 
         <tc-webtag:forumLink forumID="506199" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.01.06<br>2:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm21">TCHS SRM 21 - Problem Set & Analysis</A></span><br><br>
-In total there were 278 submissions for HS SRM 21 by 148 members. 
-Continuing his impressive performance, <tc-webtag:handle coderId="11972352" context="hs_algorithm"/> 
-enjoyed another HS SRM win with 1708.72 points.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/zhuzeyuan_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="19929536" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm21">full story</A> | 
-        <tc-webtag:forumLink forumID="506043" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
