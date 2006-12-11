@@ -5516,7 +5516,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     		BasePayment p = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
     		p.setGrossAmount(grossAmount * DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT);
     		l.add(p);
-    	} else if (projectType == DESIGN_PROJECT) {
+    	} else if (projectType == DEVELOPMENT_PROJECT) {
     		long designProject = getDesignProject(projectId);
     		
     		if (designProject > 0) {
