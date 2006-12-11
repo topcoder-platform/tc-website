@@ -42,6 +42,11 @@ public class Results extends SurveyData {
         DataAccessInt dataAccess = getDataAccess();
         responseRequest.setContentHandle("survey_responses");
         responseRequest.setProperty("qid", String.valueOf(questionId));
+        if (getUser().isAnonymous()) {
+            responseRequest.setProperty("cr", "-1");
+        } else {
+            responseRequest.setProperty("cr", String.valueOf(getUser().getId()));
+        }
         return (ResultSetContainer) dataAccess.getData(responseRequest).get("response_info");
     }
 
