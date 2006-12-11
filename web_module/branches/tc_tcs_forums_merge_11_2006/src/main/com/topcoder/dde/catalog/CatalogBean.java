@@ -1832,8 +1832,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 	            throw new CatalogException(e.toString());
 	    	}
     	}
-        // modify for jive_category_id
-        // compforumHome.create(newForum, Forum.COLLABORATION, newVersion);
     	
     	/*	TODO: remove
         Connection c = null;
