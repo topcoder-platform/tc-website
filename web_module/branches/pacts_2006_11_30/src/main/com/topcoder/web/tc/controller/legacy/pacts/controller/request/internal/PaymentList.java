@@ -35,9 +35,6 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         	String requestQuery = INTERNAL_SERVLET_URL + "?" + getRequest().getQueryString();
             getRequest().setAttribute("query", requestQuery);
             
-            
-            
-
             DataInterfaceBean dib = new DataInterfaceBean();
 
             Map query = getQuery(getRequest());

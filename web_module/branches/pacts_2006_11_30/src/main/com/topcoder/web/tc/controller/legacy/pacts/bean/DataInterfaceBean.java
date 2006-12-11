@@ -813,7 +813,6 @@ public class DataInterfaceBean implements PactsConstants {
                 inputOk = validateInput(value, DATE);
             else if (key.equals(CONTRACT_ID) ||
                     key.equals(AFFIDAVIT_ID) ||
-                    key.equals(PAYMENT_ID) ||
                     key.equals(USER_ID) ||
                     key.equals(PROJECT_ID))
                 inputOk = validateInput(value, INTEGER);
@@ -827,8 +826,13 @@ public class DataInterfaceBean implements PactsConstants {
                 inputOk = validateInput(value, STRING);
             else if (key.equals(IS_REVIEWED))
                 inputOk = validateInput(value, BOOLEAN);
-            else
-                throw new UnsupportedSearchException("Search by " + key + " not supported");
+           else if (key.equals(PAYMENT_ID)) {
+			   String []s = value.split(",");
+			   inputOk = true;
+			   for (int j = 0; j < s.length && inputOk; j++) {
+				   inputOk = validateInput(value, INTEGER);
+			   }
+		   } else throw new UnsupportedSearchException("Search by " + key + " not supported");
 
             if (!inputOk)
                 throw new InvalidSearchInputException("Value " + value + " invalid for " + key);

@@ -1874,7 +1874,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 } else if (key.equals(USER_ID)) {
                     whereClauses.append(" AND p.user_id = " + value);
                 } else if (key.equals(PAYMENT_ID)) {
-                    whereClauses.append(" AND p.payment_id = " + value);
+                    whereClauses.append(" AND p.payment_id in (" + value + ")");
                 } else if (key.equals(HANDLE)) {
                     whereClauses.append(" AND UPPER(u.handle) LIKE ?");  //todo user handle_lower
                     objects.add(value);

@@ -39,12 +39,15 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 List l = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client);
                 
                 l = bean.addPayments(l);
-
+                StringBuffer ids = new StringBuffer(100);
                 for (int i = 0; i < l.size(); i++) {
                 	BasePayment p = (BasePayment) l.get(i);
                 	if (p.getPaymentType() == PactsConstants.COMPONENT_PAYMENT) counts[0]++;
                 	if (p.getPaymentType() == PactsConstants.REVIEW_BOARD_PAYMENT) counts[1]++;
+                	ids.append(p.getId()).append(',');
                 }
+                
+                getRequest().setAttribute(PAYMENT_ID, ids.substring(0, ids.length() > 0? ids.length() -1 : 0).toString());
                 
                 addError(PROJECT_ID, "Success: " + counts[0] + " design/dev payments generated, " +
                         counts[1] + " review board payments generated");
