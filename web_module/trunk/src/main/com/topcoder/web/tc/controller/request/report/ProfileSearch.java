@@ -185,6 +185,7 @@ public class ProfileSearch extends Base {
 
             query.append("  , r.rating as Algorithm_Rating\n");
 
+            
             if (maxDaysDes != null && maxDaysDes.length() > 0) {
                 query.append("  , ur_des.rating as Design_Rating\n");
             } else {
@@ -196,7 +197,7 @@ public class ProfileSearch extends Base {
             } else {
                 query.append("  , (select ur2.rating from tcs_catalog:user_rating ur2 where ur2.user_id = c.coder_id AND ur2.phase_id = 113) as Development_Rating\n");
             }
-
+            
             query.append("  , (select '<a href=mailto:' || address  || ' >' || address || '</a>' from email where user_id = c.coder_id and primary_ind=1) as email\n");
             query.append("  , (select '<a href=/tc?module=DownloadResume&uid=' || res2.coder_id || '>Resume</a>' from resume res2 where res2.coder_id = c.coder_id)\n");
             query.append("  , (select max(n.modify_date) from user_note_xref unx, note n where n.note_type_id = 5 and unx.user_id = c.coder_id and unx.note_id = n.note_id)\n");
@@ -252,14 +253,17 @@ public class ProfileSearch extends Base {
         }
 
         if (maxDaysDes != null && maxDaysDes.length() > 0) {
+            query.append("  tcs_catalog:project_info pi_rd_des,");
             query.append("  tcs_catalog:user_rating ur_des, ");
             query.append("  tcs_catalog:project p_des, ");
         }
 
         if (maxDaysDev != null && maxDaysDev.length() > 0) {
+            query.append("  tcs_catalog:project_info pi_rd_dev,");
             query.append("  tcs_catalog:user_rating ur_dev, ");
             query.append("  tcs_catalog:project p_dev, ");
         }
+
 
         for (int i = 0; i < tables.size(); i++) {
             String tab = (String) tables.get(i);
@@ -569,9 +573,10 @@ public class ProfileSearch extends Base {
         if (maxDaysDes != null && maxDaysDes.length() > 0) {
             query.append("  and ur_des.user_id = u.user_id\n");
             query.append("  and ur_des.last_rated_project_id = p_des.project_id\n");
-            query.append("  and p_des.cur_version=1 \n");
             query.append("  and ur_des.phase_id = 112 \n");
-            query.append(" AND p_des.rating_date > (current - " + maxDaysDes + " units day) \n");
+            query.append("  and pi_rd_des.project_info_type_id= 22 \n");
+            query.append("  and pi_rd_des.project_id = p_des.project_id \n");
+            query.append(" AND date(pi_rd_des.value) > (current - " + maxDaysDes + " units day) \n");
 
         }
 
@@ -579,9 +584,10 @@ public class ProfileSearch extends Base {
         if (maxDaysDev != null && maxDaysDev.length() > 0) {
             query.append("  and ur_dev.user_id = u.user_id \n");
             query.append("  and ur_dev.last_rated_project_id = p_dev.project_id \n");
-            query.append("  and p_dev.cur_version=1 \n");
             query.append("  and ur_dev.phase_id = 113 \n");
-            query.append(" AND p_dev.rating_date > (current - " + maxDaysDev + " units day) \n");
+            query.append("  and pi_rd_dev.project_info_type_id= 22 \n");
+            query.append("  and pi_rd_dev.project_id = p_dev.project_id \n");
+            query.append(" AND date(pi_rd_dev.value) > (current - " + maxDaysDev + " units day) \n");
 
         }
 
