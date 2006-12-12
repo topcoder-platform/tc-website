@@ -7,6 +7,22 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 
+<%---------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>12.12.06<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=SurveyResults&sid=11060">yiming Wins the Arena Skin Contest</A>
+        </span><br><br>
+      Congratulations to <tc-webtag:handle coderId="10481546" />! He wins $1000 and an engraved version of his design in the Arena.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=SurveyResults&sid=11060">vote results</A> | 
+         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=23">discuss this</A> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+-----------------------------%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>12.12.06<br>12:00 NOON</td>
