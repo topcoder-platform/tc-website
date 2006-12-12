@@ -64,14 +64,16 @@ public abstract class DDECompForumXrefBean extends DDEBaseCompVersionsBean {
      * Creates an entity object.
      *
      * @param forumId               forum id.
+     * @param categoryId			category id.
      * @param forumType             forum type.
      * @param compVersions          compVersions.
      * @return the entity bean's primary key (should be null for CMP bean implementations).
      * @throws CreateException      an application level error occurred during the create operation.
      */
-    public Long ejbCreate(long forumId, int forumType, LocalDDECompVersions compVersions) throws CreateException {
+    public Long ejbCreate(long forumId, long categoryId, int forumType, LocalDDECompVersions compVersions) throws CreateException {
         setPrimaryKey();
         setForumId(forumId);
+        setCategoryId(categoryId);
         setForumType(forumType);
         return null;
     }
@@ -80,10 +82,11 @@ public abstract class DDECompForumXrefBean extends DDEBaseCompVersionsBean {
      * Creates an entity object.
      *
      * @param forumId               forum id.
+     * @param categoryId			category id.
      * @param forumType             forum type.
      * @param compVersions          compVersions.
      */
-    public void ejbPostCreate(long forumId, int forumType, LocalDDECompVersions compVersions) {
+    public void ejbPostCreate(long forumId, long categoryId, int forumType, LocalDDECompVersions compVersions) {
         setCompVersions(compVersions);
     }
 
