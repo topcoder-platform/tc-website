@@ -230,7 +230,6 @@ public class ForumsBean extends BaseEJB {
     		while (rs.next()) {
     			forumFactory.createForum(rs.getString("name"), rs.getString("description"), newCategory);
     		}
-    		forumsPS.close();
     		rs.close();
     		
     		createSoftwareComponentPermissions(newCategory, false);
