@@ -15,8 +15,8 @@ import java.util.*;
 public class Google {
     private static Logger log = Logger.getLogger(Contest.class);
 
-    private static final String PROD_GOOGLE_CHINA = "jdbc:informix-sqli://192.168.14.51:2020/gcj_china_05_oltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=bre3burn";
-    private static final String PROD_GOOGLE_INDIA = "jdbc:informix-sqli://192.168.14.51:2020/gcji06_oltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=bre3burn";
+    private static final String PROD_GOOGLE_CHINA = "jdbc:informix-sqli://192.168.14.51:2020/gcj_china_05_oltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=password";
+    private static final String PROD_GOOGLE_INDIA = "jdbc:informix-sqli://192.168.14.51:2020/gcji06_oltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=password";
 
     public static void main(String[] args) {
         String dataSourceName = null;
