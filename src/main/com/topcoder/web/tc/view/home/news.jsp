@@ -7,7 +7,7 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 
-<%---------------------------
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>12.12.06<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -21,7 +21,6 @@
          <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=23">discuss this</A> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
------------------------------%>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -182,28 +181,6 @@ We are currently looking to fill an opening for a <A href="/tc?module=Static&d1=
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=dev&d2=assembly&d3=activeContests">view</A> | 
          <tc-webtag:forumLink forumID="506200" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Component Competition News" border="0" /><br>12.04.06<br>9:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">New Records in the Component Record Book</A>
-        </span><br><br>
-      There are new records for 
-        Best Average Component Contest Score, 
-        Most Submission Reviews, 
-        Highest Rating Point Gain, 
-        Impressive Debuts, 
-        Consecutive Winnings, 
-        Consecutive 1st or 2nd place, 
-        and Consecutive Rating Increase.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">view</A> | 
-         <tc-webtag:forumLink forumID="506192" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 
