@@ -164,7 +164,7 @@ OR
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=ViewSurvey&sid=11060">vote</A> | 
-         <A href="/forums?module=ThreadList&forumID=23">discuss this</A> | 
+         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=23">discuss this</A> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
