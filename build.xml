@@ -16,6 +16,7 @@
     <property name="java" value="${src.dir}/main"/>
     <property name="shared" value="../shared/src/main"/>
     <property name="testjava" value="${src.dir}/testcases"/>
+    <property name="testshared" value="../shared/src/testcases"/>
     <property name="resources" value="resources"/>
     <property name="conf" value="conf"/>
     <property name="taglib" value="${resources}/taglib"/>
@@ -56,12 +57,18 @@
         <pathelement location="${jars.dir}/jboss/xercesImpl.jar"/>
         <pathelement location="${jars.dir}/jboss/xml-apis.jar"/>
         <pathelement location="${jars.dir}/jboss/mail.jar"/>
+        <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
 
 
         <pathelement location="${jive.dir}/jivebase.jar"/>
         <pathelement location="${jive.dir}/jiveforums.jar"/>
         <pathelement location="${jive.dir}/xwork.jar"/>
         <pathelement location="${jive.dir}/htmlparser.jar"/>
+
+        <pathelement location="${jars.dir}/tcs/alerts_wrapper/1.0/java_alerts_wrapper.jar"/>
+        <pathelement location="${jars.dir}/tcs/logging_wrapper.jar"/>
+        <pathelement location="${jars.dir}/tcs/object_factory/2.0.1/object_factory.jar"/>
+        
 
         <!-- TCS Components -->
         <!--
@@ -831,6 +838,11 @@
                deprecation="${deprecation}"
                debug="${debug}">
         </javac>
+        <javac srcdir="${testshared}" destdir="${testclasses}"
+               classpathref="class.path"
+               deprecation="${deprecation}"
+               debug="${debug}">
+        </javac>
     </target>
 
     <target name="run_tests" depends="compile_tests" description="run junit tests">
@@ -1159,6 +1171,26 @@
         </java>
     </target>
 
+
+    <target name="run_loader_tests" depends="compile_tests" description="run junit tests">
+        <junit printsummary="${junitsummary}" fork="yes">
+            <classpath>
+<!--
+                <pathelement location="resources/studio/"/>
+-->
+                <pathelement path="${class.path}"/>
+            </classpath>
+            <formatter type="xml"/>
+            <test name="com.topcoder.shared.util.loader.tc.TCTests" todir="${testclasses}"/>
+        </junit>
+
+        <junitreport todir="${testclasses}">
+            <fileset dir="${testclasses}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${testclasses}/html"/>
+        </junitreport>
+    </target>
 
 </project>
 
