@@ -92,7 +92,7 @@ public class RatingQubits {
 //                    ", project_info pi_vi" +
                     ", project_info pi_rd " + //, outer comp_version_dates cd " +
                     "where p.project_id = pr.project_id " +
-                    "and p.project_status_id in (3, 4, 5, 6, 7)  " +
+                    "and p.project_status_id in (4, 5, 6, 7)  " +
                     "and p.project_category_id = 1 " +
                     "and pr.rating_ind = 1 " +
                     //"and pi_vi.project_id = p.project_id and pi_vi.project_info_type_id = 1 " +
@@ -120,7 +120,7 @@ public class RatingQubits {
                     //", project_info pi_vi" +
                     ", project_info pi_rd " + //, outer comp_version_dates cd " +
 		            "where p.project_id = pr.project_id " +
-		            "and p.project_status_id in (3, 4, 5, 6, 7)  " +
+		            "and p.project_status_id in (4, 5, 6, 7)  " +
 		            "and p.project_category_id = 2 " +
 		            "and pr.rating_ind = 1 " +
                     //"and pi_vi.project_id = p.project_id and pi_vi.project_info_type_id = 1 " +
