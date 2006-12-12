@@ -5,8 +5,6 @@ import java.rmi.RemoteException;
 
 import javax.ejb.EJBException;
 
-import com.jivesoftware.forum.ForumCategory;
-
 public interface Forums extends EJBObject {
     
     public void createMatchForum(int roundID) throws EJBException, RemoteException;
@@ -25,7 +23,7 @@ public interface Forums extends EJBObject {
     
     public String[][] getAllSoftwareRolesData() throws EJBException, RemoteException;
     
-    public ForumCategory createSoftwareComponentForums(String componentName, long componentID, long versionID,
+    public long createSoftwareComponentForums(String componentName, long componentID, long versionID,
     		long phaseID, long componentStatusID, long rootCategoryID, String description, String versionText, 
     		long templateID)
     	throws EJBException, RemoteException, Exception;

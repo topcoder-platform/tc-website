@@ -1806,7 +1806,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             throw new CatalogException(e.toString());
         }
         
-        ForumCategory category = null;
+        long categoryID = -1;
         if (!ejbContext.getRollbackOnly()) {
 	    	try {
 	    		/*
@@ -1814,7 +1814,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 	    		 * changes on the software and forum servers when an error in the workflow occurs.
 	    		 */
 	    		log.info("******* calling createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
-	    		category = forums.createSoftwareComponentForums(newComponent.getComponentName(), ((Long)newComponent.getPrimaryKey()).longValue(),
+	    		categoryID = forums.createSoftwareComponentForums(newComponent.getComponentName(), ((Long)newComponent.getPrimaryKey()).longValue(),
 	    				((Long)newVersion.getPrimaryKey()).longValue(), newVersion.getPhaseId(), newComponent.getStatusId(), 
 	    				newComponent.getRootCategory(), newComponent.getShortDesc(), newVersion.getVersionText(), 
 	    				Long.parseLong(getConfigValue("collab_forum_template")));
@@ -1878,7 +1878,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 log.warn("Failed to parse the collab_forum_template property");
                 forum = forumadminHome.create().createForum(forum);
             }
-            compforumHome.create(forum.getId(), category.getID(), Forum.COLLABORATION, newVersion);
+            compforumHome.create(forum.getId(), categoryID, Forum.COLLABORATION, newVersion);
             createForumRoles(forum.getId(), Forum.COLLABORATION);
         } 
         catch (ForumException exception) {

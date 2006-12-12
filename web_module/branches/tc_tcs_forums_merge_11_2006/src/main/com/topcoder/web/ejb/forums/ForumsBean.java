@@ -205,7 +205,7 @@ public class ForumsBean extends BaseEJB {
     
     // Create a new component category and constituent forums
     // TODO: Ideally rolls back if any error occurs.
-    public ForumCategory createSoftwareComponentForums(String componentName, long componentID,
+    public long createSoftwareComponentForums(String componentName, long componentID,
     		long versionID, long phaseID, long componentStatusID, long rootCategoryID, String description, 
     		String versionText, long templateID) throws Exception {
     	log.info("******** called ForumsBean.createSoftwareComponentForums()");
@@ -235,7 +235,7 @@ public class ForumsBean extends BaseEJB {
     		rs.close();
     		
     		createSoftwareComponentPermissions(newCategory, false);
-    		return newCategory;
+    		return newCategory.getID();
     	} catch (Exception e) {
     		logException(e, "error in creating software component forums");
     		throw e;
