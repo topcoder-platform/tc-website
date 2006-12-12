@@ -55,9 +55,9 @@
  -->
     <!-- Practice Arena  tab -->
     <% if (selectedTab.equals("arena")) {%>
-    <span class="navOn">Competition Arena</span> &nbsp;|&nbsp;
+    <span class="navOn">Competition Arena</span> <%--&nbsp;|&nbsp;--%>
     <% } else { %>
-    <a class="navLink" href="/pl/?module=Static&d1=gcjsa06&d2=arena">Competition Arena</a> &nbsp;|&nbsp;
+    <a class="navLink" href="/pl/?module=Static&d1=gcjsa06&d2=arena">Competition Arena</a> <%--&nbsp;|&nbsp;--%>
     <% } %>
 
     <!-- Google Groups  tab 

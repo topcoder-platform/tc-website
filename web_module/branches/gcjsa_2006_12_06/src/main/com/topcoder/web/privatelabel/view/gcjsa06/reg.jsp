@@ -36,7 +36,7 @@
             <tr>
                 <td width="49%"></td>
                 <td valign="bottom" align="center">
-                    <img border=0 src="/i/events/google2006/codejamLogo.gif" alt="Google Code Jam logo"></td>
+                    <img border=0 src="/i/events/google2006/codejamlogo.png" alt="Google Code Jam logo"></td>
                 <td width="49%"></td>
             </tr>
         </table>
