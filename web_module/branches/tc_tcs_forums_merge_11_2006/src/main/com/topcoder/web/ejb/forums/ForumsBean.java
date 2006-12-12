@@ -231,6 +231,8 @@ public class ForumsBean extends BaseEJB {
     			forumFactory.createForum(rs.getString("name"), rs.getString("description"), newCategory);
     		}
     		rs.close();
+    		forumsPS.close();
+    		forumsConn.close();
     		
     		createSoftwareComponentPermissions(newCategory, false);
     		return newCategory.getID();
