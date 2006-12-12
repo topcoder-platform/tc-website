@@ -109,7 +109,7 @@ Most of us live in a structure that depends on regular income for housing, food,
 <br><br>
 To survive an ethical hurricane, prepare yourself as you would for an actual natural disaster. Ensure that you have a place to go after the chaos by developing a strong network of professional associates who might hire you someday. Take out "job security" insurance by investing in a sound policy of self-education to keep skills fresh. Diversify your employment "holdings" with freelance work to soften the blow of losing a single source of income.
 <br><br>
-So, where to start? You're not in a bad place -- at TopCoder, you can make new programming contacts, learn new skills, and earn some supplemental cash, all of which could come in very handy one day. Good luck, and let us know about some of the challenging situations you have encountered in the forums [link].
+So, where to start? You're not in a bad place -- at TopCoder, you can make new programming contacts, learn new skills, and earn some supplemental cash, all of which could come in very handy one day. Good luck, and let us know about some of the challenging situations you have encountered in the <tc-webtag:forumLink forumID="506196" message="forums" />.
 <br><br>
         </td>
 <!-- Center Column Ends -->
