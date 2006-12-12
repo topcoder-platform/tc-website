@@ -3,11 +3,11 @@ package com.topcoder.utilities.pacts;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
 
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.sql.DBUtility;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.PactsClientServices;
@@ -78,7 +78,6 @@ public class PayReliabilityBonus extends DBUtility {
             }
 
     		log.info("" + userId + ";" + projectId + ";" + getReliabilityPercent(reliability) + ";" + bonusAmount + ";" + reliability + ";" + amount);
-//    		log.info("Adding a bonus payment for user " + userId + " project " + projectId + " for $ " + bonusAmount + "(payment_id = " + p.getId() + ")");
 			count++;			
         }
         log.info("Done. Bonus rows inserted: " + count);
@@ -99,7 +98,7 @@ public class PayReliabilityBonus extends DBUtility {
 	
 
     public static Object createEJB() throws NamingException, Exception {
-        Context initial = new InitialContext();
+        InitialContext initial = TCContext.getInitial();
         Object objref = initial.lookup(PactsClientServicesHome.class.getName());
         PactsClientServicesHome home = (PactsClientServicesHome) 
             PortableRemoteObject.narrow(objref, PactsClientServicesHome.class);
