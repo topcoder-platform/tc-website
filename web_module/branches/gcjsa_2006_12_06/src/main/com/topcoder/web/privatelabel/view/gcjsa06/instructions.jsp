@@ -6,7 +6,7 @@
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/tcStyles.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gcjsa06.css"/>
-    <title>Google Code Jam South America, Powered by TopCoder</title>
+    <title>Google Code Jam Latin America 2007, Powered by TopCoder</title>
 
     <jsp:include page="../script.jsp"/>
 </head>
@@ -49,8 +49,10 @@
          <span valign="top">
          <jsp:include page="right.jsp"/>
          </span>
+<span class="bigBluetitle">Google&#153; Code Jam Latin America 2007</span>
+         <br><br>
 
-         <span class="bigBluetitle">Instructions</span>
+         <span class="subTitle">Instructions</span>
 
          <br><br>
 
@@ -98,7 +100,7 @@
          <ul>
              <li>In the Qualification Round, the Coding Phase will last 60 minutes from the time that the first problem
                  is opened and the contestants will be given two problems to solve.</li>
-             <li>In the Online and Onsite Rounds of the Google Code Jam South America, the Coding Phase will last 75 minutes and the
+             <li>In the Online and Onsite Rounds of the Google Code Jam Latin America 2007, the Coding Phase will last 75 minutes and the
                  contestants will be given three problems to solve.</li>
          </ul>
 
@@ -140,7 +142,7 @@
          <span class="bigRed">NOTE: All problem statements will be presented in English.</span>
          <br><br>
          <strong>Choosing a Language</strong><br>
-         The Google Code Jam South America allows coders to utilize Java, C++, C#, VB.NET or Python* as a competition programming
+         The Google Code Jam Latin America 2007 allows coders to utilize Java, C++, C#, VB.NET or Python* as a competition programming
          language. You have the option to choose a programming language on a problem-by-problem basis. It is legal for
          you to use any programming languages to solve each of the problems in a single competition. For this reason,
          you have the option of choosing the programming language from within the coding window. You can find the
@@ -397,11 +399,11 @@ class &lt;class-name&gt:
          An administrator will respond to your question in the chat area.
          <br><br>
          If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to
-         <A href="mailto:gcjsa@topcoder.com?subject=Question regarding Google Code Jam South America">gcjsa@topcoder.com</A>. Please
+         <A href="mailto:gcjsa@topcoder.com?subject=Question regarding Google Code Jam Latin America 2007">gcjsa@topcoder.com</A>. Please
          include a detailed description of the problem that you are having.
 
          <br><br>
-         To find out more detailed information about the Google&#153; Code Jam South America, please read the
+         To find out more detailed information about the Google&#153; Code Jam Latin America 2007, please read the
          <a href="/pl/?&module=Static&d1=gcjsa06&d2=rules">Terms and Conditions</a>.
          <br><br>
 </div>

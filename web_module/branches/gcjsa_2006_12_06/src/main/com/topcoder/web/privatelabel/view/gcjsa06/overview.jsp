@@ -6,7 +6,7 @@
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/tcStyles.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gcjsa06.css"/>
-    <title>Google Code Jam South America, Powered by TopCoder</title>
+    <title>Google Code Jam Latin America 2007, Powered by TopCoder</title>
 
     <jsp:include page="../script.jsp"/>
 </head>
@@ -45,11 +45,13 @@
 <div align="center">
 <div class="pageLayout" align="left">
 <span valign="top"><jsp:include page="right.jsp"/></span>
-<span class="bigBluetitle">Google&#153; Code Jam South America</span>
+<span class="bigBluetitle">Google&#153; Code Jam Latin America 2007</span>
          <br><br>
-         Google is making their next stop in South America!  Get ready for the biggest battle the continent has ever seen.  There will be 70,000BRL in cash and prizes up for grabs and enough challenging problems for the most talented engineers.
+         <span class="subTitle">Overview</span>
+         <br><br>
+         Google is making their next stop in Latin America 2007!  Get ready for the biggest battle the continent has ever seen.  There will be 70,000BRL in cash and prizes up for grabs and enough challenging problems for the most talented engineers.
          <br><br><br>
-         <span class="subTitle">What is the Google Code Jam South America?</span>
+         <span class="subTitle">What is the Google Code Jam Latin America 2007?</span>
          <br><br>
          The tournament is a timed contest where all participants compete online to solve the same problems under the
          same time constraints.
@@ -61,7 +63,7 @@
          <br><br><br>
          <span class="subTitle">When is the competition?</span>
          <br><br>
-         Registration for the Google Code Jam South America is open from Tuesday, January 2, 2007 at 10:00AM GMT/UTC -2
+         Registration for the Google Code Jam Latin America 2007 is open from Tuesday, January 2, 2007 at 10:00AM GMT/UTC -2
          through Tuesday, January 23, 2007 at 10:00AM GMT/UTC -2. There is no limit to the number of registrants
          for the competition, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the
          Code Jam on January 30, 2007.
@@ -70,7 +72,7 @@
          <br><br>
          The competitors with the top 50 scores from Round 2 will be invited to compete for 70,000BRL in cash and prizes
          at the onsite Championship Round at the Google Office in Belo Horizonte, Brazil.
-         <br><br>
+         <br><br><br>
          <%--
          Here's the line-by-line documentation:
          <br><br>
@@ -147,7 +149,7 @@
          <br><br>
          <span class="subTitle">What can you win?</span>
          <br><br>
-         The top 250 participants in Round 2 will receive a "Google Code Jam South America" t-shirt. All 50 finalists who
+         The top 250 participants in Round 2 will receive a "Google Code Jam Latin America 2007" t-shirt. All 50 finalists who
          compete in the Championship Round will receive prizes as follows:
          <br><br>
          <table width="250" class="box" align="center" style="clear:right;">
@@ -180,7 +182,7 @@
              </tr>
          </table>
          <br><br>
-         To find out more detailed information about the Google&#153; Code Jam South America, please read the
+         To find out more detailed information about the Google&#153; Code Jam Latin America 2007, please read the
          <a href="/pl/?&module=Static&d1=gcjsa06&d2=rules">Terms and Conditions</a>.
          <br><br>
 </div>

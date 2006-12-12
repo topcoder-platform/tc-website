@@ -6,7 +6,7 @@
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/tcStyles.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/google06.css"/>
-    <title>Google Code Jam South America, Powered by TopCoder</title>
+    <title>Google Code Jam Latin America 2007, Powered by TopCoder</title>
 
     <jsp:include page="../script.jsp"/>
 </head>
@@ -65,7 +65,7 @@
 
                 <span class="bigBluetitle">Registration</span>
                 <br><br>
-                Registration for the Google Code Jam South America is officially closed.
+                Registration for the Google Code Jam Latin America 2007 is officially closed.
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>

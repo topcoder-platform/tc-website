@@ -6,7 +6,7 @@
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/tcStyles.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gcjsa06.css"/>
-    <title>Google Code Jam South America, Powered by TopCoder</title>
+    <title>Google Code Jam Latin America 2007, Powered by TopCoder</title>
 
     <jsp:include page="../script.jsp"/>
 </head>
@@ -50,7 +50,9 @@
          <jsp:include page="right.jsp"/>
          </span>
 
-                <span class="bigBluetitle">FAQ</span>
+<span class="bigBluetitle">Google&#153; Code Jam Latin America 2007</span>
+         <br><br>
+                <span class="subTitle">FAQ</span>
 
                 <br><br>
 
@@ -124,11 +126,11 @@
                 As soon as Round 2 is over, please contact Google and they will provide you with the appropriate invitation letter to take to the embassy.
                 <br><br>
                 Questions not addressed here should be directed to
-                <A href="mailto:gcjsa@topcoder.com?subject=Question regarding Google Code Jam South America">gcjsa@topcoder.com</A>.
+                <A href="mailto:gcjsa@topcoder.com?subject=Question regarding Google Code Jam Latin America 2007">gcjsa@topcoder.com</A>.
                 <br><br>
                 Good luck!
                 <br><br>
-                To find out more detailed information about the Google&#153; Code Jam South America, please read the
+                To find out more detailed information about the Google&#153; Code Jam Latin America 2007, please read the
                 <a href="/pl/?&module=Static&d1=gcjsa06&d2=rules">Terms and Conditions</a>.
                 <br><br>
             </div>

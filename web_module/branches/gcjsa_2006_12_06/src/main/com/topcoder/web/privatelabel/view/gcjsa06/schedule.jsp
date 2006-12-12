@@ -6,7 +6,7 @@
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/tcStyles.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gcjsa06.css"/>
-    <title>Google Code Jam South America, Powered by TopCoder</title>
+    <title>Google Code Jam Latin America 2007, Powered by TopCoder</title>
 
     <jsp:include page="../script.jsp"/>
 </head>
@@ -49,8 +49,10 @@
          <span valign="top">
          <jsp:include page="right.jsp"/>
          </span>
+<span class="bigBluetitle">Google&#153; Code Jam Latin America 2007</span>
+         <br><br>
 
-            <span class="bigBluetitle">Schedule</span>
+            <span class="subTitle">Schedule</span>
             <br><br>
 
             <!-- Qualification Rounds begins -->
@@ -134,7 +136,7 @@
             </table>
 
             <br><br>
-            To find out more detailed information about the Google&#153; Code Jam South America, please read the
+            To find out more detailed information about the Google&#153; Code Jam Latin America 2007, please read the
             <a href="/pl/?&module=Static&d1=gcjsa06&d2=rules">Terms and Conditions</a>.
             <br><br>
         </div>

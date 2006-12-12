@@ -7,7 +7,7 @@
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/tcStyles.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gcjsa06.css"/>
-    <title>Google Code Jam South America, Powered by TopCoder</title>
+    <title>Google Code Jam Latin America 2007, Powered by TopCoder</title>
 
     <jsp:include page="../script.jsp"/>
 </head>
@@ -52,12 +52,14 @@
          <jsp:include page="right.jsp"/>
          </span>
 
-                <span class="bigBluetitle">Competition Arena</span>
+<span class="bigBluetitle">Google&#153; Code Jam Latin America 2007</span>
+         <br><br>
+                <span class="subTitle">Competition Arena</span>
                 <br><br>
-               <%-- The Google Code Jam South America Arena is no longer available.--%>
+               <%-- The Google Code Jam Latin America 2007 Arena is no longer available.--%>
                 
                 <A href="/pl/?module=Google06Credentials&<%=Constants.COMPANY_ID%>=1865">Forgot your Google Code Jam
-                    South America password?</A>
+                    Latin America 2007 password?</A>
 
                 <br><br>
                 You need at least <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version
@@ -87,13 +89,13 @@
                     Applet</A>.
                 <br><br>
                 If you experience problems loading or running the Competition Arena please contact
-                <A href="mailto:gcj@topcoder.com?subject=Question regarding Google Code Jam South America">gcj@topcoder.com</A>.
+                <A href="mailto:gcj@topcoder.com?subject=Question regarding Google Code Jam Latin America 2007">gcj@topcoder.com</A>.
                 
 
 
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                 <br><br><br><br>
-                To find out more detailed information about the Google&#153; Code Jam South America, please read the
+                To find out more detailed information about the Google&#153; Code Jam Latin America 2007, please read the
                 <a href="/pl/?&module=Static&d1=gcjsa06&d2=rules">Terms and Conditions</a>.
                 <br><br>
             </div>

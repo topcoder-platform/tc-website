@@ -6,7 +6,7 @@
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/tcStyles.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gcjsa06.css"/>
-    <title>Google Code Jam South America, Powered by TopCoder</title>
+    <title>Google Code Jam Latin America 2007, Powered by TopCoder</title>
 
     <jsp:include page="../script.jsp"/>
 </head>
@@ -49,26 +49,28 @@
          <jsp:include page="right.jsp"/>
          </span>
 
-            <span class="bigBluetitle">Official Rules and Regulations</span>
+<span class="bigBluetitle">Google&#153; Code Jam Latin America 2007</span>
+         <br><br>
+            <span class="subTitle">Official Rules and Regulations</span>
 
             <br><br>
 
             <span class="bigRed">No purchase necessary to enter or win.  The tournament is void where prohibited.</span>
             <br><br>
             <span class="subTitle">Summary of the Tournament</span><br>
-            The Google&#153; Code Jam South America is being offered by Google, Inc. ("Google") and TopCoder, Inc.
+            The Google&#153; Code Jam Latin America 2007 is being offered by Google, Inc. ("Google") and TopCoder, Inc.
             ("TopCoder"). Google always focuses on creating innovative technologies that could benefit ordinary
             people's lives. The goal of this contest is to encourage and reward the top talents in computer science
-            from South America. The Code Jam will take place between January 2, 2007 and March 1, 2007. It
+            from Latin America. The Code Jam will take place between January 2, 2007 and March 1, 2007. It
             begins with an online registration, after which all registered individuals will participate in a
             Qualification Round to determine who will compete in the programming tournament. The tournament consists
             of one (1) online qualification round, two (2) online elimination rounds and one (1) onsite final round.
-            The top 250 scores from Round 2 will receive a Google Code Jam South America t-shirt. In addition, Google will
+            The top 250 scores from Round 2 will receive a Google Code Jam Latin America 2007 t-shirt. In addition, Google will
             award 70,000BRL in cash and prizes to the 50 finalists in the tournament.
             <br><br>
 
             <b>Eligibility</b><br>
-            Any individuals from the following countries may register and compete in the Google Code Jam South America provided they meet the eligibility
+            Any individuals from the following countries may register and compete in the Google Code Jam Latin America 2007 provided they meet the eligibility
             requirements: Argentina, Belize, Bolivia, Brazil, Chile, Colombia, Costa Rica, Ecuador, El Salvador, French Guiana, Guatemala, Guyana, Honduras, 
             Nicaragua, Panama, Paraguay, Peru, Suriname, Uruguay, Venezuela.
             <br><br>
@@ -76,8 +78,8 @@
             participate at the on-site finals in Belo Horizonte, Brazil.
             <br><br>
             Registrants who are 13 years of age or older as of January 2, 2007 may compete in the Qualification and Online Rounds of the Google Code Jam 
-            South America and are also eligible to win a t-shirt. Only participants who are 18 years of age or older as of January 2, 2007 are eligible to compete 
-            in the Championship Round and to win cash and prizes, unless otherwise prohibited. The Google Code Jam South America is void where prohibited 
+            Latin America 2007 and are also eligible to win a t-shirt. Only participants who are 18 years of age or older as of January 2, 2007 are eligible to compete 
+            in the Championship Round and to win cash and prizes, unless otherwise prohibited. The Google Code Jam Latin America 2007 is void where prohibited 
             by applicable law.
             <br><br>
             Full and part-time employees of Google and TopCoder, as well as those who are performing internships at 
@@ -122,7 +124,7 @@
 
             The Qualification Round will contain (10) virtual rooms and five (5) problem sets. The top 100 scorers
             from each of the five problem sets presented during the Qualification Round will be eligible to compete
-            in Round 1 of the Google Code Jam South America.
+            in Round 1 of the Google Code Jam Latin America 2007.
             <br><br>
 
             <b>The Competition Field</b><br>
@@ -266,7 +268,7 @@ total for the round. In the event of a tie in the Championship Round, the tie wi
 </ul>
 
 <span class="subTitle">About the Prizes</span><br>
-The top 250 scores from Round 2 will receive a "Google Code Jam South America" t-shirt. In addition, the 50 finalists in the
+The top 250 scores from Round 2 will receive a "Google Code Jam Latin America 2007" t-shirt. In addition, the 50 finalists in the
 Championship Round will receive prizes. Any and all applicable taxes on prizes are the sole responsibility of the
 prizewinner. Prizes will be distributed as follows:
 <br><br>

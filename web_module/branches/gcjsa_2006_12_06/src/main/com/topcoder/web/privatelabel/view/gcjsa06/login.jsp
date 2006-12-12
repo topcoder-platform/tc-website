@@ -10,7 +10,7 @@
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/tcStyles.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gcjsa06.css"/>
-    <title>Google Code Jam South America, Powered by TopCoder</title>
+    <title>Google Code Jam Latin America 2007, Powered by TopCoder</title>
     <jsp:include page="../script.jsp"/>
 </head>
 
@@ -66,7 +66,9 @@
          <jsp:include page="right_reg.jsp"/>
          </span>
 
-            <span class="bigBluetitle">Registration</span>
+<span class="bigBluetitle">Google&#153; Code Jam Latin America 2007</span>
+         <br><br>
+            <span class="subTitle">Registration</span>
             <br><br>
 
             Registration will close on Tuesday, January 23 at 10:00 AM GMT/UTC -2.<br/><br/>
@@ -77,7 +79,7 @@
             <a href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_06_REG_MAIN%>&<%=Constants.COMPANY_ID%>=1865&<%=Constants.EVENT_ID%>=8" class="bigRed">here</a>.
             <br><br>
             If you are currently a TopCoder member and would like to convert your account for use in Google Code Jam
-            South America or you have an existing Google Code Jam South America account and need to change your registration information
+            Latin America 2007 or you have an existing Google Code Jam Latin America 2007 account and need to change your registration information
             you may login below.<br/><br/>
 
             If you have already registered and would like to <strong>update your registration information</strong>,
@@ -116,7 +118,7 @@
                     <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
                     <tr><td colspan="3" class="bodyText" align="center">
                         <A href="/pl/?module=Google06Credentials&<%=Constants.COMPANY_ID%>=1865">Forgot your Google Code
-                            Jam South America password?</A></td>
+                            Jam Latin America 2007 password?</A></td>
                     </tr>
                 </table>
 
@@ -128,7 +130,7 @@
 
             </form>
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            To find out more detailed information about the Google&#153; Code Jam South America, please read the
+            To find out more detailed information about the Google&#153; Code Jam Latin America 2007, please read the
             <a href="/pl/?&module=Static&d1=gcjsa06&d2=rules">Terms and Conditions</a>.
             <br><br>
         </div>

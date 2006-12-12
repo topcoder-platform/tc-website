@@ -6,7 +6,7 @@
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/tcStyles.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/google06.css"/>
-    <title>Google Code Jam South America, Powered by TopCoder</title>
+    <title>Google Code Jam Latin America 2007, Powered by TopCoder</title>
     <jsp:include page="../script.jsp"/>
 
 
@@ -94,7 +94,7 @@ var google_conversion_label = "LEAD";
                         </td>
                         <td valign="top" width="100%">
 
-                            In order to be eligible to compete in the Google Code Jam South America,
+                            In order to be eligible to compete in the Google Code Jam Latin America 2007,
                             you must activate your account by following the directions sent to the email
                             address provided during registration.
 
