@@ -25,6 +25,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/employment.png" alt="Employment Opportunities" border="0" /><br>12.12.06<br>4:15 PM</td>
+      <td class="newsTextCell">
+        <span class="newsTitle"><A href="/tc?module=Static&d1=about&d2=web_designer">Job Opening at TopCoder: Web Designer</A></span><br><br>
+We are currently looking to fill an opening for a <A href="/tc?module=Static&d1=about&d2=web_designer">Web Designer</A>.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=about&d2=web_designer">details</A> | 
+        <tc-webtag:forumLink forumID="506211" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>12.12.06<br>12:00 NOON</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid">"How to get paid" updated</A></span><br><br>
@@ -193,15 +207,3 @@ We are currently looking to fill an opening for a <A href="/tc?module=Static&d1=
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>12.04.06<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=11060">Arena Skin Contest Vote</A></span><br><br>
-      The 5 finalists in our Studio contest to redesign the TopCoder Arena are ready, and now YOU pick the winner.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=ViewSurvey&sid=11060">vote</A> | 
-         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=23">discuss this</A> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>

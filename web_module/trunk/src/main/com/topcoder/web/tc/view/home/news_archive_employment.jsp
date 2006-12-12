@@ -37,7 +37,8 @@
             <jsp:param name="title" value="Employment Opportunities"/>
         </jsp:include>
 
-<table border=0 cellpadding=2 cellspacing=0 width="100%">
+<table border="0" cellpadding="2" cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">12.12.06 4:15 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=about&d2=web_designer">Job Opening at TopCoder: Web Designer</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.05.06 6:15 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=about&d2=deployment_engineer">Job Opening at TopCoder: Deployment Engineer</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.29.06 9:45 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA chat session scheduled for SRM 318</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.07.06 9:00 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=about&d2=graphic_designer">TopCoder Software is hiring graphic designers</A></td></tr>
