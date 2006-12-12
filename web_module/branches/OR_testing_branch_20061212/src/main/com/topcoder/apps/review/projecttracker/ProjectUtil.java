@@ -323,7 +323,7 @@ public class ProjectUtil {
 
 	            if (phases[i].getPhaseType().getId() == PHASE_TYPE_SUBMISSION) {
 	                // Submission Number
-	                createPhaseCriteria(conn, phaseId, 3, "0", modUserId);
+	                createPhaseCriteria(conn, phaseId, 3, "1", modUserId);
 	            }
                 // 5, 'Manual Screening'
                 createPhaseCriteria(conn, phaseId, 5, "No", modUserId);
@@ -365,7 +365,7 @@ public class ProjectUtil {
         close(ps);
 
         // External Reference ID
-        ps = conn.prepareStatement("INSERT INTO resource_info " + 
+        ps = conn.prepareStatement("INSERT INTO resource_info  " + 
         		"(resource_id, resource_info_type_id, value, create_user, create_date, modify_user, modify_date) " +
         		" VALUES (?, ?, ?, ?, CURRENT, ?, CURRENT)");
         index = 1;
