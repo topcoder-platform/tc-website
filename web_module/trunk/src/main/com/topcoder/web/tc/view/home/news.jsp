@@ -7,9 +7,9 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 
-<%----------------------------
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>12.11.06<br>4:15 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>12.12.06<br>12:00 NOON</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid">"How to get paid" updated</A></span><br><br>
         As TopCoder has grown, our ability to effectively manage member payments has become a growing challenge. To help make the process more predictable, members will now receive one regularly scheduled monthly payment for any and all money earned during the previous month.
@@ -19,7 +19,6 @@
         <tc-webtag:forumLink forumID="506210" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
-----------------------------%>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -190,19 +189,3 @@ We are currently looking to fill an opening for a <A href="/tc?module=Static&d1=
          <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=23">discuss this</A> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>12.04.06<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/longcontest/?module=ViewOverview&rd=10649">Intel&#174; Multi-Threading Competition 11 Results</A>
-      </span><br><br>
-      The Intel&#174; Multi-Threading Competition 11 results are in. Congratulations to the first place winner, <tc-webtag:handle coderId="7504863" />.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/longcontest/?module=ViewOverview&rd=10649">results</A> | 
-         <tc-webtag:forumLink forumID="506179" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
-   </td></tr>
-
