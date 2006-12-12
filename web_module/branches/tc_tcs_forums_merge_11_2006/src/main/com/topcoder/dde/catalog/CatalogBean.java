@@ -1809,6 +1809,10 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         ForumCategory category = null;
         if (!ejbContext.getRollbackOnly()) {
 	    	try {
+	    		/*
+	    		 * This should be replaced by a distributed transaction (XA, etc.) that rolls back 
+	    		 * changes on the software and forum servers when an error in the workflow occurs.
+	    		 */
 	    		log.info("******* calling createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
 	    		category = forums.createSoftwareComponentForums(newComponent.getComponentName(), ((Long)newComponent.getPrimaryKey()).longValue(),
 	    				((Long)newVersion.getPrimaryKey()).longValue(), newVersion.getPhaseId(), newComponent.getStatusId(), 

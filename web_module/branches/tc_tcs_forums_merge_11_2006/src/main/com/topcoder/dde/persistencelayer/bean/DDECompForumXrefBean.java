@@ -45,6 +45,20 @@ public abstract class DDECompForumXrefBean extends DDEBaseCompVersionsBean {
      * @param forumId       forum id.
      */
     public abstract void setForumId(long forumId);
+    
+    /**
+     * Gets the category id.
+     *
+     * @return category id.
+     */
+    public abstract long getCategoryId();
+
+    /**
+     * Sets the category id.
+     *
+     * @param categoryId       category id.
+     */
+    public abstract void setCategoryId(long categoryId);
 
     /**
      * Creates an entity object.
