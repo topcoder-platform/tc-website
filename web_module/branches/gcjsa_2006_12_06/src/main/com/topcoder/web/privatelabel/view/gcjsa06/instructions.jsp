@@ -98,11 +98,7 @@
          <ul>
              <li>In the Qualification Round, the Coding Phase will last 60 minutes from the time that the first problem
                  is opened and the contestants will be given two problems to solve.</li>
-             <li>In the Online Rounds of the Google Code Jam South America, the Coding Phase will last 75 minutes and the
-                 contestants will be given three problems to solve.</li>
-             <li>In Online Round 2 of Google Code Jam South America, the Coding Phase will last 75 minutes and the contestants
-                 will be given three problems to solve.</li>
-             <li>In the Onsite Final Round of the Google Code Jam South America, the coding phase will last 75 minutes and the
+             <li>In the Online and Onsite Rounds of the Google Code Jam South America, the Coding Phase will last 75 minutes and the
                  contestants will be given three problems to solve.</li>
          </ul>
 

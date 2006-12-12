@@ -114,9 +114,9 @@
                 not a registered member, you may register <A href="/reg">here</A>. 
                 <br><br>
                 <b>How does the timer work for the Qualification Round?</b><br>
-                The qualification round opens at Noon GMT/UTC -3  on January 23, 2007, however you can start 
-                your qualification attempt at any time between Noon on January 23 and Noon on January 24, 2007 (GMT/UTC -3).  
-                You have one hour to complete the qualification round, so be sure to begin your attempt by 11:00 AM GMT/UTC -3 
+                The qualification round opens at Noon GMT/UTC -2 on January 23, 2007, however you can start 
+                your qualification attempt at any time between Noon on January 23 and Noon on January 24, 2007 (GMT/UTC -2).  
+                You have one hour to complete the qualification round, so be sure to begin your attempt by 11:00 AM GMT/UTC -2 
                 on January 24, 2007 to give yourself the full hour.
                 <br><br>
                 <b>How do I get a visa if I make it onsite?</b><br>

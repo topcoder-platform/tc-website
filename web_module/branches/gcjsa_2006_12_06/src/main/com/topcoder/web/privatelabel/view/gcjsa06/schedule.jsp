@@ -13,8 +13,6 @@
 
 <body>
 
-<!-- top - logo -->
-
 <table border="0" width="100%" cellpadding="0" cellspacing="0">
 <tr>
     <td align="center">
@@ -114,7 +112,7 @@
             <br><br><br><br><br><br><br><br><br><br><br><br><br>
 
             <span class="subTitle">Onsite Championship Round</span><br>
-            Up to 50 coders will compete at the onsite Championship Round at Google Headquarters in Belo Horizante, Brazil. Each finalist
+            Up to 50 coders will compete at the onsite Championship Round at Google Headquarters in Belo Horizonte, Brazil. Each finalist
             must be present onsite to compete in the Championship Round.
             <br><br>
 

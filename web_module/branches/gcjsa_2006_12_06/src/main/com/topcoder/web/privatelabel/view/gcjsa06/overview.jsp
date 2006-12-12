@@ -13,7 +13,6 @@
 
 <body>
 
-
 <table border="0" width="100%" cellpadding="0" cellspacing="0">
 <tr>
     <td align="center">
@@ -70,7 +69,7 @@
          The competitors with the top 250 scores from Round 1 will advance to compete in Round 2.
          <br><br>
          The competitors with the top 50 scores from Round 2 will be invited to compete for 70,000BRL in cash and prizes
-         at the onsite Championship Round at the Google Office in Belo Horizante, Brazil.
+         at the onsite Championship Round at the Google Office in Belo Horizonte, Brazil.
          <br><br>
          <%--
          Here's the line-by-line documentation:

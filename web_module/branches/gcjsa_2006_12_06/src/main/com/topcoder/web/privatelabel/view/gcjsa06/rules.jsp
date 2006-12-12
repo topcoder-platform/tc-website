@@ -13,7 +13,6 @@
 
 <body>
 
-
 <table border="0" width="100%" cellpadding="0" cellspacing="0">
 <tr>
     <td align="center">
@@ -60,7 +59,7 @@
             The Google&#153; Code Jam South America is being offered by Google, Inc. ("Google") and TopCoder, Inc.
             ("TopCoder"). Google always focuses on creating innovative technologies that could benefit ordinary
             people's lives. The goal of this contest is to encourage and reward the top talents in computer science
-            from all over the world. The Code Jam will take place between January 2, 2007 and March 1, 2007. It
+            from South America. The Code Jam will take place between January 2, 2007 and March 1, 2007. It
             begins with an online registration, after which all registered individuals will participate in a
             Qualification Round to determine who will compete in the programming tournament. The tournament consists
             of one (1) online qualification round, two (2) online elimination rounds and one (1) onsite final round.
@@ -74,12 +73,12 @@
             Nicaragua, Panama, Paraguay, Peru, Suriname, Uruguay, Venezuela.
             <br><br>
             Please note that due to potential visa restrictions, some finalists may not be able to
-            participate at the on-site finals in Belo Horizante, Brazil.
+            participate at the on-site finals in Belo Horizonte, Brazil.
             <br><br>
-            Registrants who are 13 years of age or older as of January 2, 2007 may compete in the Qualification
-            and Online Rounds of the Google Code Jam South America. Only participants who are 18 years of age or older as of
-            January 2, 2007 are eligible to compete in the Championship Round and to win cash and prizes, unless
-            otherwise prohibited. The Google Code Jam South America is void where prohibited by applicable law.
+            Registrants who are 13 years of age or older as of January 2, 2007 may compete in the Qualification and Online Rounds of the Google Code Jam 
+            South America and are also eligible to win a t-shirt. Only participants who are 18 years of age or older as of January 2, 2007 are eligible to compete 
+            in the Championship Round and to win cash and prizes, unless otherwise prohibited. The Google Code Jam South America is void where prohibited 
+            by applicable law.
             <br><br>
             Full and part-time employees of Google and TopCoder, as well as those who are performing internships at 
             Google from January 2 through March 1, 2007, and those involved in the production (including prize
