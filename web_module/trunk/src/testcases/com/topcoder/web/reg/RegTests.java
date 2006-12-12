@@ -1,9 +1,7 @@
 package com.topcoder.web.reg;
 
-import com.topcoder.web.common.dao.PreferenceDAOTestCase;
-import com.topcoder.web.common.dao.PreferenceGroupDAOTestCase;
-import com.topcoder.web.common.dao.PreferenceValueDAOTestCase;
-import com.topcoder.web.common.dao.UserPreferenceDAOTestCase;
+import com.topcoder.web.common.dao.UserDAOTestCase;
+import com.topcoder.web.reg.validation.TermsOfUseValidatorTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
