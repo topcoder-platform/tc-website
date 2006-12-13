@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/tcStyles.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
-    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/google06.css"/>
+    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gcjsa07.css"/>
     <title>Google Code Jam Latin America 2007, Powered by TopCoder</title>
 
     <jsp:include page="../script.jsp"/>
@@ -21,7 +21,7 @@
                 <tr>
                     <td width="49%"></td>
                     <td valign="bottom" align="center">
-                        <img border=0 src="/i/events/google2006/codejamlogo.png" alt="Google Code Jam logo"></td>
+                        <img border=0 src="/i/events/gcjsa07/codejamlogo.png" alt="Google Code Jam logo"></td>
                     <td width="49%"></td>
                 </tr>
             </table>

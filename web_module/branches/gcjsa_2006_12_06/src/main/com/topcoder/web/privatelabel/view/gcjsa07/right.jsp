@@ -1,7 +1,7 @@
 <table class="smallBlueBox" align="right" cellspacing="0" cellpadding="0" width="200">
     <tr>
         <td align="center">
-            <A href="/?t=sponsor&c=link&link=http://www.google.com"><img src="/i/events/google2006/google.gif" alt="Brought to you by Google" border="0"/></A>
+            <A href="/?t=sponsor&c=link&link=http://www.google.com"><img src="/i/events/gcjsa07/google.gif" alt="Brought to you by Google" border="0"/></A>
         </td>
     </tr>
     <tr>
