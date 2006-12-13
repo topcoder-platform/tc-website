@@ -2487,7 +2487,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     // Helper function getting the referring user
     private ResultSetContainer getReferrer(Connection c, long userId, Date eventDate) throws Exception {
-
+    	log.debug("getReferrer with userId=" + userId);
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -2506,6 +2506,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (eventDate == null) {
             	eventDate = new Date();
             }
+            log.debug("enventDate=" + eventDate);
+            
             ps = c.prepareStatement(getReferralUser.toString());
             ps.setTimestamp(1, new Timestamp(eventDate.getTime()));
             rs = ps.executeQuery();
@@ -2661,10 +2663,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             String referralStr = "null";
 
             // Create the referral payment if requested and if we can find a referring user
+            log.debug("createReferralPayment=" + createReferralPayment +" , p.getInstallmentNumber()=" + p.getInstallmentNumber() );
             if (createReferralPayment && p.getInstallmentNumber() == 1) {
                 log.debug("createReferralPayment");
                 ResultSetContainer rsc = getReferrer(c, p.getHeader().getUser().getId(), p.getEventDate());
                 if (rsc.getRowCount() > 0) {
+                	log.debug("Pay to referrer!" );
+                	
                     Payment referPay = new Payment();
                     referPay.setGrossAmount(p.getTotalAmount() * REFERRAL_PERCENTAGE);
                     referPay.setNetAmount(0);
