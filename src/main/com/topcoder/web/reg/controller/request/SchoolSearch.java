@@ -19,6 +19,12 @@ public class SchoolSearch extends Base {
             addError(Constants.SCHOOL_NAME, "Please enter some criteria to search on.");
         } else {
             String s = StringUtils.replace(schoolName, "*", "%");
+            if (!s.startsWith("%")) {
+                s = "%"+s;
+            }
+            if (!s.endsWith("%")) {
+                s=s+"%";
+            }
             if (getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
                 getRequest().setAttribute("results",
                         getFactory().getSchoolDAO().searchByNameAndType(s,
