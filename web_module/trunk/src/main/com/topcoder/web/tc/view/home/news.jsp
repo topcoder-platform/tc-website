@@ -9,6 +9,24 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.13.06<br>12:10 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm23">TCHS SRM 23 - Problem Set & Analysis</A></span><br><br>
+This set of problems turned out to be rather difficult. While more than 70 competitors submitted all three problems,
+only 11 of them successfully solved all three, and 43 members didn't solve any of the problems.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/VitalyGoldstein_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="19721111" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm23">full story</A> | 
+        <tc-webtag:forumLink forumID="506045" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>12.12.06<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=SurveyResults&sid=11060">yiming Wins the Arena Skin Contest</A>
@@ -169,18 +187,5 @@ We are currently looking to fill an opening for a <A href="/tc?module=Static&d1=
         <A href="/tc?module=Static&d1=about&d2=deployment_engineer">details</A> | 
         <tc-webtag:forumLink forumID="506201" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br>12.05.06<br>5:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=activeContests">Three Assembly Competitions open: $55,000+ in prizes</A></span><br><br>
-      The Orpheus Auction Module, Metric Reporting System, and Expert Network Application assembly contests are all open for registration this week. First prizes for each range from $10,000 to $14,000, with $55,200 in total prizes available.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=dev&d2=assembly&d3=activeContests">view</A> | 
-         <tc-webtag:forumLink forumID="506200" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 
