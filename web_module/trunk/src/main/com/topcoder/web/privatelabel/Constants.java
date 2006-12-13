@@ -88,16 +88,16 @@ public class Constants implements WebConstants {
     public static final String GOOGLE_06_CREDENTIALS_PAGE = "/google06/credentials.jsp";
     public static final String GOOGLE_06_CREDENTIALS_SENT_PAGE = "/google06/credentialsSent.jsp";
 
-    public static final String GOOGLE_SOUTH_AMERICA_07_LOGIN_PAGE = "/gcjsa06/login.jsp";
-    public static final String GOOGLE_SOUTH_AMERICA_07_REG_PAGE = "/gcjsa06/reg.jsp";
-    public static final String GOOGLE_SOUTH_AMERICA_07_REG_DEMOG_PAGE = "/gcjsa06/demog.jsp";
-    public static final String GOOGLE_SOUTH_AMERICA_07_REG_CONFIRM_PAGE = "/gcjsa06/confirm.jsp";
-    public static final String GOOGLE_SOUTH_AMERICA_07_REG_SUCCESS_PAGE = "&d1=gcjsa06&d2=regsuccess";
-    public static final String GOOGLE_SOUTH_AMERICA_07_UPDATE_SUCCESS_PAGE = "&d1=gcjsa06&d2=updatesuccess";
-    public static final String GOOGLE_SOUTH_AMERICA_07_ACTIVATION_PAGE = "/gcjsa06/activation.jsp";
-    public static final String GOOGLE_SOUTH_AMERICA_07_REG_CLOSED_PAGE = "/gcjsa06/reg_closed.jsp";
-    public static final String GOOGLE_SOUTH_AMERICA_07_CREDENTIALS_PAGE = "/gcjsa06/credentials.jsp";
-    public static final String GOOGLE_SOUTH_AMERICA_07_CREDENTIALS_SENT_PAGE = "/gcjsa06/credentialsSent.jsp";
+    public static final String GOOGLE_SOUTH_AMERICA_07_LOGIN_PAGE = "/gcjsa07/login.jsp";
+    public static final String GOOGLE_SOUTH_AMERICA_07_REG_PAGE = "/gcjsa07/reg.jsp";
+    public static final String GOOGLE_SOUTH_AMERICA_07_REG_DEMOG_PAGE = "/gcjsa07/demog.jsp";
+    public static final String GOOGLE_SOUTH_AMERICA_07_REG_CONFIRM_PAGE = "/gcjsa07/confirm.jsp";
+    public static final String GOOGLE_SOUTH_AMERICA_07_REG_SUCCESS_PAGE = "&d1=gcjsa07&d2=regsuccess";
+    public static final String GOOGLE_SOUTH_AMERICA_07_UPDATE_SUCCESS_PAGE = "&d1=gcjsa07&d2=updatesuccess";
+    public static final String GOOGLE_SOUTH_AMERICA_07_ACTIVATION_PAGE = "/gcjsa07/activation.jsp";
+    public static final String GOOGLE_SOUTH_AMERICA_07_REG_CLOSED_PAGE = "/gcjsa07/reg_closed.jsp";
+    public static final String GOOGLE_SOUTH_AMERICA_07_CREDENTIALS_PAGE = "/gcjsa07/credentials.jsp";
+    public static final String GOOGLE_SOUTH_AMERICA_07_CREDENTIALS_SENT_PAGE = "/gcjsa07/credentialsSent.jsp";
 
     public static final String GOOGLE_INDIA_06_LOGIN_PAGE = "/gicj06/login.jsp";
     public static final String GOOGLE_INDIA_06_REG_PAGE = "/gicj06/reg.jsp";
