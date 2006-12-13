@@ -1,8 +1,10 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCWebException;
@@ -11,6 +13,7 @@ import com.topcoder.web.ejb.pacts.AlgorithmRoundReferencePayment;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.ComponentContestReferencePayment;
 import com.topcoder.web.ejb.pacts.ComponentProjectReferencePayment;
+import com.topcoder.web.ejb.pacts.ComponentWinningPayment;
 import com.topcoder.web.ejb.pacts.DigitalRunSeasonReferencePayment;
 import com.topcoder.web.ejb.pacts.DigitalRunStageReferencePayment;
 import com.topcoder.web.ejb.pacts.ParentReferencePayment;
@@ -171,12 +174,34 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     if (adding) {
                         if (contractId > 0) {
                             //paymentId = dib.addContractPayment(contractId, payment);
+                        } else if (payment instanceof ComponentWinningPayment) {
+                        	ComponentWinningPayment p = (ComponentWinningPayment) payment;
+                        	if (p.isDesign()) {
+                        		List l = dib.generateComponentUserPayments(p.getCoderId(),p.getGrossAmount(), p.getClient(), p.getProjectId(), 1); // fix placed
+                        		BasePayment aux = (BasePayment) l.get(0);
+                        		p.setGrossAmount(aux.getGrossAmount());
+                            	payment = dib.addPayment(payment);
+                            	paymentId = payment.getId();
+                        		
+                        	} else {
+                        		List l = dib.generateComponentUserPayments(p.getCoderId(),p.getGrossAmount(), p.getClient(), p.getProjectId(), 1); // fix placed
+                        		l.set(0, p);
+                        		l = dib.addPayments(l);
+                        		
+                        		List ids = new ArrayList();
+                        		for (int i = 0; i < l.size(); i++) {
+                        			ids.add(new Long(((BasePayment) l.get(i)).getId())); 
+                        		}
+                        		
+                                setNextPage(Links.viewPayments(ids));
+                                setIsNextPageInContext(false);
+                                return;
+                        	}
                         } else {
                             //paymentId = dib.addPayment(payment, true);
                         	payment = dib.addPayment(payment);
                         	paymentId = payment.getId();
-                        }
-
+                        }                        
                     } else {
                         dib.updatePayment(payment);
                     }
@@ -188,6 +213,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     } else {
                         setNextPage(Links.viewPayment(paymentId));
                     }
+
                     return;
                 } else {
                     // there were some errors!
@@ -230,7 +256,6 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     setDefault("gross_amount", new Double(grossAmount));
                     setDefault("net_amount", new Double(netAmount));
 
-//                    BasePayment p =  BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getReferenceId());
                     String refDescr = "[Can't get the description]";
                     try {
                         payment = dib.fillPaymentData(payment);
@@ -284,7 +309,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             getRequest().setAttribute(USER, user);
 
             if (payment != null) {
-                //getRequest().setAttribute("reference_id", payment.getHeader().getReferenceId() + "");
+                getRequest().setAttribute("reference_id", getReferenceId(payment) + "");
                 getRequest().setAttribute(PAYMENT, payment);
             }
 
@@ -302,7 +327,36 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
         }
     }
 
-    private void setReference(PaymentHeader header) {
+    private long getReferenceId(BasePayment payment) {
+        if (payment instanceof AlgorithmRoundReferencePayment) {
+            return ((AlgorithmRoundReferencePayment) payment).getRoundId();
+            
+        } else if (payment instanceof ComponentProjectReferencePayment) {
+            return ((ComponentProjectReferencePayment) payment).getProjectId();
+            
+        } else if (payment instanceof AlgorithmProblemReferencePayment) {
+        	return ((AlgorithmProblemReferencePayment) payment).getProblemId();
+            
+        } else if (payment instanceof StudioContestReferencePayment) {
+        	return ((StudioContestReferencePayment) payment).getContestId();
+        	
+        } else if (payment instanceof ComponentContestReferencePayment) {
+        	return ((ComponentContestReferencePayment) payment).getContestId();
+        	
+        } else if (payment instanceof DigitalRunStageReferencePayment) {
+        	return ((DigitalRunStageReferencePayment) payment).getStageId();
+        	
+        } else if (payment instanceof DigitalRunSeasonReferencePayment) {
+        	return ((DigitalRunSeasonReferencePayment) payment).getSeasonId();
+        	
+        } else if (payment instanceof ParentReferencePayment) {
+        	return ((ParentReferencePayment) payment).getParentId();
+        }
+
+		return 0;
+	}
+
+	private void setReference(PaymentHeader header) {
         if (getRequest().getParameter("algorithm_round_id") != null) {
             header.setAlgorithmRoundId(getLongParameter("algorithm_round_id"));
         }

@@ -118,6 +118,15 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
 
 
     /**
+     * Get whether the project referenced is a design project.
+     * @return whether the project referenced is a design project.
+     * @throws SQLException
+     */
+    public boolean isDesign() throws SQLException {
+    	return "Design".equals(((ComponentProjectReferencePayment.Processor) getProcessor()).getProjectType(projectId));
+    }
+
+    /**
      * Processor for a payment referencing a project.
      * It provides methods for retrieving the name of the component, the type of project and the date of completion.
      *

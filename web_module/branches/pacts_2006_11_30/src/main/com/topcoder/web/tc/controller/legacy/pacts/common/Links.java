@@ -1,5 +1,7 @@
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
+import java.util.List;
+
 
 public class Links implements PactsConstants {
 
@@ -46,6 +48,14 @@ public class Links implements PactsConstants {
 
     public static String viewPayment(long paymentId) {
         return createLink("ViewPayment", PAYMENT_ID, paymentId + "");
+    }
+
+    public static String viewPayments(List paymentsId) {
+    	StringBuffer sb = new StringBuffer(30);
+    	for (int i = 0; i < paymentsId.size(); i++) {
+    		sb.append(paymentsId.get(i)).append(',');
+    	}
+        return createLink("PaymentList", PAYMENT_ID, sb.substring(0, sb.length() - 1).toString());
     }
 
 }
