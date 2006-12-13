@@ -114,7 +114,7 @@
                                      useTopValue="false"  onChange="referenceChanged('component_project_id')"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />           
                              <c:if test="${type == COMPONENT_WINNING}">
-                             <br/><select name="placed">
+                             <br/><br/>Placed:<select name="placed">
                              		<option value="1">1st</option>
                              		<option value="2">2nd</option>                             		
                                	 </select>

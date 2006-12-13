@@ -176,16 +176,17 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         if (contractId > 0) {
                             //paymentId = dib.addContractPayment(contractId, payment);
                         } else if (payment instanceof ComponentWinningPayment) {
+                        	int placed = getIntParameter("placed");
                         	ComponentWinningPayment p = (ComponentWinningPayment) payment;
+                    		List l = dib.generateComponentUserPayments(p.getCoderId(), p.getGrossAmount(), p.getClient(), p.getProjectId(), placed); 
+
                         	if (p.isDesign()) {
-                        		List l = dib.generateComponentUserPayments(p.getCoderId(),p.getGrossAmount(), p.getClient(), p.getProjectId(), 1); // fix placed
                         		BasePayment aux = (BasePayment) l.get(0);
                         		p.setGrossAmount(aux.getGrossAmount());
                             	payment = dib.addPayment(payment);
                             	payments.add(payment);
                         		
                         	} else {
-                        		List l = dib.generateComponentUserPayments(p.getCoderId(),p.getGrossAmount(), p.getClient(), p.getProjectId(), 1); // fix placed
                         		l.set(0, p);
 
                         		l = dib.addPayments(l);
@@ -203,14 +204,11 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                 			long id = ((BasePayment) payments.get(i)).getId();
                 			ids.add(new Long(id)); 
 
-                			log.debug("id=" + id);
                         	List refer = dib.findPayments(CODER_REFERRAL_PAYMENT, id);
-                    		for (int j = 0; j < refer.size(); i++) {
-                    			log.debug("refer=" + ((BasePayment) refer.get(j)).getId());
+                    		for (int j = 0; j < refer.size(); j++) {
                     			ids.add(new Long(((BasePayment) refer.get(j)).getId())); 
                     		}
                 		}                		
-                			log.debug("next page!");
                         setNextPage(Links.viewPayments(ids));
                     } else {
                         dib.updatePayment(payment);
