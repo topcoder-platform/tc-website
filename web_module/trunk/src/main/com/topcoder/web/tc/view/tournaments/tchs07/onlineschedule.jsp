@@ -41,109 +41,81 @@
                    <td class="sidebarText">Monday, February 26, 2007<br>
                    Register:  7:00 - 9:55 AM EST<br>
                    START:    10:00 AM EST</td>
-                   <td class="sidebarText">Up to 1,000</td>
-                   <td class="sidebarText">500</td>
+                   <td class="sidebarText">Up to 500</td>
+                   <td class="sidebarText">250</td>
             </tr>
             <tr><td class="sidebarText">Online Round #1 - Alpha Region</td>
                    <td class="sidebarText">Monday, February 26, 2007<br>
                    Register:  6:00 - 8:55 PM EST<br>
                    START:    9:00 PM EST</td>
-                   <td class="sidebarText">Up to 1,000</td>
-                   <td class="sidebarText">500</td>
+                   <td class="sidebarText">Up to 500</td>
+                   <td class="sidebarText">250</td>
             </tr>
             <tr><td class="sidebarText">Online Round #1 - Delta Region</td>
                    <td class="sidebarText">Tuesday, March 6, 2007<br>
                    Register:  3:00 - 5:55 AM EST<br>
                    START:    6:00 AM EST</td>
-                   <td class="sidebarText">Up to 1,000</td>
-                   <td class="sidebarText">500</td>
+                   <td class="sidebarText">Up to 500</td>
+                   <td class="sidebarText">250</td>
             </tr>
             <tr><td class="sidebarText">Online Round #1 - Beta Region</td>
                    <td class="sidebarText">Tuesday, March 6, 2007<br>
                    Register:  11:00 AM - 1:55 PM EST<br>
                    START:    2:00 PM EST</td>
-                   <td class="sidebarText">Up to 1,000</td>
-                   <td class="sidebarText">500</td>
+                   <td class="sidebarText">Up to 500</td>
+                   <td class="sidebarText">250</td>
             </tr>
             <tr><td class="sidebarText">Online Round #2 - Gamma Region</td>
                    <td class="sidebarText">Thursday, March 8, 2007<br>
                    Register:  7:00 - 9:55 AM EST<br>
                    START:    10:00 AM EST</td>
-                   <td class="sidebarText">500</td>
                    <td class="sidebarText">250</td>
+                   <td class="sidebarText">100</td>
             </tr>
             <tr><td class="sidebarText">Online Round #2 - Alpha Region</td>
                    <td class="sidebarText">Thursday, March 8, 2007<br>
                    Register:  6:00 - 8:55 PM EST<br>
                    START:    9:00 PM EST</td>
-                   <td class="sidebarText">500</td>
                    <td class="sidebarText">250</td>
+                   <td class="sidebarText">100</td>
             </tr>
             <tr><td class="sidebarText">Online Round #2 - Delta Region</td>
                    <td class="sidebarText">Monday, March 12, 2007<br>
                    Register:  3:00 - 5:55 AM EST<br>
                    START:    6:00 AM EST</td>
-                   <td class="sidebarText">500</td>
                    <td class="sidebarText">250</td>
+                   <td class="sidebarText">100</td>
             </tr>
             <tr><td class="sidebarText">Online Round #2 - Beta Region</td>
                    <td class="sidebarText">Monday, March 12, 2007<br>
                    Register:  11:00 AM - 1:55 PM EST<br>
                    START:    2:00 PM EST</td>
-                   <td class="sidebarText">500</td>
                    <td class="sidebarText">250</td>
+                   <td class="sidebarText">100</td>
             </tr>
             <tr><td class="sidebarText">Online Round #3 - Gamma Region</td>
                    <td class="sidebarText">Monday, March 19, 2007<br>
                    Register:  7:00 - 9:55 AM EDT<br>
                    START:    10:00 AM EDT</td>
-                   <td class="sidebarText">250</td>
                    <td class="sidebarText">100</td>
+                   <td class="sidebarText">25</td>
             </tr>
             <tr><td class="sidebarText">Online Round #3 - Alpha Region</td>
                    <td class="sidebarText">Monday, March 19, 2007<br>
                    Register:  6:00 - 8:55 PM EDT<br>
                    START:    9:00 PM EDT</td>
-                   <td class="sidebarText">250</td>
                    <td class="sidebarText">100</td>
+                   <td class="sidebarText">25</td>
             </tr>
             <tr><td class="sidebarText">Online Round #3 - Delta Region</td>
                    <td class="sidebarText">Monday, March 26, 2007<br>
                    Register:  3:00 - 5:55 AM EDT<br>
                    START:    6:00 AM EDT</td>
-                   <td class="sidebarText">250</td>
                    <td class="sidebarText">100</td>
+                   <td class="sidebarText">25</td>
             </tr>
             <tr><td class="sidebarText">Online Round #3 - Beta Region</td>
                    <td class="sidebarText">Monday, March 26, 2007<br>
-                   Register:  11:00 AM - 1:55 PM EDT<br>
-                   START:    2:00 PM EDT</td>
-                   <td class="sidebarText">250</td>
-                   <td class="sidebarText">100</td>
-            </tr>
-            <tr><td class="sidebarText">Online Round #4 - Gamma Region</td>
-                   <td class="sidebarText">Monday, April 9, 2007<br>
-                   Register:  7:00 - 9:55 AM EDT<br>
-                   START:    10:00 AM EDT</td>
-                   <td class="sidebarText">100</td>
-                   <td class="sidebarText">25</td>
-            </tr>
-            <tr><td class="sidebarText">Online Round #4 - Alpha Region</td>
-                   <td class="sidebarText">Monday, April 9, 2007<br>
-                   Register:  6:00 - 8:55 PM EDT<br>
-                   START:    9:00 PM EDT</td>
-                   <td class="sidebarText">100</td>
-                   <td class="sidebarText">25</td>
-            </tr>
-            <tr><td class="sidebarText">Online Round #4 - Delta Region</td>
-                   <td class="sidebarText">Monday, April 16, 2007<br>
-                   Register:  3:00 - 5:55 AM EDT<br>
-                   START:    6:00 AM EDT</td>
-                   <td class="sidebarText">100</td>
-                   <td class="sidebarText">25</td>
-            </tr>
-            <tr><td class="sidebarText">Online Round #4 - Beta Region</td>
-                   <td class="sidebarText">Monday, April 16, 2007<br>
                    Register:  11:00 AM - 1:55 PM EDT<br>
                    START:    2:00 PM EDT</td>
                    <td class="sidebarText">100</td>

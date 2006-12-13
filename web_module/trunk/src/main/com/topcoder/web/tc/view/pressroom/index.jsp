@@ -49,7 +49,7 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
-<%-- HRE Magazine 
+<%-- HRE Magazine --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -63,7 +63,7 @@
             </table>
 
             <hr width="100%" size="1" noshade="noshade" />
---%>
+
 <%-- China Daily --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">

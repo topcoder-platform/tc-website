@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">12.13.06 4:15 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=rules">TCHS07 Rules Change</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.08.06 5:00 PM - </td><td width="100%"><A href="/movies/tournament/tccc06/final_webcast_preview.mov">TCCC06 Webcast Highlights</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.04.06 2:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">The 2007 TopCoder High School Tournament</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.17.06 8:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_finals_analysis">Congratulations to Petr, TCCC06 Algorithm Champion</A></td></tr>
