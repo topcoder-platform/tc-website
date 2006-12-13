@@ -9,6 +9,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>12.13.06<br>6:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2047">2007 TCO Logo Design Contest</A></span><br><br>
+        It's the first step towards next TopCoder Open.  We're accepting submissions right now at over at the Studio.
+        </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2047">full story</A> | 
+        <tc-webtag:forumLink forumID="506215" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>12.13.06<br>5:40 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/hre_article_20061213.pdf">And the Winner Is&#8230;</A></span><br><br>
         <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/hre_magazine_logo.png" alt="Human Resources Executive Magazine" width="81" height="24" border="0" /></div>
@@ -169,19 +183,5 @@ Over 1100 coders registered for this round. In division 1, <tc-webtag:handle cod
          <A href="/tc?module=Static&d1=tutorials&d2=bitManipulation">full story</A> | 
          <tc-webtag:forumLink forumID="506204" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>12.06.06<br>1:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/ieeeSoftware_20061206.pdf">Programming Contests Show Impressive Growth</A> [PDF]</span><br><br>
-        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/ieeesoftware_logo.png" width="67" height="25" alt="IEEE Software" border="0" /></div>
-      "Global software programming contests are expanding in number, size, and scope. Student programmers and, increasingly, their professional colleagues are taking the opportunity to 'show their stuff' under the trying conditions of controlled competition."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/pdfs/press_room/ieeeSoftware_20061206.pdf">full story</A> | 
-       <tc-webtag:forumLink forumID="506203" message="discuss this" /> | 
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
