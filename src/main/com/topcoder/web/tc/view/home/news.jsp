@@ -7,11 +7,11 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 
-<%--------------------------------------
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>12.13.06<br>1:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>12.13.06<br>5:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/hre_article_20061213.pdf">And the Winner Is&#8230;</A></span><br><br>
-        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/hre_magazine_logo.png" alt="Human Resources Executive Magazine" width="81" height="26" border="0" /></div>
+        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/hre_magazine_logo.png" alt="Human Resources Executive Magazine" width="81" height="24" border="0" /></div>
       The beauty of contests is that they appeal to a person's competitive nature. People like to test themselves. That's why contests can be effective in recruiting an elusive audience&#8230;
       </td>
    </tr>
@@ -20,7 +20,20 @@
        <tc-webtag:forumLink forumID="506213" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
-------------------%>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>12.13.06<br>4:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=rules">TCHS07 Rules Change</A></span><br><br>
+        Check out the TCHS07 Rules page to see how things have changed.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=rules">full story</A> | 
+        <tc-webtag:forumLink forumID="506214" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.13.06<br>12:10 PM</td>
@@ -170,36 +183,5 @@ Over 1100 coders registered for this round. In division 1, <tc-webtag:handle cod
        <A href="/pdfs/press_room/ieeeSoftware_20061206.pdf">full story</A> | 
        <tc-webtag:forumLink forumID="506203" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.06.06<br>10:15 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm22">TCHS SRM 22 - Problem Set & Analysis</A></span><br><br>
-The relatively simple easy and medium helped the match start with a blast. Within 20 minutes, most of the coders submitted the first two problems and moved on to the hard.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/myprasanna_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="13366203" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm22">full story</A> | 
-        <tc-webtag:forumLink forumID="506044" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/employment.png" alt="Employment Opportunities" border="0" /><br>12.05.06<br>6:15 PM</td>
-      <td class="newsTextCell">
-        <span class="newsTitle"><A href="/tc?module=Static&d1=about&d2=deployment_engineer">Job Opening at TopCoder: Deployment Engineer</A></span><br><br>
-We are currently looking to fill an opening for a <A href="/tc?module=Static&d1=about&d2=deployment_engineer">Deployment Engineer</A>.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=about&d2=deployment_engineer">details</A> | 
-        <tc-webtag:forumLink forumID="506201" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
