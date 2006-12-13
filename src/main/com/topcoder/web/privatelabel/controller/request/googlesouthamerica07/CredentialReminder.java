@@ -10,6 +10,7 @@ import com.topcoder.web.privatelabel.controller.request.BaseCredentialReminder;
  */
 public class CredentialReminder extends BaseCredentialReminder {
 
+    
     protected String getStartPage() {
         return Constants.GOOGLE_SOUTH_AMERICA_07_CREDENTIALS_PAGE;
     }

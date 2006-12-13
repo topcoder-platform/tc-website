@@ -24,6 +24,7 @@ public class Demog extends FullRegDemog {
         Calendar now = Calendar.getInstance();
         now.setTime(new Date());
 
+        
         if (regInfo.isNew() && (now.before(beginning) || now.after(end))) {
             setNextPage(Constants.GOOGLE_SOUTH_AMERICA_07_REG_CLOSED_PAGE);
             setIsNextPageInContext(true);
