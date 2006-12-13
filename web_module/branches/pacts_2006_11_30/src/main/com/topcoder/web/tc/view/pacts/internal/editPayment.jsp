@@ -216,7 +216,7 @@ function searchKeyPress(e)
    <input type="hidden" name="reference_description" value="<c:out value="${requestScope.reference_description}" />" >
    <input type="hidden" name="user_id" value="${user.id}" >   
 <c:if test="${updating}">
-   <input type="hidden" name="payment_id" value="${payment.header.id}">
+   <input type="hidden" name="payment_id" value="${payment.id}">
 </c:if>  
 <c:if test="${hasContract}">
    <input type="hidden" name="contract_id" value="${contract.header.id}">
@@ -235,7 +235,7 @@ function searchKeyPress(e)
     <tr>
         <td><b>ID:</b></td>
         <td>
-            <c:out value="${payment.header.id}" />  
+            <c:out value="${payment.id}" />  
         </td>
     </tr>
 </c:if>
@@ -272,7 +272,7 @@ function searchKeyPress(e)
         <input type="button" value="change" onClick="typeChanged()" />
         </td>
     </tr>
-    <c:if test="${not empty payment.header.client}">
+    <c:if test="${not empty payment.client}">
         <tr id="projectClient"> 
             <td><b>Client:</b></td>
             <td>
@@ -280,7 +280,7 @@ function searchKeyPress(e)
             </td>
         </tr>
     </c:if>
-    <c:if test="${empty payment.header.client}">
+    <c:if test="${empty payment.client}">
         <tr id="projectClient">
             <td></td>
             <td></td>
