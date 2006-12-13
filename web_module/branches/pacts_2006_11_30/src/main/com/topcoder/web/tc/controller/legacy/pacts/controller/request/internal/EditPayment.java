@@ -203,14 +203,14 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                 			long id = ((BasePayment) payments.get(i)).getId();
                 			ids.add(new Long(id)); 
 
+                			log.debug("id=" + id);
                         	List refer = dib.findPayments(CODER_REFERRAL_PAYMENT, id);
                     		for (int j = 0; j < refer.size(); i++) {
+                    			log.debug("refer=" + ((BasePayment) refer.get(j)).getId());
                     			ids.add(new Long(((BasePayment) refer.get(j)).getId())); 
                     		}
-
-                		}
-                		
-
+                		}                		
+                			log.debug("next page!");
                         setNextPage(Links.viewPayments(ids));
                     } else {
                         dib.updatePayment(payment);
