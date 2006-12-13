@@ -7,6 +7,20 @@
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
 
+<%--------------------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>12.13.06<br>1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/hre_article_20061213.pdf">And the Winner Is&#8230;</A></span><br><br>
+        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/hre_magazine_logo.png" alt="Human Resources Executive Magazine" width="81" height="26" border="0" /></div>
+      The beauty of contests is that they appeal to a person's competitive nature. People like to test themselves. That's why contests can be effective in recruiting an elusive audience&#8230;
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/pdfs/press_room/hre_article_20061213.pdf">full story</A> | 
+       <tc-webtag:forumLink forumID="506213" message="discuss this" /> | 
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+------------------%>
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.13.06<br>12:10 PM</td>
