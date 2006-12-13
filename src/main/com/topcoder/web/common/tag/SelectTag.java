@@ -1,10 +1,10 @@
 package com.topcoder.web.common.tag;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.StringUtils;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
-import com.topcoder.web.common.StringUtils;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -175,9 +175,11 @@ public abstract class SelectTag extends BaseTag {
             for (; it.hasNext();) {
                 Object option = it.next();
                 String optionValue = getOptionValue(option);
+/*
                 if (log.isDebugEnabled()) {
                     log.debug("option value: " + optionValue);
                 }
+*/
                 String optionText = getOptionText(option);
                 s.append("<option value=\"");
                 s.append(StringUtils.htmlEncode(optionValue));
