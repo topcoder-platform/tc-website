@@ -6,17 +6,17 @@
     </tr>
     <tr>
         <td align="center">
-            <img src="/i/events/gcjsa06/blue_rule.gif" alt="" border="0"/>
+            <img src="/i/events/gcjsa07/blue_rule.gif" alt="" border="0"/>
         </td>
     </tr>
     <tr>
         <td align="center">
-            <A href="/"><img src="/i/events/gcjsa06/pbtc_logo.gif" alt="Powered by TopCoder" border="0"/></A>
+            <A href="/"><img src="/i/events/gcjsa07/pbtc_logo.gif" alt="Powered by TopCoder" border="0"/></A>
         </td>
     </tr>
     <tr>
         <td align="center">
-            <img src="/i/events/gcjsa06/blue_rule.gif" alt="" border="0"/>
+            <img src="/i/events/gcjsa07/blue_rule.gif" alt="" border="0"/>
         </td>
     </tr>
     <tr>
@@ -35,7 +35,7 @@
     </tr>
     <tr>
         <td align="center">
-            <img src="/i/events/gcjsa06/blue_rule.gif" alt="" border="0"/>
+            <img src="/i/events/gcjsa07/blue_rule.gif" alt="" border="0"/>
         </td>
     </tr>
     <tr>

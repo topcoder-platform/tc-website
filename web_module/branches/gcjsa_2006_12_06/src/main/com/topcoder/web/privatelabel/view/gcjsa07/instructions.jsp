@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/tcStyles.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
-    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gcjsa06.css"/>
+    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gcjsa07.css"/>
     <title>Google Code Jam Latin America 2007, Powered by TopCoder</title>
 
     <jsp:include page="../script.jsp"/>
@@ -21,7 +21,7 @@
             <tr>
                 <td width="49%"></td>
                 <td valign="bottom" align="center">
-                    <img border=0 src="/i/events/gcjsa06/codejamlogo.png" alt="Google Code Jam logo"></td>
+                    <img border=0 src="/i/events/gcjsa07/codejamlogo.png" alt="Google Code Jam logo"></td>
                 <td width="49%"></td>
             </tr>
         </table>
@@ -67,7 +67,7 @@
 
          <br><br>
 
-         <div align="left"><img src="/i/events/gcjsa06/arena1.gif" alt="" border="0"/></div>
+         <div align="left"><img src="/i/events/gcjsa07/arena1.gif" alt="" border="0"/></div>
          <br><br>
 
          From here, you need simply type in your handle and the password that you chose during the registration process.
@@ -75,7 +75,7 @@
 
          <br><br>
 
-         <div align="center"><img src="/i/events/gcjsa06/arena2.gif" alt="" border="0"/></div>
+         <div align="center"><img src="/i/events/gcjsa07/arena2.gif" alt="" border="0"/></div>
          <br><br>
 
          Move to your assigned competition room as follows:
@@ -91,7 +91,7 @@
 
          <br><br>
 
-         <div align="center"><img src="/i/events/gcjsa06/arena3.gif" alt="" border="0"/></div>
+         <div align="center"><img src="/i/events/gcjsa07/arena3.gif" alt="" border="0"/></div>
          <br><br>
 
          <span class="subTitle">Coding Phase</span><br>
@@ -129,7 +129,7 @@
 
          <br><br>
 
-         <div align="center"><img src="/i/events/gcjsa06/arena4.gif" alt="" border="0"/></div>
+         <div align="center"><img src="/i/events/gcjsa07/arena4.gif" alt="" border="0"/></div>
          <br><br>
 
          <blockquote>
@@ -221,7 +221,7 @@ class &lt;class-name&gt:
 <br>
 
          A wizard with C but rusty with C++? Don't worry! We've got it covered. Check out the
-         <A href="/pl/?&module=Static&d1=gcjsa06&d2=cpp">C++ for C Programmers page</A> that shows you the basics of
+         <A href="/pl/?&module=Static&d1=gcjsa07&d2=cpp">C++ for C Programmers page</A> that shows you the basics of
          learning C++ for the competition. Also, be sure to spend time in the Practice Rooms by clicking on the
          Competition Arena link above.
          <br><br>
@@ -242,7 +242,7 @@ class &lt;class-name&gt:
 
          <br><br>
 
-         <div align="center"><img src="/i/events/gcjsa06/arena5.gif" alt="" border="0"/></div>
+         <div align="center"><img src="/i/events/gcjsa07/arena5.gif" alt="" border="0"/></div>
          <br><br>
 
          <strong>User Testing</strong><br>
@@ -274,7 +274,7 @@ class &lt;class-name&gt:
 
          <br><br>
 
-         <div align="center"><img src="/i/events/gcjsa06/arena6.gif" alt="" border="0"/></div>
+         <div align="center"><img src="/i/events/gcjsa07/arena6.gif" alt="" border="0"/></div>
          <br><br>
 
          The problem arguments window is where you will create the test case with which you wish to use to test your
@@ -364,7 +364,7 @@ class &lt;class-name&gt:
 
          <br><br>
 
-         <div align="center"><img src="/i/events/gcjsa06/arena7.gif" alt="" border="0"/></div>
+         <div align="center"><img src="/i/events/gcjsa07/arena7.gif" alt="" border="0"/></div>
          <br><br>
 
          Double click on any of the point values (shown in green) to view the source code for that submission. When
@@ -404,7 +404,7 @@ class &lt;class-name&gt:
 
          <br><br>
          To find out more detailed information about the Google&#153; Code Jam Latin America 2007, please read the
-         <a href="/pl/?&module=Static&d1=gcjsa06&d2=rules">Terms and Conditions</a>.
+         <a href="/pl/?&module=Static&d1=gcjsa07&d2=rules">Terms and Conditions</a>.
          <br><br>
 </div>
 </div>

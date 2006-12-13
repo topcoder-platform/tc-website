@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/tcStyles.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
-    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gcjsa06.css"/>
+    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gcjsa07.css"/>
     <title>Google Code Jam Latin America 2007, Powered by TopCoder</title>
 
     <jsp:include page="../script.jsp"/>
@@ -22,7 +22,7 @@
                 <tr>
                     <td width="49%"></td>
                     <td valign="bottom" align="center">
-                        <img border=0 src="/i/events/gcjsa06/codejamlogo.png" alt="Google Code Jam logo"></td>
+                        <img border=0 src="/i/events/gcjsa07/codejamlogo.png" alt="Google Code Jam logo"></td>
                     <td width="49%"></td>
                 </tr>
             </table>
@@ -96,7 +96,7 @@
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                 <br><br><br><br>
                 To find out more detailed information about the Google&#153; Code Jam Latin America 2007, please read the
-                <a href="/pl/?&module=Static&d1=gcjsa06&d2=rules">Terms and Conditions</a>.
+                <a href="/pl/?&module=Static&d1=gcjsa07&d2=rules">Terms and Conditions</a>.
                 <br><br>
             </div>
             </div>
