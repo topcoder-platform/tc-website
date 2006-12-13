@@ -94,7 +94,7 @@ public class Submit extends ResumeRegSubmit {
                 buf.append("Your handle and password will provide you with access to the Competition Arena, where you can practice and chat, and where you'll compete in the Code Jam Latin America 2007.\n\n");
 
                 buf.append("PRACTICING FOR THE EVENT\n");
-                buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in Code Jam Latin America 2007.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 10:00AM GMT/UTC -2 on January 2, 2007 through 4:00PM GMT/UTC -2 on March 1, 2007.\n\n");
+                buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in the Code Jam Latin America 2007.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 10:00AM GMT/UTC -2 on January 2, 2007 through 4:00PM GMT/UTC -2 on March 1, 2007.\n\n");
 
                 buf.append("You can access the practice rooms by navigating to http://").append(getSessionInfo().getServerName()).append("/cjla and clicking on the Competition Arena tab.\n\n");
 
@@ -108,7 +108,7 @@ public class Submit extends ResumeRegSubmit {
 
                 buf.append("We also suggest that you read up on the competition process by navigating to http://").append(getSessionInfo().getServerName()).append("/cjla and clicking the Instructions link at the top.\n\n");
 
-                buf.append("If you have any questions about how to participate, please email them to cjla@topcoder.com.\n\n");
+                buf.append("If you have any questions about how to participate, please email them to cjla@topcoder.com\n\n");
 
                 buf.append("Thank you for registering for the Code Jam Latin America 2007.  We look forward to seeing you in the Arena!");
 
