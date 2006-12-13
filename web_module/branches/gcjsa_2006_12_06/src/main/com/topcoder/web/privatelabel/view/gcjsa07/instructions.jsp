@@ -399,7 +399,7 @@ class &lt;class-name&gt:
          An administrator will respond to your question in the chat area.
          <br><br>
          If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to
-         <A href="mailto:gcjsa@topcoder.com?subject=Question regarding Google Code Jam Latin America 2007">gcjsa@topcoder.com</A>. Please
+         <A href="mailto:cjla@topcoder.com?subject=Question regarding Code Jam Latin America 2007">cjla@topcoder.com</A>. Please
          include a detailed description of the problem that you are having.
 
          <br><br>
