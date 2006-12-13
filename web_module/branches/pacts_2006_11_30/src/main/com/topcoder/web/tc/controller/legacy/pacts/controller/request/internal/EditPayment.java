@@ -188,7 +188,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         		List l = dib.generateComponentUserPayments(p.getCoderId(),p.getGrossAmount(), p.getClient(), p.getProjectId(), 1); // fix placed
                         		l.set(0, p);
                         		for (int i = 0; i < l.size(); i++) {
-                        			BasePayment qq = (BasePayment) payments.get(i);
+                        			BasePayment qq = (BasePayment) l.get(i);
                         			log.debug(qq.getDescription() + " " + qq.getNetAmount() + " ," + qq.getGrossAmount());
                         		}
                         		
