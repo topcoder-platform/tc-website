@@ -251,7 +251,7 @@
         </war>
     </target>
 
-    <target name="deploy" depends="war-techassess">
+    <target name="deploy" depends="war-techassess,build-security">
         <antcall target="expand"/>
     </target>
 
