@@ -48,6 +48,7 @@
         <li>Fix round types that are shown when creating payments in pacts.</li>
         <li>In affidivt list for users, the days to expire is not shown anymore if the affidavit is not of contest winning type (the only type being currently expired)</li>
         <li>Fixes in Reporting page for searching: sorting some columns throw error, and fixed the queries to use the new OR schema</li>
+        <li>When search for schools in the registration process, assume that the user wants to search for *&lt;input&gt;*</li>
     </ul>
     5.5.10 - 2006.12.04
     <ul>
