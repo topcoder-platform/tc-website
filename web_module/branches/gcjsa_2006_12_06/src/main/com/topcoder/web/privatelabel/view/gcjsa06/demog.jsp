@@ -91,7 +91,7 @@
                         <form action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>"
                               method="POST" name="regForm" enctype="multipart/form-data">
                             <input type="hidden" name="<%=Constants.MODULE_KEY%>"
-                                   value="<%=Constants.GOOGLE_06_REG_CONFIRM%>"/>
+                                   value="<%=Constants.GOOGLE_SOUTH_AMERICA_07_REG_CONFIRM%>"/>
                             <input type="hidden" name="<%=Constants.COMPANY_ID%>"
                                    value="<jsp:getProperty name="regInfo" property="companyId"/>"/>
                             <input type="hidden" name="<%=Constants.EVENT_ID%>"
