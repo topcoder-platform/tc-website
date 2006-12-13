@@ -112,11 +112,9 @@
 
 
         <!-- app side dependencies...get rid of this if possible it's bad long contest design -->
-<!--
         <pathelement location="${jars.dir}/TestServices.jar"/>
         <pathelement location="${jars.dir}/DBServices.jar"/>
         <pathelement location="${jars.dir}/tc.jar"/>
--->
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path"/>
