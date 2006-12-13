@@ -2663,12 +2663,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             String referralStr = "null";
 
             // Create the referral payment if requested and if we can find a referring user
-            log.debug("createReferralPayment=" + createReferralPayment +" , p.getInstallmentNumber()=" + p.getInstallmentNumber() );
             if (createReferralPayment && p.getInstallmentNumber() == 1) {
-                log.debug("createReferralPayment");
                 ResultSetContainer rsc = getReferrer(c, p.getHeader().getUser().getId(), p.getEventDate());
                 if (rsc.getRowCount() > 0) {
-                	log.debug("Pay to referrer!" );
                 	
                     Payment referPay = new Payment();
                     referPay.setGrossAmount(p.getTotalAmount() * REFERRAL_PERCENTAGE);

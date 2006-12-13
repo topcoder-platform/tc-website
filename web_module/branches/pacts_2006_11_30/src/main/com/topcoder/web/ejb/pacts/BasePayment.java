@@ -40,7 +40,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     private int installmentNumber;    
 
     // Date when the event happened.  It is not stored in the database, but needed to know if referrals must be paid.
-    private Date eventDate;
+    private Date eventDate  = null;
 
     // Description of the status, looked up in db
     private String statusDesc = null;
