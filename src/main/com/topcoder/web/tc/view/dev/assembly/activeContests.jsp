@@ -88,8 +88,8 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_metricReporting">Metric Reporting System</A>
       </td>
       <td class="valueC">
-      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Metric Reporting System">register</A>
-      <%--registration closed--%>
+      <%--<A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Metric Reporting System">register</A>--%>
+      registration closed
       </td>
       <td class="valueC">
       &#160;
