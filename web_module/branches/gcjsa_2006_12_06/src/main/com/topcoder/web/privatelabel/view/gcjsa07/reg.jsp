@@ -177,7 +177,7 @@
         <span class="errorText">*</span> Email Address
     </td>
     <td align="left">
-        <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
+        <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="25" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
     </td>
 </tr>
 
@@ -191,7 +191,7 @@
         <span class="errorText">*</span> Confirm Email Address
     </td>
     <td align="left">
-        <tc-webtag:textInput name="<%=Constants.EMAIL_CONFIRM%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
+        <tc-webtag:textInput name="<%=Constants.EMAIL_CONFIRM%>" size="25" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
     </td>
 </tr>
 
