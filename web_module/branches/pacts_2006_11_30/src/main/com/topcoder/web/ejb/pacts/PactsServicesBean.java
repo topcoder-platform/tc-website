@@ -5602,13 +5602,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	        		String client2 = rsc.getStringItem(0,"client");
 	        		long coderId2 = rsc.getLongItem(0, "user_id");
 	        		
-	        		
-	        		// create the design project
-	        		BasePayment p = new ComponentWinningPayment(coderId2, totalAmount, client2, designProject, 1);
-	        		p.setGrossAmount(totalAmount - paid);
-	        		p.setInstallmentNumber(installment);
-	        		
-	        		l.add(p);    			
+	        		if (totalAmount > paid) { 
+		        		// create the design project
+		        		BasePayment p = new ComponentWinningPayment(coderId2, totalAmount, client2, designProject, 1);
+		        		p.setGrossAmount(totalAmount - paid);
+		        		p.setInstallmentNumber(installment);
+		        		
+		        		l.add(p);
+	        		}
 	    		}
     		}    		
     	} else throw new IllegalArgumentException("Project " + projectId + " not found or is not a dev/des component");

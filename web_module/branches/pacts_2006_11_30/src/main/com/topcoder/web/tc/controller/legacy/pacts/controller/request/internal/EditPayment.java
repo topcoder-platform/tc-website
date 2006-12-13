@@ -187,11 +187,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         	} else {
                         		List l = dib.generateComponentUserPayments(p.getCoderId(),p.getGrossAmount(), p.getClient(), p.getProjectId(), 1); // fix placed
                         		l.set(0, p);
-                        		for (int i = 0; i < l.size(); i++) {
-                        			BasePayment qq = (BasePayment) l.get(i);
-                        			log.debug(qq.getDescription() + " " + qq.getNetAmount() + " ," + qq.getGrossAmount());
-                        		}
-                        		
+
                         		l = dib.addPayments(l);
                         		payments.addAll(l);
                         	}
@@ -201,11 +197,20 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         	payments.add(payment);
                         }               
 
+                        
                 		List ids = new ArrayList();
                 		for (int i = 0; i < payments.size(); i++) {
-                			ids.add(new Long(((BasePayment) payments.get(i)).getId())); 
+                			long id = ((BasePayment) payments.get(i)).getId();
+                			ids.add(new Long(id)); 
+
+                        	List refer = dib.findPayments(CODER_REFERRAL_PAYMENT, id);
+                    		for (int j = 0; j < refer.size(); i++) {
+                    			ids.add(new Long(((BasePayment) refer.get(j)).getId())); 
+                    		}
+
                 		}
                 		
+
                         setNextPage(Links.viewPayments(ids));
                     } else {
                         dib.updatePayment(payment);
