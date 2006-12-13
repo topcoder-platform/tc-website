@@ -25,6 +25,9 @@ public class Reg extends FullReg {
             setNextPage(Constants.GOOGLE_SOUTH_AMERICA_07_REG_CLOSED_PAGE);
             setIsNextPageInContext(true);
         } else {
+            if (log.isDebugEnabled()) {
+                log.debug("here: " + Constants.GOOGLE_SOUTH_AMERICA_07_REG_PAGE);
+            }
             setNextPage(Constants.GOOGLE_SOUTH_AMERICA_07_REG_PAGE);
             setIsNextPageInContext(true);
         }
