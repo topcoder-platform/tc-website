@@ -1630,7 +1630,17 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServicesLocal ps = getEjbHandle();
         return ps.addPayment(payment);
     }
-	
+
+    public BasePayment updatePayment(BasePayment payment) throws RemoteException, Exception {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.updatePayment(payment);
+    }
+
+    public BasePayment getBasePayment(long paymentId) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getBasePayment(paymentId);
+    }
+
 	public List addPayments(List payments) throws RemoteException, SQLException {
 	    PactsServicesLocal ps = getEjbHandle();
 	    return ps.addPayments(payments);

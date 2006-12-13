@@ -6,9 +6,15 @@ import java.util.Date;
 
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.pacts.AlgorithmProblemReferencePayment;
 import com.topcoder.web.ejb.pacts.AlgorithmRoundReferencePayment;
 import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.ComponentContestReferencePayment;
 import com.topcoder.web.ejb.pacts.ComponentProjectReferencePayment;
+import com.topcoder.web.ejb.pacts.DigitalRunSeasonReferencePayment;
+import com.topcoder.web.ejb.pacts.DigitalRunStageReferencePayment;
+import com.topcoder.web.ejb.pacts.ParentReferencePayment;
+import com.topcoder.web.ejb.pacts.StudioContestReferencePayment;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
@@ -58,13 +64,15 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
 
                 paymentId = getLongParameter(PAYMENT_ID);
 //                payment = new Payment(dib.getPayment(paymentId));
-            	//payment = dib.getBasePayment(paymentId);
+            	payment = dib.getBasePayment(paymentId);
 
                 if (payment.getStatusId() == PAID_STATUS) {
                     throw new NavigationException("You can't update a paid payment");
                 }
 
                 //user = payment.getHeader().getUser();
+                userId = payment.getCoderId();
+                user = new UserProfileHeader(dib.getUserProfileHeader(userId));
             }
 
             String desc = "";
@@ -110,18 +118,39 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     
                     if (payment instanceof AlgorithmRoundReferencePayment) {
                         ((AlgorithmRoundReferencePayment) payment).setRoundId(getLongParameter("algorithm_round_id"));
+                        
                     } else if (payment instanceof ComponentProjectReferencePayment) {
                         ((ComponentProjectReferencePayment) payment).setProjectId(getLongParameter("component_project_id"));
                         ((ComponentProjectReferencePayment) payment).setClient(client);
+                        
+                    } else if (payment instanceof AlgorithmProblemReferencePayment) {
+                    	((AlgorithmProblemReferencePayment) payment).setProblemId(getOptionalLongParameter("algorithm_problem_id", 0));
+                        
+                    } else if (payment instanceof StudioContestReferencePayment) {
+                    	((StudioContestReferencePayment) payment).setContestId(getLongParameter("studio_contest_id"));
+                    	
+                    } else if (payment instanceof ComponentContestReferencePayment) {
+                    	((ComponentContestReferencePayment) payment).setContestId(getLongParameter("component_contest_id"));
+                    	
+                    } else if (payment instanceof DigitalRunStageReferencePayment) {
+                    	((DigitalRunStageReferencePayment) payment).setStageId(getLongParameter("digital_run_stage_id"));
+                    	
+                    } else if (payment instanceof DigitalRunSeasonReferencePayment) {
+                    	((DigitalRunSeasonReferencePayment) payment).setSeasonId(getLongParameter("digital_run_season_id"));
+                    	
+                    } else if (payment instanceof ParentReferencePayment) {
+                    	((ParentReferencePayment) payment).setParentId(getLongParameter("parent_reference_id"));
                     }
-  
+
+                
+                    
                     payment.setDescription(desc);
                     payment.setStatusId(statusId);
                     payment.setGrossAmount(grossAmount);
                     payment.setNetAmount(netAmount);
                     payment.setDueDate(sdf.parse(dueDate));
-                    // Method!!!
-                    // rationale
+                    payment.setMethodId(methodId);
+                    payment.setModificationRationale(modificationRationaleId);
                     payment.setCharity(charity);
                     
 /*                    payment.getHeader().setDescription(desc);
@@ -149,7 +178,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         }
 
                     } else {
-                        //dib.updatePayment(payment);
+                        dib.updatePayment(payment);
                     }
 
                     setIsNextPageInContext(false);
@@ -182,6 +211,33 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     dueDate = new SimpleDateFormat(DATE_FORMAT_STRING).format(date.getTime());
 
                 } else {
+                    desc = payment.getDescription();
+                    typeId = payment.getPaymentType();
+                    methodId = payment.getMethodId();
+
+                    if (payment instanceof ComponentProjectReferencePayment) {
+                    	client = ((ComponentProjectReferencePayment) payment).getClient();
+                    }
+
+
+                    statusId = payment.getStatusId();
+                    grossAmount = payment.getGrossAmount();
+                    netAmount = payment.getNetAmount();
+                    dueDate = sdf.format(payment.getDueDate());
+                    charity = payment.isCharity();
+                    modificationRationaleId = MODIFICATION_STATUS;
+
+                    setDefault("gross_amount", new Double(grossAmount));
+                    setDefault("net_amount", new Double(netAmount));
+
+//                    BasePayment p =  BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getReferenceId());
+                    String refDescr = "[Can't get the description]";
+                    try {
+                        payment = dib.fillPaymentData(payment);
+                        refDescr = payment.getReferenceDescription();
+                    } catch(Exception e) {}
+                    getRequest().setAttribute("reference_description", refDescr);
+
                 	/*
                     desc = payment.getHeader().getDescription();
                     typeId = payment.getHeader().getTypeId();

@@ -38,7 +38,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     private boolean charity = false;
     private double totalAmount;    
     private int installmentNumber;    
-
+    private int methodId = Constants.DEFAULT_PAYMENT_METHOD_ID;
+    
     // Date when the event happened.  It is not stored in the database, but needed to know if referrals must be paid.
     private Date eventDate  = null;
 
@@ -330,6 +331,18 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 	public void setTotalAmount(double totalAmount) {
         fieldChanged(MODIFICATION_GROSS_AMOUNT, totalAmount != this.totalAmount);		
 		this.totalAmount = totalAmount;
+	}
+
+	public int getMethodId() {
+		return methodId;
+	}
+
+	public void setMethodId(int methodId) {
+		this.methodId = methodId;
+	}
+
+	public void setModificationRationale(int modificationRationale) {
+		this.modificationRationale = modificationRationale;
 	}
 
 	/**
