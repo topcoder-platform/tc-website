@@ -73,11 +73,11 @@ public class Submit extends ResumeRegSubmit {
 
                 TCSEmailMessage mail = new TCSEmailMessage();
 
-                mail.setSubject("IMPORTANT - Code Jam Latin America Activation Email");
+                mail.setSubject("IMPORTANT - Google Code Jam Latin America Activation Email");
 
-                buf.append("You're invited to take part in the Code Jam Latin America 2007, a programming competition that will be worthy of your time, your skills and your interest.\n\n");
+                buf.append("You're invited to take part in the Google Code Jam Latin America 2007, a programming competition that will be worthy of your time, your skills and your interest.\n\n");
 
-                buf.append("CODE JAM LATIN AMERICA 2007 ACTIVATION INFORMATION\n\n");
+                buf.append("GOOGLE CODE JAM LATIN AMERICA 2007 ACTIVATION INFORMATION\n\n");
 
                 buf.append("Your Google activation code is ");
                 buf.append(code);
@@ -91,30 +91,30 @@ public class Submit extends ResumeRegSubmit {
 
                 buf.append("If you cannot click on the web address above, please copy the address into your web browser to continue.  If the address spans two lines, please make sure you copy and paste both sections without any spaces between them.\n\n");
 
-                buf.append("Your handle and password will provide you with access to the Competition Arena, where you can practice and chat, and where you'll compete in the Code Jam Latin America 2007.\n\n");
+                buf.append("Your handle and password will provide you with access to the Competition Arena, where you can practice and chat, and where you'll compete in the Google Code Jam Latin America 2007.\n\n");
 
                 buf.append("PRACTICING FOR THE EVENT\n");
-                buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in the Code Jam Latin America 2007.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 10:00AM GMT/UTC -2 on January 2, 2007 through 4:00PM GMT/UTC -2 on March 1, 2007.\n\n");
+                buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in the Google Code Jam Latin America 2007.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 10:00AM GMT/UTC -2 on January 2, 2007 through 4:00PM GMT/UTC -2 on March 1, 2007.\n\n");
 
-                buf.append("You can access the practice rooms by navigating to http://").append(getSessionInfo().getServerName()).append("/cjla and clicking on the Competition Arena tab.\n\n");
+                buf.append("You can access the practice rooms by navigating to http://").append(getSessionInfo().getServerName()).append("/codejamlatinamerica and clicking on the Competition Arena tab.\n\n");
 
                 buf.append("COMPETING IN THE QUALIFICATION ROUND\n");
                 buf.append("You may participate in the Qualification Round at any time between Tuesday, January 23 at 12 noon GMT/UTC -2 and Wednesday, January 24 at 12 noon GMT/UTC -2.  You will have up to one hour to solve two problems.  It is recommended that you utilize the practice area prior to participating in the qualification.\n\n");
 
                 buf.append("LAUNCHING THE ARENA\n");
-                buf.append("You can launch and login to the competition arena at the appropriate time by navigating to http://").append(getSessionInfo().getServerName()).append("/cjla and clicking on the Competition Arena tab.\n\n");
+                buf.append("You can launch and login to the competition arena at the appropriate time by navigating to http://").append(getSessionInfo().getServerName()).append("/codejamlatinamerica and clicking on the Competition Arena tab.\n\n");
 
                 buf.append("You will need to have at least Java Runtime version 1.4 installed in order to launch the arena.\n\n");
 
-                buf.append("We also suggest that you read up on the competition process by navigating to http://").append(getSessionInfo().getServerName()).append("/cjla and clicking the Instructions link at the top.\n\n");
+                buf.append("We also suggest that you read up on the competition process by navigating to http://").append(getSessionInfo().getServerName()).append("/codejamlatinamerica and clicking the Instructions link at the top.\n\n");
 
-                buf.append("If you have any questions about how to participate, please email them to cjla@topcoder.com\n\n");
+                buf.append("If you have any questions about how to participate, please email them to gcjla@topcoder.com\n\n");
 
-                buf.append("Thank you for registering for the Code Jam Latin America 2007.  We look forward to seeing you in the Arena!");
+                buf.append("Thank you for registering for the Google Code Jam Latin America 2007.  We look forward to seeing you in the Arena!");
 
                 mail.setBody(buf.toString());
                 mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);
-                mail.setFromAddress("cjla@topcoder.com", "Code Jam Latin America Team");
+                mail.setFromAddress("gcjla@topcoder.com", "Google Code Jam Latin America Team");
                 log.info("sent registration email to " + info.getEmail());
                 EmailEngine.send(mail);
             }
