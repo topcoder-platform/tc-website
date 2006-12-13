@@ -57,6 +57,7 @@ public class Submit extends ResumeRegSubmit {
                     setNextPage(buf.toString());
                     setIsNextPageInContext(false);
                 }
+                
             } else {
                 throw new RuntimeException("impossible, isEligible returned false, fix the code");
             }

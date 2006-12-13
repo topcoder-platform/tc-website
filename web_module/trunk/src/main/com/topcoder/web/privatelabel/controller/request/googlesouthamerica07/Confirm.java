@@ -12,6 +12,7 @@ import java.util.Date;
  *          Create Date: Dec 13, 2006
  */
 public class Confirm extends ResumeRegConfirm {
+    
     protected void setNextPage() {
         Calendar end = Calendar.getInstance();
         Calendar beginning = Calendar.getInstance();

@@ -9,6 +9,7 @@ import com.topcoder.web.privatelabel.controller.request.BaseActivate;
  *          Create Date: Dec 13, 2006
  */
 public class Activate extends BaseActivate {
+    
     protected void setNextPage() {
         setNextPage(Constants.GOOGLE_SOUTH_AMERICA_07_ACTIVATION_PAGE);
         setIsNextPageInContext(true);
