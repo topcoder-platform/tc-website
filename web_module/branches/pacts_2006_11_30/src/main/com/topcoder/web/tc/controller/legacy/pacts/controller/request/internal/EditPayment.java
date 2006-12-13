@@ -172,6 +172,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
 */
                     log.debug("payment event date:" + payment.getEventDate());
                     if (adding) {
+                    	List payments = new ArrayList();
                         if (contractId > 0) {
                             //paymentId = dib.addContractPayment(contractId, payment);
                         } else if (payment instanceof ComponentWinningPayment) {
@@ -181,38 +182,32 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         		BasePayment aux = (BasePayment) l.get(0);
                         		p.setGrossAmount(aux.getGrossAmount());
                             	payment = dib.addPayment(payment);
-                            	paymentId = payment.getId();
+                            	payments.add(payment);
                         		
                         	} else {
                         		List l = dib.generateComponentUserPayments(p.getCoderId(),p.getGrossAmount(), p.getClient(), p.getProjectId(), 1); // fix placed
                         		l.set(0, p);
                         		l = dib.addPayments(l);
-                        		
-                        		List ids = new ArrayList();
-                        		for (int i = 0; i < l.size(); i++) {
-                        			ids.add(new Long(((BasePayment) l.get(i)).getId())); 
-                        		}
-                        		
-                                setNextPage(Links.viewPayments(ids));
-                                setIsNextPageInContext(false);
-                                return;
+                        		payments.addAll(l);
                         	}
                         } else {
                             //paymentId = dib.addPayment(payment, true);
                         	payment = dib.addPayment(payment);
-                        	paymentId = payment.getId();
-                        }                        
+                        	payments.add(payment);
+                        }               
+
+                		List ids = new ArrayList();
+                		for (int i = 0; i < payments.size(); i++) {
+                			ids.add(new Long(((BasePayment) payments.get(i)).getId())); 
+                		}
+                		
+                        setNextPage(Links.viewPayments(ids));
                     } else {
                         dib.updatePayment(payment);
+                        setNextPage(Links.viewPayment(paymentId));
                     }
 
                     setIsNextPageInContext(false);
-
-                    if (adding && contractId > 0) {
-                        setNextPage(Links.viewContract(contractId));
-                    } else {
-                        setNextPage(Links.viewPayment(paymentId));
-                    }
 
                     return;
                 } else {
