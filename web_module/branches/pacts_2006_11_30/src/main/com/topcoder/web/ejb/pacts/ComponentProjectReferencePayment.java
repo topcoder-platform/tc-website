@@ -236,7 +236,7 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
             	rsc.getStringItem(0, "version_text").trim() + ") " + rsc.getStringItem(0, "component_name");
                        		
             try {
-				completeDate =  rsc.getStringItem(0, "complete_date") == null? new Date() : new SimpleDateFormat("MM/dd/yyyy HH:MM").parse(rsc.getStringItem(0, "complete_date"));
+				completeDate =  rsc.getStringItem(0, "complete_date") == null? new Date() : new SimpleDateFormat("MM/dd/yyyy HH:mm").parse(rsc.getStringItem(0, "complete_date"));
 			} catch (ParseException e) {
 				completeDate = new Date();
 			}
