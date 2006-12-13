@@ -92,8 +92,8 @@
 <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="eventId"/>"/>
 <% if (regInfo.isNew()) { %>
 <tr>
-    <td colspan="2" class="errorText" align="center">
-        It is against the rules to create more <br>than one account for this event.
+    <td colspan="2" align="center">
+        <b>NOTE: It is against the rules to create more <br>than one account for this event.</b>
     </td>
 </tr>
 <% } %>
