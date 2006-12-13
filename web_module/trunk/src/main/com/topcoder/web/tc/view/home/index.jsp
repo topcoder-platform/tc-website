@@ -61,16 +61,11 @@
     <tr>
         <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
         <td class="BIGPromoBox" align="center">
-<A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview"><IMG SRC="/i/home/tchs_promo_120406.png" border="0" alt="The 2007 TopCoder High School Tournament" /></A>
 <%--
-<map name="tccc">
-<area shape="rect" alt="" coords="1,1,230,149" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
-<area shape="rect" alt="" coords="300,5,350,105" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_finals_analysis" />
-<area shape="rect" alt="" coords="355,5,405,105" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary" />
-<area shape="rect" alt="" coords="410,5,460,105" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary" />
-</map>
-<IMG SRC="/i/home/tccc06_winners.png" border="0" alt="TCCC06 Finals" usemap="#tccc"/>
+<A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview"><IMG SRC="/i/home/tchs_promo_120406.png" border="0" alt="The 2007 TopCoder High School Tournament" /></A>
+<img src="/i/home/100000.jpg" alt="100,000 Members" />
 --%>
+<A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2047"><IMG SRC="/i/home/tco07LogoCon.png" border="0" alt="2007 TCO Logo Design Contest" /></A>
         </td>
         <td width="50%" align="right" valign="top" style="border-bottom: 1px solid #666666; padding:0px; margin:0px;">
             <%--&nbsp;--%>
