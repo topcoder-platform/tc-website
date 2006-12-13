@@ -5758,6 +5758,75 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return list;
     }
 
+    /**
+     * Get a BasePayment from the database.
+     * 
+     * @param paymentId id of the payment to load.
+     * @return the payment loaded or null if no payment found.
+     * @throws SQLException
+     */
+    public BasePayment getBasePayment(long paymentId) throws SQLException {
+        StringBuffer query = new StringBuffer(500);
+
+        query.append(" SELECT p.payment_id, p.user_id, pd.payment_desc, pd.payment_type_id, ");
+        query.append("    pd.gross_amount, pd.net_amount, pd.status_id, s.status_desc, pd.date_due, ");
+        query.append("    pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
+        query.append("    pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
+        query.append("    pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number , ");
+        query.append("    (SELECT reference_field_name   ");
+        query.append("       FROM payment_reference_lu pr,payment_type_lu pt ");
+        query.append("       WHERE pd.payment_type_id = pt.payment_type_id ");
+        query.append("       AND pt.payment_reference_id = pr.payment_reference_id) as reference_field_name ");
+        query.append(" FROM payment p, payment_detail pd, status_lu s ");
+        query.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
+        query.append(" AND s.status_id = pd.status_id  ");
+        query.append(" AND p.payment_id = " + paymentId);
+ 
+        ResultSetContainer rsc = runSelectQuery(query.toString(), false);
+
+        if (rsc.size() == 0) {
+        	return null;
+        }
+        
+        ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
+
+
+        long coder = rsr.getLongItem("user_id");
+        double grossAmount = rsr.getDoubleItem("gross_amount");
+        double netAmount = rsr.getDoubleItem("net_amount");
+        double totalAmount = rsr.getDoubleItem("total_amount");
+        int paymentType = rsr.getIntItem("payment_type_id");
+        int installmentNumber = rsr.getIntItem("installment_number");
+        Date dueDate = rsr.getTimestampItem("date_due");
+        int statusId = rsr.getIntItem("status_id");
+        String statusDesc = rsr.getStringItem("status_desc");
+        String description = rsr.getStringItem("payment_desc");
+
+        String referenceFieldName = rsr.getStringItem("reference_field_name");
+
+        long reference = 0;
+
+        if (referenceFieldName != null) {
+            try {
+                reference = rsr.getLongItem(referenceFieldName);
+            } catch (Exception e) {
+            }
+        }
+
+        BasePayment payment = BasePayment.createPayment(paymentType, coder, grossAmount, reference);
+
+        payment.setId(paymentId);
+        payment.setNetAmount(netAmount);
+        payment.setTotalAmount(totalAmount);
+        payment.setInstallmentNumber(installmentNumber);
+        payment.setDueDate(dueDate);
+        payment.setStatusId(statusId);
+        payment.setStatusDesc(statusDesc);
+        payment.setDescription(description);
+        
+        return payment;
+    }
+
 
     /**
      * Delete a payment by changing its status to deleted and pointing

@@ -246,7 +246,9 @@ public interface PactsServicesLocal extends EJBLocalObject {
     List findCoderPayments(long coderId, int paymentTypeId) throws  SQLException;
 
     List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws  SQLException;
-
+    
+    BasePayment getBasePayment(long paymentId) throws  SQLException;
+    
     void deletePayment(long paymentId) throws  SQLException;
 
     void deletePayment(BasePayment payment) throws  SQLException;

@@ -6,12 +6,13 @@ import java.util.Date;
 
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.pacts.AlgorithmRoundReferencePayment;
 import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.ComponentProjectReferencePayment;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
@@ -23,6 +24,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 public class EditPayment extends PactsBaseProcessor implements PactsConstants {
 
     protected void businessProcessing() throws TCWebException {
+    	SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_STRING);
         try {
             boolean updating = getRequest().getParameter("payment_id") != null;
             boolean adding = !updating;
@@ -31,7 +33,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             long paymentId = -1;
             long userId = -1;
             long contractId = -1;
-            Payment payment = null;
+            BasePayment payment = null;
             UserProfileHeader user = null;
             Contract contract = null;
 
@@ -53,13 +55,16 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             }
 
             if (updating) {
+
                 paymentId = getLongParameter(PAYMENT_ID);
-                payment = new Payment(dib.getPayment(paymentId));
+//                payment = new Payment(dib.getPayment(paymentId));
+            	//payment = dib.getBasePayment(paymentId);
+
                 if (payment.getStatusId() == PAID_STATUS) {
                     throw new NavigationException("You can't update a paid payment");
                 }
 
-                user = payment.getHeader().getUser();
+                //user = payment.getHeader().getUser();
             }
 
             String desc = "";
@@ -98,11 +103,28 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                 if (!hasErrors()) {
                     // Parameters are ok, so add or update the payment
                     if (adding) {
-                        payment = new Payment();
-                        payment.getHeader().getUser().setId(userId);
+                //    	payment = new Payment();
+                  //      payment.getHeader().getUser().setId(userId);
+                    	payment = BasePayment.createPayment(typeId, userId, grossAmount, 0);                    	
                     }
-
-                    payment.getHeader().setDescription(desc);
+                    
+                    if (payment instanceof AlgorithmRoundReferencePayment) {
+                        ((AlgorithmRoundReferencePayment) payment).setRoundId(getLongParameter("algorithm_round_id"));
+                    } else if (payment instanceof ComponentProjectReferencePayment) {
+                        ((ComponentProjectReferencePayment) payment).setProjectId(getLongParameter("component_project_id"));
+                        ((ComponentProjectReferencePayment) payment).setClient(client);
+                    }
+  
+                    payment.setDescription(desc);
+                    payment.setStatusId(statusId);
+                    payment.setGrossAmount(grossAmount);
+                    payment.setNetAmount(netAmount);
+                    payment.setDueDate(sdf.parse(dueDate));
+                    // Method!!!
+                    // rationale
+                    payment.setCharity(charity);
+                    
+/*                    payment.getHeader().setDescription(desc);
                     payment.getHeader().setTypeId(typeId);
                     payment.getHeader().setMethodId(methodId);
                     payment.getHeader().setClient(client);
@@ -115,16 +137,18 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     payment.setDueDate(dueDate);
                     payment.setRationaleId(modificationRationaleId);
                     payment.setCharity(charity);
-
+*/
                     if (adding) {
                         if (contractId > 0) {
-                            paymentId = dib.addContractPayment(contractId, payment);
+                            //paymentId = dib.addContractPayment(contractId, payment);
                         } else {
-                            paymentId = dib.addPayment(payment, true);
+                            //paymentId = dib.addPayment(payment, true);
+                        	payment = dib.addPayment(payment);
+                        	paymentId = payment.getId();
                         }
 
                     } else {
-                        dib.updatePayment(payment);
+                        //dib.updatePayment(payment);
                     }
 
                     setIsNextPageInContext(false);
@@ -157,6 +181,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     dueDate = new SimpleDateFormat(DATE_FORMAT_STRING).format(date.getTime());
 
                 } else {
+                	/*
                     desc = payment.getHeader().getDescription();
                     typeId = payment.getHeader().getTypeId();
                     methodId = payment.getHeader().getMethodId();
@@ -180,6 +205,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         refDescr = p.getReferenceDescription();
                     } catch(Exception e) {}
                     getRequest().setAttribute("reference_description", refDescr);
+                    */
                 }
             }
 
@@ -201,7 +227,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             getRequest().setAttribute(USER, user);
 
             if (payment != null) {
-                getRequest().setAttribute("reference_id", payment.getHeader().getReferenceId() + "");
+                //getRequest().setAttribute("reference_id", payment.getHeader().getReferenceId() + "");
                 getRequest().setAttribute(PAYMENT, payment);
             }
 
@@ -253,5 +279,44 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
         }
 
     }
+
+
+    private long getReference() {
+        if (getRequest().getParameter("algorithm_round_id") != null) {
+            return getLongParameter("algorithm_round_id");
+        }
+
+        if (getRequest().getParameter("component_project_id") != null) {
+            return getLongParameter("component_project_id");
+        }
+
+        if (getRequest().getParameter("algorithm_problem_id") != null) {
+        	return getOptionalLongParameter("algorithm_problem_id", 0);
+        }
+
+        if (getRequest().getParameter("studio_contest_id") != null) {
+            return getLongParameter("studio_contest_id");
+        }
+
+        if (getRequest().getParameter("component_contest_id") != null) {
+            return getLongParameter("component_contest_id");
+        }
+
+        if (getRequest().getParameter("digital_run_stage_id") != null) {
+            return getLongParameter("digital_run_stage_id");
+        }
+
+        if (getRequest().getParameter("digital_run_season_id") != null) {
+            return getLongParameter("digital_run_season_id");
+        }
+
+        if (getRequest().getParameter("parent_reference_id") != null) {
+            return getLongParameter("parent_reference_id");
+        }
+        
+        return 0;
+
+    }
+
 }
 

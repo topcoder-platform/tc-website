@@ -245,6 +245,8 @@ public interface PactsServices extends EJBObject {
 
     List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws RemoteException, Exception;
 
+    BasePayment getBasePayment(long paymentId) throws RemoteException, SQLException;
+
     void deletePayment(long paymentId) throws RemoteException, Exception;
 
     void deletePayment(BasePayment payment) throws RemoteException, Exception;

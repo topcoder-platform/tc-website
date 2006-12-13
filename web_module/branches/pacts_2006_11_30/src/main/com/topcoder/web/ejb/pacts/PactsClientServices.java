@@ -105,6 +105,15 @@ public interface PactsClientServices extends EJBObject {
     List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws RemoteException, Exception;
 
     /**
+     * Get a BasePayment from the database.
+     * 
+     * @param paymentId id of the payment to load.
+     * @return the payment loaded or null if no payment found.
+     * @throws SQLException
+     */
+    BasePayment getBasePayment(long paymentId) throws RemoteException, SQLException;
+    
+    /**
      * Delete a payment.
      *
      * @param paymentId id of the payment to delete.
