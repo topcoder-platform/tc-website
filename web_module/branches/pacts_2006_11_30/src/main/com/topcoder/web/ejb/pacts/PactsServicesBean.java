@@ -5345,6 +5345,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         p.getHeader().setId(payment.getId());
         p.setCharity(payment.isCharity());
         p.setMethodId(payment.getMethodId());
+        p.getHeader().setMethodId(payment.getMethodId());
 
         switch (payment.getReferenceTypeId()) {
             case REFERENCE_ALGORITHM_ROUND_ID:

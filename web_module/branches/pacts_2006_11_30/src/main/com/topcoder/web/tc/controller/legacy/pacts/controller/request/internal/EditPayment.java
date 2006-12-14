@@ -156,6 +156,8 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     payment.setModificationRationale(modificationRationaleId);
                     payment.setCharity(charity);
                     
+                    log.debug("methodId = " + methodId);
+                    log.debug("getMethodId = " + payment.getMethodId());
                     if (adding) {
                     	List payments = new ArrayList();
                         if (contractId > 0) {
