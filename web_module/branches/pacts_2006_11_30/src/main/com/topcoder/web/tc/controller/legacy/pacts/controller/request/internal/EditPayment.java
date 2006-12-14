@@ -180,6 +180,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     		List l = dib.generateComponentUserPayments(p.getCoderId(), p.getGrossAmount(), p.getClient(), p.getProjectId(), placed); 
 
                         	if (p.isDesign() && grossAmount == 0) {
+                        		// todo: calculate 2nd installment
                         		BasePayment aux = (BasePayment) l.get(0);
                         		p.setGrossAmount(aux.getGrossAmount());
                             	payment = dib.addPayment(payment);
@@ -219,6 +220,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                 } else {
                     // there were some errors!
 
+                    setDefault("total_amount", getRequest().getParameter("total_amount"));
                     setDefault("gross_amount", getRequest().getParameter("gross_amount"));
                     setDefault("net_amount", getRequest().getParameter("net_amount"));
                     if (((String) getRequest().getParameter("reference_description")).length() > 0) {
@@ -263,32 +265,6 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         refDescr = payment.getReferenceDescription();
                     } catch(Exception e) {}
                     getRequest().setAttribute("reference_description", refDescr);
-
-                	/*
-                    desc = payment.getHeader().getDescription();
-                    typeId = payment.getHeader().getTypeId();
-                    methodId = payment.getHeader().getMethodId();
-                    client = payment.getHeader().getClient();
-
-
-                    statusId = payment.getStatusId();
-                    grossAmount = payment.getGrossAmount();
-                    netAmount = payment.getNetAmount();
-                    dueDate = payment.getDueDate();
-                    charity = payment.isCharity();
-                    modificationRationaleId = MODIFICATION_STATUS;
-
-                    setDefault("gross_amount", new Double(grossAmount));
-                    setDefault("net_amount", new Double(netAmount));
-
-                    BasePayment p =  BasePayment.createPayment(typeId, 1, 0.01, payment.getHeader().getReferenceId());
-                    String refDescr = "[Can't get the description]";
-                    try {
-                        p = dib.fillPaymentData(p);
-                        refDescr = p.getReferenceDescription();
-                    } catch(Exception e) {}
-                    getRequest().setAttribute("reference_description", refDescr);
-                    */
                 }
             }
 

@@ -72,7 +72,6 @@ function loaded() {
 
 
 function doSearch(text, mustSearch, firstLoad) {
-    var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
     document.f.search_text.value = text;
     document.f.round_unknown.value = roundUnknown; 
        
@@ -96,10 +95,17 @@ function doSearch(text, mustSearch, firstLoad) {
 
 
 
+function displayAmounts() {
+    var ajaxRequest = new AjaxRequest('/pacts/internal/ajax/displayAmounts.jsp');
+    ajaxRequest.addNamedFormElements("payment_type_id");
+    ajaxRequest.sendRequest();
+}
+
 function typeChanged()
 {
     document.f.reference_description.value = "";
     doSearch("", false, false);
+    displayAmounts();
 }
 
 function setRoundUnknown(value){
@@ -156,6 +162,7 @@ function initialize() {
     </c:if>
     doSearch('<c:out value="${param.search_text}" />',s,true);    
 </c:if> 
+    displayAmounts();
 }
 
 function getElement(name) {
