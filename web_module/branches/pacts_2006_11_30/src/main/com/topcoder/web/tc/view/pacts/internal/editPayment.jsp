@@ -234,7 +234,7 @@ function searchKeyPress(e)
    <input type="hidden" name="module" value="EditPayment">
    <input type="hidden" name="search_text">
    <input type="hidden" name="round_unknown">
-   <input type="hidden" name="reference_id" value="<c:out value="${param.reference_id}" />">
+   <input type="hidden" name="reference_id" value="<c:out value="${requestScope.reference_id}" />">
    <input type="hidden" name="reference_description" value="<c:out value="${requestScope.reference_description}" />" >
    <input type="hidden" name="user_id" value="${user.id}" >   
 <c:if test="${updating}">
