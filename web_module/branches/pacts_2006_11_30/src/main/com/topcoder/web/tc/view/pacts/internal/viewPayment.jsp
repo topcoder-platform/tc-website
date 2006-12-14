@@ -79,6 +79,17 @@
 			<td><b>Installment Number:</b></td>
 			<td><fmt:formatNumber value="${payment.installmentNumber}" pattern="##0" /></td>
 		</tr>
+		<c:if test="${payment.grossAmount != payment.netAmount }">
+			<tr>
+				<td><b>Gross Amount:</b></td>
+				<td>$<fmt:formatNumber value="${payment.grossAmount}" pattern="###,###.00" /></td>
+			</tr>
+			<tr>
+				<td><b>Tax:</b></td>
+				<td>$<fmt:formatNumber value="${payment.grossAmount - payment.netAmount}" pattern="####.00" /></td>
+			</tr>
+		</c:if>
+
 		<tr>
 			<td><b>Installment Net Amount:</b></td>
 			<td>$<fmt:formatNumber value="${payment.netAmount}" pattern="###,###.00" /></td>
