@@ -1,6 +1,7 @@
 package com.topcoder.web.studio.controller.request.admin;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.validation.ListInput;
 import com.topcoder.web.common.validation.StringInput;
@@ -14,10 +15,8 @@ import com.topcoder.web.studio.model.ContestConfig;
 import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.validation.*;
-import org.hibernate.dialect.Dialect;
 
 import java.sql.Timestamp;
-import java.sql.Types;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -137,11 +136,9 @@ public class EditContest extends Base {
                 log.debug("overview size " + (contest.getOverview().getValue() == null ? "null" : "" + contest.getOverview().getValue().length()));
             }
 
-            Dialect d = Dialect.getDialect();
-            log.debug(d.getTypeName(Types.LONGVARCHAR));
-            log.debug(d.getHibernateTypeName(Types.LONGVARCHAR));
-            log.debug(d.getTypeName(Types.VARCHAR));
-            log.debug(d.getHibernateTypeName(Types.VARCHAR));
+
+           log.debug(HibernateUtils.getFactory().getClassMetadata(Contest.class).toString());
+
 
             StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
             markForCommit();
