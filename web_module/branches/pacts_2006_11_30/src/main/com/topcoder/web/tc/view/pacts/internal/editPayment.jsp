@@ -104,6 +104,9 @@ function displayAmounts() {
     ajaxRequest.addNamedFormElements("is_design");    
     ajaxRequest.addNamedFormElements("is_updating");    
     ajaxRequest.addNamedFormElements("total_amount");    
+    ajaxRequest.addNamedFormElements("gross_amount");    
+    ajaxRequest.addNamedFormElements("net_amount");        
+    ajaxRequest.addNamedFormElements("installment_number");       
     ajaxRequest.setPostRequest(loaded);
     ajaxRequest.setPreRequest(loading);        
     ajaxRequest.sendRequest();
