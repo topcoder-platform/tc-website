@@ -72,7 +72,6 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     throw new NavigationException("You can't update a paid payment");
                 }
 
-                //user = payment.getHeader().getUser();
                 userId = payment.getCoderId();
                 user = new UserProfileHeader(dib.getUserProfileHeader(userId));
             }
@@ -125,8 +124,9 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                 if (!hasErrors()) {
                     // Parameters are ok, so add or update the payment
 
-                	if (adding) {
-                    	payment = BasePayment.createPayment(typeId, userId, grossAmount, 0);                    	
+                	payment = BasePayment.createPayment(typeId, userId, grossAmount, 0);                    	
+                	if (updating) {
+                		payment.setId(paymentId);
                     }
                     
                     if (payment instanceof AlgorithmRoundReferencePayment) {
