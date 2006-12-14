@@ -66,7 +66,6 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             if (updating) {
 
                 paymentId = getLongParameter(PAYMENT_ID);
-//                payment = new Payment(dib.getPayment(paymentId));
             	payment = dib.getBasePayment(paymentId);
 
                 if (payment.getStatusId() == PAID_STATUS) {
@@ -81,10 +80,12 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             String desc = "";
             int statusId = -1;
             int typeId = -1;
+            double totalAmount = 0.0;
             double grossAmount = 0.0;
             double netAmount = 0.0;
             int methodId = -1;
             int modificationRationaleId = -1;
+            int installmentNumber = 1;
             String dueDate = "";
             String client = "";
 
@@ -95,10 +96,20 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                 statusId = getIntParameter("status_id");
                 typeId = getIntParameter("payment_type_id");
                 client = (String) getRequest().getParameter("client");
-                grossAmount = checkNonNegativeDouble("gross_amount", "Please enter a valid gross amount");
+                totalAmount = checkNonNegativeDouble("total_amount", "Please enter a valid total amount");
+
+                if (getRequest().getParameter("gross_amount").trim().length() > 0) {
+                	grossAmount = checkNonNegativeDouble("gross_amount", "Please enter a valid gross amount");
+                }
+                
                 if (getRequest().getParameter("net_amount").trim().length() > 0) {
                     netAmount = checkNonNegativeDouble("net_amount", "Please enter a valid net amount");
                 }
+
+                if (getRequest().getParameter("installment_number").trim().length() > 0) {
+                	installmentNumber = getIntParameter("installment_number");
+                }
+                
                 methodId = getIntParameter("payment_method_id");
 
                 modificationRationaleId = getOptionalIntParameter("modification_rationale_id");
@@ -113,9 +124,8 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
 
                 if (!hasErrors()) {
                     // Parameters are ok, so add or update the payment
-                    if (adding) {
-                //    	payment = new Payment();
-                  //      payment.getHeader().getUser().setId(userId);
+
+                	if (adding) {
                     	payment = BasePayment.createPayment(typeId, userId, grossAmount, 0);                    	
                     }
                     
@@ -149,15 +159,15 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     
                     payment.setDescription(desc);
                     payment.setStatusId(statusId);
-                    payment.setGrossAmount(grossAmount);
+                    payment.setTotalAmount(totalAmount);
+                    payment.setGrossAmount(grossAmount > 0? grossAmount : totalAmount);
                     payment.setNetAmount(netAmount);
                     payment.setDueDate(sdf.parse(dueDate));
                     payment.setMethodId(methodId);
                     payment.setModificationRationale(modificationRationaleId);
                     payment.setCharity(charity);
+                    payment.setInstallmentNumber(installmentNumber);
                     
-                    log.debug("methodId = " + methodId);
-                    log.debug("getMethodId = " + payment.getMethodId());
                     if (adding) {
                     	List payments = new ArrayList();
                         if (contractId > 0) {
@@ -169,7 +179,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         	ComponentWinningPayment p = (ComponentWinningPayment) payment;
                     		List l = dib.generateComponentUserPayments(p.getCoderId(), p.getGrossAmount(), p.getClient(), p.getProjectId(), placed); 
 
-                        	if (p.isDesign()) {
+                        	if (p.isDesign() && grossAmount == 0) {
                         		BasePayment aux = (BasePayment) l.get(0);
                         		p.setGrossAmount(aux.getGrossAmount());
                             	payment = dib.addPayment(payment);

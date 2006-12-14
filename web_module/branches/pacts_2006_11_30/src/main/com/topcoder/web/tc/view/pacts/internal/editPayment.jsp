@@ -236,14 +236,14 @@ function searchKeyPress(e)
 
 <c:if test="${updating}">
     <tr>
-        <td width="150"><b>ID:</b></td>
+        <td width="180"><b>ID:</b></td>
         <td>
             <c:out value="${payment.id}" />  
         </td>
     </tr>
 </c:if>
     <tr>
-        <td width="150"><b>User</b></td>
+        <td width="180"><b>User</b></td>
         <td><a href="${pacts:viewUser(user.id)}"><c:out value="${user.handle}" /></td>
     </tr>
     <tr>
@@ -332,7 +332,7 @@ function searchKeyPress(e)
     <tr id="trAmount1">
         <td><b>Gross Amount:</b></td>
         <td>
-            <tc-webtag:textInput name="gross_amount" size="8" editable="true" format="#########.00" />
+            <tc-webtag:textInput name="total_amount" size="8" editable="true" format="#########.00" />
         </td>
     </tr>
     <tr id="trAmount2">
