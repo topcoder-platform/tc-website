@@ -36,11 +36,11 @@ public class EditContest extends Base {
         String forumId = getRequest().getParameter(Constants.FORUM_ID);
         List fileTypes = getRequest().getParameterValues(Constants.FILE_TYPE) == null ?
                 Collections.EMPTY_LIST : Arrays.asList(getRequest().getParameterValues(Constants.FILE_TYPE));
-        if (log.isDebugEnabled()) {
+        /*if (log.isDebugEnabled()) {
             for (Iterator it = fileTypes.iterator(); it.hasNext();) {
                 log.debug("filetype: " + it.next());
             }
-        }
+        }*/
 
         inputValidation();
 
@@ -83,10 +83,10 @@ public class EditContest extends Base {
         } else {
             Contest contest;
             if (!"".equals(StringUtils.checkNull(contestId))) {
-                log.debug("existing contest");
+                //log.debug("existing contest");
                 contest = StudioDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
             } else {
-                log.debug("new contest");
+                //log.debug("new contest");
                 contest = new Contest();
             }
             SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
@@ -114,9 +114,11 @@ public class EditContest extends Base {
                     currConfig = contest.getConfig(curr);
                 }
                 String val = getRequest().getParameter(Constants.CONTEST_PROPERTY + CONTEST_PROPS[i]);
+/*
                 if (log.isDebugEnabled()) {
                     log.debug("prop size " + (val == null ? "null" : String.valueOf(val.length())));
                 }
+*/
 
                 currConfig.setValue(StringUtils.checkNull(val).trim().length() == 0 ? null : val.trim());
             }
@@ -124,7 +126,7 @@ public class EditContest extends Base {
             FileTypeDAO fDao = StudioDAOUtil.getFactory().getFileTypeDAO();
             HashSet fts = new HashSet();
             for (Iterator it = fileTypes.iterator(); it.hasNext();) {
-                log.debug("add a file type");
+                //log.debug("add a file type");
                 fts.add(fDao.find(new Integer((String) it.next())));
             }
             contest.setFileTypes(fts);
