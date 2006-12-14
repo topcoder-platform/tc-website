@@ -103,6 +103,7 @@ function displayAmounts() {
     ajaxRequest.addNamedFormElements("placed");
     ajaxRequest.addNamedFormElements("is_design");    
     ajaxRequest.addNamedFormElements("is_updating");    
+    ajaxRequest.addNamedFormElements("total_amount");    
     ajaxRequest.setPostRequest(loaded);
     ajaxRequest.setPreRequest(loading);        
     ajaxRequest.sendRequest();

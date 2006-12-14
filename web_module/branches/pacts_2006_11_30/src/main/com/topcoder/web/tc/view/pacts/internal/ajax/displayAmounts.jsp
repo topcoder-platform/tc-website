@@ -22,7 +22,7 @@
 			        <tr id="trAmount1">
 			        <td><b>Total Gross Amount:</b></td>
 			        <td>
-			            <tc-webtag:textInput name="total_amount" size="8" editable="true" format="#########.00" />
+			            <tc-webtag:textInput name="total_amount" size="8" editable="true" format="#########.00" value="${param.total_amout}"/>
 			        </td>			 
 			        </tr>   
 			    </taconite-replace>
