@@ -199,6 +199,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     setDefault("total_amount", getRequest().getParameter("total_amount"));
                     setDefault("gross_amount", getRequest().getParameter("gross_amount"));
                     setDefault("net_amount", getRequest().getParameter("net_amount"));
+                    setDefault("installment_number", getRequest().getParameter("installment_number"));
                     if (((String) getRequest().getParameter("reference_description")).length() > 0) {
                         getRequest().setAttribute("reference_description", getRequest().getParameter("reference_description"));
                     }
@@ -229,6 +230,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     totalAmount = payment.getTotalAmount();
                     grossAmount = payment.getGrossAmount();
                     netAmount = payment.getNetAmount();
+                    installmentNumber = payment.getInstallmentNumber();
                     dueDate = sdf.format(payment.getDueDate());
                     charity = payment.isCharity();
                     modificationRationaleId = MODIFICATION_STATUS;
