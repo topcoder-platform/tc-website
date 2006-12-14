@@ -106,7 +106,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     netAmount = checkNonNegativeDouble("net_amount", "Please enter a valid net amount");
                 }
 
-                if (getRequest().getParameter("installment_number").trim().length() > 0) {
+                if (getRequest().getParameter("installment_number") != null) {
                 	installmentNumber = getIntParameter("installment_number");
                 }
                 
