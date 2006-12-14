@@ -121,8 +121,7 @@ function setRoundUnknown(value){
 
 function setDesign(value){
 	document.ajaxFields.is_design.value = value;
-	displayAmounts();
-	
+	displayAmounts();	
 }
 
 function doReferenceChanged(refId) {
@@ -226,7 +225,7 @@ function searchKeyPress(e)
 
 <form name="ajaxFields">
    <input type="hidden" name="first_load" value="true" >
-   <input type="hidden" name="is_design" value="" >
+   <input type="hidden" name="is_design" value="<%= request.getAttribute("is_design") %>" >
    <input type="hidden" name="client" value="<%= ((Map) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("client") %>" >
  
 </form>
