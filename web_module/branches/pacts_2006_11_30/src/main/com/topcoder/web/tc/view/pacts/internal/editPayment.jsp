@@ -360,26 +360,30 @@ function searchKeyPress(e)
         <td>
             <tc-webtag:textInput name="payment_desc" size="60" editable="true" />
         </td>
-    <tr id="trAmount1">
-        <td><b>X</b></td>
+        <tr id="trAmount1">
+        <td><b>Total Gross Amount:</b></td>
         <td>
-            <tc-webtag:textInput name="total_amount" size="8" editable="true" format="#########.00" />
-        </td>
-    </tr>
-    <tr id="trAmount2">
-        <td><b>Y</b></td>
+            <tc-webtag:textInput name="total_amount" size="8" editable="true" format="#########.00"/>
+        </td>			 
+        </tr>   
+        <tr id="trAmount2">			    
+        <td><b>Installment Number:</b></td>
         <td>
-            <tc-webtag:textInput name="net_amount" size="8" editable="true" format="#########.00" /> (if left blank, calculated from Gross Amount)
-        </td>
-    </tr>
-    <tr id="trAmount3">
-        <td></td>
-        <td></td>
-    </tr>
-    <tr id="trAmount4">
-        <td></td>
-        <td></td>
-    </tr>
+        	<tc-webtag:stringSelect name="installment_number" list="<%= java.util.Arrays.asList(new String[]{"1", "2"}) %>"/>
+        </td>			   
+        </tr> 
+    	<tr id="trAmount3">			   
+	        <td nowrap="nowrap"><b>Installment Gross Amount:</b></td>				        
+	        <td>
+	            <tc-webtag:textInput name="gross_amount" size="8" editable="true" format="#########.00" /> (If left blank, calculated from Total Gross Amount)
+	        </td>			    
+	    </tr>
+        <tr id="trAmount4">
+	        <td><b>Installment Net Amount:</b></td>
+	        <td>
+	            <tc-webtag:textInput name="net_amount" size="8" editable="true" format="#########.00" /> (if left blank, calculated from Installment Gross Amount)
+				        </td>
+				    </tr>
     
     <tr>
         <td><b>Date Due:</b></td><td>
