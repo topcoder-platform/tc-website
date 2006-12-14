@@ -113,12 +113,6 @@
                                      fieldText="project_desc" fieldValue="project_id" selectedValue="${param.reference_id}"                                             
                                      useTopValue="false"  onChange="referenceChanged('component_project_id')"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />           
-                             <c:if test="${type == COMPONENT_WINNING}">
-                             <br/><br/>Placed:  <select name="placed">
-                             		<option value="1">1st</option>
-                             		<option value="2">2nd</option>                             		
-                               	 </select>
-                             </c:if>                 
                         </c:if>                                  
                         <c:if test="${not firstLoad}">  
                             <script type="text/javascript">
@@ -276,6 +270,25 @@
             </c:otherwise>
         </c:choose>   
      </taconite-replace>     
+    <taconite-replace contextNodeID="trPlaced" parseInBrowser="true">
+    	<c:choose>
+            <c:when test="${type == COMPONENT_WINNING}">
+            <tr id="trPlaced"> 
+            <td><b>Placed:</b></td>
+            <td>
+             	<select name="placed" onChange="referenceChanged('component_project_id')">
+             		<option value="1">1st</option>
+             		<option value="2">2nd</option>                             		
+               	 </select>
+            </td>
+            </tr>
+            </c:when>
+            <c:otherwise>
+                <tr id="trPlaced"> <td></td><td></td></tr>
+            </c:otherwise>
+	</c:choose>
+
+    </taconite-replace>
      
  </taconite-root>
  

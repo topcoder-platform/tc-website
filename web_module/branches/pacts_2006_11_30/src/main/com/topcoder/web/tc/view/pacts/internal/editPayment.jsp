@@ -286,6 +286,10 @@ function searchKeyPress(e)
             <td></td>
         </tr>
     </c:if>
+    <tr id="trPlaced">
+        <td></td>
+        <td></td>
+    </tr>
     
 </c:when> 
 <c:otherwise>    
@@ -294,6 +298,10 @@ function searchKeyPress(e)
         <td></td>
     </tr>
     <tr id="projectClient">
+        <td></td>
+        <td></td>
+    </tr>
+    <tr id="trPlaced">
         <td></td>
         <td></td>
     </tr>

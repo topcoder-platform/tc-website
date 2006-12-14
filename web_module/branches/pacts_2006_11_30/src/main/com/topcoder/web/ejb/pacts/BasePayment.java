@@ -148,26 +148,41 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
      * @param coderId id of the coder
      * @param grossAmount gross amount paid
      * @param referenceId the reference to another table PK for this payment.
+     * @param placed the placement if it's a winning
      * @return an instance of an extending class of BasePayment , depending on the type of payment.
      */
-    public static BasePayment createPayment(int paymentTypeId, long coderId, double grossAmount, long referenceId) {
+    public static BasePayment createPayment(int paymentTypeId, long coderId, double grossAmount, long referenceId, int placed) {
         switch(paymentTypeId) {
-        case ALGORITHM_CONTEST_PAYMENT: return new AlgorithmContestPayment(coderId, grossAmount, referenceId);
-        case MARATHON_MATCH_PAYMENT: return new MarathonMatchPayment(coderId, grossAmount, referenceId);
-        case ALGORITHM_TOURNAMENT_PRIZE_PAYMENT: return new AlgorithmTournamentPrizePayment(coderId, grossAmount, referenceId);
-        case COMPONENT_PAYMENT: return new ComponentWinningPayment(coderId, grossAmount, referenceId);
+        case ALGORITHM_CONTEST_PAYMENT: return new AlgorithmContestPayment(coderId, grossAmount, referenceId, placed);
+        case MARATHON_MATCH_PAYMENT: return new MarathonMatchPayment(coderId, grossAmount, referenceId, placed);
+        case ALGORITHM_TOURNAMENT_PRIZE_PAYMENT: return new AlgorithmTournamentPrizePayment(coderId, grossAmount, referenceId, placed);
+        case COMPONENT_PAYMENT: return new ComponentWinningPayment(coderId, grossAmount, referenceId, placed);
         case REVIEW_BOARD_PAYMENT: return new ReviewBoardPayment(coderId, grossAmount, referenceId);
         case PROBLEM_WRITING_PAYMENT: return new ProblemWritingPayment(coderId, grossAmount, referenceId);
         case PROBLEM_TESTING_PAYMENT: return new ProblemTestingPayment(coderId, grossAmount, referenceId);
-        case TC_STUDIO_PAYMENT: return new StudioContestPayment(coderId, grossAmount, referenceId);
-        case COMPONENT_TOURNAMENT_BONUS_PAYMENT: return new ComponentTournamentBonusPayment(coderId, grossAmount, referenceId);
-        case DIGITAL_RUN_PRIZE_PAYMENT: return new DigitalRunPrizePayment(coderId, grossAmount, referenceId);
-        case DIGITAL_RUN_TOP_THIRD_PAYMENT: return new DigitalRunTopThirdPayment(coderId, grossAmount, referenceId);
-        case DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT: return new DigitalRunRockiePrizePayment(coderId, grossAmount, referenceId);
+        case TC_STUDIO_PAYMENT: return new StudioContestPayment(coderId, grossAmount, referenceId, placed);
+        case COMPONENT_TOURNAMENT_BONUS_PAYMENT: return new ComponentTournamentBonusPayment(coderId, grossAmount, referenceId, placed);
+        case DIGITAL_RUN_PRIZE_PAYMENT: return new DigitalRunPrizePayment(coderId, grossAmount, referenceId, placed);
+        case DIGITAL_RUN_TOP_THIRD_PAYMENT: return new DigitalRunTopThirdPayment(coderId, grossAmount, referenceId, placed);
+        case DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT: return new DigitalRunRockiePrizePayment(coderId, grossAmount, referenceId, placed);
         case CODER_REFERRAL_PAYMENT: return new CoderReferralPayment(coderId, grossAmount, referenceId);
         case RELIABILITY_BONUS_PAYMENT: return new ReliabilityBonusPayment(coderId, grossAmount, referenceId);
         default: return new NoReferencePayment(paymentTypeId, coderId, grossAmount, "");
         }
+    }
+
+    /**
+     * Create a payment using the specified information.
+     * An instance of an extending class of BasePayment will be returned, depending on the type of payment.
+     *
+     * @param paymentTypeId type of payment
+     * @param coderId id of the coder
+     * @param grossAmount gross amount paid
+     * @param referenceId the reference to another table PK for this payment.
+     * @return an instance of an extending class of BasePayment , depending on the type of payment.
+     */
+    public static BasePayment createPayment(int paymentTypeId, long coderId, double grossAmount, long referenceId) {
+    	return createPayment(paymentTypeId, coderId, grossAmount, referenceId, 0);
     }
 
     /**
