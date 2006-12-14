@@ -118,10 +118,7 @@ function doReferenceChanged(refId) {
     ajaxRequest.addNamedFormElements("reference_id");
     ajaxRequest.addNamedFormElements("user_id");    
     
-    alert(document.f.placed);
-    if (document.f.placed != Unknown) {
-	    ajaxRequest.addNamedFormElements("placed");    
-    }
+    ajaxRequest.addNamedFormElements("placed");    
     
     ajaxRequest.setPostRequest(loaded);
     ajaxRequest.setPreRequest(loading);    
