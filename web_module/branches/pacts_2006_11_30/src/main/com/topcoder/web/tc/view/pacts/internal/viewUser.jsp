@@ -143,7 +143,7 @@
 %>
 <p>
 
-<a href="PactsInternalServlet?modue=PaymentList&user_id=<%= user.getHeader().getId() %>">Search for User's Payments</a><br>
+<a href="PactsInternalServlet?module=PaymentList&user_id=<%= user.getHeader().getId() %>">Search for User's Payments</a><br>
     <%
         out.println("<a href=\"" + PactsConstants.INTERNAL_SERVLET_URL + "?");
         out.print(PactsConstants.TASK_STRING + "=" + PactsConstants.LIST_TASK + "&");

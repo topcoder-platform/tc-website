@@ -28,7 +28,7 @@
 		</tr>
 		<tr>
 			<td><b>User</b></td>
-			<td><a href="${pacts:viewUser(payment.header.user.id)}"><c:out value="${payment.header.user.handle}" /></td>
+			<td><a href="${pacts:viewUser(payment.header.user.id)}"><c:out value="${payment.header.user.handle}" /></a></td>
 		</tr>
 		<tr>		
 			<td><b>Description:</b></td>
@@ -69,10 +69,29 @@
 			<td><fmt:formatNumber value="${payment.grossAmount - payment.netAmount}" pattern="####.00" /></td>
 		</tr>
 </c:if>
+<c:choose>
+	<c:when test="${payment.netAmount != payment.totalAmount or payment.installmentNumber > 1}">
+		<tr>
+			<td><b>Total Net Amount:</b></td>
+			<td><fmt:formatNumber value="${payment.totalAmount}" pattern="#.00" /></td>
+		</tr>
+		<tr>
+			<td><b>Installment Number:</b></td>
+			<td><fmt:formatNumber value="${payment.installmentNumber}" pattern="##0" /></td>
+		</tr>
+		<tr>
+			<td><b>Installment Net Amount:</b></td>
+			<td><fmt:formatNumber value="${payment.netAmount}" pattern="##0" /></td>
+		</tr>
+	</c:when>
+	<c:otherwise>
 		<tr>
 			<td><b>Net Amount:</b></td>
 			<td><fmt:formatNumber value="${payment.netAmount}" pattern="#.00" /></td>
 		</tr>
+	</c:otherwise>
+</c:choose>
+
 		<tr>
 			<td><b>Date Created:</b></td>
 			<td><c:out value="${payment.header.createDate}" /> </td>
