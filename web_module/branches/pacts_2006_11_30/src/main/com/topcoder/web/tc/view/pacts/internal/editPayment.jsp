@@ -117,6 +117,12 @@ function doReferenceChanged(refId) {
     ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.addNamedFormElements("reference_id");
     ajaxRequest.addNamedFormElements("user_id");    
+    
+    alert(document.f.placed);
+    if (document.f.placed != Unknown) {
+	    ajaxRequest.addNamedFormElements("placed");    
+    }
+    
     ajaxRequest.setPostRequest(loaded);
     ajaxRequest.setPreRequest(loading);    
     ajaxRequest.sendRequest();
