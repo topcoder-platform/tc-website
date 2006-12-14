@@ -34,7 +34,7 @@
           <li>Must be at least 13 years of age, but not more than 20 years of age (as of February 26, 2007); AND</li>
           <li>Must be currently pursuing a secondary education; AND</li>
           <li>Must NOT be matriculated full-time at a college or university; AND</li>
-          <li>Must have competed in at least any four (4) rated SRMs as of February 26, 2007.</li>
+          <li>Must have competed in at least any four (4) rated TCHS SRMs as of February 26, 2007.</li>
           </ul>
 
           TopCoder members who are between 13 and 20 years of age or older (inclusive) as of February 26, 2007 are eligible to win scholarships and prizes, unless otherwise prohibited. The TopCoder High School Tournament is void in the Quebec province of Canada and elsewhere where prohibited by applicable law. Scholarships and prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
@@ -47,7 +47,7 @@
           Registration for the 2007 TopCoder High School Tournament will open at 9:00 AM EST on Tuesday, February 13, 2007, and will close at 6:00 PM EST on Sunday, February 25, 2007.  In order to compete in a Regional Round, competitors must have registered for the tournament prior to 6:00 PM EST on Sunday, February 25, 2007.  In order to be eligible to compete in any of the TCHS Tournament, competitors must be a registered TopCoder High School member and have registered separately for the Tournament.  There is no limit to the number of registrants for the tournament; however each individual may only register once.
           <br><br>
           <h3>Online Elimination Rounds</h3>
-          All team members and individuals who have competed in at least four (4) rated SRMs prior to February 26, 2007 and who have registered for the tournament are eligible to compete in Online Regional Round 1.
+          All team members and individuals who have competed in at least four (4) rated TCHS SRMs prior to February 26, 2007 and who have registered for the tournament are eligible to compete in Online Regional Round 1.
           <br><br>
           Everyone who competes in an online round must register for each round in the TopCoder Competition Arena no later than five (5) minutes prior to the start of the online round.  TopCoder will communicate each Online Regional Round in Eastern Standard Time (UTC/GMT -5) or Eastern Daylight Time (UTC/GMT -4), as appropriate.  <b>Contestants may be located and competing in time zones other than Eastern Standard/Daylight Time and must adjust accordingly.</b>  If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition. 
           <br><br>
