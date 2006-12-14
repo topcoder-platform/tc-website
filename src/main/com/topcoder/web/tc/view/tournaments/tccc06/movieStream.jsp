@@ -1,5 +1,6 @@
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <jsp:include page="/script.jsp" />
@@ -25,31 +26,12 @@
 <span class="bigTitle">Onsite Movies</span>
 
 <script type="text/javascript">
-function getURLParam(param) {
- var val = "";
- var qs = window.location.search;
- var start = qs.indexOf(param);
-
- if (start != -1) {
-  start += param.length + 1;
-  var end = qs.indexOf("&", start);
-  if (end == -1) {
-   end = qs.length
-  }
-  val = qs.substring(start,end);
- }
- return val;
-}
-
-var myClip = null;
-myClip = getURLParam('clip');
-
 document.write(' <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="550" height="400" id="webcast" align="middle"> ');
 document.write(' <param name="allowScriptAccess" value="always" /> ');
-document.write(' <param name="movie" value="/flash/tournament/tccc06/webcast.swf?clip='+myClip+'" /> ');
+document.write(' <param name="movie" value="/flash/tournament/tccc06/webcast.swf?clip=<c:out value="${params['clip']}" escapeXml="true"/>" /> ');
 document.write(' <param name="quality" value="high" /> ');
 document.write(' <param name="bgcolor" value="#000000" /> ');
-document.write(' <embed src="/flash/tournament/tccc06/webcast.swf?clip='+myClip+'" quality="high" bgcolor="#000000" width="550" height="400" name="webcast" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /> ');
+document.write(' <embed src="/flash/tournament/tccc06/webcast.swf?clip=<c:out value="${params['clip']}" escapeXml="true"/>" quality="high" bgcolor="#000000" width="550" height="400" name="webcast" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /> ');
 document.write(' </object> ');
 </script>
 
