@@ -81,6 +81,34 @@ public class TeamMemberRole implements java.io.Serializable {
      * @param id the entity Id
      * @param userId the Id of the user
      * @param username the user's name
+     * @param resourceRoleId the Id of the resource role.
+     * @param projectCategoryId the project category id
+     * @throws IllegalArgumentException if <code>user</code> or
+     * <code>role</code> is <code>null</code>, if the specified role was
+     * constructed by the client (instead of returned by the catalog)
+     */
+    TeamMemberRole(long id, long userId, String username, long resourceRoleId,
+                   long projectCategoryId) {
+        this.id = id;
+        this.userId = userId;
+        this.username = username;
+        if (projectCategoryId == 1 && resourceRoleId == 1) {
+        	this.roleId = ROLE_COMPONENT_DESIGNER;
+        } else if (projectCategoryId == 2 && resourceRoleId == 1) {
+        	this.roleId = ROLE_COMPONENT_DEVELOPER;
+        } else if (resourceRoleId == 4) {
+        	this.roleId = ROLE_COMPONENT_DESIGN_REVIEWER;
+        } else {
+        	this.roleId = ROLE_COMPONENT_DEVELOPMENT_REVIEWER;
+        }
+    }
+
+    /**
+     * Constructs a new <code>TeamMemberRole</code> object.
+     *
+     * @param id the entity Id
+     * @param userId the Id of the user
+     * @param username the user's name
      * @param roleId the Id of the role.
      * @param description the role addition description
      * @throws IllegalArgumentException if <code>user</code> or
