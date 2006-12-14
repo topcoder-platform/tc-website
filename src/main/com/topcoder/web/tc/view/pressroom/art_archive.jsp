@@ -1,4 +1,5 @@
 <%@  page language="java"  %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -37,7 +38,7 @@
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
 <!-- 2006  --> 
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
-<tr><td class="newsText"><A href="/pdfs/press_room/hre_article_20061213.pdf">And the Winner Is&#8230;</A> [December 13 - Human Resource Executive Magazine]<br/></td></tr>
+<tr><td class="newsText"><A href="<tc-webtag:linkTracking link="/pdfs/press_room/hre_article_20061213.pdf"/>" refer="art_archive"/>And the Winner Is&#8230;</A> [PDF] [December 13 - Human Resource Executive Magazine]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.chinadaily.com.cn/china/2006-12/08/content_754200.htm">Undergraduate VP of multinational company</A> [December 8 - China Daily]<br/></td></tr>
 <tr><td class="newsText"><A href="/pdfs/press_room/ieeeSoftware_20061206.pdf">Programming Contests Show Impressive Growth</A> [PDF] [December 6 - IEEE Software]<br/></td></tr>
 <tr><td class="newsText"><A href="/pdfs/press_room/success200612.pdf">Maverick Rules for Success</A> [PDF] [November - Success]<br/></td></tr>
