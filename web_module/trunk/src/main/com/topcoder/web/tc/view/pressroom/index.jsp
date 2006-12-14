@@ -1,4 +1,5 @@
 <%@  page language="java"  %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -53,10 +54,10 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="/pdfs/press_room/hre_article_20061213.pdf"><img src="/i/pressroom/hre_magazine_logo.png" alt="Human Resources Executive Magazine" border="0" /></A></td>
+                    <td width="274"><A href="<tc-webtag:linkTracking link="/pdfs/press_room/hre_article_20061213.pdf"/>" refer="pressroom"/><img src="/i/pressroom/hre_magazine_logo.png" alt="Human Resources Executive Magazine" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/pdfs/press_room/hre_article_20061213.pdf">And the Winner Is&#8230;</A></strong></font><br />
+                        <p><font size="3"><strong><A href="<tc-webtag:linkTracking link="/pdfs/press_room/hre_article_20061213.pdf"/>" refer="pressroom"/>And the Winner Is&#8230;</A> [PDF]</strong></font><br />
                         The beauty of contests is that they appeal to a person's competitive nature. People like to test themselves. That's why contests can be effective in recruiting an elusive audience&#8230;<span class="prHead"> [December 13]</span></p>
                     </td>
                 </tr>
