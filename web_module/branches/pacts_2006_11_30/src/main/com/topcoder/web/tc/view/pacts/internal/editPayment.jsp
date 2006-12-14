@@ -102,7 +102,6 @@ function displayAmounts() {
     ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.addNamedFormElements("placed");
     ajaxRequest.addNamedFormElements("is_design");    
-alert(document.ajaxFields.is_design.value);
     ajaxRequest.setPostRequest(loaded);
     ajaxRequest.setPreRequest(loading);        
     ajaxRequest.sendRequest();
@@ -188,6 +187,7 @@ function search() {
 function referenceChanged(name) {
     var element = getElement(name);
     if (element != undefined) doReferenceChanged(element.value);
+    displayAmounts();
 }
 
 function searchKeyPress(e)
