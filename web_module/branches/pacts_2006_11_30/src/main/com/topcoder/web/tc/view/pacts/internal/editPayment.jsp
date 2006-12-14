@@ -102,6 +102,7 @@ function displayAmounts() {
     ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.addNamedFormElements("placed");
     ajaxRequest.addNamedFormElements("is_design");    
+    ajaxRequest.addNamedFormElements("is_updating");    
     ajaxRequest.setPostRequest(loaded);
     ajaxRequest.setPreRequest(loading);        
     ajaxRequest.sendRequest();
@@ -147,6 +148,12 @@ function setDescription(text) {
 
 function setDueDate(text) {
     document.f.due_date.value = text;
+}
+
+function placedChanged() {
+	referenceChanged('component_project_id');
+	document.ajaxFields.is_updating.value = "false";
+	displayAmounts();
 }
 
 function setStatus(id) {
@@ -226,6 +233,7 @@ function searchKeyPress(e)
 <form name="ajaxFields">
    <input type="hidden" name="first_load" value="true" >
    <input type="hidden" name="is_design" value="<%= request.getAttribute("is_design") %>" >
+   <input type="hidden" name="is_updating" value="${updating}" >
    <input type="hidden" name="client" value="<%= ((Map) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("client") %>" >
  
 </form>

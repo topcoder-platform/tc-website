@@ -8,6 +8,7 @@
 <c:set var="type" value="${param.payment_type_id}"/>
 <c:set var="placed" value="${param.placed}"/>
 <c:set var="isDesign" value="${param.is_design=='true'}"/>
+<c:set var="isUpdating" value="${param.is_updating=='true'}"/>
 
 <c:set var="COMPONENT_WINNING" value="<%= PactsConstants.COMPONENT_PAYMENT + "" %>" />
 
@@ -16,7 +17,7 @@
 
   
      <c:choose>
-            <c:when test="${type == COMPONENT_WINNING and placed == 1 and isDesign}">
+            <c:when test="${type == COMPONENT_WINNING and (placed == 1 or isUpdating) and isDesign}">
 			    <taconite-replace contextNodeID="trAmount1" parseInBrowser="true">
 			        <tr id="trAmount1">
 			        <td><b>Total Gross Amount:</b></td>
