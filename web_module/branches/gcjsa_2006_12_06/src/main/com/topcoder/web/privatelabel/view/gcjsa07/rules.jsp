@@ -70,9 +70,11 @@
             <br><br>
 
             <b>Eligibility</b><br>
-            Any individuals from the following countries may register and compete in the Google Code Jam Latin America 2007 provided they meet the eligibility
-            requirements: Argentina, Belize, Bolivia, Brazil, Chile, Colombia, Costa Rica, Ecuador, El Salvador, French Guiana, Guatemala, Guyana, Honduras, 
-            Nicaragua, Panama, Paraguay, Peru, Suriname, Uruguay, Venezuela.
+            Any individuals who reside in the following countries as of January 23, 2007 may register and compete in the Google Code Jam Latin America 2007 
+            provided they meet the eligibility requirements:  Argentina, Bolivia, Brazil, Chile, Colombia, Ecuador, French Guiana, Guyana, Paraguay, Peru, Suriname, 
+            Uruguay, Venezuela, Belize, Costa Rica, El Salvador, Guatemala, Honduras, Nicaragua, Panama, Mexico, Antigua &amp; Barbuda, Aruba, Bahamas, 
+            Barbados, Cayman Islands, Cuba, Dominica, Dominican Republic, Grenada, Guadeloupe, Haiti, Jamaica, Martinique, Puerto Rico, St. Kitts &amp; Nevis, 
+            St. Lucia, St. Vincent &amp; Grenadines, Trinidad &amp; Tobago, Turks &amp; Caicos Islands, Virgin Islands.
             <br><br>
             Please note that due to potential visa restrictions, some finalists may not be able to
             participate at the on-site finals in Belo Horizonte, Brazil.
@@ -248,9 +250,8 @@ of the Qualification Round.)
 Up to 50 advancers from Round 2 will compete in the onsite Championship Round of the tournament being held on Thursday, March 1, 2007.
 <br><br>
 <b>Visa Information</b><br>
-If you need visa assistance, it is in your interest to make an appointment with the embassy early.
-Google will provide visa letters to round 2 advancers. Round 2 advancers who need assistance with visas can contact Google at
-<A href="mailto:XXXX@google.com">XXXX@google.com</A>
+If you need visa assistance, it is in your interest to make an appointment with the embassy early. Google will provide visa letters after Round 1. 
+Round 1 advancers will receive more information upon notification of advancement.
 <br><br>
 Google will contact all finalists for travel information and will provide all travel accommodations for each finalist to
 attend the Championship Round. In addition, Google will provide overnight accommodations and all travel arrangements to

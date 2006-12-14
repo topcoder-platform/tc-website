@@ -49,7 +49,7 @@
          <br><br>
          <span class="subTitle">Overview</span>
          <br><br>
-         Google is making their next stop in Latin America 2007!  Get ready for the biggest battle the continent has ever seen.  There will be 70,000BRL in cash and prizes up for grabs and enough challenging problems for the most talented engineers.
+         Google is making their next stop in Latin America!  Get ready for the biggest battle the continent has ever seen.  There will be 70,000BRL in cash and prizes up for grabs and enough challenging problems for the most talented engineers.
          <br><br><br> 
          <span class="subTitle">What is the Google Code Jam Latin America 2007?</span>
          <br><br>
