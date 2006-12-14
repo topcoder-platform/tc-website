@@ -24,6 +24,24 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.14.06<br>6:20 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm330">SRM 330 - Problem Set & Analysis</A></span><br><br>
+Registration for this match closed with 786 registrants, a relatively low number compared to recent SRMs, but excitement
+was high nonetheless thanks to the participation of 5 targets, including the top 4 highest-rated coders in TopCoder's algorithm standings.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15231364" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=srm330">full story</A> | 
+        <tc-webtag:forumLink forumID="506005" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>12.13.06<br>6:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2047">2007 TCO Logo Design Contest</A></span><br><br>
@@ -182,21 +200,5 @@ Over 1100 coders registered for this round. In division 1, <tc-webtag:handle cod
        <A href="http://www.chinadaily.com.cn/china/2006-12/08/content_754200.htm">full story</A> | 
        <tc-webtag:forumLink forumID="506208" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Educational Content" border="0" /><br>12.07.06<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=bitManipulation">A bit of fun: fun with bits</A></span><br><br>
-       One of the most useful and effective low-level optimisations is bit manipulation, or using the bits of an integer to represent a set.</td>
-      <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="251074" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=bitManipulation">full story</A> | 
-         <tc-webtag:forumLink forumID="506204" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
 

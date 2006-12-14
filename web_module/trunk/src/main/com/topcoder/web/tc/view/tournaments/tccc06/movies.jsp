@@ -25,12 +25,8 @@
 <span class="bigTitle">Onsite Movies</span>
       <table cellspacing=0 cellpadding=5 class="bodyText" width="100%">
          <tr>
-            <td class="bodyText" align=center valign=top><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movieStream"><img src="/i/tournament/tccc06/webcastThumbNail.jpg" border=0/></A>
-            <br><A href="/movies/tournament/tccc06/05_01_hi.mov">Webcast (Part 1)</A><br></td>
-            <td class="bodyText" align=center valign=top><A href="/movies/tournament/tccc06/"><img src="/i/tournament/tccc06/webcastThumbNail.jpg" border=0/></A>
-            <br><A href="/movies/tournament/tccc06/05_01_hi.mov">May 1 (compilation)<br>(12.3 MB)</A><br></td>
-            <td class="bodyText" align=center valign=top><A href="/movies/tournament/tccc06/"><img src="/i/tournament/tccc06/webcastThumbNail.jpg" border=0/></A>
-            <br><A href="/movies/tournament/tccc06/05_01_hi.mov">May 1 (compilation)<br>(12.3 MB)</A><br></td>
+            <td class="bodyText" align=center valign=top><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movieStream&clip=clip1"><img src="/i/tournament/tccc06/webcastThumbNail.jpg" border=0/></A>
+            <br><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movieStream&clip=clip1">Webcast (Part 1)</A><br></td>
          </tr>
       </table>
         </div>
