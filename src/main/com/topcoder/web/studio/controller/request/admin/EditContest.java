@@ -15,6 +15,7 @@ import com.topcoder.web.studio.model.ContestConfig;
 import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.validation.*;
+import org.hibernate.metadata.ClassMetadata;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -136,8 +137,11 @@ public class EditContest extends Base {
                 log.debug("overview size " + (contest.getOverview().getValue() == null ? "null" : "" + contest.getOverview().getValue().length()));
             }
 
+            ClassMetadata cmd = HibernateUtils.getFactory().getClassMetadata(Contest.class);
 
-           log.debug(HibernateUtils.getFactory().getClassMetadata(Contest.class).toString());
+            for (int i=0; i<cmd.getPropertyNames().length; i++) {
+                log.debug("stuff: " + cmd.getPropertyType(cmd.getPropertyNames()[i]));
+            }
 
 
             StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
