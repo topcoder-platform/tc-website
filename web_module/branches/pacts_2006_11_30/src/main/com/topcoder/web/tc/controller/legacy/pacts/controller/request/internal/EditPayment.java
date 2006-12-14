@@ -153,9 +153,12 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     		List l = dib.generateComponentUserPayments(p.getCoderId(), p.getGrossAmount(), p.getClient(), p.getProjectId(), placed); 
 
                         	if (p.isDesign() && grossAmount == 0) {
-                        		// todo: calculate 2nd installment
                         		BasePayment aux = (BasePayment) l.get(0);
-                        		p.setGrossAmount(aux.getGrossAmount());
+                        		if (installmentNumber == 1) {
+                        			p.setGrossAmount(aux.getGrossAmount());
+                        		} else {
+                        			p.setGrossAmount(totalAmount - aux.getGrossAmount());
+                        		}
                             	payment = dib.addPayment(payment);
                             	payments.add(payment);
                         		
@@ -230,6 +233,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     charity = payment.isCharity();
                     modificationRationaleId = MODIFICATION_STATUS;
 
+                    setDefault("installment_number", new Integer(installmentNumber));
                     setDefault("total_amount", new Double(totalAmount));
                     setDefault("gross_amount", new Double(grossAmount));
                     setDefault("net_amount", new Double(netAmount));
@@ -267,8 +271,6 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
 
             getRequest().setAttribute(USER, user);
 
-            log.debug("payment is null: " +( payment != null));
-            log.debug("reference: " + getReferenceId(payment));
             if (payment != null) {
                 getRequest().setAttribute("reference_id", getReferenceId(payment) + "");
                 getRequest().setAttribute(PAYMENT, payment);

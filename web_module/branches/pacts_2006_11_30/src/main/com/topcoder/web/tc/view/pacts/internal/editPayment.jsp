@@ -369,7 +369,7 @@ function searchKeyPress(e)
         <tr id="trAmount2">			    
         <td><b>Installment Number:</b></td>
         <td>
-        	<tc-webtag:stringSelect name="installment_number" list="<%= java.util.Arrays.asList(new String[]{"1", "2"}) %>"/>
+        	<tc-webtag:stringSelect name="installment_number" list="<%= java.util.Arrays.asList(new String[]{"1", "2"}) %>" useTopValue="false"/>
         </td>			   
         </tr> 
     	<tr id="trAmount3">			   
