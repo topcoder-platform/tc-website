@@ -30,10 +30,7 @@
 			        <tr id="trAmount2">			    
 			        <td><b>Installment Number:</b></td>
 			        <td>
-		             	<select name="installment_number">
-		             		<option value="1">1</option>
-		             		<option value="2">2</option>                             		
-		               	 </select>
+			        	<tc-webtag:stringSelect name="installment_number" list="<%= java.util.Arrays.asList(new String[]{"1", "2"}) %>"/>
 			        </td>			   
 			        </tr> 
 			    </taconite-replace>
