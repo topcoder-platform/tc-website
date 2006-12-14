@@ -121,6 +121,8 @@ function setRoundUnknown(value){
 
 function setDesign(value){
 	document.ajaxFields.is_design.value = value;
+	displayAmounts();
+	
 }
 
 function doReferenceChanged(refId) {
@@ -187,7 +189,6 @@ function search() {
 function referenceChanged(name) {
     var element = getElement(name);
     if (element != undefined) doReferenceChanged(element.value);
-    displayAmounts();
 }
 
 function searchKeyPress(e)
