@@ -129,33 +129,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                 		payment.setId(paymentId);
                     }
                     
-                    if (payment instanceof AlgorithmRoundReferencePayment) {
-                        ((AlgorithmRoundReferencePayment) payment).setRoundId(getLongParameter("algorithm_round_id"));
-                        
-                    } else if (payment instanceof ComponentProjectReferencePayment) {
-                        ((ComponentProjectReferencePayment) payment).setProjectId(getLongParameter("component_project_id"));
-                        ((ComponentProjectReferencePayment) payment).setClient(client);
-                        
-                    } else if (payment instanceof AlgorithmProblemReferencePayment) {
-                    	((AlgorithmProblemReferencePayment) payment).setProblemId(getOptionalLongParameter("algorithm_problem_id", 0));
-                        
-                    } else if (payment instanceof StudioContestReferencePayment) {
-                    	((StudioContestReferencePayment) payment).setContestId(getLongParameter("studio_contest_id"));
-                    	
-                    } else if (payment instanceof ComponentContestReferencePayment) {
-                    	((ComponentContestReferencePayment) payment).setContestId(getLongParameter("component_contest_id"));
-                    	
-                    } else if (payment instanceof DigitalRunStageReferencePayment) {
-                    	((DigitalRunStageReferencePayment) payment).setStageId(getLongParameter("digital_run_stage_id"));
-                    	
-                    } else if (payment instanceof DigitalRunSeasonReferencePayment) {
-                    	((DigitalRunSeasonReferencePayment) payment).setSeasonId(getLongParameter("digital_run_season_id"));
-                    	
-                    } else if (payment instanceof ParentReferencePayment) {
-                    	((ParentReferencePayment) payment).setParentId(getLongParameter("parent_reference_id"));
-                    }
-
-                
+                	setReference(payment);                
                     
                     payment.setDescription(desc);
                     payment.setStatusId(statusId);
@@ -311,7 +285,39 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
         }
     }
 
-    private long getReferenceId(BasePayment payment) {
+    private void setReference(BasePayment payment) {
+    	String rf = "reference_id";
+
+    	boolean useRef = getRequest().getParameter(rf) != null && getRequest().getParameter(rf).trim().length() > 0;
+    	
+        if (payment instanceof AlgorithmRoundReferencePayment) {
+            ((AlgorithmRoundReferencePayment) payment).setRoundId(getLongParameter(useRef? rf : "algorithm_round_id"));
+            
+        } else if (payment instanceof ComponentProjectReferencePayment) {
+            ((ComponentProjectReferencePayment) payment).setProjectId(getLongParameter(useRef? rf : "component_project_id"));
+            ((ComponentProjectReferencePayment) payment).setClient((String) getRequest().getParameter("client"));
+            
+        } else if (payment instanceof AlgorithmProblemReferencePayment) {
+        	((AlgorithmProblemReferencePayment) payment).setProblemId(getOptionalLongParameter(useRef? rf : "algorithm_problem_id", 0));
+            
+        } else if (payment instanceof StudioContestReferencePayment) {
+        	((StudioContestReferencePayment) payment).setContestId(getLongParameter(useRef? rf : "studio_contest_id"));
+        	
+        } else if (payment instanceof ComponentContestReferencePayment) {
+        	((ComponentContestReferencePayment) payment).setContestId(getLongParameter(useRef? rf : "component_contest_id"));
+        	
+        } else if (payment instanceof DigitalRunStageReferencePayment) {
+        	((DigitalRunStageReferencePayment) payment).setStageId(getLongParameter(useRef? rf : "digital_run_stage_id"));
+        	
+        } else if (payment instanceof DigitalRunSeasonReferencePayment) {
+        	((DigitalRunSeasonReferencePayment) payment).setSeasonId(getLongParameter(useRef? rf : "digital_run_season_id"));
+        	
+        } else if (payment instanceof ParentReferencePayment) {
+        	((ParentReferencePayment) payment).setParentId(getLongParameter(useRef? rf : "parent_reference_id"));
+        }
+     }
+
+	private long getReferenceId(BasePayment payment) {
         if (payment instanceof AlgorithmRoundReferencePayment) {
             return ((AlgorithmRoundReferencePayment) payment).getRoundId();
             
