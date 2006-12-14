@@ -11,6 +11,7 @@
 		setDescription('<c:out value="${requestScope.description}" />');
 		setDueDate('<c:out value="${requestScope.dueDate}" />');
 		setStatus(<c:out value="${requestScope.statusId}" />);
+		setDesign(<c:out value="${requestScope.isDesign}" />);
     </script>
 </taconite-replace-children>      
  </taconite-root>
