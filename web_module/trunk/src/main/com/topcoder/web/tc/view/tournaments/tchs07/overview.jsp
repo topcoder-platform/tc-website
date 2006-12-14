@@ -31,7 +31,7 @@
           Online Elimination Rounds: February 26 through April 16, 2007
           <br><br>
           <h3>Who can compete?</h3>
-          Students will be able to compete either as an individual or as part of a team representing their school, or, in case they are not affiliated with a school, representing their town or themselves. In order to be eligible for the TCHS tournament, students must be between the ages of 13 and 20 (inclusive) and must not yet be enrolled at a college or university. All students who register from a school will be part of that school's team. Eligible students who do not attend a school can register to compete as an individual. In order to be eligible for participation in the TCHS tournament, teams and individuals must participate in at least four (4) of the rated events for their region by February 12, 2007. 
+          Students will be able to compete either as an individual or as part of a team representing their school, or, in case they are not affiliated with a school, representing their town or themselves. In order to be eligible for the TCHS tournament, students must be between the ages of 13 and 20 (inclusive) and must not yet be enrolled at a college or university. All students who register from a school will be part of that school's team. Eligible students who do not attend a school can register to compete as an individual. In order to be eligible for participation in the TCHS tournament, teams and individuals must participate in at least four (4) rated TCHS SRMs by February 12, 2007. 
           <br><br>
           <h3>TCHS Onsite Semifinal & Championship Round</h3>
           May 19, 2007 at the Lawson Building on the campus of Purdue University in West Lafayette, IN, USA
