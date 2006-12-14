@@ -40,6 +40,9 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     private int installmentNumber;    
     private int methodId = Constants.DEFAULT_PAYMENT_METHOD_ID;
     
+    // If positive, the payment is for that contract, so a row relating the contact and the payment will be inserted
+    private long contractId = 0; 
+    
     // Date when the event happened.  It is not stored in the database, but needed to know if referrals must be paid.
     private Date eventDate  = null;
 
@@ -361,6 +364,13 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         this.statusId = statusId;
     }
 
+	public long getContractId() {
+		return contractId;
+	}
+
+	public void setContractId(long contractId) {
+		this.contractId = contractId;
+	}
 
 
     /**

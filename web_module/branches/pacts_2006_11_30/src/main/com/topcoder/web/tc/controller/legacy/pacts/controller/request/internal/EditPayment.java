@@ -156,26 +156,13 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     payment.setModificationRationale(modificationRationaleId);
                     payment.setCharity(charity);
                     
-/*                    payment.getHeader().setDescription(desc);
-                    payment.getHeader().setTypeId(typeId);
-                    payment.getHeader().setMethodId(methodId);
-                    payment.getHeader().setClient(client);
-
-                    setReference(payment.getHeader());
-
-                    payment.setStatusId(statusId);
-                    payment.setGrossAmount(grossAmount);
-                    payment.setNetAmount(netAmount);
-                    payment.setDueDate(dueDate);
-                    payment.setRationaleId(modificationRationaleId);
-                    payment.setCharity(charity);
-*/
-                    log.debug("payment event date:" + payment.getEventDate());
                     if (adding) {
                     	List payments = new ArrayList();
                         if (contractId > 0) {
-                            //paymentId = dib.addContractPayment(contractId, payment);
-                        } else if (payment instanceof ComponentWinningPayment) {
+                            payment.setContractId(contractId);
+                        } 
+                        
+                        if (payment instanceof ComponentWinningPayment) {
                         	int placed = getIntParameter("placed");
                         	ComponentWinningPayment p = (ComponentWinningPayment) payment;
                     		List l = dib.generateComponentUserPayments(p.getCoderId(), p.getGrossAmount(), p.getClient(), p.getProjectId(), placed); 
@@ -193,7 +180,6 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         		payments.addAll(l);
                         	}
                         } else {
-                            //paymentId = dib.addPayment(payment, true);
                         	payment = dib.addPayment(payment);
                         	payments.add(payment);
                         }               
@@ -359,78 +345,6 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
 		return 0;
 	}
 
-	private void setReference(PaymentHeader header) {
-        if (getRequest().getParameter("algorithm_round_id") != null) {
-            header.setAlgorithmRoundId(getLongParameter("algorithm_round_id"));
-        }
-
-        if (getRequest().getParameter("component_project_id") != null) {
-            header.setComponentProjectId(getLongParameter("component_project_id"));
-        }
-
-        if (getRequest().getParameter("algorithm_problem_id") != null) {
-                header.setAlgorithmProblemId(getOptionalLongParameter("algorithm_problem_id", 0));
-        }
-
-        if (getRequest().getParameter("studio_contest_id") != null) {
-            header.setStudioContestId(getLongParameter("studio_contest_id"));
-        }
-
-        if (getRequest().getParameter("component_contest_id") != null) {
-            header.setComponentContestId(getLongParameter("component_contest_id"));
-        }
-
-        if (getRequest().getParameter("digital_run_stage_id") != null) {
-            header.setDigitalRunStageId(getLongParameter("digital_run_stage_id"));
-        }
-
-        if (getRequest().getParameter("digital_run_season_id") != null) {
-            header.setDigitalRunSeasonId(getLongParameter("digital_run_season_id"));
-        }
-
-        if (getRequest().getParameter("parent_reference_id") != null) {
-            header.setParentPaymentId(getLongParameter("parent_reference_id"));
-        }
-
-    }
-
-
-    private long getReference() {
-        if (getRequest().getParameter("algorithm_round_id") != null) {
-            return getLongParameter("algorithm_round_id");
-        }
-
-        if (getRequest().getParameter("component_project_id") != null) {
-            return getLongParameter("component_project_id");
-        }
-
-        if (getRequest().getParameter("algorithm_problem_id") != null) {
-        	return getOptionalLongParameter("algorithm_problem_id", 0);
-        }
-
-        if (getRequest().getParameter("studio_contest_id") != null) {
-            return getLongParameter("studio_contest_id");
-        }
-
-        if (getRequest().getParameter("component_contest_id") != null) {
-            return getLongParameter("component_contest_id");
-        }
-
-        if (getRequest().getParameter("digital_run_stage_id") != null) {
-            return getLongParameter("digital_run_stage_id");
-        }
-
-        if (getRequest().getParameter("digital_run_season_id") != null) {
-            return getLongParameter("digital_run_season_id");
-        }
-
-        if (getRequest().getParameter("parent_reference_id") != null) {
-            return getLongParameter("parent_reference_id");
-        }
-        
-        return 0;
-
-    }
-
+	
 }
 

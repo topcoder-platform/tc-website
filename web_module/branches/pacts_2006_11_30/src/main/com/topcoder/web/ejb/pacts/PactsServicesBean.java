@@ -2786,6 +2786,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
+    private long makeNewContractPayment(Connection c, long contractId, Payment p) throws Exception {
+        long paymentId = makeNewPayment(c, p, false);
+
+        // Now add the contract_payment_xref entry
+        StringBuffer insertXref = new StringBuffer(300);
+        insertXref.append("INSERT INTO contract_payment_xref ");
+        insertXref.append(" (contract_id, payment_id) ");
+        insertXref.append(" VALUES(" + contractId + "," + paymentId + ")");
+        runUpdateQuery(c, insertXref.toString(), false);
+        
+        return paymentId;
+    }
     /**
      * Adds the specified payment to the database, and to the specified contract.  Does
      * not add a corresponding referral payment.
@@ -2802,15 +2814,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c = DBMS.getConnection();
             c.setAutoCommit(false);
             setLockTimeout(c);
-            long paymentId = makeNewPayment(c, p, false);
 
-            // Now add the contract_payment_xref entry
-            StringBuffer insertXref = new StringBuffer(300);
-            insertXref.append("INSERT INTO contract_payment_xref ");
-            insertXref.append(" (contract_id, payment_id) ");
-            insertXref.append(" VALUES(" + contractId + "," + paymentId + ")");
-            runUpdateQuery(c, insertXref.toString(), false);
-
+            long paymentId = makeNewContractPayment(c, contractId, p);
+            
             c.commit();
             c.setAutoCommit(true);
             c.close();
@@ -5441,8 +5447,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         		payment instanceof AlgorithmTournamentPrizePayment ||
         		payment instanceof MarathonMatchPayment) {
             paymentId = makeNewAlgorithmPayment(conn, p, (AlgorithmRoundReferencePayment) payment);
+        } else if (payment.getContractId() > 0){
+            paymentId = makeNewContractPayment(conn, payment.getContractId() ,p);
         } else {
-            paymentId = makeNewPayment(conn, p, p.payReferrer());
+        	paymentId = makeNewPayment(conn, p, p.payReferrer());
         }
 
         payment.setId(paymentId);
@@ -5587,6 +5595,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 					"     , max(installment_number) as installment_number " +
 					"       , max(client) as client " +
 					"       , max(user_id) as user_id " +
+					"       , max(payment_method_id) as payment_method_id " +
 					" FROM payment p, payment_detail pd " +
 					" WHERE p.most_recent_detail_id = pd.payment_detail_id " +
 					" AND pd.payment_type_id = 6 " +
@@ -5597,16 +5606,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	
 	    		if (rsc.getItem(0, "amount_paid").getResultData() != null) {
 	        		int installment = rsc.getIntItem(0, "installment_number") + 1;
-	        		double totalAmount = rsc.getIntItem(0, "total_amount");
-	        		double paid = rsc.getIntItem(0, "amount_paid");
+	        		double totalAmount = rsc.getDoubleItem(0, "total_amount");
+	        		double paid = rsc.getDoubleItem(0, "amount_paid");
 	        		String client2 = rsc.getStringItem(0,"client");
 	        		long coderId2 = rsc.getLongItem(0, "user_id");
+	        		int methodId = rsc.getIntItem(0, "payment_method_id");
 	        		
 	        		if (totalAmount > paid) { 
 		        		// create the design project
 		        		BasePayment p = new ComponentWinningPayment(coderId2, totalAmount, client2, designProject, 1);
 		        		p.setGrossAmount(totalAmount - paid);
 		        		p.setInstallmentNumber(installment);
+		        		p.setMethodId(methodId);
 		        		
 		        		l.add(p);
 	        		}
