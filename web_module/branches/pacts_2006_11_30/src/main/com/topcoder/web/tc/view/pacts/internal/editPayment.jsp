@@ -72,6 +72,8 @@ function loaded() {
 
 
 function doSearch(text, mustSearch, firstLoad) {
+	var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
+    
     document.f.search_text.value = text;
     document.f.round_unknown.value = roundUnknown; 
        

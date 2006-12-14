@@ -6,6 +6,7 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
 
 <c:set var="type" value="${param.payment_type_id}"/>
+<c:set var="placed" value="${param.placed}"/>
 
 <c:set var="COMPONENT_WINNING" value="<%= PactsConstants.COMPONENT_PAYMENT + "" %>" />
 
@@ -14,7 +15,7 @@
 
   
      <c:choose>
-            <c:when test="${type == COMPONENT_WINNING}">
+            <c:when test="${type == COMPONENT_WINNING and placed == 1}">
 			    <taconite-replace contextNodeID="trAmount1" parseInBrowser="true">
 			        <tr id="trAmount1">
 			        <td><b>Total Gross Amount:</b></td>
