@@ -98,7 +98,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                 client = (String) getRequest().getParameter("client");
                 totalAmount = checkNonNegativeDouble("total_amount", "Please enter a valid total amount");
 
-                if (getRequest().getParameter("gross_amount").trim().length() > 0) {
+                if (getRequest().getParameter("gross_amount") != null && getRequest().getParameter("gross_amount").trim().length() > 0) {
                 	grossAmount = checkNonNegativeDouble("gross_amount", "Please enter a valid gross amount");
                 }
                 
