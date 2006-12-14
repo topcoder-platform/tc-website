@@ -121,7 +121,6 @@ function setRoundUnknown(value){
 
 function setDesign(value){
 	document.ajaxFields.is_design.value = value;
-	alert(document.ajaxFields.is_design.value);
 }
 
 function doReferenceChanged(refId) {
