@@ -133,7 +133,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     payment.setDescription(desc);
                     payment.setStatusId(statusId);
                     payment.setTotalAmount(totalAmount);
-                    payment.setGrossAmount(grossAmount > 0? grossAmount : totalAmount);
+                    payment.setGrossAmount(grossAmount > 0 && payment instanceof ComponentWinningPayment? grossAmount : totalAmount);
                     payment.setNetAmount(netAmount);
                     payment.setDueDate(sdf.parse(dueDate));
                     payment.setMethodId(methodId);
