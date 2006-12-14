@@ -130,7 +130,7 @@ public class EditContest extends Base {
             contest.setFileTypes(fts);
 
             if (log.isDebugEnabled()) {
-                log.debug("overview size " + contest.getOverview().getValue() == null ? "null" : "" + contest.getOverview().getValue().length());
+                log.debug("overview size " + (contest.getOverview().getValue() == null ? "null" : "" + contest.getOverview().getValue().length()));
             }
 
             StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
@@ -140,8 +140,8 @@ public class EditContest extends Base {
                 closeConversation();
                 beginCommunication();
                 Contest myContest = StudioDAOUtil.getFactory().getContestDAO().find(contest.getId());
-                log.debug("overview size after commit is " + myContest.getOverview().getValue() == null ?
-                        "null" : "" + myContest.getOverview().getValue().length());
+                log.debug("overview size after commit is " + (myContest.getOverview().getValue() == null ?
+                        "null" : "" + myContest.getOverview().getValue().length()));
             }
 
 
