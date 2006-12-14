@@ -329,18 +329,27 @@ function searchKeyPress(e)
         <td>
             <tc-webtag:textInput name="payment_desc" size="60" editable="true" />
         </td>
-    <tr>
+    <tr id="trAmount1">
         <td><b>Gross Amount:</b></td>
         <td>
             <tc-webtag:textInput name="gross_amount" size="8" editable="true" format="#########.00" />
         </td>
     </tr>
-    <tr>
+    <tr id="trAmount2">
         <td><b>Net Amount:</b></td>
         <td>
             <tc-webtag:textInput name="net_amount" size="8" editable="true" format="#########.00" /> (if left blank, calculated from Gross Amount)
         </td>
     </tr>
+    <tr id="trAmount3">
+        <td></td>
+        <td></td>
+    </tr>
+    <tr id="trAmount4">
+        <td></td>
+        <td></td>
+    </tr>
+    
     <tr>
         <td><b>Date Due:</b></td><td>
         <tc-webtag:textInput name="due_date" id="due_date" size="12" editable="true" /> 
