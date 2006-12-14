@@ -22,7 +22,6 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
 /**
@@ -224,12 +223,14 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
 
 
                     statusId = payment.getStatusId();
+                    totalAmount = payment.getTotalAmount();
                     grossAmount = payment.getGrossAmount();
                     netAmount = payment.getNetAmount();
                     dueDate = sdf.format(payment.getDueDate());
                     charity = payment.isCharity();
                     modificationRationaleId = MODIFICATION_STATUS;
 
+                    setDefault("total_amount", new Double(totalAmount));
                     setDefault("gross_amount", new Double(grossAmount));
                     setDefault("net_amount", new Double(netAmount));
 
@@ -266,6 +267,8 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
 
             getRequest().setAttribute(USER, user);
 
+            log.debug("payment is null: " +( payment != null));
+            log.debug("reference: " + getReferenceId(payment));
             if (payment != null) {
                 getRequest().setAttribute("reference_id", getReferenceId(payment) + "");
                 getRequest().setAttribute(PAYMENT, payment);
