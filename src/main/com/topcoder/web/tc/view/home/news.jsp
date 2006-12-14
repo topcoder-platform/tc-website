@@ -12,7 +12,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>12.13.06<br>6:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2047">2007 TCO Logo Design Contest</A></span><br><br>
-        It's the first step towards next TopCoder Open.  We're accepting submissions right now at over at the Studio.
+        It's the first step towards the next TopCoder Open.  We're accepting submissions right now over at the Studio.
         </td>
    </tr>
    <tr><td class="newsLinksCell">
