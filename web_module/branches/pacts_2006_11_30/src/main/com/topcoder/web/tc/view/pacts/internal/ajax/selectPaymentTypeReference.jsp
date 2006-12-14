@@ -313,7 +313,7 @@
 			    </taconite-replace>
 			    <taconite-replace contextNodeID="trAmount3" parseInBrowser="true">
 			    	<tr id="trAmount3">			   
-				        <td><b>Installment Gross Amount:</b></td>
+				        <td nowrap="nowrap"><b>Installment Gross Amount:</b></td>				        
 				        <td>
 				            <tc-webtag:textInput name="gross_amount" size="8" editable="true" format="#########.00" /> (If left blank, calculated from Total Gross Amount)
 				        </td>			    

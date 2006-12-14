@@ -236,14 +236,14 @@ function searchKeyPress(e)
 
 <c:if test="${updating}">
     <tr>
-        <td><b>ID:</b></td>
+        <td width="150"><b>ID:</b></td>
         <td>
             <c:out value="${payment.id}" />  
         </td>
     </tr>
 </c:if>
     <tr>
-        <td><b>User</b></td>
+        <td width="150"><b>User</b></td>
         <td><a href="${pacts:viewUser(user.id)}"><c:out value="${user.handle}" /></td>
     </tr>
     <tr>
