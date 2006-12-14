@@ -276,7 +276,7 @@
             <tr id="trPlaced"> 
             <td><b>Placed:</b></td>
             <td>
-             	<select name="placed" onChange="referenceChanged('component_project_id')">
+             	<select name="placed" onChange="referenceChanged('component_project_id');displayAmounts();">
              		<option value="1">1st</option>
              		<option value="2">2nd</option>                             		
                	 </select>

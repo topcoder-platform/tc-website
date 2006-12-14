@@ -100,6 +100,9 @@ function doSearch(text, mustSearch, firstLoad) {
 function displayAmounts() {
     var ajaxRequest = new AjaxRequest('/pacts/internal/ajax/displayAmounts.jsp');
     ajaxRequest.addNamedFormElements("payment_type_id");
+    ajaxRequest.addNamedFormElements("placed");
+    ajaxRequest.setPostRequest(loaded);
+    ajaxRequest.setPreRequest(loading);        
     ajaxRequest.sendRequest();
 }
 
