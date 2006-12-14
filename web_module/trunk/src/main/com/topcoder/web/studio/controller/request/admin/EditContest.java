@@ -136,6 +136,16 @@ public class EditContest extends Base {
             StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
             markForCommit();
 
+            if (log.isDebugEnabled()) {
+                closeConversation();
+                beginCommunication();
+                Contest myContest = StudioDAOUtil.getFactory().getContestDAO().find(contest.getId());
+                log.debug("overview size after commit is " + myContest.getOverview().getValue() == null ?
+                        "null" : "" + myContest.getOverview().getValue().length());
+            }
+
+
+
             setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
                     "=AdminViewContest&" + Constants.CONTEST_ID + "=" + contest.getId());
             setIsNextPageInContext(false);
