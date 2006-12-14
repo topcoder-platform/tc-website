@@ -102,6 +102,7 @@ function displayAmounts() {
     ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.addNamedFormElements("placed");
     ajaxRequest.addNamedFormElements("is_design");    
+alert(document.ajaxFields.is_design.value);
     ajaxRequest.setPostRequest(loaded);
     ajaxRequest.setPreRequest(loading);        
     ajaxRequest.sendRequest();
