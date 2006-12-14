@@ -272,6 +272,10 @@ function searchKeyPress(e)
         <input type="button" value="change" onClick="typeChanged()" />
         </td>
     </tr>
+    <tr id="trPlaced">
+        <td></td>
+        <td></td>
+    </tr>
     <c:if test="${not empty payment.client}">
         <tr id="projectClient"> 
             <td><b>Client:</b></td>
@@ -286,10 +290,6 @@ function searchKeyPress(e)
             <td></td>
         </tr>
     </c:if>
-    <tr id="trPlaced">
-        <td></td>
-        <td></td>
-    </tr>
     
 </c:when> 
 <c:otherwise>    
@@ -297,11 +297,11 @@ function searchKeyPress(e)
         <td></td>       
         <td></td>
     </tr>
-    <tr id="projectClient">
+    <tr id="trPlaced">
         <td></td>
         <td></td>
     </tr>
-    <tr id="trPlaced">
+    <tr id="projectClient">
         <td></td>
         <td></td>
     </tr>
