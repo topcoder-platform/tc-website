@@ -25,15 +25,13 @@
             
 <span class="bigTitle">Onsite Movies</span>
 
-<script type="text/javascript">
-document.write(' <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="550" height="400" id="webcast" align="middle"> ');
-document.write(' <param name="allowScriptAccess" value="always" /> ');
-document.write(' <param name="movie" value="/flash/tournament/tccc06/webcast.swf?clip=<c:out value="${params['clip']}" escapeXml="true"/>" /> ');
-document.write(' <param name="quality" value="high" /> ');
-document.write(' <param name="bgcolor" value="#000000" /> ');
-document.write(' <embed src="/flash/tournament/tccc06/webcast.swf?clip=<c:out value="${params['clip']}" escapeXml="true"/>" quality="high" bgcolor="#000000" width="550" height="400" name="webcast" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /> ');
-document.write(' </object> ');
-</script>
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="550" height="400" id="webcast" align="middle">
+<param name="allowScriptAccess" value="always" />
+<param name="movie" value="/flash/tournament/tccc06/webcast.swf?clip=<c:out value="${params['clip']}" escapeXml="true"/>" />
+<param name="quality" value="high" />
+<param name="bgcolor" value="#000000" />
+<embed src="/flash/tournament/tccc06/webcast.swf?clip=<c:out value="${params['clip']}" escapeXml="true"/>" quality="high" bgcolor="#000000" width="550" height="400" name="webcast" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+</object>
 
 
         </div>
