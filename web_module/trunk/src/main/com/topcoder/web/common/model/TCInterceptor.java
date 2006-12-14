@@ -24,6 +24,11 @@ public class TCInterceptor extends EmptyInterceptor {
         }
     }
 
+    public String onPrepareStatement(String string) {
+        log.debug("sql: " + string);
+        return super.onPrepareStatement(string);
+    }
+
     public boolean onLoad(Object entity,
                           Serializable id,
                           Object[] state,
@@ -46,6 +51,7 @@ public class TCInterceptor extends EmptyInterceptor {
         }
         return false;
     }
+
 
 /*
     public Boolean isTransient(Object entity) {
