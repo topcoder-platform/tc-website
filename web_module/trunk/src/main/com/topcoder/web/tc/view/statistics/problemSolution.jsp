@@ -167,8 +167,13 @@
             <TD CLASS="statText" VALIGN="middle" ALIGN="center">
                 <bean:write name="resultRow" property='<%= "item[" + 1 /* method name */ + "]" %>'/></TD>
             <TD CLASS="statText" VALIGN="middle" ALIGN="center">
+                <% if (sSolutionText.trim().length()==0) { %>
+                &#160;
+                <% } else { %>
                 <a href="/tc?<%=Constants.MODULE_KEY%>=ProblemDetail&amp;<%=Constants.ROUND_ID%>=<%=sRoundId%>&pm=<rsc:item name="problem_id" row="<%=resultRow%>"/>" class="statText">problem
-                    details</a></TD>
+                    details</a>
+                <% } %>
+            </TD>
             <TD CLASS="statText" VALIGN="middle" ALIGN="center">
                 <bean:write name="resultRow" property='<%= "item[" + 3 /* problem level */ + "]" %>'/></TD>
             <TD CLASS="statText" VALIGN="middle" ALIGN="center">
