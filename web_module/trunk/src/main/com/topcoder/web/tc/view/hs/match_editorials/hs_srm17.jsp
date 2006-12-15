@@ -1,13 +1,12 @@
 <%@  page language="java"  %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Statistics</title>
+    <title>TopCoder Statistics</title>
 
-<jsp:include page="../../script.jsp" />
+    <jsp:include page="../../script.jsp" />
 <jsp:include page="../../style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
@@ -59,9 +58,9 @@
 <p>
 
 TCHS SRM 17 proved to be quite difficult, making for a very exciting challenge phase as half of the medium submissions alone were successfully challenged.  
-Looking to the top of the field, <tc-webtag:handle coderId="11972352" context="algorithm"/> won his third TCHS match thanks to the fastest time on the easy problem and deceptively difficult medium problem, regaining his red color.
-Finishing second with the help of a challenge was <tc-webtag:handle coderId="20812309" context="algorithm"/>, who now sports a shiny red color for the first time in his TCHS career.  
-Rounding out the top 5 were <tc-webtag:handle coderId="22652634" context="algorithm"/> who won 25 challenge points, <tc-webtag:handle coderId="22652504" context="algorithm"/> who although failing the medium problem was helped by 75 points in challenges as well as the high score on the hard problem,
+Looking to the top of the field, <tc-webtag:handle coderId="11972352" context="hs_algorithm"/> won his third TCHS match thanks to the fastest time on the easy problem and deceptively difficult medium problem, regaining his red color.
+Finishing second with the help of a challenge was <tc-webtag:handle coderId="20812309" context="hs_algorithm"/>, who now sports a shiny red color for the first time in his TCHS career.
+Rounding out the top 5 were <tc-webtag:handle coderId="22652634" context="hs_algorithm"/> who won 25 challenge points, <tc-webtag:handle coderId="22652504" context="hs_algorithm"/> who although failing the medium problem was helped by 75 points in challenges as well as the high score on the hard problem,
 and <tc-webtag:handle coderId="15117368" context="algorithm"/> who also gained 75 points in challenges.
 
 </p>

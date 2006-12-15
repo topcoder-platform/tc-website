@@ -58,15 +58,15 @@
             This match proved to be harder then usual. While almost all
             participants successfully solved the 250 problem, the other two problems appeared to be quite difficult.</p>
 
-        Nevertheless, <tc-webtag:handle coderId="22630491" context="algorithm"/>,
+        Nevertheless, <tc-webtag:handle coderId="22630491" context="hs_algorithm"/>,
         a newcomer from China, won the match with the fastest times on the 550 and 950
         problems, and an amazing nine successful challenges. He was followed by his
-        Chinese fellows <tc-webtag:handle coderId="20812309" context="algorithm"/>,
-        <tc-webtag:handle coderId="20331303" context="algorithm"/>,
-        <tc-webtag:handle coderId="22630769" context="algorithm"/>,
-        and <tc-webtag:handle coderId="22375930" context="algorithm"/>.
+        Chinese fellows <tc-webtag:handle coderId="20812309" context="hs_algorithm"/>,
+        <tc-webtag:handle coderId="20331303" context="hs_algorithm"/>,
+        <tc-webtag:handle coderId="22630769" context="hs_algorithm"/>,
+        and <tc-webtag:handle coderId="22375930" context="hs_algorithm"/>.
 
-        <tc-webtag:handle coderId="11925555" context="algorithm"/> from Romania,
+        <tc-webtag:handle coderId="11925555" context="hs_algorithm"/> from Romania,
         in third place, was the only European in the top six.
     </p>
 
@@ -406,7 +406,7 @@ applies right rotation four times and returns the lexicographically first among 
 </pre>
 
 Another approach of recursive generation of the rotations was used by
-<tc-webtag:handle coderId="22630491" context="algorithm"/>. See his
+<tc-webtag:handle coderId="22630491" context="hs_algorithm"/>. See his
 <a href="/tc?module=HSProblemSolution&amp;cr=22630491&amp;rd=10064&amp;pm=6512">solution</a> for the details.<br>
 <br>
 <br>
@@ -544,7 +544,7 @@ The following pseudocode calculates D[i][j]'s (the answer to our problem is D[he
     probDragon) * D[i][j-1]);<br>
 </pre>
 
-You can also see <tc-webtag:handle coderId="21111148" context="algorithm"/>'s
+You can also see <tc-webtag:handle coderId="21111148" context="hs_algorithm"/>'s
 <a href="/tc?module=HSProblemSolution&amp;cr=21111148&amp;rd=10064&amp;pm=6694">solution</a> for
 a clear implementation of this approach. As an implementation detail, you can solve the problem with only one
 two-dimensional array.

@@ -94,7 +94,7 @@ you may find the mod operator '%' useful, as divisibility is the same as checkin
 0.<br>
 <br/>
 This strategy was in the <a href="/tc?module=HSProblemSolution&amp;cr=22378820&amp;rd=10060&amp;pm=6259">solution</a> by
-the fastest submitter, <tc-webtag:handle coderId="22378820" context="algorithm"/>, and can be seen below:<br/>
+the fastest submitter, <tc-webtag:handle coderId="22378820" context="hs"/>, and can be seen below:<br/>
 <pre>
     do{
     currentTime[1] ++; // increment minute
