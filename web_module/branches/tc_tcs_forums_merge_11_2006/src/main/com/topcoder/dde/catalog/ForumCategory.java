@@ -14,14 +14,14 @@ import java.util.Date;
 
 
 /**
- * An object that holds the attributes of a component discussion forum that are
+ * An object that holds the attributes of a component discussion forum category that are
  * returned by the component catalog.
  *
  * @version 1.0, 26 August 2002
  * @author  Albert Mao
  * @see     Catalog
  */
-public class Forum implements java.io.Serializable {
+public class ForumCategory implements java.io.Serializable {
 
 
     /** The status constant used to indicate a forum has been deleted */
@@ -39,15 +39,14 @@ public class Forum implements java.io.Serializable {
     /** The type constant used to indicate a forum is a specification forum */
     public static final int SPECIFICATION = 2;
 
-    private final long id;
+    private final long id;		// represents Jive category ID
     private final Date startDate;
-    private final Date closeDate;
     private final long status;
     private final long version;
     private final String versionLabel;
 
 
-    Forum(long id, Date startDate, Date closeDate, long status, long version, String versionLabel) {
+    ForumCategory(long id, Date startDate, long status, long version, String versionLabel) {
         this.id = id;
 
         /*
@@ -55,10 +54,6 @@ public class Forum implements java.io.Serializable {
          * immutability of ComponentForum.
          */
         this.startDate = (Date) startDate.clone();
-        this.closeDate = (closeDate == null)
-                ? null
-                : (Date) closeDate.clone();
-
         this.status = status;
         this.version = version;
         this.versionLabel = versionLabel;
@@ -81,18 +76,6 @@ public class Forum implements java.io.Serializable {
      */
     public Date getStartDate() {
         return (Date) startDate.clone();
-    }
-
-    /**
-     * Returns the close date of this component discussion forum.
-     *
-     * @return the date this forum was closed, or <code>null</code> if the forum
-     * is still open
-     */
-    public Date getCloseDate() {
-        return (closeDate == null)
-                ? null
-                : (Date) closeDate.clone();
     }
 
     /**
@@ -136,15 +119,10 @@ public class Forum implements java.io.Serializable {
         if (object == null || object.getClass() != getClass()) {
             return false;
         }
-        Forum other = (Forum) object;
-        boolean closeDatesEqual;
-        if (closeDate != null && other.closeDate != null) {
-            closeDatesEqual = closeDate.equals(other.closeDate);
-        } else
-            closeDatesEqual = (closeDate == null && other.closeDate == null);
+        ForumCategory other = (ForumCategory) object;
         return getId() == other.getId()
                 && startDate.equals(other.startDate)
-                && closeDatesEqual && getStatus() == other.getStatus()
+                && getStatus() == other.getStatus()
                 && getVersion() == other.getVersion()
                 && getVersionLabel().equals(other.getVersionLabel());
     }
