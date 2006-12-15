@@ -256,7 +256,7 @@ function searchKeyPress(e)
    <input type="hidden" name="contract_id" value="${contract.header.id}">
 </c:if>  
 
-<table border="0" cellpadding="5" cellspacing="5">
+<table border="0" cellpadding="3" cellspacing="3">
         <tr>
             <td colspan="2">
                 <tc-webtag:errorIterator id="err" name="error">
@@ -306,7 +306,7 @@ function searchKeyPress(e)
         <input type="button" value="change" onClick="typeChanged()" />
         </td>
     </tr>
-    <tr id="trPlaced" height="1">
+    <tr id="trPlaced">
         <td></td>
         <td></td>
     </tr>
@@ -319,7 +319,7 @@ function searchKeyPress(e)
         </tr>
     </c:if>
     <c:if test="${empty payment.client}">
-        <tr id="projectClient" height="1">
+        <tr id="projectClient">
             <td></td>
             <td></td>
         </tr>
@@ -327,15 +327,15 @@ function searchKeyPress(e)
     
 </c:when> 
 <c:otherwise>    
-    <tr id="selectReference" height="1">
+    <tr id="selectReference">
         <td></td>       
         <td></td>
     </tr>
-    <tr id="trPlaced" height="1">
+    <tr id="trPlaced">
         <td></td>
         <td></td>
     </tr>
-    <tr id="projectClient" height="1">
+    <tr id="projectClient">
         <td></td>
         <td></td>
     </tr>

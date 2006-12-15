@@ -251,7 +251,7 @@
           </tr>
          </c:if>
          <c:if test="${refId <= 0}">
-            <tr id="selectReference" height="1"> <td></td><td></td></tr>
+            <tr id="selectReference"> <td></td><td></td></tr>
          </c:if>
      </taconite-replace>
      
@@ -266,7 +266,7 @@
             </tr>
             </c:when>
             <c:otherwise>
-                <tr id="projectClient" height="1"> <td></td><td></td></tr>
+                <tr id="projectClient"> <td></td><td></td></tr>
             </c:otherwise>
         </c:choose>   
      </taconite-replace>     
@@ -284,7 +284,7 @@
             </tr>
             </c:when>
             <c:otherwise>
-                <tr id="trPlaced" height="1"> <td></td><td></td></tr>
+                <tr id="trPlaced"> <td></td><td></td></tr>
             </c:otherwise>
 	</c:choose>
 
