@@ -58,12 +58,12 @@
         One more match has passed under the banner "burunduk's the best."
         Burunduk is the Russian word for chipmunk,
         so one could say it was a regular "chipmunk day" on TopCoder.
-        <tc-webtag:handle coderId="21468741" context="algorithm"/> won the match
+        <tc-webtag:handle coderId="21468741" context="hs_algorithm"/> won the match
         thank to amazing 990.01 points for the hard problem.
-        <tc-webtag:handle coderId="10256411" context="algorithm"/>
+        <tc-webtag:handle coderId="10256411" context="hs_algorithm"/>
         finished second only due to a frustrating mistake &ndash;
         now he surely knows that submitting the same code twice can cost a victory.
-        <tc-webtag:handle coderId="14886245" context="algorithm"/>
+        <tc-webtag:handle coderId="14886245" context="hs_algorithm"/>
         rounded out the top three.
     </p>
 
@@ -472,7 +472,7 @@ Used as: Division One - Level Three: <blockquote>
     So you just need to calculate the number of the groups of the consequent zeroes
     and the number of the groups of the consequent ones.
     Then return the smallest of this numbers.
-    <tc-webtag:handle coderId="21468741" context="algorithm"/>'s
+    <tc-webtag:handle coderId="21468741" context="hs_algorithm"/>'s
     <a href="/tc?module=HSProblemSolution&amp;cr=21468741&amp;rd=10062&amp;pm=5991">
         solution</a> is not only the fastest, but also probably the most elegant.
 </p>

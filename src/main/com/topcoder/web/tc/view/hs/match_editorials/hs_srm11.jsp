@@ -1,13 +1,12 @@
 <%@  page language="java"  %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Statistics</title>
+    <title>TopCoder Statistics</title>
 
-<jsp:include page="../../script.jsp" />
+    <jsp:include page="../../script.jsp" />
 <jsp:include page="../../style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
@@ -58,13 +57,13 @@
 solved very quickly.  The third, a classic TC-style DP problem, required a bit more thinking and
 planning, and as such had less submissions.</p>
 
-<p>Top honors go to <tc-webtag:handle coderId="21468741" context="algorithm"/>, who won in part due to
+<p>Top honors go to <tc-webtag:handle coderId="21468741" context="hs_algorithm"/>, who won in part due to
 some success in the challenge phase.  In second was
-<tc-webtag:handle coderId="14886245" context="algorithm"/>, who offered solid scores on all three problems.
+<tc-webtag:handle coderId="14886245" context="hs_algorithm"/>, who offered solid scores on all three problems.
 After some tough luck in the challenge phase, would-be winner
-<tc-webtag:handle coderId="15600321" context="algorithm"/> finished third.
-<tc-webtag:handle coderId="10399429" context="algorithm"/> and
-<tc-webtag:handle coderId="12005484" context="algorithm"/> rounded out the top five.  Congratulations
+<tc-webtag:handle coderId="15600321" context="hs_algorithm"/> finished third.
+<tc-webtag:handle coderId="10399429" context="hs_algorithm"/> and
+<tc-webtag:handle coderId="12005484" context="hs_algorithm"/> rounded out the top five.  Congratulations
 to all 18 competitors who correctly solved all three problems.</p>
 
 
@@ -326,7 +325,7 @@ and <em>col</em> = the # of columns that don't have a rook.  Then, if either is 
 available, so we should return -1.  Otherwise, we know that after we place our rook, there will be
 <em>row</em>-1 rows and <em>col</em>-1 columns available, thus there will be 
 (<em>row</em>-1)*(<em>col</em>-1) squares available.  The following was written by 
-<tc-webtag:handle coderId="15545604" context="algorithm"/>:
+<tc-webtag:handle coderId="15545604" context="hs_algorithm"/>:
 
 <pre>
 public int bestPosition(String[] board) {
