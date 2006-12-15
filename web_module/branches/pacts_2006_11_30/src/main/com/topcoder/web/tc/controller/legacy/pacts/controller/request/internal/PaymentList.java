@@ -126,9 +126,9 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         param = request.getParameter(LOWEST_NET_AMOUNT);
         if (param != null && !param.equals("")) query.put(LOWEST_NET_AMOUNT, param);
         param = request.getParameter(HIGHEST_NET_AMOUNT);
-        if (param != null && !param.equals("")) query.put(HIGHEST_NET_AMOUNT, param);
-        param = request.getParameter(PAYMENT_ID);
-        if (param != null && !param.equals("")) query.put(PAYMENT_ID, param);
+        if (param != null && !param.equals("")) query.put(HIGHEST_NET_AMOUNT, param);                
+        param = createValuesStr(request.getParameterValues(PAYMENT_ID));
+        if (!param.equals("")) query.put(PAYMENT_ID, param);        
         param = request.getParameter(AFFIDAVIT_ID);
         if (param != null && !param.equals("")) query.put(AFFIDAVIT_ID, param);
         param = request.getParameter(CONTRACT_ID);

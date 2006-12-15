@@ -53,9 +53,9 @@ public class Links implements PactsConstants {
     public static String viewPayments(List paymentsId) {
     	StringBuffer sb = new StringBuffer(30);
     	for (int i = 0; i < paymentsId.size(); i++) {
-    		sb.append(paymentsId.get(i)).append(',');
+    		sb.append("&payment_id=" + paymentsId.get(i));
     	}
-        return createLink("PaymentList", PAYMENT_ID, sb.substring(0, sb.length() - 1).toString());
+        return INTERNAL_SERVLET_URL + "?module=PaymentList" + sb.toString();
     }
 
 }

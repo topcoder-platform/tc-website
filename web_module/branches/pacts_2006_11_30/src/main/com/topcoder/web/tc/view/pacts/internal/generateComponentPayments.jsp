@@ -2,11 +2,11 @@
 				 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
 				 com.topcoder.web.common.StringUtils" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<%@ taglib uri="pacts.tld" prefix="pacts" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%
 	ResultSetContainer statusList = (ResultSetContainer)
 		request.getAttribute(PactsConstants.PROJECT_TERMINATION_STATUS_LIST);
-	String paymentIDs = StringUtils.checkNull((String)request.getAttribute(PactsConstants.PAYMENT_ID)).trim();
 	String projID = StringUtils.checkNull((String)request.getParameter(PactsConstants.PROJECT_ID)).trim();
 	String projTermStatus = StringUtils.checkNull((String)request.getParameter(PactsConstants.PROJECT_TERMINATION_STATUS)).trim();
 	String client = StringUtils.checkNull((String)request.getParameter(PactsConstants.PROJECT_CLIENT)).trim();
@@ -33,7 +33,9 @@
                     					<font color="red"><%=errStr%></font>
                     			<% 	} else if (errStr.indexOf("Success:") != -1) { %>
                     					<font color="green"><%=errStr%>
-                    					(<a href="/PactsInternalServlet?<%=PactsConstants.PAYMENT_ID%>=<%=paymentIDs%>&module=PaymentList">view</a>)</font>
+                    					(<a href="${pacts:viewPayments(requestScope.payment_id)}">view</a>)</font>
+                    					        
+                    					
                     			<% 	} %>
                     			<% 	if (err!=null && !err.equals("")) { errCount++; } %>
                     		</tc-webtag:errorIterator>

@@ -1,5 +1,6 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -40,7 +41,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 List l = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client);
                 
                 l = bean.addPayments(l);
-                StringBuffer ids = new StringBuffer(100);
+                List ids = new ArrayList();
                 for (int i = 0; i < l.size(); i++) {
                 	BasePayment p = (BasePayment) l.get(i);
                 	if (p.getPaymentType() == PactsConstants.COMPONENT_PAYMENT) counts[0]++;
@@ -50,12 +51,11 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 	if (refer.size() > 0) {
                 		counts[2]++;
                 		BasePayment pr = (BasePayment) refer.get(0);
-                    	ids.append(pr.getId()).append(',');
+                    	ids.add(pr.getId() + "");
                 	}
-                	ids.append(p.getId()).append(',');
                 }
                 
-                getRequest().setAttribute(PAYMENT_ID, ids.substring(0, ids.length() > 0? ids.length() -1 : 0).toString());
+                getRequest().setAttribute(PAYMENT_ID, ids);
                 
                 addError(PROJECT_ID, "Success: " + counts[0] + " design/dev, " +
                         counts[1] + " review board, " + counts[2] + " referral payments generated");
