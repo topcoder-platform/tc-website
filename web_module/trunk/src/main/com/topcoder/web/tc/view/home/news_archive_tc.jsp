@@ -39,9 +39,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<%--
-<tr class="bodyText"><td nowrap="nowrap">12.14.06 6:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=features&d2=121406">TopCoder Celebrates 100,000 Members</A></td></tr>
---%>
+<tr class="bodyText"><td nowrap="nowrap">12.14.06 11:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=features&d2=121406">TopCoder Celebrates 100,000 Members</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.11.06 4:15 PM - </td><td width="100%"><A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid">"How to get paid" updated</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.01.06 9:30 AM - </td><td width="100%"><A href="/tc?module=Static&d1=calendar&d2=jan_07">Events Calendar updated through May 2007</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.15.06 7:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=sponsors&d2=aolMashups">Now open: AOL Mashup contest</A></td></tr>
