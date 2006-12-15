@@ -1782,7 +1782,15 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         if (hasPermission(auth, resource)) {
             return true;
         } else {
-            handleException(request, response, new PermissionException(auth.getActiveUser(), resource));
+            TCSubject user = getUser(auth.getActiveUser().getId());
+        	SessionInfo info = createSessionInfo(tcRequest, auth, user.getPrincipals());
+
+            if (auth.getUser().isAnonymous()) {
+                handleLogin(request, response, info);
+            } else {
+                handleException(request, response, new PermissionException(auth.getActiveUser(), resource));
+            }
+        	
             return false;
         }
     }
