@@ -72,7 +72,7 @@
 <c:choose>
 	<c:when test="${payment.netAmount != payment.totalAmount or payment.installmentNumber > 1}">
 		<tr>
-			<td><b>Total Net Amount:</b></td>
+			<td><b>Total Gross Amount:</b></td>
 			<td>$<fmt:formatNumber value="${payment.totalAmount}" pattern="###,###.000" /></td>
 		</tr>
 		<tr>
