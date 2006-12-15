@@ -260,6 +260,7 @@
         <copy file="${shared.jar}" todir="${jboss_lib}" overwrite="true"/>
         <copy file="${common.jar}" todir="${jboss_lib}" overwrite="true"/>
         <copy file="${ejb_jars}/security.jar" todir="${jboss_lib}" overwrite="true"/>
+        <copy file="${jars.dir}/ifxjdbc.jar" todir="${jboss_lib}" overwrite="true"/>
 
         <copy file="${resources}/TechAssess.properties" todir="${jboss_conf}" overwrite="true"/>
         <copy file="${resources}/ApplicationServer.properties" todir="${jboss_conf}" overwrite="true"/>
