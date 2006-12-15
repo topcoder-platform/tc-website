@@ -5,6 +5,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.CodingInterfaceConstants;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.MissingResourceException;
 
 /**
@@ -13,13 +14,8 @@ import java.util.MissingResourceException;
  */
 public class Constants implements CodingInterfaceConstants {
 
-    private static TCResourceBundle bundle = new TCResourceBundle("TechAssess");
-    private static boolean isInitialized = false;
-    private static Logger log = Logger.getLogger(Constants.class);
-    /**
-     *  variables that shouldn't be initialized
-     */
-    private static String[] ignoreList = {"log", "isInitialized", "ignoreList", "bundle", "SHORT_CONTENT"};
+    private static final TCResourceBundle bundle = new TCResourceBundle("TechAssess");
+    private static final Logger log = Logger.getLogger(Constants.class);
 
     //pages
     public static String PAGE_INDEX;
@@ -131,12 +127,12 @@ public class Constants implements CodingInterfaceConstants {
         initialize();
     }
 
-    public static void initialize() {
 
+     public static void initialize() {
         Field[] f = Constants.class.getFields();
         for (int i = 0; i < f.length; i++) {
             try {
-                if (!ignore(f[i].getName())) {
+                if (!Modifier.isFinal(f[i].getModifiers())) {
                     if (f[i].getType().getName().equals("int")) {
                         try {
                             f[i].setInt(null, bundle.getIntProperty(f[i].getName().toLowerCase()));
@@ -151,30 +147,19 @@ public class Constants implements CodingInterfaceConstants {
                         throw new Exception("Unrecognized type: " + f[i].getType().getName());
                     }
                 }
-                if (f[i].get(null) == null)
+                if (f[i].get(null) == null) {
                     log.error("**DID NOT LOAD** " + f[i].getName() + " constant");
-                else
-                    log.debug(f[i].getName() + " <== " + f[i].get(null));
+                } else {
+                    if (log.isDebugEnabled()) {
+                        log.debug(f[i].getName() + " <== " + f[i].get(null));
+                    }
+                }
 
             } catch (Exception e) {
                 /* probably harmless, could just be a type or modifier mismatch */
                 e.printStackTrace();
             }
         }
-        isInitialized = true;
-    }
-
-
-    public static boolean isInitialized() {
-        return isInitialized;
-    }
-
-    private static boolean ignore(String name) {
-        boolean found = false;
-        for (int i = 0; i < ignoreList.length && !found; i++) {
-            found |= ignoreList[i].equals(name);
-        }
-        return found;
     }
 
 
