@@ -33,7 +33,10 @@
                     					<font color="red"><%=errStr%></font>
                     			<% 	} else if (errStr.indexOf("Success:") != -1) { %>
                     					<font color="green"><%=errStr%>
-                    					(<a href="${pacts:viewPayments(requestScope.payment_id)}">view</a>)</font>
+                    					<c:if test="${not empty requestScope.payment_id}">
+                    						(<a href="${pacts:viewPayments(requestScope.payment_id)}">view</a>)
+                    					</c:if>
+                    					</font>
                     					        
                     					
                     			<% 	} %>

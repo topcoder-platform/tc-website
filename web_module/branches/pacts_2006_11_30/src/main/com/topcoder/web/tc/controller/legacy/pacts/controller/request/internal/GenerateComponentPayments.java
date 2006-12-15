@@ -42,10 +42,12 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 
                 l = bean.addPayments(l);
                 List ids = new ArrayList();
+                
                 for (int i = 0; i < l.size(); i++) {
                 	BasePayment p = (BasePayment) l.get(i);
                 	if (p.getPaymentType() == PactsConstants.COMPONENT_PAYMENT) counts[0]++;
                 	if (p.getPaymentType() == PactsConstants.REVIEW_BOARD_PAYMENT) counts[1]++;
+                	ids.add(p.getId() + "");
                 	
                 	List refer = bean.findPayments(CODER_REFERRAL_PAYMENT, p.getId());
                 	if (refer.size() > 0) {
