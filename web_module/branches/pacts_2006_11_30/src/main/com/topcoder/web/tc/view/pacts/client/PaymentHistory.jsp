@@ -108,14 +108,14 @@
         </td>
     </tr>
     <tr>
-        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr"/>">Description</a></td>
-        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>" excludeParams="sr">Type</a></td>
-        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>" excludeParams="sr">Due Date</a></td>
-        <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>" excludeParams="sr">Net Payment</a></td>
-        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>" excludeParams="sr">Status</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr"/>" >Description</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true" excludeParams="sr"/>" >Type</a></td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr"/>" >Due Date</a></td>
+        <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true" excludeParams="sr" />" >Net Payment</a></td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true" excludeParams="sr"/>" >Status</a></td>
         <td class="headerC">
             <c:if test="${fullList}" >
-                <b><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>" excludeParams="sr">Date Paid</a>       
+                <b><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr"/>" >Date Paid</a>       
             </c:if>&nbsp;
         </td>
     </tr>
