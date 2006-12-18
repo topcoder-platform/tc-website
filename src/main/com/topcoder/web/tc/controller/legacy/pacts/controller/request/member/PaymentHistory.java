@@ -42,7 +42,7 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             setDefault(DataAccessConstants.START_RANK, startRank);
 
             if ("".equals(endRank)) {
-                endRank = String.valueOf(Integer.parseInt(startRank) + PactsConstants.PAYMENT_HISTORY_PAGE_SIZE); 
+                endRank = String.valueOf(Integer.parseInt(startRank) + PactsConstants.PAYMENT_HISTORY_PAGE_SIZE - 1); 
             } else if (Integer.parseInt(endRank) - Integer.parseInt(startRank) > Constants.MAX_HISTORY) {
                 endRank = String.valueOf(Integer.parseInt(startRank) + Constants.MAX_HISTORY);
             }
