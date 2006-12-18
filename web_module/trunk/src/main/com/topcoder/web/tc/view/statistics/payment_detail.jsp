@@ -11,6 +11,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
+<c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
+<c:set value="<%=DataAccessConstants.END_RANK%>" var="endRank"/>
+
 <HTML>
 <HEAD>
     <TITLE>TopCoder Statistics</TITLE>
@@ -44,20 +48,21 @@
           linkID.blur();
           return;
         }
+        var sr = <c:out value="${requestScope[defaults][startRank]}"/>;
+        var er = <c:out value="${requestScope[defaults][endRank]}"/>;
+        
         function next() {
             var myForm = document.paymentDetailForm;
-            var oldStartRank = myForm.<%=DataAccessConstants.START_RANK%>.value;
-            myForm.<%=DataAccessConstants.START_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value) + 1;
-            myForm.<%=DataAccessConstants.END_RANK%>.value = 2 * parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value) - parseInt(oldStartRank) + 1;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = er + 1;
+            myForm.<%=DataAccessConstants.END_RANK%>.value = 2 * er - sr + 1;
             myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
             myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
             myForm.submit();
         }
         function previous() {
             var myForm = document.paymentDetailForm;
-            var oldEndRank = myForm.<%=DataAccessConstants.END_RANK%>.value;
-            myForm.<%=DataAccessConstants.END_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - 1;
-            myForm.<%=DataAccessConstants.START_RANK%>.value = 2 * parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - parseInt(oldEndRank) - 1;
+            myForm.<%=DataAccessConstants.END_RANK%>.value = sr - 1;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = 2 * sr - er - 1;
             myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
             myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
             myForm.submit();

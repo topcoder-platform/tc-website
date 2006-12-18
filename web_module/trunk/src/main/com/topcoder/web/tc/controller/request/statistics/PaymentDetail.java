@@ -73,7 +73,7 @@ public class PaymentDetail extends BaseProcessor {
         setDefault(DataAccessConstants.START_RANK, startRank);
 
         if ("".equals(endRank)) {
-            endRank = String.valueOf(Integer.parseInt(startRank) + 20); //Constants.DEFAULT_HISTORY);
+            endRank = String.valueOf(Integer.parseInt(startRank) + 20 - 1); //Constants.DEFAULT_HISTORY);
         } else if (Integer.parseInt(endRank) - Integer.parseInt(startRank) > Constants.MAX_HISTORY) {
             endRank = String.valueOf(Integer.parseInt(startRank) + Constants.MAX_HISTORY);
         }
