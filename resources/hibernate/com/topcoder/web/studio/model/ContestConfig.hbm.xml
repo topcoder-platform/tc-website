@@ -17,7 +17,7 @@
         <many-to-one name="property" column="property_id" class="ContestProperty" access="field"
                      cascade="none" insert="false"
                      update="false" outer-join="true"/>
-        <property name="value" column="property_value" access="field" length="32000"/>
+        <property name="value" column="property_value" access="field"/>
 
     </class>
 
