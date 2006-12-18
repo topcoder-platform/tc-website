@@ -992,7 +992,7 @@
     </target>
 
     <target name="deploy-forums" depends="">
-        <antcall target="war-forums"/>
+        <antcall target="explode-forums"/>
 
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
