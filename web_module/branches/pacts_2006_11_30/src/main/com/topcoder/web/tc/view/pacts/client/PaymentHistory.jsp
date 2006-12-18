@@ -31,7 +31,6 @@
 </jsp:include>
 
     <script type="text/javascript">
-    
         function next() {
             var myForm = document.f;
 //            var oldStartRank = myForm.<%=DataAccessConstants.START_RANK%>.value;
@@ -47,6 +46,7 @@
         }
         function previous() {
             var myForm = document.f;
+            x = <tc-webtag:sort column="1" includeParams="true" excludeParams="sr"/>;
             var oldEndRank = myForm.<%=DataAccessConstants.END_RANK%>.value;
             myForm.<%=DataAccessConstants.END_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - 1;
             myForm.<%=DataAccessConstants.START_RANK%>.value = 2 * parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - parseInt(oldEndRank) - 1;
