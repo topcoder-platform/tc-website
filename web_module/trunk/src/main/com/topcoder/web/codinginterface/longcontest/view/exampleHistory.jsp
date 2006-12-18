@@ -53,7 +53,6 @@
 </jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
             <script type="text/javascript">
-            var test=<c:out value="${1+2}"/>
             var sr = <c:out value="${requestScope[defaults][startRank]}"/>;
             
             function next() {
