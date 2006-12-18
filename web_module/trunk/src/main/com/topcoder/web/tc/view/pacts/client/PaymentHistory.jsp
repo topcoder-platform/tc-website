@@ -16,6 +16,10 @@
 <c:set var="payments" value="<%= request.getAttribute(PaymentHistory.PAYMENTS) %>"/>
 <c:set var="cr" value="<%= request.getAttribute(PaymentHistory.CODER) %>"/>
 
+<c:set value="<%=PaymentHistory.DEFAULTS_KEY%>" var="defaults"/>
+<c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
+<c:set value="<%=DataAccessConstants.END_RANK%>" var="endRank"/>
+
 <%
 	ResultSetContainer rsc = (ResultSetContainer) request.getAttribute(PaymentHistory.PAYMENTS);
 %>
@@ -31,18 +35,19 @@
 </jsp:include>
 
     <script type="text/javascript">
+        var sr = <c:out value="${requestScope[defaults][startRank]}"/>;
+        var er = <c:out value="${requestScope[defaults][endRank]}"/>;
+
         function next() {
             var myForm = document.f;
-            var oldStartRank = myForm.<%=DataAccessConstants.START_RANK%>.value;
-            myForm.<%=DataAccessConstants.START_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value) + 1;
-            myForm.<%=DataAccessConstants.END_RANK%>.value = 2 * parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value) - parseInt(oldStartRank) + 1;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = er + 1;
+            myForm.<%=DataAccessConstants.END_RANK%>.value = 2 * er - sr + 1;
             myForm.submit();
         }
         function previous() {
             var myForm = document.f;
-            var oldEndRank = myForm.<%=DataAccessConstants.END_RANK%>.value;
-            myForm.<%=DataAccessConstants.END_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - 1;
-            myForm.<%=DataAccessConstants.START_RANK%>.value = 2 * parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - parseInt(oldEndRank) - 1;
+            myForm.<%=DataAccessConstants.END_RANK%>.value = sr - 1;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = 2 * sr - er - 1;
             myForm.submit();
         }
     </script>
