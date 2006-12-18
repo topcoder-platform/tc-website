@@ -8,6 +8,7 @@
 
         %>
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
@@ -17,6 +18,10 @@
 <jsp:useBean id="sortLinkBase" class="java.lang.String" scope="request"/>
 <jsp:useBean id="prevPageLink" class="java.lang.String" scope="request"/>
 <jsp:useBean id="nextPageLink" class="java.lang.String" scope="request"/>
+
+<c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
+<c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
+
 <%
     ResultSetContainer examples = (ResultSetContainer) resultMap.get("long_coder_examples");
     ResultSetContainer tmp = (ResultSetContainer) resultMap.get("long_contest_over");
@@ -48,16 +53,18 @@
 </jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
             <script type="text/javascript">
+            var sr = <c:out value="${requestScope[defaults][startRank]}"/>;
+            
             function next() {
             var myForm = document.exampleForm;
-            myForm.<%=DataAccessConstants.START_RANK%>.value=parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value)+parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+            myForm.<%=DataAccessConstants.START_RANK%>.value=sr+parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
             myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
             myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
             myForm.submit();
             }
             function previous() {
             var myForm = document.exampleForm;
-            myForm.<%=DataAccessConstants.START_RANK%>.value=parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value)-parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+            myForm.<%=DataAccessConstants.START_RANK%>.value=sr-parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
             myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
             myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
 
