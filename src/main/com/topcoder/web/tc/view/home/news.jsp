@@ -6,7 +6,20 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
-
+<%--------------------------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>12.18.06<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2048">New AOL Mashup: $19,000 in prizes</A>
+        </span><br><br>
+        A new AOL Mashup contest is now open at TopCoder Studio. This time, AOL is looking for the best mashup ideas for their latest Video APIs.
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2048">details</A> | 
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=25">discuss this</A> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+------------%>
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>12.14.06<br>11:00 PM</td>
@@ -20,7 +33,6 @@
         <tc-webtag:forumLink forumID="506216" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
-
 
 <%--------------------------------------------------------%>
    <tr>
@@ -175,7 +187,7 @@ Over 1100 coders registered for this round. In division 1, <tc-webtag:handle cod
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
+<%--------------------------------------------
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>12.08.06<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -187,8 +199,8 @@ Over 1100 coders registered for this round. In division 1, <tc-webtag:handle cod
         <tc-webtag:forumLink forumID="506209" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
+------------%>
+<%-----------------------------------------
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>12.08.06<br>3:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.chinadaily.com.cn/china/2006-12/08/content_754200.htm">Undergraduate VP of multinational company</A></span><br><br>
@@ -201,4 +213,4 @@ Over 1100 coders registered for this round. In division 1, <tc-webtag:handle cod
        <tc-webtag:forumLink forumID="506208" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
-
+---------------%>
