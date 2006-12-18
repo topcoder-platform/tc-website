@@ -28,6 +28,7 @@ public class SimpleRegInfo extends Base {
     private String city;
     private String zip;
     private String phonenumber;
+    private String compCountryCode;
 /*
     private Locale locale;
 */
@@ -61,6 +62,7 @@ public class SimpleRegInfo extends Base {
         eventId = 0;
         phonenumber = "";
         isAccountConversion = false;
+        compCountryCode = "";
 /*
         locale = Locale.US;
 */
@@ -90,6 +92,8 @@ public class SimpleRegInfo extends Base {
         setEventId(info.getEventId());
         setPhoneNumber(info.getPhoneNumber());
         setAccountConversion(info.isAccountConversion());
+        setCompCountryCode(info.getCompCountryCode());
+
 /*
         setLocale(info.getLocale());
 */
@@ -293,5 +297,14 @@ public class SimpleRegInfo extends Base {
     }
 
 */
+
+
+    public String getCompCountryCode() {
+        return compCountryCode;
+    }
+
+    public void setCompCountryCode(String compCountryCode) {
+        this.compCountryCode = compCountryCode;
+    }
 }
 

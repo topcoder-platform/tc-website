@@ -45,6 +45,8 @@ public abstract class SimpleRegBase extends RegistrationBase {
         setDefault(Constants.POSTAL_CODE, info.getZip());
         setDefault(Constants.PHONE_NUMBER, info.getPhoneNumber());
         setDefault(Constants.LOCALE, getLocale().getLanguage());
+        setDefault(Constants.COMP_COUNTRY_CODE, info.getCompCountryCode());
+
     }
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
@@ -95,6 +97,8 @@ public abstract class SimpleRegBase extends RegistrationBase {
             info.setEventId(Long.parseLong(StringUtils.checkNull(getRequestParameter(Constants.EVENT_ID))));
         if (hasRequestParameter(Constants.PHONE_NUMBER))
             info.setPhoneNumber(StringUtils.checkNull(getRequestParameter(Constants.PHONE_NUMBER)));
+        if (hasRequestParameter(Constants.COMP_COUNTRY_CODE))
+            info.setCompCountryCode(StringUtils.checkNull(getRequestParameter(Constants.COMP_COUNTRY_CODE)));
         return info;
     }
 
