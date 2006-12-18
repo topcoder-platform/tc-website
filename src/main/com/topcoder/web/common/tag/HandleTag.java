@@ -8,6 +8,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.util.Map;
 
@@ -17,12 +18,15 @@ public class HandleTag extends TagSupport {
     private String link = "";
     private String cssclass = "";
     private boolean darkBG = false;
+/*
     private boolean algorithm = false;
     private boolean hsAlgorithm = false;
     private boolean design = false;
     private boolean development = false;
     private boolean component = false;
     private boolean hsOrAlgorithm = false;
+*/
+    private String context = null;
 
     public final static String DEFAULT_LINK = "/tc?module=MemberProfile&amp;cr=";
 
@@ -70,123 +74,20 @@ public class HandleTag extends TagSupport {
     }
 
     public void setContext(String s) {
+/*
         if (s.toLowerCase().trim().equals(ALGORITHM)) algorithm = true;
         if (s.toLowerCase().trim().equals(HS_ALGORITHM)) hsAlgorithm = true;
         if (s.toLowerCase().trim().equals(DESIGN)) design = true;
         if (s.toLowerCase().trim().equals(DEVELOPMENT)) development = true;
         if (s.toLowerCase().trim().equals(COMPONENT)) component = true;
         if (s.toLowerCase().trim().equals(HS_OR_ALGORITHM)) hsOrAlgorithm = true;
+*/
+        this.context = s;
     }
 
     public int doStartTag() throws JspException {
         try {
-            //lookup ratings from cache
-            CachedDataAccess da = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-            da.setExpireTime(24 * 60 * 60 * 1000);
-
-            Request r = new Request();
-            r.setContentHandle("coder_all_ratings");
-            r.setProperty("cr", String.valueOf(coderId));
-
-            Map m = da.getData(r);
-
-            StringBuffer output = new StringBuffer();
-
-            ResultSetContainer rsc = (ResultSetContainer) m.get("coder_all_ratings");
-            if (rsc.isEmpty()) {
-                output.append("UNKNOWN USER");
-            } else if (rsc.getItem(0, "coder_id").getResultData() == null) {
-                output.append(rsc.getStringItem(0, "handle"));
-            } else {
-
-                //check for css override
-                boolean bCSSOverride = false;
-                if (cssclass != null && !cssclass.equals("")) {
-                    bCSSOverride = true;
-                }
-                output.append("<a href=\"");
-                if (link.equals("")) {
-                    StringBuffer buf = new StringBuffer(100);
-                    if (pageContext.getRequest().getServerName().indexOf(ApplicationServer.SERVER_NAME) >= 0) {
-                        link = buf.append(DEFAULT_LINK).append(coderId).toString();
-                    } else {
-                        link = buf.append("http://").append(ApplicationServer.SERVER_NAME).append(DEFAULT_LINK).append(coderId).toString();
-                    }
-
-                }
-                output.append(link);
-                if (algorithm && rsc.getIntItem(0, "algorithm_rating") > 0) {
-                    output.append("&tab=alg");
-                } else if (hsAlgorithm && rsc.getIntItem(0, "hs_algorithm_rating") > 0) {
-                    output.append("&tab=hs");
-                } else if (design && rsc.getIntItem(0, "design_rating") > 0) {
-                    output.append("&tab=des");
-                } else if (development && rsc.getIntItem(0, "development_rating") > 0) {
-                    output.append("&tab=dev");
-                } else if (component) {
-                    if (rsc.getIntItem(0, "design_rating") >= rsc.getIntItem(0, "development_rating")) {
-                        if (rsc.getIntItem(0, "design_rating") > 0) {
-                            output.append("&tab=des");
-                        }
-                    } else {
-                        if (rsc.getIntItem(0, "development_rating") > 0) {
-                            output.append("&tab=dev");
-                        }
-                    }
-                } else if (hsOrAlgorithm) {
-                    if (rsc.getIntItem(0, "algorithm_rating") >= rsc.getIntItem(0, "hs_algorithm_rating")) {
-                        if (rsc.getIntItem(0, "algorithm_rating") > 0) {
-                            output.append("&tab=alg");
-                        }
-                    } else {
-                        if (rsc.getIntItem(0, "hs_algorithm_rating") > 0) {
-                            output.append("&tab=hs");
-                        }
-                    }
-                }
-                output.append("\" class=\"");
-
-                if (bCSSOverride) {
-                    output.append(cssclass);
-                } else {
-                    int rating = 0;
-                    // special case for admins
-                    if (rsc.getIntItem(0, "algorithm_rating") < 0) {
-                        rating = rsc.getIntItem(0, "algorithm_rating");
-                    } else {
-                        if (algorithm) {
-                            rating = rsc.getIntItem(0, "algorithm_rating");
-                        } else if (hsAlgorithm) {
-                            rating = rsc.getIntItem(0, "hs_algorithm_rating");
-                        } else if (design) {
-                            rating = rsc.getIntItem(0, "design_rating");
-                        } else if (development) {
-                            rating = rsc.getIntItem(0, "development_rating");
-                        } else if (component) {
-                            rating = max(rsc.getIntItem(0, "design_rating"),
-                                    rsc.getIntItem(0, "development_rating"));
-                        } else if (hsOrAlgorithm) {
-                            rating = max(rsc.getIntItem(0, "hs_algorithm_rating"),
-                                    rsc.getIntItem(0, "algorithm_rating"));
-                        } else {
-                            rating = max(rsc.getIntItem(0, "algorithm_rating"),
-                                    rsc.getIntItem(0, "hs_algorithm_rating"),
-                                    rsc.getIntItem(0, "design_rating"),
-                                    rsc.getIntItem(0, "development_rating"));
-                        }
-                    }
-                    //log.debug("rating: " + rating + " rsc: " + rsc.toString());
-                    output.append(getRatingCSS(rating));
-                }
-
-                output.append("\">");
-
-                output.append(rsc.getStringItem(0, "handle"));
-
-                output.append("</a>");
-            }
-
-            pageContext.getOut().print(output.toString());
+            pageContext.getOut().print(getLink(coderId, cssclass, link, pageContext, context, lightStyles, darkStyles, darkBG));
         } catch (Exception e) {
             log.error("on coder id " + coderId);
             throw new JspException(e);
@@ -194,7 +95,119 @@ public class HandleTag extends TagSupport {
         return SKIP_BODY;
     }
 
-    private String getRatingCSS(int rating) {
+    public static String getLink(long coderId, String cssclass, String link,
+                                 PageContext pageContext, String context,
+                                 String[] lightStyles, String[] darkStyles, boolean darkBG) throws Exception {
+
+        //lookup ratings from cache
+        CachedDataAccess da = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+        da.setExpireTime(24 * 60 * 60 * 1000);
+
+        Request r = new Request();
+        r.setContentHandle("coder_all_ratings");
+        r.setProperty("cr", String.valueOf(coderId));
+
+        Map m = da.getData(r);
+
+        StringBuffer output = new StringBuffer();
+
+        ResultSetContainer rsc = (ResultSetContainer) m.get("coder_all_ratings");
+        if (rsc.isEmpty()) {
+            output.append("UNKNOWN USER");
+        } else if (rsc.getItem(0, "coder_id").getResultData() == null) {
+            output.append(rsc.getStringItem(0, "handle"));
+        } else {
+
+            //check for css override
+            boolean bCSSOverride = false;
+            if (cssclass != null && !cssclass.equals("")) {
+                bCSSOverride = true;
+            }
+            output.append("<a href=\"");
+            if (link.equals("")) {
+                StringBuffer buf = new StringBuffer(100);
+                if (pageContext!=null && pageContext.getRequest().getServerName().indexOf(ApplicationServer.SERVER_NAME) >= 0) {
+                    link = buf.append(DEFAULT_LINK).append(coderId).toString();
+                } else {
+                    link = buf.append("http://").append(ApplicationServer.SERVER_NAME).append(DEFAULT_LINK).append(coderId).toString();
+                }
+
+            }
+            output.append(link);
+            if (context.trim().equalsIgnoreCase(ALGORITHM) && rsc.getIntItem(0, "algorithm_rating") > 0) {
+                output.append("&tab=alg");
+            } else if (context.trim().equalsIgnoreCase(HS_ALGORITHM) && rsc.getIntItem(0, "hs_algorithm_rating") > 0) {
+                output.append("&tab=hs");
+            } else if (context.trim().equalsIgnoreCase(DESIGN) && rsc.getIntItem(0, "design_rating") > 0) {
+                output.append("&tab=des");
+            } else if (context.trim().equalsIgnoreCase(DEVELOPMENT) && rsc.getIntItem(0, "development_rating") > 0) {
+                output.append("&tab=dev");
+            } else if (context.trim().equalsIgnoreCase(COMPONENT)) {
+                if (rsc.getIntItem(0, "design_rating") >= rsc.getIntItem(0, "development_rating")) {
+                    if (rsc.getIntItem(0, "design_rating") > 0) {
+                        output.append("&tab=des");
+                    }
+                } else {
+                    if (rsc.getIntItem(0, "development_rating") > 0) {
+                        output.append("&tab=dev");
+                    }
+                }
+            } else if (context.trim().equalsIgnoreCase(HS_OR_ALGORITHM)) {
+                if (rsc.getIntItem(0, "algorithm_rating") >= rsc.getIntItem(0, "hs_algorithm_rating")) {
+                    if (rsc.getIntItem(0, "algorithm_rating") > 0) {
+                        output.append("&tab=alg");
+                    }
+                } else {
+                    if (rsc.getIntItem(0, "hs_algorithm_rating") > 0) {
+                        output.append("&tab=hs");
+                    }
+                }
+            }
+            output.append("\" class=\"");
+
+            if (bCSSOverride) {
+                output.append(cssclass);
+            } else {
+                int rating = 0;
+                // special case for admins
+                if (rsc.getIntItem(0, "algorithm_rating") < 0) {
+                    rating = rsc.getIntItem(0, "algorithm_rating");
+                } else {
+                    if (context.trim().equalsIgnoreCase(ALGORITHM)) {
+                        rating = rsc.getIntItem(0, "algorithm_rating");
+                    } else if (context.trim().equalsIgnoreCase(HS_ALGORITHM)) {
+                        rating = rsc.getIntItem(0, "hs_algorithm_rating");
+                    } else if (context.trim().equalsIgnoreCase(DESIGN)) {
+                        rating = rsc.getIntItem(0, "design_rating");
+                    } else if (context.trim().equalsIgnoreCase(DEVELOPMENT)) {
+                        rating = rsc.getIntItem(0, "development_rating");
+                    } else if (context.trim().equalsIgnoreCase(COMPONENT)) {
+                        rating = max(rsc.getIntItem(0, "design_rating"),
+                                rsc.getIntItem(0, "development_rating"));
+                    } else if (context.trim().equalsIgnoreCase(HS_OR_ALGORITHM)) {
+                        rating = max(rsc.getIntItem(0, "hs_algorithm_rating"),
+                                rsc.getIntItem(0, "algorithm_rating"));
+                    } else {
+                        rating = max(rsc.getIntItem(0, "algorithm_rating"),
+                                rsc.getIntItem(0, "hs_algorithm_rating"),
+                                rsc.getIntItem(0, "design_rating"),
+                                rsc.getIntItem(0, "development_rating"));
+                    }
+                }
+                //log.debug("rating: " + rating + " rsc: " + rsc.toString());
+                output.append(getRatingCSS(rating, lightStyles, darkStyles, darkBG));
+            }
+
+            output.append("\">");
+
+            output.append(rsc.getStringItem(0, "handle"));
+
+            output.append("</a>");
+        }
+            return output.toString();
+    }
+
+    private static String getRatingCSS(int rating, String[] lightStyles, String[] darkStyles, boolean darkBG) {
         if (rating < 0)
             return darkBG ? lightStyles[0] : darkStyles[0];
         else if (rating == 0)
@@ -212,11 +225,11 @@ public class HandleTag extends TagSupport {
     }
 
 
-    private int max(int a, int b, int c, int d) {
+    private static int max(int a, int b, int c, int d) {
         return max(max(a, b), max(c, d));
     }
 
-    private int max(int a, int b) {
+    private static int max(int a, int b) {
         if (a >= b) return a;
         return b;
     }
@@ -231,12 +244,15 @@ public class HandleTag extends TagSupport {
         link = "";
         cssclass = "";
         darkBG = false;
+/*
         algorithm = false;
         hsAlgorithm = false;
         design = false;
         development = false;
         component = false;
         hsOrAlgorithm = false;
+*/
+        context = null;
         return super.doEndTag();
     }
 
