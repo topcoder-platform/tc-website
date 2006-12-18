@@ -25,6 +25,7 @@
     ResultSetContainer violationList = null;
     ResultSetContainer statusList = null;
     ResultSetContainer jobList = null;
+    ResultSetContainer regTypeList = null;
     ResultSetContainer.ResultSetRow p = null;
     ArrayList detailList = null;
     Boolean processed = (Boolean) request.getAttribute(Constants.PROCESSED_KEY);
@@ -89,6 +90,7 @@
             violationList = (ResultSetContainer) ((Map) detailList.get(k)).get("violations");
             statusList = (ResultSetContainer) ((Map) detailList.get(k)).get("status_changed");
             jobList = (ResultSetContainer) ((Map) detailList.get(k)).get("job_list");
+            regTypeList = (ResultSetContainer) ((Map) detailList.get(k)).get("registration_types");
 
 
 %>
@@ -392,6 +394,34 @@
     }
 
 %>
+
+
+<%
+
+    if (!regTypeList.isEmpty()) {
+
+%>
+<br/><br/>
+<table cellpadding="5" cellspacing="0">
+    <tr><td><b>Registration Types</b></td></tr>
+    <tr>
+        <td><b>Type</b></td>
+    </tr>
+
+    <rsc:iterator list="<%=regTypeList%>" id="resultRow">
+        <tr>
+            <td><rsc:item name="registration_type_name" row="<%=resultRow%>"/></td>
+        </tr>
+    </rsc:iterator>
+</table>
+<%
+
+    }
+
+%>
+
+
+
 
 <%
 
