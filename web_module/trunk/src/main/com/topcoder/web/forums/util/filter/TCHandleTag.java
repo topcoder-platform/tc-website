@@ -1,13 +1,12 @@
 package com.topcoder.web.forums.util.filter;
 
-import java.util.Map;
-
-import com.jivesoftware.base.*;
+import com.jivesoftware.base.Filter;
+import com.jivesoftware.base.FilterChain;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.tag.HandleTag;
 
 /**
  * A filter that creates a handle tag for the username appearing between [handle][/handle] tags.
@@ -74,49 +73,13 @@ public class TCHandleTag implements Filter {
                 continue;
             }
 
-            StringBuffer output = new StringBuffer();
             try {
-                //lookup ratings from cache
-                CachedDataAccess da = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-                da.setExpireTime(24 * 60 * 60 * 1000);
-
-                long coderId = this.getCoderId(code, da);
-                if (coderId != -1) {
-                    Request r = new Request();
-                    r.setContentHandle("coder_all_ratings");
-                    r.setProperty("cr", String.valueOf(coderId));
-    
-                    Map m = da.getData(r);
-    
-                    ResultSetContainer rsc = (ResultSetContainer) m.get("coder_all_ratings");
-                    output.append("<a href=\"");
-                    output.append(DEFAULT_LINK + coderId);
-                    output.append("\" class=\"");
-                    
-                    // special case for admins
-                    int rating = 0;
-                    if (rsc != null && rsc.getRowCount() > 0) {
-	                    if (rsc.getIntItem(0, "algorithm_rating") < 0)
-	                        rating = rsc.getIntItem(0, "algorithm_rating");
-	                    else rating = max(rsc.getIntItem(0, "algorithm_rating"),
-	                            rsc.getIntItem(0, "design_rating"),
-	                            rsc.getIntItem(0, "development_rating"));
-                    }
-                    output.append(getRatingCSS(rating));
-                    
-                    output.append("\">");
-                    output.append(rsc.getStringItem(0, "handle"));
-                    output.append("</a>");
-                }
-                
+                filtered.append(HandleTag.getLink(getCoderId(code), null, null,
+                        null, null, lightStyles, darkStyles, false));
             } catch (Exception e) {
-                // invalid handle - return no output
-            	e.printStackTrace();
+                throw new RuntimeException("Failure loading handle tag.", e);
             }
-            
-            if (!output.toString().equals("")) {
-                filtered.append(output.toString());
-            }
+
         }
 
         if (endCodeTag < length) {
@@ -124,26 +87,6 @@ public class TCHandleTag implements Filter {
         }
 
         return filtered.toString();
-    }
-    
-    public final static String DEFAULT_LINK = "http://" + ApplicationServer.SERVER_NAME + "/tc?module=MemberProfile&cr=";
-    private boolean darkBG = false;
-    
-    private String getRatingCSS(int rating) {
-        if (rating < 0)
-            return darkBG ? lightStyles[0] : darkStyles[0];
-        else if (rating == 0)
-            return darkBG ? lightStyles[1] : darkStyles[1];
-        else if (rating > 0 && rating < 900)
-            return darkBG ? lightStyles[2] : darkStyles[2];
-        else if (rating > 899 && rating < 1200)
-            return darkBG ? lightStyles[3] : darkStyles[3];
-        else if (rating > 1199 && rating < 1500)
-            return darkBG ? lightStyles[4] : darkStyles[4];
-        else if (rating > 1499 && rating < 2200)
-            return darkBG ? lightStyles[5] : darkStyles[5];
-        else if (rating > 2199) return darkBG ? lightStyles[6] : darkStyles[6];
-        return "";
     }
     
     private static final String[] lightStyles =
@@ -154,16 +97,10 @@ public class TCHandleTag implements Filter {
         {"coderTextOrange", "coderTextBlack", "coderTextGray",
          "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
     
-    private int max(int a, int b, int c) {
-        return max(max(a, b), c);
-    }
 
-    private int max(int a, int b) {
-        if (a >= b) return a;
-        return b;
-    }
-    
-    private long getCoderId(String handle, CachedDataAccess da) throws Exception {
+    private long getCoderId(String handle) throws Exception {
+        CachedDataAccess da = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+
         Request r = new Request();
         r.setContentHandle("user_id_using_handle");
         r.setProperty("ha", handle);
