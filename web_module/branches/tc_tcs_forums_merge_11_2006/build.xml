@@ -200,6 +200,7 @@
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
        	    <include name="com/topcoder/dde/catalog/Category.java"/>
             <include name="com/topcoder/dde/catalog/ComponentVersionInfo.java"/>
+        	<include name="com/topcoder/dde/catalog/ForumsCategory.java"/>
         </javac>
         <antcall target="jar_common"/>
     </target>
@@ -630,6 +631,7 @@
         <jar jarfile="${ejb_jars}/forums.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/forums/*.class"/>
+        	<zipfileset dir="${classes}" includes="com/topcoder/dde/catalog/ForumCategory.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/forums" includes="*.xml"/>
         </jar>
     </target>
@@ -990,7 +992,7 @@
     </target>
 
     <target name="deploy-forums" depends="">
-        <antcall target="explode-forums"/>
+        <antcall target="war-forums"/>
 
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
