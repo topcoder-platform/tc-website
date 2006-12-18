@@ -6,6 +6,11 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
+<c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
+
 <% ResultSetContainer surveyList = (ResultSetContainer) request.getAttribute("surveyList");%>
 <html>
 
@@ -22,12 +27,12 @@
     <script type="text/javascript">
         function next() {
             var myForm = document.surveyListForm;
-            myForm.<%=DataAccessConstants.START_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) + <%=Constants.DEFAULT_SURVEY_SCROLL_SIZE%>;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = <c:out value="${requestScope[defaults][startRank]}"/> + <%=Constants.DEFAULT_SURVEY_SCROLL_SIZE%>;
             myForm.submit();
         }
         function previous() {
             var myForm = document.surveyListForm;
-            myForm.<%=DataAccessConstants.START_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - <%=Constants.DEFAULT_SURVEY_SCROLL_SIZE%>;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = <c:out value="${requestScope[defaults][startRank]}"/> - <%=Constants.DEFAULT_SURVEY_SCROLL_SIZE%>;
             myForm.submit();
         }
     </script>

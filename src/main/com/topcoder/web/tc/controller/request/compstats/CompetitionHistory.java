@@ -77,7 +77,7 @@ public class CompetitionHistory extends BaseProcessor {
         setDefault(DataAccessConstants.START_RANK, startRank);
 
         if ("".equals(endRank)) {
-            endRank = String.valueOf(Integer.parseInt(startRank) + Constants.DEFAULT_HISTORY);
+            endRank = String.valueOf(Integer.parseInt(startRank) + Constants.DEFAULT_HISTORY - 1);
         } else if (Integer.parseInt(endRank) - Integer.parseInt(startRank) > Constants.MAX_HISTORY) {
             endRank = String.valueOf(Integer.parseInt(startRank) + Constants.MAX_HISTORY);
         }
