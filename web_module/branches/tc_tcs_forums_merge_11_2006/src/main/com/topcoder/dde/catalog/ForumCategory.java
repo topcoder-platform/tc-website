@@ -46,7 +46,7 @@ public class ForumCategory implements java.io.Serializable {
     private final String versionLabel;
 
 
-    ForumCategory(long id, Date startDate, long status, long version, String versionLabel) {
+    public ForumCategory(long id, Date startDate, long status, long version, String versionLabel) {
         this.id = id;
 
         /*
