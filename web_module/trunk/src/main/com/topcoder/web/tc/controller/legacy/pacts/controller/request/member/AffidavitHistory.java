@@ -7,11 +7,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.PaymentBean;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
 
 /**
  *
@@ -44,7 +40,7 @@ public class AffidavitHistory extends BaseProcessor implements PactsConstants {
             setDefault(DataAccessConstants.START_RANK, startRank);
 
             if ("".equals(endRank)) {
-                endRank = String.valueOf(Integer.parseInt(startRank) + PactsConstants.AFFIDAVIT_HISTORY_PAGE_SIZE); 
+                endRank = String.valueOf(Integer.parseInt(startRank) + PactsConstants.AFFIDAVIT_HISTORY_PAGE_SIZE - 1); 
             } else if (Integer.parseInt(endRank) - Integer.parseInt(startRank) > Constants.MAX_HISTORY) {
                 endRank = String.valueOf(Integer.parseInt(startRank) + Constants.MAX_HISTORY);
             }

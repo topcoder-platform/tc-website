@@ -13,6 +13,9 @@
 
 <c:set var="fullList" value="<%= request.getAttribute(AffidavitHistory.FULL_LIST) %>"/>
 <c:set var="affidavits" value="<%= request.getAttribute(AffidavitHistory.AFFIDAVITS) %>"/>
+<c:set value="<%=AffidavitHistory.DEFAULTS_KEY%>" var="defaults"/>
+<c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
+<c:set value="<%=DataAccessConstants.END_RANK%>" var="endRank"/>
 
 <%
     ResultSetContainer rsc = (ResultSetContainer) request.getAttribute(AffidavitHistory.AFFIDAVITS);
@@ -30,20 +33,21 @@
 </jsp:include>
 
 <script type="text/javascript">
-    function next() {
-        var myForm = document.f;
-        var oldStartRank = myForm.<%=DataAccessConstants.START_RANK%>.value;
-        myForm.<%=DataAccessConstants.START_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value) + 1;
-        myForm.<%=DataAccessConstants.END_RANK%>.value = 2 * parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value) - parseInt(oldStartRank) + 1;
-        myForm.submit();
-    }
-    function previous() {
-        var myForm = document.f;
-        var oldEndRank = myForm.<%=DataAccessConstants.END_RANK%>.value;
-        myForm.<%=DataAccessConstants.END_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - 1;
-        myForm.<%=DataAccessConstants.START_RANK%>.value = 2 * parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - parseInt(oldEndRank) - 1;
-        myForm.submit();
-    }
+        var sr = <c:out value="${requestScope[defaults][startRank]}"/>;
+        var er = <c:out value="${requestScope[defaults][endRank]}"/>;
+
+        function next() {
+            var myForm = document.f;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = er + 1;
+            myForm.<%=DataAccessConstants.END_RANK%>.value = 2 * er - sr + 1;
+            myForm.submit();
+        }
+        function previous() {
+            var myForm = document.f;
+            myForm.<%=DataAccessConstants.END_RANK%>.value = sr - 1;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = 2 * sr - er - 1;
+            myForm.submit();
+        }
 </script>
 
 </head>
