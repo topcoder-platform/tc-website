@@ -1005,7 +1005,7 @@
         <antcall target="explode-forums"/>
 
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
-        <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
+        <copy todir="${jboss_lib}" file="${common.jar}"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcjive.jar"/>
 
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
