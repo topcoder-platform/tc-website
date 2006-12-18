@@ -35,6 +35,8 @@ public interface WebConstants {
     public static final String CITY = "city";
     public static final String POSTAL_CODE = "zip";
     public static final String PHONE_NUMBER = "ph";
+    public static final String COMP_COUNTRY_CODE = "ccc";
+    
 
     public static final String TERMS = "terms";
     public static final String TERMS_AGREE = "terms_agree";
