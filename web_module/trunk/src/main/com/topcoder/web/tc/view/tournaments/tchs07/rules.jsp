@@ -26,7 +26,7 @@
           <span class="error">No purchase necessary to enter or win.  Void where prohibited.</span>
           <br><br>
           <h3>Overview of the Tournament</h3>
-          The 2007 TopCoder High School ("TCHS") Tournament will take place between February 26 and May 19, 2006.  It will consist of four (4) online Regional elimination rounds and two (2) onsite final rounds, being the Semifinal and Championship Rounds.  The prize purse for this competition is at least $50,000 in scholarships and other prizes.  Up to sixteen (16) competitors will win a scholarship, and for competing in Online Round #2, up to 1,000 competitors will receive a participatory prize. The top 25 finishers in the online Regional rounds will advance to the onsite Semifinal and Championship rounds, being held on the campus of Purdue University in West Lafayette, Indiana, USA on May 19, 2007.
+          The 2007 TopCoder High School ("TCHS") Tournament will take place between February 26 and May 19, 2007.  It will consist of four (4) online Regional elimination rounds and two (2) onsite final rounds, being the Semifinal and Championship Rounds.  The prize purse for this competition is at least $50,000 in scholarships and other prizes.  Up to sixteen (16) competitors will win a scholarship, and for competing in Online Round #2, up to 1,000 competitors will receive a participatory prize. The top 25 finishers in the online Regional rounds will advance to the onsite Semifinal and Championship rounds, being held on the campus of Purdue University in West Lafayette, Indiana, USA on May 19, 2007.
           <br><br>
           <h3>Eligibility</h3>
           TopCoder members meeting the following criteria are eligible to compete in the TCHS Tournament: 
