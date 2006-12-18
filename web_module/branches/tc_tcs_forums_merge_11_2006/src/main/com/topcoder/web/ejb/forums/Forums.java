@@ -5,6 +5,10 @@ import java.rmi.RemoteException;
 
 import javax.ejb.EJBException;
 
+import com.jivesoftware.base.UnauthorizedException;
+import com.jivesoftware.base.UserNotFoundException;
+import com.jivesoftware.forum.ForumCategoryNotFoundException;
+
 public interface Forums extends EJBObject {
     
     public void createMatchForum(int roundID) throws EJBException, RemoteException;
@@ -17,6 +21,12 @@ public interface Forums extends EJBObject {
     
     public void removeRole(long userID, long groupID) throws EJBException, RemoteException;
     
+    public void closeCategory(long categoryID) throws EJBException, RemoteException, ForumCategoryNotFoundException, UnauthorizedException;
+    
+    public void createCategoryWatch(long userID, long categoryID) throws ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException;
+    
+    public com.topcoder.dde.catalog.ForumCategory getSoftwareForumCategory(long categoryID, long version, String versionLabel) throws ForumCategoryNotFoundException; 
+    
     public String[][] getSoftwareCategoriesData() throws EJBException, RemoteException;
     
     public String[][] getSoftwareRolesData(long userID) throws EJBException, RemoteException;
@@ -25,6 +35,10 @@ public interface Forums extends EJBObject {
     
     public long createSoftwareComponentForums(String componentName, long componentID, long versionID,
     		long phaseID, long componentStatusID, long rootCategoryID, String description, String versionText, 
-    		long templateID)
+    		long templateID, boolean isPublic)
     	throws EJBException, RemoteException, Exception;
+    
+    public void setPublic(long categoryID, boolean isPublic) throws EJBException, RemoteException, ForumCategoryNotFoundException, UnauthorizedException;
+    
+    public boolean isPublic(long categoryID) throws EJBException, RemoteException, ForumCategoryNotFoundException, UnauthorizedException;
 }

@@ -861,7 +861,6 @@
                 <include name="security.ear"/>
             </fileset>
         </copy>
-
     </target>
 
     <target name="build-security" depends="compile_shared">

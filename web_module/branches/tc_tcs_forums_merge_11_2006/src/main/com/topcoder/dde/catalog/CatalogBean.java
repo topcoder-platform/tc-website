@@ -4,7 +4,6 @@
 
 package com.topcoder.dde.catalog;
 
-import com.jivesoftware.forum.ForumCategory;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerV2;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerV2Home;
 import com.topcoder.dde.DDEException;
@@ -1788,11 +1787,11 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                     + exception.toString());
         }
 
-        Forums forums = null;
+        Forums forumsBean = null;
         try {
             Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
     		ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
-    		forums = forumsHome.create();
+    		forumsBean = forumsHome.create();
     	} catch (NamingException e) { 
     		ejbContext.setRollbackOnly();
             throw new CatalogException(
@@ -1813,21 +1812,11 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 	    		 * This should be replaced by a distributed transaction (XA, etc.) that rolls back 
 	    		 * changes on the software and forum servers when an error in the workflow occurs.
 	    		 */
-	    		log.info("******* calling createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
-	    		categoryID = forums.createSoftwareComponentForums(newComponent.getComponentName(), ((Long)newComponent.getPrimaryKey()).longValue(),
+	    		categoryID = forumsBean.createSoftwareComponentForums(newComponent.getComponentName(), ((Long)newComponent.getPrimaryKey()).longValue(),
 	    				((Long)newVersion.getPrimaryKey()).longValue(), newVersion.getPhaseId(), newComponent.getStatusId(), 
 	    				newComponent.getRootCategory(), newComponent.getShortDesc(), newVersion.getVersionText(), 
-	    				Long.parseLong(getConfigValue("collab_forum_template")));
+	    				Forum.COLLABORATION, false);
 	    		//compforumHome.create(category, Forum.COLLABORATION, newVersion);
-	    		log.info("******* finished createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
-	    	} catch (ConfigManagerException cme) {
-	    		log.warn("Encountered a configuration manager exception reading collab_forum_template property");
-	    		ejbContext.setRollbackOnly();
-	            throw new CatalogException(cme.toString());
-	    	} catch (NumberFormatException nfe) {
-	    		log.warn("Failed to parse the collab_forum_template property");
-	    		ejbContext.setRollbackOnly();
-	            throw new CatalogException(nfe.toString());
 	    	} catch (RemoteException e) {
 	    		ejbContext.setRollbackOnly();
 	            throw new CatalogException(e.toString());

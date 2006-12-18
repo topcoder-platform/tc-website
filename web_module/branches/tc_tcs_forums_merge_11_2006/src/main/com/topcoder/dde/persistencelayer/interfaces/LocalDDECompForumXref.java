@@ -30,5 +30,11 @@ public interface LocalDDECompForumXref extends EJBLocalObject {
      * @return forum id.
      */
     long getForumId();
-
+    
+    /**
+     * Gets the category id.
+     *
+     * @return category id.
+     */
+    long getCategoryId();
 }

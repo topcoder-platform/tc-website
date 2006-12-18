@@ -268,7 +268,7 @@ public class ForumsUtil {
         	String archivalStatus = c.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS);
         	String componentStatus = c.getProperty(ForumConstants.PROPERTY_COMPONENT_STATUS);
         	if (ForumConstants.PROPERTY_ARCHIVAL_STATUS_ARCHIVED.equals(archivalStatus) ||
-        			ForumConstants.PROPERTY_ARCHIVAL_STATUS_DELETED.equals(archivalStatus)) continue;
+        			ForumConstants.PROPERTY_ARCHIVAL_STATUS_CLOSED.equals(archivalStatus)) continue;
         	if (componentStatus != null && !componentStatus.equals(String.valueOf(ComponentInfo.APPROVED))) continue;        	
         	if (c.getMessageCount() > 0) {
         		categoriesList.add(c);

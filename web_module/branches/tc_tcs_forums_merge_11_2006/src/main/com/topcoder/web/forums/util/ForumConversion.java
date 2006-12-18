@@ -165,7 +165,7 @@ public class ForumConversion {
         UserManager userManager = forumFactory.getUserManager();
         GroupManager groupManager = forumFactory.getGroupManager();
         MimetypesFileTypeMap fileTypeMap = new MimetypesFileTypeMap();
-
+        
         // Remove old software user/moderator groups
         Iterator itGroups = groupManager.getGroups();
         while (itGroups.hasNext()) {
@@ -193,6 +193,10 @@ public class ForumConversion {
         	}
         }
         rs.close();
+        
+        for (int i=0; i<ForumConstants.ADMIN_PERMS.length; i++) {
+        	root.getPermissionsManager().addGroupPermission(swAdminGroup, PermissionType.ADDITIVE, ForumConstants.ADMIN_PERMS[i]);
+        }
         
         HashSet publicOldForumSet = new HashSet();
         publicPS = tcConn.prepareStatement("select permission from security_perms p, security_roles r "

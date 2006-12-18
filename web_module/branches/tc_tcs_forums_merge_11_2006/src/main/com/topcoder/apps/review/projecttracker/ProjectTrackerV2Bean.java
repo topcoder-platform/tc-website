@@ -5,8 +5,11 @@ package com.topcoder.apps.review.projecttracker;
 
 import com.topcoder.apps.review.persistence.Common;
 
+import com.topcoder.web.forums.ForumConstants;
+
 import com.topcoder.security.TCSubject;
 
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
 import com.topcoder.util.errorhandling.BaseException;
@@ -14,11 +17,6 @@ import com.topcoder.util.errorhandling.BaseException;
 import java.rmi.RemoteException;
 
 import java.sql.*;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
-import java.util.Locale;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
@@ -97,12 +95,12 @@ public class ProjectTrackerV2Bean implements SessionBean {
      * @param projectId
      * @param requestor
      *
-     * @return long array, first is winner id, second is forumId
+     * @return long array, first is winner id, second is categoryId
      *
-     * @throws RuntimeException if error occurs while retrieve winner id/forum id
+     * @throws RuntimeException if error occurs while retrieve winner id/category id
      */
-    public long[] getProjectWinnerIdForumId(long projectId, TCSubject requestor) {
-        log.debug("PT.getProjectWinnerIdForumId(), projectId: " + projectId + ", requestId: " + requestor.getUserId());
+    public long[] getProjectWinnerIdCategoryId(long projectId, TCSubject requestor) {
+        log.debug("PT.getProjectWinnerIdCategoryId(), projectId: " + projectId + ", requestId: " + requestor.getUserId());
 
         Connection conn = null;
         PreparedStatement psForum = null;
@@ -115,15 +113,18 @@ public class ProjectTrackerV2Bean implements SessionBean {
 
             long componentId = parseLongValue(getProjectInfo(conn, projectId, 2)); // external id
 
-            psForum = conn.prepareStatement("SELECT fm.forum_id " + 
-            		"FROM forum_master fm, comp_forum_xref cfx, comp_versions cv " +
-                    "WHERE fm.forum_id = cfx.forum_id " + 
+            String forumDbName = DBMS.getDbName(DBMS.FORUMS_DATASOURCE_NAME);
+            psForum = conn.prepareStatement("SELECT c.categoryid " + 
+            		"FROM " + forumDbName + ":jivecategory c, " + forumDbName + ":jivecategoryprop cp, " +
+            		"	comp_forum_xref cfx, comp_versions cv " +
+                    "WHERE c.categoryid = cfx.jive_category_id " + 
                     "AND cfx.comp_vers_id = cv.comp_vers_id " +
                     "AND cv.phase_id in (112, 113) " +
                     "AND cv.component_id = ? " +
-                    "AND fm.status_id = 1 "  + 
-                    "AND cfx.forum_type = " +
-                    DEVELOPMENT_FORUM_TYPE);
+                    "AND c.categoryid = cp.categoryid " +
+                    "AND cp.name = '" + ForumConstants.PROPERTY_ARCHIVAL_STATUS + "' " + 
+                    "AND cp.propvalue = " + ForumConstants.PROPERTY_ARCHIVAL_STATUS_ACTIVE + " " +                  
+                    "AND cfx.forum_type = " + DEVELOPMENT_FORUM_TYPE);
 
             psForum.setLong(1, componentId);
             rsForum = psForum.executeQuery();

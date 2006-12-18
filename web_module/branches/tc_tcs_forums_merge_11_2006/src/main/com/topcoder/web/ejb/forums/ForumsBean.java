@@ -121,11 +121,60 @@ public class ForumsBean extends BaseEJB {
     	}
     }
     
-    // Software Forums
-    //public Forum getComponentCategory(long compVersionID, int forumType) throws ForumCategoryNotFoundException {
-    	// find a way to efficiently map a component to its category - retrieve from DB
-    	//forumFactory.getForumCategory(378).getCategories()
-    //}
+    public void setPublic(long categoryID, boolean isPublic) throws ForumCategoryNotFoundException, UnauthorizedException {
+    	ForumCategory category = forumFactory.getForumCategory(categoryID);
+    	PermissionsManager categoryPermissionsManager = category.getPermissionsManager();
+    	
+    	if (!isPublic) {
+	        for (int i=0; i<ForumConstants.SW_BLOCK_PERMS.length; i++) {
+            	categoryPermissionsManager.addAnonymousUserPermission(PermissionType.NEGATIVE, ForumConstants.SW_BLOCK_PERMS[i]);	
+            	categoryPermissionsManager.addRegisteredUserPermission(PermissionType.NEGATIVE, ForumConstants.SW_BLOCK_PERMS[i]);
+        	}
+        } else {
+        	for (int i=0; i<ForumConstants.SW_BLOCK_PERMS.length; i++) {
+            	categoryPermissionsManager.removeAnonymousUserPermission(PermissionType.NEGATIVE, ForumConstants.SW_BLOCK_PERMS[i]);	
+            	categoryPermissionsManager.removeRegisteredUserPermission(PermissionType.NEGATIVE, ForumConstants.SW_BLOCK_PERMS[i]);
+        	}
+        }
+    }
+    
+    public boolean isPublic(long categoryID) throws ForumCategoryNotFoundException, UnauthorizedException {
+    	ForumCategory category = forumFactory.getForumCategory(categoryID);
+    	PermissionsManager categoryPermissionsManager = category.getPermissionsManager();
+    	
+    	for (int i=0; i<ForumConstants.ANONYMOUS_PERMS.length; i++) {
+    		if (categoryPermissionsManager.anonymousUserHasPermission(PermissionType.NEGATIVE, ForumConstants.ANONYMOUS_PERMS[i])) {
+    			return false;
+    		}
+    	}
+    	for (int i=0; i<ForumConstants.REGISTERED_PERMS.length; i++) {
+    		if (categoryPermissionsManager.registeredUserHasPermission(PermissionType.NEGATIVE, ForumConstants.REGISTERED_PERMS[i])) {
+    			return false;
+    		}
+    	}
+    	return true;
+    }
+    
+    public void closeCategory(long categoryID) throws ForumCategoryNotFoundException, UnauthorizedException {
+    	ForumCategory category = forumFactory.getForumCategory(categoryID);
+    	category.setProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS, String.valueOf(ForumConstants.PROPERTY_ARCHIVAL_STATUS_CLOSED));
+    }
+    
+    /* 
+     * Currently used only for software forums, without a maximum limit of categories that can be watched.
+     */
+    public void createCategoryWatch(long userID, long categoryID) throws ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException {
+    	ForumCategory category = forumFactory.getForumCategory(categoryID);
+    	User user = forumFactory.getUserManager().getUser(userID);
+    	forumFactory.getWatchManager().createWatch(user, category);
+    }
+    
+    // Software Forums    
+    public com.topcoder.dde.catalog.ForumCategory getSoftwareForumCategory(long categoryID, long version, String versionLabel) throws ForumCategoryNotFoundException {
+    	ForumCategory category = forumFactory.getForumCategory(categoryID);
+    	return new com.topcoder.dde.catalog.ForumCategory(categoryID, category.getCreationDate(), 
+    			category.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS), version, versionLabel);
+    }
     
     public String[][] getSoftwareCategoriesData() {
     	try {
@@ -203,11 +252,12 @@ public class ForumsBean extends BaseEJB {
     	return softwareGroupData;
     }
     
-    // Create a new component category and constituent forums
-    // TODO: Ideally rolls back if any error occurs.
+    /* 
+     * Create a new component category and constituent forums.
+     */
     public long createSoftwareComponentForums(String componentName, long componentID,
     		long versionID, long phaseID, long componentStatusID, long rootCategoryID, String description, 
-    		String versionText, long templateID) throws Exception {
+    		String versionText, long templateID, boolean isPublic) throws Exception {
     	log.info("******** called ForumsBean.createSoftwareComponentForums()");
     	try {
     		String categoryName = ForumsUtil.getComponentCategoryName(componentName, versionText, templateID);
@@ -234,7 +284,7 @@ public class ForumsBean extends BaseEJB {
     		forumsPS.close();
     		forumsConn.close();
     		
-    		createSoftwareComponentPermissions(newCategory, false);
+    		createSoftwareComponentPermissions(newCategory, isPublic);
     		return newCategory.getID();
     	} catch (Exception e) {
     		logException(e, "error in creating software component forums");

@@ -92,7 +92,7 @@ public interface ForumConstants {
     public final static String PROPERTY_VERSION_TEXT = "versionText";
 
     public final static String PROPERTY_ARCHIVAL_STATUS = "archivalStatus";
-    public final static String PROPERTY_ARCHIVAL_STATUS_DELETED = "0";
+    public final static String PROPERTY_ARCHIVAL_STATUS_CLOSED = "0";
     public final static String PROPERTY_ARCHIVAL_STATUS_ACTIVE = "1";
     public final static String PROPERTY_ARCHIVAL_STATUS_ARCHIVED = "2";
     

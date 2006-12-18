@@ -24,16 +24,16 @@ import javax.ejb.EJBObject;
  */
 public interface ProjectTrackerV2 extends EJBObject {
     /**
-     * return winner and forum id array
+     * return winner and category id array
      *
      * @param projectId projectId
      * @param requestor requestor
      *
-     * @return winner and forum id array
+     * @return winner and category id array
      *
      * @throws RemoteException if error occurs while retrieve data from db
      */
-    public long[] getProjectWinnerIdForumId(long projectId, TCSubject requestor)
+    public long[] getProjectWinnerIdCategoryId(long projectId, TCSubject requestor)
         throws RemoteException;
 
     /**
