@@ -130,7 +130,8 @@
          </div>--%>
         <div class="long">
          <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 12</A></strong><br>
-         12:00 NOON
+         12:00 NOON<br>
+         2 weeks
          </div>
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10663">SRM 339</A></strong><br>

@@ -67,7 +67,8 @@
       <td class="value">3
          <div class="long">
          <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 9</A></strong><br>
-         12:00 NOON
+         12:00 NOON<br>
+         1 week
          </div>
       </td>
       <td class="value">4
@@ -134,7 +135,8 @@
          </div>
          <div class="long">
          <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 10</A></strong><br>
-         12:00 NOON
+         12:00 NOON<br>
+         2 weeks
          </div>
         <%-- <div class="long">
          <strong><A href="/longcontest/?module=Static&d1=intel_rules">Intel&#174; Multi-threading Competition 12</A></strong><br>
@@ -196,7 +198,8 @@
       <td class="value">31
          <div class="long">
          <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 11</A></strong><br>
-         12:00 NOON
+         12:00 NOON<br>
+         1 week
          </div>
       </td>
       <td class="empty">&#160;<br><br><br><br><br></td>
