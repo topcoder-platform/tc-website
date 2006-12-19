@@ -317,6 +317,20 @@
 </tr>
 <tr>
     <td colspan="2" class="errorText" align="center">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.COMP_COUNTRY_CODE%>">${err}<br></tc-webtag:errorIterator>
+    </td>
+</tr>
+<tr>
+    <td align="right" nowrap>
+        <span class="errorText">*</span> Country
+    </td>
+    <td align="left">
+        <tc-webtag:rscSelect name="<%=Constants.COMP_COUNTRY_CODE%>" list="${fullCountryList}" fieldText="country_name" fieldValue="country_code"/>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2" class="errorText" align="center">
         <tc-webtag:errorIterator id="err" name="<%=Constants.CODER_TYPE%>">${err}<br></tc-webtag:errorIterator>
     </td>
 </tr>
