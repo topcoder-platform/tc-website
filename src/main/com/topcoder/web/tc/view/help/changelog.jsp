@@ -43,14 +43,14 @@
 </jsp:include>
 
 <p>
-    5.5.11 - 2006.12.xx
+    5.5.11 - 2006.12.18
     <ul>
         <li>Fixed a bug in pagination when the user clicked on back in the browser.</li>
         <li>Fix round types that are shown when creating payments in pacts.</li>
         <li>In affidavit list for users, the days to expire is not shown anymore if the affidavit is not of contest winning type (the only type being currently expired)</li>
         <li>Fixes in Reporting page for searching: sorting some columns throw error, and fixed the queries to use the new OR schema</li>
         <li>When search for schools in the registration process, assume that the user wants to search for *&lt;input&gt;*</li>
-        <li></li>
+        <li>Allow users to see their own responses to survey's they've answered</li>
     </ul>
     5.5.10 - 2006.12.04
     <ul>
