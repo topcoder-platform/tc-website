@@ -192,63 +192,62 @@ public class Submit extends ContractingBase {
             } catch (Exception e) {
                 if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
                     tm.rollback();
-                    throw e;
                 }
-
-                //send confirmation email
-
-                //lookup email address
-                Email emailbean = (Email) createEJB(getInitialContext(), Email.class);
-                String email = "";
-                long emailId = emailbean.getPrimaryEmailId(info.getUserID(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                email = emailbean.getAddress(emailId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-
-                if (log.isDebugEnabled()) {
-                    log.debug("Emailing: " + email);
-                }
-
-                TCSEmailMessage mail = new TCSEmailMessage();
-                mail.setSubject("TopCoder Placement Registration");
-                StringBuffer msgText = new StringBuffer(3000);
-
-                msgText.append("Thank you for registering/updating your personal information and skills in the TopCoder Placement database.  When a position arises for which you are a match, a TopCoder representative will contact you.\n\n");
-                msgText.append("If you have any questions, please contact us at service@topcoder.com.\n\n");
-                msgText.append("- The TopCoder Placement Team");
-
-                mail.setBody(msgText.toString());
-                mail.addToAddress(email, TCSEmailMessage.TO);
-                mail.setFromAddress("service@topcoder.com");
-                EmailEngine.send(mail);
-            } catch (TCWebException tce) {
-                throw tce;
-            } catch (Exception e) {
-                throw new TCWebException(e);
+                throw e;
             }
-        }
 
-        protected Map getFileTypes
-        ()throws Exception
-        {
-            Request r = new Request();
-            r.setContentHandle("file_types");
-            Map qMap = getDataAccess().getData(r);
-            ResultSetContainer questions = (ResultSetContainer) qMap.get("file_types");
-            ResultSetContainer.ResultSetRow row = null;
+            //send confirmation email
 
-            Map ret = new HashMap();
-            for (Iterator it = questions.iterator(); it.hasNext();) {
-                row = (ResultSetContainer.ResultSetRow) it.next();
-                ret.put(row.getStringItem("mime_type"), new Long(row.getLongItem("file_type_id")));
+            //lookup email address
+            Email emailbean = (Email) createEJB(getInitialContext(), Email.class);
+            String email = "";
+            long emailId = emailbean.getPrimaryEmailId(info.getUserID(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            email = emailbean.getAddress(emailId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+
+            if (log.isDebugEnabled()) {
+                log.debug("Emailing: " + email);
             }
-            return ret;
+
+            TCSEmailMessage mail = new TCSEmailMessage();
+            mail.setSubject("TopCoder Placement Registration");
+            StringBuffer msgText = new StringBuffer(3000);
+
+            msgText.append("Thank you for registering/updating your personal information and skills in the TopCoder Placement database.  When a position arises for which you are a match, a TopCoder representative will contact you.\n\n");
+            msgText.append("If you have any questions, please contact us at service@topcoder.com.\n\n");
+            msgText.append("- The TopCoder Placement Team");
+
+            mail.setBody(msgText.toString());
+            mail.addToAddress(email, TCSEmailMessage.TO);
+            mail.setFromAddress("service@topcoder.com");
+            EmailEngine.send(mail);
+        } catch (TCWebException tce) {
+            throw tce;
+        } catch (Exception e) {
+            throw new TCWebException(e);
         }
-
-        protected void setNextPage
-        ()
-        {
-
-            setNextPage(Constants.CONTRACTING_SUCCESS_PAGE);
-            setIsNextPageInContext(true);
-        }
-
     }
+
+    protected Map getFileTypes
+            () throws Exception {
+        Request r = new Request();
+        r.setContentHandle("file_types");
+        Map qMap = getDataAccess().getData(r);
+        ResultSetContainer questions = (ResultSetContainer) qMap.get("file_types");
+        ResultSetContainer.ResultSetRow row = null;
+
+        Map ret = new HashMap();
+        for (Iterator it = questions.iterator(); it.hasNext();) {
+            row = (ResultSetContainer.ResultSetRow) it.next();
+            ret.put(row.getStringItem("mime_type"), new Long(row.getLongItem("file_type_id")));
+        }
+        return ret;
+    }
+
+    protected void setNextPage
+            () {
+
+        setNextPage(Constants.CONTRACTING_SUCCESS_PAGE);
+        setIsNextPageInContext(true);
+    }
+
+}

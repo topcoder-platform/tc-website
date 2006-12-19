@@ -83,7 +83,7 @@ public class TCO05LogoSubmit extends Base {
                         setNextPage("/tournaments/tco05/logo_success.jsp");
                         setIsNextPageInContext(true);
                     } catch (Exception e) {
-                        if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
+                        if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
                             log.warn("rolling back");
                             tm.rollback();
                         }

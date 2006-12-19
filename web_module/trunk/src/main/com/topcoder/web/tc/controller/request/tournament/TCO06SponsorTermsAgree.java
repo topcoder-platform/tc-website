@@ -45,7 +45,7 @@ public class TCO06SponsorTermsAgree extends Static {
                     }
                     tm.commit();
                 } catch (Exception e) {
-                    if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
+                    if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
                         tm.rollback();
                     }
                     throw e;

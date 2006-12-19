@@ -45,29 +45,27 @@ public class TCO05SponsorTermsAgree extends Static {
                     }
                     tm.commit();
                 } catch (Exception e) {
-                    if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
+                    if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
                         tm.rollback();
-                        throw e;
                     }
-                    setNextPage(getSuccessPage());
-                    setIsNextPageInContext(true);
-                }else{
+                    throw e;
+                }
+                setNextPage(getSuccessPage());
+                setIsNextPageInContext(true);
+            } else {
                 setNextPage(getStartPage());
                 setIsNextPageInContext(true);
             }
-            }
-
         }
 
-        protected String getSuccessPage
-        ()
-        {
-            return "/tournaments/tco05/spon_reg_success.jsp";
-        }
-
-        protected String getStartPage
-        ()
-        {
-            return "/tournaments/tco05/spon_reg.jsp";
-        }
     }
+
+    protected String getSuccessPage() {
+        return "/tournaments/tco05/spon_reg_success.jsp";
+    }
+
+    protected String getStartPage
+            () {
+        return "/tournaments/tco05/spon_reg.jsp";
+    }
+}

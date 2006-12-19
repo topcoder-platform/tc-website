@@ -32,13 +32,14 @@ public class TCO05LogoTermsAgree extends Base {
                 }
                 tm.commit();
             } catch (Exception e) {
-                if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
+                if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
                     tm.rollback();
-                    throw e;
                 }
-                setNextPage("/tournaments/tco05/logo_submit.jsp");
-                setIsNextPageInContext(true);
+                throw e;
             }
+            setNextPage("/tournaments/tco05/logo_submit.jsp");
+            setIsNextPageInContext(true);
         }
-
     }
+
+}
