@@ -93,10 +93,11 @@ public class SimpleRegSubmit extends SimpleRegBase {
                 }
                 try {
                     if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
-                        log.info("rolling back");
+                        log.info("rolling back " + tm.getTransaction().toString());
                         tm.rollback();
                     }
                 } catch (Exception te) {
+                    log.debug("rollback failed");
                     te.printStackTrace();
                 }
                 if (newUser != null && newUser.getId() > 0 && regInfo.isNew()) {
