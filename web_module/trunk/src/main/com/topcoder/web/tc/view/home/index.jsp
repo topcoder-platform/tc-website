@@ -61,11 +61,12 @@
     <tr>
         <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
         <td class="BIGPromoBox" align="center">
-<%--
-<A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview"><IMG SRC="/i/home/tchs_promo_120406.png" border="0" alt="The 2007 TopCoder High School Tournament" /></A>
---%>
-<A href="/tc?module=Static&d1=features&d2=121406"><img src="/i/home/100000.jpg" alt="100,000 Members" /></A>
 
+<A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview"><IMG SRC="/i/home/tchs_promo_120406.png" border="0" alt="The 2007 TopCoder High School Tournament" /></A>
+
+<%-- 100k members
+<A href="/tc?module=Static&d1=features&d2=121406"><img src="/i/home/100000.jpg" alt="100,000 Members" /></A>
+--%>
 <%-- TCO Logo contest 
 <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2047"><IMG SRC="/i/home/tco07LogoCon.png" border="0" alt="2007 TCO Logo Design Contest" /></A>
 --%>
@@ -77,6 +78,7 @@
             --%>
             <%-- standard studio dogear --%>
             <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>"><img src="/i/home/studioDogEarStandard.png" alt="TopCoder Studio" /></A>
+            
         </td>
     </tr>
 </table>
