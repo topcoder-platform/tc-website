@@ -1,20 +1,20 @@
 package com.topcoder.web.admin.controller.request;
 
-import com.topcoder.web.admin.Constants;
-import com.topcoder.web.ejb.termsofuse.TermsOfUse;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.admin.Constants;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 
-import javax.transaction.TransactionManager;
 import javax.transaction.Status;
+import javax.transaction.TransactionManager;
 
 /**
- * @author  dok
- * @version  $Revision$ $Date$
- * Create Date: Apr 27, 2005
+ * @author dok
+ * @version $Revision$ $Date$
+ *          Create Date: Apr 27, 2005
  */
 public class UpdateTerms extends EditTerms {
 
@@ -56,7 +56,7 @@ public class UpdateTerms extends EditTerms {
 
 
         } catch (Exception e) {
-            if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+            if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
                 tm.rollback();
             }
             throw e;

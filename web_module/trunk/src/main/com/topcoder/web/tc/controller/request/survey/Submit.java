@@ -63,7 +63,7 @@ public class Submit extends View {
                         }
                         tm.commit();
                     } catch (Exception e) {
-                        if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                        if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
                             tm.rollback();
                         }
                         throw e;

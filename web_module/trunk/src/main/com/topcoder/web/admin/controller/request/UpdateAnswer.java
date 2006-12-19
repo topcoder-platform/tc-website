@@ -1,15 +1,15 @@
 package com.topcoder.web.admin.controller.request;
 
-import com.topcoder.web.admin.Constants;
-import com.topcoder.web.ejb.survey.Answer;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.admin.Constants;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.ejb.survey.Answer;
 
-import javax.transaction.TransactionManager;
 import javax.transaction.Status;
+import javax.transaction.TransactionManager;
 
 /**
  * @author dok
@@ -65,7 +65,7 @@ public class UpdateAnswer extends Base {
                         "&" + Constants.SURVEY_ID + "=" + sId + "&" + Constants.QUESTION_ID + "=" + qId);
                 setIsNextPageInContext(false);
             } catch (Exception e) {
-                if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
                     tm.rollback();
                 }
                 throw e;

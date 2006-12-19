@@ -95,8 +95,7 @@ abstract class BaseLogoSubmit extends Base {
                         tm.begin();
                         Image image = (Image) createEJB(getInitialContext(), Image.class);
                         //just double check, in case they're hitting it really hard
-                        if (coderImage.getImages(getUser().getId(), getImageTypeId(), DBMS.OLTP_DATASOURCE_NAME).size() >= getMaxSubmissions())
-                        {
+                        if (coderImage.getImages(getUser().getId(), getImageTypeId(), DBMS.OLTP_DATASOURCE_NAME).size() >= getMaxSubmissions()) {
                             throw new NavigationException("Sorry, you can not submit again, you have already submitted " + getMaxSubmissions() + " times.");
                         }
 
@@ -110,7 +109,7 @@ abstract class BaseLogoSubmit extends Base {
                         setNextPage(getSuccessPage());
                         setIsNextPageInContext(true);
                     } catch (Exception e) {
-                        if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                        if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
                             log.warn("rolling back");
                             tm.rollback();
                         }

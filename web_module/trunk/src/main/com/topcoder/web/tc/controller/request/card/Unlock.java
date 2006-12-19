@@ -34,7 +34,7 @@ public class Unlock extends Preview {
                             up.setValue(getUser().getId(), Constants.UNLOCK_CARD_PREFERENCE_ID,
                                     String.valueOf(true), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                         } catch (Exception e) {
-                            if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                            if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
                                 tm.rollback();
                             }
                             throw new TCWebException(e);

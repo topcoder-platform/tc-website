@@ -20,23 +20,23 @@ import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.ejb.preferencelevel.PreferenceLevel;
 
 import javax.naming.NamingException;
-import javax.transaction.TransactionManager;
 import javax.transaction.Status;
+import javax.transaction.TransactionManager;
 import java.rmi.RemoteException;
 import java.util.Map;
 
 /**
  * <p>A request processor responsible to handle the requests to create/update the preference level relevant to specified
  * company for specified candidate.</p>
- *
+ * <p/>
  * <p>Prior to fulfilling the request this processor checks if the user trying to update the candidate's preference
  * level is granted a permission to access the candidate's info. If this is the case then the <code>Preference Level EJB
  * </code> is used either to create the preference level if it does not exist or update the existing preference level
  * with new value. Otherwise a <code>PermissionDeniedException</code> is thrown.</p>
  *
- * @author  isv
+ * @author isv
  * @version 1.0 07/14/2004
- * @since   Screening Tool 1.1
+ * @since Screening Tool 1.1
  */
 public class UpdatePreference extends BaseScreeningProcessor {
 
@@ -61,10 +61,10 @@ public class UpdatePreference extends BaseScreeningProcessor {
      * value.
      *
      * @throws PermissionDeniedException if a user trying to update the preference level for specified candidate is not
-     *         granted the appropriate permission.
-     * @throws TCWebException if any other error preventing the successful fulfillment of request occurs. This exception
-     *         will wrap the original exception (for example, <code>NamingException</code>, <code>RemoteException
-     *         </code>).
+     *                                   granted the appropriate permission.
+     * @throws TCWebException            if any other error preventing the successful fulfillment of request occurs. This exception
+     *                                   will wrap the original exception (for example, <code>NamingException</code>, <code>RemoteException
+     *                                   </code>).
      */
     protected void screeningProcessing() throws TCWebException {
 
@@ -89,7 +89,7 @@ public class UpdatePreference extends BaseScreeningProcessor {
             int level = Integer.parseInt(request.getParameter(Constants.PREFERENCE_LEVEL));
 
             // Start and run the transaction
-            TransactionManager tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+            TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
             tm.begin();
 
             try {
@@ -102,8 +102,9 @@ public class UpdatePreference extends BaseScreeningProcessor {
                 }
             } catch (Exception e) {
                 // Rollback the transaction if something went wrong
-                if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE)
+                if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
                     tm.rollback();
+                }
                 throw e;
             }
 
@@ -130,11 +131,11 @@ public class UpdatePreference extends BaseScreeningProcessor {
      * access the candidate's info and the <code>PermissionDeniedException</code> will be thrown to prevent the
      * subsequent program flow.
      *
-     * @param  uid a <code>long</code> containing the ID of a user trying to access the candidate's info.
-     * @param  cuid a <code>long</code> containing the ID of a candidate the user tries to access.
+     * @param uid  a <code>long</code> containing the ID of a user trying to access the candidate's info.
+     * @param cuid a <code>long</code> containing the ID of a candidate the user tries to access.
      * @throws PermissionDeniedException if specified user is not granted a permission to access the candidate's info.
-     * @throws TCWebException if any other error occured while executing the query. This exception will wrap the
-     *         original exception.
+     * @throws TCWebException            if any other error occured while executing the query. This exception will wrap the
+     *                                   original exception.
      */
     private void checkAccess(long uid, long cuid) throws PermissionDeniedException, TCWebException {
 
@@ -157,7 +158,7 @@ public class UpdatePreference extends BaseScreeningProcessor {
             if (result.isEmpty()) {
                 throw new PermissionDeniedException(getUser(),
                         "User not authorized to view information about candidate: "
-                        + (dr.getProperty("cid") == null ? "?" : dr.getProperty("cid")));
+                                + (dr.getProperty("cid") == null ? "?" : dr.getProperty("cid")));
             }
         } else {
             throw new TCWebException("The decision could not be made.");
@@ -169,7 +170,7 @@ public class UpdatePreference extends BaseScreeningProcessor {
      * The method executes the <code>CONTACT_INFO_QUERY</code> using the <code>Query Tool</code> providing the user ID
      * obtained from incoming request and gets the company ID from returned result set.
      *
-     * @param  uid a <code>long</code> containing the ID of a user to get the company ID for.
+     * @param uid a <code>long</code> containing the ID of a user to get the company ID for.
      * @return a <code>long</code> containing the ID for a company the user is associated with.
      * @throws Exception if an unexpected error prevents the successful fulfillment of request.
      */

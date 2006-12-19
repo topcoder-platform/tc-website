@@ -1,8 +1,8 @@
 package com.topcoder.web.tc.controller.request.report;
 
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.note.Note;
 import com.topcoder.web.ejb.user.UserNote;
@@ -35,7 +35,7 @@ public class UpdateNote extends Base {
 
             Note note = (Note) createEJB(getInitialContext(), Note.class);
             UserNote userNote = (UserNote) createEJB(getInitialContext(), UserNote.class);
-            TransactionManager tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+            TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
 
             if (StringUtils.checkNull(nId).equals("")) {
                 try {
@@ -48,7 +48,7 @@ public class UpdateNote extends Base {
                     tm.commit();
                 } catch (Exception e) {
                     try {
-                        if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                        if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
                             tm.rollback();
                         }
                     } catch (Exception te) {
@@ -68,7 +68,7 @@ public class UpdateNote extends Base {
                         tm.commit();
                     } catch (Exception e) {
                         try {
-                            if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                            if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
                                 tm.rollback();
                             }
                         } catch (Exception te) {
