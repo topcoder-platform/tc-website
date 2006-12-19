@@ -65,6 +65,7 @@ public interface Coder extends EJBObject {
      */
     void setCoderTypeId(long coderId, int coderTypeId, String dataSource) throws EJBException, RemoteException;
     void setContactDate(long coderId, long timestamp, String dataSource) throws EJBException, RemoteException;
+    void setCompCountryCode(long coderId, String compCountryCode, String dataSource) throws EJBException, RemoteException;
 
     /**
      *
@@ -121,6 +122,10 @@ public interface Coder extends EJBObject {
      * @throws RemoteException
      */
     String getActivationCode(long coderId, String dataSource) throws EJBException, RemoteException;
+
+
+    String getCompCountryCode(long coderId, String dataSource) throws EJBException, RemoteException;
+
 
     /**
      *
