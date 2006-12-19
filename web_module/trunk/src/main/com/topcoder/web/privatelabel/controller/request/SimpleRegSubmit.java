@@ -93,7 +93,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
                 }
                 try {
                     log.info("transaction status " + tm.getTransaction().getStatus());
-                    if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
+                    if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
                         log.info("rolling back " + tm.getTransaction().toString());
                         tm.rollback();
                     }

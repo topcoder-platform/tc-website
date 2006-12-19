@@ -102,7 +102,7 @@ public class UpdateSurvey extends EditSurvey {
                 setNextPage(info.getServletPath() + "?module=EditSurvey&" + Constants.SURVEY_ID + "=" + surveyId);
                 setIsNextPageInContext(false);
             } catch (Exception e) {
-                if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
+                if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
                     tm.rollback();
                 }
                 throw e;

@@ -63,7 +63,7 @@ public class GoogleRegSubmit extends FullRegSubmit {
 */
                 } catch (Exception e) {
                     try {
-                        if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
+                        if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
                             tm.rollback();
                         }
                     } catch (Exception te) {
