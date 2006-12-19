@@ -26,10 +26,10 @@ import javax.transaction.TransactionManager;
  */
 public class SimpleRegSubmit extends SimpleRegBase {
 
-/*
-    private static final String ANON_GROUP = "Anonymous";
-    private static final String SOFTWARE_GROUP = "Users";
-*/
+    /*
+        private static final String ANON_GROUP = "Anonymous";
+        private static final String SOFTWARE_GROUP = "Users";
+    */
     private static final long ADDRESS_TYPE = 2; //2 is home address
     private static final long EMAIL_TYPE = 1; //1 is "primary"
     private static final int DEFAULT_EDITOR = 0;  //standard editor
@@ -82,6 +82,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
                 }
                 tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 tm.begin();
+                log.debug("transaction: " + tm.getTransaction().toString());
                 store(regInfo);
                 tm.commit();
             } catch (Exception e) {
@@ -208,7 +209,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
         }
         coder.setEditorId(userId, DEFAULT_EDITOR, transDb);
         coder.setLanguageId(userId, DEFAULT_LANGUAGE, transDb);
-        if (regInfo.getCompCountryCode()!=null && regInfo.getCompCountryCode().trim().length()>0) {
+        if (regInfo.getCompCountryCode() != null && regInfo.getCompCountryCode().trim().length() > 0) {
             coder.setCompCountryCode(userId, regInfo.getCompCountryCode(), transDb);
         }
 
