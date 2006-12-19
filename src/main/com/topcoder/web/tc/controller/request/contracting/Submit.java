@@ -190,7 +190,7 @@ public class Submit extends ContractingBase {
                 tm.commit();
                 clearInfo();
             } catch (Exception e) {
-                if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
+                if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
                     tm.rollback();
                     throw e;
                 }

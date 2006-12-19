@@ -102,7 +102,7 @@ public class UpdatePreference extends BaseScreeningProcessor {
                 }
             } catch (Exception e) {
                 // Rollback the transaction if something went wrong
-                if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
+                if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
                     tm.rollback();
                 }
                 throw e;

@@ -65,7 +65,7 @@ public class UpdateAnswer extends Base {
                         "&" + Constants.SURVEY_ID + "=" + sId + "&" + Constants.QUESTION_ID + "=" + qId);
                 setIsNextPageInContext(false);
             } catch (Exception e) {
-                if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
+                if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
                     tm.rollback();
                 }
                 throw e;
