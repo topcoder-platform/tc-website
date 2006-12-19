@@ -92,6 +92,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
                     regInfo.setUserId(0);
                 }
                 try {
+                    log.info("transaction status " + tm.getTransaction().getStatus());
                     if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
                         log.info("rolling back " + tm.getTransaction().toString());
                         tm.rollback();
