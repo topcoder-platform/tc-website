@@ -3,11 +3,13 @@
 <ejb-jar>
     <enterprise-beans>
         <session>
+            <description>Password ejb</description>
+            <display-name>password ejb</display-name>
             <ejb-name>PasswordEJB</ejb-name>
-            <local>com.topcoder.web.ejb.password.PasswordLocal</local>
-            <local-home>com.topcoder.web.ejb.password.PasswordLocalHome</local-home>
             <home>com.topcoder.web.ejb.password.PasswordRemoteHome</home>
             <remote>com.topcoder.web.ejb.password.PasswordRemote</remote>
+            <local-home>com.topcoder.web.ejb.password.PasswordLocalHome</local-home>
+            <local>com.topcoder.web.ejb.password.PasswordLocal</local>
             <ejb-class>com.topcoder.web.ejb.password.PasswordBean</ejb-class>
             <session-type>Stateless</session-type>
             <transaction-type>Container</transaction-type>
@@ -19,3 +21,5 @@
         </session>
     </enterprise-beans>
 </ejb-jar>
+
+

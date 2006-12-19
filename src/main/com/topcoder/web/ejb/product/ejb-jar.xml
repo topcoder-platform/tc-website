@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 
 <!DOCTYPE ejb-jar PUBLIC
-      "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
-      "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
+        "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+        "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
 
 <ejb-jar>
     <description>Product Jar</description>
@@ -19,7 +19,7 @@
                         <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
             -->
             <ejb-class>com.topcoder.web.ejb.product.ProductBean</ejb-class>
-            <transaction-type>Bean</transaction-type>
+            <transaction-type>Container</transaction-type>
             <session-type>Stateless</session-type>
             <resource-ref>
                 <res-ref-name>jts_datasource_name</res-ref-name>
@@ -43,7 +43,7 @@
                         <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
             -->
             <ejb-class>com.topcoder.web.ejb.product.PurchaseBean</ejb-class>
-            <transaction-type>Bean</transaction-type>
+            <transaction-type>Container</transaction-type>
             <session-type>Stateless</session-type>
             <resource-ref>
                 <res-ref-name>jts_datasource_name</res-ref-name>
@@ -67,7 +67,7 @@
                         <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
             -->
             <ejb-class>com.topcoder.web.ejb.product.ProductUnitBean</ejb-class>
-            <transaction-type>Bean</transaction-type>
+            <transaction-type>Container</transaction-type>
             <session-type>Stateless</session-type>
             <resource-ref>
                 <res-ref-name>jts_datasource_name</res-ref-name>
@@ -91,7 +91,7 @@
                         <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
             -->
             <ejb-class>com.topcoder.web.ejb.product.UnitBean</ejb-class>
-            <transaction-type>Bean</transaction-type>
+            <transaction-type>Container</transaction-type>
             <session-type>Stateless</session-type>
             <resource-ref>
                 <res-ref-name>jts_datasource_name</res-ref-name>
