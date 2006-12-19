@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 
 <!DOCTYPE ejb-jar PUBLIC
-      "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
-      "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
+        "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+        "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
 
 <ejb-jar>
     <description>Rating Jar</description>
@@ -19,7 +19,7 @@
                         <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
             -->
             <ejb-class>com.topcoder.web.ejb.rating.RatingBean</ejb-class>
-            <transaction-type>Bean</transaction-type>
+            <transaction-type>Container</transaction-type>
             <session-type>Stateless</session-type>
         </session>
     </enterprise-beans>

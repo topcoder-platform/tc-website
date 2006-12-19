@@ -18,7 +18,7 @@
             <local>com.topcoder.web.ejb.project.ProjectLocal</local>
             <ejb-class>com.topcoder.web.ejb.project.ProjectBean</ejb-class>
             <session-type>Stateless</session-type>
-            <transaction-type>Bean</transaction-type>
+            <transaction-type>Container</transaction-type>
         </session>
         <session>
             <description>Project Wager EJB</description>
@@ -30,7 +30,7 @@
             <local>com.topcoder.web.ejb.project.ProjectWagerLocal</local>
             <ejb-class>com.topcoder.web.ejb.project.ProjectWagerBean</ejb-class>
             <session-type>Stateless</session-type>
-            <transaction-type>Bean</transaction-type>
+            <transaction-type>Container</transaction-type>
         </session>
     </enterprise-beans>
     <assembly-descriptor>
