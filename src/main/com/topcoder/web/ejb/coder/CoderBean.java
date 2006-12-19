@@ -10,17 +10,15 @@ import javax.naming.InitialContext;
 import java.sql.*;
 
 /**
- *
  * @author Fred Wang (fred@fredwang.com)
  * @version $Revision$
- * Jan 9, 2003 12:48:54 AM
+ *          Jan 9, 2003 12:48:54 AM
  */
 public class CoderBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(CoderBean.class);
 
     /**
-     *
      * @param coderId
      */
     public void createCoder(long coderId, String dataSource) {
@@ -45,9 +43,9 @@ public class CoderBean extends BaseEJB {
 
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException creating Coder coderId: " + coderId);
+            throw new EJBException("SQLException creating Coder coderId: " + coderId, sqe);
         } catch (Exception e) {
-            throw new EJBException("Exception creating Coder coderId: " + coderId);
+            throw new EJBException("Exception creating Coder coderId: " + coderId, e);
         } finally {
             close(pstmt);
             close(conn);
@@ -92,7 +90,6 @@ public class CoderBean extends BaseEJB {
 
 
     /**
-     *
      * @param coderId
      * @param quote
      */
@@ -254,9 +251,9 @@ public class CoderBean extends BaseEJB {
 
             conn = DBMS.getConnection(dataSource);
             pstmt = conn.prepareStatement(query.toString());
-            if(timestamp == -1){
+            if (timestamp == -1) {
                 pstmt.setDate(1, null);
-            }else{
+            } else {
                 pstmt.setDate(1, new java.sql.Date(timestamp));
             }
             pstmt.setLong(2, coderId);
@@ -276,9 +273,7 @@ public class CoderBean extends BaseEJB {
     }
 
 
-
     /**
-     *
      * @param coderId
      * @return Member Since Date
      */
@@ -584,8 +579,11 @@ public class CoderBean extends BaseEJB {
     }
 
 
-
     public void setCompCountryCode(long coderId, String compCountryCode, String dataSource) {
+        if (1 == 1) {
+            throw new EJBException("stuff");
+        }
+
         int ret = update("coder",
                 new String[]{"comp_country_code"},
                 new String[]{compCountryCode},
@@ -593,7 +591,7 @@ public class CoderBean extends BaseEJB {
                 new String[]{String.valueOf(coderId)},
                 dataSource);
         if (ret != 1) {
-            throw(new EJBException("Wrong number of rows updated in " +
+            throw (new EJBException("Wrong number of rows updated in " +
                     "'coder'. Updated " + ret + ", " +
                     "should have updated 1."));
         }
@@ -606,12 +604,6 @@ public class CoderBean extends BaseEJB {
                 new String[]{String.valueOf(coderId)},
                 dataSource);
     }
-
-
-
-
-
-
 
 
 }
