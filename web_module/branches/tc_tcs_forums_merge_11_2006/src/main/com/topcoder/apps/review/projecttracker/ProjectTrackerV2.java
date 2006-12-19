@@ -29,11 +29,11 @@ public interface ProjectTrackerV2 extends EJBObject {
      * @param projectId projectId
      * @param requestor requestor
      *
-     * @return winner and category id array
+     * @return winner and forum category id array
      *
      * @throws RemoteException if error occurs while retrieve data from db
      */
-    public long[] getProjectWinnerIdCategoryId(long projectId, TCSubject requestor)
+    public long[] getProjectWinnerIdForumCategoryId(long projectId, TCSubject requestor)
         throws RemoteException;
 
     /**

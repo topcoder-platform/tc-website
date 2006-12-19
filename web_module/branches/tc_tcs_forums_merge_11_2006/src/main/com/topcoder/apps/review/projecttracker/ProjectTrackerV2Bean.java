@@ -90,17 +90,17 @@ public class ProjectTrackerV2Bean implements SessionBean {
     }
 
     /**
-     * Get a Project from the datbase, given a specific projectId.
+     * Get a Project from the database, given a specific projectId.
      *
      * @param projectId
      * @param requestor
      *
-     * @return long array, first is winner id, second is categoryId
+     * @return long array, first is winner id, second is forum categoryId
      *
      * @throws RuntimeException if error occurs while retrieve winner id/category id
      */
-    public long[] getProjectWinnerIdCategoryId(long projectId, TCSubject requestor) {
-        log.debug("PT.getProjectWinnerIdCategoryId(), projectId: " + projectId + ", requestId: " + requestor.getUserId());
+    public long[] getProjectWinnerIdForumCategoryId(long projectId, TCSubject requestor) {
+        log.debug("PT.getProjectWinnerIdForumCategoryId(), projectId: " + projectId + ", requestId: " + requestor.getUserId());
 
         Connection conn = null;
         PreparedStatement psForum = null;
