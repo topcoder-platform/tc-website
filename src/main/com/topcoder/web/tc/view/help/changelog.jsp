@@ -41,23 +41,37 @@
     <jsp:param name="image1" value="white"/>
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
+<p>
+    5.5.12 - 2006.12.xx
+    <ul>
+        <li>Fixed EJB configuration bug where transactions were bean managed but should have been container managed.
+        </li>
+    </ul>
+</p>
+
 
 <p>
     5.5.11 - 2006.12.18
     <ul>
         <li>Fixed a bug in pagination when the user clicked on back in the browser.</li>
         <li>Fix round types that are shown when creating payments in pacts.</li>
-        <li>In affidavit list for users, the days to expire is not shown anymore if the affidavit is not of contest winning type (the only type being currently expired)</li>
-        <li>Fixes in Reporting page for searching: sorting some columns throw error, and fixed the queries to use the new OR schema</li>
+        <li>In affidavit list for users, the days to expire is not shown anymore if the affidavit is not of contest
+            winning type (the only type being currently expired)
+        </li>
+        <li>Fixes in Reporting page for searching: sorting some columns throw error, and fixed the queries to use the
+            new OR schema
+        </li>
         <li>When search for schools in the registration process, assume that the user wants to search for *&lt;input&gt;*</li>
         <li>Allow users to see their own responses to survey's they've answered</li>
     </ul>
+</p>
+<p>
     5.5.10 - 2006.12.04
     <ul>
         <li>Fix a bug to consider only active inquired projects for low reliability registration limits</li>
         <li>Fix a bug when expiring old payments</li>
         <li>Add in rating history the percentile column.</li>
-        <li>Add a column "Challenge Time"  for challenges and defenses for regular and hs competitions stats</li>
+        <li>Add a column "Challenge Time" for challenges and defenses for regular and hs competitions stats</li>
         <li>Add testers in problem detail</li>
         <li>New component stats added
             <ul>
@@ -73,31 +87,37 @@
         <li>Fix utility to pay reliability bonus to work with the new Online Review schema</li>
         <li>Add Consecutive SRM Appearances to Algorithm Record Book</li>
     </ul>
+</p>
 
+
+<p>
     5.5.9 - 2006.11.20
     <ul>
         <li>Design and Development Active Contests columns are now sorteable</li>
-        <li>Fix bug in the member card preview.  It would error out if a person that is only rated in TC HS attempted to view his/her card</li>
+        <li>Fix bug in the member card preview. It would error out if a person that is only rated in TC HS attempted to
+            view his/her card
+        </li>
         <li>Add calendars in pacts internal search pages</li>
-        <li>Fix bug when loading ratings to DW to take into account when the user was not actually rated in the round</li>
-        <li>New payment types added to PACTS     
-<%--
-            <ul>
-                <li>Architecture Review Payment</li>
-                <li>Specification Review Payment</li>
-                <li>Assembly Competition Review</li>
-            </ul>
---%>
+        <li>Fix bug when loading ratings to DW to take into account when the user was not actually rated in the round
+        </li>
+        <li>New payment types added to PACTS
+            <%--
+                        <ul>
+                            <li>Architecture Review Payment</li>
+                            <li>Specification Review Payment</li>
+                            <li>Assembly Competition Review</li>
+                        </ul>
+            --%>
         </li>
         <li>Fix when generating payment component, the reviewers must get paid just what is marked as paid</li>
         <li>Add problem writer to the problem details and problem archive pages</li>
         <li>Fix a problem in IE when pasting a large text in member contact</li>
-<%--
-on hold for now
-        <li>Add reviewer role in component stats page for development</li>
---%>
+        <%--
+        on hold for now
+                <li>Add reviewer role in component stats page for development</li>
+        --%>
     </ul>
- </p>
+</p>
 
 <p>
     5.5.8 - 2006.11.08
@@ -107,7 +127,7 @@ on hold for now
         <li>Enhanced PACTS member pages with pagination, sorting and speed</li>
         <li>Fix Problem Testing payment type to have optional round reference</li>
     </ul>
- </p>
+</p>
 <p>
     5.5.7 - 2006.11.06
     <ul>
@@ -115,24 +135,24 @@ on hold for now
         <li>Fix bugs in PACTS internal due to changes in table schemas</li>
         <li>Fix bug in members affidavit history: notarized was always showing "no"</li>
     </ul>
- </p>
+</p>
 
 <p>
     5.5.6 - 2006.11.02
     <ul>
         <li>New Online review.</li>
     </ul>
- </p>
+</p>
 
 <p>
     5.5.5 - 2006.11.01
     <ul>
         <li>Double prizes for design DR stage 3.</li>
-<%--
-        <li>Schema was changed to store prizes in the DB so that different stages/seasons can have different prizes.</li>
---%>
+        <%--
+                <li>Schema was changed to store prizes in the DB so that different stages/seasons can have different prizes.</li>
+        --%>
     </ul>
- </p>
+</p>
 
 <p>
     5.5.4 - 2006.10.30
@@ -142,7 +162,7 @@ on hold for now
         <li>Fix bug in registration process where one can not select a school whose name contains a "</li>
         <li>Fix bug in registration where a HS user might end up without a country to represent</li>
     </ul>
- </p>
+</p>
 
 <p>
     5.5.3 - 2006.10.23
@@ -152,19 +172,20 @@ on hold for now
         <li>Add additional search criteria to administrative PACTs interface</li>
         <li>Add more payment types to member PACTs payment view</li>
         <li>Break the affidavits/payments page into two distinct pages</li>
-<%--
-        <li>don't kill the queue connection when ejbremove is called on the pacts ejb</li>
---%>
+        <%--
+                <li>don't kill the queue connection when ejbremove is called on the pacts ejb</li>
+        --%>
     </ul>
- </p>
+</p>
 
 <p>
     5.5.2 - 2006.10.18
     <ul>
-        <li>Fixed a bug in PACTS internal that was throwing an error when trying to update status to ready to print.</li>
+        <li>Fixed a bug in PACTS internal that was throwing an error when trying to update status to ready to print.
+        </li>
         <li>Fixed sorting of rows in payment list for members</li>
     </ul>
- </p>
+</p>
 
 
 <p>
@@ -173,7 +194,7 @@ on hold for now
         <li>Fixed addPayment page in PACTS internal pages.</li>
         <li>Changed the way that charity payments are handled.</li>
     </ul>
- </p>
+</p>
 
 <p>
     5.5.0 - 2006.10.10
@@ -182,10 +203,10 @@ on hold for now
         <li>Added more types of payments to PACTS.</li>
         <li>Updated pages for payments and affidavits in PACTS internal.</li>
     </ul>
-    
- </p>
 
-<p>   
+</p>
+
+<p>
     5.4.15 - 2006.10.09
     <ul>
         <li>
