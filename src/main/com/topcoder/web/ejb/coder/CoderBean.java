@@ -584,9 +584,6 @@ public class CoderBean extends BaseEJB {
 
 
     public void setCompCountryCode(long coderId, String compCountryCode, String dataSource) {
-        if (1 == 1) {
-            throw new EJBException("stuff");
-        }
 
         TransactionManager tm = null;
         try {
@@ -598,6 +595,9 @@ public class CoderBean extends BaseEJB {
             log.debug("transaction: " + tm.getTransaction().toString());
         } catch (SystemException e) {
             e.printStackTrace();
+        }
+        if (1 == 1) {
+            throw new EJBException("stuff");
         }
         int ret = update("coder",
                 new String[]{"comp_country_code"},
