@@ -85,7 +85,9 @@ public class SimpleRegSubmit extends SimpleRegBase {
                 store(regInfo);
                 tm.commit();
             } catch (Exception e) {
-                if (regInfo.isNew() && !regInfo.isAccountConversion()) {
+                //in the case that they're converting their account, we're setting a flag so that we don't
+                //wack their security user record.
+                if (regInfo.isNew() && regInfo.isAccountConversion()) {
                     regInfo.setUserId(0);
                 }
                 try {
