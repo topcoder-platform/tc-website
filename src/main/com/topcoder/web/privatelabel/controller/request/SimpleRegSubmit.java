@@ -204,6 +204,9 @@ public class SimpleRegSubmit extends SimpleRegBase {
         }
         coder.setEditorId(userId, DEFAULT_EDITOR, transDb);
         coder.setLanguageId(userId, DEFAULT_LANGUAGE, transDb);
+        if (regInfo.getCompCountryCode()!=null && regInfo.getCompCountryCode().trim().length()>0) {
+            coder.setCompCountryCode(userId, regInfo.getCompCountryCode(), transDb);
+        }
 
         return userId;
 
