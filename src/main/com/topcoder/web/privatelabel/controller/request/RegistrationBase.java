@@ -181,6 +181,22 @@ public abstract class RegistrationBase extends BaseProcessor {
         }
     }
 
+
+    protected ResultSetContainer getFullCountryList() throws TCWebException {
+        try {
+            Request request = new Request();
+            request.setContentHandle("country_list");
+            Map map = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(request);
+            if (map == null)
+                throw new Exception("error getting country list from db");
+            else
+                return (ResultSetContainer) map.get("country_list");
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+    }
+
+
     protected ResultSetContainer getStateList() throws TCWebException {
         try {
             Request request = new Request();

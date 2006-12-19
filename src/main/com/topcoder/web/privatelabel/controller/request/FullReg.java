@@ -11,6 +11,7 @@ public abstract class FullReg extends FullRegBase {
         try {
             if (!hasErrors()) {
                 getRequest().setAttribute("countryList", getCountryList());
+                getRequest().setAttribute("fullCountryList", getFullCountryList());
                 getRequest().setAttribute("stateList", getStateList());
                 setDefaults(regInfo);
             }
