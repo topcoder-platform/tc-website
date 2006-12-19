@@ -1,5 +1,6 @@
 package com.topcoder.web.ejb.coder;
 
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.RowNotFoundException;
@@ -7,6 +8,9 @@ import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.transaction.SystemException;
+import javax.transaction.TransactionManager;
 import java.sql.*;
 
 /**
@@ -584,6 +588,17 @@ public class CoderBean extends BaseEJB {
             throw new EJBException("stuff");
         }
 
+        TransactionManager tm = null;
+        try {
+            tm = tm = (TransactionManager) new InitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+        } catch (NamingException e) {
+            e.printStackTrace();
+        }
+        try {
+            log.debug("transaction: " + tm.getTransaction().toString());
+        } catch (SystemException e) {
+            e.printStackTrace();
+        }
         int ret = update("coder",
                 new String[]{"comp_country_code"},
                 new String[]{compCountryCode},
