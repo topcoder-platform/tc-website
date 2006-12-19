@@ -29,7 +29,7 @@ public interface ProjectTrackerV2Local extends EJBLocalObject {
      *
      * @return winner and forum id array
      */
-    public long[] getProjectWinnerIdForumId(long projectId, TCSubject requestor);
+    public long[] getProjectWinnerIdForumCategoryId(long projectId, TCSubject requestor);
 
     /**
      * Gets the PM for the project, or returns null if no PM is found.
