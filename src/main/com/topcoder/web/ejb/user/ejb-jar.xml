@@ -127,35 +127,56 @@
                 <ejb-name>User</ejb-name>
                 <method-name>*</method-name>
             </method>
+            <trans-attribute>Supports</trans-attribute>
+        </container-transaction>
+        <container-transaction>
             <method>
                 <ejb-name>UserTermsOfUse</ejb-name>
                 <method-name>*</method-name>
             </method>
+            <trans-attribute>Supports</trans-attribute>
+        </container-transaction>
+        <container-transaction>
             <method>
                 <ejb-name>UserSchool</ejb-name>
                 <method-name>*</method-name>
             </method>
+            <trans-attribute>Supports</trans-attribute>
+        </container-transaction>
+        <container-transaction>
             <method>
                 <ejb-name>Contact</ejb-name>
                 <method-name>*</method-name>
             </method>
+            <trans-attribute>Supports</trans-attribute>
+        </container-transaction>
+        <container-transaction>
             <method>
                 <ejb-name>UserAddress</ejb-name>
                 <method-name>*</method-name>
             </method>
+            <trans-attribute>Supports</trans-attribute>
+        </container-transaction>
+        <container-transaction>
             <method>
                 <ejb-name>UserNote</ejb-name>
                 <method-name>*</method-name>
             </method>
+            <trans-attribute>Supports</trans-attribute>
+        </container-transaction>
+        <container-transaction>
             <method>
                 <ejb-name>UserPreference</ejb-name>
                 <method-name>*</method-name>
             </method>
+            <trans-attribute>Supports</trans-attribute>
+        </container-transaction>
+        <container-transaction>
             <method>
                 <ejb-name>UserEvent</ejb-name>
                 <method-name>*</method-name>
             </method>
-            <trans-attribute>Required</trans-attribute>
+            <trans-attribute>Supports</trans-attribute>
         </container-transaction>
     </assembly-descriptor>
 </ejb-jar>
