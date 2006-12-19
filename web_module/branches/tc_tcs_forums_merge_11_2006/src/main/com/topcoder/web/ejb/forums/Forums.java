@@ -23,9 +23,10 @@ public interface Forums extends EJBObject {
     
     public void closeCategory(long categoryID) throws EJBException, RemoteException, ForumCategoryNotFoundException, UnauthorizedException;
     
-    public void createCategoryWatch(long userID, long categoryID) throws ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException;
+    public void createCategoryWatch(long userID, long categoryID) throws EJBException, RemoteException, ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException;
     
-    public com.topcoder.dde.catalog.ForumCategory getSoftwareForumCategory(long categoryID, long version, String versionLabel) throws ForumCategoryNotFoundException; 
+    public com.topcoder.dde.catalog.ForumCategory getSoftwareForumCategory(long categoryID, long version, String versionLabel) 
+    	throws EJBException, RemoteException, ForumCategoryNotFoundException; 
     
     public String[][] getSoftwareCategoriesData() throws EJBException, RemoteException;
     

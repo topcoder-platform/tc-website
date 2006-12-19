@@ -169,7 +169,7 @@ public class ForumsBean extends BaseEJB {
     	forumFactory.getWatchManager().createWatch(user, category);
     }
     
-    // Software Forums    
+    // Software Forums
     public com.topcoder.dde.catalog.ForumCategory getSoftwareForumCategory(long categoryID, long version, String versionLabel) throws ForumCategoryNotFoundException {
     	ForumCategory category = forumFactory.getForumCategory(categoryID);
     	return new com.topcoder.dde.catalog.ForumCategory(categoryID, category.getCreationDate(), 
