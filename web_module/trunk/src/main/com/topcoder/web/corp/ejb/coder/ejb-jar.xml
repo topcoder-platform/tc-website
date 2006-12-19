@@ -19,7 +19,7 @@
                         <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
             -->
             <ejb-class>com.topcoder.web.corp.ejb.coder.CoderBean</ejb-class>
-            <transaction-type>Bean</transaction-type>
+            <transaction-type>Container</transaction-type>
             <session-type>Stateless</session-type>
             <resource-ref>
                 <res-ref-name>datasource</res-ref-name>
@@ -38,7 +38,7 @@
                         <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
             -->
             <ejb-class>com.topcoder.web.corp.ejb.coder.CompanyCandidateBean</ejb-class>
-            <transaction-type>Bean</transaction-type>
+            <transaction-type>Container</transaction-type>
             <session-type>Stateless</session-type>
             <resource-ref>
                 <res-ref-name>datasource</res-ref-name>
