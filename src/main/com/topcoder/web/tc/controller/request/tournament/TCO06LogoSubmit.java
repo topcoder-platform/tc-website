@@ -82,8 +82,7 @@ public class TCO06LogoSubmit extends Base {
                         tm.begin();
                         Image image = (Image) createEJB(getInitialContext(), Image.class);
                         //just double check, in case they're hitting it really hard
-                        if (coderImage.getImages(getUser().getId(), IMAGE_TYPE, DBMS.OLTP_DATASOURCE_NAME).size() >= MAX_SUBMISSIONS)
-                        {
+                        if (coderImage.getImages(getUser().getId(), IMAGE_TYPE, DBMS.OLTP_DATASOURCE_NAME).size() >= MAX_SUBMISSIONS) {
                             throw new NavigationException("Sorry, you can not submit again, you have already submitted " + MAX_SUBMISSIONS + " times.");
                         }
 
@@ -97,7 +96,7 @@ public class TCO06LogoSubmit extends Base {
                         setNextPage("/tournaments/tco06/logo_success.jsp");
                         setIsNextPageInContext(true);
                     } catch (Exception e) {
-                        if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                        if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
                             log.warn("rolling back");
                             tm.rollback();
                         }

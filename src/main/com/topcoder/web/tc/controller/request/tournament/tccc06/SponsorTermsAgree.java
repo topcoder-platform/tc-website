@@ -42,8 +42,7 @@ public class SponsorTermsAgree extends BaseProcessor {
                 TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 try {
                     tm.begin();
-                    if (!ut.hasTermsOfUse(getUser().getId(), Constants.TCCC06_SPONSOR_TERMS_ID, DBMS.JTS_OLTP_DATASOURCE_NAME))
-                    {
+                    if (!ut.hasTermsOfUse(getUser().getId(), Constants.TCCC06_SPONSOR_TERMS_ID, DBMS.JTS_OLTP_DATASOURCE_NAME)) {
                         ut.createUserTermsOfUse(getUser().getId(), Constants.TCCC06_SPONSOR_TERMS_ID, DBMS.JTS_OLTP_DATASOURCE_NAME);
                     }
                     if (!response.exists(getUser().getId(), Constants.TCCC06_SPONSOR_COMPANY_QUESTION_ID)) {
@@ -51,8 +50,9 @@ public class SponsorTermsAgree extends BaseProcessor {
                     }
                     tm.commit();
                 } catch (Exception e) {
-                    if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE)
+                    if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
                         tm.rollback();
+                    }
                     throw e;
                 }
                 setNextPage(getSuccessPage());

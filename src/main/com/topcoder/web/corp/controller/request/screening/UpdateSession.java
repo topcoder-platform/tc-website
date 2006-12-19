@@ -23,8 +23,8 @@ import com.topcoder.web.ejb.session.SessionSegment;
 import com.topcoder.web.ejb.session.SessionSegmentHome;
 
 import javax.rmi.PortableRemoteObject;
-import javax.transaction.TransactionManager;
 import javax.transaction.Status;
+import javax.transaction.TransactionManager;
 import java.sql.Timestamp;
 import java.util.Map;
 
@@ -46,7 +46,7 @@ public class UpdateSession extends BaseSessionProcessor {
                 //setup page and commit no info from confirm page
                 if (!validateSessionInfo()) {
                     setNextPage("testing" + "?" +
-                Constants.MODULE_KEY + "=" +Constants.POPULATE_SESSION_PROCESSOR);
+                            Constants.MODULE_KEY + "=" + Constants.POPULATE_SESSION_PROCESSOR);
                     setIsNextPageInContext(true);
                     return;
                 }
@@ -67,7 +67,7 @@ public class UpdateSession extends BaseSessionProcessor {
                 long userId = Long.parseLong(info.getCandidateId());
                 User requestor = getAuthentication().getUser();
 
-                TransactionManager tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+                TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 tm.begin();
 
                 try {
@@ -117,11 +117,11 @@ public class UpdateSession extends BaseSessionProcessor {
 
                     long testSetBSegment = Long.parseLong(row.getItem("count").toString()) *
                             Long.parseLong(Constants.TEST_SET_B_SEGMENT_INTERVAL);
-                    
+
                     //if set b length == 0, don't create the segment
-                    if(testSetBSegment > 0)
+                    if (testSetBSegment > 0)
                         segment.createSessionSegment(sessionId, Long.parseLong(Constants.SESSION_SEGMENT_TEST_SET_B_ID), testSetBSegment);
-                    
+
                     info.setTestSetBLength(testSetBSegment);
 
                     //if we got through all that, then send the email
@@ -129,15 +129,16 @@ public class UpdateSession extends BaseSessionProcessor {
                         EmailInfo.createEmailInfo(info, requestor).sendEmail();
                     }
                 } catch (Exception e) {
-                    if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE)
+                    if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
                         tm.rollback();
+                    }
                     throw e;
                 }
                 tm.commit();
             } catch (TCWebException e) {
                 throw e;
             } catch (Exception e) {
-                throw(new TCWebException(e));
+                throw (new TCWebException(e));
             }
             clearSessionInfo();
 

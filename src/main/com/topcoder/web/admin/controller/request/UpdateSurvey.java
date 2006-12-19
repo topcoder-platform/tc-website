@@ -1,20 +1,20 @@
 package com.topcoder.web.admin.controller.request;
 
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.admin.Constants;
-import com.topcoder.web.ejb.survey.Survey;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SessionInfo;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.ejb.survey.Survey;
 
-import javax.transaction.TransactionManager;
 import javax.transaction.Status;
+import javax.transaction.TransactionManager;
+import java.sql.Timestamp;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
-import java.text.SimpleDateFormat;
-import java.text.ParsePosition;
-import java.sql.Timestamp;
 
 /**
  * @author dok
@@ -102,7 +102,7 @@ public class UpdateSurvey extends EditSurvey {
                 setNextPage(info.getServletPath() + "?module=EditSurvey&" + Constants.SURVEY_ID + "=" + surveyId);
                 setIsNextPageInContext(false);
             } catch (Exception e) {
-                if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
                     tm.rollback();
                 }
                 throw e;

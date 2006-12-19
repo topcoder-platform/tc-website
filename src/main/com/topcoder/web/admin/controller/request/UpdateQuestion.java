@@ -1,17 +1,16 @@
 package com.topcoder.web.admin.controller.request;
 
-import com.topcoder.web.admin.Constants;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.ejb.survey.Question;
-import com.topcoder.web.ejb.survey.Answer;
-import com.topcoder.web.ejb.survey.SurveyQuestion;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.admin.Constants;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.ejb.survey.Question;
+import com.topcoder.web.ejb.survey.SurveyQuestion;
 
-import javax.transaction.TransactionManager;
 import javax.transaction.Status;
+import javax.transaction.TransactionManager;
 import java.util.Arrays;
 
 /**
@@ -94,7 +93,7 @@ public class UpdateQuestion extends EditQuestion {
                     questionId = question.createQuestion(text, Integer.parseInt(status), keyword,
                             Integer.parseInt(type), Integer.parseInt(style), "on".equals(required),
                             DBMS.JTS_OLTP_DATASOURCE_NAME);
-                    SurveyQuestion surveyQuestion = (SurveyQuestion)createEJB(getInitialContext(), SurveyQuestion.class);
+                    SurveyQuestion surveyQuestion = (SurveyQuestion) createEJB(getInitialContext(), SurveyQuestion.class);
                     surveyQuestion.createSurveyQuestion(Long.parseLong(sId), questionId, DBMS.JTS_OLTP_DATASOURCE_NAME);
                 } else {
                     questionId = Long.parseLong(qId);
@@ -110,10 +109,10 @@ public class UpdateQuestion extends EditQuestion {
 
                 SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
                 setNextPage(info.getServletPath() + "?module=EditQuestion&" + Constants.QUESTION_ID + "=" +
-                        questionId + "&"+Constants.SURVEY_ID+"="+sId);
+                        questionId + "&" + Constants.SURVEY_ID + "=" + sId);
                 setIsNextPageInContext(false);
             } catch (Exception e) {
-                if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
                     tm.rollback();
                 }
                 throw e;

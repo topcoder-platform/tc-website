@@ -32,7 +32,7 @@ import javax.transaction.TransactionManager;
 import java.util.Map;
 
 /**
- * <p>
+ * <p/>
  * This process will update an existing candidate unless it is a new one.
  * Then it will create a new one.
  * </p>
@@ -41,7 +41,9 @@ import java.util.Map;
  * @version 1.0
  */
 public class UpdateCandidate extends BaseScreeningProcessor {
-    /** String with the total list of character able to be used in a password */
+    /**
+     * String with the total list of character able to be used in a password
+     */
     private final int createCoderStatusId;
     private final int maxPasswordSize;
 
@@ -55,7 +57,8 @@ public class UpdateCandidate extends BaseScreeningProcessor {
      * Processes the inputted information specified for CandidateSetup.
      * Decides if it is a new or old one and updates/creates if applicable.
      *
-     * @throws com.topcoder.web.common.TCWebException Thrown if there is input error.
+     * @throws com.topcoder.web.common.TCWebException
+     *          Thrown if there is input error.
      */
     protected void screeningProcessing() throws TCWebException {
         synchronized (UpdateCandidate.class) {
@@ -84,7 +87,7 @@ public class UpdateCandidate extends BaseScreeningProcessor {
                 TCSubject requestor =
                         principalMgr.getUserSubject(getAuthentication().getUser().getId());
 
-                TransactionManager tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+                TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 tm.begin();
 
                 try {
@@ -148,8 +151,9 @@ public class UpdateCandidate extends BaseScreeningProcessor {
 
                     updateSessionCandidate(userId);
                 } catch (Exception e) {
-                    if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE)
+                    if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
                         tm.rollback();
+                    }
                     throw e;
                 }
                 tm.commit();
@@ -157,7 +161,7 @@ public class UpdateCandidate extends BaseScreeningProcessor {
             } catch (TCWebException e) {
                 throw e;
             } catch (Exception e) {
-                throw(new TCWebException(e));
+                throw (new TCWebException(e));
             }
 
 
@@ -171,7 +175,7 @@ public class UpdateCandidate extends BaseScreeningProcessor {
      *
      * @return a new CandidateInfo object populated with the parameter info
      * @throws java.lang.Exception Thrown if the required properties for the CandidateInfo
-     *                   object are not in the request or are invalid.
+     *                             object are not in the request or are invalid.
      */
     private boolean buildInfo(TCRequest request, CandidateInfo info)
             throws Exception {
@@ -224,7 +228,7 @@ public class UpdateCandidate extends BaseScreeningProcessor {
      *
      * @param email The string to evaluate
      * @throws java.lang.Exception Thrown if the string is invalid.  The exception
-     *                   holds the information that specifies what was invalid.
+     *                             holds the information that specifies what was invalid.
      */
     private boolean validateEmail(String email)
             throws Exception {
@@ -267,9 +271,9 @@ public class UpdateCandidate extends BaseScreeningProcessor {
     /**
      * Validate a string that is supposed to be a password
      *
-     * @param password  The string to evaluate
+     * @param password The string to evaluate
      * @throws java.lang.Exception Thrown if the string is invalid and exception holds
-     *                   info about what was invalid
+     *                             info about what was invalid
      */
     private void validatePassword(String password) throws Exception {
         StringBuffer errorString = new StringBuffer();
@@ -298,7 +302,7 @@ public class UpdateCandidate extends BaseScreeningProcessor {
      * Updates the sessionInfo object if there is one with the newly created
      * candidate
      *
-     * @param candidateId  THe id of the created candidate
+     * @param candidateId THe id of the created candidate
      */
     private void updateSessionCandidate(long candidateId) {
         HttpSession session = getRequest().getSession();

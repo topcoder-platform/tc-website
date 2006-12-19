@@ -20,8 +20,8 @@ import com.topcoder.web.ejb.sessionprofile.*;
 
 import javax.rmi.PortableRemoteObject;
 import javax.servlet.http.HttpSession;
-import javax.transaction.TransactionManager;
 import javax.transaction.Status;
+import javax.transaction.TransactionManager;
 import java.util.Map;
 
 public class UpdateProfile extends BaseProfileProcessor {
@@ -38,7 +38,7 @@ public class UpdateProfile extends BaseProfileProcessor {
                 getRequest().setAttribute(Constants.PROFILE_INFO, info);
                 if (!validateProfileInfo()) {
                     setNextPage("testing" + "?" +
-                Constants.MODULE_KEY + "=" +Constants.POPULATE_PROFILE_PROCESSOR);
+                            Constants.MODULE_KEY + "=" + Constants.POPULATE_PROFILE_PROCESSOR);
                     setIsNextPageInContext(true);
                     return;
                 }
@@ -60,7 +60,7 @@ public class UpdateProfile extends BaseProfileProcessor {
                 SessionProfileProblem problem = sppHome.create();
                 User user = getAuthentication().getUser();
 
-                TransactionManager tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+                TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 tm.begin();
 
                 try {
@@ -140,15 +140,16 @@ public class UpdateProfile extends BaseProfileProcessor {
 
                     updateSessionProfile(sessionProfileId);
                 } catch (Exception e) {
-                    if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE)
+                    if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
                         tm.rollback();
+                    }
                     throw e;
                 }
                 tm.commit();
             } catch (TCWebException e) {
                 throw e;
             } catch (Exception e) {
-                throw(new TCWebException(e));
+                throw (new TCWebException(e));
             }
 
             setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath() + "?" +
@@ -162,7 +163,7 @@ public class UpdateProfile extends BaseProfileProcessor {
      * Updates the sessionInfo object if there is one with the newly created
      * profile id
      *
-     * @param profileId  THe id of the created candidate
+     * @param profileId THe id of the created candidate
      */
     private void updateSessionProfile(long profileId) {
         HttpSession session = getRequest().getSession();

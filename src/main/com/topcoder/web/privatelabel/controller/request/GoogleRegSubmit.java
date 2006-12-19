@@ -26,7 +26,7 @@ public class GoogleRegSubmit extends FullRegSubmit {
         try {
 
             if (((Coder) createEJB(getInitialContext(), Coder.class)).exists(useId, DBMS.OLTP_DATASOURCE_NAME)) {
-                TransactionManager tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+                TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 try {
 /*
                     UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(getInitialContext().lookup(
@@ -63,7 +63,7 @@ public class GoogleRegSubmit extends FullRegSubmit {
 */
                 } catch (Exception e) {
                     try {
-                        if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                        if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
                             tm.rollback();
                         }
                     } catch (Exception te) {

@@ -139,7 +139,7 @@ public class EditContest extends Base {
 
             ClassMetadata cmd = HibernateUtils.getFactory().getClassMetadata(Contest.class);
 
-            for (int i=0; i<cmd.getPropertyNames().length; i++) {
+            for (int i = 0; i < cmd.getPropertyNames().length; i++) {
                 log.debug("stuff: " + cmd.getPropertyType(cmd.getPropertyNames()[i]));
             }
 
@@ -154,7 +154,6 @@ public class EditContest extends Base {
                 log.debug("overview size after commit is " + (myContest.getOverview().getValue() == null ?
                         "null" : "" + myContest.getOverview().getValue().length()));
             }
-
 
 
             setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
