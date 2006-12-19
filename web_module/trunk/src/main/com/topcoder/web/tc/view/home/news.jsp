@@ -22,6 +22,25 @@
 ------------%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.19.06<br>6:45 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm24">TCHS SRM 24 - Problem Set & Analysis</A></span><br><br>
+      The competition started with a high number of fast submissions on the easy problem and, by the end of the coding phase, a reasonable number of medium and hard 
+      submissions were in. As the dust settled, <tc-webtag:handle coderId="22375930" context="hs_algorithm"/> finished on top, with <tc-webtag:handle coderId="22285847" context="hs_algorithm"/> 
+      and <tc-webtag:handle coderId="22263204" context="hs_algorithm"/> rounding out the top three.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/_efer__big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8593420" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm24">full story</A> | 
+        <tc-webtag:forumLink forumID="506046" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>12.14.06<br>11:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=features&d2=121406">TopCoder Celebrates 100,000 Members</A>
@@ -187,30 +206,3 @@ Over 1100 coders registered for this round. In division 1, <tc-webtag:handle cod
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>12.08.06<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/movies/tournament/tccc06/final_webcast_preview.mov">TCCC06 Webcast Highlights</A></span><br><br>
-        Watch a short video of highlights from the 2006 TCCC webcast. The full replay of the webcast is coming soon.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/movies/tournament/tccc06/final_webcast_preview.mov">view</A> | 
-        <tc-webtag:forumLink forumID="506209" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-------------%>
-<%-----------------------------------------
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>12.08.06<br>3:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.chinadaily.com.cn/china/2006-12/08/content_754200.htm">Undergraduate VP of multinational company</A></span><br><br>
-        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/chinadaily_logo.png" alt="China Daily logo" width="67" height="25" border="0" /></div>
-      Wu Yingying, 21, holding patents for three of her 100 inventions, has become Asia operations vice president with TopCoder, a Connecticut-based multinational company, before her graduation.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://www.chinadaily.com.cn/china/2006-12/08/content_754200.htm">full story</A> | 
-       <tc-webtag:forumLink forumID="506208" message="discuss this" /> | 
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
----------------%>
