@@ -584,4 +584,34 @@ public class CoderBean extends BaseEJB {
     }
 
 
+
+    public void setCompCountryCode(long coderId, String compCountryCode, String dataSource) {
+        int ret = update("coder",
+                new String[]{"comp_country_code"},
+                new String[]{compCountryCode},
+                new String[]{"coder_id"},
+                new String[]{String.valueOf(coderId)},
+                dataSource);
+        if (ret != 1) {
+            throw(new EJBException("Wrong number of rows updated in " +
+                    "'coder'. Updated " + ret + ", " +
+                    "should have updated 1."));
+        }
+    }
+
+    public String getCompCountryCode(long coderId, String dataSource) {
+        return selectString("coder",
+                "comp_country_code",
+                new String[]{"coder_id"},
+                new String[]{String.valueOf(coderId)},
+                dataSource);
+    }
+
+
+
+
+
+
+
+
 }
