@@ -11,6 +11,7 @@ import com.topcoder.web.privatelabel.Constants;
 public class SimpleReg extends SimpleRegBase {
     protected void registrationProcessing() throws TCWebException {
         getRequest().setAttribute("countryList", getCountryList());
+        getRequest().setAttribute("fullCountryList", getFullCountryList());
         getRequest().setAttribute("stateList", getStateList());
         setNextPage();
     }

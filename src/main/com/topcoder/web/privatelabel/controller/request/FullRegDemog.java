@@ -20,6 +20,7 @@ public abstract class FullRegDemog extends FullRegBase {
 
         if (hasErrors()) {
             getRequest().setAttribute("countryList", getCountryList());
+            getRequest().setAttribute("fullCountryList", getFullCountryList());
             getRequest().setAttribute("stateList", getStateList());
         } else {
             try {
