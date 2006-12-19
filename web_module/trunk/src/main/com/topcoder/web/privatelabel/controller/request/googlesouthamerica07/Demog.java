@@ -45,6 +45,11 @@ public class Demog extends FullRegDemog {
             addError(Constants.CODER_TYPE, getBundle().getProperty("error_enter_stud_pro"));
         }
 
+        //check comp country code
+        if (info.getCompCountryCode().trim().length() == 0 || findCountry(info.getCompCountryCode()) == null) {
+            addError(Constants.COMP_COUNTRY_CODE, getBundle().getProperty("error_enter_comp_country"));
+        }
+
         //make a bunch of fields not required
         removeError(Constants.STATE_CODE);
 
