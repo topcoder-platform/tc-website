@@ -82,7 +82,7 @@ public abstract class BaseEJB implements SessionBean {
                 return rc;
             } catch (SQLException e) {
                 DBMS.printSqlException(true, e);
-                throw(new EJBException(e.getMessage()));
+                throw new EJBException(e);
             } finally {
                 close(ps);
                 close(conn);
@@ -122,7 +122,7 @@ public abstract class BaseEJB implements SessionBean {
                 return rc;
             } catch (SQLException e) {
                 DBMS.printSqlException(true, e);
-                throw(new EJBException(e.getMessage()));
+                throw new EJBException(e);
             } finally {
                 close(ps);
                 close(conn);
@@ -173,7 +173,7 @@ public abstract class BaseEJB implements SessionBean {
                 return rc;
             } catch (SQLException e) {
                 DBMS.printSqlException(true, e);
-                throw(new EJBException(e.getMessage()));
+                throw new EJBException(e);
             } finally {
                 close(ps);
                 close(conn);
@@ -216,7 +216,7 @@ public abstract class BaseEJB implements SessionBean {
                 return rc;
             } catch (SQLException e) {
                 DBMS.printSqlException(true, e);
-                throw(new EJBException(e.getMessage()));
+                throw new EJBException(e);
             } finally {
                 close(ps);
                 close(conn);
@@ -227,7 +227,7 @@ public abstract class BaseEJB implements SessionBean {
     }
 
     protected int updateTimestamp(String tableName, String colName, Timestamp colValue,
-                             String[] constraintNames, String[] constraintValues, String dataSource) {
+                                  String[] constraintNames, String[] constraintValues, String dataSource) {
         if (constraintNames.length != constraintValues.length)
             throw new IllegalArgumentException("contraint name and value arrays don't have the same number of elements.");
         else {
@@ -259,7 +259,7 @@ public abstract class BaseEJB implements SessionBean {
                 return rc;
             } catch (SQLException e) {
                 DBMS.printSqlException(true, e);
-                throw(new EJBException(e.getMessage()));
+                throw new EJBException(e);
             } finally {
                 close(ps);
                 close(conn);
@@ -288,7 +288,7 @@ public abstract class BaseEJB implements SessionBean {
         return ret;
     }
 
-    protected Long selectLong(String tableName, String colName, String[] colNames, String[] colValues, String dataSource) throws RowNotFoundException{
+    protected Long selectLong(String tableName, String colName, String[] colNames, String[] colValues, String dataSource) throws RowNotFoundException {
         String sRet = selectString(tableName, colName, colNames, colValues, dataSource);
         Long ret = null;
         if (!(sRet == null || sRet.trim().equals(""))) {
@@ -333,7 +333,7 @@ public abstract class BaseEJB implements SessionBean {
                 return ret;
             } catch (SQLException e) {
                 DBMS.printSqlException(true, e);
-                throw new EJBException(e.getMessage());
+                throw new EJBException(e);
             } finally {
                 close(rs);
                 close(ps);
@@ -381,7 +381,7 @@ public abstract class BaseEJB implements SessionBean {
                 return ret;
             } catch (SQLException e) {
                 DBMS.printSqlException(true, e);
-                throw new EJBException(e.getMessage());
+                throw new EJBException(e);
             } finally {
                 close(rs);
                 close(ps);
@@ -428,7 +428,7 @@ public abstract class BaseEJB implements SessionBean {
                 return ret;
             } catch (SQLException e) {
                 DBMS.printSqlException(true, e);
-                throw new EJBException(e.getMessage());
+                throw new EJBException(e);
             } finally {
                 close(rs);
                 close(ps);
@@ -478,9 +478,9 @@ public abstract class BaseEJB implements SessionBean {
 
             } catch (SQLException e) {
                 DBMS.printSqlException(true, e);
-                throw new EJBException(e.getMessage());
+                throw new EJBException(e);
             } catch (Exception e) {
-                throw new EJBException(e.getMessage());
+                throw new EJBException(e);
             } finally {
                 close(rs);
                 close(ps);
