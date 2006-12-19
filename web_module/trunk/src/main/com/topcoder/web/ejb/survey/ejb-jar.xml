@@ -17,7 +17,7 @@
             <local>com.topcoder.web.ejb.survey.ResponseLocal</local>
             <ejb-class>com.topcoder.web.ejb.survey.ResponseBean</ejb-class>
             <session-type>Stateless</session-type>
-            <transaction-type>Bean</transaction-type>
+            <transaction-type>Container</transaction-type>
         </session>
         <session>
             <description>Answer EJB</description>
@@ -28,7 +28,7 @@
             <local>com.topcoder.web.ejb.survey.AnswerLocal</local>
             <ejb-class>com.topcoder.web.ejb.survey.AnswerBean</ejb-class>
             <session-type>Stateless</session-type>
-            <transaction-type>Bean</transaction-type>
+            <transaction-type>Container</transaction-type>
         </session>
         <session>
             <description>Question EJB</description>
@@ -39,7 +39,7 @@
             <local>com.topcoder.web.ejb.survey.QuestionLocal</local>
             <ejb-class>com.topcoder.web.ejb.survey.QuestionBean</ejb-class>
             <session-type>Stateless</session-type>
-            <transaction-type>Bean</transaction-type>
+            <transaction-type>Container</transaction-type>
         </session>
         <session>
             <description>SurveyQuestion EJB</description>
@@ -50,7 +50,7 @@
             <local>com.topcoder.web.ejb.survey.SurveyQuestionLocal</local>
             <ejb-class>com.topcoder.web.ejb.survey.SurveyQuestionBean</ejb-class>
             <session-type>Stateless</session-type>
-            <transaction-type>Bean</transaction-type>
+            <transaction-type>Container</transaction-type>
         </session>
         <session>
             <description>Survey EJB</description>
@@ -61,7 +61,7 @@
             <local>com.topcoder.web.ejb.survey.SurveyLocal</local>
             <ejb-class>com.topcoder.web.ejb.survey.SurveyBean</ejb-class>
             <session-type>Stateless</session-type>
-            <transaction-type>Bean</transaction-type>
+            <transaction-type>Container</transaction-type>
         </session>
     </enterprise-beans>
     <assembly-descriptor>
@@ -70,18 +70,30 @@
                 <ejb-name>Response</ejb-name>
                 <method-name>*</method-name>
             </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+        <container-transaction>
             <method>
                 <ejb-name>Answer</ejb-name>
                 <method-name>*</method-name>
             </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+        <container-transaction>
             <method>
                 <ejb-name>Survey</ejb-name>
                 <method-name>*</method-name>
             </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+        <container-transaction>
             <method>
                 <ejb-name>SurveyQuestion</ejb-name>
                 <method-name>*</method-name>
             </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+        <container-transaction>
             <method>
                 <ejb-name>Question</ejb-name>
                 <method-name>*</method-name>
