@@ -18,7 +18,7 @@
             <local>com.topcoder.web.ejb.longcompresult.LongCompResultLocal</local>
             <ejb-class>com.topcoder.web.ejb.longcompresult.LongCompResultBean</ejb-class>
             <session-type>Stateless</session-type>
-            <transaction-type>Bean</transaction-type>
+            <transaction-type>Container</transaction-type>
         </session>
     </enterprise-beans>
     <assembly-descriptor>

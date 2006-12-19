@@ -19,7 +19,7 @@
                         <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
             -->
             <ejb-class>com.topcoder.web.ejb.company.CompanyBean</ejb-class>
-            <transaction-type>Bean</transaction-type>
+            <transaction-type>Container</transaction-type>
             <session-type>Stateless</session-type>
             <resource-ref>
                 <res-ref-name>jts_datasource_name</res-ref-name>
