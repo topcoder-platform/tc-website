@@ -166,6 +166,17 @@ public abstract class RegistrationBase extends BaseProcessor {
         return null;
     }
 
+    protected String findFullCountry(String countryCode) throws TCWebException {
+        ResultSetContainer list = getFullCountryList();
+        ResultSetContainer.ResultSetRow row = null;
+        for (Iterator it = list.iterator(); it.hasNext();) {
+            row = (ResultSetContainer.ResultSetRow) it.next();
+            if (row.getItem("country_code").toString().equals(countryCode))
+                return row.getItem("country_name").toString();
+        }
+        return null;
+    }
+
     protected ResultSetContainer getCountryList() throws TCWebException {
         try {
             Request request = new Request();

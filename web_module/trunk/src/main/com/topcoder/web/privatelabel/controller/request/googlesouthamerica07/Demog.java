@@ -46,7 +46,7 @@ public class Demog extends FullRegDemog {
         }
 
         //check comp country code
-        if (info.getCompCountryCode().trim().length() == 0 || findCountry(info.getCompCountryCode()) == null) {
+        if (info.getCompCountryCode().trim().length() == 0 || findFullCountry(info.getCompCountryCode()) == null) {
             addError(Constants.COMP_COUNTRY_CODE, getBundle().getProperty("error_enter_comp_country"));
         }
 
