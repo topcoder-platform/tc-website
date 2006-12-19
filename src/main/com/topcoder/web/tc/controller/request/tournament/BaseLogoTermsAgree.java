@@ -34,25 +34,27 @@ abstract class BaseLogoTermsAgree extends Base {
                 }
                 tm.commit();
             } catch (Exception e) {
-                if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
+                if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
                     tm.rollback();
                     throw e;
                 }
-                CoderImage coderImage = (CoderImage) createEJB(getInitialContext(), CoderImage.class);
-                getRequest().setAttribute("submissionCount",
-                        new Integer(coderImage.getImages(getUser().getId(), getImageTypeId(), DBMS.OLTP_DATASOURCE_NAME).size()));
-
-                setNextPage();
-                setIsNextPageInContext(true);
+                throw e;
             }
+            CoderImage coderImage = (CoderImage) createEJB(getInitialContext(), CoderImage.class);
+            getRequest().setAttribute("submissionCount",
+                    new Integer(coderImage.getImages(getUser().getId(), getImageTypeId(), DBMS.OLTP_DATASOURCE_NAME).size()));
+
+            setNextPage();
+            setIsNextPageInContext(true);
         }
-
-        protected abstract int getTermsId
-        ();
-
-        protected abstract int getImageTypeId
-        ();
-
-        protected abstract void setNextPage
-        ();
     }
+
+    protected abstract int getTermsId
+            ();
+
+    protected abstract int getImageTypeId
+            ();
+
+    protected abstract void setNextPage
+            ();
+}

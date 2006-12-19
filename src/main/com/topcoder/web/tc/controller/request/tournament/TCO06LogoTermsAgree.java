@@ -33,17 +33,18 @@ public class TCO06LogoTermsAgree extends Base {
                 }
                 tm.commit();
             } catch (Exception e) {
-                if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
+                if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
                     tm.rollback();
-                    throw e;
                 }
-                CoderImage coderImage = (CoderImage) createEJB(getInitialContext(), CoderImage.class);
-                getRequest().setAttribute("submissionCount",
-                        new Integer(coderImage.getImages(getUser().getId(), TCO06LogoSubmit.IMAGE_TYPE, DBMS.OLTP_DATASOURCE_NAME).size()));
-
-                setNextPage("/tournaments/tco06/logo_submit.jsp");
-                setIsNextPageInContext(true);
+                throw e;
             }
-        }
+            CoderImage coderImage = (CoderImage) createEJB(getInitialContext(), CoderImage.class);
+            getRequest().setAttribute("submissionCount",
+                    new Integer(coderImage.getImages(getUser().getId(), TCO06LogoSubmit.IMAGE_TYPE, DBMS.OLTP_DATASOURCE_NAME).size()));
 
+            setNextPage("/tournaments/tco06/logo_submit.jsp");
+            setIsNextPageInContext(true);
+        }
     }
+
+}

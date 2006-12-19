@@ -54,7 +54,7 @@ public class TCCC06ComponentTermsAgree extends TermsAgreeBase {
                                 log.info("registering " + getUser().getId() + " for the " + getEventName());
                                 userTerms.createUserTermsOfUse(getUser().getId(), getTermsId(), DBMS.OLTP_DATASOURCE_NAME);
                             } catch (Exception e) {
-                                if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK) {
+                                if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
                                     tm.rollback();
                                 }
                                 throw new TCWebException(e);
