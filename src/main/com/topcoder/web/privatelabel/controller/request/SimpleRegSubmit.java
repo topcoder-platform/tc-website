@@ -92,6 +92,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
                 }
                 try {
                     if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                        log.info("rolling back");
                         tm.rollback();
                     }
                 } catch (Exception te) {
@@ -100,6 +101,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
                 if (newUser != null && newUser.getId() > 0 && regInfo.isNew()) {
                     PrincipalMgrRemote mgr = (PrincipalMgrRemote)
                             com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
+                    log.info("remove security user");
                     mgr.removeUser(newUser, CREATE_USER, db);
                 }
                 throw new TCWebException(e);
