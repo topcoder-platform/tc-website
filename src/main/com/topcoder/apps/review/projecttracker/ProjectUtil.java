@@ -4,22 +4,6 @@
 package com.topcoder.apps.review.projecttracker;
 
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Types;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-
 import com.topcoder.project.phases.Dependency;
 import com.topcoder.project.phases.Phase;
 import com.topcoder.project.phases.PhaseStatus;
@@ -30,6 +14,12 @@ import com.topcoder.util.errorhandling.BaseException;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.util.idgenerator.IDGenerator;
 import com.topcoder.util.idgenerator.IDGeneratorFactory;
+
+import java.sql.*;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * The test of ProjectUtil.
@@ -43,14 +33,15 @@ public class ProjectUtil {
     private static final int PHASE_TYPE_SCREEN = 3;
     private static final int PHASE_TYPE_REVIEW = 4;
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy hh:mm", Locale.US);
+
     static void userInquiry(Connection conn, long userId, long projectId) throws SQLException {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
         // Prepare resource
-        ps = conn.prepareStatement("INSERT INTO resource " + 
-        		"(resource_id, resource_role_id, project_id, create_user, create_date, modify_user, modify_date) " +
-        		" VALUES (?, 1, ?, ?, CURRENT, ?, CURRENT)");
+        ps = conn.prepareStatement("INSERT INTO resource " +
+                "(resource_id, resource_role_id, project_id, create_user, create_date, modify_user, modify_date) " +
+                " VALUES (?, 1, ?, ?, CURRENT, ?, CURRENT)");
 
         long resourceId = ProjectUtil.nextId(ProjectUtil.RESOURCE_ID_SEQ);
         int index = 1;
@@ -126,7 +117,7 @@ public class ProjectUtil {
 
         // External Reference ID
         ps = conn.prepareStatement("INSERT INTO resource_info " +
-        		"(resource_id, resource_info_type_id, value, create_user, create_date, modify_user, modify_date) " +
+                "(resource_id, resource_info_type_id, value, create_user, create_date, modify_user, modify_date) " +
                 " VALUES (?, ?, ?, ?, CURRENT, ?, CURRENT)");
         index = 1;
         ps.setLong(index++, resourceId);
@@ -139,7 +130,7 @@ public class ProjectUtil {
         if (nr != 1) {
             throw new RuntimeException("Could not create External Reference ID resourceinfo !");
         }
-        
+
         // handle 2
         String handle = getUserHandleInfo(conn, userId);
         index = 1;
@@ -148,7 +139,7 @@ public class ProjectUtil {
         ps.setString(index++, handle);
         ps.setString(index++, String.valueOf(userId));
         ps.setString(index++, String.valueOf(userId));
-        ps.executeUpdate();	
+        ps.executeUpdate();
 
         // Rating 4, 
         if (old_rating > 0) {
@@ -193,7 +184,7 @@ public class ProjectUtil {
             throw new RuntimeException("Could not create Registration Date resourceinfo !");
         }
 
-        close(ps);    	
+        close(ps);
     }
 
     static long createProject(Connection conn, String projectVersion, long compVersId, long projectTypeId, long modUserId, long forumId) throws SQLException, BaseException {
@@ -201,14 +192,14 @@ public class ProjectUtil {
         ResultSet rs = null;
 
         ps = conn.prepareStatement(
-        		"select root_category_id " +
-        		"	from comp_versions cv       " +
-        		"	,comp_catalog cc       " +
-        		"	,categories pcat " +
-        		"where cc.component_id = cv.component_id " +
-        		"and cc.status_id = 102     " +
-        		"and pcat.category_id = cc.root_category_id " +
-        		"and cv.comp_vers_id = ?;");
+                "select root_category_id " +
+                        "	from comp_versions cv       " +
+                        "	,comp_catalog cc       " +
+                        "	,categories pcat " +
+                        "where cc.component_id = cv.component_id " +
+                        "and cc.status_id = 102     " +
+                        "and pcat.category_id = cc.root_category_id " +
+                        "and cv.comp_vers_id = ?;");
         ps.setLong(1, compVersId);
         rs = ps.executeQuery();
 
@@ -219,15 +210,15 @@ public class ProjectUtil {
         long rootCategoryId = rs.getLong(1);
         close(rs);
         close(ps);
-        
+
         if (rootCategoryId == 9926572) {
-        	projectTypeId = (projectTypeId == 1 ? 6: 10); // 6 means Specification, 10 means Deployment
+            projectTypeId = (projectTypeId == 1 ? 6 : 10); // 6 means Specification, 10 means Deployment
         }
 
-        ps = conn.prepareStatement("SELECT p.project_id " + 
-        		"FROM project p, " +
-        		"	project_info pi_vi, " +
-        		"	project_info pi_vt " +
+        ps = conn.prepareStatement("SELECT p.project_id " +
+                "FROM project p, " +
+                "	project_info pi_vi, " +
+                "	project_info pi_vt " +
                 "where p.project_id = pi_vi.project_id " +
                 "and pi_vi.project_info_type_id = 1 " +
                 "and pi_vi.value = ? " + // 1 is external id
@@ -251,9 +242,9 @@ public class ProjectUtil {
         long projectId = nextId(PROJECT_ID_SEQ);
 
         // Create project
-        ps = conn.prepareStatement("INSERT INTO project " + 
-        		"(project_id, project_status_id, project_category_id, create_user, create_date, modify_user, modify_date) " +
-        		" VALUES (?, ?, ?, ?, CURRENT, ?, CURRENT)");
+        ps = conn.prepareStatement("INSERT INTO project " +
+                "(project_id, project_status_id, project_category_id, create_user, create_date, modify_user, modify_date) " +
+                " VALUES (?, ?, ?, ?, CURRENT, ?, CURRENT)");
 
         long projectStatId = 1; // Active
 
@@ -284,76 +275,76 @@ public class ProjectUtil {
         close(ps);
 
         // Create phase instances for project
-        if (rootCategoryId == 5801776 
-        		|| rootCategoryId == 5801777 
-        		|| rootCategoryId == 5801778 
-        		|| rootCategoryId == 5801779 
-        		|| rootCategoryId == 9926572) {
-	        PhaseTemplate template = getPhaseTemplate();
-	        String templateName = (projectTypeId == 1) ? "Design" : "Development";
-	        if (rootCategoryId == 9926572) {
-	        	templateName = "Application";
-	        }
-	        com.topcoder.project.phases.Project project = template.applyTemplate(templateName);
-	        if (project == null) {
-	        	throw new BaseException("Online Review: project template does not exists, templateName: " + templateName + " Please make sure Project_Phase_Template_Config.xml is configured well!");
-	        }
-	        com.topcoder.project.phases.Phase[] phases = project.getAllPhases();
-	        for (int i = 0; i < phases.length; i++) {
-	        	phases[i].setFixedStartDate(phases[i].calcStartDate());
-	        	phases[i].setScheduledStartDate(phases[i].calcStartDate());
-	        	phases[i].setScheduledEndDate(phases[i].calcEndDate());
-	        	phases[i].setPhaseStatus(PhaseStatus.SCHEDULED);
-	        }
-	        Map phaseIds = new HashMap();
-	        Set dependencies = new HashSet();
+        if (rootCategoryId == 5801776
+                || rootCategoryId == 5801777
+                || rootCategoryId == 5801778
+                || rootCategoryId == 5801779
+                || rootCategoryId == 9926572) {
+            PhaseTemplate template = getPhaseTemplate();
+            String templateName = (projectTypeId == 1) ? "Design" : "Development";
+            if (rootCategoryId == 9926572) {
+                templateName = "Application";
+            }
+            com.topcoder.project.phases.Project project = template.applyTemplate(templateName);
+            if (project == null) {
+                throw new BaseException("Online Review: project template does not exists, templateName: " + templateName + " Please make sure Project_Phase_Template_Config.xml is configured well!");
+            }
+            com.topcoder.project.phases.Phase[] phases = project.getAllPhases();
+            for (int i = 0; i < phases.length; i++) {
+                phases[i].setFixedStartDate(phases[i].calcStartDate());
+                phases[i].setScheduledStartDate(phases[i].calcStartDate());
+                phases[i].setScheduledEndDate(phases[i].calcEndDate());
+                phases[i].setPhaseStatus(PhaseStatus.SCHEDULED);
+            }
+            Map phaseIds = new HashMap();
+            Set dependencies = new HashSet();
 
-	        // insert default scorecards
-	        long screenTemplateId = getScorecardId(conn, projectTypeId, 1);
-	        long reviewTemplateId = getScorecardId(conn, projectTypeId, 2);
+            // insert default scorecards
+            long screenTemplateId = getScorecardId(conn, projectTypeId, 1);
+            long reviewTemplateId = getScorecardId(conn, projectTypeId, 2);
 
-	        for (int i = 0; i < phases.length; i++) {
-	            long phaseId = nextId(PROJECT_PHASE_ID_SEQ);
-	            createPhase(conn, projectId, phaseId, phases[i], modUserId);
-	
-	            if (phases[i].getPhaseType().getId() == PHASE_TYPE_REGISTRATION) {
-	                // Registration Number
-	                createPhaseCriteria(conn, phaseId, 2, "0", modUserId);
-	            }
+            for (int i = 0; i < phases.length; i++) {
+                long phaseId = nextId(PROJECT_PHASE_ID_SEQ);
+                createPhase(conn, projectId, phaseId, phases[i], modUserId);
 
-	            if (phases[i].getPhaseType().getId() == PHASE_TYPE_SUBMISSION) {
-	                // Submission Number
-	                createPhaseCriteria(conn, phaseId, 3, "0", modUserId);
-	            }
+                if (phases[i].getPhaseType().getId() == PHASE_TYPE_REGISTRATION) {
+                    // Registration Number
+                    createPhaseCriteria(conn, phaseId, 2, "0", modUserId);
+                }
+
+                if (phases[i].getPhaseType().getId() == PHASE_TYPE_SUBMISSION) {
+                    // Submission Number
+                    createPhaseCriteria(conn, phaseId, 3, "1", modUserId);
+                }
                 // 5, 'Manual Screening'
                 createPhaseCriteria(conn, phaseId, 5, "No", modUserId);
 
-	            if (phases[i].getPhaseType().getId() == PHASE_TYPE_SCREEN) {
-	                // Create scorecard id
-	                // 1, 'Scorecard ID'
-	                createPhaseCriteria(conn, phaseId, 1, String.valueOf(screenTemplateId), modUserId);
-	            }
-	
-	            if (phases[i].getPhaseType().getId() == PHASE_TYPE_REVIEW) {
-	                // Create scorecard id
-	                // 1, 'Scorecard ID'
-	                createPhaseCriteria(conn, phaseId, 1, String.valueOf(reviewTemplateId), modUserId);
-	            }
-	
-	            phaseIds.put(phases[i], String.valueOf(phaseId));
-	            dependencies.addAll(Arrays.asList(phases[i].getAllDependencies()));
-	        }
+                if (phases[i].getPhaseType().getId() == PHASE_TYPE_SCREEN) {
+                    // Create scorecard id
+                    // 1, 'Scorecard ID'
+                    createPhaseCriteria(conn, phaseId, 1, String.valueOf(screenTemplateId), modUserId);
+                }
 
-	        // Prepare phase dependency
-	        for (Iterator iter = dependencies.iterator(); iter.hasNext();) {
-	            Dependency d = (Dependency) iter.next();
-	            createPhaseDependency(conn, phaseIds, d, modUserId);
-	        }
+                if (phases[i].getPhaseType().getId() == PHASE_TYPE_REVIEW) {
+                    // Create scorecard id
+                    // 1, 'Scorecard ID'
+                    createPhaseCriteria(conn, phaseId, 1, String.valueOf(reviewTemplateId), modUserId);
+                }
+
+                phaseIds.put(phases[i], String.valueOf(phaseId));
+                dependencies.addAll(Arrays.asList(phases[i].getAllDependencies()));
+            }
+
+            // Prepare phase dependency
+            for (Iterator iter = dependencies.iterator(); iter.hasNext();) {
+                Dependency d = (Dependency) iter.next();
+                createPhaseDependency(conn, phaseIds, d, modUserId);
+            }
         }
         // Prepare resource for pm
-        ps = conn.prepareStatement("INSERT INTO resource " + 
-        		"(resource_id, resource_role_id, project_id, create_user, create_date, modify_user, modify_date) " +
-        		"VALUES (?, 13, ?, ?, CURRENT, ?, CURRENT)"); // 13 is manager
+        ps = conn.prepareStatement("INSERT INTO resource " +
+                "(resource_id, resource_role_id, project_id, create_user, create_date, modify_user, modify_date) " +
+                "VALUES (?, 13, ?, ?, CURRENT, ?, CURRENT)"); // 13 is manager
 
         long resourceId = nextId(RESOURCE_ID_SEQ);
         index = 1;
@@ -365,9 +356,9 @@ public class ProjectUtil {
         close(ps);
 
         // External Reference ID
-        ps = conn.prepareStatement("INSERT INTO resource_info " + 
-        		"(resource_id, resource_info_type_id, value, create_user, create_date, modify_user, modify_date) " +
-        		" VALUES (?, ?, ?, ?, CURRENT, ?, CURRENT)");
+        ps = conn.prepareStatement("INSERT INTO resource_info  " +
+                "(resource_id, resource_info_type_id, value, create_user, create_date, modify_user, modify_date) " +
+                " VALUES (?, ?, ?, ?, CURRENT, ?, CURRENT)");
         index = 1;
         ps.setLong(index++, resourceId);
         ps.setLong(index++, 1); // External Reference ID 1
@@ -375,7 +366,7 @@ public class ProjectUtil {
         ps.setString(index++, String.valueOf(modUserId));
         ps.setString(index++, String.valueOf(modUserId));
         ps.executeUpdate();
-        
+
         // handle 2
         String handle = getUserHandleInfo(conn, modUserId);
         index = 1;
@@ -384,7 +375,7 @@ public class ProjectUtil {
         ps.setString(index++, handle);
         ps.setString(index++, String.valueOf(modUserId));
         ps.setString(index++, String.valueOf(modUserId));
-        ps.executeUpdate();	
+        ps.executeUpdate();
 
         close(ps);
 
@@ -392,11 +383,11 @@ public class ProjectUtil {
         ps = null;
         return projectId;
     }
-    
+
     private static final String SELECT_HANDLER = "SELECT handle FROM USER WHERE user_id = ? ";
 
     private static String getUserHandleInfo(Connection conn, long userID)
-        throws SQLException {
+            throws SQLException {
         PreparedStatement pstmt = conn.prepareStatement(SELECT_HANDLER);
         pstmt.setLong(1, userID);
 
@@ -417,18 +408,17 @@ public class ProjectUtil {
     /**
      * Create phase with given project id, phase id and created user id.
      *
-     * @param conn the jdbc connection
+     * @param conn      the jdbc connection
      * @param projectId the project id
-     * @param phaseId the phase id
-     * @param phase the create phase which contains start/end time and duration.
-     * @param userId the created user id
-     *
+     * @param phaseId   the phase id
+     * @param phase     the create phase which contains start/end time and duration.
+     * @param userId    the created user id
      * @throws SQLException if error occurs while execute jdbc statement
      */
     private static void createPhase(Connection conn, long projectId, long phaseId, Phase phase, long userId)
-        throws SQLException {
-        PreparedStatement ps = conn.prepareStatement("INSERT INTO project_phase " + 
-        		"(project_phase_id, project_id, " +
+            throws SQLException {
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO project_phase " +
+                "(project_phase_id, project_id, " +
                 "phase_type_id, phase_status_id, duration, fixed_start_time, scheduled_start_time, scheduled_end_time, " +
                 "actual_start_time, actual_end_time, create_user, create_date, modify_user, modify_date) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ? , ?, CURRENT, ?, CURRENT)"); // 1: Scheduled
@@ -452,16 +442,15 @@ public class ProjectUtil {
     /**
      * Create PhaseCriteria with given phaseId, parameter and created user id.
      *
-     * @param conn the jdbc connection
-     * @param phaseId the phase id
-     * @param type DOCUMENT ME!
+     * @param conn      the jdbc connection
+     * @param phaseId   the phase id
+     * @param type      DOCUMENT ME!
      * @param parameter the Criteria parameter
-     * @param userId the created user id
-     *
+     * @param userId    the created user id
      * @throws SQLException if error occurs while execute jdbc statement
      */
     private static void createPhaseCriteria(Connection conn, long phaseId, int type, String parameter, long userId)
-        throws SQLException {
+            throws SQLException {
         PreparedStatement ps = conn.prepareStatement("INSERT INTO phase_criteria " +
                 "(project_phase_id, phase_criteria_type_id, parameter, create_user, create_date, modify_user, modify_date) " +
                 "VALUES (?, ?, ?, ?, CURRENT, ?, CURRENT)"); // 1: Scheduled
@@ -478,12 +467,12 @@ public class ProjectUtil {
     static final String RESOURCE_ID_SEQ = "resource_id_seq";
 
     static long nextId(String tableId) {
-    	try {
-    		IDGenerator idgen = IDGeneratorFactory.getIDGenerator(tableId);
-    		return idgen.getNextID();
-    	} catch (IDGenerationException e) {
-			throw new RuntimeException("Failed to get id generator for " + tableId);
-		}
+        try {
+            IDGenerator idgen = IDGeneratorFactory.getIDGenerator(tableId);
+            return idgen.getNextID();
+        } catch (IDGenerationException e) {
+            throw new RuntimeException("Failed to get id generator for " + tableId);
+        }
     }
 
     private static void prepareProjectInfo(Connection conn, long compVersId, long projectId, long modUserId, long forumId) throws SQLException {
@@ -496,32 +485,32 @@ public class ProjectUtil {
         String componentName = "";
         float price = (float) 0.0;
         int phaseId = -1;
-        
+
         // Retrieve project_info
         // component id, version
         ps = conn.prepareStatement("SELECT * FROM comp_versions where comp_vers_id = ?");
         ps.setLong(1, compVersId);
         rs = ps.executeQuery();
         if (rs.next()) {
-        	componentId = rs.getLong("component_id");
-        	version = rs.getInt("version");
-        	phaseId=  rs.getInt("phase_id");
-        	versionText = rs.getString("version_text");
-        } 
+            componentId = rs.getLong("component_id");
+            version = rs.getInt("version");
+            phaseId = rs.getInt("phase_id");
+            versionText = rs.getString("version_text");
+        }
 
         close(rs);
         close(ps);
-        
+
         // forum id
         if (forumId == -1) {
-	        ps = conn.prepareStatement("SELECT * FROM comp_forum_xref where comp_vers_id = ?  and forum_type = 2");
-	        ps.setLong(1, compVersId);
-	        rs = ps.executeQuery();
-	        if (rs.next()) {
-	        	forumId = rs.getLong("forum_id");
-	        }
-	        close(rs);
-	        close(ps);
+            ps = conn.prepareStatement("SELECT * FROM comp_forum_xref where comp_vers_id = ?  and forum_type = 2");
+            ps.setLong(1, compVersId);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                forumId = rs.getLong("forum_id");
+            }
+            close(rs);
+            close(ps);
         }
 
         // root category id
@@ -529,34 +518,34 @@ public class ProjectUtil {
         ps.setLong(1, componentId);
         rs = ps.executeQuery();
         if (rs.next()) {
-        	rootCatagoryId = rs.getLong("root_category_id");
-        	componentName = rs.getString("component_name");
+            rootCatagoryId = rs.getLong("root_category_id");
+            componentName = rs.getString("component_name");
         }
 
         close(rs);
         close(ps);
 
-    	// check if it's aol
-    	if (rootCatagoryId == 5801776) {
-    		ps = conn.prepareStatement("select category_id from comp_categories where component_id = ? and category_id = 22774808");
+        // check if it's aol
+        if (rootCatagoryId == 5801776) {
+            ps = conn.prepareStatement("select category_id from comp_categories where component_id = ? and category_id = 22774808");
             ps.setLong(1, componentId);
             rs = ps.executeQuery();
             if (rs.next()) {
-            	rootCatagoryId = 22774808;
+                rootCatagoryId = 22774808;
             }
             close(rs);
             close(ps);
-    	}
-    	
-    	// price
-    	ps = conn.prepareStatement("SELECT * FROM comp_version_dates WHERE comp_vers_id = ? and phase_id = ?");
-    	ps.setLong(1, compVersId);
-    	ps.setInt(2, phaseId);
-    	rs = ps.executeQuery();
-    	
-    	if (rs.next()) {
-    		price = rs.getFloat("price");
-    	}
+        }
+
+        // price
+        ps = conn.prepareStatement("SELECT * FROM comp_version_dates WHERE comp_vers_id = ? and phase_id = ?");
+        ps.setLong(1, compVersId);
+        ps.setInt(2, phaseId);
+        rs = ps.executeQuery();
+
+        if (rs.next()) {
+            price = rs.getFloat("price");
+        }
 
         close(rs);
         close(ps);
@@ -565,21 +554,21 @@ public class ProjectUtil {
         ps = conn.prepareStatement("INSERT INTO project_info " +
                 "(project_id, project_info_type_id, value, create_user, create_date, modify_user, modify_date) " +
                 " values (?, ?, ?, ?, CURRENT, ?, CURRENT)");
-        
+
         createProjectInfo(ps, projectId, 1, String.valueOf(compVersId), modUserId);
-        
+
         // component id
         createProjectInfo(ps, projectId, 2, String.valueOf(componentId), modUserId);
-        
+
         // version id
         createProjectInfo(ps, projectId, 3, String.valueOf(version), modUserId);
-        
+
         // forum id
         createProjectInfo(ps, projectId, 4, String.valueOf(forumId), modUserId);
-        
+
         // rootCatagoryId
         createProjectInfo(ps, projectId, 5, String.valueOf(rootCatagoryId), modUserId);
-        
+
         // component name
         createProjectInfo(ps, projectId, 6, componentName, modUserId);
 
@@ -591,7 +580,7 @@ public class ProjectUtil {
 
         // Status Notification
         createProjectInfo(ps, projectId, 10, "On", modUserId);
-        
+
         // Timeline Notification
         createProjectInfo(ps, projectId, 11, "On", modUserId);
 
@@ -600,19 +589,19 @@ public class ProjectUtil {
 
         // Rated
         createProjectInfo(ps, projectId, 13, "Yes", modUserId);
-        
+
         // Payments
         createProjectInfo(ps, projectId, 16, String.valueOf(price), modUserId);
-        
-        close(ps);        
+
+        close(ps);
     }
 
     /**
      * Create project info.
-     * 
-     * @param ps the preparedstatement
+     *
+     * @param ps                the preparedstatement
      * @param projectInfoTypeId the info type id
-     * @param value the value
+     * @param value             the value
      * @throws SQLException if error occurs
      */
     private static void createProjectInfo(PreparedStatement ps, long projectId, long projectInfoTypeId, String value, long modUserId) throws SQLException {
@@ -630,18 +619,18 @@ public class ProjectUtil {
     private static final String PROJECT_PHASE_ID_SEQ = "project_phase_id_seq";
 
     static PhaseTemplate getPhaseTemplate() {
-    	try {
-			return new DefaultPhaseTemplate(DefaultPhaseTemplate.class.getName());
-		} catch (ConfigurationException e) {
-			throw new RuntimeException("Failed to get phase template, cause: " + e.getMessage(), e);
-		}
+        try {
+            return new DefaultPhaseTemplate(DefaultPhaseTemplate.class.getName());
+        } catch (ConfigurationException e) {
+            throw new RuntimeException("Failed to get phase template, cause: " + e.getMessage(), e);
+        }
     }
 
     /**
      * Retrieve scorecard id with given project type and scorecard type.
-     * 
-     * @param conn the connection
-     * @param projectTypeId the project type id
+     *
+     * @param conn            the connection
+     * @param projectTypeId   the project type id
      * @param scorecardTypeId the scorecard type id
      * @return the scorecard id
      */
@@ -649,37 +638,36 @@ public class ProjectUtil {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-	        ps = conn.prepareStatement("SELECT scorecard_id FROM default_scorecard " +
-	        						   "WHERE project_category_id = ? and scorecard_type_id = ? ");
-	        ps.setLong(1, projectTypeId);
-	        ps.setInt(2, scorecardTypeId);
-	        rs = ps.executeQuery();
-	        if (rs.next()) {
-	        	return rs.getInt("scorecard_id");
-	        } else {
-	        	throw new RuntimeException("Cannot find default scorecard id for project type: " + 
-	        			projectTypeId + ", scorecard type: " + scorecardTypeId);
-	        }
-        } catch(SQLException e) {
-        	throw new RuntimeException("default_scorecard table does not exist");
+            ps = conn.prepareStatement("SELECT scorecard_id FROM default_scorecard " +
+                    "WHERE project_category_id = ? and scorecard_type_id = ? ");
+            ps.setLong(1, projectTypeId);
+            ps.setInt(2, scorecardTypeId);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("scorecard_id");
+            } else {
+                throw new RuntimeException("Cannot find default scorecard id for project type: " +
+                        projectTypeId + ", scorecard type: " + scorecardTypeId);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("default_scorecard table does not exist");
         } finally {
-        	close(rs);
-        	close(ps);
+            close(rs);
+            close(ps);
         }
     }
 
     /**
      * Create PhaseDependency with given Dependency, phaseIds and created user id.
      *
-     * @param conn the jdbc connection
+     * @param conn     the jdbc connection
      * @param phaseIds that map which map phase to its phase id in persistence
-     * @param d the denpendency and dependent instance
-     * @param userId the created user id
-     *
+     * @param d        the denpendency and dependent instance
+     * @param userId   the created user id
      * @throws SQLException if error occurs while execute jdbc statement
      */
     private static void createPhaseDependency(Connection conn, Map phaseIds, Dependency d, long userId)
-        throws SQLException {
+            throws SQLException {
         PreparedStatement ps = conn.prepareStatement("INSERT INTO phase_dependency " +
                 "(dependency_phase_id, dependent_phase_id, dependency_start, " +
                 "dependent_start, lag_time, create_user, create_date, modify_user, modify_date) " +
@@ -703,17 +691,17 @@ public class ProjectUtil {
     }
 
     private static void close(Object obj) {
-    	if (obj instanceof ResultSet) {
-    		try {
-    			((ResultSet) obj).close();
-    		} catch(Exception e) {    			
-    		}
-    	}
-    	if (obj instanceof PreparedStatement) {
-    		try {
-    			((PreparedStatement) obj).close();
-    		} catch(Exception e) {    			
-    		}
-    	}
+        if (obj instanceof ResultSet) {
+            try {
+                ((ResultSet) obj).close();
+            } catch (Exception e) {
+            }
+        }
+        if (obj instanceof PreparedStatement) {
+            try {
+                ((PreparedStatement) obj).close();
+            } catch (Exception e) {
+            }
+        }
     }
 }
