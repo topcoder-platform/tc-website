@@ -28,6 +28,7 @@
 
     <script type="text/javascript">
         function toggleDisplay(objectID,imageID,linkID){
+        alert(objectID);
            var object = document.getElementById(objectID) 
            if(object.className == 'dark hideText') {
                 object.className = 'dark showText'; 
