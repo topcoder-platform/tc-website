@@ -1,7 +1,7 @@
 <!--Header begins-->
     <table width="100%" border="0" cellpadding="0" cellspacing="0" class="head">
     	<tr valign="top">
-		<td width="219" height="57" align="left" rowspan="2"><a href="/pages/s_index.jsp"><img src="/images/logoTCSHome.gif" alt="TopCoder Software" width="216" height="57" border="0" /></a></td>
+		<td width="219" height="57" align="left" rowspan="2"><a href="/"><img src="/images/logoTCSHome.gif" alt="TopCoder Software" width="216" height="57" border="0" /></a></td>
 		<td width="155" height="57" align="left" rowspan="2"><img src="/images/homeBannerAdmin.gif" alt="Administration" width="155" height="57" border="0" /></td>
     		
 		<td class="headRight">

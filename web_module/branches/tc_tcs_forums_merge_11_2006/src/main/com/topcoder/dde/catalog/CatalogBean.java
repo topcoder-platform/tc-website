@@ -1094,8 +1094,9 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 }
             }
 
-
+            log.info("---> calling forumDbName");
             String forumDbName = DBMS.getDbName(DBMS.FORUMS_DATASOURCE_NAME);
+            log.info("---> forumDbName: " + forumDbName);
             query = new StringBuffer(500);
             query.append("SELECT cat.category_id, cat.creationdate, cat.modificationdate, ");
             query.append("       p.propvalue, v.version, v.version_text    ");
@@ -1113,7 +1114,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             if (version < 0)
                 query.append("   AND c.current_version = v.version ");
             else
-                query.append("   AND ? = v.version ");   
+                query.append("   AND ? = v.version ");  
+            log.info("---> query: " + query.toString());
             
             try {
 
