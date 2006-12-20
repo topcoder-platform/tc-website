@@ -4,7 +4,8 @@
                 com.topcoder.shared.util.ApplicationServer,
                 com.topcoder.shared.dataAccess.DataAccessConstants,
                 com.topcoder.web.common.model.SoftwareComponent,
-                com.topcoder.web.tc.Constants" %>
+                com.topcoder.web.tc.Constants,
+                java.util.Map" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -99,6 +100,7 @@
 <%
     ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("payment_detail");
     String coderId = (String) request.getParameter(Constants.CODER_ID);
+    Map devSupport = (Map) request.getAttribute("dev_support");
 %>
 <TD WIDTH="180">
     <!-- Left nav begins -->
@@ -207,6 +209,20 @@
                 <% }%>
                 </TD>
                 </tr>
+<% if (resultRow.getIntItem("payment_type_id") == 6) {  
+ResultSetContainer.ResultSetRow rsr = (ResultSetContainer.ResultSetRow) devSupport.get(new Long(resultRow.getLongItem("reference_id")));
+%>                
+                <% if (rsr != null) {%>
+                    <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
+                    <TD class="value">&nbsp;</TD>
+                    <TD class="value">&nbsp;</TD>
+                    <TD class="value"><rsc:item name="payment_desc" row="<%=rsr%>"/></TD>
+                    <TD class="value"><rsc:item name="payment_type_desc" row="<%=rsr%>"/></TD>
+                    <TD class="value"><rsc:item name="earnings" row="<%=rsr%>" format="$#,##0.00"/></TD>
+                    <TD class="value">&nbsp;</TD>
+                    </tr>
+                <% }%>
+<% } else { %>
                 <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
                     <TD class="value">&nbsp;</TD>
@@ -217,6 +233,7 @@
                     <TD class="value">&nbsp;</TD>
                     </tr>
                 <% }%>
+<% } %>
                 <%even = !even;%>
             </rsc:iterator>
         </TABLE>
