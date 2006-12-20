@@ -211,7 +211,7 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                     <a href="javascript:toggleDisplay('ref_<%=i%>','switch_<%=i%>');" onfocus="this.blur();"><img src="/i/interface/exp_w.gif" alt="Open" name="switch_<%=i%>" /></a>
                 <% } else if (devSupportRow!= null) {%>
                     <%i++;%>
-                    <a href="javascript:toggleDisplayTwo('ref_<%=i%>a', 'ref_<%=i%>b','switch_<%=i%>b');" onfocus="this.blur();"><img src="/i/interface/exp_w.gif" alt="Open" name="switch_<%=i%>" /><img src="/i/interface/exp_w.gif" alt="Open" name="switch_<%=i%>b" /></a>
+                    <a href="javascript:toggleDisplayTwo('ref_<%=i%>a', 'ref_<%=i%>b','switch_<%=i%>b');" onfocus="this.blur();"><img src="/i/interface/exp_w.gif" alt="Open" name="switch_<%=i%>" /></a>
                 <% } else { %>
                     <div style="width:7px;">&nbsp;</div>
                 <% }%>
@@ -219,7 +219,12 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                 <TD class="value"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
                 <TD class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
                 <TD class="valueR">
-                    <rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
+	<% if (devSupportRow != null) { 
+		double earnings = devSupportRow.getDoubleItem("earnings") + resultRow.getDoubleItem("earnings"); %>
+		<tc-webtag:format object="earnings"  format="$#,##0.00" />
+ 	<% } else { %>
+	 	<rsc:item name="earnings" row="<%=devSupportRow%>" format="$#,##0.00"/>
+ 	<% } %>
                     <% if (resultRow.getIntItem("charity_ind") == 1) {
                         hasCharity = true;
                     %>*<% }%>
