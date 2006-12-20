@@ -30,7 +30,7 @@
 			        <tr id="trAmount2">			    
 			        <td><b>Installment Number:</b></td>
 			        <td>
-			        	<tc-webtag:stringSelect name="installment_number" list="<%= java.util.Arrays.asList(new String[]{"1", "2"}) %>" useTopValue="false"/>
+			        	<tc-webtag:stringSelect name="installment_number" list="<%= java.util.Arrays.asList(new String[]{"1", "2"}) %>" useTopValue="false" onChange="referenceChanged('component_project_id')"/>
 			        </td>			   
 			        </tr> 
 			    </taconite-replace>
@@ -46,7 +46,7 @@
 			        <tr id="trAmount4">
 				        <td><b>Installment Net Amount:</b></td>
 				        <td>
-				            <tc-webtag:textInput name="net_amount" size="8" editable="true" format="#########.00" onChange="referenceChanged('component_project_id')"/> (if left blank, calculated from Installment Gross Amount)
+				            <tc-webtag:textInput name="net_amount" size="8" editable="true" format="#########.00"/> (if left blank, calculated from Installment Gross Amount)
 				        </td>
 				    </tr>
 				 </taconite-replace>			    			    
