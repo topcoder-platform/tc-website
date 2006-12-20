@@ -221,7 +221,7 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                 <TD class="valueR">
 	<% if (devSupportRow != null) { 
 		double earnings = devSupportRow.getDoubleItem("earnings") + resultRow.getDoubleItem("earnings"); %>
-		<tc-webtag:format object="earnings"  format="$#,##0.00" />
+		<tc-webtag:format object="<%=new Double(earnings)%>"  format="$#,##0.00" />
  	<% } else { %>
 	 	<rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
  	<% } %>
