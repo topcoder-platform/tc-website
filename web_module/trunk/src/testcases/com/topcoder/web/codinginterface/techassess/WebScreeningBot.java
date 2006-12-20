@@ -10,27 +10,20 @@
 
 package com.topcoder.web.codinginterface.techassess;
 
-import com.topcoder.shared.util.DBMS;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import com.informix.jdbc.IfxDriver;
-import com.meterware.httpunit.GetMethodWebRequest;
-import com.meterware.httpunit.WebConversation;
-import com.meterware.httpunit.WebForm;
-import com.meterware.httpunit.WebLink;
-import com.meterware.httpunit.WebRequest;
-import com.meterware.httpunit.WebResponse;
+import com.meterware.httpunit.*;
 import com.topcoder.shared.language.CPPLanguage;
 import com.topcoder.shared.language.CSharpLanguage;
 import com.topcoder.shared.language.JavaLanguage;
 import com.topcoder.shared.language.VBLanguage;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -80,7 +73,7 @@ public class WebScreeningBot {
                 em.addToAddress("6508045266@vtext.com", TCSEmailMessage.TO);
                 em.addToAddress("8604656205@mobile.mycingular.com", TCSEmailMessage.TO);
                 em.addToAddress("8606144043@vtext.com", TCSEmailMessage.TO);
-                em.addToAddress("9196197120@vtext.com", TCSEmailMessage.TO); //fogle
+                //em.addToAddress("9196197120@vtext.com", TCSEmailMessage.TO); //fogle
 
                 em.setSubject("Server Error");
                 em.setBody("Tech Assess Error:\n" + shortError);
@@ -95,7 +88,7 @@ public class WebScreeningBot {
                 em.addToAddress("thaas@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("ivern@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("mtong@topcoder.com", TCSEmailMessage.TO);
-                em.addToAddress("mfogleman@topcoder.com", TCSEmailMessage.TO);
+                //em.addToAddress("mfogleman@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("javier-topcoder-alarm@ivern.org", TCSEmailMessage.TO);
                 em.addToAddress("8602686127@messaging.sprintpcs.com", TCSEmailMessage.TO);
 
