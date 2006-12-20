@@ -1098,7 +1098,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             String forumDbName = DBMS.getDbName(DBMS.FORUMS_DATASOURCE_NAME);
             log.info("---> forumDbName: " + forumDbName);
             query = new StringBuffer(500);
-            query.append("SELECT cat.category_id, cat.creationdate, cat.modificationdate, ");
+            query.append("SELECT cat.categoryid, cat.creationdate, cat.modificationdate, ");
             query.append("       p.propvalue, v.version, v.version_text    ");
             query.append("  FROM ");
             query.append(forumDbName).append(":jivecategory cat, ");
