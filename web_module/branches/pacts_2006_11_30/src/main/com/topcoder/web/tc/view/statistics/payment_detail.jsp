@@ -27,8 +27,8 @@
 </style>
 
     <script type="text/javascript">
+
         function toggleDisplay(objectID,imageID,linkID){
-        alert(objectID);
            var object = document.getElementById(objectID) 
            if(object.className == 'dark hideText') {
                 object.className = 'dark showText'; 
@@ -46,6 +46,30 @@
           linkID.blur();
           return;
         }
+        function toggleDisplayTwo(objectID1, objectID2,imageID,linkID){
+           var object = document.getElementById(objectID1);
+           var object2 = document.getElementById(objectID2);
+           if(object.className == 'dark hideText') {
+                object.className = 'dark showText'; 
+                object2.className = 'dark showText'; 
+                document.images[imageID].src = '/i/interface/exp_ed_w.gif'; 
+           }else if(object.className == 'dark showText') {
+                object.className = 'dark hideText'; 
+                object2.className = 'dark hideText'; 
+                document.images[imageID].src = '/i/interface/exp_w.gif';
+           }else if(object.className == 'light showText') {
+                object.className = 'light hideText'; 
+                object2.className = 'light hideText'; 
+                document.images[imageID].src = '/i/interface/exp_w.gif';
+           }else {
+                object.className = 'light showText';
+                object2.className = 'light showText';
+                document.images[imageID].src = '/i/interface/exp_ed_w.gif';
+           }
+          linkID.blur();
+          return;
+        }
+
         function next() {
             var myForm = document.paymentDetailForm;
             var oldStartRank = myForm.<%=DataAccessConstants.START_RANK%>.value;
@@ -187,7 +211,7 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                     <a href="javascript:toggleDisplay('ref_<%=i%>','switch_<%=i%>');" onfocus="this.blur();"><img src="/i/interface/exp_w.gif" alt="Open" name="switch_<%=i%>" /></a>
                 <% } else if (devSupportRow!= null) {%>
                     <%i++;%>
-                    <a href="javascript:toggleDisplay('ref_<%=i%>a','switch_<%=i%>');toggleDisplay('ref_<%=i%>b','switch_<%=i%>b');" onfocus="this.blur();"><img src="/i/interface/exp_w.gif" alt="Open" name="switch_<%=i%>" /><img src="/i/interface/exp_w.gif" alt="Open" name="switch_<%=i%>b" /></a>
+                    <a href="javascript:toggleDisplayTwo('ref_<%=i%>a', 'ref_<%=i%>b','switch_<%=i%>b');" onfocus="this.blur();"><img src="/i/interface/exp_w.gif" alt="Open" name="switch_<%=i%>" /><img src="/i/interface/exp_w.gif" alt="Open" name="switch_<%=i%>b" /></a>
                 <% } else { %>
                     <div style="width:7px;">&nbsp;</div>
                 <% }%>
