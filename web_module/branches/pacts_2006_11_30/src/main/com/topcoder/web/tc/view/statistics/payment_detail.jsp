@@ -252,7 +252,7 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
 
 <% if (devSupportRow != null) {%>
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>a">            
-                    <TD class="value">&nbsp;</TD>
+                    <TD class="value"><rsc:item name="date_due" row="<%=devSupportRow%>" format="MM.dd.yy"/></TD>
                     <TD class="value">&nbsp;</TD>
                     <TD class="value"><rsc:item name="payment_desc" row="<%=devSupportRow%>"/></TD>
                     <TD class="value"><rsc:item name="payment_type_desc" row="<%=devSupportRow%>"/></TD>
@@ -261,12 +261,10 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                         hasCharity = true;
                     %>*<% }%>
                     </TD>
-                    <TD class="value">
-                    	<A href="/tc?module=CompContestDetails&pj=<rsc:item name="reference_id" row="<%=devSupportRow%>"/>" class="bcLink">Project details</A>
-                    </TD>
+                    <TD class="value">&nbsp;</TD>
                     </tr>
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>b">            
-                    <TD class="value">&nbsp;</TD>
+                    <TD class="value"><rsc:item name="date_due" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
                     <TD class="value">&nbsp;</TD>
                     <TD class="value"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
                     <TD class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
