@@ -223,7 +223,7 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
 		double earnings = devSupportRow.getDoubleItem("earnings") + resultRow.getDoubleItem("earnings"); %>
 		<tc-webtag:format object="earnings"  format="$#,##0.00" />
  	<% } else { %>
-	 	<rsc:item name="earnings" row="<%=devSupportRow%>" format="$#,##0.00"/>
+	 	<rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
  	<% } %>
                     <% if (resultRow.getIntItem("charity_ind") == 1) {
                         hasCharity = true;
