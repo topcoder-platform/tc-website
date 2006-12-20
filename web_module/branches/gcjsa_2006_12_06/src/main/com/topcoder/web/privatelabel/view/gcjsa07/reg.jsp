@@ -322,7 +322,7 @@
 </tr>
 <tr>
     <td align="right" nowrap>
-        <span class="errorText">*</span> Country
+        <span class="errorText">*</span> Country to Represent
     </td>
     <td align="left">
         <tc-webtag:rscSelect name="<%=Constants.COMP_COUNTRY_CODE%>" list="${fullCountryList}" fieldText="country_name" fieldValue="country_code"/>
