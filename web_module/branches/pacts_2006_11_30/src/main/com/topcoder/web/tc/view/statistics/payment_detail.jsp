@@ -183,7 +183,7 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                 <TD class="value" style="vertical-align:middle;">
                 <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
                     <%i++;%>
-                    <a href="javascript:toggleDisplay('ref_<%=i%>','switch_<%=i%>');" onfocus="this.blur();"><img src="/i/interface/exp_w.gif" alt="Open" name="switch_<%=i%>" /></a>
+                    <a href="javascript:toggleDisplay('ref_<%=i%>','switch_<%=i%>')" onfocus="this.blur();"><img src="/i/interface/exp_w.gif" alt="Open" name="switch_<%=i%>" /></a>
                 <% } else if (devSupportRow!= null) {%>
                     <%i++;%>
                     <a href="javascript:toggleDisplay('ref_<%=i%>','switch_<%=i%>');" onfocus="this.blur();"><img src="/i/interface/exp_w.gif" alt="Open" name="switch_<%=i%>" /></a>
@@ -221,13 +221,33 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                 </tr>
 
 <% if (devSupportRow != null) {%>
-                    <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
+                    <tr class="<%=even?"dark":"light"%> hideText" id="ref_1_<%=i%>">            
                     <TD class="value">&nbsp;</TD>
                     <TD class="value">&nbsp;</TD>
                     <TD class="value"><rsc:item name="payment_desc" row="<%=devSupportRow%>"/></TD>
                     <TD class="value"><rsc:item name="payment_type_desc" row="<%=devSupportRow%>"/></TD>
-                    <TD class="value"><rsc:item name="earnings" row="<%=devSupportRow%>" format="$#,##0.00"/></TD>
+                    <TD class="valueR"><rsc:item name="earnings" row="<%=devSupportRow%>" format="$#,##0.00"/>
+                    <% if (devSupportRow.getIntItem("charity_ind") == 1) {
+                        hasCharity = true;
+                    %>*<% }%>
+                    </TD>
+                    <TD class="value">
+                    	<A href="/tc?module=CompContestDetails&pj=<rsc:item name="reference_id" row="<%=devSupportRow%>"/>" class="bcLink">Project details</A>
+                    </TD>
+                    </tr>
+                    <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
                     <TD class="value">&nbsp;</TD>
+                    <TD class="value">&nbsp;</TD>
+                    <TD class="value"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
+                    <TD class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
+                    <TD class="valueR"><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
+                    <% if (resultRow.getIntItem("charity_ind") == 1) {
+                        hasCharity = true;
+                    %>*<% }%>
+                    </TD>
+                    <TD class="value">
+                    	<A href="/tc?module=CompContestDetails&pj=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">Project details</A>
+                    </TD>
                     </tr>
 <% } else if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
