@@ -186,7 +186,7 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                     <a href="javascript:toggleDisplay('ref_<%=i%>','switch_<%=i%>');" onfocus="this.blur();"><img src="/i/interface/exp_w.gif" alt="Open" name="switch_<%=i%>" /></a>
                 <% } else if (devSupportRow!= null) {%>
                     <%i++;%>
-                    <a href="javascript:toggleDisplay('ref_<%=i%>a','switch_<%=i%>');toggleDisplay('ref_<%=i%>b','switch_<%=i%>');" onfocus="this.blur();"><img src="/i/interface/exp_w.gif" alt="Open" name="switch_<%=i%>" /></a>
+                    <a href="javascript:toggleDisplay('ref_<%=i%>a','switch_<%=i%>');toggleDisplay('ref_<%=i%>b','switch_<%=i%>b');" onfocus="this.blur();"><img src="/i/interface/exp_w.gif" alt="Open" name="switch_<%=i%>" /><img src="/i/interface/exp_w.gif" alt="Open" name="switch_<%=i%>b" /></a>
                 <% } else { %>
                     <div style="width:7px;">&nbsp;</div>
                 <% }%>
@@ -245,9 +245,7 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                         hasCharity = true;
                     %>*<% }%>
                     </TD>
-                    <TD class="value">
-                    	<A href="/tc?module=CompContestDetails&pj=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">Project details</A>
-                    </TD>
+                    <TD class="value">&nbsp;</TD>
                     </tr>
 <% } else if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
