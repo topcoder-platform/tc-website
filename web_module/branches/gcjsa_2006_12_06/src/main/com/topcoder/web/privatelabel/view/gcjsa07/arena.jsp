@@ -58,7 +58,7 @@
                 <br><br>
                <%-- The Google Code Jam Latin America 2007 Arena is no longer available.--%>
                 
-                <A href="/pl/?module=Google06Credentials&<%=Constants.COMPANY_ID%>=1865">Forgot your Google Code Jam
+                <A href="/pl/?module=Google06Credentials&<%=Constants.COMPANY_ID%>=66426">Forgot your Google Code Jam
                     Latin America 2007 password?</A>
 
                 <br><br>
