@@ -221,7 +221,7 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                 </tr>
 
 <% if (devSupportRow != null) {%>
-                    <tr class="<%=even?"dark":"light"%> hideText" id="ref_1_<%=i%>a">            
+                    <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>a">            
                     <TD class="value">&nbsp;</TD>
                     <TD class="value">&nbsp;</TD>
                     <TD class="value"><rsc:item name="payment_desc" row="<%=devSupportRow%>"/></TD>
