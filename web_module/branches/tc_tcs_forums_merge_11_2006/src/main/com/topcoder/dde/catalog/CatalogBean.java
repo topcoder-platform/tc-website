@@ -1094,9 +1094,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 }
             }
 
-            log.info("---> calling forumDbName");
             String forumDbName = DBMS.getDbName(DBMS.FORUMS_DATASOURCE_NAME);
-            log.info("---> forumDbName: " + forumDbName);
             query = new StringBuffer(500);
             query.append("SELECT cat.categoryid, cat.creationdate, cat.modificationdate, ");
             query.append("       p.propvalue, v.version, v.version_text    ");
@@ -1104,18 +1102,17 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             query.append(forumDbName).append(":jivecategory cat, ");
             query.append(forumDbName).append(":jivecategoryprop p, ");
             query.append("		 comp_versions v, comp_forum_xref x, comp_catalog c ");
-            query.append(" WHERE x.jive_category_id = cat.category_id      ");
+            query.append(" WHERE x.jive_category_id = cat.categoryid      ");
             query.append("   AND x.comp_vers_id = v.comp_vers_id           ");
             query.append("   AND c.component_id = ?                        ");
             query.append("   AND c.component_id = v.component_id           ");
             query.append("	 AND cat.categoryid = p.categoryid			   ");
             query.append("	 AND p.name = 'forumType'					   ");
-            query.append("   AND ( NOT ( f.status_id = ? ) )               "); 
+            query.append("   AND ( NOT ( p.propvalue = ? ) )               "); 
             if (version < 0)
                 query.append("   AND c.current_version = v.version ");
             else
                 query.append("   AND ? = v.version ");  
-            log.info("---> query: " + query.toString());
             
             try {
 
