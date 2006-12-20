@@ -210,7 +210,8 @@
                 </TD>
                 </tr>
 <% if (resultRow.getIntItem("payment_type_id") == 6) {  
-ResultSetContainer.ResultSetRow rsr = (ResultSetContainer.ResultSetRow) devSupport.get(new Long(resultRow.getLongItem("reference_id")));
+ResultSetContainer.ResultSetRow rsr = resultRow.getItem("reference_id").getResultData()!= null?		
+			(ResultSetContainer.ResultSetRow) devSupport.get(new Long(resultRow.getLongItem("reference_id"))) : null;
 %>                
                 <% if (rsr != null) {%>
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            

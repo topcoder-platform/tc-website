@@ -167,8 +167,8 @@ public class PaymentDetail extends BaseProcessor {
 					&& refIds.contains(new Long(rsr.getLongItem("reference_id")));
 			
 			return devSupport? contains : !contains; */
-			return rsr.getStringItem("payment_desc").contains("- Development Support") &&
-				devSupport.containsKey(new Long(rsr.getLongItem("reference_id"))); 
+			return !(rsr.getStringItem("payment_desc").contains("- Development Support") &&
+				devSupport.containsKey(new Long(rsr.getLongItem("reference_id")))); 
 			
 		}
     	
