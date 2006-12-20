@@ -25,9 +25,13 @@ public class FillPaymentData extends BaseProcessor implements PactsConstants {
             if (getRequest().getParameter("placed") != null) {
             	placed = Integer.parseInt(getRequest().getParameter("placed"));
             }
+            int installment = 1;
+            if (getRequest().getParameter("installment_number") != null) {
+            	installment = Integer.parseInt(getRequest().getParameter("installment_number"));
+            }
             
             BasePayment payment = BasePayment.createPayment(type, coderId, 0.01, refId, placed);
-            
+            payment.setInstallmentNumber(installment);
 
             DataInterfaceBean dib = new DataInterfaceBean();
 

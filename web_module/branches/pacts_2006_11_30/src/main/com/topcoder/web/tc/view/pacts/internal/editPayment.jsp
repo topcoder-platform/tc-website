@@ -140,6 +140,7 @@ function doReferenceChanged(refId) {
     ajaxRequest.addNamedFormElements("user_id");    
     
     ajaxRequest.addNamedFormElements("placed");    
+    ajaxRequest.addNamedFormElements("installment_number");    
     
     ajaxRequest.setPostRequest(loaded);
     ajaxRequest.setPreRequest(loading);    
@@ -369,7 +370,7 @@ function searchKeyPress(e)
         <tr id="trAmount2">			    
         <td><b>Installment Number:</b></td>
         <td>
-        	<tc-webtag:stringSelect name="installment_number" list="<%= java.util.Arrays.asList(new String[]{"1", "2"}) %>" useTopValue="false"/>
+        	<tc-webtag:stringSelect name="installment_number" list="<%= java.util.Arrays.asList(new String[]{"1", "2"}) %>" useTopValue="false" onChange="referenceChanged('component_project_id')" />
         </td>			   
         </tr> 
     	<tr id="trAmount3">			   
