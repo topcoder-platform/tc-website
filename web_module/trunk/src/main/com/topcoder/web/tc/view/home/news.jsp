@@ -6,9 +6,9 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
-<%--------------------------------------------
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>12.18.06<br>5:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>12.20.06<br>4:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2048">New AOL Mashup: $19,000 in prizes</A>
         </span><br><br>
@@ -19,7 +19,7 @@
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=25">discuss this</A> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
-------------%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.19.06<br>6:45 PM</td>
@@ -188,21 +188,3 @@ We are currently looking to fill an opening for a <A href="/tc?module=Static&d1=
          <tc-webtag:forumLink forumID="506196" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.11.06<br>12:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm329">SRM 329 - Problem Set & Analysis</A></span><br><br>
-Over 1100 coders registered for this round. In division 1, <tc-webtag:handle coderId="251074" context="algorithm"/> was first to submit all three problems, but eventually the current TCO and TCCC champion <tc-webtag:handle coderId="10574855" context="algorithm"/> took  first place, scoring over 1500 points in the coding phase and securing his victory with a successful challenge.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/dmytro_big3.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7546003" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=srm329">full story</A> | 
-        <tc-webtag:forumLink forumID="506004" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
