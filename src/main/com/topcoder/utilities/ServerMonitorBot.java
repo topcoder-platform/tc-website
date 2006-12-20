@@ -79,12 +79,7 @@ public class ServerMonitorBot {
                 }
 
                 //delete file
-                try {
-                    File f = new File("index.html");
-                    f.delete();
-                } catch (Exception e) {
-                    log.debug("error deleting index.html" + e.getMessage());
-                }
+                wack();
 
                 String[] callAndArgs2 = {"wget",
                         "http://192.168.12.151:8080/index.jsp",
@@ -119,12 +114,7 @@ public class ServerMonitorBot {
                     software = true;
                 }
 
-                try {
-                    File f = new File("index.jsp");
-                    f.delete();
-                } catch (Exception e) {
-                    log.debug("error deleting index.jsp" + e.getMessage());
-                }
+                wack();
 
                 String[] callAndArgs3 = {"wget",
                         "http://192.168.10.91",
@@ -159,12 +149,7 @@ public class ServerMonitorBot {
                     forums = true;
                 }
 
-                try {
-                    File f = new File("index.html?module=Main");
-                    f.delete();
-                } catch (Exception e) {
-                    log.debug("error deleting index.html" + e.getMessage());
-                }
+                wack();
 
                 String[] callAndArgs4 = {"wget",
                         "http://192.168.10.93",
@@ -199,12 +184,7 @@ public class ServerMonitorBot {
                     studio = true;
                 }
 
-                try {
-                    File f = new File("index.html");
-                    f.delete();
-                } catch (Exception e) {
-                    log.debug("error deleting index.html" + e.getMessage());
-                }
+                wack();
 
 
             } catch (Exception e) {
@@ -306,5 +286,19 @@ public class ServerMonitorBot {
 
     void done() {
         sem = true;
+    }
+
+    private void wack() {
+                        File[] files = new File(".").listFiles();
+                int i=0;
+                try {
+                    for (; i<files.length; i++) {
+                        if (files[i].getName().startsWith("index")) {
+                            files[i].delete();
+                        }
+                    }
+                } catch (Exception e) {
+                    log.debug("error deleting " + files[i] + " " + e.getMessage());
+                }
     }
 }
