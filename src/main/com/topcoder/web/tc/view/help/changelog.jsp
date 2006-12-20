@@ -44,8 +44,10 @@
 <p>
     5.5.12 - 2006.12.xx
     <ul>
-        <li>Fixed EJB configuration bug where transactions were bean managed but should have been container managed.
-        </li>
+        <li>Fixed EJB configuration bug where transactions were bean managed but should have been container managed.</li>
+<%--
+        <li>Google Latin America Reg. Process.</li>
+--%>
     </ul>
 </p>
 
