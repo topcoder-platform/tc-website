@@ -216,7 +216,16 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                     <div style="width:7px;">&nbsp;</div>
                 <% }%>
                 </TD>
-                <TD class="value"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
+                <TD class="value">
+                <% if (devSupportRow != null) {
+                	String desc = resultRow.getStringItem("payment_desc");
+                	int pos = desc.indexOf("- Design");
+                	%>
+                	<%= pos>=0? desc.substring(0, pos) : desc %>
+                <% } else { %>	
+                	<rsc:item name="payment_desc" row="<%=resultRow%>"/>
+                <% } %>
+                </TD>
                 <TD class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
                 <TD class="valueR">
 	<% if (devSupportRow != null) { 
