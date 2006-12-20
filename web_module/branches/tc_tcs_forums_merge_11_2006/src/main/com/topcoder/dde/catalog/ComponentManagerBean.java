@@ -1113,7 +1113,7 @@ public class ComponentManagerBean
                     (info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
                     log.debug("Project went to development. Design winner will be added to notification");
 
-                    long[] winnerCategoryIds = pt.getProjectWinnerIdCategoryId(
+                    long[] winnerCategoryIds = pt.getProjectWinnerIdForumCategoryId(
                         pt.getProjectIdByComponentVersionId(getVersionInfo().getVersionId(), ProjectType.ID_DESIGN), requestor);
 
                     if (winnerCategoryIds[0] != 0) {
@@ -1671,7 +1671,9 @@ public class ComponentManagerBean
         		categories.add(forumsBean.getSoftwareForumCategory(categoryId, version, info.getVersionLabel()));
         	} catch (ForumCategoryNotFoundException fe) {
         		throw new CatalogException("Forum category not found: " + fe.toString());
-        	}
+        	} catch (RemoteException exception) {
+                throw new EJBException(exception.toString());
+            }
         	/* TODO: remove
             long forumId = ((LocalDDECompForumXref)
                     forumIterator.next()).getForumId();
@@ -1725,7 +1727,9 @@ public class ComponentManagerBean
             		}
             	} catch (ForumCategoryNotFoundException fe) {
             		throw new CatalogException("Forum category not found: " + fe.toString());
-            	}
+            	} catch (RemoteException exception) {
+                    throw new EJBException(exception.toString());
+                }
                 
                 /* TODO: remove
                 long forumId = ((LocalDDECompForumXref)
@@ -1783,8 +1787,10 @@ public class ComponentManagerBean
             		}
             	} catch (ForumCategoryNotFoundException fe) {
             		throw new CatalogException("Forum category not found: " + fe.toString());
-            	}
-                
+            	} catch (RemoteException exception) {
+                    throw new EJBException(exception.toString());
+                }
+                 
                 /* TODO: remove
                 com.topcoder.forum.Forum forum = null;
                 try {
