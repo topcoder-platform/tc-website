@@ -31,7 +31,7 @@ Congratulations to the winners from SRM 1:
             <tr>
                <td class="sidebarTitle">Place</td>
                <td class="sidebarTitle">Winner</td>
-               <td class="sidebarTitle">Prize</td>
+               <td class="sidebarTitle">Prize*</td>
             </tr>
             <tr valign="top">
                <td class="sidebarText"><b>First</b></td> 
@@ -47,6 +47,9 @@ Congratulations to the winners from SRM 1:
                <td class="sidebarText">Third</td> 
                <td class="sidebarText">sjovanovski</td>
                <td class="sidebarText">$500</td>
+            </tr>
+            <tr valign="top">
+               <td class="sidebarText" colspan="3">*Prize amounts are in US Dollars or country equivalent.</td> 
             </tr>
          </table>
 
