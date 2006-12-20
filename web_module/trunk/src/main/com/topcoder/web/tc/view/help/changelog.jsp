@@ -42,12 +42,13 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 <p>
-    5.5.12 - 2006.12.xx
+    5.5.12 - 2006.12.20
     <ul>
         <li>Fixed EJB configuration bug where transactions were bean managed but should have been container managed.</li>
 <%--
         <li>Google Latin America Reg. Process.</li>
 --%>
+        <li>Include poseidon license in development registration emails.</li>
     </ul>
 </p>
 
