@@ -171,10 +171,20 @@
             boolean even = false;
             boolean hasCharity = false;%>
             <rsc:iterator list="<%=rsc%>" id="resultRow">
+<% 
+ResultSetContainer.ResultSetRow devSupportRow  = null;
+if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("reference_id").getResultData()!= null) {  
+	devSupportRow = (ResultSetContainer.ResultSetRow) devSupport.get(new Long(resultRow.getLongItem("reference_id")));
+}
+%>                
+                        
                 <tr class="<%=even?"dark":"light"%>">            
                 <TD class="valueC"><rsc:item name="date_due" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
                 <TD class="value" style="vertical-align:middle;">
                 <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
+                    <%i++;%>
+                    <a href="javascript:toggleDisplay('ref_<%=i%>','switch_<%=i%>');" onfocus="this.blur();"><img src="/i/interface/exp_w.gif" alt="Open" name="switch_<%=i%>" /></a>
+                <% } else if (devSupportRow!= null) {%>
                     <%i++;%>
                     <a href="javascript:toggleDisplay('ref_<%=i%>','switch_<%=i%>');" onfocus="this.blur();"><img src="/i/interface/exp_w.gif" alt="Open" name="switch_<%=i%>" /></a>
                 <% } else { %>
@@ -209,11 +219,8 @@
                 <% }%>
                 </TD>
                 </tr>
-<% if (resultRow.getIntItem("payment_type_id") == 6) {  
-ResultSetContainer.ResultSetRow rsr = resultRow.getItem("reference_id").getResultData()!= null?		
-			(ResultSetContainer.ResultSetRow) devSupport.get(new Long(resultRow.getLongItem("reference_id"))) : null;
-%>                
-                <% if (rsr != null) {%>
+
+<% if (rsr != ndevSupportRowull) {%>
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
                     <TD class="value">&nbsp;</TD>
                     <TD class="value">&nbsp;</TD>
@@ -223,8 +230,7 @@ ResultSetContainer.ResultSetRow rsr = resultRow.getItem("reference_id").getResul
                     <TD class="value">&nbsp;</TD>
                     </tr>
                 <% }%>
-<% } else { %>
-                <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
+<% } else if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
                     <TD class="value">&nbsp;</TD>
                     <TD class="value">&nbsp;</TD>
@@ -233,7 +239,6 @@ ResultSetContainer.ResultSetRow rsr = resultRow.getItem("reference_id").getResul
                     <TD class="value"><rsc:item name="ref_earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
                     <TD class="value">&nbsp;</TD>
                     </tr>
-                <% }%>
 <% } %>
                 <%even = !even;%>
             </rsc:iterator>
