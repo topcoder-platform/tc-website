@@ -229,7 +229,6 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                     <TD class="value"><rsc:item name="earnings" row="<%=rsr%>" format="$#,##0.00"/></TD>
                     <TD class="value">&nbsp;</TD>
                     </tr>
-                <% }%>
 <% } else if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
                     <TD class="value">&nbsp;</TD>
