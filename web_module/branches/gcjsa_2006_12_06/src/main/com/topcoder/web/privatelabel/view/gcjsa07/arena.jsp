@@ -89,7 +89,7 @@
                     Applet</A>.
                 <br><br>
                 If you experience problems loading or running the Competition Arena please contact
-                <A href="mailto:gcjla@topcoder.com?subject=Question regarding Google Code Jam Latin America 2007">gcjla@topcoder.com</A>.
+                <A href="mailto:gcjla@topcoder.com?subject=Question%20regarding%20Google%20Code%20Jam%20Latin%20America%202007">gcjla@topcoder.com</A>.
                 
 
 

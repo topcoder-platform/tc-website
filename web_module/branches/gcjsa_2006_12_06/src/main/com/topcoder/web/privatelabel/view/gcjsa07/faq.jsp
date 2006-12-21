@@ -126,7 +126,7 @@
                 As soon as Round 2 is over, please contact Google and they will provide you with the appropriate invitation letter to take to the embassy.
                 <br><br>
                 Questions not addressed here should be directed to
-                <A href="mailto:gcjsa@topcoder.com?subject=Question regarding Google Code Jam Latin America 2007">gcjsa@topcoder.com</A>.
+                <A href="mailto:gcjla@topcoder.com?subject=Question%20regarding%20Google%20Code%20Jam%20Latin%20America%202007">gcjla@topcoder.com</A>.
                 <br><br>
                 Good luck!
                 <br><br>

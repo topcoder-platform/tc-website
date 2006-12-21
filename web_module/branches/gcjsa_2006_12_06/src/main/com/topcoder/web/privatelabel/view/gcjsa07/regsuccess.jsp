@@ -105,7 +105,7 @@ var google_conversion_label = "LEAD";
                             Spend time in the Practice Rooms prior to the Qualification Round by clicking the
                             Competition Arena tab above.
                             <br><br>
-                            If you encounter any problems, please contact us at <A href="mailto:gcj@topcoder.com">gcj@topcoder.com</A>.
+                            If you encounter any problems, please contact us at <A href="mailto:gcjla@topcoder.com">gcjla@topcoder.com</A>.
                             <br><br>
                             Good luck to you in the Arena!
 
