@@ -36,7 +36,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             String projectID = StringUtils.checkNull(getRequest().getParameter(PROJECT_ID)).trim();
             String projectTermStatus = StringUtils.checkNull(getRequest().getParameter(PROJECT_TERMINATION_STATUS));
             String client = StringUtils.checkNull(getRequest().getParameter(PROJECT_CLIENT)).trim();
-            boolean devSupportDes = "true".equals(getRequest().getParameter(IS_DEV_SUPPORT_BY_DESIGNER));
+            boolean devSupportDes = "designer".equals(getRequest().getParameter(IS_DEV_SUPPORT_BY_DESIGNER));
             long devSupportId = 0;
             
             if (!devSupportDes) {

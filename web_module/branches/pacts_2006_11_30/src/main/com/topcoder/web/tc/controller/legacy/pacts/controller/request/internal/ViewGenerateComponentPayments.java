@@ -20,7 +20,7 @@ public class ViewGenerateComponentPayments extends BaseProcessor implements Pact
             Map map = dib.getProjectTerminationStatusTypes();
             getRequest().setAttribute(PROJECT_TERMINATION_STATUS_LIST, map.get(PROJECT_TERMINATION_STATUS_LIST));
             
-            setDefault(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER , "true");
+            setDefault(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER , "designer");
             setNextPage(INTERNAL_GENERATE_COMPONENT_PAYMENTS);
             setIsNextPageInContext(true);
         } catch (Exception e) {

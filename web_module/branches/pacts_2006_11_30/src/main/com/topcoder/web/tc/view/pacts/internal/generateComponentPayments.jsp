@@ -68,8 +68,8 @@
                         </td>
                         <td>
                         	If needed, pay development support to:<br/>
-                        	<tc-webtag:radioButton name="<%=GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="true"/>the designer<br/>
-                        	<tc-webtag:radioButton name="<%= GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="false"/>coder <input type="text" name="coder" maxlength="20" size="10" value="<%=coder%>"/>
+                        	<tc-webtag:radioButton name="<%=GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="designer"/>the designer<br/>
+                        	<tc-webtag:radioButton name="<%= GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="other"/>coder <input type="text" name="coder" maxlength="20" size="10" value="<%=coder%>"/>
                         </td>
                         <td>
                         </td>
