@@ -88,16 +88,16 @@ public class Constants implements WebConstants {
     public static final String GOOGLE_06_CREDENTIALS_PAGE = "/google06/credentials.jsp";
     public static final String GOOGLE_06_CREDENTIALS_SENT_PAGE = "/google06/credentialsSent.jsp";
 
-    public static final String GOOGLE_SOUTH_AMERICA_07_LOGIN_PAGE = "/gcjsa07/login.jsp";
-    public static final String GOOGLE_SOUTH_AMERICA_07_REG_PAGE = "/gcjsa07/reg.jsp";
-    public static final String GOOGLE_SOUTH_AMERICA_07_REG_DEMOG_PAGE = "/gcjsa07/demog.jsp";
-    public static final String GOOGLE_SOUTH_AMERICA_07_REG_CONFIRM_PAGE = "/gcjsa07/confirm.jsp";
-    public static final String GOOGLE_SOUTH_AMERICA_07_REG_SUCCESS_PAGE = "&d1=gcjsa07&d2=regsuccess";
-    public static final String GOOGLE_SOUTH_AMERICA_07_UPDATE_SUCCESS_PAGE = "&d1=gcjsa07&d2=updatesuccess";
-    public static final String GOOGLE_SOUTH_AMERICA_07_ACTIVATION_PAGE = "/gcjsa07/activation.jsp";
-    public static final String GOOGLE_SOUTH_AMERICA_07_REG_CLOSED_PAGE = "/gcjsa07/reg_closed.jsp";
-    public static final String GOOGLE_SOUTH_AMERICA_07_CREDENTIALS_PAGE = "/gcjsa07/credentials.jsp";
-    public static final String GOOGLE_SOUTH_AMERICA_07_CREDENTIALS_SENT_PAGE = "/gcjsa07/credentialsSent.jsp";
+    public static final String GOOGLE_LATIN_AMERICA_07_LOGIN_PAGE = "/gcjsa07/login.jsp";
+    public static final String GOOGLE_LATIN_AMERICA_07_REG_PAGE = "/gcjsa07/reg.jsp";
+    public static final String GOOGLE_LATIN_AMERICA_07_REG_DEMOG_PAGE = "/gcjsa07/demog.jsp";
+    public static final String GOOGLE_LATIN_AMERICA_07_REG_CONFIRM_PAGE = "/gcjsa07/confirm.jsp";
+    public static final String GOOGLE_LATIN_AMERICA_07_REG_SUCCESS_PAGE = "&d1=gcjsa07&d2=regsuccess";
+    public static final String GOOGLE_LATIN_AMERICA_07_UPDATE_SUCCESS_PAGE = "&d1=gcjsa07&d2=updatesuccess";
+    public static final String GOOGLE_LATIN_AMERICA_07_ACTIVATION_PAGE = "/gcjsa07/activation.jsp";
+    public static final String GOOGLE_LATIN_AMERICA_07_REG_CLOSED_PAGE = "/gcjsa07/reg_closed.jsp";
+    public static final String GOOGLE_LATIN_AMERICA_07_CREDENTIALS_PAGE = "/gcjsa07/credentials.jsp";
+    public static final String GOOGLE_LATIN_AMERICA_07_CREDENTIALS_SENT_PAGE = "/gcjsa07/credentialsSent.jsp";
 
     public static final String GOOGLE_INDIA_06_LOGIN_PAGE = "/gicj06/login.jsp";
     public static final String GOOGLE_INDIA_06_REG_PAGE = "/gicj06/reg.jsp";
@@ -237,13 +237,13 @@ public class Constants implements WebConstants {
     public static final String GOOGLE_06_CREDENTIALS = "Google06Credentials";
     public static final String GOOGLE_06_LOGIN = "Google06Login";
 
-    public static final String GOOGLE_SOUTH_AMERICA_07_REG_MAIN = "GoogleSouthAmerica07Reg";
-    public static final String GOOGLE_SOUTH_AMERICA_07_REG_DEMOG = "GoogleSouthAmerica07Demog";
-    public static final String GOOGLE_SOUTH_AMERICA_07_REG_CONFIRM = "GoogleSouthAmerica07Confirm";
-    public static final String GOOGLE_SOUTH_AMERICA_07_REG_SUBMIT = "GoogleSouthAmerica07Submit";
-    public static final String GOOGLE_SOUTH_AMERICA_07_ACTIVATION = "GoogleSouthAmerica07Activate";
-    public static final String GOOGLE_SOUTH_AMERICA_07_CREDENTIALS = "GoogleSouthAmerica07Credentials";
-    public static final String GOOGLE_SOUTH_AMERICA_07_LOGIN = "GoogleSouthAmerica07Login";
+    public static final String GOOGLE_LATIN_AMERICA_07_REG_MAIN = "GoogleLatinAmerica07Reg";
+    public static final String GOOGLE_LATIN_AMERICA_07_REG_DEMOG = "GoogleLatinAmerica07Demog";
+    public static final String GOOGLE_LATIN_AMERICA_07_REG_CONFIRM = "GoogleLatinAmerica07Confirm";
+    public static final String GOOGLE_LATIN_AMERICA_07_REG_SUBMIT = "GoogleLatinAmerica07Submit";
+    public static final String GOOGLE_LATIN_AMERICA_07_ACTIVATION = "GoogleLatinAmerica07Activate";
+    public static final String GOOGLE_LATIN_AMERICA_07_CREDENTIALS = "GoogleLatinAmerica07Credentials";
+    public static final String GOOGLE_LATIN_AMERICA_07_LOGIN = "GoogleLatinAmerica07Login";
 
     public static final String VERISIGN_06_REG_MAIN = "VeriSign06Reg";
     public static final String VERISIGN_06_REG_CONFIRM = "VeriSign06Confirm";

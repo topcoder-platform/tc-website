@@ -11,7 +11,7 @@ import com.topcoder.web.privatelabel.controller.request.BaseActivate;
 public class Activate extends BaseActivate {
     
     protected void setNextPage() {
-        setNextPage(Constants.GOOGLE_SOUTH_AMERICA_07_ACTIVATION_PAGE);
+        setNextPage(Constants.GOOGLE_LATIN_AMERICA_07_ACTIVATION_PAGE);
         setIsNextPageInContext(true);
     }
 }

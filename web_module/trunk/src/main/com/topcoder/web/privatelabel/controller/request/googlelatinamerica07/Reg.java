@@ -22,13 +22,13 @@ public class Reg extends FullReg {
         now.setTime(new Date());
 
         if (regInfo.isNew() && (now.before(beginning) || now.after(end))) {
-            setNextPage(Constants.GOOGLE_SOUTH_AMERICA_07_REG_CLOSED_PAGE);
+            setNextPage(Constants.GOOGLE_LATIN_AMERICA_07_REG_CLOSED_PAGE);
             setIsNextPageInContext(true);
         } else {
             if (log.isDebugEnabled()) {
-                log.debug("here: " + Constants.GOOGLE_SOUTH_AMERICA_07_REG_PAGE);
+                log.debug("here: " + Constants.GOOGLE_LATIN_AMERICA_07_REG_PAGE);
             }
-            setNextPage(Constants.GOOGLE_SOUTH_AMERICA_07_REG_PAGE);
+            setNextPage(Constants.GOOGLE_LATIN_AMERICA_07_REG_PAGE);
             setIsNextPageInContext(true);
         }
     }
