@@ -10,6 +10,7 @@
 	String projID = StringUtils.checkNull((String)request.getParameter(PactsConstants.PROJECT_ID)).trim();
 	String projTermStatus = StringUtils.checkNull((String)request.getParameter(PactsConstants.PROJECT_TERMINATION_STATUS)).trim();
 	String client = StringUtils.checkNull((String)request.getParameter(PactsConstants.PROJECT_CLIENT)).trim();
+	String coder = StringUtils.checkNull((String)request.getParameter("coder")).trim();
 %>
 <html>
     <head>
@@ -61,6 +62,14 @@
                             Client: <input type="text" name="<%=PactsConstants.PROJECT_CLIENT%>" maxlength="100" size="25" value="<%=client%>"/>
                         </td>
                     </tr>
+                    <tr>
+                        <td align="center" colspan="3">
+                        	If needed, pay development support to:
+                        	<tc-webtag:radioButton name="devSupportDesigner" value="true"/>the designer<br/>
+                        	<tc-webtag:radioButton name="devSupportDesigner" value="false"/>coder <input type="text" name="coder" maxlength="20" size="10" value="<%=coder%>"/>
+                        </td>
+                    </tr>
+                    
                     <tr>
                         <td align="center" colspan="3">
                             <a href="JavaScript:document.paymentForm.submit();">Generate Component Payments</a><br/>
