@@ -42,6 +42,16 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 <p>
+    5.5.13 - 2006.12.21
+    <ul>
+<%--
+        <li>Rename some classes for the Google Latin America Reg. Process.</li>
+--%>
+    </ul>
+</p>
+
+
+<p>
     5.5.12 - 2006.12.20
     <ul>
         <li>Fixed EJB configuration bug where transactions were bean managed but should have been container managed.</li>
