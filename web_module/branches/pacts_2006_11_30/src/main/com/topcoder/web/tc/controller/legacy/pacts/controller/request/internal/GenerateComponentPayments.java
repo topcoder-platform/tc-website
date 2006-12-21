@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +15,8 @@ import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeaderList;
 
 /**
  * @author mktong
@@ -41,8 +44,12 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             if (!devSupportDes) {
             	String handle = StringUtils.checkNull(getRequest().getParameter("coder"));
                 User coder  = DAOUtil.getFactory().getUserDAO().find(handle, true);
-            	if (coder != null) {
-            		devSupportId = coder.getId().longValue();
+                Map m = new HashMap();
+                m.put(HANDLE, handle);
+                UserProfileHeader[] users = new UserProfileHeaderList(dib.findUsers(m)).getHeaderList();
+                
+            	if (users.length == 1) {
+            		devSupportId = users[0].getId();
             	}
             }
             
