@@ -55,10 +55,11 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             }
 
 			boolean charity = getRequest().getParameter("charity_ind") != null;
-            boolean devSupportDes = "designer".equals(getRequest().getParameter(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER));
+            String devSupportDes = StringUtils.checkNull(getRequest().getParameter(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER));
+            boolean isDevSupportDes = !"other".equals(devSupportDes);
             long devSupportId = 0;
             
-            if (!devSupportDes) {
+            if (!isDevSupportDes) {
             	String handle = StringUtils.checkNull(getRequest().getParameter("coder"));
                 Map m = new HashMap();
                 m.put(HANDLE, handle);
@@ -217,7 +218,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     setDefault("gross_amount", getRequest().getParameter("gross_amount"));
                     setDefault("net_amount", getRequest().getParameter("net_amount"));
                     setDefault("installment_number", getRequest().getParameter("installment_number"));
-                	setDefault(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER, Boolean.valueOf(devSupportDes));
+                	setDefault(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER, "other".equals(devSupportDes)? "other" : "designer");
                     
                     if (((String) getRequest().getParameter("reference_description")).length() > 0) {
                         getRequest().setAttribute("reference_description", getRequest().getParameter("reference_description"));

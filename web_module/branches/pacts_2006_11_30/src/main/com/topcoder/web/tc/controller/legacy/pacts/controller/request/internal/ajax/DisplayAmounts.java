@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.ajax;
 
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.GenerateComponentPayments;
@@ -18,11 +19,11 @@ public class DisplayAmounts extends BaseProcessor implements PactsConstants {
             boolean isDesign = "true".equalsIgnoreCase(getRequest().getParameter("is_design"));
             boolean isUpdating = "true".equalsIgnoreCase(getRequest().getParameter("is_updating"));
  
-            String totalAmount = getRequest().getParameter("total_amount") != null? (String) getRequest().getParameter("total_amount") : "";
-            String grossAmount = getRequest().getParameter("gross_amount") != null? (String) getRequest().getParameter("gross_amount") : "";
-            String netAmount = getRequest().getParameter("net_amount") != null? (String) getRequest().getParameter("net_amount") : "";
-            String installmentNumber = getRequest().getParameter("installment_number") != null? (String) getRequest().getParameter("installment_number") : "";
-            boolean devSupportDes = !"other".equals(getRequest().getParameter(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER));
+            String totalAmount = StringUtils.checkNull(getRequest().getParameter("total_amount"));
+            String grossAmount = StringUtils.checkNull(getRequest().getParameter("gross_amount"));
+            String netAmount = StringUtils.checkNull(getRequest().getParameter("net_amount"));
+            String installmentNumber = StringUtils.checkNull(getRequest().getParameter("installment_number"));
+            String devSupportDes = StringUtils.checkNull(getRequest().getParameter(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER));
             
             getRequest().setAttribute("type", type + "");
             getRequest().setAttribute("placed", placed + "");
@@ -33,7 +34,7 @@ public class DisplayAmounts extends BaseProcessor implements PactsConstants {
 			setDefault("gross_amount", grossAmount);
 			setDefault("net_amount", netAmount);
 			setDefault("installment_number", installmentNumber);
-        	setDefault(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER, Boolean.valueOf(devSupportDes));
+        	setDefault(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER, "other".equals(devSupportDes)? "other" : "designer");
 
             setNextPage(INTERNAL_AJAX_DISPLAY_AMOUNTS);
             setIsNextPageInContext(true);

@@ -84,7 +84,7 @@
             </c:otherwise>
      </c:choose>
      <c:choose>
-		<c:when test="${type == COMPONENT_WINNING and not isDesign and not isUpdating}">
+		<c:when test="${type == COMPONENT_WINNING and placed == 1 and not isDesign and not isUpdating}">
 			    <taconite-replace contextNodeID="trDevSupport" parseInBrowser="true">
 			        <tr id="trDevSupport">
 			        <td><b>Development Support:</b></td>
