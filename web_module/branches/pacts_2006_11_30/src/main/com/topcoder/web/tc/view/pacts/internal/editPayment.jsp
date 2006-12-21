@@ -311,6 +311,10 @@ function searchKeyPress(e)
         <td></td>
         <td></td>
     </tr>
+    <tr id="trDevSupport">
+        <td></td>
+        <td></td>
+    </tr>
     <c:if test="${not empty payment.client}">
         <tr id="projectClient"> 
             <td><b>Client:</b></td>

@@ -5650,12 +5650,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	        		int methodId = rsc.getIntItem(0, "payment_method_id");
 	        		
 	        		if (totalAmount > paid) {
-	        			log.debug("generateComponentUserPayments. devSupportCoderId=" + devSupportCoderId );
 	        			if (devSupportCoderId > 0) {
 	        				coderId2 = devSupportCoderId;	        			
 	        			}
 	        			
-	        			log.debug("generateComponentUserPayments. coderId2=" + coderId2 );
 		        		// create the design project
 		        		BasePayment p = new ComponentWinningPayment(coderId2, totalAmount, client2, designProject, 1);
 		        		p.setGrossAmount(totalAmount - paid);

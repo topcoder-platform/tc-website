@@ -3,7 +3,8 @@
 <%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib uri="http://taconite.sf.net/tags" prefix="tac" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*,com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.GenerateComponentPayments" %>
+  				
 
 <c:set var="type" value="${param.payment_type_id}"/>
 <c:set var="placed" value="${param.placed}"/>
@@ -82,6 +83,32 @@
 				 </taconite-replace>			    			    
             </c:otherwise>
      </c:choose>
+     <c:choose>
+		<c:when test="${type == COMPONENT_WINNING and not isDesign}">
+			    <taconite-replace contextNodeID="trDevSupport" parseInBrowser="true">
+			        <tr id="trDevSupport">
+			        <td></td>
+			        <td></td>
+				    </tr>
+				 </taconite-replace>			    			    
+
+		</c:when>
+		<c:otherwise>
+			    <taconite-replace contextNodeID="trDevSupport" parseInBrowser="true">
+			        <tr id="trDevSupport">
+			        <td><b>Development Support:</b></td>
+			        <td>
+                        	If needed, pay development support to:<br/>
+                        	<tc-webtag:radioButton name="<%=GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="designer"/>the designer<br/>
+                        	<tc-webtag:radioButton name="<%= GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="other"/>coder 
+                        		<tc-webtag:textInput name="coder" size="10" editable="true"/>
+			        
+			        </td>
+				    </tr>
+				 </taconite-replace>			    			    
+		</c:otherwise>
+	</c:choose>
+
      
      
  </taconite-root>

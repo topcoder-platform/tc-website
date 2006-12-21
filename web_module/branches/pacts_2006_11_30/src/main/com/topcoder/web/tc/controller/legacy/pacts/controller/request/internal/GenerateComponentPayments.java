@@ -38,6 +38,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             String client = StringUtils.checkNull(getRequest().getParameter(PROJECT_CLIENT)).trim();
             boolean devSupportDes = "designer".equals(getRequest().getParameter(IS_DEV_SUPPORT_BY_DESIGNER));
             long devSupportId = 0;
+        	setDefault(IS_DEV_SUPPORT_BY_DESIGNER, Boolean.valueOf(devSupportDes));
             
             if (!devSupportDes) {
             	String handle = StringUtils.checkNull(getRequest().getParameter("coder"));
@@ -84,7 +85,6 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 addError(PROJECT_ID, "Success: " + counts[0] + " design/dev, " +
                         counts[1] + " review board, " + counts[2] + " referral payments generated");
             } else {
-            	setDefault(IS_DEV_SUPPORT_BY_DESIGNER, Boolean.valueOf(devSupportDes));
 
             	if (!devSupportDes && devSupportId == 0) {
                     addError(PROJECT_TERMINATION_STATUS, "Error: invalid coder for development support");
