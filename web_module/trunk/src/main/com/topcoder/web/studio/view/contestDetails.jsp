@@ -110,11 +110,15 @@ ${contest.prizeDescription.value}
     <li>A temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card
         permitting unrestricted employment in the U.S.</li>
 </ul>
-
+<c:choose>
+    <c:when test="${contest.id==2048}"></c:when>
+    <c:otherwise>
 <p>If you do not reside in the United States:</p>
 <ul>
     <li>You must be authorized to perform services as an independent contractor. (Note: In most cases you will
         not need to do anything to become authorized)</li>
+    </c:otherwise>
+</c:choose>
 </ul>
 
 
