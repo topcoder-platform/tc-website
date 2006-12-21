@@ -89,8 +89,8 @@
 			        <tr id="trDevSupport">
 			        <td><b>Development Support:</b></td>
 			        <td>
-                        	If needed, pay development support to: &nbsp;&nbsp;
-                        	<tc-webtag:radioButton name="<%=GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="designer"/>the designer&nbsp;&nbsp;
+                        	If needed, pay development support to:
+                        	<tc-webtag:radioButton name="<%=GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="designer"/>the designer   
                         	<tc-webtag:radioButton name="<%= GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="other"/>coder 
                         		<tc-webtag:textInput name="coder" size="10" editable="true"/>
 			        
