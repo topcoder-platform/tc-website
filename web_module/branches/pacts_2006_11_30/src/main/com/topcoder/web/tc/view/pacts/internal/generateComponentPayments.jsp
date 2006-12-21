@@ -64,7 +64,7 @@
                     </tr>
                     <tr>
                         <td align="center" colspan="3">
-                        	If needed, pay development support to:
+                        	If needed, pay development support to:<br/>
                         	<tc-webtag:radioButton name="devSupportDesigner" value="true"/>the designer<br/>
                         	<tc-webtag:radioButton name="devSupportDesigner" value="false"/>coder <input type="text" name="coder" maxlength="20" size="10" value="<%=coder%>"/>
                         </td>

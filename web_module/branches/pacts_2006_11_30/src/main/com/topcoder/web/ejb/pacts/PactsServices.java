@@ -192,8 +192,13 @@ public interface PactsServices extends EJBObject {
 
     List generateComponentPayments(long projectId, long status, String client)
             throws IllegalUpdateException, RemoteException, SQLException;
+    
+    List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
+    	throws IllegalUpdateException, RemoteException, SQLException;
 
     List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException, RemoteException;
+
+    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws SQLException, RemoteException;
 
     int expireOldPayments() throws RemoteException, SQLException;
 

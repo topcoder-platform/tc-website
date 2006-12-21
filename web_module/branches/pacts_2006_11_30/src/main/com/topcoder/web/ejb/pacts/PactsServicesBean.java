@@ -4769,7 +4769,27 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * has already been generated for this round.
      * @throws SQLException If there was some error updating the data.
      */
-    public List generateComponentPayments(long projectId, long status, String client)
+    public List generateComponentPayments(long projectId, long status, String client) throws IllegalUpdateException, SQLException {
+    	return generateComponentPayments(projectId, status, client, 0);
+    }
+
+    /**
+     * Generates all the payments for the people who won money for the given project (designers, developers,
+     * and review board members). If it is a development project, it may pay the missing 25% to the designer.
+     * It doesn't insert the payments in the DB, just generates and return them.
+     * 
+     * @param projectId The ID of the project
+     * @param status The project's status (see /topcoder/apps/review/projecttracker/ProjectStatus.java)
+     * @param client The project's client (optional)
+     * @param devSupportCoderId the id of the coder that did development support, or 0 to use the designer. This parameter is just used when paying dev components.
+     * @param makeChanges If true, updates the database; if false, logs
+     * the changes that would have been made had this parameter been true.
+     * @return The generated payments in a List of BasePayment
+     * @throws IllegalUpdateException If the affidavit/payment information
+     * has already been generated for this round.
+     * @throws SQLException If there was some error updating the data.
+     */
+    public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
             throws IllegalUpdateException, SQLException {
         log.debug("generateComponentPayments called...");
         List payments = new ArrayList();
@@ -4803,7 +4823,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             	long coderId = Long.parseLong(rsc.getItem(i, "user_id").toString());
             	double amount = rsc.getDoubleItem(i, "paid" );
             	int placed = rsc.getIntItem(i, "placed" );
-            	payments.addAll(generateComponentUserPayments(coderId, amount, client, projectId, placed)); 
+            	payments.addAll(generateComponentUserPayments(coderId, amount, client, projectId, placed, devSupportCoderId)); 
             }            
         }
 
@@ -5569,6 +5589,22 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @param placed the place of the coder in the contest.
      */
     public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException {
+    	return generateComponentUserPayments(coderId, grossAmount, client, projectId, placed, 0);
+    }
+
+    /**
+     * Create payments for a design/dev project.
+     * For a 1st place design project, it just creates a payment consisting in the 75% of the amount.
+     * For a 1st place dev project, it finds the associated design project and creates a payment for the project.
+     *
+     * @param coderId coder to be paid.
+     * @param grossAmount amount to be paid.
+     * @param client the client of the project.
+     * @param projectId project that is being paid.
+     * @param devSupportCoderId the id of the coder that did development support, or 0 to use the designer. This parameter is just used when paying dev components.
+     * @param placed the place of the coder in the contest.
+     */
+    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws SQLException {
     	int projectType = getProjectType(projectId);
     	
 		
@@ -5613,12 +5649,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	        		long coderId2 = rsc.getLongItem(0, "user_id");
 	        		int methodId = rsc.getIntItem(0, "payment_method_id");
 	        		
-	        		if (totalAmount > paid) { 
+	        		if (totalAmount > paid) {
+	        			if (devSupportCoderId > 0) {
+	        				coderId2 = devSupportCoderId;
+	        			}
+	        			
 		        		// create the design project
 		        		BasePayment p = new ComponentWinningPayment(coderId2, totalAmount, client2, designProject, 1);
 		        		p.setGrossAmount(totalAmount - paid);
 		        		p.setInstallmentNumber(installment);
-		        		p.setMethodId(methodId);
+		        		
+		        		if (devSupportCoderId == 0) {
+		        			p.setMethodId(methodId);
+		        		}
 		        		
 		        		l.add(p);
 	        		}

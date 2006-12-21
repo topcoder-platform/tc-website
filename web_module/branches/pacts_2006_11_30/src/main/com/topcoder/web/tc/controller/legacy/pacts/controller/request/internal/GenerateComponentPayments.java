@@ -8,6 +8,8 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
@@ -19,6 +21,9 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  */
 public class GenerateComponentPayments extends BaseProcessor implements PactsConstants {
 
+
+	public final static String IS_DEV_SUPPORT_BY_DESIGNER = "dsd";
+	
     protected void businessProcessing() throws TCWebException {
         try {
             DataInterfaceBean dib = new DataInterfaceBean();
@@ -30,7 +35,20 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             String projectID = StringUtils.checkNull(getRequest().getParameter(PROJECT_ID)).trim();
             String projectTermStatus = StringUtils.checkNull(getRequest().getParameter(PROJECT_TERMINATION_STATUS));
             String client = StringUtils.checkNull(getRequest().getParameter(PROJECT_CLIENT)).trim();
-            if (!projectID.equals("") && !projectTermStatus.equals("")) {
+            boolean devSupportDes = "true".equals(getRequest().getParameter(IS_DEV_SUPPORT_BY_DESIGNER));
+            long devSupportId = 0;
+            
+            if (!devSupportDes) {
+            	String handle = StringUtils.checkNull(getRequest().getParameter("coder"));
+                User coder  = DAOUtil.getFactory().getUserDAO().find(handle, true);
+            	if (coder != null) {
+            		devSupportId = coder.getId().longValue();
+            	}
+            }
+            
+            log.debug("devSupportId=" + devSupportId);
+            
+            if (!projectID.equals("") && !projectTermStatus.equals("") && (devSupportDes || devSupportId > 0)) {
                 DataInterfaceBean bean = new DataInterfaceBean();
                 int[] counts = new int[3];
                 counts[0] =0;
@@ -38,7 +56,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 counts[2] =0;
                 log.debug("status type " + getRequest().getParameter(PROJECT_TERMINATION_STATUS));
                 
-                List l = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client);
+                List l = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client, devSupportId);
                 
                 l = bean.addPayments(l);
                 List ids = new ArrayList();
@@ -62,6 +80,12 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 addError(PROJECT_ID, "Success: " + counts[0] + " design/dev, " +
                         counts[1] + " review board, " + counts[2] + " referral payments generated");
             } else {
+            	setDefault(IS_DEV_SUPPORT_BY_DESIGNER, Boolean.valueOf(devSupportDes));
+
+            	if (!devSupportDes && devSupportId == 0) {
+                    addError(PROJECT_TERMINATION_STATUS, "Error: invalid coder for development support");
+                }
+            	
                 if (projectID.equals("")) {
                     addError(PROJECT_ID, "Error: Missing project id");
                 }
