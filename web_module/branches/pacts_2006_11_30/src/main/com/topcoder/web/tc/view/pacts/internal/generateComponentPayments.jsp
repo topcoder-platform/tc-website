@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants,
+  				com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.GenerateComponentPayments,
 				 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
 				 com.topcoder.web.common.StringUtils" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -67,8 +68,8 @@
                         </td>
                         <td>
                         	If needed, pay development support to:<br/>
-                        	<tc-webtag:radioButton name="devSupportDesigner" value="true"/>the designer<br/>
-                        	<tc-webtag:radioButton name="devSupportDesigner" value="false"/>coder <input type="text" name="coder" maxlength="20" size="10" value="<%=coder%>"/>
+                        	<tc-webtag:radioButton name="<%=GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="true"/>the designer<br/>
+                        	<tc-webtag:radioButton name="<%= GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="false"/>coder <input type="text" name="coder" maxlength="20" size="10" value="<%=coder%>"/>
                         </td>
                         <td>
                         </td>
