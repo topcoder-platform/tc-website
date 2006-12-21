@@ -43,7 +43,6 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             
             if (!devSupportDes) {
             	String handle = StringUtils.checkNull(getRequest().getParameter("coder"));
-                User coder  = DAOUtil.getFactory().getUserDAO().find(handle, true);
                 Map m = new HashMap();
                 m.put(HANDLE, handle);
                 UserProfileHeader[] users = new UserProfileHeaderList(dib.findUsers(m)).getHeaderList();
