@@ -87,15 +87,6 @@
 		<c:when test="${type == COMPONENT_WINNING and not isDesign and not isUpdating}">
 			    <taconite-replace contextNodeID="trDevSupport" parseInBrowser="true">
 			        <tr id="trDevSupport">
-			        <td></td>
-			        <td></td>
-				    </tr>
-				 </taconite-replace>			    			    
-
-		</c:when>
-		<c:otherwise>
-			    <taconite-replace contextNodeID="trDevSupport" parseInBrowser="true">
-			        <tr id="trDevSupport">
 			        <td><b>Development Support:</b></td>
 			        <td>
                         	If needed, pay development support to: &nbsp;&nbsp;
@@ -104,6 +95,15 @@
                         		<tc-webtag:textInput name="coder" size="10" editable="true"/>
 			        
 			        </td>
+				    </tr>
+				 </taconite-replace>			    			    
+
+		</c:when>
+		<c:otherwise>
+			    <taconite-replace contextNodeID="trDevSupport" parseInBrowser="true">
+			        <tr id="trDevSupport">
+			        <td></td>
+			        <td></td>
 				    </tr>
 				 </taconite-replace>			    			    
 		</c:otherwise>
