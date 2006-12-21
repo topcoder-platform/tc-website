@@ -25,14 +25,14 @@ public class Login extends FullLogin {
 
         //log.debug("new: " + regInfo.isNew() + " now " + now + " beginning " + beginning + " end " + end);
         if (regInfo != null && regInfo.isNew() && (now.before(beginning) || now.after(end))) {
-            setNextPage(Constants.GOOGLE_SOUTH_AMERICA_07_REG_CLOSED_PAGE);
+            setNextPage(Constants.GOOGLE_LATIN_AMERICA_07_REG_CLOSED_PAGE);
             setIsNextPageInContext(true);
         } else {
             if (hasErrors()) {
-                setNextPage(Constants.GOOGLE_SOUTH_AMERICA_07_LOGIN_PAGE);
+                setNextPage(Constants.GOOGLE_LATIN_AMERICA_07_LOGIN_PAGE);
                 setIsNextPageInContext(true);
             } else {
-                setNextPage(Constants.GOOGLE_SOUTH_AMERICA_07_REG_PAGE);
+                setNextPage(Constants.GOOGLE_LATIN_AMERICA_07_REG_PAGE);
                 setIsNextPageInContext(true);
             }
         }

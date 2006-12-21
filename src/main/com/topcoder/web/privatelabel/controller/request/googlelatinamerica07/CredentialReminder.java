@@ -12,11 +12,11 @@ public class CredentialReminder extends BaseCredentialReminder {
 
     
     protected String getStartPage() {
-        return Constants.GOOGLE_SOUTH_AMERICA_07_CREDENTIALS_PAGE;
+        return Constants.GOOGLE_LATIN_AMERICA_07_CREDENTIALS_PAGE;
     }
 
     protected String getSuccessPage() {
-        return Constants.GOOGLE_SOUTH_AMERICA_07_CREDENTIALS_SENT_PAGE;
+        return Constants.GOOGLE_LATIN_AMERICA_07_CREDENTIALS_SENT_PAGE;
     }
 }
 

@@ -26,13 +26,13 @@ public class Demog extends FullRegDemog {
 
         
         if (regInfo.isNew() && (now.before(beginning) || now.after(end))) {
-            setNextPage(Constants.GOOGLE_SOUTH_AMERICA_07_REG_CLOSED_PAGE);
+            setNextPage(Constants.GOOGLE_LATIN_AMERICA_07_REG_CLOSED_PAGE);
             setIsNextPageInContext(true);
         } else {
             if (hasErrors()) {
-                setNextPage(Constants.GOOGLE_SOUTH_AMERICA_07_REG_PAGE);
+                setNextPage(Constants.GOOGLE_LATIN_AMERICA_07_REG_PAGE);
             } else {
-                setNextPage(Constants.GOOGLE_SOUTH_AMERICA_07_REG_DEMOG_PAGE);
+                setNextPage(Constants.GOOGLE_LATIN_AMERICA_07_REG_DEMOG_PAGE);
             }
             setIsNextPageInContext(true);
         }

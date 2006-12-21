@@ -23,13 +23,13 @@ public class Confirm extends ResumeRegConfirm {
         now.setTime(new Date());
 
         if (regInfo.isNew() && (now.before(beginning) || now.after(end))) {
-            setNextPage(Constants.GOOGLE_SOUTH_AMERICA_07_REG_CLOSED_PAGE);
+            setNextPage(Constants.GOOGLE_LATIN_AMERICA_07_REG_CLOSED_PAGE);
             setIsNextPageInContext(true);
         } else {
             if (hasErrors()) {
-                setNextPage(Constants.GOOGLE_SOUTH_AMERICA_07_REG_DEMOG_PAGE);
+                setNextPage(Constants.GOOGLE_LATIN_AMERICA_07_REG_DEMOG_PAGE);
             } else {
-                setNextPage(Constants.GOOGLE_SOUTH_AMERICA_07_REG_CONFIRM_PAGE);
+                setNextPage(Constants.GOOGLE_LATIN_AMERICA_07_REG_CONFIRM_PAGE);
             }
             setIsNextPageInContext(true);
         }

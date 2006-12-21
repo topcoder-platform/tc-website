@@ -34,12 +34,12 @@ public class Submit extends ResumeRegSubmit {
         now.setTime(new Date());
 
         if (regInfo.isNew() && (now.before(beginning) || now.after(end))) {
-            setNextPage(Constants.GOOGLE_SOUTH_AMERICA_07_REG_CLOSED_PAGE);
+            setNextPage(Constants.GOOGLE_LATIN_AMERICA_07_REG_CLOSED_PAGE);
             setIsNextPageInContext(true);
         } else {
             if (isEligible((FullRegInfo) regInfo)) {
                 if (hasErrors()) {
-                    setNextPage(Constants.GOOGLE_SOUTH_AMERICA_07_REG_PAGE);
+                    setNextPage(Constants.GOOGLE_LATIN_AMERICA_07_REG_PAGE);
                     setIsNextPageInContext(true);
                 } else {
                     SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
@@ -50,9 +50,9 @@ public class Submit extends ResumeRegSubmit {
                     buf.append("=");
                     buf.append(Constants.STATIC);
                     if (regInfo.isNew()) {
-                        buf.append(Constants.GOOGLE_SOUTH_AMERICA_07_REG_SUCCESS_PAGE);
+                        buf.append(Constants.GOOGLE_LATIN_AMERICA_07_REG_SUCCESS_PAGE);
                     } else {
-                        buf.append(Constants.GOOGLE_SOUTH_AMERICA_07_UPDATE_SUCCESS_PAGE);
+                        buf.append(Constants.GOOGLE_LATIN_AMERICA_07_UPDATE_SUCCESS_PAGE);
                     }
                     setNextPage(buf.toString());
                     setIsNextPageInContext(false);
@@ -132,7 +132,7 @@ public class Submit extends ResumeRegSubmit {
         buf.append("?");
         buf.append(Constants.MODULE_KEY);
         buf.append("=");
-        buf.append(Constants.GOOGLE_SOUTH_AMERICA_07_ACTIVATION);
+        buf.append(Constants.GOOGLE_LATIN_AMERICA_07_ACTIVATION);
         buf.append("&");
         buf.append(BaseActivate.ACTIVATION_CODE);
         buf.append("=");
