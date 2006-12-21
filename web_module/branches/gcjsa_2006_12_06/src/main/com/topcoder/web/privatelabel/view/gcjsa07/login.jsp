@@ -73,10 +73,10 @@
 
             Registration will close on Tuesday, January 23 at 10:00 AM GMT/UTC -2.<br/><br/>
             If you are
-            <A href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_SOUTH_AMERICA_07_REG_MAIN%>&<%=Constants.COMPANY_ID%>=66426&<%=Constants.EVENT_ID%>=8" class="bigRed">not
+            <A href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_LATIN_AMERICA_07_REG_MAIN%>&<%=Constants.COMPANY_ID%>=66426&<%=Constants.EVENT_ID%>=8" class="bigRed">not
                 currently a TopCoder member</A>
             or do not want to use an existing account, please click
-            <a href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_SOUTH_AMERICA_07_REG_MAIN%>&<%=Constants.COMPANY_ID%>=66426&<%=Constants.EVENT_ID%>=8" class="bigRed">here</a>.
+            <a href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_LATIN_AMERICA_07_REG_MAIN%>&<%=Constants.COMPANY_ID%>=66426&<%=Constants.EVENT_ID%>=8" class="bigRed">here</a>.
             <br><br>
             If you are currently a TopCoder member and would like to convert your account for use in Google Code Jam
             Latin America 2007 or you have an existing Google Code Jam Latin America 2007 account and need to change your registration information
@@ -87,7 +87,7 @@
             <br><br>
 
             <form method="post" name="frmLogin" action="<%=sessionInfo.getSecureAbsoluteServletPath()%>">
-                <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_SOUTH_AMERICA_07_LOGIN%>">
+                <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_LATIN_AMERICA_07_LOGIN%>">
                 <input type="hidden" name="<%=Constants.EVENT_ID%>" value="9">
                 <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="66426">
                 <table border="0" cellpadding="3" cellspacing="0" align="center">
