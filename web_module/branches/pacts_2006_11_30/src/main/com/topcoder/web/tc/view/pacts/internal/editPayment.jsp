@@ -340,6 +340,10 @@ function searchKeyPress(e)
         <td></td>
         <td></td>
     </tr>
+    <tr id="trDevSupport">
+        <td></td>
+        <td></td>
+    </tr>    
     <tr id="projectClient">
         <td></td>
         <td></td>
