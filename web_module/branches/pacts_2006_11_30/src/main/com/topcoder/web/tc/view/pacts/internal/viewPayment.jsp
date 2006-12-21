@@ -63,7 +63,7 @@
 	<c:when test="${payment.netAmount != payment.totalAmount or payment.installmentNumber > 1}">
 		<tr>
 			<td><b>Total Gross Amount:</b></td>
-			<td>$<fmt:formatNumber value="${payment.totalAmount}" pattern="###,###.000" /></td>
+			<td>$<fmt:formatNumber value="${payment.totalAmount}" pattern="###,##0.000" /></td>
 		</tr>
 		<tr>
 			<td><b>Installment Number:</b></td>
@@ -71,31 +71,31 @@
 		</tr>
 		<tr>
 			<td><b>Installment Gross Amount:</b></td>
-			<td>$<fmt:formatNumber value="${payment.grossAmount}" pattern="###,###.00" /></td>
+			<td>$<fmt:formatNumber value="${payment.grossAmount}" pattern="###,##0.00" /></td>
 		</tr>
 		<tr>
 			<td><b>Tax:</b></td>
-			<td>$<fmt:formatNumber value="${payment.grossAmount - payment.netAmount}" pattern="####.00" /></td>
+			<td>$<fmt:formatNumber value="${payment.grossAmount - payment.netAmount}" pattern="###0.00" /></td>
 		</tr>
 
 		<tr>
 			<td><b>Installment Net Amount:</b></td>
-			<td>$<fmt:formatNumber value="${payment.netAmount}" pattern="###,###.00" /></td>
+			<td>$<fmt:formatNumber value="${payment.netAmount}" pattern="###,##0.00" /></td>
 		</tr>
 	</c:when>
 	<c:otherwise>
 		<tr>
 			<td><b>Gross Amount:</b></td>
-			<td>$<fmt:formatNumber value="${payment.grossAmount}" pattern="###,###.00" /></td>
+			<td>$<fmt:formatNumber value="${payment.grossAmount}" pattern="###,##0.00" /></td>
 		</tr>
 		<tr>
 			<td><b>Tax:</b></td>
-			<td>$<fmt:formatNumber value="${payment.grossAmount - payment.netAmount}" pattern="####.00" /></td>
+			<td>$<fmt:formatNumber value="${payment.grossAmount - payment.netAmount}" pattern="###0.00" /></td>
 		</tr>
 	
 		<tr>
 			<td><b>Net Amount:</b></td>
-			<td>$<fmt:formatNumber value="${payment.netAmount}" pattern="###,###.00" /></td>
+			<td>$<fmt:formatNumber value="${payment.netAmount}" pattern="###,##0.00" /></td>
 		</tr>
 	</c:otherwise>
 </c:choose>
