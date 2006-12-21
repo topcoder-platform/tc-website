@@ -4,9 +4,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.AlgorithmProblemReferencePayment;
 import com.topcoder.web.ejb.pacts.AlgorithmRoundReferencePayment;
@@ -23,6 +26,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeaderList;
 
 /**
  * Add or update a payment.
@@ -51,6 +55,19 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             }
 
 			boolean charity = getRequest().getParameter("charity_ind") != null;
+            boolean devSupportDes = "designer".equals(getRequest().getParameter(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER));
+            long devSupportId = 0;
+            
+            if (!devSupportDes) {
+            	String handle = StringUtils.checkNull(getRequest().getParameter("coder"));
+                Map m = new HashMap();
+                m.put(HANDLE, handle);
+                UserProfileHeader[] users = new UserProfileHeaderList(dib.findUsers(m)).getHeaderList();
+                
+            	if (users.length == 1) {
+            		devSupportId = users[0].getId();
+            	}
+            }
 
             if (adding) {
                 if (contract != null) {
@@ -150,7 +167,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         if (payment instanceof ComponentWinningPayment) {
                         	int placed = getIntParameter("placed");
                         	ComponentWinningPayment p = (ComponentWinningPayment) payment;
-                    		List l = dib.generateComponentUserPayments(p.getCoderId(), p.getGrossAmount(), p.getClient(), p.getProjectId(), placed); 
+                    		List l = dib.generateComponentUserPayments(p.getCoderId(), p.getGrossAmount(), p.getClient(), p.getProjectId(), placed, devSupportId); 
 
                         	if (p.isDesign() && grossAmount == 0) {
                         		BasePayment aux = (BasePayment) l.get(0);
@@ -200,6 +217,8 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     setDefault("gross_amount", getRequest().getParameter("gross_amount"));
                     setDefault("net_amount", getRequest().getParameter("net_amount"));
                     setDefault("installment_number", getRequest().getParameter("installment_number"));
+                	setDefault(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER, Boolean.valueOf(devSupportDes));
+                    
                     if (((String) getRequest().getParameter("reference_description")).length() > 0) {
                         getRequest().setAttribute("reference_description", getRequest().getParameter("reference_description"));
                     }

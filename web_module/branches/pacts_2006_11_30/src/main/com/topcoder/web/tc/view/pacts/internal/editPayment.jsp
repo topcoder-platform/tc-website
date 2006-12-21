@@ -107,6 +107,7 @@ function displayAmounts() {
     ajaxRequest.addNamedFormElements("gross_amount");    
     ajaxRequest.addNamedFormElements("net_amount");        
     ajaxRequest.addNamedFormElements("installment_number");       
+    ajaxRequest.addNamedFormElements("dsd");       
     ajaxRequest.setPostRequest(loaded);
     ajaxRequest.setPreRequest(loading);        
     ajaxRequest.sendRequest();

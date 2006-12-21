@@ -84,7 +84,7 @@
             </c:otherwise>
      </c:choose>
      <c:choose>
-		<c:when test="${type == COMPONENT_WINNING and not isDesign}">
+		<c:when test="${type == COMPONENT_WINNING and not isDesign and not isUpdating}">
 			    <taconite-replace contextNodeID="trDevSupport" parseInBrowser="true">
 			        <tr id="trDevSupport">
 			        <td></td>
@@ -98,8 +98,8 @@
 			        <tr id="trDevSupport">
 			        <td><b>Development Support:</b></td>
 			        <td>
-                        	If needed, pay development support to:<br/>
-                        	<tc-webtag:radioButton name="<%=GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="designer"/>the designer<br/>
+                        	If needed, pay development support to: &nbsp;&nbsp;
+                        	<tc-webtag:radioButton name="<%=GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="designer"/>the designer&nbsp;&nbsp;
                         	<tc-webtag:radioButton name="<%= GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="other"/>coder 
                         		<tc-webtag:textInput name="coder" size="10" editable="true"/>
 			        

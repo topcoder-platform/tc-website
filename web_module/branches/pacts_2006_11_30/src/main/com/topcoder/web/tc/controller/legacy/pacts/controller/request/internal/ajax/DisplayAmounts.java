@@ -3,6 +3,7 @@ package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.GenerateComponentPayments;
 
 /**
  * @author  cucu
@@ -21,6 +22,7 @@ public class DisplayAmounts extends BaseProcessor implements PactsConstants {
             String grossAmount = getRequest().getParameter("gross_amount") != null? (String) getRequest().getParameter("gross_amount") : "";
             String netAmount = getRequest().getParameter("net_amount") != null? (String) getRequest().getParameter("net_amount") : "";
             String installmentNumber = getRequest().getParameter("installment_number") != null? (String) getRequest().getParameter("installment_number") : "";
+            boolean devSupportDes = !"other".equals(getRequest().getParameter(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER));
             
             getRequest().setAttribute("type", type + "");
             getRequest().setAttribute("placed", placed + "");
@@ -31,6 +33,7 @@ public class DisplayAmounts extends BaseProcessor implements PactsConstants {
 			setDefault("gross_amount", grossAmount);
 			setDefault("net_amount", netAmount);
 			setDefault("installment_number", installmentNumber);
+        	setDefault(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER, Boolean.valueOf(devSupportDes));
 
             setNextPage(INTERNAL_AJAX_DISPLAY_AMOUNTS);
             setIsNextPageInContext(true);
