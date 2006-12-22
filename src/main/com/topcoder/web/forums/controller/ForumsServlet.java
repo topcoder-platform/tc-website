@@ -14,6 +14,7 @@ import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
+import com.topcoder.web.common.error.RequestRateExceededException;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.StudioForumsAuthentication;
 import com.topcoder.web.common.security.TCForumsAuthentication;
@@ -71,6 +72,18 @@ public class ForumsServlet extends BaseServlet {
                 TCRequest tcRequest = HttpObjectFactory.createRequest(request);
 
                 TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+
+
+                if (throttleEnabled) {
+                    if (throttle.throttle(request.getSession().getId())) {
+                        authentication = createAuthentication(tcRequest, tcResponse);
+                        throw new RequestRateExceededException(request.getSession().getId(),
+                                authentication.getActiveUser().getUserName());
+                    }
+                }
+
+
+
                 //set up security objects and session info
                 authentication = createAuthentication(tcRequest, tcResponse);
                 TCSubject user = getUser(authentication.getActiveUser().getId());
