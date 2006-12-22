@@ -68,7 +68,7 @@ Check out the final <A href="/tc?module=LeaderBoard&ph=112&sc=&sd=&staid=2&nr=50
 <strong>Development Cup:</strong><br>
 More than twice the number of designers participated in Stage 2 of the Development Cup, with a total of 160 developers  racking up 67,555 in points. Thanks to the large number of participants, more than 50 developers finished in the top third for the stage, sharing $37,500 in total prizes. zjq wound up on top, taking first place for Stage 2 with 4,980 points and total prizes of $13,732.
 <br><br>
-Check out the final <A href="/tc?module=LeaderBoard&ph=113&sc=&sd=&staid=2&nr=50&sr=1">Design Cup: Stage 2 leaderboard</A>.
+Check out the final <A href="/tc?module=LeaderBoard&ph=113&sc=&sd=&staid=2&nr=50&sr=1">Development Cup: Stage 2 leaderboard</A>.
 <br><br>
 And remember: Design Cup <A href="/tc?module=Static&d1=digital_run&d2=2006_des_prizes">prizes for Stage 3 have been doubled</A>!
 <br><br>
