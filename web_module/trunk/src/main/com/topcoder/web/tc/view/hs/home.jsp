@@ -80,7 +80,7 @@
                     from a school will be part of that school's team. Eligible students who do not attend a school can
                     register to compete as an individual. In order to be eligible for participation in the TopCoder High
                     School tournament, teams and individuals must participate in at least four (4) of the rated events
-                    for their region between June 2006 and February 2007. Registration for TopCoder High School is
+                    between June 2006 and February 2007. Registration for TopCoder High School is
                     simple, so <A href="/reg/">start now</A>.
                     <br><br>
                     <span class="subtitle">TCHS Tournament Rules</span><br>
