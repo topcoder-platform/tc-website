@@ -144,10 +144,10 @@ public class ApplyRBoardRules extends DBUtility {
 
                 String possibleDisqualificationReason = " (no submission in the last " + DAYS_THREE_MONTHS + " days.";
 
-                /*log.debug("Analyzing " + ((rsUsers.getInt("status_id") == DISQUALIFIED_STATUS) ? "Inactive" : "Active") +
+                log.debug("Analyzing " + ((rsUsers.getInt("status_id") == DISQUALIFIED_STATUS) ? "Inactive" : "Active") +
                         " user " + rsUsers.getLong("user_id") + "("+ rsUsers.getString("handle") + ")" +
                         " Project Type: " + rsUsers.getString("project_type_name") +
-                        " Catalog Id: " + rsUsers.getString("catalog_name"));*/
+                        " Catalog Id: " + rsUsers.getString("catalog_name"));
 
                 logMsg = " - <" + rsUsers.getString("handle") + "> <" + rsUsers.getString("project_type_name") + "> <" +
                     rsUsers.getString("catalog_name") + ">";
@@ -169,7 +169,7 @@ public class ApplyRBoardRules extends DBUtility {
 
                     // counts submissions
                     int count = 0;
-                    for (;count < submissionThresholdLastYear && rsDetails90.next(); count++);
+                    for (;count < submissionThresholdLastYear && rsDetails356.next(); count++);
 
                     if (count == submissionThresholdLastYear) {
                         // passed the last year rule successfully.
@@ -278,7 +278,10 @@ public class ApplyRBoardRules extends DBUtility {
             try {
                 if (sendMails.equalsIgnoreCase("true")) {
                     sendMail(systemEmail, adminEmail, emailSubject, digestMail.toString());
-                    log.debug("Sending digest mail.");
+                        log.debug("Sending digest mail.");
+                } else {
+                                           log.debug(digestMail.toString());
+ 
                 }
             } catch (Exception e) {
                 throw new Exception("Unable to send digest mail.", e);
@@ -486,13 +489,15 @@ public class ApplyRBoardRules extends DBUtility {
      *
      * @return the users PreparedStatement
      */
-    private PreparedStatement prepareUsersStatement() throws SQLException {
+     
+         private PreparedStatement prepareUsersStatement() throws SQLException {
         StringBuffer query = new StringBuffer(200);
-        query.append("select u.handle, ru.user_id, ru.project_type_id, ru.catalog_id, ru.status_id, ru.immune_ind, pt.project_type_name, c.catalog_name, ");
-        query.append("(select address from email e where e.user_id = ru.user_id and e.primary_ind = 1) as email_address ");
-        query.append("from rboard_user ru, project_type pt, user u, catalog c ");
-        query.append("where ru.immune_ind = 0 and ru.status_id in (?, ?) and pt.project_type_id = ru.project_type_id and ru.user_id = u.user_id ");
-        query.append("and c.catalog_id = ru.catalog_id ");
+        query.append("select u.handle, ru.user_id, ru.project_type_id, ru.catalog_id, ru.status_id, ru.immune_ind,  ");
+        query.append("pcl.name as project_type_name, c.catalog_name,  ");
+        query.append("(select address from email e where e.user_id = ru.user_id and e.primary_ind = 1) as email_address  ");
+        query.append("from rboard_user ru, user u, catalog c, project_category_lu pcl ");
+        query.append("where ru.immune_ind = 0 and ru.status_id in (?, ?) and  ru.user_id = u.user_id  ");
+        query.append("and c.catalog_id = ru.catalog_id  and  pcl.project_category_id = ru.project_type_id ");
 
         PreparedStatement ps = prepareStatement("tcs_catalog", query.toString());
         ps.setInt(1, QUALIFIED_STATUS);
@@ -507,17 +512,24 @@ public class ApplyRBoardRules extends DBUtility {
      */
     private PreparedStatement prepareDetailsStatement() throws SQLException {
         StringBuffer query = new StringBuffer(200);
-        query.append("select DATE(current) as current_date, DATE(p.rating_date) as rating_date ");
-        query.append("from project p, project_result pr, comp_versions cv, comp_catalog cc, category_catalog cac ");
-        query.append("where p.comp_vers_id = cv.comp_vers_id and ");
-        query.append("cc.component_id = cv.component_id and p.project_id = pr.project_id and ");
-        query.append("p.cur_version = 1 and DATE(p.rating_date) >= DATE(current) - ? UNITS DAY and ");
-        query.append("cc.root_category_id = cac.category_id and pr.final_score >= ? and ");
-        query.append("p.project_type_id = ? and pr.user_id = ? and cac.catalog_id = ? ");
-        query.append("order by DATE(p.rating_date) desc ");
+        query.append("select DATE(current) as current_date, mdy(substr(pi_rating_date.value,1,2), substr(pi_rating_date.value,4,2), substr(pi_rating_date.value,7,4)) as rating_date  ");
+        query.append("from project p, project_result pr, comp_versions cv, comp_catalog cc, category_catalog cac, ");
+        query.append("project_info pi_rating_date, project_info pi_comp_id ");
+        query.append("where pi_rating_date.project_info_type_id = 22 and ");
+        query.append("pi_rating_date.project_id = p.project_id and ");
+        query.append("pi_comp_id.project_info_type_id = 2 and ");
+        query.append("pi_comp_id.project_id = p.project_id and ");
+        query.append("cc.component_id = pi_comp_id.value and p.project_id = pr.project_id and  ");
+        query.append("mdy(substr(pi_rating_date.value,1,2), substr(pi_rating_date.value,4,2), substr(pi_rating_date.value,7,4)) >= DATE(current) - ? UNITS DAY and  ");
+        query.append("cc.root_category_id = cac.category_id and pr.final_score >= ? and  ");
+        query.append("p.project_category_id = ? and pr.user_id = ? and cac.catalog_id = ?  ");
+        query.append("order by mdy(substr(pi_rating_date.value,1,2), substr(pi_rating_date.value,4,2), substr(pi_rating_date.value,7,4)) desc  ");
         PreparedStatement ps = prepareStatement("tcs_catalog", query.toString());
         return ps;
     }
+
+
+
 
     /**
      * Helper method to update a reviewer status
