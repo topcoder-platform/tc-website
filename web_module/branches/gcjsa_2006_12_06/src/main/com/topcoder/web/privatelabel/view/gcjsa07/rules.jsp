@@ -277,35 +277,29 @@ prizewinner. Prize money will be distributed as follows:
              <tr valign="top">
                  <td class="boxTitle">Place</td>
                  <td class="boxTitle">BRL*</td>
-                 <td class="boxTitle">US*</td>
              </tr>
              <tr valign="top">
                  <td class="boxText" nowrap="nowrap"><b>First Prize</b></td>
                  <td class="boxText"><b>6,000BRL</b></td>
-                 <td class="boxText"><b>$2,800</b></td>
              </tr>
              <tr valign="top">
                  <td class="boxText" nowrap="nowrap">2nd - 5th</td>
                  <td class="boxText">2,500BRL</td>
-                 <td class="boxText">$1,166</td>
              </tr>
              <tr valign="top">
                  <td class="boxText" nowrap="nowrap">6th - 10th</td>
                  <td class="boxText">1,500BRL</td>
-                 <td class="boxText">$700</td>
              </tr>
              <tr valign="top">
                  <td class="boxText" nowrap="nowrap">11th - 20th</td>
                  <td class="boxText">1,000BRL</td>
-                 <td class="boxText">$466</td>
              </tr>
              <tr valign="top">
                  <td class="boxText" nowrap="nowrap">21st - 50th</td>
                  <td class="boxText">350BRL</td>
-                 <td class="boxText">$163</td>
              </tr>
              <tr valign="top">
-                 <td class="boxText" colspan="3">* Winners must be present at the onsite round to receive prize.</td>
+                 <td class="boxText" colspan="2">* Winners must be present at the onsite round to receive prize.</td>
              </tr>
          </table>
 
