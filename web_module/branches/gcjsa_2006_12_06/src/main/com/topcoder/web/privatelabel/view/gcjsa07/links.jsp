@@ -55,19 +55,19 @@
  -->
     <!-- Practice Arena  tab -->
     <% if (selectedTab.equals("arena")) {%>
-    <span class="navOn">Competition Arena</span> <%--&nbsp;|&nbsp;--%>
+    <span class="navOn">Competition Arena</span> &nbsp;|&nbsp;
     <% } else { %>
-    <a class="navLink" href="/pl/?module=Static&d1=gcjsa07&d2=arena">Competition Arena</a> <%--&nbsp;|&nbsp;--%>
+    <a class="navLink" href="/pl/?module=Static&d1=gcjsa07&d2=arena">Competition Arena</a> &nbsp;|&nbsp;
     <% } %>
 
-    <!-- Google Groups  tab 
+    <!-- Google Groups  tab -->
     <% if (selectedTab.equals("forum")) {%>
     <span class="navOn">Code Jam Group</span>
     <% } else { %>
-    <a class="navLink" href="/?t=sponsor&c=link&link=http://groups.google.com/group/Code-Jam-2006" target="_blank">Code
+    <a class="navLink" href="/?t=sponsor&c=link&link=http://groups.google.com/group/code-jam-latin-america?hl=en" target="_blank">Code
         Jam Group</a>
     <% } %>
--->
+
 </div>
 <!--
 <br><br>
