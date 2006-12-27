@@ -39,6 +39,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">12.27.06 5:00 PM - </td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=55">Poseidon version update</A><br></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.05.06 5:15 PM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=activeContests">Three Assembly Competitions open: $55,000+ in prizes</A><br></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.04.06 9:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">New Records in the Component Record Book</A><br></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.10.06 12:10 PM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_orpheusGameServer">New Assembly contest online: $45,000 in prizes!</A><br></td></tr>
