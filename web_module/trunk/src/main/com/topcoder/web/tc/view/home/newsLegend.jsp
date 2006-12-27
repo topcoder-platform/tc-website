@@ -1,4 +1,4 @@
-<%----------------MARATHON MATCH-------------------------%>
+c<%----------------MARATHON MATCH-------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>12.04.06<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -119,14 +119,16 @@ OR
 
 <%------------------COMPONENT COMPETITIONS--------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Component Competition News" border="0" /><br>11.29.06<br>6:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">New Listings in the Component Record Book</A></span><br><br>
-      There are new records for 
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Software Competition News" border="0" /><br>12.27.06<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=55">Poseidon Version Update</A>
+        </span><br><br>
+      Poseidon 4.x licenses are due to expire in a few days, so we are officially switching to Poseidon 5.0. Since last Friday, when you register for a project you will get a one year license key for Poseidon 5.0 Community Edition. All projects posted on Dec 27 and later will require submissions to be in Poseidon 5.0.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">details</A> | 
-         <tc-webtag:forumLink forumID="506192" message="discuss this" /> | 
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=55">details</A> | 
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=55">discuss this</A> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 
