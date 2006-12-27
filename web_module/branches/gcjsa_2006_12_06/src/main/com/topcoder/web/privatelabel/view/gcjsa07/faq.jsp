@@ -95,7 +95,7 @@
                 Be sure to read the <A href="/pl/?&module=Static&d1=gcjsa07&d2=instructions">Instructions</A> page for
                 a complete explanation.
                 <br><br>
-                <b>How will I know if I have advanced the next round of the Google Code Jam?</b><br>
+                <b>How will I know if I have advanced to the next round of the Google Code Jam?</b><br>
                 As soon as the Testing Phase has been completed, the advancers to the next round will be posted
                 <A href="/pl/?&module=Static&d1=gcjsa07&d2=overview">here</A>. In addition, an email will be sent to
                 all participants indicating whether or not each has advanced.
@@ -121,9 +121,18 @@
                 You have one hour to complete the qualification round, so be sure to begin your attempt by 11:00 AM GMT/UTC -2 
                 on January 24, 2007 to give yourself the full hour.
                 <br><br>
+                <b>Will I need a passport?</b><br>
+                If you qualify for the onsite finals in Brazil, it is your responsibility to have a valid passport before your date of travel.
+                <br><br>
                 <b>How do I get a visa if I make it onsite?</b><br>
-                If you require a visa to attend the championship round, one will be available to you after you become a finalist.  
-                As soon as Round 2 is over, please contact Google and they will provide you with the appropriate invitation letter to take to the embassy.
+                The following countries require a tourist visa to attend the championship round:<br>
+                French Guiana, Guyana, Belize,  El Salvador, Honduras,  Nicaragua, Panama, Mexico, Antigua &amp; Barbuda, Aruba, Cayman Islands, Cuba, 
+                Dominica, Dominican Republic, Grenada, Guadeloupe, Haiti, Jamaica, Martinique, Puerto Rico, St. Kitts &amp; Nevis, St. Lucia, St. Vincent &amp; 
+                Grenadines, Trinidad &amp; Tobago, Turks &amp; Caicos Islands, Virgin Islands.
+                <br><br>
+                Google will provide a visa invitation letter after Round 1 to anyone in the Top 250, who would need a tourist visa if they advanced to the finals. 
+                To ensure that finalists receive their tourist visa in time, it is recommended to secure an early visa appointment with the embassy.
+                <br><br>
                 <br><br>
                 Questions not addressed here should be directed to
                 <A href="mailto:gcjla@topcoder.com?subject=Question%20regarding%20Google%20Code%20Jam%20Latin%20America%202007">gcjla@topcoder.com</A>.

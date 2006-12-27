@@ -268,7 +268,7 @@ total for the round. In the event of a tie in the Championship Round, the tie wi
     <li>If a tie still remains, then the prize money will be distributed equally among the tied coders.</li>
 </ul>
 
-<span class="subTitle">About the Prize Money</span><br>
+<span class="subTitle">About the Prizes</span><br>
 The top 250 scores from Round 2 will receive a "Google Code Jam Latin America 2007" t-shirt. In addition, the 50 finalists in the
 Championship Round will receive prizes. Any and all applicable taxes on prizes are the sole responsibility of the
 prizewinner. Prize money will be distributed as follows:

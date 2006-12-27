@@ -70,7 +70,7 @@
          <div align="left"><img src="/i/events/gcjsa07/arena1.gif" alt="" border="0"/></div>
          <br><br>
 
-         From here, you need simply type in your handle and the password that you chose during the registration process.
+         From here, you simply type in your handle and the password that you chose during the registration process.
          Once you log in, you will initially be placed in the main chat lobby.
 
          <br><br>

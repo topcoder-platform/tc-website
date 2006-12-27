@@ -49,7 +49,7 @@
          <br><br>
          <span class="subTitle">Overview</span>
          <br><br>
-         Google is making their next stop in Latin America!  Get ready for the biggest battle the continent has ever seen.  There will be 70,000BRL in cash and prizes up for grabs and enough challenging problems for the most talented engineers.
+         Google is making their next stop in Latin America!  Get ready for the biggest battle the continent has ever seen.  There will be R$75,000 in cash and prizes up for grabs and enough challenging problems for the most talented engineers.
          <br><br><br> 
          <span class="subTitle">What is the Google Code Jam Latin America 2007?</span>
          <br><br>
@@ -73,25 +73,7 @@
          The competitors with the top 50 scores from Round 2 will be invited to compete for 70,000BRL in cash and prizes
          at the onsite Championship Round at the Google Office in Belo Horizonte, Brazil.
          <br><br><br>
-         <%--
-         Here's the line-by-line documentation:
-         <br><br>
-         <div class="indented">
-            <b>Download the Arena</b><br/>
-            The TopCoder&#174; Competition Arena (a Java Applet) is where you begin. Download the app, read the problem statements, then code solutions, compile and test those solutions and submit the code for points. You can download the arena ahead of time to practice on sample problems prior to the competition.
-            <br/><br/>
-            <b>Coding Phase</b><br/>
-            At the designated date and time, competitors enter the Arena and are placed in groups of ten into virtual rooms. All participants are presented with the same set of three problems of escalating difficulty. In a race to see who can create an accurate solution in the shortest amount of time, competitors try to out-think and out-code their opponents. The Leader Board tallies the points during each step of the competition.
-            <br/><br/>
-            <b>Challenge Phase</b><br/>
-            During the Challenge Phase, competitors view each other's code and try to "break'" that code by passing test cases through the submitted code, with the hope that the results are not satisfied by the software written. Breaking another developer's code is the most direct form of competition for a programmer. In this phase, points are awarded for successful challenges and deducted for unsuccessful challenges.
-            <br/><br/>
-            <b>System Tests</b><br/>
-            Within minutes of the end of the Challenge Phase, the automated, objective system tests determine the accuracy of all submissions and award final points to all competitors. The assessment of your performance and presentation of stats is nearly instantaneous, as is the gratification of knowing how you did against a competitive field.
-         </div>
-         <br><br>
-         --%>
-
+         
          <table width="500" class="box" align="center" style="clear:right;">
              <tr>
                  <td class="boxTitle" width="33%">Date</td>
@@ -150,35 +132,41 @@
          <span class="subTitle">What can you win?</span>
          <br><br>
          The top 250 participants in Round 2 will receive a "Google Code Jam Latin America 2007" t-shirt. All 50 finalists who
-         compete in the Championship Round will receive prizes as follows:
+         compete in the Championship Round will receive prize money as follows:
          <br><br>
          <table width="250" class="box" align="center" style="clear:right;">
              <tr valign="top">
-                 <td class="boxTitle">Competitor(s)</td>
-                 <td class="boxTitle">Prize*</td>
+                 <td class="boxTitle">Place</td>
+                 <td class="boxTitle">BRL*</td>
+                 <td class="boxTitle">US*</td>
              </tr>
              <tr valign="top">
-                 <td class="boxText" nowrap="nowrap"><b>First Place</b></td>
-                 <td class="boxText"><b>6,500BRL</b></td>
+                 <td class="boxText" nowrap="nowrap"><b>First Prize</b></td>
+                 <td class="boxText"><b>6,000BRL</b></td>
+                 <td class="boxText"><b>$2,800</b></td>
              </tr>
              <tr valign="top">
-                 <td class="boxText" nowrap="nowrap">2nd - 5th Place </td>
-                 <td class="boxText">3,000BRL</td>
+                 <td class="boxText" nowrap="nowrap">2nd - 5th</td>
+                 <td class="boxText">2,500BRL</td>
+                 <td class="boxText">$1,166</td>
              </tr>
              <tr valign="top">
-                 <td class="boxText" nowrap="nowrap">6th - 10th Place</td>
-                 <td class="boxText">1,900BRL</td>
+                 <td class="boxText" nowrap="nowrap">6th - 10th</td>
+                 <td class="boxText">1,500BRL</td>
+                 <td class="boxText">$700</td>
              </tr>
              <tr valign="top">
-                 <td class="boxText" nowrap="nowrap">11th - 20th Place</td>
-                 <td class="boxText">1,300BRL</td>
+                 <td class="boxText" nowrap="nowrap">11th - 20th</td>
+                 <td class="boxText">1,000BRL</td>
+                 <td class="boxText">$466</td>
              </tr>
              <tr valign="top">
-                 <td class="boxText" nowrap="nowrap">21st - 50th Place</td>
-                 <td class="boxText">400BRL</td>
+                 <td class="boxText" nowrap="nowrap">21st - 50th</td>
+                 <td class="boxText">350BRL</td>
+                 <td class="boxText">$163</td>
              </tr>
              <tr valign="top">
-                 <td class="boxText" colspan="2">* Winners must be present at the onsite round to receive prize.</td>
+                 <td class="boxText" colspan="3">* Winners must be present at the onsite round to receive prize.</td>
              </tr>
          </table>
          <br><br>
