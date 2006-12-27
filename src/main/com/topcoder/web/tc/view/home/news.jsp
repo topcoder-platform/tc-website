@@ -26,7 +26,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Software Competition News" border="0" /><br>12.27.06<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=55">Poseidon version update</A>
+        <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=55">Poseidon Version Update</A>
         </span><br><br>
       Poseidon 4.x licenses are due to expire in a few days, so we are officially switching to Poseidon 5.0. Since last Friday, when you register for a project you will get a one year license key for Poseidon 5.0 Community Edition. All projects posted on Dec 27 and later will require submissions to be in Poseidon 5.0.
       </td>
