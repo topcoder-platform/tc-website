@@ -24,6 +24,23 @@
 ------------------%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.27.06<br>10:40 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm331">SRM 331 - Problem Set & Analysis</A></span><br><br>
+With SRM 331 happening only a few days before Christmas, it was the perfect excuse to escape from the rush of cleaning, cooking and shopping for couple of hours and relax in front of some relatively easy Christmas-themed problems.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/slex_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8382018" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=srm331">full story</A> | 
+        <tc-webtag:forumLink forumID="506006" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>12.20.06<br>4:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2048">New AOL Mashup: $19,000 in prizes</A>
@@ -188,19 +205,3 @@ We are currently looking to fill an opening for a <A href="/tc?module=Static&d1=
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>12.11.06<br>5:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=121106">TopCoder @ Work: Professional Ethics, Part 2</A></span><br><br>
-      When workplace practices confront personal values, conflicts have consequences. Outcomes that effect your very employment depend less on making the "right choice" and more on making the "least worst" one. Can you save your job without losing your soul?</td>
-         <td class="newsPhoto"><img src="/i/m/timmac_big.jpg"  alt="" width="55" height="61"/><img src="/i/m/rhudson_big.jpg"  alt="" width="55" height="61"/><br>by 
-         <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=121106">full story</A> | 
-         <tc-webtag:forumLink forumID="506196" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
