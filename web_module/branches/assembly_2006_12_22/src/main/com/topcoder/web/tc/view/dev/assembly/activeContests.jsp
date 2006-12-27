@@ -43,13 +43,12 @@
 <td width="100%" align="center" class="bodyText">
 
 <jsp:include page="/page_title.jsp">
-    <jsp:param name="image" value="<%= design ? "comp_design":"comp_development"%>"/>
+<jsp:param name="image" value="assembly"/>
     <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:10px;">
    <tr>
-      <td><A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/development/digitalRun.gif" alt="The Digital Run" border="0" /></A></td>
       <td align="right"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=instructions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0" /></A></td>
    </tr>
 </table>
@@ -73,7 +72,7 @@
 
     <% boolean even = false; %>
     <rsc:iterator list="<%=contests %>" id="resultRow">
-        <tr class="<%=even?"dark":"light"%>">
+        <tr class="<%=even?"dark":"light"%>"> 
             <td class="value">
                 <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
                     <rsc:item name="contest_name" row="<%=resultRow%>"/>
