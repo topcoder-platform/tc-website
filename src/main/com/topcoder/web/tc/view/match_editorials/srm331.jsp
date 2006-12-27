@@ -248,7 +248,7 @@ We are going to loop through all the possible subsets of carols (not more than 1
 Looping through all the subsets of a set is a technique commonly used in TopCoder problems, 
 which explains the very fast submissions made by the experienced coders. The easiest way to do it is to use bitmasks to represent subsets.
 If you need more information on what a bitmask is,  or how it applies here, check the <a href ="http://www.topcoder.com/tc?module=Static&d1=tutorials&d2=bitManipulation">
- excellent article</a> by <tc-webtag:handle coderId="251704" context="algorithm"/> on that topic.
+ excellent article</a> by <tc-webtag:handle coderId="251074" context="algorithm"/> on that topic.
 
 <pre>
     public int choose(String[] lyrics) {
