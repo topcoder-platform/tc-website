@@ -6,9 +6,9 @@
 <tr>
     <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 </tr>
-<%--------------------------------------
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Educational Content" border="0" /><br>12.21.06<br>10:00 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Educational Content" border="0" /><br>12.27.06<br>5:20 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=lowestCommonAncestor">Range Minimum Query and Lowest Common Ancestor</A></span><br><br>
@@ -21,7 +21,7 @@
          <tc-webtag:forumLink forumID="506217" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
-------------------%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Software Competition News" border="0" /><br>12.27.06<br>5:00 PM</td>
@@ -192,17 +192,3 @@ only 11 of them successfully solved all three, and 43 members didn't solve any o
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>12.12.06<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=SurveyResults&sid=11060">yiming Wins the Arena Skin Contest</A>
-        </span><br><br>
-      Congratulations to <tc-webtag:handle coderId="10481546" />! He wins $1000 and an engraved version of his design in the Arena.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=SurveyResults&sid=11060">vote results</A> | 
-         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=23">discuss this</A> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
