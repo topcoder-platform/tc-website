@@ -276,7 +276,8 @@ following function (<b>b </b>and <b>e </b>are the bounds of the current interval
   <font color="#0000FF">//compute the values in the left and right subtrees</font>
   &nbsp;&nbsp;&nbsp;     initialize(2 * node, b, (b + e) / 2, M, A, N);
   &nbsp;&nbsp;&nbsp;     initialize(2 * node + 1, (b + e) / 2 + 1, e, M, A, N);
-  <font color="#0000FF">//search for the minimum value in the first and second half of the interval</font>
+  <font color="#0000FF">//search for the minimum value in the first and 
+  //second half of the interval</font>
   &nbsp;&nbsp;&nbsp;     <b>if </b>(A[M[2 * node]] &lt;= A[M[2 * node + 1]])
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     M[node] = M[2 * node];
   &nbsp;&nbsp;&nbsp;&nbsp;<strong>    else</strong>
@@ -298,19 +299,23 @@ should use the next easy function:
   {<b>
       int </b>p1, p2;</font></p>
   &nbsp;
-  <font color="#0000FF">//if the current interval doesn't intersect the query interval return <b>-1</b></font>
+  <font color="#0000FF">//if the current interval doesn't intersect 
+  //the query interval return <b>-1</b></font>
   &nbsp;&nbsp;&nbsp; <b>if </b>(i &gt; e || j &lt; b)
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>return </b>-1;
   &nbsp;
-  <font color="#0000FF">//if the current interval is included in the query interval return <b>M[node]</b></font>
+  <font color="#0000FF">//if the current interval is included in 
+  //the query interval return <b>M[node]</b></font>
   &nbsp;&nbsp;&nbsp; <b>if</b> (b &gt;= i &amp;&amp; e &lt;= j)
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>return </b>M[node];
   &nbsp;
-  <font color="#0000FF">//compute the minimum position in the left and right part of the interval</font>
+  <font color="#0000FF">//compute the minimum position in the 
+  //left and right part of the interval</font>
   &nbsp;&nbsp;&nbsp; p1 = query(2 * node, b, (b + e) / 2, M, A, i, j);
   &nbsp;&nbsp;&nbsp; p2 = query(2 * node + 1, (b + e) / 2 + 1, e, M, A, i, j);
   &nbsp;
-  <font color="#0000FF">//return the position where the overall minimum is</font>
+  <font color="#0000FF">//return the position where the overall 
+  //minimum is</font>
   &nbsp;&nbsp;&nbsp; <b>if </b>(p1 == -1)
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>return </b>M[node] = p2;
   &nbsp;&nbsp;  <b>if </b>(p2 == -1)
@@ -372,9 +377,12 @@ Notice that for the nodes situated on the levels that are the  first ones in som
   <b>void</b> dfs(<b>int</b> node, <b>int</b> T[MAXN], <b>int</b> N, <b>int</b> P[MAXN], <b>int</b> L[MAXN], <b>int</b> nr)</font>  {
       <b>int</b> k;
   &nbsp;
-  <font color="#0000FF">//if node is situated in the first section then <b>P[node] = 1</b></font>
-  <font color="#0000FF">//if node is situated at the begin of some section then <b>P[node] = T[node]</b></font>
-  <font color="#0000FF">//if none of those two cases occurs, then <b>P[node] = P[T[node]]</b></font>
+  <font color="#0000FF">//if node is situated in the first 
+  //section then <b>P[node] = 1</b></font>
+  <font color="#0000FF">//if node is situated at the beginning
+  //of some section then <b>P[node] = T[node]</b></font>
+  <font color="#0000FF">//if none of those two cases occurs, then 
+  //<b>P[node] = P[T[node]]</b></font>
       <b>if</b> (L[node] &lt; nr)
           P[node] = 1;
       <b>else</b>
@@ -394,8 +402,10 @@ lays, and then trivially compute it. Here is the code:
 <pre class="code">
   int LCA(<b>int</b> T[MAXN], <b>int</b> P[MAXN], <b>int </b>L[MAXN], <strong>int</strong> x, <strong>int</strong> y)
   {
-  <font color="#0000FF">//as long as the node in the next section of x and y is not one common ancestor</font>
-  <font color="#0000FF">//we get the node situated on the smaller lever closer</font>
+  <font color="#0000FF">//as long as the node in the next section of 
+  //x and y is not one common ancestor</font>
+  <font color="#0000FF">//we get the node situated on the smaller 
+  //lever closer</font>
   &nbsp;&nbsp;&nbsp;<strong> while</strong> (P[x] != P[y])
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <strong>if</strong> (L[x] &gt; L[y])
              x = P[x];
@@ -472,7 +482,8 @@ should look:
 
 <pre class="code">
 
-  <b>int</b> query(<b>int</b> N, <b>int</b> P[MAXN][LOGMAXN], <b>int</b> T[MAXN], <b>int</b> L[MAXN], <b>int</b> p, <b>int</b> q)
+  <b>int</b> query(<b>int</b> N, <b>int</b> P[MAXN][LOGMAXN], <b>int</b> T[MAXN], 
+  <b>int</b> L[MAXN], <b>int</b> p, <b>int</b> q)
   {
   &nbsp;&nbsp;&nbsp; <b>int</b> tmp, log, i;
   &nbsp;
@@ -484,7 +495,8 @@ should look:
   &nbsp;&nbsp;&nbsp;&nbsp;<b>for</b> (log = 1; 1 &lt;&lt; log &lt;= L[p]; log++);
   &nbsp;&nbsp;&nbsp; log--;
   &nbsp;
-  <font color="#0000FF">//we find the ancestor of node p situated on the same level with q using the values in P</font>
+  <font color="#0000FF">//we find the ancestor of node p situated on the same level
+  //with q using the values in P</font>
   &nbsp;&nbsp;&nbsp; <b>for</b> (i = log; i &gt;= 0; i--)
   &nbsp;&nbsp;&nbsp;&nbsp;    <b>if</b> (L[p] - (1 &lt;&lt; i) &gt;= L[q])
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    <b>p</b> = P[p][i];
@@ -696,7 +708,8 @@ Here is how the tree-processing function will look:
   <font color="#0000FF">//at step <b>i</b> we insert <b>A[i]</b> in the stack</font>
   &nbsp;&nbsp;&nbsp; <b>for</b> (i = 0; i &lt; N; i++)
   &nbsp;&nbsp;&nbsp; {
-  <font color="#0000FF">//compute the position of the first element that is equal or smaller than <b>A[i]</b></font>
+  <font color="#0000FF">//compute the position of the first element that is 
+  //equal or smaller than <b>A[i]</b></font>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; k = top;
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>while</b> (k &gt;= 0 &amp;&amp; A[st[k]] &gt; A[i])
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; k--;
@@ -705,11 +718,13 @@ Here is how the tree-processing function will look:
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; T[i] = st[k];
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>if</b> (k &lt; top)
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; T[st[k + 1]] = i;
-  <font color="#0000FF">//we insert <b>A[i]</b> in the stack and remove any bigger elements</font>
+  <font color="#0000FF">//we insert <b>A[i]</b> in the stack and remove 
+  //any bigger elements</font>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; st[++k] = i;
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; top = k;
   &nbsp;&nbsp;&nbsp; }
-  <font color="#0000FF">//the first element in the stack is the root of the tree, so it has no father</font>
+  <font color="#0000FF">//the first element in the stack is the root of 
+  //the tree, so it has no father</font>
   &nbsp;&nbsp;&nbsp; T[st[0]] = -1;
   }
   &nbsp;
