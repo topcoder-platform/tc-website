@@ -40,14 +40,14 @@
     </tr>
     <tr>
         <td align="center" nowrap="nowrap">
-            <span class="insetHeader">70,000BRL in<br/>Cash &amp; Prizes!</span>
+            <span class="insetHeader">R$75,000 in<br/>Cash &amp; Prizes!</span>
             <br/><br/>
       <span class="prizes">
-      <b>1st Place - 6,500BRL</b><br/>
-      2nd - 5th Place - 3,000BRL<br/>
-      6th - 10th Place - 1,900BRL<br/>
-      11th - 20th Place - 1,300BRL<br/>
-      21st - 50th Place - 400BRL<br/>
+      <b>1st Prize - 6,000BRL</b><br/>
+      2nd - 5th - 2,500BRL<br/>
+      6th - 10th - 1,500BRL<br/>
+      11th - 20th - 1,000BRL<br/>
+      21st - 50th - 350BRL<br/>
       &#160;
       </span>
         </td>

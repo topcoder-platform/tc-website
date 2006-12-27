@@ -66,7 +66,7 @@
             Qualification Round to determine who will compete in the programming tournament. The tournament consists
             of one (1) online qualification round, two (2) online elimination rounds and one (1) onsite final round.
             The top 250 scores from Round 2 will receive a Google Code Jam Latin America 2007 t-shirt. In addition, Google will
-            award 70,000BRL in cash and prizes to the 50 finalists in the tournament.
+            award R$75,000 in cash and prizes to the 50 finalists in the tournament.
             <br><br>
 
             <b>Eligibility</b><br>
@@ -268,38 +268,44 @@ total for the round. In the event of a tie in the Championship Round, the tie wi
     <li>If a tie still remains, then the prize money will be distributed equally among the tied coders.</li>
 </ul>
 
-<span class="subTitle">About the Prizes</span><br>
+<span class="subTitle">About the Prize Money</span><br>
 The top 250 scores from Round 2 will receive a "Google Code Jam Latin America 2007" t-shirt. In addition, the 50 finalists in the
 Championship Round will receive prizes. Any and all applicable taxes on prizes are the sole responsibility of the
-prizewinner. Prizes will be distributed as follows:
+prizewinner. Prize money will be distributed as follows:
 <br><br>
          <table width="250" class="box" align="center" style="clear:right;">
              <tr valign="top">
-                 <td class="boxTitle">Competitor(s)</td>
-                 <td class="boxTitle">Prize*</td>
+                 <td class="boxTitle">Place</td>
+                 <td class="boxTitle">BRL*</td>
+                 <td class="boxTitle">US*</td>
              </tr>
              <tr valign="top">
-                 <td class="boxText" nowrap="nowrap"><b>First Place</b></td>
-                 <td class="boxText"><b>6,500BRL</b></td>
+                 <td class="boxText" nowrap="nowrap"><b>First Prize</b></td>
+                 <td class="boxText"><b>6,000BRL</b></td>
+                 <td class="boxText"><b>$2,800</b></td>
              </tr>
              <tr valign="top">
-                 <td class="boxText" nowrap="nowrap">2nd - 5th Place </td>
-                 <td class="boxText">3,000BRL</td>
+                 <td class="boxText" nowrap="nowrap">2nd - 5th</td>
+                 <td class="boxText">2,500BRL</td>
+                 <td class="boxText">$1,166</td>
              </tr>
              <tr valign="top">
-                 <td class="boxText" nowrap="nowrap">6th - 10th Place</td>
-                 <td class="boxText">1,900BRL</td>
+                 <td class="boxText" nowrap="nowrap">6th - 10th</td>
+                 <td class="boxText">1,500BRL</td>
+                 <td class="boxText">$700</td>
              </tr>
              <tr valign="top">
-                 <td class="boxText" nowrap="nowrap">11th - 20th Place</td>
-                 <td class="boxText">1,300BRL</td>
+                 <td class="boxText" nowrap="nowrap">11th - 20th</td>
+                 <td class="boxText">1,000BRL</td>
+                 <td class="boxText">$466</td>
              </tr>
              <tr valign="top">
-                 <td class="boxText" nowrap="nowrap">21st - 50th Place</td>
-                 <td class="boxText">400BRL</td>
+                 <td class="boxText" nowrap="nowrap">21st - 50th</td>
+                 <td class="boxText">350BRL</td>
+                 <td class="boxText">$163</td>
              </tr>
              <tr valign="top">
-                 <td class="boxText" colspan="2">* Winners must be present at the onsite round to receive prize.</td>
+                 <td class="boxText" colspan="3">* Winners must be present at the onsite round to receive prize.</td>
              </tr>
          </table>
 
