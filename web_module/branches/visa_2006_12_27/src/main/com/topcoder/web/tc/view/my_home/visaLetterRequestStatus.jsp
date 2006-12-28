@@ -37,13 +37,20 @@
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyColumn">
 
-<jsp:include page="/page_title.jsp">
-    <jsp:param name="image" value="member_contact"/>
-    <jsp:param name="title" value="Visa Letter Request"/>
-</jsp:include>
 
-Visa Letter Request for <c:out value="${req.event.name}"/>
-
+Visa Letter Request for <c:out value="${req.event.name}"/><br>
+Requested on: <c:out value="${req.requestDate}"/><br>
+<c:choose>
+<c:when test="${not empty req.sentDate}">
+Sent on: <c:out value="${req.sentDate}"/><br>
+</c:when>
+<c:when test="${req.denied }">
+TopCoder will not send you a visa request letter.
+</c:when>
+<c:otherwise>
+The request letter was not yet sent.
+</c:otherwise>
+</c:choose>
 </td>
 <!-- Center Column Ends -->
 
