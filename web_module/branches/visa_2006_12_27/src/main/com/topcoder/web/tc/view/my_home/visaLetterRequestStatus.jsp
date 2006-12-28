@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page language="java"
-         import=""
           %>
 <%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
