@@ -48,6 +48,11 @@
 
          <div class="tutorBodyFull">
 
+<jsp:include page="/page_title.jsp">
+    <jsp:param name="image" value="features"/>
+    <jsp:param name="title" value="&#160;"/>
+</jsp:include>
+
             <h2>The Story of <tc-webtag:handle coderId="10574855"/> Mitrichev - Target in Six Steps</h2>
 
       <p>
