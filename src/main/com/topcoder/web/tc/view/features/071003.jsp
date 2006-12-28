@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Tournaments</title>
+<title>TopCoder Feature Articles</title>
 
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">

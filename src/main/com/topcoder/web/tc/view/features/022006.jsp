@@ -47,6 +47,11 @@
 
          <div class="tutorBodyFull">
 
+<jsp:include page="/page_title.jsp">
+    <jsp:param name="image" value="features"/>
+    <jsp:param name="title" value="&#160;"/>
+</jsp:include>
+
             <h2>GCC Hacks: Abusing C++ Extensions for Fun and Profit</h2>
 
       <p>
