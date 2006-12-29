@@ -61,7 +61,7 @@
 <tr>
 	<td>Address (for shipping visa letter)</td>
 	<td><tc-webtag:textInput name="<%= VisaLetterRequest.SHIPPING_ADDRESS %>" size="50" maxlength="100" editable="true"/>
-	<a href="javascript:document.f.<%= VisaLetterRequest.SHIPPING_ADDRESS %>.value = document.f.<%= VisaLetterRequest.ADDRESS %>.value">same as address</a>
+	<a href="javascript:document.f.<%= VisaLetterRequest.SHIPPING_ADDRESS %>.value = document.f.<%= VisaLetterRequest.ADDRESS %>.value;return false;">same as address</a>
 	</td>	
 </tr>
 <tr>

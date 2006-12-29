@@ -48,12 +48,14 @@ You don't have any current request letter.
 	<c:choose>
 	<c:when test="${not empty req.sentDate}">
 		Sent on: <fmt:formatDate value="${req.sentDate}"  pattern="MM/dd/yyyy" /><br>
+		<a href="/tc?module=VisaLetterRequest&eid=${req.event.id }&fr=true">Request again</a><br>
 	</c:when>
 	<c:when test="${req.denied }">
 		TopCoder has denied to send you a visa request letter.
 	</c:when>
 	<c:otherwise>
 		The request letter was not yet sent.
+		<a href="/tc?module=VisaLetterRequest&eid=${req.event.id }&fr=true">Request again</a><br>
 	</c:otherwise>
 	</c:choose>
 </c:otherwise>
