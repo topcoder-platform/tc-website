@@ -3,7 +3,7 @@
           %>
 <%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <c:set var="req" value="${requestScope.req}"/>
 <html>
@@ -35,17 +35,17 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-<td width="100%" align="center" class="bodyColumn">
+<td width="100%" align="left" class="bodyColumn">
 
 
 Visa Letter Request for <c:out value="${req.event.name}"/><br>
-Requested on: <c:out value="${req.requestDate}"/><br>
+Requested on: <fmt:formatDate  value="${req.requestDate} pattern="MM/dd/yyyy" /><br>
 <c:choose>
 <c:when test="${not empty req.sentDate}">
-Sent on: <c:out value="${req.sentDate}"/><br>
+Sent on: <fmt:formatDate  value="${req.sentDate} pattern="MM/dd/yyyy" /><br>
 </c:when>
 <c:when test="${req.denied }">
-TopCoder will not send you a visa request letter.
+TopCoder has denied to send you a visa request letter.
 </c:when>
 <c:otherwise>
 The request letter was not yet sent.
