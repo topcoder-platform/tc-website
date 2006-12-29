@@ -22,6 +22,7 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
 	public static final String SHIPPING_ADDRESS = "shipping_address";
 	public static final String ADDRESS = "address";
 	public static final String FULL_NAME = "full_name";
+	public static final String FORCE_REQUEST = "fr";
 	
 	private final static String EVENT_ID = "eid";
 	
@@ -35,6 +36,7 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         VisaLetterRequestDAO reqDAO =  DAOUtil.getFactory().getVisaLetterRequestDAO();
         VisaLetterEventDAO eventDAO =  DAOUtil.getFactory().getVisaLetterEventDAO();
 
+        boolean forceRequest = getRequest().getParameter(FORCE_REQUEST) != null;
         Long eid = null;
         VisaLetterEvent event = null;
         boolean noEvent = getRequest().getParameter(EVENT_ID) == null;
@@ -92,7 +94,7 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
 	        req = reqDAO.find(userId, eid);
         }
 
-        if (req == null && !noEvent) {
+        if ((forceRequest || req == null) && !noEvent) {
         	getRequest().setAttribute("event", event);
         	setNextPage(Constants.VISA_LETTER_REQUEST);        		
         } else {

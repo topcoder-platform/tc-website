@@ -7,7 +7,6 @@ import org.hibernate.Session;
 
 import com.topcoder.web.common.dao.VisaLetterEventDAO;
 import com.topcoder.web.common.model.VisaLetterEvent;
-import com.topcoder.web.common.model.VisaLetterRequest;
 
 /**
  * @author cucu
