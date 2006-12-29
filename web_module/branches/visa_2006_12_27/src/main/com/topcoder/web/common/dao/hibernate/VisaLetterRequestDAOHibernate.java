@@ -32,6 +32,16 @@ public class VisaLetterRequestDAOHibernate extends Base implements VisaLetterReq
     	return (VisaLetterRequest) l.get(0);
     }
 
+    public List find(Long eventId, boolean pending, boolean sent, boolean denied) {
+        Query q = session.createQuery(" from VisaLetterRequest " +
+                " where visa_letter_event_id=" + eventId +
+                (denied? "" : " and denied_ind = 0") +
+                (sent? "" : " and not sent_date is null") +
+                " order by request_date asc");
+        
+        return q.list();
+    }
+
     public void saveOrUpdate(VisaLetterRequest req) {
         super.saveOrUpdate(req);
     }

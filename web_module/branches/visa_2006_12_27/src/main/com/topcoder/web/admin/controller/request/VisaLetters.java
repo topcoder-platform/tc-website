@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.VisaLetterEventDAO;
+import com.topcoder.web.common.dao.VisaLetterRequestDAO;
 import com.topcoder.web.common.model.VisaLetterEvent;
 import com.topcoder.web.common.tag.ListSelectTag;
 
@@ -14,18 +15,29 @@ import com.topcoder.web.common.tag.ListSelectTag;
 public class VisaLetters extends Base {
 	
     protected void businessProcessing() throws Exception {
-
+// TO DO: remove pending?
+    	
     	boolean pending = true;
     	boolean sent = false;
     	boolean denied = false;
+    	Long eid;
+
+    	VisaLetterEventDAO eventDAO =  DAOUtil.getFactory().getVisaLetterEventDAO();
+        VisaLetterRequestDAO reqDAO =  DAOUtil.getFactory().getVisaLetterRequestDAO();
     	
     	if (getRequest().getParameter("event") != null) {
     		pending = "true".equals(getRequest().getParameter("pending"));
     		sent = "true".equals(getRequest().getParameter("sent"));
-    		denied = "true".equals(getRequest().getParameter("denied"));    		
+    		denied = "true".equals(getRequest().getParameter("denied"));
+    		
+    		eid =  new Long(getRequest().getParameter("event"));
+    	} else {
+    		eid = eventDAO.findCurrent().getId();
     	}
 
-    	VisaLetterEventDAO eventDAO =  DAOUtil.getFactory().getVisaLetterEventDAO();
+    	List reqs = reqDAO.find(eid, pending, sent, denied);
+    	
+    	// Fill the event combo box
     	List l = eventDAO.getAll();
     	List eventList = new ArrayList();
     	
@@ -37,7 +49,10 @@ public class VisaLetters extends Base {
     	setDefault("pending", String.valueOf(pending));
     	setDefault("sent", String.valueOf(sent));
     	setDefault("denied", String.valueOf(denied));
+
     	getRequest().setAttribute("eventList", eventList);
+    	getRequest().setAttribute("reqs", reqs);
+
     	setNextPage("/visaLetters.jsp");
         setIsNextPageInContext(true);
 
