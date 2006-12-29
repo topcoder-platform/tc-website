@@ -46,25 +46,31 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         	String address = getRequest().getParameter("address");
         	String shippingAddress = getRequest().getParameter("shipping_address");
         	String phoneNumber = getRequest().getParameter("phone_number");
-
-        	log.debug("before user");
-        	//User user  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
-        	User user = new User();
-        	user.setId(userId);
-        	log.debug("after user");
         	
-        	req = new com.topcoder.web.common.model.VisaLetterRequest();
-        	req.setUser(user);
-        	req.setEvent(event);
-        	req.setFullName(fullName);
-        	req.setAddress(address);
-        	req.setShippingAddress(shippingAddress);
-        	req.setPhoneNumber(phoneNumber);
-        	req.setRequestDate(new Date());
-        	log.debug("before save");
+        	setDefault("full_name", fullName);
+        	setDefault("address", address);
+        	setDefault("shipping_address", shippingAddress);
+        	setDefault("phoneNumber", phoneNumber);
         	
-        	reqDAO.saveOrUpdate(req);
-        	log.debug("after save");
+        	validate(fullName, "full name");
+        	validate(address, "address");
+        	validate(shippingAddress, "shipping address");
+        	validate(phoneNumber, "phone number");
+        	
+        	if (!hasErrors()) {
+	        	User user  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+	        	
+	        	req = new com.topcoder.web.common.model.VisaLetterRequest();
+	        	req.setUser(user);
+	        	req.setEvent(event);
+	        	req.setFullName(fullName);
+	        	req.setAddress(address);
+	        	req.setShippingAddress(shippingAddress);
+	        	req.setPhoneNumber(phoneNumber);
+	        	req.setRequestDate(new Date());
+	        	
+	        	reqDAO.saveOrUpdate(req);
+        	}
         } else {
 
 	        req = reqDAO.find(userId, eid);
@@ -84,4 +90,10 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
     }
 
 
+    private void validate(String value, String fieldName) {
+    	if (value == null || value.trim().length() == 0) {
+    		addError("error", "Please enter the " + value);
+    	}
+    }
+    
 }

@@ -45,6 +45,12 @@
 <form name="f" action="/tc?module=VisaLetterRequest" method="post">
 <input type="hidden" name="eid" value="${event.id}">
 <table>
+ <tr>
+     <td colspan="2"><span class="bigRed">
+                 <tc-webtag:errorIterator id="err" name="error">${err}
+                     <br></tc-webtag:errorIterator></span>
+     </td>
+ </tr>
 <tr>
 	<td>Full Name (as stated on passport)</td>
 	<td><tc-webtag:textInput name="full_name" size="30" maxlength="50" editable="true"/></td>	
