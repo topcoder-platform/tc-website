@@ -72,20 +72,20 @@
                 <A href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">here</A> to read how to
                 <A href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">configure Java</A>.
                 <br><br>
-                Click <A href="/pl/?module=Static&d1=google06&d2=instructions">here</A> to read to the
-                <A href="/pl/?module=Static&d1=google06&d2=instructions">competition instructions</A>.
+                Click <A href="/pl/?module=Static&d1=gcjsa07&d2=instructions">here</A> to read to the
+                <A href="/pl/?module=Static&d1=gcjsa07&d2=instructions">competition instructions</A>.
                 <br><br>
-                Click <a href="/contest/arena/ContestAppletGoogle.jnlp" target="_blank">here</a> to run the Competition
+                Click <a href="/contest/arena/ContestAppletGoogleLA.jnlp" target="_blank">here</a> to run the Competition
                 Arena as a
-                <a href="/contest/arena/ContestAppletGoogle.jnlp" target="_blank">Java Web Start Application</A>.
+                <a href="/contest/arena/ContestAppletGoogleLA.jnlp" target="_blank">Java Web Start Application</A>.
                 <br><br>
                 Note: If you wish to install Java Web Start click <a
                     href="http://java.sun.com/products/javawebstart/index.html" target="_blank">here</a>.
                 <br><br>
                 Click
-                <a href="Javascript:openWin('?module=Static&d1=google06&d2=google_quick_launch','comp',300,275);">here</a>
+                <a href="Javascript:openWin('?module=Static&d1=gcjsa07&d2=google_quick_launch','comp',300,275);">here</a>
                 to run the Competition Arena as a
-                <a href="Javascript:openWin('?module=Static&d1=google06&d2=google_quick_launch','comp',300,275);">Java
+                <a href="Javascript:openWin('?module=Static&d1=gcjsa07&d2=google_quick_launch','comp',300,275);">Java
                     Applet</A>.
                 <br><br>
                 If you experience problems loading or running the Competition Arena please contact
