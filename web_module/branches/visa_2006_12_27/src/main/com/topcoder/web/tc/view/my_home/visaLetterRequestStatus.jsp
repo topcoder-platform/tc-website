@@ -39,10 +39,10 @@
 
 
 Visa Letter Request for <c:out value="${req.event.name}"/><br>
-Requested on: <fmt:formatDate  value="${req.requestDate} pattern="MM/dd/yyyy" /><br>
+Requested on: <fmt:formatDate value="${req.requestDate}" pattern="MM/dd/yyyy" /><br>
 <c:choose>
 <c:when test="${not empty req.sentDate}">
-Sent on: <fmt:formatDate  value="${req.sentDate} pattern="MM/dd/yyyy" /><br>
+Sent on: <fmt:formatDate value="${req.sentDate}"  pattern="MM/dd/yyyy" /><br>
 </c:when>
 <c:when test="${req.denied }">
 TopCoder has denied to send you a visa request letter.
