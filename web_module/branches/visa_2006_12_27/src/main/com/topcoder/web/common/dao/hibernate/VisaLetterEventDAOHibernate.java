@@ -22,10 +22,7 @@ public class VisaLetterEventDAOHibernate extends Base implements VisaLetterEvent
     }
 
 	public VisaLetterEvent findCurrent() {
-        Query q = session.createQuery(" from VisaLetterEvent " +
-                " order by request_start_date desc");
-    
-    	List l = q.list();
+    	List l = getAll();
     	if (l.size() == 0) return null;
     	return (VisaLetterEvent) l.get(0);		
 	}
@@ -34,6 +31,14 @@ public class VisaLetterEventDAOHibernate extends Base implements VisaLetterEvent
         return (VisaLetterEvent) find(VisaLetterEvent.class, eventId);
 
     }
+
+    public List getAll() {
+        Query q = session.createQuery(" from VisaLetterEvent " +
+        	" order by request_start_date desc");
+        
+        return q.list();
+	}
+    
 
     public void saveOrUpdate(VisaLetterEvent event) {
         super.saveOrUpdate(event);

@@ -1,5 +1,7 @@
 package com.topcoder.web.common.dao;
 
+import java.util.List;
+
 import com.topcoder.web.common.model.VisaLetterEvent;
 
 
@@ -12,5 +14,7 @@ public interface VisaLetterEventDAO {
 
 	VisaLetterEvent findCurrent();
 
+	List getAll();
+	
     void saveOrUpdate(VisaLetterEvent req);
 }

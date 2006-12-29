@@ -15,8 +15,14 @@ public class VisaLetters extends Base {
 	
     protected void businessProcessing() throws Exception {
 
+    	boolean pending = true;
+    	boolean sent = false;
+    	boolean denied = false;
+    	
     	if (getRequest().getParameter("event") != null) {
-    		
+    		pending = "true".equals(getRequest().getParameter("pending"));
+    		sent = "true".equals(getRequest().getParameter("sent"));
+    		denied = "true".equals(getRequest().getParameter("denied"));    		
     	}
 
     	VisaLetterEventDAO eventDAO =  DAOUtil.getFactory().getVisaLetterEventDAO();
@@ -28,6 +34,9 @@ public class VisaLetters extends Base {
     		eventList.add(new ListSelectTag.Option(e.getId().toString(), e.getName(), i==0));
     	}
     	
+    	setDefault("pending", String.valueOf(pending));
+    	setDefault("sent", String.valueOf(sent));
+    	setDefault("denied", String.valueOf(denied));
     	getRequest().setAttribute("eventList", eventList);
     	setNextPage("/visaLetters.jsp");
         setIsNextPageInContext(true);

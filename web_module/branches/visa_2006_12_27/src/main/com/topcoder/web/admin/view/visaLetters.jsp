@@ -16,9 +16,11 @@
         </td>
         <td>
         <form action="/admin/?module=VisaLetters" >
-			<tc-webtag:chkBox name="pending" value="true"/>View Pending
-			<tc-webtag:chkBox name="sent" value="true"/>View Sent			
-			<tc-webtag:chkBox name="denied" value="true"/>View Denied
+        	View request letters with status:<br>
+			<tc-webtag:chkBox name="pending" value="true"/>Pending<br>
+			<tc-webtag:chkBox name="sent" value="true"/>Sent		<br>	
+			<tc-webtag:chkBox name="denied" value="true"/>Denied<br>
+			<br>
 			
 			<tc-webtag:listSelect name="event" list="${requestScope.eventList}"/>
 			<input type="submit" value="Search">
