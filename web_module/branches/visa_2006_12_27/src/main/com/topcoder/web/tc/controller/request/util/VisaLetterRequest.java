@@ -45,7 +45,7 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         	String fullName = getRequest().getParameter("full_name");
         	String address = getRequest().getParameter("address");
         	String shippingAddress = getRequest().getParameter("shipping_address");
-        	String phoneNumber = getRequest().getParameter("phoneNumber");
+        	String phoneNumber = getRequest().getParameter("phone_number");
 
         	log.debug("before user");
         	User user  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
