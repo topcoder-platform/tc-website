@@ -7,6 +7,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <c:set var="req" value="${requestScope.req}"/>
+<c:set var="event" value="${requestScope.event}"/>
 <html>
 <head>
 <title>Visa Letter Request</title>
@@ -39,22 +40,22 @@
 <td width="100%" align="left" class="bodyColumn">
 
 
-<h2>Visa Letter Request for <c:out value="${req.event.name}"/></h2>
+<h2>Visa Letter Request for <c:out value="${event.name}"/></h2>
 
 <form name="f" action="/tc?module=VisaLetterRequest" method="post">
-<input type="hidden" name="eid" value="${req.event.id}">
+<input type="hidden" name="eid" value="${event.id}">
 <table>
 <tr>
 	<td>Full Name (as stated on passport)</td>
-	<td><tc-webtag:textInput name="full_name" size="20" maxlength="50" editable="true"/></td>	
+	<td><tc-webtag:textInput name="full_name" size="30" maxlength="50" editable="true"/></td>	
 </tr>
 <tr>
 	<td>Address (as stated on passport)</td>
-	<td><tc-webtag:textInput name="address" size="40" maxlength="100" editable="true"/></td>	
+	<td><tc-webtag:textInput name="address" size="50" maxlength="100" editable="true"/></td>	
 </tr>
 <tr>
 	<td>Address (for shipping visa letter)</td>
-	<td><tc-webtag:textInput name="shipping_address" size="40" maxlength="100" editable="true"/></td>	
+	<td><tc-webtag:textInput name="shipping_address" size="50" maxlength="100" editable="true"/></td>	
 </tr>
 <tr>
 	<td>Phone Number:</td>

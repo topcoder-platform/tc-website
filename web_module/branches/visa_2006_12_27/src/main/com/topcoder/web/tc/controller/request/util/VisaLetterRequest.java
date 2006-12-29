@@ -31,7 +31,9 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         VisaLetterRequestDAO reqDAO =  DAOUtil.getFactory().getVisaLetterRequestDAO();
         VisaLetterEventDAO eventDAO =  DAOUtil.getFactory().getVisaLetterEventDAO();
 
-        if (eventDAO.find(eid) == null) {
+        VisaLetterEvent event = eventDAO.find(eid);
+        
+        if (event == null) {
         	throw new IllegalArgumentException("Event id not found: " + eid);
         }
         
@@ -43,9 +45,6 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         	String address = getRequest().getParameter("address");
         	String shippingAddress = getRequest().getParameter("shipping_address");
         	String phoneNumber = getRequest().getParameter("phoneNumber");
-        	
-        	VisaLetterEvent event = new VisaLetterEvent();
-        	event.setId(eid);
         	
         	req = new com.topcoder.web.common.model.VisaLetterRequest();
         	req.setEvent(event);
@@ -62,10 +61,12 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         }
 
         if (req == null) {
-            setNextPage(Constants.VISA_LETTER_REQUEST);        	        	 
+        	getRequest().setAttribute("event", event);
+        	setNextPage(Constants.VISA_LETTER_REQUEST);        	        	 
         } else {
         	// Display the status page
         	getRequest().setAttribute("req", req);
+        	getRequest().setAttribute("event", req.getEvent());
             setNextPage(Constants.VISA_LETTER_REQUEST_STATUS);        	
         }
         
