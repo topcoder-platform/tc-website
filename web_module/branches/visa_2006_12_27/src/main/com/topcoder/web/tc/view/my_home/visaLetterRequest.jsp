@@ -68,7 +68,7 @@ function copyAddr() {
 <tr>
 	<td>Address (for shipping visa letter)</td>
 	<td><tc-webtag:textInput name="<%= VisaLetterRequest.SHIPPING_ADDRESS %>" size="50" maxlength="100" editable="true"/>
-	<a href="javascript:copyAddr()">same as address</a>
+	<input type="button" value="same as address" onClick="copyAddr()">
 	</td>	
 </tr>
 <tr>
