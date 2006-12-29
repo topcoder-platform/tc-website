@@ -46,9 +46,12 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         	String address = getRequest().getParameter("address");
         	String shippingAddress = getRequest().getParameter("shipping_address");
         	String phoneNumber = getRequest().getParameter("phoneNumber");
-        	
-        	User user = new User();
-        	user.setId(userId);
+
+        	log.debug("before user");
+        	User user  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+        	log.debug("after user");
+        	//User user = new User();
+        	//user.setId(userId);
         	
         	req = new com.topcoder.web.common.model.VisaLetterRequest();
         	req.setUser(user);
@@ -58,8 +61,10 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         	req.setShippingAddress(shippingAddress);
         	req.setPhoneNumber(phoneNumber);
         	req.setRequestDate(new Date());
+        	log.debug("before save");
         	
         	reqDAO.saveOrUpdate(req);
+        	log.debug("after save");
         } else {
 
 	        req = reqDAO.find(userId, eid);
