@@ -39,7 +39,8 @@
 <td width="100%" align="left" class="bodyColumn">
 
 
-Visa Letter Request for <c:out value="${req.event.name}"/><br>
+<h2>Visa Letter Request for <c:out value="${req.event.name}"/></h2>
+
 <form name="f" action="/tc?module=VisaLetterRequest" method="post">
 <input type="hidden" name="eid" value="${req.event.id}">
 <table>

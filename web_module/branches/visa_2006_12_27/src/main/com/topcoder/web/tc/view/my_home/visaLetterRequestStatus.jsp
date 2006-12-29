@@ -38,7 +38,8 @@
 <td width="100%" align="left" class="bodyColumn">
 
 
-Visa Letter Request for <c:out value="${req.event.name}"/><br>
+<h2>Visa Letter Request for <c:out value="${req.event.name}"/></h2>
+
 Requested on: <fmt:formatDate value="${req.requestDate}" pattern="MM/dd/yyyy" /><br>
 <c:choose>
 <c:when test="${not empty req.sentDate}">

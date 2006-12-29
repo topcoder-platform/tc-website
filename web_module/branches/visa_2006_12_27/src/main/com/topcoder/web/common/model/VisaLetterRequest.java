@@ -10,9 +10,9 @@ public class VisaLetterRequest extends Base {
 	private String address;
 	private String shippingAddress;
 	private String phoneNumber;
-	private Date requestDate;
-	private Date sentDate;
-	private boolean denied;
+	private Date requestDate = null;
+	private Date sentDate = null;
+	private boolean denied = false;
 	
 	public String getAddress() {
 		return address;

@@ -1,10 +1,13 @@
 package com.topcoder.web.tc.controller.request.util;
 
+import java.util.Date;
+
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.VisaLetterRequestDAO;
+import com.topcoder.web.common.model.VisaLetterEvent;
 import com.topcoder.web.tc.Constants;
 
 /**
@@ -22,12 +25,40 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
 
         Long userId  = new Long(getUser().getId());
 
-        long eid = Long.parseLong(getRequest().getParameter(EVENT_ID));
-
+        Long eid = new Long(getRequest().getParameter(EVENT_ID));
+        	
         VisaLetterRequestDAO reqDAO =  DAOUtil.getFactory().getVisaLetterRequestDAO();
+
+        if (reqDAO.find(eid) == null) {
+        	throw new IllegalArgumentException("Event id not found: " + eid);
+        }
         
-        com.topcoder.web.common.model.VisaLetterRequest req = reqDAO.find(userId, new Long(eid));
+        com.topcoder.web.common.model.VisaLetterRequest req = null;
         
+        if (getRequest().getParameter("full_name") != null) {
+        	// The user requested a letter
+        	String fullName = getRequest().getParameter("full_name");
+        	String address = getRequest().getParameter("address");
+        	String shippingAddress = getRequest().getParameter("shipping_address");
+        	String phoneNumber = getRequest().getParameter("phoneNumber");
+        	
+        	VisaLetterEvent event = new VisaLetterEvent();
+        	event.setId(eid);
+        	
+        	req = new com.topcoder.web.common.model.VisaLetterRequest();
+        	req.setEvent(event);
+        	req.setFullName(fullName);
+        	req.setAddress(address);
+        	req.setShippingAddress(shippingAddress);
+        	req.setPhoneNumber(phoneNumber);
+        	req.setRequestDate(new Date());
+        	
+        	reqDAO.saveOrUpdate(req);
+        } else {
+
+	        req = reqDAO.find(userId, eid);
+        }
+
         if (req == null) {
             setNextPage(Constants.VISA_LETTER_REQUEST);        	        	 
         } else {
