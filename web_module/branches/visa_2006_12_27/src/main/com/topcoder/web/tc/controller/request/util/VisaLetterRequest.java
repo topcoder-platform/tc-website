@@ -8,6 +8,7 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.VisaLetterEventDAO;
 import com.topcoder.web.common.dao.VisaLetterRequestDAO;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.VisaLetterEvent;
 import com.topcoder.web.tc.Constants;
 
@@ -46,7 +47,11 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         	String shippingAddress = getRequest().getParameter("shipping_address");
         	String phoneNumber = getRequest().getParameter("phoneNumber");
         	
+        	User user = new User();
+        	user.setId(userId);
+        	
         	req = new com.topcoder.web.common.model.VisaLetterRequest();
+        	req.setUser(user);
         	req.setEvent(event);
         	req.setFullName(fullName);
         	req.setAddress(address);
