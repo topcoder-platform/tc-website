@@ -64,5 +64,7 @@ public interface DAOFactory {
 
     UserPreferenceDAO getUserPreferenceDAO();
     
+    VisaLetterEventDAO getVisaLetterEventDAO();
+
     VisaLetterRequestDAO getVisaLetterRequestDAO();
 }

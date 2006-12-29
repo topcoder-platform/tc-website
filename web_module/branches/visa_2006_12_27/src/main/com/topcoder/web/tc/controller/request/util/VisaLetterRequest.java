@@ -6,6 +6,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.VisaLetterEventDAO;
 import com.topcoder.web.common.dao.VisaLetterRequestDAO;
 import com.topcoder.web.common.model.VisaLetterEvent;
 import com.topcoder.web.tc.Constants;
@@ -28,8 +29,9 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         Long eid = new Long(getRequest().getParameter(EVENT_ID));
         	
         VisaLetterRequestDAO reqDAO =  DAOUtil.getFactory().getVisaLetterRequestDAO();
+        VisaLetterEventDAO eventDAO =  DAOUtil.getFactory().getVisaLetterEventDAO();
 
-        if (reqDAO.find(eid) == null) {
+        if (eventDAO.find(eid) == null) {
         	throw new IllegalArgumentException("Event id not found: " + eid);
         }
         

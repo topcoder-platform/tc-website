@@ -20,11 +20,6 @@ public class VisaLetterRequestDAOHibernate extends Base implements VisaLetterReq
     public VisaLetterRequestDAOHibernate(Session session) {
         super(session);
     }
-
-    public VisaLetterRequest find(Long eventId) {
-        return (VisaLetterRequest) find(VisaLetterRequest.class, eventId);
-
-    }
     
     public VisaLetterRequest find(Long userId, Long eventId) {
         Query q = session.createQuery(" from VisaLetterRequest " +

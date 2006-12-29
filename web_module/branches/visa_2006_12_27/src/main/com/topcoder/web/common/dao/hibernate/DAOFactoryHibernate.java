@@ -128,4 +128,9 @@ public class DAOFactoryHibernate implements DAOFactory {
     public VisaLetterRequestDAO getVisaLetterRequestDAO() {
     	return new VisaLetterRequestDAOHibernate();
     }
+
+    public VisaLetterEventDAO getVisaLetterEventDAO() {
+    	return new VisaLetterEventDAOHibernate();
+    }
+
 }
