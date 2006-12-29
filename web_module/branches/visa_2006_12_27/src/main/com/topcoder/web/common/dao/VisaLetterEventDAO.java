@@ -9,6 +9,8 @@ import com.topcoder.web.common.model.VisaLetterEvent;
 public interface VisaLetterEventDAO {
 	
 	VisaLetterEvent find(Long eventId);
-	   
+
+	VisaLetterEvent findCurrent();
+
     void saveOrUpdate(VisaLetterEvent req);
 }

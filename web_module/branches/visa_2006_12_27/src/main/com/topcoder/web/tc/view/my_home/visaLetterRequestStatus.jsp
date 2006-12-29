@@ -37,22 +37,30 @@
 <!-- Center Column Begins -->
 <td width="100%" align="left" class="bodyColumn">
 
-
-<h2>Visa Letter Request for <c:out value="${req.event.name}"/></h2>
-
-Requested on: <fmt:formatDate value="${req.requestDate}" pattern="MM/dd/yyyy" /><br>
 <c:choose>
-<c:when test="${not empty req.sentDate}">
-Sent on: <fmt:formatDate value="${req.sentDate}"  pattern="MM/dd/yyyy" /><br>
-</c:when>
-<c:when test="${req.denied }">
-TopCoder has denied to send you a visa request letter.
+<c:when test="${empty req}">
+You don't have any current request letter.
 </c:when>
 <c:otherwise>
-The request letter was not yet sent.
+	<h2>Visa Letter Request for <c:out value="${req.event.name}"/></h2>
+		
+		Requested on: <fmt:formatDate value="${req.requestDate}" pattern="MM/dd/yyyy" /><br>
+	<c:choose>
+	<c:when test="${not empty req.sentDate}">
+		Sent on: <fmt:formatDate value="${req.sentDate}"  pattern="MM/dd/yyyy" /><br>
+	</c:when>
+	<c:when test="${req.denied }">
+		TopCoder has denied to send you a visa request letter.
+	</c:when>
+	<c:otherwise>
+		The request letter was not yet sent.
+	</c:otherwise>
+	</c:choose>
 </c:otherwise>
 </c:choose>
+
 </td>
+
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->

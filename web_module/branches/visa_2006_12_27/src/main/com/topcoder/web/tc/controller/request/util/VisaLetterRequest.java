@@ -27,12 +27,24 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
 
         Long userId  = new Long(getUser().getId());
 
-        Long eid = new Long(getRequest().getParameter(EVENT_ID));
-        	
         VisaLetterRequestDAO reqDAO =  DAOUtil.getFactory().getVisaLetterRequestDAO();
         VisaLetterEventDAO eventDAO =  DAOUtil.getFactory().getVisaLetterEventDAO();
 
-        VisaLetterEvent event = eventDAO.find(eid);
+        Long eid = null;
+        VisaLetterEvent event = null;
+        boolean noEvent = getRequest().getParameter(EVENT_ID) == null;
+        
+        if (noEvent) {
+        	event = eventDAO.findCurrent();
+        	if (event != null) {
+        		eid = event.getId(); 
+        	}
+        	
+        } else {
+        	eid = new Long(getRequest().getParameter(EVENT_ID));
+            event = eventDAO.find(eid);
+        }
+        	
         
         if (event == null) {
         	throw new IllegalArgumentException("Event id not found: " + eid);
@@ -50,7 +62,7 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         	setDefault("full_name", fullName);
         	setDefault("address", address);
         	setDefault("shipping_address", shippingAddress);
-        	setDefault("phoneNumber", phoneNumber);
+        	setDefault("phone_number", phoneNumber);
         	
         	validate(fullName, "full name");
         	validate(address, "address");
@@ -72,17 +84,16 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
 	        	reqDAO.saveOrUpdate(req);
         	}
         } else {
-
 	        req = reqDAO.find(userId, eid);
         }
 
-        if (req == null) {
+        if (req == null && !noEvent) {
         	getRequest().setAttribute("event", event);
-        	setNextPage(Constants.VISA_LETTER_REQUEST);        	        	 
+        	setNextPage(Constants.VISA_LETTER_REQUEST);        		
         } else {
         	// Display the status page
         	getRequest().setAttribute("req", req);
-        	getRequest().setAttribute("event", req.getEvent());
+        	//getRequest().setAttribute("event", req.getEvent());
             setNextPage(Constants.VISA_LETTER_REQUEST_STATUS);        	
         }
         
@@ -92,7 +103,7 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
 
     private void validate(String value, String fieldName) {
     	if (value == null || value.trim().length() == 0) {
-    		addError("error", "Please enter the " + value);
+    		addError("error", "Please enter the " + fieldName);
     	}
     }
     
