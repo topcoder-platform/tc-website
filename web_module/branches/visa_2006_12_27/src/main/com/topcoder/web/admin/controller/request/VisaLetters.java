@@ -3,6 +3,7 @@ package com.topcoder.web.admin.controller.request;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.VisaLetterEventDAO;
 import com.topcoder.web.common.dao.VisaLetterRequestDAO;
@@ -12,9 +13,9 @@ import com.topcoder.web.common.tag.ListSelectTag;
 /**
  * @author  cucu
  */
-public class VisaLetters extends Base {
+public class VisaLetters extends ShortHibernateProcessor {
 	
-    protected void businessProcessing() throws Exception {
+    protected void dbProcessing() throws  Exception {
 // TO DO: remove pending?
     	
     	boolean pending = true;

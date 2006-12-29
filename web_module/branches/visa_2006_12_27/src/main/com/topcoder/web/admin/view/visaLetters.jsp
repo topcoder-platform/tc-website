@@ -3,11 +3,19 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <html>
 <head>
     <title>TopCoder Admin</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+<script language="javascript" type="text/javascript">
+function update(action,rid) {
+	 document.f.rid.value = rid;
+	 document.f.action.value = action;	 
+	 document.f.submit();
+}
+
+ </script>    
 </head>
 
 <body>
@@ -19,6 +27,8 @@
         </td>
         <td>
         <form action="/admin/?module=VisaLetters" >
+        <input type="hidden" name="rid" value="">
+        <input type="hidden" name="action" value="">        
         	View request letters with status:<br>
 			<tc-webtag:chkBox name="pending" value="true"/>Pending<br>
 			<tc-webtag:chkBox name="sent" value="true"/>Sent		<br>	
@@ -26,7 +36,7 @@
 			<br>
 			
 			<tc-webtag:listSelect name="event" list="${requestScope.eventList}"/>
-			<input type="submit" value="Search">
+			<input type="submit" value="Search" onClick="docyment.f.action.value='search'">
 
 <table>
 <tr>
@@ -50,7 +60,8 @@
 	</c:when>
 	<c:otherwise>
 		<td>Pending</td>
-		<td>deny - mark as sent</td>
+		<td><a href="javascript:update('deny',${req.id }')">deny</a><br>
+		<a href="javascript:update('sent',${req.id }')">mark as sent</a><br>
 	</c:otherwise>
 	</c:choose>
 	
