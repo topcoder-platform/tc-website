@@ -48,10 +48,10 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         	String phoneNumber = getRequest().getParameter("phone_number");
 
         	log.debug("before user");
-        	User user  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+        	//User user  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+        	User user = new User();
+        	user.setId(userId);
         	log.debug("after user");
-        	//User user = new User();
-        	//user.setId(userId);
         	
         	req = new com.topcoder.web.common.model.VisaLetterRequest();
         	req.setUser(user);
