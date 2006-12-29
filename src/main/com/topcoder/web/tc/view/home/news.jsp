@@ -8,6 +8,25 @@
 </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.29.06<br>11:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm25">TCHS SRM 25 - Problem Set & Analysis</A></span><br><br>
+The problems in HS SRM 25 seemed to be rather easy, and <tc-webtag:handle coderId="11972352" context="hs_algorithm"/>
+submitted all three problems in 15 minutes. <tc-webtag:handle coderId="15604398" context="hs_algorithm"/>
+and <tc-webtag:handle coderId="22375930" context="hs_algorithm"/> both finished coding right after <tc-webtag:handle coderId="11972352" context="hs_algorithm"/>, in 16 minutes, and fell into second and third places after the coding phase.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/Vedensky_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="9927526" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm25">full story</A> | 
+        <tc-webtag:forumLink forumID="506047" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Educational Content" border="0" /><br>12.27.06<br>5:20 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -172,23 +191,5 @@ was high nonetheless thanks to the participation of 5 targets, including the top
         <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=rules">full story</A> | 
         <tc-webtag:forumLink forumID="506214" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.13.06<br>12:10 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm23">TCHS SRM 23 - Problem Set & Analysis</A></span><br><br>
-This set of problems turned out to be rather difficult. While more than 70 competitors submitted all three problems,
-only 11 of them successfully solved all three, and 43 members didn't solve any of the problems.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/VitalyGoldstein_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="19721111" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm23">full story</A> | 
-        <tc-webtag:forumLink forumID="506045" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
