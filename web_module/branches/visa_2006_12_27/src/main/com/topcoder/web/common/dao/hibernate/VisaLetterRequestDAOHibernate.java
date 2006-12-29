@@ -6,7 +6,6 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.topcoder.web.common.dao.VisaLetterRequestDAO;
-import com.topcoder.web.common.model.PasswordRecovery;
 import com.topcoder.web.common.model.VisaLetterRequest;
 
 /**
@@ -23,7 +22,9 @@ public class VisaLetterRequestDAOHibernate extends Base implements VisaLetterReq
     }
 
     public VisaLetterRequest find(Long eventId) {
-        return (VisaLetterRequest) find(VisaLetterRequest.class, eventId);
+        Query q = session.createQuery(" from VisaLetterRequest " +
+                " where visa_letter_event_id=" + eventId);
+        return (VisaLetterRequest) q.uniqueResult();
 
     }
     
