@@ -39,7 +39,7 @@
 
 <c:choose>
 <c:when test="${empty req}">
-You don't have any current request letter.
+You don't have any request letter.
 </c:when>
 <c:otherwise>
 	<h2>Visa Letter Request for <c:out value="${req.event.name}"/></h2>
