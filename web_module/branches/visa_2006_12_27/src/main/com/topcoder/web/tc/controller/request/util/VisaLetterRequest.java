@@ -18,6 +18,11 @@ import com.topcoder.web.tc.Constants;
 public class VisaLetterRequest extends ShortHibernateProcessor {
 
 
+	public static final String PHONE_NUMBER = "phone_number";
+	public static final String SHIPPING_ADDRESS = "shipping_address";
+	public static final String ADDRESS = "address";
+	public static final String FULL_NAME = "full_name";
+	
 	private final static String EVENT_ID = "eid";
 	
     protected void dbProcessing() throws Exception {
@@ -52,17 +57,17 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         
         com.topcoder.web.common.model.VisaLetterRequest req = null;
         
-        if (getRequest().getParameter("full_name") != null) {
+        if (getRequest().getParameter(FULL_NAME) != null) {
         	// The user requested a letter
-        	String fullName = getRequest().getParameter("full_name");
-        	String address = getRequest().getParameter("address");
-        	String shippingAddress = getRequest().getParameter("shipping_address");
-        	String phoneNumber = getRequest().getParameter("phone_number");
+        	String fullName = getRequest().getParameter(FULL_NAME);
+        	String address = getRequest().getParameter(ADDRESS);
+        	String shippingAddress = getRequest().getParameter(SHIPPING_ADDRESS);
+        	String phoneNumber = getRequest().getParameter(PHONE_NUMBER);
         	
-        	setDefault("full_name", fullName);
-        	setDefault("address", address);
-        	setDefault("shipping_address", shippingAddress);
-        	setDefault("phone_number", phoneNumber);
+        	setDefault(FULL_NAME, fullName);
+        	setDefault(ADDRESS, address);
+        	setDefault(SHIPPING_ADDRESS, shippingAddress);
+        	setDefault(PHONE_NUMBER, phoneNumber);
         	
         	validate(fullName, "full name");
         	validate(address, "address");

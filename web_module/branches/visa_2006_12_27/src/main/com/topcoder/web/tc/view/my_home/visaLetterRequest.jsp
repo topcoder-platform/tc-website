@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8" %>
-<%@ page language="java"
-          %>
+<%@ page language="java" import="com.topcoder.web.tc.controller.request.util.VisaLetterRequest"   %>
 <%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -53,19 +52,19 @@
  </tr>
 <tr>
 	<td>Full Name (as stated on passport)</td>
-	<td><tc-webtag:textInput name="full_name" size="30" maxlength="50" editable="true"/></td>	
+	<td><tc-webtag:textInput name="<%= VisaLetterRequest.FULL_NAME %>" size="30" maxlength="50" editable="true"/></td>	
 </tr>
 <tr>
 	<td>Address (as stated on passport)</td>
-	<td><tc-webtag:textInput name="address" size="50" maxlength="100" editable="true"/></td>	
+	<td><tc-webtag:textInput name="<%= VisaLetterRequest.ADDRESS %>" size="50" maxlength="100" editable="true"/></td>	
 </tr>
 <tr>
 	<td>Address (for shipping visa letter)</td>
-	<td><tc-webtag:textInput name="shipping_address" size="50" maxlength="100" editable="true"/></td>	
+	<td><tc-webtag:textInput name="<%= VisaLetterRequest.SHIPPING_ADDRESS %>" size="50" maxlength="100" editable="true"/></td>	
 </tr>
 <tr>
 	<td>Phone Number:</td>
-	<td><tc-webtag:textInput name="phone_number" size="15" maxlength="30" editable="true"/></td>	
+	<td><tc-webtag:textInput name="<%= VisaLetterRequest.PHONE_NUMBER %>" size="15" maxlength="30" editable="true"/></td>	
 </tr>
 </table>
 

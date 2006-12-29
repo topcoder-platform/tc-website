@@ -24,7 +24,7 @@ public class VisaLetterEventDAOHibernate extends Base implements VisaLetterEvent
 
 	public VisaLetterEvent findCurrent() {
         Query q = session.createQuery(" from VisaLetterEvent " +
-                " order by start_date desc");
+                " order by request_start_date desc");
     
     	List l = q.list();
     	if (l.size() == 0) return null;
