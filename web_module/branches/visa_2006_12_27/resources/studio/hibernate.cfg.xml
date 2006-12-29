@@ -79,6 +79,8 @@
         <mapping resource="com/topcoder/web/common/model/User.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/UserGroup.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/UserPreference.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/VisaLetterEvent.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/VisaLetterRequest.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/studio/model/Contest.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestConfig.hbm.xml"/>
