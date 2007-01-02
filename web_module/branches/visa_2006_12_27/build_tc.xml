@@ -486,9 +486,9 @@
     <target name="build-sars" depends="compile">
         <jar jarfile="${sar.dir}/expireOldAffidavitsAndPayments.sar" basedir="${classes}"
              includes="com/topcoder/utilities/pacts/ExpireOldAffidavitsAndPayments*,
-             		com/topcoder/web/tc/controller/legacy/pacts/bean/*.class,
-             		com/topcoder/web/tc/controller/legacy/pacts/common/*.class,
-             		com/topcoder/web/ejb/pacts/*.class">
+                    com/topcoder/web/tc/controller/legacy/pacts/bean/*.class,
+                    com/topcoder/web/tc/controller/legacy/pacts/common/*.class,
+                    com/topcoder/web/ejb/pacts/*.class">
 
             <metainf dir="${java}/com/topcoder/utilities/pacts" includes="*.xml"/>
         </jar>
@@ -943,6 +943,10 @@
             <webinf dir="${resources}/admin">
                 <include name="jboss-web.xml"/>
             </webinf>
+            <lib dir="${jars.dir}">
+                <include name="jstl.jar"/>
+                <include name="standard.jar"/>
+            </lib>
         </war>
         <antcall target="expand-admin"/>
     </target>
