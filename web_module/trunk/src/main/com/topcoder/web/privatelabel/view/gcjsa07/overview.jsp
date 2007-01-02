@@ -71,7 +71,7 @@ Code Jam on January 30, 2007.
 <br><br>
 The competitors with the top 250 scores from Round 1 will advance to compete in Round 2.
 <br><br>
-The competitors with the top 50 scores from Round 2 will be invited to compete for 70,000BRL in cash and prizes
+The competitors with the top 50 scores from Round 2 will be invited to compete for R$75,000 in cash and prizes
 at the onsite Championship Round at the Google Office in Belo Horizonte, Brazil.
 <br><br><br>
 
