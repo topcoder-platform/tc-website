@@ -22,9 +22,12 @@ public class VisaLetters extends ShortHibernateProcessor {
     	boolean denied = false;
     	Long eid;
 
-    	VisaLetterEventDAO eventDAO =  DAOUtil.getFactory().getVisaLetterEventDAO();
-        VisaLetterRequestDAO reqDAO =  DAOUtil.getFactory().getVisaLetterRequestDAO();
+    	DAOFactory factory = factory = DAOUtil.getFactory();
     	
+    	VisaLetterEventDAO eventDAO =  factory.getVisaLetterEventDAO();
+        VisaLetterRequestDAO reqDAO =  factory.getVisaLetterRequestDAO();
+        getRequest().setAttribute("countries", factory.getCountryDAO().getCountries());
+
     	if (getRequest().getParameter("event") != null) {
     		pending = "on".equals(getRequest().getParameter("pending"));
     		sent = "on".equals(getRequest().getParameter("sent"));

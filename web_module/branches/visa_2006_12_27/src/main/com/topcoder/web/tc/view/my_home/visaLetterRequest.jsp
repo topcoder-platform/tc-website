@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page language="java" import="com.topcoder.web.tc.controller.request.util.VisaLetterRequest"   %>
+<%@ page import="com.topcoder.web.reg.Constants" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -52,19 +53,53 @@ function copyAddr() {
 <input type="hidden" name="eid" value="${event.id}">
 <table>
  <tr>
-     <td colspan="2"><span class="bigRed">
+     <td colspan="3"><span class="bigRed">
                  <tc-webtag:errorIterator id="err" name="error">${err}
                      <br></tc-webtag:errorIterator></span>
      </td>
  </tr>
 <tr>
-	<td>Full Name (as stated on passport)</td>
+	<td colspan="2">Full Name (as stated on passport)</td>
 	<td><tc-webtag:textInput name="<%= VisaLetterRequest.FULL_NAME %>" size="30" maxlength="50" editable="true"/></td>	
 </tr>
 <tr>
-	<td>Address (as stated on passport)</td>
-	<td><tc-webtag:textInput name="<%= VisaLetterRequest.ADDRESS %>" size="50" maxlength="100" editable="true"/></td>	
+	<td rowspan="9">Address (as stated on passport)</td>
+	<td colspan="2">&nbsp;</td>
 </tr>
+<tr>
+	<td>*Address1:</td>
+	<td><tc-webtag:textInput name="<%=Constants.ADDRESS1%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>	
+</tr>
+<tr>
+	<td>Address2:</td>
+	<td><tc-webtag:textInput name="<%=Constants.ADDRESS2%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>	
+</tr>
+<tr>
+	<td>Address3:</td>
+	<td><tc-webtag:textInput name="<%=Constants.ADDRESS3%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>	
+</tr>
+<tr>
+	<td>City:</td>
+	<td><tc-webtag:textInput name="<%=Constants.CITY%>" size="15" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/></td>
+</tr>
+<tr>
+	<td>State (US only):</td>
+	<td><tc-webtag:textInput name="<%=Constants.STATE_CODE%>" size="2" maxlength="2" editable="true"/></td>
+</tr>
+<tr>
+	<td>Postal Code:</td>
+	<td><tc-webtag:textInput name="<%=Constants.POSTAL_CODE%>" size="15" maxlength="<%=Constants.MAX_POSTAL_CODE_LENGTH%>" editable="true"/></td>
+</tr>
+<tr>
+	<td>Province:</td>
+	<td><tc-webtag:textInput name="<%=Constants.PROVINCE%>" size="15" maxlength="<%=Constants.MAX_PROVINCE_LENGTH%>" editable="true"/></td>
+</tr>
+<tr>
+	<td>Country:</td>
+	<td><tc-webtag:objectSelect name="<%=Constants.COUNTRY_CODE%>" list="${countries}" valueField="code" textField="name"/></td>
+</tr>
+
+            
 <tr>
 	<td>Address (for shipping visa letter)</td>
 	<td><tc-webtag:textInput name="<%= VisaLetterRequest.SHIPPING_ADDRESS %>" size="50" maxlength="100" editable="true"/>

@@ -33,6 +33,7 @@ public class VisaLetterRequestDAOHibernate extends Base implements VisaLetterReq
     }
 
     public List find(Long eventId, boolean pending, boolean sent, boolean denied) {
+    	log.debug("find " + pending +"," + sent + ","+denied );
     	StringBuffer filter = new StringBuffer(100);
     	if (pending) {
     		filter.append(" OR (sent_date is null AND denied_ind = 0)");
@@ -46,7 +47,7 @@ public class VisaLetterRequestDAOHibernate extends Base implements VisaLetterReq
 
     	Query q = session.createQuery(" from VisaLetterRequest " +
                 " where visa_letter_event_id=" + eventId +
-                (filter.length() > 0?  "AND " + filter.substring(4) : "") + 
+                (filter.length() > 0?  "AND (" + filter.substring(4) + ") " : "") + 
                 " order by request_date asc");
         
         return q.list();
