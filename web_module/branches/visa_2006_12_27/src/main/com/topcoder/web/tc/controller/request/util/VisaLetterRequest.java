@@ -136,6 +136,7 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         }
 
         if ((forceRequest || req == null) && !noEvent) {
+        	setDefault(FORCE_REQUEST, String.valueOf(forceRequest));
         	getRequest().setAttribute("event", event);
             getRequest().setAttribute("countries", DAOUtil.getFactory().getCountryDAO().getCountries());
         	
@@ -176,7 +177,10 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         a.setAddress3(getRequest().getParameter(prefix + Constants.ADDRESS3));
         a.setCity(getRequest().getParameter(prefix + Constants.CITY));
         a.setPostalCode(getRequest().getParameter(prefix + Constants.POSTAL_CODE));
-        a.setCountry(DAOUtil.getFactory().getCountryDAO().find(getRequest().getParameter(prefix + Constants.COUNTRY_CODE)));
+
+        if (!hasError(prefix + Constants.COUNTRY_CODE)) {
+        	a.setCountry(DAOUtil.getFactory().getCountryDAO().find(getRequest().getParameter(prefix + Constants.COUNTRY_CODE)));
+        }
 
         if (DAOUtil.getFactory().getCountryDAO().getUS().equals(a.getCountry())) {
             a.setState(DAOUtil.getFactory().getStateDAO().find(getRequest().getParameter(prefix + Constants.STATE_CODE)));
