@@ -27,7 +27,6 @@ public class VisaLetters extends ShortHibernateProcessor {
     	
     	VisaLetterEventDAO eventDAO =  factory.getVisaLetterEventDAO();
         VisaLetterRequestDAO reqDAO =  factory.getVisaLetterRequestDAO();
-        getRequest().setAttribute("countries", factory.getCountryDAO().getCountries());
 
     	if (getRequest().getParameter("event") != null) {
     		pending = "on".equals(getRequest().getParameter("pending"));
