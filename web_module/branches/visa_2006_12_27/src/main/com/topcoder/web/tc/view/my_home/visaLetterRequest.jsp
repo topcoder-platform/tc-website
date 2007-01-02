@@ -51,7 +51,6 @@ function copyAddr() {
 <h2>Visa Letter Request for <c:out value="${event.name}"/></h2>
 
 <form name="f" action="/tc?module=VisaLetterRequest" method="post">
-<tc-webtag:hiddenInput name="<%= VisaLetterRequest.FORCE_REQUEST %>" />
 <input type="hidden" name="eid" value="${event.id}">
 <table>
  <tr>
