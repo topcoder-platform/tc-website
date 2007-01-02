@@ -89,7 +89,7 @@
 
                 <form method="post" name="frmLogin" action="<%=sessionInfo.getSecureAbsoluteServletPath()%>">
                     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_LATIN_AMERICA_07_LOGIN%>">
-                    <input type="hidden" name="<%=Constants.EVENT_ID%>" value="9">
+                    <input type="hidden" name="<%=Constants.EVENT_ID%>" value="8">
                     <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="66426">
                     <table border="0" cellpadding="3" cellspacing="0" align="center">
                         <tr>
