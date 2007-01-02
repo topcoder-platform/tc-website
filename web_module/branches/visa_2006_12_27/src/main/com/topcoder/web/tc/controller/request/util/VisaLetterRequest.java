@@ -92,23 +92,32 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         	//String shippingAddress = getRequest().getParameter(SHIPPING_ADDRESS);
         	String phoneNumber = getRequest().getParameter(PHONE_NUMBER);
         	
-        	setDefault(FULL_NAME, fullName);
-        	//setDefault(ADDRESS, address);
-        	//setDefault(SHIPPING_ADDRESS, shippingAddress);
-        	setDefault(PHONE_NUMBER, phoneNumber);
         	
-        	validate(fullName, "full name");
-        	//validate(address, "address");
-        	//validate(shippingAddress, "shipping address");
-        	validate(phoneNumber, "phone number");
-        	
-        	Address addr = getAddress("");
+        	if (fullName == null || fullName.trim().length() == 0) {
+        		addError(FULL_NAME, "Please enter the full name");
+        	}
+        	if (fullName == null || fullName.trim().length() == 0) {
+        		addError(PHONE_NUMBER, "Please enter the phone number");
+        	}
+
+        	Address addr = getAddress("s_");
         	addr.setAddressTypeId(Address.PASSPORT_TYPE_ID);
 
         	Address shippingAddr = getAddress("");
         	shippingAddr.setAddressTypeId(Address.VISA_LETTER_TYPE_ID);
         	 
-        	if (!hasErrors()) {
+        	if (hasErrors()) {
+            	setDefault(FULL_NAME, fullName);
+            	setDefault(PHONE_NUMBER, phoneNumber);
+            	
+            	String []fields = {Constants.ADDRESS1, Constants.ADDRESS2, Constants.ADDRESS3, Constants.CITY, 
+            			           Constants.POSTAL_CODE, Constants.PROVINCE, Constants.COUNTRY_CODE, Constants.STATE_CODE};
+            	
+            	for (int i = 0; i < fields.length; i++) {
+            		setDefault(fields[i], getRequest().getParameter(fields[i])); 
+            		setDefault("s_"+ fields[i], getRequest().getParameter("s_" + fields[i])); 
+            	}            	
+        	} else {
 	        	User user  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 	        	
 	        	req = new com.topcoder.web.common.model.VisaLetterRequest();
@@ -180,12 +189,6 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         return a;
     }
 
-
-	private void validate(String value, String fieldName) {
-    	if (value == null || value.trim().length() == 0) {
-    		addError("error", "Please enter the " + fieldName);
-    	}
-    }
 
     private void simpleValidation(Class validationClass, String field) throws RuntimeException {
         Validator v;

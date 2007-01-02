@@ -65,9 +65,17 @@ function copyAddr() {
     </td>
 </tr>
 <tr>
-
 	<td colspan="2">Full Name (as stated on passport)</td>
 	<td><tc-webtag:textInput name="<%= VisaLetterRequest.FULL_NAME %>" size="30" maxlength="50" editable="true"/></td>	
+</tr>
+<tr>
+    <td colspan="3"><span class="bigRed">
+    <tc-webtag:errorIterator id="err" name="<%=VisaLetterRequest.PHONE_NUMBER%>"><%=err%><br></tc-webtag:errorIterator></span>
+    </td>
+</tr>
+<tr>
+	<td colspan="2">Phone Number:</td>
+	<td><tc-webtag:textInput name="<%= VisaLetterRequest.PHONE_NUMBER %>" size="15" maxlength="30" editable="true"/></td>	
 </tr>
 <tr>
 	<td rowspan="17" valign="top">Address (as stated on passport)</td>
@@ -153,17 +161,90 @@ function copyAddr() {
 	<td><tc-webtag:objectSelect name="<%=Constants.COUNTRY_CODE%>" list="${countries}" valueField="code" textField="name"/></td>
 </tr>
 
-            
 <tr>
-	<td colspan="2">Address (for shipping visa letter)</td>
-	<td><tc-webtag:textInput name="<%= VisaLetterRequest.SHIPPING_ADDRESS %>" size="50" maxlength="100" editable="true"/>
-	<input type="button" value="same as address" onClick="copyAddr()">
-	</td>	
+	<td rowspan="17" valign="top">Address (for shipping the Visa letter)</td>
+	<td colspan="2">&nbsp;</td>
 </tr>
 <tr>
-	<td colspan="2">Phone Number:</td>
-	<td><tc-webtag:textInput name="<%= VisaLetterRequest.PHONE_NUMBER %>" size="15" maxlength="30" editable="true"/></td>	
+    <td colspan="3"><span class="bigRed">
+    <tc-webtag:errorIterator id="err" name="s_<%=Constants.ADDRESS1%>"><%=err%><br></tc-webtag:errorIterator></span>
+    </td>
 </tr>
+<tr>
+	<td>*Address1:</td>
+	<td><tc-webtag:textInput name="s_<%=Constants.ADDRESS1%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>	
+</tr>
+
+<tr>
+    <td colspan="3"><span class="bigRed">
+    <tc-webtag:errorIterator id="err" name="s_<%=Constants.ADDRESS2%>"><%=err%><br></tc-webtag:errorIterator></span>
+    </td>
+</tr>
+<tr>
+	<td>Address2:</td>
+	<td><tc-webtag:textInput name="s_<%=Constants.ADDRESS2%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>	
+</tr>
+
+<tr>
+    <td colspan="3"><span class="bigRed">
+    <tc-webtag:errorIterator id="err" name="s_<%=Constants.ADDRESS3%>"><%=err%><br></tc-webtag:errorIterator></span>
+    </td>
+</tr>
+<tr>
+	<td>Address3:</td>
+	<td><tc-webtag:textInput name="s_<%=Constants.ADDRESS3%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>	
+</tr>
+
+<tr>
+    <td colspan="3"><span class="bigRed">
+    <tc-webtag:errorIterator id="err" name="s_<%=Constants.CITY%>"><%=err%><br></tc-webtag:errorIterator></span>
+    </td>
+</tr>
+<tr>
+	<td>*City:</td>
+	<td><tc-webtag:textInput name="s_<%=Constants.CITY%>" size="15" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/></td>
+</tr>
+
+<tr>
+    <td colspan="3"><span class="bigRed">
+    <tc-webtag:errorIterator id="err" name="s_<%=Constants.STATE_CODE%>"><%=err%><br></tc-webtag:errorIterator></span>
+    </td>
+</tr>
+<tr>
+	<td>State (US only):</td>
+	<td><tc-webtag:textInput name="s_<%=Constants.STATE_CODE%>" size="2" maxlength="2" editable="true"/></td>
+</tr>
+
+<tr>
+    <td colspan="3"><span class="bigRed">
+    <tc-webtag:errorIterator id="err" name="s_<%=Constants.POSTAL_CODE%>"><%=err%><br></tc-webtag:errorIterator></span>
+    </td>
+</tr>
+<tr>
+	<td>Postal Code:</td>
+	<td><tc-webtag:textInput name="s_<%=Constants.POSTAL_CODE%>" size="15" maxlength="<%=Constants.MAX_POSTAL_CODE_LENGTH%>" editable="true"/></td>
+</tr>
+
+<tr>
+    <td colspan="3"><span class="bigRed">
+    <tc-webtag:errorIterator id="err" name="s_<%=Constants.PROVINCE%>"><%=err%><br></tc-webtag:errorIterator></span>
+    </td>
+</tr>
+<tr>
+	<td>Province:</td>
+	<td><tc-webtag:textInput name="s_<%=Constants.PROVINCE%>" size="15" maxlength="<%=Constants.MAX_PROVINCE_LENGTH%>" editable="true"/></td>
+</tr>
+
+<tr>
+    <td colspan="3"><span class="bigRed">
+    <tc-webtag:errorIterator id="err" name="s_<%=Constants.COUNTRY_CODE%>"><%=err%><br></tc-webtag:errorIterator></span>
+    </td>
+</tr>
+<tr>
+	<td>*Country:</td>
+	<td><tc-webtag:objectSelect name="s_<%=Constants.COUNTRY_CODE%>" list="${countries}" valueField="code" textField="name"/></td>
+</tr>
+
 </table>
 
 <input type="submit" value="Request Letter">
