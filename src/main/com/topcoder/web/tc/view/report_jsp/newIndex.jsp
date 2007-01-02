@@ -155,7 +155,7 @@ Online Review Reports
 Private Label Reports
 <UL>
     <LI>
-        <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=reg_info&"+Constants.DB_KEY+"=java:GOOGLE_LA_OLTP"%>">Google
+        <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=google_reg&"+Constants.DB_KEY+"=java:GOOGLE_LA_OLTP"%>">Google
             Latin America
             Registration</A></LI>
     <LI>
