@@ -144,10 +144,10 @@ public class ApplyRBoardRules extends DBUtility {
 
                 String possibleDisqualificationReason = " (no submission in the last " + DAYS_THREE_MONTHS + " days.";
 
-                log.debug("Analyzing " + ((rsUsers.getInt("status_id") == DISQUALIFIED_STATUS) ? "Inactive" : "Active") +
+                /*log.debug("Analyzing " + ((rsUsers.getInt("status_id") == DISQUALIFIED_STATUS) ? "Inactive" : "Active") +
                         " user " + rsUsers.getLong("user_id") + "("+ rsUsers.getString("handle") + ")" +
                         " Project Type: " + rsUsers.getString("project_type_name") +
-                        " Catalog Id: " + rsUsers.getString("catalog_name"));
+                        " Catalog Id: " + rsUsers.getString("catalog_name"));*/
 
                 logMsg = " - <" + rsUsers.getString("handle") + "> <" + rsUsers.getString("project_type_name") + "> <" +
                     rsUsers.getString("catalog_name") + ">";
@@ -279,9 +279,6 @@ public class ApplyRBoardRules extends DBUtility {
                 if (sendMails.equalsIgnoreCase("true")) {
                     sendMail(systemEmail, adminEmail, emailSubject, digestMail.toString());
                         log.debug("Sending digest mail.");
-                } else {
-                                           log.debug(digestMail.toString());
- 
                 }
             } catch (Exception e) {
                 throw new Exception("Unable to send digest mail.", e);
@@ -489,8 +486,7 @@ public class ApplyRBoardRules extends DBUtility {
      *
      * @return the users PreparedStatement
      */
-     
-         private PreparedStatement prepareUsersStatement() throws SQLException {
+     private PreparedStatement prepareUsersStatement() throws SQLException {
         StringBuffer query = new StringBuffer(200);
         query.append("select u.handle, ru.user_id, ru.project_type_id, ru.catalog_id, ru.status_id, ru.immune_ind,  ");
         query.append("pcl.name as project_type_name, c.catalog_name,  ");
@@ -527,9 +523,6 @@ public class ApplyRBoardRules extends DBUtility {
         PreparedStatement ps = prepareStatement("tcs_catalog", query.toString());
         return ps;
     }
-
-
-
 
     /**
      * Helper method to update a reviewer status
