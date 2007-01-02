@@ -1,8 +1,11 @@
+<%@ page contentType="text/html;charset=utf-8" %>
+<%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>                 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
 <head>
     <title>TopCoder Admin</title>
@@ -20,13 +23,14 @@ function update(action,rid) {
 
 <body>
 <jsp:include page="top.jsp"/>
-<table>
+<table border="1">
     <tr valign="top">
         <td>
             <jsp:include page="left.jsp"/>
         </td>
         <td>
         <form action="/admin/?module=VisaLetters" >
+        <input type="hidden" name="module" value="">
         <input type="hidden" name="rid" value="">
         <input type="hidden" name="action" value="">        
         	View request letters with status:<br>
@@ -38,7 +42,7 @@ function update(action,rid) {
 			<tc-webtag:listSelect name="event" list="${requestScope.eventList}"/>
 			<input type="submit" value="Search" onClick="docyment.f.action.value='search'">
 
-<table>
+<table border="1">
 <tr>
 	<td>Request Date</td>
 	<td>Handle</td>
