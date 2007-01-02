@@ -63,7 +63,7 @@ function copyAddr() {
  
 <tr>
     <td colspan="3"><span class="bigRed">
-    <tc-webtag:errorIterator id="err" name="<%=Constants.FULL_NAME%>"><%=err%><br></tc-webtag:errorIterator></span>
+    <tc-webtag:errorIterator id="err" name="<%=VisaLetterRequest.FULL_NAME%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>

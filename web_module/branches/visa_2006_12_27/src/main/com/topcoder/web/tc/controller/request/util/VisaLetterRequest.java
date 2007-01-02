@@ -136,7 +136,6 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         }
 
         if ((forceRequest || req == null) && !noEvent) {
-        	setDefault(FORCE_REQUEST, String.valueOf(forceRequest));
         	getRequest().setAttribute("event", event);
             getRequest().setAttribute("countries", DAOUtil.getFactory().getCountryDAO().getCountries());
         	
