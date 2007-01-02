@@ -1,22 +1,22 @@
 package com.topcoder.utilities;
 
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.TCSEmailMessage;
-import com.topcoder.shared.util.EmailEngine;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.language.JavaLanguage;
+import com.meterware.httpunit.*;
 import com.topcoder.shared.language.CPPLanguage;
 import com.topcoder.shared.language.CSharpLanguage;
+import com.topcoder.shared.language.JavaLanguage;
 import com.topcoder.shared.language.VBLanguage;
-import com.meterware.httpunit.*;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.shared.util.logging.Logger;
 
+import java.io.InputStream;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
- *
  * @author rfairfax
  */
 public class WebScreeningBot {
@@ -27,10 +27,10 @@ public class WebScreeningBot {
 
     private static Logger log = Logger.getLogger(WebScreeningBot.class);
 
-    private final int[] languages = new int[] {JavaLanguage.ID, CPPLanguage.ID, CSharpLanguage.ID};
+    private final int[] languages = new int[]{JavaLanguage.ID, CPPLanguage.ID, CSharpLanguage.ID};
 
     private String getSubmissionText(int lang) {
-        switch(lang) {
+        switch (lang) {
             case JavaLanguage.ID:
                 return "public class Average {\npublic int belowAvg(int[] a, int[] b){\nreturn 0;\n}\n}";
             case CPPLanguage.ID:
@@ -47,40 +47,42 @@ public class WebScreeningBot {
     boolean errors = false;
 
     public void printErrors() {
-        if(errorText.equals("")) {
+        if (errorText.equals("")) {
             errors = false;
             return;
         }
 
         log.error("ERROR : " + errorText);
         //send email, only once
-        if(!errors) {
+        if (!errors) {
             errors = true;
             try {
                 TCSEmailMessage em = new TCSEmailMessage();
+/*
                 em.addToAddress("8609182841@mmode.com", TCSEmailMessage.TO);
                 em.addToAddress("8604626228@vtext.com", TCSEmailMessage.TO);
                 em.addToAddress("6508045266@vtext.com", TCSEmailMessage.TO);
                 em.addToAddress("8604656205@mobile.mycingular.com", TCSEmailMessage.TO);
                 em.addToAddress("8606144043@vtext.com", TCSEmailMessage.TO);
-                //em.addToAddress("9196197120@vtext.com", TCSEmailMessage.TO); //fogle
 
                 em.setSubject("Server Error");
                 em.setBody("Tech Assess Error:\n" + shortError);
                 em.setFromAddress("rfairfax@topcoder.com");
 
                 EmailEngine.send(em);
+*/
 
                 em = new TCSEmailMessage();
+                em.addToAddress("gpaul@topcoder.com", TCSEmailMessage.TO);
+/*
                 em.addToAddress("rfairfax@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("mlydon@topcoder.com", TCSEmailMessage.TO);
-                em.addToAddress("gpaul@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("thaas@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("ivern@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("mtong@topcoder.com", TCSEmailMessage.TO);
-                //em.addToAddress("mfogleman@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("javier-topcoder-alarm@ivern.org", TCSEmailMessage.TO);
                 em.addToAddress("8602686127@messaging.sprintpcs.com", TCSEmailMessage.TO);
+*/
 
                 em.setSubject("Server Error");
                 em.setBody("Tech Assess Error:\n" + errorText);
@@ -113,13 +115,24 @@ public class WebScreeningBot {
         WebResponse resp = null;
         try {
             resp = wc.getResponse(wr);
-            if(!validResponse(resp)) {
+            if (!validResponse(resp)) {
                 return;
             }
 
+            log.debug("resp: " + resp.toString());
+            log.debug("len: " + resp.getContentLength());
+            InputStream is = resp.getInputStream();
+            char ch = 0;
+            while ((ch = (char) is.read()) >= 0) {
+                System.out.print(ch);
+            }
+            String[] elements = resp.getElementNames();
+            for (int i = 0; i < elements.length; i++) {
+                log.debug(i + " " + elements[i]);
+            }
             //check to make sure we're on the right page.
             //In this case, we can check if the login form exists
-            if(resp.getFormWithName("loginForm") == null) {
+            if (resp.getFormWithName("loginForm") == null) {
                 error("No login form found", "No login form found");
                 return;
             }
@@ -130,69 +143,69 @@ public class WebScreeningBot {
             form.setParameter("ps", PASSWORD);
             resp = form.submit();
 
-            if(!validResponse(resp)) {
+            if (!validResponse(resp)) {
                 return;
             }
             //check to make sure we're on the right page
             //In this case, we check for the frameset.
-            if(resp.getFrameNames().length != 2) {
+            if (resp.getFrameNames().length != 2) {
                 error("No frames found", "No frames found");
                 return;
             }
 
             //get mainFrame
             resp = wc.getFrameContents("mainFrame");
-            if(!validResponse(resp)) {
+            if (!validResponse(resp)) {
                 return;
             }
 
             //get the example link
             WebLink[] links = resp.getLinks();
             WebLink exampleLink = null;
-            for(int i = 0; i < links.length; i++) {
-                if(links[i].getURLString().equals("/techassess/techassess?module=ViewProblemSet&ptid=3")) {
+            for (int i = 0; i < links.length; i++) {
+                if (links[i].getURLString().equals("/techassess/techassess?module=ViewProblemSet&ptid=3")) {
                     exampleLink = links[i];
                     break;
                 }
             }
 
-            if(exampleLink == null) {
+            if (exampleLink == null) {
                 error("No link found", "No link found");
                 return;
             }
 
             exampleLink.click();
             resp = wc.getFrameContents("mainFrame");
-            if(!validResponse(resp)) {
+            if (!validResponse(resp)) {
                 return;
             }
 
             links = resp.getLinks();
             exampleLink = null;
-            for(int i = 0; i < links.length; i++) {
-                if(links[i].getURLString().indexOf("/techassess/techassess?module=ViewProblem&ptid=3") != -1) {
+            for (int i = 0; i < links.length; i++) {
+                if (links[i].getURLString().indexOf("/techassess/techassess?module=ViewProblem&ptid=3") != -1) {
                     exampleLink = links[i];
                     break;
                 }
             }
 
-            if(exampleLink == null) {
+            if (exampleLink == null) {
                 error("No link found", "No link found");
                 return;
             }
 
             exampleLink.click();
             resp = wc.getFrameContents("mainFrame");
-            if(!validResponse(resp)) {
+            if (!validResponse(resp)) {
                 return;
             }
 
             //loop over languages
-            for(int l = 0; l < languages.length; l++) {
+            for (int l = 0; l < languages.length; l++) {
 
                 log.info("TESTING " + languages[l]);
 
-                if(resp.getFormWithName("problemForm") == null) {
+                if (resp.getFormWithName("problemForm") == null) {
                     error("No form found", "No form found");
                     return;
                 }
@@ -206,25 +219,25 @@ public class WebScreeningBot {
                 //try to save
                 links = resp.getLinks();
                 exampleLink = null;
-                for(int i = 0; i < links.length; i++) {
-                    if(links[i].getURLString().indexOf("JavaScript:doSubmit('Save')") != -1) {
+                for (int i = 0; i < links.length; i++) {
+                    if (links[i].getURLString().indexOf("JavaScript:doSubmit('Save')") != -1) {
                         exampleLink = links[i];
                         break;
                     }
                 }
 
-                if(exampleLink == null) {
+                if (exampleLink == null) {
                     error("No link found", "No link found");
                     return;
                 }
 
                 exampleLink.click();
                 resp = wc.getFrameContents("mainFrame");
-                if(!validResponse(resp)) {
+                if (!validResponse(resp)) {
                     return;
                 }
 
-                if(resp.getText().indexOf("Code saved successfully") == -1) {
+                if (resp.getText().indexOf("Code saved successfully") == -1) {
                     error("Save Failed", "Save Failed");
                     return;
                 }
@@ -232,25 +245,25 @@ public class WebScreeningBot {
                 //try to compile
                 links = resp.getLinks();
                 exampleLink = null;
-                for(int i = 0; i < links.length; i++) {
-                    if(links[i].getURLString().indexOf("JavaScript:doSubmit('Compile')") != -1) {
+                for (int i = 0; i < links.length; i++) {
+                    if (links[i].getURLString().indexOf("JavaScript:doSubmit('Compile')") != -1) {
                         exampleLink = links[i];
                         break;
                     }
                 }
 
-                if(exampleLink == null) {
+                if (exampleLink == null) {
                     error("No link found", "No link found");
                     return;
                 }
 
                 exampleLink.click();
                 resp = wc.getFrameContents("mainFrame");
-                if(!validResponse(resp)) {
+                if (!validResponse(resp)) {
                     return;
                 }
 
-                if(resp.getText().indexOf("Your code compiled successfully") == -1) {
+                if (resp.getText().indexOf("Your code compiled successfully") == -1) {
                     error("Compile failed", "Compile failed");
                     return;
                 }
@@ -267,11 +280,11 @@ public class WebScreeningBot {
 
                 WebResponse testResp = wc.getResponse(testRequest);
 
-                if(!validResponse(testResp)) {
+                if (!validResponse(testResp)) {
                     return;
                 }
 
-                if(testResp.getText().indexOf("Return Value:<br />0") == -1) {
+                if (testResp.getText().indexOf("Return Value:<br />0") == -1) {
                     error("Test failed", "Test failed");
                     return;
                 }
@@ -280,21 +293,21 @@ public class WebScreeningBot {
             //try a submit
             links = resp.getLinks();
             exampleLink = null;
-            for(int i = 0; i < links.length; i++) {
-                if(links[i].getURLString().indexOf("JavaScript:doSubmit('Submit')") != -1) {
+            for (int i = 0; i < links.length; i++) {
+                if (links[i].getURLString().indexOf("JavaScript:doSubmit('Submit')") != -1) {
                     exampleLink = links[i];
                     break;
                 }
             }
 
-            if(exampleLink == null) {
+            if (exampleLink == null) {
                 error("No link found", "No link found");
                 return;
             }
 
             exampleLink.click();
             resp = wc.getFrameContents("mainFrame");
-            if(!validResponse(resp)) {
+            if (!validResponse(resp)) {
                 return;
             }
 
@@ -311,7 +324,7 @@ public class WebScreeningBot {
             }
             exampleLink.click();
             */
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             error("Exception", e.getMessage());
         }
@@ -321,19 +334,20 @@ public class WebScreeningBot {
         WebScreeningBot client = new WebScreeningBot();
 
         boolean b = true;
-        while(b) {
+        while (b) {
             client.runTests();
             client.printErrors();
             client.cleanup();
             try {
                 Thread.sleep(5 * 60 * 1000);
-            } catch (Exception e) {}
+            } catch (Exception e) {
+            }
         }
     }
 
     //verifies that the return code of the result page is correct
     private boolean validResponse(WebResponse resp) {
-        if(resp.getResponseCode() != 200) {
+        if (resp.getResponseCode() != 200) {
             error("Bad Page Response", "Bad Response Code from " + resp.getURL().toString() + " (Resp: " + resp.getResponseCode() + ")");
             return false;
         }
@@ -341,7 +355,6 @@ public class WebScreeningBot {
         log.info("Good Response from " + resp.getURL().toString());
         return true;
     }
-
 
 
     private static final int COMPONENT_STATE_ID = 1710451;
@@ -366,13 +379,11 @@ public class WebScreeningBot {
             executeCleanupUpdate(connection, "update component_state set submission_number = 1, compile_count = 1, test_count = 1 where component_state_id = ?;");
         }
 
-        try {
-            connection.close();
-        } catch (SQLException e) {}
+        DBMS.close(connection);
         log.info("Cleanup complete");
     }
 
-    private Connection createConnection() throws SQLException{
+    private Connection createConnection() throws SQLException {
         Connection connection = DBMS.getDirectConnection();
         return connection;
     }
@@ -393,12 +404,8 @@ public class WebScreeningBot {
             e.printStackTrace();
         }
         finally {
-            try {
-                if (rs != null) rs.close();
-            } catch (SQLException e) {}
-            try {
-                if (statement != null) statement.close();
-            } catch (SQLException e) {}
+            DBMS.close(rs);
+            DBMS.close(statement);
         }
         return result;
     }
@@ -415,9 +422,7 @@ public class WebScreeningBot {
             e.printStackTrace();
         }
         finally {
-            try {
-                if (statement != null) statement.close();
-            } catch (SQLException e) {}
+            DBMS.close(statement);
         }
         log.info(result + " records modified");
         return result;
