@@ -1,6 +1,8 @@
 package com.topcoder.web.tc.controller.request.util;
 
 import java.util.Date;
+import java.util.Map;
+import java.util.Set;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
@@ -8,8 +10,32 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.VisaLetterEventDAO;
 import com.topcoder.web.common.dao.VisaLetterRequestDAO;
+import com.topcoder.web.common.model.Address;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.VisaLetterEvent;
+import com.topcoder.web.common.validation.StringInput;
+import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.common.validation.Validator;
+import com.topcoder.web.reg.validation.Address1Validator;
+import com.topcoder.web.reg.validation.Address2Validator;
+import com.topcoder.web.reg.validation.Address3Validator;
+import com.topcoder.web.reg.validation.CityValidator;
+import com.topcoder.web.reg.validation.CoderTypeValidator;
+import com.topcoder.web.reg.validation.CompanyNameValidator;
+import com.topcoder.web.reg.validation.CountryValidator;
+import com.topcoder.web.reg.validation.EmailValidator;
+import com.topcoder.web.reg.validation.GivenNameValidator;
+import com.topcoder.web.reg.validation.MiddleNameValidator;
+import com.topcoder.web.reg.validation.PasswordValidator;
+import com.topcoder.web.reg.validation.PostalCodeValidator;
+import com.topcoder.web.reg.validation.ProvinceValidator;
+import com.topcoder.web.reg.validation.QuoteValidator;
+import com.topcoder.web.reg.validation.SecretQuestionResponseValidator;
+import com.topcoder.web.reg.validation.SecretQuestionValidator;
+import com.topcoder.web.reg.validation.StateValidator;
+import com.topcoder.web.reg.validation.SurnameValidator;
+import com.topcoder.web.reg.validation.TimeZoneValidator;
+import com.topcoder.web.reg.validation.TitleValidator;
 import com.topcoder.web.tc.Constants;
 
 /**
@@ -62,20 +88,26 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         if (getRequest().getParameter(FULL_NAME) != null) {
         	// The user requested a letter
         	String fullName = getRequest().getParameter(FULL_NAME);
-        	String address = getRequest().getParameter(ADDRESS);
-        	String shippingAddress = getRequest().getParameter(SHIPPING_ADDRESS);
+        	//String address = getRequest().getParameter(ADDRESS);
+        	//String shippingAddress = getRequest().getParameter(SHIPPING_ADDRESS);
         	String phoneNumber = getRequest().getParameter(PHONE_NUMBER);
         	
         	setDefault(FULL_NAME, fullName);
-        	setDefault(ADDRESS, address);
-        	setDefault(SHIPPING_ADDRESS, shippingAddress);
+        	//setDefault(ADDRESS, address);
+        	//setDefault(SHIPPING_ADDRESS, shippingAddress);
         	setDefault(PHONE_NUMBER, phoneNumber);
         	
         	validate(fullName, "full name");
-        	validate(address, "address");
-        	validate(shippingAddress, "shipping address");
+        	//validate(address, "address");
+        	//validate(shippingAddress, "shipping address");
         	validate(phoneNumber, "phone number");
         	
+        	Address addr = getAddress("");
+        	addr.setAddressTypeId(Address.PASSPORT_TYPE_ID);
+
+        	Address shippingAddr = getAddress("");
+        	shippingAddr.setAddressTypeId(Address.VISA_LETTER_TYPE_ID);
+        	 
         	if (!hasErrors()) {
 	        	User user  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 	        	
@@ -83,8 +115,8 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
 	        	req.setUser(user);
 	        	req.setEvent(event);
 	        	req.setFullName(fullName);
-	        	req.setAddress(address);
-	        	req.setShippingAddress(shippingAddress);
+	        	req.setAddress(addr);
+	        	req.setShippingAddress(shippingAddr);
 	        	req.setPhoneNumber(phoneNumber);
 	        	req.setRequestDate(new Date());
 	        	
@@ -110,10 +142,66 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
     }
 
 
-    private void validate(String value, String fieldName) {
+    private Address getAddress(String prefix) {
+        simpleValidation(Address1Validator.class, prefix + Constants.ADDRESS1);
+        simpleValidation(Address2Validator.class, prefix + Constants.ADDRESS2);
+        simpleValidation(Address3Validator.class, prefix + Constants.ADDRESS3);
+        simpleValidation(CityValidator.class, prefix + Constants.CITY);
+        simpleValidation(PostalCodeValidator.class, prefix + Constants.POSTAL_CODE);
+        simpleValidation(ProvinceValidator.class, prefix + Constants.PROVINCE);
+        simpleValidation(CountryValidator.class, prefix + Constants.COUNTRY_CODE);
+        
+        if (!hasError(prefix + Constants.COUNTRY_CODE)) {
+            ValidationResult stateResult = new StateValidator(DAOUtil.getFactory().getCountryDAO().find(
+            		getRequest().getParameter(prefix + Constants.COUNTRY_CODE))).validate(
+                    new StringInput(getRequest().getParameter(prefix + Constants.STATE_CODE)));
+            if (!stateResult.isValid()) {
+                addError(prefix + Constants.STATE_CODE, stateResult.getMessage());
+            }            
+        }
+
+        
+        Address a = new Address();
+        a.setAddress1(getRequest().getParameter(prefix + Constants.ADDRESS1));
+        a.setAddress2(getRequest().getParameter(prefix + Constants.ADDRESS2));
+        a.setAddress3(getRequest().getParameter(prefix + Constants.ADDRESS3));
+        a.setCity(getRequest().getParameter(prefix + Constants.CITY));
+        a.setPostalCode(getRequest().getParameter(prefix + Constants.POSTAL_CODE));
+        a.setCountry(DAOUtil.getFactory().getCountryDAO().find(getRequest().getParameter(prefix + Constants.COUNTRY_CODE)));
+
+        if (DAOUtil.getFactory().getCountryDAO().getUS().equals(a.getCountry())) {
+            a.setState(DAOUtil.getFactory().getStateDAO().find(getRequest().getParameter(prefix + Constants.STATE_CODE)));
+        } else {
+            a.setState(null);
+            a.setProvince(getRequest().getParameter(prefix + Constants.PROVINCE));
+        }
+
+
+        return a;
+    }
+
+
+	private void validate(String value, String fieldName) {
     	if (value == null || value.trim().length() == 0) {
     		addError("error", "Please enter the " + fieldName);
     	}
     }
-    
+
+    private void simpleValidation(Class validationClass, String field) throws RuntimeException {
+        Validator v;
+        try {
+            v = (Validator) Class.forName(validationClass.getName()).newInstance();
+        } catch (InstantiationException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        ValidationResult result = v.validate(new StringInput(getRequest().getParameter(field)));
+        if (!result.isValid()) {
+            addError(field, result.getMessage());
+        }
+    }
+
 }

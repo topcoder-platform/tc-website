@@ -1,25 +1,23 @@
 package com.topcoder.web.common.model;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 public class VisaLetterRequest extends Base {
 	private Long id;
 	private User user;
 	private VisaLetterEvent event;
 	private String fullName;
-	private String address;
-	private String shippingAddress;
+	private Address address;
+	private Address shippingAddress;
 	private String phoneNumber;
 	private Date requestDate = null;
 	private Date sentDate = null;
 	private boolean denied = false;
 	
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
+	
 	public boolean isDenied() {
 		return denied;
 	}
@@ -62,17 +60,24 @@ public class VisaLetterRequest extends Base {
 	public void setSentDate(Date sentDate) {
 		this.sentDate = sentDate;
 	}
-	public String getShippingAddress() {
-		return shippingAddress;
-	}
-	public void setShippingAddress(String shippingAddress) {
-		this.shippingAddress = shippingAddress;
-	}
+
 	public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	public Address getShippingAddress() {
+		return shippingAddress;
+	}
+	public void setShippingAddress(Address shippingAddress) {
+		this.shippingAddress = shippingAddress;
 	}
 	
 	

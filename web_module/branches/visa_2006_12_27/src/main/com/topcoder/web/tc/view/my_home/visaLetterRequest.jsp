@@ -79,7 +79,7 @@ function copyAddr() {
 	<td><tc-webtag:textInput name="<%=Constants.ADDRESS3%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>	
 </tr>
 <tr>
-	<td>City:</td>
+	<td>*City:</td>
 	<td><tc-webtag:textInput name="<%=Constants.CITY%>" size="15" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/></td>
 </tr>
 <tr>
@@ -95,7 +95,7 @@ function copyAddr() {
 	<td><tc-webtag:textInput name="<%=Constants.PROVINCE%>" size="15" maxlength="<%=Constants.MAX_PROVINCE_LENGTH%>" editable="true"/></td>
 </tr>
 <tr>
-	<td>Country:</td>
+	<td>*Country:</td>
 	<td><tc-webtag:objectSelect name="<%=Constants.COUNTRY_CODE%>" list="${countries}" valueField="code" textField="name"/></td>
 </tr>
 

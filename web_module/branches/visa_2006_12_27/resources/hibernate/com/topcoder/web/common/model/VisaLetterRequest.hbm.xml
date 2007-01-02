@@ -14,8 +14,11 @@
         <many-to-one name="user" column="user_id" access="field"/>
         <many-to-one name="event" column="visa_letter_event_id" access="field"/>
         <property name="fullName" column="full_name" access="field"/>
-        <property name="address" column="address" access="field"/>
-        <property name="shippingAddress" column="shipping_address" access="field"/>
+
+        <many-to-one name="address" column="address_id" class="Address" cascade="save-update" access="field" fetch="join" unique="true"/>
+        <many-to-one name="shippingAddress" column="shipping_address_id" class="Address" cascade="save-update" access="field" fetch="join" unique="true"/>
+
+        
         <property name="phoneNumber" column="phone_number" access="field"/>
         <property name="requestDate" type="date" column="request_date" access="field"/>
         <property name="sentDate" type="date" column="sent_date" access="field"/>
