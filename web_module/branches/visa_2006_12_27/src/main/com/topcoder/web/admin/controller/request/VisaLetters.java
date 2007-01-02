@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.VisaLetterEventDAO;
 import com.topcoder.web.common.dao.VisaLetterRequestDAO;
@@ -22,7 +23,7 @@ public class VisaLetters extends ShortHibernateProcessor {
     	boolean denied = false;
     	Long eid;
 
-    	DAOFactory factory = factory = DAOUtil.getFactory();
+    	DAOFactory factory = DAOUtil.getFactory();
     	
     	VisaLetterEventDAO eventDAO =  factory.getVisaLetterEventDAO();
         VisaLetterRequestDAO reqDAO =  factory.getVisaLetterRequestDAO();

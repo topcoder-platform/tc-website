@@ -63,7 +63,7 @@ function copyAddr() {
 	<td><tc-webtag:textInput name="<%= VisaLetterRequest.FULL_NAME %>" size="30" maxlength="50" editable="true"/></td>	
 </tr>
 <tr>
-	<td rowspan="9">Address (as stated on passport)</td>
+	<td rowspan="9" valign="top">Address (as stated on passport)</td>
 	<td colspan="2">&nbsp;</td>
 </tr>
 <tr>
@@ -101,13 +101,13 @@ function copyAddr() {
 
             
 <tr>
-	<td>Address (for shipping visa letter)</td>
+	<td colspan="2">Address (for shipping visa letter)</td>
 	<td><tc-webtag:textInput name="<%= VisaLetterRequest.SHIPPING_ADDRESS %>" size="50" maxlength="100" editable="true"/>
 	<input type="button" value="same as address" onClick="copyAddr()">
 	</td>	
 </tr>
 <tr>
-	<td>Phone Number:</td>
+	<td colspan="2">Phone Number:</td>
 	<td><tc-webtag:textInput name="<%= VisaLetterRequest.PHONE_NUMBER %>" size="15" maxlength="30" editable="true"/></td>	
 </tr>
 </table>
