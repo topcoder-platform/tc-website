@@ -85,7 +85,7 @@ Software
             List</A></LI>
     <br/>
     <% String baseTCSDWURL = Constants.SERVLET_ADDR + "&" + Constants.TASK_NAME_KEY + "=" + Constants.NEW_REPORT_KEY + "&" + Constants.DB_KEY + "=" + DBMS.TCS_DW_DATASOURCE_NAME + "&" + DataAccessConstants.COMMAND + "=";%>
-    <% String baseTCSUrl = Constants.SERVLET_ADDR + "&" + Constants.TASK_NAME_KEY + "=" + Constants.NEW_REPORT_KEY + "&" + Constants.DB_KEY + "=" + DBMS.TCS_OLTP_DATASOURCE_NAME+ "&" + DataAccessConstants.COMMAND + "=";%>
+    <% String baseTCSUrl = Constants.SERVLET_ADDR + "&" + Constants.TASK_NAME_KEY + "=" + Constants.NEW_REPORT_KEY + "&" + Constants.DB_KEY + "=" + DBMS.TCS_OLTP_DATASOURCE_NAME + "&" + DataAccessConstants.COMMAND + "=";%>
     <LI>Fulfillment rate: Projects posted in last <a href="<%=baseTCSDWURL+"fulfillment_rate&days=90"%>">3 months?</a>
         <a href="<%=baseTCSDWURL+"fulfillment_rate&days=180"%>">6 months?</a>
         <a href="<%=baseTCSDWURL+"fulfillment_rate&days=3600"%>">all?</a></LI>
@@ -97,12 +97,14 @@ Software
     <LI><A HREF="<%=baseTCSDWURL+"new_participants_week"%>">New participants per week</A></LI>
     <LI><A HREF="<%=baseTCSDWURL+"new_ratio"%>">Ratio of new members who participate in TCS</A></LI>
     <LI><A HREF="<%=baseTCSDWURL+"drop_off"%>">Drop-off rates by month</A></LI>
-    <LI>Submission rate per inquiry: Members who signed up in last - <A HREF="<%=baseTCSDWURL+"submission_rate&days=90"%>">3
-        months?</a> <a href="<%=baseTCSDWURL+"submission_rate&days=180"%>">6 months?</a>
+    <LI>Submission rate per inquiry: Members who signed up in last -
+        <A HREF="<%=baseTCSDWURL+"submission_rate&days=90"%>">3
+            months?</a> <a href="<%=baseTCSDWURL+"submission_rate&days=180"%>">6 months?</a>
         <a href="<%=baseTCSDWURL+"submission_rate&days=3600"%>">all?</a></LI>
     <LI>Average cost of component by phase - projects completed in last -
-        <A HREF="<%=baseTCSDWURL+"cost_by_phase&days=90"%>">3 months?</a> <a href="<%=baseTCSDWURL+"cost_by_phase&days=180"%>">6
-        months?</a> <a href="<%=baseTCSDWURL+"cost_by_phase&days=3600"%>">all?</A></LI>
+        <A HREF="<%=baseTCSDWURL+"cost_by_phase&days=90"%>">3 months?</a>
+        <a href="<%=baseTCSDWURL+"cost_by_phase&days=180"%>">6
+            months?</a> <a href="<%=baseTCSDWURL+"cost_by_phase&days=3600"%>">all?</A></LI>
     <LI>Average cost of component by phase and catalog - projects completed in last -
         <A HREF="<%=baseTCSDWURL+"cost_by_catalog&days=90"%>">3 months?</a>
         <a href="<%=baseTCSDWURL+"cost_by_catalog&days=180"%>">6 months?</a>
@@ -152,6 +154,10 @@ Online Review Reports
 <br/>
 Private Label Reports
 <UL>
+    <LI>
+        <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=reg_info&"+Constants.DB_KEY+"=java:GOOGLE_LA_OLTP"%>">Google
+            Latin America
+            Registration</A></LI>
     <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=reg_info&"+Constants.DB_KEY+"=java:DC_OLTP"%>">DoubleClick
             Registration</A></LI>
