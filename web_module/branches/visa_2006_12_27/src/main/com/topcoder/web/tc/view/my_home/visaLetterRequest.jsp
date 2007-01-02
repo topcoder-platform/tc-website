@@ -169,82 +169,82 @@ function copyAddr() {
 </tr>
 <tr>
     <td colspan="3"><span class="bigRed">
-    <tc-webtag:errorIterator id="err" name="s_<%=Constants.ADDRESS1%>"><%=err%><br></tc-webtag:errorIterator></span>
+    <tc-webtag:errorIterator id="err" name="<%= "s" +Constants.ADDRESS1%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
 	<td>*Address1:</td>
-	<td><tc-webtag:textInput name="s_<%=Constants.ADDRESS1%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>	
+	<td><tc-webtag:textInput name="<%= "s" + Constants.ADDRESS1%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>	
 </tr>
 
 <tr>
     <td colspan="3"><span class="bigRed">
-    <tc-webtag:errorIterator id="err" name="s_<%=Constants.ADDRESS2%>"><%=err%><br></tc-webtag:errorIterator></span>
+    <tc-webtag:errorIterator id="err" name="<%= "s" + Constants.ADDRESS2%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
 	<td>Address2:</td>
-	<td><tc-webtag:textInput name="s_<%=Constants.ADDRESS2%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>	
+	<td><tc-webtag:textInput name="<%= "s" + Constants.ADDRESS2%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>	
 </tr>
 
 <tr>
     <td colspan="3"><span class="bigRed">
-    <tc-webtag:errorIterator id="err" name="s_<%=Constants.ADDRESS3%>"><%=err%><br></tc-webtag:errorIterator></span>
+    <tc-webtag:errorIterator id="err" name="<%= "s" + Constants.ADDRESS3%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
 	<td>Address3:</td>
-	<td><tc-webtag:textInput name="s_<%=Constants.ADDRESS3%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>	
+	<td><tc-webtag:textInput name="<%= "s" + Constants.ADDRESS3%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>	
 </tr>
 
 <tr>
     <td colspan="3"><span class="bigRed">
-    <tc-webtag:errorIterator id="err" name="s_<%=Constants.CITY%>"><%=err%><br></tc-webtag:errorIterator></span>
+    <tc-webtag:errorIterator id="err" name="<%= "s" + Constants.CITY%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
 	<td>*City:</td>
-	<td><tc-webtag:textInput name="s_<%=Constants.CITY%>" size="15" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/></td>
+	<td><tc-webtag:textInput name="<%= "s" + Constants.CITY%>" size="15" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/></td>
 </tr>
 
 <tr>
     <td colspan="3"><span class="bigRed">
-    <tc-webtag:errorIterator id="err" name="s_<%=Constants.STATE_CODE%>"><%=err%><br></tc-webtag:errorIterator></span>
+    <tc-webtag:errorIterator id="err" name="<%= "s" + Constants.STATE_CODE%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
 	<td>State (US only):</td>
-	<td><tc-webtag:textInput name="s_<%=Constants.STATE_CODE%>" size="2" maxlength="2" editable="true"/></td>
+	<td><tc-webtag:textInput name="<%= "s" + Constants.STATE_CODE%>" size="2" maxlength="2" editable="true"/></td>
 </tr>
 
 <tr>
     <td colspan="3"><span class="bigRed">
-    <tc-webtag:errorIterator id="err" name="s_<%=Constants.POSTAL_CODE%>"><%=err%><br></tc-webtag:errorIterator></span>
+    <tc-webtag:errorIterator id="err" name="<%= "s" + Constants.POSTAL_CODE%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
 	<td>Postal Code:</td>
-	<td><tc-webtag:textInput name="s_<%=Constants.POSTAL_CODE%>" size="15" maxlength="<%=Constants.MAX_POSTAL_CODE_LENGTH%>" editable="true"/></td>
+	<td><tc-webtag:textInput name="<%= "s" + Constants.POSTAL_CODE%>" size="15" maxlength="<%=Constants.MAX_POSTAL_CODE_LENGTH%>" editable="true"/></td>
 </tr>
 
 <tr>
     <td colspan="3"><span class="bigRed">
-    <tc-webtag:errorIterator id="err" name="s_<%=Constants.PROVINCE%>"><%=err%><br></tc-webtag:errorIterator></span>
+    <tc-webtag:errorIterator id="err" name="<%= "s" + Constants.PROVINCE%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
 	<td>Province:</td>
-	<td><tc-webtag:textInput name="s_<%=Constants.PROVINCE%>" size="15" maxlength="<%=Constants.MAX_PROVINCE_LENGTH%>" editable="true"/></td>
+	<td><tc-webtag:textInput name="<%= "s" + Constants.PROVINCE%>" size="15" maxlength="<%=Constants.MAX_PROVINCE_LENGTH%>" editable="true"/></td>
 </tr>
 
 <tr>
     <td colspan="3"><span class="bigRed">
-    <tc-webtag:errorIterator id="err" name="s_<%=Constants.COUNTRY_CODE%>"><%=err%><br></tc-webtag:errorIterator></span>
+    <tc-webtag:errorIterator id="err" name="<%= "s" + Constants.COUNTRY_CODE%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
 	<td>*Country:</td>
-	<td><tc-webtag:objectSelect name="s_<%=Constants.COUNTRY_CODE%>" list="${countries}" valueField="code" textField="name"/></td>
+	<td><tc-webtag:objectSelect name="<%= "s" + Constants.COUNTRY_CODE%>" list="${countries}" valueField="code" textField="name"/></td>
 </tr>
 
 </table>
