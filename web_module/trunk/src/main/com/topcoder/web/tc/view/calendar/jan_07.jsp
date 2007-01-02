@@ -59,16 +59,16 @@
       <td class="value">1
       </td>
       <td class="value">2
-         <div class="hs">
-         <strong><A href="/tc?module=MatchDetails&rd=10650">TCHS SRM 26 - Beta</A></strong><br>
-         2:00 PM
-         </div>
       </td>
       <td class="value">3
          <div class="long">
          <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 9</A></strong><br>
          12:00 NOON<br>
          1 week
+         </div>
+         <div class="hs">
+         <strong><A href="/tc?module=MatchDetails&rd=10650">TCHS SRM 26 - Beta</A></strong><br>
+         2:00 PM
          </div>
       </td>
       <td class="value">4

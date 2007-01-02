@@ -287,21 +287,23 @@
         </tr>
         <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">December Events:</A></td>
+            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">January Events:</A></td>
         </tr>
         <tr>
             <td class="homeArrow">&#160; </td>
             <td class="homeText"><br>
-                <b>12.04</b> - TCHS SRM 22 - 2 PM<br><br>
-                <b>12.06</b> - Marathon Match 8 - 12 NOON<br><br>
-                <b>12.09</b> - SRM 329 - 12 Noon<br><br>
-                <b>12.11</b> - TCHS SRM 23 - 10 AM<br><br>
-                <b>12.13</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 12 - 12 NOON<br><br>
-                <b>12.13</b> - SRM 330 - 9 PM<br><br>
-                <b>12.18</b> - TCHS SRM 24 - 6 AM<br><br>
-                <b>12.21</b> - SRM 331 - 7 AM<br><br>
-                <b>12.27</b> - TCHS SRM 25 - 7 PM<br><br>
-                <b>12.28</b> - SRM 332 - 9 PM<br><br>
+                <b>01.03</b> - Marathon Match 9 - 12 NOON<br><br>
+                <b>01.03</b> - TCHS SRM 26 - 2 PM<br><br>
+                <b>01.04</b> - SRM 333 - 11 AM<br><br>
+                <b>01.08</b> - TCHS SRM 27 - 10 AM<br><br>
+                <%--<b>01.13</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 12 - 12 NOON<br><br>--%>
+                <b>01.13</b> - SRM 334 - 12 Noon<br><br>
+                <b>01.15</b> - TCHS SRM 28 - 6 AM<br><br>
+                <b>01.17</b> - SRM 335 - 7 AM<br><br>
+                <b>01.17</b> - Marathon Match 10 - 12 NOON<br><br>
+                <b>01.22</b> - TCHS SRM 29 - 7 PM<br><br>
+                <b>01.25</b> - SRM 336 - 9 PM<br><br>
+                <b>01.31</b> - Marathon Match 11 - 12 NOON<br><br>
             </td>
         </tr>
 
