@@ -88,22 +88,22 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         if (getRequest().getParameter(FULL_NAME) != null) {
         	// The user requested a letter
         	String fullName = getRequest().getParameter(FULL_NAME);
-        	//String address = getRequest().getParameter(ADDRESS);
-        	//String shippingAddress = getRequest().getParameter(SHIPPING_ADDRESS);
         	String phoneNumber = getRequest().getParameter(PHONE_NUMBER);
         	
+        	log.debug("fullName=" + fullName);
         	
-        	if (fullName == null || fullName.trim().length() == 0) {
+        	if (fullName.trim().length() == 0) {
         		addError(FULL_NAME, "Please enter the full name");
         	}
-        	if (fullName == null || fullName.trim().length() == 0) {
+        	
+        	if (phoneNumber == null || phoneNumber.trim().length() == 0) {
         		addError(PHONE_NUMBER, "Please enter the phone number");
         	}
 
-        	Address addr = getAddress("s_");
+        	Address addr = getAddress("");
         	addr.setAddressTypeId(Address.PASSPORT_TYPE_ID);
 
-        	Address shippingAddr = getAddress("");
+        	Address shippingAddr = getAddress("s_");
         	shippingAddr.setAddressTypeId(Address.VISA_LETTER_TYPE_ID);
         	 
         	if (hasErrors()) {
@@ -144,7 +144,6 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         } else {
         	// Display the status page
         	getRequest().setAttribute("req", req);
-        	//getRequest().setAttribute("event", req.getEvent());
             setNextPage(Constants.VISA_LETTER_REQUEST_STATUS);        	
         }
         
