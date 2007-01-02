@@ -8,6 +8,35 @@
 </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.02.07<br>5:40 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm332">SRM 332 - Problem Set & Analysis</A></span><br><br>
+A tricky 550-pointer had a success rate of only 11.11% and proved to be one of the hardest Division One mediums ever. The lesson: never underestimate problems that look easy. Make a careless implementation or overlook a crucial corner case, and you could end up with 0 points.
+</td>
+      <td class="newsPhoto"><img src="/i/m/monsoon_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7502813" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=srm332">full story</A> | 
+        <tc-webtag:forumLink forumID="506007" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>01.02.07<br>3:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">Deadlines extended due to site outage</span><br><br>
+        Due to today's site outage, all deadlines for open Component Design and Development competitions will be extended by 24 hours. 
+        All open TopCoder Studio contests will also be extended by 24 hours. We apologize for any inconvenience this has caused.
+   </tr>
+   <tr><td class="newsLinksCell">
+        <tc-webtag:forumLink forumID="506219" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.29.06<br>11:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -163,33 +192,6 @@ was high nonetheless thanks to the participation of 5 targets, including the top
    <tr><td class="newsLinksCell">
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2047">full story</A> | 
         <tc-webtag:forumLink forumID="506215" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>12.13.06<br>5:40 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="<tc-webtag:linkTracking link="/pdfs/press_room/hre_article_20061213.pdf"/>" refer="/tc"/>And the Winner Is&#8230;</A> [PDF]</span><br><br>
-        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/hre_magazine_logo.png" alt="Human Resources Executive Magazine" width="81" height="24" border="0" /></div>
-      The beauty of contests is that they appeal to a person's competitive nature. People like to test themselves. That's why contests can be effective in recruiting an elusive audience&#8230;
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="<tc-webtag:linkTracking link="/pdfs/press_room/hre_article_20061213.pdf"/>" refer="/tc"/>full story</A> | 
-       <tc-webtag:forumLink forumID="506213" message="discuss this" /> | 
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>12.13.06<br>4:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=rules">TCHS07 Rules Change</A></span><br><br>
-        Check out the TCHS07 Rules page to see how things have changed.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=rules">full story</A> | 
-        <tc-webtag:forumLink forumID="506214" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
