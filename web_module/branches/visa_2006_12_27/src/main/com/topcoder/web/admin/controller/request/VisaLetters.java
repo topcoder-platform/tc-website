@@ -16,8 +16,7 @@ import com.topcoder.web.common.tag.ListSelectTag;
 public class VisaLetters extends ShortHibernateProcessor {
 	
     protected void dbProcessing() throws  Exception {
-// TO DO: remove pending?
-    	
+  	
     	boolean pending = true;
     	boolean sent = false;
     	boolean denied = false;
@@ -27,9 +26,9 @@ public class VisaLetters extends ShortHibernateProcessor {
         VisaLetterRequestDAO reqDAO =  DAOUtil.getFactory().getVisaLetterRequestDAO();
     	
     	if (getRequest().getParameter("event") != null) {
-    		pending = "true".equals(getRequest().getParameter("pending"));
-    		sent = "true".equals(getRequest().getParameter("sent"));
-    		denied = "true".equals(getRequest().getParameter("denied"));
+    		pending = "on".equals(getRequest().getParameter("pending"));
+    		sent = "on".equals(getRequest().getParameter("sent"));
+    		denied = "on".equals(getRequest().getParameter("denied"));
     		
     		eid =  new Long(getRequest().getParameter("event"));
     	} else {

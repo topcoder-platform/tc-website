@@ -29,8 +29,8 @@ function update(action,rid) {
             <jsp:include page="left.jsp"/>
         </td>
         <td>
-        <form action="/admin/?module=VisaLetters" >
-        <input type="hidden" name="module" value="">
+        <form action="/admin/?" >
+        <input type="hidden" name="module" value="VisaLetters">
         <input type="hidden" name="rid" value="">
         <input type="hidden" name="action" value="">        
         	View request letters with status:<br>
@@ -42,7 +42,7 @@ function update(action,rid) {
 			<tc-webtag:listSelect name="event" list="${requestScope.eventList}"/>
 			<input type="submit" value="Search" onClick="docyment.f.action.value='search'">
 
-<table border="1">
+<table border="1" width="100%">
 <tr>
 	<td>Request Date</td>
 	<td>Handle</td>
