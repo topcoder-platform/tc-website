@@ -128,7 +128,7 @@
             </B></TD>
         </TR>
         <% boolean odd = true; %>
-        <tces:mapIterator id="resp" MapList="<%=ProResponsesList%>">
+        <tces:mapIterator id="resp" mapList="<%=ProResponsesList%>">
             <TR>
                 <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>">
                     <%=(String) resp.get("title")%>
