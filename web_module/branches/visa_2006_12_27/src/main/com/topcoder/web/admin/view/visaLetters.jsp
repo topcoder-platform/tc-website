@@ -43,6 +43,14 @@ function toggleDisplay(objectID,imageID,linkID){
   linkID.blur();
   return;
 }
+ function checkAll(check) {
+   var e = document.f.elements;
+   for (i=0; i<e.length; i++) {
+     if (e[i].type=="checkbox") {
+       e[i].checked = (check==true);
+     }
+   }
+ }
 
  </script>  
  
@@ -93,6 +101,9 @@ function toggleDisplay(objectID,imageID,linkID){
 
         <input type="hidden" name="module" value="VisaLetters">
         
+<a href="Javascript:checkAll(true)">check all</a> | 
+<a href="Javascript:checkAll(false)">uncheck all</a>
+<br>        
 <table width="100%" >
 <tr class="header">
 	<td></td>
@@ -194,8 +205,10 @@ function toggleDisplay(objectID,imageID,linkID){
 	<% even = !even; %>
 
 </c:forEach>
-</table>
-
+</table><br>
+<a href="Javascript:checkAll(true)">check all</a> | 
+<a href="Javascript:checkAll(false)">uncheck all</a>
+<br>
 <br>
 <br>
 <input type="submit" value="Change status to " name="update" onClick="document.f.method='post'">
