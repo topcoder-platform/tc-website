@@ -57,9 +57,8 @@ function toggleDisplay(objectID,imageID,linkID){
         <td>
         <form name="search"action="/admin/?" >
         <input type="hidden" name="module" value="VisaLetters">
-        <input type="hidden" name="rid" value="">
 
-<table width="300" border="1"> 
+<table width="30%" border="1"> 
 	<tr>
 		<td valign="top" width="50">Status:</td>
 		<td>
@@ -83,6 +82,9 @@ function toggleDisplay(objectID,imageID,linkID){
 <br>
 <br>
 
+<form name="listForm" action="/admin/?" >
+        <input type="hidden" name="module" value="VisaLetters">
+        
 <table width="100%" >
 <tr class="header">
 	<td></td>
@@ -186,6 +188,15 @@ function toggleDisplay(objectID,imageID,linkID){
 </c:forEach>
 </table>
 
+<br>
+<br>
+<input type="submit" name="Change status to">
+<select name="status">
+	<option value="0">Sent</option>
+	<option value="1">Denied</option>
+	<option value="2">Pending</option>
+</select>
+</form>
         </td>
     </tr>
 </table>
