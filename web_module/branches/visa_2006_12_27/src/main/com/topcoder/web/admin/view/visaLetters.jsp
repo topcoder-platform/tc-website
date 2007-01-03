@@ -103,9 +103,9 @@ function toggleDisplay(objectID,imageID,linkID){
 </tr>
 <tr class="<%=even?"even":"odd"%> hideText" id="ref_${req.id }">
 	<td colspan="5">
-	<c:out value="req.fullName" /><br>
-	<c:out value="req.phoneNumber" /><br>
-	<c:out value="req.address.address1" /><br>
+	<c:out value="${req.fullName}" /><br>
+	<c:out value="${req.phoneNumber}" /><br>
+	<c:out value="${req.address.address1}" /><br>
 	
 	Loading...
 	</td>
