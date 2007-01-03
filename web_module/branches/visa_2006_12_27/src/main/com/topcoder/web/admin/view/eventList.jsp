@@ -34,7 +34,7 @@
 </tr>
 
 <% boolean even = true; %>
-<c:forEach items="${requestScope.list}" var="event">
+<c:forEach items="${requestScope.events}" var="event">
 <tr class="<%=even?"even":"odd"%>">
 	<td>
 	     edit

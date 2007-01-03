@@ -205,7 +205,7 @@ function toggleDisplay(objectID,imageID,linkID){
 	<% even = !even; %>
 
 </c:forEach>
-</table><br>
+</table>
 <a href="Javascript:checkAll(true)">check all</a> | 
 <a href="Javascript:checkAll(false)">uncheck all</a>
 <br>
