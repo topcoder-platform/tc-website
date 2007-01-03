@@ -49,7 +49,7 @@ function toggleDisplay(objectID,imageID,linkID){
 
 <body>
 <jsp:include page="top.jsp"/>
-<table border="1">
+<table>
     <tr valign="top">
         <td>
             <jsp:include page="left.jsp"/>
@@ -68,7 +68,7 @@ function toggleDisplay(objectID,imageID,linkID){
 			<tc-webtag:listSelect name="event" list="${requestScope.eventList}" useTopValue="false"/>
 			<input type="submit" value="Search" onClick="docyment.f.action.value='search'">
 
-<table border="1" width="100%" class="header">
+<table width="100%" class="header" cellpadding="0" cellspacing="0">
 <tr>
 	<td></td>
 	<td>Request Date</td>
@@ -99,8 +99,15 @@ function toggleDisplay(objectID,imageID,linkID){
 		<a href="javascript:update('sent',${req.id }')">mark as sent</a><br>
 	</c:otherwise>
 	</c:choose>
-	<% even = !even; %>
 </tr>
+<tr class="<%=even?"even":"odd"%>" id="ref_${req.id }">
+	<td colspan="5">
+	Loading...
+	</td>
+	
+</tr>
+	<% even = !even; %>
+
 </c:forEach>
 </table>
 
