@@ -34,8 +34,8 @@ function update(action,rid) {
         <input type="hidden" name="action" value="">        
         	View request letters with status:<br>
 			<input type="checkbox" name="pending" value="true" ${requestScope.pending? "checked": "" }/>Pending<br>
-			<tc-webtag:chkBox name="sent" value="true" ${requestScope.sent? "checked": "" }/>Sent		<br>	
-			<tc-webtag:chkBox name="denied" value="true" ${requestScope.denied? "checked": "" }/>Denied<br>
+			<input type="checkbox" name="sent" value="true" ${requestScope.sent? "checked": "" } >Sent		<br>	
+			<input type="checkbox"name="denied" value="true" ${requestScope.denied? "checked": "" } >Denied<br>
 			<br>
 			
 			<tc-webtag:listSelect name="event" list="${requestScope.eventList}" useTopValue="false"/>
