@@ -58,7 +58,7 @@
     <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
         <TR>
             <TD class="screeningTitle" COLSPAN="3"><b>Student (
-                <jsp:getProperty name="demographicInfo" property="StudentCount"/>
+                <jsp:getProperty name="demographicInfo" property="studentCount"/>
                 )</b></TD>
         </TR>
         <%
@@ -115,7 +115,7 @@
     <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
         <TR>
             <TD class="screeningTitle" COLSPAN="3"><b>Professional (
-                <jsp:getProperty name="demographicInfo" property="ProCount"/>
+                <jsp:getProperty name="demographicInfo" property="proCount"/>
                 )</b></TD>
         </TR>
         <%
