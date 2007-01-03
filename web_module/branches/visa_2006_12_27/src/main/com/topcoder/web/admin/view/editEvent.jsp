@@ -30,7 +30,7 @@
             <jsp:include page="left.jsp"/>
         </td>
         <td>
-<form name="f" action="/admin/">
+<form name="f" action="/admin/" method="post">
 <input type="hidden" name="module" value="UpdateEvent">
 <c:if test="${not empty param.eid }">
 <input type="hidden" name="eid" value="${param.eid }">
