@@ -35,7 +35,7 @@ public class ApplyRBoardRules extends DBUtility {
     /**
      * Days assumed for the year rule.
      */
-    private static final int DAYS_YEAR = 356;
+    private static final int DAYS_YEAR = 365;
 
     /**
      * Status of disqualified reviewers.
@@ -111,7 +111,7 @@ public class ApplyRBoardRules extends DBUtility {
 
         ResultSet rsUsers = null;
         ResultSet rsDetails90 = null;
-        ResultSet rsDetails356 = null;
+        ResultSet rsDetails365 = null;
 
         digestMail.append("Today's reviewer movements:\n\n");
         try {
@@ -165,18 +165,18 @@ public class ApplyRBoardRules extends DBUtility {
                         rsDetails90.getDate("rating_date").getTime()) / (MILLIS_IN_DAY);
 
                     psSelDetails.setInt(1, DAYS_YEAR);  // Days to analyze
-                    rsDetails356 = psSelDetails.executeQuery();
+                    rsDetails365 = psSelDetails.executeQuery();
 
                     // counts submissions
                     int count = 0;
-                    for (;count < submissionThresholdLastYear && rsDetails356.next(); count++);
+                    for (;count < submissionThresholdLastYear && rsDetails365.next(); count++);
 
                     if (count == submissionThresholdLastYear) {
                         // passed the last year rule successfully.
 
                         // calculates how many days will be needed to be disqualified with the last year rule.
-                        daysToBeDisqualified2 = DAYS_YEAR - (rsDetails356.getDate("current_date").getTime() -
-                                rsDetails356.getDate("rating_date").getTime()) / (MILLIS_IN_DAY);
+                        daysToBeDisqualified2 = DAYS_YEAR - (rsDetails365.getDate("current_date").getTime() -
+                                rsDetails365.getDate("rating_date").getTime()) / (MILLIS_IN_DAY);
 
                         // The interesting amount is the lowest one. This will be the min days that the rev. will
                         // be disqualified.
