@@ -46,7 +46,7 @@ function toggleDisplay(objectID,imageID,linkID){
  function checkAll(check) {
    var e = document.f.elements;
    for (i=0; i<e.length; i++) {
-     if (e[i].type=="checkbox") {
+     if (e[i].name=="selected") {
        e[i].checked = (check==true);
      }
    }
