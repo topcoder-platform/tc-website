@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
@@ -54,6 +55,7 @@ public class VisaLetters extends ShortHibernateProcessor {
     			}
     			reqDAO.saveOrUpdate(r);
     		}
+    		HibernateUtils.getSession().flush();
         	getRequest().setAttribute("rowsUpdated", ids.length + "");
     	}
         
