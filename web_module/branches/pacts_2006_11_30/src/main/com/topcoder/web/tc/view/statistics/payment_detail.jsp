@@ -153,7 +153,7 @@
  | <A href="/tc?module=PaymentSummary&cr=<%=coderId%>" class="bcLink">Payment Summary</A>
    </span>
 
-	<% if (rsc.size() > 0) { %>
+    <% if (rsc.size() > 0) { %>
     <div class="pagingBox" style="clear:both;">
         <% if (rsc.croppedDataBefore() || rsc.croppedDataAfter()) { %>
             <%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
@@ -199,7 +199,7 @@
 <% 
 ResultSetContainer.ResultSetRow devSupportRow  = null;
 if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("reference_id").getResultData()!= null) {  
-	devSupportRow = (ResultSetContainer.ResultSetRow) devSupport.get(new Long(resultRow.getLongItem("reference_id")));
+    devSupportRow = (ResultSetContainer.ResultSetRow) devSupport.get(new Long(resultRow.getLongItem("reference_id")));
 }
 %>                
                         
@@ -217,23 +217,23 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                 </TD>
                 <TD class="value">
                 <% if (devSupportRow != null) {
-                	String desc = resultRow.getStringItem("payment_desc");
-                	int pos = desc.indexOf("- Design");
-                	%>
-                	<%= pos>=0? desc.substring(0, pos) : desc %>
-                <% } else { %>	
-                	<rsc:item name="payment_desc" row="<%=resultRow%>"/>
+                    String desc = resultRow.getStringItem("payment_desc");
+                    int pos = desc.indexOf("- Design");
+                    %>
+                    <%= pos>=0? desc.substring(0, pos) : desc %>
+                <% } else { %>  
+                    <rsc:item name="payment_desc" row="<%=resultRow%>"/>
                 <% } %>
                 </TD>
                 <TD class="valueC"><rsc:item name="date_due" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
                 <TD class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
                 <TD class="valueR">
-	<% if (devSupportRow != null) { 
-		double earnings = devSupportRow.getDoubleItem("earnings") + resultRow.getDoubleItem("earnings"); %>
-		<tc-webtag:format object="<%=new Double(earnings)%>"  format="$#,##0.00" />
- 	<% } else { %>
-	 	<rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
- 	<% } %>
+    <% if (devSupportRow != null) { 
+        double earnings = devSupportRow.getDoubleItem("earnings") + resultRow.getDoubleItem("earnings"); %>
+        <tc-webtag:format object="<%=new Double(earnings)%>"  format="$#,##0.00" />
+    <% } else { %>
+        <rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
+    <% } %>
                     <% if (resultRow.getIntItem("charity_ind") == 1) {
                         hasCharity = true;
                     %>*<% }%>
@@ -259,10 +259,15 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                 </TD>
                 </tr>
 
-<% if (devSupportRow != null) {%>
+<% if (devSupportRow != null) {
+    String descDev = devSupportRow.getStringItem("payment_desc");
+    int posDev = desc.indexOf("- Development Support");
+    String descDes = resultRow.getStringItem("payment_desc");
+    int posDes = desc.indexOf("- Design");
+    
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>a">            
                     <TD class="value" style="border-top: 0px;">&nbsp;</TD>
-                    <TD class="value" style="border-top: 0px;"><rsc:item name="payment_desc" row="<%=devSupportRow%>"/></TD>
+                    <TD class="value" style="border-top: 0px;"><%= posDev >=0? substring(posDev+2) : descDev %></TD>
                     <TD class="value" style="border-top: 0px;"><rsc:item name="date_due" row="<%=devSupportRow%>" format="MM.dd.yy"/></TD>
                     <TD class="value" style="border-top: 0px;"><rsc:item name="payment_type_desc" row="<%=devSupportRow%>"/></TD>
                     <TD class="valueR" style="border-top: 0px;"><rsc:item name="earnings" row="<%=devSupportRow%>" format="$#,##0.00"/>
@@ -274,7 +279,7 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                     </tr>
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>b">            
                     <TD class="value" style="border-top: 0px;">&nbsp;</TD>
-                    <TD class="value" style="border-top: 0px;"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
+                    <TD class="value" style="border-top: 0px;"><%= posDes >=0? substring(posDes+2) : descDes %></TD>
                     <TD class="value" style="border-top: 0px;"><rsc:item name="date_due" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
                     <TD class="value" style="border-top: 0px;"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
                     <TD class="valueR" style="border-top: 0px;"><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
@@ -284,7 +289,8 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                     </TD>
                     <TD class="value" style="border-top: 0px;">&nbsp;</TD>
                     </tr>
-<% } else if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
+<% } else if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) 
+{%>
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
                     <TD class="value">&nbsp;</TD>
                     <TD class="value"><rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
@@ -312,7 +318,7 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
         <% } %>
     </div>
      <% } else { %>
-	    <p>There are no payments registered for this category.</p>
+        <p>There are no payments registered for this category.</p>
      <% }%>
 
     <p><br></p>
