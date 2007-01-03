@@ -31,7 +31,7 @@
         </td>
         <td>
 <form name="f" action="/admin/">
-<input type="hidden" name="module" value="EditEvent">
+<input type="hidden" name="module" value="UpdateEvent">
 <c:if test="${not empty param.eid }">
 <input type="hidden" name="eid" value="${param.eid }">
 </c:if>
@@ -59,11 +59,6 @@
 </table>
 
 <input type="submit" value="Save Event">
-</form>
-        </td>
-    </tr>
-</table>
-
 <script language="javascript" type="text/javascript">
     <!--
 Calendar.setup(
@@ -90,6 +85,12 @@ Calendar.setup(
 
                 -->
 </script>
+
+</form>
+        </td>
+    </tr>
+</table>
+
 
 </body>
 </html>
