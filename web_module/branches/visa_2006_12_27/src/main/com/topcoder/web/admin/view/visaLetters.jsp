@@ -3,8 +3,8 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>                 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<c:set var="test" value="checked"/>
 
 <html>
 <head>
@@ -34,12 +34,12 @@ function update(action,rid) {
         <input type="hidden" name="rid" value="">
         <input type="hidden" name="action" value="">        
         	View request letters with status:<br>
-			<tc-webtag:chkBox name="pending" value="true"/>Pending<br>
+			<input type="checkbox" name="pending" value="true" ${test }/>Pending<br>
 			<tc-webtag:chkBox name="sent" value="true"/>Sent		<br>	
 			<tc-webtag:chkBox name="denied" value="true"/>Denied<br>
 			<br>
 			
-			<tc-webtag:listSelect name="event" list="${requestScope.eventList}"/>
+			<tc-webtag:listSelect name="event" list="${requestScope.eventList}" useTopValue="false"/>
 			<input type="submit" value="Search" onClick="docyment.f.action.value='search'">
 
 <table border="1" width="100%">
