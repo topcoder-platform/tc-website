@@ -26,10 +26,38 @@ function copyAddr() {
 }
 
 function regToAddr() {
-	document.f.<%=Constants.ADDRESS1%>.value = <c:out value="${address.address1}"/>;
-	document.f.<%=Constants.ADDRESS2%>.value = <c:out value="${address.address2}"/>;
-	document.f.<%=Constants.ADDRESS3%>.value = <c:out value="${address.address3}"/>;
+	document.f.<%=Constants.ADDRESS1%>.value ='<c:out value="${address.address1}"/>';
+	document.f.<%=Constants.ADDRESS2%>.value = '<c:out value="${address.address2}"/>';
+	document.f.<%=Constants.ADDRESS3%>.value = '<c:out value="${address.address3}"/>';
+	document.f.<%=Constants.CITY%>.value = '<c:out value="${address.city}"/>';
+	document.f.<%=Constants.POSTAL_CODE%>.value = '<c:out value="${address.postalCode}"/>';
+	document.f.<%=Constants.STATE_CODE%>.value = '<c:out value="${address.state.code}"/>';
+	document.f.<%=Constants.PROVINCE%>.value = '<c:out value="${address.province}"/>';
+	document.f.<%=Constants.COUNTRY_CODE%>.value = '<c:out value="${address.country.code}"/>';
 }
+
+function regToShippingAddr() {
+	document.f.s_<%=Constants.ADDRESS1%>.value ='<c:out value="${address.address1}"/>';
+	document.f.s_<%=Constants.ADDRESS2%>.value = '<c:out value="${address.address2}"/>';
+	document.f.s_<%=Constants.ADDRESS3%>.value = '<c:out value="${address.address3}"/>';
+	document.f.s_<%=Constants.CITY%>.value = '<c:out value="${address.city}"/>';
+	document.f.s_<%=Constants.POSTAL_CODE%>.value = '<c:out value="${address.postalCode}"/>';
+	document.f.s_<%=Constants.STATE_CODE%>.value = '<c:out value="${address.state.code}"/>';
+	document.f.s_<%=Constants.PROVINCE%>.value = '<c:out value="${address.province}"/>';
+	document.f.s_<%=Constants.COUNTRY_CODE%>.value = '<c:out value="${address.country.code}"/>';
+}
+
+function addrToShippingAddr() {
+	document.f.s_<%=Constants.ADDRESS1%>.value = document.f.<%=Constants.ADDRESS1%>.value;
+	document.f.s_<%=Constants.ADDRESS2%>.value =  document.f.<%=Constants.ADDRESS2%>.value;
+	document.f.s_<%=Constants.ADDRESS3%>.value = document.f.<%=Constants.ADDRESS3%>.value;
+	document.f.s_<%=Constants.CITY%>.value = document.f.<%=Constants.CITY%>.value;
+	document.f.s_<%=Constants.POSTAL_CODE%>.value = document.f.<%=Constants.POSTAL_CODE%>.value;
+	document.f.s_<%=Constants.STATE_CODE%>.value = document.f.<%=Constants.STATE_CODE%>.value;
+	document.f.s_<%=Constants.PROVINCE%>.value = document.f.<%=Constants.PROVINCE%>.value;
+	document.f.s_<%=Constants.COUNTRY_CODE%>.value = document.f.<%=Constants.COUNTRY_CODE%>.value;
+}
+
  </script>
 </head>
 
@@ -172,7 +200,11 @@ function regToAddr() {
 
 <tr>
 	<td rowspan="17" valign="top">Address (for shipping the Visa letter)</td>
-	<td colspan="2">&nbsp;</td>
+
+	<td colspan="2">
+		<input type="button" value="Use registration address" onClick="regToShippingAddr()">
+		<input type="button" value="Use passport address" onClick="addrToShippingAddr()">
+	</td>
 </tr>
 <tr>
     <td colspan="3"><span class="bigRed">
