@@ -100,7 +100,7 @@ function toggleDisplay(objectID,imageID,linkID){
 	</c:otherwise>
 	</c:choose>
 </tr>
-<tr class="<%=even?"even":"odd"%>" id="ref_${req.id }">
+<tr class="<%=even?"even":"odd"%> hideText" id="ref_${req.id }">
 	<td colspan="5">
 	Loading...
 	</td>
