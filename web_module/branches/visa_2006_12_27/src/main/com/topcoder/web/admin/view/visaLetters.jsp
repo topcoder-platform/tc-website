@@ -59,9 +59,9 @@ function toggleDisplay(objectID,imageID,linkID){
         <input type="hidden" name="module" value="VisaLetters">
         <input type="hidden" name="rid" value="">
 
-<table>
+<table width="300"> 
 	<tr>
-		<td>Status:</td>
+		<td valign="top">Status:</td>
 		<td>
 			<input type="checkbox" name="pending" value="true" ${requestScope.pending? "checked": "" }/>Pending<br>
 			<input type="checkbox" name="sent" value="true" ${requestScope.sent? "checked": "" } >Sent		<br>	
