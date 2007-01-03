@@ -18,9 +18,9 @@
     
 <script language="javascript" type="text/javascript">
 function update(action,rid) {
-	 document.search.rid.value = rid;
-	 document.search.action.value = action;	 
-	 document.search.submit();
+	 document.f.rid.value = rid;
+	 document.f.action.value = action;	 
+	 document.f.submit();
 }
 
 function toggleDisplay(objectID,imageID,linkID){
@@ -55,10 +55,10 @@ function toggleDisplay(objectID,imageID,linkID){
             <jsp:include page="left.jsp"/>
         </td>
         <td>
-        <form name="search"action="/admin/?" >
+        <form name="f" action="/admin/?" >
         <input type="hidden" name="module" value="VisaLetters">
 
-<table width="30%" border="1"> 
+<table width="30%"> 
 	<tr>
 		<td valign="top" width="50">Status:</td>
 		<td>
@@ -72,17 +72,16 @@ function toggleDisplay(objectID,imageID,linkID){
  		<td><tc-webtag:listSelect name="event" list="${requestScope.eventList}" useTopValue="false"/></td>
  	</tr>
  	<tr>
- 		<td colspan="2" align="center">
+ 		<td></td>
+ 		<td>
  		<input type="submit" value="Search">
  		</td>
  	</tr>
 </table> 	
 	
-	</form>		
 <br>
 <br>
 
-<form name="listForm" action="/admin/?" >
         <input type="hidden" name="module" value="VisaLetters">
         
 <table width="100%" >
@@ -190,7 +189,7 @@ function toggleDisplay(objectID,imageID,linkID){
 
 <br>
 <br>
-<input type="submit" name="Change status to">
+<input type="submit" value="Change status to " name="x">
 <select name="status">
 	<option value="0">Sent</option>
 	<option value="1">Denied</option>
