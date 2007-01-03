@@ -64,8 +64,8 @@
 Calendar.setup(
 {
  inputField  : "<%= EditEvent.START_DATE %>",  
-                    ifFormat    : "MM/dd/yyyy",    
-                    button      : "trigger_start_date",     
+                    ifFormat    : "%m/%d/%Y",  
+                    button      : "trigger_<%= EditEvent.START_DATE %>"",     
                     showsTime   : false,
                     singleClick  : false,
                     cache       : true
@@ -75,8 +75,8 @@ Calendar.setup(
 Calendar.setup(
 {
  inputField  : "<%= EditEvent.END_DATE %>",  
-                    ifFormat    : "MM/dd/yyyy",    
-                    button      : "trigger_end_date",     
+                    ifFormat    : "%m/%d/%Y",    
+                    button      : "trigger_<%= EditEvent.END_DATE %>",     
                     showsTime   : false,
                     singleClick  : false,
                     cache       : true
