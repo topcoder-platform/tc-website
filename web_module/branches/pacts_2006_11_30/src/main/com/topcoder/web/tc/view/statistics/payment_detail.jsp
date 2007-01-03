@@ -261,9 +261,9 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
 
 <% if (devSupportRow != null) {
     String descDev = devSupportRow.getStringItem("payment_desc");
-    int posDev = desc.indexOf("- Development Support");
+    int posDev = descDev.indexOf("- Development Support");
     String descDes = resultRow.getStringItem("payment_desc");
-    int posDes = desc.indexOf("- Design");
+    int posDes = descDes.indexOf("- Design");
     
 %>    
     
