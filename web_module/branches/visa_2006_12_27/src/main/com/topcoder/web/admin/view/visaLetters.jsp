@@ -34,7 +34,7 @@ function update(action,rid) {
         <input type="hidden" name="rid" value="">
         <input type="hidden" name="action" value="">        
         	View request letters with status:<br>
-			<input type="checkbox" name="pending" value="true" ${test }/>Pending<br>
+			<input type="checkbox" name="pending" value="true" ${test=="checked"? "a": "b" }/>Pending<br>
 			<tc-webtag:chkBox name="sent" value="true"/>Sent		<br>	
 			<tc-webtag:chkBox name="denied" value="true"/>Denied<br>
 			<br>
