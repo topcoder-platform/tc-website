@@ -177,12 +177,12 @@
             Payment Details
             </td></tr>
             <tr>
-                <TD CLASS="headerC">
-                    <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true"/>">Date</a>
-                </TD>
                 <td class="header">&nbsp;</td>
                 <TD CLASS="header" width="60%">
                     <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="0" includeParams="true"/>">Description</a>
+                </TD>
+                <TD CLASS="headerC">
+                    <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true"/>">Date</a>
                 </TD>
                 <TD CLASS="header" width="40%">
                     <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="2" includeParams="true"/>">Payment Type</a>
@@ -204,7 +204,6 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
 %>                
                         
                 <tr class="<%=even?"dark":"light"%>">            
-                <TD class="valueC"><rsc:item name="date_due" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
                 <TD class="value" style="vertical-align:middle;">
                 <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
                     <%i++;%>
@@ -226,6 +225,7 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                 	<rsc:item name="payment_desc" row="<%=resultRow%>"/>
                 <% } %>
                 </TD>
+                <TD class="valueC"><rsc:item name="date_due" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
                 <TD class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
                 <TD class="valueR">
 	<% if (devSupportRow != null) { 
@@ -261,34 +261,34 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
 
 <% if (devSupportRow != null) {%>
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>a">            
-                    <TD class="value"><rsc:item name="date_due" row="<%=devSupportRow%>" format="MM.dd.yy"/></TD>
-                    <TD class="value">&nbsp;</TD>
-                    <TD class="value"><rsc:item name="payment_desc" row="<%=devSupportRow%>"/></TD>
-                    <TD class="value"><rsc:item name="payment_type_desc" row="<%=devSupportRow%>"/></TD>
-                    <TD class="valueR"><rsc:item name="earnings" row="<%=devSupportRow%>" format="$#,##0.00"/>
+                    <TD class="value" style="border-top: 0px;">&nbsp;</TD>
+                    <TD class="value" style="border-top: 0px;"><rsc:item name="payment_desc" row="<%=devSupportRow%>"/></TD>
+                    <TD class="value" style="border-top: 0px;"><rsc:item name="date_due" row="<%=devSupportRow%>" format="MM.dd.yy"/></TD>
+                    <TD class="value" style="border-top: 0px;"><rsc:item name="payment_type_desc" row="<%=devSupportRow%>"/></TD>
+                    <TD class="valueR" style="border-top: 0px;"><rsc:item name="earnings" row="<%=devSupportRow%>" format="$#,##0.00"/>
                     <% if (devSupportRow.getIntItem("charity_ind") == 1) {
                         hasCharity = true;
                     %>*<% }%>
                     </TD>
-                    <TD class="value">&nbsp;</TD>
+                    <TD class="value" style="border-top: 0px;">&nbsp;</TD>
                     </tr>
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>b">            
-                    <TD class="value"><rsc:item name="date_due" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
-                    <TD class="value">&nbsp;</TD>
-                    <TD class="value"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
-                    <TD class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
-                    <TD class="valueR"><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
+                    <TD class="value" style="border-top: 0px;">&nbsp;</TD>
+                    <TD class="value" style="border-top: 0px;"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
+                    <TD class="value" style="border-top: 0px;"><rsc:item name="date_due" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
+                    <TD class="value" style="border-top: 0px;"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
+                    <TD class="valueR" style="border-top: 0px;"><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
                     <% if (resultRow.getIntItem("charity_ind") == 1) {
                         hasCharity = true;
                     %>*<% }%>
                     </TD>
-                    <TD class="value">&nbsp;</TD>
+                    <TD class="value" style="border-top: 0px;">&nbsp;</TD>
                     </tr>
 <% } else if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
                     <TD class="value">&nbsp;</TD>
-                    <TD class="value">&nbsp;</TD>
                     <TD class="value"><rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
+                    <TD class="value">&nbsp;</TD>
                     <TD class="value"><rsc:item name="ref_payment_type_desc" row="<%=resultRow%>"/></TD>
                     <TD class="value"><rsc:item name="ref_earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
                     <TD class="value">&nbsp;</TD>
