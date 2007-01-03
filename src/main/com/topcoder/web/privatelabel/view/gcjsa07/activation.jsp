@@ -93,7 +93,7 @@
                         </tr>
                     </table>
                     To find out more detailed information about Google Code Jam Latin America 2007, please read the
-                    <a href="/pl/?&module=Static&d1=google06&d2=rules">Terms and Conditions</a>.
+                    <a href="/pl/?module=Static&d1=gcjsa07&d2=rules">Terms and Conditions</a>.
                     <br><br>
                 </div>
             </div>
