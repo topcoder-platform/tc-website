@@ -125,7 +125,7 @@
                 deprecation="${deprecation}"
                 debug="${debug}"
                 source="1.5"
-                target="1.5" 
+                target="1.5"
                 >
         </javac>
         <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
@@ -236,7 +236,7 @@
             <metainf dir="${java}/com/topcoder/web/ejb/pacts" includes="*.xml"/>
         </jar>
     </target>
-    
+
     <target name="package-EJB-PactsClientServicesBean" depends="compile">
         <jar jarfile="${ejb_jars}/PactsClientServices.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/*Payment.class"/>
@@ -748,6 +748,7 @@
                 <include name="screening.tld"/>
                 <include name="tces-taglib.tld"/>
                 <include name="rsc-taglib.tld"/>
+                <include name="privatelabel.tld"/>
             </webinf>
 
             <webinf dir="${resources}/corp">
