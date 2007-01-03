@@ -9,6 +9,12 @@
 <head>
     <title>TopCoder Admin</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+ <style type="text/css">
+.showText{ display: table-row }
+.hideText{ display: none }
+</style>
+
     
 <script language="javascript" type="text/javascript">
 function update(action,rid) {
@@ -17,7 +23,28 @@ function update(action,rid) {
 	 document.f.submit();
 }
 
- </script>    
+function toggleDisplay(objectID,imageID,linkID){
+   var object = document.getElementById(objectID) 
+   if(object.className == 'odd hideText') {
+        object.className = 'odd showText'; 
+        document.images[imageID].src = '/i/interface/exp_ed_w.gif'; 
+   }else if(object.className == 'odd showText') {
+        object.className = 'odd hideText'; 
+        document.images[imageID].src = '/i/interface/exp_w.gif';
+   }else if(object.className == 'even showText') {
+        object.className = 'even hideText'; 
+        document.images[imageID].src = '/i/interface/exp_w.gif';
+   }else {
+        object.className = 'even showText';
+        document.images[imageID].src = '/i/interface/exp_ed_w.gif';
+   }
+  linkID.blur();
+  return;
+}
+
+ </script>  
+ 
+  
 </head>
 
 <body>
@@ -48,8 +75,9 @@ function update(action,rid) {
 	<td>Status</td>
 	<td></td>
 </tr>
+<% boolean even = true; %>
 <c:forEach items="${requestScope.reqs}" var="req">
-<tr>
+<tr class="<%=even?"even":"odd"%>">
 	<td><fmt:formatDate value="${req.requestDate}" pattern="MM/dd/yyyy" /></td>
 	<td><c:out value="${req.user.handle }" /></td>
 	<c:choose>
@@ -70,6 +98,7 @@ function update(action,rid) {
 	
 	<td></td>
 	<td></td>	
+	<% even = !even; %>
 </tr>
 </c:forEach>
 </table>
