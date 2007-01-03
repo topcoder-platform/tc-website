@@ -78,7 +78,6 @@ function toggleDisplay(objectID,imageID,linkID){
 	<td>Request Date</td>
 	<td>Handle</td>
 	<td>Status</td>
-	<td></td>
 </tr>
 <% boolean even = true; %>
 <c:forEach items="${requestScope.reqs}" var="req">
@@ -107,9 +106,9 @@ function toggleDisplay(objectID,imageID,linkID){
 </tr>
 <tr class="<%=even?"even":"odd"%> hideText" id="ref_${req.id }">
 	<td colspan="5">
-	<c:out value="${req.fullName}" /><br>
-	<c:out value="${req.phoneNumber}" /><br>
-	<table>
+	FullName: <c:out value="${req.fullName}" /><br>
+	Phone Number: <c:out value="${req.phoneNumber}" /><br>
+	<table border="1">
 		<tr>
 			<td><b>Passport Address</b></td>
 			<td></td>
