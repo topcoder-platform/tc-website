@@ -66,11 +66,14 @@ function toggleDisplay(objectID,imageID,linkID){
 			<br>
 			
 			<tc-webtag:listSelect name="event" list="${requestScope.eventList}" useTopValue="false"/>
+			<br>
 			<input type="submit" value="Search" onClick="docyment.f.action.value='search'">
+<br>
 <br>
 
 <table width="100%" >
-<tr>
+<tr class="header">
+	<td></td>
 	<td></td>
 	<td>Request Date</td>
 	<td>Handle</td>
@@ -83,31 +86,56 @@ function toggleDisplay(objectID,imageID,linkID){
 	<td>
 	     <a href="javascript:toggleDisplay('ref_${req.id }','switch_${req.id }');" onfocus="this.blur();"><img src="/i/interface/exp_w.gif" alt="Open" name="switch_${req.id }" /></a>
 	</td>
+	<td>
+		<input type="checkbox" name="selected" value="${req.id }">
+	</td>
 	<td><fmt:formatDate value="${req.requestDate}" pattern="MM/dd/yyyy" /></td>
 	<td><c:out value="${req.user.handle }" /></td>
 	<c:choose>
+	<td>
 	<c:when test="${not empty req.sentDate}">
 		<td>Sent on: <fmt:formatDate value="${req.sentDate}"  pattern="MM/dd/yyyy" /></td>
-		<td></td>
 	</c:when>
 	<c:when test="${req.denied }">
-		<td>Denied</td>
-		<td></td>
+		Denied
 	</c:when>
 	<c:otherwise>
-		<td>Pending</td>
-		<td><a href="javascript:update('deny',${req.id }')">deny</a><br>
-		<a href="javascript:update('sent',${req.id }')">mark as sent</a><br>
+		Pending
 	</c:otherwise>
 	</c:choose>
+	</td>
 </tr>
 <tr class="<%=even?"even":"odd"%> hideText" id="ref_${req.id }">
 	<td colspan="5">
 	<c:out value="${req.fullName}" /><br>
 	<c:out value="${req.phoneNumber}" /><br>
-	<c:out value="${req.address.address1}" /><br>
+	<table>
+		<tr>
+			<td><b>Passport Address</b></td>
+			<td></td>
+			<td><b>Shipping Address</b></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Address 1:</td>
+			<td><c:out value="${req.address.address1}" /></td>
+			<td>Address 1:</td>
+			<td><c:out value="${req.shippingAddress.address1}" /></td>
+		</tr>
+		<tr>
+			<td>Address 2:</td>
+			<td><c:out value="${req.address.address2}" /></td>
+			<td>Address 2:</td>
+			<td><c:out value="${req.shippingAddress.address2}" /></td>
+		</tr>
+		<tr>
+			<td>Address 3:</td>
+			<td><c:out value="${req.address.address3}" /></td>
+			<td>Address 3:</td>
+			<td><c:out value="${req.shippingAddress.address3}" /></td>
+		</tr>
+	</table>
 	
-	Loading...
 	</td>
 	
 </tr>
