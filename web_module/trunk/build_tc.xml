@@ -748,7 +748,6 @@
                 <include name="screening.tld"/>
                 <include name="tces-taglib.tld"/>
                 <include name="rsc-taglib.tld"/>
-                <include name="privatelabel.tld"/>
             </webinf>
 
             <webinf dir="${resources}/corp">

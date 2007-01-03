@@ -1,7 +1,6 @@
 <%@ page import="com.topcoder.web.corp.common.Constants" %>
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="privatelabel.tld" prefix="pl" %>
 <jsp:useBean id="searchResults" class="com.topcoder.web.corp.model.SearchModel" scope="request"/>
 <script language="JavaScript"><!--
 function submitEnter(e) {
@@ -34,7 +33,8 @@ function submitEnter(e) {
     <tr valign="top">
         <td colspan="2">
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
-                <tr><td class="screeningHeader">Member Search: Search by first name, last name, and email address.</td>
+                <tr>
+                    <td class="screeningHeader">Member Search: Search by first name, last name, and email address.</td>
                 </tr>
 
                 <tr>
@@ -58,7 +58,9 @@ function submitEnter(e) {
                     </td>
                 </tr>
 
-                <tr><td class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+                <tr>
+                    <td class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td>
+                </tr>
 
                 <tr>
                     <td class="screeningCellOdd" align=right>Last Name:</td>
@@ -67,7 +69,9 @@ function submitEnter(e) {
                     </td>
                 </tr>
 
-                <tr><td class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+                <tr>
+                    <td class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td>
+                </tr>
 
                 <tr>
                     <td class="screeningCellEven" align=right>Email Address:</td>
