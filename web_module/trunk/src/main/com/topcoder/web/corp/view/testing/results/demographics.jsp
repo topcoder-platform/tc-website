@@ -37,14 +37,14 @@
 <td align="center">
 <img src="/i/corp/clear.gif" width="700" height="11" alt="" border="0"><br>
 <TABLE border="0" cellspacing="0" CELLPADDING="0" WIDTH="100%">
-    <TR>
-        <TD class="bodyText" COLSPAN="2" VALIGN="top" WIDTH="100%" align="center">
-            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
-                <tr valign="top">
-                    <td class="bodyText">
-                        <P class=testHead>Campaign:
-                            <jsp:getProperty name="demographicInfo" property="CampaignName"/>
-                        </B></P>
+<TR>
+<TD class="bodyText" COLSPAN="2" VALIGN="top" WIDTH="100%" align="center">
+<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
+    <tr valign="top">
+        <td class="bodyText">
+            <P class=testHead>Campaign:
+                <jsp:getProperty name="demographicInfo" property="campaignName"/>
+            </P>
         </td>
     </tr>
 </table>
