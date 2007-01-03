@@ -8,6 +8,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <c:set var="req" value="${requestScope.req}"/>
 <c:set var="event" value="${requestScope.event}"/>
+<c:set var="address" value="${requestScope.address}"/>
 
 <html>
 <head>
@@ -24,6 +25,11 @@ function copyAddr() {
 	 return false;
 }
 
+function regToAddr() {
+	document.f.<%=Constants.ADDRESS1%>.value = <c:out value="${address.address1}"/>;
+	document.f.<%=Constants.ADDRESS2%>.value = <c:out value="${address.address2}"/>;
+	document.f.<%=Constants.ADDRESS3%>.value = <c:out value="${address.address3}"/>;
+}
  </script>
 </head>
 
@@ -80,7 +86,9 @@ function copyAddr() {
 </tr>
 <tr>
 	<td rowspan="17" valign="top">Address (as stated on passport)</td>
-	<td colspan="2">&nbsp;</td>
+	<td colspan="2">
+		<input type="button" value="Use registration address" onClick="regToAddr()">
+	</td>
 </tr>
 <tr>
     <td colspan="3"><span class="bigRed">

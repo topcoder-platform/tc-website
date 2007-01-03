@@ -61,6 +61,7 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
 
         VisaLetterRequestDAO reqDAO =  DAOUtil.getFactory().getVisaLetterRequestDAO();
         VisaLetterEventDAO eventDAO =  DAOUtil.getFactory().getVisaLetterEventDAO();
+    	User user  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
         boolean forceRequest = getRequest().getParameter(FORCE_REQUEST) != null;
         Long eid = null;
@@ -90,7 +91,6 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         	String fullName = getRequest().getParameter(FULL_NAME);
         	String phoneNumber = getRequest().getParameter(PHONE_NUMBER);
         	
-        	log.debug("fullName=" + fullName);
         	
         	if (fullName.trim().length() == 0) {
         		addError(FULL_NAME, "Please enter the full name");
@@ -118,7 +118,6 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
             		setDefault("s_"+ fields[i], getRequest().getParameter("s_" + fields[i])); 
             	}            	
         	} else {
-	        	User user  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 	        	
 	        	req = new com.topcoder.web.common.model.VisaLetterRequest();
 	        	req.setUser(user);
@@ -137,6 +136,7 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
 
         if ((forceRequest || req == null) && !noEvent) {
         	getRequest().setAttribute("event", event);
+        	getRequest().setAttribute("address", user.getHomeAddress());
             getRequest().setAttribute("countries", DAOUtil.getFactory().getCountryDAO().getCountries());
         	
         	setNextPage(Constants.VISA_LETTER_REQUEST);        		
