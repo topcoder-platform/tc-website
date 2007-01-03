@@ -109,7 +109,7 @@ function toggleDisplay(objectID,imageID,linkID){
 
 	<table>
 		<tr>
-			<td><b>Full Name:</b></td>
+			<td width="100"><b>Full Name:</b></td>
 			<td>	<c:out value="${req.fullName}" /></td>
 		</tr>
 		<tr>
@@ -117,6 +117,7 @@ function toggleDisplay(objectID,imageID,linkID){
 			<td>	<c:out value="${req.phoneNumber}" /></td>
 		</tr>
 	</table>
+	<br>
 	<table>
 		<tr>
 			<td></td>
@@ -160,8 +161,8 @@ function toggleDisplay(objectID,imageID,linkID){
 		</tr>
 		<tr>
 			<td>Country:</td>
-			<td><c:out value="${req.address.country.name}" /></td>
-			<td><c:out value="${req.shippingAddress.country.name}" /></td>
+			<td><c:out value="${req.address.country.code}" /></td>
+			<td><c:out value="${req.shippingAddress.country.code}" /></td>
 		</tr>
 	</table>
 	
