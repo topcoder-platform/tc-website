@@ -55,6 +55,11 @@ function toggleDisplay(objectID,imageID,linkID){
             <jsp:include page="left.jsp"/>
         </td>
         <td>
+        <c:if test="${not empty requestScope.rowsUpdated }" >
+	        <span class="bigRed">
+		        <c:out value="${requestScope.rowsUpdated }" /> rows updated
+		        </span>
+        </c:if>
         <form name="f" action="/admin/?" >
         <input type="hidden" name="module" value="VisaLetters">
 

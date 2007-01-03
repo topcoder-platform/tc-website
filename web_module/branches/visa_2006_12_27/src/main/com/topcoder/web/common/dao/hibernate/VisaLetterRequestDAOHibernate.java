@@ -57,5 +57,9 @@ public class VisaLetterRequestDAOHibernate extends Base implements VisaLetterReq
         super.saveOrUpdate(req);
     }
 
+	public VisaLetterRequest find(Long reqId) {
+		return (VisaLetterRequest) find(VisaLetterRequest.class, reqId);
+	}
+
 
 }

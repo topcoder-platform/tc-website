@@ -10,6 +10,8 @@ import com.topcoder.web.common.model.VisaLetterRequest;
  */
 public interface VisaLetterRequestDAO {
 	
+	VisaLetterRequest find(Long reqId);
+	
 	VisaLetterRequest find(Long userId, Long eventId);
     
     List find(Long eventId, boolean pending, boolean sent, boolean denied);

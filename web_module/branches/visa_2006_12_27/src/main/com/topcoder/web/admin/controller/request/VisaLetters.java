@@ -54,6 +54,7 @@ public class VisaLetters extends ShortHibernateProcessor {
     			}
     			reqDAO.saveOrUpdate(r);
     		}
+        	getRequest().setAttribute("rowsUpdated", ids.length + "");
     	}
         
     	if (getRequest().getParameter("event") != null) {
