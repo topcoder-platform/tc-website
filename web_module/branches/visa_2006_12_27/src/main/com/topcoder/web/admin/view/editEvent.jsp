@@ -25,32 +25,29 @@
             <jsp:include page="left.jsp"/>
         </td>
         <td>
-<table width="100%" >        
-<tr class="header">
-	<td></td>
-	<td>Event Name</td>
-	<td>Request start date</td>
-	<td>Request end date</td>
-</tr>
+<form name="f" action="/admin/">
+<input type="hidden" name="module" value="EditEvent">
+<c:if test="${not empty param.eid }">
+<input type="hidden" name="eid" value="${param.eid }">
+</c:if>
 
-<% boolean even = true; %>
-<c:forEach items="${requestScope.events}" var="event">
-<tr class="<%=even?"even":"odd"%>">
-	<td>
-	     <a href="/admin/?module=EditEvent&eid=${event.id }">edit</a>
-	</td>
-	<td><c:out value="${event.name}" /></td>
-	<td>
-		<fmt:formatDate value="${req.startDate}" pattern="MM/dd/yyyy" /></td>
-	</td>
-	<td>
-		<fmt:formatDate value="${req.endDate}" pattern="MM/dd/yyyy" /></td>
-	</td>
-</tr>
-	<% even = !even; %>
-
-</c:forEach>
+<table>
+	<tr>
+		<td>Event Name:</td>
+		<td><tc-webtag:textInput name="name" size="30"/></td>
+	</tr>
+	<tr>
+		<td>Start Date:</td>
+		<td><tc-webtag:textInput name="startDate" size="8"/></td>
+	</tr>
+	<tr>
+		<td>End Date:</td>
+		<td><tc-webtag:textInput name="endDate" size="8"/></td>
+	</tr>
 </table>
+
+<input type="submit" value="Save Event">
+</form>
         </td>
     </tr>
 </table>
