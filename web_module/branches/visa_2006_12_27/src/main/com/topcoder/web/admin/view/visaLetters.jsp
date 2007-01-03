@@ -59,9 +59,9 @@ function toggleDisplay(objectID,imageID,linkID){
         <input type="hidden" name="module" value="VisaLetters">
         <input type="hidden" name="rid" value="">
 
-<table width="300"> 
+<table width="300" border="1"> 
 	<tr>
-		<td valign="top">Status:</td>
+		<td valign="top" width="50">Status:</td>
 		<td>
 			<input type="checkbox" name="pending" value="true" ${requestScope.pending? "checked": "" }/>Pending<br>
 			<input type="checkbox" name="sent" value="true" ${requestScope.sent? "checked": "" } >Sent		<br>	
@@ -73,7 +73,7 @@ function toggleDisplay(objectID,imageID,linkID){
  		<td><tc-webtag:listSelect name="event" list="${requestScope.eventList}" useTopValue="false"/></td>
  	</tr>
  	<tr>
- 		<td colspan="2">
+ 		<td colspan="2" align="center">
  		<input type="submit" value="Search">
  		</td>
  	</tr>
