@@ -41,10 +41,10 @@
 	</td>
 	<td><c:out value="${event.name}" /></td>
 	<td>
-		<fmt:formatDate value="${req.startDate}" pattern="MM/dd/yyyy" /></td>
+		<fmt:formatDate value="${event.startDate}" pattern="MM/dd/yyyy" /></td>
 	</td>
 	<td>
-		<fmt:formatDate value="${req.endDate}" pattern="MM/dd/yyyy" /></td>
+		<fmt:formatDate value="${event.endDate}" pattern="MM/dd/yyyy" /></td>
 	</td>
 </tr>
 	<% even = !even; %>

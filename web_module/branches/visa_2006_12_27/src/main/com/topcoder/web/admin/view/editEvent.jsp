@@ -38,11 +38,11 @@
 	</tr>
 	<tr>
 		<td>Start Date:</td>
-		<td><tc-webtag:textInput name="startDate" size="8"/></td>
+		<td><tc-webtag:textInput name="startDate" size="8" format="MM/dd/yyyy"/></td>
 	</tr>
 	<tr>
 		<td>End Date:</td>
-		<td><tc-webtag:textInput name="endDate" size="8"/></td>
+		<td><tc-webtag:textInput name="endDate" size="8" format="MM/dd/yyyy"/></td>
 	</tr>
 </table>
 
