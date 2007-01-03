@@ -68,7 +68,7 @@ function toggleDisplay(objectID,imageID,linkID){
 			<tc-webtag:listSelect name="event" list="${requestScope.eventList}" useTopValue="false"/>
 			<input type="submit" value="Search" onClick="docyment.f.action.value='search'">
 
-<table width="100%" class="header" cellpadding="0" cellspacing="0">
+<table width="100%" class="header">
 <tr>
 	<td></td>
 	<td>Request Date</td>
@@ -80,7 +80,7 @@ function toggleDisplay(objectID,imageID,linkID){
 <c:forEach items="${requestScope.reqs}" var="req">
 <tr class="<%=even?"even":"odd"%>">
 	<td>
-	     <a href="javascript:toggleDisplay('ref_${req.id }','switch_${req.id }');" onfocus="this.blur();"><img src="/i/interface/exp_w.gif" alt="Open" name="switch_${req.id }" /></a>
+	     <a href="javascript:toggleDisplay('ref_${req.id }','switch_${req.id }');" onfocus="this.blur();" class=""><img src="/i/interface/exp_w.gif" alt="Open" name="switch_${req.id }" /></a>
 	</td>
 	<td><fmt:formatDate value="${req.requestDate}" pattern="MM/dd/yyyy" /></td>
 	<td><c:out value="${req.user.handle }" /></td>
