@@ -265,6 +265,8 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
     String descDes = resultRow.getStringItem("payment_desc");
     int posDes = desc.indexOf("- Design");
     
+%>    
+    
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>a">            
                     <TD class="value" style="border-top: 0px;">&nbsp;</TD>
                     <TD class="value" style="border-top: 0px;"><%= posDev >=0? substring(posDev+2) : descDev %></TD>
