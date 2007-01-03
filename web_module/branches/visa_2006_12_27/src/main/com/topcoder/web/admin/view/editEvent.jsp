@@ -46,19 +46,22 @@
     </tr>
 	<tr>
 		<td>Event Name:</td>
-		<td><tc-webtag:textInput name="<%= EditEvent.NAME %>" size="30"/></td>
+		<td><tc-webtag:textInput name="<%= EditEvent.NAME %>" size="30" editable="true" /></td>
 	</tr>
 	<tr>
 		<td>Start Date:</td>
-		<td><tc-webtag:textInput name="<%= EditEvent.START_DATE %>" id="<%= EditEvent.START_DATE %>" size="8" format="MM/dd/yyyy"/>  <button id="<%="trigger_" + EditEvent.START_DATE %>">Set</button>     </td>
+		<td><tc-webtag:textInput name="<%= EditEvent.START_DATE %>" id="<%= EditEvent.START_DATE %>" size="12" format="MM/dd/yyyy" editable="true" />  
+			<button id="<%="trigger_" + EditEvent.START_DATE %>">Set</button>     
+		</td>
 	</tr>
 	<tr>
 		<td>End Date:</td>
-		<td><tc-webtag:textInput name="<%= EditEvent.END_DATE %>" id="<%= EditEvent.END_DATE %>" size="8" format="MM/dd/yyyy"/>  <button id="<%="trigger_" + EditEvent.END_DATE %>">Set</button></td>
+		<td><tc-webtag:textInput name="<%= EditEvent.END_DATE %>" id="<%= EditEvent.END_DATE %>" size="12" format="MM/dd/yyyy" editable="true" />  
+			<button id="<%="trigger_" + EditEvent.END_DATE %>">Set</button>
+		</td>
 	</tr>
 </table>
 
-<input type="submit" value="Save Event">
 <script language="javascript" type="text/javascript">
     <!--
 Calendar.setup(
@@ -85,6 +88,8 @@ Calendar.setup(
 
                 -->
 </script>
+
+<input type="submit" value="Save Event">
 
 </form>
         </td>
