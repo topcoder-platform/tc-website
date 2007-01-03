@@ -116,7 +116,7 @@ function toggleDisplay(objectID,imageID,linkID){
 <c:forEach items="${requestScope.reqs}" var="req">
 <tr class="<%=even?"even":"odd"%>">
 	<td>
-	     <a href="javascript:toggleDisplay('ref_${req.id }','switch_${req.id }');" onfocus="this.blur();"><img src="/i/interface/exp_w.gif" alt="Open" name="switch_${req.id }" /></a>
+	     <a href="javascript:toggleDisplay('ref_${req.id }','switch_${req.id }');" onfocus="this.blur();"><img src="/i/interface/exp_w.gif" alt="Open" name="switch_${req.id }" border="0"/></a>
 	</td>
 	<td>
 		<input type="checkbox" name="selected" value="${req.id }">
