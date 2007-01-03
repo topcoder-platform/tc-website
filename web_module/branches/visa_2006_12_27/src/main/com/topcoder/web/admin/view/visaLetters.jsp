@@ -4,7 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<c:set var="test" value="checked"/>
 
 <html>
 <head>
@@ -34,9 +33,9 @@ function update(action,rid) {
         <input type="hidden" name="rid" value="">
         <input type="hidden" name="action" value="">        
         	View request letters with status:<br>
-			<input type="checkbox" name="pending" value="true" ${test=="checked"? "a": "b" }/>Pending<br>
-			<tc-webtag:chkBox name="sent" value="true"/>Sent		<br>	
-			<tc-webtag:chkBox name="denied" value="true"/>Denied<br>
+			<input type="checkbox" name="pending" value="true" ${requestScope.pending? "checked": "" }/>Pending<br>
+			<tc-webtag:chkBox name="sent" value="true" ${requestScope.sent? "checked": "" }/>Sent		<br>	
+			<tc-webtag:chkBox name="denied" value="true" ${requestScope.denied? "checked": "" }/>Denied<br>
 			<br>
 			
 			<tc-webtag:listSelect name="event" list="${requestScope.eventList}" useTopValue="false"/>
