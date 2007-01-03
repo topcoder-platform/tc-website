@@ -18,9 +18,9 @@
     
 <script language="javascript" type="text/javascript">
 function update(action,rid) {
-	 document.f.rid.value = rid;
-	 document.f.action.value = action;	 
-	 document.f.submit();
+	 document.search.rid.value = rid;
+	 document.search.action.value = action;	 
+	 document.search.submit();
 }
 
 function toggleDisplay(objectID,imageID,linkID){
@@ -55,19 +55,31 @@ function toggleDisplay(objectID,imageID,linkID){
             <jsp:include page="left.jsp"/>
         </td>
         <td>
-        <form action="/admin/?" >
+        <form name="search"action="/admin/?" >
         <input type="hidden" name="module" value="VisaLetters">
         <input type="hidden" name="rid" value="">
-        <input type="hidden" name="action" value="">        
-        	View request letters with status:<br>
+
+<table>
+	<tr>
+		<td>Status:</td>
+		<td>
 			<input type="checkbox" name="pending" value="true" ${requestScope.pending? "checked": "" }/>Pending<br>
 			<input type="checkbox" name="sent" value="true" ${requestScope.sent? "checked": "" } >Sent		<br>	
 			<input type="checkbox"name="denied" value="true" ${requestScope.denied? "checked": "" } >Denied<br>
-			<br>
-			
-			<tc-webtag:listSelect name="event" list="${requestScope.eventList}" useTopValue="false"/>
-			<br>
-			<input type="submit" value="Search" onClick="docyment.f.action.value='search'">
+		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>Event:</td>
+ 		<td><tc-webtag:listSelect name="event" list="${requestScope.eventList}" useTopValue="false"/></td>
+ 	</tr>
+ 	<tr>
+ 		<td colspan="2">
+ 		<input type="submit" value="Search">
+ 		</td>
+ 	</tr>
+</table> 	
+	
+	</form>		
 <br>
 <br>
 
@@ -107,7 +119,7 @@ function toggleDisplay(objectID,imageID,linkID){
 <tr class="<%=even?"even":"odd"%> hideText" id="ref_${req.id }">
 	<td colspan="5">
 
-	<table>
+	<table width="50%">
 		<tr>
 			<td width="30"><b>Full Name:</b></td>
 			<td>	<c:out value="${req.fullName}" /></td>
@@ -126,43 +138,43 @@ function toggleDisplay(objectID,imageID,linkID){
 		</tr>
 		<tr>
 			<td>Address 1:</td>
-			<td><c:out value="${req.address.address1}" /></td>
-			<td><c:out value="${req.shippingAddress.address1}" /></td>
+			<td><c:out value="${req.address.address1}" />&nbsp;</td>
+			<td><c:out value="${req.shippingAddress.address1}" />&nbsp;</td>
 		</tr>
 		<tr>
 			<td>Address 2:</td>
-			<td><c:out value="${req.address.address2}" /></td>
-			<td><c:out value="${req.shippingAddress.address2}" /></td>
+			<td><c:out value="${req.address.address2}" />&nbsp;</td>
+			<td><c:out value="${req.shippingAddress.address2}" />&nbsp;</td>
 		</tr>
 		<tr>
 			<td>Address 3:</td>
-			<td>Address 3:</td>
-			<td><c:out value="${req.shippingAddress.address3}" /></td>
+			<td><c:out value="${req.address.address3}" />&nbsp;</td>
+			<td><c:out value="${req.shippingAddress.address3}" />&nbsp;</td>
 		</tr>
 		<tr>
 			<td>City:</td>
-			<td>City:</td>
-			<td><c:out value="${req.shippingAddress.city}" /></td>
+			<td><c:out value="${req.address.city}" />&nbsp;</td>
+			<td><c:out value="${req.shippingAddress.city}" />&nbsp;</td>
 		</tr>
 		<tr>
 			<td>State:</td>
-			<td><c:out value="${req.address.state.name}" /></td>
-			<td><c:out value="${req.shippingAddress.state.name}" /></td>
+			<td><c:out value="${req.address.state.name}" />&nbsp;</td>
+			<td><c:out value="${req.shippingAddress.state.name}" />&nbsp;</td>
 		</tr>
 		<tr>
 			<td>Postal Code:</td>
-			<td><c:out value="${req.address.postalCode}" /></td>
-			<td><c:out value="${req.shippingAddress.postalCode}" /></td>
+			<td><c:out value="${req.address.postalCode}" />&nbsp;</td>
+			<td><c:out value="${req.shippingAddress.postalCode}" />&nbsp;</td>
 		</tr>
 		<tr>
 			<td>Province:</td>
-			<td><c:out value="${req.address.province}" /></td>
-			<td><c:out value="${req.shippingAddress.province}" /></td>
+			<td><c:out value="${req.address.province}" />&nbsp;</td>
+			<td><c:out value="${req.shippingAddress.province}" />&nbsp;</td>
 		</tr>
 		<tr>
 			<td>Country:</td>
-			<td><c:out value="${req.address.country.name}" /></td>
-			<td><c:out value="${req.shippingAddress.country.name}" /></td>
+			<td><c:out value="${req.address.country.name}" />&nbsp;</td>
+			<td><c:out value="${req.shippingAddress.country.name}" />&nbsp;</td>
 		</tr>
 	</table>
 	
@@ -174,7 +186,6 @@ function toggleDisplay(objectID,imageID,linkID){
 </c:forEach>
 </table>
 
-		</form>
         </td>
     </tr>
 </table>
