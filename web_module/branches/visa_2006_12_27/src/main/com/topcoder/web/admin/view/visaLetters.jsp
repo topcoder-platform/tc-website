@@ -91,10 +91,10 @@ function toggleDisplay(objectID,imageID,linkID){
 	</td>
 	<td><fmt:formatDate value="${req.requestDate}" pattern="MM/dd/yyyy" /></td>
 	<td><c:out value="${req.user.handle }" /></td>
-	<c:choose>
 	<td>
+	<c:choose>
 	<c:when test="${not empty req.sentDate}">
-		<td>Sent on: <fmt:formatDate value="${req.sentDate}"  pattern="MM/dd/yyyy" /></td>
+		Sent on: <fmt:formatDate value="${req.sentDate}"  pattern="MM/dd/yyyy" />
 	</c:when>
 	<c:when test="${req.denied }">
 		Denied
