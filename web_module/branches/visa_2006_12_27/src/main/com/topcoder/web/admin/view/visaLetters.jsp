@@ -56,9 +56,11 @@ function toggleDisplay(objectID,imageID,linkID){
         </td>
         <td>
         <c:if test="${not empty requestScope.rowsUpdated }" >
-	        <span class="bigRed">
-		        <c:out value="${requestScope.rowsUpdated }" /> rows updated
-		        </span>
+	        <center>
+	       	 	<font color="green" size="+1">
+		    	    <c:out value="${requestScope.rowsUpdated }" /> rows updated
+		        </font>
+		       </center>
         </c:if>
         <form name="f" action="/admin/?" >
         <input type="hidden" name="module" value="VisaLetters">
