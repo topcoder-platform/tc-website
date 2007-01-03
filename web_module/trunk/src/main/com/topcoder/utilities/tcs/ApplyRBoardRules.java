@@ -3,17 +3,17 @@
  */
 package com.topcoder.utilities.tcs;
 
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.sql.DBUtility;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.sql.DBUtility;
-
 /**
  * <strong>Purpose</strong>:
  * Utility to qualify/disqualify reviewers sistematically.
- *
+ * <p/>
  * This utility analyzes the reviwers for a set of rules and decide whether to qualify
  * inactive reviewers or disqualify active ones. It also sends the corresponding notifications
  * and warnings for reviewers that are "about" to be disqualified.
@@ -25,7 +25,7 @@ public class ApplyRBoardRules extends DBUtility {
     /**
      * Milliseconds in a day.
      */
-    private static final int MILLIS_IN_DAY = 1000*60*60*24;
+    private static final int MILLIS_IN_DAY = 1000 * 60 * 60 * 24;
 
     /**
      * Days assumed for the three months rule.
@@ -99,11 +99,10 @@ public class ApplyRBoardRules extends DBUtility {
 
     /**
      * Runs the ApplyRBoardRules utility.
-     *
+     * <p/>
      * This utility analyzes the reviwers for a set of rules and decide whether to qualify
      * inactive reviewers or disqualify active ones. It also sends the corresponding notifications
      * and warnings for reviewers that are "about" to be disqualified.
-     *
      */
     public void runUtility() throws Exception {
         PreparedStatement psSelUsers = null;
@@ -150,7 +149,7 @@ public class ApplyRBoardRules extends DBUtility {
                         " Catalog Id: " + rsUsers.getString("catalog_name"));*/
 
                 logMsg = " - <" + rsUsers.getString("handle") + "> <" + rsUsers.getString("project_type_name") + "> <" +
-                    rsUsers.getString("catalog_name") + ">";
+                        rsUsers.getString("catalog_name") + ">";
 
 
                 rsDetails90 = psSelDetails.executeQuery();
@@ -162,14 +161,14 @@ public class ApplyRBoardRules extends DBUtility {
 
                     // calculates how many days will be needed to be disqualified with the 90 days rule.
                     daysToBeDisqualified = DAYS_THREE_MONTHS - (rsDetails90.getDate("current_date").getTime() -
-                        rsDetails90.getDate("rating_date").getTime()) / (MILLIS_IN_DAY);
+                            rsDetails90.getDate("rating_date").getTime()) / (MILLIS_IN_DAY);
 
                     psSelDetails.setInt(1, DAYS_YEAR);  // Days to analyze
                     rsDetails365 = psSelDetails.executeQuery();
 
                     // counts submissions
                     int count = 0;
-                    for (;count < submissionThresholdLastYear && rsDetails365.next(); count++);
+                    for (; count < submissionThresholdLastYear && rsDetails365.next(); count++) ;
 
                     if (count == submissionThresholdLastYear) {
                         // passed the last year rule successfully.
@@ -196,13 +195,13 @@ public class ApplyRBoardRules extends DBUtility {
                         // he had reached again the requirements to be a reviewer, so he should be activated.
                         qualifiedReviewersCount++;
                         updateReviewerStatus(QUALIFIED_STATUS, rsUsers.getLong("user_id"),
-                            rsUsers.getInt("project_type_id"), rsUsers.getLong("catalog_id"));
+                                rsUsers.getInt("project_type_id"), rsUsers.getLong("catalog_id"));
                         //log.debug("... activated!!! ");
                         log.debug("ACT" + logMsg);
 
                         // send mail.
                         sendActivationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
-                            rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
+                                rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
                     }
                 } else {
                     activeReviewersCount++;
@@ -211,13 +210,13 @@ public class ApplyRBoardRules extends DBUtility {
                         // he should be disqualified.
                         disqualifiedReviewersCount++;
                         updateReviewerStatus(DISQUALIFIED_STATUS, rsUsers.getLong("user_id"),
-                            rsUsers.getInt("project_type_id"), rsUsers.getLong("catalog_id"));
+                                rsUsers.getInt("project_type_id"), rsUsers.getLong("catalog_id"));
                         //log.debug("... disqualified " + possibleDisqualificationReason);
                         log.debug("DISQ" + logMsg);
 
                         // send mail.
                         sendDisqualificationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
-                            rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
+                                rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
                     } else {
                         // reviewer shouldn't be disqualified, but maybe a warning mail is appropriate if he is
                         // near to be disqualified.
@@ -228,7 +227,7 @@ public class ApplyRBoardRules extends DBUtility {
 
                             // send mail.
                             if (daysToBeDisqualified % firstWarningInterval == 0 || daysToBeDisqualified == 1 ||
-                                (daysToBeDisqualified < firstWarningInterval && daysToBeDisqualified % secondWarningInterval == 0)) {
+                                    (daysToBeDisqualified < firstWarningInterval && daysToBeDisqualified % secondWarningInterval == 0)) {
                                 sendWarningMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
                                         rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
                                         daysToBeDisqualified);
@@ -278,7 +277,7 @@ public class ApplyRBoardRules extends DBUtility {
             try {
                 if (sendMails.equalsIgnoreCase("true")) {
                     sendMail(systemEmail, adminEmail, emailSubject, digestMail.toString());
-                        log.debug("Sending digest mail.");
+                    log.debug("Sending digest mail.");
                 }
             } catch (Exception e) {
                 throw new Exception("Unable to send digest mail.", e);
@@ -289,10 +288,10 @@ public class ApplyRBoardRules extends DBUtility {
     /**
      * Private helper method to send activation mails.
      *
-     * @param handle the reviewer's handle.
-     * @param userEmail the reviewer's email address.
+     * @param handle          the reviewer's handle.
+     * @param userEmail       the reviewer's email address.
      * @param projectTypeName the project's type.
-     * @param catalogName the catalogs description.
+     * @param catalogName     the catalogs description.
      */
     private void sendActivationMail(String handle, String userEmail, String projectTypeName, String catalogName) throws Exception {
         StringBuffer mail = new StringBuffer();
@@ -301,7 +300,7 @@ public class ApplyRBoardRules extends DBUtility {
         mail.append("reviews on " + catalogName + " " + projectTypeName + " projects.\n\n");
         mail.append("Remember that to stay active you must complete at least one project ");
         mail.append("in the last 90 days and four in the last year in the corresponding catalog / ");
-        mail.append("development or design with a score equal or higher to 80 in each one.\n\n");
+        mail.append("development or design with a score equal or greater than 80 in each one.\n\n");
         mail.append("If you have any questions, please contact us at service@topcodersoftware.com.\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
 
@@ -309,12 +308,12 @@ public class ApplyRBoardRules extends DBUtility {
 
         try {
             digestMail.append(" Activated - " + handle + " for " + catalogName + " " + projectTypeName + " projects.\n");
-            if (userEmail != null && userEmail != ""){
+            if (userEmail != null && userEmail != "") {
                 if (sendMails.equalsIgnoreCase("true")) {
                     sendMail(systemEmail, userEmail, emailSubject, mail.toString());
                     log.debug("Sending disq. mail to: " + userEmail);
                 }
-            } else{
+            } else {
                 log.debug("Warning!!! null email for: " + handle);
                 digestMail.append("Warning!!! null email for: " + handle + "\n********************** \n\n");
             }
@@ -326,22 +325,22 @@ public class ApplyRBoardRules extends DBUtility {
     /**
      * Private helper method to send disqualification mails.
      *
-     * @param handle the reviewer's handle.
-     * @param userEmail the reviewer's email address.
+     * @param handle          the reviewer's handle.
+     * @param userEmail       the reviewer's email address.
      * @param projectTypeName the project's type.
-     * @param catalogName the catalogs description.
+     * @param catalogName     the catalogs description.
      */
     private void sendDisqualificationMail(String handle, String userEmail, String projectTypeName, String catalogName) throws Exception {
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
-        mail.append("We are sorry to inform you that you have been disqualified for performing additional ");
+        mail.append("We are sorry to inform you that you have been disqualified from performing additional ");
         mail.append("reviews on " + catalogName + " " + projectTypeName + " projects, but you will still be ");
-        mail.append("able to complete current ones.\n\n");
-        mail.append("This is temporary . You no longer fulfill the rules to be a reviewer, ");
-        mail.append("but when this is fixed you will be able to perform reviews again.\n\n");
+        mail.append("able to complete your current projects.\n\n");
+        mail.append("This is temporary. You no longer fulfill the requirements to be a reviewer, ");
+        mail.append("but if you resolve this, you will be able to perform reviews again.\n\n");
         mail.append("Note: To be qualified as a reviewer you must complete at least one project ");
         mail.append("in the last 90 days and four in the last year in the corresponding catalog / ");
-        mail.append("development or design with a score equal or higher to 80 in each one.\n\n");
+        mail.append("development or design with a score equal or greater than 80 in each one.\n\n");
         mail.append("If you have any questions, please contact us at service@topcodersoftware.com.\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
 
@@ -349,12 +348,12 @@ public class ApplyRBoardRules extends DBUtility {
 
         try {
             digestMail.append(" Disqualified - " + handle + " for " + catalogName + " " + projectTypeName + " projects.\n");
-            if (userEmail != null && userEmail != ""){
+            if (userEmail != null && userEmail != "") {
                 if (sendMails.equalsIgnoreCase("true")) {
                     sendMail(systemEmail, userEmail, emailSubject, mail.toString());
                     log.debug("Sending disq. mail to: " + userEmail);
                 }
-            } else{
+            } else {
                 log.debug("Warning!!! null email for: " + handle);
                 digestMail.append("Warning!!! null email for: " + handle + "\n********************** \n\n");
             }
@@ -366,32 +365,32 @@ public class ApplyRBoardRules extends DBUtility {
     /**
      * Private helper method to send warning mails.
      *
-     * @param handle the reviewer's handle.
-     * @param userEmail the reviewer's email address.
-     * @param projectTypeName the project's type.
-     * @param catalogName the catalogs description.
+     * @param handle               the reviewer's handle.
+     * @param userEmail            the reviewer's email address.
+     * @param projectTypeName      the project's type.
+     * @param catalogName          the catalogs description.
      * @param daysToBeDisqualified the days left to be disqualified.
      */
     private void sendWarningMail(String handle, String userEmail, String projectTypeName, String catalogName, long daysToBeDisqualified) throws Exception {
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
-        mail.append("This mail is to warn you that in " + daysToBeDisqualified + " day/s you will be disqualified to perform ");
+        mail.append("This mail is to warn you that in " + daysToBeDisqualified + " day/s you will be disqualified from performing ");
         mail.append("reviews on " + catalogName + " " + projectTypeName + " projects.\n\n");
         mail.append("Note: To be qualified as a reviewer you must complete at least one project ");
         mail.append("in the last 90 days and four in the last year in the corresponding catalog / ");
-        mail.append("development or design with a score equal or higher to 80 in each one.\n\n");
+        mail.append("development or design with a score equal or greater than 80 in each one.\n\n");
         mail.append("If you have any questions, please contact us at service@topcodersoftware.com.\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
 
         String emailSubject = "Review Board: Warning";
 
         try {
-            if (userEmail != null && userEmail != ""){
+            if (userEmail != null && userEmail != "") {
                 if (sendMails.equalsIgnoreCase("true")) {
                     sendMail(systemEmail, userEmail, emailSubject, mail.toString());
                     log.debug("Sending warning mail to: " + userEmail);
                 }
-            } else{
+            } else {
                 log.debug("Warning!!! null email for: " + handle);
                 digestMail.append("Warning!!! null email for: " + handle + "\n********************** \n\n");
             }
@@ -486,7 +485,7 @@ public class ApplyRBoardRules extends DBUtility {
      *
      * @return the users PreparedStatement
      */
-     private PreparedStatement prepareUsersStatement() throws SQLException {
+    private PreparedStatement prepareUsersStatement() throws SQLException {
         StringBuffer query = new StringBuffer(200);
         query.append("select u.handle, ru.user_id, ru.project_type_id, ru.catalog_id, ru.status_id, ru.immune_ind,  ");
         query.append("pcl.name as project_type_name, c.catalog_name,  ");
@@ -527,10 +526,10 @@ public class ApplyRBoardRules extends DBUtility {
     /**
      * Helper method to update a reviewer status
      *
-     * @param statusId the status id to update.
-     * @param userId the reviewer's ID.
+     * @param statusId      the status id to update.
+     * @param userId        the reviewer's ID.
      * @param projectTypeId the project's type ID.
-     * @param catalogId the catalog ID.
+     * @param catalogId     the catalog ID.
      */
     private void updateReviewerStatus(int statusId, long userId, int projectTypeId, long catalogId) throws SQLException {
         StringBuffer query = new StringBuffer(200);
