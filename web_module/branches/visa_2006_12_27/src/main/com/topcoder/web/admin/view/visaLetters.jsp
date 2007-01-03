@@ -51,7 +51,7 @@ function toggleDisplay(objectID,imageID,linkID){
 <jsp:include page="top.jsp"/>
 <table>
     <tr valign="top">
-        <td>
+        <td width="200">
             <jsp:include page="left.jsp"/>
         </td>
         <td>
@@ -69,7 +69,7 @@ function toggleDisplay(objectID,imageID,linkID){
 			<input type="submit" value="Search" onClick="docyment.f.action.value='search'">
 <br>
 
-<table width="100%" class="header">
+<table width="100%" >
 <tr>
 	<td></td>
 	<td>Request Date</td>
