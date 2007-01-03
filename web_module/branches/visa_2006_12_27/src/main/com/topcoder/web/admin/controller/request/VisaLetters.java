@@ -1,6 +1,7 @@
 package com.topcoder.web.admin.controller.request;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.topcoder.web.common.ShortHibernateProcessor;
@@ -9,6 +10,7 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.VisaLetterEventDAO;
 import com.topcoder.web.common.dao.VisaLetterRequestDAO;
 import com.topcoder.web.common.model.VisaLetterEvent;
+import com.topcoder.web.common.model.VisaLetterRequest;
 import com.topcoder.web.common.tag.ListSelectTag;
 
 /**
@@ -16,7 +18,11 @@ import com.topcoder.web.common.tag.ListSelectTag;
  */
 public class VisaLetters extends ShortHibernateProcessor {
 	
-    protected void dbProcessing() throws  Exception {
+	public static final String PENDING = "p";
+	public static final String SENT = "s";
+	public static final String DENIED ="d";
+
+	protected void dbProcessing() throws  Exception {
   	
     	boolean pending = true;
     	boolean sent = false;
@@ -28,6 +34,28 @@ public class VisaLetters extends ShortHibernateProcessor {
     	VisaLetterEventDAO eventDAO =  factory.getVisaLetterEventDAO();
         VisaLetterRequestDAO reqDAO =  factory.getVisaLetterRequestDAO();
 
+    	if (getRequest().getParameter("update") != null) {
+    		String status = getRequest().getParameter("status");
+    		String []ids = getRequest().getParameterValues("selected");
+    		
+    		for (int i = 0; i < ids.length; i++) {
+    			VisaLetterRequest r = reqDAO.find(new Long(ids[i]));
+    			if (status.equals(PENDING)) {
+    				r.setDenied(false);
+    				r.setSentDate(null);
+    			} else if (status.equals(SENT)) {
+    				r.setDenied(false);
+    				r.setSentDate(new Date());    				
+    			} else if (status.equals(DENIED)) {
+    				r.setDenied(true);
+    				r.setSentDate(null);
+    			} else {
+    				throw new IllegalArgumentException("Invalid status code: " + status);
+    			}
+    			reqDAO.saveOrUpdate(r);
+    		}
+    	}
+        
     	if (getRequest().getParameter("event") != null) {
     		pending = "true".equals(getRequest().getParameter("pending"));
     		sent = "true".equals(getRequest().getParameter("sent"));

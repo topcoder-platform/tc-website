@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8" %>
-<%@ page language="java" %>
+<%@ page language="java" import="com.topcoder.web.admin.controller.request.VisaLetters"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>                 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -189,11 +189,11 @@ function toggleDisplay(objectID,imageID,linkID){
 
 <br>
 <br>
-<input type="submit" value="Change status to " name="x">
+<input type="submit" value="Change status to " name="update">
 <select name="status">
-	<option value="0">Sent</option>
-	<option value="1">Denied</option>
-	<option value="2">Pending</option>
+	<option value="<%= VisaLetters.SENT %>">Sent</option>
+	<option value="<%= VisaLetters.DENIED %>">Denied</option>
+	<option value="<%= VisaLetters.PENDING %>">Pending</option>
 </select>
 </form>
         </td>
