@@ -106,32 +106,62 @@ function toggleDisplay(objectID,imageID,linkID){
 </tr>
 <tr class="<%=even?"even":"odd"%> hideText" id="ref_${req.id }">
 	<td colspan="5">
-	FullName: <c:out value="${req.fullName}" /><br>
-	Phone Number: <c:out value="${req.phoneNumber}" /><br>
-	<table border="1">
+
+	<table>
 		<tr>
+			<td><b>Full Name:</b></td>
+			<td>	<c:out value="${req.fullName}" /></td>
+		</tr>
+		<tr>
+			<td><b>Phone Number:</b></td>
+			<td>	<c:out value="${req.phoneNumber}" /></td>
+		</tr>
+	</table>
+	<table>
+		<tr>
+			<td></td>
 			<td><b>Passport Address</b></td>
-			<td></td>
 			<td><b>Shipping Address</b></td>
-			<td></td>
 		</tr>
 		<tr>
 			<td>Address 1:</td>
 			<td><c:out value="${req.address.address1}" /></td>
-			<td>Address 1:</td>
 			<td><c:out value="${req.shippingAddress.address1}" /></td>
 		</tr>
 		<tr>
 			<td>Address 2:</td>
 			<td><c:out value="${req.address.address2}" /></td>
-			<td>Address 2:</td>
 			<td><c:out value="${req.shippingAddress.address2}" /></td>
 		</tr>
 		<tr>
 			<td>Address 3:</td>
-			<td><c:out value="${req.address.address3}" /></td>
 			<td>Address 3:</td>
 			<td><c:out value="${req.shippingAddress.address3}" /></td>
+		</tr>
+		<tr>
+			<td>City:</td>
+			<td>City:</td>
+			<td><c:out value="${req.shippingAddress.city}" /></td>
+		</tr>
+		<tr>
+			<td>State:</td>
+			<td><c:out value="${req.address.state.name}" /></td>
+			<td><c:out value="${req.shippingAddress.state.name}" /></td>
+		</tr>
+		<tr>
+			<td>Postal Code:</td>
+			<td><c:out value="${req.address.postalCode}" /></td>
+			<td><c:out value="${req.shippingAddress.postalCode}" /></td>
+		</tr>
+		<tr>
+			<td>Province:</td>
+			<td><c:out value="${req.address.province}" /></td>
+			<td><c:out value="${req.shippingAddress.province}" /></td>
+		</tr>
+		<tr>
+			<td>Country:</td>
+			<td><c:out value="${req.address.country.name}" /></td>
+			<td><c:out value="${req.shippingAddress.country.name}" /></td>
 		</tr>
 	</table>
 	
