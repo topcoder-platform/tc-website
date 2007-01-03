@@ -17,10 +17,12 @@
 
     
 <script language="javascript" type="text/javascript">
-function update(action,rid) {
-	 document.f.rid.value = rid;
-	 document.f.action.value = action;	 
-	 document.f.submit();
+function checkSearch() {
+	if (!document.f.pending.checked && !document.f.sent.checked && !document.f.denied.checked) {
+		alert("Please select a status");
+		return false;
+	}
+	return true;
 }
 
 function toggleDisplay(objectID,imageID,linkID){
@@ -81,7 +83,7 @@ function toggleDisplay(objectID,imageID,linkID){
  	<tr>
  		<td></td>
  		<td>
- 		<input type="submit" value="Search" onClick="document.f.action='get'">
+ 		<input type="submit" value="Search" onClick="return checkSearch()">
  		</td>
  	</tr>
 </table> 	
@@ -196,7 +198,7 @@ function toggleDisplay(objectID,imageID,linkID){
 
 <br>
 <br>
-<input type="submit" value="Change status to " name="update" onClick="document.f.action='post'">
+<input type="submit" value="Change status to " name="update" onClick="document.f.method='post'">
 <select name="status">
 	<option value="<%= VisaLetters.SENT %>">Sent</option>
 	<option value="<%= VisaLetters.DENIED %>">Denied</option>
