@@ -45,8 +45,8 @@
         </td>
     </tr>
 	<tr>
-		<td>Event Name:</td>
-		<td><tc-webtag:textInput name="<%= EditEvent.NAME %>" size="30" editable="true" /></td>
+		<td width="150 px">Event Name:</td>
+		<td width="200 px"><tc-webtag:textInput name="<%= EditEvent.NAME %>" size="30" editable="true" /></td>
 	</tr>
 	<tr>
 		<td>Start Date:</td>
@@ -69,7 +69,6 @@ Calendar.setup(
  inputField  : "<%= EditEvent.START_DATE %>",  
                     ifFormat    : "%m/%d/%Y",  
                     button      : "trigger_<%= EditEvent.START_DATE %>",     
-                    align		: "Bc",
                     showsTime   : false,
                     singleClick  : false,
                     cache       : true
@@ -81,7 +80,6 @@ Calendar.setup(
  inputField  : "<%= EditEvent.END_DATE %>",  
                     ifFormat    : "%m/%d/%Y",    
                     button      : "trigger_<%= EditEvent.END_DATE %>",     
-                    align		: "BR",
                     showsTime   : false,
                     singleClick  : false,
                     cache       : true
