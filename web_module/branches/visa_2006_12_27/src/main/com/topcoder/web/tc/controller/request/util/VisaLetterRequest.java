@@ -93,6 +93,7 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         }
         
         if (dateError != null) {
+        	getRequest().setAttribute(dateError, "true");
             setNextPage(Constants.VISA_LETTER_REQUEST_STATUS);        	
             setIsNextPageInContext(true);
             return;

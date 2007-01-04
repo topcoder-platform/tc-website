@@ -70,7 +70,7 @@ function toggleDisplay(objectID,imageID,linkID){
         
 <c:choose>
 <c:when test="${empty requestScope.eventList}">
-No Visa Letter Event defined.
+No Visa Letter Events defined.
 </c:when>
 <c:otherwise>
 

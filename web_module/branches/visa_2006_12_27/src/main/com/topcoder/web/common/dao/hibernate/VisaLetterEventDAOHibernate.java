@@ -22,7 +22,12 @@ public class VisaLetterEventDAOHibernate extends Base implements VisaLetterEvent
     }
 
 	public VisaLetterEvent findCurrent() {
-    	List l = getAll();
+        Query q = session.createQuery(" from VisaLetterEvent " +
+        		" where request_start_date <= current " +
+        		" and request_end_date >= current" +
+    			" order by request_start_date desc");
+
+        List l = q.list();
     	if (l.size() == 0) return null;
     	return (VisaLetterEvent) l.get(0);		
 	}
