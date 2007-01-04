@@ -643,10 +643,10 @@ public class ReliabilityRating {
      * as reliable or not reliable as appropriate.
      * <p/>
      * that means mark everyone that did a project that started
-     * after the change date, that has a final score populated
+     * after the change date, (1) that has a final score populated
      * that is greater than or equal to the min reliability score,
-     * that should be included inthe calc (reliability_ind)
-     * and has reliable_submission_ind flag that is null set the
+     * (2)that should be included inthe calc (reliability_ind)
+     * and (3) has reliable_submission_ind flag that is null set the
      * reliable_submission_ind flag to 1.  if the record
      * meets three of those criteria but scores less than the min
      * reliable score, then set to 0.
@@ -742,11 +742,6 @@ public class ReliabilityRating {
     }
 
 
-    private final static String adjustReliabilityInd =
-            "update project_result " +
-                    "set reliability_ind = null " +
-                    "where new_reliability is null and reliability_ind = 0 and current_reliability_ind is null ";
-
     private final static String markIncluded =
             "update project_result " +
                     "set reliability_ind = 1 " +
@@ -792,7 +787,6 @@ public class ReliabilityRating {
 
 
         PreparedStatement ps = null;
-        PreparedStatement ps1 = null;
         PreparedStatement ps2 = null;
         PreparedStatement ps3 = null;
         ResultSet unmarked = null;
@@ -800,9 +794,6 @@ public class ReliabilityRating {
         try {
 
             //mark the easy ones..people that scored over the min
-            ps1 = conn.prepareStatement(adjustReliabilityInd);
-            ps1.executeUpdate();
-
             ps = conn.prepareStatement(markIncluded);
             ps.setInt(1, MIN_PASSING_SCORE);
             ret = ps.executeUpdate();
@@ -834,7 +825,6 @@ public class ReliabilityRating {
             }
         } finally {
             close(unmarked);
-            close(ps1);
             close(ps);
             close(ps2);
             close(ps3);
