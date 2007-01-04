@@ -33,7 +33,7 @@ import java.util.*;
 public class ViewRegistration extends Base {
 
     private ComponentRegistrationServicesLocal regServices = null;
-    private List questions = null;
+    //private List questions = null;
 
     protected void developmentProcessing() throws TCWebException {
 
@@ -48,7 +48,7 @@ public class ViewRegistration extends Base {
 
 
             if (getRequest().getAttribute(Constants.MESSAGE) == null) {
-                getRequest().setAttribute("questionInfo", getQuestions());
+                //getRequest().setAttribute("questionInfo", getQuestions());
                 setDefault(Constants.TERMS, getTerms());
                 //we're assuming that if we're here, we got a valid project id
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
@@ -187,7 +187,7 @@ public class ViewRegistration extends Base {
         return false;
     }
 
-
+/*
     protected List getQuestions() throws Exception {
         if (questions == null) {
             ResultSetContainer rsc = getRegEJB().getActiveQuestions();
@@ -225,7 +225,7 @@ public class ViewRegistration extends Base {
         }
 
         return ret;
-    }
+    }*/
 
 
 }
