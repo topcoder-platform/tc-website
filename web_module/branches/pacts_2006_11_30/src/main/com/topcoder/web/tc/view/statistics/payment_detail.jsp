@@ -150,8 +150,9 @@
     <span class="bodySubtitle">Coder Statistics&#160;>&#160;</span><br>
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
- | <A href="/tc?module=PaymentSummary&cr=<%=coderId%>" class="bcLink">Payment Summary</A>
-   </span>
+     | <A href="/tc?module=PaymentSummary&cr=<%=coderId%>" class="bcLink">Payment Summary</A>
+    </span>
+
 
     <% if (rsc.size() > 0) { %>
     <div class="pagingBox" style="clear:both;">
@@ -269,7 +270,7 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
     
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>a">            
                     <TD class="value" style="border-top: 0px;">&nbsp;</TD>
-                    <TD class="value" style="border-top: 0px;"><%= posDev >=0? descDev.substring(posDev+2) : descDev %></TD>
+                    <TD class="value" style="border-top: 0px;">- <%= posDev >=0? descDev.substring(posDev+2) : descDev %></TD>
                     <TD class="value" style="border-top: 0px;"><rsc:item name="date_due" row="<%=devSupportRow%>" format="MM.dd.yy"/></TD>
                     <TD class="value" style="border-top: 0px;"><rsc:item name="payment_type_desc" row="<%=devSupportRow%>"/></TD>
                     <TD class="valueR" style="border-top: 0px;"><rsc:item name="earnings" row="<%=devSupportRow%>" format="$#,##0.00"/>
@@ -281,7 +282,7 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                     </tr>
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>b">            
                     <TD class="value" style="border-top: 0px;">&nbsp;</TD>
-                    <TD class="value" style="border-top: 0px;"><%= posDes >=0? descDes.substring(posDes+2) : descDes %></TD>
+                    <TD class="value" style="border-top: 0px;">- <%= posDes >=0? descDes.substring(posDes+2) : descDes %></TD>
                     <TD class="value" style="border-top: 0px;"><rsc:item name="date_due" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
                     <TD class="value" style="border-top: 0px;"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
                     <TD class="valueR" style="border-top: 0px;"><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
