@@ -58,7 +58,11 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         	event = eventDAO.findCurrent();
         	if (event != null) {
         		eid = event.getId(); 
-        	}
+        	} else {
+                setNextPage(com.topcoder.web.tc.Constants.VISA_LETTER_REQUEST_STATUS);        	
+                setIsNextPageInContext(true);
+                return;
+            }
         	
         } else {
         	eid = new Long(getRequest().getParameter(EVENT_ID));

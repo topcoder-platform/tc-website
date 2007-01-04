@@ -44,24 +44,26 @@ public class VisaLetters extends ShortHibernateProcessor {
     		String status = getRequest().getParameter("status");
     		String []ids = getRequest().getParameterValues("selected");
     		
-    		for (int i = 0; i < ids.length; i++) {
-    			VisaLetterRequest r = reqDAO.find(new Long(ids[i]));
-    			if (status.equals(PENDING)) {
-    				r.setDenied(false);
-    				r.setSentDate(null);
-    			} else if (status.equals(SENT)) {
-    				r.setDenied(false);
-    				r.setSentDate(new Date());    				
-    			} else if (status.equals(DENIED)) {
-    				r.setDenied(true);
-    				r.setSentDate(null);
-    			} else {
-    				throw new IllegalArgumentException("Invalid status code: " + status);
-    			}
-    			reqDAO.saveOrUpdate(r);
+    		if (ids != null) {
+	    		for (int i = 0; i < ids.length; i++) {
+	    			VisaLetterRequest r = reqDAO.find(new Long(ids[i]));
+	    			if (status.equals(PENDING)) {
+	    				r.setDenied(false);
+	    				r.setSentDate(null);
+	    			} else if (status.equals(SENT)) {
+	    				r.setDenied(false);
+	    				r.setSentDate(new Date());    				
+	    			} else if (status.equals(DENIED)) {
+	    				r.setDenied(true);
+	    				r.setSentDate(null);
+	    			} else {
+	    				throw new IllegalArgumentException("Invalid status code: " + status);
+	    			}
+	    			reqDAO.saveOrUpdate(r);
+	    		}
+	    		HibernateUtils.getSession().flush();
+	        	getRequest().setAttribute("rowsUpdated", ids.length + "");
     		}
-    		HibernateUtils.getSession().flush();
-        	getRequest().setAttribute("rowsUpdated", ids.length + "");
     	}
         
     	if (getRequest().getParameter(FILTER_EVENT) != null) {
