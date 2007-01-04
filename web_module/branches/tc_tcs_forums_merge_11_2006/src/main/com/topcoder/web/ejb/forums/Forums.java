@@ -41,7 +41,7 @@ public interface Forums extends EJBObject {
     		long templateID, boolean isPublic)
     	throws EJBException, RemoteException, Exception;
     
-    public long getSoftwareComponentID(ForumCategory category) throws EJBException, RemoteException, SQLException;
+    //public long getSoftwareComponentID(ForumCategory category) throws EJBException, RemoteException, SQLException;
     
     public void setPublic(long categoryID, boolean isPublic) throws EJBException, RemoteException, ForumCategoryNotFoundException, UnauthorizedException;
     
