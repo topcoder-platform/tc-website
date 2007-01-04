@@ -41,6 +41,9 @@
         <td width="200">
             <jsp:include page="left.jsp"/>
         </td>
+                <a href="/admin/?module=EventList">Back to Manage Events</a>
+                <br>
+        
         <td>
 <form name="f" action="/admin/" method="post">
 <input type="hidden" name="module" value="UpdateEvent">
