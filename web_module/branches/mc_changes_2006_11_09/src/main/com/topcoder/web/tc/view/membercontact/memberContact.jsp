@@ -108,19 +108,15 @@ function init() {
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-<td width="100%" align="center" class="bodyColumn">
+        <td width="100%" align="center" class="bodyColumn">
+            <div class="fixedWidthBody">
 
 <jsp:include page="/page_title.jsp">
     <jsp:param name="image" value="member_contact"/>
     <jsp:param name="title" value="Send a Message"/>
 </jsp:include>
 
-<div class="fixedWidthBody">
-<br>
-The Member Contact area allows you to send emails to other TopCoder members.* 
-You can access this message area by clicking the "Send a message" link on members' profile pages. 
-Use the message form below to contact the member of your choice, only one recipient per message.
-
+The Member Contact area allows you to send emails to other TopCoder members. Only one recipient per message.
 <br><br>
 To block specific TopCoder members from contacting you, go to the <a href='/tc?module=BlackList'>black list</a> page.
 <br>
@@ -153,23 +149,27 @@ To block specific TopCoder members from contacting you, go to the <a href='/tc?m
 
 To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HANDLE %>' size='12' onBlur='validate(false)' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
 <div id="validationHandle"> </div>
-<span class="smallText">(Enter TopCoder member handle only)</span>
-<br/><br/>
+<span class="smallText">(Enter TopCoder handle only, one per message)</span>
+<br /><br />
 
 <textarea name='<%= SendMail.TEXT %>' id='<%= SendMail.TEXT %>' cols='50' rows='10' onKeyUp='textChanged()'></textarea>
-<br/><br/>
+<br /><br />
 
 <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
-<span class="smallText">Since you do not have member contact enabled, you are required to let your recipient know how to respond to you, 
-it can be an email address, phone number or whatever you choose.  We will automatically include this information in your message.</span>
-<br/><br/>
+<strong>Wait a second!</strong> You're sending a message but you don't have member contacting enabled. This member won't have any way to respond to you.
+<br /><br />
+<input type='checkbox' name='<%= SendMail.SEND_COPY %>' checked /> Attach your email address to the message?
+<br /><br />
+<%--
+<br /><br />
 <textarea name='<%= SendMail.CONTACT_INF %>' id='<%= SendMail.CONTACT_INF %>' cols='50' rows='2' onKeyUp='textChanged()'></textarea>
 <a href="Javascript:addMail();textChanged();">&lt;&lt; Add mail</a>
-<br/><br/>
+<br /><br />
+--%>
 </c:if>
 
-<input type='checkbox' name='<%= SendMail.SEND_COPY %>' />Send a copy to the email address in my TopCoder profile.
-<br/><br/>
+<input type='checkbox' name='<%= SendMail.SEND_COPY %>' />Email me a copy of the message.
+<br /><br />
 
 <div id="btnSendDiv">
 <img src="/i/interface/btn_send_disabled.gif" border="0"/>
@@ -189,8 +189,8 @@ it can be an email address, phone number or whatever you choose.  We will automa
      
      </c:otherwise>
 </c:choose>
-<br><br><br><br>
-* All messages sent to TopCoder members from the Member Contact area will be logged and may be occasionally reviewed. 
+<br><br>
+<strong>NOTE:</strong> All messages sent to TopCoder members from the Member Contact area will be logged and may be occasionally reviewed. 
 Using the member contact function for any commercial purposes is strictly prohibited. Any TopCoder member who deems a member 
 contact message from another TopCoder member to be inappropriate is encouraged to report this activity at <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
 <br><br><br>

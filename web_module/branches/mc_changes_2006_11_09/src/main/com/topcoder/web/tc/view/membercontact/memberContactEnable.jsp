@@ -31,12 +31,12 @@
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyColumn">
 
+<div class="fixedWidthBody">
+
 <jsp:include page="/page_title.jsp">
     <jsp:param name="image" value="member_contact"/>
     <jsp:param name="title" value="&#160;"/>
 </jsp:include>
-
-<div class="fixedWidthBody">
 
 <span class="bodySubtitle">Enable Member Contact</span>
 <br><br>
@@ -55,7 +55,7 @@ TopCoder member contact email messages will be sent to the email address listed 
 <A href="/tc?module=MemberContact" class="bodyText"><img src="i/interface/btn_cancel.gif" border="0"/></A>
 </form>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
 </div>
         </td>
 <!-- Center Column Ends -->

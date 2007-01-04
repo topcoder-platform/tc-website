@@ -188,15 +188,14 @@ function keyPress(e) {
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyColumn">
 
+<div class="fixedWidthBody">
+
 <jsp:include page="/page_title.jsp">
     <jsp:param name="image" value="member_contact"/>
     <jsp:param name="title" value="Black List"/>
 </jsp:include>
 
-<div class="fixedWidthBody">
-
 <form name="f" method="post">
-<br>
 The Black List of the Member Contact area allows you to block specific TopCoder members from being able to contact you. Use the form below to block unwanted messages.
 The Gray List consists of members who have either recently sent you messages, or are members who you have previously blocked. You may also enter the handle of any other
 member below.

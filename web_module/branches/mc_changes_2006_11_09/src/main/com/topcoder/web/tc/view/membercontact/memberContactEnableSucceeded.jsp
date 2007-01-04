@@ -31,12 +31,12 @@
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyColumn">
 
+<div class="fixedWidthBody">
+
 <jsp:include page="/page_title.jsp">
     <jsp:param name="image" value="member_contact"/>
     <jsp:param name="title" value="&#160;"/>
 </jsp:include>
-
-<div class="fixedWidthBody">
 
 <span class="bodySubtitle">Enable Member Contact</span>
 <br><br>
@@ -44,7 +44,7 @@
 All rated TopCoder members will be able to contact you, unless you block their access on the <a href='/tc?module=BlackList'>black list</a> page.
 <br><br>
 <form>
-<A href="/tc?module=MemberContact">Go to Member Contact</A>
+<A href="/tc?module=MemberContact">Contact a Member</A>
 </form>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
