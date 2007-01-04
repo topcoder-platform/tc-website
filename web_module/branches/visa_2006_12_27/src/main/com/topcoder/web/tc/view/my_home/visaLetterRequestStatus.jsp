@@ -39,11 +39,11 @@
 
 <c:choose>
 <c:when test="${not empty requestScope.tooEarly}">
-	<h2>Visa Letter Request for <c:out value="${req.event.name}"/></h2>
+	<h2>Visa Letter Request for <c:out value="${requestScope.event_name}"/></h2>
 You can't request a Visa letter for this event yet.
 </c:when>
 <c:when test="${not empty requestScope.tooLate}">
-	<h2>Visa Letter Request for <c:out value="${req.event.name}"/></h2>
+	<h2>Visa Letter Request for <c:out value="${requestScope.event_name}"/></h2>
 You are not able to request for a Visa letter for this event anymore.
 </c:when>
 

@@ -79,6 +79,7 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         }
         
         if (dateError != null) {
+        	getRequest().setAttribute("event_name", event.getName());        	
         	getRequest().setAttribute(dateError, "true");
             setNextPage(com.topcoder.web.tc.Constants.VISA_LETTER_REQUEST_STATUS);        	
             setIsNextPageInContext(true);
