@@ -38,6 +38,13 @@
 <td width="100%" align="left" class="bodyColumn">
 
 <c:choose>
+<c:when test="${not empty requestScope.tooEarly}">
+You can't request a Visa letter for this event yet.
+</c:when>
+<c:when test="${not empty requestScope.tooLate}">
+You are not able to request for a Visa letter for this event anymore.
+</c:when>
+
 <c:when test="${empty req}">
 You don't have any request letter.
 </c:when>

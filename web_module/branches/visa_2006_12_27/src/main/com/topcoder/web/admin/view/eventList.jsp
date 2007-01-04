@@ -33,6 +33,7 @@
 	<td>Event Name</td>
 	<td>Request start date</td>
 	<td>Request end date</td>
+	<td>Link for members</td>
 </tr>
 
 <% boolean even = true; %>
@@ -48,6 +49,7 @@
 	<td>
 		<fmt:formatDate value="${event.endDate}" pattern="MM/dd/yyyy" /></td>
 	</td>
+	<td><a href="http://www.topcoder.com/tc?module=VisaLetterRequest&eid=<c:out value="${event.id}" />"></a></td>
 </tr>
 	<% even = !even; %>
 

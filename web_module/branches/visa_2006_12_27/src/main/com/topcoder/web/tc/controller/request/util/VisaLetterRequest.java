@@ -84,6 +84,21 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         	throw new IllegalArgumentException("Event id not found: " + eid);
         }
         
+        Date today = new Date();
+        String dateError = null;
+        if (event.getStartDate().after(today)) {
+        	dateError = "tooEarly";
+        } else if (event.getEndDate().before(today)) {
+        	dateError = "tooLate";
+        }
+        
+        if (dateError != null) {
+            setNextPage(Constants.VISA_LETTER_REQUEST_STATUS);        	
+            setIsNextPageInContext(true);
+            return;
+        }
+        
+
         com.topcoder.web.common.model.VisaLetterRequest req = null;
         
         if (getRequest().getParameter(FULL_NAME) != null) {

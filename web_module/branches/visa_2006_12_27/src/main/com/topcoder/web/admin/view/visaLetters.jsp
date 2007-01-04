@@ -81,14 +81,14 @@ function toggleDisplay(objectID,imageID,linkID){
 	<tr>
 		<td valign="top" width="50">Status:</td>
 		<td>
-			<input type="checkbox" name="pending" value="true" ${requestScope.pending? "checked": "" }/>Pending<br>
-			<input type="checkbox" name="sent" value="true" ${requestScope.sent? "checked": "" } >Sent		<br>	
-			<input type="checkbox"name="denied" value="true" ${requestScope.denied? "checked": "" } >Denied<br>
+			<input type="checkbox" name="<%= VisaLetters.VIEW_PENDING %>" value="true" ${requestScope.pending? "checked": "" }/>Pending<br>
+			<input type="checkbox" name="<%= VisaLetters.VIEW_SENT %>" value="true" ${requestScope.sent? "checked": "" } >Sent		<br>	
+			<input type="checkbox"name="<%= VisaLetters.VIEW_DENIED %>" value="true" ${requestScope.denied? "checked": "" } >Denied<br>
 		</td>
  	</tr>
  	<tr>
  		<td>Event:</td>
- 		<td><tc-webtag:listSelect name="event" list="${requestScope.eventList}" useTopValue="false"/></td>
+ 		<td><tc-webtag:listSelect name="<%= VisaLetters.FILTER_EVENT %>" list="${requestScope.eventList}" useTopValue="false" /></td>
  	</tr>
  	<tr>
  		<td></td>

@@ -19,6 +19,11 @@ import com.topcoder.web.common.tag.ListSelectTag;
  */
 public class VisaLetters extends ShortHibernateProcessor {
 	
+	public static final String FILTER_EVENT = "event";
+	public static final String VIEW_DENIED = "denied";
+	public static final String VIEW_SENT = "sent";
+	public static final String VIEW_PENDING = "pending";
+	
 	public static final String PENDING = "p";
 	public static final String SENT = "s";
 	public static final String DENIED ="d";
@@ -59,12 +64,12 @@ public class VisaLetters extends ShortHibernateProcessor {
         	getRequest().setAttribute("rowsUpdated", ids.length + "");
     	}
         
-    	if (getRequest().getParameter("event") != null) {
-    		pending = "true".equals(getRequest().getParameter("pending"));
-    		sent = "true".equals(getRequest().getParameter("sent"));
-    		denied = "true".equals(getRequest().getParameter("denied"));
+    	if (getRequest().getParameter(FILTER_EVENT) != null) {
+    		pending = "true".equals(getRequest().getParameter(VIEW_PENDING));
+    		sent = "true".equals(getRequest().getParameter(VIEW_SENT));
+    		denied = "true".equals(getRequest().getParameter(VIEW_DENIED));
     		
-    		eid =  new Long(getRequest().getParameter("event"));
+    		eid =  new Long(getRequest().getParameter(FILTER_EVENT));
     	} else {
     		eid = eventDAO.findCurrent().getId();
     	}
@@ -80,9 +85,10 @@ public class VisaLetters extends ShortHibernateProcessor {
     		eventList.add(new ListSelectTag.Option(e.getId().toString(), e.getName(), i==0));
     	}
     	
-    	getRequest().setAttribute("pending", Boolean.valueOf(pending));
-    	getRequest().setAttribute("sent", Boolean.valueOf(sent));
-    	getRequest().setAttribute("denied", Boolean.valueOf(denied));
+    	setDefault(FILTER_EVENT, eid);
+    	getRequest().setAttribute(VIEW_PENDING, Boolean.valueOf(pending));
+    	getRequest().setAttribute(VIEW_SENT, Boolean.valueOf(sent));
+    	getRequest().setAttribute(VIEW_DENIED, Boolean.valueOf(denied));
 
     	getRequest().setAttribute("eventList", eventList);
     	getRequest().setAttribute("reqs", reqs);
