@@ -21,8 +21,10 @@
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
   
   <script type="text/javascript">
-  function contestChanged(name) {
-  	document.f.name.value = name;
+  function contestChanged(n) {
+  	if (n != 0) {
+  		document.f.<%= EditEvent.NAME %>.value = document.f.<%= EditEvent.CONTEST_ID %>.options[n].text;
+  	}
   }
   </script>
   
@@ -53,12 +55,12 @@
 	<tr>
 		<td>Contest:</td>
 		<td>
-			<tc-webtag:rscSelect name="<%= EditEvent.CONTEST_ID %>" list="${requestScope.tournament_contests}" fieldText="name" fieldValue="contest_id" topText="No Contest" topValue="0" onChange="contestChanged(this.options[this.selectedIndex].text)"/>
+			<tc-webtag:rscSelect name="<%= EditEvent.CONTEST_ID %>" list="${requestScope.tournament_contests}" fieldText="name" fieldValue="contest_id" topText="No Contest" topValue="0" onChange="contestChanged(this.selectedIndex)"/>
 		</td>
 	</tr>    
 	<tr>
 		<td width="150 px">Event Name:</td>
-		<td width="200 px"><tc-webtag:textInput name="<%= EditEvent.NAME %>" size="30" editable="true" /></td>
+		<td width="200 px"><tc-webtag:textInput name="<%= EditEvent.NAME %>" size="50" editable="true" /></td>
 	</tr>
 	<tr>
 		<td>Start Date:</td>
