@@ -71,7 +71,8 @@ public class VisaLetters extends ShortHibernateProcessor {
     		
     		eid =  new Long(getRequest().getParameter(FILTER_EVENT));
     	} else {
-    		eid = eventDAO.findCurrent().getId();
+    		VisaLetterEvent event = eventDAO.findCurrent();
+    		eid = event==null? null : event.getId();
     	}
 
     	List reqs = reqDAO.find(eid, pending, sent, denied);
@@ -82,10 +83,9 @@ public class VisaLetters extends ShortHibernateProcessor {
     	
     	for (int i = 0; i < l.size(); i++) {
     		VisaLetterEvent e = (VisaLetterEvent) l.get(i);
-    		eventList.add(new ListSelectTag.Option(e.getId().toString(), e.getName(), i==0));
+    		eventList.add(new ListSelectTag.Option(e.getId().toString(), e.getName(), eid==null? i==0 : i==eid.longValue()));
     	}
     	
-    	setDefault(FILTER_EVENT, eid);
     	getRequest().setAttribute(VIEW_PENDING, Boolean.valueOf(pending));
     	getRequest().setAttribute(VIEW_SENT, Boolean.valueOf(sent));
     	getRequest().setAttribute(VIEW_DENIED, Boolean.valueOf(denied));
