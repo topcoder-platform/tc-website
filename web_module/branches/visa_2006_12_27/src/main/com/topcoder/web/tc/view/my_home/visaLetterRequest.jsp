@@ -57,12 +57,15 @@ function addrToShippingAddr() {
 	document.f.s_<%=Constants.PROVINCE%>.value = document.f.<%=Constants.PROVINCE%>.value;
 	document.f.s_<%=Constants.COUNTRY_CODE%>.value = document.f.<%=Constants.COUNTRY_CODE%>.value;
 }
-regToAddr();
-regToShippingAddr();
+
+function init() {
+	regToAddr();
+	regToShippingAddr();
+}
  </script>
 </head>
 
-<body>
+<body onLoad="init()" >
 
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
