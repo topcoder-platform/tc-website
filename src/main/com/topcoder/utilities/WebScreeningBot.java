@@ -58,7 +58,6 @@ public class WebScreeningBot {
             errors = true;
             try {
                 TCSEmailMessage em = new TCSEmailMessage();
-/*
                 em.addToAddress("8609182841@mmode.com", TCSEmailMessage.TO);
                 em.addToAddress("8604626228@vtext.com", TCSEmailMessage.TO);
                 em.addToAddress("6508045266@vtext.com", TCSEmailMessage.TO);
@@ -70,11 +69,9 @@ public class WebScreeningBot {
                 em.setFromAddress("rfairfax@topcoder.com");
 
                 EmailEngine.send(em);
-*/
 
                 em = new TCSEmailMessage();
                 em.addToAddress("gpaul@topcoder.com", TCSEmailMessage.TO);
-/*
                 em.addToAddress("rfairfax@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("mlydon@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("thaas@topcoder.com", TCSEmailMessage.TO);
@@ -82,7 +79,6 @@ public class WebScreeningBot {
                 em.addToAddress("mtong@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("javier-topcoder-alarm@ivern.org", TCSEmailMessage.TO);
                 em.addToAddress("8602686127@messaging.sprintpcs.com", TCSEmailMessage.TO);
-*/
 
                 em.setSubject("Server Error");
                 em.setBody("Tech Assess Error:\n" + errorText);
