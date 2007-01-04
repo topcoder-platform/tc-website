@@ -116,7 +116,7 @@ function init() {
     <jsp:param name="title" value="Send a Message"/>
 </jsp:include>
 
-The Member Contact area allows you to send emails to other TopCoder members. Only one recipient per message.
+The Member Contact area allows you to send emails to other TopCoder members.
 <br><br>
 To block specific TopCoder members from contacting you, go to the <a href='/tc?module=BlackList'>black list</a> page.
 <br>
@@ -156,9 +156,17 @@ To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.
 <br /><br />
 
 <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
-<strong>Wait a second!</strong> You're sending a message but you don't have member contacting enabled. This member won't have any way to respond to you.  If you'd like, we can attach your email address to the message:
+<strong>Wait a second!</strong> You're sending a message but you don't have member contacting enabled. This member won't have any way to respond to you.
 <br /><br />
-<input type='checkbox' name='<%= SendMail.SEND_COPY %>' checked /> Sure, attach my email address.
+Would you like to attach your email address to the message?
+<br />
+<%-- APPEARS WHEN YOU CLICK SUBMIT WITHOUT PICKING YES OR NO --%>
+<span class="bigRed">Please answer this question.</span>
+<%-------------------------------------------------------------%>
+<br />
+<input type="radio" name="attach" value=""> Yes
+<br />
+<input type="radio" name="attach" value=""> No
 <br /><br />
 <%--
 <br /><br />
