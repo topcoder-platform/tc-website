@@ -94,7 +94,7 @@ public class VisaLetters extends ShortHibernateProcessor {
     	for (int i = 0; i < l.size(); i++) {
     		VisaLetterEvent e = (VisaLetterEvent) l.get(i);
     		
-    		eventList.add(new ListSelectTag.Option(e.getId().toString(), e.getName(), eid==null? i==0 : i==eid.longValue()));
+    		eventList.add(new ListSelectTag.Option(e.getId().toString(), e.getName(), e.getId().equals(eid)));
     	}
 
     	List reqs = reqDAO.find(eid, pending, sent, denied);
