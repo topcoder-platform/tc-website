@@ -38,6 +38,10 @@ public class UpdateEvent extends ShortHibernateProcessor {
     		addError("error", "Please insert a valid end date");
     	}
 
+    	if (!endDate.after(startDate)) {
+    		addError("error", "End date must be after start date.");
+    	}
+    	
 		if (hasErrors()) {
 			setDefault("name", getRequest().getParameter(EditEvent.NAME));
 			setDefault("startDate",getRequest().getParameter(EditEvent.START_DATE));

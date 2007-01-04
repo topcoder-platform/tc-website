@@ -60,6 +60,12 @@
 			<button id="<%="trigger_" + EditEvent.END_DATE %>">Set</button>
 		</td>
 	</tr>
+	<tr>
+		<td>Contest</td>
+		<td>
+			<tc-webtag:rscSelect name="<%= EditEvent.CONTEST_ID %>" list="${requestScope.tournament_contests}" fieldText="name" fieldValue="contest_id" topText="No Contest" topValue="0"/>
+		</td>
+	</tr>
 </table>
 
 <script language="javascript" type="text/javascript">
