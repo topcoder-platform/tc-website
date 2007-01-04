@@ -9,6 +9,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>01.04.07<br>1:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=010407">Beginning Algorithm Competitions with VB.NET</A></span><br><br>
+       Visual Basic, or VB, has been around since 1991. It is a simple language and is common in business, both as a development language and a scripting language for use with Microsoft applications. While not the most popular language at TopCoder, VB.NET is a capable language for algorithm development.</td>
+      <td class="newsPhoto"><img src="/i/m/jmzero_big.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="15498334" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=010407">full story</A> | 
+         <tc-webtag:forumLink forumID="506222" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>01.04.07<br>9:40 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/longcontest/?module=ViewOverview&rd=10681">Intel&#174; Multi-Threading Competition 12 Results</A>
@@ -178,36 +194,3 @@ With SRM 331 happening only a few days before Christmas, it was the perfect excu
         <tc-webtag:forumLink forumID="506216" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.14.06<br>6:20 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm330">SRM 330 - Problem Set & Analysis</A></span><br><br>
-Registration for this match closed with 786 registrants, a relatively low number compared to recent SRMs, but excitement
-was high nonetheless thanks to the participation of 5 targets, including the top 4 highest-rated coders in TopCoder's algorithm standings.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15231364" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=srm330">full story</A> | 
-        <tc-webtag:forumLink forumID="506005" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>12.13.06<br>6:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2047">2007 TCO Logo Design Contest</A></span><br><br>
-        It's the first step towards the next TopCoder Open.  We're accepting submissions right now over at the Studio.
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2047">full story</A> | 
-        <tc-webtag:forumLink forumID="506215" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-

@@ -44,12 +44,22 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
-               <td class="bodyText"><tc-webtag:handle coderId="10407399" /> & <tc-webtag:handle coderId="22627518" /></td>
+               <td class="bodyText"><tc-webtag:handle coderId="15498334" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=010407"><strong>Beginning Algorithm Competitions with VB.NET</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Jan 4, 2007</td> 
+            </tr>
+            <tr valign="top">
+               <td class="bodyText">&nbsp;</td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=121406"><strong>TopCoder Celebrates 100,000 Members</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Dec 14, 2006</td> 
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=121106"><strong>TopCoder @ Work: Professional Ethics, Part 2</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Dec 11, 2006</td> 
             </tr>
             <tr valign="top">
-               <td class="bodyText"><tc-webtag:handle coderId="10407399" /> & <tc-webtag:handle coderId="22627518" /></td>
+               <td class="bodyText"><tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=120106"><strong>TopCoder @ Work: Professional Ethics</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Dec 1, 2006</td> 
             </tr>
@@ -64,12 +74,12 @@
                <td class="bodyText" nowrap=nowrap>Nov 21, 2006</td>
             </tr>
             <tr valign="top">
-               <td class="bodyText"><tc-webtag:handle coderId="344462" /> & <tc-webtag:handle coderId="21181561" /></td>
+               <td class="bodyText"><tc-webtag:handle coderId="344462" /> &amp; <tc-webtag:handle coderId="21181561" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=111306"><strong>TCCC Preview: Meet the bloggers</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Nov 13, 2006</td>
             </tr>
             <tr valign="top">
-               <td class="bodyText"><tc-webtag:handle coderId="10407399" /> & <tc-webtag:handle coderId="22627518" /></td>
+               <td class="bodyText"><tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=110806"><strong>TopCoder @ Work: Your Career and the TCCC</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Nov 8, 2006</td>
             </tr>
@@ -109,7 +119,7 @@
                <td class="bodyText" nowrap=nowrap>Oct 9, 2006</td>
             </tr>
             <tr valign="top">
-               <td class="bodyText"><tc-webtag:handle coderId="10407399" /> & <tc-webtag:handle coderId="22627518" /></td>
+               <td class="bodyText"><tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=100506"><strong>TopCoder @ Work: Incorporating new technologies</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Oct 5, 2006</td>
             </tr>
@@ -149,12 +159,12 @@
                <td class="bodyText" nowrap=nowrap>Sep 11, 2006</td>
             </tr>
             <tr valign="top">
-               <td class="bodyText"><tc-webtag:handle coderId="10407399" /> & <tc-webtag:handle coderId="22627518" /></td>
+               <td class="bodyText"><tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=090506"><strong>TopCoder @ Work: Introduction to upselling, Part 2</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Sep 5, 2006</td>
             </tr>
             <tr valign="top">
-               <td class="bodyText"><tc-webtag:handle coderId="10407399" /> & <tc-webtag:handle coderId="22627518" /></td>
+               <td class="bodyText"><tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=082906"><strong>TopCoder @ Work: Introduction to upselling</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Aug 29, 2006</td>
             </tr>
