@@ -20,6 +20,12 @@
     <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
   
+  <script type="text/javascript">
+  function contestChanged(name) {
+  	document.f.name.value = name;
+  }
+  </script>
+  
 </head>
 
 <body>
@@ -45,6 +51,12 @@
         </td>
     </tr>
 	<tr>
+		<td>Contest:</td>
+		<td>
+			<tc-webtag:rscSelect name="<%= EditEvent.CONTEST_ID %>" list="${requestScope.tournament_contests}" fieldText="name" fieldValue="contest_id" topText="No Contest" topValue="0" onChange="contestChanged(this.options[this.selectedIndex].text)"/>
+		</td>
+	</tr>    
+	<tr>
 		<td width="150 px">Event Name:</td>
 		<td width="200 px"><tc-webtag:textInput name="<%= EditEvent.NAME %>" size="30" editable="true" /></td>
 	</tr>
@@ -58,12 +70,6 @@
 		<td>End Date:</td>
 		<td><tc-webtag:textInput name="<%= EditEvent.END_DATE %>" id="<%= EditEvent.END_DATE %>" size="12" format="MM/dd/yyyy" editable="true" />  
 			<button id="<%="trigger_" + EditEvent.END_DATE %>">Set</button>
-		</td>
-	</tr>
-	<tr>
-		<td>Contest</td>
-		<td>
-			<tc-webtag:rscSelect name="<%= EditEvent.CONTEST_ID %>" list="${requestScope.tournament_contests}" fieldText="name" fieldValue="contest_id" topText="No Contest" topValue="0"/>
 		</td>
 	</tr>
 </table>

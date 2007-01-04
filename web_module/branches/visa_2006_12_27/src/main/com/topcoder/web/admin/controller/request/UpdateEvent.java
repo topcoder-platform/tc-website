@@ -3,6 +3,9 @@ package com.topcoder.web.admin.controller.request;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.VisaLetterEventDAO;
@@ -42,10 +45,21 @@ public class UpdateEvent extends ShortHibernateProcessor {
     		addError("error", "End date must be after start date.");
     	}
     	
+    	Long contestId = new Long(getRequest().getParameter(EditEvent.CONTEST_ID));
+    	if (contestId.longValue() == 0) {
+    		contestId = null;
+    	}
+    	
 		if (hasErrors()) {
-			setDefault("name", getRequest().getParameter(EditEvent.NAME));
-			setDefault("startDate",getRequest().getParameter(EditEvent.START_DATE));
-			setDefault("endDate", getRequest().getParameter(EditEvent.END_DATE));
+			setDefault(EditEvent.NAME, getRequest().getParameter(EditEvent.NAME));
+			setDefault(EditEvent.START_DATE,getRequest().getParameter(EditEvent.START_DATE));
+			setDefault(EditEvent.END_DATE, getRequest().getParameter(EditEvent.END_DATE));
+			setDefault(EditEvent.CONTEST_ID, getRequest().getParameter(EditEvent.CONTEST_ID));
+
+	        Request r = new Request();
+	        r.setContentHandle("tournament_contests");
+	        getRequest().setAttribute("tournament_contests",  new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(r).get("tournament_contests"));
+
 	        setNextPage("/editEvent.jsp");
 	        setIsNextPageInContext(true);
 	        return;			
@@ -60,6 +74,7 @@ public class UpdateEvent extends ShortHibernateProcessor {
 		event.setName(name);
 		event.setStartDate(startDate);
 		event.setEndDate(endDate);
+		event.setContestId(contestId);
 		eventDAO.saveOrUpdate(event);
 
     	setNextPage("/admin/?module=EventList");
