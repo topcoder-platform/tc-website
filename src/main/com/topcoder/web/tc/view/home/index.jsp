@@ -57,10 +57,10 @@
             --%>
         </td>
         <td width="50%" align="right" valign="top" style="border-bottom: 1px solid #666666; padding:0px; margin:0px;">
-            <%--&nbsp;--%>
-            <%-- AOL mashups  --%>
+            &nbsp;
+            <%-- AOL mashups  
             <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2048"><img src="/i/home/studioDogEar_20061102.png" alt="TopCoder Studio"/></A>
-
+            --%>
             <%-- standard studio dogear 
             <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>"><img src="/i/home/studioDogEarStandard.png" alt="TopCoder Studio" /></A>
             --%>
@@ -237,14 +237,14 @@
                 <%-- AOL webcast team
                 <A href="http://dev.aol.com/video"><img src="/i/home/aolWebcast_20061113.jpg" alt="Meet the TCCC webcast team" border="0" style="display:block;" /></A>
                 --%>
-                <%-- AOL Mashups
-                <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2045"><img src="/i/home/aolmashups_sm.jpg" alt="AOL Mashups" border="0" style="display:block;" /></A>
-                --%>
+                <%-- AOL Mashups --%>
+                <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2048"><img src="/i/home/aolmashups20070104_sm.jpg" alt="AOL Mashups" border="0" style="display:block;" /></A>
                 <%-- WSJ
                 <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0" style="display:block;" /></A>
                 --%>
-                <%-- AOL webcast team --%>
+                <%-- AOL webcast team 
                 <A href="/movies/tournament/tccc06/final_webcast_preview.mov"><img src="/i/home/tccc_webcast_20061208.jpg" alt="TCCC Webcast Highlights" border="0" style="display:block;"/></A>
+                --%>
             </td>
         </tr>
     </table>
