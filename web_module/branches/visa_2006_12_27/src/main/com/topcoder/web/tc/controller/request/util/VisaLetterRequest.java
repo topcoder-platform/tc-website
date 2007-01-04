@@ -1,8 +1,6 @@
 package com.topcoder.web.tc.controller.request.util;
 
 import java.util.Date;
-import java.util.Map;
-import java.util.Set;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
@@ -20,23 +18,11 @@ import com.topcoder.web.reg.validation.Address1Validator;
 import com.topcoder.web.reg.validation.Address2Validator;
 import com.topcoder.web.reg.validation.Address3Validator;
 import com.topcoder.web.reg.validation.CityValidator;
-import com.topcoder.web.reg.validation.CoderTypeValidator;
-import com.topcoder.web.reg.validation.CompanyNameValidator;
 import com.topcoder.web.reg.validation.CountryValidator;
-import com.topcoder.web.reg.validation.EmailValidator;
-import com.topcoder.web.reg.validation.GivenNameValidator;
-import com.topcoder.web.reg.validation.MiddleNameValidator;
-import com.topcoder.web.reg.validation.PasswordValidator;
 import com.topcoder.web.reg.validation.PostalCodeValidator;
 import com.topcoder.web.reg.validation.ProvinceValidator;
-import com.topcoder.web.reg.validation.QuoteValidator;
-import com.topcoder.web.reg.validation.SecretQuestionResponseValidator;
-import com.topcoder.web.reg.validation.SecretQuestionValidator;
 import com.topcoder.web.reg.validation.StateValidator;
-import com.topcoder.web.reg.validation.SurnameValidator;
-import com.topcoder.web.reg.validation.TimeZoneValidator;
-import com.topcoder.web.reg.validation.TitleValidator;
-import com.topcoder.web.tc.Constants;
+import com.topcoder.web.reg.Constants;
 
 /**
  * @author cucu
@@ -94,7 +80,7 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         
         if (dateError != null) {
         	getRequest().setAttribute(dateError, "true");
-            setNextPage(Constants.VISA_LETTER_REQUEST_STATUS);        	
+            setNextPage(com.topcoder.web.tc.Constants.VISA_LETTER_REQUEST_STATUS);        	
             setIsNextPageInContext(true);
             return;
         }
@@ -155,11 +141,11 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         	getRequest().setAttribute("address", user.getHomeAddress());
             getRequest().setAttribute("countries", DAOUtil.getFactory().getCountryDAO().getCountries());
         	
-        	setNextPage(Constants.VISA_LETTER_REQUEST);        		
+        	setNextPage(com.topcoder.web.tc.Constants.VISA_LETTER_REQUEST);        		
         } else {
         	// Display the status page
         	getRequest().setAttribute("req", req);
-            setNextPage(Constants.VISA_LETTER_REQUEST_STATUS);        	
+            setNextPage(com.topcoder.web.tc.Constants.VISA_LETTER_REQUEST_STATUS);        	
         }
         
         setIsNextPageInContext(true);
