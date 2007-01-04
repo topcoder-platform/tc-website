@@ -57,7 +57,8 @@ function addrToShippingAddr() {
 	document.f.s_<%=Constants.PROVINCE%>.value = document.f.<%=Constants.PROVINCE%>.value;
 	document.f.s_<%=Constants.COUNTRY_CODE%>.value = document.f.<%=Constants.COUNTRY_CODE%>.value;
 }
-
+regToAddr();
+regToShippingAddr();
  </script>
 </head>
 
@@ -115,7 +116,7 @@ function addrToShippingAddr() {
 <tr>
 	<td rowspan="17" valign="top">Address (as stated on passport)</td>
 	<td colspan="2">
-		<input type="button" value="Use registration address" onClick="regToAddr()">
+		<!--  <input type="button" value="Use registration address" onClick="regToAddr()"> -->
 	</td>
 </tr>
 <tr>
@@ -202,8 +203,8 @@ function addrToShippingAddr() {
 	<td rowspan="17" valign="top">Address (for shipping the Visa letter)</td>
 
 	<td colspan="2">
-		<input type="button" value="Use registration address" onClick="regToShippingAddr()">
-		<input type="button" value="Use passport address" onClick="addrToShippingAddr()">
+	 <!-- 	<input type="button" value="Use registration address" onClick="regToShippingAddr()">  -->
+		<input type="button" value="Use same as above" onClick="addrToShippingAddr()">
 	</td>
 </tr>
 <tr>

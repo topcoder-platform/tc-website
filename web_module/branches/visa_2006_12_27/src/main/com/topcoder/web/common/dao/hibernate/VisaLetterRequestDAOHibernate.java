@@ -22,10 +22,11 @@ public class VisaLetterRequestDAOHibernate extends Base implements VisaLetterReq
     }
     
     public VisaLetterRequest find(Long userId, Long eventId) {
+    	// the order used makes the sent visa letter to appear first, then the denied and finally the pending.
         Query q = session.createQuery(" from VisaLetterRequest " +
                 " where user_id=" + userId +
                 " and visa_letter_event_id=" + eventId +
-                " order by request_date desc");
+                " order by sent_date desc, denied_ind desc");
     
     	List l = q.list();
     	if (l.size() == 0) return null;
@@ -33,7 +34,6 @@ public class VisaLetterRequestDAOHibernate extends Base implements VisaLetterReq
     }
 
     public List find(Long eventId, boolean pending, boolean sent, boolean denied) {
-    	log.debug("find " + pending +"," + sent + ","+denied );
     	StringBuffer filter = new StringBuffer(100);
     	if (pending) {
     		filter.append(" OR (sent_date is null AND denied_ind = 0)");

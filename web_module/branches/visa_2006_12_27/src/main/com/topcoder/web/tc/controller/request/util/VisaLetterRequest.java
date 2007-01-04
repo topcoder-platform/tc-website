@@ -137,6 +137,8 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         }
 
         if ((forceRequest || req == null) && !noEvent) {
+        	setDefault(FULL_NAME, user.getFirstName() + " " + user.getMiddleName() + " " + user.getLastName());
+        	setDefault(PHONE_NUMBER, user.getPrimaryPhoneNumber().getNumber());
         	getRequest().setAttribute("event", event);
         	getRequest().setAttribute("address", user.getHomeAddress());
             getRequest().setAttribute("countries", DAOUtil.getFactory().getCountryDAO().getCountries());
@@ -181,8 +183,6 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         if (!hasError(prefix + Constants.COUNTRY_CODE)) {
         	a.setCountry(DAOUtil.getFactory().getCountryDAO().find(getRequest().getParameter(prefix + Constants.COUNTRY_CODE)));
         }
-
-        log.debug("prefix=" + prefix + " state=" + getRequest().getParameter(prefix + Constants.STATE_CODE));
 
         if (!hasError(prefix + Constants.COUNTRY_CODE) 
         		&& DAOUtil.getFactory().getCountryDAO().getUS().equals(a.getCountry()) 
