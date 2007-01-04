@@ -1,15 +1,15 @@
-c<%----------------MARATHON MATCH-------------------------%>
+<%----------------MARATHON MATCH-------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>12.04.06<br>5:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>01.04.07<br>9:40 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
-      <A href="/longcontest/?module=ViewOverview&rd=10649">Intel&#174; Multi-Threading Competition 11 Results</A>
+      <A href="/longcontest/?module=ViewOverview&rd=10681">Intel&#174; Multi-Threading Competition 12 Results</A>
       </span><br><br>
-      The Intel&#174; Multi-Threading Competition 11 results are in. Congratulations to the first place winner, <tc-webtag:handle coderId="7504863" />.
+      The Intel&#174; Multi-Threading Competition 12 results are in. Congratulations to the first place winner, <tc-webtag:handle coderId="11771960" />.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/longcontest/?module=ViewOverview&rd=10649">results</A> | 
-         <tc-webtag:forumLink forumID="506179" message="discuss this" /> | 
+         <A href="/longcontest/?module=ViewOverview&rd=10681">results</A> | 
+         <tc-webtag:forumLink forumID="506212" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
 
