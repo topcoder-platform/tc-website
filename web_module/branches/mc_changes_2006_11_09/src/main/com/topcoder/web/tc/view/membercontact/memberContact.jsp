@@ -156,9 +156,9 @@ To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.
 <br /><br />
 
 <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
-<strong>Wait a second!</strong> You're sending a message but you don't have member contacting enabled. This member won't have any way to respond to you.
+<strong>Wait a second!</strong> You're sending a message but you don't have member contacting enabled. This member won't have any way to respond to you.  If you'd like, we can attach your email address to the message:
 <br /><br />
-<input type='checkbox' name='<%= SendMail.SEND_COPY %>' checked /> Attach your email address to the message?
+<input type='checkbox' name='<%= SendMail.SEND_COPY %>' checked /> Sure, attach my email address.
 <br /><br />
 <%--
 <br /><br />
