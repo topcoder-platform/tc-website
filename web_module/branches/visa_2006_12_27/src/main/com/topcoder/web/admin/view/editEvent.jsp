@@ -41,10 +41,10 @@
         <td width="200">
             <jsp:include page="left.jsp"/>
         </td>
+        <td>
                 <a href="/admin/?module=EventList">Back to Manage Events</a>
                 <br>
         
-        <td>
 <form name="f" action="/admin/" method="post">
 <input type="hidden" name="module" value="UpdateEvent">
 <c:if test="${not empty param.eid }">

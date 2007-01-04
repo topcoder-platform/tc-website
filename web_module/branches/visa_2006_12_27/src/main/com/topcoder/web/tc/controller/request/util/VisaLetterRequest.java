@@ -141,6 +141,11 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
 	        req = reqDAO.find(userId, eid);
         }
 
+        // can't force a request when you were denied
+        if (req != null && req.isDenied()) {
+        	forceRequest = false;
+        }
+        
         if ((forceRequest || req == null) && !noEvent) {
         	setDefault(FULL_NAME, user.getFirstName() + " " + user.getMiddleName() + " " + user.getLastName());
         	setDefault(PHONE_NUMBER, user.getPrimaryPhoneNumber().getNumber());

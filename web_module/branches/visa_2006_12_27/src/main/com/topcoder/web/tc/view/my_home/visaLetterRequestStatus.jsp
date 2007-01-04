@@ -48,7 +48,7 @@ You are not able to request for a Visa letter for this event anymore.
 </c:when>
 
 <c:when test="${empty req}">
-You don't have any request letter.
+You don't have any Visa Letter requested.
 </c:when>
 <c:otherwise>
 	<h2>Visa Letter Request for <c:out value="${req.event.name}"/></h2>
@@ -60,10 +60,10 @@ You don't have any request letter.
 		<a href="/tc?module=VisaLetterRequest&eid=${req.event.id }&fr=true">Request again</a><br>
 	</c:when>
 	<c:when test="${req.denied }">
-		TopCoder has denied to send you a visa request letter.
+		TopCoder has denied to send you a Visa Letter.
 	</c:when>
 	<c:otherwise>
-		The request letter was not yet sent.
+		The Visa Letter was not yet sent.
 		<a href="/tc?module=VisaLetterRequest&eid=${req.event.id }&fr=true">Request again</a><br>
 	</c:otherwise>
 	</c:choose>

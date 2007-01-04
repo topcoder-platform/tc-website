@@ -83,10 +83,9 @@ public class VisaLetters extends ShortHibernateProcessor {
     	List eventList = new ArrayList();
 
     	if (eid == null) {
-    		if (eventList.size() > 0) {
+    		if (l.size() > 0) {
     			eid = ((VisaLetterEvent) l.get(0)).getId();
     		} else {
-    			getRequest().setAttribute("eventList", eventList);    			
     	    	setNextPage("/visaLetters.jsp");
     	        setIsNextPageInContext(true); 
     	        return;
