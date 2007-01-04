@@ -39,10 +39,9 @@ public class ViewRegistration extends Base {
 
         try {
             
-            //uncomment
-            /*if (!SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
+            if (!SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
                 throw new PermissionException(getLoggedInUser(), new ClassResource(this.getClass()));
-            }*/
+            }
 
             validation();
 
