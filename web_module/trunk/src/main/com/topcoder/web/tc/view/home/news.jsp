@@ -9,6 +9,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.04.07<br>2:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm26">TCHS SRM 26 - Problem Set & Analysis</A></span><br><br>
+What do school boys and girls do during the winter holidays? That's right, they compete in TopCoder High School SRMs! More than 200 competitors took part in HS SRM 26, with 
+<tc-webtag:handle coderId="11972352" context="hs_algorithm"/> winning the match with a comfortable lead. <tc-webtag:handle coderId="22652634" context="hs_algorithm"/> finished 
+second and <tc-webtag:handle coderId="19931322" context="hs_algorithm"/> rounded out the top three.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/gevak_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7340263" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm26">full story</A> | 
+        <tc-webtag:forumLink forumID="506221" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>01.04.07<br>1:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -181,16 +200,3 @@ With SRM 331 happening only a few days before Christmas, it was the perfect excu
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>12.14.06<br>11:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=features&d2=121406">TopCoder Celebrates 100,000 Members</A>
-        </span><br><br>
-        By the end of January 2001, a total of 18 people had registered as TopCoder members. Within four years the member base grew to 50,000, and a little less than two years after that it hit 100,000.
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=features&d2=121406">details</A> | 
-        <tc-webtag:forumLink forumID="506216" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
