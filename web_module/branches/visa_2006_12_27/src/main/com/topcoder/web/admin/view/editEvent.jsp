@@ -30,7 +30,7 @@
   
   <style type="text/css">
 .calendar,
-.calendar table { width: 500px; height: 400px; }
+.calendar table { width: 250px; height: 200px; }
 </style>
 </head>
 
