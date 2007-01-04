@@ -38,9 +38,11 @@ public class ViewRegistration extends Base {
     protected void developmentProcessing() throws TCWebException {
 
         try {
-            if (!SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
+            
+            //uncomment
+            /*if (!SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
                 throw new PermissionException(getLoggedInUser(), new ClassResource(this.getClass()));
-            }
+            }*/
 
             validation();
 
