@@ -28,6 +28,10 @@
   }
   </script>
   
+  <style type="text/css">
+.calendar,
+.calendar table { width: 500px; height: 400px; }
+</style>
 </head>
 
 <body>
