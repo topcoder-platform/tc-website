@@ -196,7 +196,11 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         	a.setCountry(DAOUtil.getFactory().getCountryDAO().find(getRequest().getParameter(prefix + Constants.COUNTRY_CODE)));
         }
 
-        if (DAOUtil.getFactory().getCountryDAO().getUS().equals(a.getCountry())) {
+        log.debug("prefix=" + prefix + " state=" + getRequest().getParameter(prefix + Constants.STATE_CODE));
+
+        if (!hasError(prefix + Constants.COUNTRY_CODE) 
+        		&& DAOUtil.getFactory().getCountryDAO().getUS().equals(a.getCountry()) 
+        		&& !hasError(prefix + Constants.STATE_CODE)) {
             a.setState(DAOUtil.getFactory().getStateDAO().find(getRequest().getParameter(prefix + Constants.STATE_CODE)));
         } else {
             a.setState(null);
