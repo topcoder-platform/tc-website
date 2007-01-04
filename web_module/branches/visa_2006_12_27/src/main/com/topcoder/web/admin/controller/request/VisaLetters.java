@@ -75,16 +75,28 @@ public class VisaLetters extends ShortHibernateProcessor {
     		eid = event==null? null : event.getId();
     	}
 
-    	List reqs = reqDAO.find(eid, pending, sent, denied);
-    	
+    		
     	// Fill the event combo box
     	List l = eventDAO.getAll();
     	List eventList = new ArrayList();
+
+    	if (eid == null) {
+    		if (eventList.size() > 0) {
+    			eid = ((VisaLetterEvent) l.get(0)).getId();
+    		} else {
+    			getRequest().setAttribute("eventList", eventList);    			
+    	    	setNextPage("/visaLetters.jsp");
+    	        setIsNextPageInContext(true);   			
+    		}
+    	}
     	
     	for (int i = 0; i < l.size(); i++) {
     		VisaLetterEvent e = (VisaLetterEvent) l.get(i);
+    		
     		eventList.add(new ListSelectTag.Option(e.getId().toString(), e.getName(), eid==null? i==0 : i==eid.longValue()));
     	}
+
+    	List reqs = reqDAO.find(eid, pending, sent, denied);
     	
     	getRequest().setAttribute(VIEW_PENDING, Boolean.valueOf(pending));
     	getRequest().setAttribute(VIEW_SENT, Boolean.valueOf(sent));

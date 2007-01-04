@@ -67,6 +67,13 @@ function toggleDisplay(objectID,imageID,linkID){
         <td>
         <a href="/admin/?module=EventList">Manage Events</a>
         <br>
+        
+<c:choose>
+<c:when test="${empty requestScope.eventList}">
+No Visa Letter Event defined.
+</c:when>
+<c:otherwise>
+
         <c:if test="${not empty requestScope.rowsUpdated }" >
 	        <center>
 	       	 	<font color="green" size="+1">
@@ -220,6 +227,7 @@ function toggleDisplay(objectID,imageID,linkID){
 	<option value="<%= VisaLetters.PENDING %>">Pending</option>
 </select>
 </form>
+</c:otherwise></c:choose>        
         </td>
     </tr>
 </table>
