@@ -86,7 +86,8 @@ public class VisaLetters extends ShortHibernateProcessor {
     		} else {
     			getRequest().setAttribute("eventList", eventList);    			
     	    	setNextPage("/visaLetters.jsp");
-    	        setIsNextPageInContext(true);   			
+    	        setIsNextPageInContext(true); 
+    	        return;
     		}
     	}
     	
