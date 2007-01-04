@@ -25,6 +25,8 @@
             <jsp:include page="left.jsp"/>
         </td>
         <td>
+        <a href="/admin/?module=VisaLetters">Back to Visa Letters</a><br>
+        <a href="/admin/?module=EditEvent">Create new event</a><br>
 <table width="100%" >        
 <tr class="header">
 	<td></td>

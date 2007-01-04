@@ -65,6 +65,8 @@ function toggleDisplay(objectID,imageID,linkID){
             <jsp:include page="left.jsp"/>
         </td>
         <td>
+        <a href="/admin/?module=EventList">Manage Events</a>
+        <br>
         <c:if test="${not empty requestScope.rowsUpdated }" >
 	        <center>
 	       	 	<font color="green" size="+1">

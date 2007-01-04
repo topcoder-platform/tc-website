@@ -76,7 +76,7 @@ public class VisaLetters extends ShortHibernateProcessor {
     	List eventList = new ArrayList();
     	
     	for (int i = 0; i < l.size(); i++) {
-    		VisaLetterEvent e = (VisaLetterEvent) l.get(0);
+    		VisaLetterEvent e = (VisaLetterEvent) l.get(i);
     		eventList.add(new ListSelectTag.Option(e.getId().toString(), e.getName(), i==0));
     	}
     	
