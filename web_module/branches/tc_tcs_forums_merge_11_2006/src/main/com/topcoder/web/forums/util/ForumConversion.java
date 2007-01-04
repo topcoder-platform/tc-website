@@ -216,7 +216,8 @@ public class ForumConversion {
     	// get forums from FORUM_MASTER table        
         forumPS = tcConn.prepareStatement(
                 "select m.forum_id, c.component_name, c.short_desc, m.status_id, m.create_time, "
-        		+ " v.comp_vers_id, v.version_text, v.phase_id, f.forum_type, c.root_category_id, c.status_id "
+        		+ " v.comp_vers_id, v.version_text, v.phase_id, f.forum_type, "
+        		+ " c.root_category_id, c.status_id, c.component_id "
                 + " from forum_master m, comp_forum_xref f, comp_versions v, comp_catalog c "
                 + " where m.forum_id = f.forum_id and "
                 + " f.comp_vers_id = v.comp_vers_id and v.component_id = c.component_id"
@@ -228,7 +229,7 @@ public class ForumConversion {
         while (rs.next()) {
             ForumMaster forum = new ForumMaster(rs.getLong(1), rs.getString(2), rs.getString(3), rs.getLong(4),
                     rs.getDate(5), rs.getLong(6), rs.getString(7), rs.getLong(8), rs.getLong(9), rs.getLong(10),
-                    rs.getLong(11));
+                    rs.getLong(11), rs.getLong(12));
             forums.add(forum);
         }
 
@@ -282,6 +283,7 @@ public class ForumConversion {
             category.setProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS, forum.getStatus() + "");           
             category.setProperty(ForumConstants.PROPERTY_COMPONENT_PHASE, forum.getComponentPhase() + "");
             category.setProperty(ForumConstants.PROPERTY_COMPONENT_STATUS, forum.getComponentStatus() + "");
+            category.setProperty(ForumConstants.PROPERTY_COMPONENT_ID, forum.getComponentId() + "");
             category.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID, forum.getCompVersId() + "");
             category.setProperty(ForumConstants.PROPERTY_COMPONENT_ROOT_CATEGORY_ID, 
             		forum.getRootCategoryId() + "");
@@ -543,7 +545,7 @@ public class ForumConversion {
             }
             
             log.info(forumNum + " out of " + totalForum + " forums have been processed.");
-            if (forumNum >= 25) {
+            if (forumNum >= 60) {
             	break;
             }
         }
@@ -646,6 +648,11 @@ class ForumMaster {
     private long componentStatus;
     
     /**
+     * The component id
+     */
+    private long componentId;
+    
+    /**
      * Constructor.
      *
      * @param id forum id.
@@ -659,9 +666,11 @@ class ForumMaster {
      * @param forumType forum type.
      * @param rootCategoryId root category id.
      * @param componentStatus component status.
+     * @param componentId component id.
      */
     public ForumMaster(long id, String name, String desc, long status, Date creation, long compVersId, 
-    		String versionText, long componentPhase, long forumType, long rootCategoryId, long componentStatus) {
+    		String versionText, long componentPhase, long forumType, long rootCategoryId, long componentStatus,
+    		long componentId) {
         this.id = id;
         this.name = name;
         this.desc = desc;
@@ -673,6 +682,7 @@ class ForumMaster {
         this.forumType = forumType;
         this.rootCategoryId = rootCategoryId;
         this.componentStatus = componentStatus;
+        this.componentId = componentId;
     }
 
     /**
@@ -772,6 +782,15 @@ class ForumMaster {
      */
     public long getComponentStatus() {
     	return this.componentStatus;
+    }
+    
+    /**
+     * Return the component's id.
+     * 
+     * @return the component's id
+     */
+    public long getComponentId() {
+    	return this.componentId;
     }
 }
 

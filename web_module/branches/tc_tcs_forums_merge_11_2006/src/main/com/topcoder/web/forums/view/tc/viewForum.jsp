@@ -1,6 +1,7 @@
 <%@ page import="com.jivesoftware.base.JiveConstants,
                  com.jivesoftware.base.JiveGlobals,
                  com.jivesoftware.base.User,
+                 com.jivesoftware.forum.ForumCategory,
                  com.jivesoftware.forum.ForumMessage,
                  com.jivesoftware.forum.ReadTracker,
                  com.jivesoftware.forum.ResultFilter,
@@ -134,11 +135,19 @@
     </tr>
     <tr>
     <tr><td colspan="2" style="padding-bottom:3px;"><b>
-        <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory"
-                            iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
-        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
-        >
-        </tc-webtag:iterator>
+        <%	Iterator itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
+        	while (itCategories.hasNext()) {
+        		ForumCategory category = (ForumCategory)itCategories.next(); %>
+		        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
+		<%      if (itCategories.hasNext()) { %>
+					>
+		<%		} else { %>
+		        <%	if (ForumsUtil.isSoftwareSubcategory(forum.getCategory())) { %>
+		        	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>">Component</a>)
+				<%	} %>	
+					>
+			<%	} %>
+        <%	} %>
         <%=forum.getName()%>
         <%
         String linkStr = ForumsUtil.createLinkString(forum);

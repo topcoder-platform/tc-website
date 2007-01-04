@@ -86,6 +86,7 @@ public interface ForumConstants {
     /* See ComponentInfo.APPROVED, etc. Only approved components are displayed. */
     public final static String PROPERTY_COMPONENT_STATUS = "componentStatus";
     
+    public final static String PROPERTY_COMPONENT_ID = "componentId";
     public final static String PROPERTY_COMPONENT_VERSION_ID = "compVersionId";
     public final static String PROPERTY_COMPONENT_TECH_TYPES = "compTechTypes";
     public final static String PROPERTY_FORUM_TYPE = "forumType";

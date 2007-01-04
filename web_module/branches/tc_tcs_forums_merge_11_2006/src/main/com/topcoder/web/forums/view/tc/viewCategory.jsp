@@ -147,6 +147,9 @@
                     <%=category.getName()%>
                     <% } %>
                 </tc-webtag:iterator>
+                <%	if (ForumsUtil.isSoftwareSubcategory(forumCategory)) { %>
+                	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forumCategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>">Component</a>)
+				<%	} %>
             </b></td>
                 <% Page[] pages; %>
                 <% if (paginator.getNumPages() > 1) { %>

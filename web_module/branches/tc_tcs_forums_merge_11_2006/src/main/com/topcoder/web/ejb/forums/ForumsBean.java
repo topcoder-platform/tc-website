@@ -25,6 +25,7 @@ import com.jivesoftware.base.UserNotFoundException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -258,7 +259,6 @@ public class ForumsBean extends BaseEJB {
     public long createSoftwareComponentForums(String componentName, long componentID,
     		long versionID, long phaseID, long componentStatusID, long rootCategoryID, String description, 
     		String versionText, long templateID, boolean isPublic) throws Exception {
-    	log.info("******** called ForumsBean.createSoftwareComponentForums()");
     	try {
     		String categoryName = ForumsUtil.getComponentCategoryName(componentName, versionText, templateID);
     		ForumCategory newCategory = forumFactory.getForumCategory(TCS_FORUMS_ROOT_CATEGORY_ID).createCategory(categoryName, description);
@@ -266,6 +266,7 @@ public class ForumsBean extends BaseEJB {
     		newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_PHASE, String.valueOf(phaseID));
     		newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_ROOT_CATEGORY_ID, String.valueOf(rootCategoryID));
     		newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_STATUS, String.valueOf(componentStatusID));
+    		newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_ID, String.valueOf(componentID));
     		newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID, String.valueOf(versionID));
     		newCategory.setProperty(ForumConstants.PROPERTY_FORUM_TYPE, String.valueOf(templateID));
     		newCategory.setProperty(ForumConstants.PROPERTY_MODIFY_FORUMS, "true");
@@ -321,6 +322,39 @@ public class ForumsBean extends BaseEJB {
     		throw e;
     	}
     }
+    
+    /*
+     * Returns the ID of the software component linked to the given category.
+     */
+    /*
+    public long getSoftwareComponentID(ForumCategory category) throws SQLException {
+		long compVersID = -1;
+		long componentID = -1;
+    	try {
+			compVersID = Long.parseLong(category.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID));
+		} catch (NumberFormatException nfe) {	// not a software category
+			return -1;
+		}
+    	
+    	Connection forumsConn = DBMS.getConnection(DBMS.FORUMS_DATASOURCE_NAME);
+		PreparedStatement forumsPS = forumsConn.prepareStatement(
+				"select c.component_id" +
+		        " from comp_catalog c" +
+		        " join comp_versions v on (c.component_id = v.component_id)" +
+		        " where c.status_id = " + com.topcoder.dde.catalog.ComponentInfo.APPROVED +
+		        " and v.comp_vers_id = ?");
+		forumsPS.setLong(1, compVersID);
+		ResultSet rs = forumsPS.executeQuery();
+		if (rs.next()) {
+			componentID = rs.getLong(0);
+		}
+		rs.close();
+		forumsPS.close();
+		forumsConn.close();
+		
+		return componentID;
+    }
+    */
     // Software Forums - End
     
     private void logException(Exception e, String msg) {

@@ -566,6 +566,12 @@ public class ForumsUtil {
         }
         return name;
     }
+    
+    public static boolean isSoftwareSubcategory(ForumCategory category) {
+    	ForumCategory parentCategory = category.getParentCategory();
+    	if (parentCategory == null) return false;
+    	return ("software".equals(parentCategory.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME)));
+    }
 }
 
 class JiveCategoryComparator implements Comparator {

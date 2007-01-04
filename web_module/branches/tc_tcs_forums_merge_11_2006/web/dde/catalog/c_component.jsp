@@ -152,11 +152,11 @@
 
     boolean hasPreviousForums = false;
 
-    com.topcoder.dde.catalog.Forum activeCollab = null;
-    com.topcoder.dde.catalog.Forum activeSpec = null;
+    com.topcoder.dde.catalog.ForumCategory activeCollab = null;
+    com.topcoder.dde.catalog.ForumCategory activeSpec = null;
     ComponentVersionInfo versions[] = null;
-    com.topcoder.dde.catalog.Forum collaborations[] = null;
-    com.topcoder.dde.catalog.Forum specifications[] = null;
+    com.topcoder.dde.catalog.ForumCategory collaborations[] = null;
+    com.topcoder.dde.catalog.ForumCategory specifications[] = null;
 
     ComponentVersionInfo versionInfo = details.getVers();
     ComponentInfo componentInfo = details.getInfo();
@@ -173,8 +173,8 @@
 
         Collection colVersions = componentManager.getAllVersionInfo();
         versions = (ComponentVersionInfo[])colVersions.toArray(new ComponentVersionInfo[0]);
-        collaborations = new com.topcoder.dde.catalog.Forum[versions.length];
-        specifications = new com.topcoder.dde.catalog.Forum[versions.length];
+        collaborations = new com.topcoder.dde.catalog.ForumCategory[versions.length];
+        specifications = new com.topcoder.dde.catalog.ForumCategory[versions.length];
         for (int i=0; i < versions.length; i++) {
             if (versions[i].getPhase() != ComponentVersionInfo.COMPLETED) {
                 collaborations[i] = null;
@@ -183,8 +183,8 @@
             } else {
                 componentManager.setVersion(versions[i].getVersion());
                 try {
-                    collaborations[i] = componentManager.getForum(com.topcoder.dde.catalog.Forum.COLLABORATION);
-                    specifications[i] = componentManager.getForum(com.topcoder.dde.catalog.Forum.SPECIFICATION);
+                    collaborations[i] = componentManager.getForumCategory(com.topcoder.dde.catalog.Forum.COLLABORATION);
+                    specifications[i] = componentManager.getForumCategory(com.topcoder.dde.catalog.Forum.SPECIFICATION);
                 } catch (CatalogException ce) {
                     // getForum returns multiple forums of a type which is not supposed to happen
                     // what to do?
@@ -196,8 +196,8 @@
         }
         componentManager.setVersion(versionInfo.getVersion());
         try {
-            activeCollab = componentManager.getActiveForum(com.topcoder.dde.catalog.Forum.COLLABORATION);
-            activeSpec = componentManager.getActiveForum(com.topcoder.dde.catalog.Forum.SPECIFICATION);
+            activeCollab = componentManager.getActiveForumCategory(com.topcoder.dde.catalog.ForumCategory.COLLABORATION);
+            activeSpec = componentManager.getActiveForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
         } catch (CatalogException ce) {
         }
     } finally {}
@@ -480,14 +480,10 @@
 
                <tr>
 <!-- Documentation-->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 15px">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 20px">
                 <tr><td><img src="/images/catalog/catpg_document.gif" alt="Documentation" width="116" height="13" border="0" />
                       <font class="small"><a href="http://www.adobe.com/products/acrobat/readstep.html" target="_blank">Adobe Acrobat</a> is required to view TopCoder Software specification documentation.<br />
                   <hr width="100%" size="1" noshade="noshade" />
-               </td>
-            </tr>
-                <tr>
-                    <td>
                       <table border="0" cellpadding="10" cellspacing="0" width="100%">
                           <tr>
                               <td class="display" valign="top" width="33%">
@@ -629,13 +625,9 @@
             </table>
 
 <!-- Component Dependencies -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 15px">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 20px">
                 <tr><td><img src="/images/catalog/catpg_compdep.gif" alt="Component Hierarchy" width="187" height="17" border="0" /><br />
                       <hr width="100%" size="1" noshade="noshade" />
-                   </td>
-                </tr>
-                <tr>
-                    <td>
                         <table border="0" cellpadding="0" cellspacing="0">
 <%  if (summaries.length == 0) {
 %>
@@ -664,13 +656,9 @@
             </table>
 
 <!-- Enhancements -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 15px">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 25px">
                 <tr><td><img src="/images/catalog/catpg_enhance.gif" alt="Enhancements" width="113" height="13" border="0" /><br />
                       <hr width="100%" size="1" noshade="noshade" />
-                   </td>
-                </tr>
-                <tr>
-                    <td>
                         <table border="0" cellpadding="0" cellspacing="0">
                             <tr valign="top">
                                 <td class="rightColDisplay">Request an <a href="/components/request.jsp">enhancement</a>.</td>
@@ -710,24 +698,18 @@
 <!-- Previous Forums begin -->
 <%  if (hasPreviousForums) { %>
                 <tr><td><img src="/images/catalog/catpg_pforums.gif" alt="Previous Forums" width="129" height="13" border="0" />
-                      <font class="small">Previous forums are read only</font><br />
-                  <hr width="100%" size="1" noshade="noshade" />
-               </td>
-            </tr>
-                <tr>
-                    <td width="100%">
+                	<hr width="100%" size="1" noshade="noshade" />
                         <table border="0" cellspacing="0" cellpadding="0" width="100%">
 <%  for (int i=0; i < versions.length; i++) {
             if (collaborations[i] != null) {  %>
-                            <tr><td class="rightColDisplay"><a href="/forum/c_forum.jsp?f=<%= collaborations[i].getId() %>">Customer Forum Version <%= "" + versions[i].getVersionLabel() %></a></td></tr>
+                            <tr><td class="rightColDisplay"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%= collaborations[i].getId() %>">Customer Forum Version <%= "" + versions[i].getVersionLabel() %></a></td></tr>
             <%  }  if (specifications[i] != null) {  %>
-                            <tr><td class="rightColDisplay"><a href="/forum/c_forum.jsp?f=<%= specifications[i].getId() %>">Developer Forum Version <%= "" + versions[i].getVersionLabel() %></a></td></tr>
+                            <tr><td class="rightColDisplay"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%= specifications[i].getId() %>">Developer Forum Version <%= "" + versions[i].getVersionLabel() %></a></td></tr>
             <%  }
 }  %>
                             <tr><td height="5"><img src="/images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
                             <tr><td width="170"><img src="/images/clear.gif" alt="" width="170" height="1" border="0" /></td></tr>
                         </table>
-                    </td>
                 </tr>
 <% } %>
 <!-- Previous Forums end -->
