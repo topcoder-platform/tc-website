@@ -38,8 +38,8 @@ function canSend() {
 }
 
 function validate(send) {
-	if (isIncludeMailChecked) {
-	   alert("");
+	if (isIncludeMailChecked()) {
+	   alert("isIncludeMailChecked()");
        updateDivOrSpan(document, "attachValidation", "");
     } else {
 	   alert("Please answer this question.");
