@@ -40,7 +40,7 @@
        <tac:replaceChildren contextNodeID="runJS" parseOnServer="true">
        <div>
             <input type="hidden" id="handleValid" name="handleValid" value="<c:out value="${handleValidation.valid}" />" />
-            <input type="hidden" id="doSend" name="doSend" value="true" />" />       
+            <input type="hidden" id="doSend" name="doSend" value="true"/>       
        </div>
        </tac:replaceChildren>
     </c:when>
@@ -48,7 +48,7 @@
        <tac:replaceChildren contextNodeID="runJS" parseOnServer="true">
        <div>
             <input type="hidden" id="handleValid" name="handleValid" value="<c:out value="${handleValidation.valid}" />" />
-            <input type="hidden" id="doSend" name="doSend" value="false" />" />       
+            <input type="hidden" id="doSend" name="doSend" value="false"/>       
        </div>
        </tac:replaceChildren>
     </c:otherwise>
