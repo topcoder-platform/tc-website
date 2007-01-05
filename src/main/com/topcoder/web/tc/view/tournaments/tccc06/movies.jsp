@@ -1,3 +1,4 @@
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -23,16 +24,22 @@
       <div class="bodySpacer">
             
 <span class="bigTitle">Onsite Movies</span>
-      <table cellspacing=0 cellpadding=5 class="bodyText" width="100%">
-         <tr>
-            <td class="bodyText" align=center valign=top><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movieStream&clip=clip1"><img src="/i/tournament/tccc06/webcastThumbNail.jpg" border=0/></A>
-            <br><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movieStream&clip=clip1">Webcast (Part 1)</A><br></td>
-         </tr>
-      </table>
-        </div>
-      </td>
-        
-         
+
+<br><br>
+<span class="bodySubtitle">Webcast</span><br>
+Requires Flash 7 or higher:
+<br><br>
+<strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movieStream&clip=1">Chapter 1</A></strong> (26:27)<br>
+<strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movieStream&clip=2">Chapter 2</A></strong> (28:48)<br>
+<strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movieStream&clip=3">Chapter 3</A></strong> (30:37)<br>
+<strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movieStream&clip=4">Chapter 4</A></strong> (29:46)<br>
+<strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movieStream&clip=5">Chapter 5</A></strong> (32:31)<br>
+<strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movieStream&clip=6">Chapter 6</A></strong> (29:54)<br>
+<strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movieStream&clip=7">Chapter 7</A></strong> (26:22)<br>
+<strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movieStream&clip=8">Chapter 8</A></strong> (25:27)
+<br><br>
+<tc-webtag:forumLink forumID="506218" message="Discuss the webcast" />
+
 <!-- Right Column-->
         <td width="170" align="right">
             <jsp:include page="../right.jsp">
