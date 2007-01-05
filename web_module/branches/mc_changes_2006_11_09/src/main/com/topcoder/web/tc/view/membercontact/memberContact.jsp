@@ -20,22 +20,26 @@
 
 var prevCanSend = false;
 
-function canSend() {
-   return document.f.<%= SendMail.TEXT %>.value != "" &&
-           document.f.handleValid.value == "true";
+function includeMailChecked() {
+    for (i=0;i<document.f.attach.length;i++){
+       if (document.f.attach[i].checked)
+          return true;
+    } 
+    return false;
 }
 
-function addMail() {
-   document.f.<%= SendMail.CONTACT_INF %>.value += "<c:out value="${sm}" />";
+function canSend() {
+   return document.f.<%= SendMail.TEXT %>.value != "" &&
+          <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
+	        includeMailChecked() &&
+          </c:if>
+           document.f.handleValid.value == "true";
 }
 
 function validate(send) {
     var ajaxRequest = new AjaxRequest('/tc?module=ValidateHandle');
     ajaxRequest.addFormElementsById("<%= SendMail.TO_HANDLE %>");
     ajaxRequest.addFormElementsById("<%= SendMail.TEXT %>");    
-    <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
-        ajaxRequest.addFormElementsById("<%= SendMail.CONTACT_INF %>");    
-    </c:if>
     if (send) {
 	    ajaxRequest.setPostRequest(afterRequest);
     } else {
@@ -158,9 +162,9 @@ Would you like to attach your email address to the message?
 <span class="bigRed">Please answer this question.</span>
 <%-------------------------------------------------------------%>
 <br />
-<input type="radio" name="attach" id="attach" value=""> Yes
+<input type="radio" name="attach" value=""> Yes
 <br />
-<input type="radio" name="attach" id="attach" value=""> No
+<input type="radio" name="attach" value=""> No
 <br /><br />
 <%--
 <br /><br />
