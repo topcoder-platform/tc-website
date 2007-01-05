@@ -315,17 +315,7 @@
             **
             <% } %>
         </b></TD>
-        <% if (reviewers.isEmpty()) { %>
-        <TD class="valueC">
-            <rsc:item row="<%=resultRow%>" name="score1" format="0.00"/>
-        </TD>
-        <TD class="valueC">
-            <rsc:item row="<%=resultRow%>" name="score2" format="0.00"/>
-        </TD>
-        <TD class="valueC">
-            <rsc:item row="<%=resultRow%>" name="score3" format="0.00"/>
-        </TD>
-        <% } else {
+        <%
             for (int k = 0; k < 3; k++) {
                 if (reviewers.size() < k - 1) { %>
         <TD class="valueC">
@@ -349,7 +339,6 @@
             <a href='/tc?module=DownloadSubmission&cr=<%= resultRow.getLongItem("user_id") %>&pj=<%= projectId %>&st=1&ph=<%= projectInfo.getStringItem(0, "phase_id") %>'>
                 <img src="/i/interface/emblem/disk.gif" alt="Download submission" border="0" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()"/></a>
         </TD>
-        <% } %>
         <% } %>
         <% } %>
 
