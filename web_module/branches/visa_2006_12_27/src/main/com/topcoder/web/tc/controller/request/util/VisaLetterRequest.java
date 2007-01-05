@@ -5,15 +5,18 @@ import java.util.Date;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.VisaLetterEventDAO;
 import com.topcoder.web.common.dao.VisaLetterRequestDAO;
 import com.topcoder.web.common.model.Address;
+import com.topcoder.web.common.model.Phone;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.VisaLetterEvent;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.Validator;
+import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.validation.Address1Validator;
 import com.topcoder.web.reg.validation.Address2Validator;
 import com.topcoder.web.reg.validation.Address3Validator;
@@ -22,7 +25,6 @@ import com.topcoder.web.reg.validation.CountryValidator;
 import com.topcoder.web.reg.validation.PostalCodeValidator;
 import com.topcoder.web.reg.validation.ProvinceValidator;
 import com.topcoder.web.reg.validation.StateValidator;
-import com.topcoder.web.reg.Constants;
 
 /**
  * @author cucu
@@ -151,8 +153,13 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         }
         
         if ((forceRequest || req == null) && !noEvent) {
-        	setDefault(FULL_NAME, user.getFirstName() + " " + user.getMiddleName() + " " + user.getLastName());
-        	setDefault(PHONE_NUMBER, user.getPrimaryPhoneNumber().getNumber());
+        	setDefault(FULL_NAME, fullName(user.getFirstName(), user.getMiddleName(), user.getLastName()));
+        	
+        	Phone ph = user.getPrimaryPhoneNumber();
+        	if (ph != null) {
+        		setDefault(PHONE_NUMBER, ph.getNumber());
+        	}
+        	
         	getRequest().setAttribute("event", event);
         	getRequest().setAttribute("address", user.getHomeAddress());
             getRequest().setAttribute("countries", DAOUtil.getFactory().getCountryDAO().getCountries());
@@ -168,7 +175,30 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
     }
 
 
-    private Address getAddress(String prefix) {
+    private Object fullName(String f, String m, String l) {
+    	StringBuffer sb = new StringBuffer(30);
+    	if (StringUtils.checkNull(f).trim().length() > 0) {
+    		sb.append(f);    		
+    	}
+    	if (StringUtils.checkNull(m).trim().length() > 0) {
+    		if (sb.length() > 0) {
+    			sb.append(' ');
+    		}
+    		sb.append(m);    		
+    	}
+    	if (StringUtils.checkNull(l).trim().length() > 0) {
+    		if (sb.length() > 0) {
+    			sb.append(' ');
+    		}
+    		sb.append(l);    		
+    	}
+    	
+    	
+    	return sb.toString();
+	}
+
+
+	private Address getAddress(String prefix) {
         simpleValidation(Address1Validator.class, prefix + Constants.ADDRESS1);
         simpleValidation(Address2Validator.class, prefix + Constants.ADDRESS2);
         simpleValidation(Address3Validator.class, prefix + Constants.ADDRESS3);
