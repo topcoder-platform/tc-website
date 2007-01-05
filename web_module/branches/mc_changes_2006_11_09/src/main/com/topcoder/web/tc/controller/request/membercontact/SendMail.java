@@ -79,7 +79,7 @@ public class SendMail extends ShortHibernateProcessor {
 
         log.info("attachEmail: " + attachEmail);
         String contactInf = "";
-        if (attachEmail == "Yes") {
+        if (attachEmail.trim().equals("Yes")) {
             log.info("Yes");    
             log.info("senderEmail" + senderEmail);    
             contactInf = "\n\n Sender's email: " + senderEmail;
