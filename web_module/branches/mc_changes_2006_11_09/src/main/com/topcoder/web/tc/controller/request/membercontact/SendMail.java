@@ -62,17 +62,18 @@ public class SendMail extends ShortHibernateProcessor {
         String toHandle = getRequest().getParameter(TO_HANDLE);
         String message = getRequest().getParameter(TEXT);
         boolean sendCopy = getRequest().getParameter(SEND_COPY) != null;
-
-        // Check again that the the contact information is valid when the user cannot
-        // receive messages, in case that someone has tweaked the jsp or some kind of hack
-        //if (!sender.isMemberContactEnabled() && !hasParameter(CONTACT_INF)) {
-        //    throw new Exception("Sender don't have MC enabled and contact information was not provided.");
-        //}
+        String attachEmail = getRequest().getParameter(ATTACH);
         
-        //String contactInf = "";
-        //if (hasParameter(CONTACT_INF)) {
-        //    contactInf = "\n\n" + Constants.CONTACT_INFORMATION_TITLE + getRequest().getParameter(CONTACT_INF);
-        //}
+        // Check again that the user choose to attach or not his email when the user cannot
+        // receive messages, in case that someone has tweaked the jsp or some kind of hack
+        if (!sender.isMemberContactEnabled() && attachEmail == "") {
+            throw new Exception("Sender don't have MC enabled and contact information was not provided.");
+        }
+        
+        String contactInf = "";
+        if (attachEmail == "Yes") {
+            contactInf = "\n\n" + Constants.CONTACT_INFORMATION_TITLE + sender.getEmailAddresses();
+        }
 
         // Check again that the user is valid, in case that someone has tweaked the jsp
         // or some kind of hack
@@ -88,8 +89,7 @@ public class SendMail extends ShortHibernateProcessor {
         // send the original message
         TCSEmailMessage mail = new TCSEmailMessage();
         mail.setSubject(Constants.MEMBER_CONTACT_SUBJECT.replaceAll("%", sender.getHandle()));
-        //mail.setBody(message + contactInf);
-        mail.setBody(message);
+        mail.setBody(message + contactInf);
         mail.setToAddress(recipientEmail, TCSEmailMessage.TO);
         mail.setFromAddress(Constants.MEMBER_CONTACT_FROM_ADDRESS);
         EmailEngine.send(mail);

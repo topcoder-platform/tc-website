@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=utf-8" %>
+f<%@ page contentType="text/html;charset=utf-8" %>
 <%@ page language="java"
          import="com.topcoder.web.tc.controller.request.membercontact.MemberContact,
                  com.topcoder.web.tc.controller.request.membercontact.SendMail,
@@ -19,8 +19,6 @@
 
 <c:set value="<%=MemberContact.CAN_RECEIVE%>" var="canReceive"/>
 
-var prevCanSend = false;
-
 function isIncludeMailChecked() {
     for (i=0;i<document.f.<%= SendMail.ATTACH %>.length;i++){
        if (document.f.attach[i].checked)
@@ -39,12 +37,14 @@ function canSend() {
 
 function validateLocal() {
 	valid = false;
-	if (isIncludeMailChecked()) {
-       updateDivOrSpan(document, "attachValidation", "");
-       	valid = true;
-    } else {
-       updateDivOrSpan(document, "attachValidation", "Please answer this question.");
-    }
+    <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
+		if (isIncludeMailChecked()) {
+	       updateDivOrSpan(document, "attachValidation", "");
+	       	valid = true;
+	    } else {
+	       updateDivOrSpan(document, "attachValidation", "Please answer this question.");
+	    }
+    </c:if>
     if (document.f.<%= SendMail.TEXT %>.value != "") {
        updateDivOrSpan(document, "textValidation", "");
        	valid = true;
@@ -57,11 +57,10 @@ function validateLocal() {
 function validateHandle(send) {
     var ajaxRequest = new AjaxRequest('/tc?module=ValidateHandle');
     ajaxRequest.addFormElementsById("<%= SendMail.TO_HANDLE %>");
-//    ajaxRequest.addFormElementsById("<%= SendMail.TEXT %>");    
     if (send) {
 	    ajaxRequest.setPostRequest(afterRequest);
-    } else {
-	    ajaxRequest.setPostRequest(doNothing);
+//    } else {
+//	    ajaxRequest.setPostRequest(doNothing);
     }
     ajaxRequest.sendRequest();
 }
@@ -170,7 +169,7 @@ To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.
 <span class="smallText">(Enter TopCoder handle only, one per message)</span>
 <br /><br />
 
-<textarea name='<%= SendMail.TEXT %>' id='<%= SendMail.TEXT %>' onBlur='validateLocal()' cols='50' rows='10'></textarea>
+<textarea name='<%= SendMail.TEXT %>' id='<%= SendMail.TEXT %>' onKeyUp='validateLocal()' onBlur='validateLocal()' cols='50' rows='10'></textarea>
 <br />
 <span id=textValidation class="bigRed"></span>
 <br /><br />
