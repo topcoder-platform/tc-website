@@ -227,6 +227,14 @@ High School
 
 </ul>
 
+Studio
+<ul>
+    <li>
+        <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=studio_reg&"+Constants.DB_KEY+"="+Query.TRANSACTIONAL%>">Registration</A>
+    </li>
+
+</ul>
+
 
 Placement
 <UL>
