@@ -22,9 +22,6 @@ var prevCanSend = false;
 
 function canSend() {
    return document.f.<%= SendMail.TEXT %>.value != "" &&
-          <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
-          document.f.<%= SendMail.CONTACT_INF %>.value != "" &&
-          </c:if>
            document.f.handleValid.value == "true";
 }
 
@@ -55,9 +52,9 @@ function textChanged() {
 
 function afterRequest() 
 {
- //   if (canSend() && document.f.doSend.value == "true") {
+   if (canSend() && document.f.doSend.value == "true") {
         document.f.submit();
- //   }    
+   }    
 }
 
 

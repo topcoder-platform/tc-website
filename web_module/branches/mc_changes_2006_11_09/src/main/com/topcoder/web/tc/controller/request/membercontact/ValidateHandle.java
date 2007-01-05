@@ -30,15 +30,15 @@ public class ValidateHandle extends ShortHibernateProcessor {
 
         // forces non-empty contact information in case the user cannot receive message
         // because of disables MC
-        ValidationResult contactValidation = ValidationResult.SUCCESS;
+/*        ValidationResult contactValidation = ValidationResult.SUCCESS;
         if (!user.isMemberContactEnabled()) {
             contactValidation = new NonEmptyValidator("Please enter the contact information.")
             .validate(new StringInput(getRequest().getParameter(SendMail.CONTACT_INF)));
-        }
+        }*/
         
         getRequest().setAttribute("handleValidation", handleValidation);
         getRequest().setAttribute("textValidation", textValidation);
-        getRequest().setAttribute("contactValidation", contactValidation);
+        //getRequest().setAttribute("contactValidation", contactValidation);
 
         setNextPage(Constants.VALIDATE_HANDLE);
         setIsNextPageInContext(true);
