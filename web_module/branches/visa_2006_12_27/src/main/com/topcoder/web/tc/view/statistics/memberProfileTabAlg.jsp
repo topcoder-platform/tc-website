@@ -6,7 +6,6 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
 <% ResultSetContainer rscAlgData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Alg_Data"); %>
 <% ResultSetContainer rscCoderData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Data"); %>
-<script src="/js/profileGraphs.js" type="text/javascript"></script>
 <SCRIPT LANGUAGE="JavaScript">
 <!--
 var MM_contentVersion = 6;
@@ -32,6 +31,8 @@ if ( plugin ) {
 }
 //-->
 </SCRIPT>
+<script src="/js/profileGraphs.js" type="text/javascript"></script>
+
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
       <td class="divider">
