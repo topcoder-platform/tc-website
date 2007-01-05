@@ -168,20 +168,20 @@ No Visa Letter Events defined.
 		<tr>
 			<td>
 				<c:out value="${req.address.address1}" /><br>
-				<c:out value="${req.address.address2}" /><br>				
-				<c:out value="${req.address.address3}" /><br>		
+				<c:out value="${req.address.address2}" /><c:if test="${not emptyreq.address.address2}"><br></c:if>
+				<c:out value="${req.address.address3}" /><c:if test="${not emptyreq.address.address3}"><br></c:if>
 				<c:out value="${req.address.city}" />, <c:out value="${req.address.state.name}" /><br>		
-				<c:out value="${req.address.postalCode}" /><br>
-				<c:out value="${req.address.province}" /><br>
+				<c:out value="${req.address.postalCode}" /><c:if test="${not emptyreq.address.postalCode}"><br></c:if>
+				<c:out value="${req.address.province}" /><c:if test="${not emptyreq.address.province}"><br></c:if>
 				<c:out value="${req.address.country.name}" />
 			</td>
 			<td>
 				<c:out value="${req.shippingAddress.address1}" /><br>
-				<c:out value="${req.shippingAddress.address2}" /><br>				
-				<c:out value="${req.shippingAddress.address3}" /><br>		
+				<c:out value="${req.shippingAddress.address2}" /><c:if test="${not emptyreq.shippingAddress.address2}"><br></c:if>
+				<c:out value="${req.shippingAddress.address3}" /><c:if test="${not emptyreq.shippingAddress.address3}"><br></c:if>
 				<c:out value="${req.shippingAddress.city}" />, <c:out value="${req.shippingAddress.state.name}" /><br>		
-				<c:out value="${req.shippingAddress.postalCode}" /><br>
-				<c:out value="${req.shippingAddress.province}" /><br>
+				<c:out value="${req.shippingAddress.postalCode}" /><c:if test="${not emptyreq.shippingAddress.postalCode}"><br></c:if>
+				<c:out value="${req.shippingAddress.province}" /><c:if test="${not emptyreq.shippingAddress.province}"><br></c:if>
 				<c:out value="${req.shippingAddress.country.name}" />
 			</td>
 		</tr>
