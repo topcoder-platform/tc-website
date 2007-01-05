@@ -44,10 +44,7 @@ function validate(send) {
 }
 
 function textChanged() {
-//    if (prevCanSend != canSend()) {
-//        validate(false);
-//        prevCanSend = canSend();
-//    }
+        validate(false);
 }
 
 function afterRequest() 
@@ -140,7 +137,7 @@ To block specific TopCoder members from contacting you, go to the <a href='/tc?m
 <br>
 <input type="hidden" id="<%= SendMail.SEND %>" name="<%= SendMail.SEND %>" value="true" />
 
-To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HANDLE %>' size='12' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
+To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HANDLE %>' size='12' onBlur='textChanged()' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
 <div id="validationHandle"> </div>
 <span class="smallText">(Enter TopCoder handle only, one per message)</span>
 <br /><br />

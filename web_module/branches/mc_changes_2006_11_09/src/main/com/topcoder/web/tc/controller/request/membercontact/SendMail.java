@@ -88,6 +88,7 @@ public class SendMail extends ShortHibernateProcessor {
         TCSEmailMessage mail = new TCSEmailMessage();
         mail.setSubject(Constants.MEMBER_CONTACT_SUBJECT.replaceAll("%", sender.getHandle()));
         //mail.setBody(message + contactInf);
+        mail.setBody(message);
         mail.setToAddress(recipientEmail, TCSEmailMessage.TO);
         mail.setFromAddress(Constants.MEMBER_CONTACT_FROM_ADDRESS);
         EmailEngine.send(mail);
