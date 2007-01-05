@@ -225,7 +225,7 @@
         for (int k = 0; k < 3; k++) {
     %>
     <TD CLASS="headerC">
-        <% if (reviewers.size() < k) { %>
+        <% if (reviewers.size() < k + 1) { %>
         unknown*
         <% } else { %>
         <% if ("Stress".equalsIgnoreCase(reviewers.getStringItem(k, "review_resp_desc"))) { %>
@@ -310,7 +310,7 @@
         </b></TD>
         <%
             for (int k = 0; k < 3; k++) {
-                if (reviewers.size() < k) { %>
+                if (reviewers.size() < k + 1) { %>
         <TD class="valueC">
             <rsc:item row="<%=resultRow%>" name="<%="score"+(k+1)%>" format="0.00"/>
         </TD>
