@@ -170,7 +170,8 @@ To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.
 <span class="smallText">(Enter TopCoder handle only, one per message)</span>
 <br /><br />
 
-<textarea name='<%= SendMail.TEXT %>' id='<%= SendMail.TEXT %>' cols='50' rows='10'></textarea>
+<textarea name='<%= SendMail.TEXT %>' id='<%= SendMail.TEXT %>' onBlur='validateLocal()' cols='50' rows='10'></textarea>
+<br />
 <span id=textValidation class="bigRed"></span>
 <br /><br />
 
