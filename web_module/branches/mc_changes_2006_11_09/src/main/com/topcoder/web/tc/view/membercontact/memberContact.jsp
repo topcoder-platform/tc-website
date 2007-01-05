@@ -20,8 +20,8 @@
 
 var prevCanSend = false;
 
-function includeMailChecked() {
-    for (i=0;i<document.f.attach.length;i++){
+function isIncludeMailChecked() {
+    for (i=0;i<document.f.<%= SendMail.ATTACH %>.length;i++){
        if (document.f.attach[i].checked)
           return true;
     } 
@@ -31,7 +31,7 @@ function includeMailChecked() {
 function canSend() {
    return document.f.<%= SendMail.TEXT %>.value != "" &&
           <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
-	        includeMailChecked() &&
+	        isIncludeMailChecked() &&
           </c:if>
            document.f.handleValid.value == "true";
 }
@@ -40,6 +40,7 @@ function validate(send) {
     var ajaxRequest = new AjaxRequest('/tc?module=ValidateHandle');
     ajaxRequest.addFormElementsById("<%= SendMail.TO_HANDLE %>");
     ajaxRequest.addFormElementsById("<%= SendMail.TEXT %>");    
+    ajaxRequest.addFormElementsById("<%= SendMail.ATTACH %>");
     if (send) {
 	    ajaxRequest.setPostRequest(afterRequest);
     } else {
@@ -49,7 +50,10 @@ function validate(send) {
 }
 
 function textChanged() {
-        validate(false);
+    if (prevCanSend != canSend()) {
+		validate(false);
+	    prevCanSend = canSend();
+    }
 }
 
 function afterRequest() 
@@ -151,6 +155,7 @@ To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.
 <br /><br />
 
 <textarea name='<%= SendMail.TEXT %>' id='<%= SendMail.TEXT %>' cols='50' rows='10' onKeyUp='textChanged()'></textarea>
+<div id="validationText"> </div>
 <br /><br />
 
 <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
@@ -159,12 +164,12 @@ To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.
 Would you like to attach your email address to the message?
 <br />
 <%-- APPEARS WHEN YOU CLICK SUBMIT WITHOUT PICKING YES OR NO --%>
-<span class="bigRed">Please answer this question.</span>
+<div id="validationRadio"> </div>
 <%-------------------------------------------------------------%>
 <br />
-<input type="radio" name="attach" value=""> Yes
+<input type="radio" name="<%= SendMail.ATTACH %>" value=""> Yes
 <br />
-<input type="radio" name="attach" value=""> No
+<input type="radio" name="<%= SendMail.ATTACH %>" value=""> No
 <br /><br />
 <%--
 <br /><br />

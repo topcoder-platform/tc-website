@@ -17,6 +17,20 @@
         </tac:replaceChildren>
     </c:otherwise>
 </c:choose>
+<c:choose>
+    <c:when test="${textValidation.valid}">
+        <tac:replaceChildren contextNodeID="validationText" parseOnServer="true">
+                <div> </div>
+        </tac:replaceChildren>
+    </c:when>
+    <c:otherwise>
+        <tac:replaceChildren contextNodeID="validationText" parseOnServer="true">
+            <div style="font-weight:bold;color:red;">
+               <c:out value="${textValidation.message}" />
+            </div>
+        </tac:replaceChildren>
+    </c:otherwise>
+</c:choose>
 <!-- 
 <c:choose>
     <c:when test="${textValidation.valid && handleValidation.valid && contactValidation.valid}">

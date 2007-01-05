@@ -21,7 +21,10 @@ public class ValidateHandle extends ShortHibernateProcessor {
     protected void dbProcessing() throws Exception {
         String handle = getRequest().getParameter(SendMail.TO_HANDLE);
         String text = getRequest().getParameter(SendMail.TEXT);
+        String attach = getRequest().getParameter(SendMail.ATTACH);
 
+        log.info("attach: " + attach);
+        
         User user = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
         ValidationResult handleValidation = new HandleValidator(user).validate(new StringInput(handle));
