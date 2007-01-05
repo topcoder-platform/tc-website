@@ -9,7 +9,7 @@
 <%@ page import="java.util.List" %>
 <head>
     <title>TopCoder - Message</title>
-    <jsp:include page="../script.jsp"/>
+    <jsp:include page="/script.jsp"/>
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
@@ -19,7 +19,7 @@
 
 <body>
 
-<jsp:include page="../top.jsp">
+<jsp:include page="../../top.jsp">
     <jsp:param name="level1" value="development"/>
 </jsp:include>
 
@@ -44,6 +44,7 @@
 				<jsp:param name="image" value="assembly"/>
 			    <jsp:param name="title" value="Active Contests"/>
             </jsp:include>
+           
 
             <form action="${sessionInfo.servletPath}" method="POST" name="regForm">
                 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ProjectRegister"/>
