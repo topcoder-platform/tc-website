@@ -36,9 +36,9 @@ function validate(send) {
     <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
         ajaxRequest.addFormElementsById("<%= SendMail.CONTACT_INF %>");    
     </c:if>
-//    if (send) {
+    if (send) {
         ajaxRequest.addFormElementsById("<%= SendMail.SEND %>");
-//    }
+    }
     ajaxRequest.setPostRequest(afterRequest);
     ajaxRequest.sendRequest();
 }
@@ -50,7 +50,8 @@ function textChanged() {
 function afterRequest() 
 {
    if (canSend() && document.f.doSend.value == "true") {
-        document.f.submit();
+//        document.f.submit();
+        alert(   		document.f.attach.value);
    }    
 }
 
