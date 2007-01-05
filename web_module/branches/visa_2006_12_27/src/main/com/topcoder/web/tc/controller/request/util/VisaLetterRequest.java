@@ -138,7 +138,7 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
 	        	reqDAO.saveOrUpdate(req);
 
 	        	setNextPage("/tc?module=VisaLetterRequest&eid=" + event.getId());        		
-	        	setIsNextPageInContext(true);
+	        	setIsNextPageInContext(false);
 	        	return;
         	}
         } else {
