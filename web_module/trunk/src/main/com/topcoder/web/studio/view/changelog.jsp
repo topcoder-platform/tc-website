@@ -26,6 +26,12 @@
 
             <div class="contentSpacer">
                 <p>
+                    1.2.1 - 2007.xx.xx
+                    <ul>
+                        <li>Allow users to download their own submissions before the contest is over.</li>
+                    </ul>
+                </p>
+                <p>
                     1.2.0 - 2006.12.04
                     <ul>
                         <li>Add user submission ranking system.</li>
@@ -34,9 +40,11 @@
                             once.
                         </li>
                         <li>For contests where there are submission limits, only include those that count in the
-                            submissions column of active and past contests pages.</li>
+                            submissions column of active and past contests pages.
+                        </li>
                         <li>For contests where there are submission limits, only include those that
-                            count on the submissions page.</li>
+                            count on the submissions page.
+                        </li>
 
                     </ul>
                 </p>
