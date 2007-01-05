@@ -329,13 +329,13 @@
             for (int k = 0; k < 3; k++) {
                 if (reviewers.size() < k - 1) { %>
         <TD class="valueC">
-            <rsc:item row="<%=resultRow%>" name="score<%=k+1%>" format="0.00"/>
+            <rsc:item row="<%=resultRow%>" name="<%="score"+(k+1)%>" format="0.00"/>
         </TD>
         <%
         } else { %>
         <TD class="valueC">
             <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>&rid=<%=reviewers.getLongItem(k, "reviewer_id")%>' class="bcLink">
-                <rsc:item row="<%=resultRow%>" name="score<%=k+1%>" format="0.00"/>
+                <rsc:item row="<%=resultRow%>" name="<%="score"+(k+1)%>" format="0.00"/>
             </A>
         </TD>
         <% }
