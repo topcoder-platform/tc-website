@@ -67,9 +67,15 @@ public class SendMail extends ShortHibernateProcessor {
         // Check again that the user choose to attach or not his email when the user cannot
         // receive messages, in case that someone has tweaked the jsp or some kind of hack
         if (!sender.isMemberContactEnabled() && attachEmail == "") {
-            throw new Exception("Sender don't have MC enabled and contact information was not provided.");
+            throw new Exception("Sender don't have MC enabled and email attachment question wasn't responded.");
         }
         
+        // Check again that the user wrote a messages, in case that someone has tweaked the jsp or some kind of hack
+        if (message == "") {
+            throw new Exception("Empty message isn't allowed.");
+        }
+        
+        log.info("attachEmail: " + attachEmail);
         String contactInf = "";
         if (attachEmail == "Yes") {
             contactInf = "\n\n" + Constants.CONTACT_INFORMATION_TITLE + sender.getEmailAddresses();
