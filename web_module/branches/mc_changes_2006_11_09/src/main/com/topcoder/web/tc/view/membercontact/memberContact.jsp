@@ -72,10 +72,6 @@ function keyPress(e) {
 
 function init() {
     document.f.<%= SendMail.TO_HANDLE %>.focus();
-<c:if test="${not empty param.th}" >
-    validate(false);
-    document.f.<%= SendMail.TEXT %>.focus();    
-</c:if>
 }
 
 </script>
@@ -144,7 +140,7 @@ To block specific TopCoder members from contacting you, go to the <a href='/tc?m
 <br>
 <input type="hidden" id="<%= SendMail.SEND %>" name="<%= SendMail.SEND %>" value="true" />
 
-To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HANDLE %>' size='12' onBlur='validate(false)' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
+To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HANDLE %>' size='12' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
 <div id="validationHandle"> </div>
 <span class="smallText">(Enter TopCoder handle only, one per message)</span>
 <br /><br />
