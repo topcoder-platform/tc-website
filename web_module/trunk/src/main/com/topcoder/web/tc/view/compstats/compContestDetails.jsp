@@ -137,30 +137,27 @@
             </TD>
         </tr>
         <tr>
-            <td class="value" valign="top" style="border: none; padding-top: 3px"><strong>Catalog:</TD>
-            <TD class="value" align="right" valign="top" style="border: none; padding-top: 3px"><img src='<%=imgName%>'
-                                                                                                     alt='<rsc:item set="<%=projectInfo%>" name="category_desc"/>'
-                                                                                                     border="0"/></TD>
+            <td class="value" valign="top" style="border: none; padding-top: 3px"><strong>Catalog:</strong></td>
+            <TD class="value" align="right" valign="top" style="border: none; padding-top: 3px">
+                <img src='<%=imgName%>' alt='<rsc:item set="<%=projectInfo%>" name="category_desc"/>' border="0"/>
+            </TD>
         </tr>
         <tr>
             <td class="value" style="border: none;"><strong>Registrants:</strong></TD>
             <TD class="value" style="border: none;" align="right">
-                <rsc:item set="<%=projectInfo%>" name="num_inquiries"
-                          ifNull="unknown*"/>
+                <rsc:item set="<%=projectInfo%>" name="num_inquiries" ifNull="unknown*"/>
             </TD>
         </tr>
         <tr>
             <td class="value" style="border: none;"><strong>Submissions:</strong></TD>
             <TD class="value" style="border: none;" align="right">
-                <rsc:item set="<%=projectInfo%>" name="num_submissions"
-                          ifNull="unknown*"/>
+                <rsc:item set="<%=projectInfo%>" name="num_submissions" ifNull="unknown*"/>
             </TD>
         </tr>
         <tr>
             <td class="value" style="border: none;" nowrap="nowrap"><strong>Submission %:</strong></TD>
             <TD class="value" style="border: none;" align="right">
-                <rsc:item set="<%=projectInfo%>" name="submission_percent" format="0.00'%'"
-                          ifNull="unknown*"/>
+                <rsc:item set="<%=projectInfo%>" name="submission_percent" format="0.00'%'" ifNull="unknown*"/>
             </TD>
         </tr>
         <tr>
@@ -172,22 +169,19 @@
         <tr>
             <td class="value" style="border: none;" nowrap="nowrap"><strong>Passed %:</strong></TD>
             <TD class="value" style="border: none;" align="right">
-                <rsc:item set="<%=projectInfo%>" name="passed_percent" format="0.00'%'"
-                          ifNull="unknown*"/>
+                <rsc:item set="<%=projectInfo%>" name="passed_percent" format="0.00'%'" ifNull="unknown*"/>
             </TD>
         </tr>
         <tr>
             <td class="value" style="border: none;" nowrap="nowrap"><strong>Avg Initial Score:</strong></TD>
             <TD class="value" style="border: none;" align="right">
-                <rsc:item set="<%=projectInfo%>" name="avg_raw_score" format="0.00"
-                          ifNull="unknown*"/>
+                <rsc:item set="<%=projectInfo%>" name="avg_raw_score" format="0.00" ifNull="unknown*"/>
             </TD>
         </tr>
         <tr>
             <td class="value" style="border: none;" nowrap="nowrap"><strong>Avg Final Score:</strong></TD>
             <TD class="value" style="border: none;" align="right">
-                <rsc:item set="<%=projectInfo%>" name="avg_final_score" format="0.00"
-                          ifNull="unknown*"/>
+                <rsc:item set="<%=projectInfo%>" name="avg_final_score" format="0.00" ifNull="unknown*"/>
             </TD>
         </tr>
     </table>
@@ -308,8 +302,7 @@
             <rsc:item row="<%=resultRow%>" name="final_score" format="0.00" ifNull="unknown*"/>
         </b></TD>
         <TD class="valueC"><b>
-            <rsc:item row="<%=resultRow%>" name="final_points"
-                      ifNull="N/A"/>
+            <rsc:item row="<%=resultRow%>" name="final_points" ifNull="N/A"/>
             <% if (resultRow.getItem("final_points").getResultData() != null &&
                     resultRow.getIntItem("final_points") != resultRow.getIntItem("initial_points")) { %>
             **
@@ -330,7 +323,7 @@
         </TD>
         <% }
         %>
-
+        <% } %>
         <% if (canDownloadSubm) { %>
         <TD class="valueC" nowrap="nowrap">
             <div id="pop<%=i%>" class="popUp">
@@ -340,7 +333,7 @@
                 <img src="/i/interface/emblem/disk.gif" alt="Download submission" border="0" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()"/></a>
         </TD>
         <% } %>
-        <% } %>
+
 
         <% } else { %>
         <TD class="valueC" colspan="7">&nbsp;</TD>
