@@ -18,12 +18,14 @@
             margin: 0px auto;
         }
     </STYLE>
-    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        <!--
-        _uacct = "UA-321688-1"; urchinTracker();
-        -->
-    </script>
+    <%--
+        <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            <!--
+            _uacct = "UA-321688-1"; urchinTracker();
+            -->
+        </script>
+    --%>
 
 </head>
 
@@ -238,7 +240,7 @@
                 <A href="http://dev.aol.com/video"><img src="/i/home/aolWebcast_20061113.jpg" alt="Meet the TCCC webcast team" border="0" style="display:block;" /></A>
                 --%>
                 <%-- AOL Mashups --%>
-                <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2048"><img src="/i/home/aolmashups20070104_sm.jpg" alt="AOL Mashups" border="0" style="display:block;" /></A>
+                <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2048"><img src="/i/home/aolmashups20070104_sm.jpg" alt="AOL Mashups" border="0" style="display:block;"/></A>
                 <%-- WSJ
                 <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0" style="display:block;" /></A>
                 --%>
