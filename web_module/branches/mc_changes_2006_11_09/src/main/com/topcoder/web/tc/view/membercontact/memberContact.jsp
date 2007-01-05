@@ -14,6 +14,7 @@
 <title>Member Contact</title>
          
 <script type="text/javascript" src="/js/taconite-client.js"></script>
+<script type="text/javascript" src="/js/tcdhtml.js"></script>
 <script type="text/javascript">
 
 <c:set value="<%=MemberContact.CAN_RECEIVE%>" var="canReceive"/>
@@ -37,6 +38,13 @@ function canSend() {
 }
 
 function validate(send) {
+	if (isIncludeMailChecked) {
+       updateDivOrSpan(document, "attachValidation", "");
+    } else {
+       updateDivOrSpan(document, "attachValidation", "Please answer this question.");
+    }
+
+
     var ajaxRequest = new AjaxRequest('/tc?module=ValidateHandle');
     ajaxRequest.addFormElementsById("<%= SendMail.TO_HANDLE %>");
     ajaxRequest.addFormElementsById("<%= SendMail.TEXT %>");    
@@ -164,7 +172,7 @@ To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.
 Would you like to attach your email address to the message?
 <br />
 <%-- APPEARS WHEN YOU CLICK SUBMIT WITHOUT PICKING YES OR NO --%>
-<div id="validationRadio"> </div>
+<span id=attachValidation class="bigRed"></span>
 <%-------------------------------------------------------------%>
 <br />
 <input type="radio" name="<%= SendMail.ATTACH %>" value=""> Yes
