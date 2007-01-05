@@ -334,7 +334,7 @@
             <A href="/tc" class="footerLinks">Developer Center</A>&#160;&#160;|&#160;&#160;
             <A href="/corp/?module=Static&d1=corp&d2=index" class="footerLinks">Corporate Services</A></td>
         <tr>
-            <td class="copyright" colspan="5">Copyright &#169; 2001-2006, TopCoder, Inc. All rights reserved.</td>
+            <td class="copyright" colspan="5">Copyright &#169; 2001-2007, TopCoder, Inc. All rights reserved.</td>
         </tr>
 </table>
 </body>
