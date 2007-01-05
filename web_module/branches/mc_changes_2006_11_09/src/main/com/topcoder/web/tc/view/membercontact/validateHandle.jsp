@@ -35,11 +35,23 @@
     </c:otherwise>
 </c:choose>
  -->
+<c:choose>
+    <c:when test="${textValidation.valid && handleValidation.valid}">
        <tac:replaceChildren contextNodeID="runJS" parseOnServer="true">
        <div>
             <input type="hidden" id="handleValid" name="handleValid" value="<c:out value="${handleValidation.valid}" />" />
-            <input type="hidden" id="doSend" name="doSend" value="<c:out value="${not empty param.send}" />" />       
+            <input type="hidden" id="doSend" name="doSend" value="true" />" />       
        </div>
        </tac:replaceChildren>
+    </c:when>
+    <c:otherwise>
+       <tac:replaceChildren contextNodeID="runJS" parseOnServer="true">
+       <div>
+            <input type="hidden" id="handleValid" name="handleValid" value="<c:out value="${handleValidation.valid}" />" />
+            <input type="hidden" id="doSend" name="doSend" value="false" />" />       
+       </div>
+       </tac:replaceChildren>
+    </c:otherwise>
+</c:choose>
 
 </tac:taconiteRoot>

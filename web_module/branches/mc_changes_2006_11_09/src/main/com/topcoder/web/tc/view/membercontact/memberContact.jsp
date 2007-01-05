@@ -37,9 +37,10 @@ function validate(send) {
         ajaxRequest.addFormElementsById("<%= SendMail.CONTACT_INF %>");    
     </c:if>
     if (send) {
-        ajaxRequest.addFormElementsById("<%= SendMail.SEND %>");
+	    ajaxRequest.setPostRequest(afterRequest);
+    } else {
+	    ajaxRequest.setPostRequest(doNothing);
     }
-    ajaxRequest.setPostRequest(afterRequest);
     ajaxRequest.sendRequest();
 }
 
@@ -50,11 +51,13 @@ function textChanged() {
 function afterRequest() 
 {
    if (canSend() && document.f.doSend.value == "true") {
-//        document.f.submit();
-        alert(   		document.f.attach.value);
+        document.f.submit();
    }    
 }
 
+function doNothing() 
+{
+}
 
 
 function keyPress(e) {
@@ -155,9 +158,9 @@ Would you like to attach your email address to the message?
 <span class="bigRed">Please answer this question.</span>
 <%-------------------------------------------------------------%>
 <br />
-<input type="radio" name="attach" value=""> Yes
+<input type="radio" name="attach" id="attach" value=""> Yes
 <br />
-<input type="radio" name="attach" value=""> No
+<input type="radio" name="attach" id="attach" value=""> No
 <br /><br />
 <%--
 <br /><br />
