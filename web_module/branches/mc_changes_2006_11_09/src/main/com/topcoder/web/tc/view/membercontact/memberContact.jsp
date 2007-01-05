@@ -55,9 +55,9 @@ function textChanged() {
 
 function afterRequest() 
 {
-    if (canSend() && document.f.doSend.value == "true") {
+ //   if (canSend() && document.f.doSend.value == "true") {
         document.f.submit();
-    }    
+ //   }    
 }
 
 
