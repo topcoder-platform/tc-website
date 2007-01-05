@@ -256,8 +256,8 @@ public class ForumsUtil {
         return forumsList;
     }
     
-    // Returns categories in a category, with empty/inactive/unapproved categories omitted or placed at 
-    // the list's end.
+    // Returns subcategories within a category, with empty/inactive/unapproved categories omitted or placed at 
+    // the list's end. Only forums for approved software components are displayed.
     public static ArrayList getCategories(ForumCategory forumCategory, ResultFilter resultFilter,
             boolean excludeEmptyCategories) {
         Iterator itCategories = forumCategory.getCategories();
