@@ -45,7 +45,7 @@ function validateLocal() {
     } else {
        updateDivOrSpan(document, "attachValidation", "Please answer this question.");
     }
-    if (document.f.<%= SendMail.TEXT %>.value != ""()) {
+    if (document.f.<%= SendMail.TEXT %>.value != "") {
        updateDivOrSpan(document, "textValidation", "");
        	valid = true;
     } else {
