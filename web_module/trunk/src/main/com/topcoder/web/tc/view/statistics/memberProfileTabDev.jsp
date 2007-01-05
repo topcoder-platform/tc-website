@@ -10,31 +10,6 @@
 <% ResultSetContainer rscNETData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Component_Submission_Details_NET"); %>
 <% ResultSetContainer rscTotalData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Component_Submission_Details_Total"); %>
 <% ResultSetContainer rscCoderData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Data"); %>
-<SCRIPT LANGUAGE="JavaScript">
-<!--
-var MM_contentVersion = 6;
-var MM_FlashCanPlay = false;
-var plugin = (navigator.mimeTypes
-    && navigator.mimeTypes["application/x-shockwave-flash"])
-    ? navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin : 0;
-if ( plugin ) {
-  var words = navigator.plugins["Shockwave Flash"].description.split(" ");
-  for (var i = 0; i < words.length; ++i) {
-    if (isNaN(parseInt(words[i])))
-        continue;
-    var MM_PluginVersion = words[i];
-  }
-  MM_FlashCanPlay = MM_PluginVersion >= MM_contentVersion;
-} else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
-        && (navigator.appVersion.indexOf("Win") != -1)) {
-  document.write( '<SCR' + 'IPT LANGUAGE=VBScript\> \n ');
-  document.write( 'on error resume next \n ');
-  document.write( 'MM_FlashCanPlay = ( IsObject(CreateObject ');
-  document.write( '("ShockwaveFlash.ShockwaveFlash." & MM_contentVersion)))\n ');
-  document.write( '</SCR' + 'IPT\> \n ');
-}
-//-->
-</SCRIPT>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
       <td class="divider">
@@ -157,48 +132,32 @@ if ( plugin ) {
    </tr>
    <tr>
       <td colspan="2" align="center" style="border-top: 1px solid #999999;">
-<SCRIPT language="JavaScript">
-<!--
-if ( MM_FlashCanPlay ) {
-document.write( '<object ');
-document.write( 'classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ');
-document.write( 'codebase="http://fpdownload.macromedia.com" ');
-document.write( '/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ');
-document.write( 'width="600" ');
-document.write( 'height="400" ');
-document.write( 'id="ratingHistory" ');
-document.write( 'align="middle"> ');
-document.write( '<param name="allowScriptAccess" value="sameDomain" /> ');
-document.write( '<param name="movie" ');
-document.write( 'value="/flash/graphLoader.swf?competitionType=dev&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscDevData.getIntItem(0, "rating")%>" ');
-document.write( '<param name="menu" value="true" /> ');
-document.write( '<param name="quality" value="high" /> ');
-document.write( '<param name="bgcolor" value="#EEEEEE" /> ');
-document.write( '<embed ');
-document.write( 'src="/flash/graphLoader.swf?competitionType=dev&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscDevData.getIntItem(0, "rating")%>" ');
-document.write( 'menu="true" ');
-document.write( 'quality="high" ');
-document.write( 'bgcolor="#EEEEEE" ');
-document.write( 'width="600" ');
-document.write( 'height="400" ');
-document.write( 'name="ratingHistory" ');
-document.write( 'align="middle" ');
-document.write( 'allowScriptAccess="sameDomain" ');
-document.write( 'type="application/x-shockwave-flash" ');
-document.write( 'pluginspage="http://www.macromedia.com/go/getflashplayer" /> ');
-document.write( '</object> ');
-}
-// -->
-</SCRIPT>
-<SCRIPT language="JavaScript">
-<!--
-if (!MM_FlashCanPlay){
-document.write( '<br><span class="bodySubtitle">Member Profile Graphs</span><br> ');
-document.write( '<A href="http://www.macromedia.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank"> ');
-document.write( '<img src="/i/interface/getFlash.gif" alt="Get Flash" border="0"></A> ');
-}
-// -->
-</SCRIPT>
+<object 
+classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com" 
+/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" 
+width="600" 
+height="400" 
+id="ratingHistory" 
+align="middle"> 
+<param name="allowScriptAccess" value="sameDomain" /> 
+<param name="movie" value="/flash/graphLoader.swf?competitionType=dev&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscDevData.getIntItem(0, "rating")%>" />
+<param name="menu" value="true" /> 
+<param name="quality" value="high" /> 
+<param name="bgcolor" value="#EEEEEE" /> 
+<embed 
+src="/flash/graphLoader.swf?competitionType=dev&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscDevData.getIntItem(0, "rating")%>" 
+menu="true" 
+quality="high" 
+bgcolor="#EEEEEE" 
+width="600" 
+height="400" 
+name="ratingHistory" 
+align="middle" 
+allowScriptAccess="sameDomain" 
+type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" /> 
+</object> 
       </td>
    </tr>
 </table>
