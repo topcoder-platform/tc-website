@@ -1,8 +1,8 @@
 package com.topcoder.web.csf.dao.hibernate;
 
 import com.topcoder.web.common.dao.hibernate.Base;
-import com.topcoder.web.studio.dao.SubmissionReviewDAO;
-import com.topcoder.web.studio.model.SubmissionReview;
+import com.topcoder.web.csf.model.SubmissionReview;
+import com.topcoder.web.csf.dao.SubmissionReviewDAO;
 
 /**
  * @author dok

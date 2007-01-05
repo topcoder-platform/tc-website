@@ -1,19 +1,19 @@
 package com.topcoder.web.csf.controller.request;
 
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.Equals;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.model.SortInfo;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.resultSet.Equals;
-import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.csf.Constants;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
+import com.topcoder.web.csf.model.Contest;
 
 import java.util.Date;
 
@@ -30,7 +30,7 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         if ("".equals(StringUtils.checkNull(contestId))) {
             throw new NavigationException("No contest specified");
         }
-        Contest c = StudioDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
+        Contest c = CSFDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
         if (c == null) {
             throw new NavigationException("Invalid contest specified.");
         }
@@ -49,7 +49,7 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         getRequest().setAttribute("isOver", String.valueOf(isOver));
 
         //load up the submissions
-        DataAccess da = new CachedDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
+        DataAccess da = new CachedDataAccess(DBMS.CSF_DATASOURCE_NAME);
         Request r = new Request();
         r.setContentHandle("submissions");
         r.setProperty(Constants.CONTEST_ID, contestId);

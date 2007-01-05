@@ -2,10 +2,10 @@ package com.topcoder.web.csf.controller.request;
 
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.Submission;
-import com.topcoder.web.studio.dao.SubmissionDAO;
-import com.topcoder.web.studio.Constants;
+import com.topcoder.web.csf.Constants;
+import com.topcoder.web.csf.dao.SubmissionDAO;
+import com.topcoder.web.csf.model.Submission;
+import com.topcoder.web.csf.model.Contest;
 
 import java.util.List;
 import java.util.Iterator;

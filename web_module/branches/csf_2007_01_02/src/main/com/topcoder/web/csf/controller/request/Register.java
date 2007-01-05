@@ -1,17 +1,17 @@
 package com.topcoder.web.csf.controller.request;
 
-import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.ContestRegistration;
-import com.topcoder.web.studio.dao.StudioDAOFactory;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.csf.Constants;
+import com.topcoder.web.csf.dao.CSFDAOFactory;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
+import com.topcoder.web.csf.model.Contest;
+import com.topcoder.web.csf.model.ContestRegistration;
 
 /**
  * @author dok
@@ -29,7 +29,7 @@ public class Register extends ShortHibernateProcessor {
                     throw new NavigationException("Invalid Contest Specified");
                 }
 
-                StudioDAOFactory cFactory = StudioDAOUtil.getFactory();
+                CSFDAOFactory cFactory = CSFDAOUtil.getFactory();
                 DAOFactory factory = DAOUtil.getFactory();
 
                 Contest c = cFactory.getContestDAO().find(contestId);
@@ -45,7 +45,7 @@ public class Register extends ShortHibernateProcessor {
                         cr.getId().setContest(c);
                         cr.getId().setUser(u);
 
-                        StudioDAOUtil.getFactory().getContestRegistrationDAO().saveOrUpdate(cr);
+                        cFactory.getContestRegistrationDAO().saveOrUpdate(cr);
 
                         markForCommit();
                     } else {

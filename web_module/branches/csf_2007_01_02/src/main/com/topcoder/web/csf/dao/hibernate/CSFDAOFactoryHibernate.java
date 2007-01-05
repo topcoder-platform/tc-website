@@ -1,25 +1,15 @@
 package com.topcoder.web.csf.dao.hibernate;
 
-import com.topcoder.web.studio.dao.*;
-import com.topcoder.web.studio.dao.hibernate.*;
-import com.topcoder.web.studio.dao.hibernate.ContestPropertyDAOHibernate;
-import com.topcoder.web.studio.dao.hibernate.ContestStatusDAOHibernate;
-import com.topcoder.web.studio.dao.hibernate.ContestRegistrationDAOHibernate;
-import com.topcoder.web.studio.dao.hibernate.DocumentDAOHibernate;
-import com.topcoder.web.studio.dao.hibernate.DocumentTypeDAOHibernate;
-import com.topcoder.web.studio.dao.hibernate.ReviewStatusDAOHibernate;
-import com.topcoder.web.studio.dao.hibernate.PrizeTypeDAOHibernate;
-import com.topcoder.web.studio.dao.hibernate.FileTypeDAOHibernate;
-import com.topcoder.web.studio.dao.hibernate.MimeTypeDAOHibernate;
+import com.topcoder.web.csf.dao.*;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 17, 2006
  */
-public class StudioDAOFactoryHibernate implements StudioDAOFactory {
+public class CSFDAOFactoryHibernate implements CSFDAOFactory {
     public ContestDAO getContestDAO() {
-        return new com.topcoder.web.studio.dao.hibernate.ContestDAOHibernate();
+        return new ContestDAOHibernate();
     }
 
     public ContestPropertyDAO getContestPropertyDAO() {

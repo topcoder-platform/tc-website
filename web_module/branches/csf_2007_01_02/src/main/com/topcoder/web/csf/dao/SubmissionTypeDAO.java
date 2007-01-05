@@ -1,6 +1,7 @@
 package com.topcoder.web.csf.dao;
 
-import com.topcoder.web.studio.model.SubmissionType;
+import com.topcoder.web.csf.model.SubmissionType;
+
 
 /**
  * @author dok

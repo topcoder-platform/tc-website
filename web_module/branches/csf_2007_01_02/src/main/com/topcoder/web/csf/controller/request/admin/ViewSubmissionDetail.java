@@ -2,18 +2,18 @@ package com.topcoder.web.csf.controller.request.admin;
 
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOFactory;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.Submission;
-import com.topcoder.web.studio.model.SubmissionReview;
+import com.topcoder.web.csf.Constants;
+import com.topcoder.web.csf.dao.CSFDAOFactory;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
+import com.topcoder.web.csf.model.Submission;
+import com.topcoder.web.csf.model.SubmissionReview;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 21, 2006
  */
-public class ViewSubmissionDetail extends com.topcoder.web.studio.controller.request.admin.Base {
+public class ViewSubmissionDetail extends Base {
     protected void dbProcessing() throws Exception {
         Long submissionId;
 
@@ -23,7 +23,7 @@ public class ViewSubmissionDetail extends com.topcoder.web.studio.controller.req
             throw new NavigationException("Invalid Submission Specified");
         }
 
-        StudioDAOFactory f = StudioDAOUtil.getFactory();
+        CSFDAOFactory f = CSFDAOUtil.getFactory();
         Submission s = f.getSubmissionDAO().find(submissionId);
         getRequest().setAttribute("submission", s);
         SubmissionReview submissionReview = f.getSubmissionReviewDAO().find(submissionId);

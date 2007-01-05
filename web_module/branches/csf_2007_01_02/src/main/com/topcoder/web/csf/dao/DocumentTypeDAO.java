@@ -1,6 +1,7 @@
 package com.topcoder.web.csf.dao;
 
-import com.topcoder.web.studio.model.DocumentType;
+
+import com.topcoder.web.csf.model.DocumentType;
 
 import java.util.List;
 

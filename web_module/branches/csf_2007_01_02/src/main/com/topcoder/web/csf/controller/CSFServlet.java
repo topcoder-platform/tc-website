@@ -7,6 +7,8 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.TCResourceBundle;
 
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import java.util.MissingResourceException;
 
 /**
@@ -14,8 +16,8 @@ import java.util.MissingResourceException;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jun 22, 2006
  */
-public class StudioServlet extends BaseServlet {
-    private static final Logger log = Logger.getLogger(StudioServlet.class);
+public class CSFServlet extends BaseServlet {
+    private static final Logger log = Logger.getLogger(CSFServlet.class);
 
     static {
         throttleEnabled = false;
@@ -24,14 +26,14 @@ public class StudioServlet extends BaseServlet {
     protected WebAuthentication createAuthentication(TCRequest request,
                                                      TCResponse response) throws Exception {
         return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response,
-                BasicAuthentication.STUDIO_SITE);
+                BasicAuthentication.CSF_SITE);
     }
 
     protected String getProcessor(String key) {
         String ret = super.getProcessor(key);
         if (ret.equals(key)) {
             //yuck, gonna throw errors all over the place
-            TCResourceBundle bundle = new TCResourceBundle("Studio");
+            TCResourceBundle bundle = new TCResourceBundle("CSF");
             try {
                 ret = bundle.getProperty(key);
             } catch (MissingResourceException ignore) {
@@ -47,7 +49,7 @@ public class StudioServlet extends BaseServlet {
         log.error("caught exception, forwarding to error page", e);
         if (e instanceof PermissionException) {
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-            request.setAttribute(MESSAGE_KEY, "Sorry, you do not have permission to access the specified resource.  Please confirm that you are a member of TopCoder Studio.");
+            request.setAttribute(MESSAGE_KEY, "Sorry, you do not have permission to access the specified resource.");
         } else if (e instanceof NavigationException) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             request.setAttribute(MESSAGE_KEY, e.getMessage());

@@ -1,10 +1,6 @@
 package com.topcoder.web.csf.controller.request;
 
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
-import com.topcoder.shared.util.DBMS;
 
 /**
  * @author dok
@@ -15,10 +11,12 @@ public class Home extends BaseProcessor {
 
     protected void businessProcessing() throws Exception {
 
+/*
         Request r = new Request();
         r.setContentHandle("studio_home_data");
         DataAccessInt dai = new CachedDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
         getRequest().setAttribute(r.getContentHandle(), dai.getData(r));
+*/
 
         setNextPage("/home.jsp");
         setIsNextPageInContext(true);

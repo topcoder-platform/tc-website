@@ -1,24 +1,24 @@
 package com.topcoder.web.csf.controller.request.admin;
 
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.tag.ListSelectTag;
-import com.topcoder.web.studio.model.ContestProperty;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.ContestConfig;
-import com.topcoder.web.studio.model.StudioFileType;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.dao.ContestPropertyDAO;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.csf.Constants;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
+import com.topcoder.web.csf.dao.ContestPropertyDAO;
+import com.topcoder.web.csf.model.Contest;
+import com.topcoder.web.csf.model.ContestConfig;
+import com.topcoder.web.csf.model.ContestProperty;
+import com.topcoder.web.csf.model.CSFFileType;
 
-import java.util.ArrayList;
-import java.util.Set;
-import java.util.Iterator;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * @author dok
@@ -32,9 +32,9 @@ public abstract class Base extends ShortHibernateProcessor {
 
 
     protected void loadGeneralEditContestData() throws Exception {
-        getRequest().setAttribute("docTypes", StudioDAOUtil.getFactory().getDocumentTypeDAO().getDocumentTypes());
-        getRequest().setAttribute("contestStatuses", StudioDAOUtil.getFactory().getContestStatusDAO().getContestStatuses());
-        getRequest().setAttribute("fileTypes", StudioDAOUtil.getFactory().getFileTypeDAO().getFileTypes());
+        getRequest().setAttribute("docTypes", CSFDAOUtil.getFactory().getDocumentTypeDAO().getDocumentTypes());
+        getRequest().setAttribute("contestStatuses", CSFDAOUtil.getFactory().getContestStatusDAO().getContestStatuses());
+        getRequest().setAttribute("fileTypes", CSFDAOUtil.getFactory().getFileTypeDAO().getFileTypes());
 
         getRequest().setAttribute("forums", getForumList());
         ArrayList viewSubmissionAnswers = new ArrayList();
@@ -47,7 +47,7 @@ public abstract class Base extends ShortHibernateProcessor {
     protected ResultSetContainer getForumList() throws Exception {
         Request r = new Request();
         r.setContentHandle("forum_list");
-        DataAccessInt da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
+        DataAccessInt da = new DataAccess(DBMS.CSF_DATASOURCE_NAME);
         return (ResultSetContainer) da.getData(r).get("forum_list");
 
     }
@@ -61,7 +61,7 @@ public abstract class Base extends ShortHibernateProcessor {
 
         SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
 
-        ContestPropertyDAO dao = StudioDAOUtil.getFactory().getContestPropertyDAO();
+        ContestPropertyDAO dao = CSFDAOUtil.getFactory().getContestPropertyDAO();
         ContestConfig temp;
         for (int i = 0; i < CONTEST_PROPS.length; i++) {
             temp = contest.getConfig(dao.find(CONTEST_PROPS[i]));
@@ -73,7 +73,7 @@ public abstract class Base extends ShortHibernateProcessor {
         Set a = contest.getFileTypes();
         ArrayList fileTypes = new ArrayList(a.size());
         for (Iterator it = a.iterator(); it.hasNext();) {
-            fileTypes.add(((StudioFileType) it.next()).getId().toString());
+            fileTypes.add(((CSFFileType) it.next()).getId().toString());
         }
         setDefault(Constants.FILE_TYPE, fileTypes);
 

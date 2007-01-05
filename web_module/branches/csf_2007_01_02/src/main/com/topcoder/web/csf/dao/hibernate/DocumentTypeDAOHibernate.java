@@ -1,8 +1,8 @@
 package com.topcoder.web.csf.dao.hibernate;
 
 import com.topcoder.web.common.dao.hibernate.Base;
-import com.topcoder.web.studio.dao.DocumentTypeDAO;
-import com.topcoder.web.studio.model.DocumentType;
+import com.topcoder.web.csf.model.DocumentType;
+import com.topcoder.web.csf.dao.DocumentTypeDAO;
 
 import java.util.List;
 

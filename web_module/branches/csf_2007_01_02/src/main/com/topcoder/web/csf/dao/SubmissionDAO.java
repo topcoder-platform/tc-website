@@ -1,8 +1,8 @@
 package com.topcoder.web.csf.dao;
 
-import com.topcoder.web.studio.model.Submission;
-import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.csf.model.Contest;
+import com.topcoder.web.csf.model.Submission;
 
 import java.util.List;
 

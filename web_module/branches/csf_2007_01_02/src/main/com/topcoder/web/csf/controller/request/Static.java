@@ -3,7 +3,7 @@ package com.topcoder.web.csf.controller.request;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.studio.Constants;
+import com.topcoder.web.csf.Constants;
 
 /**
  * @author dok

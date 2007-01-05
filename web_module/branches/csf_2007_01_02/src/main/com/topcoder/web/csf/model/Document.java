@@ -1,9 +1,6 @@
 package com.topcoder.web.csf.model;
 
 import com.topcoder.web.common.model.Base;
-import com.topcoder.web.studio.model.FilePath;
-import com.topcoder.web.studio.model.MimeType;
-import com.topcoder.web.studio.model.DocumentType;
 
 import java.util.Set;
 import java.util.Collections;

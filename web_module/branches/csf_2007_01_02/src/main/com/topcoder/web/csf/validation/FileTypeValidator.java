@@ -1,15 +1,15 @@
 package com.topcoder.web.csf.validation;
 
-import com.topcoder.web.common.validation.Validator;
-import com.topcoder.web.common.validation.ValidationResult;
-import com.topcoder.web.common.validation.ValidationInput;
 import com.topcoder.web.common.validation.BasicResult;
-import com.topcoder.web.studio.dao.FileTypeDAO;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.StudioFileType;
+import com.topcoder.web.common.validation.ValidationInput;
+import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.common.validation.Validator;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
+import com.topcoder.web.csf.dao.FileTypeDAO;
+import com.topcoder.web.csf.model.CSFFileType;
 
-import java.util.List;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author dok
@@ -25,8 +25,8 @@ public class FileTypeValidator implements Validator {
             //it's ok, file types aren't required
             return ValidationResult.SUCCESS;
         }
-        FileTypeDAO dao = StudioDAOUtil.getFactory().getFileTypeDAO();
-        StudioFileType curr;
+        FileTypeDAO dao = CSFDAOUtil.getFactory().getFileTypeDAO();
+        CSFFileType curr;
         for (Iterator it = l.iterator(); it.hasNext();) {
             curr = dao.find(new Integer((String) it.next()));
             if (curr == null) {

@@ -1,11 +1,13 @@
 package com.topcoder.web.csf.controller.request;
 
-import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.Document;
+import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.csf.Constants;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
+import com.topcoder.web.csf.model.Document;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
 
 /**
@@ -24,7 +26,7 @@ public class DownloadDocument extends ShortHibernateProcessor {
             throw new NavigationException("Invalid Document Specified");
         }
 
-        Document d = StudioDAOUtil.getFactory().getDocumentDAO().find(documentId);
+        Document d = CSFDAOUtil.getFactory().getDocumentDAO().find(documentId);
 
         //stream it out via the response
         getResponse().addHeader("content-disposition", "inline; filename=" + d.getOriginalFileName());

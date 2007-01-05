@@ -1,36 +1,36 @@
 package com.topcoder.web.csf.controller.request;
 
-import com.topcoder.web.studio.controller.request.*;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.validation.SubmissionValidator;
-import com.topcoder.web.studio.model.*;
-import com.topcoder.web.studio.dao.StudioDAOFactory;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.dao.SubmissionDAO;
-import com.topcoder.web.common.NavigationException;
+import com.topcoder.servlet.request.UploadedFile;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.MultipartRequest;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
-import com.topcoder.web.common.validation.ValidationResult;
-import com.topcoder.web.common.validation.ObjectInput;
-import com.topcoder.web.common.validation.IntegerValidator;
-import com.topcoder.web.common.validation.StringInput;
-import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.validation.IntegerValidator;
+import com.topcoder.web.common.validation.ObjectInput;
+import com.topcoder.web.common.validation.StringInput;
+import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.csf.Constants;
+import com.topcoder.web.csf.dao.CSFDAOFactory;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
+import com.topcoder.web.csf.dao.SubmissionDAO;
+import com.topcoder.web.csf.model.*;
+import com.topcoder.web.csf.validation.SubmissionValidator;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.util.Date;
 import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 20, 2006
  */
-public class Submit extends com.topcoder.web.studio.controller.request.BaseSubmissionDataProcessor {
+public class Submit extends BaseSubmissionDataProcessor {
     private File f = null;
 
     protected void dbProcessing() throws Exception {
@@ -46,7 +46,7 @@ public class Submit extends com.topcoder.web.studio.controller.request.BaseSubmi
 
             String rank = getRequest().getParameter(Constants.SUBMISSION_RANK);
 
-            StudioDAOFactory cFactory = StudioDAOUtil.getFactory();
+            CSFDAOFactory cFactory = CSFDAOUtil.getFactory();
             DAOFactory factory = DAOUtil.getFactory();
             SubmissionDAO dao = cFactory.getSubmissionDAO();
 

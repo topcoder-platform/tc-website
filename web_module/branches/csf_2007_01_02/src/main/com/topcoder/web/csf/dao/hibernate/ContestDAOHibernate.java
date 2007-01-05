@@ -1,8 +1,8 @@
 package com.topcoder.web.csf.dao.hibernate;
 
 import com.topcoder.web.common.dao.hibernate.Base;
-import com.topcoder.web.studio.dao.ContestDAO;
-import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.csf.model.Contest;
+import com.topcoder.web.csf.dao.ContestDAO;
 import org.hibernate.Query;
 
 import java.util.List;

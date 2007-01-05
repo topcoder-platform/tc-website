@@ -1,12 +1,11 @@
 package com.topcoder.web.csf.controller.request.admin;
 
-import com.topcoder.web.studio.controller.request.admin.Base;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.*;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.MultipartRequest;
+import com.topcoder.web.csf.model.*;
+import com.topcoder.web.csf.Constants;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
 import com.topcoder.servlet.request.UploadedFile;
 
 import java.io.File;
@@ -31,7 +30,7 @@ public class AddDocument extends Base {
                 addError(Constants.DOCUMENT, "No document type specified");
             }
 
-            DocumentType docType = StudioDAOUtil.getFactory().getDocumentTypeDAO().find(new Integer(dt));
+            DocumentType docType = CSFDAOUtil.getFactory().getDocumentTypeDAO().find(new Integer(dt));
             if (docType == null) {
                 addError(Constants.DOCUMENT, "Unknown document type specified");
             }
@@ -50,13 +49,13 @@ public class AddDocument extends Base {
                 addError(Constants.DOCUMENT, "Document was empty");
             }
 
-            MimeType mt = StudioDAOUtil.getFactory().getMimeTypeDAO().find(file.getContentType());
+            MimeType mt = CSFDAOUtil.getFactory().getMimeTypeDAO().find(file.getContentType());
 
             if (mt == null) {
                 addError(Constants.SUBMISSION, "Unknown file type: " + file.getContentType());
             }
 
-            Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
+            Contest contest = CSFDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
             if (hasErrors()) {
 
                 loadEditContestData(contest);
@@ -103,7 +102,7 @@ public class AddDocument extends Base {
 
                 contest.addDocument(d);
 
-                StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
+                CSFDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
                 markForCommit();
 
                 setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +

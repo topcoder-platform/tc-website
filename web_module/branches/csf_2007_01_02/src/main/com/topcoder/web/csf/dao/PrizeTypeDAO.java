@@ -1,6 +1,7 @@
 package com.topcoder.web.csf.dao;
 
-import com.topcoder.web.studio.model.PrizeType;
+import com.topcoder.web.csf.model.PrizeType;
+
 
 /**
  * @author dok

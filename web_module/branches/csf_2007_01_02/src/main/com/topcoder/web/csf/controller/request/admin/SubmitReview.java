@@ -1,19 +1,20 @@
 package com.topcoder.web.csf.controller.request.admin;
 
-import com.topcoder.web.studio.controller.request.admin.*;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.ReviewStatus;
-import com.topcoder.web.studio.model.SubmissionReview;
-import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.tag.CalendarDateFormatMethod;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.Email;
+import com.topcoder.web.csf.model.Submission;
+import com.topcoder.web.csf.model.SubmissionReview;
+import com.topcoder.web.csf.model.ReviewStatus;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
+import com.topcoder.web.csf.Constants;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.util.format.ObjectFormatter;
+import com.topcoder.util.format.ObjectFormatterFactory;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -24,7 +25,7 @@ import java.util.TimeZone;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 21, 2006
  */
-public class SubmitReview extends com.topcoder.web.studio.controller.request.admin.Base {
+public class SubmitReview extends Base {
     protected void dbProcessing() throws Exception {
 
         Long submissionId;
@@ -41,14 +42,14 @@ public class SubmitReview extends com.topcoder.web.studio.controller.request.adm
         } catch (NumberFormatException e) {
             addError(Constants.REVIEW_STATUS_ID, "Invalid review status specified");
         }
-        ReviewStatus rs = StudioDAOUtil.getFactory().getReviewStatusDAO().find(status);
+        ReviewStatus rs = CSFDAOUtil.getFactory().getReviewStatusDAO().find(status);
         if (rs == null) {
             addError(Constants.REVIEW_STATUS_ID, "Invalid review status specified");
         }
         if (hasErrors()) {
-            getRequest().setAttribute("submission", StudioDAOUtil.getFactory().getSubmissionDAO().find(submissionId));
-            SubmissionReview submissionReview = StudioDAOUtil.getFactory().getSubmissionReviewDAO().find(submissionId);
-            getRequest().setAttribute("reviewStatuses", StudioDAOUtil.getFactory().getReviewStatusDAO().getReviewStatuses());
+            getRequest().setAttribute("submission", CSFDAOUtil.getFactory().getSubmissionDAO().find(submissionId));
+            SubmissionReview submissionReview = CSFDAOUtil.getFactory().getSubmissionReviewDAO().find(submissionId);
+            getRequest().setAttribute("reviewStatuses", CSFDAOUtil.getFactory().getReviewStatusDAO().getReviewStatuses());
 
             if (submissionReview != null) {
                 getRequest().setAttribute("submissionReview", submissionReview);
@@ -59,8 +60,8 @@ public class SubmitReview extends com.topcoder.web.studio.controller.request.adm
             setIsNextPageInContext(true);
 
         } else {
-            Submission s = StudioDAOUtil.getFactory().getSubmissionDAO().find(submissionId);
-            SubmissionReview sr = StudioDAOUtil.getFactory().getSubmissionReviewDAO().find(submissionId);
+            Submission s = CSFDAOUtil.getFactory().getSubmissionDAO().find(submissionId);
+            SubmissionReview sr = CSFDAOUtil.getFactory().getSubmissionReviewDAO().find(submissionId);
             if (sr == null) {
                 sr = new SubmissionReview();
                 sr.setSubmission(s);
@@ -69,10 +70,10 @@ public class SubmitReview extends com.topcoder.web.studio.controller.request.adm
             sr.setReviewer(reviewer);
             sr.setStatus(rs);
             sr.setText(getRequest().getParameter(Constants.SUBMISSION_REVIEW_TEXT));
-            StudioDAOUtil.getFactory().getSubmissionReviewDAO().saveOrUpdate(sr);
+            CSFDAOUtil.getFactory().getSubmissionReviewDAO().saveOrUpdate(sr);
 
             if (sr.getStatus().getId().equals(ReviewStatus.FAILED)) {
-                StudioDAOUtil.getFactory().getSubmissionDAO().changeRank(null, s);
+                CSFDAOUtil.getFactory().getSubmissionDAO().changeRank(null, s);
             }
 
             Long submitterId = s.getSubmitter().getId();
@@ -106,9 +107,9 @@ public class SubmitReview extends com.topcoder.web.studio.controller.request.adm
 
         TCSEmailMessage mail = new TCSEmailMessage();
         if (ReviewStatus.PASSED.equals(status.getId())) {
-            mail.setSubject("Your TopCoder(R) Studio submission passed review");
+            mail.setSubject("Your CSF series submission passed review");
         } else if (ReviewStatus.FAILED.equals(status.getId())) {
-            mail.setSubject("Your TopCoder(R) Studio submission failed review");
+            mail.setSubject("Your CSF series submission failed review");
         } else {
             throw new Exception("Invalid review status: " + status.getId());
         }
@@ -141,7 +142,6 @@ public class SubmitReview extends com.topcoder.web.studio.controller.request.adm
         msgText.append(" ");
         msgText.append(reviewer.getLastName());
         msgText.append("\n");
-        msgText.append("TopCoder Studio");
 
         mail.setBody(msgText.toString());
         mail.addToAddress(submitter.getPrimaryEmailAddress().getAddress(), TCSEmailMessage.TO);

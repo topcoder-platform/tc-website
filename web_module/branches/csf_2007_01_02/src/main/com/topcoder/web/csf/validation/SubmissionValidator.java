@@ -1,22 +1,22 @@
 package com.topcoder.web.csf.validation;
 
-import com.topcoder.web.common.validation.Validator;
-import com.topcoder.web.common.validation.ValidationResult;
-import com.topcoder.web.common.validation.ValidationInput;
-import com.topcoder.web.common.validation.BasicResult;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.MimeType;
-import com.topcoder.web.studio.model.ContestProperty;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.dao.ContestPropertyDAO;
 import com.topcoder.servlet.request.UploadedFile;
+import com.topcoder.web.common.validation.BasicResult;
+import com.topcoder.web.common.validation.ValidationInput;
+import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.common.validation.Validator;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
+import com.topcoder.web.csf.dao.ContestPropertyDAO;
+import com.topcoder.web.csf.model.Contest;
+import com.topcoder.web.csf.model.ContestProperty;
+import com.topcoder.web.csf.model.MimeType;
 
-import javax.imageio.stream.ImageInputStream;
 import javax.imageio.ImageIO;
-import java.io.IOException;
-import java.io.ByteArrayInputStream;
-import java.util.Iterator;
+import javax.imageio.stream.ImageInputStream;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.util.Iterator;
 
 /**
  * @author dok
@@ -50,7 +50,7 @@ public class SubmissionValidator implements Validator {
             e.printStackTrace();
             return new BasicResult(false, "Communication error when receiving submission.");
         }
-        MimeType mt = StudioDAOUtil.getFactory().getMimeTypeDAO().find(submission.getContentType());
+        MimeType mt = CSFDAOUtil.getFactory().getMimeTypeDAO().find(submission.getContentType());
 
         if (ret == 0) {
             return new BasicResult(false, "Submission was empty");
@@ -60,7 +60,7 @@ public class SubmissionValidator implements Validator {
             //at this point we have an actual submission file that's not empty and it's a file type we know
 
             if (mt.getFileType().isImageFile()) {
-                ContestPropertyDAO dao = StudioDAOUtil.getFactory().getContestPropertyDAO();
+                ContestPropertyDAO dao = CSFDAOUtil.getFactory().getContestPropertyDAO();
                 String minWidth = contest.getConfig(dao.find(ContestProperty.MIN_WIDTH)).getValue();
                 String maxWidth = contest.getConfig(dao.find(ContestProperty.MAX_WIDTH)).getValue();
                 String minHeight = contest.getConfig(dao.find(ContestProperty.MIN_HEIGHT)).getValue();

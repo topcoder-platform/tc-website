@@ -1,8 +1,8 @@
 package com.topcoder.web.csf.dao;
 
-import com.topcoder.web.studio.model.ContestRegistration;
-import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.csf.model.ContestRegistration;
+import com.topcoder.web.csf.model.Contest;
 
 /**
  * @author dok

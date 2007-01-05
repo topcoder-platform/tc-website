@@ -1,14 +1,13 @@
 package com.topcoder.web.csf.model;
 
 import com.topcoder.web.common.model.Base;
-import com.topcoder.web.studio.model.*;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
 
 import java.sql.Timestamp;
-import java.util.Set;
 import java.util.HashSet;
-import java.util.TreeSet;
 import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * @author dok
@@ -100,19 +99,19 @@ public class Contest extends Base {
     }
 
     public ContestConfig getOverview() {
-        return getConfig(StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.CONTEST_OVERVIEW_TEXT));
+        return getConfig(CSFDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.CONTEST_OVERVIEW_TEXT));
     }
 
     public ContestConfig getPrizeDescription() {
-        return getConfig(StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.PRIZE_DESCRIPTION));
+        return getConfig(CSFDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.PRIZE_DESCRIPTION));
     }
 
     public ContestConfig getViewableSubmissions() {
-        return getConfig(StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.VIEWABLE_SUBMISSIONS));
+        return getConfig(CSFDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.VIEWABLE_SUBMISSIONS));
     }
 
     public ContestConfig getMaxSubmissions() {
-        return getConfig(StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.MAX_SUBMISSIONS));
+        return getConfig(CSFDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.MAX_SUBMISSIONS));
     }
 
     public Set getDocuments() {
@@ -160,7 +159,7 @@ public class Contest extends Base {
         this.fileTypes = fileTypes;
     }
 
-    public void addFileType(StudioFileType fileType) {
+    public void addFileType(CSFFileType fileType) {
         this.fileTypes.add(fileType);
     }
 

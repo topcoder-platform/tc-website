@@ -1,8 +1,8 @@
 package com.topcoder.web.csf.dao.hibernate;
 
 import com.topcoder.web.common.dao.hibernate.Base;
-import com.topcoder.web.studio.dao.ContestStatusDAO;
-import com.topcoder.web.studio.model.ContestStatus;
+import com.topcoder.web.csf.model.ContestStatus;
+import com.topcoder.web.csf.dao.ContestStatusDAO;
 
 import java.util.List;
 

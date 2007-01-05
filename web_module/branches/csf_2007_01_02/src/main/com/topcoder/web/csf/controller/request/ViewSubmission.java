@@ -1,17 +1,16 @@
 package com.topcoder.web.csf.controller.request;
 
-import com.topcoder.web.studio.controller.request.*;
-import com.topcoder.web.studio.dao.StudioDAOFactory;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.ContestStatus;
-import com.topcoder.web.common.dao.DAOFactory;
-import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.dao.DAOFactory;
+import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
-import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.csf.Constants;
+import com.topcoder.web.csf.dao.CSFDAOFactory;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
+import com.topcoder.web.csf.model.Contest;
+import com.topcoder.web.csf.model.ContestStatus;
 
 import java.util.Date;
 
@@ -20,11 +19,11 @@ import java.util.Date;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 20, 2006
  */
-public class ViewSubmission extends com.topcoder.web.studio.controller.request.BaseSubmissionDataProcessor {
+public class ViewSubmission extends BaseSubmissionDataProcessor {
 
     protected void dbProcessing() throws Exception {
         if (userLoggedIn()) {
-            StudioDAOFactory cFactory = StudioDAOUtil.getFactory();
+            CSFDAOFactory cFactory = CSFDAOUtil.getFactory();
             DAOFactory factory = DAOUtil.getFactory();
             Long contestId;
             try {

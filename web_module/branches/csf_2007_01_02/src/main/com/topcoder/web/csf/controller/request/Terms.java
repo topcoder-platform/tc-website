@@ -4,7 +4,7 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.TermsOfUse;
-import com.topcoder.web.studio.Constants;
+import com.topcoder.web.csf.Constants;
 
 /**
  * @author dok

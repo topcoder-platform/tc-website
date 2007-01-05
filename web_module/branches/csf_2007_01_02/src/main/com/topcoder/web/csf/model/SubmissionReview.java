@@ -2,8 +2,6 @@ package com.topcoder.web.csf.model;
 
 import com.topcoder.web.common.model.Base;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.studio.model.ReviewStatus;
-import com.topcoder.web.studio.model.Submission;
 
 /**
  * @author dok
@@ -13,7 +11,7 @@ import com.topcoder.web.studio.model.Submission;
 public class SubmissionReview extends Base {
 
     private Long id;
-    private com.topcoder.web.studio.model.Submission submission;
+    private Submission submission;
     private User reviewer;
     private String text;
     private ReviewStatus status;

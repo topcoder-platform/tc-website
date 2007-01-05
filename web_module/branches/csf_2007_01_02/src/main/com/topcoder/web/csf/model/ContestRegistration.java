@@ -3,7 +3,6 @@ package com.topcoder.web.csf.model;
 import com.topcoder.web.common.model.Base;
 import com.topcoder.web.common.model.TermsOfUse;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.studio.model.Contest;
 
 import java.io.Serializable;
 
@@ -13,7 +12,7 @@ import java.io.Serializable;
  *          Create Date: Jul 19, 2006
  */
 public class ContestRegistration extends Base {
-    private com.topcoder.web.studio.model.Contest contest;
+    private Contest contest;
     private User user;
     private TermsOfUse terms;
     private ContestRegistration.Identifier id = new ContestRegistration.Identifier();

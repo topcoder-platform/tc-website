@@ -1,8 +1,8 @@
 package com.topcoder.web.csf.dao.hibernate;
 
 import com.topcoder.web.common.dao.hibernate.Base;
-import com.topcoder.web.studio.dao.MimeTypeDAO;
-import com.topcoder.web.studio.model.MimeType;
+import com.topcoder.web.csf.model.MimeType;
+import com.topcoder.web.csf.dao.MimeTypeDAO;
 import org.hibernate.Query;
 
 /**

@@ -1,6 +1,7 @@
 package com.topcoder.web.csf.dao.hibernate;
 
-import com.topcoder.web.studio.dao.SubmissionPathDAO;
+import com.topcoder.web.csf.dao.SubmissionPathDAO;
+
 
 /**
  * @author dok

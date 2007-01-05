@@ -16,7 +16,7 @@ import com.topcoder.shared.util.DBMS;
 public class ViewActiveContests extends BaseProcessor {
     protected void businessProcessing() throws Exception {
         //load up the contests
-        DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
+        DataAccess da = new DataAccess(DBMS.CSF_DATASOURCE_NAME);
         Request r = new Request();
         r.setContentHandle("active_contests");
 

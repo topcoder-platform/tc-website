@@ -1,7 +1,6 @@
 package com.topcoder.web.csf.model;
 
 import com.topcoder.web.common.model.Base;
-import com.topcoder.web.studio.model.PrizeType;
 
 import java.util.Set;
 import java.util.Collections;

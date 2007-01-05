@@ -1,8 +1,8 @@
 package com.topcoder.web.csf.dao.hibernate;
 
 import com.topcoder.web.common.dao.hibernate.Base;
-import com.topcoder.web.studio.dao.PrizeTypeDAO;
-import com.topcoder.web.studio.model.PrizeType;
+import com.topcoder.web.csf.model.PrizeType;
+import com.topcoder.web.csf.dao.PrizeTypeDAO;
 
 /**
  * @author dok

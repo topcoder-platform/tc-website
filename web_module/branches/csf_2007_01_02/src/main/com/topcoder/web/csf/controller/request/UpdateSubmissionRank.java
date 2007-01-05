@@ -1,12 +1,11 @@
 package com.topcoder.web.csf.controller.request;
 
-import com.topcoder.web.studio.controller.request.*;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.model.Submission;
-import com.topcoder.web.studio.model.ContestStatus;
-import com.topcoder.web.studio.dao.SubmissionDAO;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.csf.Constants;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
+import com.topcoder.web.csf.dao.SubmissionDAO;
+import com.topcoder.web.csf.model.ContestStatus;
+import com.topcoder.web.csf.model.Submission;
 
 import java.util.Date;
 
@@ -15,11 +14,11 @@ import java.util.Date;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Nov 20, 2006
  */
-public class UpdateSubmissionRank extends com.topcoder.web.studio.controller.request.BaseSubmissionDataProcessor {
+public class UpdateSubmissionRank extends BaseSubmissionDataProcessor {
     protected void dbProcessing() throws Exception {
 
         String submissionId = getRequest().getParameter(Constants.SUBMISSION_ID);
-        SubmissionDAO dao = StudioDAOUtil.getFactory().getSubmissionDAO();
+        SubmissionDAO dao = CSFDAOUtil.getFactory().getSubmissionDAO();
         Submission s = dao.find(new Long(submissionId));
         Integer maxRank = dao.getMaxRank(s.getContest(), s.getSubmitter());
         if (userLoggedIn()) {
@@ -43,7 +42,7 @@ public class UpdateSubmissionRank extends com.topcoder.web.studio.controller.req
         } else {
             addError(Constants.SUBMISSION_ID + submissionId, "Sorry, you must be logged in order to perform the specified request.");
         }
-        dao = StudioDAOUtil.getFactory().getSubmissionDAO();
+        dao = CSFDAOUtil.getFactory().getSubmissionDAO();
         s = dao.find(new Long(submissionId));
         loadSubmissionData(s.getSubmitter(), s.getContest(), dao, maxRank);
         setIsNextPageInContext(true);

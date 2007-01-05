@@ -1,8 +1,6 @@
 package com.topcoder.web.csf.model;
 
 import com.topcoder.web.common.model.Base;
-import com.topcoder.web.studio.model.*;
-import com.topcoder.web.studio.model.Contest;
 
 /**
  * @author dok
@@ -11,7 +9,7 @@ import com.topcoder.web.studio.model.Contest;
  */
 public class ContestResult extends Base implements Comparable {
     private Long id;
-    private com.topcoder.web.studio.model.Contest contest;
+    private Contest contest;
     private Submission submission;
     private Prize prize;
 

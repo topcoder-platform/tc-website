@@ -2,10 +2,10 @@ package com.topcoder.web.csf.controller.request.admin;
 
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.Document;
+import com.topcoder.web.csf.Constants;
+import com.topcoder.web.csf.model.Contest;
+import com.topcoder.web.csf.model.Document;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
 
 import java.util.Iterator;
 import java.util.Set;
@@ -15,7 +15,7 @@ import java.util.Set;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Aug 1, 2006
  */
-public class RemoveDocument extends com.topcoder.web.studio.controller.request.admin.Base {
+public class RemoveDocument extends Base {
 
     protected void dbProcessing() throws Exception {
         String contestId = getRequest().getParameter(Constants.CONTEST_ID);
@@ -26,7 +26,7 @@ public class RemoveDocument extends com.topcoder.web.studio.controller.request.a
         } else if ("".equals(StringUtils.checkNull(documentId))) {
             throw new NavigationException("No document specified");
         } else {
-            Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
+            Contest contest = CSFDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
 
             Set docs = contest.getDocuments();
             Document curr;
@@ -49,7 +49,7 @@ public class RemoveDocument extends com.topcoder.web.studio.controller.request.a
             }
 
 
-            StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
+            CSFDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
             markForCommit();
 
             setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +

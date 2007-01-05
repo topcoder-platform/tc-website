@@ -1,7 +1,6 @@
 package com.topcoder.web.csf.model;
 
 import com.topcoder.web.common.model.Base;
-import com.topcoder.web.studio.model.StudioFileType;
 
 /**
  * @author dok
@@ -11,7 +10,7 @@ import com.topcoder.web.studio.model.StudioFileType;
 public class MimeType extends Base {
     private Integer id;
     private String description;
-    private StudioFileType fileType;
+    private CSFFileType fileType;
 
     public Integer getId() {
         return id;
@@ -29,11 +28,11 @@ public class MimeType extends Base {
         this.description = description;
     }
 
-    public StudioFileType getFileType() {
+    public CSFFileType getFileType() {
         return fileType;
     }
 
-    public void setFileType(StudioFileType fileType) {
+    public void setFileType(CSFFileType fileType) {
         this.fileType = fileType;
     }
 

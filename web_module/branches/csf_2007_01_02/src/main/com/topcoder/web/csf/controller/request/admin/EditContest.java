@@ -1,32 +1,32 @@
 package com.topcoder.web.csf.controller.request.admin;
 
-import com.topcoder.web.studio.controller.request.admin.*;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.validation.*;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.dao.ContestPropertyDAO;
-import com.topcoder.web.studio.dao.FileTypeDAO;
-import com.topcoder.web.studio.model.ContestStatus;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.ContestConfig;
-import com.topcoder.web.studio.model.ContestProperty;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.HibernateUtils;
-import com.topcoder.web.common.validation.ValidationResult;
-import com.topcoder.web.common.validation.StringInput;
-import com.topcoder.web.common.validation.ListInput;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.HibernateUtils;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.validation.ListInput;
+import com.topcoder.web.common.validation.StringInput;
+import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.csf.Constants;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
+import com.topcoder.web.csf.dao.ContestPropertyDAO;
+import com.topcoder.web.csf.dao.FileTypeDAO;
+import com.topcoder.web.csf.model.Contest;
+import com.topcoder.web.csf.model.ContestConfig;
+import com.topcoder.web.csf.model.ContestProperty;
+import com.topcoder.web.csf.model.ContestStatus;
+import com.topcoder.web.csf.validation.*;
+import org.hibernate.metadata.ClassMetadata;
 
-import java.util.*;
-import java.text.SimpleDateFormat;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 17, 2006
  */
-public class EditContest extends com.topcoder.web.studio.controller.request.admin.Base {
+public class EditContest extends Base {
 
     protected void dbProcessing() throws Exception {
 
@@ -50,7 +50,7 @@ public class EditContest extends com.topcoder.web.studio.controller.request.admi
         if ("".equals(StringUtils.checkNull(contestStatusId))) {
             addError(Constants.CONTEST_STATUS_ID, "Please choose a valid contest status.");
         } else {
-            status = StudioDAOUtil.getFactory().getContestStatusDAO().find(new Integer(contestStatusId));
+            status = CSFDAOUtil.getFactory().getContestStatusDAO().find(new Integer(contestStatusId));
             if (status == null) {
                 addError(Constants.CONTEST_STATUS_ID, "Please choose a valid contest status.");
             }
@@ -67,7 +67,7 @@ public class EditContest extends com.topcoder.web.studio.controller.request.admi
 
             if (!"".equals(StringUtils.checkNull(contestId))) {
                 setDefault(Constants.CONTEST_STATUS_ID,
-                        StudioDAOUtil.getFactory().getContestDAO().find(new Long(contestId)).getStatus().getId());
+                        CSFDAOUtil.getFactory().getContestDAO().find(new Long(contestId)).getStatus().getId());
             } else if (status != null) {
                 setDefault(Constants.CONTEST_STATUS_ID, contestStatusId);
             } else {
@@ -86,7 +86,7 @@ public class EditContest extends com.topcoder.web.studio.controller.request.admi
             Contest contest;
             if (!"".equals(StringUtils.checkNull(contestId))) {
                 //log.debug("existing contest");
-                contest = StudioDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
+                contest = CSFDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
             } else {
                 //log.debug("new contest");
                 contest = new Contest();
@@ -101,7 +101,7 @@ public class EditContest extends com.topcoder.web.studio.controller.request.admi
             }
 
             ContestConfig currConfig;
-            ContestPropertyDAO dao = StudioDAOUtil.getFactory().getContestPropertyDAO();
+            ContestPropertyDAO dao = CSFDAOUtil.getFactory().getContestPropertyDAO();
             ContestProperty curr;
             for (int i = 0; i < CONTEST_PROPS.length; i++) {
                 curr = dao.find(CONTEST_PROPS[i]);
@@ -125,7 +125,7 @@ public class EditContest extends com.topcoder.web.studio.controller.request.admi
                 currConfig.setValue(StringUtils.checkNull(val).trim().length() == 0 ? null : val.trim());
             }
 
-            FileTypeDAO fDao = StudioDAOUtil.getFactory().getFileTypeDAO();
+            FileTypeDAO fDao = CSFDAOUtil.getFactory().getFileTypeDAO();
             HashSet fts = new HashSet();
             for (Iterator it = fileTypes.iterator(); it.hasNext();) {
                 //log.debug("add a file type");
@@ -144,13 +144,13 @@ public class EditContest extends com.topcoder.web.studio.controller.request.admi
             }
 
 
-            StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
+            CSFDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
             markForCommit();
 
             if (log.isDebugEnabled()) {
                 closeConversation();
                 beginCommunication();
-                Contest myContest = StudioDAOUtil.getFactory().getContestDAO().find(contest.getId());
+                Contest myContest = CSFDAOUtil.getFactory().getContestDAO().find(contest.getId());
                 log.debug("overview size after commit is " + (myContest.getOverview().getValue() == null ?
                         "null" : "" + myContest.getOverview().getValue().length()));
             }

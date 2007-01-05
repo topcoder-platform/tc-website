@@ -1,6 +1,7 @@
 package com.topcoder.web.csf.dao;
 
-import com.topcoder.web.studio.model.ReviewStatus;
+
+import com.topcoder.web.csf.model.ReviewStatus;
 
 import java.util.List;
 

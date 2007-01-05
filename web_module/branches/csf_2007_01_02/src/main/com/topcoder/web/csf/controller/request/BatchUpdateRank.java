@@ -1,15 +1,14 @@
 package com.topcoder.web.csf.controller.request;
 
-import com.topcoder.web.studio.controller.request.*;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.model.Submission;
-import com.topcoder.web.studio.model.ContestStatus;
-import com.topcoder.web.studio.dao.SubmissionDAO;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.IntegerValidator;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.HibernateUtils;
+import com.topcoder.web.csf.model.ContestStatus;
+import com.topcoder.web.csf.model.Submission;
+import com.topcoder.web.csf.Constants;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
+import com.topcoder.web.csf.dao.SubmissionDAO;
 
 import java.util.*;
 
@@ -18,12 +17,12 @@ import java.util.*;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Nov 20, 2006
  */
-public class BatchUpdateRank extends com.topcoder.web.studio.controller.request.BaseSubmissionDataProcessor {
+public class BatchUpdateRank extends BaseSubmissionDataProcessor {
     protected void dbProcessing() throws Exception {
 
         Long contestId = new Long(getRequest().getParameter(Constants.CONTEST_ID));
 
-        SubmissionDAO dao = StudioDAOUtil.getFactory().getSubmissionDAO();
+        SubmissionDAO dao = CSFDAOUtil.getFactory().getSubmissionDAO();
         String paramName;
         String newRank;
         Integer newRankInt;
@@ -81,7 +80,7 @@ public class BatchUpdateRank extends com.topcoder.web.studio.controller.request.
             beginCommunication();
 
             HibernateUtils.getSession().refresh(s);
-            dao = StudioDAOUtil.getFactory().getSubmissionDAO();
+            dao = CSFDAOUtil.getFactory().getSubmissionDAO();
         }
 
         loadSubmissionData(s.getSubmitter(), s.getContest(), dao, maxRank);
@@ -109,7 +108,7 @@ public class BatchUpdateRank extends com.topcoder.web.studio.controller.request.
 
         Long contestId = new Long(getRequest().getParameter(Constants.CONTEST_ID));
 
-        SubmissionDAO dao = StudioDAOUtil.getFactory().getSubmissionDAO();
+        SubmissionDAO dao = CSFDAOUtil.getFactory().getSubmissionDAO();
         String paramName;
         String newRank;
         Integer newRankInt;
@@ -170,7 +169,7 @@ public class BatchUpdateRank extends com.topcoder.web.studio.controller.request.
             beginCommunication();
 
             HibernateUtils.getSession().refresh(s);
-            dao = StudioDAOUtil.getFactory().getSubmissionDAO();
+            dao = CSFDAOUtil.getFactory().getSubmissionDAO();
         }
 
         loadSubmissionData(s.getSubmitter(), s.getContest(), dao, maxRank);

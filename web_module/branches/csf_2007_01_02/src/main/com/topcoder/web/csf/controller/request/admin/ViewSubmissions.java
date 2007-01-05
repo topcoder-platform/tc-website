@@ -9,15 +9,15 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.SortInfo;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
+import com.topcoder.web.csf.Constants;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 20, 2006
  */
-public class ViewSubmissions extends com.topcoder.web.studio.controller.request.admin.Base {
+public class ViewSubmissions extends Base {
 
     protected void dbProcessing() throws Exception {
         Long contestId;
@@ -42,7 +42,7 @@ public class ViewSubmissions extends com.topcoder.web.studio.controller.request.
         }
 
         QueryRequest r = new QueryRequest();
-        DataAccessInt dai = new QueryDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
+        DataAccessInt dai = new QueryDataAccess(DBMS.CSF_DATASOURCE_NAME);
 
 
         StringBuffer query = new StringBuffer(300);
@@ -140,8 +140,8 @@ public class ViewSubmissions extends com.topcoder.web.studio.controller.request.
         SortInfo info = new SortInfo();
         getRequest().setAttribute(SortInfo.REQUEST_KEY, info);
 
-        getRequest().setAttribute("contest", StudioDAOUtil.getFactory().getContestDAO().find(contestId));
-        getRequest().setAttribute("reviewStatuses", StudioDAOUtil.getFactory().getReviewStatusDAO().getReviewStatuses());
+        getRequest().setAttribute("contest", CSFDAOUtil.getFactory().getContestDAO().find(contestId));
+        getRequest().setAttribute("reviewStatuses", CSFDAOUtil.getFactory().getReviewStatusDAO().getReviewStatuses());
         setDefault(Constants.CONTEST_ID, contestId.toString());
         if (!"".equals(handle)) {
             setDefault(Constants.HANDLE, handle);

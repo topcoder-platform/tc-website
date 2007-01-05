@@ -1,6 +1,7 @@
 package com.topcoder.web.csf.dao;
 
-import com.topcoder.web.studio.model.StudioFileType;
+
+import com.topcoder.web.csf.model.CSFFileType;
 
 import java.util.List;
 
@@ -10,9 +11,9 @@ import java.util.List;
  *          Create Date: Aug 23, 2006
  */
 public interface FileTypeDAO {
-    StudioFileType find(Integer id);
+    CSFFileType find(Integer id);
 
     List getFileTypes();
 
-    StudioFileType find(String mimeType);
+    CSFFileType find(String mimeType);
 }

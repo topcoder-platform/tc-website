@@ -1,16 +1,13 @@
 package com.topcoder.web.csf.controller.request.admin;
 
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOFactory;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.ContestResult;
-import com.topcoder.web.studio.model.Prize;
-import com.topcoder.web.studio.model.ReviewStatus;
-import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.csf.Constants;
+import com.topcoder.web.csf.dao.CSFDAOFactory;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
+import com.topcoder.web.csf.model.ContestResult;
+import com.topcoder.web.csf.model.Prize;
+import com.topcoder.web.csf.model.ReviewStatus;
+import com.topcoder.web.csf.model.Submission;
 
 import java.util.Iterator;
 import java.util.Set;
@@ -20,7 +17,7 @@ import java.util.Set;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Aug 29, 2006
  */
-public class SetPlace extends com.topcoder.web.studio.controller.request.admin.Base {
+public class SetPlace extends Base {
     protected void dbProcessing() throws Exception {
 
         Long submissionId;
@@ -40,7 +37,7 @@ public class SetPlace extends com.topcoder.web.studio.controller.request.admin.B
             log.debug("got prize: " + prizeId);
         }
 
-        StudioDAOFactory factory = StudioDAOUtil.getFactory();
+        CSFDAOFactory factory = CSFDAOUtil.getFactory();
         Submission s = factory.getSubmissionDAO().find(submissionId);
 
         if (s == null) {
@@ -68,6 +65,7 @@ public class SetPlace extends com.topcoder.web.studio.controller.request.admin.B
                 s.setResult(cr);
                 factory.getSubmissionDAO().saveOrUpdate(s);
 
+/*
                 try {
                     CacheClient cc = CacheClientFactory.createCacheClient();
                     Request r = new Request();
@@ -76,6 +74,7 @@ public class SetPlace extends com.topcoder.web.studio.controller.request.admin.B
                 } catch (Exception ignore) {
                     ignore.printStackTrace();
                 }
+*/
 
 
             }

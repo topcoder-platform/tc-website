@@ -2,9 +2,9 @@ package com.topcoder.web.csf.dao.hibernate;
 
 import com.topcoder.web.common.dao.hibernate.Base;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.studio.dao.SubmissionDAO;
-import com.topcoder.web.studio.model.Submission;
-import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.csf.model.Submission;
+import com.topcoder.web.csf.model.Contest;
+import com.topcoder.web.csf.dao.SubmissionDAO;
 import org.hibernate.Query;
 
 import java.util.List;

@@ -1,15 +1,17 @@
 package com.topcoder.web.csf.controller.request;
 
-import com.topcoder.web.studio.controller.request.admin.Base;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.Submission;
-import com.topcoder.web.studio.model.ContestResult;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.csf.Constants;
+import com.topcoder.web.csf.controller.request.admin.Base;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
+import com.topcoder.web.csf.model.ContestResult;
+import com.topcoder.web.csf.model.Submission;
 
-import java.util.Iterator;
-import java.util.Date;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
+import java.util.Date;
+import java.util.Iterator;
 
 /**
  * @author dok
@@ -27,7 +29,7 @@ public class DownloadSubmission extends Base {
             throw new NavigationException("Invalid Submission Specified");
         }
 
-        Submission s = StudioDAOUtil.getFactory().getSubmissionDAO().find(submissionId);
+        Submission s = CSFDAOUtil.getFactory().getSubmissionDAO().find(submissionId);
 
         boolean isWinner = false;
         ContestResult curr;

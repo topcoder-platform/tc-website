@@ -2,10 +2,10 @@ package com.topcoder.web.csf.controller.request.admin;
 
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.Prize;
+import com.topcoder.web.csf.model.Prize;
+import com.topcoder.web.csf.model.Contest;
+import com.topcoder.web.csf.Constants;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
 
 import java.util.Iterator;
 import java.util.Set;
@@ -15,7 +15,7 @@ import java.util.Set;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Aug 1, 2006
  */
-public class RemovePrize extends com.topcoder.web.studio.controller.request.admin.Base {
+public class RemovePrize extends Base {
 
     protected void dbProcessing() throws Exception {
         String contestId = getRequest().getParameter(Constants.CONTEST_ID);
@@ -23,7 +23,7 @@ public class RemovePrize extends com.topcoder.web.studio.controller.request.admi
         if ("".equals(StringUtils.checkNull(contestId))) {
             throw new NavigationException("No contest specified");
         } else {
-            Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
+            Contest contest = CSFDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
             String place = StringUtils.checkNull(getRequest().getParameter(Constants.PRIZE_PLACE));
 
             boolean found = false;
@@ -46,7 +46,7 @@ public class RemovePrize extends com.topcoder.web.studio.controller.request.admi
                 throw new NavigationException("Could not find the prize specified " + contestId + " " + place);
             }
 
-            StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
+            CSFDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
             markForCommit();
 
             setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +

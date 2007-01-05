@@ -1,11 +1,12 @@
 package com.topcoder.web.csf.controller.request.admin;
 
-import com.topcoder.web.studio.controller.request.admin.*;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.csf.Constants;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
+import com.topcoder.web.csf.model.Submission;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
 
 /**
@@ -13,7 +14,7 @@ import java.io.FileInputStream;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 20, 2006
  */
-public class DownloadSubmission extends com.topcoder.web.studio.controller.request.admin.Base {
+public class DownloadSubmission extends Base {
 
     protected void dbProcessing() throws Exception {
         Long submissionId;
@@ -24,7 +25,7 @@ public class DownloadSubmission extends com.topcoder.web.studio.controller.reque
             throw new NavigationException("Invalid Submission Specified");
         }
 
-        Submission s = StudioDAOUtil.getFactory().getSubmissionDAO().find(submissionId);
+        Submission s = CSFDAOUtil.getFactory().getSubmissionDAO().find(submissionId);
 
         //create the file input stream first so that if there is a problem, we'll get the error and be able to go
         //to an error page.  if we work with the output stream, we won't be able to do that.

@@ -1,16 +1,16 @@
 package com.topcoder.web.csf.controller.request.admin;
 
-import com.topcoder.web.studio.dao.StudioDAOUtil;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 17, 2006
  */
-public class ViewContests extends com.topcoder.web.studio.controller.request.admin.Base {
+public class ViewContests extends Base {
     protected void dbProcessing() throws Exception {
         //load contests
-        getRequest().setAttribute("contests", StudioDAOUtil.getFactory().getContestDAO().getContests());
+        getRequest().setAttribute("contests", CSFDAOUtil.getFactory().getContestDAO().getContests());
         setNextPage("/admin/contests.jsp");
         setIsNextPageInContext(true);
 

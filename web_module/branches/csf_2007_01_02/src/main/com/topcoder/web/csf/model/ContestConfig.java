@@ -1,8 +1,6 @@
 package com.topcoder.web.csf.model;
 
 import com.topcoder.web.common.model.Base;
-import com.topcoder.web.studio.model.*;
-import com.topcoder.web.studio.model.Contest;
 
 import java.io.Serializable;
 
@@ -12,7 +10,7 @@ import java.io.Serializable;
  *          Create Date: Jul 28, 2006
  */
 public class ContestConfig extends Base {
-    com.topcoder.web.studio.model.Contest contest;
+    Contest contest;
     ContestProperty property;
     String value;
     ContestConfig.Identifier id = new ContestConfig.Identifier();

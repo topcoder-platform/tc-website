@@ -1,8 +1,8 @@
 package com.topcoder.web.csf.validation;
 
 import com.topcoder.web.common.validation.*;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.Prize;
+import com.topcoder.web.csf.model.Contest;
+import com.topcoder.web.csf.model.Prize;
 
 import java.util.Iterator;
 

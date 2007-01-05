@@ -1,4 +1,4 @@
-package com.topcoder.web.studio.view.tag;
+package com.topcoder.web.csf.view.tag;
 
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;

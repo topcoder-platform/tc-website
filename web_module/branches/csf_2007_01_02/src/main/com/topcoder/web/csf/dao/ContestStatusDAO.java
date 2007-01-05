@@ -1,6 +1,7 @@
 package com.topcoder.web.csf.dao;
 
-import com.topcoder.web.studio.model.ContestStatus;
+
+import com.topcoder.web.csf.model.ContestStatus;
 
 import java.util.List;
 

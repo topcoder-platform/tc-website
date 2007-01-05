@@ -16,7 +16,7 @@ import com.topcoder.shared.util.DBMS;
 public class ViewPastContests extends BaseProcessor {
     protected void businessProcessing() throws Exception {
         //load up the contests
-        DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
+        DataAccess da = new DataAccess(DBMS.CSF_DATASOURCE_NAME);
         Request r = new Request();
         r.setContentHandle("past_contests");
 

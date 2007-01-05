@@ -1,15 +1,15 @@
 package com.topcoder.web.csf.controller.request;
 
-import com.topcoder.web.common.ShortHibernateProcessor;
-import com.topcoder.web.common.StringUtils;
+import com.topcoder.security.TCPrincipal;
+import com.topcoder.security.TCSubject;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.SecurityHelper;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.ContestStatus;
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.TCPrincipal;
+import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.csf.Constants;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
+import com.topcoder.web.csf.model.Contest;
+import com.topcoder.web.csf.model.ContestStatus;
 
 import java.util.Date;
 import java.util.Iterator;
@@ -31,7 +31,7 @@ public class ViewContestDetails extends ShortHibernateProcessor {
             } catch (NumberFormatException e) {
                 throw new NavigationException("Invalid contest specified");
             }
-            Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(cid);
+            Contest contest = CSFDAOUtil.getFactory().getContestDAO().find(cid);
 
             if (isAdmin()) {
                 getRequest().setAttribute("contest", contest);

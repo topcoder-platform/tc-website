@@ -1,17 +1,16 @@
 package com.topcoder.web.csf.controller.request.admin;
 
-import com.topcoder.web.studio.controller.request.admin.Base;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.validation.PlaceValidator;
-import com.topcoder.web.studio.validation.PrizeValidator;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.Prize;
-import com.topcoder.web.studio.model.PrizeType;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.validation.StringInput;
+import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.csf.Constants;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
+import com.topcoder.web.csf.model.Contest;
+import com.topcoder.web.csf.model.Prize;
+import com.topcoder.web.csf.model.PrizeType;
+import com.topcoder.web.csf.validation.PlaceValidator;
+import com.topcoder.web.csf.validation.PrizeValidator;
 
 /**
  * @author dok
@@ -26,7 +25,7 @@ public class AddPrize extends Base {
         if ("".equals(StringUtils.checkNull(contestId))) {
             throw new NavigationException("No contest specified");
         } else {
-            Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
+            Contest contest = CSFDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
             String place = getRequest().getParameter(Constants.PRIZE_PLACE);
             String prize = getRequest().getParameter(Constants.PRIZE_VALUE);
 
@@ -47,9 +46,9 @@ public class AddPrize extends Base {
                 Prize cp = new Prize();
                 cp.setAmount(new Float(prize));
                 cp.setPlace(new Integer(place));
-                cp.setType(StudioDAOUtil.getFactory().getPrizeTypeDAO().find(PrizeType.CONTEST));
+                cp.setType(CSFDAOUtil.getFactory().getPrizeTypeDAO().find(PrizeType.CONTEST));
                 contest.addPrize(cp);
-                StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
+                CSFDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
                 markForCommit();
                 setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
                         "=AdminViewContest&" + Constants.CONTEST_ID + "=" + contestId);

@@ -1,6 +1,7 @@
 package com.topcoder.web.csf.dao;
 
-import com.topcoder.web.studio.model.Document;
+import com.topcoder.web.csf.model.Document;
+
 
 /**
  * @author dok

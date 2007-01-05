@@ -1,6 +1,7 @@
 package com.topcoder.web.csf.dao;
 
-import com.topcoder.web.studio.model.MimeType;
+import com.topcoder.web.csf.model.MimeType;
+
 
 /**
  * @author dok
