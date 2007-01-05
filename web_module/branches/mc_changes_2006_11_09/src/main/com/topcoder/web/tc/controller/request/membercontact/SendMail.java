@@ -75,12 +75,14 @@ public class SendMail extends ShortHibernateProcessor {
             throw new Exception("Empty message isn't allowed.");
         }
         
+        String senderEmail = sender.getPrimaryEmailAddress().getAddress();
+
         log.info("attachEmail: " + attachEmail);
         String contactInf = "";
         if (attachEmail == "Yes") {
             log.info("Yes");    
-            log.info("sender.getEmailAddresses()" + sender.getEmailAddresses());    
-            contactInf = "\n\n Sender's email: " + sender.getEmailAddresses();
+            log.info("senderEmail" + senderEmail);    
+            contactInf = "\n\n Sender's email: " + senderEmail;
         }
         log.info("contactInf:" + contactInf);    
 
@@ -92,7 +94,6 @@ public class SendMail extends ShortHibernateProcessor {
         }
 
         User recipient  = DAOUtil.getFactory().getUserDAO().find(toHandle, true, true);
-        String senderEmail = sender.getPrimaryEmailAddress().getAddress();
         String recipientEmail = recipient.getPrimaryEmailAddress().getAddress();
 
         // send the original message

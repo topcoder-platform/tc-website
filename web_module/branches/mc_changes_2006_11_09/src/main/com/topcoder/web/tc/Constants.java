@@ -169,7 +169,6 @@ public class Constants implements WebConstants {
     public static String MEMBER_CONTACT_FROM_ADDRESS;
     public static String MEMBER_CONTACT_SUBJECT;
     public static String MEMBER_CONTACT_SUBJECT_COPY;
-    public static String CONTACT_INFORMATION_TITLE;
 
     public static String VALIDATE_HANDLE;
 
