@@ -19,6 +19,8 @@ import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.membercontact.validation.HandleValidator;
+import com.topcoder.web.common.StringUtils;
+
 
 /**
  *
@@ -59,10 +61,10 @@ public class SendMail extends ShortHibernateProcessor {
         }
 
 
-        String toHandle = getRequest().getParameter(TO_HANDLE);
-        String message = getRequest().getParameter(TEXT);
+        String toHandle = StringUtils.checkNull(getRequest().getParameter(TO_HANDLE));
+        String message = StringUtils.checkNull(getRequest().getParameter(TEXT));
         boolean sendCopy = getRequest().getParameter(SEND_COPY) != null;
-        String attachEmail = getRequest().getParameter(ATTACH);
+        String attachEmail = StringUtils.checkNull(getRequest().getParameter(ATTACH));
         
         // Check again that the user choose to attach or not his email when the user cannot
         // receive messages, in case that someone has tweaked the jsp or some kind of hack
@@ -77,14 +79,10 @@ public class SendMail extends ShortHibernateProcessor {
         
         String senderEmail = sender.getPrimaryEmailAddress().getAddress();
 
-        log.info("attachEmail: " + attachEmail);
         String contactInf = "";
         if (attachEmail.trim().equals("Yes")) {
-            log.info("Yes");    
-            log.info("senderEmail" + senderEmail);    
             contactInf = "\n\n Sender's email: " + senderEmail;
         }
-        log.info("contactInf:" + contactInf);    
 
         // Check again that the user is valid, in case that someone has tweaked the jsp
         // or some kind of hack
@@ -100,7 +98,6 @@ public class SendMail extends ShortHibernateProcessor {
         TCSEmailMessage mail = new TCSEmailMessage();
         mail.setSubject(Constants.MEMBER_CONTACT_SUBJECT.replaceAll("%", sender.getHandle()));
         mail.setBody(message + contactInf);
-        log.info("message + contactInf:" + message + contactInf);    
 
         mail.setToAddress(recipientEmail, TCSEmailMessage.TO);
         mail.setFromAddress(Constants.MEMBER_CONTACT_FROM_ADDRESS);
