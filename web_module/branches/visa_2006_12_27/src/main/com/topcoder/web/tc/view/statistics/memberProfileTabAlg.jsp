@@ -162,7 +162,7 @@ if(!rscSummaryChal.isEmpty()) {
 <SCRIPT language="JavaScript">
 <!--
 if ( MM_FlashCanPlay ) {
-	displayGraph(<%=request.getParameter("cr")%>, <%=rscAlgData.getIntItem(0, "rating")%>);
+	displayGraph('<%=request.getParameter("cr")%>', '<%=rscAlgData.getIntItem(0, "rating")%>');
 }
 // -->
 </SCRIPT>
