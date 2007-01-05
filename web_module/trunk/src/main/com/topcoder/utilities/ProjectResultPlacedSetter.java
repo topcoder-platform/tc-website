@@ -1,7 +1,7 @@
 package com.topcoder.utilities;
 
-import com.topcoder.shared.util.sql.InformixSimpleDataSource;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.sql.InformixSimpleDataSource;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,15 +18,14 @@ public class ProjectResultPlacedSetter {
             "     , project p\n" +
             " where pr.final_score is not null\n" +
             "   and pr.project_id = p.project_id\n" +
-            "   and p.cur_version = 1\n" +
-            "   and p.project_stat_id in (2,4,5,6,7)\n" +
+            "   and p.project_status_id in (4,5,6,7)\n" +
             "   and p.project_id in (select project_id from project_result where final_score is not null and placed is null)\n" +
             " order by pr.project_id, pr.final_score desc";
-    private static final String update ="update project_result set placed = ? where user_id =? and project_id = ?";
+    private static final String update = "update project_result set placed = ? where user_id =? and project_id = ?";
 
     public static void main(String[] args) {
         Connection conn = null;
-        PreparedStatement ps1= null;
+        PreparedStatement ps1 = null;
         PreparedStatement ps2 = null;
         ResultSet rs = null;
         try {
@@ -45,7 +44,7 @@ public class ProjectResultPlacedSetter {
                 long projectId = rs.getLong("project_id");
                 long userId = rs.getLong("user_id");
                 //double score = rs.getDouble("final_score");
-                boolean hasPlaced = rs.getString("placed")!=null;
+                boolean hasPlaced = rs.getString("placed") != null;
 
                 if (projectId == lastProjectId) {
                     placed++;
@@ -55,10 +54,10 @@ public class ProjectResultPlacedSetter {
 
                 if (!hasPlaced) {
 //                    System.out.println("set placed = " + placed + " for user " + userId + " project " + projectId);
-                        ps2.clearParameters();
-                        ps2.setInt(1, placed);
-                        ps2.setLong(2, userId);
-                        ps2.setLong(3, projectId);
+                    ps2.clearParameters();
+                    ps2.setInt(1, placed);
+                    ps2.setLong(2, userId);
+                    ps2.setLong(3, projectId);
                     ps2.executeUpdate();
                 }
 
