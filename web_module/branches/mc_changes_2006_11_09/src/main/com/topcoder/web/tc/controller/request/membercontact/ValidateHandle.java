@@ -20,7 +20,7 @@ public class ValidateHandle extends ShortHibernateProcessor {
 
     protected void dbProcessing() throws Exception {
         String handle = getRequest().getParameter(SendMail.TO_HANDLE);
-        String text = getRequest().getParameter(SendMail.TEXT);
+//        String text = getRequest().getParameter(SendMail.TEXT);
 //        String attach = getRequest().getParameter(SendMail.ATTACH);
 
 //        log.info("attach: " + attach);
@@ -28,8 +28,8 @@ public class ValidateHandle extends ShortHibernateProcessor {
         User user = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
         ValidationResult handleValidation = new HandleValidator(user).validate(new StringInput(handle));
-        ValidationResult textValidation = new NonEmptyValidator("Please enter the message text.")
-            .validate(new StringInput(text));
+//        ValidationResult textValidation = new NonEmptyValidator("Please enter the message text.")
+//            .validate(new StringInput(text));
 
         // forces non-empty contact information in case the user cannot receive message
         // because of disables MC
@@ -40,7 +40,7 @@ public class ValidateHandle extends ShortHibernateProcessor {
         }*/
         
         getRequest().setAttribute("handleValidation", handleValidation);
-        getRequest().setAttribute("textValidation", textValidation);
+//        getRequest().setAttribute("textValidation", textValidation);
         //getRequest().setAttribute("contactValidation", contactValidation);
 
         setNextPage(Constants.VALIDATE_HANDLE);

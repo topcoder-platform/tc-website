@@ -37,19 +37,27 @@ function canSend() {
            document.f.handleValid.value == "true";
 }
 
-function validate(send) {
+function validateLocal() {
+	valid = false;
 	if (isIncludeMailChecked()) {
-	   alert("isIncludeMailChecked()");
        updateDivOrSpan(document, "attachValidation", "");
+       	valid = true;
     } else {
-	   alert("Please answer this question.");
        updateDivOrSpan(document, "attachValidation", "Please answer this question.");
     }
+    if (document.f.<%= SendMail.TEXT %>.value != ""()) {
+       updateDivOrSpan(document, "textValidation", "");
+       	valid = true;
+    } else {
+       updateDivOrSpan(document, "textValidation", "Please enter the message text.");
+    }
+    return valid;
+}
 
-
+function validateHandle(send) {
     var ajaxRequest = new AjaxRequest('/tc?module=ValidateHandle');
     ajaxRequest.addFormElementsById("<%= SendMail.TO_HANDLE %>");
-    ajaxRequest.addFormElementsById("<%= SendMail.TEXT %>");    
+//    ajaxRequest.addFormElementsById("<%= SendMail.TEXT %>");    
     if (send) {
 	    ajaxRequest.setPostRequest(afterRequest);
     } else {
@@ -58,11 +66,10 @@ function validate(send) {
     ajaxRequest.sendRequest();
 }
 
-function textChanged() {
-    if (prevCanSend != canSend()) {
-		validate(false);
-	    prevCanSend = canSend();
-    }
+function send() {
+	if (validateLocal()) {
+		validateHandle(true)
+	}
 }
 
 function afterRequest() 
@@ -158,13 +165,13 @@ To block specific TopCoder members from contacting you, go to the <a href='/tc?m
 <br>
 <input type="hidden" id="<%= SendMail.SEND %>" name="<%= SendMail.SEND %>" value="true" />
 
-To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HANDLE %>' size='12' onBlur='validate(false)' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
+To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
 <div id="validationHandle"> </div>
 <span class="smallText">(Enter TopCoder handle only, one per message)</span>
 <br /><br />
 
-<textarea name='<%= SendMail.TEXT %>' id='<%= SendMail.TEXT %>' cols='50' rows='10' onKeyUp='textChanged()'></textarea>
-<div id="validationText"> </div>
+<textarea name='<%= SendMail.TEXT %>' id='<%= SendMail.TEXT %>' cols='50' rows='10'></textarea>
+<span id=textValidation class="bigRed"></span>
 <br /><br />
 
 <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
@@ -192,7 +199,7 @@ Would you like to attach your email address to the message?
 <br /><br />
 
 <div id="btnSendDiv">
-  <A href="javascript:validate(true)" class="bodyText"><img src="/i/interface/btn_send.gif" border="0"/></A>
+  <A href="javascript:send()" class="bodyText"><img src="/i/interface/btn_send.gif" border="0"/></A>
 </div>
 
 <div id="runJS">
