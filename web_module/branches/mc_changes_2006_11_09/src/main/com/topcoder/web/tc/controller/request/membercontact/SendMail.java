@@ -78,8 +78,10 @@ public class SendMail extends ShortHibernateProcessor {
         log.info("attachEmail: " + attachEmail);
         String contactInf = "";
         if (attachEmail == "Yes") {
+            log.info("Yes");    
             contactInf = "\n\n" + Constants.CONTACT_INFORMATION_TITLE + sender.getEmailAddresses();
         }
+        log.info("contactInf:" + contactInf);    
 
         // Check again that the user is valid, in case that someone has tweaked the jsp
         // or some kind of hack
@@ -96,6 +98,8 @@ public class SendMail extends ShortHibernateProcessor {
         TCSEmailMessage mail = new TCSEmailMessage();
         mail.setSubject(Constants.MEMBER_CONTACT_SUBJECT.replaceAll("%", sender.getHandle()));
         mail.setBody(message + contactInf);
+        log.info("message + contactInf:" + message + contactInf);    
+
         mail.setToAddress(recipientEmail, TCSEmailMessage.TO);
         mail.setFromAddress(Constants.MEMBER_CONTACT_FROM_ADDRESS);
         EmailEngine.send(mail);

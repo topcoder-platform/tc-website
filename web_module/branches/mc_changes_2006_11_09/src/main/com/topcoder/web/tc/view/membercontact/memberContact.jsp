@@ -1,4 +1,4 @@
-f<%@ page contentType="text/html;charset=utf-8" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@ page language="java"
          import="com.topcoder.web.tc.controller.request.membercontact.MemberContact,
                  com.topcoder.web.tc.controller.request.membercontact.SendMail,
@@ -35,21 +35,25 @@ function canSend() {
            document.f.handleValid.value == "true";
 }
 
-function validateLocal() {
+function validateLocal(showErrors) {
 	valid = false;
     <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
 		if (isIncludeMailChecked()) {
 	       updateDivOrSpan(document, "attachValidation", "");
 	       	valid = true;
 	    } else {
-	       updateDivOrSpan(document, "attachValidation", "Please answer this question.");
+	       if (showErrors) {
+	           updateDivOrSpan(document, "attachValidation", "Please answer this question.");
+	       }
 	    }
     </c:if>
     if (document.f.<%= SendMail.TEXT %>.value != "") {
        updateDivOrSpan(document, "textValidation", "");
        	valid = true;
     } else {
-       updateDivOrSpan(document, "textValidation", "Please enter the message text.");
+        if (showErrors) {
+           updateDivOrSpan(document, "textValidation", "Please enter the message text.");
+        }
     }
     return valid;
 }
@@ -66,7 +70,7 @@ function validateHandle(send) {
 }
 
 function send() {
-	if (validateLocal()) {
+	if (validateLocal(true)) {
 		validateHandle(true)
 	}
 }
@@ -169,7 +173,7 @@ To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.
 <span class="smallText">(Enter TopCoder handle only, one per message)</span>
 <br /><br />
 
-<textarea name='<%= SendMail.TEXT %>' id='<%= SendMail.TEXT %>' onKeyUp='validateLocal()' onBlur='validateLocal()' cols='50' rows='10'></textarea>
+<textarea name='<%= SendMail.TEXT %>' id='<%= SendMail.TEXT %>' onKeyUp='validateLocal(false)' onBlur='validateLocal(false)' cols='50' rows='10'></textarea>
 <br />
 <span id=textValidation class="bigRed"></span>
 <br /><br />
@@ -183,9 +187,9 @@ Would you like to attach your email address to the message?
 <span id=attachValidation class="bigRed"></span>
 <%-------------------------------------------------------------%>
 <br />
-<input type="radio" name="<%= SendMail.ATTACH %>" value="Yes" onChange='validateLocal()' > Yes
+<input type="radio" name="<%= SendMail.ATTACH %>" value="Yes" onChange='validateLocal(false)' > Yes
 <br />
-<input type="radio" name="<%= SendMail.ATTACH %>" value="No" onChange='validateLocal()' > No
+<input type="radio" name="<%= SendMail.ATTACH %>" value="No" onChange='validateLocal(false)' > No
 <br /><br />
 <%--
 <br /><br />
