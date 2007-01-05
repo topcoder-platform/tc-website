@@ -162,49 +162,28 @@ No Visa Letter Events defined.
 	<br>
 	<table border="1">
 		<tr>
-			<td>&nbsp;</td>
 			<td><b>Passport Address</b></td>
 			<td><b>Shipping Address</b></td>
 		</tr>
 		<tr>
-			<td>Address 1:</td>
-			<td><c:out value="${req.address.address1}" />&nbsp;</td>
-			<td><c:out value="${req.shippingAddress.address1}" />&nbsp;</td>
-		</tr>
-		<tr>
-			<td>Address 2:</td>
-			<td><c:out value="${req.address.address2}" />&nbsp;</td>
-			<td><c:out value="${req.shippingAddress.address2}" />&nbsp;</td>
-		</tr>
-		<tr>
-			<td>Address 3:</td>
-			<td><c:out value="${req.address.address3}" />&nbsp;</td>
-			<td><c:out value="${req.shippingAddress.address3}" />&nbsp;</td>
-		</tr>
-		<tr>
-			<td>City:</td>
-			<td><c:out value="${req.address.city}" />&nbsp;</td>
-			<td><c:out value="${req.shippingAddress.city}" />&nbsp;</td>
-		</tr>
-		<tr>
-			<td>State:</td>
-			<td><c:out value="${req.address.state.name}" />&nbsp;</td>
-			<td><c:out value="${req.shippingAddress.state.name}" />&nbsp;</td>
-		</tr>
-		<tr>
-			<td>Postal Code:</td>
-			<td><c:out value="${req.address.postalCode}" />&nbsp;</td>
-			<td><c:out value="${req.shippingAddress.postalCode}" />&nbsp;</td>
-		</tr>
-		<tr>
-			<td>Province:</td>
-			<td><c:out value="${req.address.province}" />&nbsp;</td>
-			<td><c:out value="${req.shippingAddress.province}" />&nbsp;</td>
-		</tr>
-		<tr>
-			<td>Country:</td>
-			<td><c:out value="${req.address.country.name}" />&nbsp;</td>
-			<td><c:out value="${req.shippingAddress.country.name}" />&nbsp;</td>
+			<td>
+				<c:out value="${req.address.address1}" /><br>
+				<c:out value="${req.address.address2}" /><br>				
+				<c:out value="${req.address.address3}" /><br>		
+				<c:out value="${req.address.city}" />, <c:out value="${req.address.state.name}" /><br>		
+				<c:out value="${req.address.postalCode}" /><br>
+				<c:out value="${req.address.province}" /><br>
+				<c:out value="${req.address.country.name}" />
+			</td>
+			<td>
+				<c:out value="${req.shippingAddress.address1}" /><br>
+				<c:out value="${req.shippingAddress.address2}" /><br>				
+				<c:out value="${req.shippingAddress.address3}" /><br>		
+				<c:out value="${req.shippingAddress.city}" />, <c:out value="${req.shippingAddress.state.name}" /><br>		
+				<c:out value="${req.shippingAddress.postalCode}" /><br>
+				<c:out value="${req.shippingAddress.province}" /><br>
+				<c:out value="${req.shippingAddress.country.name}" />
+			</td>
 		</tr>
 	</table>
 	
