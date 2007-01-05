@@ -79,7 +79,8 @@ public class SendMail extends ShortHibernateProcessor {
         String contactInf = "";
         if (attachEmail == "Yes") {
             log.info("Yes");    
-            contactInf = "\n\n" + Constants.CONTACT_INFORMATION_TITLE + sender.getEmailAddresses();
+            log.info("sender.getEmailAddresses()" + sender.getEmailAddresses());    
+            contactInf = "\n\n Sender's email: " + sender.getEmailAddresses();
         }
         log.info("contactInf:" + contactInf);    
 
