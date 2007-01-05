@@ -105,7 +105,7 @@ public class Register extends ViewRegistration {
             ComponentManagerHome componentManagerHome =
                     (ComponentManagerHome) PortableRemoteObject.narrow(objComponentManager, ComponentManagerHome.class);
             ComponentManager componentManager = componentManagerHome.create(componentId);
-            String project = componentManager.getComponentInfo().getName() + " Assembly Project");
+            String project = componentManager.getComponentInfo().getName() + " Assembly Project";
             long activeForumId = componentManager.getActiveForum(Forum.SPECIFICATION).getId();
 
             if (log.isDebugEnabled()) {

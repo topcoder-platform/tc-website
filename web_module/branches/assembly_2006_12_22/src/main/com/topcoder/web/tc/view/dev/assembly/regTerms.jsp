@@ -47,7 +47,7 @@
            
 
             <form action="${sessionInfo.servletPath}" method="POST" name="regForm">
-                <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ProjectRegister"/>
+                <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="AssemblyProjectRegister"/>
                 <tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID%>"/>
 
                 <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="10" cols="60"/>
@@ -86,7 +86,7 @@
     </tr>
 </table>
 
-<jsp:include page="../foot.jsp"/>
+<jsp:include page="../../foot.jsp"/>
 
 </body>
 
