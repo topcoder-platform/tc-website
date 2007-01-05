@@ -1,5 +1,5 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="com.topcoder.web.csf.Constants" %>
 <%@ page import="com.topcoder.web.studio.controller.request.Login" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>

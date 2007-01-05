@@ -1,4 +1,4 @@
-<%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="com.topcoder.web.csf.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.ReviewStatus" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
