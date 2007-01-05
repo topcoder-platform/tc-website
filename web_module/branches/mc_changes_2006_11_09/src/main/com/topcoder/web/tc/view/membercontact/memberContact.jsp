@@ -39,8 +39,10 @@ function canSend() {
 
 function validate(send) {
 	if (isIncludeMailChecked) {
+	   alert("");
        updateDivOrSpan(document, "attachValidation", "");
     } else {
+	   alert("Please answer this question.");
        updateDivOrSpan(document, "attachValidation", "Please answer this question.");
     }
 
@@ -48,7 +50,6 @@ function validate(send) {
     var ajaxRequest = new AjaxRequest('/tc?module=ValidateHandle');
     ajaxRequest.addFormElementsById("<%= SendMail.TO_HANDLE %>");
     ajaxRequest.addFormElementsById("<%= SendMail.TEXT %>");    
-    ajaxRequest.addNameValuePair("<%= SendMail.ATTACH %>", isIncludeMailChecked);
     if (send) {
 	    ajaxRequest.setPostRequest(afterRequest);
     } else {
