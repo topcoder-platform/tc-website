@@ -184,9 +184,9 @@ Would you like to attach your email address to the message?
 <span id=attachValidation class="bigRed"></span>
 <%-------------------------------------------------------------%>
 <br />
-<input type="radio" name="<%= SendMail.ATTACH %>" value=""> Yes
+<input type="radio" name="<%= SendMail.ATTACH %>" value="Yes" onChange='validateLocal()' > Yes
 <br />
-<input type="radio" name="<%= SendMail.ATTACH %>" value=""> No
+<input type="radio" name="<%= SendMail.ATTACH %>" value="No" onChange='validateLocal()' > No
 <br /><br />
 <%--
 <br /><br />
