@@ -59,7 +59,7 @@
                 <jsp:param name="title" value="&#160;"/>
             </jsp:include>
     
-<span class="rtbc"><a href="?module=Main" class="rtbcLink">Forums</a> > Administration</span>
+<span class="rtbc"><a href="?module=Main" class="rtbcLink">Forums</a> <img src="/i/interface/exp_w.gif" align="absmiddle"/> Administration</span>
 
 <form name="form1" method="post" action="${sessionInfo.servletPath}">
 <tc-webtag:hiddenInput name="module" value="Admin"/>

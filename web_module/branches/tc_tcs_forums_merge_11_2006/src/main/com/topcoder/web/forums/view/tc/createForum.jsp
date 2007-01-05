@@ -114,7 +114,7 @@ function AllowTabCharacter() {
 	<tr>
 		<td colspan="2" style="padding-bottom:3px;"><b>
 	       <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
-	            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> >
+	            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> <img src="/i/interface/exp_w.gif" align="absmiddle"/>
 	       </tc-webtag:iterator>
 	 		<%=postHeading%>
 	       </b>

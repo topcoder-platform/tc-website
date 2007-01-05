@@ -3,16 +3,18 @@
                 com.topcoder.web.forums.ForumConstants,
                 com.topcoder.web.forums.controller.ForumsUtil,
                 com.topcoder.web.common.StringUtils,
+                com.topcoder.shared.util.ApplicationServer,
                 com.jivesoftware.base.User,
                 com.jivesoftware.base.JiveConstants,
                 com.jivesoftware.base.PollManager,
                 com.jivesoftware.base.Poll,
                 com.jivesoftware.forum.action.util.Page,
-                com.jivesoftware.forum.ForumMessage,
                 com.jivesoftware.forum.WatchManager,
                 com.jivesoftware.forum.Watch,
                 com.jivesoftware.forum.ResultFilter,
+               	com.jivesoftware.forum.ForumCategory,
                 com.jivesoftware.forum.ForumThread,
+                com.jivesoftware.forum.ForumMessage,
                 com.jivesoftware.forum.ReadTracker,
                 com.jivesoftware.forum.RatingManagerFactory,
                 com.jivesoftware.forum.RatingManager,
@@ -295,16 +297,23 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
    </td>
 </tr>
 
-<tr><td colspan="2" style="padding-bottom:3px;"><b>
-   <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
-        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> >
-   </tc-webtag:iterator>
+<%	int colspan = (paginator.getNumPages() > 1) ? 2 : 3; %>
+<tr><td colspan="<%=colspan%>" style="padding-bottom:3px;"><b>
+   <%	Iterator itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
+    	while (itCategories.hasNext()) {
+    		ForumCategory category = (ForumCategory)itCategories.next(); %>
+	        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
+	<%      if (!itCategories.hasNext() && ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) { %>
+	        	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)	
+		<%	} %>
+			<img src="/i/interface/exp_w.gif" align="absmiddle"/>
+   <%	} %>
    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A>
    <%	String linkStr = ForumsUtil.createLinkString(forum);
    		if (!linkStr.equals("")) { %>
    			<%=linkStr%>
    <% 	} %>
-   > <%=thread.getName()%></b>
+   <img src="/i/interface/exp_w.gif" align="absmiddle"/> <%=thread.getName()%></b>
    </td>
 <% if (paginator.getNumPages() > 1) { %>
    <td class="rtbc" align="right" style="padding-bottom:3px;"><b>
@@ -500,15 +509,21 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr><td><b>
-   <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
-        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>&mc=<%=category.getMessageCount()%>" class="rtbcLink"><%=category.getName()%></A> >
-   </tc-webtag:iterator>
+   <%	itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
+    	while (itCategories.hasNext()) {
+    		ForumCategory category = (ForumCategory)itCategories.next(); %>
+	        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
+	<%      if (!itCategories.hasNext() && ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) { %>
+	        	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)	
+		<%	} %>
+			<img src="/i/interface/exp_w.gif" align="absmiddle"/>
+   <%	} %>
    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A>
    <%	linkStr = ForumsUtil.createLinkString(forum);
    		if (!linkStr.equals("")) { %>
    			<%=linkStr%>
    <% 	} %>
-   > <%=thread.getName()%></b>
+   <img src="/i/interface/exp_w.gif" align="absmiddle"/> <%=thread.getName()%></b>
    <%   if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br>
         <% if (prevThread != null) { %>
             <%  prevPost = ForumsUtil.getLatestMessage(prevThread);

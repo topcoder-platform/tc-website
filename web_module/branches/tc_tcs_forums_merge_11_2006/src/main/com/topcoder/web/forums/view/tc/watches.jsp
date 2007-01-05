@@ -55,7 +55,7 @@
             </jsp:include>
 
             <div class="topLinksL">
-                <span class="rtbc"><a href="?module=Main" class="rtbcLink">Forums</a> > My Watches </span><br><br>
+                <span class="rtbc"><a href="?module=Main" class="rtbcLink">Forums</a> <img src="/i/interface/exp_w.gif" align="absmiddle"/> My Watches </span><br><br>
             </div>
 
             <div class="topLinksR">

@@ -76,7 +76,7 @@ function noenter(e)
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
 	<td style="padding-bottom:3px;">
-		<b><a href="?module=Main" class="rtbcLink">Forums</a> > Search</b>
+		<b><a href="?module=Main" class="rtbcLink">Forums</a> <img src="/i/interface/exp_w.gif" align="absmiddle"/> Search</b>
 	</td>
 </tr>
 </table>

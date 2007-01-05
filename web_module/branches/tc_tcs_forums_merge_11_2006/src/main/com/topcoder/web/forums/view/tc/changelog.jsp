@@ -50,7 +50,7 @@
                 <jsp:param name="title" value="&#160;"/>
             </jsp:include>
     
-		<span class="rtbc"><a href="?module=Main" class="rtbcLink">Forums</a> > Change Log</span>
+		<span class="rtbc"><a href="?module=Main" class="rtbcLink">Forums</a> <img src="/i/interface/exp_w.gif" align="absmiddle"/> Change Log</span>
 
 		<!-- Links to versions -->
 

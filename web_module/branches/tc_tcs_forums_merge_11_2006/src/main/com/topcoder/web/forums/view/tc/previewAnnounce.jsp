@@ -112,12 +112,12 @@ function AllowTabCharacter() {
                 crumbCategory = forumFactory.getRootForumCategory();
             }   %>
        <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(crumbCategory)%>'>
-            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> > 
+            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> <img src="/i/interface/exp_w.gif" align="absmiddle"/>
        </tc-webtag:iterator>
        <%   if (forum != null) { %>
             <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A>
        <%   } %>
-       > <%=announcement.getSubject()%>
+       <img src="/i/interface/exp_w.gif" align="absmiddle"/> <%=announcement.getSubject()%>
        </td>
        <!--<td align="right" class="rtbc"><a href="javascript:toggle('Options')" class="rtbcLink">Options</a></td>-->
     </tr>

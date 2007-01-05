@@ -74,18 +74,18 @@
 	<tr>
 		<td colspan="2" style="padding-bottom:3px;"><b>
 			<tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
-				<A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> >
+				<A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> <img src="/i/interface/exp_w.gif" align="absmiddle"/>
 			</tc-webtag:iterator>
 			<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A>
             <%	if (thread != null) { %>
-				> <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>" class="rtbcLink"><%=thread.getName()%></A>
+				<img src="/i/interface/exp_w.gif" align="absmiddle"/> <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>" class="rtbcLink"><%=thread.getName()%></A>
             <%	} %>
             <%	if (message.getID() > 0) { %>
-            	> <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>" class="rtbcLink"><%=message.getSubject()%></A>
+            	<img src="/i/interface/exp_w.gif" align="absmiddle"/> <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>" class="rtbcLink"><%=message.getSubject()%></A>
             <%	} else if (message.getSubject().trim().equals("")) { %>
-            	> <%=pageTitle%>
+            	<img src="/i/interface/exp_w.gif" align="absmiddle"/> <%=pageTitle%>
             <%	} else { %>
-				> <%=message.getSubject()%>
+				<img src="/i/interface/exp_w.gif" align="absmiddle"/> <%=message.getSubject()%>
 			<%	} %>
 		</b></td>
 	   <!--<td align="right" class="rtbc"><a href="javascript:toggle('Options')" class="rtbcLink">Options</a></td>-->

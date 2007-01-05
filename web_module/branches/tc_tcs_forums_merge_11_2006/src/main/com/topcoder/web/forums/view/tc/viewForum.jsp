@@ -9,6 +9,7 @@
                  com.jivesoftware.forum.action.util.Page,
                  com.jivesoftware.forum.action.util.Paginator,
                  com.jivesoftware.forum.stats.ViewCountManager,
+                 com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
                  com.topcoder.web.forums.model.Paging,
@@ -134,19 +135,17 @@
         </td>
     </tr>
     <tr>
-    <tr><td colspan="2" style="padding-bottom:3px;"><b>
+    <tr>
+    	<%	int colspan = (paginator.getNumPages () > 1) ? 2 : 3; %>
+    	<td colspan="<%=colspan%>" style="padding-bottom:3px;"><b>
         <%	Iterator itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
         	while (itCategories.hasNext()) {
         		ForumCategory category = (ForumCategory)itCategories.next(); %>
 		        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
-		<%      if (itCategories.hasNext()) { %>
-					>
-		<%		} else { %>
-		        <%	if (ForumsUtil.isSoftwareSubcategory(forum.getCategory())) { %>
-		        	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>">Component</a>)
-				<%	} %>	
-					>
+		<%      if (!itCategories.hasNext() && ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) { %>
+		        	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)
 			<%	} %>
+			<img src="/i/interface/exp_w.gif" align="absmiddle"/>
         <%	} %>
         <%=forum.getName()%>
         <%

@@ -138,17 +138,19 @@
                     <%	} %>
                 </td>
             </tr>
-            <tr><td colspan="2" style="padding-bottom:3px;"><b>
+            <tr>
+            	<%	int colspan = (paginator.getNumPages () > 1) ? 2 : 3; %>
+            	<td colspan="<%=colspan%>" style="padding-bottom:3px;"><b>
                 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
                     <% if (category.getID() != forumCategory.getID()) { %>
                     <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
-                    >
+                    <img src="/i/interface/exp_w.gif" align="absmiddle"/>
                     <% } else { %>
                     <%=category.getName()%>
                     <% } %>
                 </tc-webtag:iterator>
                 <%	if (ForumsUtil.isSoftwareSubcategory(forumCategory)) { %>
-                	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forumCategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>">Component</a>)
+                	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forumCategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)
 				<%	} %>
             </b></td>
                 <% Page[] pages; %>
@@ -170,7 +172,7 @@
                     <% } else { %> ... <% } %>
                     <% } %> ]
                     <% if (paginator.getNextPage()) { %>
-                    &#160;&#160;&#160;<A href="<%=nextLink%>" class="rtbcLink">NEXT >></A>
+                    &#160;&#160;&#160;<A href="<%=nextLink%>" class="rtbcLink">NEXT ></A>
                     <% } %>
                 </b></td></tr>
             <% } %>
