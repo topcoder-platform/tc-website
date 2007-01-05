@@ -39,18 +39,18 @@ function validate(send) {
     <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
         ajaxRequest.addFormElementsById("<%= SendMail.CONTACT_INF %>");    
     </c:if>
-    if (send) {
+//    if (send) {
         ajaxRequest.addFormElementsById("<%= SendMail.SEND %>");
-    }
+//    }
     ajaxRequest.setPostRequest(afterRequest);
     ajaxRequest.sendRequest();
 }
 
 function textChanged() {
-    if (prevCanSend != canSend()) {
-        validate(false);
-        prevCanSend = canSend();
-    }
+//    if (prevCanSend != canSend()) {
+//        validate(false);
+//        prevCanSend = canSend();
+//    }
 }
 
 function afterRequest() 
@@ -180,7 +180,7 @@ Would you like to attach your email address to the message?
 <br /><br />
 
 <div id="btnSendDiv">
-<img src="/i/interface/btn_send_disabled.gif" border="0"/>
+  <A href="javascript:validate(true)" class="bodyText"><img src="/i/interface/btn_send.gif" border="0"/></A>
 </div>
 
 <div id="runJS">

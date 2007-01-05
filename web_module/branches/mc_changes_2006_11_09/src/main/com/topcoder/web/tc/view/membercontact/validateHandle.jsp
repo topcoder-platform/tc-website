@@ -17,6 +17,7 @@
         </tac:replaceChildren>
     </c:otherwise>
 </c:choose>
+<!-- 
 <c:choose>
     <c:when test="${textValidation.valid && handleValidation.valid && contactValidation.valid}">
         <tac:replaceChildren contextNodeID="btnSendDiv" parseOnServer="true">
@@ -33,6 +34,7 @@
         </tac:replaceChildren>
     </c:otherwise>
 </c:choose>
+ -->
        <tac:replaceChildren contextNodeID="runJS" parseOnServer="true">
        <div>
             <input type="hidden" id="handleValid" name="handleValid" value="<c:out value="${handleValidation.valid}" />" />
