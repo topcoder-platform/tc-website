@@ -45,8 +45,23 @@
             ret.setResultsViewable(rsc.getRow(0).getIntItem("results_viewable") == 1);
         }
         return ret;
-    }
+    }%>
+<%! protected Question makeQuestion(ResultSetContainer.ResultSetRow row) throws Exception {
 
+    Question q = new Question();
+    q.setId(row.getLongItem("question_id"));
+    q.setStyleId(row.getIntItem("question_style_id"));
+    q.setTypeId(row.getIntItem("question_type_id"));
+    q.setText(row.getStringItem("question_text"));
+    q.setRequired(row.getIntItem("is_required") == 1);
+    q.setImagePath(row.getStringItem("image"));
+    q.setLink(row.getStringItem("link"));
+    q.setAnswerInfo(makeAnswerInfo(q.getId()));
+    return q;
+}
+
+%>
+<%!
     protected CondorcetSchulzeResults getResults(ServletRequest request) throws Exception {
 
         String sid = request.getParameter(Constants.SURVEY_ID);
@@ -109,18 +124,6 @@
         return questionList;
     }
 
-    protected Question makeQuestion(ResultSetContainer.ResultSetRow row) throws Exception {
-        Question q = new Question();
-        q.setId(row.getLongItem("question_id"));
-        q.setStyleId(row.getIntItem("question_style_id"));
-        q.setTypeId(row.getIntItem("question_type_id"));
-        q.setText(row.getStringItem("question_text"));
-        q.setRequired(row.getIntItem("is_required") == 1);
-        q.setImagePath(row.getStringItem("image"));
-        q.setLink(row.getStringItem("link"));
-        q.setAnswerInfo(makeAnswerInfo(q.getId()));
-        return q;
-    }
 
     protected final List makeAnswerInfo(long questionId) throws Exception {
         Request responseRequest = new Request();
