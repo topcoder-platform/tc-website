@@ -677,12 +677,12 @@
 
                         <table border="0" cellspacing="0" cellpadding="0" width="100%">
 <%  if (activeCollab != null) { %>
-                            <tr><td class="rightColDisplay"><a href="/forum/c_forum.jsp?f=<%= activeCollab.getId() %>">Customer Forum</a></td></tr>
+                            <tr><td class="rightColDisplay"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%= activeCollab.getId() %>">Customer Forum</a></td></tr>
 <%  } else { %>
                             <tr><td class="rightColOff">No active customer forum</td></tr>
 
 <%  } if (activeSpec != null) { %>
-                            <tr><td class="rightColDisplay"><a href="/forum/c_forum.jsp?f=<%= activeSpec.getId() %>">Developer Forum</a></td></tr>
+                            <tr><td class="rightColDisplay"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%= activeSpec.getId() %>">Developer Forum</a></td></tr>
 <%  } else { %>
                             <tr><td class="rightColOff">No active developer forum</td></tr>
 <%  } %>
