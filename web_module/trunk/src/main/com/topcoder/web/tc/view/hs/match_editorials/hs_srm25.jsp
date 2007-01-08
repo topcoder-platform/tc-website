@@ -48,7 +48,7 @@
     <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
     <A href="/tc?module=HSRoundOverview&rd=10077&snid=1&er=5">Match Overview</A><br>
 
-<tc-webtag:forumLink forumID="506046" message="Discuss this match" /></div>
+<tc-webtag:forumLink forumID="506047" message="Discuss this match" /></div>
 <span class="bodySubtitle">TCHS SRM 25</span><br>Wednesday, December 27, 2006
 <br><br>
 
