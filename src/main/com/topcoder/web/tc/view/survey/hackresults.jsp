@@ -122,7 +122,7 @@
         return q;
     }
 
-    protected List makeAnswerInfo(long questionId) throws Exception {
+    protected final List makeAnswerInfo(long questionId) throws Exception {
         Request responseRequest = new Request();
         DataAccessInt dataAccess = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
         responseRequest.setContentHandle("survey_responses");
@@ -280,7 +280,7 @@
                     for (int i = 0; i < size; i++) {
                 %>
                 <td valign="top" style="padding:6px;"><%=
-                    trimPopup(results.getSumMatrix().getCandidates()[i].getName())%>
+                trimPopup(results.getSumMatrix().getCandidates()[i].getName())%>
                 </td>
                 <%
                     } %>
@@ -288,7 +288,7 @@
             <% for (int i = 0; i < size; i++) {%>
             <tr>
                 <td valign="top" style="padding:6px;"><%=
-                    trimPopup(results.getSumMatrix().getCandidates()[i].getName())%>
+                trimPopup(results.getSumMatrix().getCandidates()[i].getName())%>
                 </td>
                 <%for (int j = 0; j < size; j++) {%>
                 <td class="bodyText" align="center">
