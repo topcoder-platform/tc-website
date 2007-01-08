@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib uri="csf.tld" prefix="csf" %>
 <html>
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
@@ -27,7 +27,7 @@
             <div class="contentSpacer">
 
                 <div class="linkBox">
-                    <studio:forumLink forumID="${contest.forumId}"/>
+                    <csf:forumLink forumID="${contest.forumId}"/>
                 </div>
 
                 <div class="breadcrumb">

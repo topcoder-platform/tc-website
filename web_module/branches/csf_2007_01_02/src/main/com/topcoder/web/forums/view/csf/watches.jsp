@@ -4,7 +4,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib uri="csf.tld" prefix="csf" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
@@ -90,7 +90,7 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
                                         <%=thread.getName()%>
                                     </a></td>
                                 <td class="rtThreadCell"><%if (rootMessage.getUser() != null) {%>
-                                    <studio:handle coderId="<%=rootMessage.getUser().getID()%>"/><%}%></td>
+                                    <csf:handle coderId="<%=rootMessage.getUser().getID()%>"/><%}%></td>
                                 <td class="rtThreadCell" align="right"><%=thread.getMessageCount() - 1%>&#160;&#160;&#160;&#160;&#160;</td>
                                 <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%>
                                     &#160;&#160;&#160;&#160;</td>
@@ -98,7 +98,7 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
                                     <tc-webtag:format object="${thread.modificationDate}" format="MMM d, yyyy h:mm a z" timeZone="${sessionInfo.timezone}"/></b>
                                 </td>
                                 <td class="rtThreadCell"><%if (latestMessage.getUser() != null) {%>
-                                    <studio:handle coderId="<%=latestMessage.getUser().getID()%>"/><%}%></td>
+                                    <csf:handle coderId="<%=latestMessage.getUser().getID()%>"/><%}%></td>
                                 <td class="rtThreadCell" align="center">
                                     <input name="<%=ForumConstants.WATCHES_SAVE_THREAD%><%=thread.getID()%>" value="<%=thread.getID()%>" type="checkbox"
                                             <%= (watchManager.getWatch(user, thread).isExpirable()) ? "" : "checked" %> onclick="Javascript:document.form1.<%=ForumConstants.WATCHES_DELETE_THREAD%><%=thread.getID()%>.checked=false;"/>

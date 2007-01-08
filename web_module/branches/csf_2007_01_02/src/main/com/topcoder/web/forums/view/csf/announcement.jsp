@@ -7,7 +7,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib uri="csf.tld" prefix="csf" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forumCategory" name="forumCategory" type="com.jivesoftware.forum.ForumCategory" toScope="request"/>
@@ -116,7 +116,7 @@
                             <img src="<%=announcement.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto"/>
                             <br/>
                             <% } %>
-                            <span class="bodyText"><%if (announcement.getUser() != null) {%><studio:handle coderId="<%=announcement.getUser().getID()%>"/><%}%></span>
+                            <span class="bodyText"><%if (announcement.getUser() != null) {%><csf:handle coderId="<%=announcement.getUser().getID()%>"/><%}%></span>
                             <br/><%if (announcement.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=announcement.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(announcement.getUser()), "post")%></A><%}%>
                         </div>
                     </td>

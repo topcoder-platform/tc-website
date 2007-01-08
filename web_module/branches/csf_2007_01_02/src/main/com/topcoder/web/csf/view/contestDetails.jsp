@@ -5,7 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib uri="csf.tld" prefix="csf" %>
 
 <html>
 <head>
@@ -36,7 +36,7 @@
 
 
 <div class="linkBox">
-    <studio:forumLink forumID="${contest.forumId}"/>
+    <csf:forumLink forumID="${contest.forumId}"/>
 </div>
 
 <div class="breadcrumb">

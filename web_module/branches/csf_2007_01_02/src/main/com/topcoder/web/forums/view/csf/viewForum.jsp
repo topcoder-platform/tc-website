@@ -6,7 +6,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib uri="csf.tld" prefix="csf" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
@@ -174,14 +174,14 @@
                     <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>" class="rtLinkBold"><img src="/i/forums/announcement.gif" alt="" border="0"/> <%=announcement.getSubject()%>
                     </A></div>
             </td>
-            <td class="rtThreadCell"><studio:handle coderId="<%=announcement.getUser().getID()%>"/></td>
+            <td class="rtThreadCell"><csf:handle coderId="<%=announcement.getUser().getID()%>"/></td>
             <td class="rtThreadCell">&nbsp;</td>
             <td class="rtThreadCell">&nbsp;</td>
             <td class="rtThreadCell">
                 <b><A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<%=announcement.getID()%>" class="rtLinkNew">
                     <tc-webtag:format object="${announcement.startDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></A></b>
             </td>
-            <td class="rtThreadCell"><studio:handle coderId="<%=announcement.getUser().getID()%>"/></td>
+            <td class="rtThreadCell"><csf:handle coderId="<%=announcement.getUser().getID()%>"/></td>
         </tr>
     </tc-webtag:iterator>
     <% } %>
@@ -234,7 +234,7 @@
                 <% } %>
                 <% } %></td>
             <% if (thread.getRootMessage().getUser() != null) { %>
-            <td class="rtThreadCell"><studio:handle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
+            <td class="rtThreadCell"><csf:handle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
             <% } else { %>
             <td class="rtThreadCell">&nbsp;</td>
             <% } %>
@@ -245,7 +245,7 @@
                     <tc-webtag:format object="${thread.modificationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></A></b>
             </td>
             <% if (lastPost.getUser() != null) { %>
-            <td class="rtThreadCell"><studio:handle coderId="<%=lastPost.getUser().getID()%>"/></td>
+            <td class="rtThreadCell"><csf:handle coderId="<%=lastPost.getUser().getID()%>"/></td>
             <% } else { %>
             <td class="rtThreadCell">&nbsp;</td>
             <% } %>

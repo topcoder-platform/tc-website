@@ -4,7 +4,7 @@
                  java.util.Iterator"
         %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib uri="csf.tld" prefix="csf" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <% Paginator paginator = (Paginator) request.getAttribute("paginator");
@@ -96,7 +96,7 @@
                     <a href="?module=Thread&threadID=<%=message.getForumThread().getID()%>" class="rtbcLink">(view
                         thread)</a></div></td>
             <td class="rtThreadCell"><%if (message.getUser() != null) {%>
-                <studio:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
+                <csf:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
             <td class="rtThreadCell" align="right"><%=message.getForumThread().getTreeWalker().getChildCount(message)%></td>
             <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(message.getForumThread())%></td>
             <td class="rtThreadCell"><b><tc-webtag:format object="${result.message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></b></td>

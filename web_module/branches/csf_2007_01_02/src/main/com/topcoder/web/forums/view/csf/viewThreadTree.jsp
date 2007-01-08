@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib uri="csf.tld" prefix="csf" %>
 
 <tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
@@ -223,7 +223,7 @@
                 <% if (activeMessage.getParentMessage() != null) { %>
                 (response to
                 <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=activeMessage.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (activeMessage.getParentMessage().getUser() != null) {%>
-                by <studio:handle coderId="<%=activeMessage.getParentMessage().getUser().getID()%>"/><%}%>)
+                by <csf:handle coderId="<%=activeMessage.getParentMessage().getUser().getID()%>"/><%}%>)
                 <% } %>
                 <% if (ratingManager.isRatingsEnabled() && user != null && ForumsUtil.showRatings(user)) {
                     int[] ratings = ForumsUtil.getRatings(ratingManager, activeMessage);
@@ -262,7 +262,7 @@
                     <img src="<%=activeMessage.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto"/>
                     <br>
                     <% } %>
-                    <span class="bodyText"><%if (activeMessage.getUser() != null) {%><studio:handle coderId="<%=activeMessage.getUser().getID()%>"/><%}%></span>
+                    <span class="bodyText"><%if (activeMessage.getUser() != null) {%><csf:handle coderId="<%=activeMessage.getUser().getID()%>"/><%}%></span>
                     <br><%if (activeMessage.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=activeMessage.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(activeMessage.getUser()), "post")%></A><%}%>
                 </div>
             </td>
@@ -306,7 +306,7 @@
         </A></td>
     <% } %>
     <td class="rtThreadCell"><%if (message.getUser() != null) {%>
-        <studio:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
+        <csf:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
     <td class="rtThreadCell"><strong>
     	<tc-webtag:format object="${message.creationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></strong></td>
 </tr>

@@ -82,7 +82,7 @@
       <td class="rtTextCell100">
         <%  while (itOnline.hasNext()) { %>
             <%  User u = (User)itOnline.next(); %>
-            <studio:handle coderId="<%=u.getID()%>"/><%  if (itOnline.hasNext()) { %>, <% } %>
+            <csf:handle coderId="<%=u.getID()%>"/><%  if (itOnline.hasNext()) { %>, <% } %>
         <%  } %>
       </td>
    </tr>

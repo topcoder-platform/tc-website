@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib uri="csf.tld" prefix="csf" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
@@ -64,7 +64,7 @@
     <div class="contentSpacer">
 
         <div class="linkBox">
-            <studio:forumLink forumID="${contest.forumId}"/>
+            <csf:forumLink forumID="${contest.forumId}"/>
         </div>
 
         <div class="breadcrumb">

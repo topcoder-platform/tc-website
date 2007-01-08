@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib uri="csf.tld" prefix="csf" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% ResultSetContainer contests = (ResultSetContainer) request.getAttribute("contests");%>
 
@@ -97,7 +97,7 @@
                     </A></td>
                 <td class="value">
                     <% if (resultRow.getItem("winner_id").getResultData() != null) { %>
-                    <studio:handle coderId="<%=resultRow.getLongItem("winner_id")%>"/>
+                    <csf:handle coderId="<%=resultRow.getLongItem("winner_id")%>"/>
                     <% } else {%>
                     &#160;
                     <% } %>

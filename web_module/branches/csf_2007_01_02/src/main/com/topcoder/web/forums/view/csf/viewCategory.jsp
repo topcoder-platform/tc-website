@@ -6,7 +6,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib uri="csf.tld" prefix="csf" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forumCategory" name="forumCategory" type="com.jivesoftware.forum.ForumCategory" toScope="request"/>
@@ -185,7 +185,7 @@
                 <tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/>
             </b></td>
             <% if (message.getUser() != null) { %>
-            <td class="rtThreadCell"><studio:handle coderId="<%=message.getUser().getID()%>"/></td>
+            <td class="rtThreadCell"><csf:handle coderId="<%=message.getUser().getID()%>"/></td>
             <% } else { %>
             <td class="rtThreadCell">&nbsp;</td>
             <% } %>
@@ -241,7 +241,7 @@
                 <tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/>
             </b></td>
             <% if (message.getUser() != null) { %>
-            <td class="rtThreadCell"><studio:handle coderId="<%=message.getUser().getID()%>"/></td>
+            <td class="rtThreadCell"><csf:handle coderId="<%=message.getUser().getID()%>"/></td>
             <% } else { %>
             <td class="rtThreadCell">&nbsp;</td>
             <% } %>

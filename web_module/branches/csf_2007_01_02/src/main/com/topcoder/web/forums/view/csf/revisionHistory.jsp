@@ -4,7 +4,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib uri="csf.tld" prefix="csf" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
@@ -95,7 +95,7 @@
                         <% if (message.getParentMessage() != null) { %>
                         (response to
                         <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%>
-                        by <studio:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
+                        by <csf:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
                         <% } %>
                     </td>
                 </tr>
@@ -106,7 +106,7 @@
                             <img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto"/>
                             <br/>
                             <% } %>
-                            <span class="bodyText"><%if (message.getUser() != null) {%><studio:handle coderId="<%=message.getUser().getID()%>"/><%}%></span>
+                            <span class="bodyText"><%if (message.getUser() != null) {%><csf:handle coderId="<%=message.getUser().getID()%>"/><%}%></span>
                             <br/><%if (message.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(message.getUser()), "post")%></A><%}%>
                         </div>
                     </td>
@@ -129,7 +129,7 @@
                     <% if (message.getParentMessage() != null) { %>
                     (response to
                     <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%>
-                    by <studio:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
+                    by <csf:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
                     <% } %>
                 </a>
             </td>
@@ -141,7 +141,7 @@
                     <img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto"/>
                     <br/>
                     <% } %>
-                    <span class="bodyText"><%if (message.getUser() != null) {%><studio:handle coderId="<%=message.getUser().getID()%>"/><%}%></span>
+                    <span class="bodyText"><%if (message.getUser() != null) {%><csf:handle coderId="<%=message.getUser().getID()%>"/><%}%></span>
                     <br/><%if (message.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=forumFactory.getUserMessageCount(message.getUser())%>
                     posts</A><%}%>
                 </div>

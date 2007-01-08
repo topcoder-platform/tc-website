@@ -6,7 +6,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <% ResultSetContainer recentWinners = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("recent_winners");%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib uri="csf.tld" prefix="csf" %>
 <html>
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
@@ -115,7 +115,7 @@
                         <div>&nbsp;</div>
                     </td>
                     <td class="value">
-                        <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
+                        <csf:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
                     </td>
                     <td class="valueR">
                         <div id="pop<%=i%>" class="popUp">

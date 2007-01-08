@@ -7,7 +7,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib uri="csf.tld" prefix="csf" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
@@ -142,7 +142,7 @@
                             <% if (parentMessage != null) { %>
                             (response to
                             <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=parentMessage.getID()%>" class="rtbcLink">post</A>
-                            by <studio:handle coderId="<%=parentMessage.getUser().getID()%>"/>)
+                            by <csf:handle coderId="<%=parentMessage.getUser().getID()%>"/>)
                             <% } %>
                         </td>
                     </tr>
@@ -165,7 +165,7 @@
                             <img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto"/>
                             <br/>
                             <% } %>
-                            <span class="bodyText"><studio:handle coderId="<%=user.getID()%>"/></span><br/>
+                            <span class="bodyText"><csf:handle coderId="<%=user.getID()%>"/></span><br/>
                             <A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></A>
                         </div></td>
                         <td class="rtTextCell100">
@@ -205,7 +205,7 @@
                                 <img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto"/>
                                 <br/>
                                 <% } %>
-                                <span class="bodyText"><studio:handle coderId="<%=user.getID()%>"/></span><br/>
+                                <span class="bodyText"><csf:handle coderId="<%=user.getID()%>"/></span><br/>
                                 <A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></A>
                             </div></td>
                             <td class="rtTextCell100">

@@ -1,5 +1,5 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib uri="csf.tld" prefix="csf" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -34,7 +34,7 @@
 <td valign="top" style="padding-right: 10px;">
 
 <div class="linkBox">
-    <studio:forumLink forumID="3"/>
+    <csf:forumLink forumID="3"/>
 </div>
 
 <h1>Getting Started</h1>
