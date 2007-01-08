@@ -190,8 +190,15 @@ public interface PactsServices extends EJBObject {
     int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges, int paymentTypeId)
     	throws IllegalUpdateException, RemoteException, SQLException;
 
-    int[] generateComponentPayments(long projectId, long status, String client, boolean makeChanges)
+    List generateComponentPayments(long projectId, long status, String client)
             throws IllegalUpdateException, RemoteException, SQLException;
+    
+    List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
+    	throws IllegalUpdateException, RemoteException, SQLException;
+
+    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException, RemoteException;
+
+    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws SQLException, RemoteException;
 
     int expireOldPayments() throws RemoteException, SQLException;
 
@@ -230,7 +237,9 @@ public interface PactsServices extends EJBObject {
     // ================== Methods from the Client Service ================== 
     
     BasePayment addPayment(BasePayment payment)  throws RemoteException, SQLException;
-
+    
+    List addPayments(List payments) throws RemoteException, SQLException;
+    
     BasePayment updatePayment(BasePayment payment) throws RemoteException, Exception;
 
     List findPayments(int paymentTypeId) throws RemoteException, Exception;
@@ -242,6 +251,8 @@ public interface PactsServices extends EJBObject {
     List findCoderPayments(long coderId, int paymentTypeId) throws RemoteException, Exception;
 
     List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws RemoteException, Exception;
+
+    BasePayment getBasePayment(long paymentId) throws RemoteException, SQLException;
 
     void deletePayment(long paymentId) throws RemoteException, Exception;
 

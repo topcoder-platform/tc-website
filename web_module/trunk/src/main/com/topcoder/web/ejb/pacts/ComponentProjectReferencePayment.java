@@ -118,6 +118,15 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
 
 
     /**
+     * Get whether the project referenced is a design project.
+     * @return whether the project referenced is a design project.
+     * @throws SQLException
+     */
+    public boolean isDesign() throws SQLException {
+    	return "Design".equals(((ComponentProjectReferencePayment.Processor) getProcessor()).getProjectType(projectId));
+    }
+
+    /**
      * Processor for a payment referencing a project.
      * It provides methods for retrieving the name of the component, the type of project and the date of completion.
      *
@@ -200,20 +209,30 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
          */
         private void lookupData(long projectId) throws SQLException {
             StringBuffer query = new StringBuffer(300);
-
-            query.append("select c.component_name, pc.name as category_name, pi_complete.value as complete_date ");
-            query.append("from project p, ");
-            query.append("comp_catalog c, ");
-            query.append("project_info pi_comp, ");
-            query.append("project_category_lu pc, ");
-            query.append("OUTER project_info pi_complete ");
-            query.append("where pi_comp.value = c.component_id ");
-            query.append("and pi_complete.project_info_type_id = 21 ");
-            query.append("and p.project_category_id = pc.project_category_id ");  
-            query.append("and pi_complete.project_id = p.project_id ");
-            query.append("and pi_comp.project_info_type_id = 2 ");
-            query.append("and pi_comp.project_id = p.project_id ");
+           
+            query.append("select c.component_name, pc.name as phase_name, pi_complete.value as complete_date , pi_rt.value as version_text, cat.category_name ");
+            query.append("from project p,   ");
+            query.append("comp_catalog c,   ");
+            query.append("project_info pi_comp, ");  
+            query.append("project_category_lu pc,   ");
+            query.append("project_info pi_rt, ");
+            query.append("project_info pi_ri, ");
+            query.append("categories cat,  ");
+            query.append("OUTER  project_info pi_complete ");
+            query.append("where pi_comp.value = c.component_id ");  
+            query.append("and pi_complete.project_info_type_id = 21 ");  
+            query.append("and pi_rt.project_id = p.project_id ");
+            query.append("and pi_rt.project_info_type_id = 7 ");
+            query.append("and p.project_category_id = pc.project_category_id ");    
+            query.append("and pi_complete.project_id = p.project_id   ");
+            query.append("and pi_comp.project_info_type_id = 2   ");
+            query.append("and pi_comp.project_id = p.project_id   ");
+            query.append("and pi_ri.project_id = p.project_id ");
+            query.append("and pi_ri.project_info_type_id = 5 ");
+            query.append("and pi_ri.value = cat.category_id ");
+            query.append("and cat.parent_category_id is null ");
             query.append("and p.project_id = " + projectId);
+            
 
             
             ResultSetContainer rsc = runSelectQuery(DBMS.TCS_OLTP_DATASOURCE_NAME, query.toString());
@@ -222,13 +241,15 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
                 throw new IllegalArgumentException("Project " + projectId + " does not exist or is not unique");
             }
 
-            componentName = rsc.getStringItem(0, "component_name");
+            componentName = "(" + rsc.getStringItem(0, "category_name") + ", v" +  
+            	rsc.getStringItem(0, "version_text").trim() + ") " + rsc.getStringItem(0, "component_name");
+                       		
             try {
-				completeDate =  rsc.getStringItem(0, "complete_date") == null? new Date() : new SimpleDateFormat("MM/dd/yyyy HH:MM").parse(rsc.getStringItem(0, "complete_date"));
+				completeDate =  rsc.getStringItem(0, "complete_date") == null? new Date() : new SimpleDateFormat("MM/dd/yyyy HH:mm").parse(rsc.getStringItem(0, "complete_date"));
 			} catch (ParseException e) {
 				completeDate = new Date();
 			}
-            projectType = rsc.getStringItem(0, "category_name");
+            projectType = rsc.getStringItem(0, "phase_name");
         }
 
     }

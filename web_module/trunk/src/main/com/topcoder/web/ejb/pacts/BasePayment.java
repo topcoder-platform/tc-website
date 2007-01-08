@@ -36,9 +36,15 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     private final int paymentTypeId;
     private String referenceDescription = null;
     private boolean charity = false;
-
+    private double totalAmount;    
+    private int installmentNumber;    
+    private int methodId = Constants.DEFAULT_PAYMENT_METHOD_ID;
+    
+    // If positive, the payment is for that contract, so a row relating the contact and the payment will be inserted
+    private long contractId = 0; 
+    
     // Date when the event happened.  It is not stored in the database, but needed to know if referrals must be paid.
-    private Date eventDate;
+    private Date eventDate  = null;
 
     // Description of the status, looked up in db
     private String statusDesc = null;
@@ -74,6 +80,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         this.paymentTypeId = paymentTypeId;
         this.coderId = coderId;
         this.grossAmount = grossAmount;
+        this.totalAmount = grossAmount;
+        this.installmentNumber = 1;
         this.placed = placed;
     }
 
@@ -140,26 +148,41 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
      * @param coderId id of the coder
      * @param grossAmount gross amount paid
      * @param referenceId the reference to another table PK for this payment.
+     * @param placed the placement if it's a winning
      * @return an instance of an extending class of BasePayment , depending on the type of payment.
      */
-    public static BasePayment createPayment(int paymentTypeId, long coderId, double grossAmount, long referenceId) {
+    public static BasePayment createPayment(int paymentTypeId, long coderId, double grossAmount, long referenceId, int placed) {
         switch(paymentTypeId) {
-        case ALGORITHM_CONTEST_PAYMENT: return new AlgorithmContestPayment(coderId, grossAmount, referenceId);
-        case MARATHON_MATCH_PAYMENT: return new MarathonMatchPayment(coderId, grossAmount, referenceId);
-        case ALGORITHM_TOURNAMENT_PRIZE_PAYMENT: return new AlgorithmTournamentPrizePayment(coderId, grossAmount, referenceId);
-        case COMPONENT_PAYMENT: return new ComponentWinningPayment(coderId, grossAmount, referenceId);
+        case ALGORITHM_CONTEST_PAYMENT: return new AlgorithmContestPayment(coderId, grossAmount, referenceId, placed);
+        case MARATHON_MATCH_PAYMENT: return new MarathonMatchPayment(coderId, grossAmount, referenceId, placed);
+        case ALGORITHM_TOURNAMENT_PRIZE_PAYMENT: return new AlgorithmTournamentPrizePayment(coderId, grossAmount, referenceId, placed);
+        case COMPONENT_PAYMENT: return new ComponentWinningPayment(coderId, grossAmount, referenceId, placed);
         case REVIEW_BOARD_PAYMENT: return new ReviewBoardPayment(coderId, grossAmount, referenceId);
         case PROBLEM_WRITING_PAYMENT: return new ProblemWritingPayment(coderId, grossAmount, referenceId);
         case PROBLEM_TESTING_PAYMENT: return new ProblemTestingPayment(coderId, grossAmount, referenceId);
-        case TC_STUDIO_PAYMENT: return new StudioContestPayment(coderId, grossAmount, referenceId);
-        case COMPONENT_TOURNAMENT_BONUS_PAYMENT: return new ComponentTournamentBonusPayment(coderId, grossAmount, referenceId);
-        case DIGITAL_RUN_PRIZE_PAYMENT: return new DigitalRunPrizePayment(coderId, grossAmount, referenceId);
-        case DIGITAL_RUN_TOP_THIRD_PAYMENT: return new DigitalRunTopThirdPayment(coderId, grossAmount, referenceId);
-        case DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT: return new DigitalRunRockiePrizePayment(coderId, grossAmount, referenceId);
+        case TC_STUDIO_PAYMENT: return new StudioContestPayment(coderId, grossAmount, referenceId, placed);
+        case COMPONENT_TOURNAMENT_BONUS_PAYMENT: return new ComponentTournamentBonusPayment(coderId, grossAmount, referenceId, placed);
+        case DIGITAL_RUN_PRIZE_PAYMENT: return new DigitalRunPrizePayment(coderId, grossAmount, referenceId, placed);
+        case DIGITAL_RUN_TOP_THIRD_PAYMENT: return new DigitalRunTopThirdPayment(coderId, grossAmount, referenceId, placed);
+        case DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT: return new DigitalRunRockiePrizePayment(coderId, grossAmount, referenceId, placed);
         case CODER_REFERRAL_PAYMENT: return new CoderReferralPayment(coderId, grossAmount, referenceId);
         case RELIABILITY_BONUS_PAYMENT: return new ReliabilityBonusPayment(coderId, grossAmount, referenceId);
         default: return new NoReferencePayment(paymentTypeId, coderId, grossAmount, "");
         }
+    }
+
+    /**
+     * Create a payment using the specified information.
+     * An instance of an extending class of BasePayment will be returned, depending on the type of payment.
+     *
+     * @param paymentTypeId type of payment
+     * @param coderId id of the coder
+     * @param grossAmount gross amount paid
+     * @param referenceId the reference to another table PK for this payment.
+     * @return an instance of an extending class of BasePayment , depending on the type of payment.
+     */
+    public static BasePayment createPayment(int paymentTypeId, long coderId, double grossAmount, long referenceId) {
+    	return createPayment(paymentTypeId, coderId, grossAmount, referenceId, 0);
     }
 
     /**
@@ -219,7 +242,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 
 
 
-    protected void setId(long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -308,8 +331,39 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 	public void setCharity(boolean charity) {
 		this.charity = charity;
 	}
+		
 
-    /**
+    public int getInstallmentNumber() {
+		return installmentNumber;
+	}
+
+	public void setInstallmentNumber(int installmentNumber) {
+        fieldChanged(MODIFICATION_GROSS_AMOUNT, installmentNumber != this.installmentNumber);
+		this.installmentNumber = installmentNumber;
+	}
+
+	public double getTotalAmount() {
+		return totalAmount;
+	}
+
+	public void setTotalAmount(double totalAmount) {
+        fieldChanged(MODIFICATION_GROSS_AMOUNT, totalAmount != this.totalAmount);		
+		this.totalAmount = totalAmount;
+	}
+
+	public int getMethodId() {
+		return methodId;
+	}
+
+	public void setMethodId(int methodId) {
+		this.methodId = methodId;
+	}
+
+	public void setModificationRationale(int modificationRationale) {
+		this.modificationRationale = modificationRationale;
+	}
+
+	/**
      * Set the status id.
      * If the value changes, statusDesc is set to null, because that value must be looked up from DB.
      *
@@ -325,6 +379,13 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         this.statusId = statusId;
     }
 
+	public long getContractId() {
+		return contractId;
+	}
+
+	public void setContractId(long contractId) {
+		this.contractId = contractId;
+	}
 
 
     /**
@@ -373,11 +434,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
                 eventDate = new Date();
             }
 
-            // Calculate the due date as the event date + an interval depending on the type
-            Calendar dueDate = Calendar.getInstance();
-            dueDate.setTime(eventDate);
-            dueDate.add(Calendar.DAY_OF_YEAR, getDueDateInterval(payment.getPaymentType()));
-            return dueDate.getTime();
+            return getDueDate(eventDate, payment.getPaymentType());
         }
 
         /**
@@ -569,14 +626,15 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         }
 
         /**
-         * Get the interval in days from an event (srm, contest finalization...) to the payment.
+         * Get the due date for the payment.
          *
+         * @param eventDate the date the event took place.
          * @param paymentTypeId type id of the payment
-         * @return the interval in days from an event (srm, contest finalization...) to the payment.
+         * @return the due date for the payment.
          */
-        protected int getDueDateInterval(int paymentTypeId) throws SQLException {
+        protected Date getDueDate(Date eventDate, int paymentTypeId) throws SQLException {
             StringBuffer query = new StringBuffer(100);
-            query.append(" SELECT due_date_interval ");
+            query.append(" SELECT due_date_interval, pay_on_day ");
             query.append(" FROM payment_type_lu ");
             query.append(" WHERE payment_type_id = " + paymentTypeId);
 
@@ -585,7 +643,20 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             if (rsc.getRowCount() != 1) {
                 throw new IllegalArgumentException("Payment type not found: " + paymentTypeId);
             }
-            return rsc.getIntItem(0, 0);
+            
+            Calendar dueDateCal = Calendar.getInstance();
+            
+            if (rsc.getItem(0, "due_date_interval").getResultData() != null) {
+            	int days = rsc.getIntItem(0, "due_date_interval");
+                dueDateCal.setTime(eventDate);
+                dueDateCal.add(Calendar.DAY_OF_YEAR, days);
+            } else {
+                dueDateCal.setTime(new Date());
+                dueDateCal.add(Calendar.MONTH, 1);
+                dueDateCal.set(Calendar.DAY_OF_MONTH, rsc.getIntItem(0, "pay_on_day"));            	
+            }
+            
+            return dueDateCal.getTime(); 
         }
 
         /**
