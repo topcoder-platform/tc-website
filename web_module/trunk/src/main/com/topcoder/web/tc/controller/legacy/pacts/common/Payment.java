@@ -39,6 +39,8 @@ public class Payment implements PactsConstants, java.io.Serializable {
     private int rationaleId;
     private double netAmount;
     private double grossAmount;
+    private double totalAmount;    
+    private int installmentNumber;    
     private String printDate;
     private String payDate;
     private String dueDate;
@@ -102,6 +104,8 @@ public class Payment implements PactsConstants, java.io.Serializable {
             rationaleId = TCData.getTCInt(rRow, "modification_rationale_id");
             grossAmount = TCData.getTCDouble(rRow, "gross_amount");
             netAmount = TCData.getTCDouble(rRow, "net_amount");
+            totalAmount = TCData.getTCDouble(rRow, "total_amount");
+            installmentNumber = TCData.getTCInt(rRow, "installment_number");
             payDate = TCData.getTCDate(rRow, "date_paid");
             printDate = TCData.getTCDate(rRow, "date_printed");
             dueDate = TCData.getTCDate(rRow, "date_due");
@@ -190,6 +194,8 @@ public class Payment implements PactsConstants, java.io.Serializable {
         rationaleId = 0;
         netAmount = 0;
         grossAmount = 0;
+        totalAmount = 0;
+        installmentNumber = 1;
         printDate = "00/00/00";
         payDate = "00/00/00";
         modifiedDate = "00/00/00";
@@ -224,6 +230,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
         header = new PaymentHeader();
         netAmount = net_amount;
         grossAmount = gross_amount;
+        totalAmount = gross_amount;
         statusId = status;
         header.setTypeId(type);
         header.setMethodId(method);
@@ -503,6 +510,22 @@ public class Payment implements PactsConstants, java.io.Serializable {
 
 	public void setCharity(boolean charity) {
 		this.charity = charity;
+	}
+
+	public int getInstallmentNumber() {
+		return installmentNumber;
+	}
+
+	public void setInstallmentNumber(int installmentNumber) {
+		this.installmentNumber = installmentNumber;
+	}
+
+	public double getTotalAmount() {
+		return totalAmount;
+	}
+
+	public void setTotalAmount(double totalAmount) {
+		this.totalAmount = totalAmount;
 	}
 
 }

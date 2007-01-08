@@ -813,7 +813,6 @@ public class DataInterfaceBean implements PactsConstants {
                 inputOk = validateInput(value, DATE);
             else if (key.equals(CONTRACT_ID) ||
                     key.equals(AFFIDAVIT_ID) ||
-                    key.equals(PAYMENT_ID) ||
                     key.equals(USER_ID) ||
                     key.equals(PROJECT_ID))
                 inputOk = validateInput(value, INTEGER);
@@ -827,8 +826,13 @@ public class DataInterfaceBean implements PactsConstants {
                 inputOk = validateInput(value, STRING);
             else if (key.equals(IS_REVIEWED))
                 inputOk = validateInput(value, BOOLEAN);
-            else
-                throw new UnsupportedSearchException("Search by " + key + " not supported");
+           else if (key.equals(PAYMENT_ID)) {
+			   String []s = value.split(",");
+			   inputOk = true;
+			   for (int j = 0; j < s.length && inputOk; j++) {
+				   inputOk = validateInput(s[j], INTEGER);
+			   }
+		   } else throw new UnsupportedSearchException("Search by " + key + " not supported");
 
             if (!inputOk)
                 throw new InvalidSearchInputException("Value " + value + " invalid for " + key);
@@ -1496,23 +1500,40 @@ public class DataInterfaceBean implements PactsConstants {
 
     /**
      * Generates all the payments for the people who won money for the given project (designers, developers,
-     * and review board members). Returns the number of payments generated.
-     *
+     * and review board members). If it is a development project, it may pay the missing 25% to the designer.
+     * It doesn't insert the payments in the DB, just generates and return them.
+     * 
      * @param projectId The ID of the project
      * @param status The project's status (see /topcoder/apps/review/projecttracker/ProjectStatus.java)
+     * @param client The project's client (optional)
      * @param makeChanges If true, updates the database; if false, logs
      * the changes that would have been made had this parameter been true.
-     * @return The number of component payments generated, followed by the number of review board payments generated.
+     * @return The generated payments in a List of BasePayment
      * @throws IllegalUpdateException If the affidavit/payment information
      * has already been generated for this round.
      * @throws SQLException If there was some error updating the data.
      */
-    public int[] generateComponentPayments(long projectId, long status, String client, boolean makeChanges)
+    public List generateComponentPayments(long projectId, long status, String client)
         throws IllegalUpdateException, RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
-        return ps.generateComponentPayments(projectId, status, client, makeChanges);
+        return ps.generateComponentPayments(projectId, status, client);
     }
 
+    public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
+    throws IllegalUpdateException, RemoteException, SQLException {
+    PactsServicesLocal ps = getEjbHandle();
+    return ps.generateComponentPayments(projectId, status, client, devSupportCoderId);
+}
+
+    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.generateComponentUserPayments(coderId, grossAmount, client, projectId, placed);    
+    }
+
+    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.generateComponentUserPayments(coderId, grossAmount, client, projectId, placed, devSupportCoderId);    
+    }
 
     /**
      * Generates a map with project ID keys and component ID values from the component and review board
@@ -1624,7 +1645,22 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServicesLocal ps = getEjbHandle();
         return ps.addPayment(payment);
     }
-    
+
+    public BasePayment updatePayment(BasePayment payment) throws RemoteException, Exception {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.updatePayment(payment);
+    }
+
+    public BasePayment getBasePayment(long paymentId) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getBasePayment(paymentId);
+    }
+
+	public List addPayments(List payments) throws RemoteException, SQLException {
+	    PactsServicesLocal ps = getEjbHandle();
+	    return ps.addPayments(payments);
+	}
+
     public List findPayments(int paymentTypeId, long referenceId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.findPayments(paymentTypeId, referenceId);

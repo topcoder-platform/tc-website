@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.ComponentWinningPayment;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
@@ -20,8 +21,17 @@ public class FillPaymentData extends BaseProcessor implements PactsConstants {
             long refId = Long.parseLong(getRequest().getParameter("reference_id"));
             int type = Integer.parseInt(getRequest().getParameter("payment_type_id"));
             long coderId = Long.parseLong(getRequest().getParameter("user_id"));
-
-            BasePayment payment = BasePayment.createPayment(type, coderId, 0.01, refId);
+            int placed = 0;
+            if (getRequest().getParameter("placed") != null) {
+            	placed = Integer.parseInt(getRequest().getParameter("placed"));
+            }
+            int installment = 1;
+            if (getRequest().getParameter("installment_number") != null) {
+            	installment = Integer.parseInt(getRequest().getParameter("installment_number"));
+            }
+            
+            BasePayment payment = BasePayment.createPayment(type, coderId, 0.01, refId, placed);
+            payment.setInstallmentNumber(installment);
 
             DataInterfaceBean dib = new DataInterfaceBean();
 
@@ -32,6 +42,12 @@ public class FillPaymentData extends BaseProcessor implements PactsConstants {
             getRequest().setAttribute("statusId", payment.getStatusId() + "");
             getRequest().setAttribute("referenceDescription", payment.getReferenceDescription());
 
+            if (payment instanceof ComponentWinningPayment) {
+            	getRequest().setAttribute("isDesign", ((ComponentWinningPayment) payment).isDesign() + "");
+            } else {
+            	getRequest().setAttribute("isDesign", "");
+            }
+            
             setNextPage(INTERNAL_AJAX_FILL_PAYMENT_DATA);
             setIsNextPageInContext(true);
         } catch (Exception e) {

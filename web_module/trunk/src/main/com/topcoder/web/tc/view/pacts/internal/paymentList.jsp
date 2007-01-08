@@ -1,38 +1,31 @@
-<html>
-
-<head>
-<meta http-equiv="Content-Language" content="en-us">
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
-<meta name="ProgId" content="FrontPage.Editor.Document">
-<title>PACTS</title>
-</head>
-
-<body>
-
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.*" %>
-<%@ page import="java.text.DecimalFormat" %>
-<%
-	PaymentHeader[] paymentList = (PaymentHeader[])
-		request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT);
-	ResultSetContainer stati = (ResultSetContainer)
-		request.getAttribute(PactsConstants.STATUS_CODE_LIST);
-	if (paymentList == null) {
-		out.println("no list!!!<br>");
-		paymentList = new PaymentHeader[0];
-	}
-	double total_net = 0;
-	DecimalFormat df = new DecimalFormat(PactsConstants.DECIMAL_FORMAT_STRING);
-%>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.PaymentList" %>
+<%@ page contentType="text/html;charset=utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="pacts.tld" prefix="pacts" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
+<c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />
+<c:set var="paymentList" value="<%= request.getAttribute(PaymentList.PAYMENTS) %>" />
+<c:set var="reliabilityMap" value="<%= request.getAttribute(PaymentList.RELIABILITY) %>" />
+<c:set var="groupReliability" value="<%= request.getAttribute(PaymentList.GROUP_RELIABILITY) %>" />
+<c:set var="toggleGroupReliability" value="<%= request.getAttribute(PaymentList.TOGGLE_GROUP_RELIABILITY) %>" />
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>PACTS - Payment List</title>
+</head>
+<body>
 <script type="text/javascript">
 <!--
   function checkAll(check) {
-    var elements = document.thislist.elements;
-    for (i=0; i<document.thislist.elements.length; i++) {
-      if (document.thislist.elements[i].type=="checkbox") {
-        document.thislist.elements[i].checked = (check==true);
+    var elements = document.f.elements;
+    for (i=0; i<document.f.elements.length; i++) {
+      if (document.f.elements[i].type=="checkbox") {
+        document.f.elements[i].checked = (check==true);
       }
     }
   }
@@ -41,25 +34,24 @@
 
 <h1>PACTS</h1>
 <h2>Payment List</h2>
-<%
-	if (paymentList.length == 0) {
-		%>no results matched your query<br><%
-	}
-	else { %>
-      <form name="thislist" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="POST">
-		<input type=hidden name="<%=PactsConstants.TASK_STRING%>" value="<%=PactsConstants.PAYMENT_TASK%>">
-		<input type=hidden name="query" value="<%=(String) request.getAttribute("query")%>">
 
-		<table id="datatable" border="0" cellpadding="5" cellspacing="0">
-        <tr>
-            <td>
-                <a href="Javascript:checkAll(true)">check all</a>
-            </td>
-            <td>
-                <a href="Javascript:checkAll(false)">uncheck all</a>
-            </td>
-        </tr>
-		<tr>
+<form name="f" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="POST">
+	<input type=hidden name="<%=PactsConstants.TASK_STRING%>" value="<%=PactsConstants.PAYMENT_TASK%>">
+	<input type=hidden name="query" value="${query}">
+
+	<a href="${toggleGroupReliability}">
+		<c:choose>
+			<c:when test="${groupReliability}">Ungroup components and reliabilities</c:when>
+			<c:otherwise>Group components with their reliabilities</c:otherwise>
+		</c:choose>
+	</a><br>
+
+<a href="Javascript:checkAll(true)">check all</a> -
+ <a href="Javascript:checkAll(false)">uncheck all</a> <br>
+
+<c:set var="totalNet" value="0" />
+<table id="datatable" border="0" cellpadding="5" cellspacing="0">
+	<tr>
 		<td></td>
 		<td><b>First</b></td>
 		<td><b>Last</b></td>
@@ -75,105 +67,67 @@
 		<td><b>Created</b></td>
 		<td><b>Modified</b></td>
 		<td><b>Reviewed</b></td>
+	</tr>
+	<c:forEach var="payment" items="${paymentList}">
+			<c:set var="composed" value="false" />	
+			<c:set var="mark" value="" />
+			<c:if test="${not empty reliabilityMap[payment.id]}"> 	
+				<c:set var="composed" value="true" />			
+				<c:set var="mark" value="*" />
+			</c:if>
+		<c:set var="totalNet" value="${totalNet + payment.recentNetAmount}" />
+		<tr>
+		<td> <c:choose>
+				<c:when test="${composed}">
+					<input type="checkbox" name="payment_id" value="${payment.id},${reliabilityMap[payment.id]}" checked></c:when>
+				<c:otherwise>
+					<input type="checkbox" name="payment_id" value="${payment.id}" checked></c:otherwise>
+			</c:choose>
+		
+		</td>
+		<td><c:out value="${payment.user.first}" /></td>
+		<td><c:out value="${payment.user.last}" /></td>
+		<td><a href="${pacts:viewUser(payment.user.id)}"><c:out value="${payment.user.handle}" /></td>
+		<td><a href="${pacts:viewPayment(payment.id)}"><c:out value="${payment.description}" /></a>
+			<c:if test="${composed}"> + 
+			     <a href="${pacts:viewPayment(reliabilityMap[payment.id])}">Reliability</a>
+			</c:if>
+		</td>
+		<td align="right" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
+		<td align="right" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount - payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
+		<td align="right" nowrap>$<fmt:formatNumber value="${payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
+		<td><c:out value="${payment.type}" /></td>
+		<td><c:out value="${payment.method}" /></td>
+		<td><c:out value="${payment.recentStatus}" /></td>
+		<td><c:out value="${payment.client}" /></td>
+		<td><c:out value="${payment.createDate}" /> </td>
+		<td><c:out value="${payment.modifyDate}" /> </td>
+		<td><c:choose>
+				<c:when test="${payment.reviewed}">Yes</c:when>
+				<c:otherwise>No</c:otherwise>
+			</c:choose>
+		</td>
 		</tr>
-<%
-  		for (int n = 0; n < paymentList.length; n++) {
-			out.print("<tr>");
-			
-			out.print("<td><input type=checkbox name=\""+PactsConstants.PAYMENT_ID+"\" value=\""+paymentList[n].getId()+"\" checked></td>\n");
-  			out.print("<td>"+paymentList[n].getUser().getFirst()+"</td>\n");
-  			out.print("<td>"+paymentList[n].getUser().getLast()+"</td>\n");
-			out.print("<td><a href=\"");
-			out.print(PactsConstants.INTERNAL_SERVLET_URL);
-			out.print("?"+PactsConstants.TASK_STRING+"=");
-			out.print(PactsConstants.VIEW_TASK+"&");
-			out.print(PactsConstants.CMD_STRING+"=");
-			out.print(PactsConstants.USER_CMD+"&");
-			out.print(PactsConstants.USER_ID+"=");
-			out.print(paymentList[n].getUser().getId());
-			out.print("\">"+paymentList[n].getUser().getHandle()+"</a></td>\n");
+	</c:forEach>
+	<tr>
+		<td colspan="7"><b>Total Net Amount:</b>
+		</td>
+		<td align="right" nowrap>$<fmt:formatNumber value="${totalNet}" pattern="###,###.00" /></td>
+		<td colspan="7"></td>
+	</tr>
+	
+	</table>
+<a href="Javascript:checkAll(true)">check all</a> -
+ <a href="Javascript:checkAll(false)">uncheck all</a> <br>
+<br>
 
-			out.print("<td><a href=\"");
-			out.print(PactsConstants.INTERNAL_SERVLET_URL);
-			out.print("?"+PactsConstants.TASK_STRING+"=");
-			out.print(PactsConstants.VIEW_TASK+"&");
-			out.print(PactsConstants.CMD_STRING+"=");
-			out.print(PactsConstants.PAYMENT_CMD+"&");
-			out.print(PactsConstants.PAYMENT_ID+"=");
-			out.print(paymentList[n].getId());
-			out.print("\">"+paymentList[n].getDescription()+"</a></td>\n");
+<input type="submit" name="<%=PactsConstants.CMD_STRING %>" value="<%=PactsConstants.REVIEW_CMD  %>"><br><br>
+<input type="submit" name="<%=PactsConstants.CMD_STRING %>" value="<%=PactsConstants.STATUS_CMD  %>">
 
-			total_net += paymentList[n].getRecentNetAmount();
+           <tc-webtag:rscSelect name="status_id" list="${statusList}" fieldText="status_desc" fieldValue="status_id" useTopValue="false" /> <br><br>
 
-			out.print("<td>"+df.format(paymentList[n].getRecentGrossAmount())+"</td>\n");
-			out.print("<td>"+df.format(paymentList[n].getRecentGrossAmount()
-				- paymentList[n].getRecentNetAmount())+"</td>\n");
-			out.print("<td>"+df.format(paymentList[n].getRecentNetAmount())+"</td>\n");
-            
-            int pos = paymentList[n].getType().indexOf("Payment");
-            String type = pos >= 0? paymentList[n].getType().substring(0, pos) : paymentList[n].getType();
-            
-			out.print("<td>"+type+"</td>\n");
-			out.print("<td>"+paymentList[n].getMethod()+"</td>\n");
-			out.print("<td>"+paymentList[n].getRecentStatus()+"</td>\n");
-			if (paymentList[n].getClient() != null && !paymentList[n].getClient().trim().equals("null")) {
-				out.print("<td>"+paymentList[n].getClient()+"</td>\n");
-			} else {
-				out.print("<td></td>\n");
-			}
-			out.print("<td>"+paymentList[n].getCreateDate()+"</td>\n");
-			out.print("<td>"+paymentList[n].getModifyDate()+"</td>\n");
-			if (paymentList[n].isReviewed()) out.print("<td>Yes</td>\n");
-			else out.print("<td>No</td>\n");
-			
-			out.print("</tr>\n");
-		} %>
-
-        <tr>
-            <td>
-                <a href="Javascript:checkAll(true)">check all</a>
-            </td>
-            <td>
-                <a href="Javascript:checkAll(false)">uncheck all</a>
-            </td>
-        </tr>
-	<%}
-
-%>
-
-</table>
-</font>
-
-<b>Total Net Amount: <% out.print(df.format(total_net)); %></b>
-
-<table>
-<%
-out.print("<tr><td><input type=submit name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.REVIEW_CMD+"\"></td></tr>\n");
-out.print("<tr><td><input type=submit name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.STATUS_CMD+"\"></td>\n");
-out.print("<td><select name=\"status_id\">");
-
-int rowCount;
-String s;
-if (stati == null) rowCount = 0;
-else rowCount = stati.getRowCount();
-ResultSetContainer.ResultSetRow rsr;
-
-for (int n = 0; n < rowCount; n++) {
-	rsr = stati.getRow(n);
-	out.print("<option value=\""+TCData.getTCInt(rsr,"status_id",0,true)+"\"");
-	s = TCData.getTCString(rsr,"status_desc","default status desc",true);
-	if (s.equals(PactsConstants.DEFAULT_BATCH_STATUS)) out.print(" selected");
-	out.print(">"+s+"</option>\n");
-}
-
-out.print("</td></tr>");
-
-%>
-
-</table>
 
 </form>
-<jsp:include page="InternalFooter.jsp" flush="true" />
+<jsp:include page="InternalFooter.jsp" flush="true"/>
 </body>
-
 </html>

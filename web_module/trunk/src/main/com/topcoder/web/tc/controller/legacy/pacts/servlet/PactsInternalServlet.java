@@ -15,9 +15,11 @@ package com.topcoder.web.tc.controller.legacy.pacts.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
@@ -55,7 +57,6 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchNote;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchNoteList;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchPactsEntryList;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchPayment;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchPaymentAuditTrail;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchPaymentList;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchTaxForm;
@@ -590,19 +591,11 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                         return;
                     }
                     if (command.equals(REVIEW_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true))
-                            doReviewPayments(request, response);
-                        else {
-                            throw new NavigationException("Invalid Payment ID or No Payment ID Specified");
-                        }
+                        doReviewPayments(request, response);
                         return;
                     }
                     if (command.equals(STATUS_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true))
-                            doPaymentStatus(request, response);
-                        else {
-                            throw new NavigationException("Invalid Payment ID or No Payment ID Specified");
-                        }
+                        doPaymentStatus(request, response);
                         return;
                     }
                     if (command.equals(FILE_CMD)) {
@@ -1789,7 +1782,15 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         if (hasPermission(auth, resource)) {
             return true;
         } else {
-            handleException(request, response, new PermissionException(auth.getActiveUser(), resource));
+            TCSubject user = getUser(auth.getActiveUser().getId());
+        	SessionInfo info = createSessionInfo(tcRequest, auth, user.getPrincipals());
+
+            if (auth.getUser().isAnonymous()) {
+                handleLogin(request, response, info);
+            } else {
+                handleException(request, response, new PermissionException(auth.getActiveUser(), resource));
+            }
+        	
             return false;
         }
     }
@@ -2720,6 +2721,24 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         forward(INTERNAL_ERROR_JSP, request, response);
     }
 
+    private long[] parsePayments(String[] values) {
+        List payments = new ArrayList();
+
+        for (int n = 0; n < values.length; n++) {
+        	String s[] = values[n].split(",");
+        	for (int i = 0; i < s.length; i++) {
+        		payments.add(s[i]);
+        	}
+        }
+        
+        long[] paymentsArray = new long[payments.size()];
+        for (int n = 0; n < payments.size(); n++) {
+        	paymentsArray[n] = Long.parseLong((String) payments.get(n));
+        }
+        
+        return paymentsArray;
+    }
+    
     private void doPaymentStatus(HttpServletRequest request, HttpServletResponse response) throws Exception {
         try {
             WebAuthentication auth = createAuthentication(HttpObjectFactory.createRequest(request),
@@ -2730,10 +2749,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             log.debug("doPaymentStatus<br>");
 
             String[] values = request.getParameterValues(PAYMENT_ID);
-            long[] payments = new long[values.length];
-            for (int n = 0; n < values.length; n++) {
-                payments[n] = Long.parseLong(values[n]);
-            }
+
+            long[] payments = parsePayments(values);     
 
             DataInterfaceBean dib = new DataInterfaceBean();
 
@@ -2755,10 +2772,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             log.debug("doReviewPayments<br>");
 
             String[] values = request.getParameterValues(PAYMENT_ID);
-            long[] payments = new long[values.length];
-            for (int n = 0; n < values.length; n++) {
-                payments[n] = Long.parseLong(values[n]);
-            }
+            long[] payments = parsePayments(values);
 
             DataInterfaceBean dib = new DataInterfaceBean();
 
