@@ -9,7 +9,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<% ResultSetContainer registrants = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("registrants");%>
+<% ResultSetContainer registrants = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("assembly_registrants");%>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <head>
     <title>Active Contests</title>
