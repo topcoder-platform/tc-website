@@ -10,6 +10,7 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <% ResultSetContainer registrants = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("assembly_registrants");%>
+
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <head>
     <title>Active Contests</title>
@@ -59,7 +60,9 @@
         <tr>
             <td class="cat" nowrap="nowrap">Contest:</td>
             <td class="stat" align="right" nowrap="nowrap">
-                <rsc:item name="component_name" set="<%=registrants%>"/> <rsc:item name="version_text" set="<%=registrants%>"/>
+<%="registrants: " + registrants == null ? "null" : "ok");%>
+                <rsc:item name="component_name" set="<%=registrants%>"/>
+                <rsc:item name="version_text" set="<%=registrants%>"/>
             </td>
         </tr>
         <tr>
