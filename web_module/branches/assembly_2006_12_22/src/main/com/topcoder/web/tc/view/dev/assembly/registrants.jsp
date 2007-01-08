@@ -60,7 +60,7 @@
         <tr>
             <td class="cat" nowrap="nowrap">Contest:</td>
             <td class="stat" align="right" nowrap="nowrap">
-<%="registrants: " + registrants == null ? "null" : "ok");%>
+ <%="registrants: " + registrants == null ? "null" : "ok";%>
                 <rsc:item name="component_name" set="<%=registrants%>"/>
                 <rsc:item name="version_text" set="<%=registrants%>"/>
             </td>
