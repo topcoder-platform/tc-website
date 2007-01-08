@@ -4,6 +4,8 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.tc.controller.request.development.Base;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import java.util.Map;
 
 /**
  * @author dok
@@ -17,6 +19,13 @@ public class ViewRegistrants extends Base {
             r.setContentHandle("assembly_registrants");
             r.setProperty(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
             getRequest().setAttribute("resultMap", getDataAccess().getData(r));
+            
+            
+            ResultSetContainer registrants = (ResultSetContainer) ((Map) getRequest().getAttribute("resultMap")).get("assembly_registrants");
+
+            log.info("registrants: " + registrants);
+            log.info("registrants.getIntItem(0, 'viewable'): " + registrants.getIntItem(0, "viewable"));
+            
             setNextPage("/dev/assembly/registrants.jsp");
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
