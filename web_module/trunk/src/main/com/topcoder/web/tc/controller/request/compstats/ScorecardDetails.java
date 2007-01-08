@@ -65,7 +65,7 @@ public class ScorecardDetails extends Base {
             ResultSetContainer projectInfo = (ResultSetContainer) result.get("project_info");
             if ((projectInfo.getIntItem(0, "status_id") != 4) &&
                     (projectInfo.getIntItem(0, "status_id") != 5) &&
-                    (projectInfo.getIntItem(0, "status_id") != 6)) {
+                    (projectInfo.getIntItem(0, "status_id") != 7)) {
                 throw new NavigationException("The project is not finished");
 
             }

@@ -74,7 +74,7 @@ public class CompContestDetails extends Base {
                     // - if not, choose the one that has the later date (the last, because they're ordered)
                     for (int i=0; i < dates.size(); i++) {
                         projId = dates.getStringItem(i, "project_id");
-                        if (dates.getIntItem(i,"status_id") == 4) {
+                        if (dates.getIntItem(i,"status_id") == 7) {
                             break;
                         }
                     }
@@ -100,7 +100,7 @@ public class CompContestDetails extends Base {
             ResultSetContainer projectInfo = (ResultSetContainer) result.get("project_info");
             if ((projectInfo.getIntItem(0, "status_id") != 4) &&
                 (projectInfo.getIntItem(0, "status_id") != 5) &&
-                (projectInfo.getIntItem(0, "status_id") != 6)) {
+                (projectInfo.getIntItem(0, "status_id") != 7)) {
                  throw new NavigationException("Sorry, we're still preparing the results for this project.  Please check back another time.");
 
             }
@@ -118,7 +118,7 @@ public class CompContestDetails extends Base {
             // check if there is a completed version of the component
             boolean isComplete = false;
             for (int i=0; i < dates.size() && !isComplete; i++) {
-                if (dates.getIntItem(i,"status_id") == 4) {
+                if (dates.getIntItem(i,"status_id") == 7) {
                     isComplete = true;
                 }
             }
