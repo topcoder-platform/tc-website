@@ -49,6 +49,7 @@
         <li>PACTS: support for splitting payments into Design/dev support</li>
         <li>PACTS: payments can be due in the 15th or after a number of days</li>
         <li>PACTS: component and their reliability payments are grouped together</li>
+        <li>Fixed status codes in Data Warehouse</li>
     </ul>
 </p>
 
