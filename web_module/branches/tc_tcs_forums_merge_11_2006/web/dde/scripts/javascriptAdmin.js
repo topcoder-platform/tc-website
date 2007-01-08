@@ -33,10 +33,10 @@ if (document.images) {
 	listsAdminoff.src = "/images/listAdmin_off.gif";
 
 	scorecardAdminon = new Image();
-	scorecardAdminon.src = "/images/userAdmin_hover.gif";
+	scorecardAdminon.src = "/images/scorecardAdmin_hover.gif";
 
 	scorecardAdminoff = new Image();
-	scorecardAdminoff.src = "/images/userAdmin_off.gif";
+	scorecardAdminoff.src = "/images/scorecardAdmin_off.gif";
 }
 
 // -->
