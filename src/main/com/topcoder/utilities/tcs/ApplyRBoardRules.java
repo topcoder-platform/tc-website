@@ -508,7 +508,7 @@ public class ApplyRBoardRules extends DBUtility {
     private PreparedStatement prepareDetailsStatement() throws SQLException {
         StringBuffer query = new StringBuffer(200);
         query.append("select DATE(current) as current_date, mdy(substr(pi_rating_date.value,1,2), substr(pi_rating_date.value,4,2), substr(pi_rating_date.value,7,4)) as rating_date  ");
-        query.append("from project p, project_result pr, comp_versions cv, comp_catalog cc, category_catalog cac, ");
+        query.append("from project p, project_result pr, comp_catalog cc, category_catalog cac, ");
         query.append("project_info pi_rating_date, project_info pi_comp_id ");
         query.append("where pi_rating_date.project_info_type_id = 22 and ");
         query.append("pi_rating_date.project_id = p.project_id and ");
