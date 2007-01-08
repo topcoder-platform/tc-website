@@ -9,6 +9,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.08.07<br>9:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm333">SRM 333 - Problem Set & Analysis</A></span><br><br>
+If someone asked me to characterize the problem sets (for both divisions) in one sentence, I would
+say "pay attention to details, it will pay off twice.&quot; This time my goal was to make a problem set
+that would lead to an interesting challenge phase. And so it was --but let's start at the beginning.
+</td>
+      <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=srm333">full story</A> | 
+        <tc-webtag:forumLink forumID="506223" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.04.07<br>2:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -179,24 +198,5 @@ With SRM 331 happening only a few days before Christmas, it was the perfect excu
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2048">details</A> | 
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=25">discuss this</A> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.19.06<br>6:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm24">TCHS SRM 24 - Problem Set & Analysis</A></span><br><br>
-      The competition started with a high number of fast submissions on the easy problem and, by the end of the coding phase, a reasonable number of medium and hard 
-      submissions were in. As the dust settled, <tc-webtag:handle coderId="22375930" context="hs_algorithm"/> finished on top, with <tc-webtag:handle coderId="22285847" context="hs_algorithm"/> 
-      and <tc-webtag:handle coderId="22263204" context="hs_algorithm"/> rounding out the top three.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/_efer__big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8593420" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm24">full story</A> | 
-        <tc-webtag:forumLink forumID="506046" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
