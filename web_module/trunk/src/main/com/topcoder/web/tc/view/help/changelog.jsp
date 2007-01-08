@@ -49,16 +49,16 @@
         <li>PACTS: support for splitting payments into Design/dev support</li>
         <li>PACTS: payments can be due in the 15th or after a number of days</li>
         <li>PACTS: component and their reliability payments are grouped together</li>
-        <li>Fixed status codes in Data Warehouse</li>
+        <li>Fixed project status codes in Data Warehouse</li>
     </ul>
 </p>
 
 <p>
     5.5.13 - 2006.12.21
     <ul>
-<%--
-        <li>Rename some classes for the Google Latin America Reg. Process.</li>
---%>
+        <%--
+                <li>Rename some classes for the Google Latin America Reg. Process.</li>
+        --%>
     </ul>
 </p>
 
@@ -66,10 +66,11 @@
 <p>
     5.5.12 - 2006.12.20
     <ul>
-        <li>Fixed EJB configuration bug where transactions were bean managed but should have been container managed.</li>
-<%--
-        <li>Google Latin America Reg. Process.</li>
---%>
+        <li>Fixed EJB configuration bug where transactions were bean managed but should have been container managed.
+        </li>
+        <%--
+                <li>Google Latin America Reg. Process.</li>
+        --%>
         <li>Include poseidon license in development registration emails.</li>
     </ul>
 </p>
