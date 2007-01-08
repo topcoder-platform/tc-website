@@ -4,7 +4,8 @@
                 com.topcoder.shared.util.ApplicationServer,
                 com.topcoder.shared.dataAccess.DataAccessConstants,
                 com.topcoder.web.common.model.SoftwareComponent,
-                com.topcoder.web.tc.Constants" %>
+                com.topcoder.web.tc.Constants,
+                java.util.Map" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -30,6 +31,7 @@
 </style>
 
     <script type="text/javascript">
+
         function toggleDisplay(objectID,imageID,linkID){
            var object = document.getElementById(objectID) 
            if(object.className == 'dark hideText') {
@@ -48,6 +50,30 @@
           linkID.blur();
           return;
         }
+        function toggleDisplayTwo(objectID1, objectID2,imageID,linkID){
+           var object = document.getElementById(objectID1);
+           var object2 = document.getElementById(objectID2);
+           if(object.className == 'dark hideText') {
+                object.className = 'dark showText'; 
+                object2.className = 'dark showText'; 
+                document.images[imageID].src = '/i/interface/exp_ed_w.gif'; 
+           }else if(object.className == 'dark showText') {
+                object.className = 'dark hideText'; 
+                object2.className = 'dark hideText'; 
+                document.images[imageID].src = '/i/interface/exp_w.gif';
+           }else if(object.className == 'light showText') {
+                object.className = 'light hideText'; 
+                object2.className = 'light hideText'; 
+                document.images[imageID].src = '/i/interface/exp_w.gif';
+           }else {
+                object.className = 'light showText';
+                object2.className = 'light showText';
+                document.images[imageID].src = '/i/interface/exp_ed_w.gif';
+           }
+          linkID.blur();
+          return;
+        }
+
         var sr = <c:out value="${requestScope[defaults][startRank]}"/>;
         var er = <c:out value="${requestScope[defaults][endRank]}"/>;
         
@@ -104,6 +130,7 @@
 <%
     ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("payment_detail");
     String coderId = (String) request.getParameter(Constants.CODER_ID);
+    Map devSupport = (Map) request.getAttribute("dev_support");
 %>
 <TD WIDTH="180">
     <!-- Left nav begins -->
@@ -131,7 +158,7 @@
  | <A href="/tc?module=PaymentSummary&cr=<%=coderId%>" class="bcLink">Payment Summary</A>
    </span>
 
-	<% if (rsc.size() > 0) { %>
+    <% if (rsc.size() > 0) { %>
     <div class="pagingBox" style="clear:both;">
         <% if (rsc.croppedDataBefore() || rsc.croppedDataAfter()) { %>
             <%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
@@ -155,12 +182,12 @@
             Payment Details
             </td></tr>
             <tr>
-                <TD CLASS="headerC">
-                    <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true"/>">Date</a>
-                </TD>
                 <td class="header">&nbsp;</td>
                 <TD CLASS="header" width="60%">
                     <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="0" includeParams="true"/>">Description</a>
+                </TD>
+                <TD CLASS="headerC">
+                    <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true"/>">Date</a>
                 </TD>
                 <TD CLASS="header" width="40%">
                     <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="2" includeParams="true"/>">Payment Type</a>
@@ -174,20 +201,44 @@
             boolean even = false;
             boolean hasCharity = false;%>
             <rsc:iterator list="<%=rsc%>" id="resultRow">
+<% 
+ResultSetContainer.ResultSetRow devSupportRow  = null;
+if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("reference_id").getResultData()!= null) {  
+    devSupportRow = (ResultSetContainer.ResultSetRow) devSupport.get(new Long(resultRow.getLongItem("reference_id")));
+}
+%>                
+                        
                 <tr class="<%=even?"dark":"light"%>">            
-                <TD class="valueC"><rsc:item name="date_due" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
                 <TD class="value" style="vertical-align:middle;">
                 <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
                     <%i++;%>
                     <a href="javascript:toggleDisplay('ref_<%=i%>','switch_<%=i%>');" onfocus="this.blur();"><img src="/i/interface/exp_w.gif" alt="Open" name="switch_<%=i%>" /></a>
+                <% } else if (devSupportRow!= null) {%>
+                    <%i++;%>
+                    <a href="javascript:toggleDisplayTwo('ref_<%=i%>a', 'ref_<%=i%>b','switch_<%=i%>');" onfocus="this.blur();"><img src="/i/interface/exp_w.gif" alt="Open" name="switch_<%=i%>" /></a>
                 <% } else { %>
                     <div style="width:7px;">&nbsp;</div>
                 <% }%>
                 </TD>
-                <TD class="value"><rsc:item name="payment_desc" row="<%=resultRow%>"/></TD>
+                <TD class="value">
+                <% if (devSupportRow != null) {
+                    String desc = resultRow.getStringItem("payment_desc");
+                    int pos = desc.indexOf("- Design");
+                    %>
+                    <%= pos>=0? desc.substring(0, pos) : desc %>
+                <% } else { %>  
+                    <rsc:item name="payment_desc" row="<%=resultRow%>"/>
+                <% } %>
+                </TD>
+                <TD class="valueC"><rsc:item name="date_due" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
                 <TD class="value"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
                 <TD class="valueR">
-                    <rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
+    <% if (devSupportRow != null) { 
+        double earnings = devSupportRow.getDoubleItem("earnings") + resultRow.getDoubleItem("earnings"); %>
+        <tc-webtag:format object="<%=new Double(earnings)%>"  format="$#,##0.00" />
+    <% } else { %>
+        <rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
+    <% } %>
                     <% if (resultRow.getIntItem("charity_ind") == 1) {
                         hasCharity = true;
                     %>*<% }%>
@@ -212,16 +263,50 @@
                 <% }%>
                 </TD>
                 </tr>
-                <% if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) {%>
+
+<% if (devSupportRow != null) {
+    String descDev = devSupportRow.getStringItem("payment_desc");
+    int posDev = descDev.indexOf("- Development Support");
+    String descDes = resultRow.getStringItem("payment_desc");
+    int posDes = descDes.indexOf("- Design");
+    
+%>    
+    
+                    <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>a">            
+                    <TD class="value" style="border-top: 0px;">&nbsp;</TD>
+                    <TD class="value" style="border-top: 0px;"><%= posDev >=0? descDev.substring(posDev+2) : descDev %></TD>
+                    <TD class="value" style="border-top: 0px;"><rsc:item name="date_due" row="<%=devSupportRow%>" format="MM.dd.yy"/></TD>
+                    <TD class="value" style="border-top: 0px;"><rsc:item name="payment_type_desc" row="<%=devSupportRow%>"/></TD>
+                    <TD class="valueR" style="border-top: 0px;"><rsc:item name="earnings" row="<%=devSupportRow%>" format="$#,##0.00"/>
+                    <% if (devSupportRow.getIntItem("charity_ind") == 1) {
+                        hasCharity = true;
+                    %>*<% }%>
+                    </TD>
+                    <TD class="value" style="border-top: 0px;">&nbsp;</TD>
+                    </tr>
+                    <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>b">            
+                    <TD class="value" style="border-top: 0px;">&nbsp;</TD>
+                    <TD class="value" style="border-top: 0px;"><%= posDes >=0? descDes.substring(posDes+2) : descDes %></TD>
+                    <TD class="value" style="border-top: 0px;"><rsc:item name="date_due" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
+                    <TD class="value" style="border-top: 0px;"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
+                    <TD class="valueR" style="border-top: 0px;"><rsc:item name="earnings" row="<%=resultRow%>" format="$#,##0.00"/>
+                    <% if (resultRow.getIntItem("charity_ind") == 1) {
+                        hasCharity = true;
+                    %>*<% }%>
+                    </TD>
+                    <TD class="value" style="border-top: 0px;">&nbsp;</TD>
+                    </tr>
+<% } else if (resultRow.getItem("ref_payment_type_desc").getResultData() != null) 
+{%>
                     <tr class="<%=even?"dark":"light"%> hideText" id="ref_<%=i%>">            
                     <TD class="value">&nbsp;</TD>
-                    <TD class="value">&nbsp;</TD>
                     <TD class="value"><rsc:item name="ref_payment_desc" row="<%=resultRow%>"/></TD>
+                    <TD class="value">&nbsp;</TD>
                     <TD class="value"><rsc:item name="ref_payment_type_desc" row="<%=resultRow%>"/></TD>
                     <TD class="value"><rsc:item name="ref_earnings" row="<%=resultRow%>" format="$#,##0.00"/></TD>
                     <TD class="value">&nbsp;</TD>
                     </tr>
-                <% }%>
+<% } %>
                 <%even = !even;%>
             </rsc:iterator>
         </TABLE>
@@ -240,7 +325,7 @@
         <% } %>
     </div>
      <% } else { %>
-	    <p>There are no payments registered for this category.</p>
+        <p>There are no payments registered for this category.</p>
      <% }%>
 
     <p><br></p>
