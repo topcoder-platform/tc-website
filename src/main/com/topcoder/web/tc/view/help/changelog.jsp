@@ -45,6 +45,10 @@
     5.5.14 - 2007.01.08
     <ul>
         <li>Automatic monitoring of review board eligibility fix.</li>
+        <li>Split payments into Design/dev support in payment detail</li>
+        <li>PACTS: support for splitting payments into Design/dev support</li>
+        <li>PACTS: payments can be due in the 15th or after a number of days</li>
+        <li>PACTS: component and their reliability payments are grouped together</li>
     </ul>
 </p>
 
