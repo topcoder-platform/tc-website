@@ -1,6 +1,7 @@
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <html>
 <head>
 <jsp:include page="/script.jsp" />
@@ -48,6 +49,8 @@ previous chapter
 <embed src="/flash/tournament/tccc06/webcast.swf?&clip=part<c:out value="${param['clip']}" escapeXml="true"/>" quality="high" bgcolor="#083A3A" width="360" height="280" name="webcast" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 </object>
 </div>
+<br><br>
+<tc-webtag:forumLink forumID="506218" message="Discuss the webcast" />
 
         </div>
       </td>
