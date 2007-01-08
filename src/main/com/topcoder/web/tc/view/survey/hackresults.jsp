@@ -46,19 +46,16 @@
         }
         return ret;
     }%>
-<%! protected Question makeQuestion(ResultSetContainer.ResultSetRow row) throws Exception {
+<%!
 
-    Question q = new Question();
-    q.setId(row.getLongItem("question_id"));
-    q.setStyleId(row.getIntItem("question_style_id"));
-    q.setTypeId(row.getIntItem("question_type_id"));
-    q.setText(row.getStringItem("question_text"));
-    q.setRequired(row.getIntItem("is_required") == 1);
-    q.setImagePath(row.getStringItem("image"));
-    q.setLink(row.getStringItem("link"));
-    q.setAnswerInfo(makeAnswerInfo(q.getId()));
-    return q;
-}
+    protected final List makeAnswerInfo(long questionId) throws Exception {
+        Request responseRequest = new Request();
+        DataAccessInt dataAccess = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+        responseRequest.setContentHandle("survey_responses");
+        responseRequest.setProperty("qid", String.valueOf(questionId));
+        responseRequest.setProperty("cr", String.valueOf(((SessionInfo) request.getAttribute("sessionInfo")).getUserId()));
+        return (ResultSetContainer) dataAccess.getData(responseRequest).get("response_info");
+    }
 
 %>
 <%!
@@ -106,6 +103,20 @@
         return results;
     }
 
+    protected Question makeQuestion(ResultSetContainer.ResultSetRow row) throws Exception {
+
+        Question q = new Question();
+        q.setId(row.getLongItem("question_id"));
+        q.setStyleId(row.getIntItem("question_style_id"));
+        q.setTypeId(row.getIntItem("question_type_id"));
+        q.setText(row.getStringItem("question_text"));
+        q.setRequired(row.getIntItem("is_required") == 1);
+        q.setImagePath(row.getStringItem("image"));
+        q.setLink(row.getStringItem("link"));
+        q.setAnswerInfo(makeAnswerInfo(q.getId()));
+        return q;
+    }
+
     protected List getQuestionInfo(long surveyId) throws Exception {
         Request r = new Request();
         r.setContentHandle("survey_questions");
@@ -124,15 +135,6 @@
         return questionList;
     }
 
-
-    protected final List makeAnswerInfo(long questionId) throws Exception {
-        Request responseRequest = new Request();
-        DataAccessInt dataAccess = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
-        responseRequest.setContentHandle("survey_responses");
-        responseRequest.setProperty("qid", String.valueOf(questionId));
-        responseRequest.setProperty("cr", String.valueOf(((SessionInfo) request.getAttribute("sessionInfo")).getUserId()));
-        return (ResultSetContainer) dataAccess.getData(responseRequest).get("response_info");
-    }
 
     protected Candidate[] getCandidates(String sid) throws Exception {
         List questionInfo = getQuestionInfo(Long.parseLong(sid));
