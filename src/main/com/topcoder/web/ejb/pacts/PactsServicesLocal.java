@@ -1,5 +1,6 @@
 package com.topcoder.web.ejb.pacts;
 
+import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -191,8 +192,15 @@ public interface PactsServicesLocal extends EJBLocalObject {
     int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges, int paymentTypeId)
     	throws IllegalUpdateException,  SQLException;
 
-    int[] generateComponentPayments(long projectId, long status, String client, boolean makeChanges)
+    List generateComponentPayments(long projectId, long status, String client)
             throws IllegalUpdateException,  SQLException;
+
+    List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
+    		throws IllegalUpdateException,  SQLException;
+
+    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException;
+
+    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws SQLException;
 
     int expireOldPayments() throws  SQLException;
 
@@ -230,8 +238,10 @@ public interface PactsServicesLocal extends EJBLocalObject {
     
     // ================== Methods from the Client Service ================== 
     
-    BasePayment addPayment(BasePayment payment)  throws  SQLException;
-
+    BasePayment addPayment(BasePayment payment)  throws SQLException;
+    
+    List addPayments(List payments) throws SQLException;
+    
     BasePayment updatePayment(BasePayment payment) throws  Exception;
 
     List findPayments(int paymentTypeId) throws  SQLException;
@@ -243,7 +253,9 @@ public interface PactsServicesLocal extends EJBLocalObject {
     List findCoderPayments(long coderId, int paymentTypeId) throws  SQLException;
 
     List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws  SQLException;
-
+    
+    BasePayment getBasePayment(long paymentId) throws  SQLException;
+    
     void deletePayment(long paymentId) throws  SQLException;
 
     void deletePayment(BasePayment payment) throws  SQLException;
