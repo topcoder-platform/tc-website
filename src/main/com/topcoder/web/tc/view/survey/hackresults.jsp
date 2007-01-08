@@ -5,6 +5,7 @@
 <%@ page import="com.topcoder.shared.security.SimpleResource" %>
 <%@ page import="com.topcoder.shared.security.SimpleUser" %>
 <%@ page import="com.topcoder.shared.util.DBMS" %>
+<%@ page import="com.topcoder.web.common.BaseServlet" %>
 <%@ page import="com.topcoder.web.common.PermissionException" %>
 <%@ page import="com.topcoder.web.common.SessionInfo" %>
 <%@ page import="com.topcoder.web.common.model.Question" %>
@@ -24,6 +25,7 @@
 
 
 <%!
+
     protected final Survey createSurvey(ServletRequest request) throws Exception {
         String sid = request.getParameter(Constants.SURVEY_ID);
         Request r = new Request();
@@ -45,20 +47,8 @@
             ret.setResultsViewable(rsc.getRow(0).getIntItem("results_viewable") == 1);
         }
         return ret;
-    }%>
-<%!
-
-    protected final List makeAnswerInfo(long questionId) throws Exception {
-        Request responseRequest = new Request();
-        DataAccessInt dataAccess = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
-        responseRequest.setContentHandle("survey_responses");
-        responseRequest.setProperty("qid", String.valueOf(questionId));
-        responseRequest.setProperty("cr", String.valueOf(((SessionInfo) request.getAttribute("sessionInfo")).getUserId()));
-        return (ResultSetContainer) dataAccess.getData(responseRequest).get("response_info");
     }
 
-%>
-<%!
     protected CondorcetSchulzeResults getResults(ServletRequest request) throws Exception {
 
         String sid = request.getParameter(Constants.SURVEY_ID);
@@ -69,7 +59,7 @@
         r.setProperty(Constants.SURVEY_ID, sid);
         ResultSetContainer rsc = (ResultSetContainer) dai.getData(r).get("condorcet_schulze_results");
 
-        Candidate[] candidates = getCandidates(sid);
+        Candidate[] candidates = getCandidates(request, sid);
 
         //build a mapping for candidates so that we don't have to create a
         //bunch of Candidates objects when we create the votes
@@ -103,7 +93,17 @@
         return results;
     }
 
-    protected Question makeQuestion(ResultSetContainer.ResultSetRow row) throws Exception {
+    protected final List makeAnswerInfo(ServletRequest request, long questionId) throws Exception {
+        String sid = request.getParameter(Constants.SURVEY_ID);
+        Request responseRequest = new Request();
+        DataAccessInt dataAccess = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+        responseRequest.setContentHandle("survey_responses");
+        responseRequest.setProperty("qid", String.valueOf(questionId));
+        responseRequest.setProperty("cr", String.valueOf(((SessionInfo) request.getAttribute(BaseServlet.SESSION_INFO_KEY)).getUserId()));
+        return (ResultSetContainer) dataAccess.getData(responseRequest).get("response_info");
+    }
+
+    protected final Question makeQuestion(ServletRequest request, ResultSetContainer.ResultSetRow row) throws Exception {
 
         Question q = new Question();
         q.setId(row.getLongItem("question_id"));
@@ -113,11 +113,11 @@
         q.setRequired(row.getIntItem("is_required") == 1);
         q.setImagePath(row.getStringItem("image"));
         q.setLink(row.getStringItem("link"));
-        q.setAnswerInfo(makeAnswerInfo(q.getId()));
+        q.setAnswerInfo(makeAnswerInfo(request, q.getId()));
         return q;
     }
 
-    protected List getQuestionInfo(long surveyId) throws Exception {
+    protected final List getQuestionInfo(ServletRequest request, long surveyId) throws Exception {
         Request r = new Request();
         r.setContentHandle("survey_questions");
         r.setProperty("sid", String.valueOf(surveyId));
@@ -130,14 +130,14 @@
         List questionList = new ArrayList(questions.size());
         for (Iterator it = questions.iterator(); it.hasNext();) {
             question = (ResultSetContainer.ResultSetRow) it.next();
-            questionList.add(makeQuestion(question));
+            questionList.add(makeQuestion(request, question));
         }
         return questionList;
     }
 
 
-    protected Candidate[] getCandidates(String sid) throws Exception {
-        List questionInfo = getQuestionInfo(Long.parseLong(sid));
+    protected final Candidate[] getCandidates(ServletRequest request, String sid) throws Exception {
+        List questionInfo = getQuestionInfo(request, Long.parseLong(sid));
         Candidate[] ret = new Candidate[questionInfo.size()];
         Question q;
         for (int i = 0; i < questionInfo.size(); i++) {
