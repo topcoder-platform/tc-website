@@ -34,7 +34,7 @@
                         <strong>Member Login:</strong><br>
 
                         <%--have to use the constant because this page can be used with multiple servlets --%>
-                        <form method="post" name="frmLogin" action="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>">
+                        <form method="post" name="frmLogin" action="https://<%=ApplicationServer.CSF_SERVER_NAME%>">
                             <input type="hidden" name="module" value="Login">
                             <table cellpadding="1" cellspacing="0">
                                 <tbody>
@@ -53,6 +53,7 @@
                                             <input type="image" src="/i/layout/btn_login.gif" onmouseover="this.src='/i/layout/btn_login_on.gif'" onmouseout="this.src='/i/layout/btn_login.gif'">
                                         </td>
                                     </tr>
+<%--
                                     <tr>
                                         <td colspan="3">
                                             <span class="small">
@@ -62,6 +63,7 @@
                                             </span>
                                         </td>
                                     </tr>
+--%>
 
                                 </tbody>
                             </table>
@@ -73,8 +75,10 @@
                             <strong>Hello,
                                 <csf:handle coderId="${sessionInfo.userId}"/>
                             </strong><br>
-                            <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout">Logout</A>
+                            <A href="http://<%=ApplicationServer.CSF_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout">Logout</A>
+<%--
                             | <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">Update my profile</A>
+--%>
                         </div>
                     </c:otherwise>
                 </c:choose>
