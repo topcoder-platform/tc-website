@@ -236,17 +236,14 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <%-- AOL webcast team
-                <A href="http://dev.aol.com/video"><img src="/i/home/aolWebcast_20061113.jpg" alt="Meet the TCCC webcast team" border="0" style="display:block;" /></A>
-                --%>
-                <%-- AOL Mashups --%>
+                <%-- AOL Mashups 
                 <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2048"><img src="/i/home/aolmashups20070104_sm.jpg" alt="AOL Mashups" border="0" style="display:block;"/></A>
+                --%>
                 <%-- WSJ
                 <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0" style="display:block;" /></A>
                 --%>
-                <%-- AOL webcast team 
+                <%-- AOL webcast team --%>
                 <A href="/movies/tournament/tccc06/final_webcast_preview.mov"><img src="/i/home/tccc_webcast_20061208.jpg" alt="TCCC Webcast Highlights" border="0" style="display:block;"/></A>
-                --%>
             </td>
         </tr>
     </table>
