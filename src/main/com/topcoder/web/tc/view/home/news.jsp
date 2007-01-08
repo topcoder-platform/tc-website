@@ -9,6 +9,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>01.08.06<br>2:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies">Watch the full TCCC06 Webcast</A>
+        </span><br><br>
+        We've got all 4 hours of the TCCC06 webcast available for your viewing pleasure.  So have a seat, grab some popcorn, and relive all the excitement from the TCCC06!
+        </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies">watch it</A> | 
+        <tc-webtag:forumLink forumID="506218" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>01.08.06<br>12:00 NOON</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=ViewSurvey&sid=11144">Vote for the TCO07 logo design</A>
@@ -182,22 +197,5 @@ and <tc-webtag:handle coderId="22375930" context="hs_algorithm"/> both finished 
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2050">details</A> | 
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=27">discuss this</A> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.27.06<br>10:40 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm331">SRM 331 - Problem Set & Analysis</A></span><br><br>
-With SRM 331 happening only a few days before Christmas, it was the perfect excuse to escape from the rush of cleaning, cooking and shopping for couple of hours and relax in front of some relatively easy Christmas-themed problems.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/slex_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8382018" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=srm331">full story</A> | 
-        <tc-webtag:forumLink forumID="506006" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
