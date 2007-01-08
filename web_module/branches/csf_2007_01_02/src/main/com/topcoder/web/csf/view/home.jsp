@@ -1,11 +1,6 @@
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<%@ page import="com.topcoder.web.csf.Constants" %>
-<%@ page import="java.util.Map" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<% ResultSetContainer recentWinners = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("recent_winners");%>
-<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="csf.tld" prefix="csf" %>
 <html>
 <head>
@@ -81,74 +76,6 @@
     <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</A> as a Studio
     member so you can receive emails when new contests arrive.
     <br><br>
-    <table cellpadding="0" cellspacing="0" class="stat" style="width:485px;">
-        <tbody>
-            <tr>
-                <td class="NW">&nbsp;</td>
-                <td class="title" colspan="4">
-                    Recent Winners
-                </td>
-                <td class="NE">&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="headerW">
-                    <div>&nbsp;</div>
-                </td>
-                <td class="header" width="20%" colspan="2">
-                    Winner
-                </td>
-                <td class="header" width="60%">
-                    Contest
-                </td>
-                <td class="headerR" width="20%">
-                    Prize
-                </td>
-                <td class="headerE">
-                    <div>&nbsp;</div>
-                </td>
-            </tr>
-            <% boolean even = true;
-                int i = 0; %>
-            <rsc:iterator list="<%=recentWinners%>" id="resultRow">
-                <tr class="<%=even?"light":"dark"%>">
-                    <td class="valueW">
-                        <div>&nbsp;</div>
-                    </td>
-                    <td class="value">
-                        <csf:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
-                    </td>
-                    <td class="valueR">
-                        <div id="pop<%=i%>" class="popUp">
-                            <div>View submission</div>
-                        </div>
-                        <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                            <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()"/>
-                        </A>
-                    </td>
-                    <td class="value">
-                        <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
-                            <rsc:item name="name" row="<%=resultRow%>"/>
-                        </A>
-                    </td>
-                    <td class="valueR">
-                        <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
-                    </td>
-                    <td class="valueE">
-                        <div>&nbsp;</div>
-                    </td>
-                </tr>
-                <% even = !even;
-                    i++; %>
-            </rsc:iterator>
-            <tr>
-                <td class="SW">&nbsp;</td>
-                <td class="title" colspan="4">
-                    <A href="/?module=ViewPastContests" class="small">...more</A>
-                </td>
-                <td class="SE">&nbsp;</td>
-            </tr>
-        </tbody>
-    </table>
 
 
 </td>
