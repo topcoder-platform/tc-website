@@ -26,7 +26,7 @@
 
             <div class="contentSpacer">
                 <p>
-                    1.2.1 - 2007.xx.xx
+                    1.2.1 - 2007.01.08
                     <ul>
                         <li>Allow users to download their own submissions before the contest is over.</li>
                     </ul>
