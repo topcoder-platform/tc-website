@@ -81,7 +81,7 @@
             </td>
             <td class="valueC">
          <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
-         <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">
+         <a href="/tc?module=ViewAssemblyRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">
          <% } %>
          <rsc:item name="total_rated_inquiries" row="<%=resultRow%>"/>/<rsc:item name="total_unrated_inquiries" row="<%=resultRow%>"/>
          <% if (resultRow.getIntItem("total_inquiries") > 0) { %>

@@ -2,7 +2,6 @@ package com.topcoder.web.tc.controller.request.development.assembly;
 
 import com.topcoder.dde.catalog.ComponentManager;
 import com.topcoder.dde.catalog.ComponentManagerHome;
-import com.topcoder.dde.catalog.ComponentVersionInfo;
 import com.topcoder.dde.catalog.Forum;
 import com.topcoder.dde.user.UserManagerRemote;
 import com.topcoder.dde.user.UserManagerRemoteHome;
@@ -14,14 +13,8 @@ import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.Answer;
-import com.topcoder.web.common.model.Question;
-import com.topcoder.web.common.model.SurveyResponse;
-import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.common.tag.CalendarDateFormatMethod;
-import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
@@ -159,11 +152,8 @@ public class Register extends ViewRegistration {
 
             EmailEngine.send(mail);
 
-
         } finally {
             close(ctx);
         }
-
-
     }
 }
