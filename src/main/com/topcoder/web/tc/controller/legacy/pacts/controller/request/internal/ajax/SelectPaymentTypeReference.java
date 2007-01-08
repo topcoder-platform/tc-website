@@ -41,6 +41,7 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
 
                         }  else if (type == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT) {
                               map = dib.findRounds("%" + search + "%", ALGORITHM_TOURNAMENT_ROUND_TYPES);
+                              
                         } else if (type == PROBLEM_TESTING_PAYMENT) {
                         	map = dib.findRounds("%" + search + "%", PROBLEM_TESTING_ROUND_TYPES);                        	
                         }
@@ -93,6 +94,7 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
             }
             
             setDefault("client", getRequest().getParameter("client"));
+            getRequest().setAttribute("type", type + "");
             getRequest().setAttribute("reference_type_id", refId + "");
             getRequest().setAttribute("reference_id", getRequest().getParameter("reference_id"));
             getRequest().setAttribute("round_unknown", getRequest().getParameter("round_unknown"));

@@ -1,7 +1,9 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants,
+  				com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.GenerateComponentPayments,
 				 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
 				 com.topcoder.web.common.StringUtils" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<%@ taglib uri="pacts.tld" prefix="pacts" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%
 	ResultSetContainer statusList = (ResultSetContainer)
@@ -9,6 +11,7 @@
 	String projID = StringUtils.checkNull((String)request.getParameter(PactsConstants.PROJECT_ID)).trim();
 	String projTermStatus = StringUtils.checkNull((String)request.getParameter(PactsConstants.PROJECT_TERMINATION_STATUS)).trim();
 	String client = StringUtils.checkNull((String)request.getParameter(PactsConstants.PROJECT_CLIENT)).trim();
+	String coder = StringUtils.checkNull((String)request.getParameter("coder")).trim();
 %>
 <html>
     <head>
@@ -32,7 +35,12 @@
                     					<font color="red"><%=errStr%></font>
                     			<% 	} else if (errStr.indexOf("Success:") != -1) { %>
                     					<font color="green"><%=errStr%>
-                    					(<a href="/PactsInternalServlet?<%=PactsConstants.PROJECT_ID%>=<%=projID%>&c=payment&t=list">view</a>)</font>
+                    					<c:if test="${not empty requestScope.payment_id}">
+                    						(<a href="${pacts:viewPayments(requestScope.payment_id)}">view</a>)
+                    					</c:if>
+                    					</font>
+                    					        
+                    					
                     			<% 	} %>
                     			<% 	if (err!=null && !err.equals("")) { errCount++; } %>
                     		</tc-webtag:errorIterator>
@@ -55,6 +63,18 @@
                             Client: <input type="text" name="<%=PactsConstants.PROJECT_CLIENT%>" maxlength="100" size="25" value="<%=client%>"/>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        	If needed, pay development support to:<br/>
+                        	<tc-webtag:radioButton name="<%=GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="designer"/>the designer<br/>
+                        	<tc-webtag:radioButton name="<%= GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="other"/>coder <input type="text" name="coder" maxlength="20" size="10" value="<%=coder%>"/>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    
                     <tr>
                         <td align="center" colspan="3">
                             <a href="JavaScript:document.paymentForm.submit();">Generate Component Payments</a><br/>

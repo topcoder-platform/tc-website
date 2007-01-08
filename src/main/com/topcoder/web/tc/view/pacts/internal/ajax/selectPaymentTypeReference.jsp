@@ -14,6 +14,7 @@
 <c:set var="componentContests" value="${requestScope.component_contest_list}"/>
 <c:set var="parentPayments" value="${requestScope.parent_reference_list}"/>
 <c:set var="refId" value="${requestScope.reference_type_id}"/>
+<c:set var="type" value="${requestScope.type}"/>
 <c:set var="search" value="${requestScope.search}"/>
 <c:set var="optionalReference" value="${requestScope.optional_reference}"/>
 <c:set var="firstLoad" value="${not empty param.first_load}"/>
@@ -27,6 +28,7 @@
 <c:set var="DIGITAL_RUN_STAGE" value="<%= PactsConstants.REFERENCE_DIGITAL_RUN_STAGE_ID + "" %>" />
 <c:set var="DIGITAL_RUN_SEASON" value="<%= PactsConstants.REFERENCE_DIGITAL_RUN_SEASON_ID + "" %>" />
 <c:set var="PARENT_PAYMENT" value="<%= PactsConstants.REFERENCE_PARENT_PAYMENT_ID + "" %>" />
+<c:set var="COMPONENT_WINNING" value="<%= PactsConstants.COMPONENT_PAYMENT + "" %>" />
 
 
 <taconite-root xml:space="preserve">
@@ -110,7 +112,7 @@
                              <tc-webtag:rscSelect name="component_project_id" list="${projects}" 
                                      fieldText="project_desc" fieldValue="project_id" selectedValue="${param.reference_id}"                                             
                                      useTopValue="false"  onChange="referenceChanged('component_project_id')"/>
-                             <input type="button" value="do another search" onClick="typeChanged()" />                            
+                             <input type="button" value="do another search" onClick="typeChanged()" />           
                         </c:if>                                  
                         <c:if test="${not firstLoad}">  
                             <script type="text/javascript">
@@ -268,6 +270,25 @@
             </c:otherwise>
         </c:choose>   
      </taconite-replace>     
-     
+    <taconite-replace contextNodeID="trPlaced" parseInBrowser="true">
+    	<c:choose>
+            <c:when test="${type == COMPONENT_WINNING}">
+            <tr id="trPlaced"> 
+            <td><b>Placed:</b></td>
+            <td>
+             	<select name="placed" onChange="placedChanged()">
+             		<option value="1">1st</option>
+             		<option value="2">2nd</option>                             		
+               	 </select>
+            </td>
+            </tr>
+            </c:when>
+            <c:otherwise>
+                <tr id="trPlaced"> <td></td><td></td></tr>
+            </c:otherwise>
+	</c:choose>
+
+    </taconite-replace>
+    
  </taconite-root>
  

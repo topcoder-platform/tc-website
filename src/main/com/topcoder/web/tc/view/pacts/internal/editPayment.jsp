@@ -72,7 +72,8 @@ function loaded() {
 
 
 function doSearch(text, mustSearch, firstLoad) {
-    var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
+	var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectPaymentTypeReference');
+    
     document.f.search_text.value = text;
     document.f.round_unknown.value = roundUnknown; 
        
@@ -96,10 +97,27 @@ function doSearch(text, mustSearch, firstLoad) {
 
 
 
+function displayAmounts() {
+    var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=DisplayAmounts');
+    ajaxRequest.addNamedFormElements("payment_type_id");
+    ajaxRequest.addNamedFormElements("placed");
+    ajaxRequest.addNamedFormElements("is_design");    
+    ajaxRequest.addNamedFormElements("is_updating");    
+    ajaxRequest.addNamedFormElements("total_amount");    
+    ajaxRequest.addNamedFormElements("gross_amount");    
+    ajaxRequest.addNamedFormElements("net_amount");        
+    ajaxRequest.addNamedFormElements("installment_number");       
+    ajaxRequest.addNamedFormElements("dsd");       
+    ajaxRequest.setPostRequest(loaded);
+    ajaxRequest.setPreRequest(loading);        
+    ajaxRequest.sendRequest();
+}
+
 function typeChanged()
 {
     document.f.reference_description.value = "";
     doSearch("", false, false);
+    displayAmounts();
 }
 
 function setRoundUnknown(value){
@@ -107,6 +125,10 @@ function setRoundUnknown(value){
    typeChanged();   
 }
 
+function setDesign(value){
+	document.ajaxFields.is_design.value = value;
+	displayAmounts();	
+}
 
 function doReferenceChanged(refId) {
     var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=FillPaymentData');
@@ -117,6 +139,10 @@ function doReferenceChanged(refId) {
     ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.addNamedFormElements("reference_id");
     ajaxRequest.addNamedFormElements("user_id");    
+    
+    ajaxRequest.addNamedFormElements("placed");    
+    ajaxRequest.addNamedFormElements("installment_number");    
+    
     ajaxRequest.setPostRequest(loaded);
     ajaxRequest.setPreRequest(loading);    
     ajaxRequest.sendRequest();
@@ -128,6 +154,12 @@ function setDescription(text) {
 
 function setDueDate(text) {
     document.f.due_date.value = text;
+}
+
+function placedChanged() {
+	referenceChanged('component_project_id');
+	document.ajaxFields.is_updating.value = "false";
+	displayAmounts();
 }
 
 function setStatus(id) {
@@ -153,6 +185,7 @@ function initialize() {
     </c:if>
     doSearch('<c:out value="${param.search_text}" />',s,true);    
 </c:if> 
+    displayAmounts();
 }
 
 function getElement(name) {
@@ -166,7 +199,8 @@ function search() {
 }
 
 function referenceChanged(name) {
-    doReferenceChanged(getElement(name).value);
+    var element = getElement(name);
+    if (element != undefined) doReferenceChanged(element.value);
 }
 
 function searchKeyPress(e)
@@ -204,6 +238,8 @@ function searchKeyPress(e)
 
 <form name="ajaxFields">
    <input type="hidden" name="first_load" value="true" >
+   <input type="hidden" name="is_design" value="<%= request.getAttribute("is_design") %>" >
+   <input type="hidden" name="is_updating" value="${updating}" >
    <input type="hidden" name="client" value="<%= ((Map) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("client") %>" >
  
 </form>
@@ -212,17 +248,17 @@ function searchKeyPress(e)
    <input type="hidden" name="module" value="EditPayment">
    <input type="hidden" name="search_text">
    <input type="hidden" name="round_unknown">
-   <input type="hidden" name="reference_id" value="<c:out value="${param.reference_id}" />">
+   <input type="hidden" name="reference_id" value="<c:out value="${requestScope.reference_id}" />">
    <input type="hidden" name="reference_description" value="<c:out value="${requestScope.reference_description}" />" >
    <input type="hidden" name="user_id" value="${user.id}" >   
 <c:if test="${updating}">
-   <input type="hidden" name="payment_id" value="${payment.header.id}">
+   <input type="hidden" name="payment_id" value="${payment.id}">
 </c:if>  
 <c:if test="${hasContract}">
    <input type="hidden" name="contract_id" value="${contract.header.id}">
 </c:if>  
 
-<table border="0" cellpadding="5" cellspacing="5">
+<table border="0" cellpadding="3" cellspacing="3">
         <tr>
             <td colspan="2">
                 <tc-webtag:errorIterator id="err" name="error">
@@ -233,14 +269,14 @@ function searchKeyPress(e)
 
 <c:if test="${updating}">
     <tr>
-        <td><b>ID:</b></td>
+        <td width="180"><b>ID:</b></td>
         <td>
-            <c:out value="${payment.header.id}" />  
+            <c:out value="${payment.id}" />  
         </td>
     </tr>
 </c:if>
     <tr>
-        <td><b>User</b></td>
+        <td width="180"><b>User</b></td>
         <td><a href="${pacts:viewUser(user.id)}"><c:out value="${user.handle}" /></td>
     </tr>
     <tr>
@@ -272,7 +308,15 @@ function searchKeyPress(e)
         <input type="button" value="change" onClick="typeChanged()" />
         </td>
     </tr>
-    <c:if test="${not empty payment.header.client}">
+    <tr id="trPlaced">
+        <td></td>
+        <td></td>
+    </tr>
+    <tr id="trDevSupport">
+        <td></td>
+        <td></td>
+    </tr>
+    <c:if test="${not empty payment.client}">
         <tr id="projectClient"> 
             <td><b>Client:</b></td>
             <td>
@@ -280,7 +324,7 @@ function searchKeyPress(e)
             </td>
         </tr>
     </c:if>
-    <c:if test="${empty payment.header.client}">
+    <c:if test="${empty payment.client}">
         <tr id="projectClient">
             <td></td>
             <td></td>
@@ -293,6 +337,14 @@ function searchKeyPress(e)
         <td></td>       
         <td></td>
     </tr>
+    <tr id="trPlaced">
+        <td></td>
+        <td></td>
+    </tr>
+    <tr id="trDevSupport">
+        <td></td>
+        <td></td>
+    </tr>    
     <tr id="projectClient">
         <td></td>
         <td></td>
@@ -318,18 +370,31 @@ function searchKeyPress(e)
         <td>
             <tc-webtag:textInput name="payment_desc" size="60" editable="true" />
         </td>
-    <tr>
-        <td><b>Gross Amount:</b></td>
+        <tr id="trAmount1">
+        <td><b>Total Gross Amount:</b></td>
         <td>
-            <tc-webtag:textInput name="gross_amount" size="8" editable="true" format="#########.00" />
-        </td>
-    </tr>
-    <tr>
-        <td><b>Net Amount:</b></td>
+            <tc-webtag:textInput name="total_amount" size="8" editable="true" format="#########.00"/>
+        </td>			 
+        </tr>   
+        <tr id="trAmount2">			    
+        <td><b>Installment Number:</b></td>
         <td>
-            <tc-webtag:textInput name="net_amount" size="8" editable="true" format="#########.00" /> (if left blank, calculated from Gross Amount)
-        </td>
-    </tr>
+        	<tc-webtag:stringSelect name="installment_number" list="<%= java.util.Arrays.asList(new String[]{"1", "2"}) %>" useTopValue="false" onChange="referenceChanged('component_project_id')" />
+        </td>			   
+        </tr> 
+    	<tr id="trAmount3">			   
+	        <td nowrap="nowrap"><b>Installment Gross Amount:</b></td>				        
+	        <td>
+	            <tc-webtag:textInput name="gross_amount" size="8" editable="true" format="#########.00" /> (If left blank, calculated from Total Gross Amount)
+	        </td>			    
+	    </tr>
+        <tr id="trAmount4">
+	        <td><b>Installment Net Amount:</b></td>
+	        <td>
+	            <tc-webtag:textInput name="net_amount" size="8" editable="true" format="#########.00" /> (if left blank, calculated from Installment Gross Amount)
+				        </td>
+				    </tr>
+    
     <tr>
         <td><b>Date Due:</b></td><td>
         <tc-webtag:textInput name="due_date" id="due_date" size="12" editable="true" /> 

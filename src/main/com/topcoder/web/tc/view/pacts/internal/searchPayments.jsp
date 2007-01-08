@@ -141,7 +141,7 @@
         <p><br>
         <input type="submit" value="Submit" name="B1"><input type="reset" value="Reset" name="B2">
         </p>
-<% out.println("        <input type=\"hidden\" name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.PAYMENT_CMD+"\"><input type=\"hidden\" name=\""+PactsConstants.TASK_STRING+"\" value=\""+PactsConstants.LIST_TASK+"\">"); %>
+        <input type="hidden" name="module" value="PaymentList">
       </form>
     </td>
   </tr>

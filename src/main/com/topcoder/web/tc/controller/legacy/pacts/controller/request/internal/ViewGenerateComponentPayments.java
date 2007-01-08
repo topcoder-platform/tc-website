@@ -1,11 +1,11 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
-import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import java.util.Map;
+
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
-
-import java.util.Map;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
  * @author mktong
@@ -19,6 +19,8 @@ public class ViewGenerateComponentPayments extends BaseProcessor implements Pact
             DataInterfaceBean dib = new DataInterfaceBean();
             Map map = dib.getProjectTerminationStatusTypes();
             getRequest().setAttribute(PROJECT_TERMINATION_STATUS_LIST, map.get(PROJECT_TERMINATION_STATUS_LIST));
+            
+            setDefault(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER , "designer");
             setNextPage(INTERNAL_GENERATE_COMPONENT_PAYMENTS);
             setIsNextPageInContext(true);
         } catch (Exception e) {

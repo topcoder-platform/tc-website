@@ -28,7 +28,7 @@
 		</tr>
 		<tr>
 			<td><b>User</b></td>
-			<td><a href="${pacts:viewUser(payment.header.user.id)}"><c:out value="${payment.header.user.handle}" /></td>
+			<td><a href="${pacts:viewUser(payment.header.user.id)}"><c:out value="${payment.header.user.handle}" /></a></td>
 		</tr>
 		<tr>		
 			<td><b>Description:</b></td>
@@ -59,20 +59,47 @@
 			<td><b>Method:</b></td>
 			<td><c:out value="${payment.header.method}" /></td>
 		</tr>
-<c:if test="${payment.header.typeId != COMPONENT_PAYMENT and payment.header.typeId != REVIEW_BOARD_PAYMENT}">
+<c:choose>
+	<c:when test="${payment.netAmount != payment.totalAmount or payment.installmentNumber > 1}">
 		<tr>
-			<td><b>Gross Amount:</b></td>
-			<td><fmt:formatNumber value="${payment.grossAmount}" pattern="###,###.00" /></td>
+			<td><b>Total Gross Amount:</b></td>
+			<td>$<fmt:formatNumber value="${payment.totalAmount}" pattern="###,##0.000" /></td>
+		</tr>
+		<tr>
+			<td><b>Installment Number:</b></td>
+			<td><fmt:formatNumber value="${payment.installmentNumber}" pattern="##0" /></td>
+		</tr>
+		<tr>
+			<td><b>Installment Gross Amount:</b></td>
+			<td>$<fmt:formatNumber value="${payment.grossAmount}" pattern="###,##0.00" /></td>
 		</tr>
 		<tr>
 			<td><b>Tax:</b></td>
-			<td><fmt:formatNumber value="${payment.grossAmount - payment.netAmount}" pattern="####.00" /></td>
+			<td>$<fmt:formatNumber value="${payment.grossAmount - payment.netAmount}" pattern="###0.00" /></td>
 		</tr>
-</c:if>
+
+		<tr>
+			<td><b>Installment Net Amount:</b></td>
+			<td>$<fmt:formatNumber value="${payment.netAmount}" pattern="###,##0.00" /></td>
+		</tr>
+	</c:when>
+	<c:otherwise>
+		<tr>
+			<td><b>Gross Amount:</b></td>
+			<td>$<fmt:formatNumber value="${payment.grossAmount}" pattern="###,##0.00" /></td>
+		</tr>
+		<tr>
+			<td><b>Tax:</b></td>
+			<td>$<fmt:formatNumber value="${payment.grossAmount - payment.netAmount}" pattern="###0.00" /></td>
+		</tr>
+	
 		<tr>
 			<td><b>Net Amount:</b></td>
-			<td><fmt:formatNumber value="${payment.netAmount}" pattern="#.00" /></td>
+			<td>$<fmt:formatNumber value="${payment.netAmount}" pattern="###,##0.00" /></td>
 		</tr>
+	</c:otherwise>
+</c:choose>
+
 		<tr>
 			<td><b>Date Created:</b></td>
 			<td><c:out value="${payment.header.createDate}" /> </td>
