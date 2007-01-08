@@ -82,7 +82,7 @@
                 ballot = new RankBallot(candidates);
             }
             ballot.add(new Vote((Candidate) map.get(new Long(curr.getLongItem("question_id"))),
-                    Integer.parseInt(curr.getStringItem("sort"))));
+                    Integer.parseInt(curr.getStringItem("sort_order"))));
             lastUserId = curr.getLongItem("user_id");
         }
         if (ballot != null) {
