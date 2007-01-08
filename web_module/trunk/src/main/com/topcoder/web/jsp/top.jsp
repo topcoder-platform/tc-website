@@ -10,7 +10,39 @@
     String level1 = request.getParameter("level1")==null?"competition":request.getParameter("level1");
 
 %>
-<script type="text/javascript" src="/js/popup.js"></script>
+<script type="text/javascript">
+var objTopPopUp = null;
+// called when you topPopup at the bottom right of an object
+function topPopUp(topPopper,topPopupID) {
+    var pos = findPos(topPopper);
+    var x = pos[0] + topPopper.offsetWidth + 2;
+    var y = pos[1] + topPopper.offsetHeight + 2;
+    topPopShow(x,y,topPopupID);
+}
+// called when you know the exact spot you want to topPop up at
+function topPopShow(posX,posY,topPopupID) {
+    objTopPopUp = document.getElementById(topPopupID);
+    objTopPopUp.style.left = posX + 'px';
+    objTopPopUp.style.top = posY + 'px';
+    objTopPopUp.style.display = 'block';
+}
+function topPopHide() {
+    objTopPopUp.style.display = 'none';
+    objTopPopUp = null;
+}
+function findPos(obj) {
+    var curLeft = curTop = 0;
+    if (obj.offsetParent) {
+        curLeft = obj.offsetLeft;
+        curTop = obj.offsetTop;
+        while (obj = obj.offsetParent) {
+            curLeft += obj.offsetLeft;
+            curTop += obj.offsetTop;
+        }
+    }
+    return [curLeft,curTop];
+}
+</script>
 
 <%----------LAUNCH BAR-------------%>
 <div id="launch0" class="popUp"><div><strong>Competitions Home</strong></div></div>
@@ -21,12 +53,12 @@
 <div id="launch5" class="popUp"><div><strong>Marathon Match Active Contests</strong></div></div>
 
 <map name="competeBar">
-<area shape="rect" alt="" coords="0,0,66,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc" onmouseover="popShow(73,65,'launch0')" onmouseout="popHide()" />
-<area shape="rect" alt="" coords="68,0,106,30" href="javascript:arena();" onmouseover="popShow(108,65,'launch1')" onmouseout="popHide()" />
-<area shape="rect" alt="" coords="107,0,153,30" href="javascript:arena();" onmouseover="popShow(155,65,'launch2')" onmouseout="popHide()" />
-<area shape="rect" alt="" coords="154,0,179,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=112" onmouseover="popShow(181,65,'launch3')" onmouseout="popHide()" />
-<area shape="rect" alt="" coords="180,0,205,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=113" onmouseover="popShow(207,65,'launch4')" onmouseout="popHide()" />
-<area shape="rect" alt="" coords="206,0,250,30" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewActiveContests" onmouseover="popShow(252,65,'launch5')" onmouseout="popHide()" />
+<area shape="rect" alt="" coords="0,0,66,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc" onmouseover="topPopShow(73,65,'launch0')" onmouseout="topPopHide()" />
+<area shape="rect" alt="" coords="68,0,106,30" href="javascript:arena();" onmouseover="topPopShow(108,65,'launch1')" onmouseout="topPopHide()" />
+<area shape="rect" alt="" coords="107,0,153,30" href="javascript:arena();" onmouseover="topPopShow(155,65,'launch2')" onmouseout="topPopHide()" />
+<area shape="rect" alt="" coords="154,0,179,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=112" onmouseover="topPopShow(181,65,'launch3')" onmouseout="topPopHide()" />
+<area shape="rect" alt="" coords="180,0,205,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=113" onmouseover="topPopShow(207,65,'launch4')" onmouseout="topPopHide()" />
+<area shape="rect" alt="" coords="206,0,250,30" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewActiveContests" onmouseover="topPopShow(252,65,'launch5')" onmouseout="topPopHide()" />
 </map>
 <%---------------------------------%>
 
