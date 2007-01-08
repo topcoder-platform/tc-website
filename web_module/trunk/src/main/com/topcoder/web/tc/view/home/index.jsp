@@ -243,7 +243,7 @@
                 <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0" style="display:block;" /></A>
                 --%>
                 <%-- AOL webcast team --%>
-                <A href="/movies/tournament/tccc06/final_webcast_preview.mov"><img src="/i/home/tccc_webcast_20061208.jpg" alt="TCCC Webcast Highlights" border="0" style="display:block;"/></A>
+                <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies"><img src="/i/home/tccc06webcast20060108.jpg" alt="TCCC Webcast" border="0" style="display:block;"/></A>
             </td>
         </tr>
     </table>
