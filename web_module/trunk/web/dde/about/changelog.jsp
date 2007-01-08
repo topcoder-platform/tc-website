@@ -53,6 +53,13 @@
                         <H3>TopCoder Software Web Site Change Log</H3>
 
                         <p>
+                            2.0.3 - 2007.01.08
+                            <ul>
+                                <li>Automatic monitoring of review board eligibility fix.</li>
+                            </ul>
+                        </p>
+
+                        <p>
                             2.0.2 - 2006.11.08
                             <ul>
                                 <li>Fix bug in admin tool that made a call to old Online Review code</li>

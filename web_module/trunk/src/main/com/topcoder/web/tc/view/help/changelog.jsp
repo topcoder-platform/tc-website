@@ -42,6 +42,13 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 <p>
+    5.5.14 - 2007.01.08
+    <ul>
+        <li>Automatic monitoring of review board eligibility fix.</li>
+    </ul>
+</p>
+
+<p>
     5.5.13 - 2006.12.21
     <ul>
 <%--
