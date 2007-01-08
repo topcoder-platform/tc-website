@@ -1,5 +1,5 @@
 <%@ page import="com.topcoder.web.csf.Constants" %>
-<%@ page import="com.topcoder.web.studio.model.ReviewStatus" %>
+<%@ page import="com.topcoder.web.csf.model.ReviewStatus" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page contentType="text/xml" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
