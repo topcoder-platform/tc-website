@@ -316,7 +316,7 @@ function searchKeyPress(e)
         <td></td>
         <td></td>
     </tr>
-    <c:if test="${payment.referenceTypeId ==2 and not empty payment.client}">
+    <c:if test="${payment.referenceTypeId == 2}">
         <tr id="projectClient"> 
             <td><b>Client:</b></td>
             <td>
