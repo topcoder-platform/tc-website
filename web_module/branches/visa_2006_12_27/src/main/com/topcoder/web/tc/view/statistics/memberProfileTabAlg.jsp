@@ -167,8 +167,6 @@ if(!rscSummaryChal.isEmpty()) {
 
 
 if ( MM_FlashCanPlay ) {
-    coder = '<%=request.getParameter("cr")%>';
-    rating = '<%=rscAlgData.getIntItem(0, "rating")%>';
     document.write( '<object ');
     document.write( 'classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ');
     document.write( 'codebase="http://fpdownload.macromedia.com" ');
@@ -179,12 +177,12 @@ if ( MM_FlashCanPlay ) {
     document.write( 'align="middle"> ');
     document.write( '<param name="allowScriptAccess" value="sameDomain" /> ');
     document.write( '<param name="movie" ');
-    document.write( 'value="/flash/graphLoader.swf?competitionType=alg&coderID="' + coder + '&myRating=' + rating);
+    document.write( 'value="/flash/graphLoader.swf?competitionType=alg&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscAlgData.getIntItem(0, "rating")%>');
     document.write( '<param name="menu" value="true" /> ');
     document.write( '<param name="quality" value="high" /> ');
     document.write( '<param name="bgcolor" value="#EEEEEE" /> ');
     document.write( '<embed ');
-    document.write( 'src="/flash/graphLoader.swf?competitionType=alg&coderID="' + coder + '&myRating=' + rating);
+    document.write( 'src="/flash/graphLoader.swf?competitionType=alg&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscAlgData.getIntItem(0, "rating")%>');
     document.write( 'menu="true" ');
     document.write( 'quality="high" ');
     document.write( 'bgcolor="#EEEEEE" ');
