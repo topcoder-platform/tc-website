@@ -161,7 +161,7 @@ var s='<object ' +
 'type="application/x-shockwave-flash" ' +
 'pluginspage="http://www.macromedia.com/go/getflashplayer" /> ' +
 '</object> ';
-document.write(s);
+doWrite(s);
 //    displayGraph('graphLoader', 'alg', true, '<%=request.getParameter("cr")%>','<%=rscAlgData.getIntItem(0, "rating")%>');
 </script>
       </td>
