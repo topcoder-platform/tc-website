@@ -42,7 +42,7 @@ public class CondorcetDoer {
                 question = (ResultSetContainer.ResultSetRow) it.next();
                 questionId = question.getLongItem("question_id");
                 for (int i = 0; i < questions.size(); i++) {
-                    a.createAnswer(questionId, String.valueOf(i + 1), i, DBMS.OLTP_DATASOURCE_NAME);
+                    a.createAnswer(questionId, String.valueOf(i + 1), i + 1, DBMS.OLTP_DATASOURCE_NAME);
                 }
             }
         } finally {
