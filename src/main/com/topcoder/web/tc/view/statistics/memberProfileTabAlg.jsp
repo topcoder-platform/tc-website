@@ -135,7 +135,34 @@ if(!rscSummaryChal.isEmpty()) {
    <tr>
       <td colspan="2" align="center" style="border-top: 1px solid #999999;">
 <script language="JavaScript">
-    displayGraph('graphLoader', 'alg', true, '<%=request.getParameter("cr")%>','<%=rscAlgData.getIntItem(0, "rating")%>');
+var s='<object ' +
+'classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ' +
+'codebase="http://fpdownload.macromedia.com" ' +
+'/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ' +
+'width="600" ' +
+'height="400" ' +
+'id="graphLoader" ' +
+'align="middle"> ' +
+'<param name="allowScriptAccess" value="sameDomain" /> ' +
+'<param name="movie" value="/flash/graphLoader.swf?competitionType=alg&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscAlgData.getIntItem(0, "rating")%>" /> ' +
+'<param name="menu" value="true" /> ' +
+'<param name="quality" value="high" /> ' +
+'<param name="bgcolor" value="#EEEEEE" /> ' +
+'<embed src="/flash/graphLoader.swf?competitionType=alg&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscAlgData.getIntItem(0, "rating")%>" ' +
+'menu="true"  ' +
+'quality="high" ' +
+'bgcolor="#EEEEEE" ' +
+'width="600" ' +
+'height="400" ' +
+'name="graphLoader" ' +
+'swLiveConnect="true" ' +
+'align="middle" ' +
+'allowScriptAccess="sameDomain" ' +
+'type="application/x-shockwave-flash" ' +
+'pluginspage="http://www.macromedia.com/go/getflashplayer" /> ' +
+'</object> ';
+document.write(s);
+//    displayGraph('graphLoader', 'alg', true, '<%=request.getParameter("cr")%>','<%=rscAlgData.getIntItem(0, "rating")%>');
 </script>
       </td>
    </tr>
