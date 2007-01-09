@@ -136,7 +136,7 @@
 
 </p>
 
-<br><br>
+<br>
 <span class="bigRed">NOTE: Please see the eligibility requirements below. Competitors must sign a non-disclosure agreement and pass a background check before being admitted into this competition.   If you have previously completed these documents, no further action is needed.</span>
 
 <p>
