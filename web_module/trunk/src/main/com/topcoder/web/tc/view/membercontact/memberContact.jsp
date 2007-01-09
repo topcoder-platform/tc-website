@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page language="java"
          import="com.topcoder.web.tc.controller.request.membercontact.MemberContact,
-		         com.topcoder.web.tc.controller.request.membercontact.SendMail,
+                 com.topcoder.web.tc.controller.request.membercontact.SendMail,
                  com.topcoder.web.tc.controller.request.membercontact.Helper"
           %>
 <%@ taglib uri="common-functions" prefix="cf" %>
@@ -14,49 +14,75 @@
 <title>Member Contact</title>
          
 <script type="text/javascript" src="/js/taconite-client.js"></script>
+<script type="text/javascript" src="/js/tcdhtml.js"></script>
 <script type="text/javascript">
 
-var prevCanSend = false;
+<c:set value="<%=MemberContact.CAN_RECEIVE%>" var="canReceive"/>
+
+function isIncludeMailChecked() {
+    for (i=0;i<document.f.<%= SendMail.ATTACH %>.length;i++){
+       if (document.f.attach[i].checked)
+          return true;
+    } 
+    return false;
+}
 
 function canSend() {
    return document.f.<%= SendMail.TEXT %>.value != "" &&
+          <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
+	        isIncludeMailChecked() &&
+          </c:if>
            document.f.handleValid.value == "true";
 }
 
-
-function validate(send) {
-    var ajaxRequest = new AjaxRequest('/tc?module=ValidateHandle');
-    document.f.<%= SendMail.HAS_TEXT %>.value = document.f.<%= SendMail.TEXT %>.value != ""? "true" : "";
-    ajaxRequest.addFormElementsById("<%= SendMail.TO_HANDLE %>");
-    ajaxRequest.addFormElementsById("<%= SendMail.HAS_TEXT %>");    
-    if (send) {
-        ajaxRequest.addFormElementsById("<%= SendMail.SEND %>");
+function validateLocal(showErrors) {
+	valid = false;
+    <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
+		if (isIncludeMailChecked()) {
+	       updateDivOrSpan(document, "attachValidation", "");
+	       	valid = true;
+	    } else {
+	       if (showErrors) {
+	           updateDivOrSpan(document, "attachValidation", "Please answer this question.");
+	       }
+	    }
+    </c:if>
+    if (document.f.<%= SendMail.TEXT %>.value != "") {
+       updateDivOrSpan(document, "textValidation", "");
+       	valid = true;
+    } else {
+        if (showErrors) {
+           updateDivOrSpan(document, "textValidation", "Please enter the message text.");
+        }
     }
-    ajaxRequest.setPostRequest(afterRequest);
+    return valid;
+}
+
+function validateHandle(send) {
+    var ajaxRequest = new AjaxRequest('/tc?module=ValidateHandle');
+    ajaxRequest.addFormElementsById("<%= SendMail.TO_HANDLE %>");
+    if (send) {
+	    ajaxRequest.setPostRequest(afterRequest);
+    }
     ajaxRequest.sendRequest();
 }
 
-function textChanged() {
-    if (prevCanSend != canSend()) {
-		validate(false);
-	    prevCanSend = canSend();
-    }
+function send() {
+	if (validateLocal(true)) {
+		validateHandle(true)
+	}
 }
 
 function afterRequest() 
 {
-    if (canSend() && document.f.doSend.value == "true") {
+   if (canSend() && document.f.doSend.value == "true") {
         document.f.submit();
-    }    
+   }    
 }
 
-
-function canSend() {
-   return document.f.<%= SendMail.TEXT %>.value != "" &&
-           document.f.handleValid.value == "true";
+function doNothing() 
+{
 }
-
-
 
 
 function keyPress(e) {
@@ -72,10 +98,6 @@ function keyPress(e) {
 
 function init() {
     document.f.<%= SendMail.TO_HANDLE %>.focus();
-<c:if test="${not empty param.th}" >
-	validate(false);
-    document.f.<%= SendMail.TEXT %>.focus();	
-</c:if>
 }
 
 </script>
@@ -121,9 +143,8 @@ Use the message form below to contact the member of your choice, only one recipi
 <br><br>
 To block specific TopCoder members from contacting you, go to the <a href='/tc?module=BlackList'>black list</a> page.
 <br>
-<c:set value="<%=MemberContact.CAN_RECEIVE%>" var="canReceive"/>
 <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
-	To enable other rated TopCoder members to contact you, <a href='/tc?module=MemberContactEnable'>click here</a>
+    To enable other rated TopCoder members to contact you, <a href='/tc?module=MemberContactEnable'>click here</a>
     <br>
 </c:if>
 <br>
@@ -148,20 +169,37 @@ To block specific TopCoder members from contacting you, go to the <a href='/tc?m
 
 <br>
 <input type="hidden" id="<%= SendMail.SEND %>" name="<%= SendMail.SEND %>" value="true" />
-<input type="hidden" id="<%= SendMail.HAS_TEXT %>" name="<%= SendMail.HAS_TEXT %>" value="" />
 
-To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HANDLE %>' size='12' onBlur='validate(false)' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
+To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
 <div id="validationHandle"> </div>
-<span class="smallText">(Enter TopCoder member handle only)</span>
+<span class="smallText">(Enter TopCoder handle only, one per message)</span>
 <br/><br/>
 
-<textarea name='<%= SendMail.TEXT %>' id='<%= SendMail.TEXT %>' cols='50' rows='10' onKeyUp='textChanged()'></textarea>
-<br/><br/>
+<textarea name='<%= SendMail.TEXT %>' id='<%= SendMail.TEXT %>' onKeyUp='validateLocal(false)' onBlur='validateLocal(false)' cols='50' rows='10'></textarea>
+<br />
+<span id=textValidation class="bigRed"></span>
+<br /><br />
+
+<c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
+<strong>Wait a second!</strong> You're sending a message but you don't have member contacting enabled. This member won't have any way to respond to you.
+<br /><br />
+Would you like to attach your email address to the message?
+<br />
+<%-- APPEARS WHEN YOU CLICK SUBMIT WITHOUT PICKING YES OR NO --%>
+<span id=attachValidation class="bigRed"></span>
+<%-------------------------------------------------------------%>
+<br />
+<input type="radio" name="<%= SendMail.ATTACH %>" value="Yes" onChange='validateLocal(false)' > Yes
+<br />
+<input type="radio" name="<%= SendMail.ATTACH %>" value="No" onChange='validateLocal(false)' > No
+<br /><br />
+</c:if>
+
 <input type='checkbox' name='<%= SendMail.SEND_COPY %>' />Send a copy to the email address in my TopCoder profile.
-<br/><br/>
+<br /><br />
 
 <div id="btnSendDiv">
-<img src="/i/interface/btn_send_disabled.gif" border="0"/>
+  <A href="javascript:send()" class="bodyText"><img src="/i/interface/btn_send.gif" border="0"/></A>
 </div>
 
 <div id="runJS">
