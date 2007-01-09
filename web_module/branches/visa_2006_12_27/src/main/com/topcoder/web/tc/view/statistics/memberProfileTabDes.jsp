@@ -134,7 +134,7 @@
    <tr>
       <td colspan="2" align="center" style="border-top: 1px solid #999999;">
       <script language="JavaScript">
-          displayGraph('ratingHistory', 'des', false, '<%=request.getParameter("cr")%>','<%=rscAlgData.getIntItem(0, "rating")%>');
+          displayGraph('ratingHistory', 'des', false, '<%=request.getParameter("cr")%>','<%=rscDesData.getIntItem(0, "rating")%>');
       </script>
       </td>
    </tr>
