@@ -35,7 +35,7 @@
 </jsp:include>
 
 <div align="center" style="margin: 40px;">
-    <strong>Your message has been sent to <tc-webtag:handle coderId="8357090" />.</strong>
+    <strong>Your message has been sent.</strong>
     <br><br>
     <A href="/tc?module=MemberContact" class="bcLink">Send another?</A>
 </div>
