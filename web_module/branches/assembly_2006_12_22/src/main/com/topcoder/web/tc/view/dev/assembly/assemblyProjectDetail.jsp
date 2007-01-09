@@ -109,7 +109,7 @@
 </table>
 
 <p>
-<span class="bodySubtitle">Competition Overview</span><br>
+<span class="bodySubtitle">Application Overview</span><br>
 </p>
 
 <p>
@@ -136,14 +136,10 @@
 
 </p>
 
+<br><br>
+<span class="bigRed">NOTE: Please see the eligibility requirements below. Competitors must sign a non-disclosure agreement and pass a background check before being admitted into this competition.   If you have previously completed these documents, no further action is needed.</span>
+
 <p>
-<span class="bodySubtitle">Competition Overview</span><br>
-This assembly competition will consist of component integration and extensive unit testing to ensure correct operation.  The majority of the application will be implemented by generic TopCoder components.  The main task will involve configuring these components, writing UI code, writing a deployment guide, and packaging the application for deployment.  
-<br><br>
-* The application html prototype will be "pre-converted" to aspx pages to help get you started. However, these pages will still require modifications as your UI code is implemented.
-<br><br>
-* A sample database will be provided containing data for the application. 
-<br><br>
 <div align="right"><A href="/tc?module=Static&d1=features&d2=061906"><img src="/i/development/assembly/learn_more.gif" alt="Want to Learn More?" border="0" /></A></div>
 </p>
 
