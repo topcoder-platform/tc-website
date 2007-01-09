@@ -21,7 +21,6 @@ import com.topcoder.web.common.SecurityHelper;
  */
 public class MemberContact extends ShortHibernateProcessor {
 
-    public static String CONFIRM = "conf";
     public static String CAN_RECEIVE = "cr";
 
     protected void dbProcessing() throws Exception {
