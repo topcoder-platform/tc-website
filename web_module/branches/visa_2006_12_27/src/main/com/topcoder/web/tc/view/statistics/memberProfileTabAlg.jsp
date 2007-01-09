@@ -6,36 +6,6 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
 <% ResultSetContainer rscAlgData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Alg_Data"); %>
 <% ResultSetContainer rscCoderData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Data"); %>
-<SCRIPT LANGUAGE="JavaScript">
-<!--
-var MM_contentVersion = 6;
-var MM_FlashCanPlay = false;
-var plugin = (navigator.mimeTypes
-    && navigator.mimeTypes["application/x-shockwave-flash"])
-    ? navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin : 0;
-if ( plugin ) {
-  var words = navigator.plugins["Shockwave Flash"].description.split(" ");
-  for (var i = 0; i < words.length; ++i) {
-    if (isNaN(parseInt(words[i])))
-        continue;
-    var MM_PluginVersion = words[i];
-  }
-  MM_FlashCanPlay = MM_PluginVersion >= MM_contentVersion;
-} else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
-        && (navigator.appVersion.indexOf("Win") != -1)) {
-  document.write( '<SCR' + 'IPT LANGUAGE=VBScript\> \n ');
-  document.write( 'on error resume next \n ');
-  document.write( 'MM_FlashCanPlay = ( IsObject(CreateObject ');
-  document.write( '("ShockwaveFlash.ShockwaveFlash." & MM_contentVersion)))\n ');
-  document.write( '</SCR' + 'IPT\> \n ');
-}
-
-//-->
-
-
-</SCRIPT>
-<script src="/js/profileGraphs.js" type="text/javascript"></script>
-
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
       <td class="divider">
@@ -163,24 +133,9 @@ if(!rscSummaryChal.isEmpty()) {
    </tr>
    <tr>
       <td colspan="2" align="center" style="border-top: 1px solid #999999;">
-<SCRIPT language="JavaScript">
-<!--
-
-
-if ( MM_FlashCanPlay ) {
-    displayGraph('<%=request.getParameter("cr")%>','<%=rscAlgData.getIntItem(0, "rating")%>');
-}
-// -->
-</SCRIPT>
-<SCRIPT language="JavaScript">
-<!--
-if (!MM_FlashCanPlay){
-document.write( '<br><span class="bodySubtitle">Member Profile Graphs</span><br> ');
-document.write( '<A href="http://www.macromedia.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank"> ');
-document.write( '<img src="/i/interface/getFlash.gif" alt="Get Flash" border="0"></A> ');
-}
-// -->
-</SCRIPT>
+<script language="JavaScript">
+    displayGraph('graphLoader', 'alg', true, '<%=request.getParameter("cr")%>','<%=rscAlgData.getIntItem(0, "rating")%>');
+</script>
       </td>
    </tr>
 </table>
