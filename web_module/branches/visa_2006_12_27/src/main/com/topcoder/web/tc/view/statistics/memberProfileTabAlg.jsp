@@ -34,6 +34,7 @@ if ( plugin ) {
 
 
 </SCRIPT>
+<script src="/js/profileGraphs.js" type="text/javascript"></script>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
@@ -167,36 +168,7 @@ if(!rscSummaryChal.isEmpty()) {
 
 
 if ( MM_FlashCanPlay ) {
-    var rating = '<%=rscAlgData.getIntItem(0, "rating")%>';
-    var coder = '<%=request.getParameter("cr")%>';
-    document.write( '<object ');
-    document.write( 'classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ');
-    document.write( 'codebase="http://fpdownload.macromedia.com" ');
-    document.write( '/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ');
-    document.write( 'width="600" ');
-    document.write( 'height="400" ');
-    document.write( 'id="graphLoader" ');
-    document.write( 'align="middle"> ');
-    document.write( '<param name="allowScriptAccess" value="sameDomain" /> ');
-    document.write( '<param name="movie" ');
-    document.write( 'value="/flash/graphLoader.swf?competitionType=alg&coderID=' + coder + '&myRating=' + rating);
-    document.write( '<param name="menu" value="true" /> ');
-    document.write( '<param name="quality" value="high" /> ');
-    document.write( '<param name="bgcolor" value="#EEEEEE" /> ');
-    document.write( '<embed ');
-    document.write( 'src="/flash/graphLoader.swf?competitionType=alg&coderID=' + coder + '&myRating=' + rating);
-    document.write( 'menu="true" ');
-    document.write( 'quality="high" ');
-    document.write( 'bgcolor="#EEEEEE" ');
-    document.write( 'width="600" ');
-    document.write( 'height="400" ');
-    document.write( 'name="graphLoader" ');
-    document.write( 'swLiveConnect="true" ');
-    document.write( 'align="middle" ');
-    document.write( 'allowScriptAccess="sameDomain" ');
-    document.write( 'type="application/x-shockwave-flash" ');
-    document.write( 'pluginspage="http://www.macromedia.com/go/getflashplayer" /> ');
-    document.write( '</object> ');
+    displayGraph('<%=request.getParameter("cr")%>','<%=rscAlgData.getIntItem(0, "rating")%>');
 }
 // -->
 </SCRIPT>
