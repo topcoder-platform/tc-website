@@ -164,7 +164,11 @@ if(!rscSummaryChal.isEmpty()) {
       <td colspan="2" align="center" style="border-top: 1px solid #999999;">
 <SCRIPT language="JavaScript">
 <!--
-function displayGraph(coder, rating) {
+
+
+if ( MM_FlashCanPlay ) {
+    coder = '<%=request.getParameter("cr")%>';
+    rating = '<%=rscAlgData.getIntItem(0, "rating")%>';
     document.write( '<object ');
     document.write( 'classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ');
     document.write( 'codebase="http://fpdownload.macromedia.com" ');
@@ -193,10 +197,6 @@ function displayGraph(coder, rating) {
     document.write( 'type="application/x-shockwave-flash" ');
     document.write( 'pluginspage="http://www.macromedia.com/go/getflashplayer" /> ');
     document.write( '</object> ');
-}
-
-if ( MM_FlashCanPlay ) {
-    displayGraph('<%=request.getParameter("cr")%>', '<%=rscAlgData.getIntItem(0, "rating")%>');
 }
 // -->
 </SCRIPT>
