@@ -2,9 +2,11 @@
     import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
           java.util.Map"%>
 <%@ page import="com.topcoder.web.tc.Constants"%>
+
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
-<script src="/js/profileGraphs.js" type="text/javascript"></script>
+<script src="/js/tcscript.js" type="text/javascript"></script>
+
 <% ResultSetContainer rscDevData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Dev_Data"); %>
 <% ResultSetContainer rscJavaData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Component_Submission_Details_Java"); %>
 <% ResultSetContainer rscNETData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Component_Submission_Details_NET"); %>
@@ -132,10 +134,35 @@
    </tr>
    <tr>
       <td colspan="2" align="center" style="border-top: 1px solid #999999;">
-            <script language="JavaScript">
-                displayGraph('ratingHistory', 'dev', false, '<%=request.getParameter("cr")%>','<%=rscDevData.getIntItem(0, "rating")%>');
-            </script>
-
+      <script language="JavaScript">
+var s='<object ' +     
+'classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ' + 
+'codebase="http://fpdownload.macromedia.com" ' + 
+'/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ' + 
+'width="600" ' + 
+'height="400" ' + 
+'id="ratingHistory" ' + 
+'align="middle"> ' + 
+'<param name="allowScriptAccess" value="sameDomain" /> ' + 
+'<param name="movie" value="/flash/graphLoader.swf?competitionType=dev&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscDevData.getIntItem(0, "rating")%>" />' + 
+'<param name="menu" value="true" /> ' + 
+'<param name="quality" value="high" /> ' + 
+'<param name="bgcolor" value="#EEEEEE" /> ' + 
+'<embed ' + 
+'src="/flash/graphLoader.swf?competitionType=dev&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscDevData.getIntItem(0, "rating")%>" ' + 
+'menu="true" ' + 
+'quality="high" ' + 
+'bgcolor="#EEEEEE" ' + 
+'width="600" ' + 
+'height="400" ' + 
+'name="ratingHistory" ' + 
+'align="middle" ' + 
+'allowScriptAccess="sameDomain" ' + 
+'type="application/x-shockwave-flash" ' + 
+'pluginspage="http://www.macromedia.com/go/getflashplayer" /> ' + 
+'</object> ';
+doWrite(s);
+</script>
       </td>
    </tr>
 </table>

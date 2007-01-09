@@ -4,7 +4,8 @@
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
-<script src="/js/profileGraphs.js" type="text/javascript"></script>
+<script src="/js/tcscript.js" type="text/javascript"></script>
+
 <% ResultSetContainer rscAlgData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_hs_Data"); %>
 <% ResultSetContainer rscCoderData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Data"); %>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
@@ -78,7 +79,7 @@ if(!rscSummaryChal.isEmpty()) {
                <td class="tableHeader">Problem</td>
                <td class="tableHeader" align="right" width="33%"># Failed Challenges</td>
                <td class="tableHeader" align="right" width="33%"># Challenges</td>
-               <td class="tableHeader" align="right" width="33%">Success %      </td>
+               <td class="tableHeader" align="right" width="33%">Success %  	</td>
             </tr>
             <rsc:iterator id="resultRow" list="<%=rscSummaryChal%>">
             <tr>
@@ -103,8 +104,35 @@ if(!rscSummaryChal.isEmpty()) {
    <tr>
       <td colspan="2" align="center" style="border-top: 1px solid #999999;">
       <script language="JavaScript">
-          displayGraph('graphLoader', 'hs', true, '<%=request.getParameter("cr")%>','<%=rscAlgData.getIntItem(0, "rating")%>');
-      </script>
+var s='<object ' + 
+'classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ' + 
+'codebase="http://fpdownload.macromedia.com" ' + 
+'/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ' + 
+'width="600" ' + 
+'height="400" ' + 
+'id="graphLoader" ' + 
+'align="middle"> ' + 
+'<param name="allowScriptAccess" value="sameDomain" /> ' + 
+'<param name="movie" value="/flash/graphLoader.swf?competitionType=hs&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscAlgData.getIntItem(0, "rating")%>" />' + 
+'<param name="menu" value="true" /> ' + 
+'<param name="quality" value="high" /> ' + 
+'<param name="bgcolor" value="#EEEEEE" /> ' + 
+'<embed ' + 
+'src="/flash/graphLoader.swf?competitionType=hs&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscAlgData.getIntItem(0, "rating")%>" ' + 
+'menu="true" ' + 
+'quality="high" ' + 
+'bgcolor="#EEEEEE" ' + 
+'width="600" ' + 
+'height="400" ' + 
+'name="graphLoader" ' + 
+'swLiveConnect="true" ' + 
+'align="middle" ' + 
+'allowScriptAccess="sameDomain" ' + 
+'type="application/x-shockwave-flash" ' + 
+'pluginspage="http://www.macromedia.com/go/getflashplayer" /> ' + 
+'</object> ';
+doWrite(s);
+</script>
       </td>
    </tr>
 </table>
