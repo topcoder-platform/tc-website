@@ -21,11 +21,11 @@ public interface Forums extends EJBObject {
     
     public void assignRole(long userID, long groupID) throws EJBException, RemoteException;
     
-    public void assignRoleByName(long userID, String groupName) throws EJBException, RemoteException;
+    public void assignRole(long userID, String groupName) throws EJBException, RemoteException;
     
     public void removeRole(long userID, long groupID) throws EJBException, RemoteException;
     
-    public void removeRoleByName(long userID, String groupName) throws EJBException, RemoteException;
+    public void removeRole(long userID, String groupName) throws EJBException, RemoteException;
     
     public void closeCategory(long categoryID) throws EJBException, RemoteException, ForumCategoryNotFoundException, UnauthorizedException;
     

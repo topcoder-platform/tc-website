@@ -110,7 +110,7 @@ public class ForumsBean extends BaseEJB {
     	}
     }
     
-    public void assignRoleByName(long userID, String groupName) {
+    public void assignRole(long userID, String groupName) {
     	try {
 	    	User user = forumFactory.getUserManager().getUser(userID);
 	    	com.jivesoftware.base.Group group = forumFactory.getGroupManager().getGroup(groupName);
@@ -134,7 +134,7 @@ public class ForumsBean extends BaseEJB {
     	}
     }
     
-    public void removeRoleByName(long userID, String groupName) {
+    public void removeRole(long userID, String groupName) {
     	try {
 	    	User user = forumFactory.getUserManager().getUser(userID);
 	    	com.jivesoftware.base.Group group = forumFactory.getGroupManager().getGroup(groupName);
