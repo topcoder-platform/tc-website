@@ -316,18 +316,12 @@ function searchKeyPress(e)
         <td></td>
         <td></td>
     </tr>
-    <c:if test="${not empty payment.client}">
+    <c:if test="${payment.referenceTypeId ==2 and not empty payment.client}">
         <tr id="projectClient"> 
             <td><b>Client:</b></td>
             <td>
                 <tc-webtag:textInput name="client" size="30" editable="true" />
             </td>
-        </tr>
-    </c:if>
-    <c:if test="${empty payment.client}">
-        <tr id="projectClient">
-            <td></td>
-            <td></td>
         </tr>
     </c:if>
     
