@@ -179,7 +179,7 @@ Second Milestone: Marked by the completion of the Deployment phase of the projec
 
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
     <tr>
-        <td class="bodyText" nowrap="nowrap">Total Payment -</td><td class="bodyText" align="right">$
+        <td class="bodyText" nowrap="nowrap">Total Payment -</td><td class="bodyText">$
         <rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/></td>
     </tr>
 </table>
@@ -253,7 +253,7 @@ Second Milestone: Marked by the completion of the Deployment phase of the projec
 </tr>
 </table>
 
-<jsp:include page="../foot.jsp"/>
+<jsp:include page="../../foot.jsp"/>
 
 </body>
 
