@@ -3861,7 +3861,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             p.getHeader().setComponentContestId(TCData.getTCLong(detailData.getRow(0), "component_contest_id", 0, false));
             p.getHeader().setDigitalRunStageId(TCData.getTCLong(detailData.getRow(0), "digital_run_stage_id", 0, false));
             p.getHeader().setDigitalRunSeasonId(TCData.getTCLong(detailData.getRow(0), "digital_run_season_id", 0, false));
-            p.getHeader().setParentPaymentId(TCData.getTCLong(detailData.getRow(0), "parent_reference_id", 0, false));
+            p.getHeader().setParentPaymentId(TCData.getTCLong(detailData.getRow(0), "parent_payment_id", 0, false));
             p.getHeader().setClient(TCData.getTCString(detailData.getRow(0), "client", "", false));
             p.setDueDate(TCData.getTCDate(detailData.getRow(0), "date_due", null, false));
 
@@ -3964,7 +3964,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             p.getHeader().setComponentContestId(TCData.getTCLong(detailData.getRow(0), "component_contest_id", 0, false));
             p.getHeader().setDigitalRunStageId(TCData.getTCLong(detailData.getRow(0), "digital_run_stage_id", 0, false));
             p.getHeader().setDigitalRunSeasonId(TCData.getTCLong(detailData.getRow(0), "digital_run_season_id", 0, false));
-            p.getHeader().setParentPaymentId(TCData.getTCLong(detailData.getRow(0), "parent_reference_id", 0, false));
+            p.getHeader().setParentPaymentId(TCData.getTCLong(detailData.getRow(0), "parent_payment_id", 0, false));
             p.getHeader().setClient(TCData.getTCString(detailData.getRow(i), "client", "", false));
             p.setDueDate(TCData.getTCDate(detailData.getRow(i), "date_due", null, false));
 
