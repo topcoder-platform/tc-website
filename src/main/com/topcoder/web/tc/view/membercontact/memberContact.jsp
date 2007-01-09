@@ -189,8 +189,6 @@ Would you like to attach your email address to the message?
 <input type='checkbox' name='<%= SendMail.SEND_COPY %>' />Send a copy to the email address in my TopCoder profile.
 <br /><br />
 
-
-
 <div id="btnSendDiv">
   <A href="javascript:send()" class="button" style="width: 70px;" onfocus="this.blur();">Send</A>
 </div>
