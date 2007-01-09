@@ -21,11 +21,16 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.lang.reflect.*" %>
+<%@ page import="javax.naming.Context" %>
 
 <%@ page import="com.topcoder.dde.catalog.*" %>
 <%@ page import="com.topcoder.dde.forum.*" %>
-<%@ page import = "com.topcoder.util.config.*" %>
-<%@ page import = "com.topcoder.servlet.request.*" %>
+<%@ page import="com.topcoder.web.ejb.forums.*" %>
+<%@ page import="com.topcoder.web.forums.ForumConstants" %>
+<%@ page import="com.topcoder.util.config.*" %>
+<%@ page import="com.topcoder.servlet.request.*" %>
+<%@ page import="com.topcoder.shared.util.TCContext" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="session.jsp" %>
@@ -40,6 +45,15 @@
 
     // Logger instance.
     org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger("component_version_admin");
+    
+    Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
+	Forums forums = null;
+	try {
+		ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
+		forums = forumsHome.create();
+	} catch (Exception e) { 
+    	debug.addMsg("user admin", "error initializing Forums EJB");
+    }
 %>
 
 
@@ -905,7 +919,7 @@ if (action != null) {
     }
 
     // Assign a user a role that has permissions to download this component
-    if (action.equals("Assign Download Role")) {
+    if (action.equals("Download Role")) {
         String txtUsername = request.getParameter("txtHandle");
         DownloadPermission permission = new DownloadPermission(lngComponent);
         long lngRole = 0;
@@ -932,14 +946,14 @@ if (action != null) {
         }
     }
 
-    // Assign a user a role that has permissions to moderate a forum
-    if (action.equals("Assign Collaboration Moderator Role")) {
+    // Assign a user a role that has permissions to moderate a customer forum
+    if (action.equals("Customer Forum Moderator")) {
         String txtUsername = request.getParameter("txtHandle");
-        com.topcoder.dde.catalog.Forum activeCollab = null;
+        com.topcoder.dde.catalog.ForumCategory activeCollab = null;
         String matchCollab = "";
         long lngRole1 = 0;
         try {
-            activeCollab = componentManager.getForum(com.topcoder.dde.catalog.Forum.COLLABORATION);
+            activeCollab = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.COLLABORATION);
         } catch (CatalogException ce) {
             debug.addMsg("component version admin", "catalog exception occurred");
         }
@@ -948,35 +962,21 @@ if (action != null) {
             matchCollab = "ForumModerator " + activeCollab.getId();
             debug.addMsg("component version admin", "loooking for role for " + matchCollab);
         }
-        try {
-            com.topcoder.security.UserPrincipal selectedPrincipal = PRINCIPAL_MANAGER.getUser(txtUsername);
-            RolePrincipal roles[] = (RolePrincipal[])PRINCIPAL_MANAGER.getRoles(null).toArray(new RolePrincipal[0]);
-            for (int i=0; i < roles.length; i++) {
-                debug.addMsg("component version admin", "role: '" + roles[i].getName() + "'");
-                if (roles[i].getName().equals(matchCollab)) {
-                    debug.addMsg("component version admin", "found collab role " + activeCollab.getId());
-                    lngRole1 = roles[i].getId();
-                }
-            }
-            if (lngRole1 > 0) {
-                PRINCIPAL_MANAGER.assignRole(selectedPrincipal, PRINCIPAL_MANAGER.getRole(lngRole1), tcSubject);
-                strMessage += "Forum moderator role was assigned to " + txtUsername;
-            }
-        } catch (RemoteException re) {
-            strError += "RemoteException occurred while assigning role: " + re.getMessage();
-        } catch (GeneralSecurityException gse) {
-            strError += "GeneralSecurityException occurred while assigning role: " + gse.getMessage();
-        } catch (Exception e) {
-            strError += "Principal user could not be found.<BR>";
-        }
+     	try {
+     		long userID = PRINCIPAL_MANAGER.getUser(txtUsername).getId();
+     		String groupName = ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX+activeCollab.getId();
+    		forums.assignRole(userID, groupName);
+    	} catch (Exception e) {
+    		strError += "Error occurred while assigning forums role: " + e.getMessage();
+    	}
     }
 
-    // Assign a user a role that has permissions to participate in specification forum for this component
-    if (action.equals("Assign Specification User Role")) {
+    // Assign a user a role that has permissions to participate in developer forum for this component
+    if (action.equals("Developer Forum User")) {
         String txtUsername = request.getParameter("txtHandle");
-        com.topcoder.dde.catalog.Forum activeSpec = null;
+        com.topcoder.dde.catalog.ForumCategory activeSpec = null;
         try {
-            activeSpec = componentManager.getForum(com.topcoder.dde.catalog.Forum.SPECIFICATION);
+            activeSpec = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
         } catch (CatalogException ce) {
         }
 
@@ -1008,12 +1008,12 @@ if (action != null) {
         }
     }
 
-    // Assign a user a role that has permissions to participate in specification forum for this component
-    if (action.equals("Assign Specification Moderator Role")) {
+    // Assign a user a role that has permissions to moderate developer forum for this component
+    if (action.equals("Developer Forum Moderator")) {
         String txtUsername = request.getParameter("txtHandle");
-        com.topcoder.dde.catalog.Forum activeSpec = null;
+        com.topcoder.dde.catalog.ForumCategory activeSpec = null;
         try {
-            activeSpec = componentManager.getForum(com.topcoder.dde.catalog.Forum.SPECIFICATION);
+            activeSpec = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
         } catch (CatalogException ce) {
         }
 
@@ -1087,7 +1087,7 @@ if (action != null) {
                 log.debug("Locating the user for handle '" + strUsername + "' ...");
                 User user = USER_MANAGER.getUser(strUsername);
 
-                String event = "com.topcoder.dde.forum.ForumPostEvent " + componentManager.getForum(Forum.SPECIFICATION).getId();
+                String event = "com.topcoder.dde.forum.ForumPostEvent " + componentManager.getForumCategory(Forum.SPECIFICATION).getId();
 
                 StringBuffer buffer = new StringBuffer();
                 String category = "";
@@ -2084,15 +2084,15 @@ if (action != null) {
             <table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
                 <tr valign="top">
                     <td>
-                        <input class="adminSearchForm" type="text" size="20" name="txtHandle">
+                        Handle:  <input class="adminSearchForm" type="text" size="20" name="txtHandle">
                     </td>
                     <td>
-                        <input class="adminButton" type="submit" name="a" value="Assign Collaboration Moderator Role">
+                        <input class="adminButton" type="submit" name="a" value="Customer Forum Moderator">
 <%if (ver.getPhase() != ver.COLLABORATION) {%>
-                        <input class="adminButton" type="submit" name="a" value="Assign Specification User Role">
-                        <input class="adminButton" type="submit" name="a" value="Assign Specification Moderator Role">
+                        <input class="adminButton" type="submit" name="a" value="Developer Forum User">
+                        <input class="adminButton" type="submit" name="a" value="Developer Forum Moderator">
 <%}%>
-                        <input class="adminButton" type="submit" name="a" value="Assign Download Role">
+                        <input class="adminButton" type="submit" name="a" value="Download Role">
                     </td>
                 </tr>
             </table>
@@ -2104,9 +2104,8 @@ if (action != null) {
 
             <table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
                 <tr valign="top">
-                    <td>TC handle</td>
                     <td>
-                        <input class="adminSearchForm" type="text" size="20" name="txtTCHandle">
+                        Handle:  <input class="adminSearchForm" type="text" size="20" name="txtTCHandle">
                     </td>
                     <td>
                         <input class="adminButton" type="submit" name="a" value="Assign Forum Post Notification Event">

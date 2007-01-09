@@ -158,8 +158,8 @@
 										<option value="<%= "" + com.topcoder.dde.catalog.ComponentInfo.APPROVED %>"<%= status.equals("" + com.topcoder.dde.catalog.ComponentInfo.APPROVED) ? " SELECTED" : ""%>>Approved</option>
 										<option value="<%= "" + com.topcoder.dde.catalog.ComponentInfo.DECLINED %>"<%= status.equals("" + com.topcoder.dde.catalog.ComponentInfo.DECLINED) ? " SELECTED" : ""%>>Declined</option>
 									</select></td>
-								<td width="1%" class="adminText"><input class="adminButton" type="submit" name="a" value="View"></input></form></td>
-								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0"/></td>
+								<td width="1%" class="adminText"><input class="adminButton" type="submit" name="a" value="View"></input></td>
+								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0"/></form></td>
 							</tr>
 						</table>
 

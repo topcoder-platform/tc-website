@@ -110,10 +110,34 @@ public class ForumsBean extends BaseEJB {
     	}
     }
     
+    public void assignRole(long userID, String groupName) {
+    	try {
+	    	User user = forumFactory.getUserManager().getUser(userID);
+	    	com.jivesoftware.base.Group group = forumFactory.getGroupManager().getGroup(groupName);
+	    	if (group.getName().equals("Software Admins") || group.getName().toLowerCase().indexOf("admin") == -1) {
+	    		group.addMember(user);
+	    	}
+    	} catch (Exception e) {
+    		log.info("*** error in assigning role: " + e);
+    	}
+    }
+    
     public void removeRole(long userID, long groupID) {
     	try {
 	    	User user = forumFactory.getUserManager().getUser(userID);
 	    	com.jivesoftware.base.Group group = forumFactory.getGroupManager().getGroup(groupID);
+	    	if (group.getName().equals("Software Admins") || group.getName().toLowerCase().indexOf("admin") == -1) {
+	    		group.removeMember(user);
+	    	}
+    	} catch (Exception e) {
+    		log.info("*** error in removing role: " + e);
+    	}
+    }
+    
+    public void removeRole(long userID, String groupName) {
+    	try {
+	    	User user = forumFactory.getUserManager().getUser(userID);
+	    	com.jivesoftware.base.Group group = forumFactory.getGroupManager().getGroup(groupName);
 	    	if (group.getName().equals("Software Admins") || group.getName().toLowerCase().indexOf("admin") == -1) {
 	    		group.removeMember(user);
 	    	}

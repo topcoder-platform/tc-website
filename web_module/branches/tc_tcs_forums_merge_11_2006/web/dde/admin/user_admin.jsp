@@ -67,15 +67,20 @@
                                                          NotificationHome.class);
     Notification notification = notificationHome.create();
 
+	if (request.getParameter("txtHandle") != null && action == null) {
+		action = "Lookup";
+	}
 
     if (action != null) {
         if (action.equalsIgnoreCase("Lookup")) {
             String txtUsername = request.getParameter("txtHandle");
-            try {
-                selectedPrincipal = PRINCIPAL_MANAGER.getUser(txtUsername);
-                lngPrincipal = selectedPrincipal.getId();
-            } catch (Exception e) {
-                strError += "Principal user could not be found.";
+            if (txtUsername != null && !txtUsername.trim().equals("")) {
+	            try {
+	                selectedPrincipal = PRINCIPAL_MANAGER.getUser(txtUsername);
+	                lngPrincipal = selectedPrincipal.getId();
+	            } catch (Exception e) {
+	                strError += "Principal user could not be found.";
+	            }
             }
         }
 
@@ -262,7 +267,7 @@
 									<form name="frmPrincipal" action="<%= page_name %>" method="post">
 									<img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
 								<td width="1%" class="adminLabel" nowrap="nowrap">Handle</td>
-								<td width="1%" class="adminText"><input class="adminForm" type="text" name="txtHandle" value ="" size="25" maxlength="30"></input></td>
+								<td width="1%" class="adminText"><input class="adminForm" type="text" name="txtHandle" value="" size="25" maxlength="30"></input></td>
 								<td width="1%" class="adminText"><input class="adminButton" type="submit" name="a" value="Lookup"></input></td>
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></form></td>
 							</tr>
@@ -442,10 +447,12 @@
                 }
             }
 	%>
+	<%	if (!roleName.startsWith("ForumModerator") && !roleName.startsWith("ForumUser")) { %>
 				<tr valign="top">
 					<td class="forumText"><%= roleName %> <%= associatedLabel %></td>
 					<td class="forumTextCenter"><strong><a href="user_admin.jsp?lngPrincipal=<%= lngPrincipal %>&role=<%= user_roles[i].getId() %>&a=RemoveRole">Remove Role</a></strong></td>
 				</tr>
+	<%	} %>
 	<% } %>
 
 				<tr valign="top">
@@ -484,7 +491,9 @@
             }
 */
 	%>
+	<%	if (!roleName.startsWith("ForumModerator") && !roleName.startsWith("ForumUser")) { %>
                             	<option value="<%= roles[i].getId() %>"><%= roles[i].getName() %> <%= associatedLabel %></option>
+	<%	} %>
 	<% } %>
                         	</select></td>
 					<td class="forumSubjectCenter"><input class="adminButton" type="submit" name="a" value="Assign Role"></input></td>
