@@ -60,7 +60,6 @@ function validateLocal(showErrors) {
 
 function validateHandle(send) {
     var ajaxRequest = new AjaxRequest('/tc?module=ValidateHandle');
-    document.f.<%= SendMail.HAS_TEXT %>.value = document.f.<%= SendMail.TEXT %>.value != ""? "true" : "";
     ajaxRequest.addFormElementsById("<%= SendMail.TO_HANDLE %>");
     if (send) {
 	    ajaxRequest.setPostRequest(afterRequest);
@@ -170,7 +169,6 @@ To block specific TopCoder members from contacting you, go to the <a href='/tc?m
 
 <br>
 <input type="hidden" id="<%= SendMail.SEND %>" name="<%= SendMail.SEND %>" value="true" />
-<input type="hidden" id="<%= SendMail.HAS_TEXT %>" name="<%= SendMail.HAS_TEXT %>" value="" />
 
 To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
 <div id="validationHandle"> </div>

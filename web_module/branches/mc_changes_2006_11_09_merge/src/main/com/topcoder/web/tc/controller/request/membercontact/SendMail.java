@@ -32,7 +32,6 @@ public class SendMail extends ShortHibernateProcessor {
 
     public static String TO_HANDLE = "th";
     public static String TEXT = "txt";
-    public static String HAS_TEXT = "ht";
     public static String ATTACH = "attach";
     public static String SEND_COPY = "sc";
     public static String SEND = "send";
