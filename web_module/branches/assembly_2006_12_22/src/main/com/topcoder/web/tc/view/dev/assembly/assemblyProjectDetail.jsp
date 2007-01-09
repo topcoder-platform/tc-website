@@ -124,9 +124,9 @@
 <p><strong>Documentation</strong><br>
     Documentation available in the
     <% if (projectDetail.getItem(0, "forum_id").getResultData() == null) { %>
-    component forums.
+    discussion forums.
     <% } else { %>
-    <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_forum.jsp?f=<rsc:item set="<%=projectDetail%>" name="forum_id"/>">component
+    <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_forum.jsp?f=<rsc:item set="<%=projectDetail%>" name="forum_id"/>">discussion
         forums</a>.
     <% } %>
 
@@ -175,15 +175,9 @@ Initial payment for the winning team will be distributed in two installments.
 First Milestone: When the winning solution is submitted and review board suggestions are integrated. 
 Second Milestone: Marked by the completion of the Deployment phase of the project.</p>
 
-<p class="noSpListTitle"><strong>Winning Team</strong></p>
-
-<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
-    <tr>
-        <td class="bodyText" nowrap="nowrap">Total Payment -</td><td class="bodyText">$
-        <rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/></td>
-    </tr>
-</table>
-
+<p><strong>Winning Team</strong><br>
+    Total Payment - $<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/><br>
+</p>
 
 <p><strong>Second Place Team</strong><br>
     Total Payment - $<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br>
