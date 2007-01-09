@@ -3,6 +3,7 @@ package com.topcoder.utilities;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.ejb.survey.Answer;
 import com.topcoder.web.ejb.survey.SurveyQuestion;
@@ -30,6 +31,7 @@ public class CondorcetDoer {
     private void doit(long surveyId) throws Exception {
         InitialContext ctx = null;
         try {
+            ctx = TCContext.getInitial();
             SurveyQuestion sq = (SurveyQuestion) BaseProcessor.createEJB(ctx, SurveyQuestion.class);
             Answer a = (Answer) BaseProcessor.createEJB(ctx, Answer.class);
             ResultSetContainer questions = sq.getQuestions(surveyId, DBMS.OLTP_DATASOURCE_NAME);
