@@ -117,7 +117,7 @@ public class SendMail extends ShortHibernateProcessor {
 
         DAOUtil.getFactory().getMemberContactMessageDAO().saveOrUpdate(m);
 
-        setNextPage("/membercontact/sent.jsp");
+        setNextPage("/tc?module=Static&d1=membercontact&d2=sent");
         setIsNextPageInContext(false);
     }
 }
