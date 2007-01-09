@@ -8,6 +8,7 @@ import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.WebConstants;
@@ -18,6 +19,8 @@ import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.membercontact.validation.HandleValidator;
+import com.topcoder.web.common.StringUtils;
+
 
 /**
  *
@@ -30,6 +33,7 @@ public class SendMail extends ShortHibernateProcessor {
     public static String TO_HANDLE = "th";
     public static String TEXT = "txt";
     public static String HAS_TEXT = "ht";
+    public static String ATTACH = "attach";
     public static String SEND_COPY = "sc";
     public static String SEND = "send";
 
@@ -40,14 +44,16 @@ public class SendMail extends ShortHibernateProcessor {
 
         User sender  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
-        if (!Helper.isRated(getUser().getId())) {
+        // users who have MemberContact Permission skips the rated validation.
+        if (!Helper.isRated(getUser().getId()) && 
+                !SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(MemberContact.class))) {
             getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(true));
             setNextPage(Constants.MEMBER_CONTACT);
             setIsNextPageInContext(true);
             return;
         }
         if (Helper.isBanned(getUser().getId())
-        	|| (Arrays.binarySearch(WebConstants.ACTIVE_STATI, sender.getStatus().charValue()) < 0)) {
+            || (Arrays.binarySearch(WebConstants.ACTIVE_STATI, sender.getStatus().charValue()) < 0)) {
             getRequest().setAttribute(Helper.BANNED, String.valueOf(true));
             setNextPage(Constants.MEMBER_CONTACT);
             setIsNextPageInContext(true);
@@ -55,9 +61,28 @@ public class SendMail extends ShortHibernateProcessor {
         }
 
 
-        String toHandle = getRequest().getParameter(TO_HANDLE);
-        String message = getRequest().getParameter(TEXT);
+        String toHandle = StringUtils.checkNull(getRequest().getParameter(TO_HANDLE));
+        String message = StringUtils.checkNull(getRequest().getParameter(TEXT));
         boolean sendCopy = getRequest().getParameter(SEND_COPY) != null;
+        String attachEmail = StringUtils.checkNull(getRequest().getParameter(ATTACH));
+        
+        // Check again that the user choose to attach or not his email when the user cannot
+        // receive messages, in case that someone has tweaked the jsp or some kind of hack
+        if (!sender.isMemberContactEnabled() && attachEmail == "") {
+            throw new Exception("Sender don't have MC enabled and email attachment question wasn't responded.");
+        }
+        
+        // Check again that the user wrote a messages, in case that someone has tweaked the jsp or some kind of hack
+        if (message == "") {
+            throw new Exception("Empty message isn't allowed.");
+        }
+        
+        String senderEmail = sender.getPrimaryEmailAddress().getAddress();
+
+        String contactInf = "";
+        if (attachEmail.trim().equals("Yes")) {
+            contactInf = "\n\n Sender's email: " + senderEmail;
+        }
 
         // Check again that the user is valid, in case that someone has tweaked the jsp
         // or some kind of hack
@@ -67,13 +92,13 @@ public class SendMail extends ShortHibernateProcessor {
         }
 
         User recipient  = DAOUtil.getFactory().getUserDAO().find(toHandle, true, true);
-        String senderEmail = sender.getPrimaryEmailAddress().getAddress();
         String recipientEmail = recipient.getPrimaryEmailAddress().getAddress();
 
         // send the original message
         TCSEmailMessage mail = new TCSEmailMessage();
         mail.setSubject(Constants.MEMBER_CONTACT_SUBJECT.replaceAll("%", sender.getHandle()));
-        mail.setBody(message);
+        mail.setBody(message + contactInf);
+
         mail.setToAddress(recipientEmail, TCSEmailMessage.TO);
         mail.setFromAddress(Constants.MEMBER_CONTACT_FROM_ADDRESS);
         EmailEngine.send(mail);
