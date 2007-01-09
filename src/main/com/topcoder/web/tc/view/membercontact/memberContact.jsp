@@ -208,12 +208,6 @@ Would you like to attach your email address to the message?
 </div>
 </form>
 
-<c:if test="${not empty param.conf}" >
-    <span class="bigRed">
-       Your message was sent.
-    </span>
-</c:if>
-     
      </c:otherwise>
 </c:choose>
 <br><br><br><br>

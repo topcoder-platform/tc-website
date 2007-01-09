@@ -46,6 +46,4 @@ public class MemberContact extends ShortHibernateProcessor {
         setNextPage(Constants.MEMBER_CONTACT);
         setIsNextPageInContext(true);
     }
-
-
 }

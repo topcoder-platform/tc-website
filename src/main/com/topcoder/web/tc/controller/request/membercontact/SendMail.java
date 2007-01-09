@@ -6,10 +6,8 @@ import java.util.Date;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
-import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
-import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.dao.DAOUtil;
@@ -119,12 +117,7 @@ public class SendMail extends ShortHibernateProcessor {
 
         DAOUtil.getFactory().getMemberContactMessageDAO().saveOrUpdate(m);
 
-//        SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-
         setNextPage("/membercontact/sent.jsp");
-//        setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=MemberContact&" + MemberContact.CONFIRM + "=true");
         setIsNextPageInContext(false);
     }
-
-
 }
