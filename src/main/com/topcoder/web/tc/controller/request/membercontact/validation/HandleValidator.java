@@ -43,24 +43,24 @@ public class HandleValidator implements Validator {
         User user = DAOUtil.getFactory().getUserDAO().find((String) input.getInput(), true, true);
 
         if (user == null) {
-            return new BasicResult(false, "User not found");
+            return new BasicResult(false, "User not found.");
         }
 
         String canReceive = DAOUtil.getFactory().getUserPreferenceDAO().find(
                     user.getId(), Preference.MEMBER_CONTACT_PREFERENCE_ID).getValue();
 
         if (!"true".equals(canReceive)) {
-            return new BasicResult(false, "The user can't receive emails via Member Contact.");
+            return new BasicResult(false, "This user has not enabled Member Contacting.");
         }
 
         if (!user.getPrimaryEmailAddress().getStatusId().equals(Email.STATUS_ID_ACTIVE)) {
-            return new BasicResult(false, "The user doesn't have a valid email address.");
+            return new BasicResult(false, "This user doesn't have a valid email address.");
         }
 
         MemberContactBlackListDAO memberContactDAO = DAOUtil.getFactory().getMemberContactBlackListDAO();
         MemberContactBlackList m = memberContactDAO.findOrCreate(user, sender);
         if (m.isBlocked()) {
-            return new BasicResult(false, "The user has blocked your messages.");
+            return new BasicResult(false, "This user has blocked your messages.");
         }
 
         return BasicResult.SUCCESS;
