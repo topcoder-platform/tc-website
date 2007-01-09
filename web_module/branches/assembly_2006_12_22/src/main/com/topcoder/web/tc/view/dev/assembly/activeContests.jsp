@@ -75,7 +75,7 @@
     <rsc:iterator list="<%=contests %>" id="resultRow">
         <tr class="<%=even?"dark":"light"%>"> 
             <td class="value">
-                <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
+                <a href="/tc?module=AssemblyProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
                     <rsc:item name="contest_name" row="<%=resultRow%>"/>
                 </a>
             </td>
