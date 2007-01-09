@@ -44,6 +44,7 @@
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    <tr><td valign="middle" class="bodyText" colspan="2">
     <strong>January</strong></td></tr>
+   <tr><td class="bodyText">01.08.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 27 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm27">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">01.03.07</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 26 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm26">Problem Set & Analysis</a></td></tr>
 </table>
 

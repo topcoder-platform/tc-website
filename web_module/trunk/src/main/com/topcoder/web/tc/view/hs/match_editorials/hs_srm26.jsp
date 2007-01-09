@@ -72,6 +72,7 @@ The Problems
 <b><a href="/stat?c=problem_statement&amp;pm=6745&amp;rd=10650" name="6745">ThirdBuyDiscount</a></b> 
 </font> 
 <A href="Javascript:openProblemRating(6745)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506221" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 <br> 
 Used as: Division One - Level One: <blockquote><table cellspacing="2"> 
   <tr> 
@@ -143,6 +144,7 @@ public static double minCost(int[] prices, int discount) {
 <b><a href="/stat?c=problem_statement&amp;pm=7321&amp;rd=10650" name="7321">CompressedString</a></b> 
 </font> 
 <A href="Javascript:openProblemRating(7321)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506221" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 <br> 
 Used as: Division One - Level Two: <blockquote><table cellspacing="2"> 
   <tr> 
@@ -220,6 +222,7 @@ public int getLength(String s) {
 <b><a href="/stat?c=problem_statement&amp;pm=6744&amp;rd=10650" name="6744">CoolNumbers</a></b> 
 </font> 
 <A href="Javascript:openProblemRating(6744)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506221" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 <br> 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
