@@ -30,29 +30,29 @@ function isIncludeMailChecked() {
 function canSend() {
    return document.f.<%= SendMail.TEXT %>.value != "" &&
           <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
-	        isIncludeMailChecked() &&
+            isIncludeMailChecked() &&
           </c:if>
            document.f.handleValid.value == "true";
 }
 
 function validateLocal(showErrors) {
-	valid = false;
+    valid = false;
     <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
-		if (isIncludeMailChecked()) {
-	       updateDivOrSpan(document, "attachValidation", "");
-	       	valid = true;
-	    } else {
-	       if (showErrors) {
-	           updateDivOrSpan(document, "attachValidation", "Please answer this question.");
-	       }
-	    }
+        if (isIncludeMailChecked()) {
+           updateDivOrSpan(document, "attachValidation", "&nbsp;");
+               valid = true;
+        } else {
+           if (showErrors) {
+               updateDivOrSpan(document, "attachValidation", "Please select Yes or No.");
+           }
+        }
     </c:if>
     if (document.f.<%= SendMail.TEXT %>.value != "") {
-       updateDivOrSpan(document, "textValidation", "");
-       	valid = true;
+       updateDivOrSpan(document, "textValidation", "&nbsp;");
+           valid = true;
     } else {
         if (showErrors) {
-           updateDivOrSpan(document, "textValidation", "Please enter the message text.");
+           updateDivOrSpan(document, "textValidation", "The message body is empty.");
         }
     }
     return valid;
@@ -62,15 +62,15 @@ function validateHandle(send) {
     var ajaxRequest = new AjaxRequest('/tc?module=ValidateHandle');
     ajaxRequest.addFormElementsById("<%= SendMail.TO_HANDLE %>");
     if (send) {
-	    ajaxRequest.setPostRequest(afterRequest);
+        ajaxRequest.setPostRequest(afterRequest);
     }
     ajaxRequest.sendRequest();
 }
 
 function send() {
-	if (validateLocal(true)) {
-		validateHandle(true)
-	}
+    if (validateLocal(true)) {
+        validateHandle(true)
+    }
 }
 
 function afterRequest() 
@@ -128,18 +128,14 @@ function init() {
 
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyColumn">
+<div class="fixedWidthBody">
 
 <jsp:include page="/page_title.jsp">
     <jsp:param name="image" value="member_contact"/>
     <jsp:param name="title" value="Send a Message"/>
 </jsp:include>
 
-<div class="fixedWidthBody">
-<br>
-The Member Contact area allows you to send emails to other TopCoder members.* 
-You can access this message area by clicking the "Send a message" link on members' profile pages. 
-Use the message form below to contact the member of your choice, only one recipient per message.
-
+The Member Contact area allows you to send emails to other TopCoder members.
 <br><br>
 To block specific TopCoder members from contacting you, go to the <a href='/tc?module=BlackList'>black list</a> page.
 <br>
@@ -167,28 +163,23 @@ To block specific TopCoder members from contacting you, go to the <a href='/tc?m
 
 <form name='f' action='/tc?module=SendMail' method='post' >
 
-<br>
 <input type="hidden" id="<%= SendMail.SEND %>" name="<%= SendMail.SEND %>" value="true" />
 
-To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
-<div id="validationHandle"> </div>
-<span class="smallText">(Enter TopCoder handle only, one per message)</span>
-<br/><br/>
+<div id="validationHandle">&nbsp;</div>
+To:&nbsp;<input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
+<br><span class="smallText">(Enter TopCoder handle only, one per message)</span>
 
+<div>
+<span id="textValidation" class="bigRed">&nbsp;</span>
+</div>
 <textarea name='<%= SendMail.TEXT %>' id='<%= SendMail.TEXT %>' onKeyUp='validateLocal(false)' onBlur='validateLocal(false)' cols='50' rows='10'></textarea>
-<br />
-<span id=textValidation class="bigRed"></span>
 <br /><br />
-
 <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
 <strong>Wait a second!</strong> You're sending a message but you don't have member contacting enabled. This member won't have any way to respond to you.
 <br /><br />
 Would you like to attach your email address to the message?
 <br />
-<%-- APPEARS WHEN YOU CLICK SUBMIT WITHOUT PICKING YES OR NO --%>
-<span id=attachValidation class="bigRed"></span>
-<%-------------------------------------------------------------%>
-<br />
+<span id="attachValidation" class="bigRed">&nbsp;</span><br />
 <input type="radio" name="<%= SendMail.ATTACH %>" value="Yes" onChange='validateLocal(false)' > Yes
 <br />
 <input type="radio" name="<%= SendMail.ATTACH %>" value="No" onChange='validateLocal(false)' > No
@@ -198,8 +189,10 @@ Would you like to attach your email address to the message?
 <input type='checkbox' name='<%= SendMail.SEND_COPY %>' />Send a copy to the email address in my TopCoder profile.
 <br /><br />
 
+
+
 <div id="btnSendDiv">
-  <A href="javascript:send()" class="bodyText"><img src="/i/interface/btn_send.gif" border="0"/></A>
+  <A href="javascript:send()" class="button" style="width: 70px;" onfocus="this.blur();">Send</A>
 </div>
 
 <div id="runJS">
@@ -210,8 +203,8 @@ Would you like to attach your email address to the message?
 
      </c:otherwise>
 </c:choose>
-<br><br><br><br>
-* All messages sent to TopCoder members from the Member Contact area will be logged and may be occasionally reviewed. 
+<br><br>
+<strong>NOTE:</strong> All messages sent to TopCoder members from the Member Contact area will be logged and may be occasionally reviewed. 
 Using the member contact function for any commercial purposes is strictly prohibited. Any TopCoder member who deems a member 
 contact message from another TopCoder member to be inappropriate is encouraged to report this activity at <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
 <br><br><br>
