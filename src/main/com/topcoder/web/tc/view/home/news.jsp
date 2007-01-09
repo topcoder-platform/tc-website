@@ -9,6 +9,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.09.07<br>5:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm27">TCHS SRM 27 - Problem Set & Analysis</A></span><br><br>
+Many competitors tripped on a tricky 500-point problem that was
+easy to get wrong, but not nearly as easy to get wrong as the
+1000-pointer. In the end five coders got all three problems correct.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/lovro_big3.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7390467" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm27">full story</A> | 
+        <tc-webtag:forumLink forumID="506243" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="Survey" border="0" /><br>01.09.06<br>2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=ViewSurvey&sid=11155">Take the AOL Video Mashup Survey</A>
@@ -183,20 +202,5 @@ and <tc-webtag:handle coderId="22375930" context="hs_algorithm"/> both finished 
          <A href="/tc?module=Static&d1=tutorials&d2=lowestCommonAncestor">full story</A> | 
          <tc-webtag:forumLink forumID="506217" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Software Competition News" border="0" /><br>12.27.06<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=55">Poseidon Version Update</A>
-        </span><br><br>
-      Poseidon 4.x licenses are due to expire in a few days, so we are officially switching to Poseidon 5.0. Since last Friday, when you register for a project you will get a one year license key for Poseidon 5.0 Community Edition. All projects posted on Dec 27 and later will require submissions to be in Poseidon 5.0.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=55">details</A> | 
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=55">discuss this</A> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 
