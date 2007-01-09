@@ -965,7 +965,7 @@ if (action != null) {
      	try {
      		long userID = PRINCIPAL_MANAGER.getUser(txtUsername).getId();
      		String groupName = ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX+activeCollab.getId();
-    		forums.assignRole(userID, groupName);
+    		forums.assignRoleByName(userID, groupName);
     	} catch (Exception e) {
     		strError += "Error occurred while assigning forums role: " + e.getMessage();
     	}
