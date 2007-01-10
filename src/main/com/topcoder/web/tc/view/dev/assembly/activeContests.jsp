@@ -149,7 +149,7 @@
       02.01.2007 9:00 AM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506194">join a team</A>
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506251">join a team</A>
       <br>
       <%--<A href="">discuss</A>--%>
       </td>
