@@ -48,6 +48,8 @@
             currently ongoing
         </li>
         <li>Fixed code for displaying flash objects in member profile to work without activation in IE</li>
+        <li>Fixed Member Contact code and enhancements to allow admins not rated to send messages and to try to 
+            avoid that members that can't receive messages won't send contact information.</li>
     </ul>
 </p>
 
