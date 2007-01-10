@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<loadDefinition>
+    <sourcedb>jdbc:informix-sqli://63.118.154.190:1526/informixoltp:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec</sourcedb>
+    <targetdb>jdbc:informix-sqli://63.118.154.190:1526/topcoder_dw:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec</targetdb>
+    <load>
+        <classname>com.topcoder.shared.util.dwload.TCLoadPayments</classname>
+    </load>
+</loadDefinition>
