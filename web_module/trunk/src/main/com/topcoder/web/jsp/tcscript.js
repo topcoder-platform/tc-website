@@ -102,3 +102,8 @@ function goTo(selection) {
 
   else {}
 }
+
+
+function doWrite(s) {
+    document.write(s);
+}
