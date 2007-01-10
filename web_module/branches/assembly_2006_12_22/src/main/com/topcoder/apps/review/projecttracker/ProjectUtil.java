@@ -60,16 +60,25 @@ public class ProjectUtil {
         close(ps);
 
         // prepare rating/Reliability
-        ps = conn.prepareStatement("SELECT rating from user_rating where user_id = ? and phase_id = " +
-                "(select 111+project_category_id from project where project_id = ?)");
+        ps = conn.prepareStatement("SELECT rating, phase_id, (select project_category_id from project where project_id = ?) as project_category_id from user_rating where user_id = ? ");
         ps.setLong(1, userId);
         ps.setLong(2, projectId);
         rs = ps.executeQuery();
 
         double old_rating = 0;
 
-        if (rs.next()) {
-            old_rating = rs.getLong(1);
+        // in case the project is an assembly project, the rating should be the max between design and development
+        // while if the project is a regular component project, the rating should correspond to either design or development
+        while (rs.next()) {
+            if (rs.getLong(3) == 14) {
+                if (old_rating < rs.getLong(1)) {
+                    old_rating = rs.getLong(1);                    
+                }                                
+            } else {
+                if (rs.getLong(3)+111 == rs.getLong(2)) {
+                    old_rating = rs.getLong(1);                    
+                }                
+            }
         }
 
         close(rs);
