@@ -23,230 +23,184 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <!-- Body-->
    <tr valign="top">
-      <td valign="top" align="center">
-      <div class="bodySpacer">
+      <td valign="top" align="center" class="bodyText" style="padding-top: 10px; padding-bottom: 40px; padding-left: 15px; padding-right: 15px;">
 
 <span class="bigTitle">Component Development Competition Finals</span>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<%--
-            <table class="sidebarBox" border="0" cellpadding="3" cellspacing="0" width="500">
-               <tr>
-                  <td class="advHeader">Contest:</td>
-                  <td class="advHeader" colspan="6" align="center" style="border-left: 1px solid #999999;">Document Indexer<br>
-                     <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=20956900"><img src="/i/interface/java.gif" alt="Java" border="0" /></A>
-                     <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=20432196"><img src="/i/interface/dotnet.gif" alt=".NET" border="0" /></A>
-                  <td class="advHeader" colspan="6" align="center" style="border-left: 1px solid #999999;">Testing Framework<br>
-                     <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=20007420"><img src="/i/interface/java.gif" alt="Java" border="0" /></A>
-                     <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=20610008"><img src="/i/interface/dotnet.gif" alt=".NET" border="0" /></A>
-                  <td class="advHeader" colspan="6" align="center" style="border-left: 1px solid #999999;">Bread Crumb Trail<br>
-                     <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=10395217"><img src="/i/interface/java.gif" alt="Java" border="0" /></A>
-                     <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=9978683"><img src="/i/interface/dotnet.gif" alt=".NET" border="0" /></A>
-                  <td class="advHeader" style="border-left: 1px solid #999999;">&#160;</td>
-               </tr>
-               <tr>
-                  <td class="advHeader">Handle</td>
-                  <td class="advHeader" align="center" style="border-left: 1px solid #999999;">Initial<br>Score</td>
-                  <td class="advHeader" align="center">Final<br>Score</td>
-                  <td class="advHeader">Place</td>
-                  <td class="advHeader">Wager</td>
-                  <td class="advHeader">Points</td>
-                  <td class="advHeader" align="center">DL</td>
-                  <td class="advHeader" align="center" style="border-left: 1px solid #999999;">Initial<br>Score</td>
-                  <td class="advHeader" align="center">Final<br>Score</td>
-                  <td class="advHeader">Place</td>
-                  <td class="advHeader">Wager</td>
-                  <td class="advHeader">Points</td>
-                  <td class="advHeader" align="center">DL</td>
-                  <td class="advHeader" align="center" style="border-left: 1px solid #999999;">Initial<br>Score</td>
-                  <td class="advHeader" align="center">Final<br>Score</td>
-                  <td class="advHeader">Place</td>
-                  <td class="advHeader">Wager</td>
-                  <td class="advHeader">Points</td>
-                  <td class="advHeader" align="center">DL</td>
-                  <td class="advHeader" align="center" style="border-left: 1px solid #999999;">Total<br>Points</td>
-               </tr>
-               <tr>
-                  <td class="advanceDk"><tc-webtag:handle coderId="7548200" context="development"/></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">90.33</td>
-                  <td class="advanceDk" align="center">92.89</td>
-                  <td class="advanceDk" align="center">2</td>
-                  <td class="advanceDk" align="center">28</td>
-                  <td class="advanceDk" align="center">14</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Document_Indexer_DB_sindu.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">98.49</td>
-                  <td class="advanceDk" align="center">98.49</td>
-                  <td class="advanceDk" align="center">1</td>
-                  <td class="advanceDk" align="center">36</td>
-                  <td class="advanceDk" align="center">36</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Testing_Framework_sindu.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">92.26</td>
-                  <td class="advanceDk" align="center">95.81</td>
-                  <td class="advanceDk" align="center">1</td>
-                  <td class="advanceDk" align="center">36</td>
-                  <td class="advanceDk" align="center">36</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Bread_Crumb_Trail_Control_sindu.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;"><strong>86</strong></td>
-               </tr>
-               <tr>
-                  <td class="advanceDk"><tc-webtag:handle coderId="299979" context="development"/></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">87.52</td>
-                  <td class="advanceDk" align="center">93.18</td>
-                  <td class="advanceDk" align="center">1</td>
-                  <td class="advanceDk" align="center">33</td>
-                  <td class="advanceDk" align="center">33</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Document_Indexer_Persistence_visualage.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">94.71</td>
-                  <td class="advanceDk" align="center">97.76</td>
-                  <td class="advanceDk" align="center">3</td>
-                  <td class="advanceDk" align="center">33</td>
-                  <td class="advanceDk" align="center">11</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Testing_Framework_visualage.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">89.50</td>
-                  <td class="advanceDk" align="center">94.35</td>
-                  <td class="advanceDk" align="center">5</td>
-                  <td class="advanceDk" align="center">34</td>
-                  <td class="advanceDk" align="center">6</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Bread_Crumb_Trail_Control_visualage.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;"><strong>50</strong></td>
-               </tr>
-               <tr>
-                  <td class="advanceDk"><tc-webtag:handle coderId="10098406" context="development"/></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">91.16</td>
-                  <td class="advanceDk" align="center">92.01</td>
-                  <td class="advanceDk" align="center">3</td>
-                  <td class="advanceDk" align="center">20</td>
-                  <td class="advanceDk" align="center">6</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Document_Indexer_Persistence_colau.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">93.99</td>
-                  <td class="advanceDk" align="center">96.30</td>
-                  <td class="advanceDk" align="center">6</td>
-                  <td class="advanceDk" align="center">20</td>
-                  <td class="advanceDk" align="center">3</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Testing_Framework_colau.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">91.33</td>
-                  <td class="advanceDk" align="center">95.46</td>
-                  <td class="advanceDk" align="center">2</td>
-                  <td class="advanceDk" align="center">60</td>
-                  <td class="advanceDk" align="center">30</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Bread_Crumb_Trail_Tag_colau.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;"><strong>39</strong></td>
-               </tr>
-               <tr>
-                  <td class="advanceDk"><tc-webtag:handle coderId="14926554" context="development"/></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">82.11</td>
-                  <td class="advanceDk" align="center">84.50</td>
-                  <td class="advanceDk" align="center">7</td>
-                  <td class="advanceDk" align="center">30</td>
-                  <td class="advanceDk" align="center">4</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Document_Indexer_Persistence_biotrail.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">97.52</td>
-                  <td class="advanceDk" align="center">98.20</td>
-                  <td class="advanceDk" align="center">2</td>
-                  <td class="advanceDk" align="center">40</td>
-                  <td class="advanceDk" align="center">20</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Testing_Framework_biotrail.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">90.79</td>
-                  <td class="advanceDk" align="center">95.29</td>
-                  <td class="advanceDk" align="center">3</td>
-                  <td class="advanceDk" align="center">30</td>
-                  <td class="advanceDk" align="center">10</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Bread_Crumb_Trail_Tag_biotrail.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;"><strong>34</strong></td>
-               </tr>
-               <tr>
-                  <td class="advanceDk"><tc-webtag:handle coderId="7210680" context="development"/></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">85.72</td>
-                  <td class="advanceDk" align="center">89.40</td>
-                  <td class="advanceDk" align="center">4</td>
-                  <td class="advanceDk" align="center">28</td>
-                  <td class="advanceDk" align="center">7</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Document_Indexer_DB_cnettel.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">93.60</td>
-                  <td class="advanceDk" align="center">97.57</td>
-                  <td class="advanceDk" align="center">4</td>
-                  <td class="advanceDk" align="center">36</td>
-                  <td class="advanceDk" align="center">9</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Testing_Framework_cnettel.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">92.42</td>
-                  <td class="advanceDk" align="center">94.92</td>
-                  <td class="advanceDk" align="center">4</td>
-                  <td class="advanceDk" align="center">36</td>
-                  <td class="advanceDk" align="center">9</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Bread_Crumb_Trail_Control_cnettel.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;"><strong>25</strong></td>
-               </tr>
-               <tr>
-                  <td class="advanceDk"><tc-webtag:handle coderId="15664457" context="development"/></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">83.15</td>
-                  <td class="advanceDk" align="center">86.37</td>
-                  <td class="advanceDk" align="center">5</td>
-                  <td class="advanceDk" align="center">30</td>
-                  <td class="advanceDk" align="center">6</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Document_Indexer_Persistence_traugust.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">96.07</td>
-                  <td class="advanceDk" align="center">96.38</td>
-                  <td class="advanceDk" align="center">5</td>
-                  <td class="advanceDk" align="center">35</td>
-                  <td class="advanceDk" align="center">7</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Testing_Framework_traugust.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">86.54</td>
-                  <td class="advanceDk" align="center">90.65</td>
-                  <td class="advanceDk" align="center">6</td>
-                  <td class="advanceDk" align="center">35</td>
-                  <td class="advanceDk" align="center">5</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Bread_Crumb_Trail_Tag_traugust.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;"><strong>18</strong></td>
-               </tr>
-               <tr>
-                  <td class="advanceDk"><tc-webtag:handle coderId="15832159" context="development"/></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">85.64</td>
-                  <td class="advanceDk" align="center">85.89</td>
-                  <td class="advanceDk" align="center">6</td>
-                  <td class="advanceDk" align="center">40</td>
-                  <td class="advanceDk" align="center">6</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Document_Indexer_Persistence_oodinary.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">85.48</td>
-                  <td class="advanceDk" align="center">85.48</td>
-                  <td class="advanceDk" align="center">8</td>
-                  <td class="advanceDk" align="center">20</td>
-                  <td class="advanceDk" align="center">2</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Testing_Framework_oodinary.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">81.64</td>
-                  <td class="advanceDk" align="center">83.86</td>
-                  <td class="advanceDk" align="center">7</td>
-                  <td class="advanceDk" align="center">40</td>
-                  <td class="advanceDk" align="center">5</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Bread_Crumb_Trail_Tag_oodinary.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;"><strong>13</strong></td>
-               </tr>
-               <tr>
-                  <td class="advanceDk"><tc-webtag:handle coderId="10526732" context="development"/></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">57.68</td>
-                  <td class="advanceDk" align="center">60.21</td>
-                  <td class="advanceDk" align="center">8</td>
-                  <td class="advanceDk" align="center">30</td>
-                  <td class="advanceDk" align="center">3</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Document_Indexer_Persistence_zjq.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">87.06</td>
-                  <td class="advanceDk" align="center">87.58</td>
-                  <td class="advanceDk" align="center">7</td>
-                  <td class="advanceDk" align="center">60</td>
-                  <td class="advanceDk" align="center">8</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Testing_Framework_zjq.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">54.54</td>
-                  <td class="advanceDk" align="center">54.54</td>
-                  <td class="advanceDk" align="center">8</td>
-                  <td class="advanceDk" align="center">10</td>
-                  <td class="advanceDk" align="center">1</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tccc06/comp_submissions/Bread_Crumb_Trail_Tag_zjq.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;"><strong>12</strong></td>
-               </tr>
-            </table>
+<br><br>
+
+<table class="sidebarBox" border="0" cellpadding="3" cellspacing="0" width="500">
+   <tr>
+      <td class="advHeader">Contest:</td>
+      <td class="advHeader" colspan="6" align="center" style="border-left: 1px solid #999999;">Rename Namespace NANT Task<br>
+         <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=22891246"><img src="/i/interface/java.gif" alt="Java" border="0" /></A>
+         <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=24095651"><img src="/i/interface/dotnet.gif" alt=".NET" border="0" /></A>
+        </td>
+      <td class="advHeader" colspan="6" align="center" style="border-left: 1px solid #999999;">XMI Reader<br>
+         <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=24096445"><img src="/i/interface/java.gif" alt="Java" border="0" /></A>
+         <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=24096427"><img src="/i/interface/dotnet.gif" alt=".NET" border="0" /></A>
+        </td>
+      <td class="advHeader" colspan="6" align="center" style="border-left: 1px solid #999999;">Client Logic for Firefox<br>
+        </td>
+      <td class="advHeader" style="border-left: 1px solid #999999;">&#160;</td>
+   </tr>
+   <tr>
+      <td class="advHeader">Handle</td>
+      <td class="advHeader" align="center" style="border-left: 1px solid #999999;">Initial<br>Score</td>
+      <td class="advHeader" align="center">Final<br>Score</td>
+      <td class="advHeader">Place</td>
+      <td class="advHeader">Wager</td>
+      <td class="advHeader">Points</td>
+      <td class="advHeader" align="center">DL</td>
+      <td class="advHeader" align="center" style="border-left: 1px solid #999999;">Initial<br>Score</td>
+      <td class="advHeader" align="center">Final<br>Score</td>
+      <td class="advHeader">Place</td>
+      <td class="advHeader">Wager</td>
+      <td class="advHeader">Points</td>
+      <td class="advHeader" align="center">DL</td>
+      <td class="advHeader" align="center" style="border-left: 1px solid #999999;">Initial<br>Score</td>
+      <td class="advHeader" align="center">Final<br>Score</td>
+      <td class="advHeader">Place</td>
+      <td class="advHeader">Wager</td>
+      <td class="advHeader">Points</td>
+      <td class="advHeader" align="center">DL</td>
+      <td class="advHeader" align="center" style="border-left: 1px solid #999999;">Total<br>Points</td>
+    </tr>
+    <tr>
+        <td class="advanceDk"><tc-webtag:handle coderId="9998760" context="development"/></td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">90.89</td>
+        <td class="advanceDk" align="center">91.62</td>
+        <td class="advanceDk" align="center">1</td>
+        <td class="advanceDk" align="center">15</td>
+        <td class="advanceDk" align="center">15</td>
+        <td class="advanceDk" align="center"><A href="/tc?module=DownloadSubmission&cr=9998760&pj=24130067&st=1&ph=113"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">95.22</td>
+        <td class="advanceDk" align="center">96.54</td>
+        <td class="advanceDk" align="center">2</td>
+        <td class="advanceDk" align="center">25</td>
+        <td class="advanceDk" align="center">12</td>
+        <td class="advanceDk" align="center"><A href="/tc?module=DownloadSubmission&cr=9998760&pj=24385906&st=1&ph=113"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">85.33</td>
+        <td class="advanceDk" align="center">85.33</td>
+        <td class="advanceDk" align="center">1</td>
+        <td class="advanceDk" align="center">60</td>
+        <td class="advanceDk" align="center">60</td>
+        <td class="advanceDk" align="center"><A href="/tc?module=DownloadSubmission&cr=9998760&pj=30000108&st=1&ph=113"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">87</td>
+    </tr>
+    <tr>
+        <td class="advanceDk"><tc-webtag:handle coderId="14788013" context="development"/></td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">86.10</td>
+        <td class="advanceDk" align="center">86.64</td>
+        <td class="advanceDk" align="center">2</td>
+        <td class="advanceDk" align="center">30</td>
+        <td class="advanceDk" align="center">15</td>
+        <td class="advanceDk" align="center"><A href="/tc?module=DownloadSubmission&cr=14788013&pj=24130094&st=1&ph=113"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">94.19
+        <td class="advanceDk" align="center">96.85</td>
+        <td class="advanceDk" align="center">1</td>
+        <td class="advanceDk" align="center">60</td>
+        <td class="advanceDk" align="center">60</td>
+        <td class="advanceDk" align="center"><A href="/tc?module=DownloadSubmission&cr=14788013&pj=24385906&st=1&ph=113"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">65.11
+        <td class="advanceDk" align="center">65.11</td>
+        <td class="advanceDk" align="center">2</td>
+        <td class="advanceDk" align="center">10</td>
+        <td class="advanceDk" align="center">5</td>
+        <td class="advanceDk" align="center"><A href="/tc?module=DownloadSubmission&cr=14788013&pj=30000108&st=1&ph=113"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+        <td class="advanceDk" align="center">80</td>
+    </tr>
+    <tr>
+        <td class="advanceDk"><tc-webtag:handle coderId="302810" context="development"/></td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">73.14
+        <td class="advanceDk" align="center">73.79</td>
+        <td class="advanceDk" align="center">6</td>
+        <td class="advanceDk" align="center">25</td>
+        <td class="advanceDk" align="center">4</td>
+        <td class="advanceDk" align="center"><A href="/tc?module=DownloadSubmission&cr=302810&pj=24130067&st=1&ph=113"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">90.67
+        <td class="advanceDk" align="center">92.49</td>
+        <td class="advanceDk" align="center">3</td>
+        <td class="advanceDk" align="center">60</td>
+        <td class="advanceDk" align="center">20</td>
+        <td class="advanceDk" align="center"><A href="/tc?module=DownloadSubmission&cr=302810&pj=24385880&st=1&ph=113"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">64.83
+        <td class="advanceDk" align="center">64.83</td>
+        <td class="advanceDk" align="center">3</td>
+        <td class="advanceDk" align="center">15</td>
+        <td class="advanceDk" align="center">5</td>
+        <td class="advanceDk" align="center"><A href="/tc?module=DownloadSubmission&cr=302810&pj=30000108&st=1&ph=113"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+        <td class="advanceDk" align="center">29</td>
+    </tr>
+    <tr>
+        <td class="advanceDk"><tc-webtag:handle coderId="10526732" context="development"/></td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">82.97
+        <td class="advanceDk" align="center">85.42</td>
+        <td class="advanceDk" align="center">3</td>
+        <td class="advanceDk" align="center">60</td>
+        <td class="advanceDk" align="center">20</td>
+        <td class="advanceDk" align="center"><A href="/tc?module=DownloadSubmission&cr=10526732&pj=24130094&st=1&ph=113"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">66.17
+        <td class="advanceDk" align="center">66.17</td>
+        <td class="advanceDk" align="center">6</td>
+        <td class="advanceDk" align="center">10</td>
+        <td class="advanceDk" align="center">1</td>
+        <td class="advanceDk" align="center"><A href="/tc?module=DownloadSubmission&cr=10526732&pj=24385880&st=1&ph=113"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">41.69
+        <td class="advanceDk" align="center">41.69</td>
+        <td class="advanceDk" align="center">5</td>
+        <td class="advanceDk" align="center">30</td>
+        <td class="advanceDk" align="center">6</td>
+        <td class="advanceDk" align="center"><A href="/tc?module=DownloadSubmission&cr=10526732&pj=30000108&st=1&ph=113"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+        <td class="advanceDk" align="center">27</td>
+    </tr>
+    <tr>
+        <td class="advanceDk"><tc-webtag:handle coderId="20256177" context="development"/></td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">81.04
+        <td class="advanceDk" align="center">82.29</td>
+        <td class="advanceDk" align="center">4</td>
+        <td class="advanceDk" align="center">45</td>
+        <td class="advanceDk" align="center">11</td>
+        <td class="advanceDk" align="center"><A href="/tc?module=DownloadSubmission&cr=20256177&pj=24130094&st=1&ph=113"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">84.67
+        <td class="advanceDk" align="center">85.09</td>
+        <td class="advanceDk" align="center">4</td>
+        <td class="advanceDk" align="center">45</td>
+        <td class="advanceDk" align="center">11</td>
+        <td class="advanceDk" align="center"><A href="/tc?module=DownloadSubmission&cr=20256177&pj=24385906&st=1&ph=113"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">n/a
+        <td class="advanceDk" align="center">n/a</td>
+        <td class="advanceDk" align="center">6</td>
+        <td class="advanceDk" align="center">10</td>
+        <td class="advanceDk" align="center">1</td>
+        <td class="advanceDk" align="center">n/a</td>
+        <td class="advanceDk" align="center">23</td>
+    </tr>
+    <tr>
+        <td class="advanceDk"><tc-webtag:handle coderId="8347577" context="development"/></td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">79.39
+        <td class="advanceDk" align="center">81.24</td>
+        <td class="advanceDk" align="center">5</td>
+        <td class="advanceDk" align="center">30</td>
+        <td class="advanceDk" align="center">6</td>
+        <td class="advanceDk" align="center"><A href="/tc?module=DownloadSubmission&cr=8347577&pj=24130067&st=1&ph=113"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">78.86
+        <td class="advanceDk" align="center">80.61</td>
+        <td class="advanceDk" align="center">5</td>
+        <td class="advanceDk" align="center">60</td>
+        <td class="advanceDk" align="center">12</td>
+        <td class="advanceDk" align="center"><A href="/tc?module=DownloadSubmission&cr=8347577&pj=24385880&st=1&ph=113"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">49.21
+        <td class="advanceDk" align="center">49.21</td>
+        <td class="advanceDk" align="center">4</td>
+        <td class="advanceDk" align="center">10</td>
+        <td class="advanceDk" align="center">2</td>
+        <td class="advanceDk" align="center"><A href="/tc?module=DownloadSubmission&cr=8347577&pj=30000108&st=1&ph=113"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+        <td class="advanceDk" align="center">20</td>
+    </tr>
+</table>
 
 <br><br>
 <div align="center"><img src="/i/interface/download.gif" alt="download" border="0" /> = download submission</div>
-
-            --%>
 
       </td>
 
