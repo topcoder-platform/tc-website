@@ -39,7 +39,7 @@
          <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=24096445"><img src="/i/interface/java.gif" alt="Java" border="0" /></A>
          <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=24096427"><img src="/i/interface/dotnet.gif" alt=".NET" border="0" /></A>
         </td>
-      <td class="advHeader" colspan="6" align="center" style="border-left: 1px solid #999999;">Client Logic for Firefox<br>
+      <td class="advHeader" colspan="6" align="center" style="border-left: 1px solid #999999;">Client Logic for Firefox<br>(Custom Component)
         </td>
       <td class="advHeader" style="border-left: 1px solid #999999;">&#160;</td>
    </tr>
