@@ -47,6 +47,7 @@
         <li>Fix bug in component registration process when detmining how many projects unreliable competitors have
             currently ongoing
         </li>
+        <li>Fixed code for displaying flash objects in member profile to work without activation in IE</li>
     </ul>
 </p>
 
