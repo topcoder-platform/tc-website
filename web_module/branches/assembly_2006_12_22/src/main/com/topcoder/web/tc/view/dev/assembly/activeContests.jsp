@@ -55,7 +55,7 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="7">Active Software Assembly Contests</td>
+        <td class="title" colspan="8">Active Software Assembly Contests</td>
     </tr>
    <tr>
       <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Catalog</a></td>
