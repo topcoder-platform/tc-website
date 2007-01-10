@@ -6,7 +6,7 @@
 <c:choose>
     <c:when test="${handleValidation.valid}">
         <tac:replaceChildren contextNodeID="validationHandle" parseOnServer="true">
-                <div>&nbsp;</div>
+                <div></div>
         </tac:replaceChildren>
        <tac:replaceChildren contextNodeID="runJS" parseOnServer="true">
        <div>
