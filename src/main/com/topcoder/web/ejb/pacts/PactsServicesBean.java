@@ -4946,6 +4946,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             StringBuffer getPayments = new StringBuffer(300);
             getPayments.append("SELECT p.payment_id FROM affidavit a, payment p ");
             getPayments.append("WHERE a.affidavit_type_id = " + CONTEST_WINNING_AFFIDAVIT + " ");
+            getPayments.append("AND a.payment_id = p.payment_id ");
             getPayments.append("AND a.date_created + " + AFFIDAVIT_EXPIRE_TIME + " UNITS DAY < TODAY ");
             getPayments.append("AND a.status_id = " + AFFIDAVIT_PENDING_STATUS + " ");
             getPayments.append("AND p.most_recent_detail_id IS NOT NULL");
