@@ -107,7 +107,7 @@
         <td class="advanceDk" align="center">10</td>
         <td class="advanceDk" align="center">5</td>
         <td class="advanceDk" align="center"><A href="/tc?module=DownloadSubmission&cr=14788013&pj=30000108&st=1&ph=113"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-        <td class="advanceDk" align="center">80</td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">80</td>
     </tr>
     <tr>
         <td class="advanceDk"><tc-webtag:handle coderId="302810" context="development"/></td>
@@ -129,7 +129,7 @@
         <td class="advanceDk" align="center">15</td>
         <td class="advanceDk" align="center">5</td>
         <td class="advanceDk" align="center"><A href="/tc?module=DownloadSubmission&cr=302810&pj=30000108&st=1&ph=113"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-        <td class="advanceDk" align="center">29</td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">29</td>
     </tr>
     <tr>
         <td class="advanceDk"><tc-webtag:handle coderId="10526732" context="development"/></td>
@@ -151,7 +151,7 @@
         <td class="advanceDk" align="center">30</td>
         <td class="advanceDk" align="center">6</td>
         <td class="advanceDk" align="center"><A href="/tc?module=DownloadSubmission&cr=10526732&pj=30000108&st=1&ph=113"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-        <td class="advanceDk" align="center">27</td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">27</td>
     </tr>
     <tr>
         <td class="advanceDk"><tc-webtag:handle coderId="20256177" context="development"/></td>
@@ -173,7 +173,7 @@
         <td class="advanceDk" align="center">10</td>
         <td class="advanceDk" align="center">1</td>
         <td class="advanceDk" align="center">n/a</td>
-        <td class="advanceDk" align="center">23</td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">23</td>
     </tr>
     <tr>
         <td class="advanceDk"><tc-webtag:handle coderId="8347577" context="development"/></td>
@@ -195,7 +195,7 @@
         <td class="advanceDk" align="center">10</td>
         <td class="advanceDk" align="center">2</td>
         <td class="advanceDk" align="center"><A href="/tc?module=DownloadSubmission&cr=8347577&pj=30000108&st=1&ph=113"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-        <td class="advanceDk" align="center">20</td>
+        <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">20</td>
     </tr>
 </table>
 
