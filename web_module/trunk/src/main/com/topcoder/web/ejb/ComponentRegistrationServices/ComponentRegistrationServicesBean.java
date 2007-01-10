@@ -45,7 +45,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             userRegistered = rs.next();
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -96,7 +96,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             hasReviewed = rs.next();
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -142,7 +142,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             isWinningDesigner = rs.next();
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -182,10 +182,10 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
 
             rs = ps.executeQuery();
             regOpen = rs.next();
-            
+
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -226,7 +226,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -268,7 +268,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -307,7 +307,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -346,7 +346,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -387,7 +387,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             return new ResultSetContainer(rs);
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         } finally {
@@ -439,7 +439,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             return rs.next();
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
+            throw (new EJBException(_sqle.getMessage()));
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         } finally {
@@ -450,6 +450,24 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
     }
 
     private static final String reliableEnough =
+            " select count(*) " +
+                    " from component_inquiry ci " +
+                    " , project_phase pi " +
+                    " , project p " +
+                    " , resource r " +
+                    " , resource_info ri " +
+                    " where ci.project_id = pi.project_id " +
+                    " and pi.phase_type_id = 2  " +
+                    " and ci.phase = ? " +
+                    " and ci.user_id = ? " +
+                    " and pi.scheduled_end_time > current " +
+                    " and pi.project_id = p.project_id " +
+                    " and p.project_status_id = 1 " +
+                    " and r.project_id = p.project_id " +
+                    " and r.resource_role_id = 1 " +
+                    " and ri.resource_id = r.resource_id " +
+                    " and ri.resource_info_type_id = 1 " +
+                    " and ri.value = ci.user_id ";/*
             " select count(*)" +
               " from component_inquiry ci" +
                  " , project_phase pi" +
@@ -461,6 +479,8 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
                " and pi.scheduled_end_time > current" +
                " and pi.project_id = p.project_id" + 
                " and p.project_status_id = 1";
+*/
+
 
     public boolean isUserReliableEnough(long phaseId, long userId, String dataSource) throws EJBException {
         //if their reliability is < 70 %
