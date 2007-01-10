@@ -14,7 +14,7 @@
 
 <body>
 
-<jsp:include page="../top.jsp">
+<jsp:include page="../../top.jsp">
     <jsp:param name="level1" value="development"/>
 </jsp:include>
 
@@ -22,9 +22,9 @@
     <tr valign="top">
         <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-               <jsp:param name="node" value="<%= new Integer(SoftwareComponent.DESIGN_PHASE).equals(request.getAttribute(Constants.PHASE_ID))? "des_compete" : "dev_compete"%>"/>
-            </jsp:include>
+    <jsp:include page="/includes/global_left.jsp">
+      <jsp:param name="node" value="assembly_compete"/>
+    </jsp:include>
         </td>
         <!-- Left Column Ends -->
 
@@ -35,7 +35,7 @@
         <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyText">
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-            <jsp:include page="../body_top.jsp">
+            <jsp:include page="../../body_top.jsp">
                 <jsp:param name="image" value="development"/>
                 <jsp:param name="image1" value="white"/>
                 <jsp:param name="title" value="Components"/>
@@ -66,7 +66,7 @@
     </tr>
 </table>
 
-<jsp:include page="../foot.jsp"/>
+<jsp:include page="../../foot.jsp"/>
 
 </body>
 
