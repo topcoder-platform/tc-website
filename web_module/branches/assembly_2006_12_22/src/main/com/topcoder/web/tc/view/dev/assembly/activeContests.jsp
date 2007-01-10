@@ -55,9 +55,10 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="8">Active Software Assembly Contests</td>
+        <td class="title" colspan="7">Active Software Assembly Contests</td>
     </tr>
    <tr>
+      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Catalog</a></td>
       <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Contest</a></td>
       <td class="headerC" style="width: 80px;">
       <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Registrants</a><br/>
@@ -68,12 +69,14 @@
       <td class="headerC" style="width: 80px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Submissions</a></td>
       <td class="headerR" style="width: 65px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Payment</a></td>
       <td class="headerC" style="width: 130px;"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Submit by</a></td>
-      <td class="header">Forums</td>      
    </tr>
 
     <% boolean even = false; %>
     <rsc:iterator list="<%=contests %>" id="resultRow">
         <tr class="<%=even?"dark":"light"%>"> 
+            <td class="valueC">
+               <rsc:item name="catalog_name" row="<%=resultRow%>"/>
+            </td>
             <td class="value">
                 <a href="/tc?module=AssemblyProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
                     <rsc:item name="contest_name" row="<%=resultRow%>"/>
@@ -102,8 +105,6 @@
                 <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/></td>
             <td class="valueC" nowrap="nowrap">
                 <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/></td>
-            <td class="value">
-            </td>             
         </tr>
     <% even = !even;%>
     </rsc:iterator>
