@@ -618,26 +618,20 @@ if (action != null) {
             ver.setPublicForum(false);
         }
   	    initialSubmissionDate = "01/01/2000";
-        finalSubmissionDate =  initialSubmissionDate;
-
-        estimatedDevDate =   initialSubmissionDate;
+        finalSubmissionDate = initialSubmissionDate;
+        estimatedDevDate = initialSubmissionDate;
         screeningCompleteDate = initialSubmissionDate;
+        reviewCompleteDate = initialSubmissionDate;
+        winnerAnnouncedDate = initialSubmissionDate;
+        aggregationCompleteDate = initialSubmissionDate;
+        phaseCompleteDate = initialSubmissionDate;
 
-        reviewCompleteDate=initialSubmissionDate;
-
-
-        winnerAnnouncedDate=initialSubmissionDate;
-        aggregationCompleteDate=initialSubmissionDate;
-        phaseCompleteDate=initialSubmissionDate;
-
-
-	if(request.getParameter("txtProductionDate")!=""){
+		if(request.getParameter("txtProductionDate")!=""){
 	        productionDate= request.getParameter("txtProductionDate");
         }
         else{
             productionDate = null;
         }
-
 
         String phaseVersionPrice =   request.getParameter("txtPhaseVersionPrice");
         phasePrice = Double.parseDouble(phaseVersionPrice);
@@ -646,12 +640,12 @@ if (action != null) {
         levelId = Long.parseLong(request.getParameter("selLevelId"));
 
         aggregationCompleteDateComment = null;
-        phaseCompleteDateComment= null;
-        productionDateComment= request.getParameter("txtProductionDateComment");
+        phaseCompleteDateComment = null;
+        productionDateComment = request.getParameter("txtProductionDateComment");
         reviewCompleteDateComment = null;
-        winnerAnnouncedDateComment= null;
-        initialSubmissionDateComment= null;
-        screeningCompleteDateComment    = null;
+        winnerAnnouncedDateComment = null;
+        initialSubmissionDateComment = null;
+        screeningCompleteDateComment = null;
         finalSubmissionDateComment = null;
 
         String phaseDate =   "9/9/2000";
@@ -687,7 +681,7 @@ if (action != null) {
                     }
                 }
             }
-            log.debug("Public: " + ver.getPublicForum());
+            log.debug("Public: " + ver.getPublicForum());            
             componentManager.updateVersionInfo(ver, tcSubject, levelId);
             if(verDateInfo != null && (ver.getPhase() == ComponentVersionInfo.DEVELOPMENT || ver.getPhase() == ComponentVersionInfo.SPECIFICATION || ver.getPhase() == ComponentVersionInfo.COMPLETED))
             {
@@ -957,17 +951,18 @@ if (action != null) {
         } catch (CatalogException ce) {
             debug.addMsg("component version admin", "catalog exception occurred");
         }
-
+        
         if (activeCollab != null) {
-            matchCollab = "ForumModerator " + activeCollab.getId();
-            debug.addMsg("component version admin", "loooking for role for " + matchCollab);
-        }
-     	try {
-     		long userID = PRINCIPAL_MANAGER.getUser(txtUsername).getId();
-     		String groupName = ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX+activeCollab.getId();
-    		forums.assignRole(userID, groupName);
-    	} catch (Exception e) {
-    		strError += "Error occurred while assigning forums role: " + e.getMessage();
+	     	try {
+	     		long userID = PRINCIPAL_MANAGER.getUser(txtUsername).getId();
+	     		String groupName = ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX+activeCollab.getId();
+	    		forums.assignRole(userID, groupName);
+	    		strMessage += txtUsername + " successfully added as customer forum moderator.";
+	    	} catch (Exception e) {
+	    		strError += "Error occurred while assigning forums role: " + e.getMessage();
+	    	}
+    	} else {
+    		strMessage += "No customer forum found for this component version.";
     	}
     }
 
@@ -980,32 +975,18 @@ if (action != null) {
         } catch (CatalogException ce) {
         }
 
-        ForumModeratePermission permission = null;
-        if (activeSpec != null) permission = new ForumModeratePermission(activeSpec.getId());
-        long lngRole = 0;
-        try {
-            com.topcoder.security.UserPrincipal selectedPrincipal = PRINCIPAL_MANAGER.getUser(txtUsername);
-            RolePrincipal roles[] = (RolePrincipal[])PRINCIPAL_MANAGER.getRoles(null).toArray(new RolePrincipal[0]);
-            for (int i=0; i < roles.length && (permission != null && lngRole == 0); i++) {
-                //debug.addMsg("component version admin", "role: '" + roles[i].getName() + "'");
-                if (permission != null) {
-                    if (roles[i].getName().equals("ForumUser " + activeSpec.getId())) {
-                        debug.addMsg("component version admin", "found spec role " + activeSpec.getId());
-                        lngRole = roles[i].getId();
-                    }
-                }
-            }
-            if (lngRole > 0) {
-                PRINCIPAL_MANAGER.assignRole(selectedPrincipal, PRINCIPAL_MANAGER.getRole(lngRole), tcSubject);
-                strMessage += "Specification role was assigned to " + txtUsername;
-            }
-        } catch (RemoteException re) {
-            strError += "RemoteException occurred while assigning role: " + re.getMessage();
-        } catch (GeneralSecurityException gse) {
-            strError += "GeneralSecurityException occurred while assigning role: " + gse.getMessage();
-        } catch (Exception e) {
-            strError += "Principal user could not be found.<BR>";
-        }
+		if (activeSpec != null) {
+			try {
+	     		long userID = PRINCIPAL_MANAGER.getUser(txtUsername).getId();
+	     		String groupName = ForumConstants.GROUP_SOFTWARE_USERS_PREFIX+activeSpec.getId();
+	    		forums.assignRole(userID, groupName);
+	    		strMessage += txtUsername + " successfully added as developer forum user.";
+	    	} catch (Exception e) {
+	    		strError += "Error occurred while assigning forums role: " + e.getMessage();
+	    	}
+    	} else {
+    		strMessage += "No developer forum found for this component version.";
+    	}
     }
 
     // Assign a user a role that has permissions to moderate developer forum for this component
@@ -1017,32 +998,18 @@ if (action != null) {
         } catch (CatalogException ce) {
         }
 
-        ForumModeratePermission permission = null;
-        if (activeSpec != null) permission = new ForumModeratePermission(activeSpec.getId());
-        long lngRole = 0;
-        try {
-            com.topcoder.security.UserPrincipal selectedPrincipal = PRINCIPAL_MANAGER.getUser(txtUsername);
-            RolePrincipal roles[] = (RolePrincipal[])PRINCIPAL_MANAGER.getRoles(null).toArray(new RolePrincipal[0]);
-            for (int i=0; i < roles.length && (permission != null && lngRole == 0); i++) {
-                //debug.addMsg("component version admin", "role: '" + roles[i].getName() + "'");
-                if (permission != null) {
-                    if (roles[i].getName().equals("ForumUser " + activeSpec.getId())) {
-                        debug.addMsg("component version admin", "found spec role " + activeSpec.getId());
-                        lngRole = roles[i].getId();
-                    }
-                }
-            }
-            if (lngRole > 0) {
-                PRINCIPAL_MANAGER.assignRole(selectedPrincipal, PRINCIPAL_MANAGER.getRole(lngRole), tcSubject);
-                strMessage += "Specification role was assigned to " + txtUsername;
-            }
-        } catch (RemoteException re) {
-            strError += "RemoteException occurred while assigning role: " + re.getMessage();
-        } catch (GeneralSecurityException gse) {
-            strError += "GeneralSecurityException occurred while assigning role: " + gse.getMessage();
-        } catch (Exception e) {
-            strError += "Principal user could not be found.";
-        }
+		if (activeSpec != null) {
+	       	try {
+	     		long userID = PRINCIPAL_MANAGER.getUser(txtUsername).getId();
+	     		String groupName = ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX+activeSpec.getId();
+	    		forums.assignRole(userID, groupName);
+	    		strMessage += txtUsername + " successfully added as developer forum moderator.";
+	    	} catch (Exception e) {
+	    		strError += "Error occurred while assigning forums role: " + e.getMessage();
+	    	}
+	    } else {
+	    	strMessage += "No developer forum found for this component version.";
+	    }
     }
 
     // Review
@@ -2084,7 +2051,7 @@ if (action != null) {
             <table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
                 <tr valign="top">
                     <td>
-                        Handle:  <input class="adminSearchForm" type="text" size="20" name="txtHandle">
+                        Handle: &#160;<input class="adminSearchForm" type="text" size="20" name="txtHandle">
                     </td>
                     <td>
                         <input class="adminButton" type="submit" name="a" value="Customer Forum Moderator">
@@ -2105,7 +2072,7 @@ if (action != null) {
             <table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
                 <tr valign="top">
                     <td>
-                        Handle:  <input class="adminSearchForm" type="text" size="20" name="txtTCHandle">
+                        Handle: &#160;<input class="adminSearchForm" type="text" size="20" name="txtTCHandle">
                     </td>
                     <td>
                         <input class="adminButton" type="submit" name="a" value="Assign Forum Post Notification Event">
