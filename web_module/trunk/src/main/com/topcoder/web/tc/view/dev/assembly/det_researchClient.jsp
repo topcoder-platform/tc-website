@@ -66,12 +66,12 @@ Documentation/Specifications are available in the application forums <A href="ht
 TopCoder will compensate teams with first and second place submissions. Initial payment for the winning team will be distributed in two installments. <b>First Payment:</b> When the winning solution is submitted and the review board suggestions are integrated. <b>Second Payment:</b> Marked by the completion of the Deployment phase of the project. 
 <br><br>
 <strong>Winning Team</strong><br>
-Total Payment - $11,000<br>
-*Additional Milestone Bonuses - $4,000
+Total Payment - $20,000<br>
+*Additional Milestone Bonuses - $5,000
 <br><br>
 <strong>Second Place Team</strong><br>
-Total Payment - $5,000<br>
-*Additional Milestone Bonuses - $2,000
+Total Payment - $10,000<br>
+*Additional Milestone Bonuses - $2,500
 <br><br>
 *Additional bonuses are included when the Winning and Second Place Team meet each of the competition milestones. For more details, please see the "Milestones" section below.
 <br><br>
@@ -123,19 +123,19 @@ At intervals during the competition phase, assembly teams will be expected to de
    </tr>
    <tr>
       <td valign="top">01.24.2007</td><td valign="top">Full suite of Collection Views implementations for all necessary grids<br>
-      Winning Team Bonus - $1,000<br>2nd Place Team Bonus - $500</td>
+      Winning Team Bonus - $1,250<br>2nd Place Team Bonus - $625</td>
    </tr>
    <tr>
       <td valign="top">01.31.2007</td><td valign="top">"Prototype" fully integrated with application host. Application that is able to make method appropriate method calls to WCF through proxies<br>
-      Winning Team Bonus - $1,000<br>2nd Place Team Bonus - $500</td>
+      Winning Team Bonus - $1,250<br>2nd Place Team Bonus - $625</td>
    </tr>
    <tr>
       <td valign="top">02.07.2007</td><td valign="top">All events defined (not all event code needs to be completed)<br>
-      Winning Team Bonus - $1,000<br>2nd Place Team Bonus - $500</td>
+      Winning Team Bonus - $1,250<br>2nd Place Team Bonus - $625</td>
    </tr>
    <tr>
       <td valign="top">02.14.2007</td><td valign="top">Fully functioning WCF Client application<br>
-      Winning Team Bonus - $1,000<br>2nd Place Team Bonus - $500</td>
+      Winning Team Bonus - $1,250<br>2nd Place Team Bonus - $625</td>
    </tr>
 </table>
 </div>

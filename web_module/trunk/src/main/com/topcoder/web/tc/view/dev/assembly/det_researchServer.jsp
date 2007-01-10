@@ -72,12 +72,12 @@ Documentation/Specifications are available in the application forums <A href="ht
 TopCoder will compensate teams with first and second place submissions. Initial payment for the winning team will be distributed in two installments. <b>First Payment:</b> When the winning solution is submitted and the review board suggestions are integrated. <b>Second Payment:</b> Marked by the completion of the Deployment phase of the project. 
 <br><br>
 <strong>Winning Team</strong><br>
-Total Payment - $5,000<br>
-*Additional Milestone Bonuses - $1,000
+Total Payment - $12,000<br>
+*Additional Milestone Bonuses - $3,000
 <br><br>
 <strong>Second Place Team</strong><br>
-Total Payment - $2,600<br>
-*Additional Milestone Bonuses - $400
+Total Payment - $6,000<br>
+*Additional Milestone Bonuses - $1,500
 <br><br>
 *Additional bonuses are included when the Winning and Second Place Team meet each of the competition milestones. For more details, please see the "Milestones" section below.
 <br><br>
@@ -108,13 +108,13 @@ All submissions are required to be submitted by the end of Competition Phase. Th
       <td>Team Creation:</td><td align="right">01.10.2007</td><td align="right">01.17.2007</td>
    </tr>
    <tr>
-      <td>Competition Phase:</td><td align="right">01.18.2007</td><td align="right">02.18.2007</td>
+      <td>Competition Phase:</td><td align="right">01.18.2007</td><td align="right">02.08.2007</td>
    </tr>
    <tr>
-      <td>Review Phase:</td><td align="right">02.19.2007</td><td align="right">03.03.2007</td>
+      <td>Review Phase:</td><td align="right">02.09.2007</td><td align="right">02.15.2007</td>
    </tr>
    <tr>
-      <td>Feedback Phase:</td><td align="right">03.04.2007</td><td align="right">03.07.2007</td>
+      <td>Feedback Phase:</td><td align="right">02.16.2007</td><td align="right">02.18.2007</td>
    </tr>
 </table>
 </div>
@@ -129,19 +129,19 @@ At intervals during the competition phase, assembly teams will be expected to de
    </tr>
    <tr>
       <td valign="top">01.24.2007</td><td valign="top">WCF Proxies for all methods to be used by the Research Client Project<br>
-      Winning Team Bonus - $250<br>2nd Place Team Bonus - $100</td>
+      Winning Team Bonus - $750<br>2nd Place Team Bonus - $375</td>
    </tr>
    <tr>
       <td valign="top">01.31.2007</td><td valign="top">Adapter code for Logging Wrapper, Data Access Interface, EEMAB, and Connection Factory<br>
-      Winning Team Bonus - $250<br>2nd Place Team Bonus - $100</td>
+      Winning Team Bonus - $750<br>2nd Place Team Bonus - $375</td>
    </tr>
    <tr>
       <td valign="top">02.07.2007</td><td valign="top">Full suite of IDataObjectFactory implementations<br>
-      Winning Team Bonus - $250<br>2nd Place Team Bonus - $100</td>
+      Winning Team Bonus - $750<br>2nd Place Team Bonus - $375</td>
    </tr>
    <tr>
       <td valign="top">02.14.2007</td><td valign="top">Fully functioning WCF server application<br>
-      Winning Team Bonus - $250<br>2nd Place Team Bonus - $100</td>
+      Winning Team Bonus - $750<br>2nd Place Team Bonus - $375</td>
    </tr>
 </table>
 </div>
