@@ -83,6 +83,8 @@
                     <rsc:item name="contest_name" row="<%=resultRow%>"/>
                 </a>
             </td>
+            <td class="value">
+            </td>
             <td class="valueC">
          <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
          <a href="/tc?module=ViewAssemblyRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">
