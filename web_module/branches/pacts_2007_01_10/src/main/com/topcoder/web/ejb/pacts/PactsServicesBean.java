@@ -2973,7 +2973,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getPayments.append(" FROM payment p, payment_detail pd ");
             getPayments.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
             getPayments.append(" AND p.user_id = " + t.getHeader().getUser().getId());
-            getPayments.append(" NAD pd.status_id = " + PAYMENT_ON_HOLD_STATUS);
+            getPayments.append(" AND pd.status_id = " + PAYMENT_ON_HOLD_STATUS);
             rsc = runSelectQuery(c, getPayments.toString(), false);
             List toPending = new ArrayList();
             List toOwed = new ArrayList();
