@@ -263,5 +263,11 @@ Technical Assessment
             Assessment Session Status</A></LI>
 </UL>
 
+
+Quarterly Reports
+<ul>
+    <li><a href="http://www.topcoder.com/html/reports/2006_q4_report/operatingstats_q4.htm">2006 Q4</a></li>
+</ul>
+
 </body>
 </html>
