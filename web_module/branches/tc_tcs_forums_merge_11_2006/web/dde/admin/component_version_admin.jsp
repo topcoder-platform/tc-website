@@ -1498,7 +1498,7 @@ if (action != null) {
 <!-- Public Forums -->
                             <tr valign="middle" ID="date_row">
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
-                                <td width="1%" class="adminLabel" nowrap>Public Forums</td>
+                                <td width="1%" class="adminLabel" nowrap>Public Developer Forums</td>
                                 <td width="1%" class="adminText">
                                    <!-- <input type="checkbox" name="public_forum" value ="1" checked> </input> -->
                                    <input type="checkbox" name="public_forum" value ="1" <%= ( ver.getPublicForum() == true ? " CHECKED" : "") %> > </input>
@@ -1507,23 +1507,18 @@ if (action != null) {
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                             </tr>
 <!-- Technologies-->
-                            <tr valign="top">
-                                <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
-                                <td width="1%" class="adminLabel" nowrap>Technologies Used</td>
-                                <td width="1%" class="adminText"></td>
-                                <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
-                            </tr>
-
 <%
+	int technologyCNT = 0;
 	if (colTechnology != null) {
 		Iterator iter = colTechnology.iterator();
 		while (iter.hasNext()) {
 			Object obj = iter.next();
 			if (obj instanceof Technology) {
+				technologyCNT++;
 %>
-                            <tr valign="top">
+                            <tr valign="middle">
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
-                                <td width="1%" class="adminLabel"></td>
+                                <td width="1%" class="adminLabel"><% if (technologyCNT == 1) { %>Technologies Used<% } %></td>
                                 <td width="1%" class="adminText">
                                     <input type="checkbox" name="tech_<%= ((Technology)obj).getId() %>" value ="<%= ((Technology)obj).getId() %>"<%= ( technologies.get("" + ((Technology)obj).getId()) != null ? " CHECKED" : "") %>> <%= ((Technology)obj).getName() %></input><br />
                                 </td>

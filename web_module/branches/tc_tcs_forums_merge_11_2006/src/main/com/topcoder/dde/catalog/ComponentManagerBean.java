@@ -715,13 +715,13 @@ public class ComponentManagerBean
 	    		 * This should be replaced by a distributed transaction (XA, etc.) that rolls back 
 	    		 * changes on the software and forum servers when an error in the workflow occurs.
 	    		 */
-	    		log.info("******* [ComponentManagerBean] calling createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
+	    		//log.info("******* [ComponentManagerBean] calling createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
 	    		categoryID = forumsBean.createSoftwareComponentForums(comp.getComponentName(), ((Long)comp.getPrimaryKey()).longValue(),
 	    				((Long)newVer.getPrimaryKey()).longValue(), newVer.getPhaseId(), comp.getStatusId(), 
 	    				comp.getRootCategory(), comp.getShortDesc(), newVer.getVersionText(), 
 	    				Forum.COLLABORATION, true);
 	    		//compforumHome.create(category, Forum.COLLABORATION, newVers);
-	    		log.info("******* [ComponentManagerBean] finished createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
+	    		//log.info("******* [ComponentManagerBean] finished createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
 	    	} catch (RemoteException e) {
 	    		ejbContext.setRollbackOnly();
 	            throw new CatalogException(e.toString());
@@ -972,13 +972,13 @@ public class ComponentManagerBean
         	    		 * This should be replaced by a distributed transaction (XA, etc.) that rolls back 
         	    		 * changes on the software and forum servers when an error in the workflow occurs.
         	    		 */
-        	    		log.info("*** [ComponentManagerBean.updateVersionInfo()] calling createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
+        	    		//log.info("*** [ComponentManagerBean.updateVersionInfo()] calling createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
         	    		categoryID = forumsBean.createSoftwareComponentForums(compBean.getComponentName(), 
         	    				((Long)compBean.getPrimaryKey()).longValue(), ((Long)versionBean.getPrimaryKey()).longValue(), 
         	    				versionBean.getPhaseId(), compBean.getStatusId(), compBean.getRootCategory(), 
         	    				compBean.getShortDesc(), versionBean.getVersionText(), Forum.SPECIFICATION, info.getPublicForum());
         	    		//compforumHome.create(category, Forum.COLLABORATION, newVers);
-        	    		log.info("*** [ComponentManagerBean.updateVersionInfo()] finished createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
+        	    		//log.info("*** [ComponentManagerBean.updateVersionInfo()] finished createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
         	    	} catch (RemoteException e) {
         	    		ejbContext.setRollbackOnly();
         	            throw new CatalogException(e.toString());
@@ -1031,9 +1031,7 @@ public class ComponentManagerBean
                         perms.addPermission(new ForumPostPermission(compForumXref.getForumId()));
 
                         try {
-                        	log.info("*** isPublic: " + forumsBean.isPublic(compForumXref.getCategoryId()));
                         	forumsBean.setPublic(compForumXref.getCategoryId(), info.getPublicForum());
-                        	log.info("*** isPublic: " + forumsBean.isPublic(compForumXref.getCategoryId()));
                         } catch (UnauthorizedException exception) {
                         	throw new CatalogException(
                                 "Not authorized to determine public forums: " + exception.toString());

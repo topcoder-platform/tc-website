@@ -147,7 +147,7 @@ public class ForumsBean extends BaseEJB {
     }
     
     public void setPublic(long categoryID, boolean isPublic) throws ForumCategoryNotFoundException, UnauthorizedException {
-    	log.info("*** called setPublic(): categoryID = " + categoryID + " | isPublic = " + isPublic);
+    	//log.info("*** called setPublic(): categoryID = " + categoryID + " | isPublic = " + isPublic);
     	ForumCategory category = forumFactory.getForumCategory(categoryID);
     	PermissionsManager categoryPermissionsManager = category.getPermissionsManager();
     	
@@ -162,7 +162,6 @@ public class ForumsBean extends BaseEJB {
             	categoryPermissionsManager.removeRegisteredUserPermission(PermissionType.NEGATIVE, ForumConstants.SW_BLOCK_PERMS[i]);
         	}
         }
-    	log.info("*** finished calling setPublic()");
     }
     
     public boolean isPublic(long categoryID) throws ForumCategoryNotFoundException, UnauthorizedException {
@@ -310,8 +309,11 @@ public class ForumsBean extends BaseEJB {
     		rs.close();
     		forumsPS.close();
     		forumsConn.close();
-    		
-    		createSoftwareComponentPermissions(newCategory, isPublic);
+    	
+    		// Customer forums are always public
+    		if (templateID != ForumConstants.CUSTOMER_FORUM) {
+    			createSoftwareComponentPermissions(newCategory, isPublic);
+    		}
     		return newCategory.getID();
     	} catch (Exception e) {
     		logException(e, "error in creating software component forums");
