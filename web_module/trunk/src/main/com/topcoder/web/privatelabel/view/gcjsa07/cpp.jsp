@@ -57,7 +57,7 @@
          C while
          still maintaining C compatibility, allowing people to use C and C++ program in the same program. Within a
          competition,
-         you'll be required to use some basic C++ functionality to sovle problems. What follows is a basic explanation
+         you'll be required to use some basic C++ functionality to solve problems. What follows is a basic explanation
          for
          programmers who are currently familiar with C.
          <br><br>
