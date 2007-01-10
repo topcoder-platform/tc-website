@@ -790,7 +790,7 @@ SRM 310 -&gt; <a href="http://www.topcoder.com/stat?c=problem_statement&pm=6551&
 <a href="<tc-webtag:linkTracking link="http://acm.uva.es/p/v109/10938.html"/>" refer="lowestCommonAncestor"/>http://acm.uva.es/p/v109/10938.html</a><br />
 <a href="<tc-webtag:linkTracking link="http://acm.sgu.ru/problem.php?contest=0&problem=155"/>" refer="lowestCommonAncestor"/>http://acm.sgu.ru/problem.php?contest=0&amp;problem=155</a><br />
 <br /><br />
-
+ 
 <span class="bodySubtitle">References</span><br>
 - "<A href="<tc-webtag:linkTracking link="http://www.bio.ifi.lmu.de/~fischer/fischer06theoretical.pdf"/>" refer="lowestCommonAncestor"/>Theoretical and Practical Improvements on the RMQ-Problem, with Applications to LCA and LCE</A>" [PDF] by Johannes Fischer and Volker Heunn<br />
 - "<A href="<tc-webtag:linkTracking link="http://www.math.tau.ac.il/~haimk/seminar04/LCA-seminar-modified.ppt"/>" refer="lowestCommonAncestor"/>The LCA Problem Revisited</A>" [PPT] by Michael A.Bender and Martin Farach-Colton - a very good presentation, ideal for quick learning of some LCA and RMQ aproaches<br />
