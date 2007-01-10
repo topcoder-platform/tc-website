@@ -58,11 +58,14 @@ function validateLocal(showErrors) {
     return valid;
 }
 
+
 function validateHandle(send) {
     var ajaxRequest = new AjaxRequest('/tc?module=ValidateHandle');
     ajaxRequest.addFormElementsById("<%= SendMail.TO_HANDLE %>");
     if (send) {
-        ajaxRequest.setPostRequest(afterRequest);
+	    ajaxRequest.setPostRequest(afterRequest);
+    } else {
+	    ajaxRequest.setPostRequest(doNothing);
     }
     ajaxRequest.sendRequest();
 }
