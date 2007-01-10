@@ -59,7 +59,6 @@
     <b>1.1.13 - 2006.xx.xx</b>
     <ul>
         <li>Enable request throttle.</li>
-        <li>Fixes and enhancements to Member Contact.</li>
     </ul>
 </p>
 
