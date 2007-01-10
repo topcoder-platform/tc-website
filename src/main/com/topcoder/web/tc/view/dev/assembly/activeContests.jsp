@@ -49,28 +49,27 @@
       <td class="tableHeader" align="center" nowrap="nowrap">Forums</td>
    </tr>
    <% boolean even = false; %>
-<%--
    <tr class="<%=even?"dark":"light"%>">
       <td class="value" nowrap>
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_researchClient">Research Client</A>
       </td>
       <td class="valueC">
       <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Research Client">register</A>
-      <!--registration closed-->
+      <%--registration closed--%>
       </td>
       <td class="valueC">
       &#160;
-      <!--   
+      <%--   
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_researchClient">results</A>
-      -->
+      --%>
       </td>
       <td class="valueC">
       &#160;
-      <!-- 
+      <%-- 
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_researchClient">standings</A>
-      -->
+      --%>
       </td>
-      <td class="valueC">$11,000</td>
+      <td class="valueC">$20,000</td>
       <td class="valueC">
       01.17.2007 9:00 AM EST
       </td>
@@ -80,11 +79,9 @@
       <td class="valueC" nowrap="nowrap">
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506250">join a team</A>
       <br>
-      <!--<A href="">discuss</A>-->
+      <%--<A href="">discuss</A>--%>
       </td>
    </tr>
---%>
-<%--
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value" nowrap>
@@ -92,34 +89,33 @@
       </td>
       <td class="valueC">
       <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Research Server">register</A>
-      <!--registration closed-->
+      <%--registration closed--%>
       </td>
       <td class="valueC">
       &#160;
-      <!--   
+      <%--   
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_researchServer">results</A>
-      -->
+      --%>
       </td>
       <td class="valueC">
       &#160;
-      <!-- 
+      <%-- 
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_researchServer">standings</A>
-      -->
+      --%>
       </td>
-      <td class="valueC">$5,000</td>
+      <td class="valueC">$12,000</td>
       <td class="valueC">
       01.17.2007 9:00 AM EST
       </td>
       <td class="valueC">
-      02.18.2007 9:00 AM EST
+      02.08.2007 9:00 AM EST
       </td>
       <td class="valueC" nowrap="nowrap">
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506249">join a team</A>
       <br>
-      <!--<A href="">discuss</A>-->
+      <%--<A href="">discuss</A>--%>
       </td>
    </tr>
---%>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value" nowrap>
