@@ -1015,7 +1015,6 @@ public class ComponentManagerBean
                 }
             } else {
                 log.debug("Updating public flag");
-                log.info("Updating public flag");
                 // all forums are created, but the public attribute must be updated.
                 for (Iterator it=forums.iterator(); it.hasNext(); ) {
                     LocalDDECompForumXref compForumXref = (LocalDDECompForumXref)it.next();
@@ -1023,7 +1022,6 @@ public class ComponentManagerBean
                     RolePrincipal userRole = null;
                     try {
                         log.debug("Looking for forum: " + compForumXref.getForumId());
-                        log.info("Looking for category: " + compForumXref.getCategoryId());
 
                         PrincipalMgrRemote principalManager = principalmgrHome.create();
                         userRole = principalManager.getRole(Long.parseLong(getConfigValue("user_role")));
@@ -1033,8 +1031,9 @@ public class ComponentManagerBean
                         perms.addPermission(new ForumPostPermission(compForumXref.getForumId()));
 
                         try {
-                        	log.info("calling forumsBean.setPublic()");
+                        	log.info("*** isPublic: " + forumsBean.isPublic(compForumXref.getCategoryId()));
                         	forumsBean.setPublic(compForumXref.getCategoryId(), info.getPublicForum());
+                        	log.info("*** isPublic: " + forumsBean.isPublic(compForumXref.getCategoryId()));
                         } catch (UnauthorizedException exception) {
                         	throw new CatalogException(
                                 "Not authorized to determine public forums: " + exception.toString());
