@@ -78,7 +78,7 @@
                 French Guiana, Guyana, Paraguay, Peru, Suriname,
                 Uruguay, Venezuela, Belize, Costa Rica, El Salvador, Guatemala, Honduras, Nicaragua, Panama, Mexico,
                 Antigua &amp; Barbuda, Aruba, Bahamas,
-                Barbados, Cayman Islands, Cuba, Dominica, Dominican Republic, Grenada, Guadeloupe, Haiti, Jamaica,
+                Barbados, Cayman Islands, Dominica, Dominican Republic, Grenada, Guadeloupe, Haiti, Jamaica,
                 Martinique, Puerto Rico, St. Kitts &amp; Nevis,
                 St. Lucia, St. Vincent &amp; Grenadines, Trinidad &amp; Tobago, Turks &amp; Caicos Islands, Virgin
                 Islands.
