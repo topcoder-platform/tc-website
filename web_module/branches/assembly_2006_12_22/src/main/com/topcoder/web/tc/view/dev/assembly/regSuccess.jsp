@@ -14,7 +14,7 @@
 
 <body>
 
-<jsp:include page="../top.jsp">
+<jsp:include page="../../top.jsp">
     <jsp:param name="level1" value="development"/>
 </jsp:include>
 
@@ -22,9 +22,9 @@
     <tr valign="top">
         <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-               <jsp:param name="node" value="<%= new Integer(SoftwareComponent.DESIGN_PHASE).equals(request.getAttribute(Constants.PHASE_ID))? "des_compete" : "dev_compete"%>"/>
-            </jsp:include>
+    <jsp:include page="/includes/global_left.jsp">
+      <jsp:param name="node" value="assembly_compete"/>
+    </jsp:include>
         </td>
         <!-- Left Column Ends -->
 
@@ -34,15 +34,15 @@
 
         <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyText">
-            <jsp:include page="/page_title.jsp">
-                <jsp:param name="image" value="<%= new Integer(SoftwareComponent.DESIGN_PHASE).equals(request.getAttribute(Constants.PHASE_ID))? "comp_design" : "comp_development"%>"/>
-                <jsp:param name="title" value="Active Contests"/>
-            </jsp:include>
+			<jsp:include page="/page_title.jsp">
+			<jsp:param name="image" value="assembly"/>
+			    <jsp:param name="title" value="Active Contests"/>
+			</jsp:include>
 
             <p>
                 <strong>You have successfully registered for this contest.</strong>
                <br><br>
-                View current <a href="/tc?module=ViewRegistrants&amp;pj=<%=request.getAttribute(Constants.PROJECT_ID)%>">contest registrants</a>
+                View current <a href="/tc?module=ViewAssemblyRegistrants&amp;pj=<%=request.getAttribute(Constants.PROJECT_ID)%>">contest registrants</a>
             </p>
 
         </td>
@@ -65,7 +65,7 @@
     </tr>
 </table>
 
-<jsp:include page="../foot.jsp"/>
+<jsp:include page="../../foot.jsp"/>
 
 </body>
 
