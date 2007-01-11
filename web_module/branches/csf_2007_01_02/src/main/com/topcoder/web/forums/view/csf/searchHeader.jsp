@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.common.BaseProcessor,
                  com.topcoder.web.forums.ForumConstants,
+                 com.jivesoftware.util.StringUtils,
                  java.util.HashMap"
 %>
 

@@ -1,5 +1,7 @@
 <%@ page import="com.topcoder.web.common.StringUtils,
 				 com.topcoder.web.forums.ForumConstants,
+				 com.jivesoftware.forum.ForumFactory,				 
+				 com.jivesoftware.forum.ForumCategory,				 
 				 java.util.Iterator" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <% 	ForumFactory forumFactory = (ForumFactory)request.getAttribute("forumFactory"); %>
