@@ -61,8 +61,8 @@ public class ProjectUtil {
 
         // prepare rating/Reliability
         ps = conn.prepareStatement("SELECT rating, phase_id, (select project_category_id from project where project_id = ?) as project_category_id from user_rating where user_id = ? ");
-        ps.setLong(1, userId);
-        ps.setLong(2, projectId);
+        ps.setLong(1, projectId);
+        ps.setLong(2, userId);
         rs = ps.executeQuery();
 
         double old_rating = 0;

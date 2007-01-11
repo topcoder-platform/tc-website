@@ -37,13 +37,13 @@ public class ViewActiveContests extends Base {
             // defines column's default sort.
             SortInfo s = new SortInfo();
             s.addDefault(3, "asc");   // Catalog    
-            s.addDefault(2, "asc");   // Component  
+            s.addDefault(1, "asc");   // Contest
             s.addDefault(4, "desc");   // rated Registrants
-            s.addDefault(5, "desc");   // unrated Registrants
-            s.addDefault(7, "desc");   // total Registrants
-            s.addDefault(10, "desc"); // Reg. End   
-            s.addDefault(6, "desc");  // Submissions
-            s.addDefault(1, "desc");  // Payment    
+            s.addDefault(6, "desc");   // unrated Registrants
+            s.addDefault(5, "desc");   // total Registrants
+            s.addDefault(2, "desc"); // Reg. End   
+            s.addDefault(7, "desc");  // Submissions
+            s.addDefault(10, "desc");  // Payment    
             s.addDefault(0, "desc");  // Submit by  
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
             
