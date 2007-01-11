@@ -39,6 +39,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">01.11.07 4:00 PM - </td><td width="100%"><A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2051">New at TopCoder Studio: Equitrader Wireframe contest</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.02.07 3:15 PM - </td><td width="100%">Deadlines extended due to site outage</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.20.06 4:15 PM - </td><td width="100%"><A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2048">New AOL Mashup: $19,000 in prizes</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.14.06 11:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=features&d2=121406">TopCoder Celebrates 100,000 Members</A></td></tr>

@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>01.11.07<br>4:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2051">New at TopCoder Studio: Equitrader Wireframe contest</A></span><br><br>
+       There's a new business concept in store for Equitrader, called "Equitrader Research."  Help determine how information is laid out in 
+       this new section of their website, and you could win a share of the $2,750 prize pool. 
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2051">full story</A> | 
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=28">discuss this</A> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.09.07<br>5:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -186,21 +199,5 @@ and <tc-webtag:handle coderId="22375930" context="hs_algorithm"/> both finished 
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm25">full story</A> | 
         <tc-webtag:forumLink forumID="506047" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Educational Content" border="0" /><br>12.27.06<br>5:20 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=lowestCommonAncestor">Range Minimum Query and Lowest Common Ancestor</A></span><br><br>
-       The problem of finding the Lowest Common Ancestor (LCA) of a pair of nodes in a rooted tree has been studied more carefully in the second part of the 20th century and now is fairly basic in algorithmic graph theory.</td>
-      <td class="newsPhoto"><img src="/i/m/danielp_big.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="22065256" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=lowestCommonAncestor">full story</A> | 
-         <tc-webtag:forumLink forumID="506217" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
 
