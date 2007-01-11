@@ -4,6 +4,7 @@
                  com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.ReadTracker,
                  com.jivesoftware.forum.WatchManager,                 
+                 com.jivesoftware.forum.Forum,                      
                  com.jivesoftware.base.User,
                  java.util.ArrayList,
                  java.util.Calendar,
