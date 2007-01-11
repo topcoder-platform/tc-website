@@ -42,6 +42,11 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 <p>
+    5.5.16 - 2007.01.xx
+    <ul>
+        <li>PACTS: when a tax form is added for a user, their payments are updated. </li>
+        <li>PACTS: if an affidavit is affirmed, the status of its payment doesn't change from on hold if the user doesn't have a tax form. </li>
+    <ul>
     5.5.15 - 2007.01.09
     <ul>
         <li>Fix bug in component registration process when detmining how many projects unreliable competitors have

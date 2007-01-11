@@ -44,6 +44,10 @@ public interface PactsConstants extends Constants {
     public static final int TCO05_ALGORITHM_AFFIDAVIT = 4;
     public static final int TCO05_COMPONENT_AFFIDAVIT = 5;
 
+    // USE TAX FORM STATUSES
+    public static final int USER_TAX_FORM_STATUS_ACTIVE = 60;
+    public static final int USER_TAX_FORM_STATUS_INACTIVE = 61;
+
     // Affidavit statuses
     public static final int AFFIDAVIT_STATUS_AFFIRMED = 58;
     public static final int AFFIDAVIT_STATUS_EXPIRED = 59;
