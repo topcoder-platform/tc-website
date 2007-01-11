@@ -43,7 +43,7 @@
 </jsp:include>
 
 <p>
-    5.5.16 - 2007.01.xx
+    5.5.16 - 2007.01.11
     <ul>
         <li>PACTS: when a tax form is added for a user, their payments are updated.</li>
         <li>PACTS: if an affidavit is affirmed, the status of its payment doesn't change from on hold if the user
