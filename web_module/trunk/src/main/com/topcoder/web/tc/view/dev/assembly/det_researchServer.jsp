@@ -128,19 +128,19 @@ At intervals during the competition phase, assembly teams will be expected to de
       <td width="80"><strong>Date</strong></td><td width="450"><strong>Deliverables</strong></td>
    </tr>
    <tr>
-      <td valign="top">01.24.2007</td><td valign="top">WCF Proxies for all methods to be used by the Research Client Project<br>
+      <td valign="top">01.20.2007</td><td valign="top">WCF Proxies for all methods to be used by the Research Client Project<br>
       Winning Team Bonus - $750<br>2nd Place Team Bonus - $375</td>
    </tr>
    <tr>
-      <td valign="top">01.31.2007</td><td valign="top">Adapter code for Logging Wrapper, Data Access Interface, EEMAB, and Connection Factory<br>
+      <td valign="top">01.24.2007</td><td valign="top">Adapter code for Logging Wrapper, Data Access Interface, EEMAB, and Connection Factory<br>
       Winning Team Bonus - $750<br>2nd Place Team Bonus - $375</td>
    </tr>
    <tr>
-      <td valign="top">02.07.2007</td><td valign="top">Full suite of IDataObjectFactory implementations<br>
+      <td valign="top">01.28.2007</td><td valign="top">Completed code for reading configuration files and configuring Named Query Processor, Named Query Builder, Research Search Service, and Research Reporting Service<br>
       Winning Team Bonus - $750<br>2nd Place Team Bonus - $375</td>
    </tr>
    <tr>
-      <td valign="top">02.14.2007</td><td valign="top">Fully functioning WCF server application<br>
+      <td valign="top">02.01.2007</td><td valign="top">Full suite of IDataObjectFactory implementations<br>
       Winning Team Bonus - $750<br>2nd Place Team Bonus - $375</td>
    </tr>
 </table>
