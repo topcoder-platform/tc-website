@@ -41,20 +41,28 @@
     <jsp:param name="image1" value="white"/>
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
+
 <p>
     5.5.16 - 2007.01.xx
     <ul>
-        <li>PACTS: when a tax form is added for a user, their payments are updated. </li>
-        <li>PACTS: if an affidavit is affirmed, the status of its payment doesn't change from on hold if the user doesn't have a tax form. </li>
-    <ul>
+        <li>PACTS: when a tax form is added for a user, their payments are updated.</li>
+        <li>PACTS: if an affidavit is affirmed, the status of its payment doesn't change from on hold if the user
+            doesn't have a tax form.
+        </li>
+    </ul>
+
+</p>
+
+<p>
     5.5.15 - 2007.01.09
     <ul>
         <li>Fix bug in component registration process when detmining how many projects unreliable competitors have
             currently ongoing
         </li>
         <li>Fixed code for displaying flash objects in member profile to work without activation in IE</li>
-        <li>Fixed Member Contact code and enhancements to allow admins not rated to send messages and to try to 
-            avoid that members that can't receive messages won't send contact information.</li>
+        <li>Fixed Member Contact code and enhancements to allow admins not rated to send messages and to try to
+            avoid that members that can't receive messages won't send contact information.
+        </li>
     </ul>
 </p>
 
