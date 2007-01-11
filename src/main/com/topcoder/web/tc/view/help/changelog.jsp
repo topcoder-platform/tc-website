@@ -49,6 +49,7 @@
         <li>PACTS: if an affidavit is affirmed, the status of its payment doesn't change from on hold if the user
             doesn't have a tax form.
         </li>
+        <li>PACTS: fix in the code for expiring affidavits</li>
     </ul>
 
 </p>
