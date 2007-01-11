@@ -1,6 +1,10 @@
 <%@ page import="com.topcoder.web.common.StringUtils,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
+                 com.jivesoftware.forum.ResultFilter,
+                 com.jivesoftware.forum.ReadTracker,
+                 com.jivesoftware.forum.WatchManager,                 
+                 com.jivesoftware.base.User,
                  java.util.ArrayList,
                  java.util.Calendar,
                  java.util.Iterator"
