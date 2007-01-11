@@ -2965,29 +2965,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.executeUpdate();
             ps.close();
             
-            // Update payments
-            StringBuffer getPayments = new StringBuffer(200);
-            getPayments.append(" SELECT p.payment_id, "); 
-            getPayments.append(" case when exists ");
-            getPayments.append("(select 1 from affidavit where affirmed = 1 and user_id = p.user_id and payment_id = p.payment_id) then 1 else 0 end as affidavit_ind ");
-            getPayments.append(" FROM payment p, payment_detail pd ");
-            getPayments.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
-            getPayments.append(" AND p.user_id = " + t.getHeader().getUser().getId());
-            getPayments.append(" AND pd.status_id = " + PAYMENT_ON_HOLD_STATUS);
-            rsc = runSelectQuery(c, getPayments.toString(), false);
-            List toPending = new ArrayList();
-            List toOwed = new ArrayList();
-            for (int i = 0; i < rsc.size(); i++){
-            	if (rsc.getIntItem(i, "affidavit_ind") == 1) {
-            		toOwed.add(new Long(rsc.getLongItem(i, "payment_id")));
-            	} else {
-            		toPending.add(new Long(rsc.getLongItem(i, "payment_id")));
-            	}
+            if (t.getHeader().getStatusId() == USER_TAX_FORM_STATUS_ACTIVE) {
+            	updateOnHoldPayments(c, t.getHeader().getUser().getId());
             }
-            
-            batchUpdateStatus(c, getLongArray(toOwed), PAYMENT_OWED_STATUS);
-            batchUpdateStatus(c, getLongArray(toPending), PAYMENT_PENDING_STATUS);
-            
+
             ps = null;
             c.close();
             c = null;
@@ -3009,6 +2990,36 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
+    /**
+     * This method updates the on hold payments when the user gets a tax form.
+     * 
+     * @param c connection to use
+     * @param userId user that has a tax form
+     * @throws SQLException 
+     */
+    private void updateOnHoldPayments(Connection c, long userId) throws SQLException {
+        StringBuffer getPayments = new StringBuffer(200);
+        getPayments.append(" SELECT p.payment_id, "); 
+        getPayments.append(" case when exists ");
+        getPayments.append("(select 1 from affidavit where affirmed = 1 and user_id = p.user_id and payment_id = p.payment_id) then 1 else 0 end as affidavit_ind ");
+        getPayments.append(" FROM payment p, payment_detail pd ");
+        getPayments.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
+        getPayments.append(" AND p.user_id = " + userId);
+        getPayments.append(" AND pd.status_id = " + PAYMENT_ON_HOLD_STATUS);
+        ResultSetContainer rsc = runSelectQuery(c, getPayments.toString(), false);
+        List toPending = new ArrayList();
+        List toOwed = new ArrayList();
+        for (int i = 0; i < rsc.size(); i++){
+        	if (rsc.getIntItem(i, "affidavit_ind") == 1) {
+        		toOwed.add(new Long(rsc.getLongItem(i, "payment_id")));
+        	} else {
+        		toPending.add(new Long(rsc.getLongItem(i, "payment_id")));
+        	}
+        }
+        
+        batchUpdateStatus(c, getLongArray(toOwed), PAYMENT_OWED_STATUS);
+        batchUpdateStatus(c, getLongArray(toPending), PAYMENT_PENDING_STATUS);    	
+    }
     /**
      * Adds the specified note to the database, and also adds a cross-reference
      * attaching the note to the specified object.
@@ -3704,6 +3715,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             rowsModified = ps.executeUpdate();
             ps.close();
             ps = null;
+
+            if (t.getHeader().getStatusId() == USER_TAX_FORM_STATUS_ACTIVE) {
+            	updateOnHoldPayments(c, t.getHeader().getUser().getId());
+            }
 
             c.close();
             c = null;
