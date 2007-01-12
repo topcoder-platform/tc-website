@@ -128,6 +128,11 @@
       <td class="value">17
       </td>
       <td class="value">18
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=10669">SRM 345</A></strong><br>
+         $5,000<br>
+         11:00 AM
+         </div>
       <%--   <div class="tco07">
          <strong><A href=""><img src="/i/interface/emblem/tco07.gif" alt="TCO07" border="0"/><br>TCO Round 1C</A></strong><br>
          9:00 PM 
@@ -142,10 +147,6 @@
       <td class="value">20
       </td>
       <td class="value">21
-         <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10669">SRM 345</A></strong><br>
-         12:00 Noon
-         </div>
       </td>
    </tr>
 
