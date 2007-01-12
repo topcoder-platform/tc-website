@@ -75,6 +75,7 @@ Categories.size = <%= categories.size() %><br>
 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)categories.iterator()%>'>
     <% String limit = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_DISPLAY_LIMIT));
         if (!"0".equals(limit)) { %>
+        Limit = <%= limit %><br>
     <% Iterator itForums = null, itForumsCopy = null;
         int numActiveForums = 0;
         if (!"".equals(limit)) {
