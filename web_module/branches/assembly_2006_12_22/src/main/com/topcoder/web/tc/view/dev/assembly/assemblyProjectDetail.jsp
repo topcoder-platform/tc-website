@@ -11,6 +11,7 @@
 <% ResultSetContainer technologies = (ResultSetContainer) request.getAttribute("technologies");%>
 <head>
 <title>TopCoder Assembly Competitions</title>
+
     <jsp:include page="/script.jsp"/>
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
@@ -39,8 +40,7 @@
 <%-- Gutter Ends --%>
 
 <%-- Center Column Begins --%>
-<td width="100%" align="center" class="bodyColumn">
-<div class="fixedWidthBody">
+<td width="100%" align="center">
 
 <jsp:include page="/page_title.jsp">
 <jsp:param name="image" value="assembly"/>
@@ -48,6 +48,7 @@
 </jsp:include>
 
 <%-- Title --%>
+
 <table border="0" cellspacing="0" cellpadding="0" align="center" width="530">
 <tr valign="top">
 <td class="bodyText">
@@ -230,7 +231,6 @@ Second Milestone: Marked by the completion of the Deployment phase of the projec
 <span class="bigRed">Your ability to participate in this competition is contingent on the completion and satisfactory review of a background check, agreement to the Assembly Terms of Work and signing of a Non Disclosure Agreement. Once you have registered this information will be emailed to you and should be returned within 24 hours.  If you have previously completed these documents, no further action is needed.</span>
 </p>
 
-</div>
 </td>
 </tr>
 </table>
