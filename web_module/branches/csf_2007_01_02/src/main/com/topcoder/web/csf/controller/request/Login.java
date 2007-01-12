@@ -14,6 +14,7 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.UserDAO;
+import com.topcoder.web.common.model.Email;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.csf.Microsoft.ConnectedServicesSandbox._2006._11.SandboxApi.Sandbox10Locator;
 import com.topcoder.web.csf.Microsoft.ConnectedServicesSandbox._2006._11.SandboxApi.Sandbox10Soap;
@@ -72,6 +73,8 @@ public class Login extends ShortHibernateProcessor {
                             u = new User();
                             u.setHandle(user.value.getUserId());
                             u.setPassword("");
+                            Email a = new Email();
+                            u.addEmailAddress(a);
                             dao.saveOrUpdate(u);
                             createSecurityUser(u);
                             markForCommit();
