@@ -1,14 +1,15 @@
 package com.topcoder.web.csf.controller;
 
-import com.topcoder.web.common.*;
-import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.SessionPersistor;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.TCResourceBundle;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.*;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.LightAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.WebAuthentication;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.MissingResourceException;
 
 /**
@@ -25,7 +26,7 @@ public class CSFServlet extends BaseServlet {
 
     protected WebAuthentication createAuthentication(TCRequest request,
                                                      TCResponse response) throws Exception {
-        return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response,
+        return new LightAuthentication(new SessionPersistor(request.getSession()), request, response,
                 BasicAuthentication.CSF_SITE);
     }
 
