@@ -53,8 +53,10 @@ public class Admin extends ForumsProcessor {
             setIsNextPageInContext(false);
             return;
         }
-*/
+
         log.info(user.getUsername() + " has accessed the csf forum admin tool.");
+
+*/
 
         ArrayList roundList = getRoundList();
 
