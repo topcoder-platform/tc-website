@@ -246,7 +246,7 @@ If you are going to change the contents of vector in the function, just omit the
 
 <span class="bodySubtitle"><A name="pairs"></A>Pairs</span><br />
 Before we come to iterators, let me say a few words about pairs. Pairs are widely used in STL. Simple problems, like TopCoder SRM 250 and easy 500-point problems, usually require some simple data structure that fits well with pair. STL std::pair is just a pair of elements. The simplest form would be the following:
-
+ 
 <pre class="code"> template&lt;typename T1, typename T2&gt; struct pair { 
       T1 first; 
       T2 second; 
