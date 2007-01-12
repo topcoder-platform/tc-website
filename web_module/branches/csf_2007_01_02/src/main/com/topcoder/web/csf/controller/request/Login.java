@@ -1,11 +1,17 @@
 package com.topcoder.web.csf.controller.request;
 
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.GroupPrincipal;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.ShortHibernateProcessor;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.model.User;
@@ -13,7 +19,12 @@ import com.topcoder.web.csf.Microsoft.ConnectedServicesSandbox._2006._11.Sandbox
 import com.topcoder.web.csf.Microsoft.ConnectedServicesSandbox._2006._11.SandboxApi.Sandbox10Soap;
 import com.topcoder.web.csf.Microsoft.ConnectedServicesSandbox._2006._11.UserProfileManager.holders.SandboxUserHolder;
 
+import javax.ejb.CreateException;
+import javax.naming.Context;
 import javax.xml.rpc.holders.BooleanHolder;
+import java.rmi.RemoteException;
+import java.util.Collection;
+import java.util.Iterator;
 
 /**
  * @author dok
@@ -62,6 +73,7 @@ public class Login extends ShortHibernateProcessor {
                             u = new User();
                             u.setHandle(user.value.getUserId());
                             dao.saveOrUpdate(u);
+                            createSecurityUser(u);
                         }
 
                         return;
@@ -85,6 +97,43 @@ public class Login extends ShortHibernateProcessor {
         getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, nextpage);
         setNextPage("/login.jsp");
         setIsNextPageInContext(true);
+    }
+
+    private void createSecurityUser(User u) throws Exception, RemoteException, CreateException, GeneralSecurityException {
+
+        Context ctx = null;
+        try {
+            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+            TCSubject tcs = new TCSubject(132456);
+            UserPrincipal myPrincipal;
+            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            PrincipalMgrRemote pmr = pmrh.create();
+            myPrincipal = pmr.createUser(u.getId().longValue(), u.getHandle(), u.getPassword(), tcs, DBMS.CSF_DATASOURCE_NAME);
+
+            //add them to these two as well.  eventually i'm guessing we'll rearrange security and this'll change
+            Collection groups = pmr.getGroups(tcs, DBMS.CSF_DATASOURCE_NAME);
+            GroupPrincipal anonGroup = null;
+            GroupPrincipal userGroup = null;
+            for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
+                anonGroup = (GroupPrincipal) iterator.next();
+                if (anonGroup.getName().equals("Anonymous")) {
+                    break;
+                }
+            }
+            for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
+                userGroup = (GroupPrincipal) iterator.next();
+                if (userGroup.getName().equals("CSF User")) {
+                    break;
+                }
+            }
+            pmr.addUserToGroup(anonGroup, myPrincipal, tcs, DBMS.CSF_DATASOURCE_NAME);
+            pmr.addUserToGroup(userGroup, myPrincipal, tcs, DBMS.CSF_DATASOURCE_NAME);
+            //refresh the cached object
+            SecurityHelper.getUserSubject(u.getId().longValue(), true, DBMS.CSF_DATASOURCE_NAME);
+        } finally {
+            close(ctx);
+        }
+
     }
 
 
