@@ -1,5 +1,6 @@
 <%@ page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<% int projectTypeId = ((Integer) request.getAttribute(Constants.PROJECT_TYPE_ID)).intValue(); %>
 <html>
 <%@ page import="com.topcoder.web.tc.Constants"%>
 <%@ page import="com.topcoder.web.common.model.SoftwareComponent"%> <head>
@@ -22,21 +23,25 @@
     <tr valign="top">
         <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
                <%                 
-                    switch (request.getAttribute(Constants.PROJECT_TYPE_ID)) {
+                    switch (projectTypeId) {
                         case 1:%>
-                            <jsp:param name="node" value="des_compete"/>
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="des_compete"/>
+                            </jsp:include>
                 <%      break;
                         case 2: %>
-                            <jsp:param name="node" value="dev_compete"/>
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="dev_compete"/>
+                            </jsp:include>
                 <%      break;
                         case 14: %>
-                            <jsp:param name="node" value="assembly_compete"/>
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="assembly_compete"/>
+                            </jsp:include>
                 <%      break;
                     }
                 %>
-            </jsp:include>
         </td>
         <!-- Left Column Ends -->
 
@@ -46,22 +51,29 @@
 
         <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyText">
-			<jsp:include page="/page_title.jsp">
                <%                 
-                    switch (request.getAttribute(Constants.PROJECT_TYPE_ID)) {
+                    switch (projectTypeId) {
                         case 1:%>
-                            <jsp:param name="image" value="comp_design"/>
+                			<jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="comp_design"/>
+                			    <jsp:param name="title" value="Active Contests"/>
+                			</jsp:include>
                 <%      break;
                         case 2: %>
-                            <jsp:param name="image" value="comp_development"/>
+                			<jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="comp_development"/>
+                			    <jsp:param name="title" value="Active Contests"/>
+                			</jsp:include>
                 <%      break;
                         case 14: %>
-                            <jsp:param name="image" value="assembly"/>
+                			<jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="assembly"/>
+                			    <jsp:param name="title" value="Active Contests"/>
+                			</jsp:include>
                 <%      break;
                     }
                 %>                
-			    <jsp:param name="title" value="Active Contests"/>
-			</jsp:include>
+
 
             <p>
                 <strong>You have successfully registered for this contest.</strong>

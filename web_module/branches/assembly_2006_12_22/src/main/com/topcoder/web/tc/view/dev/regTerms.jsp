@@ -83,7 +83,17 @@
                 %>                
 
             <form action="${sessionInfo.servletPath}" method="POST" name="regForm">
-                <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ProjectRegister"/>
+               <%                 
+                    switch (projectTypeId) {
+                        case 1:
+                        case 2: %>
+                            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ProjectRegister"/>
+                <%      break;
+                        case 14: %>
+                            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="AssemblyProjectRegister"/>
+                <%      break;
+                    }
+                %>                
                 <tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID%>"/>
                 <% if (projectTypeId == 1 || projectTypeId == 2) { %>
                         <tc:questionIterator list="<%=questionInfo%>" id="question">
