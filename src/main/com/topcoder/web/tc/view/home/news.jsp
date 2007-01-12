@@ -9,6 +9,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>01.12.06<br>2:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=SurveyResults&sid=11144">maxsense is the TCO07 Logo Contest Winner!</A>
+        </span><br><br>
+        Congratulations to <tc-webtag:handle coderId="22018496" />! 
+        </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=SurveyResults&sid=11144">vote results</A> | 
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=24">discuss this</A> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorial" border="0" /><br>01.12.07<br>12:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -187,17 +202,5 @@ A tricky 550-pointer had a success rate of only 11.11% and proved to be one of t
         <A href="/tc?module=Static&d1=match_editorials&d2=srm332">full story</A> | 
         <tc-webtag:forumLink forumID="506007" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>01.02.07<br>3:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">Deadlines extended due to site outage</span><br><br>
-        Due to today's site outage, all deadlines for open Component Design and Development competitions will be extended by 24 hours. 
-        All open TopCoder Studio contests will also be extended by 24 hours. We apologize for any inconvenience this has caused.
-   </tr>
-   <tr><td class="newsLinksCell">
-        <tc-webtag:forumLink forumID="506219" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
