@@ -93,7 +93,7 @@
         <mapping resource="com/topcoder/web/csf/model/Prize.hbm.xml"/>
         <mapping resource="com/topcoder/web/csf/model/PrizeType.hbm.xml"/>
         <mapping resource="com/topcoder/web/csf/model/ReviewStatus.hbm.xml"/>
-        <mapping resource="com/topcoder/web/csf/model/StudioFileType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/csf/model/CSFFileType.hbm.xml"/>
         <mapping resource="com/topcoder/web/csf/model/Submission.hbm.xml"/>
         <mapping resource="com/topcoder/web/csf/model/SubmissionReview.hbm.xml"/>
         <mapping resource="com/topcoder/web/csf/model/SubmissionType.hbm.xml"/>
