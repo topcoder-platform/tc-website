@@ -62,7 +62,7 @@ public class Login extends ShortHibernateProcessor {
                         Sandbox10Soap sandBox = api.getSandbox10Soap();
                         BooleanHolder res = new BooleanHolder();
                         SandboxUserHolder user = new SandboxUserHolder();
-                        sandBox.authenticate("dokkah", "Camer0n", res, user);
+                        sandBox.authenticate(username, password, res, user);
                         log.debug("correct user name and password " + res.value);
                         log.debug("on successful login, going to " + getNextPage());
                         UserDAO dao = DAOUtil.getFactory().getUserDAO();
