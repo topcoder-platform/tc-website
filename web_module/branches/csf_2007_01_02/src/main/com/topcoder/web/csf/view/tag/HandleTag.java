@@ -28,7 +28,7 @@ public class HandleTag extends TagSupport {
 
             StringBuffer output = new StringBuffer();
             //lookup ratings from cache
-            CachedDataAccess da = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+            CachedDataAccess da = new CachedDataAccess(DBMS.CSF_DATASOURCE_NAME);
             da.setExpireTime(24 * 60 * 60 * 1000);
 
             Request r = new Request();
