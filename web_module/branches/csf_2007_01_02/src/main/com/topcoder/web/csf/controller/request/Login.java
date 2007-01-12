@@ -74,6 +74,10 @@ public class Login extends ShortHibernateProcessor {
                             u.setPassword("");
                             dao.saveOrUpdate(u);
                             createSecurityUser(u);
+                            markForCommit();
+                            closeConversation();
+                            beginCommunication();
+                            
                         }
                         getAuthentication().login(new SimpleUser(0, username, password), false);
 
