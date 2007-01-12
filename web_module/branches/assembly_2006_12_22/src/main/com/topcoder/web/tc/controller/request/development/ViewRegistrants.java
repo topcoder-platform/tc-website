@@ -1,5 +1,6 @@
 package com.topcoder.web.tc.controller.request.development;
 
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.dataAccess.Request;
@@ -12,14 +13,28 @@ import com.topcoder.shared.dataAccess.Request;
 public class ViewRegistrants extends Base {
     protected void developmentProcessing() throws TCWebException {
         try {
+            String projectId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID));
+            
+            if (projectId == "") {
+                throw new TCWebException("parameter " + Constants.PROJECT_ID + " expected.");
+            }
+            
+            int projectTypeId = getProjectTypeId(Long.parseLong(projectId)); 
+            
+            if (projectTypeId == -1) {
+                throw new TCWebException("Could not find project information.");
+            }
+            
             Request r = new Request();
-            r.setContentHandle("registrants");
+            r.setContentHandle(getRegistrantsCommandName(projectTypeId));
             r.setProperty(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
             getRequest().setAttribute("resultMap", getDataAccess().getData(r));
-            setNextPage("/dev/registrants.jsp");
+            setNextPage(getRegistrantsPage(projectTypeId));
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
             throw e;
+          } catch (NumberFormatException nfe) {
+            throw new TCWebException("Wrong parameter " + Constants.PROJECT_ID + ".");            
         } catch (Exception e) {
             throw new TCWebException(e);
         }

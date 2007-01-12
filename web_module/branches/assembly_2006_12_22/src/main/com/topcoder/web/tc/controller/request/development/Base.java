@@ -9,6 +9,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.Constants;
 
 import java.util.Map;
 
@@ -19,6 +20,45 @@ import java.util.Map;
 public abstract class Base extends BaseProcessor {
     protected Logger log = Logger.getLogger(Base.class);
 
+    protected int getProjectTypeId(long projectId) {
+        Request dataRequest = new Request();
+        dataRequest.setContentHandle("project_type");
+        ResultSetContainer rscProjectType = null;
+        try {
+            rscProjectType = (ResultSetContainer) getDataAccess().getData(dataRequest).get("project_type");
+        } catch (Exception e) {
+            return -1;
+        }
+        if (rscProjectType.size() <= 0) {
+            return -1;
+        }
+        return rscProjectType.getIntItem(0, "project_category_id");
+    }
+    
+    protected String getRegistrantsPage(int projectTypeId) {
+        switch (projectTypeId) {
+            case 1:
+            case 2:
+                return "/dev/registrants.jsp";
+            case 14:
+                return "/dev/assembly/registrants.jsp";
+            default:
+                return "";
+        }
+    }
+    
+    protected String getRegistrantsCommandName(int projectTypeId) {
+        switch (projectTypeId) {
+            case 1:
+            case 2:
+                return "registrants";
+            case 14:
+                return "assembly_registrants";
+            default:
+                return "";
+        }
+    }
+    
     final protected void businessProcessing() throws TCWebException {
         //get the data for the right side
         /*try {
