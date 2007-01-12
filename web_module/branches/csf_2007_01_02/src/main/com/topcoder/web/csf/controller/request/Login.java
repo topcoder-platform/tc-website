@@ -78,6 +78,9 @@ public class Login extends ShortHibernateProcessor {
 
                         return;
                     } catch (Exception e) {
+                        if (log.isDebugEnabled()) {
+                            e.printStackTrace();
+                        }
                         throw new LoginException("Handle or password incorrect.");
                     }
                 } catch (LoginException e) {
