@@ -40,9 +40,13 @@
                         case 14: %>
                             <jsp:param name="node" value="assembly_compete"/>
                 <%      break;
+                        default: %>
+                            <jsp:param name="node" value="dev_compete"/>
+                <%      break;
                     }
                 %>
             </jsp:include>
+            <%= request.getAttribute(Constants.PROJECT_TYPE_ID) %>
         </td>
         <!-- Left Column Ends -->
 
