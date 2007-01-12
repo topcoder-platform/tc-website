@@ -28,25 +28,25 @@
     <tr valign="top">
         <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
                <%                 
                     switch (request.getAttribute(Constants.PROJECT_TYPE_ID)) {
                         case 1:%>
-                            <jsp:param name="node" value="des_compete"/>
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="des_compete"/>
+                            </jsp:include>
                 <%      break;
                         case 2: %>
-                            <jsp:param name="node" value="dev_compete"/>
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="dev_compete"/>
+                            </jsp:include>
                 <%      break;
                         case 14: %>
-                            <jsp:param name="node" value="assembly_compete"/>
-                <%      break;
-                        default: %>
-                            <jsp:param name="node" value="dev_compete"/>
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="assembly_compete"/>
+                            </jsp:include>
                 <%      break;
                     }
                 %>
-            </jsp:include>
-            <%= request.getAttribute(Constants.PROJECT_TYPE_ID) %>
         </td>
         <!-- Left Column Ends -->
 
