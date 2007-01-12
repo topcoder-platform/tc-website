@@ -393,6 +393,7 @@
                 <include name="cache.properties"/>
                 <include name="DBMS.properties"/>
                 <include name="DataAccess.properties"/>
+            	<include name="TC.properties"/>
                 <include name="TCS.properties"/>
                 <include name="onsite.properties"/>
             </fileset>
