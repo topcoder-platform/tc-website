@@ -30,6 +30,7 @@ public class Main extends ForumsProcessor {
         
         while (itCategories.hasNext()) {
             ForumCategory category = (ForumCategory)itCategories.next();
+        	log.debug("Category: " + category.getName());
             categoryList.add(category);
         }
         
