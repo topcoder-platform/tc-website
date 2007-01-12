@@ -9,6 +9,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorial" border="0" /><br>01.12.07<br>12:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=standardTemplateLibrary">Power up C++ with the Standard Template Library</A></span><br><br>
+       You may be using C++ already, but have noticed that some coders manage
+to write their code much more quickly than you can. Or perhaps you are
+not a C++ programmer, but want to become one. Either way, the powerful
+features of the Standard Template Library can help.</td>
+      <td class="newsPhoto"><img src="/i/m/DmitryKorolev_big2.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="21749340" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=standardTemplateLibrary">full story</A> | 
+         <tc-webtag:forumLink forumID="506253" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>01.11.07<br>4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2051">New at TopCoder Studio: Equitrader Wireframe contest</A></span><br><br>
        There's a new business concept in store for Equitrader, called "Equitrader Research."  Help determine how information is laid out in 
@@ -180,24 +199,5 @@ A tricky 550-pointer had a success rate of only 11.11% and proved to be one of t
    <tr><td class="newsLinksCell">
         <tc-webtag:forumLink forumID="506219" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>12.29.06<br>11:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm25">TCHS SRM 25 - Problem Set & Analysis</A></span><br><br>
-The problems in HS SRM 25 seemed to be rather easy, and <tc-webtag:handle coderId="11972352" context="hs_algorithm"/>
-submitted all three problems in 15 minutes. <tc-webtag:handle coderId="15604398" context="hs_algorithm"/>
-and <tc-webtag:handle coderId="22375930" context="hs_algorithm"/> both finished coding right after <tc-webtag:handle coderId="11972352" context="hs_algorithm"/>, in 16 minutes, and fell into second and third places after the coding phase.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/Vedensky_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="9927526" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm25">full story</A> | 
-        <tc-webtag:forumLink forumID="506047" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
