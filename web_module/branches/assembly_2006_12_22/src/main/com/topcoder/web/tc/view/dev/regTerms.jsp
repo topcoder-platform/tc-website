@@ -3,7 +3,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <% List questionInfo = (List) request.getAttribute("questionInfo");
-   int projectTypeId = (Integer) request.getAttribute(Constants.PROJECT_TYPE_ID);
+   int projectTypeId = ((Integer) request.getAttribute(Constants.PROJECT_TYPE_ID)).intValue();
 %>
 <html>
 <%@ page import="com.topcoder.web.common.model.SoftwareComponent" %>
