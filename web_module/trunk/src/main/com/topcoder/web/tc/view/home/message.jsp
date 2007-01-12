@@ -1,7 +1,65 @@
+<%-- TCHS07 STARTS HERE
+
+<style type="text/css">
+    .tchs07Message {
+        color: #FFFFFF;
+        font-size: 11px;
+        font-weight: normal;
+        padding: 5px;
+        background: #FF9900 url(/i/tournament/tchs07/calendar_bg.png) top center;
+    }
+
+    A.tchs07MessageLink:link {
+        color: #FFFFFF;
+        text-decoration: underline;
+    }
+
+    A.tchs07MessageLink:visited {
+        color: #FFFFFF;
+        text-decoration: underline;
+    }
+
+    A.tchs07MessageLink:hover {
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+
+    A.tchs07MessageLink:active {
+        color: #FFFFFF;
+        text-decoration: underline;
+    }
+</style>
+
+<table border="0" cellspacing="0" cellpadding="0" width="180">
+    <tr><td><img src="/i/messageBoxTop.gif" width="180" height="11" border="0"/></td></tr>
+    <tr><td><img src="/i/important_message.gif" width="180" height="20" border="0"/></td></tr>
+</table>
+<table cellspacing="0" cellpadding="0" class="messageBoxFrame" style="margin-bottom: 10px;">
+    <tr>
+        <td class="tchs07Message" align="center">
+            <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=about"><img src="/i/tournament/tchs07/message.png" alt="TCHS07" border="0"/></A>
+            <br /><br />
+            <% if (algoTerms.isRegistered()) { %>
+            You are registered for the <strong>2007 TopCoder High School Tournament</strong>.<br />
+            <% } else { %>
+            <% if ((now.after(algoTerms.getBeginning()) && now.before(algoTerms.getEnd()))) { %>
+            <% if (algoTerms.isEligible()) { %>
+            You are not registered for the <strong>2007 TopCoder High School Tournament</strong>, click
+            <a href="" class="tchs07MessageLink">here</a> to register.<br />
+            <% } else { %>
+            Sorry, you are not eligible to register for the <strong>2007 TopCoder High School Tournament</strong>.<br />
+            <% }
+            }
+            } %>
+        </td>
+    </tr>
+</table>
+
+--%>
+
+<%-- TCCC06 STARTS HERE
 <%@ page import="java.util.Calendar,
                  java.util.Date" %>
-<%--
---%>
 <jsp:useBean id="compTerms" class="com.topcoder.web.tc.controller.request.util.TCCC06ComponentTerms" scope="request"/>
 <jsp:useBean id="algoTerms" class="com.topcoder.web.tc.controller.request.tournament.tccc06.ViewAlgoRegistration" scope="request"/>
 <% Calendar now = Calendar.getInstance();
@@ -47,16 +105,16 @@
     <tr>
         <td class="tccc06Message" align="center">
             <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/message.gif" alt="TCCC06" border="0"/></A>
-            <br/><br/>
+            <br /><br />
             <% if (algoTerms.isRegistered()) { %>
-            You are registered for the TCCC Algorithm Competition.<br/>
+            You are registered for the TCCC Algorithm Competition.<br />
             <% } else { %>
             <% if ((now.after(algoTerms.getBeginning()) && now.before(algoTerms.getEnd()))) { %>
             <% if (algoTerms.isEligible()) { %>
             You are not registered for the <strong>TCCC Algorithm Competition</strong>, click
-            <a href="/tc?module=TCCC06ViewAlgoReg" class="tccc06MessageLink">here</a> to register.<br/>
+            <a href="/tc?module=TCCC06ViewAlgoReg" class="tccc06MessageLink">here</a> to register.<br />
             <% } else { %>
-            Sorry, you are not eligible to register for the TCCC Algorithm Competition.<br/>
+            Sorry, you are not eligible to register for the TCCC Algorithm Competition.<br />
             <% }
             }
             }%>
@@ -77,6 +135,7 @@
     </tr>
 </table>
 <% } %>
+--%>
 
 <%--
 <table border="0" cellspacing="0" cellpadding="0" width="180">
@@ -86,7 +145,7 @@
 <table cellspacing="0" cellpadding="0" class="messageBoxFrame">
     <tr>
         <td class="messageBoxText" align=left>
-      The TopCoder site will be down for maintenance for about 4 hours, starting at <strong>11:00PM ET on Sunday, December 12th</strong>.  Thank you for your patience.<br/>
+      The TopCoder site will be down for maintenance for about 4 hours, starting at <strong>11:00PM ET on Sunday, December 12th</strong>.  Thank you for your patience.<br />
         </td>
     </tr>
 </table>
