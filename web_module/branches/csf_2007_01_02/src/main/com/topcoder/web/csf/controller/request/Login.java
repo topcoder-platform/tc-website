@@ -77,6 +77,7 @@ public class Login extends ShortHibernateProcessor {
                             a.setPrimary(Boolean.TRUE);
                             a.setEmailTypeId(Email.TYPE_ID_PRIMARY);
                             a.setStatusId(Email.STATUS_ID_UNACTIVE);
+                            a.setUser(u);
                             u.addEmailAddress(a);
                             dao.saveOrUpdate(u);
                             createSecurityUser(u);
