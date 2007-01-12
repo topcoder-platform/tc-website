@@ -65,8 +65,6 @@
         </td>
     </tr>
 </table>
-Categories.size = <%= categories.size() %><br>
-
 <% if (categories.size() > 0) {
     Calendar calendar = Calendar.getInstance();
     calendar.set(Calendar.MILLISECOND, 0);
@@ -75,7 +73,6 @@ Categories.size = <%= categories.size() %><br>
 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)categories.iterator()%>'>
     <% String limit = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_DISPLAY_LIMIT));
         if (!"0".equals(limit)) { %>
-        Limit = <%= limit %><br>
     <% Iterator itForums = null, itForumsCopy = null;
         int numActiveForums = 0;
         if (!"".equals(limit)) {
@@ -102,6 +99,8 @@ Categories.size = <%= categories.size() %><br>
         while (itForums.hasNext()) {
             if (((Forum) itForums.next()).getMessageCount() > 0) numActiveForums++;
         }
+        
+        %> numActiveForums=<%= numActiveForums %>, show on empty =  <%= category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN) %>  <%
         if (numActiveForums > 0 || ("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)))) { %>
     <br>
     <table cellpadding="0" cellspacing="0" class="rtTable">
