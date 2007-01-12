@@ -9,22 +9,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>01.12.06<br>2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=SurveyResults&sid=11144">maxsense is the TCO07 Logo Contest Winner!</A>
-        </span><br><br>
-        Congratulations to <tc-webtag:handle coderId="22018496" />! 
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=SurveyResults&sid=11144">vote results</A> | 
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=24">discuss this</A> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorial" border="0" /><br>01.12.07<br>12:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorial" border="0" /><br>01.12.07<br>3:10 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=standardTemplateLibrary">Power up C++ with the Standard Template Library</A></span><br><br>
@@ -39,6 +24,21 @@ features of the Standard Template Library can help.</td>
          <A href="/tc?module=Static&d1=tutorials&d2=standardTemplateLibrary">full story</A> | 
          <tc-webtag:forumLink forumID="506253" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>01.12.06<br>2:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=SurveyResults&sid=11144">maxsense is the TCO07 Logo Contest Winner!</A>
+        </span><br><br>
+        Congratulations to <tc-webtag:handle coderId="22018496" />! 
+        </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=SurveyResults&sid=11144">vote results</A> | 
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=24">discuss this</A> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
