@@ -71,6 +71,7 @@ public class Login extends ShortHibernateProcessor {
                             log.debug("user doesn't exist, create in TC system " + user.value.getUserId());
                             u = new User();
                             u.setHandle(user.value.getUserId());
+                            u.setPassword("");
                             dao.saveOrUpdate(u);
                             createSecurityUser(u);
                         }
