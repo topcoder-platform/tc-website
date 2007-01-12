@@ -6,6 +6,9 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.UserDAO;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.csf.Microsoft.ConnectedServicesSandbox._2006._11.SandboxApi.Sandbox10Locator;
 import com.topcoder.web.csf.Microsoft.ConnectedServicesSandbox._2006._11.SandboxApi.Sandbox10Soap;
 import com.topcoder.web.csf.Microsoft.ConnectedServicesSandbox._2006._11.UserProfileManager.holders.SandboxUserHolder;
@@ -33,7 +36,6 @@ public class Login extends ShortHibernateProcessor {
         /* may be null */
         String username = getRequest().getParameter(USER_NAME);
         String password = getRequest().getParameter(PASSWORD);
-        String rememberUser = String.valueOf(false);
 
         /* if not null, we got here via a form submit;
          * otherwise, skip this and just draw the login form */
@@ -52,7 +54,16 @@ public class Login extends ShortHibernateProcessor {
                         sandBox.authenticate("dokkah", "Camer0n", res, user);
                         log.debug("correct user name and password " + res.value);
                         log.debug("on successful login, going to " + getNextPage());
-                        getAuthentication().login(new SimpleUser(0, username, password), "on".equals(rememberUser.trim().toLowerCase()));
+                        getAuthentication().login(new SimpleUser(0, username, password), false);
+                        UserDAO dao = DAOUtil.getFactory().getUserDAO();
+                        User u =  dao.find(user.value.getUserId(), false);
+                        if (u==null) {
+                            log.debug("user doesn't exist, create in TC system " + user.value.getUserId());
+                            u = new User();
+                            u.setHandle(user.value.getUserId());
+                            dao.saveOrUpdate(u);
+                        }
+
                         return;
                     } catch (Exception e) {
                         throw new LoginException("Handle or password incorrect.");
