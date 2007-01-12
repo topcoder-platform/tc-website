@@ -1,4 +1,10 @@
 <%@ page import="com.topcoder.dde.catalog.Catalog"%>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.shared.util.TCResourceBundle" %>
+
+<%	TCResourceBundle bundle = new TCResourceBundle("TC");
+	long tcsForumsID = Long.parseLong(bundle.getProperty("tcs_forums_root_category_id")); %>
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr><td height="15" colspan="3"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
     <tr valign="top">
@@ -69,7 +75,7 @@
 <!-- Forums Sub Nav begins -->
                     <td width="98%" class="breadcrumb" nowrap>
                         <a class="breadcrumbLinks" href="/catalog/c_component.jsp?comp=<%=forumComponent.getComponentId()%>">Component Description</a> &nbsp;|&nbsp;
-                        <a class="breadcrumbLinks" href="c_active_collab.jsp?ft=<%=forumType%>">Forums Home</a>
+                        <a class="breadcrumbLinks" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">Forums Home</a>
 <%  if (threadId > 0) { %>
                         &nbsp;|&nbsp; <a class="breadcrumbLinks" href="c_forum.jsp?f=<%=forumId%>">All Threads</a>
 <%      if (prevThreadId > 0) { %>

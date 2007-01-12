@@ -1,4 +1,5 @@
-
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.shared.util.TCResourceBundle" %>
 <%
     String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");
     String level2 = request.getParameter("level2")==null?"":request.getParameter("level2");
@@ -47,10 +48,10 @@
 
 
 <!-- Forum begins-->
-                <tr><td id="<%=level1.equals("forum")?"leftNavOn":"leftNav"%>"><a href="/forum/c_active_collab.jsp" target="_parent" class="<%=level1.equals("forum")?"leftOn":"left"%>"><img src="/images/nav_arrow_<%=level1.equals("forum")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0">Forums</a></td></tr>
+                <tr><td id="<%=level1.equals("forum")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>" target="_parent" class="<%=level1.equals("forum")?"leftOn":"left"%>"><img src="/images/nav_arrow_<%=level1.equals("forum")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0">Forums</a></td></tr>
             
             <% if (level1.equals("forum")) { %>
-                <tr><td id="<%=level2.equals("all")?"leftSubnavOn":"leftSubnav"%>"><a href="/forum/c_active_collab.jsp" target="_parent" class="leftOn">Component Forums</a></td></tr>
+                <tr><td id="<%=level2.equals("all")?"leftSubnavOn":"leftSubnav"%>"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>" target="_parent" class="leftOn">Component Forums</a></td></tr>
             <% } %>
 <!-- Forum ends -->
             

@@ -116,7 +116,7 @@
     <!-- ERROR Pages -->
     <error-page>
         <error-code>404</error-code>
-        <location>/attention/pagenotfound.html</location>
+        <location>/attention/pagenotfound.jsp</location>
     </error-page>
 
     <ejb-local-ref>
