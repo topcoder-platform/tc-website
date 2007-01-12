@@ -42,7 +42,7 @@
             <p>
                 <strong>You have successfully registered for this contest.</strong>
                <br><br>
-                View current <a href="/tc?module=ViewAssemblyRegistrants&amp;pj=<%=request.getAttribute(Constants.PROJECT_ID)%>">contest registrants</a>
+                View current <a href="/tc?module=ViewRegistrants&amp;pj=<%=request.getAttribute(Constants.PROJECT_ID)%>">contest registrants</a>
             </p>
 
         </td>

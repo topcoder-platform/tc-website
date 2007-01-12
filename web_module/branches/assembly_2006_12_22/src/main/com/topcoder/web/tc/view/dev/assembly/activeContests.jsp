@@ -79,7 +79,7 @@
                <rsc:item name="catalog_name" row="<%=resultRow%>"/>
             </td>
             <td class="value">
-                <a href="/tc?module=AssemblyProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
+                <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
                     <rsc:item name="contest_name" row="<%=resultRow%>"/>
                 </a>
             </td>
