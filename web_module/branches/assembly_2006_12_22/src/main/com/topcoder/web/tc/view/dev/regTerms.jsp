@@ -57,22 +57,28 @@
         <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyText">
 
-			<jsp:include page="/page_title.jsp">
                <%                 
                     switch (request.getAttribute(Constants.PROJECT_TYPE_ID)) {
                         case 1:%>
-                            <jsp:param name="image" value="comp_design"/>
+                			<jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="comp_design"/>
+                			    <jsp:param name="title" value="Active Contests"/>
+                			</jsp:include>
                 <%      break;
                         case 2: %>
-                            <jsp:param name="image" value="comp_development"/>
+                			<jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="comp_development"/>
+                			    <jsp:param name="title" value="Active Contests"/>
+                			</jsp:include>
                 <%      break;
                         case 14: %>
-                            <jsp:param name="image" value="assembly"/>
+                			<jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="assembly"/>
+                			    <jsp:param name="title" value="Active Contests"/>
+                			</jsp:include>
                 <%      break;
                     }
                 %>                
-			    <jsp:param name="title" value="Active Contests"/>
-			</jsp:include>
 
             <form action="${sessionInfo.servletPath}" method="POST" name="regForm">
                 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ProjectRegister"/>
