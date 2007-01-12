@@ -65,7 +65,6 @@ public class Login extends ShortHibernateProcessor {
                         sandBox.authenticate("dokkah", "Camer0n", res, user);
                         log.debug("correct user name and password " + res.value);
                         log.debug("on successful login, going to " + getNextPage());
-                        getAuthentication().login(new SimpleUser(0, username, password), false);
                         UserDAO dao = DAOUtil.getFactory().getUserDAO();
                         User u =  dao.find(user.value.getUserId(), false);
                         if (u==null) {
@@ -75,6 +74,7 @@ public class Login extends ShortHibernateProcessor {
                             dao.saveOrUpdate(u);
                             createSecurityUser(u);
                         }
+                        getAuthentication().login(new SimpleUser(0, username, password), false);
 
                         return;
                     } catch (Exception e) {
