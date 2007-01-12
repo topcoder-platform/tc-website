@@ -1,6 +1,13 @@
 <%@ page import="com.topcoder.web.common.StringUtils,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
+                 com.jivesoftware.forum.ResultFilter,
+                 com.jivesoftware.forum.ReadTracker,
+                 com.jivesoftware.forum.WatchManager,                 
+                 com.jivesoftware.forum.Forum,  
+                 com.jivesoftware.base.JiveConstants,                    
+                 com.jivesoftware.base.User,        
+                 com.jivesoftware.forum.action.util.Page,                          
                  java.util.Iterator"
         %>
 <%@ page contentType="text/html;charset=utf-8" %>
