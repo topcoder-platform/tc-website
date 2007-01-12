@@ -77,6 +77,16 @@
         <pathelement location="${jars.dir}/hibernate-3.1/ant-antlr-1.6.5.jar"/>
         <pathelement location="${jars.dir}/hibernate-3.1/antlr-2.7.6rc1.jar"/>
 
+        <!-- currently only needed for csf webservice access for auth -->
+        <pathelement location="${jars.dir}/axis_dok.jar"/>
+        <pathelement location="${jars.dir}/commons-discovery-0.2.jar"/>
+        <pathelement location="${jars.dir}/wsdl4j-1.5.1.jar"/>
+        <pathelement location="${jars.dir}/commons-httpclient-3.0.1.jar"/>
+        <pathelement location="${jars.dir}/commons-codec-1.3.jar"/>
+
+
+
+
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path"/>
@@ -325,7 +335,7 @@
     <target name="run_csf_tests" depends="compile_tests" description="run junit tests">
         <junit printsummary="${junitsummary}" fork="yes">
             <classpath>
-                <pathelement location="resources/csf/"/>
+                <pathelement location="resources/csf"/>
                 <pathelement path="${class.path}"/>
             </classpath>
             <formatter type="xml"/>
