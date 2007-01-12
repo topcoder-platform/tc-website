@@ -100,7 +100,6 @@
             if (((Forum) itForums.next()).getMessageCount() > 0) numActiveForums++;
         }
         
-        %> numActiveForums=<%= numActiveForums %>, show on empty =  <%= category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN) %>  <%
         if (numActiveForums > 0 || ("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)))) { %>
     <br>
     <table cellpadding="0" cellspacing="0" class="rtTable">
