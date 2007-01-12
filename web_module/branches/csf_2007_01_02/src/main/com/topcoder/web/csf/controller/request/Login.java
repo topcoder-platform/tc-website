@@ -135,7 +135,9 @@ public class Login extends ShortHibernateProcessor {
                     break;
                 }
             }
-            
+
+            log.debug("anon " + anonGroup);
+            log.debug("csf " + userGroup);
             pmr.addUserToGroup(anonGroup, myPrincipal, tcs, DBMS.CSF_DATASOURCE_NAME);
             pmr.addUserToGroup(userGroup, myPrincipal, tcs, DBMS.CSF_DATASOURCE_NAME);
             //refresh the cached object
