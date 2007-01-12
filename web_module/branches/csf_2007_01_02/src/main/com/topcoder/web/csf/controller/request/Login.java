@@ -79,7 +79,7 @@ public class Login extends ShortHibernateProcessor {
                             beginCommunication();
                             
                         }
-                        getAuthentication().login(new SimpleUser(0, username, password), false);
+                        getAuthentication().login(new SimpleUser(u.getId().longValue(), u.getHandle(), u.getPassword()), false);
 
                         return;
                     } catch (Exception e) {
@@ -116,6 +116,7 @@ public class Login extends ShortHibernateProcessor {
             UserPrincipal myPrincipal;
             PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
             PrincipalMgrRemote pmr = pmrh.create();
+            log.debug("create the security user");
             myPrincipal = pmr.createUser(u.getId().longValue(), u.getHandle(), u.getPassword(), tcs, DBMS.CSF_DATASOURCE_NAME);
 
             //add them to these two as well.  eventually i'm guessing we'll rearrange security and this'll change
@@ -134,6 +135,7 @@ public class Login extends ShortHibernateProcessor {
                     break;
                 }
             }
+            
             pmr.addUserToGroup(anonGroup, myPrincipal, tcs, DBMS.CSF_DATASOURCE_NAME);
             pmr.addUserToGroup(userGroup, myPrincipal, tcs, DBMS.CSF_DATASOURCE_NAME);
             //refresh the cached object
