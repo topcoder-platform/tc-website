@@ -1,8 +1,11 @@
-<%@ page import="com.topcoder.web.common.BaseProcessor,
+<%@ page import="com.jivesoftware.forum.ForumMessage,
+                 com.jivesoftware.forum.ForumThread,
+                 com.topcoder.web.common.BaseProcessor,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
-                 java.util.HashMap,
-                 java.util.Iterator"
+                 com.jivesoftware.forum.Attachment,
+                 com.jivesoftware.forum.ForumPermissions,
+                 java.util.*"
 %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
