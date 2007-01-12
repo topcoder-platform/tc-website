@@ -9,6 +9,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.tc.Constants;
 
 import java.util.Map;
@@ -43,6 +44,19 @@ public abstract class Base extends BaseProcessor {
                 return "/dev/registrants.jsp";
             case 14:
                 return "/dev/assembly/registrants.jsp";
+            default:
+                return "";
+        }
+    }
+    
+    protected String getProjectDetailPage(int projectTypeId) {
+        switch (projectTypeId) {
+            case 1:
+                return Constants.DESIGN_DETAIL;
+            case 2:
+                return Constants.DEVELOPMENT_DETAIL;
+            case 14:
+                return "/dev/assembly/assemblyProjectDetail.jsp";
             default:
                 return "";
         }
