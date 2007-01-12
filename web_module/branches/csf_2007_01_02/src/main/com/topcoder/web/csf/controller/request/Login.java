@@ -79,6 +79,15 @@ public class Login extends ShortHibernateProcessor {
                             beginCommunication();
                             
                         }
+                        String nextPage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
+                        if (nextPage != null && !nextPage.equals("")) {
+                            setNextPage(nextPage);
+                            setIsNextPageInContext(false);
+                        } else {
+                            setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
+                            setIsNextPageInContext(false);
+                        }
+
                         getAuthentication().login(new SimpleUser(u.getId().longValue(), u.getHandle(), u.getPassword()), false);
 
                         return;
