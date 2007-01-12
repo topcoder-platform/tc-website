@@ -28,9 +28,11 @@ public class Main extends ForumsProcessor {
         Iterator itCategories = forumFactory.getRootForumCategory().getCategories();
         ArrayList categoryList = new ArrayList();   // forums diplayed on main page
         
+        log.debug("Root name:" +  forumFactory.getRootForumCategory().getName());
+        
         while (itCategories.hasNext()) {
             ForumCategory category = (ForumCategory)itCategories.next();
-        	log.debug("Category: " + category.getName());
+            log.debug("name:" + category.getName());
             categoryList.add(category);
         }
         

@@ -65,6 +65,7 @@
         </td>
     </tr>
 </table>
+Categories.size = <%= categories.size() %><br>
 
 <% if (categories.size() > 0) {
     Calendar calendar = Calendar.getInstance();
