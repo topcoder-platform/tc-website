@@ -57,10 +57,10 @@ public class Register extends ViewRegistration {
                         log.debug("they are eligible");
                     }
                     register();
-                    setNextPage("/dev/assembly/regSuccess.jsp");
+                    setNextPage("/dev/regSuccess.jsp");
                     setIsNextPageInContext(true);
                 } else {
-                    setNextPage("/dev/assembly/message.jsp");
+                    setNextPage("/dev/message.jsp");
                     setIsNextPageInContext(true);
                 }
             } else {
@@ -70,7 +70,7 @@ public class Register extends ViewRegistration {
                 setDefault(Constants.TERMS, getTerms());
                 //we're assuming if we got here, we had a valid project id
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
-                setNextPage("/dev/assembly/regTerms.jsp");
+                setNextPage("/dev/regTerms.jsp");
                 setIsNextPageInContext(true);
             }
 

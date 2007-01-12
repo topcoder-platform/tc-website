@@ -23,7 +23,19 @@
         <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="/includes/global_left.jsp">
-               <jsp:param name="node" value="<%= new Integer(SoftwareComponent.DESIGN_PHASE).equals(request.getAttribute(Constants.PHASE_ID))? "des_compete" : "dev_compete"%>"/>
+               <%                 
+                    switch (request.getAttribute(Constants.PROJECT_TYPE_ID)) {
+                        case 1:%>
+                            <jsp:param name="node" value="des_compete"/>
+                <%      break;
+                        case 2: %>
+                            <jsp:param name="node" value="dev_compete"/>
+                <%      break;
+                        case 14: %>
+                            <jsp:param name="node" value="assembly_compete"/>
+                <%      break;
+                    }
+                %>
             </jsp:include>
         </td>
         <!-- Left Column Ends -->
@@ -34,10 +46,22 @@
 
         <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyText">
-            <jsp:include page="/page_title.jsp">
-                <jsp:param name="image" value="<%= new Integer(SoftwareComponent.DESIGN_PHASE).equals(request.getAttribute(Constants.PHASE_ID))? "comp_design" : "comp_development"%>"/>
-                <jsp:param name="title" value="Active Contests"/>
-            </jsp:include>
+			<jsp:include page="/page_title.jsp">
+               <%                 
+                    switch (request.getAttribute(Constants.PROJECT_TYPE_ID)) {
+                        case 1:%>
+                            <jsp:param name="image" value="comp_design"/>
+                <%      break;
+                        case 2: %>
+                            <jsp:param name="image" value="comp_development"/>
+                <%      break;
+                        case 14: %>
+                            <jsp:param name="image" value="assembly"/>
+                <%      break;
+                    }
+                %>                
+			    <jsp:param name="title" value="Active Contests"/>
+			</jsp:include>
 
             <p>
                 <strong>You have successfully registered for this contest.</strong>

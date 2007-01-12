@@ -23,7 +23,19 @@
         <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="/includes/global_left.jsp">
-               <jsp:param name="node" value="<%= new Integer(SoftwareComponent.DESIGN_PHASE).equals(request.getAttribute(Constants.PHASE_ID))? "des_compete" : "dev_compete"%>"/>
+               <%                 
+                    switch (request.getAttribute(Constants.PROJECT_TYPE_ID)) {
+                        case 1:%>
+                            <jsp:param name="node" value="des_compete"/>
+                <%      break;
+                        case 2: %>
+                            <jsp:param name="node" value="dev_compete"/>
+                <%      break;
+                        case 14: %>
+                            <jsp:param name="node" value="assembly_compete"/>
+                <%      break;
+                    }
+                %>
             </jsp:include>
         </td>
         <!-- Left Column Ends -->
@@ -34,13 +46,22 @@
 
         <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyText">
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-            <jsp:include page="../body_top.jsp">
-                <jsp:param name="image" value="development"/>
-                <jsp:param name="image1" value="white"/>
-                <jsp:param name="title" value="Components"/>
-            </jsp:include>
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+			<jsp:include page="/page_title.jsp">
+               <%                 
+                    switch (request.getAttribute(Constants.PROJECT_TYPE_ID)) {
+                        case 1:%>
+                            <jsp:param name="image" value="comp_design"/>
+                <%      break;
+                        case 2: %>
+                            <jsp:param name="image" value="comp_development"/>
+                <%      break;
+                        case 14: %>
+                            <jsp:param name="image" value="assembly"/>
+                <%      break;
+                    }
+                %>                
+			    <jsp:param name="title" value="Active Contests"/>
+			</jsp:include>
 
             <p style="width: 510px;">
                 <strong><%=(String)request.getAttribute(Constants.MESSAGE)%></strong>

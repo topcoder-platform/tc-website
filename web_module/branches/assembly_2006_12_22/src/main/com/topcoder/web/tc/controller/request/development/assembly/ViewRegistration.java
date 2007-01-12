@@ -39,10 +39,10 @@ public class ViewRegistration extends Base {
                 setDefault(Constants.TERMS, getTerms());
                 //we're assuming that if we're here, we got a valid project id
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
-                setNextPage("/dev/assembly/regTerms.jsp");
+                setNextPage("/dev/regTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
-                setNextPage("/dev/assembly/message.jsp");
+                setNextPage("/dev/message.jsp");
                 setIsNextPageInContext(true);
             }
 
@@ -68,10 +68,9 @@ public class ViewRegistration extends Base {
             projectId = Long.parseLong(getRequest().getParameter(Constants.PROJECT_ID));
         }
 
-        ProjectLocal pl = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
-        int phase = 111 + pl.getProjectTypeId(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
+        int projectTypeId = getProjectTypeId(projectId);
 
-        getRequest().setAttribute(Constants.PHASE_ID, new Integer(phase));
+        getRequest().setAttribute(Constants.PROJECT_TYPE_ID, new Integer(projectTypeId));
 
         if (isSuspended(getUser().getId())) {
             getRequest().setAttribute(Constants.MESSAGE, "Sorry, you are not eligible to participate because you are suspended.");
