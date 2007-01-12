@@ -55,12 +55,11 @@
 
                 <br><br>
 
-                <span class="bigRed">No purchase necessary to enter or win.  The tournament is void where prohibited.</span>
+                <span class="bigRed">No purchase necessary to enter or win.  The tournament is void where prohibited by applicable law.</span>
                 <br><br>
                 <span class="subTitle">Summary of the Tournament</span><br>
-                The Google&#153; Code Jam Latin America 2007 is being offered by Google, Inc. ("Google") and TopCoder,
-                Inc.
-                ("TopCoder"). Google always focuses on creating innovative technologies that could benefit ordinary
+                The Google&#153; Code Jam Latin America 2007 is being offered by Google Inc. ("Google") and TopCoder,
+                Inc. ("TopCoder"). Google always focuses on creating innovative technologies that could benefit ordinary
                 people's lives. The goal of this contest is to encourage and reward the top talents in computer science
                 from Latin America. The Code Jam will take place between January 2, 2007 and March 1, 2007. It
                 begins with an online registration, after which all registered individuals will participate in a
@@ -287,7 +286,7 @@ attend the Championship Round. In addition, Google will provide overnight accomm
 and from the airport, as well as to and from the onsite round facility. All other expenses are the responsibility of the
 contestant.
 <br><br>
-The Championship Round will be a single round of 50 coders. Placement in the Championship Round is determined by
+The Championship Round will be a single round of a maximum of 50 coders. Placement in the Championship Round is determined by
 comparing the total points of each coder. The winner of the Championship Round will be the coder with the highest point
 total for the round. In the event of a tie in the Championship Round, the tie will be resolved in the following manner
 (in order):
@@ -298,7 +297,7 @@ total for the round. In the event of a tie in the Championship Round, the tie wi
 </ul>
 
 <span class="subTitle">About the Prizes</span><br>
-The top 250 scores from Round 2 will receive a "Google Code Jam Latin America 2007" t-shirt. In addition, the 50
+The top 250 scorers from Round 2 will receive a "Google Code Jam Latin America 2007" t-shirt. In addition, the 50
 finalists in the
 Championship Round will receive prizes. Any and all applicable taxes on prizes are the sole responsibility of the
 prizewinner. Prize money will be distributed as follows:
@@ -336,9 +335,9 @@ prizewinner. Prize money will be distributed as follows:
 <br><br>
 <span class="subTitle">Conditions of Participation</span><br>
 By participating in the tournament, you agree to be bound by these rules and to all decisions of Google and TopCoder,
-which are final, binding and conclusive in all matters. Also, by participating in this tournament, you consent to
-providing certain information to Google for recruiting purposes. Such information shall include your registration
-information and your competition statistics.
+which are final, binding and conclusive in all matters. Also, by participating in this tournament, you agree to
+provide to Google certain information, including your registration information and your competition statistics, and you consent
+to Google's use of such information for recruiting purposes.
 <br><br>
 <span class="bigRed">Contestants must not cheat. All ideas for code and/or challenge submitted must be the contestant's alone. In this case, the word "cheat" means collaboration of any sort &mdash;
     including, but not limited to, working with another competitor, submitting code that was not fully authored by you, and using resources, software, etc. that are not allowed in the competition. TopCoder and Google reserve the right, in their sole discretion, to remove any competitor from the tournament who they suspect has cheated.</span>
@@ -366,7 +365,7 @@ any and all registration forms required by Google and TopCoder.
 As a condition of winning and redeeming a prize, winners will be required to complete and provide to Google a completed
 (i) Affidavit of Eligibility and Liability and Publicity Release (the "Affidavit"), and (ii) an applicable tax form, as
 appropriate. In completing the Affidavit, a winner (a) confirms his/her eligibility, (b) represents and warrants that
-he/she has not cheated; that the idea for the code and/or challenge submitted is his/hers alone, (c) verifies the
+he/she has not cheated and that the idea for the code and/or challenge submitted is his/hers alone, (c) verifies the
 accuracy of the information submitted in the Google Code Jam registration process, (d) authorizes TopCoder and Google to
 publicize the tournament's results, (e) agrees to sign any applicable forms required by tax authorities, (f) licenses to
 TopCoder and Google rights to all information submitted during the tournament (including rights to source code and other
@@ -398,11 +397,20 @@ cancel, terminate or modify the tournament if they are not capable of completion
 infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.
 <br><br>
 <span class="subTitle">Other</span><br>
-The tournament is void in whole or in part where prohibited by law.
+The tournament is void in whole or in part where prohibited by law. The software and materials accessible from this Site 
+or otherwise provided by Google and/or TopCoder are subject to United States export control laws and regulations.  By 
+registering for Code Jam, you represent and warrant that: (i) you are not listed on the U.S. Commerce Department's 
+Table of Deny Orders, the U.S. Treasury Department's lists of specially designated nationals, or otherwise denied the 
+privilege of participating in transactions involving the export of U.S.-origin products and services; (ii) you are not located in, 
+under the control of, or a national or a resident of any country that is subject to embargo by the United States (including 
+without limitation Cuba) (“Embargoed Country”); (iii) you shall not export or reexport any technical data, software or other 
+materials received by you into (or to a national or resident of) any Embargoed Country in violation of U.S. law.  Each of 
+Google and TopCoder reserve the right to limit the availability of this website and/or participation in Code Jam to any person, 
+geographic area, or jurisdiction it so desires, at any time and in our sole discretion.
 <br><br>
 This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue,
-Glastonbury, CT 06033 and Google Inc. (<A href="/?t=sponsor&c=link&link=http://www.google.com">http://www.google.com</A>)
-1600 Amphitheatre Parkway, Mountain View, CA 94043.
+Glastonbury, CT 06033 USA and Google Inc. (<A href="/?t=sponsor&c=link&link=http://www.google.com">http://www.google.com</A>)
+1600 Amphitheatre Parkway, Mountain View, CA 94043 USA.
 
 <br><br>
 </div>
