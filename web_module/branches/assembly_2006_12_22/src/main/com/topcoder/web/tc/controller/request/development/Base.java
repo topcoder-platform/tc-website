@@ -23,6 +23,7 @@ public abstract class Base extends BaseProcessor {
     protected int getProjectTypeId(long projectId) {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("project_type");
+        dataRequest.setProperty(Constants.PROJECT_ID, String.valueOf(projectId));
         ResultSetContainer rscProjectType = null;
         try {
             rscProjectType = (ResultSetContainer) getDataAccess().getData(dataRequest).get("project_type");

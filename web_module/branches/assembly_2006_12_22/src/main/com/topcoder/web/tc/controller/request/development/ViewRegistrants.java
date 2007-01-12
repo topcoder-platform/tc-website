@@ -27,7 +27,7 @@ public class ViewRegistrants extends Base {
             
             Request r = new Request();
             r.setContentHandle(getRegistrantsCommandName(projectTypeId));
-            r.setProperty(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
+            r.setProperty(Constants.PROJECT_ID, String.valueOf(projectId));
             getRequest().setAttribute("resultMap", getDataAccess().getData(r));
             setNextPage(getRegistrantsPage(projectTypeId));
             setIsNextPageInContext(true);
