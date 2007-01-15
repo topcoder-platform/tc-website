@@ -10,8 +10,10 @@
 
 <body>
 
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.*" %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants" %>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader" %>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.TCData" %>
 <%@ page import="java.text.DecimalFormat" %>
 <%
 	PaymentHeader[] paymentList = (PaymentHeader[])
@@ -46,6 +48,7 @@
 		%>no results matched your query<br><%
 	}
 	else { %>
+<%=paymentList.length%> records <br />
       <form name="thislist" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="POST">
 		<input type=hidden name="<%=PactsConstants.TASK_STRING%>" value="<%=PactsConstants.PAYMENT_TASK%>">
 		<input type=hidden name="query" value="<%=(String) request.getAttribute("query")%>">
