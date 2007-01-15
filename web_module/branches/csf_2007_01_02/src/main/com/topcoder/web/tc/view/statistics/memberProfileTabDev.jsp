@@ -1,7 +1,6 @@
 <%@  page language="java"
-    import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
+    import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,com.topcoder.web.tc.Constants,
           java.util.Map"%>
-<%@ page import="com.topcoder.web.tc.Constants"%>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
@@ -116,6 +115,24 @@ if ( plugin ) {
                <td class="statLt" align="right"><rsc:item name="review_percent" set="<%=rscNETData%>" format="0.00%" ifNull="n/a"/></td>
                <td class="statLt" align="right"><rsc:item name="review_percent" set="<%=rscTotalData%>" format="0.00%" ifNull="n/a"/></td>
             </tr>
+             <tr>
+    <td class="catDk" nowrap="nowrap">Appeals*</td>
+    <td class="statDk" align="right">
+        <rsc:item name="num_appeals" set="<%=rscJavaData%>" ifNull="n/a"/></td>
+    <td class="statDk" align="right">
+        <rsc:item name="num_appeals" set="<%=rscNETData%>" ifNull="n/a"/></td>
+    <td class="statDk" align="right">
+        <rsc:item name="num_appeals" set="<%=rscTotalData%>" ifNull="n/a"/></td>
+</tr>
+<tr>
+    <td class="catLt" nowrap="nowrap">Appeal Success Rate*</td>
+    <td class="statLt" align="right">
+        <rsc:item name="successful_appeal_percentage" set="<%=rscJavaData%>" format="0.00%" ifNull="n/a"/></td>
+    <td class="statLt" align="right">
+        <rsc:item name="successful_appeal_percentage" set="<%=rscNETData%>" format="0.00%" ifNull="n/a"/></td>
+    <td class="statLt" align="right">
+        <rsc:item name="successful_appeal_percentage" set="<%=rscTotalData%>" format="0.00%" ifNull="n/a"/></td>
+</tr>
             <tr>
                <td class="catDk" nowrap="nowrap">Maximum Score</td>
                <td class="statDk" align="right"><rsc:item name="max_score" set="<%=rscJavaData%>" format="###0.00" ifNull="n/a"/></td>
