@@ -108,7 +108,12 @@
         <tr>
             <td class="cat" nowrap="nowrap">Contest:</td>
             <td class="stat" align="right" nowrap="nowrap">
-                <rsc:item name="component_name" set="<%=registrants%>"/> <rsc:item name="version_text" set="<%=registrants%>"/>
+                <rsc:item name="component_name" set="<%=registrants%>"/> 
+               <% if (projectTypeId == Base.COMPONENT_DESIGN_PROJECT_TYPE ||
+                       projectTypeId == Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE) {
+               %>
+                	<rsc:item name="version_text" set="<%=registrants%>"/>
+                <% } %>
             </td>
         </tr>
         <tr>
