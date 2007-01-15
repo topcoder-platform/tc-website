@@ -47,7 +47,7 @@ public class ViewActiveContests extends Base {
             s.addDefault(0, "desc");  // Submit by  
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
             
-            setNextPage("/dev/assembly/activeContests.jsp");
+            setNextPage("/dev/assembly/newActiveContests.jsp");
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
             throw e;
