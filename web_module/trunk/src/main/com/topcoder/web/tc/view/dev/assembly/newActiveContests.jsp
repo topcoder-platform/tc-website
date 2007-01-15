@@ -33,14 +33,9 @@
         <jsp:param name="node" value="assembly_compete"/>
    </jsp:include>
 </td>
-<!-- Left Column Ends -->
-
-<!-- Gutter Begins -->
-<td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
-<!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-<td width="100%" align="center" class="bodyText">
+        <td width="100%" align="left" class="bodyColumn">
 
 <jsp:include page="/page_title.jsp">
 <jsp:param name="image" value="assembly"/>
@@ -62,7 +57,7 @@
       <td class="header" width="100%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Contest</a></td>
       <td class="header">&#160;</td>
       <td class="headerC" style="width: 80px;">
-      <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Registrants</a><br/>
+      <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Registrants</a><br />
       <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Rated</a>/
       <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Unrated</a>
       </td>
@@ -112,23 +107,20 @@
     <% even = !even;%>
     </rsc:iterator>
 </table>
-<br/>
+<br />
 
-<p><br/></p>
+<p><br /></p>
 
 
 </td>
 <!-- Center Column Ends -->
 
-<!-- Gutter -->
-<td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"></td>
-<!-- Gutter Ends -->
-
 <!-- Right Column Begins -->
 <td width="180">
-    <jsp:include page="right.jsp"/>
+    <jsp:include page="../../public_right.jsp">
+        <jsp:param name="level1" value="default"/>
+    </jsp:include>
 </td>
-<!-- Right Column Ends -->
 
 <!-- Gutter -->
 <td width="2"><img src="/i/clear.gif" width="2" height="1" border="0"></td>
