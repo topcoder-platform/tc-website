@@ -43,9 +43,9 @@
 </jsp:include>
 
 <p>
-    5.5.17 - 2007.01.15
+    5.6.0 - 2007.01.15
     <ul>
-        <li>Active Contests, registrants, project details and registration for assembly competitions pages were automated.</li>
+        <li>Add system driven Active Contests, registrants, project details and registration for assembly competitions.</li>
     </ul>
 </p>
 
