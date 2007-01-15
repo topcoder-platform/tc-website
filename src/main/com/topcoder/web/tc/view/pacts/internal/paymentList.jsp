@@ -1,8 +1,9 @@
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.PaymentList" %>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants" %>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PaymentList" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib uri="pacts.tld" prefix="pacts" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
@@ -33,7 +34,7 @@
 </script>
 
 <h1>PACTS</h1>
-<h2>Payment List</h2>
+<h2>Payment List ${fn:length(paymentList)}</h2>
 
 <form name="f" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="POST">
 	<input type=hidden name="<%=PactsConstants.TASK_STRING%>" value="<%=PactsConstants.PAYMENT_TASK%>">
