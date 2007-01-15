@@ -34,7 +34,8 @@
 </script>
 
 <h1>PACTS</h1>
-<h2>Payment List ${fn:length(paymentList)}</h2>
+<h2>Payment List</h2>
+${fn:length(paymentList)} records. <br />
 
 <form name="f" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="POST">
 	<input type=hidden name="<%=PactsConstants.TASK_STRING%>" value="<%=PactsConstants.PAYMENT_TASK%>">
