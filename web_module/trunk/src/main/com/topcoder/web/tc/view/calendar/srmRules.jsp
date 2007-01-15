@@ -40,10 +40,12 @@
     <jsp:param name="title" value="SRM Official Rules & Qualification"/>
 </jsp:include>
 
-<% if (round_id == 7223 || round_id == 8004 || round_id == 8005 || round_id == 7227 ||
-        round_id == 8007 || round_id == 8069 || round_id == 8074 || round_id == 8083 ||
-        round_id == 8070 || round_id == 8073 || round_id == 8076 || round_id == 8080 ||
-        round_id == 9995 || round_id == 10005 || round_id == 10002) { %>
+<% if (round_id == 7223 || round_id == 8004 || round_id == 8005 || round_id == 7227 || round_id == 8007 ||
+        round_id == 8080 || round_id == 8069 || round_id == 8074 || round_id == 8083 || round_id == 9812 ||
+        round_id == 9815 || round_id == 9816 || round_id == 9820 || round_id == 9822 || round_id == 9997 ||
+        round_id == 9992 || round_id == 9999 || round_id == 10004 || round_id == 9995 || round_id == 10005 ||
+        round_id == 10002 || round_id == 10659 || round_id == 10663 || round_id == 10665 || round_id == 10669 ||
+        round_id == 10674) { %>
                                 <span class="bigRed">
                                     <b>
                                         <rsc:item name="contest_name" row="<%=rsr%>"/>
