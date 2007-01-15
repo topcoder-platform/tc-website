@@ -53,11 +53,11 @@ public class Login extends ShortHibernateProcessor {
             password = StringUtils.checkNull(password);
             if (username.equals("") || password.equals("")) {
                 getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "You must enter a user name and a password.");
-
             } else {
                 try {
                     try {
                         loginUser(username, password);
+                        return;
                     } catch (TCWebException e) {
                         throw e;
                     } catch (LoginException e) {
@@ -74,16 +74,16 @@ public class Login extends ShortHibernateProcessor {
                     throw e;
                 }
             }
-
         }
-
         String nextpage = (String) getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY);
         if (nextpage == null) nextpage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
         if (nextpage == null) nextpage = getRequest().getHeader("Referer");
         if (nextpage == null) nextpage = getSessionInfo().getAbsoluteServletPath();
         getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, nextpage);
+
         setNextPage("/login.jsp");
         setIsNextPageInContext(true);
+
     }
 
     private void createSecurityUser(User u) throws Exception {
