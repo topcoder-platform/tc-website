@@ -50,10 +50,9 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="9">Active Software Assembly Contests</td>
+        <td class="title" colspan="8">Active Software Assembly Contests</td>
     </tr>
    <tr>
-      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Catalog</a></td>
       <td class="header" width="100%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Contest</a></td>
       <td class="header">&#160;</td>
       <td class="headerC" style="width: 80px;">
@@ -70,9 +69,6 @@
     <% boolean even = false; %>
     <rsc:iterator list="<%=contests %>" id="resultRow">
         <tr class="<%=even?"dark":"light"%>"> 
-            <td class="valueC">
-               <rsc:item name="catalog_name" row="<%=resultRow%>"/>
-            </td>
             <td class="value">
                 <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
                     <rsc:item name="contest_name" row="<%=resultRow%>"/>
