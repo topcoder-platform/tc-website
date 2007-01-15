@@ -94,10 +94,10 @@
                <%                 
                     switch (projectTypeId) {
                         case Base.COMPONENT_DESIGN_PROJECT_TYPE:%>
-			              Development
+			              Design
                 <%      break;
                         case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
-			              Design
+			              Development
                 <%      break;
                         case Base.ASSEMBLY_PROJECT_TYPE: %>
 			              Assembly
