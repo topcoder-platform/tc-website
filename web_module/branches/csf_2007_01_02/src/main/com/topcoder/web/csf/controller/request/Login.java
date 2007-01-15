@@ -185,7 +185,6 @@ public class Login extends ShortHibernateProcessor {
         }
 
         log.debug("correct user name and password " + res.value);
-        log.debug("on successful login, going to " + getNextPage());
         UserDAO dao = DAOUtil.getFactory().getUserDAO();
         User u = dao.find(user.value.getUserId(), false);
         if (u == null) {
@@ -218,7 +217,7 @@ public class Login extends ShortHibernateProcessor {
             setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
             setIsNextPageInContext(false);
         }
-
+        log.debug("on successful login, going to " + getNextPage());
         getAuthentication().login(new SimpleUser(u.getId().longValue(), u.getHandle(), u.getPassword()), false);
     }
 
