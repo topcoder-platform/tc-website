@@ -1,7 +1,10 @@
 package com.topcoder.web.common.voting;
 
 import java.io.Serializable;
-import java.util.*;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author dok
@@ -73,7 +76,9 @@ public class CondorcetSchulzeResults implements Serializable {
      * @return a <code>RankedResult</code> array containing the results
      */
     private RankedResult[] buildResults() {
-        Pair[] ret = new Pair[(int)(f(candidates.length)/(f(2)*f(candidates.length-2)))];
+        BigInteger len = new BigInteger(String.valueOf(candidates.length));
+        BigInteger two = new BigInteger("2");
+        Pair[] ret = new Pair[(f(len).divide(f(len.subtract(two))).divide(two)).intValue()];
         //log.debug("result size is " + ret.length);
         //log.debug("strength matrix \n" + m.toString());
         int count = 0;
@@ -148,11 +153,13 @@ public class CondorcetSchulzeResults implements Serializable {
 
     }
 
-    private long f(int n) {
-        if (n==1) {
-            return 1;
+    private static final BigInteger one = new BigInteger("1");
+
+        private static BigInteger f(BigInteger n) {
+        if (one.compareTo(n)==0) {
+            return one;
         } else {
-            return n*f(n-1);
+            return n.multiply(f(n.subtract(one)));
         }
     }
 
