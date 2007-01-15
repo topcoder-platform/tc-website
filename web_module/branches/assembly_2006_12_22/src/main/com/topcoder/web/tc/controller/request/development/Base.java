@@ -24,6 +24,10 @@ import java.util.Map;
 public abstract class Base extends BaseProcessor {
     protected Logger log = Logger.getLogger(Base.class);
 
+    public static final int COMPONENT_DESIGN_PROJECT_TYPE = 1;
+    public static final int COMPONENT_DEVELOPMENT_PROJECT_TYPE = 2;
+    public static final int ASSEMBLY_PROJECT_TYPE = 14;
+
     protected int getProjectTypeId(long projectId) throws Exception {
         ProjectLocal pl = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
         return pl.getProjectTypeId(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
@@ -31,11 +35,11 @@ public abstract class Base extends BaseProcessor {
     
     public static final String getProjectDetailPage(int projectTypeId) {
         switch (projectTypeId) {
-            case 1:
+            case COMPONENT_DESIGN_PROJECT_TYPE:
                 return Constants.DESIGN_DETAIL;
-            case 2:
+            case COMPONENT_DEVELOPMENT_PROJECT_TYPE:
                 return Constants.DEVELOPMENT_DETAIL;
-            case 14:
+            case ASSEMBLY_PROJECT_TYPE:
                 return "/dev/assembly/assemblyProjectDetail.jsp";
             default:
                 return "";
@@ -44,10 +48,10 @@ public abstract class Base extends BaseProcessor {
     
     public static final String getRegistrantsCommandName(int projectTypeId) {
         switch (projectTypeId) {
-            case 1:
-            case 2:
+            case COMPONENT_DESIGN_PROJECT_TYPE:
+            case COMPONENT_DEVELOPMENT_PROJECT_TYPE:
                 return "registrants";
-            case 14:
+            case ASSEMBLY_PROJECT_TYPE:
                 return "assembly_registrants";
             default:
                 return "";

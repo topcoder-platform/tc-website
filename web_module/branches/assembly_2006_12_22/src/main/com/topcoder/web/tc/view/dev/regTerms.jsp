@@ -6,6 +6,7 @@
    int projectTypeId = ((Integer) request.getAttribute(Constants.PROJECT_TYPE_ID)).intValue();
 %>
 <html>
+<%@ page import="com.topcoder.web.tc.controller.request.development.Base"%>
 <%@ page import="com.topcoder.web.common.model.SoftwareComponent" %>
 <%@ page import="com.topcoder.web.common.tag.AnswerInput" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -32,17 +33,17 @@
         <td width="180">
                <%                 
                     switch (projectTypeId) {
-                        case 1:%>
+                        case Base.COMPONENT_DESIGN_PROJECT_TYPE:%>
                             <jsp:include page="/includes/global_left.jsp">
                                 <jsp:param name="node" value="des_compete"/>
                             </jsp:include>
                 <%      break;
-                        case 2: %>
+                        case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
                             <jsp:include page="/includes/global_left.jsp">
                                 <jsp:param name="node" value="dev_compete"/>
                             </jsp:include>
                 <%      break;
-                        case 14: %>
+                        case Base.ASSEMBLY_PROJECT_TYPE: %>
                             <jsp:include page="/includes/global_left.jsp">
                                 <jsp:param name="node" value="assembly_compete"/>
                             </jsp:include>
@@ -61,19 +62,19 @@
 
                <%                 
                     switch (projectTypeId) {
-                        case 1:%>
+                        case Base.COMPONENT_DESIGN_PROJECT_TYPE:%>
                 			<jsp:include page="/page_title.jsp">
                                 <jsp:param name="image" value="comp_design"/>
                 			    <jsp:param name="title" value="Active Contests"/>
                 			</jsp:include>
                 <%      break;
-                        case 2: %>
+                        case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
                 			<jsp:include page="/page_title.jsp">
                                 <jsp:param name="image" value="comp_development"/>
                 			    <jsp:param name="title" value="Active Contests"/>
                 			</jsp:include>
                 <%      break;
-                        case 14: %>
+                        case Base.ASSEMBLY_PROJECT_TYPE: %>
                 			<jsp:include page="/page_title.jsp">
                                 <jsp:param name="image" value="assembly"/>
                 			    <jsp:param name="title" value="Active Contests"/>
@@ -85,11 +86,11 @@
             <form action="${sessionInfo.servletPath}" method="POST" name="regForm">
                <%                 
                     switch (projectTypeId) {
-                        case 1:
-                        case 2: %>
+                        case Base.COMPONENT_DESIGN_PROJECT_TYPE:
+                        case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
                             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ProjectRegister"/>
                 <%      break;
-                        case 14: %>
+                        case Base.ASSEMBLY_PROJECT_TYPE: %>
                             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="AssemblyProjectRegister"/>
                 <%      break;
                     }
