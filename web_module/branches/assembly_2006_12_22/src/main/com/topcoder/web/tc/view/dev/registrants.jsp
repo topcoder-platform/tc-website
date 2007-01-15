@@ -13,7 +13,7 @@
 
 	System.out.println("Registrants.jsp");
 	System.out.println("projectTypeId: " + projectTypeId);
-ResultSetContainer registrants;
+	ResultSetContainer registrants = null;
 	switch (projectTypeId) {
 		case 1:
 		case 2:
