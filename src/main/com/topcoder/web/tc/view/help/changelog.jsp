@@ -43,6 +43,13 @@
 </jsp:include>
 
 <p>
+    5.5.17 - 2007.01.15
+    <ul>
+        <li>Active Contests, registrants, project details and registration for assembly competitions pages were automated.</li>
+    </ul>
+</p>
+
+<p>
     5.5.16 - 2007.01.11
     <ul>
         <li>PACTS: when a tax form is added for a user, their payments are updated.</li>

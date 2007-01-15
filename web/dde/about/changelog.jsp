@@ -53,6 +53,13 @@
                         <H3>TopCoder Software Web Site Change Log</H3>
 
                         <p>
+                            2.0.4 - 2007.01.15
+                            <ul>
+                                <li>Project registration code was fixed to work with assembly projects.</li>
+                            </ul>
+                        </p>
+
+                        <p>
                             2.0.3 - 2007.01.08
                             <ul>
                                 <li>Automatic monitoring of review board eligibility fix.</li>
