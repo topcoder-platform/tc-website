@@ -29,6 +29,8 @@ public class ViewRegistrants extends Base {
 
             getRequest().setAttribute(Constants.PROJECT_TYPE_ID, new Integer(projectTypeId));
 
+            log.info("projectTypeId: " + projectTypeId);
+            
             Request r = new Request();
             r.setContentHandle(getRegistrantsCommandName(projectTypeId));
             r.setProperty(Constants.PROJECT_ID, String.valueOf(projectId));

@@ -10,7 +10,10 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <% int projectTypeId = ((Integer) request.getAttribute(Constants.PROJECT_TYPE_ID)).intValue();
-	ResultSetContainer registrants;
+
+	System.out.println("Registrants.jsp");
+	System.out.println("projectTypeId: " + projectTypeId);
+ResultSetContainer registrants;
 	switch (projectTypeId) {
 		case 1:
 		case 2:
