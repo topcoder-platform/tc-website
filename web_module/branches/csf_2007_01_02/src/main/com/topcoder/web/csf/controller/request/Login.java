@@ -1,11 +1,9 @@
 package com.topcoder.web.csf.controller.request;
 
-import com.topcoder.security.GeneralSecurityException;
-import com.topcoder.security.GroupPrincipal;
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.*;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.security.login.LoginRemote;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.ApplicationServer;
@@ -14,18 +12,23 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.UserDAO;
+import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.common.model.Email;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.csf.Microsoft.ConnectedServicesSandbox._2006._11.SandboxApi.Sandbox10Locator;
 import com.topcoder.web.csf.Microsoft.ConnectedServicesSandbox._2006._11.SandboxApi.Sandbox10Soap;
 import com.topcoder.web.csf.Microsoft.ConnectedServicesSandbox._2006._11.UserProfileManager.holders.SandboxUserHolder;
+import com.topcoder.web.tc.controller.request.authentication.EmailActivate;
 
 import javax.ejb.CreateException;
 import javax.naming.Context;
+import javax.naming.NamingException;
 import javax.xml.rpc.holders.BooleanHolder;
 import java.rmi.RemoteException;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Set;
 
 /**
  * @author dok
@@ -59,50 +62,17 @@ public class Login extends ShortHibernateProcessor {
             } else {
                 try {
                     try {
-                        Sandbox10Locator api = new Sandbox10Locator();
-                        Sandbox10Soap sandBox = api.getSandbox10Soap();
-                        BooleanHolder res = new BooleanHolder();
-                        SandboxUserHolder user = new SandboxUserHolder();
-                        sandBox.authenticate(username, password, res, user);
-                        log.debug("correct user name and password " + res.value);
-                        log.debug("on successful login, going to " + getNextPage());
-                        UserDAO dao = DAOUtil.getFactory().getUserDAO();
-                        User u =  dao.find(user.value.getUserId(), false);
-                        if (u==null) {
-                            log.debug("user doesn't exist, create in TC system " + user.value.getUserId());
-                            u = new User();
-                            u.setHandle(user.value.getUserId());
-                            u.setPassword("");
-                            Email a = new Email();
-                            a.setPrimary(Boolean.TRUE);
-                            a.setEmailTypeId(Email.TYPE_ID_PRIMARY);
-                            a.setStatusId(Email.STATUS_ID_UNACTIVE);
-                            a.setUser(u);
-                            u.addEmailAddress(a);
-                            dao.saveOrUpdate(u);
-                            createSecurityUser(u);
-                            markForCommit();
-                            closeConversation();
-                            beginCommunication();
-                            
-                        }
-                        String nextPage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
-                        if (nextPage != null && !nextPage.equals("")) {
-                            setNextPage(nextPage);
-                            setIsNextPageInContext(false);
+                        if (isAdmin(username)) {
+                            loginAdmin(username, password);
                         } else {
-                            setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
-                            setIsNextPageInContext(false);
+                            loginUser(username, password);
                         }
-
-                        getAuthentication().login(new SimpleUser(u.getId().longValue(), u.getHandle(), u.getPassword()), false);
-
-                        return;
+                    } catch (TCWebException e) {
+                        throw e;
+                    } catch (LoginException e) {
+                        throw e;
                     } catch (Exception e) {
-                        if (log.isDebugEnabled()) {
-                            e.printStackTrace();
-                        }
-                        throw new LoginException("Handle or password incorrect.");
+                        throw new TCWebException(e);
                     }
                 } catch (LoginException e) {
                     /* the login failed, so tell them what happened */
@@ -123,7 +93,7 @@ public class Login extends ShortHibernateProcessor {
         setIsNextPageInContext(true);
     }
 
-    private void createSecurityUser(User u) throws Exception, RemoteException, CreateException, GeneralSecurityException {
+    private void createSecurityUser(User u) throws Exception, GeneralSecurityException {
 
         Context ctx = null;
         try {
@@ -164,5 +134,151 @@ public class Login extends ShortHibernateProcessor {
 
     }
 
+    private boolean isAdmin(String handle) throws NamingException, CreateException, RemoteException, GeneralSecurityException {
+        Context ctx = null;
+        try {
+            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            PrincipalMgrRemote pmr = pmrh.create();
+            log.debug("create the security user");
+            UserPrincipal up = pmr.getUser(handle, DBMS.CSF_DATASOURCE_NAME);
+            TCSubject sub = pmr.getUserSubject(up.getId(), DBMS.CSF_DATASOURCE_NAME);
+            Set roles = sub.getPrincipals();
+            RolePrincipal rp;
+            for (Iterator it = roles.iterator(); it.hasNext();) {
+                rp = (RolePrincipal) it.next();
+                log.debug(rp.getName());
+                if ("CSF Contest Administrator".equals(rp.getName())) {
+                    return true;
+                }
+            }
+            return false;
+        } finally {
+            close(ctx);
+        }
+    }
+
+
+    private void loginUser(String username, String password) throws LoginException, TCWebException {
+        BooleanHolder res = new BooleanHolder();
+        SandboxUserHolder user = new SandboxUserHolder();
+        try {
+            Sandbox10Locator api = new Sandbox10Locator();
+            Sandbox10Soap sandBox = api.getSandbox10Soap();
+            sandBox.authenticate(username, password, res, user);
+        } catch (javax.xml.rpc.ServiceException e) {
+            if (log.isDebugEnabled()) {
+                e.printStackTrace();
+                log.debug("............linked cause............");
+                e.getLinkedCause().printStackTrace();
+                log.debug("............end linked cause .......");
+            }
+            throw new LoginException("Handle or password incorrect.");
+        } catch (RemoteException e) {
+            throw new TCWebException(e);
+        }
+
+        log.debug("correct user name and password " + res.value);
+        log.debug("on successful login, going to " + getNextPage());
+        UserDAO dao = DAOUtil.getFactory().getUserDAO();
+        User u = dao.find(user.value.getUserId(), false);
+        if (u == null) {
+            log.debug("user doesn't exist, create in TC system " + user.value.getUserId());
+            u = new User();
+            u.setHandle(user.value.getUserId());
+            u.setPassword("");
+            Email a = new Email();
+            a.setPrimary(Boolean.TRUE);
+            a.setEmailTypeId(Email.TYPE_ID_PRIMARY);
+            a.setStatusId(Email.STATUS_ID_UNACTIVE);
+            a.setUser(u);
+            u.addEmailAddress(a);
+            dao.saveOrUpdate(u);
+            try {
+                createSecurityUser(u);
+            } catch (Exception e) {
+                throw new TCWebException(e);
+            }
+            markForCommit();
+            closeConversation();
+            beginCommunication();
+
+        }
+        String nextPage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
+        if (nextPage != null && !nextPage.equals("")) {
+            setNextPage(nextPage);
+            setIsNextPageInContext(false);
+        } else {
+            setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
+            setIsNextPageInContext(false);
+        }
+
+        getAuthentication().login(new SimpleUser(u.getId().longValue(), u.getHandle(), u.getPassword()), false);
+    }
+
+    private void loginAdmin(String username, String password) throws Exception {
+        TCSubject sub = null;
+        //we need to check if they got the right user name and password before we check anything else
+        try {
+            LoginRemote login = (LoginRemote) com.topcoder.web.common.security.Constants.createEJB(LoginRemote.class);
+            sub = login.login(username, password, DBMS.JTS_OLTP_DATASOURCE_NAME);
+            log.debug("correct user name and password");
+        } catch (Exception e) {
+            throw new LoginException("Handle or password incorrect.");
+        }
+        char status = getStatus(sub.getUserId());
+        log.debug("status: " + status);
+        if (Arrays.binarySearch(WebConstants.ACTIVE_STATI, status) >= 0) {
+            //check if they have an active email address
+            if (getEmailStatus(sub.getUserId()) != EmailActivate.ACTIVE_STATUS) {
+                getAuthentication().logout();
+                log.debug("inactive email");
+                setNextPage("http://" + ApplicationServer.SERVER_NAME + "/tc?module=Static&d1=authentication&d2=emailActivate");
+                setIsNextPageInContext(false);
+            } else {
+                log.debug("user active");
+                String nextPage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
+                if (nextPage != null && !nextPage.equals("")) {
+                    setNextPage(nextPage);
+                    setIsNextPageInContext(false);
+                } else {
+                    setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
+                    setIsNextPageInContext(false);
+                }
+                log.debug("on successful login, going to " + getNextPage());
+                getAuthentication().login(new SimpleUser(0, username, password), false);
+            }
+        } else {
+            getAuthentication().logout();
+            if (Arrays.binarySearch(WebConstants.INACTIVE_STATI, status) >= 0) {
+                log.debug("user inactive");
+                throw new LoginException("Sorry, your account is not active.  " +
+                        "If you believe this is an error, please contact TopCoder.");
+            } else if (Arrays.binarySearch(WebConstants.UNACTIVE_STATI, status) >= 0) {
+                log.debug("user unactive");
+                getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "Your account is not active.  " +
+                        "Please review the activation email that was sent to you after registration.");
+            } else {
+                throw new NavigationException("Invalid account status");
+            }
+        }
+
+    }
+
+    /**
+     * shouldn't use ejb slooooooooow
+     *
+     * @param userId
+     * @return
+     * @throws Exception if user doesn't exist or some other ejb problem
+     */
+    private char getStatus(long userId) throws Exception {
+        return new UserDAOHibernate().find(new Long(userId)).getStatus().charValue();
+
+    }
+
+    private int getEmailStatus(long userId) throws Exception {
+        return new UserDAOHibernate().find(new Long(userId)).getPrimaryEmailAddress().getStatusId().intValue();
+    }
 
 }
