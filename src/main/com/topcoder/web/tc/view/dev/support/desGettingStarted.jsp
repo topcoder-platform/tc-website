@@ -79,7 +79,7 @@ Download the <a href="/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=desMemb
 Complete all of the necessary elements to the project as specified in the Member guide tutorial for design.</p>
 
 <p><span class="bodySubtitle">Step 10 - Submit</span><br/>
-<a href="http://software.topcoder.com/review/login.jsp">Login</a> to Project Submit and Review and submit your submission.</p>
+<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Login</a> to Project Submit and Review and submit your submission.</p>
 <br>
 <div align="center"><A href="/tc?module=Static&d1=dev&d2=support&d3=desPractice"><img src="/i/support/practice.gif" valign="top" border="0" alt="Ready to start practicing?" /></A></div>
 <br><br>
