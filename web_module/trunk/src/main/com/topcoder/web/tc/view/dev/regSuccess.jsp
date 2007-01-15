@@ -1,8 +1,11 @@
 <%@ page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<% int projectTypeId = ((Integer) request.getAttribute(Constants.PROJECT_TYPE_ID)).intValue(); %>
 <html>
 <%@ page import="com.topcoder.web.tc.Constants"%>
-<%@ page import="com.topcoder.web.common.model.SoftwareComponent"%> <head>
+<%@ page import="com.topcoder.web.tc.controller.request.development.Base"%>
+<%@ page import="com.topcoder.web.common.model.SoftwareComponent"%> 
+<head>
     <title>TopCoder - Message</title>
     <jsp:include page="/script.jsp"/>
     <jsp:include page="/style.jsp">
@@ -22,9 +25,25 @@
     <tr valign="top">
         <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-               <jsp:param name="node" value="<%= new Integer(SoftwareComponent.DESIGN_PHASE).equals(request.getAttribute(Constants.PHASE_ID))? "des_compete" : "dev_compete"%>"/>
-            </jsp:include>
+               <%                 
+                    switch (projectTypeId) {
+                        case Base.COMPONENT_DESIGN_PROJECT_TYPE:%>
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="des_compete"/>
+                            </jsp:include>
+                <%      break;
+                        case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="dev_compete"/>
+                            </jsp:include>
+                <%      break;
+                        case Base.ASSEMBLY_PROJECT_TYPE: %>
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="assembly_compete"/>
+                            </jsp:include>
+                <%      break;
+                    }
+                %>
         </td>
         <!-- Left Column Ends -->
 
@@ -34,10 +53,29 @@
 
         <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyText">
-            <jsp:include page="/page_title.jsp">
-                <jsp:param name="image" value="<%= new Integer(SoftwareComponent.DESIGN_PHASE).equals(request.getAttribute(Constants.PHASE_ID))? "comp_design" : "comp_development"%>"/>
-                <jsp:param name="title" value="Active Contests"/>
-            </jsp:include>
+               <%                 
+                    switch (projectTypeId) {
+                        case Base.COMPONENT_DESIGN_PROJECT_TYPE:%>
+                			<jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="comp_design"/>
+                			    <jsp:param name="title" value="Active Contests"/>
+                			</jsp:include>
+                <%      break;
+                        case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
+                			<jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="comp_development"/>
+                			    <jsp:param name="title" value="Active Contests"/>
+                			</jsp:include>
+                <%      break;
+                        case Base.ASSEMBLY_PROJECT_TYPE: %>
+                			<jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="assembly"/>
+                			    <jsp:param name="title" value="Active Contests"/>
+                			</jsp:include>
+                <%      break;
+                    }
+                %>                
+
 
             <p>
                 <strong>You have successfully registered for this contest.</strong>
