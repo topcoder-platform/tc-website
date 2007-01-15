@@ -6,7 +6,9 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.dataAccess.Request;
 
 /**
- * @author dok
+ * Added some code to permit other projects different from component competitions.
+ * 
+ * @author dok, pulky
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jan 4, 2006
  */
@@ -24,12 +26,14 @@ public class ViewRegistrants extends Base {
             if (projectTypeId == -1) {
                 throw new TCWebException("Could not find project information.");
             }
-            
+
+            getRequest().setAttribute(Constants.PROJECT_TYPE_ID, new Integer(projectTypeId));
+
             Request r = new Request();
             r.setContentHandle(getRegistrantsCommandName(projectTypeId));
             r.setProperty(Constants.PROJECT_ID, String.valueOf(projectId));
             getRequest().setAttribute("resultMap", getDataAccess().getData(r));
-            setNextPage(getRegistrantsPage(projectTypeId));
+            setNextPage("/dev/registrants.jsp");
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
             throw e;

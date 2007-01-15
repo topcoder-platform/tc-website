@@ -9,7 +9,6 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.tc.Constants;
@@ -17,32 +16,20 @@ import com.topcoder.web.tc.Constants;
 import java.util.Map;
 
 /**
- * @author dok
+ * Added some code to make project related controllers more generic.
+ * 
+ * @author dok, pulky
  *         Date: Feb 10, 2004
  */
 public abstract class Base extends BaseProcessor {
     protected Logger log = Logger.getLogger(Base.class);
 
     protected int getProjectTypeId(long projectId) throws Exception {
-/*        Request dataRequest = new Request();
-        dataRequest.setContentHandle("project_type");
-        dataRequest.setProperty(Constants.PROJECT_ID, String.valueOf(projectId));
-        ResultSetContainer rscProjectType = null;
-        try {
-            rscProjectType = (ResultSetContainer) getDataAccess().getData(dataRequest).get("project_type");
-        } catch (Exception e) {
-            return -1;
-        }
-        if (rscProjectType.size() <= 0) {
-            return -1;
-        }
-        return rscProjectType.getIntItem(0, "project_category_id");*/
-
         ProjectLocal pl = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
         return pl.getProjectTypeId(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
     
-    protected String getRegistrantsPage(int projectTypeId) {
+/*    protected String getRegistrantsPage(int projectTypeId) {
         switch (projectTypeId) {
             case 1:
             case 2:
@@ -52,7 +39,7 @@ public abstract class Base extends BaseProcessor {
             default:
                 return "";
         }
-    }
+    }*/
     
     protected String getProjectDetailPage(int projectTypeId) {
         switch (projectTypeId) {

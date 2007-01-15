@@ -9,7 +9,18 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<% ResultSetContainer registrants = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("registrants");%>
+<% int projectTypeId = ((Integer) request.getAttribute(Constants.PROJECT_TYPE_ID)).intValue();
+	ResultSetContainer registrants;
+	switch (projectTypeId) {
+		case 1:
+		case 2:
+			registrants = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("registrants");
+			break;
+		case 14:
+		    registrants = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("assembly_registrants");
+			break;
+	}
+%>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <head>
     <title>Active Contests</title>
@@ -31,9 +42,25 @@
     <tr valign="top">
         <!-- Left Column Begins-->
         <td width="180">
-         <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="<%=SoftwareComponent.DESIGN_PHASE==registrants.getIntItem(0, "phase_id")?"des_compete":"dev_compete"%>" />
-         </jsp:include>
+        <%                 
+             switch (projectTypeId) {
+                 case 1:%>
+                     <jsp:include page="/includes/global_left.jsp">
+                         <jsp:param name="node" value="des_compete"/>
+                     </jsp:include>
+         <%      break;
+                 case 2: %>
+                     <jsp:include page="/includes/global_left.jsp">
+                         <jsp:param name="node" value="dev_compete"/>
+                     </jsp:include>
+         <%      break;
+                 case 14: %>
+                     <jsp:include page="/includes/global_left.jsp">
+                         <jsp:param name="node" value="assembly_compete"/>
+                     </jsp:include>
+         <%      break;
+             }
+         %>
         </td>
         <!-- Left Column Ends -->
 
@@ -43,11 +70,28 @@
 
         <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyText">
-<jsp:include page="/page_title.jsp">
-    <jsp:param name="image" value="<%=SoftwareComponent.DESIGN_PHASE==registrants.getIntItem(0, "phase_id")?"comp_design":"comp_development"%>"/>
-    <jsp:param name="title" value="Active Contests"/>
-</jsp:include>
-
+               <%                 
+                    switch (projectTypeId) {
+                        case 1:%>
+                			<jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="comp_design"/>
+                			    <jsp:param name="title" value="Active Contests"/>
+                			</jsp:include>
+                <%      break;
+                        case 2: %>
+                			<jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="comp_development"/>
+                			    <jsp:param name="title" value="Active Contests"/>
+                			</jsp:include>
+                <%      break;
+                        case 14: %>
+                			<jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="assembly"/>
+                			    <jsp:param name="title" value="Active Contests"/>
+                			</jsp:include>
+                <%      break;
+                    }
+                %>    
 
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
@@ -55,7 +99,20 @@
 <td class="divider">
     <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
         <tr><td class="tableTitle" colspan="2">
-              <%=registrants.getStringItem(0, "phase")%> Contest Details</td></tr>
+               <%                 
+                    switch (projectTypeId) {
+                        case 1:%>
+			              Development
+                <%      break;
+                        case 2: %>
+			              Design
+                <%      break;
+                        case 14: %>
+			              Assembly
+                <%      break;
+                    }
+                %>
+                 Contest Details</td></tr>
         <tr>
             <td class="cat" nowrap="nowrap">Contest:</td>
             <td class="stat" align="right" nowrap="nowrap">
@@ -107,7 +164,19 @@
           <rsc:iterator list="<%=registrants%>" id="resultRow">
           <tr>
               <td class="statDk">
-                  <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='<%=resultRow.getStringItem("phase")%>'/>
+               <%                 
+                    switch (projectTypeId) {
+                        case 1:%>
+		                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Development'/>
+                <%      break;
+                        case 2: %>
+		                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Design'/>
+                <%      break;
+                        case 14: %>
+			                <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='<%=(resultRow.getIntItem("dev_rating") > resultRow.getIntItem("des_rating") ? "Development" : "Design")%>'/>
+                <%      break;
+                    }
+                %>
               </td>
               <td class="statDk" align="center" nowrap="0">
                   <rsc:item name="inquiry_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/>

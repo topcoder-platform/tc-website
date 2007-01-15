@@ -10,7 +10,9 @@ import com.topcoder.web.tc.Constants;
 import java.util.Map;
 
 /**
- * @author dok
+ * Added some code to permit other projects different from component competitions.
+ * 
+ * @author dok, pulky
  * Date: Mar 1, 2004
  */
 public class ProjectDetail extends Base {
