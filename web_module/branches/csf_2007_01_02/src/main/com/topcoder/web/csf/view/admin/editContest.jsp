@@ -248,8 +248,6 @@
 
 
 <script language="javascript" type="text/javascript">
-    <
-    !--
             Calendar.setup(
             {
                 inputField  : "<%=Constants.START_TIME%>",         // ID of the input field
@@ -270,7 +268,6 @@
         cache       : true
     }
             );
-    -- >
 </script>
 
 
