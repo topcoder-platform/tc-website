@@ -40,7 +40,7 @@ public abstract class Base extends BaseProcessor {
             case COMPONENT_DEVELOPMENT_PROJECT_TYPE:
                 return Constants.DEVELOPMENT_DETAIL;
             case ASSEMBLY_PROJECT_TYPE:
-                return "/dev/assembly/assemblyProjectDetail.jsp";
+                return "/dev/assembly/projectDetail.jsp";
             default:
                 return "";
         }
