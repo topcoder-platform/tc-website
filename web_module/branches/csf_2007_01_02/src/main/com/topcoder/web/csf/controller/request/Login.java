@@ -153,6 +153,8 @@ public class Login extends ShortHibernateProcessor {
                 }
             }
             return false;
+        } catch (NoSuchUserException e) {
+            return false;
         } finally {
             close(ctx);
         }
