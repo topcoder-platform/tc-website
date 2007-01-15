@@ -6,23 +6,12 @@
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.model.SoftwareComponent"%>
+<%@ page import="com.topcoder.web.tc.controller.request.development.Base"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <% int projectTypeId = ((Integer) request.getAttribute(Constants.PROJECT_TYPE_ID)).intValue();
-
-	System.out.println("Registrants.jsp");
-	System.out.println("projectTypeId: " + projectTypeId);
-	ResultSetContainer registrants = null;
-	switch (projectTypeId) {
-		case 1:
-		case 2:
-			registrants = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("registrants");
-			break;
-		case 14:
-		    registrants = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("assembly_registrants");
-			break;
-	}
+	ResultSetContainer registrants = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get(Base.getRegistrantsCommandName(projectTypeId));
 %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <head>

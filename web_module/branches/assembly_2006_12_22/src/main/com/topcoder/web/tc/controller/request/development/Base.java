@@ -29,19 +29,7 @@ public abstract class Base extends BaseProcessor {
         return pl.getProjectTypeId(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
     
-/*    protected String getRegistrantsPage(int projectTypeId) {
-        switch (projectTypeId) {
-            case 1:
-            case 2:
-                return "/dev/registrants.jsp";
-            case 14:
-                return "/dev/assembly/registrants.jsp";
-            default:
-                return "";
-        }
-    }*/
-    
-    protected String getProjectDetailPage(int projectTypeId) {
+    public static final String getProjectDetailPage(int projectTypeId) {
         switch (projectTypeId) {
             case 1:
                 return Constants.DESIGN_DETAIL;
@@ -54,7 +42,7 @@ public abstract class Base extends BaseProcessor {
         }
     }
     
-    protected String getRegistrantsCommandName(int projectTypeId) {
+    public static final String getRegistrantsCommandName(int projectTypeId) {
         switch (projectTypeId) {
             case 1:
             case 2:
