@@ -77,11 +77,13 @@ public class Login extends ShortHibernateProcessor {
                 } catch (LoginException e) {
                     /* the login failed, so tell them what happened */
                     getRequest().setAttribute(BaseServlet.MESSAGE_KEY, e.getMessage());
+                    getAuthentication().logout();
+                } catch (TCWebException e) {
+                    getAuthentication().logout();
+                    throw e;
                 }
             }
 
-            /* whatever was wrong with the submission, make sure they are logged out */
-            getAuthentication().logout();
         }
 
         String nextpage = (String) getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY);
