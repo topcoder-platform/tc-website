@@ -1,9 +1,10 @@
 package com.topcoder.web.csf.controller.request;
 
-import com.topcoder.security.*;
+import com.topcoder.security.GroupPrincipal;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
-import com.topcoder.security.login.LoginRemote;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.ApplicationServer;
@@ -12,23 +13,17 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.UserDAO;
-import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.common.model.Email;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.csf.Microsoft.ConnectedServicesSandbox._2006._11.SandboxApi.Sandbox10Locator;
 import com.topcoder.web.csf.Microsoft.ConnectedServicesSandbox._2006._11.SandboxApi.Sandbox10Soap;
 import com.topcoder.web.csf.Microsoft.ConnectedServicesSandbox._2006._11.UserProfileManager.holders.SandboxUserHolder;
-import com.topcoder.web.tc.controller.request.authentication.EmailActivate;
 
-import javax.ejb.CreateException;
 import javax.naming.Context;
-import javax.naming.NamingException;
 import javax.xml.rpc.holders.BooleanHolder;
 import java.rmi.RemoteException;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.Set;
 
 /**
  * @author dok
@@ -62,11 +57,7 @@ public class Login extends ShortHibernateProcessor {
             } else {
                 try {
                     try {
-                        if (isAdmin(username)) {
-                            loginAdmin(username, password);
-                        } else {
-                            loginUser(username, password);
-                        }
+                        loginUser(username, password);
                     } catch (TCWebException e) {
                         throw e;
                     } catch (LoginException e) {
@@ -95,7 +86,7 @@ public class Login extends ShortHibernateProcessor {
         setIsNextPageInContext(true);
     }
 
-    private void createSecurityUser(User u) throws Exception, GeneralSecurityException {
+    private void createSecurityUser(User u) throws Exception {
 
         Context ctx = null;
         try {
@@ -136,7 +127,7 @@ public class Login extends ShortHibernateProcessor {
 
     }
 
-    private boolean isAdmin(String handle) throws NamingException, CreateException, RemoteException, GeneralSecurityException {
+/*    private boolean isAdmin(String handle) throws NamingException, CreateException, RemoteException, GeneralSecurityException {
         Context ctx = null;
         try {
             ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
@@ -160,7 +151,7 @@ public class Login extends ShortHibernateProcessor {
         } finally {
             close(ctx);
         }
-    }
+    }*/
 
 
     private void loginUser(String username, String password) throws LoginException, TCWebException {
@@ -223,6 +214,7 @@ public class Login extends ShortHibernateProcessor {
         getAuthentication().login(new SimpleUser(u.getId().longValue(), u.getHandle(), u.getPassword()), false);
     }
 
+/*
     private void loginAdmin(String username, String password) throws Exception {
         TCSubject sub = null;
         //we need to check if they got the right user name and password before we check anything else
@@ -271,6 +263,7 @@ public class Login extends ShortHibernateProcessor {
         }
 
     }
+*/
 
     /**
      * shouldn't use ejb slooooooooow
@@ -279,6 +272,7 @@ public class Login extends ShortHibernateProcessor {
      * @return
      * @throws Exception if user doesn't exist or some other ejb problem
      */
+/*
     private char getStatus(long userId) throws Exception {
         return new UserDAOHibernate().find(new Long(userId)).getStatus().charValue();
 
@@ -287,5 +281,6 @@ public class Login extends ShortHibernateProcessor {
     private int getEmailStatus(long userId) throws Exception {
         return new UserDAOHibernate().find(new Long(userId)).getPrimaryEmailAddress().getStatusId().intValue();
     }
+*/
 
 }
