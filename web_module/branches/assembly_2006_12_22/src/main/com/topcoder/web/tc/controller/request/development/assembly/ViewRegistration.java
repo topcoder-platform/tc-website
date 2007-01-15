@@ -9,8 +9,6 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal;
-import com.topcoder.web.ejb.project.Project;
-import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseLocal;
 import com.topcoder.web.tc.Constants;
