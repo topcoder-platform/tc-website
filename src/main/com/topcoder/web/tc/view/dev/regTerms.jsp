@@ -2,8 +2,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<% List questionInfo = (List) request.getAttribute("questionInfo");%>
+<% List questionInfo = (List) request.getAttribute("questionInfo");
+   int projectTypeId = ((Integer) request.getAttribute(Constants.PROJECT_TYPE_ID)).intValue();
+%>
 <html>
+<%@ page import="com.topcoder.web.tc.controller.request.development.Base"%>
 <%@ page import="com.topcoder.web.common.model.SoftwareComponent" %>
 <%@ page import="com.topcoder.web.common.tag.AnswerInput" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -28,9 +31,25 @@
     <tr valign="top">
         <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="node" value="<%= new Integer(SoftwareComponent.DESIGN_PHASE).equals(request.getAttribute(Constants.PHASE_ID))? "des_compete" : "dev_compete"%>"/>
-            </jsp:include>
+               <%                 
+                    switch (projectTypeId) {
+                        case Base.COMPONENT_DESIGN_PROJECT_TYPE:%>
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="des_compete"/>
+                            </jsp:include>
+                <%      break;
+                        case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="dev_compete"/>
+                            </jsp:include>
+                <%      break;
+                        case Base.ASSEMBLY_PROJECT_TYPE: %>
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="assembly_compete"/>
+                            </jsp:include>
+                <%      break;
+                    }
+                %>
         </td>
         <!-- Left Column Ends -->
 
@@ -41,51 +60,79 @@
         <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyText">
 
-            <jsp:include page="/page_title.jsp">
-                <jsp:param name="image" value="<%= new Integer(SoftwareComponent.DESIGN_PHASE).equals(request.getAttribute(Constants.PHASE_ID))? "comp_design" : "comp_development"%>"/>
-                <jsp:param name="title" value="Active Contests"/>
-            </jsp:include>
+               <%                 
+                    switch (projectTypeId) {
+                        case Base.COMPONENT_DESIGN_PROJECT_TYPE:%>
+                			<jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="comp_design"/>
+                			    <jsp:param name="title" value="Active Contests"/>
+                			</jsp:include>
+                <%      break;
+                        case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
+                			<jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="comp_development"/>
+                			    <jsp:param name="title" value="Active Contests"/>
+                			</jsp:include>
+                <%      break;
+                        case Base.ASSEMBLY_PROJECT_TYPE: %>
+                			<jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="assembly"/>
+                			    <jsp:param name="title" value="Active Contests"/>
+                			</jsp:include>
+                <%      break;
+                    }
+                %>                
 
             <form action="${sessionInfo.servletPath}" method="POST" name="regForm">
-                <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ProjectRegister"/>
+               <%                 
+                    switch (projectTypeId) {
+                        case Base.COMPONENT_DESIGN_PROJECT_TYPE:
+                        case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
+                            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ProjectRegister"/>
+                <%      break;
+                        case Base.ASSEMBLY_PROJECT_TYPE: %>
+                            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="AssemblyProjectRegister"/>
+                <%      break;
+                    }
+                %>                
                 <tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID%>"/>
-
-                <tc:questionIterator list="<%=questionInfo%>" id="question">
-                    <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
-                        <tr>
-                            <td colspan="2" class="bodySubtitle" valign="top" width="100%">
-                                <jsp:getProperty name="question" property="text"/>
-                                <br/><br/>
-                                <hr width="100%" size="1" noshade/>
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="errorText">
-                                <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%>
-                                    <br/></tc-webtag:errorIterator>
-                            </td>
-                        </tr>
-                        <% boolean even = false; %>
-                        <tc:answerInput id="answerInput" question="<%=question%>">
-                            <tr class="<%=even?"formTextOdd":"formTextEven"%>">
-                                <td width="100%">
-                                    <%=answerText%>
-                                </td>
-                                <td align="center">
-                                    <%=answerInput%>
-                                </td>
-                            </tr>
-                            <% even = !even; %>
-                        </tc:answerInput>
-                    </table>
-                    <p><br/></p>
-                </tc:questionIterator>
-
+                <% if (projectTypeId == 1 || projectTypeId == 2) { %>
+                        <tc:questionIterator list="<%=questionInfo%>" id="question">
+                            <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
+                                <tr>
+                                    <td colspan="2" class="bodySubtitle" valign="top" width="100%">
+                                        <jsp:getProperty name="question" property="text"/>
+                                        <br/><br/>
+                                        <hr width="100%" size="1" noshade/>
+                                    </td>
+        
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="errorText">
+                                        <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%>
+                                            <br/></tc-webtag:errorIterator>
+                                    </td>
+                                </tr>
+                                <% boolean even = false; %>
+                                <tc:answerInput id="answerInput" question="<%=question%>">
+                                    <tr class="<%=even?"formTextOdd":"formTextEven"%>">
+                                        <td width="100%">
+                                            <%=answerText%>
+                                        </td>
+                                        <td align="center">
+                                            <%=answerInput%>
+                                        </td>
+                                    </tr>
+                                    <% even = !even; %>
+                                </tc:answerInput>
+                            </table>
+                            <p><br/></p>
+                        </tc:questionIterator>
+                <% } %>
                 <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="10" cols="60"/>
 
                 <p style="width: 510px;">
-                    <% if (request.getAttribute("notRegistered") != null) { %>
+                    <% if ((projectTypeId == 1 || projectTypeId == 2) && request.getAttribute("notRegistered") != null) { %>
                     <span class="errorText">
                      Please be aware that you are NOT REGISTERED for the tournament, and registering for this contest will not register you for the tournament.  If you don't register for the tournament prior to registering for this contest, it will not count in the tournament standings even if you sign up at a later date.
                      </span><br><br>

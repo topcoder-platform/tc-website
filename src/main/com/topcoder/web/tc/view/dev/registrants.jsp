@@ -6,10 +6,13 @@
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.model.SoftwareComponent"%>
+<%@ page import="com.topcoder.web.tc.controller.request.development.Base"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<% ResultSetContainer registrants = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("registrants");%>
+<% int projectTypeId = ((Integer) request.getAttribute(Constants.PROJECT_TYPE_ID)).intValue();
+	ResultSetContainer registrants = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get(Base.getRegistrantsCommandName(projectTypeId));
+%>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <head>
     <title>Active Contests</title>
@@ -31,9 +34,25 @@
     <tr valign="top">
         <!-- Left Column Begins-->
         <td width="180">
-         <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="<%=SoftwareComponent.DESIGN_PHASE==registrants.getIntItem(0, "phase_id")?"des_compete":"dev_compete"%>" />
-         </jsp:include>
+        <%                 
+             switch (projectTypeId) {
+                 case Base.COMPONENT_DESIGN_PROJECT_TYPE: %>
+                     <jsp:include page="/includes/global_left.jsp">
+                         <jsp:param name="node" value="des_compete"/>
+                     </jsp:include>
+         <%      break;
+                 case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
+                     <jsp:include page="/includes/global_left.jsp">
+                         <jsp:param name="node" value="dev_compete"/>
+                     </jsp:include>
+         <%      break;
+                 case Base.ASSEMBLY_PROJECT_TYPE: %>
+                     <jsp:include page="/includes/global_left.jsp">
+                         <jsp:param name="node" value="assembly_compete"/>
+                     </jsp:include>
+         <%      break;
+             }
+         %>
         </td>
         <!-- Left Column Ends -->
 
@@ -43,11 +62,28 @@
 
         <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyText">
-<jsp:include page="/page_title.jsp">
-    <jsp:param name="image" value="<%=SoftwareComponent.DESIGN_PHASE==registrants.getIntItem(0, "phase_id")?"comp_design":"comp_development"%>"/>
-    <jsp:param name="title" value="Active Contests"/>
-</jsp:include>
-
+               <%                 
+                    switch (projectTypeId) {
+                        case Base.COMPONENT_DESIGN_PROJECT_TYPE:%>
+                			<jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="comp_design"/>
+                			    <jsp:param name="title" value="Active Contests"/>
+                			</jsp:include>
+                <%      break;
+                        case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
+                			<jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="comp_development"/>
+                			    <jsp:param name="title" value="Active Contests"/>
+                			</jsp:include>
+                <%      break;
+                        case Base.ASSEMBLY_PROJECT_TYPE: %>
+                			<jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="assembly"/>
+                			    <jsp:param name="title" value="Active Contests"/>
+                			</jsp:include>
+                <%      break;
+                    }
+                %>    
 
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
@@ -55,25 +91,47 @@
 <td class="divider">
     <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
         <tr><td class="tableTitle" colspan="2">
-              <%=registrants.getStringItem(0, "phase")%> Contest Details</td></tr>
+               <%                 
+                    switch (projectTypeId) {
+                        case Base.COMPONENT_DESIGN_PROJECT_TYPE:%>
+			              Development
+                <%      break;
+                        case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
+			              Design
+                <%      break;
+                        case Base.ASSEMBLY_PROJECT_TYPE: %>
+			              Assembly
+                <%      break;
+                    }
+                %>
+                 Contest Details</td></tr>
         <tr>
             <td class="cat" nowrap="nowrap">Contest:</td>
             <td class="stat" align="right" nowrap="nowrap">
-                <rsc:item name="component_name" set="<%=registrants%>"/> <rsc:item name="version_text" set="<%=registrants%>"/>
-            </td>
-        </tr>
-        <tr>
-            <td class="cat" nowrap="nowrap">Component:</td>
-            <td class="stat" align="right" nowrap="nowrap">
-            <% if (registrants.getIntItem(0, "viewable")==1) { %>
-            <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" set="<%=registrants%>"/>">
-                <rsc:item name="component_name" set="<%=registrants%>"/>
-            </a>
-                <% } else { %>
-                <rsc:item name="component_name" set="<%=registrants%>"/>
+                <rsc:item name="component_name" set="<%=registrants%>"/> 
+               <% if (projectTypeId == Base.COMPONENT_DESIGN_PROJECT_TYPE ||
+                       projectTypeId == Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE) {
+               %>
+                	<rsc:item name="version_text" set="<%=registrants%>"/>
                 <% } %>
             </td>
         </tr>
+        <% if (projectTypeId == Base.COMPONENT_DESIGN_PROJECT_TYPE ||
+                projectTypeId == Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE) {
+        %>
+	        <tr>
+	            <td class="cat" nowrap="nowrap">Component:</td>
+	            <td class="stat" align="right" nowrap="nowrap">
+	            <% if (registrants.getIntItem(0, "viewable")==1) { %>
+	            <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" set="<%=registrants%>"/>">
+	                <rsc:item name="component_name" set="<%=registrants%>"/>
+	            </a>
+	                <% } else { %>
+	                <rsc:item name="component_name" set="<%=registrants%>"/>
+	                <% } %>
+	            </td>
+	        </tr>
+        <% } %>
         <tr>
             <td class="cat" nowrap="nowrap" style="padding-top: 3px">Catalog:</td>
             <td class="stat" align="right" nowrap="nowrap" style="padding-top: 3px">
@@ -107,7 +165,19 @@
           <rsc:iterator list="<%=registrants%>" id="resultRow">
           <tr>
               <td class="statDk">
-                  <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='<%=resultRow.getStringItem("phase")%>'/>
+               <%                 
+                    switch (projectTypeId) {
+                        case Base.COMPONENT_DESIGN_PROJECT_TYPE:%>
+		                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Development'/>
+                <%      break;
+                        case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
+		                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Design'/>
+                <%      break;
+                        case Base.ASSEMBLY_PROJECT_TYPE: %>
+			                <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='<%=(resultRow.getIntItem("dev_rating") > resultRow.getIntItem("des_rating") ? "Development" : "Design")%>'/>
+                <%      break;
+                    }
+                %>
               </td>
               <td class="statDk" align="center" nowrap="0">
                   <rsc:item name="inquiry_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/>

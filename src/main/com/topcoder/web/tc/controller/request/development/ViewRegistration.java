@@ -72,10 +72,10 @@ public class ViewRegistration extends Base {
         } else {
             projectId = Long.parseLong(getRequest().getParameter(Constants.PROJECT_ID));
         }
-        ProjectLocal pl = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
-        int phase = 111 + pl.getProjectTypeId(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
-        getRequest().setAttribute(Constants.PHASE_ID, new Integer(phase));
 
+        int projectTypeId = getProjectTypeId(projectId);
+
+        getRequest().setAttribute(Constants.PROJECT_TYPE_ID, new Integer(projectTypeId));
     }
 
     protected String getTerms() throws Exception {

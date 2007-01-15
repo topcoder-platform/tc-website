@@ -9,16 +9,55 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.project.Project;
+import com.topcoder.web.ejb.project.ProjectLocal;
+import com.topcoder.web.tc.Constants;
 
 import java.util.Map;
 
 /**
- * @author dok
+ * Added some code to make project related controllers more generic.
+ * 
+ * @author dok, pulky
  *         Date: Feb 10, 2004
  */
 public abstract class Base extends BaseProcessor {
     protected Logger log = Logger.getLogger(Base.class);
 
+    public static final int COMPONENT_DESIGN_PROJECT_TYPE = 1;
+    public static final int COMPONENT_DEVELOPMENT_PROJECT_TYPE = 2;
+    public static final int ASSEMBLY_PROJECT_TYPE = 14;
+
+    protected int getProjectTypeId(long projectId) throws Exception {
+        ProjectLocal pl = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
+        return pl.getProjectTypeId(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
+    }
+    
+    public static final String getProjectDetailPage(int projectTypeId) {
+        switch (projectTypeId) {
+            case COMPONENT_DESIGN_PROJECT_TYPE:
+                return Constants.DESIGN_DETAIL;
+            case COMPONENT_DEVELOPMENT_PROJECT_TYPE:
+                return Constants.DEVELOPMENT_DETAIL;
+            case ASSEMBLY_PROJECT_TYPE:
+                return "/dev/assembly/assemblyProjectDetail.jsp";
+            default:
+                return "";
+        }
+    }
+    
+    public static final String getRegistrantsCommandName(int projectTypeId) {
+        switch (projectTypeId) {
+            case COMPONENT_DESIGN_PROJECT_TYPE:
+            case COMPONENT_DEVELOPMENT_PROJECT_TYPE:
+                return "registrants";
+            case ASSEMBLY_PROJECT_TYPE:
+                return "assembly_registrants";
+            default:
+                return "";
+        }
+    }
+    
     final protected void businessProcessing() throws TCWebException {
         //get the data for the right side
         /*try {
