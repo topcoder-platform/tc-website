@@ -248,7 +248,7 @@ public class ForumsBean extends BaseEJB {
 	    	ArrayList categoriesList = new ArrayList();
 	    	while (itCategories.hasNext()) {
 				ForumCategory category = (ForumCategory)itCategories.next();
-				if (watchManager.isWatched(user, category) ^ isWatched) {
+				if (!(watchManager.isWatched(user, category) ^ isWatched)) {
 					categoriesList.add(category);
 				}
 	    	}
