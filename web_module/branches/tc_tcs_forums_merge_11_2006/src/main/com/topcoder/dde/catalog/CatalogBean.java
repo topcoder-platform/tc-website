@@ -996,7 +996,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         ComponentVersionInfo versionInfo = null;
         Document[] docs = null;
         Technology[] techs = null;
-        Forum[] forums = null;
+        ForumCategory[] forums = null;
         TeamMemberRole[] members = null;
         ComponentSummary[] dependencies = null;
         StringBuffer keywords = new StringBuffer(100);
@@ -1096,7 +1096,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
             String forumDbName = DBMS.getDbName(DBMS.FORUMS_DATASOURCE_NAME);
             query = new StringBuffer(500);
-            query.append("SELECT cat.categoryid, cat.creationdate, cat.modificationdate, ");
+            query.append("SELECT cat.categoryid, cat.creationdate, ");
             query.append("       p.propvalue, v.version, v.version_text    ");
             query.append("  FROM ");
             query.append(forumDbName).append(":jivecategory cat, ");
@@ -1118,16 +1118,16 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
                 ps = c.prepareStatement(query.toString());
                 ps.setLong(1, componentId);
-                ps.setLong(2, Forum.DELETED);
+                ps.setLong(2, ForumCategory.DELETED);
                 if (version >= 0) ps.setLong(3, version);
                 rs = ps.executeQuery();
 
                 List list = new ArrayList();
                 while (rs.next())
-                    list.add(new Forum(rs.getLong(1), new Date(rs.getLong(2)),
-                            new Date(rs.getLong(3)), rs.getLong(4), rs.getLong(5), rs.getString(6)));
+                    list.add(new ForumCategory(rs.getLong(1), new Date(rs.getLong(2)),
+                             rs.getLong(3), rs.getLong(4), rs.getString(5)));
 
-                forums = (Forum[]) list.toArray(new Forum[0]);
+                forums = (ForumCategory[]) list.toArray(new ForumCategory[0]);
 
             } finally {
                 try {
@@ -1662,7 +1662,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             collabModeratorRole = principalManager.getRole(Long.parseLong(getConfigValue("collaboration_moderator_role")));
             specUserRole = principalManager.getRole(Long.parseLong(getConfigValue("specification_user_role")));
             specModeratorRole = principalManager.getRole(Long.parseLong(getConfigValue("specification_moderator_role")));
-            if (forumType == Forum.SPECIFICATION) {
+            if (forumType == ForumCategory.SPECIFICATION) {
                 role = principalManager.createRole("ForumUser " + forumId, null);
                 perms = new PermissionCollection();
                 perms.addPermission(new ForumPostPermission(forumId));
@@ -1676,7 +1676,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             perms.addPermission(new ForumModeratePermission(forumId));
             policyManager.addPermissions(role, perms, null);
             policyManager.addPermissions(adminRole, perms, null);
-            if (forumType == Forum.SPECIFICATION) {
+            if (forumType == ForumCategory.SPECIFICATION) {
                 policyManager.addPermissions(specModeratorRole, perms, null);
             } else {
                 policyManager.addPermissions(collabModeratorRole, perms, null);
@@ -1814,7 +1814,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 	    		categoryID = forumsBean.createSoftwareComponentForums(newComponent.getComponentName(), ((Long)newComponent.getPrimaryKey()).longValue(),
 	    				((Long)newVersion.getPrimaryKey()).longValue(), newVersion.getPhaseId(), newComponent.getStatusId(), 
 	    				newComponent.getRootCategory(), newComponent.getShortDesc(), newVersion.getVersionText(), 
-	    				Forum.COLLABORATION, false);
+	    				ForumCategory.COLLABORATION, false);
 	    		//compforumHome.create(category, Forum.COLLABORATION, newVersion);
 	    	} catch (RemoteException e) {
 	    		ejbContext.setRollbackOnly();
@@ -1866,8 +1866,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 log.warn("Failed to parse the collab_forum_template property");
                 forum = forumadminHome.create().createForum(forum);
             }
-            compforumHome.create(forum.getId(), categoryID, Forum.COLLABORATION, newVersion);
-            createForumRoles(forum.getId(), Forum.COLLABORATION);
+            compforumHome.create(forum.getId(), categoryID, ForumCategory.COLLABORATION, newVersion);
+            createForumRoles(forum.getId(), ForumCategory.COLLABORATION);
         } 
         catch (ForumException exception) {
             ejbContext.setRollbackOnly();
