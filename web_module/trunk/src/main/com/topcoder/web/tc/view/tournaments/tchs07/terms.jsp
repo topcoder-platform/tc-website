@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -24,19 +25,22 @@
         <div class="contentSpacer">
           <h2>Registration</h2>
 
-<form name="terms" method="POST" action="">
+            <form name="terms" method="POST" action="${sessionInfo.servletPath}">
+                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCHS07SubmitRegistration"/>
+
 
 <p align="left">To complete your registration for the 2007 TopCoder&#174; High School Tournament you must <b>read and agree to</b> the terms listed below.</p>
 
 <div align="center">
-<iframe width="590" height="300" marginWidth="5" src=""></iframe>
+<iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tchs07&d3=termsContent&<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.TCHS07_TERMS_OF_USE_ID%>"></iframe>
 </div>
 <br><br>
 
 <div align="center">
-<span class="bigRed">Error</span>
+<tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>"><span class="bigRed">${err}</span>
+                        <br></tc-webtag:errorIterator>
 <br>
-<INPUT TYPE="checkbox" NAME=""/> I agree
+<INPUT TYPE="checkbox" NAME="<%=Constants.TERMS_AGREE%>"/>I agree
 </div>
 
 <div align="center">
