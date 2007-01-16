@@ -428,7 +428,7 @@ public class ComponentManagerBean
             Iterator forumIterator;
             try {
                 forumIterator = compforumHome.
-                        findByCompVersIdAndType(versionId, Forum.SPECIFICATION).iterator();
+                        findByCompVersIdAndType(versionId, ForumCategory.SPECIFICATION).iterator();
             } catch (FinderException impossible) {
                 throw new CatalogException("Could not find forum: " + impossible.toString());
             }
@@ -598,7 +598,7 @@ public class ComponentManagerBean
             specModeratorRole = principalManager.getRole(Long.parseLong(getConfigValue("specification_moderator_role")));
             //GT New  - Added this to make public forums
             userRole = principalManager.getRole(Long.parseLong(getConfigValue("user_role")));
-            if (forumType == Forum.SPECIFICATION) {
+            if (forumType == ForumCategory.SPECIFICATION) {
                 role = principalManager.createRole("ForumUser " + forumId, null);
                 perms = new PermissionCollection();
                 perms.addPermission(new ForumPostPermission(forumId));
@@ -619,7 +619,7 @@ public class ComponentManagerBean
             policyManager.addPermissions(role, perms, null);
             policyManager.addPermissions(adminRole, perms, null);
 
-            if (forumType == Forum.SPECIFICATION) {
+            if (forumType == ForumCategory.SPECIFICATION) {
                 policyManager.addPermissions(specModeratorRole, perms, null);
             } else {
                 policyManager.addPermissions(collabModeratorRole, perms, null);
@@ -719,7 +719,7 @@ public class ComponentManagerBean
 	    		categoryID = forumsBean.createSoftwareComponentForums(comp.getComponentName(), ((Long)comp.getPrimaryKey()).longValue(),
 	    				((Long)newVer.getPrimaryKey()).longValue(), newVer.getPhaseId(), comp.getStatusId(), 
 	    				comp.getRootCategory(), comp.getShortDesc(), newVer.getVersionText(), 
-	    				Forum.COLLABORATION, true);
+	    				ForumCategory.COLLABORATION, true);
 	    		//compforumHome.create(category, Forum.COLLABORATION, newVers);
 	    		//log.info("******* [ComponentManagerBean] finished createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
 	    	} catch (RemoteException e) {
@@ -744,8 +744,8 @@ public class ComponentManagerBean
                 log.warn("Failed to parse the collab_forum_template property");
                 forum = forumadminHome.create().createForum(forum);
             }
-            compforumHome.create(forum.getId(), categoryID, Forum.COLLABORATION, newVer);
-            createForumRoles(forum.getId(), Forum.COLLABORATION, true);
+            compforumHome.create(forum.getId(), categoryID, ForumCategory.COLLABORATION, newVer);
+            createForumRoles(forum.getId(), ForumCategory.COLLABORATION, true);
 
         } catch (ForumException exception) {
             ejbContext.setRollbackOnly();
@@ -960,7 +960,7 @@ public class ComponentManagerBean
             Collection forums;
             try {
                 forums = compforumHome.findByCompVersIdAndType(versionId,
-                        Forum.SPECIFICATION);
+                        ForumCategory.SPECIFICATION);
             } catch (FinderException exception) {
                 ejbContext.setRollbackOnly();
                 throw new CatalogException(exception.toString());
@@ -976,7 +976,7 @@ public class ComponentManagerBean
         	    		categoryID = forumsBean.createSoftwareComponentForums(compBean.getComponentName(), 
         	    				((Long)compBean.getPrimaryKey()).longValue(), ((Long)versionBean.getPrimaryKey()).longValue(), 
         	    				versionBean.getPhaseId(), compBean.getStatusId(), compBean.getRootCategory(), 
-        	    				compBean.getShortDesc(), versionBean.getVersionText(), Forum.SPECIFICATION, info.getPublicForum());
+        	    				compBean.getShortDesc(), versionBean.getVersionText(), ForumCategory.SPECIFICATION, info.getPublicForum());
         	    		//compforumHome.create(category, Forum.COLLABORATION, newVers);
         	    		//log.info("*** [ComponentManagerBean.updateVersionInfo()] finished createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
         	    	} catch (RemoteException e) {
@@ -1002,8 +1002,8 @@ public class ComponentManagerBean
                         forum = forumadminHome.create().createForum(forum);
                     }
                     newForum = forum.getId();
-                    compforumHome.create(newForum, categoryID, Forum.SPECIFICATION, versionBean);
-                    createForumRoles(newForum, Forum.SPECIFICATION, info.getPublicForum());
+                    compforumHome.create(newForum, categoryID, ForumCategory.SPECIFICATION, versionBean);
+                    createForumRoles(newForum, ForumCategory.SPECIFICATION, info.getPublicForum());
                 } catch (ForumException exception) {
                     ejbContext.setRollbackOnly();
                     throw new CatalogException(
