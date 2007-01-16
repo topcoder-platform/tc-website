@@ -1,4 +1,7 @@
-<%@ page import="com.topcoder.shared.util.DBMS,
+<%@ page import="com.jivesoftware.base.JiveConstants,
+                 com.jivesoftware.base.User,
+                 com.jivesoftware.forum.*,
+                 com.topcoder.shared.util.DBMS,
                  com.topcoder.web.common.BaseProcessor,
                  com.topcoder.web.common.StringUtils,
                  com.topcoder.web.forums.ForumConstants,
