@@ -3,6 +3,8 @@ package com.topcoder.web.forums.model;
 import com.jivesoftware.base.Log;
 import com.jivesoftware.base.UserNotFoundException;
 import com.jivesoftware.base.ext.SimpleUserAdapter;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.forums.controller.ForumsServlet;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -17,6 +19,7 @@ import java.util.Date;
  * Time: 12:04:35 PM
  */
 public class TCUser extends SimpleUserAdapter {
+    private final static Logger log = Logger.getLogger(ForumsServlet.class);
 
     /**
      * TC-specific fields
@@ -91,6 +94,7 @@ public class TCUser extends SimpleUserAdapter {
                 QUERY +
                         " and u.handle_lower = ? ";
 
+        log.debug("loadFromDb");
         Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -99,11 +103,11 @@ public class TCUser extends SimpleUserAdapter {
             if (ID > 0) {
                 pstmt = con.prepareStatement(FIND_BY_ID);
                 pstmt.setLong(1, ID);
-                System.out.println("query: " + FIND_BY_ID);
+                log.debug("query: " + FIND_BY_ID);
             } else {
                 pstmt = con.prepareStatement(FIND_BY_HANDLE);
                 pstmt.setString(1, username.toLowerCase());
-                System.out.println("query: " + FIND_BY_HANDLE);
+                log.debug("query: " + FIND_BY_HANDLE);
             }
             rs = pstmt.executeQuery();
 
