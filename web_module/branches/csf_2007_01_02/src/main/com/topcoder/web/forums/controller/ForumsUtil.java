@@ -546,7 +546,7 @@ public class ForumsUtil {
     }
     
     public static ForumCategory getMasterCategory(ForumCategory category) throws ForumCategoryNotFoundException {
-    	ForumFactory masterFactory = ForumFactory.getInstance(new TCAuthToken(1000012));
+    	ForumFactory masterFactory = ForumFactory.getInstance(new TCAuthToken(100129));
     	return masterFactory.getForumCategory(category.getID());
     }
 }

@@ -3,6 +3,15 @@
  */
 package com.topcoder.web.forums.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.lang.reflect.Constructor;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
 import com.jivesoftware.base.UnauthorizedException;
@@ -13,22 +22,24 @@ import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.RequestProcessor;
+import com.topcoder.web.common.RequestTracker;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.error.RequestRateExceededException;
+import com.topcoder.web.common.security.CSFForumsAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.StudioForumsAuthentication;
 import com.topcoder.web.common.security.TCForumsAuthentication;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.forums.controller.request.ForumsProcessor;
 import com.topcoder.web.tc.controller.request.authentication.Login;
-
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.lang.reflect.Constructor;
 
 /**
  * @author mtong
@@ -157,7 +168,9 @@ public class ForumsServlet extends BaseServlet {
                             handleLogin(request, response, info, ApplicationServer.SERVER_NAME);
                         } else if (authentication instanceof StudioForumsAuthentication) {
                             handleLogin(request, response, info, request.getServerName());
-                        }
+	                    } else if (authentication instanceof CSFForumsAuthentication) {
+	                        handleLogin(request, response, info, request.getServerName());
+	                    }
                         return;
                     } else {
                         log.info(info.getHandle() + " does not have access to " + pe.getResource().getName() + " sending to error");
