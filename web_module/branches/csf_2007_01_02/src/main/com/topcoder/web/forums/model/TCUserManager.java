@@ -36,6 +36,7 @@ public class TCUserManager extends UserManagerAdapter {
                             " where status = 'A'";
 
     public TCUserManager() {
+    	Log.debug("in TCUserManager" );
         Context context = null;
         try {
             context = new InitialContext();
