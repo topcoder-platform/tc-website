@@ -1,10 +1,9 @@
-<%@ page import="javax.naming.* %>
+<%@ page import="javax.naming.*" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
 <%@ page import="javax.rmi.*" %>
 <%@ page import="java.util.*" %>
-<%@ page import="java.sql.*" %>
 <%@ page import="java.lang.reflect.*" %>
 <%@ page import="javax.naming.Context" %>
 
@@ -146,8 +145,6 @@
                 strMessage += "Notification events were assigned";
             } catch (RemoteException re) {
                 strError += "RemoteException occurred while assigning notification event: " + re.getMessage();
-            } catch (SQLException e) {
-                strError += "SQLException occurred while assigning notification event: " + e.getMessage();
             }
         }
 
