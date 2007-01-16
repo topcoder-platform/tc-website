@@ -15,7 +15,7 @@
         <img src="/i/tournament/tchs07/contentN.png" alt="contentN" style="display: block;" />
 
         <jsp:include page="links.jsp" >
-        <jsp:param name="tabLev1" value="onlineschedule"/>
+        <jsp:param name="tabLev1" value="onlineSchedule"/>
         <jsp:param name="tabLev2" value=""/>
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>
