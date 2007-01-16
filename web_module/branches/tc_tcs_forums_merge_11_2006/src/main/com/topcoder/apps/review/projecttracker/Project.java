@@ -212,7 +212,7 @@ public class Project implements Serializable {
     /**
      * @return the forum id for this project.
      */
-    public long getforumCategoryId() {
+    public long getForumCategoryId() {
         return forumCategoryId;
     }
 
