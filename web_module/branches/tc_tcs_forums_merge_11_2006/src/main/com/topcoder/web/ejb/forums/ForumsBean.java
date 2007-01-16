@@ -13,6 +13,8 @@ import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumCategoryNotFoundException;
 import com.jivesoftware.forum.ResultFilter;
+import com.jivesoftware.forum.Watch;
+import com.jivesoftware.forum.WatchManager;
 import com.jivesoftware.base.Group;
 import com.jivesoftware.base.GroupManager;
 import com.jivesoftware.base.PermissionType;
@@ -190,9 +192,26 @@ public class ForumsBean extends BaseEJB {
      * Currently used only for software forums, without a maximum limit of categories that can be watched.
      */
     public void createCategoryWatch(long userID, long categoryID) throws ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException {
-    	ForumCategory category = forumFactory.getForumCategory(categoryID);
     	User user = forumFactory.getUserManager().getUser(userID);
+    	ForumCategory category = forumFactory.getForumCategory(categoryID);
     	forumFactory.getWatchManager().createWatch(user, category);
+    }
+    
+    public void createCategoryWatches(long userID, long[] categoryIDs) throws ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException {
+    	User user = forumFactory.getUserManager().getUser(userID);
+    	for (int i=0; i<categoryIDs.length; i++) {
+	    	ForumCategory category = forumFactory.getForumCategory(categoryIDs[i]);
+	    	forumFactory.getWatchManager().createWatch(user, category);
+    	}
+    }
+    
+    public void deleteCategoryWatch(long userID, long categoryID) throws ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException {
+    	User user = forumFactory.getUserManager().getUser(userID);
+    	ForumCategory category = forumFactory.getForumCategory(categoryID);
+    	Watch watch = forumFactory.getWatchManager().getWatch(user, category);
+    	if (watch != null) {
+    		forumFactory.getWatchManager().deleteWatch(watch);
+    	}
     }
     
     // Software Forums
@@ -216,6 +235,32 @@ public class ForumsBean extends BaseEJB {
     		return softwareCategoriesData;
     	} catch (ForumCategoryNotFoundException fe) {
     		log.info("*** error in obtaining software categories: " + fe);
+    		return null;
+    	}
+    }
+    
+    public String[][] getWatchedSoftwareCategoriesData(long userID, boolean isWatched) {
+    	User user = null;
+    	try {
+    		user = forumFactory.getUserManager().getUser(userID);
+	    	Iterator itCategories = forumFactory.getForumCategory(TCS_FORUMS_ROOT_CATEGORY_ID).getCategories();
+	    	WatchManager watchManager = forumFactory.getWatchManager();
+	    	ArrayList categoriesList = new ArrayList();
+	    	while (itCategories.hasNext()) {
+				ForumCategory category = (ForumCategory)itCategories.next();
+				if (watchManager.isWatched(user, category) ^ isWatched) {
+					categoriesList.add(category);
+				}
+	    	}
+	    	String[][] watchedSoftwareCategoriesData = new String[categoriesList.size()][2];
+	    	for (int i=0; i<categoriesList.size(); i++) {
+	    		ForumCategory category = (ForumCategory)categoriesList.get(i);
+	    		watchedSoftwareCategoriesData[i][0] = String.valueOf(category.getID());
+	    		watchedSoftwareCategoriesData[i][1] = String.valueOf(category.getName());
+	    	}
+	    	return watchedSoftwareCategoriesData;
+    	} catch (Exception e) {
+    		log.info("*** error in obtaining watched software categories data: " + e);
     		return null;
     	}
     }

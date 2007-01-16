@@ -322,7 +322,7 @@ public class Register extends ViewRegistration {
             ComponentManager componentManager = componentManagerHome.create(componentId);
             String project = componentManager.getComponentInfo().getName() +
                     (phase == ComponentVersionInfo.SPECIFICATION ? " Design" : " Development");
-            long activeForumId = componentManager.getActiveForum(Forum.SPECIFICATION).getId();
+            long activeForumCategoryId = componentManager.getActiveForumCategory(Forum.SPECIFICATION).getId();
 
             if (log.isDebugEnabled()) {
                 log.debug("creating user: " + UserManagerRemoteHome.EJB_REF_NAME);
@@ -369,14 +369,14 @@ public class Register extends ViewRegistration {
 
             if (phase == ComponentVersionInfo.SPECIFICATION) {
                 mail.setBody(getUser().getUserName() + ", \n\nRegistration Complete. \n\n" +
-                        "Thank you, for your interest in the " + project + " component. You now have access to the Developer Forum ( http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/forum/c_forum.jsp?f=" + activeForumId + " ) which can be used to obtain design documentation (see the Design Phase Documents thread), as well as to ask questions regarding the component design. Please post your questions at any time and a product manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early!\n\n" +
+                        "Thank you, for your interest in the " + project + " component. You now have access to the Developer Forum ( http://" + ApplicationServer.FORUMS_SERVER_NAME + "/?module=Category&categoryID=" + activeForumCategoryId + " ) which can be used to obtain design documentation (see the Design Phase Documents thread), as well as to ask questions regarding the component design. Please post your questions at any time and a product manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early!\n\n" +
                         "The deadline for submitting a solution is " + date + ". Please upload your design using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review.  If you encounter any problems, please contact us at service@topcodersoftware.com.  All late submissions will be ignored.\n\n" +
                         "If you have any questions please contact service@topcodersoftware.com\n\n" +
                         "TopCoder Software Team");
 
             } else {
                 mail.setBody(getUser().getUserName() + ", \n\nRegistration Complete. \n\n" +
-                        "Thank you, for your interest in the " + project + " component. You now have access to the Developer Forum ( http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/forum/c_forum.jsp?f=" + activeForumId + " ) which can be used to obtain the component design (See \"Development Phase Documents\" thread), as well as to ask questions regarding the development process or the component design. Please post your questions at any time and the component designer will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered, so get your questions in early!\n\n" +
+                        "Thank you, for your interest in the " + project + " component. You now have access to the Developer Forum ( http://" + ApplicationServer.FORUMS_SERVER_NAME + "/?module=Category&categoryID=" + activeForumCategoryId + " ) which can be used to obtain the component design (See \"Development Phase Documents\" thread), as well as to ask questions regarding the development process or the component design. Please post your questions at any time and the component designer will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered, so get your questions in early!\n\n" +
                         "The deadline for submitting a solution is " + date + ". Please upload your solution using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review. If you encounter any problems, please contact us at service@topcodersoftware.com.  Any late submissions will be ignored. \n\n" +
                         "If you have any questions please contact service@topcodersoftware.com\n\n" +
                         "TopCoder Software Team");

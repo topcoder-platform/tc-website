@@ -41,7 +41,7 @@ import java.net.URL;
 public class Project implements Serializable {
     private long id;
     private long componentId;
-    private long forumId;
+    private long forumCategoryId;
     private long compVersId;
     private PhaseInstance[] timeline;
     private User projectManager;
@@ -87,14 +87,14 @@ public class Project implements Serializable {
      * @param versionId DOCUMENT ME!
      * @param isPartOfDigitalRun
      */
-    public Project(long id, long componentId, long forumId, long compVersId, String name, String version,
+    public Project(long id, long componentId, long forumCategoryId, long compVersId, String name, String version,
                    User projectManager, User winner, PhaseInstance[] timeline, PhaseInstance currentPhase, UserRole[] userRole,
                    String notes, String overView, ProjectType projectType, ProjectStatus projectStatus,
                    boolean notificationSent, long screeningTemplateId, long reviewTemplateId, long requestorId,
                    long versionId, long levelId, boolean autopilot, boolean responseDuringAppeals, boolean aolComponent, boolean isPartOfDigitalRun) {
         this.id = id;
         this.componentId = componentId;
-        this.forumId = forumId;
+        this.forumCategoryId = forumCategoryId;
         this.compVersId = compVersId;
         this.name = name;
         this.version = version;
@@ -212,8 +212,8 @@ public class Project implements Serializable {
     /**
      * @return the forum id for this project.
      */
-    public long getForumId() {
-        return forumId;
+    public long getforumCategoryId() {
+        return forumCategoryId;
     }
 
     /**

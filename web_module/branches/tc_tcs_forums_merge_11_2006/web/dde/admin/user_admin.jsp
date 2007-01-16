@@ -1,7 +1,4 @@
-<%@ page import="javax.naming.*,
-                 com.topcoder.dde.notification.NotificationEvent,
-                 com.topcoder.dde.notification.NotificationHome,
-                 com.topcoder.dde.notification.Notification" %>
+<%@ page import="javax.naming.* %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
@@ -12,23 +9,12 @@
 <%@ page import="javax.naming.Context" %>
 
 <%@ page import="com.topcoder.dde.catalog.*" %>
-<%@ page import="com.topcoder.dde.forum.*" %>
 <%@ page import="com.topcoder.web.ejb.forums.*" %>
 <%@ page import="com.topcoder.shared.util.TCContext" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="session.jsp" %>
-
-<%!
-    public String translateForumType(ForumComponent forumComponent, long associatedId) {
-        if (associatedId == forumComponent.getSpecForumId()) {
-            return "specification";
-        } else {
-            return "collaboration";
-        }
-    }
-%>
 
 <%
     // STANDARD PAGE VARIABLES
@@ -60,12 +46,6 @@
 
     String strError = "";
     String strMessage = "";
-
-    // Obtain a reference to Notification EJB
-    NotificationHome notificationHome
-        = (NotificationHome) PortableRemoteObject.narrow(CONTEXT.lookup(NotificationHome.EJB_REF_NAME),
-                                                         NotificationHome.class);
-    Notification notification = notificationHome.create();
 
 	if (request.getParameter("txtHandle") != null && action == null) {
 		action = "Lookup";
@@ -155,13 +135,14 @@
 
         // Handle the actions specific to notification event assignments
         if (action.equalsIgnoreCase("Assign Event")) {
-            debug.addMsg("user admin", "assigning notification events");
-            String[] strEvents = request.getParameterValues("selEvent");
             try {
+                String[] strCategoryIDs = request.getParameterValues("categoryID");
+	            long[] categoryIDs = new long[strCategoryIDs.length];
+	            for (int i=0; i<categoryIDs.length; i++) {
+	            	categoryIDs[i] = Long.parseLong(strCategoryIDs[i]);
+	            }
                 long lngUser = Long.parseLong(request.getParameter("user"));
-                for (int i = 0; i < strEvents.length; i++) {
-                    notification.assignEvent(Long.parseLong(strEvents[i]), lngUser);
-                }
+                forums.createCategoryWatches(lngUser, categoryIDs);
                 strMessage += "Notification events were assigned";
             } catch (RemoteException re) {
                 strError += "RemoteException occurred while assigning notification event: " + re.getMessage();
@@ -171,13 +152,10 @@
         }
 
         if (action.equalsIgnoreCase("RemoveEvent")) {
-            debug.addMsg("user admin", "unassigning notification event");
-            String strEvent = request.getParameter("event");
-            debug.addMsg("user admin", "unassign notification event" + strEvent);
             try {
-                long lngEvent = Long.parseLong(strEvent);
+                long categoryID = Long.parseLong(request.getParameter("categoryID"));
                 long lngUser = Long.parseLong(request.getParameter("user"));
-                notification.unassignEvent(lngUser, lngEvent);
+                forums.deleteCategoryWatch(lngUser, categoryID);
                 strMessage += "Notification event was unassigned";
             } catch (RemoteException re) {
                 strError += "RemoteException occurred while unassigning notification event: " + re.getMessage();
@@ -197,12 +175,6 @@
     Object objTechTypes = CONTEXT.lookup(CatalogHome.EJB_REF_NAME);
     CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
     Catalog catalog = home.create();
-
-    DDEForumHome ddeforumhome = (DDEForumHome) PortableRemoteObject.narrow(
-    CONTEXT.lookup(DDEForumHome.EJB_REF_NAME), DDEForumHome.class);
-    DDEForum ddeforum = ddeforumhome.create();
-
-
 %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -437,14 +409,6 @@
                 } catch (Exception e) {
                     debug.addMsg("user admin", "error parsing " + roleName);
                 }
-            } else if (roleName.startsWith("ForumModerator") || roleName.startsWith("ForumUser")) {
-                try {
-                    associatedId = Long.parseLong(roleName.substring(roleName.indexOf(" ") + 1, roleName.length()));
-                    ForumComponent forumComponent = ddeforum.getLinkedComponent(associatedId);
-                    associatedLabel = "(" + forumComponent.getName() + " - " + translateForumType(forumComponent, associatedId) + ")";
-                } catch (Exception e) {
-                    debug.addMsg("user admin", "error parsing " + roleName);
-                }
             }
 	%>
 	<%	if (!roleName.startsWith("ForumModerator") && !roleName.startsWith("ForumUser")) { %>
@@ -477,14 +441,6 @@
                 try {
                     associatedId = Long.parseLong(roleName.substring(roleName.indexOf(" ") + 1, roleName.length()));
                     associatedLabel = "(" + catalog.getComponent(associatedId).getName() + ")";
-                } catch (Exception e) {
-                    debug.addMsg("user admin", "error parsing " + roleName);
-                }
-            } else if (roleName.startsWith("ForumModerator") || roleName.startsWith("ForumUser")) {
-                try {
-                    associatedId = Long.parseLong(roleName.substring(roleName.indexOf(" ") + 1, roleName.length()));
-                    ForumComponent forumComponent = ddeforum.getLinkedComponent(associatedId);
-                    associatedLabel = "(" + forumComponent.getName() + " - " + translateForumType(forumComponent, associatedId) + ")";
                 } catch (Exception e) {
                     debug.addMsg("user admin", "error parsing " + roleName);
                 }
@@ -554,16 +510,13 @@
 <!-- User Notification Events begins -->
 
 			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
-				<tr><td class="adminSubhead">User Notification Events</td></tr>
+				<tr><td class="adminSubhead">User Notification Events (TCS Forums)</td></tr>
 			</table>
 
 			<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
-    <%
-        // Obtain a list of notification events assigned to user
-        Set events = notification.getAssignedEvents(selectedUser.getId());
-        NotificationEvent event;
-
-        if (events.size() > 0) {
+    <%	
+    	String[][] itWatches = forums.getWatchedSoftwareCategoriesData(selectedUser.getId(), true);
+        if (itWatches.length > 0) {
     %>
 				<tr valign="top">
 					<td width="80%" class="adminTitle">Notification Event</td>
@@ -571,19 +524,16 @@
 				</tr>
 
 	<%
-
             // Render the list of notification events assigned to user
-            Iterator iterator = events.iterator();
-            while (iterator.hasNext()) {
-                event = (NotificationEvent) iterator.next();
+            for (int i=0; i<itWatches.length; i++) {
     %>
 				<tr valign="top">
 					<td class="forumText">
-                        <%=event.getDescription()%>
+                        <%=itWatches[i][1]%>
                     </td>
 					<td class="forumTextCenter">
                         <strong>
-                            <a href="user_admin.jsp?lngPrincipal=<%=lngPrincipal%>&user=<%=selectedUser.getId()%>&event=<%=event.getId()%>&a=RemoveEvent">
+                            <a href="user_admin.jsp?lngPrincipal=<%=lngPrincipal%>&user=<%=selectedUser.getId()%>&categoryID=<%=itWatches[i][0]%>&a=RemoveEvent">
                                 Remove Event
                             </a>
                         </strong>
@@ -595,22 +545,18 @@
 
         // Render the drop-down list to select the notification event to assign to user
         // Such a drop-down list should better not contain the events already assigned to user
-        events = notification.getUnassignedEvents(selectedUser.getId());
-        if (events.size() > 0) {
+        itWatches = forums.getWatchedSoftwareCategoriesData(selectedUser.getId(), false);
+        if (itWatches.length > 0) {
 	%>
 
 				<tr valign="top">
 					<td class="forumSubject">
-						<select class="adminForm" name="selEvent" multiple="true" >
-	<%
-        Iterator iterator = events.iterator();
-        while (iterator.hasNext()) {
-            event = (NotificationEvent) iterator.next();
-	%>
-                           	<option value="<%=event.getId()%>">
-                                <%=event.getDescription()%>
+						<select class="adminForm" name="categoryID" multiple="true" >
+		<%	for (int i=0; i<itWatches.length; i++) { %>
+                           	<option value="<%=itWatches[i][0]%>">
+                                <%=itWatches[i][1]%>
                             </option>
-	<%  } %>
+		<%  } %>
                         </select>
                     </td>
 					<td class="forumSubjectCenter">
