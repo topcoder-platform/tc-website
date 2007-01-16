@@ -54,6 +54,7 @@ public class MemberProfile extends Base {
 
             int algRating = 0;
             int hsRating = 0;
+            int mmRating = 0;
             int desRating = 0;
             int devRating = 0;
 
@@ -69,6 +70,11 @@ public class MemberProfile extends Base {
                 if ((rsc.getItem(0, "hs_rating").getResultData() != null) && (rsc.getIntItem(0, "hs_rating") != 0)) {
                     hasHS = true;
                     hsRating = rsc.getIntItem(0, "hs_rating");
+                }
+
+                if ((rsc.getItem(0, "mm_rating").getResultData() != null) && (rsc.getIntItem(0, "mm_rating") != 0)) {
+                    //hasLong = true;
+                    mmRating = rsc.getIntItem(0, "mm_rating");
                 }
 
                 if (rsc.getItem(0, "design_rating").getResultData() != null) {
@@ -94,11 +100,13 @@ public class MemberProfile extends Base {
                         tab = "";
                     } else if (!hasAlg && !hasHS && !hasDes && !hasDev && hasLong) {
                         tab = "long";
-                    } else if (hasAlg && algRating >= hsRating && algRating >= desRating && algRating >= devRating) {
+                    } else if (hasAlg && algRating >= hsRating && algRating >= desRating && algRating >= devRating && algRating >= mmRating) {
                         tab = "alg";
-                    } else if (hasHS && hsRating >= algRating && hsRating >= desRating && hsRating >= devRating) {
+                    } else if (hasHS && hsRating >= algRating && hsRating >= desRating && hsRating >= devRating && hsRating >= mmRating) {
                         tab = "hs";
-                    } else if (hasDes && desRating >= algRating && desRating >= hsRating && desRating >= devRating) {
+                    } else if (hasLong && mmRating >= algRating && mmRating >= desRating && mmRating >= devRating && mmRating >= hsRating) {
+                        tab = "long";
+                    } else if (hasDes && desRating >= algRating && desRating >= hsRating && desRating >= devRating && desRating >= mmRating) {
                         tab = "des";
                     } else if (hasDev) {
                         tab = "dev";
