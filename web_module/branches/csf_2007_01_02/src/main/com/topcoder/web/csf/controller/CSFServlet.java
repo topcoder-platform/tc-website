@@ -7,10 +7,12 @@ import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.LightAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.csf.model.CSFSessionInfo;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.MissingResourceException;
+import java.util.Set;
 
 /**
  * @author dok
@@ -62,6 +64,13 @@ public class CSFServlet extends BaseServlet {
         }
         request.setAttribute("exception", e);
         fetchRegularPage(request, response, ERROR_PAGE, true);
+    }
+
+    protected SessionInfo createSessionInfo(TCRequest request,
+                                            WebAuthentication auth, Set groups) throws Exception {
+        CSFSessionInfo ret;
+        ret = new CSFSessionInfo(request, auth, groups);
+        return ret;
     }
 
 }
