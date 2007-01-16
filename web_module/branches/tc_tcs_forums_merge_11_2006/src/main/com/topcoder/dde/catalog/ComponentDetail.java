@@ -16,13 +16,13 @@ public class ComponentDetail implements Serializable {
     private ComponentVersionInfo vers;
     private Document[] docs;
     private Technology[] techs;
-    private Forum[] forums;
+    private ForumCategory[] forumCategories;
     private TeamMemberRole[] members;
     private ComponentSummary[] dependencies;
 
     public ComponentDetail(ComponentInfo info, ComponentSummary summary,
                            ComponentVersionInfo vers, Document[] docs,
-                           Technology[] techs, Forum[] forums,
+                           Technology[] techs, ForumCategory[] forumCategories,
                            TeamMemberRole[] members,
                            ComponentSummary[] dependencies) {
 
@@ -31,7 +31,7 @@ public class ComponentDetail implements Serializable {
         this.vers = vers;
         this.docs = docs;
         this.techs = techs;
-        this.forums = forums;
+        this.forumCategories = forumCategories;
         this.members = members;
         this.dependencies = dependencies;
     }
@@ -56,8 +56,8 @@ public class ComponentDetail implements Serializable {
         return techs;
     }
 
-    public Forum[] getForums() {
-        return forums;
+    public ForumCategory[] getForumCategories() {
+        return forumCategories;
     }
 
     public TeamMemberRole[] getMembers() {
