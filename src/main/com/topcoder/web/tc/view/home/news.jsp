@@ -9,6 +9,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.16.07<br>12:20 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm334">SRM 334 - Problem Set & Analysis</A></span><br><br>
+In Division 1, the problems were much easier than those in SRM 333. We didn't have 
+to wait long for the first submissions, with many coders scoring around 240 points on 
+the easy problem.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/Andrew_Lazarev_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7485898" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=srm334">full story</A> | 
+        <tc-webtag:forumLink forumID="506224" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorial" border="0" /><br>01.12.07<br>3:10 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -185,22 +204,5 @@ second and <tc-webtag:handle coderId="19931322" context="hs_algorithm"/> rounded
          <A href="/longcontest/?module=ViewOverview&rd=10681">results</A> | 
          <tc-webtag:forumLink forumID="506212" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.02.07<br>5:40 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm332">SRM 332 - Problem Set & Analysis</A></span><br><br>
-A tricky 550-pointer had a success rate of only 11.11% and proved to be one of the hardest Division One mediums ever. The lesson: never underestimate problems that look easy. Make a careless implementation or overlook a crucial corner case, and you could end up with 0 points.
-</td>
-      <td class="newsPhoto"><img src="/i/m/monsoon_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7502813" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=srm332">full story</A> | 
-        <tc-webtag:forumLink forumID="506007" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
