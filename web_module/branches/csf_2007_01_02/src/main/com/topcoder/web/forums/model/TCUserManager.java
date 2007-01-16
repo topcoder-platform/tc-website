@@ -129,12 +129,10 @@ public class TCUserManager extends UserManagerAdapter {
     }
 
     protected User lookupUser(long userID) throws UserNotFoundException {
-        Log.debug("Searching for user: " + userID);
     	return new TCUser(userID, dataSource);
     }
 
     protected User lookupUser(String username) throws UserNotFoundException {
-        Log.debug("Searching for user: " + username);
     	return new TCUser(username, dataSource);
     }
 
