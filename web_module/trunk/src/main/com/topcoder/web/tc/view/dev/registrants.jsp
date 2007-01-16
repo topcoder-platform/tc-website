@@ -168,10 +168,10 @@
                <%                 
                     switch (projectTypeId) {
                         case Base.COMPONENT_DESIGN_PROJECT_TYPE:%>
-		                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Development'/>
+		                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Design'/>
                 <%      break;
                         case Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE: %>
-		                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Design'/>
+		                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Development'/>
                 <%      break;
                         case Base.ASSEMBLY_PROJECT_TYPE: %>
 			                <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='<%=(resultRow.getIntItem("dev_rating") > resultRow.getIntItem("des_rating") ? "Development" : "Design")%>'/>
