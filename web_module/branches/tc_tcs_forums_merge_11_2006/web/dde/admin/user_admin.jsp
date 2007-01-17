@@ -21,6 +21,8 @@
     String action = request.getParameter("a");
 %>
 
+Action: <%=action%>
+
 <%	Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
 	Forums forums = null;
 	try {
@@ -133,7 +135,7 @@
         }
 
         // Handle the actions specific to notification event assignments
-        if (action.equalsIgnoreCase("Assign Event")) {
+        if (action.equalsIgnoreCase("Watch Forum")) {
             try {
                 String[] strCategoryIDs = request.getParameterValues("categoryID");
 	            long[] categoryIDs = new long[strCategoryIDs.length];
@@ -141,14 +143,14 @@
 	            	categoryIDs[i] = Long.parseLong(strCategoryIDs[i]);
 	            }
                 long lngUser = Long.parseLong(request.getParameter("user"));
-                forums.createCategoryWatches(lngUser, categoryIDs);
-                strMessage += "Notification events were assigned";
+                forums.createCategoryWatches(lngUser, categoryIDs); %> lngUser: <%=lngUser%> categoryID: <%=categoryIDs[0]%>
+       <%         strMessage += "Notification events were assigned";
             } catch (RemoteException re) {
                 strError += "RemoteException occurred while assigning notification event: " + re.getMessage();
             }
         }
 
-        if (action.equalsIgnoreCase("RemoveEvent")) {
+        if (action.equalsIgnoreCase("RemoveWatch")) {
             try {
                 long categoryID = Long.parseLong(request.getParameter("categoryID"));
                 long lngUser = Long.parseLong(request.getParameter("user"));
@@ -504,10 +506,10 @@
 	</table>
 <!-- Forum Roles ends -->
 
-<!-- User Notification Events begins -->
+<!-- Forum Watches begins -->
 
 			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
-				<tr><td class="adminSubhead">User Notification Events (TCS Forums)</td></tr>
+				<tr><td class="adminSubhead">Forum Watches</td></tr>
 			</table>
 
 			<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
@@ -530,8 +532,8 @@
                     </td>
 					<td class="forumTextCenter">
                         <strong>
-                            <a href="user_admin.jsp?lngPrincipal=<%=lngPrincipal%>&user=<%=selectedUser.getId()%>&categoryID=<%=itWatches[i][0]%>&a=RemoveEvent">
-                                Remove Event
+                            <a href="user_admin.jsp?lngPrincipal=<%=lngPrincipal%>&user=<%=selectedUser.getId()%>&categoryID=<%=itWatches[i][0]%>&a=RemoveWatch">
+                                Remove Watch
                             </a>
                         </strong>
                     </td>
@@ -557,14 +559,14 @@
                         </select>
                     </td>
 					<td class="forumSubjectCenter">
-                        <input class="adminButton" type="submit" name="a" value="Assign Event" />
+                        <input class="adminButton" type="submit" name="a" value="Watch Forum" />
                     </td>
 				</tr>
     <%  }  %>
 				<tr><td class="adminTitle" colspan="2"><img src="/images/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
 			</table>
 
-<!-- User Notification Events ends -->
+<!-- Forum Watches ends -->
 
 <% } %>
 			<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center">

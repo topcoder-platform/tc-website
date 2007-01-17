@@ -33,6 +33,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 
+import javax.ejb.EJBException;
+
 /**
  * This class handles interaction with the Jive database.
  * Please update the code if you know of a way to use Jive objects remotely, instead of using primitives. 
@@ -191,26 +193,50 @@ public class ForumsBean extends BaseEJB {
     /* 
      * Currently used only for software forums, without a maximum limit of categories that can be watched.
      */
-    public void createCategoryWatch(long userID, long categoryID) throws ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException {
-    	User user = forumFactory.getUserManager().getUser(userID);
-    	ForumCategory category = forumFactory.getForumCategory(categoryID);
-    	forumFactory.getWatchManager().createWatch(user, category);
+    public void createCategoryWatch(long userID, long categoryID) {
+    	try {
+    		User user = forumFactory.getUserManager().getUser(userID);
+    		ForumCategory category = forumFactory.getForumCategory(categoryID);
+    		forumFactory.getWatchManager().createWatch(user, category);
+    	} catch (ForumCategoryNotFoundException fe) {
+    		throw new EJBException(fe);
+    	} catch (UnauthorizedException ue) {
+    		throw new EJBException(ue);
+    	} catch (UserNotFoundException unfe) {
+    		throw new EJBException(unfe);
+    	}
     }
     
-    public void createCategoryWatches(long userID, long[] categoryIDs) throws ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException {
-    	User user = forumFactory.getUserManager().getUser(userID);
-    	for (int i=0; i<categoryIDs.length; i++) {
-	    	ForumCategory category = forumFactory.getForumCategory(categoryIDs[i]);
-	    	forumFactory.getWatchManager().createWatch(user, category);
+    public void createCategoryWatches(long userID, long[] categoryIDs) {
+    	try {
+	    	User user = forumFactory.getUserManager().getUser(userID);
+	    	for (int i=0; i<categoryIDs.length; i++) {
+		    	ForumCategory category = forumFactory.getForumCategory(categoryIDs[i]);
+		    	forumFactory.getWatchManager().createWatch(user, category);
+	    	}
+    	} catch (ForumCategoryNotFoundException fe) {
+    		throw new EJBException(fe);
+    	} catch (UnauthorizedException ue) {
+    		throw new EJBException(ue);
+    	} catch (UserNotFoundException unfe) {
+    		throw new EJBException(unfe);
     	}
     }
     
     public void deleteCategoryWatch(long userID, long categoryID) throws ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException {
-    	User user = forumFactory.getUserManager().getUser(userID);
-    	ForumCategory category = forumFactory.getForumCategory(categoryID);
-    	Watch watch = forumFactory.getWatchManager().getWatch(user, category);
-    	if (watch != null) {
-    		forumFactory.getWatchManager().deleteWatch(watch);
+    	try {
+	    	User user = forumFactory.getUserManager().getUser(userID);
+	    	ForumCategory category = forumFactory.getForumCategory(categoryID);
+	    	Watch watch = forumFactory.getWatchManager().getWatch(user, category);
+	    	if (watch != null) {
+	    		forumFactory.getWatchManager().deleteWatch(watch);
+	    	}
+    	} catch (ForumCategoryNotFoundException fe) {
+    		throw new EJBException(fe);
+    	} catch (UnauthorizedException ue) {
+    		throw new EJBException(ue);
+    	} catch (UserNotFoundException unfe) {
+    		throw new EJBException(unfe);
     	}
     }
     

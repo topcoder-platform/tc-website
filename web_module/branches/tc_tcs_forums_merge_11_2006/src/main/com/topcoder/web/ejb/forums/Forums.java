@@ -29,11 +29,11 @@ public interface Forums extends EJBObject {
     
     public void closeCategory(long categoryID) throws EJBException, RemoteException, ForumCategoryNotFoundException, UnauthorizedException;
     
-    public void createCategoryWatch(long userID, long categoryID) throws EJBException, RemoteException, ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException;
+    public void createCategoryWatch(long userID, long categoryID) throws EJBException, RemoteException;
     
-    public void createCategoryWatches(long userID, long[] categoryIDs) throws EJBException, RemoteException, ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException;
+    public void createCategoryWatches(long userID, long[] categoryIDs) throws EJBException, RemoteException;
     
-    public void deleteCategoryWatch(long userID, long categoryID) throws EJBException, RemoteException, ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException;
+    public void deleteCategoryWatch(long userID, long categoryID) throws EJBException, RemoteException;
     
     public com.topcoder.dde.catalog.ForumCategory getSoftwareForumCategory(long categoryID, long version, String versionLabel) 
     	throws EJBException, RemoteException, ForumCategoryNotFoundException; 
