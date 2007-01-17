@@ -100,7 +100,7 @@
                                 </tr>
                                 <tr>
                                     <td class="tableHeader" width="20%">
-                                        <A href="<%=sortLinkBase%><tc-webtag:sort column="1"/>">Handle</A></td>
+                                        <A href="<%=sortLinkBase%><tc-webtag:sort column="1"/>">Jandle</A></td>
                                     <td class="tableHeader" width="20%">
                                         <A href="<%=sortLinkBase%><tc-webtag:sort column="4"/>">Country</A></td>
                                     <td class="tableHeader" width="10%">
