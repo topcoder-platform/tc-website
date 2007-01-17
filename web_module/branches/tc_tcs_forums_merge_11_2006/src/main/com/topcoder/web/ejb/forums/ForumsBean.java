@@ -265,7 +265,7 @@ public class ForumsBean extends BaseEJB {
 	    	}
 	    	
 	    	Collections.sort(categoriesList, 
-	    			new JiveForumCategoryComparator("description", ResultFilter.ASCENDING));
+	    			new JiveForumCategoryComparator("name", ResultFilter.ASCENDING));
 	    	
 	    	String[][] watchedSoftwareCategoriesData = new String[categoriesList.size()][2];
 	    	for (int i=0; i<categoriesList.size(); i++) {
