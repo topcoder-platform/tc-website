@@ -108,7 +108,7 @@ public abstract class PactsBaseProcessor extends BaseProcessor{
     }
 
     protected Date checkDate(String name, String errorMsg) {
-        SimpleDateFormat dfmt = new SimpleDateFormat(PactsConstants.DATE_FORMAT_STRING);
+        SimpleDateFormat dfmt = new SimpleDateFormat("MM/dd/yy");
         Date d = null;
         try {
             d = dfmt.parse((String) getRequest().getParameter(name));
