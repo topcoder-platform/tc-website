@@ -97,6 +97,15 @@ This member has not yet been rated in a competition.
                 not rated
             <%}%>
             </td></tr>
+            <tr><td class="cat" nowrap="nowrap">Marathon Matches Rating:</td><td class="stat" align="right">
+            <%if(rscCoderData.getStringItem(0, "mm_rating") != null) {%>
+                <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "mm_rating")%>'>
+                <rsc:item name="mm_rating" set="<%=rscCoderData%>" format="####"/>
+                </tc-webtags:ratingColor>
+            <%} else {%>
+                not rated
+            <%}%>
+            </td></tr>
             <tr><td class="cat" colspan="2">&#160;</td></tr>
 <% if (!registeredHS || (rscCoderData.getStringItem(0, "rating") != null) || (rscCoderData.getStringItem(0, "design_rating") != null) || (rscCoderData.getStringItem(0, "development_rating") != null)) { %>
             <tr><td class="cat" nowrap="nowrap">Total Earnings:</td><td class="stat" align="right">
