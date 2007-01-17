@@ -68,7 +68,7 @@ public class LongContestTestCaseRenderer extends BaseRenderer implements Element
 //        buf.append(BaseRenderer.encodeHTML(breakIt(testCase.getOutput())));
         String output = testCase.getOutput();
         //pretty printer is enclosing it in double quotes, we're removing them here.  would be nice if there was a less crappy solution
-        buf.append(output.substring(1, output.length()-2));
+        buf.append(output.substring(1, output.length()-1));
         buf.append("</pre>");
         buf.append("</td></tr>");
 
