@@ -49,13 +49,13 @@
                 <p align="center">
                     <tc-webtag:errorIterator id="err" name="<%=RegistrationBase.IN_COLLEGE%>"><span class="bigRed">${err}
                         <br/></span></tc-webtag:errorIterator>
-                    Are you enrolled full time at a college or university? <tc-webtag:listSelect name='<%=RegistrationBase.IN_COLLEGE%>' size="<%=String.valueOf(RegistrationBase.YES_NO_ANSWERS.size())%>" list="<%=RegistrationBase.YES_NO_ANSWERS%>"/>
+                    Are you enrolled full time at a college or university? <tc-webtag:listSelect name='<%=RegistrationBase.IN_COLLEGE%>' list="<%=RegistrationBase.YES_NO_ANSWERS%>"/>
                 </p>
 
                 <p align="center">
                     <tc-webtag:errorIterator id="err" name="<%=RegistrationBase.IN_HIGH_SCHOOL%>"><span class="bigRed">${err}
                         <br/></span></tc-webtag:errorIterator>
-                    Are you enrolled full time at a secondary school? <tc-webtag:listSelect name='<%=RegistrationBase.IN_HIGH_SCHOOL%>' size="<%=String.valueOf(RegistrationBase.YES_NO_ANSWERS.size())%>" list="<%=RegistrationBase.YES_NO_ANSWERS%>"/>
+                    Are you enrolled full time at a secondary school? <tc-webtag:listSelect name='<%=RegistrationBase.IN_HIGH_SCHOOL%>' list="<%=RegistrationBase.YES_NO_ANSWERS%>"/>
                 </p>
 
 
