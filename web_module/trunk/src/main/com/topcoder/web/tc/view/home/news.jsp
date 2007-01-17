@@ -9,6 +9,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.17.07<br>6:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm28">TCHS SRM 28 - Problem Set & Analysis</A></span><br><br>
+High school competitions are enjoying a steady level of popularity and, with an attendance of 159 participants, this match was no exception.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/supernova_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7371063" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm28">full story</A> | 
+        <tc-webtag:forumLink forumID="506244" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.16.07<br>12:20 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -189,20 +206,5 @@ second and <tc-webtag:handle coderId="19931322" context="hs_algorithm"/> rounded
          <A href="/tc?module=Static&d1=features&d2=010407">full story</A> | 
          <tc-webtag:forumLink forumID="506222" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>01.04.07<br>9:40 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/longcontest/?module=ViewOverview&rd=10681">Intel&#174; Multi-Threading Competition 12 Results</A>
-      </span><br><br>
-      The Intel&#174; Multi-Threading Competition 12 results are in. Congratulations to the first place winner, <tc-webtag:handle coderId="11771960" />.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/longcontest/?module=ViewOverview&rd=10681">results</A> | 
-         <tc-webtag:forumLink forumID="506212" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
 
