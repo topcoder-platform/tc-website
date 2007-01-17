@@ -4,11 +4,11 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.ejb.user.UserTermsOfUseLocal;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.Base;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -20,13 +20,14 @@ import java.util.List;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jan 16, 2007
  */
-public abstract class RegistrationBase extends Base {
+public abstract class RegistrationBase extends ShortHibernateProcessor {
 
     public static final String AGE = "age";
     public static final String IN_COLLEGE = "incollege";
     public static final String IN_HIGH_SCHOOL = "inhs";
 
     public static final List YES_NO_ANSWERS;
+
     static {
         YES_NO_ANSWERS = new ArrayList();
         YES_NO_ANSWERS.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
@@ -34,7 +35,7 @@ public abstract class RegistrationBase extends Base {
     }
 
 
-    protected void businessProcessing() throws Exception {
+    protected void dbProcessing() throws Exception {
 
         getRequest().setAttribute(Constants.TERMS_OF_USE_ID, String.valueOf(getTermsId()));
         if (getUser().isAnonymous()) {
@@ -60,7 +61,6 @@ public abstract class RegistrationBase extends Base {
             setNextPage();
         }
     }
-
 
 
     public boolean isRegistered() throws Exception {
