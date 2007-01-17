@@ -2,6 +2,7 @@
 <%@ page import="java.util.Map"%>
 <%@ page language="java"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Long_Data"); %>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
     <tr>
@@ -9,7 +10,7 @@
             <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
                 <tr><td class="tableTitle" colspan="2">Marathon Matches</td></tr>
 		        <tr>
-		            <td class="ratingBox" colspan="2">Rating:<br>
+		            <td class="ratingBox">Rating:<br>
 		                <%if (rsc.getIntItem(0, "rating") != 0) {%>
 		                <tc-webtags:ratingColor rating='<%=rsc.getIntItem(0, "rating")%>'>
 		                    <rsc:item name="rating" set="<%=rsc%>" format="####"/>
