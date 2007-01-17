@@ -223,7 +223,7 @@ public class ForumsBean extends BaseEJB {
     	}
     }
     
-    public void deleteCategoryWatch(long userID, long categoryID) throws ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException {
+    public void deleteCategoryWatch(long userID, long categoryID) {
     	try {
 	    	User user = forumFactory.getUserManager().getUser(userID);
 	    	ForumCategory category = forumFactory.getForumCategory(categoryID);
