@@ -42,22 +42,22 @@ public class SubmitRegistration extends ViewRegistration {
             addError(IN_HIGH_SCHOOL, "Please respond to this question.");
         }
 
+        if (!"on".equals(termsAgree)) {
+            addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
+        }
+
         if (hasErrors()) {
             setDefault(Constants.TERMS_AGREE, String.valueOf("on".equals(termsAgree)));
             setDefault(AGE, ageInput);
             setDefault(IN_COLLEGE, inCollegeInput);
             setDefault(IN_HIGH_SCHOOL, inHighSchoolInput);
         } else {
-            if ("on".equals(termsAgree)) {
                 //todo store all their answers about age etc.
                     UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
                     User user = userDAO.find(new Long(getUser().getId()));
                     user.addTerms(DAOUtil.getFactory().getTermsOfUse().find(new Integer(getTermsId())));
                     userDAO.saveOrUpdate(user);
                     refreshCache();
-            } else {
-                addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
-            }
         }
 
     }
