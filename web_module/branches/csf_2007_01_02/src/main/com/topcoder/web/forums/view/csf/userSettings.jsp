@@ -1,5 +1,9 @@
-<%@ page import="com.topcoder.web.forums.ForumConstants,
-                 com.topcoder.web.forums.controller.request.Settings"
+<%@ page import="com.topcoder.web.common.BaseServlet,
+                 com.topcoder.web.forums.ForumConstants,
+                 com.jivesoftware.base.JiveGlobals,
+                 com.jivesoftware.forum.action.UserSettingsAction,
+                 com.topcoder.web.forums.controller.request.Settings,
+                 java.util.*"
 %>
 <%@ page contentType="text/html;charset=utf-8" %>
 

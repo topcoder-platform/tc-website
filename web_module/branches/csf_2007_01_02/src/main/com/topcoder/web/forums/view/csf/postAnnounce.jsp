@@ -1,6 +1,11 @@
-<%@ page import="com.topcoder.web.common.BaseProcessor,
+<%@ page import="com.topcoder.web.common.BaseServlet,
+                com.topcoder.web.common.BaseProcessor,
                 com.topcoder.web.forums.ForumConstants,
                 com.topcoder.web.forums.controller.ForumsUtil,
+                com.jivesoftware.forum.stats.ViewCountManager,
+                com.jivesoftware.forum.Announcement,
+                com.jivesoftware.forum.ForumCategory,
+                com.jivesoftware.forum.Forum,
                 java.util.HashMap"
 %>
 <%@ page contentType="text/html;charset=utf-8" %>

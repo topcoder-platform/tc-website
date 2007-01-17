@@ -1,8 +1,12 @@
-<%@ page import="com.topcoder.shared.util.DBMS,
+<%@ page import="com.jivesoftware.base.JiveConstants,
+                 com.jivesoftware.forum.ResultFilter,
+                 com.jivesoftware.forum.action.util.Page,
+                 com.topcoder.shared.util.DBMS,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
                  java.util.Iterator"
         %>
+
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>

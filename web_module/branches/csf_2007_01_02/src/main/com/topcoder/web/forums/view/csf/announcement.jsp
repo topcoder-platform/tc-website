@@ -1,5 +1,7 @@
 <%@ page import="com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
+                 com.jivesoftware.forum.Forum,
+                 com.jivesoftware.base.User,
                  java.util.Calendar,
                  java.util.Date,
                  java.util.TimeZone"

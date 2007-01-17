@@ -1,9 +1,13 @@
 <% response.setContentType("text/xml; charset=" + JiveGlobals.getCharacterEncoding()); %><?xml version="1.0" encoding="<%= JiveGlobals.getCharacterEncoding() %>"?>
 
-<%@ page import="com.topcoder.web.forums.ForumConstants,
-                 java.text.SimpleDateFormat,
-                 java.util.Date,
-                 java.util.Iterator"
+<%@ page import="com.topcoder.web.common.BaseServlet,
+                 com.topcoder.web.forums.ForumConstants,
+                 com.jivesoftware.base.JiveGlobals,
+                 com.jivesoftware.base.action.rss.RSSActionSupport,
+                 com.jivesoftware.forum.ForumCategory,
+                 com.jivesoftware.util.StringUtils,
+                 java.util.*,
+                 java.text.SimpleDateFormat"
          contentType="text/xml"
 %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>

@@ -1,9 +1,12 @@
-<%@ page import="com.topcoder.web.common.BaseProcessor,
+<%@ page import="com.topcoder.web.common.BaseServlet,
+                 com.topcoder.web.common.BaseProcessor,
                  com.topcoder.web.forums.ForumConstants,
-                 java.text.SimpleDateFormat,
-                 java.util.Date,
-                 java.util.HashMap,
-                 java.util.Iterator"
+                 com.jivesoftware.base.User,
+                 com.jivesoftware.forum.action.util.Paginator,
+                 com.jivesoftware.forum.Query,
+                 com.jivesoftware.util.StringUtils,
+                 java.util.*,
+                 java.text.SimpleDateFormat"
 %>
 <%@ page contentType="text/html;charset=utf-8" %>
 

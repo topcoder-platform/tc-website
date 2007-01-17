@@ -1,4 +1,6 @@
 <%@ page import="com.topcoder.web.common.BaseProcessor,
+                 com.jivesoftware.forum.action.util.Paginator,
+                 com.jivesoftware.forum.Query,
                  java.util.HashMap,
                  java.util.Iterator"
 %>

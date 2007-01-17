@@ -1,4 +1,5 @@
-<%@ page import="com.topcoder.web.forums.ForumConstants,
+<%@ page import="com.jivesoftware.base.User,
+                 com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil"
         %>
 <%@ page contentType="text/html;charset=utf-8" %>

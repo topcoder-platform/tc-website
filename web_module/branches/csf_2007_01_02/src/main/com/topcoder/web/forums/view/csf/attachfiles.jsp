@@ -1,6 +1,13 @@
-<%@ page import="com.topcoder.web.common.BaseProcessor,
+<%@ page import="com.jivesoftware.util.StringUtils,
+                 com.jivesoftware.forum.AttachmentManager,
+                 com.jivesoftware.base.action.ActionUtils,
+                 com.jivesoftware.forum.Attachment,
+                 com.jivesoftware.forum.action.AttachAction,
+                 com.jivesoftware.forum.ForumMessage,
+                 com.jivesoftware.forum.ForumThread,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
+                 com.topcoder.web.common.BaseProcessor,
                  java.util.HashMap,
                  java.util.Iterator"
 %>

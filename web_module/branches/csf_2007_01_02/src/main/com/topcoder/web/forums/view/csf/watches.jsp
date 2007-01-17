@@ -1,4 +1,7 @@
-<%@ page import="com.topcoder.web.forums.ForumConstants,
+<%@ page import="com.jivesoftware.base.JiveConstants,
+                 com.jivesoftware.forum.ReadTracker,
+                 com.jivesoftware.forum.stats.ViewCountManager,
+                 com.topcoder.web.forums.ForumConstants,
                  java.util.Iterator"
         %>
 <%@ page contentType="text/html;charset=utf-8" %>

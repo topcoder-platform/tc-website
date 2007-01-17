@@ -5,7 +5,8 @@
                  com.topcoder.web.forums.controller.ForumsUtil,
                  com.jivesoftware.forum.Attachment,
                  com.jivesoftware.forum.ForumPermissions,
-                 java.util.*"
+                 java.util.HashMap,
+                 java.util.Iterator"
 %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
