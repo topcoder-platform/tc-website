@@ -136,7 +136,6 @@ Action: <%=action%>
 
         // Handle the actions specific to notification event assignments
         if (action.equalsIgnoreCase("Watch Forum")) {
-        	forums.createCategoryWatch(-222, -222);	// bogus
             try {
                 String[] strCategoryIDs = request.getParameterValues("categoryID");
 	            long[] categoryIDs = new long[strCategoryIDs.length];

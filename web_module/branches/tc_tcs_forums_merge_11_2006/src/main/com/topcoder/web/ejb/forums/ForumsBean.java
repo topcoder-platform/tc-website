@@ -193,50 +193,33 @@ public class ForumsBean extends BaseEJB {
     /* 
      * Currently used only for software forums, without a maximum limit of categories that can be watched.
      */
-    public void createCategoryWatch(long userID, long categoryID) {
-    	try {
-    		User user = forumFactory.getUserManager().getUser(userID);
-    		ForumCategory category = forumFactory.getForumCategory(categoryID);
-    		forumFactory.getWatchManager().createWatch(user, category);
-    	} catch (ForumCategoryNotFoundException fe) {
-    		throw new EJBException(fe);
-    	} catch (UnauthorizedException ue) {
-    		throw new EJBException(ue);
-    	} catch (UserNotFoundException unfe) {
-    		throw new EJBException(unfe);
+    public void createCategoryWatch(long userID, long categoryID) throws ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException {
+		WatchManager watchManager = forumFactory.getWatchManager();
+    	User user = forumFactory.getUserManager().getUser(userID);
+		ForumCategory category = forumFactory.getForumCategory(categoryID);
+		if (!watchManager.isWatched(user, category)) {
+			watchManager.createWatch(user, category);
+		}
+    }
+    
+    public void createCategoryWatches(long userID, long[] categoryIDs) throws ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException {
+    	WatchManager watchManager = forumFactory.getWatchManager();
+    	User user = forumFactory.getUserManager().getUser(userID);
+    	for (int i=0; i<categoryIDs.length; i++) {
+	    	ForumCategory category = forumFactory.getForumCategory(categoryIDs[i]);
+	    	if (!watchManager.isWatched(user, category)) {
+	    		watchManager.createWatch(user, category);
+	    	}
     	}
     }
     
-    public void createCategoryWatches(long userID, long[] categoryIDs) {
-    	try {
-	    	User user = forumFactory.getUserManager().getUser(userID);
-	    	for (int i=0; i<categoryIDs.length; i++) {
-		    	ForumCategory category = forumFactory.getForumCategory(categoryIDs[i]);
-		    	forumFactory.getWatchManager().createWatch(user, category);
-	    	}
-    	} catch (ForumCategoryNotFoundException fe) {
-    		throw new EJBException(fe);
-    	} catch (UnauthorizedException ue) {
-    		throw new EJBException(ue);
-    	} catch (UserNotFoundException unfe) {
-    		throw new EJBException(unfe);
-    	}
-    }
-    
-    public void deleteCategoryWatch(long userID, long categoryID) {
-    	try {
-	    	User user = forumFactory.getUserManager().getUser(userID);
-	    	ForumCategory category = forumFactory.getForumCategory(categoryID);
-	    	Watch watch = forumFactory.getWatchManager().getWatch(user, category);
-	    	if (watch != null) {
-	    		forumFactory.getWatchManager().deleteWatch(watch);
-	    	}
-    	} catch (ForumCategoryNotFoundException fe) {
-    		throw new EJBException(fe);
-    	} catch (UnauthorizedException ue) {
-    		throw new EJBException(ue);
-    	} catch (UserNotFoundException unfe) {
-    		throw new EJBException(unfe);
+    public void deleteCategoryWatch(long userID, long categoryID) throws ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException {
+    	WatchManager watchManager = forumFactory.getWatchManager();
+    	User user = forumFactory.getUserManager().getUser(userID);
+    	ForumCategory category = forumFactory.getForumCategory(categoryID);
+    	Watch watch = watchManager.getWatch(user, category);
+    	if (watch != null) {
+    		watchManager.deleteWatch(watch);
     	}
     }
     
@@ -265,12 +248,17 @@ public class ForumsBean extends BaseEJB {
     	}
     }
     
+    /*
+     * Lists categories that are watched by the given user. If isWatched is false, returns the categories
+     * that can be watched (but are currently not) by the given user.
+     */
     public String[][] getWatchedSoftwareCategoriesData(long userID, boolean isWatched) {
     	User user = null;
+    	ForumFactory userForumFactory = ForumFactory.getInstance(new TCAuthToken(userID));
     	try {
-    		user = forumFactory.getUserManager().getUser(userID);
-	    	Iterator itCategories = forumFactory.getForumCategory(TCS_FORUMS_ROOT_CATEGORY_ID).getCategories();
-	    	WatchManager watchManager = forumFactory.getWatchManager();
+    		user = userForumFactory.getUserManager().getUser(userID);
+	    	Iterator itCategories = userForumFactory.getForumCategory(TCS_FORUMS_ROOT_CATEGORY_ID).getCategories();
+	    	WatchManager watchManager = userForumFactory.getWatchManager();
 	    	ArrayList categoriesList = new ArrayList();
 	    	while (itCategories.hasNext()) {
 				ForumCategory category = (ForumCategory)itCategories.next();
