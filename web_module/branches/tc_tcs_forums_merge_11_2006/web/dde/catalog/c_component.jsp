@@ -183,8 +183,8 @@
             } else {
                 componentManager.setVersion(versions[i].getVersion());
                 try {
-                    collaborations[i] = componentManager.getForumCategory(com.topcoder.dde.catalog.Forum.COLLABORATION);
-                    specifications[i] = componentManager.getForumCategory(com.topcoder.dde.catalog.Forum.SPECIFICATION);
+                    collaborations[i] = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.COLLABORATION);
+                    specifications[i] = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
                 } catch (CatalogException ce) {
                     // getForum returns multiple forums of a type which is not supposed to happen
                     // what to do?

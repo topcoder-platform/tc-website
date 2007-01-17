@@ -1054,7 +1054,7 @@ if (action != null) {
                 log.debug("Locating the user for handle '" + strUsername + "' ...");
                 User user = USER_MANAGER.getUser(strUsername);
 
-                String event = "com.topcoder.dde.forum.ForumPostEvent " + componentManager.getForumCategory(Forum.SPECIFICATION).getId();
+                String event = "com.topcoder.dde.forum.ForumPostEvent " + componentManager.getForumCategory(ForumCategory.SPECIFICATION).getId();
 
                 StringBuffer buffer = new StringBuffer();
                 String category = "";

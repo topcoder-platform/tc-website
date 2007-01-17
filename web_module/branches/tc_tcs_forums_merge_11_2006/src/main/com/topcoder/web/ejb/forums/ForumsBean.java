@@ -27,13 +27,10 @@ import com.jivesoftware.base.UserNotFoundException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
-
-import javax.ejb.EJBException;
 
 /**
  * This class handles interaction with the Jive database.
@@ -266,6 +263,10 @@ public class ForumsBean extends BaseEJB {
 					categoriesList.add(category);
 				}
 	    	}
+	    	
+	    	Collections.sort(categoriesList, 
+	    			new JiveGroupComparator("description", ResultFilter.ASCENDING));
+	    	
 	    	String[][] watchedSoftwareCategoriesData = new String[categoriesList.size()][2];
 	    	for (int i=0; i<categoriesList.size(); i++) {
 	    		ForumCategory category = (ForumCategory)categoriesList.get(i);
@@ -451,6 +452,32 @@ public class ForumsBean extends BaseEJB {
 			log.info(ste[i]);
 		}
     }
+}
+
+class JiveCategoryComparator implements Comparator {
+	private String sortField;
+	private int sortOrder;
+	
+	public JiveCategoryComparator(String sortField, int sortOrder) {
+		this.sortField = sortField;
+		this.sortOrder = sortOrder;
+	}
+	
+	public final int compare(Object o1, Object o2) {
+		ForumCategory c1 = (ForumCategory)o1;
+		ForumCategory c2 = (ForumCategory)o2;
+		
+		int retVal = 0;
+		if (sortField.equals("id")) {
+			retVal = String.valueOf(c1.getID()).compareTo(String.valueOf(c2.getID()));
+		} else if (sortField.equals("name")) {
+			retVal = String.valueOf(c1.getName()).compareTo(String.valueOf(c2.getName()));
+		}
+		if (sortOrder == ResultFilter.DESCENDING) {
+			retVal = -retVal;
+		}
+		return retVal;
+	}
 }
 
 class JiveGroupComparator implements Comparator {
