@@ -45,6 +45,7 @@
 <p>
     5.6.1 - 2007.01.xx
     <ul>
+        <li>Added Marathon Match rating to the user profile and updated the handle links in Marathon Match pages</li>
         <li>PACTS: when adding or updating a payment, a 2 digit year is converted to 4 (07 will be 2007) </li>
     </ul>
 </p>
