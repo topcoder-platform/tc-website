@@ -265,7 +265,7 @@ public class ForumsBean extends BaseEJB {
 	    	}
 	    	
 	    	Collections.sort(categoriesList, 
-	    			new JiveGroupComparator("description", ResultFilter.ASCENDING));
+	    			new JiveForumCategoryComparator("description", ResultFilter.ASCENDING));
 	    	
 	    	String[][] watchedSoftwareCategoriesData = new String[categoriesList.size()][2];
 	    	for (int i=0; i<categoriesList.size(); i++) {
@@ -454,11 +454,11 @@ public class ForumsBean extends BaseEJB {
     }
 }
 
-class JiveCategoryComparator implements Comparator {
+class JiveForumCategoryComparator implements Comparator {
 	private String sortField;
 	private int sortOrder;
 	
-	public JiveCategoryComparator(String sortField, int sortOrder) {
+	public JiveForumCategoryComparator(String sortField, int sortOrder) {
 		this.sortField = sortField;
 		this.sortOrder = sortOrder;
 	}
