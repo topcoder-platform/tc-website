@@ -53,8 +53,8 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                 contractId = getLongParameter(CONTRACT_ID);
                 contract = new Contract(dib.getContract(contractId));
             }
-log.debug("1");
-			boolean charity = getRequest().getParameter("charity_ind") != null;
+
+            boolean charity = getRequest().getParameter("charity_ind") != null;
             String devSupportDes = StringUtils.checkNull(getRequest().getParameter(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER));
             boolean isDevSupportDes = !"other".equals(devSupportDes);
             long devSupportId = 0;
@@ -69,7 +69,7 @@ log.debug("1");
             		devSupportId = users[0].getId();
             	}
             }
-            log.debug("2");
+
             if (adding) {
                 if (contract != null) {
                     user = contract.getHeader().getUser();
@@ -79,7 +79,7 @@ log.debug("1");
                     user = new UserProfileHeader(dib.getUserProfileHeader(userId));
                 }
             }
-            log.debug("3");
+
             if (updating) {
 
                 paymentId = getLongParameter(PAYMENT_ID);
@@ -106,7 +106,6 @@ log.debug("1");
             String client = "";
 
             if (getRequest().getParameter("payment_desc") != null) {
-            	log.debug("4");
             	// The user is trying to save the payment, so check that the parameters are ok
 
                 desc = checkNotEmptyString("payment_desc", "Please enter a description for the payment.");
@@ -126,21 +125,18 @@ log.debug("1");
                 if (getRequest().getParameter("installment_number") != null) {
                 	installmentNumber = getIntParameter("installment_number");
                 }
-                log.debug("5");
                 methodId = getIntParameter("payment_method_id");
 
                 modificationRationaleId = getOptionalIntParameter("modification_rationale_id");
 
-                checkDate("due_date", "Please enter a valid due date");
-                dueDate = getStringParameter("due_date");
+                Date d = checkDate("due_date", "Please enter a valid due date");
+                dueDate = sdf.format(d);
 
                 if (getRequest().getParameter("missing_reference") != null) {
                     addError("error", getRequest().getParameter("missing_reference"));
                 }
 
-                log.debug("6");
                 if (!hasErrors()) {
-                    log.debug("7");
                     // Parameters are ok, so add or update the payment
 
                 	payment = BasePayment.createPayment(typeId, userId, grossAmount, 0);                    	
@@ -160,7 +156,6 @@ log.debug("1");
                     payment.setModificationRationale(modificationRationaleId);
                     payment.setCharity(charity);
                     payment.setInstallmentNumber(installmentNumber);
-                    log.debug("8");
                
                     if (adding) {
                     	List payments = new ArrayList();
@@ -169,7 +164,6 @@ log.debug("1");
                         } 
                         
                         if (payment instanceof ComponentWinningPayment) {
-                            log.debug("9");
 
                         	int placed = getIntParameter("placed");
                         	ComponentWinningPayment p = (ComponentWinningPayment) payment;
@@ -192,12 +186,10 @@ log.debug("1");
                         		payments.addAll(l);
                         	}
                         } else {
-                            log.debug("10");
 
                         	payment = dib.addPayment(payment);
                         	payments.add(payment);
                         }               
-                        log.debug("11");
 
                         
                 		List ids = new ArrayList();

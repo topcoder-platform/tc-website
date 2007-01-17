@@ -112,6 +112,7 @@ public abstract class PactsBaseProcessor extends BaseProcessor{
         Date d = null;
         try {
             d = dfmt.parse((String) getRequest().getParameter(name));
+            log.debug("parsed Date = " + d);
         } catch (Exception e3) {
             addError("error", errorMsg);
         }
