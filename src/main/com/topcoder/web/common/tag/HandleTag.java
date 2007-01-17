@@ -125,7 +125,7 @@ public class HandleTag extends TagSupport {
                 bCSSOverride = true;
             }
             output.append("<a href=\"");
-            if (link.equals("")) {
+            if (link == null || link.equals("")) {
                 StringBuffer buf = new StringBuffer(100);
                 if (pageContext!=null && pageContext.getRequest().getServerName().indexOf(ApplicationServer.SERVER_NAME) >= 0) {
                     link = buf.append(DEFAULT_LINK).append(coderId).toString();
