@@ -125,7 +125,7 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
                     <td class="tableHeader" width="5%" align="right">
                         <A href="<%=sortLinkBase%><tc-webtag:sort column="4"/>">Rank</A></td>
                     <td class="tableHeader" width="15%">
-                        <A href="<%=sortLinkBase%><tc-webtag:sort column="2"/>">Jandle</A>
+                        <A href="<%=sortLinkBase%><tc-webtag:sort column="2"/>">Handle</A>
                     </td>
                     <td class="tableHeader" width="15%" align="right">
                         <A href="<%=sortLinkBase%><tc-webtag:sort column="3"/>">Provisional Score</A></td>

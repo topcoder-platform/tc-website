@@ -149,7 +149,7 @@
                 <%--control whitespace to reduce html size --%>
                 <rsc:iterator list="<%=standings%>" id="resultRow"><tr>
 <td class="<%=even?"statLt":"statDk"%>">
-<%=resultRow.getIntItem("status_id")==130?"*":""%><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>"/></td>
+<%=resultRow.getIntItem("status_id")==130?"*":""%><tc-webtag:handle context='marathon_match' coderId="<%=resultRow.getLongItem("coder_id")%>"/></td>
 <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 7px;">
 <rsc:item name="points" row="<%=resultRow%>" format="0.00"/></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center">
