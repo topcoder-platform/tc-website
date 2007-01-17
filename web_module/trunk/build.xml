@@ -1200,6 +1200,20 @@
         </java>
     </target>
 
+    <target name="convertresponse" depends="compile">
+        <java classname="com.topcoder.utilities.ConvertResponses" fork="true">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${jars.dir}/ifxjdbc.jar"/>
+                <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
+                <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+                <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
+                <pathelement location="${resources}"/>
+            </classpath>
+        </java>
+    </target>
+
     <target name="run_loader_tests" depends="compile_tests" description="run junit tests">
         <junit printsummary="${junitsummary}" fork="yes">
             <classpath>
