@@ -56,6 +56,7 @@
 
             
 <table cellpadding="0" cellspacing="0" width="100%" class="stat">
+<tbody>
     <tr><td class="title" colspan="5">Marathon Match Competition History</td></tr>
     <tr>
         <TD CLASS="header" width="100%">Competition</TD>
@@ -85,6 +86,7 @@
                 <TD COLSPAN="7" class="value">This member has no competition history.</TD>
              </TR>
     --%>
+</tbody>
 </TABLE>
 
 <%--
