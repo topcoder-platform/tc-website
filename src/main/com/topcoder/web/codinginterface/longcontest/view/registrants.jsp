@@ -116,7 +116,7 @@
                                 <rsc:iterator list="<%=registrants%>" id="resultRow">
                                     <tr>
                                         <td class="<%=even?"statLt":"statDk"%>">
-                                            <tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>'/></td>
+                                            <tc-webtag:handle context='marathon_match' coderId='<%=resultRow.getLongItem("coder_id")%>'/></td>
                                         <td class="<%=even?"statLt":"statDk"%>">
                                             <rsc:item name="country_name" row="<%=resultRow%>"/></td>
                                         <td class="<%=even?"statLt":"statDk"%>">

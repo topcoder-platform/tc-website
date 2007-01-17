@@ -158,7 +158,7 @@ text-align: left;
                                 </logic:equal>
                                 <tr align="right">
                                     <td class="<%=style%>" align="left" nowrap="nowrap">
-                                        <tc-webtag:handle coderId='<%=coderRow.getLongItem("coder_id")%>'/></td>
+                                        <tc-webtag:handle context='marathon_match' coderId='<%=coderRow.getLongItem("coder_id")%>'/></td>
                                     <td class="<%=style%>">
                                         <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewSubmissionHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<%=request.getParameter(Constants.PROBLEM_ID)%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=coderRow%>"/>" class="statLink">
                                             <rsc:item name="system_point_total" row="<%=coderRow%>" format="0.00"/></a></td>

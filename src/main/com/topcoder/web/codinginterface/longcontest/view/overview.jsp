@@ -144,7 +144,7 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
                         <td class="<%=even?"statLt":"statDk"%>" align="right">
                             <rsc:item name="placed" row="<%=resultRow%>"/></td>
                         <td class="<%=even?"statLt":"statDk"%>">
-                            <tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>'/></td>
+                            <tc-webtag:handle context='marathon_match' coderId='<%=resultRow.getLongItem("coder_id")%>'/></td>
                         <td class="<%=even?"statLt":"statDk"%>" align="right">
                             <rsc:item name="point_total" row="<%=resultRow%>" format="0.00"/></td>
                         <td class="<%=even?"statLt":"statDk"%>" align="right">

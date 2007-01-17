@@ -36,6 +36,7 @@ public class HandleTag extends TagSupport {
     public final static String DEVELOPMENT = "development";
     public final static String COMPONENT = "component";
     public final static String HS_OR_ALGORITHM = "hs_or_algorithm";
+    public final static String MARATHON_MATCH = "marathon_match";
 
     private static final String[] lightStyles =
             {"coderTextOrange", "coderTextWhite", "coderTextGray",
@@ -139,6 +140,8 @@ public class HandleTag extends TagSupport {
                     output.append("&tab=alg");
                 } else if (context.trim().equalsIgnoreCase(HS_ALGORITHM) && rsc.getIntItem(0, "hs_algorithm_rating") > 0) {
                     output.append("&tab=hs");
+                } else if (context.trim().equalsIgnoreCase(MARATHON_MATCH) && rsc.getIntItem(0, "marathon_match_rating") > 0) {
+                    output.append("&tab=long");
                 } else if (context.trim().equalsIgnoreCase(DESIGN) && rsc.getIntItem(0, "design_rating") > 0) {
                     output.append("&tab=des");
                 } else if (context.trim().equalsIgnoreCase(DEVELOPMENT) && rsc.getIntItem(0, "development_rating") > 0) {
@@ -178,12 +181,15 @@ public class HandleTag extends TagSupport {
                     if (context == null) {
                         rating = max(rsc.getIntItem(0, "algorithm_rating"),
                                 rsc.getIntItem(0, "hs_algorithm_rating"),
+                                rsc.getIntItem(0, "marathon_match_rating"),
                                 rsc.getIntItem(0, "design_rating"),
                                 rsc.getIntItem(0, "development_rating"));
                     } else if (context.trim().equalsIgnoreCase(ALGORITHM)) {
                         rating = rsc.getIntItem(0, "algorithm_rating");
                     } else if (context.trim().equalsIgnoreCase(HS_ALGORITHM)) {
                         rating = rsc.getIntItem(0, "hs_algorithm_rating");
+                    } else if (context.trim().equalsIgnoreCase(MARATHON_MATCH)) {
+                        rating = rsc.getIntItem(0, "marathon_match_rating");
                     } else if (context.trim().equalsIgnoreCase(DESIGN)) {
                         rating = rsc.getIntItem(0, "design_rating");
                     } else if (context.trim().equalsIgnoreCase(DEVELOPMENT)) {
@@ -197,6 +203,7 @@ public class HandleTag extends TagSupport {
                     } else {
                         rating = max(rsc.getIntItem(0, "algorithm_rating"),
                                 rsc.getIntItem(0, "hs_algorithm_rating"),
+                                rsc.getIntItem(0, "marathon_match_rating"),
                                 rsc.getIntItem(0, "design_rating"),
                                 rsc.getIntItem(0, "development_rating"));
                     }
@@ -232,8 +239,8 @@ public class HandleTag extends TagSupport {
     }
 
 
-    private static int max(int a, int b, int c, int d) {
-        return max(max(a, b), max(c, d));
+    private static int max(int a, int b, int c, int d, int e) {
+        return max(max(max(a, b), max(c, d)), e);
     }
 
     private static int max(int a, int b) {

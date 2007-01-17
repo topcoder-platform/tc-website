@@ -106,7 +106,7 @@
                 <rsc:item name="problem_name" row="<%=infoRow%>"/></a></span>
 
             <p>
-                <span class="bodySubtitle">Coder: <tc-webtag:handle coderId='<%=infoRow.getLongItem("coder_id")%>'/></span>
+                <span class="bodySubtitle">Coder: <tc-webtag:handle context='marathon_match' coderId='<%=infoRow.getLongItem("coder_id")%>'/></span>
                 <br>
                 <span class="bodySubtitle">Submission: <rsc:item name="submission_number" row="<%=infoRow%>"/></span>
                 <br>

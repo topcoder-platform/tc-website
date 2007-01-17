@@ -90,7 +90,7 @@
                             <logic:iterate collection="<%=result%>" id="resultRow" type="com.topcoder.server.ejb.TestServices.LongTestQueueStatusItem">
                                 <tr>
                                     <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
-                                        <tc-webtag:handle coderId='<%=resultRow.getUserId()%>'/>
+                                        <tc-webtag:handle context='marathon_match' coderId='<%=resultRow.getUserId()%>'/>
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
                                         <A href="?module=ViewStandings&rd=<%=resultRow.getRoundId()%>"><%=resultRow.getContestName()%> &gt; <%=resultRow.getRoundName()%></A>
