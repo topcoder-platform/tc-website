@@ -82,6 +82,22 @@
             <% } %>
         </td>
     </tr>
+
+    <tr><td colspan="2" class="myStatsTitle">Marathon Match</td></tr>
+
+    <tr>
+        <td class="formHandleEven">Rating</td>
+        <td class="formHandleEven" align="right">
+            <% if (coderInfo.getItem(0, "mm_rating").getResultData()!=null 
+                    && coderInfo.getIntItem(0, "mmt_rating")>0) { %>
+            <A href="/tc?module=SimpleStats&c=long_comp_history&d1=statistics&d2=longHistory&cr=<%=info.getUserId()%>" class="statTextBig">
+                <rsc:item set="<%=coderInfo%>" name="dm_rating" format="#"/>
+            </A>
+            <% } else {%>
+            Not Rated
+            <% } %>
+        </td>
+    </tr>
 </table>
 
 <% } else { %>
