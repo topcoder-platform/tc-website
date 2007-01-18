@@ -1,23 +1,17 @@
 package com.topcoder.web.common.dao.hibernate;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
-import org.hibernate.Criteria;
-import org.hibernate.Hibernate;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.criterion.Expression;
-import org.hibernate.criterion.Restrictions;
-
 import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.reg.Constants;
+import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
+
+import java.util.*;
 
 /**
  * @author dok
@@ -75,8 +69,8 @@ public class UserDAOHibernate extends Base implements UserDAO {
 
         if (email != null && email.length() > 0) {
             crit.createCriteria("emailAddresses")
-                .add(Restrictions.sqlRestriction("lower({alias}.address)=lower(?)", email, Hibernate.STRING))
-                .add(Restrictions.eq("primary", Boolean.TRUE));
+                    .add(Restrictions.sqlRestriction("lower({alias}.address)=lower(?)", email, Hibernate.STRING))
+                    .add(Restrictions.eq("primary", Boolean.TRUE));
         }
 
         if (firstName != null && firstName.length() > 0) {
@@ -123,18 +117,6 @@ public class UserDAOHibernate extends Base implements UserDAO {
 
         } else {
             //todo consider putting all this logic in the POJO instead of here.
-
-/*
-            DemographicResponse t;
-            for (Iterator it = u.getTransientResponses().iterator(); it.hasNext();) {
-                t = (DemographicResponse)it.next();
-                log.debug("q " + t.getQuestion().getId() + " a " + t.getAnswer().getId() + " " + t.hashCode());
-            }
-
-            10574855 15 5 Cash Prizes code: 1120434658
-            10574855 15 5  code: 1166044876
-
-*/
 
             //don't need to worry about anything that is already in the db.
             DemographicResponse temp;
