@@ -50,7 +50,13 @@
 <!-- Center Column Begins -->
 <td width="100%" align="center">
    <jsp:include page="big_promo.jsp" />
-     <jsp:include page="news.jsp" />
+      <br><br>
+    <table border="0" cellspacing="0" cellpadding="0" width="525">
+    <tr>
+        <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
+    </tr>
+    <jsp:include page="news.jsp" />
+    </table>
       <br><br>
      <jsp:include page="news_archives.jsp" />
       <br><br>
