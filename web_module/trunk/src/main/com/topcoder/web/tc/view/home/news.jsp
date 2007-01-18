@@ -2,10 +2,6 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<table border="0" cellspacing="0" cellpadding="0" width="525">
-<tr>
-    <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
-</tr>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -205,4 +201,3 @@ that would lead to an interesting challenge phase. And so it was --but let's sta
         <tc-webtag:forumLink forumID="506223" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
-
