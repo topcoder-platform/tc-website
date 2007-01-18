@@ -43,6 +43,13 @@
 </jsp:include>
 
 <p>
+    5.6.2 - 2007.01.xx
+    <ul>
+        <li>Fix for DR boards to go to the first page of the board when changing periods</li>
+    </ul>
+</p>
+
+<p>
     5.6.1 - 2007.01.17
     <ul>
         <li>Added Marathon Match rating to the user profile and updated the handle links in Marathon Match pages</li>

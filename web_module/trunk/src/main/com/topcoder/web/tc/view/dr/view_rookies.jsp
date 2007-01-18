@@ -27,6 +27,12 @@
     </jsp:include>
     <script type="text/javascript" src="/js/popup.js"></script>
     <script type="text/javascript">
+        function changePeriod() {
+            myForm.<%=DataAccessConstants.START_RANK%>.value = "";
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = "";
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = "";
+            document.rookieBoardForm.submit()
+        }
         function submitEnter(e) {
             var keycode;
             if (window.event) keycode = window.event.keyCode;
@@ -112,7 +118,7 @@
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
 Please select a <strong>season</strong><br>
-<SELECT CLASS="dropdown" NAME="<%=Constants.SEASON_ID%>" onchange="document.rookieBoardForm.submit()">
+<SELECT CLASS="dropdown" NAME="<%=Constants.SEASON_ID%>" onchange="changePeriod()">
     <rsc:iterator list="<%=seasons%>" id="resultRow">
         <% if (String.valueOf(resultRow.getLongItem("season_id")).equals(request.getParameter(Constants.SEASON_ID))) { %>
         <OPTION value="<rsc:item name="season_id" row="<%=resultRow%>"/>" selected>
