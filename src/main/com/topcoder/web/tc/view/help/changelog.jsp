@@ -43,11 +43,12 @@
 </jsp:include>
 
 <p>
-    5.6.1 - 2007.01.xx
+    5.6.1 - 2007.01.17
     <ul>
         <li>Added Marathon Match rating to the user profile and updated the handle links in Marathon Match pages</li>
-        <li>PACTS: when adding or updating a payment, a 2 digit year is converted to 4 (07 will be 2007) </li>
-        <li>Fix in the registration: the school was loaded more than once if confirmation page was reloaded </li>
+        <li>PACTS: when adding or updating a payment, a 2 digit year is converted to 4 (07 will be 2007)</li>
+        <li>Fix in the registration: the school was loaded more than once if confirmation page was reloaded</li>
+        <li>Adjust how survey responses are stored in the database <%--from TEXT to lvarchar--%></li>
     </ul>
 </p>
 
@@ -55,7 +56,9 @@
 <p>
     5.6.0 - 2007.01.15
     <ul>
-        <li>Add system driven Active Contests, registrants, project details and registration for assembly competitions.</li>
+        <li>Add system driven Active Contests, registrants, project details and registration for assembly
+            competitions.
+        </li>
     </ul>
 </p>
 
