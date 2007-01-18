@@ -88,8 +88,8 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_researchClient">Research Client</A>
       </td>
       <td class="valueC">
-      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Research Client">register</A>
-      <%--registration closed--%>
+      <%--<A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Research Client">register</A>--%>
+      registration closed
       </td>
       <td class="valueC">
       &#160;
@@ -122,8 +122,8 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_researchServer">Research Server</A>
       </td>
       <td class="valueC">
-      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Research Server">register</A>
-      <%--registration closed--%>
+      <%--<A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Research Server">register</A>--%>
+      registration closed
       </td>
       <td class="valueC">
       &#160;
