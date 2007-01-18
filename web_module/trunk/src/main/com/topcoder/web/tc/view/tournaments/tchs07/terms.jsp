@@ -36,28 +36,6 @@
                 <div align="center">
                     <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tchs07&d3=termsContent&<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.TCHS07_TERMS_OF_USE_ID%>"></iframe>
                 </div>
-                <br/><br/>
-
-
-                <p align="center">
-                    <tc-webtag:errorIterator id="err" name="<%=RegistrationBase.AGE%>"><span class="bigRed">${err}
-                        <br/></span></tc-webtag:errorIterator>
-                    How old are you? <tc-webtag:textInput name="<%=RegistrationBase.AGE%>" size="3" maxlength="3"/>
-                </p>
-
-
-                <p align="center">
-                    <tc-webtag:errorIterator id="err" name="<%=RegistrationBase.IN_COLLEGE%>"><span class="bigRed">${err}
-                        <br/></span></tc-webtag:errorIterator>
-                    Are you enrolled full time at a college or university? <tc-webtag:listSelect name='<%=RegistrationBase.IN_COLLEGE%>' list="<%=RegistrationBase.YES_NO_ANSWERS%>"/>
-                </p>
-
-                <p align="center">
-                    <tc-webtag:errorIterator id="err" name="<%=RegistrationBase.IN_HIGH_SCHOOL%>"><span class="bigRed">${err}
-                        <br/></span></tc-webtag:errorIterator>
-                    Are you enrolled full time at a secondary school? <tc-webtag:listSelect name='<%=RegistrationBase.IN_HIGH_SCHOOL%>' list="<%=RegistrationBase.YES_NO_ANSWERS%>"/>
-                </p>
-
 
                 <div align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">
@@ -67,6 +45,31 @@
                     <tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
                     I agree
                 </div>
+
+                <p align="center">
+                    <tc-webtag:errorIterator id="err" name="<%=RegistrationBase.AGE%>"><span class="bigRed">${err}
+                        <br/></span>
+                    </tc-webtag:errorIterator>
+                    How old will you be on February 26? <tc-webtag:textInput name="<%=RegistrationBase.AGE%>" size="3" maxlength="3"/>
+                </p>
+
+
+                <p align="center">
+                    <tc-webtag:errorIterator id="err" name="<%=RegistrationBase.IN_COLLEGE%>"><span class="bigRed">${err}
+                        <br/></span></tc-webtag:errorIterator>
+                    Are you enrolled full time at a college or university?<%-- <tc-webtag:listSelect name='<%=RegistrationBase.IN_COLLEGE%>' list="<%=RegistrationBase.YES_NO_ANSWERS%>"/>--%>
+                    <br><input name="college" value="Yes" onchange="" type="radio">Yes&nbsp;&nbsp;&nbsp;
+                    <input name="college" value="No" onchange="" type="radio"> No
+                </p>
+
+                <p align="center">
+                    <tc-webtag:errorIterator id="err" name="<%=RegistrationBase.IN_HIGH_SCHOOL%>"><span class="bigRed">${err}
+                        <br/></span></tc-webtag:errorIterator>
+                    Are you enrolled full time at a secondary school (high school)?<%-- <tc-webtag:listSelect name='<%=RegistrationBase.IN_HIGH_SCHOOL%>' list="<%=RegistrationBase.YES_NO_ANSWERS%>"/>--%>
+                    <br><input name="college" value="Yes" onchange="" type="radio">Yes&nbsp;&nbsp;&nbsp;
+                    <input name="college" value="No" onchange="" type="radio"> No
+                </p>
+
 
                 <div align="center">
                     <button name="submit" value="submit" type="submit">Submit</button>
