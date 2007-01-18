@@ -55,7 +55,6 @@
 <TR><TD CLASS="coderTextGreen" ALIGN="left">900 - 1199</TD></TR>
 <TR><TD CLASS="coderTextGray" ALIGN="left">0 - 899</TD></TR>
 <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>
-<TR BGCOLOR="#FFFFFF"><TD COLSPAN="3" CLASS="smallText" VALIGN="top">A coder's handle is color-coded depending on their rating within the Competition Arena.</TD></TR>
 </TABLE>
 
 </TD><TD VALIGN="top"><IMG ALT="" HEIGHT="1" WIDTH="10" SRC="/i/clear.gif" BORDER="0"/></TD><TD VALIGN="top">
@@ -87,13 +86,13 @@ After a competition the algorithm below is applied to the competitors. First, th
 <TR>
 <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><br>
-<span class="bodySubtitle">How algorithm ratings are calculated</span>
+<span class="bodySubtitle">How Marathon Match ratings are calculated</span>
 <br><br>
 <B>New ratings are calculated as follows:</B>
 <br>
 <br>
 After each competition, each coder who attended the competition is re-rated according to
-the following algorithm.  Keep in mind that only coders who shared the same problem set are rated against one another.  The average rating of everyone in the competition is calculated:
+the following algorithm.  A coder is considered to have attended the event is they make a submission of any kind (example or full).  Only registering for the event will not cause the coder to be rated.  The average rating of everyone in the competition is calculated:
 <br>
 <br>
 <IMG ALT="average rating" HEIGHT="58" WIDTH="167" SRC="/i/rating/avg.gif" ALIGN="center" BORDER="0"/><br>
