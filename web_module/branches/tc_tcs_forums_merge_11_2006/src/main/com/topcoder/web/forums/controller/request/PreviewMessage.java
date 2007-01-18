@@ -42,6 +42,7 @@ public class PreviewMessage extends ForumsProcessor {
         String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags(
                 getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
+        log.info("***BODY: " + body);
         String textareaBody = ForumsUtil.createTextAreaBody(body);
         
         if (postMode.equals("New")) {
