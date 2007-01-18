@@ -107,7 +107,7 @@ If not, we can develop the interface for such a container once, and then use eve
 <br /><br />
 
 <span class="bodySubtitle"><A name="before"></A>Before we begin</span><br />
-When the program is using STL, it should #include the appropriate files. For most containers the title of an included file matches the name of the container, and no extension is required. For example, if you are going to use stack, just add the following line at the beginning of your program:
+When the program is using STL, it should #include the appropriate standard headers. For most containers the title of standard header matches the name of the container, and no extension is required. For example, if you are going to use stack, just add the following line at the beginning of your program:
 
 <pre class="code">#include &lt;stack&gt;</pre>
 
@@ -126,7 +126,7 @@ vector&lt;vector&lt;int&gt;&gt; WrongDefinition; // Wrong: compiler may be confu
 
 <span class="bodySubtitle"><A name="vector"></A>Vector</span><br />
 
-The simplest STL container is vector. Vector is just am array with extended functionality. By the way, vector is the only container that is backward-compatible to native C code &ndash; this means that vector actually IS the array, but with some additional features.
+The simplest STL container is vector. Vector is just an array with extended functionality. By the way, vector is the only container that is backward-compatible to native C code &ndash; this means that vector actually IS the array, but with some additional features.
 
 <pre class="code"> vector&lt;int&gt; v(10); 
  for(int i = 0; i &lt; 10; i++) { 
@@ -217,7 +217,7 @@ Multidimensional arrays are very important. The simplest way to create the two-d
 
 It should be clear to you now how to create the two-dimensional vector of given size:
 
-<pre class="code"> Int N, N; 
+<pre class="code"> int N, N; 
  // ... 
  vector&lt; vector&lt;int&gt; &gt; Matrix(N, vector&lt;int&gt;(M, -1)); </pre>
 
@@ -270,7 +270,7 @@ Pairs are also widely used in associative containers, which we will speak about 
 What are iterators? In STL iterators are the most general way to access data in containers. Consider the simple problem: Reverse the array A of N int&rsquo;s. Let&rsquo;s begin from a C-like solution:
 
 <pre class="code"> void reverse_array_simple(int *A, int N) { 
-      Int first = 0, last = N-1; // First and last indices of elements to be swapped 
+      int first = 0, last = N-1; // First and last indices of elements to be swapped 
       While(first &lt; last) { // Loop while there is something to swap 
            swap(A[first], A[last]); // swap(a,b) is the standard STL function 
            first++; // Move first index forward 
@@ -490,7 +490,7 @@ In spite of this, let me tell about very important feature of GNU C++ called 'ty
 This will create the variable x of type matching the type of (a+b) expression. Beware that typeof(v.size()) is unsigned for any STL container type. But the most important application of typeof for TopCoder is traversing a container. Consider the following macros:
 
 <pre class="code"> #define tr(container, iterator) \ 
-      for(typeof(container.begin()) iterator = container.begin(); it != container.end(); it++) </pre>
+      for(typeof(container.begin()) it = container.begin(); it != container.end(); it++) </pre>
 
 By using these macros we can traverse every kind of container, not only vector. This will produce const_iterator for const object and normal iterator for non-const object, and you will never get an error here.
 
@@ -502,7 +502,7 @@ By using these macros we can traverse every kind of container, not only vector. 
       return r; 
  } </pre>
 
-Note: I did not put additional parentheses on the #define line in order to improve its readability. See this article below for more correct #define statements that you can copy and paste into your template code.
+Note: I did not put additional parentheses on the #define line in order to improve its readability. See this article below for more correct #define statements that you can experiment with in practice rooms.
 <br /><br />
 Traversing macros is not really necessary for vectors, but it&rsquo;s very convenient for more complex data types, where indexing is not supported and iterators are the only way to access data. We will speak about this later in this article.
 <br /><br />
@@ -536,7 +536,7 @@ The insert/erase technique is common, but not identical for all STL containers.
 <br /><br />
 
 <span class="bodySubtitle"><A name="string"></A>String</span><br />
-There is a special container to manipulate with strings. The string container has a few differences from vector&lt;char&gt;. Most of the differences come down to string manipulation functions and memory management policy. The only thing to keep in mind about string is to use string::length() instead of vector::size(). String doesn&rsquo;t have size().
+There is a special container to manipulate with strings. The string container has a few differences from vector&lt;char&gt;. Most of the differences come down to string manipulation functions and memory management policy. 
 <br /><br />
 String has a substring function without iterators, just indices:
 
@@ -563,7 +563,7 @@ Consider we need a container with the following features:
 
 This is quite a frequently used task. STL provides the special container for it &ndash; set. Set can add, remove and check the presence of particular element in O(log N), where N is the count of objects in the set. While adding elements to set, the duples [duplicates?] are discarded. A count of the elements in the set, N, is returned in O(1). We will speak of the algorithmic implementation of set and map later -- for now, let&rsquo;s investigate its interface:
 
-<pre class="code"> set&lt;int&gt; S; 
+<pre class="code"> set&lt;int&gt; s; 
 
  for(int i = 1; i &lt;= 100; i++) { 
       s.insert(i); // Insert 100 elements, [1..100] 
@@ -572,10 +572,10 @@ This is quite a frequently used task. STL provides the special container for it 
  s.insert(42); // does nothing, 42 already exists in set 
 
  for(int i = 2; i &lt;= 100; i += 2) { 
-      S.remove(i); // Remove even values 
+      s.erase(i); // Erase even values 
  } 
 
- int N = int(S.size()); // N will be 50 </pre>
+ int n = int(s.size()); // n will be 50 </pre>
 
 The push_back() member may not be used with set. It make sense: since the order of elements in set does not matter, push_back() is not applicable here.
 <br />
@@ -679,7 +679,7 @@ There are two explanation of map. The simple explanation is the following:
  int x = M[&quot;Top&quot;] + M[&quot;Coder&quot;]; 
 
  if(M.find(&quot;SRM&quot;) != M.end()) { 
-      M.erase(M.find(&quot;SRM&quot;)); 
+      M.erase(M.find(&quot;SRM&quot;)); // or even M.erase(&quot;SRM&quot;) 
  } </pre>
 
 Very simple, isn&rsquo;t it?
@@ -697,18 +697,18 @@ Traversing map is easy with our 'tr()' macros. Notice that iterator will be an s
 
 Don&rsquo;t change the key of map element by iterator, because it may break the integrity of map internal data structure (see below).
 <br /><br />
-The important thing to keep in mind about map is that operator [] will create an element if it does not exist. This element will be added to map. So, if you want your code to run faster, never use operator [] unless you are sure that the element actually presents in map. That&rsquo;s why operator [] may not be used if map is passed as a const reference parameter to some function:
+There is one important difference between map::find() and map::operator []. While map::find() will never change the contents of map, operator [] will create an element if it does not exist. In some cases this could be very convenient, but it's definitly a bad idea to use operator [] many times in a loop, when you do not want to add new elements. That&rsquo;s why operator [] may not be used if map is passed as a const reference parameter to some function:
 
 <pre class="code"> void f(const map&lt;string, int&gt;&amp; M) { 
       if(M[&quot;the meaning&quot;] == 42) { // Error! Cannot use [] on const map objects! 
       } 
-      if(M.find(&quot;the meaning&quot;) != M.end() &amp;&amp; *M.find(&quot;the meaning&quot;) == 42) { // Correct 
+      if(M.find(&quot;the meaning&quot;) != M.end() &amp;&amp; M.find(&quot;the meaning&quot;)-&gt;second == 42) { // Correct 
            cout &lt;&lt; &quot;Don't Panic!&quot; &lt;&lt; endl; 
       } 
  } </pre>
 
 <span class="bodySubtitle"><A name="notice"></A>Notice on Map and Set</span><br />
-Internally map and set are stored as red-black trees. Therefore, the elements of map and set are always sorted in ascending order while traversing these containers. And that&rsquo;s why it&rsquo;s strongly not recommended to change the key value while traversing map or set: If you make the modification that breaks the order, it will lead to improper functionality of container's algorithms, at least.
+Internally map and set are almost always stored as red-black trees. We do not need to worry about the internal structure, the thing to remember is that the elements of map and set are always sorted in ascending order while traversing these containers. And that&rsquo;s why it&rsquo;s strongly not recommended to change the key value while traversing map or set: If you make the modification that breaks the order, it will lead to improper functionality of container's algorithms, at least.
 <br /><br />
 But the fact that the elements of map and set are always ordered can be practically used while solving TopCoder problems.
 <br /><br />
@@ -726,7 +726,7 @@ Here 'a' will contain the first neighbor of 42 to the left and 'b' the first one
 <br /><br />
 
 <span class="bodySubtitle"><A name="algorithms"></A>More on algorithms</span><br />
-It&rsquo;s time to speak about algorithms a bit more deeply. Most algorithms are declared in the #include &lt;algorithm&gt; header file. At first, STL provides three very simple algorithms: min(a,b), max(a,b), swap(a,b). Here min(a,b) and max(a,b) returns the minimum and maximum of two elements, while swap(a,b) swaps two elements.
+It&rsquo;s time to speak about algorithms a bit more deeply. Most algorithms are declared in the #include &lt;algorithm&gt; standard header. At first, STL provides three very simple algorithms: min(a,b), max(a,b), swap(a,b). Here min(a,b) and max(a,b) returns the minimum and maximum of two elements, while swap(a,b) swaps two elements.
 <br /><br />
 Algorithm sort() is also widely used. The call to sort(begin, end) sorts an interval in ascending order. Notice that sort() requires random access iterators, so it will not work on all containers. However, you probably won't ever call sort() on set, which is already ordered.
 <br /><br />
@@ -802,7 +802,7 @@ To go on with STL, I would like to summarize the list of templates to be used. T
  #defile all(c) (c).begin(),(c).end() 
  #define tr(c,i) for(typeof((c).begin() i = (c).begin(); i != (c).end(); i++) 
  #define present(c,x) ((c).find(x) != (c).end()) 
- #define cpresent(c,x) (find(all(c),c) != (c).end()) </pre>
+ #define cpresent(c,x) (find(all(c),x) != (c).end()) </pre>
 
 The container vector&lt;int&gt; is here because it's really very popular. Actually, I found it convenient to have short aliases to many containers (especially for vector&lt;string&gt;, vector&lt;ii&gt;, vector&lt; pair&lt;double, ii&gt; &gt;). But this list only includes the macros that are required to understand the following text.
 <br /><br />
