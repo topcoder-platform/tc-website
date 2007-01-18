@@ -9,18 +9,16 @@
         <td>
             <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
                 <tr><td class="tableTitle" colspan="2">Marathon Matches</td></tr>
+                <%if (rsc.getIntItem(0, "rating") != 0) {%>
                 <tr>
                     <td class="ratingBox" width="25%">Rating:<br>
-                        <%if (rsc.getIntItem(0, "rating") != 0) {%>
                         <tc-webtags:ratingColor rating='<%=rsc.getIntItem(0, "rating")%>'>
                             <rsc:item name="rating" set="<%=rsc%>" format="####"/>
                         </tc-webtags:ratingColor>
-                        <%} else {%>
-                        not rated
-                        <%}%>
                     </td>
                     <td class="cat" width="75%">&nbsp;</td>
                 </tr>
+                <%}%>
                 <tr>
                     <td class="catNW">
                      <A HREF="/tc?module=SimpleStats&c=long_comp_history&d1=statistics&d2=longHistory&cr=<rsc:item set="<%=rsc%>" name="coder_id"/>">[competition history]</A><br><br></td>
