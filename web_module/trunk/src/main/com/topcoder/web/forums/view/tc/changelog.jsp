@@ -47,11 +47,40 @@
 
 <!-- Links to versions -->
 
+<p>
+    <b>1.3.0 - 2007.01.17</b>
+    <ul>
+		<li>Updated category view to display categories with subcategories.</li>
+		<li>Added attachment support for messages.</li>
+		<li>Expanded options for header links pointing to external articles and sites.</li>
+        <li>Enabled request throttle.</li>
+    </ul>
+</p>
 
 <p>
-    <b>1.1.13 - 2007.01.17</b>
+    <b>1.2.1 - 2006.09.11</b>
     <ul>
-        <li>Enable request throttle.</li>
+        <li>Added timezones to displayed dates.</li>
+		<li>Added filters for limiting the maximum width of images and displaying shortened links.</li>
+		<li>Created a syntax highlighter for Python.</li>
+    </ul>
+</p>
+
+<p>
+    <b>1.2.0 - 2006.08.14</b>
+    <ul>
+    	<li>Deployed <a href="http://studio.topcoder.com/forums">TopCoder Studio Forums</a>.</li>
+        <li>Fixed a case sensitivity error concerning [handle] tags.</li>
+		<li>Improved the efficiency of "Mark all as read".</li>
+    </ul>
+</p>
+
+<p>
+    <b>1.1.13 - 2006.07.17</b>
+    <ul>
+        <li>Fixed view of collapsed posts in IE.</li>
+		<li>Fixed a database issue with read tracking.</li>
+		<li>Added support for header links (pointing to external websites, articles, etc.) for forum and thread views.</li>
     </ul>
 </p>
 
