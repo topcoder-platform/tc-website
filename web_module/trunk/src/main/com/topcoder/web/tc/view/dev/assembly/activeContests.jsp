@@ -85,6 +85,40 @@
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value" nowrap>
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_reportGeneration">Report Generation</A>
+      </td>
+      <td class="valueC">
+      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Report Generation">register</A>
+      <%--registration closed--%>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%--   
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_reportGeneration">results</A>
+      --%>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%-- 
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_reportGeneration">standings</A>
+      --%>
+      </td>
+      <td class="valueC">$15,000</td>
+      <td class="valueC">
+      01.23.2007 9:00 AM EST
+      </td>
+      <td class="valueC">
+      02.04.2007 9:00 AM EST
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506258">join a team</A>
+      <br>
+      <%--<A href="">discuss</A>--%>
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value" nowrap>
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_researchClient">Research Client</A>
       </td>
       <td class="valueC">

@@ -43,7 +43,7 @@
 <div class="sectionHeader">Overview</div>
 <span class="bodySubtitle">Application Overview</span><br>
 Report Generation is part of a larger application known as Instrumentation Reporting.   The purpose of report generation is to help users identify positive or negative trend and performance statistics relating to key resources across a web farm.  A key resource can be classified as a component, web method, machine name, user id, client application, or client location.  These inputs will be supplied by a user to produce reports.
-
+<br><br>
 There are two general types of reports in the application:
 <ol>
 <li>Graph Reports - these reports are generated from rolled up statistics tables, and rendered as appropriate graphs.</li>
@@ -115,7 +115,7 @@ If you are unsure of your status, please email <A href="mailto:hr@topcoder.com">
 All submissions are required to be submitted by the end of Competition Phase. The end of each phase is at 9:00 AM EST.
 <br><br>
 <div align="center">
-<table cellpadding="0" cellspacing="0" border="0" width="300">
+<table cellpadding="0" cellspacing="0" border="0" width="350">
    <tr>
       <td><strong>Phase</strong></td><td align="right"><strong>Start</strong></td><td align="right"><strong>End</strong></td>
    </tr>
@@ -132,7 +132,7 @@ All submissions are required to be submitted by the end of Competition Phase. Th
       <td>Appeals:</td><td align="right">02.07.2007</td><td align="right">02.08.2007</td>
    </tr>
    <tr>
-      <td>Appeals Response:</td><td align="right">02.08.2007</td><td align="right">02.09.2007</td>
+      <td>Appeal Response:</td><td align="right">02.08.2007</td><td align="right">02.09.2007</td>
    </tr>
    <tr>
       <td>Final Fix:</td><td align="right">02.09.2007</td><td align="right">02.11.2007</td>
@@ -144,45 +144,36 @@ All submissions are required to be submitted by the end of Competition Phase. Th
 </div>
 <br><br>
 <div class="sectionHeader">Milestones</div>
-At intervals during the competition phase, assembly teams will be expected to demonstrate progress by providing interim deliverables as specified in the following table. The winning and 2nd place teams that have met each of the milestones during the duration of the competition will be paid an additional bonus for each milestone that is met.
-<br><br>
-<div align="left">
-<table cellpadding="0" cellspacing="0" border="0" width="530">
+At intervals during the competition phase, assembly teams will be expected to demonstrate progress by providing interim deliverables as specified in the following table.  <span class="bigRed">Each team will receive payment for successfully submitting their milestone as indicated below.  Milestones payments are not dependent on a final solution.  Each team will be compensated per milestone.</span><br><br>
+<div align="center">
+<table cellpadding="0" cellspacing="0" border="0" width="350">
    <tr>
-      <td width="80"><strong>Date</strong></td><td width="450"><strong>Deliverables</strong></td>
+      <td><strong>Date</strong></td><td><strong>Deliverables</strong></td><td><strong>Payment</strong></td>
    </tr>
    <tr>
-      <td valign="top">01.20.2007</td><td valign="top">WCF Proxies for all methods to be used by the Research Client Project<br>
-      Winning Team Bonus - $750<br>2nd Place Team Bonus - $375</td>
+      <td valign="top">01.27.2007</td><td valign="top">Fully functional tabular reports</td><td valign="top">$500</td>
    </tr>
    <tr>
-      <td valign="top">01.24.2007</td><td valign="top">Adapter code for Logging Wrapper, Data Access Interface, EEMAB, and Connection Factory<br>
-      Winning Team Bonus - $750<br>2nd Place Team Bonus - $375</td>
-   </tr>
-   <tr>
-      <td valign="top">01.28.2007</td><td valign="top">Completed code for reading configuration files and configuring Named Query Processor, Named Query Builder, Research Search Service, and Research Reporting Service<br>
-      Winning Team Bonus - $750<br>2nd Place Team Bonus - $375</td>
-   </tr>
-   <tr>
-      <td valign="top">02.01.2007</td><td valign="top">Full suite of IDataObjectFactory implementations<br>
-      Winning Team Bonus - $750<br>2nd Place Team Bonus - $375</td>
+      <td valign="top">02.02.2007</td><td valign="top">Fully functional graph reports</td><td valign="top">$500</td>
    </tr>
 </table>
 </div>
 <br><br>
 <div class="sectionHeader">Registration</div>
+<%--
 Registration is closed.
 <br><br>
-<%--
-To sign up, please send an email to <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Research Server">AssemblyCompetitions@topcoder.com</A>.  In the email, include the following information:
+--%>
+To sign up, please send an email to <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Report Generation">AssemblyCompetitions@topcoder.com</A>.  In the email, include the following information:
 <ul>
 <li>Handle</li>
 <li>First &amp; Last Name</li>
 <li>Complete name of Assembly Competition project</li>
+<li>Indicate your role as either team captain, free agent, or a member of an existing team. Also, indicate your team name if applicable.</li>
 </ul>
---%>
+
 <div class="sectionHeader">Submission</div>
-Once your team has working code you are ready to submit, you can do so by emailing your source code to <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Submission: Research Server">AssemblySubmissions@topcoder.com</A> before the end of the Competition Phase.  Your team can submit code as many times as you wish before the submission deadline without any penalties.  The last code submitted prior to the deadline will be used as your final submission.
+Once your team has working code you are ready to submit, you can do so by emailing your source code to <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Submission: Report Generation">AssemblySubmissions@topcoder.com</A> before the end of the Competition Phase.  Your team can submit code as many times as you wish before the submission deadline without any penalties.  The last code submitted prior to the deadline will be used as your final submission.
 <br><br>
 </div>
 </td>
