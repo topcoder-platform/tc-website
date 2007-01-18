@@ -1,10 +1,3 @@
-<%@ page import="com.topcoder.web.common.BaseServlet,
-                 com.topcoder.web.forums.ForumConstants,
-                 com.jivesoftware.base.JiveConstants,
-                 com.jivesoftware.base.User,
-                 java.util.Iterator,
-                 java.util.Enumeration"
-        %>
 <%@ page contentType="text/html;charset=utf-8" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -56,7 +49,7 @@
 
 
 <p>
-    <b>1.1.13 - 2006.xx.xx</b>
+    <b>1.1.13 - 2007.01.17</b>
     <ul>
         <li>Enable request throttle.</li>
     </ul>
