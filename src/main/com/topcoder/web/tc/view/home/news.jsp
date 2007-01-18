@@ -9,6 +9,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>01.18.07<br>9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      Marathon Match Ratings
+      </span><br><br>
+      Marathon Match competitors are now rated! Based on community feedback, we've come up with a rating formula and added the results to their member profiles, so take a look around.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <tc-webtag:forumLink forumID="506257" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.17.07<br>6:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -190,21 +204,5 @@ second and <tc-webtag:handle coderId="19931322" context="hs_algorithm"/> rounded
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm26">full story</A> | 
         <tc-webtag:forumLink forumID="506221" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>01.04.07<br>1:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=010407">Beginning Algorithm Competitions with VB.NET</A></span><br><br>
-       Visual Basic, or VB, has been around since 1991. It is a simple language and is common in business, both as a development language and a scripting language for use with Microsoft applications. While not the most popular language at TopCoder, VB.NET is a capable language for algorithm development.</td>
-      <td class="newsPhoto"><img src="/i/m/jmzero_big.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="15498334" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=010407">full story</A> | 
-         <tc-webtag:forumLink forumID="506222" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 
