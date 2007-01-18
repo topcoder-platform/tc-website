@@ -341,31 +341,7 @@ public class ForumsUtil {
         body = StringUtils.replace(body, "\"", "&quot;");
         return body;
     }
-    
-    /* Allows special characters, along with apostrophes and dashes copied from Word, to display correctly 
-     * in message bodies. Accepts a textarea's body as input.
-     */
-    public static final String createDisplayBody(String body) {
-        if (body == null) {
-            return null;
-        }
-        char ch;
-        int i=0;
-        char[] input = body.toCharArray();
-        int len = input.length;
-        StringBuffer out = new StringBuffer((int)(len*1.3));
-        for (; i < len; i++) {
-            ch = input[i];
-            if (ch > '>') {
-                continue;
-            } else {
-            	out.append(ch);
-            }
-        }
-        return out.toString();
-    }
-
-
+   
     public static boolean isAdmin(User user) {
         if (user == null) return false;
         return user.isAuthorized(Permissions.SYSTEM_ADMIN);
