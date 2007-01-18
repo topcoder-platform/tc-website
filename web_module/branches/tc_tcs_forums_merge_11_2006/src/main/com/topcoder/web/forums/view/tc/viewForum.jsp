@@ -150,7 +150,7 @@
         <%=forum.getName()%>
         <%
         String linkStr = ForumsUtil.createLinkString(forum);
-                 if (!linkStr.equals("")) {
+                 if (!linkStr.equals("()")) {
         %>
         <%=linkStr%>
         <% 	} %>
