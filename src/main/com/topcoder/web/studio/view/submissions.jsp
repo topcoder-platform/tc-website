@@ -45,6 +45,12 @@
     </c:if>
         myForm.submit();
     }
+    function resizeImage(myImage) {
+        var myHeight = Math.round(myImage.offsetHeight * 300 / myImage.offsetWidth);
+        myImage.style.width = 300 + 'px';
+        myImage.style.height = myHeight + 'px';
+        myImage.style.display = 'inline';
+    }
     //--></script>
 </head>
 
@@ -149,7 +155,7 @@
 
                     <c:choose>
                         <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
-                            <img src="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>" alt=""/>
+                            <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>"><img src="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>" alt="<%=Constants.SUBMISSION_ID%>" style="display: none;" onload="resizeImage(this);" /></A>
                         </c:when>
                         <c:otherwise>
                             <div align="center">
