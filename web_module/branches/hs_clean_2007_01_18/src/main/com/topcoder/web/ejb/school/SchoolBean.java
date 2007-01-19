@@ -396,6 +396,8 @@ public class SchoolBean extends BaseEJB {
         	}
         	ps.setLong(1, idSrc);
         	
+        	rs.close();
+        	
         	rs = ps.executeQuery();
         	
         	if (rs.next()) {
