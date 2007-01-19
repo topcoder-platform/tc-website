@@ -427,7 +427,7 @@ public class SchoolBean extends BaseEJB {
 
 	private void mergeTeams(Connection connOltp/*, Connection connDW*/, long teamSrc, long teamDest) throws SQLException {
 		PreparedStatement ps = null;
-		ResultSet rs = null;
+		//ResultSet rs = null;
 		try {
 			// Fix table team_coder_xref
 			ps = connOltp.prepareStatement("update team_coder_xref set team_id = ? where team_id = ?");
@@ -464,7 +464,7 @@ public class SchoolBean extends BaseEJB {
         	log.info("Updated " + rowCount + " rows in room_result");	
   */      	
 		} finally {
-			close(rs);
+			//close(rs);
 			close(ps);
 		}
 		
