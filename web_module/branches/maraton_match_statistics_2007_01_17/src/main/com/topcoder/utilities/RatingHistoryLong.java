@@ -31,8 +31,8 @@ public class RatingHistoryLong {
         
         InitialContext ctx = TCContext.getInitial();
         
-        Connection conOLTP  = new InformixSimpleDataSource(new TCResourceBundle("DBMS").getProperty("OLTP_DATASOURCE_NAME")).getConnection();
-        Connection conDW  = new InformixSimpleDataSource(new TCResourceBundle("DBMS").getProperty("DW_DATASOURCE_NAME")).getConnection();
+        Connection conOLTP  = new InformixSimpleDataSource(new TCResourceBundle("DBMS").getProperty("INFORMIX_CONNECT_STRING")).getConnection();
+        Connection conDW  = new InformixSimpleDataSource(new TCResourceBundle("DBMS").getProperty("TCS_CATALOG_CONNECT_STRING")).getConnection();
         
 
         String q = " select distinct r.round_id, c.start_date asc " +
