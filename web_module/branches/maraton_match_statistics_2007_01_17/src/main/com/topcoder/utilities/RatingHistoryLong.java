@@ -1,9 +1,10 @@
 package com.topcoder.utilities;
 
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.sql.InformixSimpleDataSource;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -29,9 +30,10 @@ public class RatingHistoryLong {
         System.out.println(ApplicationServer.HOST_URL);
         
         InitialContext ctx = TCContext.getInitial();
-
-        Connection conOLTP = DBMS.getConnection(ctx, arg); //informixoltp
-        Connection conDW = DBMS.getConnection(ctx, DBMS.DW_DATASOURCE_NAME); //informixoltp
+        
+        Connection conOLTP  = new InformixSimpleDataSource(new TCResourceBundle("DBMS").getProperty("OLTP_DATASOURCE_NAME")).getConnection();
+        Connection conDW  = new InformixSimpleDataSource(new TCResourceBundle("DBMS").getProperty("DW_DATASOURCE_NAME")).getConnection();
+        
 
         String q = " select distinct r.round_id, c.start_date asc " +
                    " from round r, " +
