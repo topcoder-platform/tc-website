@@ -25,7 +25,7 @@ public class RatingHistoryLong {
     private void run() throws Exception {
         InitialContext ctx = TCContext.getInitial();
         
-        Connection conOLTP = DBMS.getConnection(DBMS.COMMON_OLTP_DATASOURCE_NAME); //informixoltp
+        Connection conOLTP = DBMS.getConnection(DBMS.OLTP_DATASOURCE_NAME); //informixoltp
         Connection conDW = DBMS.getConnection(DBMS.DW_DATASOURCE_NAME); //informixoltp
 
         String q = " select distinct r.round_id, c.start_date asc " +
