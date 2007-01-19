@@ -54,7 +54,7 @@
 
 <a href="http://www.topcoder.com/stat?c=round_overview&er=5&rd=10659">Single Round Match 335</a> saw a fairly high number
 of coders face a seemingly innocent -- but tough -- set of problems. In both divisions there were many failed submissions
-in more than one problem. Luckily, many failures arised during the challenge phase, which was a great deal of fun and resulted
+in more than one problem. Luckily, many failures arose during the challenge phase, which was a great deal of fun and resulted
 in big points for successful challengers.
 <br /><br />
 In division 1,
