@@ -63,16 +63,16 @@
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
                             <tr>
-                                <td class="tableTitle" colspan="6">Practice Contests</td>
+                                <td class="tableTitle" colspan="4">Practice Contests</td>
                             </tr>
                             <tr>
-                                <td class="tableHeader" width="20%">Contest</td>
+                                <td class="tableHeader" width="40%">Contest</td>
 <%--
-                                <td class="tableHeader" width="20%" align="right">Registrants</td>
+                                <td class="tableHeader" width="10%" align="right">Registrants</td>
 --%>
                                 <td class="tableHeader" width="20%" align="right">Competitors</td>
-                                <td class="tableHeader" width="20%">&#160;</td>
-                                <td class="tableHeader" width="20%">&#160;</td>
+                                <td class="tableHeader" width="20%">&nbsp;</td>
+                                <td class="tableHeader" width="20%">&nbsp;</td>
                             </tr>
 
                             <%boolean even = true;%>
