@@ -1050,7 +1050,7 @@ if (action != null) {
 				long forumCategoryId = componentManager.getForumCategory(ForumCategory.SPECIFICATION).getId();
 				boolean canReadCategory = forums.canRead(user.getId(), forumCategoryId);
 				if (!canReadCategory) {
-					strError = "User " + strUserName + " must have permission to read forums before this watch can be assigned.";
+					strError = "User " + strUserName + " must have permission to read this component's forums before this watch can be assigned.";
 				} else {
 	                // Assign notification event
 	                forums.createCategoryWatch(user.getId(), forumCategoryId);
