@@ -10,8 +10,8 @@ LOGFILE=cache-`date +%Y-%m-%d-%H-%M-%S`.log
 
 CP=""
 CP=$CP:$BASE/lib/bin/shared.jar
-CP=$CP:$BASE/lib/bin/build.jar
-#CP=$CP:$BASE/build/classes
+#CP=$CP:$BASE/lib/bin/build.jar
+CP=$CP:$BASE/build/classes
 CP=$CP:$BASE/lib/jars/log4j-1.2.7.jar
 CP=$CP:$BASE/lib/jars/nbio.jar
 CP=$CP:$BASE/resources

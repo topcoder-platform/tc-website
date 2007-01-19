@@ -1,13 +1,13 @@
 <CMConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="/export/home/tcs/jboss-4.0.2/server/default/conf/CM v2 Schema.xsd" version="v2">
         <Property name="allowed_directories">
-                <Value>/home/tcs/</Value>
+                <Value>/home/onlinereview/</Value>
         </Property>
         <Property name="temp_directory">
-                <Value>/home/tcs/temp_files</Value>
+                <Value>/home/onlinereview/temp_files</Value>
         </Property>
         <Property name="default_directory">
-                <Value>/home/tcs/downloads</Value>
+                <Value>/home/onlinereview/downloads</Value>
         </Property>
         <Property name="overwrite_allowed">
                 <Value>no</Value>
