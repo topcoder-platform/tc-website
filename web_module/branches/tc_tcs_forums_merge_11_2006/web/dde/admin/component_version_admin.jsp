@@ -7,8 +7,6 @@
                  com.topcoder.dde.persistencelayer.interfaces.LocalDDEDocTypesHome,
                  com.topcoder.dde.persistencelayer.interfaces.LocalDDEDocTypes,
                  com.topcoder.file.TCSFile,
-                 com.topcoder.dde.notification.NotificationHome,
-                 com.topcoder.dde.notification.Notification,
                  com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCatalog,
                  com.topcoder.dde.persistencelayer.interfaces.LocalDDECategories,
                  com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCatalogHome,
@@ -1048,11 +1046,11 @@ if (action != null) {
                 User user = USER_MANAGER.getUser(strUsername);
 
 				long forumCategoryId = componentManager.getForumCategory(ForumCategory.SPECIFICATION).getId();
-				boolean canReadCategory = forums.canRead(user.getId(), forumCategoryId);
+				boolean canReadCategory = forums.canReadCategory(user.getId(), forumCategoryId);
 				if (!canReadCategory) {
-					strError = "User " + strUserName + " must have permission to read this component's forums before this watch can be assigned.";
+					strError = "User " + strUsername + " must have permission to read this component's forums before this watch can be assigned.";
 				} else {
-	                // Assign notification event
+	                // Assign watch
 	                forums.createCategoryWatch(user.getId(), forumCategoryId);
 	                log.info("Assigning watch on category " + forumCategoryId + " to user " + user.getId());
 					strMessage += "User " + strUsername + " is now watching developer forums for this component. ";
@@ -1060,8 +1058,8 @@ if (action != null) {
             } catch (com.topcoder.dde.user.NoSuchUserException nsue) {
                 strError = "User '" + strUsername + "' was not found.";
             } catch (Exception e) {
-                log.error("An error occurred while assigning notification event to user", e);
-                strError = "An error occurred while assigning notification event to user : " + e;
+                log.error("An error occurred while assigning watch to user", e);
+                strError = "An error occurred while assigning watch to user : " + e;
             }
         }
     }
@@ -2032,7 +2030,7 @@ if (action != null) {
 
 <!-- Notifications begins -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
-                <tr><td class="adminSubhead">Notifications</td></tr>
+                <tr><td class="adminSubhead">Forum Watches</td></tr>
             </table>
 
             <table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
