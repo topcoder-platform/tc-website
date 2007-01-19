@@ -419,8 +419,8 @@ public class SchoolBean extends BaseEJB {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
         } finally {
-            close(ps);
             close(rs);
+            close(ps);
             close(connOltp);
         }
     }
