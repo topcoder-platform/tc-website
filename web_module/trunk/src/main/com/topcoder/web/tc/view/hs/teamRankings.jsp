@@ -158,7 +158,7 @@ Teams |
                             <td class="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></td>
                             <td class="value"><rsc:item name="name" row="<%=resultRow%>"/></td>
                             <td class="value"><rsc:item name="member_count" row="<%=resultRow%>"/></td>
-                            <td class="valueR"><rsc:item name="team_points" row="<%=resultRow%>" format="###0,00" /></td>
+                            <td class="valueR"><rsc:item name="team_points" row="<%=resultRow%>" format="###0.00" /></td>
                         </tr>
                     </rsc:iterator>
                 </table>
