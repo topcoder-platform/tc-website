@@ -1,5 +1,6 @@
 package com.topcoder.utilities;
 
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
@@ -23,6 +24,10 @@ public class RatingHistoryLong {
     }
 
     private void run(String arg) throws Exception {
+        
+        System.out.println(ApplicationServer.JNDI_FACTORY);
+        System.out.println(ApplicationServer.HOST_URL);
+        
         InitialContext ctx = TCContext.getInitial();
         
         Connection conOLTP = DBMS.getConnection(arg); //informixoltp
