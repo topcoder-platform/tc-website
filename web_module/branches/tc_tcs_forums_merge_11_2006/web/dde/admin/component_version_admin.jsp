@@ -1048,11 +1048,15 @@ if (action != null) {
                 User user = USER_MANAGER.getUser(strUsername);
 
 				long forumCategoryId = componentManager.getForumCategory(ForumCategory.SPECIFICATION).getId();
-
-                // Assign notification event
-                forums.createCategoryWatch(user.getId(), forumCategoryId);
-                log.info("Assigning watch on category " + forumCategoryId + " to user " + user.getId());
-				strMessage += "User " + strUsername + " is now watching developer forums for this component. ";
+				boolean canReadCategory = forums.canRead(user.getId(), forumCategoryId);
+				if (!canReadCategory) {
+					strError = "User " + strUserName + " must have permission to read forums before this watch can be assigned.";
+				} else {
+	                // Assign notification event
+	                forums.createCategoryWatch(user.getId(), forumCategoryId);
+	                log.info("Assigning watch on category " + forumCategoryId + " to user " + user.getId());
+					strMessage += "User " + strUsername + " is now watching developer forums for this component. ";
+				}
             } catch (com.topcoder.dde.user.NoSuchUserException nsue) {
                 strError = "User '" + strUsername + "' was not found.";
             } catch (Exception e) {

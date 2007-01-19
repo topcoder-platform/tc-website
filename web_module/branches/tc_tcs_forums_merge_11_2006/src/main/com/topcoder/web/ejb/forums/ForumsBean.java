@@ -188,7 +188,7 @@ public class ForumsBean extends BaseEJB {
     	category.setProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS, String.valueOf(ForumConstants.PROPERTY_ARCHIVAL_STATUS_CLOSED));
     }
     
-    public boolean canRead(long userID, long categoryID) throws ForumCategoryNotFoundException {
+    public boolean canReadCategory(long userID, long categoryID) throws ForumCategoryNotFoundException {
     	ForumFactory userForumFactory = ForumFactory.getInstance(new TCAuthToken(userID));
 		ForumCategory category = userForumFactory.getForumCategory(categoryID);
 		return category.isAuthorized(ForumPermissions.READ_FORUM);

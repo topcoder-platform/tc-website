@@ -21,8 +21,6 @@
     String action = request.getParameter("a");
 %>
 
-Action: <%=action%>
-
 <%	Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
 	Forums forums = null;
 	try {
@@ -143,8 +141,8 @@ Action: <%=action%>
 	            	categoryIDs[i] = Long.parseLong(strCategoryIDs[i]);
 	            }
                 long lngUser = Long.parseLong(request.getParameter("user"));
-                forums.createCategoryWatches(lngUser, categoryIDs); %> lngUser: <%=lngUser%> categoryID: <%=categoryIDs[0]%>
-       <%         strMessage += "Notification events were assigned";
+                forums.createCategoryWatches(lngUser, categoryIDs);
+       		    strMessage += "Notification events were assigned";
             } catch (RemoteException re) {
                 strError += "RemoteException occurred while assigning notification event: " + re.getMessage();
             }

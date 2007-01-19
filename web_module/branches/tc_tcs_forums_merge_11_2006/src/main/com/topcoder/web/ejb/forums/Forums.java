@@ -29,7 +29,7 @@ public interface Forums extends EJBObject {
     
     public void closeCategory(long categoryID) throws EJBException, RemoteException, ForumCategoryNotFoundException, UnauthorizedException;
     
-    public boolean canRead(long userID, long categoryID) throws EJBException, RemoteException, ForumCategoryNotFoundException;
+    public boolean canReadCategory(long userID, long categoryID) throws EJBException, RemoteException, ForumCategoryNotFoundException;
     
     public void createCategoryWatch(long userID, long categoryID) throws EJBException, RemoteException, ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException;
     
