@@ -29,9 +29,9 @@ public class RatingHistoryLong {
         System.out.println(ApplicationServer.HOST_URL);
         
         InitialContext ctx = TCContext.getInitial();
-        
-        Connection conOLTP = DBMS.getConnection(arg); //informixoltp
-        Connection conDW = DBMS.getConnection(DBMS.DW_DATASOURCE_NAME); //informixoltp
+
+        Connection conOLTP = DBMS.getConnection(ctx, arg); //informixoltp
+        Connection conDW = DBMS.getConnection(ctx, DBMS.DW_DATASOURCE_NAME); //informixoltp
 
         String q = " select distinct r.round_id, c.start_date asc " +
                    " from round r, " +
