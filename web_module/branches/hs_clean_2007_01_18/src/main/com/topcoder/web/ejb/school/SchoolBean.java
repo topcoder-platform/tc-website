@@ -444,7 +444,6 @@ public class SchoolBean extends BaseEJB {
 			ps.setLong(2, teamSrc);
 			rowCount = ps.executeUpdate();
         	log.info("Updated " + rowCount + " rows in round_registration ");	
-        	ps.close();
         	
         	// get the rounds where the src team has participated in order to fix them
 /*        	ps = connOltp.prepareStatement("select distinct round_id from round_registration where team_id=? and eligible=1");
