@@ -26,7 +26,7 @@ public class Constants implements WebConstants {
     public static String VERIZON_REG_DEMOG_PAGE;
     public static String VERIZON_REG_CONFIRM_PAGE;
     public static String VERIZON_REG_SUCCESS_PAGE;
-//    public static String VERIZON_INELIGIBLE_PAGE;
+    //    public static String VERIZON_INELIGIBLE_PAGE;
     public static String VERIZON_ACTIVATION_PAGE;
     public static String VERIZON_ACTIVATION_REG_FULL_PAGE;
     public static String VERIZON_ACTIVATION_INELIGIBLE_PAGE;
@@ -163,7 +163,6 @@ public class Constants implements WebConstants {
 
     //other parameters
     public static String STATIC_PREFIX;
-    public static String EVENT_ID;
     public static String REGISTRATION_INFO;
     public static String FILE;
     public static String LOCALE;
