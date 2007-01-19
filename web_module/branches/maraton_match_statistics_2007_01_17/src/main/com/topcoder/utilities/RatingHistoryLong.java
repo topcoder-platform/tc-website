@@ -16,16 +16,16 @@ public class RatingHistoryLong {
     public static void main(String[] args) {
         RatingHistoryLong r = new RatingHistoryLong();
         try {
-            r.run();
+            r.run(args[0]);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void run() throws Exception {
+    private void run(String arg) throws Exception {
         InitialContext ctx = TCContext.getInitial();
         
-        Connection conOLTP = DBMS.getConnection(DBMS.OLTP_DATASOURCE_NAME); //informixoltp
+        Connection conOLTP = DBMS.getConnection(arg); //informixoltp
         Connection conDW = DBMS.getConnection(DBMS.DW_DATASOURCE_NAME); //informixoltp
 
         String q = " select distinct r.round_id, c.start_date asc " +
