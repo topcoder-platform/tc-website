@@ -9,9 +9,6 @@ import javax.naming.InitialContext;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 public class RatingHistoryLong {
     private static Logger log = Logger.getLogger(RatingHistoryLong.class);
@@ -28,8 +25,8 @@ public class RatingHistoryLong {
     private void run() throws Exception {
         InitialContext ctx = TCContext.getInitial();
         
-        Connection conOLTP = DBMS.getConnection("OLTP"); //informixoltp
-        Connection conDW = DBMS.getConnection("DW"); //informixoltp
+        Connection conOLTP = DBMS.getConnection(DBMS.COMMON_OLTP_DATASOURCE_NAME); //informixoltp
+        Connection conDW = DBMS.getConnection(DBMS.DW_DATASOURCE_NAME); //informixoltp
 
         String q = " select distinct r.round_id, c.start_date asc " +
                    " from round r, " +
