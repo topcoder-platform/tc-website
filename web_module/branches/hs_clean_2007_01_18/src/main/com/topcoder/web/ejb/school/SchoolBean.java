@@ -366,12 +366,13 @@ public class SchoolBean extends BaseEJB {
     public void mergeSchools(long idSrc, long idDest) throws EJBException {
     	log.debug("MergeSchools called ");
         Connection connOltp = null;
-        Connection connDW = null;
+//        Connection connDW = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
         	connOltp = DBMS.getConnection(DBMS.OLTP_DATASOURCE_NAME);
-        	connDW = DBMS.getConnection(DBMS.DW_DATASOURCE_NAME);
+        	connOltp.setAutoCommit(false);
+  //      	connDW = DBMS.getConnection(DBMS.DW_DATASOURCE_NAME);
         	
         	// Fix current School
         	ps = connOltp.prepareStatement("update current_school set school_id = ? where school_id = ?");
@@ -391,36 +392,40 @@ public class SchoolBean extends BaseEJB {
         	rs = ps.executeQuery();
         	
         	if (rs.next()) {
-        		teamDest = rs.getLong(0);
+        		teamDest = rs.getLong(1);
         	}
         	ps.setLong(1, idSrc);
         	
         	rs = ps.executeQuery();
         	
         	if (rs.next()) {
-        		teamSrc = rs.getLong(0);
+        		teamSrc = rs.getLong(1);
         	}
         	if ((teamSrc > 0 && teamDest < 0) || (teamSrc < 0 && teamDest > 0)) {
         		throw new IllegalArgumentException("One school has an associated team but the other doesn't");        		
         	}
         	
         	if (teamSrc > 0) {
-        		mergeTeams(connOltp, connDW, teamSrc, teamDest);
+        		mergeTeams(connOltp,  teamSrc, teamDest);
         	}
         	
-        	
+        	connOltp.commit();
         } catch (SQLException _sqle) {
+        	try {
+        		connOltp.rollback();
+        	} catch (Exception e) {
+        		throw new EJBException(e.getMessage());
+        	}
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
         } finally {
             close(ps);
             close(rs);
             close(connOltp);
-            close(connDW);
         }
     }
 
-	private void mergeTeams(Connection connOltp, Connection connDW, long teamSrc, long teamDest) throws SQLException {
+	private void mergeTeams(Connection connOltp/*, Connection connDW*/, long teamSrc, long teamDest) throws SQLException {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
