@@ -1038,54 +1038,21 @@ if (action != null) {
         //response.sendRedirect("component_version_admin.jsp?comp=" + lngComponent + "ver=" + lngVersion);
     }
 
-    if (action.equals("Assign Forum Post Notification Event")) {
+    if (action.equals("Watch Developer Forums")) {
         String strUsername = request.getParameter("txtTCHandle");
         if (strUsername == null || strUsername.trim().length() == 0) {
             strError = "User handle must not be empty.";
         } else {
             try {
-                log.debug("Locating entity EJBs...");
-                LocalDDECompCatalogHome catalogHome
-                    = (LocalDDECompCatalogHome) CONTEXT.lookup(LocalDDECompCatalogHome.EJB_REF_NAME);
-
-                LocalDDECategoriesHome categoriesHome
-                    = (LocalDDECategoriesHome) CONTEXT.lookup(LocalDDECategoriesHome.EJB_REF_NAME);
-
                 log.debug("Locating the user for handle '" + strUsername + "' ...");
                 User user = USER_MANAGER.getUser(strUsername);
 
-                String event = "com.topcoder.dde.forum.ForumPostEvent " + componentManager.getForumCategory(ForumCategory.SPECIFICATION).getId();
-
-                StringBuffer buffer = new StringBuffer();
-                String category = "";
-                try {
-                    component = componentManager.getComponentInfo();
-
-                    // Locate the base category for the component.
-                    LocalDDECompCatalog cat = catalogHome.findByPrimaryKey(new Long(component.getId()));
-                    LocalDDECategories categories = categoriesHome.findByPrimaryKey(new Long(cat.getRootCategory()));
-                    category = categories.getName();
-                } catch (FinderException e) {
-                    throw new CatalogException(e.toString());
-                }
-
-                buffer.append(category);
-                buffer.append(" ");
-                buffer.append(component.getName());
-                buffer.append(" ");
-                buffer.append(ver.getVersionLabel());
-                buffer.append(" - Forum Post");
-
-                // Locate the Notification bean
-                log.debug("Locating the Notification EJB ...");
-                Object objNotification = CONTEXT.lookup(NotificationHome.EJB_REF_NAME);
-                NotificationHome notificationHome = (NotificationHome) PortableRemoteObject.narrow(objNotification, NotificationHome.class);
-                Notification notification = notificationHome.create();
+				long forumCategoryId = componentManager.getForumCategory(ForumCategory.SPECIFICATION).getId();
 
                 // Assign notification event
-                log.info("Assigning notification event '" + event + "' to user " + user.getId());
-                notification.createNotification(event, user.getId(), Notification.FORUM_POST_TYPE_ID, buffer.toString());
-
+                forums.createCategoryWatch(user.getId(), forumCategoryId);
+                log.info("Assigning watch on category " + forumCategoryId + " to user " + user.getId());
+				strMessage += "User " + strUsername + " is now watching developer forums for this component. ";
             } catch (com.topcoder.dde.user.NoSuchUserException nsue) {
                 strError = "User '" + strUsername + "' was not found.";
             } catch (Exception e) {
@@ -2070,7 +2037,7 @@ if (action != null) {
                         Handle: &#160;<input class="adminSearchForm" type="text" size="20" name="txtTCHandle">
                     </td>
                     <td>
-                        <input class="adminButton" type="submit" name="a" value="Assign Forum Post Notification Event">
+                        <input class="adminButton" type="submit" name="a" value="Watch Developer Forums">
                     </td>
                 </tr>
             </table>

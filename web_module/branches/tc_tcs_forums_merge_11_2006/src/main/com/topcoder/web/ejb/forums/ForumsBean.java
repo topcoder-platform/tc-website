@@ -12,6 +12,7 @@ import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumCategoryNotFoundException;
+import com.jivesoftware.forum.ForumPermissions;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.Watch;
 import com.jivesoftware.forum.WatchManager;
@@ -185,6 +186,12 @@ public class ForumsBean extends BaseEJB {
     public void closeCategory(long categoryID) throws ForumCategoryNotFoundException, UnauthorizedException {
     	ForumCategory category = forumFactory.getForumCategory(categoryID);
     	category.setProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS, String.valueOf(ForumConstants.PROPERTY_ARCHIVAL_STATUS_CLOSED));
+    }
+    
+    public boolean canRead(long userID, long categoryID) throws ForumCategoryNotFoundException {
+    	ForumFactory userForumFactory = ForumFactory.getInstance(new TCAuthToken(userID));
+		ForumCategory category = userForumFactory.getForumCategory(categoryID);
+		return category.isAuthorized(ForumPermissions.READ_FORUM);
     }
     
     /* 
