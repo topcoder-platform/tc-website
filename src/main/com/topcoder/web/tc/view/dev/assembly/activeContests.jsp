@@ -51,33 +51,101 @@
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value" nowrap>
-      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_productMgmtConsole">Product Management Console</A>
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_pmcProduct">PMC Product</A>
       </td>
       <td class="valueC">
-      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Product Management Console">register</A>
+      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: PMC Product">register</A>
       <%--registration closed--%>
       </td>
       <td class="valueC">
       &#160;
       <%--   
-      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_productMgmtConsole">results</A>
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_pmcProduct">results</A>
       --%>
       </td>
       <td class="valueC">
       &#160;
       <%-- 
-      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_productMgmtConsole">standings</A>
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_pmcProduct">standings</A>
       --%>
       </td>
-      <td class="valueC">$17,000</td>
+      <td class="valueC">$8,000</td>
       <td class="valueC">
-      01.23.2007 9:00 AM EST
+      01.28.2007 9:00 AM EST
       </td>
       <td class="valueC">
       02.15.2007 9:00 AM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506252">join a team</A>
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506260">join a team</A>
+      <br> 
+      <%--<A href="">discuss</A>--%>
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value" nowrap>
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_pmcOffline">PMC Offline</A>
+      </td>
+      <td class="valueC">
+      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: PMC Offline">register</A>
+      <%--registration closed--%>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%--   
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_pmcOffline">results</A>
+      --%>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%-- 
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_pmcOffline">standings</A>
+      --%>
+      </td>
+      <td class="valueC">$8,000</td>
+      <td class="valueC">
+      01.28.2007 9:00 AM EST
+      </td>
+      <td class="valueC">
+      02.15.2007 9:00 AM EST
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506261">join a team</A>
+      <br> 
+      <%--<A href="">discuss</A>--%>
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value" nowrap>
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_pmcUser">PMC User</A>
+      </td>
+      <td class="valueC">
+      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: PMC User">register</A>
+      <%--registration closed--%>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%--   
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_pmcUser">results</A>
+      --%>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%-- 
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_pmcUser">standings</A>
+      --%>
+      </td>
+      <td class="valueC">$8,000</td>
+      <td class="valueC">
+      01.28.2007 9:00 AM EST
+      </td>
+      <td class="valueC">
+      02.09.2007 9:00 AM EST
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506259">join a team</A>
       <br> 
       <%--<A href="">discuss</A>--%>
       </td>
