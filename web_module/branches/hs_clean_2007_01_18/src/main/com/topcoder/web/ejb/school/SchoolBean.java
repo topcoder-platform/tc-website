@@ -363,6 +363,172 @@ public class SchoolBean extends BaseEJB {
     }
 
 
+    public void mergeSchools(long idSrc, long idDest) throws EJBException {
+    	log.debug("MergeSchools called ");
+        Connection connOltp = null;
+        Connection connDW = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+        	connOltp = DBMS.getConnection(DBMS.OLTP_DATASOURCE_NAME);
+        	connDW = DBMS.getConnection(DBMS.DW_DATASOURCE_NAME);
+        	
+        	// Fix current School
+        	ps = connOltp.prepareStatement("update current_school set school_id = ? where school_id = ?");
+        	ps.setLong(1, idDest);
+        	ps.setLong(2, idSrc);
+        	
+        	int rowCount = ps.executeUpdate();
+        	log.info("Updated " + rowCount + " rows in current_school");
+        	
+        	// Retrieve teams
+        	long teamSrc = -1;
+        	long teamDest = -1;
+        	ps.close();
+        	ps = connOltp.prepareStatement("select team_id from team where school_id = ?");
+        	ps.setLong(1, idDest);
+        	
+        	rs = ps.executeQuery();
+        	
+        	if (rs.next()) {
+        		teamDest = rs.getLong(0);
+        	}
+        	ps.setLong(1, idSrc);
+        	
+        	rs = ps.executeQuery();
+        	
+        	if (rs.next()) {
+        		teamSrc = rs.getLong(0);
+        	}
+        	if ((teamSrc > 0 && teamDest < 0) || (teamSrc < 0 && teamDest > 0)) {
+        		throw new IllegalArgumentException("One school has an associated team but the other doesn't");        		
+        	}
+        	
+        	if (teamSrc > 0) {
+        		mergeTeams(connOltp, connDW, teamSrc, teamDest);
+        	}
+        	
+        	
+        } catch (SQLException _sqle) {
+            DBMS.printSqlException(true, _sqle);
+            throw(new EJBException(_sqle.getMessage()));
+        } finally {
+            close(ps);
+            close(rs);
+            close(connOltp);
+            close(connDW);
+        }
+    }
+
+	private void mergeTeams(Connection connOltp, Connection connDW, long teamSrc, long teamDest) throws SQLException {
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			// Fix table team_coder_xref
+			ps = connOltp.prepareStatement("update team_coder_xref set team_id = ? where team_id = ?");
+			ps.setLong(1, teamDest);
+			ps.setLong(2, teamSrc);
+        	
+			int rowCount = ps.executeUpdate();
+        	log.info("Updated " + rowCount + " rows in team_coder_xref");	        	
+        	ps.close();
+        	
+        	// Fix table round_registration
+        	ps = connOltp.prepareStatement("update round_registration set team_id=? where team_id=?");
+			ps.setLong(1, teamDest);
+			ps.setLong(2, teamSrc);
+			rowCount = ps.executeUpdate();
+        	log.info("Updated " + rowCount + " rows in round_registration ");	
+        	ps.close();
+        	
+        	// get the rounds where the src team has participated in order to fix them
+/*        	ps = connOltp.prepareStatement("select distinct round_id from round_registration where team_id=? and eligible=1");
+        	rs = ps.executeQuery();
+
+        	while(rs.next()) {
+        		long roundId = rs.getLong(0);
+        		fixTeamPoints(connOltp, connDW, roundId, teamSrc, teamDest);
+        	}        	
+        	
+        	ps.close();
+        	
+        	// Fix table room_result in DW.
+        	ps = connDW.prepareStatement("update room_result set team_id=? where team_id=?");
+			ps.setLong(1, teamDest);
+			ps.setLong(2, teamSrc);
+			rowCount = ps.executeUpdate();
+        	log.info("Updated " + rowCount + " rows in room_result");	
+  */      	
+		} finally {
+			close(rs);
+			close(ps);
+		}
+		
+	}
+
+	private void fixTeamPoints(Connection connOltp, Connection connDW, long roundId, long teamSrc, long teamDest) throws SQLException{
+        StringBuffer query = new StringBuffer(1024);
+
+		query.append(" select rr.team_points, rr.coder_id ");
+		query.append(" from room_result rr, ");
+		query.append(" round_registration rreg ");
+		query.append(" where rreg.round_id = ? ");
+		query.append(" and rr.round_id = ? ");
+		query.append(" and rreg.coder_id = rr.coder_id ");
+		query.append(" and rreg.team_id in(?, ?) ");
+		query.append(" and not rr.team_point is null ");		
+		query.append(" order by team_points desc ");
+
+		PreparedStatement ps = null;
+		PreparedStatement psFixOltp = null;
+		PreparedStatement psFixDW = null;
+		ResultSet rs = null;
+		
+		psFixOltp = connOltp.prepareStatement("update room_result set team_points=null where round_id = ? and coder_id=?");
+		psFixDW = connDW.prepareStatement("update room_result set team_points=null where round_id = ? and coder_id=?");
+		try {
+			ps = connOltp.prepareStatement(query.toString());
+			ps.setLong(1, roundId);
+			ps.setLong(2, roundId);
+			ps.setLong(3, teamSrc);
+			ps.setLong(4, teamDest);
+			
+			rs = ps.executeQuery();
+			int pos = 1;
+			while (rs.next()) {
+				if (pos > 3) {
+					psFixOltp.setLong(1, roundId);
+					psFixOltp.setLong(2, rs.getLong("coder_id"));
+					int rowCount = psFixOltp.executeUpdate();
+					if (rowCount != 1) {
+						throw new SQLException("Exactly 1 row should have been updated in oltp, but " + rowCount + " were updated");
+					}
+
+					psFixDW.setLong(1, roundId);
+					psFixDW.setLong(2, rs.getLong("coder_id"));
+					rowCount = psFixDW.executeUpdate();
+					if (rowCount != 1) {
+						throw new SQLException("Exactly 1 row should have been updated in DW, but " + rowCount + " were updated");
+					}
+					
+					log.debug("In round " + roundId + " the team_points for coder " + rs.getLong("coder_id") + " were set to null");
+					
+				} else {
+					log.debug("In round " + roundId + " the team_points for coder " + rs.getLong("coder_id") + " were not changed. Points: " + rs.getLong("team_points"));					
+				}
+				pos++;
+			}
+				
+		} finally {			
+			close(rs);
+			close(ps);
+			close(psFixOltp);
+			close(psFixDW);
+		}
+		
+	}
+    
+    
 
 }
 
