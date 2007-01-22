@@ -13,7 +13,7 @@ public class CleanSchools extends Base {
     	School s = (School) createEJB(getInitialContext(), School.class);
 
     	s.mergeSchools(s1, s2);*/
-    	setNextPage("/cleanSchool.jsp");
+    	setNextPage("/cleanSchools.jsp");
         setIsNextPageInContext(true);
     }
 
