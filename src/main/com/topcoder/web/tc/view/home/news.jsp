@@ -7,7 +7,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>01.22.07<br>5:20 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://forums.topcoder.com/?module=Thread&threadID=515502&mc=1#578866">Save the Date: Stress Test SRM</A></span><br><br>
-      Don't make any plans for Saturday, Feb. 10 at 9:00 AM EST. We're running a Stress Test SRM, and we need your help to test our systems (and freak out our admins). 
+      Don't make any plans for Saturday, Feb. 10 at 12:00 Noon EST. We're running a Stress Test SRM, and we need your help to test our systems (and freak out our admins). 
       Your incentive: a one-time shot at some special problems and $5,000 in prizes.
       </td>
    </tr>
