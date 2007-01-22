@@ -3,21 +3,32 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
 
-<%------------------------------------------------------ launch at 2pm
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>01.22.07<br>2:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>01.22.07<br>5:20 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://forums.topcoder.com/?module=Thread&threadID=515502&mc=1#578866">Save the Date: Stress Test SRM</A></span><br><br>
+      Don't make any plans for Saturday, Feb. 10 at 9:00 AM EST. We're running a Stress Test SRM, and we need your help to test our systems (and freak out our admins). 
+      Your incentive: a one-time shot at some special problems and $5,000 in prizes.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://forums.topcoder.com/?module=Thread&threadID=515502&mc=1#578866">discuss</A> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>01.22.06<br>2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=ViewSurvey&sid=16270">TCO07 Web Design Contest Vote</A>
-      </span><br><br>
-        
+      <A href="/tc?module=ViewSurvey&sid=16270">Vote for your favorite TCO'07 web design</A></span><br><br> 
+      Help us pick a new look for the 2007 TopCoder Open website by ranking your favorite designs. Vote now!            
       </td>
    </tr>
    <tr><td class="newsLinksCell">
         <A href="/tc?module=ViewSurvey&sid=16270">vote now</A> | 
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=27">discuss this</A> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
---%>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -181,21 +192,6 @@ easy to get wrong, but not nearly as easy to get wrong as the
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies">watch it</A> | 
         <tc-webtag:forumLink forumID="506218" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>01.08.06<br>12:00 NOON</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=ViewSurvey&sid=11144">Vote for the TCO07 logo design</A>
-        </span><br><br>
-        We've picked the 10 finalists for the TCO07 logo design, now you vote for the winner.  
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=ViewSurvey&sid=11144">vote now</A> | 
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=24">discuss this</A> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
