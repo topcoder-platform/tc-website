@@ -24,6 +24,8 @@ public interface DAOFactory {
 
     DemographicAssignmentDAO getDemographicAssignmentDAO();
 
+    EventDAO getEventDAO();
+
     FileTypeDAO getFileTypeDAO();
 
     MemberContactMessageDAO getMemberContactMessageDAO();
@@ -33,7 +35,7 @@ public interface DAOFactory {
     NotificationDAO getNotificationDAO();
 
     PasswordRecoveryDAO getPasswordRecoveryDAO();
-    
+
     PreferenceDAO getPreferenceDAO();
 
     PreferenceValueDAO getPreferenceValueDAO();

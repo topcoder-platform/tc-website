@@ -34,7 +34,9 @@ public class User extends Base {
     private Coder coder;
     private Contact contact;
     private Set terms;
+    private Set eventRegistrations;
     private SecretQuestion secretQuestion;
+    private Set responses;
     /**
      * hoke: used for making changes
      */
@@ -57,6 +59,7 @@ public class User extends Base {
         transientResponses = new ArrayList();
         userPreferences = new HashSet();
         terms = new HashSet();
+        responses = new HashSet();
     }
 
     public Long getId() {
@@ -365,6 +368,32 @@ public class User extends Base {
 
     public void setSecretQuestion(SecretQuestion secretQuestion) {
         this.secretQuestion = secretQuestion;
+    }
+
+
+    public Set getEventRegistrations() {
+        return Collections.unmodifiableSet(eventRegistrations);
+    }
+
+    public void setEventRegistrations(Set eventRegistrations) {
+        this.eventRegistrations = eventRegistrations;
+    }
+
+    public void addEventRegistration(EventRegistration er) {
+        eventRegistrations.add(er);
+    }
+
+
+    public Set getResponses() {
+        return Collections.unmodifiableSet(responses);
+    }
+
+    public void setResponses(Set responses) {
+        this.responses = responses;
+    }
+
+    public void addResponse(Response r) {
+        responses.add()
     }
 
 }

@@ -1,7 +1,7 @@
 package com.topcoder.web.common.model;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.*;
 
 public class Question implements Serializable {
     public static final int SINGLE_CHOICE = 1;
@@ -16,13 +16,81 @@ public class Question implements Serializable {
     private int typeId;
     private int styleId;
     private String text;
-    private boolean isRequired;
+    private boolean required;
     private List answerInfo;
     private String imagePath;
     private String link;
+    private int statusId;
+    private String keyword;
+    private QuestionType type;
+    private QuestionStyle style;
+    private Set answers;
+    private Set surveys;
+    private Set events;
 
     public Question() {
+        answers = new TreeSet();
+        surveys = new HashSet();
+        events = new HashSet();
+
     }
+
+    public int getStatusId() {
+        return statusId;
+    }
+
+    public void setStatusId(int statusId) {
+        this.statusId = statusId;
+    }
+
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
+    }
+
+    public QuestionType getType() {
+        return type;
+    }
+
+    public void setType(QuestionType type) {
+        this.type = type;
+    }
+
+    public QuestionStyle getStyle() {
+        return style;
+    }
+
+    public void setStyle(QuestionStyle style) {
+        this.style = style;
+    }
+
+    public Set getAnswers() {
+        return Collections.unmodifiableSet(answers);
+    }
+
+    public void setAnswers(Set answers) {
+        this.answers = answers;
+    }
+
+    public Set getSurveys() {
+        return Collections.unmodifiableSet(surveys);
+    }
+
+    public void setSurveys(Set surveys) {
+        this.surveys = surveys;
+    }
+
+    public Set getEvents() {
+        return Collections.unmodifiableSet(events);
+    }
+
+    public void setEvents(Set events) {
+        this.events = events;
+    }
+
 
     public long getId() {
         return id;
@@ -57,11 +125,11 @@ public class Question implements Serializable {
     }
 
     public boolean isRequired() {
-        return isRequired;
+        return required;
     }
 
     public void setRequired(boolean required) {
-        isRequired = required;
+        this.required = required;
     }
 
     public List getAnswerInfo() {

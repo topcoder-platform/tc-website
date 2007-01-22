@@ -44,6 +44,10 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new DemographicAssignmentDAOHibernate();
     }
 
+    public EventDAO getEventDAO() {
+        return new EventDAOHibernate();
+    }
+
     public FileTypeDAO getFileTypeDAO() {
         return new FileTypeDAOHibernate();
     }
@@ -61,9 +65,9 @@ public class DAOFactoryHibernate implements DAOFactory {
     }
 
     public PasswordRecoveryDAO getPasswordRecoveryDAO() {
- 	   return new PasswordRecoveryDAOHibernate();
+        return new PasswordRecoveryDAOHibernate();
     }
-    
+
     public PreferenceDAO getPreferenceDAO() {
         return new PreferenceDAOHibernate();
     }
