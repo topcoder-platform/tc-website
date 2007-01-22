@@ -12,7 +12,7 @@
             <key-many-to-one name="blockedUser" class="User" column="blocked_user_id"/>
         </composite-id>
 
-        <property name="eligible" type="boolean" column="eligible_ind" access="field"/>
+        <property name="blocked" type="boolean" column="blocked_ind" access="field"/>
 
     </class>
 </hibernate-mapping>
