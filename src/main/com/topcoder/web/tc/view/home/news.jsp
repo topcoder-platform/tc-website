@@ -7,14 +7,15 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>01.22.07<br>2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-      <A href="">TCO07 Web Design Contest Vote</A>
+      <A href="/tc?module=ViewSurvey&sid=16270">TCO07 Web Design Contest Vote</A>
       </span><br><br>
-      
+        
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <tc-webtag:forumLink forumID="506257" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+        <A href="/tc?module=ViewSurvey&sid=16270">vote now</A> | 
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=27">discuss this</A> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
 --%>
 
