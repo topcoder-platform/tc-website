@@ -6,12 +6,11 @@
 <hibernate-configuration>
 
 
-    <!--
-        <session-factory name="java:comp/env/hibernate/SessionFactory">
+    <session-factory name="java:comp/env/hibernate/SessionFactory">
 
-            <property name="connection.datasource">java:/JTS_OLTP</property>
-    -->
-    <!-- for testing-->
+        <property name="connection.datasource">java:/JTS_OLTP</property>
+        <!-- for testing-->
+        <!--
     <session-factory>
         <property name="connection.username">coder</property>
         <property name="connection.password">altec</property>
@@ -20,11 +19,14 @@
         </property>
         <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
 
+        -->
         <!-- SQL dialect -->
-        <property name="dialect">org.hibernate.dialect.InformixDialect</property>
-        <property name="current_session_context_class">
-            com.topcoder.web.common.ExtendedThreadLocalSessionContext
-        </property>
+        <!--
+                <property name="dialect">org.hibernate.dialect.InformixDialect</property>
+                <property name="current_session_context_class">
+                    com.topcoder.web.common.ExtendedThreadLocalSessionContext
+                </property>
+        -->
 
 
         <!--   using jdbc transactions right now cuz i can't get jta to work right.  it could be jboss, or it could be something else...not sure
@@ -41,7 +43,9 @@
         <mapping resource="com/topcoder/web/common/model/Address.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/AlgoRating.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/AlgoRatingType.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/Answer.hbm.xml"/>
+        <!--
+                <mapping resource="com/topcoder/web/common/model/Answer.hbm.xml"/>
+        -->
         <mapping resource="com/topcoder/web/common/model/Coder.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/CoderImage.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/CoderReferral.hbm.xml"/>
@@ -55,9 +59,11 @@
         <mapping resource="com/topcoder/web/common/model/DemographicQuestion.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/DemographicResponse.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Email.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/Event.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/EventRegistration.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/EventType.hbm.xml"/>
+        <!--
+                <mapping resource="com/topcoder/web/common/model/Event.hbm.xml"/>
+                <mapping resource="com/topcoder/web/common/model/EventRegistration.hbm.xml"/>
+                <mapping resource="com/topcoder/web/common/model/EventType.hbm.xml"/>
+        -->
         <mapping resource="com/topcoder/web/common/model/FileType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Image.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/MemberContactMessage.hbm.xml"/>
@@ -70,9 +76,11 @@
         <mapping resource="com/topcoder/web/common/model/PreferenceGroup.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/PreferenceType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/PreferenceValue.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/Question.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/QuestionStyle.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/QuestionType.hbm.xml"/>
+        <!--
+                <mapping resource="com/topcoder/web/common/model/Question.hbm.xml"/>
+                <mapping resource="com/topcoder/web/common/model/QuestionStyle.hbm.xml"/>
+                <mapping resource="com/topcoder/web/common/model/QuestionType.hbm.xml"/>
+        -->
         <mapping resource="com/topcoder/web/common/model/RegistrationType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Referral.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Resume.hbm.xml"/>
