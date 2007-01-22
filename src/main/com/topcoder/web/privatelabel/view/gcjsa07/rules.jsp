@@ -85,10 +85,10 @@
                 Please note that due to potential visa restrictions, some finalists may not be able to
                 participate at the on-site finals in Belo Horizonte, Brazil.
                 <br><br>
-                Registrants who are 13 years of age or older as of January 2, 2007 may compete in the Qualification and
+                Registrants who are 13 years of age or older as of January 23, 2007 may compete in the Qualification and
                 Online Rounds of the Google Code Jam
                 Latin America 2007 and are also eligible to win a t-shirt. Only participants who are 18 years of age or
-                older as of January 2, 2007 are eligible to compete
+                older as of January 23, 2007 are eligible to compete
                 in the Championship Round and to win cash and prizes, unless otherwise prohibited. The Google Code Jam
                 Latin America 2007 is void where prohibited
                 by applicable law.
