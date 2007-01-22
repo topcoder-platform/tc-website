@@ -141,107 +141,107 @@
 
 
 <TR>
-    <TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
-        <b>TCHS SRM Description</b>
+<TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
+    <b>TCHS SRM Description</b>
 
-        <ul>
-            <li>Maximum of 25 coders per room</li>
-            <li>Ratings will be adjusted post-match for individuals and team members</li>
-            <li>Members will be emailed prior to the match with date and time (opt-in)</li>
-            <li>This SRM is for the
-                <rsc:item name="region_name" row="<%=rsr%>"/>
-                region
-            </li>
-        </ul>
+    <ul>
+        <li>Maximum of 25 coders per room</li>
+        <li>Ratings will be adjusted post-match for individuals and team members</li>
+        <li>Members will be emailed prior to the match with date and time (opt-in)</li>
+        <li>This SRM is for the
+            <rsc:item name="region_name" row="<%=rsr%>"/>
+            region
+        </li>
+    </ul>
 
-        <p>
-            The match will feature a mixed programming language format. For each individual problem,
-            the coder will have the option of using either Java, C++, Microsoft&#174; Visual C#&#174; .NET
-            or Microsoft&#174; Visual Basic&#174; .NET to code the solution. Syntactical knowledge of all
-            four languages will be helpful during the challenge phase of each match.
-        </p>
+    <p>
+        The match will feature a mixed programming language format. For each individual problem,
+        the coder will have the option of using either Java, C++, Microsoft&#174; Visual C#&#174; .NET
+        or Microsoft&#174; Visual Basic&#174; .NET to code the solution. Syntactical knowledge of all
+        four languages will be helpful during the challenge phase of each match.
+    </p>
 
-        <b>Structure & Scoring</b><br/>
+    <b>Structure & Scoring</b><br/>
 
-        <p style="padding-left:20px;">
-            <b>Teams</b><br/>
-            A team is defined as a group of at least three (3) students from the same school.
-            All students registered from a particular school will be on the same team.
-            Each person on the team will participate individually and the team score will be
-            calculated by adding the placement of the top three (3) team scorers. The
-            best team score will be declared the winner during each SRM.
-        </p>
+    <p style="padding-left:20px;">
+        <b>Teams</b><br/>
+        A team is defined as a group of at least three (3) students from the same school.
+        All students registered from a particular school will be on the same team.
+        Each person on the team will participate individually and the team score will be
+        calculated by adding the placement of the top three (3) team scorers. The
+        best team score will be declared the winner during each SRM.
+    </p>
 
-        <p style="padding-left:40px;">
-            <b>Scoring</b><br/>
-            TopCoder High School team scoring is different from scoring in most other team sports,
-            in that the lowest score wins. Although more than three (3) members may compete in
-            each SRM, the placement (excluding competitors from outside the region) of the first
-            three (3) members for each team are added together to determine the team score. For example, a finish of 1,
-            3,
-            and 51 - a score of 55 - will lose to a team finishing 17, 18 and 19 - with a
-            score of 54.
-        </p>
+    <p style="padding-left:40px;">
+        <b>Scoring</b><br/>
+        TopCoder High School team scoring is different from scoring in most other team sports,
+        in that the lowest score wins. Although more than three (3) members may compete in
+        each SRM, the placement (excluding competitors from outside the region) of the first
+        three (3) members for each team are added together to determine the team score. For example, a finish of 1,
+        3,
+        and 51 - a score of 55 - will lose to a team finishing 17, 18 and 19 - with a
+        score of 54.
+    </p>
 
-        <p style="padding-left:40px;">
-            <b>Coaches</b><br/>
-            Those teams wishing to use a coach to prepare for any SRM may do so, but the use of
-            coaches is not mandatory. Coaches should be a Computer Science, Math, or other
-            teacher from the team's school.
-        </p>
+    <p style="padding-left:40px;">
+        <b>Coaches</b><br/>
+        Those teams wishing to use a coach to prepare for any SRM may do so, but the use of
+        coaches is not mandatory. Coaches should be a Computer Science, Math, or other
+        teacher from the team's school.
+    </p>
 
-        <p style="padding-left:20px;">
-            Teams must compete in rated events prior to the start of the 2007 TopCoder High School
-            tournament. In order to be eligible for the tournament, a team must have competed in
-            at least four (4) rated events prior to the start of the tournament.
-        </p>
+    <p style="padding-left:20px;">
+        Teams must compete in rated events prior to the start of the 2007 TopCoder High School
+        tournament. In order to be eligible for the tournament, a team must have competed in
+        at least four (4) TCHS SRMs <!--SRMs intended for their region -->prior to the start of the tournament..
+    </p>
 
-        <p style="padding-left:20px;">
-            <b>Individuals</b><br/>
-            There will also be an individual track of competition for those students who cannot
-            assemble a team and/or who wish to participate as an individual, separate from
-            their team. As with the teams, in order to be eligible for the
-            2007 TopCoder High School tournament, individuals must have competed in at
-            least four (4) rated events prior to the start of the tournament.
-        </p>
+    <p style="padding-left:20px;">
+        <b>Individuals</b><br/>
+        There will also be an individual track of competition for those students who cannot
+        assemble a team and/or who wish to participate as an individual, separate from
+        their team. As with the teams, in order to be eligible for the
+        2007 TopCoder High School tournament, individuals must have competed in at
+        least four (4) TCHS SRMs <!--SRMs intended for their region -->prior to the start of the tournament..
+    </p>
 
-        <b>Regions</b><br/>
+    <b>Regions</b><br/>
 
-        <p>
-            In order to best accommodate students from across the globe competing at times
-            that are convenient, SRMs will take place according to regions. The
-            regions will be as follows:
-        </p>
-        <ul>
-            <li><a href="/tc?module=Static&amp;d1=hs&amp;d2=regions#alpha">Alpha Region</a> - Time zones that fall
-                within <strong>GMT -12 through GMT -5</strong></li>
-            <li><a href="/tc?module=Static&amp;d1=hs&amp;d2=regions#beta">Beta Region</a> - Time zones that fall within
-                <strong>GMT -4 through GMT +2</strong></li>
-            <li><a href="/tc?module=Static&amp;d1=hs&amp;d2=regions#gamma">Gamma Region</a> - Time zones that fall
-                within <strong>GMT +3 through GMT +7</strong></li>
-            <li><a href="/tc?module=Static&amp;d1=hs&amp;d2=regions#delta">Delta Region</a> - Time zones that fall
-                within <strong>GMT +8 through GMT +12</strong></li>
-        </ul>
+    <p>
+        In order to best accommodate students from across the globe competing at times
+        that are convenient, SRMs will take place according to regions. The
+        regions will be as follows:
+    </p>
+    <ul>
+        <li><a href="/tc?module=Static&amp;d1=hs&amp;d2=regions#alpha">Alpha Region</a> - Time zones that fall
+            within <strong>GMT -12 through GMT -5</strong></li>
+        <li><a href="/tc?module=Static&amp;d1=hs&amp;d2=regions#beta">Beta Region</a> - Time zones that fall within
+            <strong>GMT -4 through GMT +2</strong></li>
+        <li><a href="/tc?module=Static&amp;d1=hs&amp;d2=regions#gamma">Gamma Region</a> - Time zones that fall
+            within <strong>GMT +3 through GMT +7</strong></li>
+        <li><a href="/tc?module=Static&amp;d1=hs&amp;d2=regions#delta">Delta Region</a> - Time zones that fall
+            within <strong>GMT +8 through GMT +12</strong></li>
+    </ul>
 
-        <p>If a country falls within two regions, TopCoder will assign that country to a particular region.</p>
+    <p>If a country falls within two regions, TopCoder will assign that country to a particular region.</p>
 
-        <p>Each week there will be one (1) SRM that will take place during a time that is convenient
-            for a particular region. Each region will have approximately one (1) SRM each month
-            that is intended for their region. Teams and individuals may compete in any SRM, regardless
-            of the SRM time and their region. However, each team and individual wishing to be
-            eligible for the 2007 TopCoder High School tournament must compete in at least four (4)
-            TCHS SRMs <!--SRMs intended for their region -->prior to the start of the tournament.</p>
+    <p>Each week there will be one (1) SRM that will take place during a time that is convenient
+        for a particular region. Each region will have approximately one (1) SRM each month
+        that is intended for their region. Teams and individuals may compete in any SRM, regardless
+        of the SRM time and their region. However, each team and individual wishing to be
+        eligible for the 2007 TopCoder High School tournament must compete in at least four (4)
+        TCHS SRMs <!--SRMs intended for their region -->prior to the start of the tournament.</p>
 
-        <b>Eligibility</b><br/>
+    <b>Eligibility</b><br/>
 
-        <p>Anyone who is a registered TopCoder High School competitor between the ages of 13 and 20, inclusive, who is
-            pursuing a secondary school education for the 2006-2007 school year through at least March 31, 2007 and who
-            is not matriculated full time at a college or university may compete in any Single Round Match and the
-            TopCoder High School tournament.</p>
+    <p>Anyone who is a registered TopCoder High School competitor between the ages of 13 and 20, inclusive, who is
+        pursuing a secondary school education for the 2006-2007 school year through at least March 31, 2007 and who
+        is not matriculated full time at a college or university may compete in any Single Round Match and the
+        TopCoder High School tournament.</p>
 
-        <A HREF="/tc?module=MatchRules&rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for complete rules
-            &amp; regulations.</B></A>
-    </TD>
+    <A HREF="/tc?module=MatchRules&rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for complete rules
+        &amp; regulations.</B></A>
+</TD>
 </TR>
 </TABLE>
 
