@@ -1,5 +1,6 @@
 package com.topcoder.web.admin.controller.request;
 
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.SchoolDAO;
 import com.topcoder.web.common.model.SchoolType;
@@ -8,9 +9,9 @@ import com.topcoder.web.common.model.SchoolType;
 /**
  * @author  cucu
  */
-public class CleanSchools extends Base {
+public class CleanSchools extends ShortHibernateProcessor {
 
-    protected void businessProcessing() throws Exception {
+    protected void dbProcessing() throws Exception {
     	SchoolDAO s = DAOUtil.getFactory().getSchoolDAO();
     	Integer cc = null;
     	
