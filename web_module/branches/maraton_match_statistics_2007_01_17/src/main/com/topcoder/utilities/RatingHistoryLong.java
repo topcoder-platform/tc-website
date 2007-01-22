@@ -18,16 +18,13 @@ public class RatingHistoryLong {
     public static void main(String[] args) {
         RatingHistoryLong r = new RatingHistoryLong();
         try {
-            r.run(args[0]);
+            r.run();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void run(String arg) throws Exception {
-        
-        System.out.println(ApplicationServer.JNDI_FACTORY);
-        System.out.println(ApplicationServer.HOST_URL);
+    private void run() throws Exception {
         
         InitialContext ctx = TCContext.getInitial();
         
