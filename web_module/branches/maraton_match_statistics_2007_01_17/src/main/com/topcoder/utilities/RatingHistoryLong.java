@@ -67,7 +67,7 @@ public class RatingHistoryLong {
             while (rs.next()) {
                 long roundId = rs.getLong(1);
                 ps1.setLong(1, roundId);
-                log.debug("processing round " + rs.getLong(1));
+                log.info("processing round " + rs.getLong(1));
 
                 int count = 0;
                 rs1 = ps1.executeQuery();
@@ -79,10 +79,10 @@ public class RatingHistoryLong {
                     ps2.setInt(5, rs1.getInt("vol"));
                     ps2.setInt(6, rs1.getInt("num_ratings"));
                     count += ps2.executeUpdate();
-                    if (count % 10 == 0) log.debug(count + " rows inserted");
+                    if (count % 10 == 0) log.info(count + " rows inserted");
                 }
 
-                log.debug(count + " rows inserted for round " + roundId);
+                log.info(count + " rows inserted for round " + roundId);
             }
         } finally {
             close(rs);
