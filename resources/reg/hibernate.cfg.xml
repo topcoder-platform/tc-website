@@ -21,12 +21,10 @@
 
         -->
         <!-- SQL dialect -->
-        <!--
-                <property name="dialect">org.hibernate.dialect.InformixDialect</property>
-                <property name="current_session_context_class">
-                    com.topcoder.web.common.ExtendedThreadLocalSessionContext
-                </property>
-        -->
+        <property name="dialect">org.hibernate.dialect.InformixDialect</property>
+        <property name="current_session_context_class">
+            com.topcoder.web.common.ExtendedThreadLocalSessionContext
+        </property>
 
 
         <!--   using jdbc transactions right now cuz i can't get jta to work right.  it could be jboss, or it could be something else...not sure
