@@ -362,7 +362,7 @@ public class SchoolBean extends BaseEJB {
         return (shortName);
     }
 
-
+   
     public void mergeSchools(long idSrc, long idDest) throws EJBException {
     	log.debug("MergeSchools called ");
         Connection connOltp = null;
