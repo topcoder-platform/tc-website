@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">01.22.07 2:00 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=16270">Vote for your favorite TCO'07 web design</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.12.07 2:00 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=11144">maxsense is the TCO07 Logo Contest Winner!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.08.07 2:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies">Watch the full TCCC06 Webcast</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.08.07 12:00 NOON - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=11144">Vote for the TCO07 logo design</A></td></tr>
