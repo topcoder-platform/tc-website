@@ -6,6 +6,8 @@ import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.UserDAO;
+import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.tc.Constants;
 
@@ -16,7 +18,7 @@ import com.topcoder.web.tc.Constants;
  */
 public class SubmitRegistration extends ViewRegistration {
 
-    protected void regProcessing() throws Exception {
+    protected void regProcessing(Event event, User user) throws Exception {
 
         String termsAgree = getRequest().getParameter(Constants.TERMS_AGREE);
 
@@ -52,17 +54,24 @@ public class SubmitRegistration extends ViewRegistration {
             setDefault(IN_COLLEGE, inCollegeInput);
             setDefault(IN_HIGH_SCHOOL, inHighSchoolInput);
         } else {
-                //todo store all their answers about age etc.
-                    UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
-                    User user = userDAO.find(new Long(getUser().getId()));
-                    user.addTerms(DAOUtil.getFactory().getTermsOfUse().find(new Integer(getTermsId())));
-                    userDAO.saveOrUpdate(user);
-                    refreshCache();
+            //todo store all their answers about age etc.
+            UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
+            user.addTerms(DAOUtil.getFactory().getTermsOfUse().find(new Integer(getTermsId())));
+
+            EventRegistration er = new EventRegistration();
+            er.getId().setUser(user);
+            er.getId().setEvent(event);
+            er.setEligible(age <= 20 && age >= 13 && !"on".equals(inCollegeInput) && "on".equals(inHighSchoolInput));
+
+            user.addEventRegistration(er);
+
+            userDAO.saveOrUpdate(user);
+            refreshCache();
         }
 
     }
 
-    protected void setNextPage() throws Exception {
+    protected void setNextPage(Event event, User u) throws Exception {
         if (hasErrors()) {
             setNextPage("/tournaments/tchs07/terms.jsp");
             setIsNextPageInContext(true);
@@ -82,7 +91,6 @@ public class SubmitRegistration extends ViewRegistration {
             ignore.printStackTrace();
         }
     }
-
 
 
 }

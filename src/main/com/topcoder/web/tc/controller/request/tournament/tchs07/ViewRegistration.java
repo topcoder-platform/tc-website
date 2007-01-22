@@ -5,6 +5,8 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.tc.Constants;
 
 import java.util.Calendar;
@@ -15,7 +17,7 @@ import java.util.Calendar;
  *          Create Date: Jan 16, 2007
  */
 public class ViewRegistration extends RegistrationBase {
-    protected void regProcessing() throws Exception {
+    protected void regProcessing(Event event, User user) throws Exception {
     }
 
     public Calendar getEnd() {
@@ -43,8 +45,8 @@ public class ViewRegistration extends RegistrationBase {
         return Constants.TCHS07_TERMS_OF_USE_ID;
     }
 
-    protected void setNextPage() throws Exception {
-        if (isRegistered()) {
+    protected void setNextPage(Event e, User u) throws Exception {
+        if (isRegistered(e, u)) {
             setNextPage("/tournaments/tchs07/termsSuccess.jsp");
             setIsNextPageInContext(true);
         } else {

@@ -1,19 +1,17 @@
 package com.topcoder.web.tc.controller.request.tournament.tchs07;
 
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.ListSelectTag;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
-import com.topcoder.web.ejb.user.UserTermsOfUseLocal;
 import com.topcoder.web.tc.Constants;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author dok
@@ -37,56 +35,60 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
 
     protected void dbProcessing() throws Exception {
 
-        getRequest().setAttribute(Constants.TERMS_OF_USE_ID, String.valueOf(getTermsId()));
+        Long eventId = null;
+
+        try {
+            eventId = new Long(StringUtils.checkNull(getRequest().getParameter(Constants.EVENT_ID)));
+        } catch (NumberFormatException e) {
+            throw new NavigationException("Invalid event specified in request.");
+        }
+
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } else {
+            Event e = DAOUtil.getFactory().getEventDAO().find(eventId);
+            getRequest().setAttribute("event", e);
             Calendar now = Calendar.getInstance();
             now.setTime(new Date());
-            if (now.after(getEnd())) {
-                throw new NavigationException("The registration period for the " + getEventName() + " is over.");
-            } else if (now.before(getBeginning())) {
-                throw new NavigationException("The registration period for the " + getEventName() + " has not yet begun.");
+            if (now.after(e.getRegistrationEnd())) {
+                throw new NavigationException("The registration period for the " + e.getDescription() + " is over.");
+            } else if (now.before(e.getRegistrationStart())) {
+                throw new NavigationException("The registration period for the " + e.getDescription() + " has not yet begun.");
             } else {
-                if (!isRegistered()) {
+                User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+                if (!isRegistered(e, u)) {
                     if (isEligible()) {
-                        regProcessing();
+                        regProcessing(e, u);
                     } else {
-                        throw new NavigationException("You are not eligible to register for the " + getEventName());
+                        throw new NavigationException("You are not eligible to register for the " + e.getDescription());
                     }
                 } else {
                     //dont' have anything to do really
                 }
+                setNextPage(e, u);
             }
-            setNextPage();
         }
     }
 
 
-    public boolean isRegistered() throws Exception {
+    public boolean isRegistered(Event e, User u) throws Exception {
         if (log.isDebugEnabled()) {
-            log.debug("checking if " + getUser().getId() + " has agreed to terms " + getTermsId());
+            log.debug("checking if " + getUser().getId() + " is registered for " + e.getId());
         }
-        boolean ret = false;
-        UserTermsOfUseLocal userTerms = (UserTermsOfUseLocal) createLocalEJB(getInitialContext(), UserTermsOfUse.class);
-        ret = userTerms.hasTermsOfUse(getUser().getId(), getTermsId(), DBMS.OLTP_DATASOURCE_NAME);
-        if (log.isDebugEnabled()) {
-            log.debug("they " + (ret ? "are" : "are not") + " registered");
+
+        Event curr;
+        for (Iterator it = u.getEventRegistrations().iterator(); it.hasNext();) {
+            curr = (Event) it.next();
+            if (curr.equals(e)) {
+                return true;
+            }
         }
-        return ret;
+        return false;
     }
 
-    protected abstract void regProcessing() throws Exception;
+    protected abstract void regProcessing(Event event, User user) throws Exception;
 
-    public abstract Calendar getEnd();
-
-    public abstract Calendar getBeginning();
-
-    public abstract String getEventName();
-
-    public abstract int getTermsId();
-
-    protected abstract void setNextPage() throws Exception;
+    protected abstract void setNextPage(Event event, User user) throws Exception;
 
     public abstract boolean isEligible() throws Exception;
 

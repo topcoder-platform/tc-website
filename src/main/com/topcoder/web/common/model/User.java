@@ -393,7 +393,7 @@ public class User extends Base {
     }
 
     public void addResponse(Response r) {
-        responses.add()
+        responses.add(r);
     }
 
 }
