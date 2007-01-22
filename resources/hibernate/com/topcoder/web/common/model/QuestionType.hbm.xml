@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="QuestionType" table="question_type" mutable="false">
+        <id name="id" column="question_type_id" access="field"/>
+        <property name="description" column="question_type_desc" access="field"/>
+        <property name="active" type="boolean" column="status_id" access="field"/>
+    </class>
+
+</hibernate-mapping>

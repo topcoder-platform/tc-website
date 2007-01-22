@@ -5,8 +5,10 @@ import java.io.Serializable;
 public class Answer implements Serializable, Cloneable, Comparable {
     private long id;
     private long questionId;
+    private Question question;
     private String text;
     private int sort;
+    private boolean correct;
 
     public Answer() {
     }
@@ -50,6 +52,23 @@ public class Answer implements Serializable, Cloneable, Comparable {
 
     public void setSort(int sort) {
         this.sort = sort;
+    }
+
+
+    public Question getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(Question question) {
+        this.question = question;
+    }
+
+    public boolean isCorrect() {
+        return correct;
+    }
+
+    public void setCorrect(boolean correct) {
+        this.correct = correct;
     }
 
     public int compareTo(Object o) {

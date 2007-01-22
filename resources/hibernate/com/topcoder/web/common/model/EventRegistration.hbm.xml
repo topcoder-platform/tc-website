@@ -5,14 +5,14 @@
 
 <hibernate-mapping package="com.topcoder.web.common.model">
 
-    <class name="MemberContactBlackList" table="member_contact_black_list">
-
-        <composite-id name="id" class="MemberContactBlackList$Identifier">
+    <class name="EventRegistration" table="event_registration">
+        <composite-id name="id" class="EventRegistration$Identifier">
             <key-many-to-one name="user" class="User" column="user_id"/>
-            <key-many-to-one name="blockedUser" class="User" column="blocked_user_id"/>
+            <key-many-to-one name="event" class="Event" column="event_id"/>
         </composite-id>
 
         <property name="eligible" type="boolean" column="eligible_ind" access="field"/>
-
     </class>
+
 </hibernate-mapping>
+
