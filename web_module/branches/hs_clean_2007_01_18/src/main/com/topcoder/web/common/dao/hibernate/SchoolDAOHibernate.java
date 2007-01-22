@@ -1,13 +1,15 @@
 package com.topcoder.web.common.dao.hibernate;
 
+import java.util.Date;
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+
 import com.topcoder.web.common.dao.SchoolDAO;
 import com.topcoder.web.common.model.School;
 import com.topcoder.web.common.model.SchoolType;
 import com.topcoder.web.reg.Constants;
-import org.hibernate.Query;
-import org.hibernate.Session;
-
-import java.util.List;
 
 /**
  * @author dok
@@ -64,6 +66,32 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
 
         return q.list();
 
+    }
+
+    public List search(SchoolType type, Date creationAfter, Integer countryCode, int startRow, int maxResults) {
+        StringBuffer query = new StringBuffer(100);
+
+        query.append("SELECT (SELECT count(*) from CurrentSchool cs WHERE cs.school.id = s.id AND cs.coder.user.status=?), s ");
+        query.append("FROM School s ");
+        query.append("WHERE s.type.id = ?");
+        if (countryCode != null) {
+        	query.append(" AND s.address.country.code=?");
+        }
+        
+        query.append(" AND s.viewable=1");
+        query.append("ORDER BY s.address.country.name, s.name ");
+
+        Query q = session.createQuery(query.toString());
+        q.setString(0, String.valueOf(Constants.ACTIVE_STATI[1]));
+        q.setInteger(1, type.getId().intValue());
+        if (countryCode != null) {                
+        	q.setInteger(2, countryCode.intValue());
+        }
+        
+        q.setFirstResult(startRow);        
+        q.setMaxResults(maxResults);
+
+        return q.list();
     }
 
 }
