@@ -3,7 +3,7 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
 
-<%--------------------------------------------------------%>
+<%------------------------------------------------------ launch at 2pm
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>01.22.07<br>2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -16,6 +16,7 @@
          <tc-webtag:forumLink forumID="506257" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
+--%>
 
 <%--------------------------------------------------------%>
    <tr>
