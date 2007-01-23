@@ -73,8 +73,8 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
 
         query.append("SELECT (SELECT count(*) from CurrentSchool cs WHERE cs.school.id = s.id AND cs.coder.user.status=?), s ");
         query.append("FROM School s ");
-        query.append("WHERE s.type.id = ?");
-        query.append(" AND (SELECT count(*) from CurrentSchool cs WHERE cs.school.id = s.id AND cs.coder.user.status=?) > 0 ");
+        query.append("WHERE (SELECT count(*) from CurrentSchool cs WHERE cs.school.id = s.id AND cs.coder.user.status=?) > 0 ");
+        query.append("AND s.type.id = ?");
 
         if (countryCode != null) {
         	query.append(" AND s.address.country.code=?");
