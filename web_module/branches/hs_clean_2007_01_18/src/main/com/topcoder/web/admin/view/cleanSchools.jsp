@@ -22,7 +22,7 @@
 			action="<jsp:getProperty name="sessionInfo" property="servletPath"/>"
 			method="post" name="surveyForm">
 		<h1>School Data Cleaner</h1>
-		${requestScope.schools.size}
+HI!		${requestScope.schools.size}
                         <c:forEach items="${requestScope.schools}" var="result">
                             ${result[1].name}<br/>
                             Registrants: ${result[0]}<br/>
