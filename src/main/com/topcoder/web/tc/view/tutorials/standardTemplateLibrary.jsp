@@ -808,7 +808,7 @@ The container vector&lt;int&gt; is here because it's really very popular. Actual
 <br /><br />
 Another note to keep in mind: When a token from the left-hand side of #define appears in the right-hand side, it should be placed in braces to avoid many nontrivial problems.
 <br /><br />
-<strong>Coming soon:</strong> Part II: C++ STL Advanced Uses
+<strong>Coming soon:</strong> <a href="/tc?module=Static&d1=tutorials&d2=standardTemplateLibrary2">Part II: C++ STL Advanced Uses</a>
 <br /><br />
        </div>
         <br/>
