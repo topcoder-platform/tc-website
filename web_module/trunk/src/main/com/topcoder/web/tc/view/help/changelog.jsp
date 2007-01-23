@@ -51,7 +51,7 @@
         </li>
         <li>Fix the prev link in component competition history</li>
         <li>Allow studio competitors to upload a photo</li>
-        <li>Fix bug in the load of componente streaks/li>
+        <li>Fix bug in the load of componente streaks.  Also, now the projects were the coder didn't reach the minimum score are taken into account.</li>
     </ul>
 </p>
 

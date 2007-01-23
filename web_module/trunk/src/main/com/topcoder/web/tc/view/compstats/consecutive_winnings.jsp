@@ -15,7 +15,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
 <jsp:include page="dev_design_no_overall_links.jsp"/>
 <br><br>
 <strong>Record:</strong> The longest streaks where a competitor came in first place for every contest.  
-Only those contests where the competitor was rated and received at least the minimum score are included.
+Only those contests where the competitor was rated are included.
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%" style="float: left; margin-bottom: 15px;">
     <tr><td class="title" colspan="6">Most Consecutive Wins</td></tr>
