@@ -69,7 +69,7 @@
 
 				<select multiple size="10" style="width: 400px;">					
                         <c:forEach items="${requestScope.schools}" var="result">
-                           <option value="result[1].id">[${result[1].address.country.code}] ${result[1].name}(${result[0]})</option>
+                           <option value="result[1].id">[${result[1].address.country.name}] ${result[1].name}(${result[0]})</option>
                         </c:forEach>
 				</select></td>
 				<td><a href="#">choose as source school</a> <br>
