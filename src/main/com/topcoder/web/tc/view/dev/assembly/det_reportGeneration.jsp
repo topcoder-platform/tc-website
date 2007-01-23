@@ -120,7 +120,7 @@ All submissions are required to be submitted by the end of Competition Phase. Th
       <td><strong>Phase</strong></td><td align="right"><strong>Start</strong></td><td align="right"><strong>End</strong></td>
    </tr>
    <tr>
-      <td>Registration &amp; Team Creation:</td><td align="right">01.18.2007</td><td align="right">01.23.2007</td>
+      <td>Registration &amp; Team Creation:</td><td align="right">01.18.2007</td><td align="right">01.24.2007</td>
    </tr>
    <tr>
       <td>Competition Phase:</td><td align="right">01.18.2007</td><td align="right">02.04.2007</td>
