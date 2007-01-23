@@ -24,11 +24,10 @@
     <jsp:include page="../script.jsp"/>
     <script type="text/javascript" src="/js/popup.js"></script>
     <script type="text/javascript">
+        var sr = <c:out value="${requestScope[defaults][startRank]}"/>;
+        var er = <c:out value="${requestScope[defaults][endRank]}"/>;
     
-        function next() {
-            var sr = <c:out value="${requestScope[defaults][startRank]}"/>;
-        	var er = <c:out value="${requestScope[defaults][endRank]}"/>;
-        
+        function next() {        
             var myForm = document.competitionHistoryForm;
             myForm.<%=DataAccessConstants.START_RANK%>.value = er + 1;
             myForm.<%=DataAccessConstants.END_RANK%>.value = 2 * er - sr + 1;

@@ -71,7 +71,7 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
     public List search(SchoolType type, Date creationAfter, String countryCode, int startRow, int maxResults) {
         StringBuffer query = new StringBuffer(100);
 
-        if (countryCode.trim().length() == 0) {
+        if (countryCode != null && countryCode.trim().length() == 0) {
         	countryCode = null;
         }
         
