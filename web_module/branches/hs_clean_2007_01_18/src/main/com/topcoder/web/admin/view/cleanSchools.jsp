@@ -30,16 +30,22 @@
 		
 		<table>
 			<tr>
-				<td><input type="checkbox"> Country: <select name="cc">
-					<option value="032" selected="selected">Argentina</option>
-					<option value="051">Armenia</option>
-					<option value="533">Aruba</option>
-				</select> <br>
+				<td>
+                    <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get" name="f">
+                        <input type="hidden" name="module" value="CleanSchools"/>
+				<input type="checkbox"> Country: 
+            <tc-webtag:objectSelect name="cc" list="${countries}" valueField="code" textField="name"/>
+<br>
 				<br>
 				<input type="checkbox"> School created after: <input
 					type="text" value="01/01/2007"> <br>
 				<br>
-				<input type="button" value="search"></td>
+				<input type="sumbit" value="search">
+				
+				</form>
+				</td>
+				
+				
 				<td></td>
 			</tr>
 			<tr>

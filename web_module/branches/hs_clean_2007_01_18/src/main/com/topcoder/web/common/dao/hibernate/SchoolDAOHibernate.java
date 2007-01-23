@@ -68,12 +68,14 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
 
     }
 
-    public List search(SchoolType type, Date creationAfter, Integer countryCode, int startRow, int maxResults) {
+    public List search(SchoolType type, Date creationAfter, String countryCode, int startRow, int maxResults) {
         StringBuffer query = new StringBuffer(100);
 
         query.append("SELECT (SELECT count(*) from CurrentSchool cs WHERE cs.school.id = s.id AND cs.coder.user.status=?), s ");
         query.append("FROM School s ");
         query.append("WHERE s.type.id = ?");
+        query.append(" AND (SELECT count(*) from CurrentSchool cs WHERE cs.school.id = s.id AND cs.coder.user.status=?) > 0 ");
+
         if (countryCode != null) {
         	query.append(" AND s.address.country.code=?");
         }
@@ -83,10 +85,13 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
 
         Query q = session.createQuery(query.toString());
         q.setString(0, String.valueOf(Constants.ACTIVE_STATI[1]));
-        q.setInteger(1, type.getId().intValue());
+        q.setString(1, String.valueOf(Constants.ACTIVE_STATI[1]));
+        q.setInteger(2, type.getId().intValue());
+        int idx = 3;
         if (countryCode != null) {                
-        	q.setInteger(2, countryCode.intValue());
+        	q.setString(idx++, countryCode);
         }
+        
         
         q.setFirstResult(startRow);        
         q.setMaxResults(maxResults);
