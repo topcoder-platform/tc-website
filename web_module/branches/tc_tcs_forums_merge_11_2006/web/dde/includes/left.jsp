@@ -3,7 +3,9 @@
 <%
     String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");
     String level2 = request.getParameter("level2")==null?"":request.getParameter("level2");
-
+	
+	TCResourceBundle bundle = new TCResourceBundle("TC");
+	long tcsForumsID = Long.parseLong(bundle.getProperty("tcs_forums_root_category_id")); 
 %>
 
             <img src="/images/clear.gif" width="180" height="6" border="0" alt=""><br>

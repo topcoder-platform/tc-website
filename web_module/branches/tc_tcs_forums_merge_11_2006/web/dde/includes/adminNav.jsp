@@ -1,5 +1,5 @@
 <!-- Nav Bar begins -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0" class="topNav">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
 	<tr>
 		<td width="20" class="adminTopNav"><img src="../images/clear.gif" alt="" width="20" height="21" border="0"></td>
 		<td>
