@@ -18,14 +18,11 @@
 	<tr valign="top">
 		<td><jsp:include page="left.jsp" /></td>
 		<td>
-		<form
-			action="<jsp:getProperty name="sessionInfo" property="servletPath"/>"
-			method="post" name="surveyForm">
 		<h1>School Data Cleaner</h1>
 		<table>
 			<tr>
 				<td>
-                    <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="post" name="f">
+					<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get" name="f">
                         <input type="hidden" name="module" value="CleanSchools"/>
                         
                      <table>
@@ -51,7 +48,7 @@
 				       <tr>
 				       		<td>Display rows:</td>
 				       		<td>
-				       			from <tc-webtag:textInput name="sr" size="3"/> to <tc-webtag:textInput name="er" size="3"/>
+				       			from <tc-webtag:textInput name="sr" size="3"/> to <tc-webtag:textInput name="nr" size="3"/>
 				       		</td>
 				       	</tr>
 				       	<tr>
@@ -70,7 +67,7 @@
 			<tr>
 				<td><br>
 
-				<select multiple size="10" style="width: 180px;">					
+				<select multiple size="10" style="width: 400px;">					
                         <c:forEach items="${requestScope.schools}" var="result">
                            <option value="result[1].id">[${result[1].address.country.name}] ${result[1].name}(${result[0]})</option>
                         </c:forEach>
@@ -80,10 +77,9 @@
 
 				<br>
 				<br>
-				U.B.A -> UBA <input type="button" value="Replace"></td>
+				U.B.A - UBA <input type="button" value="Replace"></td>
 			</tr>
 		</table>
-		</form>
 		</td>
 	</tr>
 </table>
