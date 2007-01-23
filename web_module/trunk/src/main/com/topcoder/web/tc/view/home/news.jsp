@@ -2,6 +2,21 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorial" border="0" /><br>01.23.07<br>5:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=standardTemplateLibrary2">Power up C++ with the STL: Part II: Advanced Uses</A></span><br><br>
+       Part II of the tutorial, featuring some advanced uses for the powerful features of the C++ Standard Template Library.</td>
+      <td class="newsPhoto"><img src="/i/m/DmitryKorolev_big2.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="21749340" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=standardTemplateLibrary2">full story</A> | 
+         <tc-webtag:forumLink forumID="506253" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -179,19 +194,3 @@ easy to get wrong, but not nearly as easy to get wrong as the
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=25">discuss this</A> | 
         <A href="/tc?&module=SurveyList">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>01.08.06<br>2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies">Watch the full TCCC06 Webcast</A>
-        </span><br><br>
-        We've got all 4 hours of the TCCC06 webcast available for your viewing pleasure.  So have a seat, grab some popcorn, and relive all the excitement from the TCCC06!
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies">watch it</A> | 
-        <tc-webtag:forumLink forumID="506218" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
