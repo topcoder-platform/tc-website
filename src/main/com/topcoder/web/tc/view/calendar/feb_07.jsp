@@ -106,7 +106,7 @@
       </td>
       <td class="value">10
          <div class="srm">
-         <strong><A href="http://forums.topcoder.com/?module=Thread&threadID=515502&mc=1#578866">SRM <br><span class="bigRed">STRESS TEST</span></A></strong><br>
+         <strong><A href="http://forums.topcoder.com/?module=Thread&threadID=515502&mc=1#578866">SRM</A><br><span class="bigRed">STRESS TEST</span></strong><br>
          $5,000<br>
          12:00 Noon
          </div>
