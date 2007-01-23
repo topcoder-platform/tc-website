@@ -33,14 +33,33 @@
 				<td>
                     <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get" name="f">
                         <input type="hidden" name="module" value="CleanSchools"/>
-				<input type="checkbox"> Country: 
-            <tc-webtag:objectSelect name="cc" list="${countries}" valueField="code" textField="name"/>
-<br>
-				<br>
-				<input type="checkbox"> School created after: <input
-					type="text" value="01/01/2007"> <br>
-				<br>
-				<input type="sumbit" value="search">
+                        
+                     <table>
+                     	<tr>
+                     		<td>School type</td>
+                     		<td>
+                     			<tc-webtag:radioButton name="type" value="<%=com.topcoder.web.common.model.SchoolType.HIGH_SCHOOL %>" /> High School
+				                <tc-webtag:radioButton name="type" value="<%=com.topcoder.web.common.model.SchoolType.COLLEGE %>" /> College
+                			</td>
+                		</tr>
+                		<tr> 
+                			<td>Country: </td>
+                			<td>
+				            	<tc-webtag:objectSelect name="cc" list="${countries}" valueField="code" textField="name" topValue="" topText="Any Country" useTopValue="true" />
+				            <td>
+				       </tr>
+				       <tr>
+				       		<td>School added after:</td>
+				       		<td>
+				       			<tc-webtag:textInput name="date"/>
+				       		</td>
+				       	</tr>
+				       	<tr>
+				       		<td colspan="2" align="center">
+								<input type="submit" value="search">
+				       		</td>
+				       	</tr>
+				       </table>
 				
 				</form>
 				</td>
