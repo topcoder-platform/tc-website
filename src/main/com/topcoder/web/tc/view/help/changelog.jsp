@@ -51,6 +51,7 @@
         </li>
         <li>Fix the prev link in component competition history</li>
         <li>Allow studio competitors to upload a photo</li>
+        <li>Fix bug in the load of componente streaks/li>
     </ul>
 </p>
 
