@@ -452,6 +452,7 @@ public class RegFieldHelper {
                         ret.addAll(requiredMainStudioFields);
                     } else {
                         ret.addAll(mainStudioFields);
+                        ret.add(Constants.PHOTO);
                     }
                 }
             } else if (regTypes.contains(curr) && !currentTypes.contains(curr)) {
@@ -527,13 +528,12 @@ public class RegFieldHelper {
             if (regTypes.contains(curr) && currentTypes.contains(curr)) {
                 //must be an update
                 if (curr.getId().equals(RegistrationType.COMPETITION_ID)) {
-                    if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL)))
-                    {
+                    if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL))) {
                         if (required) {
                             ret.addAll(requiredSecondaryCompProFields);
                         } else {
                             ret.addAll(secondaryCompProFields);
-                            ret.add(Constants.PHOTO);
+                            //ret.add(Constants.PHOTO);
                         }
                         if (regTypes.contains(corp) || regTypes.contains(tcs)) {
                             //remove these because if they are registering for competitions as a pro
@@ -542,13 +542,12 @@ public class RegFieldHelper {
                             ret.remove(Constants.TITLE);
                         }
                     } else
-                    if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.STUDENT)))
-                    {
+                    if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.STUDENT))) {
                         if (required) {
                             ret.addAll(requiredSecondaryCompStudentFields);
                         } else {
                             ret.addAll(secondaryCompStudentFields);
-                            ret.add(Constants.PHOTO);
+                            //ret.add(Constants.PHOTO);
                         }
                     } else {
                         throw new RuntimeException("Invalid coder type " + user.getCoder().getCoderType().getId());
@@ -578,8 +577,7 @@ public class RegFieldHelper {
                         ret.addAll(secondarySoftwareFields);
                     }
                 } else if (curr.getId().equals(RegistrationType.STUDIO_ID)) {
-                    if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL)))
-                    {
+                    if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL))) {
                         if (required) {
                             ret.addAll(requiredSecondaryStudioProFields);
                         } else {
@@ -592,8 +590,7 @@ public class RegFieldHelper {
                             ret.remove(Constants.TITLE);
                         }
                     } else
-                    if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.STUDENT)))
-                    {
+                    if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.STUDENT))) {
                         if (required) {
                             ret.addAll(requiredSecondaryCompStudentFields);
                         } else {
