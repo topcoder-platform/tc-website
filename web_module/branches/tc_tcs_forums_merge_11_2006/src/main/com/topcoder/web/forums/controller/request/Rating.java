@@ -19,7 +19,7 @@ import com.topcoder.web.forums.controller.ForumsUtil;
 public class Rating extends ForumsProcessor {
     protected void businessProcessing() throws Exception {
         super.businessProcessing();
-        if (!"POST".equals(getHttpRequest())) return;
+        if (!"POST".equals(getHttpRequest().getMethod())) return;
         if (authToken.isAnonymous()) return;
         RatingManager ratingManager = RatingManagerFactory.getInstance(authToken); 
         if (!ratingManager.isRatingsEnabled()) return;
