@@ -70,7 +70,10 @@
                 <br><br>
                 <span class="subTitle">Registration</span>
                 <br><br>
+                Registration for the Google Code Jam Latin America 2007 event has closed.
+                <br/><br/><br/><br/>
 
+<%--
                 Registration will close on Tuesday, January 23 at 10:00 AM GMT/UTC -2.<br/><br/>
                 If you are
                 <A href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_LATIN_AMERICA_07_REG_MAIN%>&<%=Constants.COMPANY_ID%>=66426&<%=Constants.EVENT_ID%>=8" class="bigRed">not
@@ -86,7 +89,7 @@
                 If you have already registered and would like to <strong>update your registration information</strong>,
                 please login here:
                 <br><br>
-
+--%>
                 <form method="post" name="frmLogin" action="<%=sessionInfo.getSecureAbsoluteServletPath()%>">
                     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_LATIN_AMERICA_07_LOGIN%>">
                     <input type="hidden" name="<%=Constants.EVENT_ID%>" value="8">
