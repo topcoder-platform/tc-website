@@ -92,9 +92,10 @@ public class RatingQubits {
 //                    ", project_info pi_vi" +
                     ", project_info pi_rd " + //, outer comp_version_dates cd " +
                     "where p.project_id = pr.project_id " +
-                    "and p.project_status_id in (4, 5, 6, 7)  " +
+                    "and p.project_status_id in (4, 7)  " +
                     "and p.project_category_id = 1 " +
                     "and pr.rating_ind = 1 " +
+                    "and pr.final_score is not null " +
                     //"and pi_vi.project_id = p.project_id and pi_vi.project_info_type_id = 1 " +
                     "and pi_rd.project_id = p.project_id and pi_rd.project_info_type_id = 22 " +
                     //"and cd.comp_vers_id = pi_vi.value and cd.phase_id = 112 " +
@@ -120,8 +121,9 @@ public class RatingQubits {
                     //", project_info pi_vi" +
                     ", project_info pi_rd " + //, outer comp_version_dates cd " +
                     "where p.project_id = pr.project_id " +
-                    "and p.project_status_id in (4, 5, 6, 7)  " +
+                    "and p.project_status_id in (4, 7)  " +
                     "and p.project_category_id = 2 " +
+                    "and pr.final_score is not null " +
                     "and pr.rating_ind = 1 " +
                     //"and pi_vi.project_id = p.project_id and pi_vi.project_info_type_id = 1 " +
                     "and pi_rd.project_id = p.project_id and pi_rd.project_info_type_id = 22 " +
@@ -232,7 +234,7 @@ public class RatingQubits {
                 //get all submissions for this project
                 sqlStr.replace(0, sqlStr.length(), "SELECT * ");
                 sqlStr.append(" FROM project_result");
-                sqlStr.append(" WHERE project_id = ? and rating_ind = 1");
+                sqlStr.append(" WHERE project_id = ? and rating_ind = 1 and final_score is not null");
 
                 ps = conn.prepareStatement(sqlStr.toString());
                 ps.setLong(1, rs.getLong("project_id"));
