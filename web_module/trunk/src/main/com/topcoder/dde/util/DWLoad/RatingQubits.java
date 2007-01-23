@@ -82,11 +82,11 @@ public class RatingQubits {
         ResultSet rs = null;
 
         try {
-        	// The rating_date format is MM/dd/yyyy hh:mm a
+            // The rating_date format is MM/dd/yyyy hh:mm a
             //design
             String sqlStr = "select distinct pr.project_id, round(substr(pi_rd.value, 1, 2)) as month, " +
-            		"round(substr(pi_rd.value, 4, 2)) as day, round(substr(pi_rd.value, 7, 4)) as year," +
-            		"round(substr(pi_rd.value, 12, 2)) as hour " +
+                    "round(substr(pi_rd.value, 4, 2)) as day, round(substr(pi_rd.value, 7, 4)) as year," +
+                    "round(substr(pi_rd.value, 12, 2)) as hour " +
                     //"pi_vi.value as comp_vers_id " +
                     "from project_result pr, project p" +
 //                    ", project_info pi_vi" +
@@ -98,7 +98,7 @@ public class RatingQubits {
                     //"and pi_vi.project_id = p.project_id and pi_vi.project_info_type_id = 1 " +
                     "and pi_rd.project_id = p.project_id and pi_rd.project_info_type_id = 22 " +
                     //"and cd.comp_vers_id = pi_vi.value and cd.phase_id = 112 " +
-		            "order by year, month, day, hour, 1";
+                    "order by year, month, day, hour, 1";
 
             ps = conn.prepareStatement(sqlStr);
             rs = ps.executeQuery();
@@ -113,19 +113,19 @@ public class RatingQubits {
             //dev
 
             sqlStr = "select distinct pr.project_id, round(substr(pi_rd.value, 1, 2)) as month, " +
-		    		"round(substr(pi_rd.value, 4, 2)) as day, round(substr(pi_rd.value, 7, 4)) as year," +
-		    		"round(substr(pi_rd.value, 12, 2)) as hour " +
-		            //"pi_vi.value as comp_vers_id " +
-		            "from project_result pr, project p" +
+                    "round(substr(pi_rd.value, 4, 2)) as day, round(substr(pi_rd.value, 7, 4)) as year," +
+                    "round(substr(pi_rd.value, 12, 2)) as hour " +
+                    //"pi_vi.value as comp_vers_id " +
+                    "from project_result pr, project p" +
                     //", project_info pi_vi" +
                     ", project_info pi_rd " + //, outer comp_version_dates cd " +
-		            "where p.project_id = pr.project_id " +
-		            "and p.project_status_id in (4, 5, 6, 7)  " +
-		            "and p.project_category_id = 2 " +
-		            "and pr.rating_ind = 1 " +
+                    "where p.project_id = pr.project_id " +
+                    "and p.project_status_id in (4, 5, 6, 7)  " +
+                    "and p.project_category_id = 2 " +
+                    "and pr.rating_ind = 1 " +
                     //"and pi_vi.project_id = p.project_id and pi_vi.project_info_type_id = 1 " +
                     "and pi_rd.project_id = p.project_id and pi_rd.project_info_type_id = 22 " +
-		            //"and cd.comp_vers_id = pi_vi.value and cd.phase_id = 113 " +
+                    //"and cd.comp_vers_id = pi_vi.value and cd.phase_id = 113 " +
                     "order by year, month, day, hour, 1";
 
             ps = conn.prepareStatement(sqlStr);
@@ -195,9 +195,9 @@ public class RatingQubits {
         PreparedStatement ps = null;
         ResultSet rs2 = null;
         StringBuffer sqlStr = new StringBuffer(400);
-        int i,levelId;
+        int i, levelId;
         ArrayList resultsplusprov;
-        Vector ratingsplusprov,namesplusprov,volatilitiesplusprov,timesplayedplusprov,scoresplusprov;
+        Vector ratingsplusprov, namesplusprov, volatilitiesplusprov, timesplayedplusprov, scoresplusprov;
 
         Vector names, endratings, endvols, endratingsnovol, scores;
 
@@ -228,7 +228,6 @@ public class RatingQubits {
                 endvols = new Vector();
                 endratingsnovol = new Vector();
                 scores = new Vector();
-
 
                 //get all submissions for this project
                 sqlStr.replace(0, sqlStr.length(), "SELECT * ");
@@ -350,7 +349,7 @@ public class RatingQubits {
                     sqlStr.append(" WHERE project_id = ? and user_id = ? ");
 
                     ps = conn.prepareStatement(sqlStr.toString());
-                    if (r.num_ratings==0) {
+                    if (r.num_ratings == 0) {
                         ps.setNull(1, Types.DOUBLE);
                     } else {
                         ps.setDouble(1, r.rating);
@@ -393,7 +392,7 @@ public class RatingQubits {
 
                 //System.out.println(r.user_id + "\t" + r.rating);
 
-                sqlStr.replace(0, sqlStr.length(), "UPDATE user_rating set rating = ?, vol = ?, rating_no_vol = ?, last_rated_project_id = ?, num_ratings = ?, mod_date_time = CURRENT ");
+                sqlStr.replace(0, sqlStr.length(), "UPDATE user_rating set rating = ?, vol = ?, rating_no_vol = ?, last_rated_project_id = ?, num_ratings = ? ");
                 sqlStr.append(" where phase_id = ? and user_id = ?");
 
                 ps = conn.prepareStatement(sqlStr.toString());
@@ -412,8 +411,8 @@ public class RatingQubits {
 
                 if (retVal == 0) {
 
-                    sqlStr.replace(0, sqlStr.length(), "INSERT INTO user_rating (user_id, phase_id, rating, vol, rating_no_vol, last_rated_project_id, num_ratings, mod_date_time, create_date_time) ");
-                    sqlStr.append(" values (?, ?, ?, ?, ?, ?, ?, CURRENT, CURRENT )");
+                    sqlStr.replace(0, sqlStr.length(), "INSERT INTO user_rating (user_id, phase_id, rating, vol, rating_no_vol, last_rated_project_id, num_ratings) ");
+                    sqlStr.append(" values (?, ?, ?, ?, ?, ?, ?)");
                     ps = conn.prepareStatement(sqlStr.toString());
                     ps.setDouble(1, r.user_id);
                     ps.setInt(2, phaseId);
@@ -479,7 +478,7 @@ public class RatingQubits {
         Vector newRatingWithVol = new Vector();
         Vector newScores = new Vector();
         int i, j;
-        double aveVol = 0,rating,vol, score;
+        double aveVol = 0, rating, vol, score;
 
         /* COMPUTE AVERAGE RATING */
         double rave = 0.0;
@@ -551,7 +550,6 @@ public class RatingQubits {
             }
         }
 
-
         /* UPDATE RATINGS */
         for (i = 0; i < names.size(); i++) {
             double diff = ((Double) perf.elementAt(i)).doubleValue() - ((Double) eperf.elementAt(i)).doubleValue();
@@ -586,7 +584,7 @@ public class RatingQubits {
                     people3++;
                 }
                 double oldVolatility = ((Double) volatilities.elementAt(i)).doubleValue();
-                newVolatility.addElement(new Double(Math.sqrt((oldVolatility*oldVolatility) / (1+weight) + ((newrating-oldrating)*(newrating-oldrating))/ weight)));
+                newVolatility.addElement(new Double(Math.sqrt((oldVolatility * oldVolatility) / (1 + weight) + ((newrating - oldrating) * (newrating - oldrating)) / weight)));
             } else {
                 sqiv += (performedAs - oldrating) * (performedAs - oldrating);
                 people++;
@@ -607,20 +605,20 @@ public class RatingQubits {
         for (i = 0; i < names.size(); i++) {
             System.out.println(
                     fS1((String) names.elementAt(i)) + " " +
-                    ((String) names.elementAt(i)) + "  " +
-                    ((Integer) timesPlayed.elementAt(i)).intValue() + " " +
-                    in4((Double) ratings.elementAt(i)) + " " +
-                    ((Double) volatilities.elementAt(i)).intValue() + " " +
-                    rat((Double) eranks.elementAt(i)) + " " +
-                    fD2((Double) eperf.elementAt(i)) + " " +
-                    scr((Double) scores.elementAt(i)) + " " +
-                    rat((Double) ranks.elementAt(i)) + " " +
-                    fD2((Double) perf.elementAt(i)) + " " +
-                    fD2(new Double(((Double) perf.elementAt(i)).doubleValue() -
-                    ((Double) eperf.elementAt(i)).doubleValue())) +
-                    " " + in4((Double) newRating.elementAt(i)) + " " +
-                    ((Double) newVolatility.elementAt(i)).intValue()
-                    + " " + in4((Double) newRatingWithVol.elementAt(i))
+                            ((String) names.elementAt(i)) + "  " +
+                            ((Integer) timesPlayed.elementAt(i)).intValue() + " " +
+                            in4((Double) ratings.elementAt(i)) + " " +
+                            ((Double) volatilities.elementAt(i)).intValue() + " " +
+                            rat((Double) eranks.elementAt(i)) + " " +
+                            fD2((Double) eperf.elementAt(i)) + " " +
+                            scr((Double) scores.elementAt(i)) + " " +
+                            rat((Double) ranks.elementAt(i)) + " " +
+                            fD2((Double) perf.elementAt(i)) + " " +
+                            fD2(new Double(((Double) perf.elementAt(i)).doubleValue() -
+                                    ((Double) eperf.elementAt(i)).doubleValue())) +
+                            " " + in4((Double) newRating.elementAt(i)) + " " +
+                            ((Double) newVolatility.elementAt(i)).intValue()
+                            + " " + in4((Double) newRatingWithVol.elementAt(i))
             );
         }
         ArrayList al = new ArrayList();
@@ -676,104 +674,99 @@ public class RatingQubits {
         return j * j;
     }
 
-private double normsinv(double p) {
+    private double normsinv(double p) {
         return normsinvnew(p);
     }
-    
+
     private double normsinvnew(double p) {
-    /* ********************************************
-     * Original algorythm and Perl implementation can
-     * be found at:
-     * http://www.math.uio.no/~jacklam/notes/invnorm/index.html
-     * Author:
-     *  Peter J. Acklam
-     *  jacklam@math.uio.no
-     * ****************************************** */
-        
+        /* ********************************************
+      * Original algorythm and Perl implementation can
+      * be found at:
+      * http://www.math.uio.no/~jacklam/notes/invnorm/index.html
+      * Author:
+      *  Peter J. Acklam
+      *  jacklam@math.uio.no
+      * ****************************************** */
+
         // Define break-points.
         // variable for result
-        if(p <= 0) return Double.NEGATIVE_INFINITY;
-        else if(p >= 1) return Double.POSITIVE_INFINITY;
-        
+        if (p <= 0) return Double.NEGATIVE_INFINITY;
+        else if (p >= 1) return Double.POSITIVE_INFINITY;
+
         double z = 0;
 
         // Rational approximation for lower region:
-        if( p < P_LOW )
-        {
-          double q  = Math.sqrt(-2*Math.log(p));
-          z = (((((NORMINV_C[0]*q+NORMINV_C[1])*q+NORMINV_C[2])*q+NORMINV_C[3])*q+NORMINV_C[4])*q+NORMINV_C[5]) / ((((NORMINV_D[0]*q+NORMINV_D[1])*q+NORMINV_D[2])*q+NORMINV_D[3])*q+1);
+        if (p < P_LOW) {
+            double q = Math.sqrt(-2 * Math.log(p));
+            z = (((((NORMINV_C[0] * q + NORMINV_C[1]) * q + NORMINV_C[2]) * q + NORMINV_C[3]) * q + NORMINV_C[4]) * q + NORMINV_C[5]) / ((((NORMINV_D[0] * q + NORMINV_D[1]) * q + NORMINV_D[2]) * q + NORMINV_D[3]) * q + 1);
         }
         // Rational approximation for upper region:
-        else if ( P_HIGH < p )
-        {
-          double q  = Math.sqrt(-2*Math.log(1-p));
-          z = -(((((NORMINV_C[0]*q+NORMINV_C[1])*q+NORMINV_C[2])*q+NORMINV_C[3])*q+NORMINV_C[4])*q+NORMINV_C[5]) / ((((NORMINV_D[0]*q+NORMINV_D[1])*q+NORMINV_D[2])*q+NORMINV_D[3])*q+1);
+        else if (P_HIGH < p) {
+            double q = Math.sqrt(-2 * Math.log(1 - p));
+            z = -(((((NORMINV_C[0] * q + NORMINV_C[1]) * q + NORMINV_C[2]) * q + NORMINV_C[3]) * q + NORMINV_C[4]) * q + NORMINV_C[5]) / ((((NORMINV_D[0] * q + NORMINV_D[1]) * q + NORMINV_D[2]) * q + NORMINV_D[3]) * q + 1);
         }
         // Rational approximation for central region:
-        else
-        {
-          double q = p - 0.5D;
-          double r = q * q;
-          z = (((((NORMINV_A[0]*r+NORMINV_A[1])*r+NORMINV_A[2])*r+NORMINV_A[3])*r+NORMINV_A[4])*r+NORMINV_A[5])*q / (((((NORMINV_B[0]*r+NORMINV_B[1])*r+NORMINV_B[2])*r+NORMINV_B[3])*r+NORMINV_B[4])*r+1);
+        else {
+            double q = p - 0.5D;
+            double r = q * q;
+            z = (((((NORMINV_A[0] * r + NORMINV_A[1]) * r + NORMINV_A[2]) * r + NORMINV_A[3]) * r + NORMINV_A[4]) * r + NORMINV_A[5]) * q / (((((NORMINV_B[0] * r + NORMINV_B[1]) * r + NORMINV_B[2]) * r + NORMINV_B[3]) * r + NORMINV_B[4]) * r + 1);
         }
-        
+
         z = refine(z, p);
         return z;
     }
-    
 
-    private static final double P_LOW  = 0.02425D;
+
+    private static final double P_LOW = 0.02425D;
     private static final double P_HIGH = 1.0D - P_LOW;
 
     // Coefficients in rational approximations.
     private static final double NORMINV_A[] =
-    { -3.969683028665376e+01,  2.209460984245205e+02,
-    -2.759285104469687e+02,  1.383577518672690e+02,
-    -3.066479806614716e+01,  2.506628277459239e+00 };
+            {-3.969683028665376e+01, 2.209460984245205e+02,
+                    -2.759285104469687e+02, 1.383577518672690e+02,
+                    -3.066479806614716e+01, 2.506628277459239e+00};
 
     private static final double NORMINV_B[] =
-    { -5.447609879822406e+01,  1.615858368580409e+02,
-    -1.556989798598866e+02,  6.680131188771972e+01,
-    -1.328068155288572e+01 };
+            {-5.447609879822406e+01, 1.615858368580409e+02,
+                    -1.556989798598866e+02, 6.680131188771972e+01,
+                    -1.328068155288572e+01};
 
     private static final double NORMINV_C[] =
-    { -7.784894002430293e-03, -3.223964580411365e-01,
-    -2.400758277161838e+00, -2.549732539343734e+00,
-    4.374664141464968e+00,  2.938163982698783e+00 };
+            {-7.784894002430293e-03, -3.223964580411365e-01,
+                    -2.400758277161838e+00, -2.549732539343734e+00,
+                    4.374664141464968e+00, 2.938163982698783e+00};
 
     private static final double NORMINV_D[] =
-    { 7.784695709041462e-03,  3.224671290700398e-01,
-    2.445134137142996e+00,  3.754408661907416e+00 };
+            {7.784695709041462e-03, 3.224671290700398e-01,
+                    2.445134137142996e+00, 3.754408661907416e+00};
 
     public static double erf(double z) {
         double t = 1.0 / (1.0 + 0.5 * Math.abs(z));
 
         // use Horner's method
-        double ans = 1 - t * Math.exp( -z*z   -   1.26551223 +
-                                            t * ( 1.00002368 +
-                                            t * ( 0.37409196 + 
-                                            t * ( 0.09678418 + 
-                                            t * (-0.18628806 + 
-                                            t * ( 0.27886807 + 
-                                            t * (-1.13520398 + 
-                                            t * ( 1.48851587 + 
-                                            t * (-0.82215223 + 
-                                            t * ( 0.17087277))))))))));
-        if (z >= 0) return  ans;
-        else        return -ans;
+        double ans = 1 - t * Math.exp(-z * z - 1.26551223 +
+                t * (1.00002368 +
+                        t * (0.37409196 +
+                                t * (0.09678418 +
+                                        t * (-0.18628806 +
+                                                t * (0.27886807 +
+                                                        t * (-1.13520398 +
+                                                                t * (1.48851587 +
+                                                                        t * (-0.82215223 +
+                                                                                t * (0.17087277))))))))));
+        if (z >= 0) return ans;
+        else return -ans;
     }
-    
+
     public static double erfc(double z) {
         return 1.0 - erf(z);
     }
 
-    public static double refine(double x, double d)
-    {
-        if( d > 0 && d < 1)
-        {
-          double e = 0.5D * erfc(-x/Math.sqrt(2.0D)) - d;
-          double u = e * Math.sqrt(2.0D*Math.PI) * Math.exp((x*x)/2.0D);
-          x = x - u/(1.0D + x*u/2.0D);
+    public static double refine(double x, double d) {
+        if (d > 0 && d < 1) {
+            double e = 0.5D * erfc(-x / Math.sqrt(2.0D)) - d;
+            double u = e * Math.sqrt(2.0D * Math.PI) * Math.exp((x * x) / 2.0D);
+            x = x - u / (1.0D + x * u / 2.0D);
         }
         return x;
     }
@@ -781,6 +774,7 @@ private double normsinv(double p) {
     private double norminv(double p, double mean, double stddev) {
         return mean + normsinv(p) * stddev;
     }
+
     private double snormdens(double v) {
         return Math.exp(-v * v / 2) / Math.sqrt(2 * Math.PI);
     }
