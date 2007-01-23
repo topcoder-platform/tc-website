@@ -22,23 +22,17 @@
 			action="<jsp:getProperty name="sessionInfo" property="servletPath"/>"
 			method="post" name="surveyForm">
 		<h1>School Data Cleaner</h1>
-                        <c:forEach items="${requestScope.schools}" var="result">
-                           [${result[1].address.country.name}] ${result[1].name}(${result[0]})<br/>
-                        </c:forEach>
-
-
-		
 		<table>
 			<tr>
 				<td>
-                    <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get" name="f">
+                    <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="post" name="f">
                         <input type="hidden" name="module" value="CleanSchools"/>
                         
                      <table>
                      	<tr>
                      		<td>School type</td>
                      		<td>
-                     			<tc-webtag:radioButton name="type" value="<%=com.topcoder.web.common.model.SchoolType.HIGH_SCHOOL + "" %>" /> High School
+                     			<tc-webtag:radioButton name="type" value="<%=com.topcoder.web.common.model.SchoolType.HIGH_SCHOOL + "" %>" /> High School<br>
 				                <tc-webtag:radioButton name="type" value="<%=com.topcoder.web.common.model.SchoolType.COLLEGE + "" %>" /> College
                 			</td>
                 		</tr>
@@ -51,7 +45,13 @@
 				       <tr>
 				       		<td>School added after:</td>
 				       		<td>
-				       			<tc-webtag:textInput name="date"/>
+				       			<tc-webtag:textInput name="date" size="8"/>
+				       		</td>
+				       	</tr>
+				       <tr>
+				       		<td>Display rows:</td>
+				       		<td>
+				       			from <tc-webtag:textInput name="sr" size="3"/> to <tc-webtag:textInput name="er" size="3"/>
 				       		</td>
 				       	</tr>
 				       	<tr>
@@ -70,11 +70,12 @@
 			<tr>
 				<td><br>
 
-				<select multiple size="10" style="width: 180px;">
-					<option>[Argentina] U.B.A. (1)</option>
-					<option>[Argentina] UBA (12)</option>
+				<select multiple size="10" style="width: 180px;">					
+                        <c:forEach items="${requestScope.schools}" var="result">
+                           <option value="result[1].id">[${result[1].address.country.name}] ${result[1].name}(${result[0]})</option>
+                        </c:forEach>
 				</select></td>
-				<td><a href="#">choose as source school</a> </br>
+				<td><a href="#">choose as source school</a> <br>
 				<a href="#">choose as destination school</a><br>
 
 				<br>

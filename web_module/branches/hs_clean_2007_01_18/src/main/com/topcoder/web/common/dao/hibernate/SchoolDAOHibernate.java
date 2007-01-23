@@ -71,6 +71,10 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
     public List search(SchoolType type, Date creationAfter, String countryCode, int startRow, int maxResults) {
         StringBuffer query = new StringBuffer(100);
 
+        if (countryCode.trim().length() == 0) {
+        	countryCode = null;
+        }
+        
         query.append("SELECT (SELECT count(*) from CurrentSchool cs WHERE cs.school.id = s.id AND cs.coder.user.status=?), s ");
         query.append("FROM School s ");
         query.append("WHERE (SELECT count(*) from CurrentSchool cs WHERE cs.school.id = s.id AND cs.coder.user.status=?) > 0 ");

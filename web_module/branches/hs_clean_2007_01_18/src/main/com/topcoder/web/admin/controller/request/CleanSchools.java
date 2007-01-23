@@ -18,6 +18,11 @@ public class CleanSchools extends ShortHibernateProcessor {
     	String cc = getRequest().getParameter("cc");
     	int sr = 1;
     	int nr = 50;
+    	Integer type = SchoolType.HIGH_SCHOOL;
+    	
+    	if (getRequest().getParameter("type") != null) {
+    		type = new Integer(getRequest().getParameter("type")); 
+    	}
     	
     	if (getRequest().getParameter("sr") != null) {
     		sr = Integer.parseInt(getRequest().getParameter("sr")); 
@@ -26,7 +31,12 @@ public class CleanSchools extends ShortHibernateProcessor {
     		nr = Integer.parseInt(getRequest().getParameter("nr")); 
     	}
     	
-    	getRequest().setAttribute("schools", s.search(dao.getSchoolTypeDAO().find(SchoolType.HIGH_SCHOOL), null, cc, sr, nr));
+    	setDefault("sr", sr + "");
+    	setDefault("nr", nr + "");
+    	setDefault("cc", cc);
+    	setDefault("type", type);
+    	
+    	getRequest().setAttribute("schools", s.search(dao.getSchoolTypeDAO().find(type), null, cc, sr, nr));
         getRequest().setAttribute("countries", dao.getCountryDAO().getCountries());
     	
     	setNextPage("/cleanSchools.jsp");
