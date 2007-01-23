@@ -43,11 +43,14 @@
 </jsp:include>
 
 <p>
-    5.6.2 - 2007.01.xx
+    5.6.2 - 2007.01.23
     <ul>
-        <li>Fix for DR boards to go to the first page of the board when changing periods</li>
-        <li>Fix for member profile to not show "Not Rated" in Marathon Match tab when users are not rated but have competed in a contest</li>
+        <li>Fix for DR boards to go to the first page of the board when changing stages</li>
+        <li>Fix for member profile to not show "Not Rated" in Marathon Match tab when users are not rated but have
+            competed in a contest
+        </li>
         <li>Fix the prev link in component competition history</li>
+        <li>Allow studio competitors to upload a photo</li>
     </ul>
 </p>
 
