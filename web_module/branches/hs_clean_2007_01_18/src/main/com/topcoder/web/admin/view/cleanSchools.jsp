@@ -4,6 +4,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <jsp:useBean id="sessionInfo"
 	class="com.topcoder.web.common.SessionInfo" scope="request" />
 <html>
@@ -22,7 +23,7 @@
 			method="post" name="surveyForm">
 		<h1>School Data Cleaner</h1>
 		
-                        <c:forEach items="${results}" var="result">
+                        <c:forEach items="${schools}" var="result">
                             ${result[1].name}<br/>
                             Registrants: ${result[0]}<br/>
                         </c:forEach>
