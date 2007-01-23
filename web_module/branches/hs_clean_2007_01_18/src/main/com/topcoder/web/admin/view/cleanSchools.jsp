@@ -23,8 +23,7 @@
 			method="post" name="surveyForm">
 		<h1>School Data Cleaner</h1>
                         <c:forEach items="${requestScope.schools}" var="result">
-                            ${result[1].name}<br/>
-                            Registrants: ${result[0]}<br/>
+                           [${result[1].address.country.name}] ${result[1].name}(${result[0]})<br/>
                         </c:forEach>
 
 
