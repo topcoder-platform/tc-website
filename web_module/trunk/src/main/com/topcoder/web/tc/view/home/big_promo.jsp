@@ -8,5 +8,8 @@
 <%-- TCHS  
 <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview"><IMG SRC="/i/home/tchs_promo_120406.png" border="0" alt="The 2007 TopCoder High School Tournament"/></A>
 --%>
-<%-- WEBCAST --%>
+<%-- WEBCAST 
 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies"><img src="/i/home/tccc06webcastbanner20060108.jpg" alt="Watch the TCCC06 Webcast" /></A>
+--%>
+<%-- TCO07 site design vote --%>
+<A href="/tc?module=ViewSurvey&sid=16270"><IMG SRC="/i/home/tco07SiteVote.png" border="0" alt="TCO07 Site Design Vote" /></A>
