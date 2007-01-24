@@ -309,7 +309,7 @@ public abstract class BaseServlet extends HttpServlet {
 
     protected void handleException(HttpServletRequest request, HttpServletResponse response, Throwable e)
             throws Exception {
-        log.error("caught exception, forwarding to error page: " + e.getMessage());
+        log.error("caught exception, forwarding to error page: " + e);
         if (e instanceof PermissionException) {
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             request.setAttribute(MESSAGE_KEY, "Sorry, you do not have permission to access the specified resource.");
