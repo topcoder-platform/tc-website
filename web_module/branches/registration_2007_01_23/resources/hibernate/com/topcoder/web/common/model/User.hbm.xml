@@ -55,12 +55,10 @@
             <key column="user_id" not-null="true"/>
             <many-to-many column="terms_of_use_id" class="TermsOfUse"/>
         </set>
-        <!--
-                <set name="eventRegistrations" table="event_registration" cascade="save-update" inverse="true" access="field">
-                    <key column="user_id" not-null="true"/>
-                    <one-to-many class="EventRegistration"/>
-                </set>
-        -->
+        <set name="eventRegistrations" table="event_registration" cascade="save-update" inverse="true" access="field">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="EventRegistration"/>
+        </set>
     </class>
 
 

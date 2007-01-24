@@ -80,6 +80,19 @@
         <mapping resource="com/topcoder/web/common/model/User.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/UserGroup.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/UserPreference.hbm.xml"/>
+
+
+        <mapping resource="com/topcoder/web/common/model/Event.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/EventRegistration.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Question.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Answer.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Response.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Survey.hbm.xml"/>
+
+        <mapping resource="com/topcoder/web/common/model/EventType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/TermsOfUse.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/QuestionType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/QuestionStyle.hbm.xml"/>
     </session-factory>
 
 </hibernate-configuration>
