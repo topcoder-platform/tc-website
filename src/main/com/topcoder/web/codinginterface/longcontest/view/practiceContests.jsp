@@ -89,7 +89,11 @@
                                     <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 35px;">
                                             <tc-webtag:beanWrite name="contest" property="numCompetitors"/></td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center">
-                                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>">submit</A>
+                                        <% if (myNode.equals("long_intelmtcs_practice")) { %>
+                                            &nbsp;
+                                        <% } else { %>
+                                            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>">submit</A>
+                                        <% } %>
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center">
                                         <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewStandings&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>">standings</A>
