@@ -20,6 +20,48 @@
 .calendar table { width: 250px; height: 200px; }
 </style>
 
+<script language="javascript" type="text/javascript">
+function getIdx() {
+    for (var i = 0; i < document.f.school.length; i++) {
+    	if (document.f.school.options[i].selected) {
+    		return i;
+    	}
+    }
+    return -1;
+
+}
+
+function chooseSrc() {
+    var idx = getIdx();
+    if (idx < 0) {
+    	alert("Please select a school");
+    	return;
+    }
+
+	document.f.srcName.value=document.f.school.options[idx].text;
+	document.f.s1.value=idx;
+
+}
+
+function chooseDest() {
+    var idx = getIdx();
+    if (idx < 0) {
+    	alert("Please select a school");
+    	return;
+    }
+
+	document.f.destName.value=document.f.school.options[idx].text;
+	document.f.s2.value=idx;
+
+}
+
+function schoolDoubleClick() {
+	if (document.f.s1.value=="") chooseSrc();
+	else chooseDest();
+}
+
+</script>
+
 </head>
 <body>
 <jsp:include page="top.jsp" />
@@ -36,7 +78,7 @@
                         
                      <table>
                      	<tr>
-                     		<td width="100">School type:</td>
+                     		<td width="150">School type:</td>
                      		<td>
                      			<tc-webtag:radioButton name="type" value="<%=com.topcoder.web.common.model.SchoolType.HIGH_SCHOOL + "" %>" /> High School<br>
 				                <tc-webtag:radioButton name="type" value="<%=com.topcoder.web.common.model.SchoolType.COLLEGE + "" %>" /> College
@@ -61,7 +103,7 @@
 				       		</td>
 				       	</tr>
 				       	<tr>
-				       		<td colspan="2" align="center">
+				       		<td colspan="2">
 								<input type="submit" value="search">
 				       		</td>
 				       	</tr>
@@ -87,7 +129,7 @@ Calendar.setup(
 			<tr>
 				<td><br>
 
-				<select multiple size="15" style="width: 500px;">					
+				<select multiple size="15" style="width: 600px;" name="school" ondblclick="schoolDoubleClick()">					
                         <c:forEach items="${requestScope.schools}" var="result">
                            <option value="result[1].id">[${result[1].address.country.name}] ${result[1].name}(${result[0]})</option>
                         </c:forEach>
@@ -98,6 +140,14 @@ Calendar.setup(
 
 				<a href="#">choose as source school</a> <br>
 				<a href="#">choose as destination school</a><br>
+				
+<input type="text" name="srcName" onClick="blur()"> -  <input type="text" name="destName" onClick="blur()">
+					<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="post" name="merge">
+                        <input type="hidden" name="module" value="MergeSchools"/>
+<input type="hidden" name="s1">
+<input type="hidden" name="s2">
+<input type="button" value="Merge">
+</form>
 
 				<br>
 				<br>
