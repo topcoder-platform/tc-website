@@ -15,6 +15,10 @@
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
     <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
+  <style type="text/css">
+.calendar,
+.calendar table { width: 250px; height: 200px; }
+</style>
 
 </head>
 <body>

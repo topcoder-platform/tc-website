@@ -38,8 +38,8 @@ public class CleanSchools extends ShortHibernateProcessor {
     		creationAfter = new SimpleDateFormat("MM/dd/yy").parse(getRequest().getParameter("date"));
     	}
     	
-    	setDefault("sr", getRequest().getParameter("sr"));
-    	setDefault("nr", getRequest().getParameter("nr"));
+    	setDefault("sr", sr + "");
+    	setDefault("nr", nr + "");
     	setDefault("cc", cc);
     	setDefault("type", type);
     	setDefault("date", getRequest().getParameter("date"));
