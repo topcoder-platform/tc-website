@@ -30,7 +30,7 @@
     <script type="text/javascript" src="/js/popup.js"></script>
     <script type="text/javascript">
         function changePeriod() {
-            var myForm = document.rookieBoardForm;
+            var myForm = document.leaderBoardForm;
             myForm.<%=DataAccessConstants.START_RANK%>.value = "";
             myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = "";
             myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = "";
