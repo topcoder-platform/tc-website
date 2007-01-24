@@ -11,9 +11,15 @@
 <head>
 <title>TopCoder Admin</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script type="text/javascript" src="/js/jscal/calendar.js"></script>
+    <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
+    <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
+    <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
+
 </head>
 <body>
 <jsp:include page="top.jsp" />
+
 <table>
 	<tr valign="top">
 		<td><jsp:include page="left.jsp" /></td>
@@ -42,7 +48,7 @@
 				       <tr>
 				       		<td>School added after:</td>
 				       		<td>
-				       			<tc-webtag:textInput name="date" size="8"/>
+				       			<tc-webtag:textInput name="date" id="date" size="12" editable="true"/><button id="trigger_date">Set</button>      
 				       		</td>
 				       	</tr>
 				       <tr>
@@ -57,6 +63,20 @@
 				       		</td>
 				       	</tr>
 				       </table>
+				<script language="javascript" type="text/javascript">
+    <!--
+Calendar.setup(
+{
+ inputField  : "date",  
+                    ifFormat    : "%m/%d/%Y",    
+                    button      : "trigger_date",     
+                    showsTime   : false,
+                    singleClick  : false,
+                    cache       : true
+}
+);
+                -->
+</script>
 				
 				</form>
 				</td>
