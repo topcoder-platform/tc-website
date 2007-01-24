@@ -38,11 +38,11 @@ public class CleanSchools extends ShortHibernateProcessor {
     		creationAfter = new SimpleDateFormat("MM/dd/yy").parse(getRequest().getParameter("date"));
     	}
     	
-    	setDefault("sr", sr + "");
-    	setDefault("nr", nr + "");
+    	setDefault("sr", getRequest().getParameter("sr"));
+    	setDefault("nr", getRequest().getParameter("nr"));
     	setDefault("cc", cc);
     	setDefault("type", type);
-    	setDefault("date", creationAfter);
+    	setDefault("date", getRequest().getParameter("date"));
     	
     	getRequest().setAttribute("schools", s.search(dao.getSchoolTypeDAO().find(type), creationAfter, cc, sr - 1, nr));
         getRequest().setAttribute("countries", dao.getCountryDAO().getCountries());
