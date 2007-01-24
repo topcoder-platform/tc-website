@@ -143,12 +143,12 @@ Calendar.setup(
 						<a href="javascript:chooseSrc()">choose as source school</a> <br>
 						<a href="javascript:chooseDest()">choose as destination school</a><br>
 				
-					<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="post" name="mergeForm">
+					<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get" name="mergeForm">
                         <input type="hidden" name="module" value="MergeSchools"/>
-<input type="text" name="srcName" onClick="blur()" size="50"> <br>
-  <input type="text" name="destName" onClick="blur()"  size="50"><br>
-<input type="hidden" name="s1">
-<input type="hidden" name="s2">
+<input type="text" name="srcName" onClick="blur()" size="100"> <br>
+  <input type="text" name="destName" onClick="blur()"  size="100"><br>
+<input type="hidden" name="s1" value="">
+<input type="hidden" name="s2" value="">
 <input type="submit" value="Merge">
 </form>
 
