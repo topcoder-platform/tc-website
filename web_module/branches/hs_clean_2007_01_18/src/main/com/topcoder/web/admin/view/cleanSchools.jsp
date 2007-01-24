@@ -146,12 +146,13 @@ Calendar.setup(
 					<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="post" name="mergeForm">
                         <input type="hidden" name="module" value="MergeSchools"/>
 <input type="text" name="srcName" onClick="blur()" size="50"> <br>
-  <input type="text" name="destName" onClick="blur()"  size="50><br>
+  <input type="text" name="destName" onClick="blur()"  size="50"><br>
 <input type="hidden" name="s1">
 <input type="hidden" name="s2">
 <input type="submit" value="Merge">
 </form>
 
+				</td>
 			</tr>
 		</table>
 		</td>
