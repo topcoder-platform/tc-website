@@ -2183,7 +2183,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c.setAutoCommit(false);
             setLockTimeout(c);
 
-            long affidavitId = makeAffidavitPayment(c, a, affidavitText, p).getAffidavitId();
+            long affidavitId = makeAffidavitPayment(c, a, affidavitText, p)[1];
 
             c.commit();
             c.setAutoCommit(true);
@@ -2217,7 +2217,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
 
     // Helper function, assumes autocommit is false
-    private AffidavitAndPaymentIds makeAffidavitPayment(Connection c, Affidavit a, String text, Payment p) throws Exception {
+    private long[] makeAffidavitPayment(Connection c, Affidavit a, String text, Payment p) throws Exception {
         log.debug("makeAffidavitPayment called...");
         PreparedStatement ps = null;
         try {
@@ -2282,7 +2282,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.close();
             ps = null;
 
-            return new AffidavitAndPaymentIds(paymentId, affidavitId);
+            return new long[]{paymentId, affidavitId};
         } catch (Exception e) {
             try {
                 if (ps != null) ps.close();
@@ -5381,7 +5381,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         a.getHeader().setTypeId(ALGORITHM_AFFIDAVIT_TYPE);
 
 
-        long paymentId = makeAffidavitPayment(c, a, null, p).getPaymentId();
+        long paymentId = makeAffidavitPayment(c, a, null, p)[0];
 
         log.debug("in makeNewAlgorithmPayment, the payment id is " + paymentId);
         return paymentId;
@@ -6053,28 +6053,5 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return runSelectQuery(query.toString(), false);
     }
 
-
-    /**
-     * Helper class to store a payment id and affidavit id
-     *
-     * @author Cucu
-     */
-    private static class AffidavitAndPaymentIds {
-        private long paymentId;
-        private long affidavitId;
-
-        public AffidavitAndPaymentIds(long paymentId, long affidavitId) {
-            this.paymentId = paymentId;
-            this.affidavitId = affidavitId;
-        }
-
-        public long getAffidavitId() {
-            return affidavitId;
-        }
-        public long getPaymentId() {
-            return paymentId;
-        }
-
-    }
 }
 
