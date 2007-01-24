@@ -14,8 +14,8 @@ public class MergeSchools extends Base {
     	School s = (School) createEJB(getInitialContext(), School.class);
 
     	s.mergeSchools(s1, s2);
-    	setNextPage("/home.jsp");
-        setIsNextPageInContext(true);
+    	setNextPage("/admin/?module=CleanSchools");
+        setIsNextPageInContext(false);
     }
 
 }

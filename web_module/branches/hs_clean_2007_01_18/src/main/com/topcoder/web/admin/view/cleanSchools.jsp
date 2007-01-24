@@ -38,8 +38,8 @@ function chooseSrc() {
     	return;
     }
 
-	document.mergeForm.srcName.value=document.schoolForm.school.options[idx].text;
-	document.mergeForm.s1.value=document.schoolForm.school.options[idx].value;
+	document.mergeForm.srcName.value=document.f.school.options[idx].text;
+	document.mergeForm.s1.value=document.f.school.options[idx].value;
 
 }
 
@@ -50,14 +50,26 @@ function chooseDest() {
     	return;
     }
 
-	document.mergeForm.destName.value=document.schoolForm.school.options[idx].text;
-	document.mergeForm.s2.value=document.schoolForm.school.options[idx].value;
+	document.f.destName.value=document.f.school.options[idx].text;
+	document.f.s2.value=document.f.school.options[idx].value;
 
 }
 
 function schoolDoubleClick() {
-	if (document.mergeForm.s1.value=="") chooseSrc();
+	if (document.f.s1.value=="") chooseSrc();
 	else chooseDest();
+}
+
+function search() {
+	document.f.module.value = "CleanSchools";
+	document.f.module.method = "get";
+	document.f.submit();
+}
+
+function merge() {
+	document.f.module.value = "MergeSchools";
+	document.f.module.method = "post";
+	document.f.submit();
 }
 
 </script>
@@ -65,6 +77,10 @@ function schoolDoubleClick() {
 </head>
 <body>
 <jsp:include page="top.jsp" />
+<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get" name="f">
+<input type="hidden" name="module" value=""/>
+<input type="hidden" name="s1" value="">
+<input type="hidden" name="s2" value="">
 
 <table>
 	<tr valign="top">
@@ -73,8 +89,6 @@ function schoolDoubleClick() {
 		<table>
 			<tr>
 				<td>
-					<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get" name="f">
-                        <input type="hidden" name="module" value="CleanSchools"/>
                         
                      <table>
                      	<tr>
@@ -104,7 +118,7 @@ function schoolDoubleClick() {
 				       	</tr>
 				       	<tr>
 				       		<td colspan="2">
-								<input type="submit" value="search">
+								<input type="button" value="search" onClick="search()">
 				       		</td>
 				       	</tr>
 				       </table>
@@ -128,13 +142,11 @@ Calendar.setup(
 			</tr>
 			<tr>
 				<td>
-				<form action="#" name="schoolForm">
 				<select multiple size="15" style="width: 600px;" name="school" ondblclick="schoolDoubleClick()">					
                         <c:forEach items="${requestScope.schools}" var="result">
-                           <option value="${result[1].id}">[${result[1].address.country.name}] ${result[1].name}(${result[0]})</option>
+                           <option value="${result[1].id}">[${result[1].address.country.name}] ${result[1].name} (${result[0]})</option>
                         </c:forEach>
 				</select>
-				</form>
 				</td>
 			</tr>
 			<tr>
@@ -143,14 +155,21 @@ Calendar.setup(
 						<a href="javascript:chooseSrc()">choose as source school</a> <br>
 						<a href="javascript:chooseDest()">choose as destination school</a><br>
 				
-					<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get" name="mergeForm">
-                        <input type="hidden" name="module" value="MergeSchools"/>
-<input type="text" name="srcName" onClick="blur()" size="100"> <br>
-  <input type="text" name="destName" onClick="blur()"  size="100"><br>
-<input type="hidden" name="s1" value="">
-<input type="hidden" name="s2" value="">
-<input type="submit" value="Merge">
-</form>
+                       
+                      <table>
+                      	<tr>
+							<td>Move</td>
+							<td><input type="text" name="srcName" onClick="blur()" size="100"> </td>
+						</tr>
+						<tr>
+							<td>to</td>
+							<td><input type="text" name="destName" onClick="blur()"  size="100"></td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="button" value="Merge" onClick="merge()"></td>
+						</tr>
+					</table>
+
 
 				</td>
 			</tr>
@@ -158,5 +177,6 @@ Calendar.setup(
 		</td>
 	</tr>
 </table>
+</form>
 </body>
 </html>
