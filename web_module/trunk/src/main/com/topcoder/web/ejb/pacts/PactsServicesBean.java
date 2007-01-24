@@ -4620,6 +4620,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         log.debug("generateRoundPayments called...");
         int i;
         Connection c = null;
+        SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_STRING);
 
         try {
             c = DBMS.getConnection();
@@ -4648,7 +4649,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 throw new IllegalUpdateException("Data already generated for round " + roundId + "!");
             }
 
-
+            AlgorithmContestPaymentDataRetriever retriever = new AlgorithmContestPaymentDataRetriever(roundId);
+/*
             // Make sure the round exists; in the process, get the name and due date.
             StringBuffer checkExists = new StringBuffer(300);
             checkExists.append("SELECT con.name, r.name, ");
@@ -4664,6 +4666,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             String roundName = rsc.getItem(0, 0).toString() + " " + rsc.getItem(0, 1).toString();
             String dueDate = TCData.getTCDate(rsc.getRow(0), "due_date", null, true);
             Date eventDate = rsc.getTimestampItem(0, "end_date");
+*/
+            String roundName = retriever.getRoundName();
+            String dueDate = sdf.format(retriever.getDueDate());
+            Date eventDate = retriever.getEventDate();
 
             StringBuffer getWinners = new StringBuffer(300);
             getWinners.append("SELECT rr.room_id, rr.coder_id, rr.room_placed, rp.paid, a.country_code, rp.payment_type_id ");
@@ -6053,5 +6059,33 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return runSelectQuery(query.toString(), false);
     }
 
+    class AlgorithmContestPaymentDataRetriever extends AlgorithmContestPayment {
+    	private final String roundName;
+    	private final Date dueDate;
+    	private final Date eventDate;
+    	
+    	public AlgorithmContestPaymentDataRetriever(long roundId) throws SQLException {
+    		super(1,0.01, roundId);
+    		AlgorithmRoundReferencePayment.Processor processor = (AlgorithmRoundReferencePayment.Processor) getProcessor();
+    		roundName = processor.getRoundName(roundId);
+    		dueDate = processor.lookupDueDate(this);
+    		eventDate = processor.lookupEventDate(this);
+    	}
+
+		public Date getDueDate() {
+			return dueDate;
+		}
+
+		public Date getEventDate() {
+			return eventDate;
+		}
+
+		public String getRoundName() {
+			return roundName;
+		}
+    	
+    	
+    	
+    }
 }
 
