@@ -415,19 +415,11 @@ objects. It's very important &#8211; for the reason why, see the next section.
 
 <a name="using"></a><span class="bodySubtitle">Using your own objects in Maps and Sets</span><br />
 
-Elements in set and map are ordered. It's the general rule. So, if you want to
-enable using of your objects in set or map you should make them comparable. You
-already know the first rule of comparisons in STL: <br />
-<br />
-1) all comparison is based on 'operator &lt;' <br />
-<br />
-The second rule is: <br /> 
-<br />
-2) all equal check is based on 'operator ==' <br /><br />
-
-Again, you should 
-understand it in this way: &#8220;I only need to
-implement operator &lt; and operator ==&#8221;.
+Elements in set and map are ordered. It's the general rule. So, if you want to enable using of your objects in set or map you should make them comparable. You already know the rule of comparisons in STL:
+<br /><br />
+| * all comparison is based on 'operator &lt;'
+<br /><br />
+Again, you should understand it in this way: "I only need to implement operator &lt; for objects to be stored in set/map."
 <br /><br />
 
 Imagine you are going to make the 'struct point' (or
@@ -453,10 +445,6 @@ struct point {
             if(y &lt; p.y - epsilon) return true; 
             if(y &gt; p.y + epsilon) return false; 
             return false; 
-       } 
-       // And this is a great trick 
-       bool operator == (const point&amp; p) const { 
-            return !(*this &lt; p) &amp;&amp; !(p &lt; *this); 
        } 
  }; &nbsp;</pre>
 
@@ -543,8 +531,8 @@ DFS:
 <pre class="code">
 /*
 Reminder from Part 1:
-vector&lt;int&gt; vi;
-vector&lt;vi&gt; vvi;
+typedef vector&lt;int&gt; vi;
+typedef vector&lt;vi&gt; vvi;
 */
 
  int N; // number of vertices 
@@ -590,8 +578,7 @@ and is quite fast on TopCoder.
 <br />
 <br />
 
-<a name="other"></a><span class="bodySubtitle">A word on other
-container types and their usage</span><br />
+<a name="other"></a><span class="bodySubtitle">A word on other container types and their usage</span><br />
 
 Vector is so popular because it's the simplest array container.
 In most cases you only require the functionality of an array from vector
@@ -811,14 +798,9 @@ vector&lt;ii&gt;, greater&lt;ii&gt; &gt;.
 
 <span class="bodySubtitle"><A name="dijkstra3"></a>Dijkstra via set</span><br />
 <tc-webtag:handle coderId="10574855" context="algorithm"/> gave me this idea when I asked him about efficient Dijkstra
-implementation in C#. While implementing Dijkstra we
-use the priority_queue to add elements to the
-&#8220;vertices being analyzed&#8221; queue in O(log
-N) amortized and fetch in in O(log N) amortized. But
-there is a container besides priority_queue that can
-provide us with this functionality -- it&#8217;s &#8216;set&#8217;!
-I&#8217;ve experimented a lot and found that the performance of Dijkstra based on priority_queue
-and set is the same.<br /><br />
+implementation in C#. While implementing Dijkstra we use the priority_queue to add elements to the &#8220;vertices being analyzed&#8221; queue in O(logN) and fetch in O(log N). 
+But there is a container besides priority_queue that can provide us with this functionality -- it&#8217;s &#8216;set&#8217;!
+I&#8217;ve experimented a lot and found that the performance of Dijkstra based on priority_queue and set is the same.<br /><br />
 
 So, here&#8217;s the code:
 
@@ -866,8 +848,7 @@ operation, &#8216;set&#8217; may be your best bet.<br />
 I&#8217;ve spent a lot of time to understand why the code that removes elements from queue (with set)
 works as fast as the first one.<br /><br />
 
-These two
-implementation have the same amortized complexity and works in
+These two implementations have the same complexity and work in
 the same time. Also, I&#8217;ve set up practical experiments and the
 performance is exactly the same (the difference is about ~%0.1 of time).
 <br /><br />
