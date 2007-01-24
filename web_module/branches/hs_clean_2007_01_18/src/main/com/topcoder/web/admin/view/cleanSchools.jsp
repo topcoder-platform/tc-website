@@ -28,8 +28,7 @@
 	<tr valign="top">
 		<td><jsp:include page="left.jsp" /></td>
 		<td>
-		<h1>School Data Cleaner</h1>
-		<table>
+		<table border="1">
 			<tr>
 				<td>
 					<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get" name="f">
@@ -88,7 +87,7 @@ Calendar.setup(
 			<tr>
 				<td><br>
 
-				<select multiple size="10" style="width: 400px;">					
+				<select multiple size="15" style="width: 500px;">					
                         <c:forEach items="${requestScope.schools}" var="result">
                            <option value="result[1].id">[${result[1].address.country.name}] ${result[1].name}(${result[0]})</option>
                         </c:forEach>
