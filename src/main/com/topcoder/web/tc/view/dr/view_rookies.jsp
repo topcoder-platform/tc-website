@@ -29,9 +29,11 @@
     <script type="text/javascript">
         function changePeriod() {
             var myForm = document.rookieBoardForm;
+            <c:if test="${fn:length(boardList) > 0}">
             myForm.<%=DataAccessConstants.START_RANK%>.value = '';
             myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '';
             myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '';
+            </c:if>
             document.rookieBoardForm.submit()
         }
         function submitEnter(e) {
