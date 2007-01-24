@@ -489,7 +489,7 @@ In spite of this, let me tell about very important feature of GNU C++ called 'ty
 
 This will create the variable x of type matching the type of (a+b) expression. Beware that typeof(v.size()) is unsigned for any STL container type. But the most important application of typeof for TopCoder is traversing a container. Consider the following macros:
 
-<pre class="code"> #define tr(container, iterator) \ 
+<pre class="code"> #define tr(container, it) \ 
       for(typeof(container.begin()) it = container.begin(); it != container.end(); it++) </pre>
 
 By using these macros we can traverse every kind of container, not only vector. This will produce const_iterator for const object and normal iterator for non-const object, and you will never get an error here.
