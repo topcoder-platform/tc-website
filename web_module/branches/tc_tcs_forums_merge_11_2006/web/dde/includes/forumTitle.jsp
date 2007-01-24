@@ -58,7 +58,7 @@
             </table>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="bottom">
-<%  if (forumType == com.topcoder.dde.catalog.Forum.COLLABORATION) { %>
+<%  if (forumType == com.topcoder.dde.catalog.ForumCategory.COLLABORATION) { %>
                     <td width="1%" class="normal"><a class="normal" href="c_forum.jsp?f=<%=collabForumId%>"><img src="/images/tabCustForum_on.gif" alt="Customer Forum" name="tabCustForum" width="142" height="22" border="0"></a></td>
     <% if (specForumId > 0) { %>
                     <td width="1%" class="normal"><a onmouseover="document.images['tabDevForum'].src = tabDevForumon.src; window.status='Developer Forum'; return true;" onmouseout="document.images['tabDevForum'].src = tabDevForumoff.src" class="normal" href="c_forum.jsp?f=<%=specForumId%>"><img src="/images/tabDevForum_off.gif" alt="Developer Forum" name="tabDevForum" width="142" height="22" border="0"></a></td>

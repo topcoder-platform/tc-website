@@ -139,12 +139,12 @@
     collabForumId = forumComponent.getCollabForumId();
     specForumId = forumComponent.getSpecForumId();
     if (forumId == collabForumId) {
-        forumType = com.topcoder.dde.catalog.Forum.COLLABORATION;
+        forumType = com.topcoder.dde.catalog.ForumCategory.COLLABORATION;
     } else {
-        forumType = com.topcoder.dde.catalog.Forum.SPECIFICATION;
+        forumType = com.topcoder.dde.catalog.ForumCategory.SPECIFICATION;
     }
 
-    if (forumType == com.topcoder.dde.catalog.Forum.SPECIFICATION) {
+    if (forumType == com.topcoder.dde.catalog.ForumCategory.SPECIFICATION) {
         if (!loggedOn) {
             //Redirect to logon page
             session.putValue("nav_redirect_msg", "You must login to view the specification forum");
@@ -155,7 +155,7 @@
             response.sendRedirect("s_spec_permission.jsp");
             return;
         }
-    } else if (forumType == com.topcoder.dde.catalog.Forum.COLLABORATION) {
+    } else if (forumType == com.topcoder.dde.catalog.ForumCategory.COLLABORATION) {
         //Handle any collaboration specific logic here.
     } else {
         //Handle Error here

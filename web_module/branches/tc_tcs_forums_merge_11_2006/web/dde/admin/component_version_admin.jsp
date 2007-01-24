@@ -2168,7 +2168,7 @@ if (colTechnology != null) {
 </table>
 
 <!-- Footer begins -->
-<jsp:include page="/includes/footer.jsp" flush="true" />
+<jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->
 
 </body>
