@@ -37,7 +37,7 @@
                         
                      <table>
                      	<tr>
-                     		<td>School type</td>
+                     		<td width="100">School type:</td>
                      		<td>
                      			<tc-webtag:radioButton name="type" value="<%=com.topcoder.web.common.model.SchoolType.HIGH_SCHOOL + "" %>" /> High School<br>
 				                <tc-webtag:radioButton name="type" value="<%=com.topcoder.web.common.model.SchoolType.COLLEGE + "" %>" /> College
