@@ -22,7 +22,7 @@
 
 <script language="javascript" type="text/javascript">
 function getIdx() {
-    for (var i = 0; i < document.schoolForm.school.length; i++) {
+    for (var i = 0; i < document.f.school.length; i++) {
     	if (document.f.school.options[i].selected) {
     		return i;
     	}
