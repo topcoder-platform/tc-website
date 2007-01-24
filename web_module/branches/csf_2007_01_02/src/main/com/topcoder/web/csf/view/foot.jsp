@@ -1,11 +1,11 @@
-<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<div class="foot">
-    <a href="/">home</a>
-    | <a href="/?module=Static&amp;d1=contactUs">contact us</a>
-    | <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=index">about TopCoder</a>
-    <%--
-        | <a href="/?module=Static&amp;d1=about&amp;d2=overview">about TopCoder</a>
-    --%>
-    | <a href="/?module=Static&amp;d1=about&amp;d2=privacy">privacy</a>
-    | <a href="/?module=Static&amp;d1=about&amp;d2=terms">terms</a>
+<div align="center">
+    <div style="padding-left: 0px; padding-top: 15px;">
+        Copyright &#169; Microsoft Corporation, 2006. All Rights Reserved
+    </div>
+    <div style="padding-left: 5px; padding-top: 5px;">
+        <a id="ctl00_Copyright_HyperLink1" class="footerLink" href="http://privacy.microsoft.com/">Privacy Policy</a>
+        &nbsp;&nbsp;|&nbsp;&nbsp;<a id="ctl00_Copyright_HyperLink2" class="footerLink" href="TermsOfUse.aspx">Terms of Use</a>
+        &nbsp;&nbsp;|&nbsp;&nbsp;<a id="ctl00_Copyright_HyperLink4" class="footerLink" href="ContactUs.aspx">Contact Us</a>
+        &nbsp;&nbsp;|&nbsp;&nbsp;<a id="ctl00_Copyright_HyperLink5" class="footerLink" href="Feedback.aspx">Feedback</a>
+    </div>
 </div>
