@@ -23,7 +23,7 @@
 <script language="javascript" type="text/javascript">
 function getIdx() {
     for (var i = 0; i < document.schoolForm.school.length; i++) {
-    	if (document.schoolForm.school.options[i].selected) {
+    	if (document.f.school.options[i].selected) {
     		return i;
     	}
     }
@@ -38,8 +38,8 @@ function chooseSrc() {
     	return;
     }
 
-	document.mergeForm.srcName.value=document.f.school.options[idx].text;
-	document.mergeForm.s1.value=document.f.school.options[idx].value;
+	document.f.srcName.value=document.f.school.options[idx].text;
+	document.f.s1.value=document.f.school.options[idx].value;
 
 }
 
@@ -90,7 +90,7 @@ function merge() {
 			<tr>
 				<td>
                         
-                     <table>
+                     <table cellspacing="3">
                      	<tr>
                      		<td width="150">School type:</td>
                      		<td>
@@ -152,18 +152,18 @@ Calendar.setup(
 			<tr>
 				<td>
 
-						<a href="javascript:chooseSrc()">choose as source school</a> <br>
+						<a href="javascript:chooseSrc()">choose as source school</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<a href="javascript:chooseDest()">choose as destination school</a><br>
 				
                        
                       <table>
                       	<tr>
-							<td>Move</td>
-							<td><input type="text" name="srcName" onClick="blur()" size="100"> </td>
+							<td>Merge</td>
+							<td><input type="text" name="srcName" onClick="blur()" size="80"> </td>
 						</tr>
 						<tr>
-							<td>to</td>
-							<td><input type="text" name="destName" onClick="blur()"  size="100"></td>
+							<td>into</td>
+							<td><input type="text" name="destName" onClick="blur()"  size="80"></td>
 						</tr>
 						<tr>
 							<td colspan="2"><input type="button" value="Merge" onClick="merge()"></td>
