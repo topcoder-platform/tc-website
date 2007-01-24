@@ -39,7 +39,7 @@ function chooseSrc() {
     }
 
 	document.mergeForm.srcName.value=document.schoolForm.school.options[idx].text;
-	document.mergeForm.s1.value=idx;
+	document.mergeForm.s1.value=document.schoolForm.school.options[idx].value;
 
 }
 
@@ -51,7 +51,7 @@ function chooseDest() {
     }
 
 	document.mergeForm.destName.value=document.schoolForm.school.options[idx].text;
-	document.mergeForm.s2.value=idx;
+	document.mergeForm.s2.value=document.schoolForm.school.options[idx].value;
 
 }
 
