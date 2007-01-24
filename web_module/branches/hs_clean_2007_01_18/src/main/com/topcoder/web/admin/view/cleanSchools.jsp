@@ -70,7 +70,7 @@ function schoolDoubleClick() {
 	<tr valign="top">
 		<td><jsp:include page="left.jsp" /></td>
 		<td>
-		<table border="1">
+		<table>
 			<tr>
 				<td>
 					<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get" name="f">
@@ -140,8 +140,8 @@ Calendar.setup(
 			<tr>
 				<td>
 
-				<a href="#">choose as source school</a> <br>
-				<a href="#">choose as destination school</a><br>
+						<a href="javascript:chooseSrc()">choose as source school</a> <br>
+						<a href="javascript:chooseDest()">choose as destination school</a><br>
 				
 					<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="post" name="mergeForm">
                         <input type="hidden" name="module" value="MergeSchools"/>
