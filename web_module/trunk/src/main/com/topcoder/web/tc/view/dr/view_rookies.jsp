@@ -29,9 +29,9 @@
     <script type="text/javascript">
         function changePeriod() {
             var myForm = document.rookieBoardForm;
-            myForm.<%=DataAccessConstants.START_RANK%>.value = "";
-            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = "";
-            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = "";
+            myForm.<%=DataAccessConstants.START_RANK%>.value = '';
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '';
             document.rookieBoardForm.submit()
         }
         function submitEnter(e) {

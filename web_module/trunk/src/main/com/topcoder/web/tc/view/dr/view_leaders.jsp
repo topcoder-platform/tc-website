@@ -31,9 +31,9 @@
     <script type="text/javascript">
         function changePeriod() {
             var myForm = document.leaderBoardForm;
-            myForm.<%=DataAccessConstants.START_RANK%>.value = "";
-            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = "";
-            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = "";
+            myForm.<%=DataAccessConstants.START_RANK%>.value = '';
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '';
             document.leaderBoardForm.submit()
         }
         function submitEnter(e) {
