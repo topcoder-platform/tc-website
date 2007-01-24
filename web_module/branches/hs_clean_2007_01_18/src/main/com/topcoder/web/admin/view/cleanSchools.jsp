@@ -22,8 +22,8 @@
 
 <script language="javascript" type="text/javascript">
 function getIdx() {
-    for (var i = 0; i < document.f.school.length; i++) {
-    	if (document.f.school.options[i].selected) {
+    for (var i = 0; i < document.schoolForm.school.length; i++) {
+    	if (document.schoolForm.school.options[i].selected) {
     		return i;
     	}
     }
@@ -38,8 +38,8 @@ function chooseSrc() {
     	return;
     }
 
-	document.f.srcName.value=document.f.school.options[idx].text;
-	document.f.s1.value=idx;
+	document.mergeForm.srcName.value=document.schoolForm.school.options[idx].text;
+	document.mergeForm.s1.value=idx;
 
 }
 
@@ -50,13 +50,13 @@ function chooseDest() {
     	return;
     }
 
-	document.f.destName.value=document.f.school.options[idx].text;
-	document.f.s2.value=idx;
+	document.mergeForm.destName.value=document.schoolForm.school.options[idx].text;
+	document.mergeForm.s2.value=idx;
 
 }
 
 function schoolDoubleClick() {
-	if (document.f.s1.value=="") chooseSrc();
+	if (document.mergeForm.s1.value=="") chooseSrc();
 	else chooseDest();
 }
 
@@ -127,13 +127,15 @@ Calendar.setup(
 				</td>
 			</tr>
 			<tr>
-				<td><br>
-
+				<td>
+				<form action="#" name="schoolForm">
 				<select multiple size="15" style="width: 600px;" name="school" ondblclick="schoolDoubleClick()">					
                         <c:forEach items="${requestScope.schools}" var="result">
                            <option value="result[1].id">[${result[1].address.country.name}] ${result[1].name}(${result[0]})</option>
                         </c:forEach>
-				</select></td>
+				</select>
+				</form>
+				</td>
 			</tr>
 			<tr>
 				<td>
@@ -141,9 +143,9 @@ Calendar.setup(
 				<a href="#">choose as source school</a> <br>
 				<a href="#">choose as destination school</a><br>
 				
-<input type="text" name="srcName" onClick="blur()"> -  <input type="text" name="destName" onClick="blur()">
-					<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="post" name="merge">
+					<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="post" name="mergeForm">
                         <input type="hidden" name="module" value="MergeSchools"/>
+<input type="text" name="srcName" onClick="blur()"> -  <input type="text" name="destName" onClick="blur()">
 <input type="hidden" name="s1">
 <input type="hidden" name="s2">
 <input type="button" value="Merge">
