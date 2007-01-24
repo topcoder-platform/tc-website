@@ -60,9 +60,6 @@
 				
 				</form>
 				</td>
-				
-				
-				<td></td>
 			</tr>
 			<tr>
 				<td><br>
@@ -72,12 +69,17 @@
                            <option value="result[1].id">[${result[1].address.country.name}] ${result[1].name}(${result[0]})</option>
                         </c:forEach>
 				</select></td>
-				<td><a href="#">choose as source school</a> <br>
+			</tr>
+			<tr>
+				<td>
+
+				<a href="#">choose as source school</a> <br>
 				<a href="#">choose as destination school</a><br>
 
 				<br>
 				<br>
-				U.B.A - UBA <input type="button" value="Replace"></td>
+				U.B.A - UBA <input type="button" value="Replace">
+				</td>
 			</tr>
 		</table>
 		</td>

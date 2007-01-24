@@ -1,5 +1,8 @@
 package com.topcoder.web.admin.controller.request;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
@@ -16,9 +19,10 @@ public class CleanSchools extends ShortHibernateProcessor {
     	DAOFactory dao = DAOUtil.getFactory();
     	SchoolDAO s = dao.getSchoolDAO();
     	String cc = getRequest().getParameter("cc");
-    	int sr = 0;
+    	int sr = 1;
     	int nr = 50;
     	Integer type = SchoolType.HIGH_SCHOOL;
+    	Date creationAfter = null;
     	
     	if (getRequest().getParameter("type") != null) {
     		type = new Integer(getRequest().getParameter("type")); 
@@ -30,13 +34,16 @@ public class CleanSchools extends ShortHibernateProcessor {
     	if (getRequest().getParameter("nr") != null) {
     		nr = Integer.parseInt(getRequest().getParameter("nr")); 
     	}
+    	if (getRequest().getParameter("date") != null) {
+    		creationAfter = new SimpleDateFormat("MM/dd/yy").parse(getRequest().getParameter("date"));
+    	}
     	
     	setDefault("sr", sr + "");
     	setDefault("nr", nr + "");
     	setDefault("cc", cc);
     	setDefault("type", type);
     	
-    	getRequest().setAttribute("schools", s.search(dao.getSchoolTypeDAO().find(type), null, cc, sr - 1, nr));
+    	getRequest().setAttribute("schools", s.search(dao.getSchoolTypeDAO().find(type), creationAfter, cc, sr - 1, nr));
         getRequest().setAttribute("countries", dao.getCountryDAO().getCountries());
     	
     	setNextPage("/cleanSchools.jsp");

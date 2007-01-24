@@ -83,6 +83,9 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
         if (countryCode != null) {
         	query.append(" AND s.address.country.code=?");
         }
+        if (creationAfter != null) {
+        	query.append(" AND s.modifyDate >= ?");
+        }
         
         query.append(" AND s.viewable=1");
         query.append("ORDER BY s.address.country.name, s.name ");
@@ -94,6 +97,9 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
         int idx = 3;
         if (countryCode != null) {                
         	q.setString(idx++, countryCode);
+        }
+        if (creationAfter != null) {                
+        	q.setDate(idx++, creationAfter);
         }
         
         
