@@ -252,9 +252,8 @@
 					<%	} %>
 					<%	if (!"".equals(StringUtils.checkNull(ImageMapper.getTechnologyIcon(forumsBean, category)))) { %>
 						<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getTechnologyIcon(forumsBean, category)%>" alt="<%=ImageMapper.getTechnologyText(forumsBean, category)%>" border="0"/>
-					<%	} else { %>
-						&#160;
 					<%	} %>
+						&#160;
 				<%	} %>
                 <% if (user == null) { %>
                 <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=category.getMessageCount()%>" class="rtLinkNew"><%=category.getName()%></A>

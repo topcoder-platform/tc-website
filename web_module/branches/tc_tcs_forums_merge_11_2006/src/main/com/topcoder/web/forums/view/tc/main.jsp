@@ -183,7 +183,7 @@
             } else {
                 //resultFilter.setNumResults(Integer.parseInt(category.getProperty("displayLimit")));
                 if (category.getCategoryCount() > 0) {
-                	ArrayList categoriesList = ForumsUtil.getCategories(category, resultFilter, true);
+                	ArrayList categoriesList = ForumsUtil.getCategories(forumsBean, category, resultFilter, true);
                 	ArrayList pageList = ForumsUtil.getPage(categoriesList, 0, Integer.parseInt(category.getProperty("displayLimit")));
                 	itCategories = pageList.iterator();
                 	itCategoriesCopy = pageList.iterator();
@@ -231,9 +231,8 @@
                 		<%	} %>
                 		<%	if (!"".equals(StringUtils.checkNull(ImageMapper.getTechnologyIcon(forumsBean, subcategory)))) { %>
 							<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getTechnologyIcon(forumsBean, subcategory)%>" alt="<%=ImageMapper.getTechnologyText(forumsBean, subcategory)%>" border="0"/>
-						<%	} else { %>
-							&#160;
 						<%	} %>
+						&#160;
 					<%	} %>
                     <% if (user == null) { %>
                     <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=subcategory.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=subcategory.getMessageCount()%>" class="rtLinkNew"><%=subcategory.getName()%></A>

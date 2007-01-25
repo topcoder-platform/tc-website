@@ -3,6 +3,8 @@
  */
 package com.topcoder.web.forums.util;
 
+import java.rmi.RemoteException;
+
 import javax.naming.InitialContext;
 
 import com.topcoder.dde.catalog.Catalog;
@@ -62,15 +64,15 @@ public class ImageMapper {
 		 TECH_FLASH_TEXT, TECH_APPLICATION_TEXT}
 	};
 	
-	public static String getPhaseIcon(Forums forumsBean, ForumCategory category) {
+	public static String getPhaseIcon(Forums forumsBean, ForumCategory category) throws RemoteException {
 		return getPhaseProperty(forumsBean, category, 0);
 	}
 		
-	public static String getPhaseText(Forums forumsBean, ForumCategory category) {
+	public static String getPhaseText(Forums forumsBean, ForumCategory category) throws RemoteException {
 		return getPhaseProperty(forumsBean, category, 1);
 	}
 	
-	public static String getPhaseProperty(Forums forumsBean, ForumCategory category, int propIdx) {
+	public static String getPhaseProperty(Forums forumsBean, ForumCategory category, int propIdx) throws RemoteException {
 		long compVersID = Long.parseLong(category.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID));
 		long componentPhase = forumsBean.getComponentVersionPhase(compVersID);
 		
@@ -82,15 +84,15 @@ public class ImageMapper {
 		return "";
 	}
 	
-	public static String getTechnologyIcon(Forums forumsBean, ForumCategory category) {
+	public static String getTechnologyIcon(Forums forumsBean, ForumCategory category) throws RemoteException {
 		return getTechnologyProperty(forumsBean, category, 0);
 	}
 	
-	public static String getTechnologyText(Forums forumsBean, ForumCategory category) {
+	public static String getTechnologyText(Forums forumsBean, ForumCategory category) throws RemoteException {
 		return getTechnologyProperty(forumsBean, category, 1);
 	}
 	
-	public static String getTechnologyProperty(Forums forumsBean, ForumCategory category, int propIdx) {
+	public static String getTechnologyProperty(Forums forumsBean, ForumCategory category, int propIdx) throws RemoteException {
 		long compID = Long.parseLong(category.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
 		long rootCategoryID = forumsBean.getComponentRootCategory(compID);
 		

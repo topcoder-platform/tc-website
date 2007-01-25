@@ -26,11 +26,13 @@ import com.jivesoftware.util.StringUtils;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.forums.model.TCAuthToken;
 import com.topcoder.web.forums.util.filter.TCHTMLFilter;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.dde.catalog.ComponentInfo;
 
+import java.rmi.RemoteException;
 import java.text.NumberFormat;
 import java.text.DecimalFormat;
 import java.util.Collections;
@@ -258,18 +260,18 @@ public class ForumsUtil {
     
     // Returns subcategories within a category, with empty/inactive/unapproved categories omitted or placed at 
     // the list's end. Only forums for approved software components are displayed.
-    public static ArrayList getCategories(ForumCategory forumCategory, ResultFilter resultFilter,
-            boolean excludeEmptyCategories) {
+    public static ArrayList getCategories(Forums forumsBean, ForumCategory forumCategory, ResultFilter resultFilter,
+            boolean excludeEmptyCategories) throws RemoteException {
         Iterator itCategories = forumCategory.getCategories();
         ArrayList categoriesList = new ArrayList();
         ArrayList emptyCategories = new ArrayList();
         while (itCategories.hasNext()) {
         	ForumCategory c = (ForumCategory)itCategories.next();
         	String archivalStatus = c.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS);
-        	String componentStatus = c.getProperty(ForumConstants.PROPERTY_COMPONENT_STATUS);
+        	long componentStatus = forumsBean.getComponentStatus(Long.parseLong(c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID)));
         	if (ForumConstants.PROPERTY_ARCHIVAL_STATUS_ARCHIVED.equals(archivalStatus) ||
         			ForumConstants.PROPERTY_ARCHIVAL_STATUS_CLOSED.equals(archivalStatus)) continue;
-        	if (componentStatus != null && !componentStatus.equals(String.valueOf(ComponentInfo.APPROVED))) continue;        	
+        	if (componentStatus != ComponentInfo.APPROVED) continue;        	
         	if (c.getMessageCount() > 0) {
         		categoriesList.add(c);
         	} else {

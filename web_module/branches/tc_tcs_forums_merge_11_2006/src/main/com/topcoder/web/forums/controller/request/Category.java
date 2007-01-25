@@ -73,18 +73,6 @@ public class Category extends ForumsProcessor {
         
         boolean excludeEmptyForums = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_HIDE_EMPTY_FORUMS));
         
-        ArrayList list = null;
-        if (forumCategory.getCategoryCount() > 0) {
-        	list = ForumsUtil.getCategories(forumCategory, resultFilter, excludeEmptyForums);
-        } else {
-        	list = ForumsUtil.getForums(forumCategory, resultFilter, excludeEmptyForums);   
-        }
-        ArrayList pageList = ForumsUtil.getPage(list, startIdx, forumRange);
-        resultFilter.setStartIndex(startIdx);
-        resultFilter.setNumResults(forumRange);
-        Paging paging = new Paging(resultFilter, list.size());
-        Paginator paginator = new Paginator(paging);
-        
         InitialContext ctx = null;
         Forums forumsBean = null;
         try {
@@ -95,6 +83,18 @@ public class Category extends ForumsProcessor {
         } finally {
             BaseProcessor.close(ctx);
         }
+        
+        ArrayList list = null;
+        if (forumCategory.getCategoryCount() > 0) {
+        	list = ForumsUtil.getCategories(forumsBean, forumCategory, resultFilter, excludeEmptyForums);
+        } else {
+        	list = ForumsUtil.getForums(forumCategory, resultFilter, excludeEmptyForums);   
+        }
+        ArrayList pageList = ForumsUtil.getPage(list, startIdx, forumRange);
+        resultFilter.setStartIndex(startIdx);
+        resultFilter.setNumResults(forumRange);
+        Paging paging = new Paging(resultFilter, list.size());
+        Paginator paginator = new Paginator(paging);
         
         if (forumCategory.getCategoryCount() > 0) {
         	getRequest().setAttribute("categories", pageList.iterator());
