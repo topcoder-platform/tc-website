@@ -72,6 +72,18 @@ function merge() {
 	document.f.submit();
 }
 
+var sr = <c:out value="${requestScope[defaults][sr]}"/>;
+var nr = <c:out value="${requestScope[defaults][nr]}"/>;
+
+function next() {
+    document.f.sr.value = sr + nr;
+    document.f.submit();
+}
+function previous() {
+    document.f.sr.value = sr - nr;
+    document.f.submit();
+}
+
 </script>
 
 </head>
@@ -90,14 +102,13 @@ function merge() {
 			<tr>
 				<td>
                         
-                     <table cellspacing="3">
+                     <table cellpading="3">
                      	<tr>
                      		<td width="150">School type:</td>
                      		<td>
-                     			<tc-webtag:radioButton name="typex" value="<%=com.topcoder.web.common.model.SchoolType.HIGH_SCHOOL + "" %>" /> High School<br>
-				                <tc-webtag:radioButton name="typex" value="<%=com.topcoder.web.common.model.SchoolType.COLLEGE + "" %>" /> College
-                     			<tc-webtag:chkBox name="type" value="<%=com.topcoder.web.common.model.SchoolType.HIGH_SCHOOL + "" %>" /> High School<br>
-				                <tc-webtag:chkBox name="type" value="<%=com.topcoder.web.common.model.SchoolType.COLLEGE + "" %>" /> College
+                     			<tc-webtag:radioButton name="type" value="<%=com.topcoder.web.common.model.SchoolType.HIGH_SCHOOL + "" %>" /> High School<br>
+				                <tc-webtag:radioButton name="type" value="<%=com.topcoder.web.common.model.SchoolType.COLLEGE + "" %>" /> College<br>
+				                <tc-webtag:radioButton name="type" value="-1" />Any (HS/College/Unknown)
                 			</td>
                 		</tr>
                 		<tr> 
@@ -115,7 +126,13 @@ function merge() {
 				       <tr>
 				       		<td>Rows:</td>
 				       		<td>
-				       			starting at <tc-webtag:textInput name="sr" size="3"/> display <tc-webtag:textInput name="nr" size="3"/>
+				       			starting at <tc-webtag:textInput name="sr" size="3"/> display <tc-webtag:textInput name="nr" size="3"/> rows.
+				       			<c:if test="${requestScope[defaults][sr] > 1}">
+				       				<a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
+				       			</c:if>
+				       			<c:if test="${requestScope[defaults][nr] > requestScope.schools.size}">
+				       				<a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>				       			
+				       			</c:if>
 				       		</td>
 				       	</tr>
 				       	<tr>
