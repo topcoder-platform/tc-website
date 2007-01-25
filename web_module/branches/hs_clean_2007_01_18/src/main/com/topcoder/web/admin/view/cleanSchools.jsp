@@ -94,8 +94,10 @@ function merge() {
                      	<tr>
                      		<td width="150">School type:</td>
                      		<td>
-                     			<tc-webtag:radioButton name="type" value="<%=com.topcoder.web.common.model.SchoolType.HIGH_SCHOOL + "" %>" /> High School<br>
-				                <tc-webtag:radioButton name="type" value="<%=com.topcoder.web.common.model.SchoolType.COLLEGE + "" %>" /> College
+                     			<tc-webtag:radioButton name="typex" value="<%=com.topcoder.web.common.model.SchoolType.HIGH_SCHOOL + "" %>" /> High School<br>
+				                <tc-webtag:radioButton name="typex" value="<%=com.topcoder.web.common.model.SchoolType.COLLEGE + "" %>" /> College
+                     			<tc-webtag:chkBox name="type" value="<%=com.topcoder.web.common.model.SchoolType.HIGH_SCHOOL + "" %>" /> High School<br>
+				                <tc-webtag:chkBox name="type" value="<%=com.topcoder.web.common.model.SchoolType.COLLEGE + "" %>" /> College
                 			</td>
                 		</tr>
                 		<tr> 
