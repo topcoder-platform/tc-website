@@ -431,9 +431,9 @@ public class SchoolBean extends BaseEJB {
 	        	ps = connOltp.prepareStatement("select coder_id from current_school where school_id in (" + schoolIds + ")");
 	        	rs = ps.executeQuery();
 	        	while (rs.next()) {
-	        		log.debug("add student: " + rs.getLong(0));
+	        		log.debug("add student: " + rs.getLong(1));
 	        	//	students.add(new Long(rs.getLong(0)));
-	        		studentsSB.append(",").append(rs.getLong(0));
+	        		studentsSB.append(",").append(rs.getLong(1));
 	        	}
 	        	
 	        	String students = studentsSB.substring(1);
