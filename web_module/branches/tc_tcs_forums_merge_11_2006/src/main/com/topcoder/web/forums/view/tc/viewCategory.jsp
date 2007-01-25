@@ -246,8 +246,14 @@
         <tr>
             <td class="rtThreadCellWrap">
             	<%	if ("software".equals(forumCategory.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME))) { %>
-                	<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getPhaseIcon(category)%>" alt="<%=ImageMapper.getPhaseText(category)%>" width="25" height="17" border="0">
-					<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getTechnologyIcon(category)%>" alt="<%=ImageMapper.getTechnologyText(category)%>" border="0"/>
+            		<%	if (!"".equals(StringUtils.checkNull(ImageMapper.getPhaseIcon(category)))) { %>
+                		<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getPhaseIcon(category)%>" alt="<%=ImageMapper.getPhaseText(category)%>" width="25" height="17" border="0">
+					<%	} %>
+					<%	if (!"".equals(StringUtils.checkNull(ImageMapper.getTechnologyIcon(category)))) { %>
+						<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getTechnologyIcon(category)%>" alt="<%=ImageMapper.getTechnologyText(category)%>" border="0"/>
+					<%	} else { %>
+						&#160;
+					<%	} %>
 				<%	} %>
                 <% if (user == null) { %>
                 <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=category.getMessageCount()%>" class="rtLinkNew"><%=category.getName()%></A>

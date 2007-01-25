@@ -1,6 +1,7 @@
 package com.topcoder.web.ejb.forums;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
@@ -28,10 +29,14 @@ import com.jivesoftware.base.UserNotFoundException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
+
+import javax.ejb.EJBException;
+import javax.naming.InitialContext;
 
 /**
  * This class handles interaction with the Jive database.
@@ -415,6 +420,102 @@ public class ForumsBean extends BaseEJB {
     	} catch (Exception e) {
     		logException(e, "error in creating software component permissions");
     		throw e;
+    	}
+    }
+    
+    public long getComponentVersionPhase(long compVersID) {
+    	Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+    	
+    	try {
+	    	conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
+			ps = conn.prepareStatement(
+					"select phase_id from comp_versions v " +
+					"where v.comp_vers_id = ?");
+			ps.setLong(1, compVersID);
+			rs = ps.executeQuery();
+			
+			long phaseID = -1;
+            if (rs.next()) {
+                phaseID = rs.getLong("phase_id");
+            } else {
+                throw new RowNotFoundException("no row found for " + ps.toString());
+            }
+            return phaseID;			
+    	} catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e.getMessage());
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        } finally {
+			close(rs);
+			close(ps);
+			close(conn);
+    	}
+    }
+    
+    public String getComponentVersionText(long compVersID) {
+    	Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+    	
+    	try {
+	    	conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
+			ps = conn.prepareStatement(
+					"select version_text from comp_versions v " +
+					"where v.comp_vers_id = ?");
+			ps.setLong(1, compVersID);
+			rs = ps.executeQuery();
+			
+			String versionText = "";
+            if (rs.next()) {
+                versionText = rs.getString("version_text");
+            } else {
+                throw new RowNotFoundException("no row found for " + ps.toString());
+            }
+            return versionText;			
+    	} catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e.getMessage());
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        } finally {
+			close(rs);
+			close(ps);
+			close(conn);
+    	}
+    }
+    
+    public long getComponentStatus(long compID) {    	
+    	Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+    	
+    	try {
+	    	conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
+			ps = conn.prepareStatement(
+					"select status_id from comp_catalog c " +
+					"where c.component_id = 500004");
+			ps.setLong(1, compID);
+			rs = ps.executeQuery();
+			
+			long statusID = -1;
+            if (rs.next()) {
+                statusID = rs.getLong("status_id");
+            } else {
+                throw new RowNotFoundException("no row found for " + ps.toString());
+            }
+            return statusID;			
+    	} catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e.getMessage());
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        } finally {
+			close(rs);
+			close(ps);
+			close(conn);
     	}
     }
     
