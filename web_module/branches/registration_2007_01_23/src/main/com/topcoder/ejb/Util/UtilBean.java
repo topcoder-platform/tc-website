@@ -95,14 +95,13 @@ public class UtilBean extends BaseEJB {
         }
     }
 
-
+/*
     /**
      * Add a respone to the response for the given user and question.
      *
      * @param userId the user who clicked
      * @throws RemoteException if the give user already answered the question, or some other
      * issue with the db.
-     */
     public void addResponse(int userId, int answerId, int questionId) throws RemoteException {
         log.debug("addResponse called");
         StringBuffer query = null;
@@ -122,10 +121,8 @@ public class UtilBean extends BaseEJB {
             ps.setInt(1, userId);
             ps.setInt(2, questionId);
             rs = ps.executeQuery();
-            /*
-               check if this user has already "hit" this job
-               if not, add their hit.
-             */
+            // check if this user has already "hit" this job
+            // if not, add their hit.
             if (rs.next()) {
                 throw new RemoteException("user_id: " + userId + " question_id: " + questionId + " already exists.");
             } else {
@@ -150,7 +147,7 @@ public class UtilBean extends BaseEJB {
         }
 
     }
-
+*/
 
     public java.sql.Date getCurrentDate() throws RemoteException {
         java.sql.Date result = null;

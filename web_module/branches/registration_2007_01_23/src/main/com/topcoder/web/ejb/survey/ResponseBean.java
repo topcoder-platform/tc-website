@@ -2,6 +2,7 @@ package com.topcoder.web.ejb.survey;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.IdGeneratorClient;
 import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
@@ -22,13 +23,16 @@ public class ResponseBean extends BaseEJB {
         PreparedStatement ps = null;
         Connection conn = null;
 
+        long responseId = 0;
         try {
             conn = DBMS.getConnection(DBMS.JTS_OLTP_DATASOURCE_NAME);
+            responseId = IdGeneratorClient.getSeqId("RESPONSE_SEQ");
 
-            ps = conn.prepareStatement("INSERT INTO response (user_id, question_id, answer_id) VALUES (?,?,?)");
-            ps.setLong(1, userId);
-            ps.setLong(2, questionId);
-            ps.setLong(3, answerId);
+            ps = conn.prepareStatement("INSERT INTO response (response_id, user_id, question_id, answer_id) VALUES (?,?,?)");
+            ps.setLong(1, responseId);
+            ps.setLong(2, userId);
+            ps.setLong(3, questionId);
+            ps.setLong(4, answerId);
 
             int rows = ps.executeUpdate();
 
@@ -36,9 +40,9 @@ public class ResponseBean extends BaseEJB {
                 throw new EJBException("Wrong number of rows in insert: " + rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException creating response user_id=" + userId + " questionId=" + questionId + " answerId=" + answerId);
+            throw new EJBException("SQLException creating response responseId=" + responseId + " user_id=" + userId + " questionId=" + questionId + " answerId=" + answerId);
         } catch (Exception e) {
-            throw new EJBException("Exception creating response user_id=" + userId + " questionId=" + questionId + " answerId=" + answerId +
+            throw new EJBException("Exception creating response responseId=" + responseId + " user_id=" + userId + " questionId=" + questionId + " answerId=" + answerId +
                     ":\n" + e.getMessage());
         } finally {
             close(ps);
@@ -54,13 +58,16 @@ public class ResponseBean extends BaseEJB {
         PreparedStatement ps = null;
         Connection conn = null;
 
+        long responseId = 0;
         try {
             conn = DBMS.getConnection(DBMS.JTS_OLTP_DATASOURCE_NAME);
+            responseId = IdGeneratorClient.getSeqId("RESPONSE_SEQ");
 
-            ps = conn.prepareStatement("INSERT INTO response (user_id, question_id, response) VALUES (?,?,?)");
-            ps.setLong(1, userId);
-            ps.setLong(2, questionId);
-            ps.setString(3, text);
+            ps = conn.prepareStatement("INSERT INTO response (response_id, user_id, question_id, response) VALUES (?,?,?)");
+            ps.setLong(1, responseId);
+            ps.setLong(2, userId);
+            ps.setLong(3, questionId);
+            ps.setString(4, text);
 
             int rows = ps.executeUpdate();
 
@@ -68,9 +75,9 @@ public class ResponseBean extends BaseEJB {
                 throw new EJBException("Wrong number of rows in insert: " + rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException creating response user_id=" + userId + " questionId=" + questionId + " text=" + text);
+            throw new EJBException("SQLException creating response responseId=" + responseId + " user_id=" + userId + " questionId=" + questionId + " text=" + text);
         } catch (Exception e) {
-            throw new EJBException("Exception creating response user_id=" + userId + " questionId=" + questionId + " text=" + text +
+            throw new EJBException("Exception creating response responseId=" + responseId + " user_id=" + userId + " questionId=" + questionId + " text=" + text +
                     ":\n" + e.getMessage());
         } finally {
             close(ps);
@@ -102,6 +109,35 @@ public class ResponseBean extends BaseEJB {
             throw new EJBException("SQLException exists user_id=" + userId + " questionId=" + questionId);
         } catch (Exception e) {
             throw new EJBException("Exception exists user_id=" + userId + " questionId=" + questionId + ":\n" + e.getMessage());
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+    }
+
+    public boolean exists(long responseId) {
+        log.debug("exists called... responseId=" + responseId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DBMS.getConnection(DBMS.JTS_OLTP_DATASOURCE_NAME);
+
+            ps = conn.prepareStatement("SELECT '1' FROM response WHERE response_id = ?");
+            ps.setLong(1, responseId);
+
+            rs = ps.executeQuery();
+            return rs.next();
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException exists responseId=" + responseId);
+        } catch (Exception e) {
+            throw new EJBException("Exception exists responseId=" + responseId + ":\n" + e.getMessage());
         } finally {
             close(rs);
             close(ps);
