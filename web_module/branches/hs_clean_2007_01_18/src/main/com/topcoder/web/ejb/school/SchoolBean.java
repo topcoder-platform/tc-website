@@ -399,7 +399,7 @@ public class SchoolBean extends BaseEJB {
 
             	// If it is a high school but the team is missing
             	if (rs.getObject("team_id") == null) {
-	            	log.debug("School " + idDest + " is missing the team!");
+	            	log.info("School " + idDest + " is missing the team!");
 	            	
 	                teamId = IdGeneratorClient.getSeqId("TEAM_SEQ");
 	
@@ -411,7 +411,7 @@ public class SchoolBean extends BaseEJB {
 	            	psIns.executeUpdate();
 	            	psIns.close();
 	            	
-	            	log.debug("Created team  " + teamId);
+	            	log.info("Created team  " + teamId);
 	            	fixDestStudents = true;
 	            } else {
 	            	teamId = rs.getLong("team_id");
@@ -420,7 +420,7 @@ public class SchoolBean extends BaseEJB {
             rs.close();
             ps.close();
         	
-        	log.debug("team_id=" + teamId); 
+        	log.info("team_id=" + teamId); 
             if (teamId > 0) {
 	        	// get the students for the src school and if the destination didn't have a team but needs it, from destination also.
 	        	//List students = new ArrayList();
@@ -523,8 +523,6 @@ public class SchoolBean extends BaseEJB {
         	}
             throw(new EJBException(ex.getMessage()));
         } finally {
-            close(rs);
-            close(ps);
             close(connOltp);
         }
     }
