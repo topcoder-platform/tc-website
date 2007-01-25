@@ -1,17 +1,21 @@
 package com.topcoder.web.ejb.school;
 
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.util.idgenerator.IDGenerationException;
-import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.web.common.IdGeneratorClient;
-
-import javax.ejb.EJBException;
-import javax.naming.InitialContext;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.ejb.EJBException;
+import javax.naming.InitialContext;
+
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.util.idgenerator.IDGenerationException;
+import com.topcoder.web.common.IdGeneratorClient;
+import com.topcoder.web.common.model.SchoolType;
+import com.topcoder.web.ejb.BaseEJB;
 
 public class SchoolBean extends BaseEJB {
     private static final Logger log = Logger.getLogger(SchoolBean.class);
@@ -368,24 +372,115 @@ public class SchoolBean extends BaseEJB {
         Connection connOltp = null;
 //        Connection connDW = null;
         PreparedStatement ps = null;
+        PreparedStatement psIns = null;
         ResultSet rs = null;
         try {
         	connOltp = DBMS.getConnection(DBMS.OLTP_DATASOURCE_NAME);
         	connOltp.setAutoCommit(false);
   //      	connDW = DBMS.getConnection(DBMS.DW_DATASOURCE_NAME);
+
+        	// get information for the destination school
+        	ps = connOltp.prepareStatement("select school_type_id, name, (select team_id from team t where t.school_id = s.school_id) as team_id " +
+        								   " from school s where school_id = ? ");
+        	ps.setLong(1, idDest);
         	
+        	rs = ps.executeQuery();
+        	
+            if (!rs.next()) {
+            	throw new IllegalArgumentException("School with id " + idDest + " not found! ");
+            }
+            
+            
+            int destTypeId = rs.getInt("school_type_id");
+            long teamId = -1;
+            boolean fixDestStudents = false;
+            
+            if (destTypeId == SchoolType.HIGH_SCHOOL.intValue()) {
+
+            	// If it is a high school but the team is missing
+            	if (rs.getObject("team_id") == null) {
+	            	log.debug("School " + idDest + " is missing the team!");
+	            	
+	                teamId = IdGeneratorClient.getSeqId("TEAM_SEQ");
+	
+	            	psIns = connOltp.prepareStatement("insert into team(team_id, team_name, team_type, school_id, modify_date) " + 
+	            									  " values(?,?,4,?,current)");
+	            	psIns.setLong(1, teamId);
+	            	psIns.setString(2, rs.getString("name"));
+	            	psIns.setLong(3, idDest);
+	            	psIns.executeUpdate();
+	            	psIns.close();
+	            	
+	            	log.debug("Created team  " + teamId);
+	            	fixDestStudents = true;
+	            } else {
+	            	teamId = rs.getLong("team_id");
+	            }
+        	}
+            rs.close();
+            ps.close();
+        	
+        	log.debug("team_id=" + teamId); 
+            if (teamId > 0) {
+	        	// get the students for the src school and if the destination didn't have a team but needs it, from destination also.
+	        	//List students = new ArrayList();
+	        	
+	        	StringBuffer studentsSB = new StringBuffer(100);
+	        	
+	        	String schoolIds = idSrc + (fixDestStudents? "," + idDest : "");
+	        	ps = connOltp.prepareStatement("select coder_id from current_school where school_id in (" + schoolIds + ")");
+	        	rs = ps.executeQuery();
+	        	while (rs.next()) {
+	        		log.debug("add student: " + rs.getLong(0));
+	        	//	students.add(new Long(rs.getLong(0)));
+	        		studentsSB.append(",").append(rs.getLong(0));
+	        	}
+	        	
+	        	String students = studentsSB.substring(1);
+	        	rs.close();
+	        	ps.close();
+	        	
+				ps = connOltp.prepareStatement("update team_coder_xref set team_id = ? where coder_id in (" + students +")");
+				ps.setLong(1, teamId);
+	        	
+				int rowCount = ps.executeUpdate();
+	        	log.info("Updated " + rowCount + " rows in team_coder_xref");	        	
+	        	ps.close();
+	        	
+	        	ps = connOltp.prepareStatement("update round_registration set team_id = ? " +
+	        				" where round_id in (select round_id from round r where r.round_type_id in (17,18)) " +
+	        				" and coder_id in ( " + students + ") and eligible=1 ");
+				ps.setLong(1, teamId);
+	        	
+				rowCount = ps.executeUpdate();
+	        	log.info("Updated " + rowCount + " rows in round_registration");	        	
+	        	ps.close();
+            }
+	        	
         	// Fix current School
         	ps = connOltp.prepareStatement("update current_school set school_id = ? where school_id = ?");
         	ps.setLong(1, idDest);
         	ps.setLong(2, idSrc);
         	
         	int rowCount = ps.executeUpdate();
+        	ps.close();
         	log.info("Updated " + rowCount + " rows in current_school");
+        	
+        	// set viewable=0 for source school
+        	ps = connOltp.prepareStatement("update school set viewable = 0 where school_id = ?");
+        	ps.setLong(1, idSrc);
+        	
+        	rowCount = ps.executeUpdate();
+        	ps.close();
+        	log.info("Updated " + rowCount + " rows in school with viewable = 0");
+        	
+        	
+        	// Get the destination school type and team
+        	/*
         	
         	// Retrieve teams
         	long teamSrc = -1;
         	long teamDest = -1;
-        	ps.close();
         	ps = connOltp.prepareStatement("select team_id from team where school_id = ?");
         	ps.setLong(1, idDest);
         	
@@ -410,7 +505,7 @@ public class SchoolBean extends BaseEJB {
         	if (teamSrc > 0) {
         		mergeTeams(connOltp,  teamSrc, teamDest);
         	}
-        	
+        	*/
         	connOltp.commit();
         } catch (SQLException _sqle) {
         	try {
@@ -420,6 +515,13 @@ public class SchoolBean extends BaseEJB {
         	}
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
+        } catch (Exception ex) {
+        	try {
+        		connOltp.rollback();
+        	} catch (Exception e) {
+        		throw new EJBException(e.getMessage());
+        	}
+            throw(new EJBException(ex.getMessage()));
         } finally {
             close(rs);
             close(ps);

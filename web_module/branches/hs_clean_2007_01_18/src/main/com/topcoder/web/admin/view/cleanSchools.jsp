@@ -111,9 +111,9 @@ function merge() {
 				       		</td>
 				       	</tr>
 				       <tr>
-				       		<td>Display rows:</td>
+				       		<td>Rows:</td>
 				       		<td>
-				       			from <tc-webtag:textInput name="sr" size="3"/> to <tc-webtag:textInput name="nr" size="3"/>
+				       			starting at <tc-webtag:textInput name="sr" size="3"/> display <tc-webtag:textInput name="nr" size="3"/>
 				       		</td>
 				       	</tr>
 				       	<tr>
