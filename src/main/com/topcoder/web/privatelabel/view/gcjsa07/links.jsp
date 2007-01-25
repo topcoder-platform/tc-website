@@ -46,13 +46,13 @@
     <a class="navLink" href="/pl/?module=Static&d1=gcjsa07&d2=faq">FAQ</a> &nbsp;|&nbsp;
     <% } %>
 
-    <!-- Advancers tab
+    <!-- Advancers tab -->
                 <% if (selectedTab.equals("advancers")) {%>
                      <span class="navOn">Advancers</span> &nbsp;|&nbsp;
                 <% } else { %>
                       <a class="navLink" href="/pl/?module=Static&d1=gcjsa07&d2=advancers">Advancers</a> &nbsp;|&nbsp;
                 <% } %>
- -->
+
     <!-- Practice Arena  tab -->
     <% if (selectedTab.equals("arena")) {%>
     <span class="navOn">Competition Arena</span> &nbsp;|&nbsp;
@@ -69,8 +69,6 @@
     <% } %>
 
 </div>
-<!--
+
 <br><br>
-<span class="bigRed"><A href="/pl/?&module=Static&d1=gcjsa07&d2=advWinners" class="bigRed">The results of the
-Championship Round</A> are in!</span>
--->
+<span class="bigRed"><A href="/pl/?&module=Static&d1=gcjsa07&d2=advQual" class="bigRed">The results of the Qualification Round</A> are in!</span>

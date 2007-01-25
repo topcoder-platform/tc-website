@@ -464,8 +464,8 @@
          </tr>
          </table>
          <br><br>
-         To find out more detailed information about the Google&#153; Code Jam 2006, please read the
-         <a href="/pl/?module=Static&d1=gcjsa07&d2=rules">Terms and Conditions</a>.
+To find out more detailed information about the Google&#153; Code Jam Latin America 2007, please read the
+<a href="/pl/?&module=Static&d1=gcjsa07&d2=rules">Terms and Conditions</a>.
          <br><br>
 </div>
 </div>

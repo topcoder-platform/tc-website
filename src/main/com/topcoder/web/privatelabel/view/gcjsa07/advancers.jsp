@@ -60,43 +60,45 @@
                         </tr>
                         <tr valign="top">
                             <td class="advancersRound">
-                                <a href="/pl/?&module=Static&d1=google06&d2=advQual" class="topLink">Qualification
+                                <a href="/pl/?module=Static&d1=gcjsa07&d2=advQual" class="topLink">Qualification
                                     Round</a></td>
                             <td class="boxText" align="right">
-                                <a href="/pl/?&module=Static&d1=google06&d2=advQual">1000</a>
+                                <a href="/pl/?&module=Static&d1=gcjsa07&d2=advQual">1000</a>
                             </td>
                         </tr>
+                        <%--
                         <tr valign="top">
                             <td class="advancersRound">
-                                <a href="/pl/?&module=Static&d1=google06&d2=advRd1" class="topLink">Online Round 1</a>
+                                <a href="/pl/?&module=Static&d1=gcjsa07&d2=advRd1" class="topLink">Online Round 1</a>
                             </td>
                             <td class="boxText" align="right">
-                                <a href="/pl/?&module=Static&d1=google06&d2=advRd1">500</a>
+                                <a href="/pl/?&module=Static&d1=gcjsa07&d2=advRd1">500</a>
                             </td>
                         </tr>
                         <tr valign="top">
                             <td class="advancersRound">
-                                <a href="/pl/?&module=Static&d1=google06&d2=advRd2" class="topLink">Online Round 2</a>
+                                <a href="/pl/?&module=Static&d1=gcjsa07&d2=advRd2" class="topLink">Online Round 2</a>
                             </td>
                             <td class="boxText" align="right">
-                                <a href="/pl/?&module=Static&d1=google06&d2=advRd2">100</a>
+                                <a href="/pl/?&module=Static&d1=gcjsa07&d2=advRd2">100</a>
                             </td>
                         </tr>
                         <tr valign="top">
                             <td class="advancersRound">
-                                <a href="/pl/?&module=Static&d1=google06&d2=advWinners" class="topLink">Championship
+                                <a href="/pl/?&module=Static&d1=gcjsa07&d2=advWinners" class="topLink">Championship
                                     Round</a></td>
-                            <td class="boxText" align="right"><a href="/pl/?&module=Static&d1=google06&d2=advWinners">Winners</a>
+                            <td class="boxText" align="right"><a href="/pl/?&module=Static&d1=gcjsa07&d2=advWinners">Winners</a>
                             </td>
                         </tr>
+                        --%>
                         <%--
                         --%>
                     </table>
 
 
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                    To find out more detailed information about the Google&#153; Code Jam 2006, please read the
-                    <a href="/pl/?module=Static&d1=gcjsa07&d2=rules">Terms and Conditions</a>.
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+To find out more detailed information about the Google&#153; Code Jam Latin America 2007, please read the
+<a href="/pl/?&module=Static&d1=gcjsa07&d2=rules">Terms and Conditions</a>.
                     <br><br>
                 </div>
             </div>
