@@ -34,7 +34,7 @@ public class UpdateResponse {
             int count = 0;
             while (rs.next()) {
                 
-                responseId = IdGeneratorClient.getSeqId("RESPONSE_SEQ");
+                responseId = IdGeneratorClient.getSeqId("SURVEY_SEQ");
 
                 rs.updateLong(1, responseId);
                 rs.updateRow();
