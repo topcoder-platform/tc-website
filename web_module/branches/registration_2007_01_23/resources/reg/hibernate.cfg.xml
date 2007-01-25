@@ -109,7 +109,6 @@
         <mapping resource="com/topcoder/web/common/model/Survey.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/model/EventType.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/TermsOfUse.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/QuestionType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/QuestionStyle.hbm.xml"/>
         
