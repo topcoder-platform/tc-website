@@ -24,7 +24,8 @@ public class UpdateResponse {
         
         Connection conOLTP  = new InformixSimpleDataSource(new TCResourceBundle("DBMS").getProperty("INFORMIX_CONNECT_STRING")).getConnection();
         
-        PreparedStatement ps = conOLTP.prepareStatement("select response_id, question_id from response where response_id is null order by question_id asc", ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE);
+        PreparedStatement ps = conOLTP.prepareStatement("select response_id, question_id, answer_id, user_id from response where response_id is null order by question_id asc");
+        PreparedStatement psUpd = conOLTP.prepareStatement("update response set response_id = ? where question_id = ? and answer_id = ? and user_id = ?");
 
         ResultSet rs = null;
 
@@ -34,10 +35,14 @@ public class UpdateResponse {
             int count = 0;
             while (rs.next()) {
                 
-                responseId = IdGeneratorClient.getSeqId("SURVEY_SEQ");
+                responseId = IdGeneratorClient.getSeqId("RESPONSE_SEQ");
 
-                rs.updateLong(1, responseId);
-                rs.updateRow();
+                psUpd.clearParameters();
+                psUpd.setLong(1, responseId);
+                psUpd.setLong(2, rs.getLong(2));
+                psUpd.setLong(3, rs.getLong(3));
+                psUpd.setLong(4, rs.getLong(4));
+                psUpd.executeUpdate();
 
                 if (count % 10 == 0) System.out.println(count + " rows inserted");
             }
