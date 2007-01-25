@@ -370,7 +370,6 @@ public class SchoolBean extends BaseEJB {
     public void mergeSchools(long idSrc, long idDest, boolean canUpdateAddress) throws EJBException {
     	log.debug("MergeSchools called ");
         Connection connOltp = null;
-//        Connection connDW = null;
         PreparedStatement ps = null;
         PreparedStatement psIns = null;
         PreparedStatement psUpd = null;
@@ -378,7 +377,6 @@ public class SchoolBean extends BaseEJB {
         try {
         	connOltp = DBMS.getConnection(DBMS.OLTP_DATASOURCE_NAME);
         	connOltp.setAutoCommit(false);
-  //      	connDW = DBMS.getConnection(DBMS.DW_DATASOURCE_NAME);
 
         	// get information for the destination school
         	ps = connOltp.prepareStatement("select school_type_id, name, address_id, (select team_id from team t where t.school_id = s.school_id) as team_id " +
