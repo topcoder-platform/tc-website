@@ -43,6 +43,13 @@
 </jsp:include>
 
 <p>
+    5.6.3 - 2007.01.25
+    <ul>
+        <li>Fix bug in pacts that was missing to fill the due date when generating round payments, and the amount for referrals</li>
+    </ul>
+</p>
+
+<p>
     5.6.2 - 2007.01.23
     <ul>
         <li>Fix for DR boards to go to the first page of the board when changing stages</li>
