@@ -1,3 +1,4 @@
+<br clear="all">
 <div align="center">
     <div style="padding-left: 0px; padding-top: 15px;">
         Copyright &#169; Microsoft Corporation, 2006. All Rights Reserved
