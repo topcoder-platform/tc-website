@@ -130,9 +130,7 @@ function previous() {
 				       			<c:if test="${requestScope[defaults][sr] > 1}">
 				       				<a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
 				       			</c:if>
-				       			<c:if test="${requestScope[defaults][nr] > requestScope.schools.size}">
 				       				<a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>				       			
-				       			</c:if>
 				       		</td>
 				       	</tr>
 				       	<tr>
