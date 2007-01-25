@@ -81,8 +81,7 @@ function next() {
     search();
 }
 function previous() {
-    document.f.sr.value = sr - nr;
-    document.f.submit();
+   document.f.sr.value = sr - nr;
    search();
 }
 
@@ -128,11 +127,14 @@ function previous() {
 				       <tr>
 				       		<td>Rows:</td>
 				       		<td>
-				       			starting at <tc-webtag:textInput name="sr" size="3"/> display <tc-webtag:textInput name="nr" size="3"/> rows.
+				       			starting at <tc-webtag:textInput name="sr" size="3"/> display <tc-webtag:textInput name="nr" size="3"/> rows.<br>
+				       			
 				       			<c:if test="${requestScope[defaults]['sr'] > 1}">
 				       				<a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
 				       			</c:if>
+                                <c:if test="${requestScope[defaults]['nr'] > requestScope.schools.length}">
 				       				<a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>				       			
+				       				</c:if>
 				       		</td>
 				       	</tr>
 				       	<tr>
