@@ -45,7 +45,7 @@ public class UpdateResponse {
                 psUpd.executeUpdate();
 
                 count++;
-                if (count % 1000 == 0) System.out.println(count + " rows inserted");
+                if (count % 1000 == 0) System.out.println("responseId: " + responseId + " - " count + " rows updated");
             }
             System.out.println(count + " rows updated");
         } finally {
