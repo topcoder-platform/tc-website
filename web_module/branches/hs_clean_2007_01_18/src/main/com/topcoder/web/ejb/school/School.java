@@ -35,6 +35,6 @@ public interface School extends EJBObject {
 
     void setUserId(long schoolId, long userId, String dataSource) throws EJBException, RemoteException;
     
-    void mergeSchools(long idSrc, long idDest) throws EJBException, RemoteException;
+    void mergeSchools(long idSrc, long idDest, boolean canUpdateAddress) throws EJBException, RemoteException;
 
 }

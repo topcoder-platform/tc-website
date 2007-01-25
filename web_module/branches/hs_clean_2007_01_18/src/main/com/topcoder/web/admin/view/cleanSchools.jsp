@@ -187,7 +187,9 @@ Calendar.setup(
 							<td><input type="text" name="destName" onClick="blur()"  size="80"></td>
 						</tr>
 						<tr>
-							<td colspan="2"><input type="button" value="Merge" onClick="merge()"></td>
+							<td colspan="2">
+							<tc-webtag:chkBox name="ua" value="true"/>Update destination address_id if needed
+							<input type="button" value="Merge" onClick="merge()"></td>
 						</tr>
 					</table>
 

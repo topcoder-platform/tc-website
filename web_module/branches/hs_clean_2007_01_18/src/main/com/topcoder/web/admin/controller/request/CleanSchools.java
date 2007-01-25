@@ -44,6 +44,7 @@ public class CleanSchools extends ShortHibernateProcessor {
     	setDefault("cc", cc);
     	setDefault("type", type);
     	setDefault("date", getRequest().getParameter("date"));
+    	setDefault("ua", getRequest().getParameter("cc") == null? "true" :getRequest().getParameter("ua") );
     	
     	List schools = s.search(type.intValue() <0? null:dao.getSchoolTypeDAO().find(type), creationAfter, cc, sr - 1, nr);
     	getRequest().setAttribute("schools", schools);
