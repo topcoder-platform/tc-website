@@ -57,6 +57,8 @@ public interface Forums extends EJBObject {
     
     public String getComponentVersionText(long compVersID);
     
+    public long getComponentRootCategory(long compID);
+    
     public long getComponentStatus(long compID);
     
     //public long getSoftwareComponentID(ForumCategory category) throws EJBException, RemoteException, SQLException;
