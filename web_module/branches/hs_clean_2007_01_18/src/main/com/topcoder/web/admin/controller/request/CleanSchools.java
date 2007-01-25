@@ -2,6 +2,7 @@ package com.topcoder.web.admin.controller.request;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
@@ -44,7 +45,10 @@ public class CleanSchools extends ShortHibernateProcessor {
     	setDefault("type", type);
     	setDefault("date", getRequest().getParameter("date"));
     	
-    	getRequest().setAttribute("schools", s.search(type.intValue() <0? null:dao.getSchoolTypeDAO().find(type), creationAfter, cc, sr - 1, nr));
+    	List schools = s.search(type.intValue() <0? null:dao.getSchoolTypeDAO().find(type), creationAfter, cc, sr - 1, nr);
+    	getRequest().setAttribute("schools", schools);
+    	getRequest().setAttribute("displayNext", Boolean.valueOf(schools.size() == nr));
+    	
         getRequest().setAttribute("countries", dao.getCountryDAO().getCountries());
     	
     	setNextPage("/cleanSchools.jsp");
