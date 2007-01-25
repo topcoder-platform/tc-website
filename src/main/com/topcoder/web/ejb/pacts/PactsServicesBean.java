@@ -2667,8 +2667,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 ResultSetContainer rsc = getReferrer(c, p.getHeader().getUser().getId(), p.getEventDate());
                 if (rsc.getRowCount() > 0) {
                 	
+                	double amount = p.getTotalAmount() == 0? p.getGrossAmount() : p.getTotalAmount();
                     Payment referPay = new Payment();
-                    referPay.setGrossAmount(p.getTotalAmount() * REFERRAL_PERCENTAGE);
+                    referPay.setGrossAmount(amount * REFERRAL_PERCENTAGE);
                     referPay.setNetAmount(0);
                     referPay.setStatusId(PAYMENT_OWED_STATUS);
                     long referId = Long.parseLong(rsc.getItem(0, "reference_id").toString());
@@ -4650,23 +4651,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
 
             AlgorithmContestPaymentDataRetriever retriever = new AlgorithmContestPaymentDataRetriever(roundId);
-/*
-            // Make sure the round exists; in the process, get the name and due date.
-            StringBuffer checkExists = new StringBuffer(300);
-            checkExists.append("SELECT con.name, r.name, ");
-            checkExists.append("NVL(con.end_date,current) + (select due_date_interval from payment_type_lu where payment_type_id="+  paymentTypeId + ")");
-            checkExists.append(	" UNITS DAY AS due_date, con.end_date ");
-            checkExists.append("FROM round r, contest con ");
-            checkExists.append("WHERE r.round_id = " + roundId + " ");
-            checkExists.append("AND con.contest_id = r.contest_id");
-            rsc = runSelectQuery(c, checkExists.toString(), false);
-            if (rsc.getRowCount() != 1) {
-                throw new IllegalUpdateException("Round " + roundId + " does not exist or is not unique");
-            }
-            String roundName = rsc.getItem(0, 0).toString() + " " + rsc.getItem(0, 1).toString();
-            String dueDate = TCData.getTCDate(rsc.getRow(0), "due_date", null, true);
-            Date eventDate = rsc.getTimestampItem(0, "end_date");
-*/
             String roundName = retriever.getRoundName();
             String dueDate = sdf.format(retriever.getDueDate());
             Date eventDate = retriever.getEventDate();
