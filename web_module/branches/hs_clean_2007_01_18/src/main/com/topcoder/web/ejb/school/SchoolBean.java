@@ -431,30 +431,30 @@ public class SchoolBean extends BaseEJB {
 	        	ps = connOltp.prepareStatement("select coder_id from current_school where school_id in (" + schoolIds + ")");
 	        	rs = ps.executeQuery();
 	        	while (rs.next()) {
-	        		log.debug("add student: " + rs.getLong(1));
-	        	//	students.add(new Long(rs.getLong(0)));
+	        		log.info("add student: " + rs.getLong(1));
 	        		studentsSB.append(",").append(rs.getLong(1));
 	        	}
-	        	
-	        	String students = studentsSB.substring(1);
-	        	rs.close();
-	        	ps.close();
-	        	
-				ps = connOltp.prepareStatement("update team_coder_xref set team_id = ? where coder_id in (" + students +")");
-				ps.setLong(1, teamId);
-	        	
-				int rowCount = ps.executeUpdate();
-	        	log.info("Updated " + rowCount + " rows in team_coder_xref");	        	
-	        	ps.close();
-	        	
-	        	ps = connOltp.prepareStatement("update round_registration set team_id = ? " +
-	        				" where round_id in (select round_id from round r where r.round_type_id in (17,18)) " +
-	        				" and coder_id in ( " + students + ") and eligible=1 ");
-				ps.setLong(1, teamId);
-	        	
-				rowCount = ps.executeUpdate();
-	        	log.info("Updated " + rowCount + " rows in round_registration");	        	
-	        	ps.close();
+	        	if (studentsSB.length() > 0) {
+		        	String students = studentsSB.substring(1);
+		        	rs.close();
+		        	ps.close();
+		        	
+					ps = connOltp.prepareStatement("update team_coder_xref set team_id = ? where coder_id in (" + students +")");
+					ps.setLong(1, teamId);
+		        	
+					int rowCount = ps.executeUpdate();
+		        	log.info("Updated " + rowCount + " rows in team_coder_xref");	        	
+		        	ps.close();
+		        	
+		        	ps = connOltp.prepareStatement("update round_registration set team_id = ? " +
+		        				" where round_id in (select round_id from round r where r.round_type_id in (17,18)) " +
+		        				" and coder_id in ( " + students + ") and eligible=1 ");
+					ps.setLong(1, teamId);
+		        	
+					rowCount = ps.executeUpdate();
+		        	log.info("Updated " + rowCount + " rows in round_registration");	        	
+		        	ps.close();
+	        	} 
             }
 	        	
         	// Fix current School
