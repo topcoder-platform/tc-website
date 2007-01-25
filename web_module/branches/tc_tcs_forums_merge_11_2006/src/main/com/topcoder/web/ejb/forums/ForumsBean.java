@@ -487,6 +487,38 @@ public class ForumsBean extends BaseEJB {
     	}
     }
     
+    public long getComponentRootCategory(long compID) {    	
+    	Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+    	
+    	try {
+	    	conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
+			ps = conn.prepareStatement(
+					"select root_category_id from comp_catalog c " +
+					"where c.component_id = 500004");
+			ps.setLong(1, compID);
+			rs = ps.executeQuery();
+			
+			long rootCategory = -1;
+            if (rs.next()) {
+                rootCategory = rs.getLong("root_category_id");
+            } else {
+                throw new RowNotFoundException("no row found for " + ps.toString());
+            }
+            return rootCategory;			
+    	} catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e.getMessage());
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        } finally {
+			close(rs);
+			close(ps);
+			close(conn);
+    	}
+    }
+    
     public long getComponentStatus(long compID) {    	
     	Connection conn = null;
         PreparedStatement ps = null;

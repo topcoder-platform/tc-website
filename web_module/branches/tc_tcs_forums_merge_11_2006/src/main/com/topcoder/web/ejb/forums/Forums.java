@@ -53,13 +53,13 @@ public interface Forums extends EJBObject {
     		long templateID, boolean isPublic)
     	throws EJBException, RemoteException, Exception;
     
-    public long getComponentVersionPhase(long compVersID);
+    public long getComponentVersionPhase(long compVersID) throws EJBException, RemoteException;
     
-    public String getComponentVersionText(long compVersID);
+    public String getComponentVersionText(long compVersID) throws EJBException, RemoteException;
     
-    public long getComponentRootCategory(long compID);
+    public long getComponentRootCategory(long compID) throws EJBException, RemoteException;
     
-    public long getComponentStatus(long compID);
+    public long getComponentStatus(long compID) throws EJBException, RemoteException;
     
     //public long getSoftwareComponentID(ForumCategory category) throws EJBException, RemoteException, SQLException;
     

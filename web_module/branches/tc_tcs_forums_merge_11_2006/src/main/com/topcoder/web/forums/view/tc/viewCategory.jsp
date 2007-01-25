@@ -22,6 +22,7 @@
 <tc-webtag:useBean id="forumCategory" name="forumCategory" type="com.jivesoftware.forum.ForumCategory" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
+<tc-webtag:useBean id="forumsBean" name="forumsBean" type="com.topcoder.web.ejb.forums.Forums" toScope="request"/>
 
 <%	User user = (User) request.getAttribute("user");
     ResultFilter resultFilter = (ResultFilter) request.getAttribute("resultFilter");
@@ -246,11 +247,11 @@
         <tr>
             <td class="rtThreadCellWrap">
             	<%	if ("software".equals(forumCategory.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME))) { %>
-            		<%	if (!"".equals(StringUtils.checkNull(ImageMapper.getPhaseIcon(category)))) { %>
-                		<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getPhaseIcon(category)%>" alt="<%=ImageMapper.getPhaseText(category)%>" width="25" height="17" border="0">
+            		<%	if (!"".equals(StringUtils.checkNull(ImageMapper.getPhaseIcon(forumsBean, category)))) { %>
+                		<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getPhaseIcon(forumsBean, category)%>" alt="<%=ImageMapper.getPhaseText(forumsBean, category)%>" width="25" height="17" border="0">
 					<%	} %>
-					<%	if (!"".equals(StringUtils.checkNull(ImageMapper.getTechnologyIcon(category)))) { %>
-						<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getTechnologyIcon(category)%>" alt="<%=ImageMapper.getTechnologyText(category)%>" border="0"/>
+					<%	if (!"".equals(StringUtils.checkNull(ImageMapper.getTechnologyIcon(forumsBean, category)))) { %>
+						<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getTechnologyIcon(forumsBean, category)%>" alt="<%=ImageMapper.getTechnologyText(forumsBean, category)%>" border="0"/>
 					<%	} else { %>
 						&#160;
 					<%	} %>
