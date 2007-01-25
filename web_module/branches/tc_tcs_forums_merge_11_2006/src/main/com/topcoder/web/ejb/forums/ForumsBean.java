@@ -496,7 +496,7 @@ public class ForumsBean extends BaseEJB {
 	    	conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
 			ps = conn.prepareStatement(
 					"select root_category_id from comp_catalog c " +
-					"where c.component_id = 500004");
+					"where c.component_id = ?");
 			ps.setLong(1, compID);
 			rs = ps.executeQuery();
 			
@@ -528,7 +528,7 @@ public class ForumsBean extends BaseEJB {
 	    	conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
 			ps = conn.prepareStatement(
 					"select status_id from comp_catalog c " +
-					"where c.component_id = 500004");
+					"where c.component_id = ?");
 			ps.setLong(1, compID);
 			rs = ps.executeQuery();
 			
