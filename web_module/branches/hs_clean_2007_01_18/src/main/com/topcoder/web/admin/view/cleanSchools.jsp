@@ -72,7 +72,7 @@ function merge() {
 	document.f.submit();
 }
 
-var sr = <c:out value="${requestScope[defaults][sr]}"/>;
+var sr = <c:out value="${requestScope[defaults]['sr']}"/>;
 var nr = <c:out value="${requestScope[defaults][nr]}"/>;
 
 function next() {
@@ -102,7 +102,7 @@ function previous() {
 			<tr>
 				<td>
                         
-                     <table cellpading="3">
+                     <table cellpading="5" cellspacing="5">
                      	<tr>
                      		<td width="150">School type:</td>
                      		<td>
