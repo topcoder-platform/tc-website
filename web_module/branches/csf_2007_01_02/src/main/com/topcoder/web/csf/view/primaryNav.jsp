@@ -10,5 +10,5 @@
 <li<% if (selectedTab.equals("competitions")) {%> class="on"<% } %>><A href="">Competitions</A></li>
 <li<% if (selectedTab.equals("discuss")) {%> class="on"<% } %> style="background-image: none; border-bottom: 1px solid #CCCCCC;"><A href="">Discuss the Competitions</A></li>
 </ul>
-<A href="http://www.topcoder.com"><img src="/i/pbtc.png" alt="Powered by TopCoder" /></A>
+<A href="http://www.topcoder.com" style="margin-left: 5px;"><img src="/i/pbtc.png" alt="Powered by TopCoder" /></A>
 </div>

@@ -1,9 +1,9 @@
 <div class="top">
     <div class="msLogo">
-        <img src="/i/microsoft.png" alt="Microsoft" />
+        <a href="/"><img src="/i/microsoft.png" alt="Microsoft" /></a>
     </div>
     <div class="csfLogo">
-        <img src="/i/csf.png" alt="Connected Services Framework Competition Series" />
+        <a href="/"><img src="/i/csf.png" alt="Connected Services Framework Competition Series" /></a>
     </div>
     <A href=""><img src="/i/sandboxLogo.gif" alt="Connected Services Sandbox" /></A>
 </div>
