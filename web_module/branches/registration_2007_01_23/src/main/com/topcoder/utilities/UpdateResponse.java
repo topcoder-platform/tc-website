@@ -1,13 +1,9 @@
 package com.topcoder.utilities;
 
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.sql.InformixSimpleDataSource;
 import com.topcoder.web.common.IdGeneratorClient;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,8 +21,6 @@ public class UpdateResponse {
     }
 
     private void run() throws Exception {
-        
-        InitialContext ctx = TCContext.getInitial();
         
         Connection conOLTP  = new InformixSimpleDataSource(new TCResourceBundle("DBMS").getProperty("INFORMIX_CONNECT_STRING")).getConnection();
         
@@ -52,7 +46,6 @@ public class UpdateResponse {
             close(rs);
             close(ps);
             close(conOLTP);
-            close(ctx);
         }
     }
 
@@ -73,18 +66,6 @@ public class UpdateResponse {
                 conn.close();
             } catch (Exception ignore) {
                 log.error("FAILED to close Connection.");
-                ignore.printStackTrace();
-            }
-        }
-
-    }
-
-    protected void close(Context ctx) {
-        if (ctx != null) {
-            try {
-                ctx.close();
-            } catch (Exception ignore) {
-                log.error("FAILED to close Context.");
                 ignore.printStackTrace();
             }
         }
