@@ -24,7 +24,7 @@ public class UpdateResponse {
         
         Connection conOLTP  = new InformixSimpleDataSource(new TCResourceBundle("DBMS").getProperty("INFORMIX_CONNECT_STRING")).getConnection();
         
-        PreparedStatement ps = conOLTP.prepareStatement("select response_id, question_id from response where response_id is null order by question_id asc");
+        PreparedStatement ps = conOLTP.prepareStatement("select response_id, question_id from response where response_id is null order by question_id asc", ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE);
 
         ResultSet rs = null;
 
