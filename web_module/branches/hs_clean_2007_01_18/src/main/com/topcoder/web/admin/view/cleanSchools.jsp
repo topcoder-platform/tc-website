@@ -74,7 +74,7 @@ function merge() {
 }
 
 var sr = <c:out value="${requestScope[defaults]['sr']}"/>;
-var nr = <c:out value="${requestScope[defaults][nr]}"/>;
+var nr = <c:out value="${requestScope[defaults]['nr']}"/>;
 
 function next() {
     document.f.sr.value = sr + nr;
