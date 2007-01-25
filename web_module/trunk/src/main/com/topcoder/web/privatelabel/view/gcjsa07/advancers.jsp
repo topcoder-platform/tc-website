@@ -63,7 +63,7 @@
                                 <a href="/pl/?module=Static&d1=gcjsa07&d2=advQual" class="topLink">Qualification
                                     Round</a></td>
                             <td class="boxText" align="right">
-                                <a href="/pl/?&module=Static&d1=gcjsa07&d2=advQual">1000</a>
+                                <a href="/pl/?&module=Static&d1=gcjsa07&d2=advQual">408</a>
                             </td>
                         </tr>
                         <%--
