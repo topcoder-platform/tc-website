@@ -3,6 +3,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
 
 <jsp:useBean id="sessionInfo"
 	class="com.topcoder.web.common.SessionInfo" scope="request" />
