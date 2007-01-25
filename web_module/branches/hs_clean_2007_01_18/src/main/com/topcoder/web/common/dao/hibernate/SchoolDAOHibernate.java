@@ -90,7 +90,7 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
         }
         
         query.append(" AND s.viewable=1");
-        query.append("ORDER BY " + countryCode != null? " s.address.country.name, s.name " : " s.name");
+        query.append(" ORDER BY " + (countryCode != null? " s.address.country.name, s.name" : " s.name"));
 
         Query q = session.createQuery(query.toString());
         q.setString(0, String.valueOf(Constants.ACTIVE_STATI[1]));
