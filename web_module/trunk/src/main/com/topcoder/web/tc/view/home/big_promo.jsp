@@ -12,4 +12,4 @@
 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies"><img src="/i/home/tccc06webcastbanner20060108.jpg" alt="Watch the TCCC06 Webcast" /></A>
 --%>
 <%-- TCO07 site design vote --%>
-<A href="/tc?module=ViewSurvey&sid=16270"><IMG SRC="/i/home/tco07SiteVote.png" border="0" alt="TCO07 Site Design Vote" /></A>
+<A href="/tc?module=SurveyResults&sid=16270"><IMG SRC="/i/home/tco07SiteDesignWinner.png" border="0" alt="TCO07 Site Design Winner" /></A>
