@@ -221,6 +221,8 @@ At intervals during the competition phase, assembly teams will be expected to de
 <%-- 
 Registration is closed. 
 --%>
+<b>NOTE:</b> Please see eligibility requirements above. Competitors must sign a non-disclosure agreement before being admitted into this competition.  If you have already submitted a non-disclosure agreement for another assembly competition, you are not required to submit another one.
+<br><br>
 To sign up, please send an email to <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Warehouse Management Phase 2 Reporting">AssemblyCompetitions@topcoder.com</A>.  In the email, include the following information:
 <ul>
 <li>Handle</li>
