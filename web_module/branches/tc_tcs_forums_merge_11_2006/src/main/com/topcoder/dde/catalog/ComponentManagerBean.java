@@ -948,125 +948,127 @@ public class ComponentManagerBean
         // If the version is changing to specification or development
         // Makes sure the specification forum is created even if the component
         // is moved directly from collaboration to development.
-        if (info.getPhase() == ComponentVersionInfo.SPECIFICATION
-                || info.getPhase() == ComponentVersionInfo.DEVELOPMENT) {
-        	LocalDDECompCatalog compBean;
-            try {
-                compBean = catalogHome.findByPrimaryKey(new Long(componentId));
-            } catch (FinderException exception) {
-                throw new CatalogException(exception.toString());
-            }
+    	LocalDDECompCatalog compBean;
+        try {
+            compBean = catalogHome.findByPrimaryKey(new Long(componentId));
+        } catch (FinderException exception) {
+            throw new CatalogException(exception.toString());
+        }
+    	
+        Collection forums;
+        try {
+            forums = compforumHome.findByCompVersIdAndType(versionId,
+                    ForumCategory.SPECIFICATION);
+        } catch (FinderException exception) {
+            ejbContext.setRollbackOnly();
+            throw new CatalogException(exception.toString());
+        }
+        if (forums.size() == 0) {
+            if (info.getPhase() == ComponentVersionInfo.SPECIFICATION
+                    || info.getPhase() == ComponentVersionInfo.DEVELOPMENT) {
         	
-            Collection forums;
-            try {
-                forums = compforumHome.findByCompVersIdAndType(versionId,
-                        ForumCategory.SPECIFICATION);
-            } catch (FinderException exception) {
-                ejbContext.setRollbackOnly();
-                throw new CatalogException(exception.toString());
+	            if (!ejbContext.getRollbackOnly()) {
+	    	    	try {
+	    	    		/*
+	    	    		 * This should be replaced by a distributed transaction (XA, etc.) that rolls back 
+	    	    		 * changes on the software and forum servers when an error in the workflow occurs.
+	    	    		 */
+	    	    		//log.info("*** [ComponentManagerBean.updateVersionInfo()] calling createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
+	    	    		categoryID = forumsBean.createSoftwareComponentForums(compBean.getComponentName(), 
+	    	    				((Long)compBean.getPrimaryKey()).longValue(), ((Long)versionBean.getPrimaryKey()).longValue(), 
+	    	    				versionBean.getPhaseId(), compBean.getStatusId(), compBean.getRootCategory(), 
+	    	    				compBean.getShortDesc(), versionBean.getVersionText(), ForumCategory.SPECIFICATION, info.getPublicForum());
+	    	    		//compforumHome.create(category, Forum.COLLABORATION, newVers);
+	    	    		//log.info("*** [ComponentManagerBean.updateVersionInfo()] finished createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
+	    	    	} catch (RemoteException e) {
+	    	    		ejbContext.setRollbackOnly();
+	    	            throw new CatalogException(e.toString());
+	    	    	} catch (Exception e) {
+	    	    		ejbContext.setRollbackOnly();
+	    	            throw new CatalogException(e.toString());
+	    	    	}
+	        	}
+	        	
+	            /*	TODO: remove */
+	        	try {
+	                com.topcoder.forum.Forum forum = new com.topcoder.forum.Forum();
+	                try {
+	                    forum = forumadminHome.create().createForum(forum,
+	                            Long.parseLong(getConfigValue("spec_forum_template")));
+	                } catch (ConfigManagerException cme) {
+	                    log.warn("Encountered a configuration manager exception reading spec_forum_template property");
+	                    forum = forumadminHome.create().createForum(forum);
+	                } catch (NumberFormatException nfe) {
+	                    log.warn("Failed to parse the spec_forum_template property");
+	                    forum = forumadminHome.create().createForum(forum);
+	                }
+	                newForum = forum.getId();
+	                compforumHome.create(newForum, categoryID, ForumCategory.SPECIFICATION, versionBean);
+	                createForumRoles(newForum, ForumCategory.SPECIFICATION, info.getPublicForum());
+	            } catch (ForumException exception) {
+	                ejbContext.setRollbackOnly();
+	                throw new CatalogException(
+	                        "Failed to create specification forum: "
+	                        + exception.toString());
+	            } catch (CreateException exception) {
+	                ejbContext.setRollbackOnly();
+	                throw new CatalogException(exception.toString());
+	            }
             }
-            if (forums.size() == 0) {
-                if (!ejbContext.getRollbackOnly()) {
-        	    	try {
-        	    		/*
-        	    		 * This should be replaced by a distributed transaction (XA, etc.) that rolls back 
-        	    		 * changes on the software and forum servers when an error in the workflow occurs.
-        	    		 */
-        	    		//log.info("*** [ComponentManagerBean.updateVersionInfo()] calling createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
-        	    		categoryID = forumsBean.createSoftwareComponentForums(compBean.getComponentName(), 
-        	    				((Long)compBean.getPrimaryKey()).longValue(), ((Long)versionBean.getPrimaryKey()).longValue(), 
-        	    				versionBean.getPhaseId(), compBean.getStatusId(), compBean.getRootCategory(), 
-        	    				compBean.getShortDesc(), versionBean.getVersionText(), ForumCategory.SPECIFICATION, info.getPublicForum());
-        	    		//compforumHome.create(category, Forum.COLLABORATION, newVers);
-        	    		//log.info("*** [ComponentManagerBean.updateVersionInfo()] finished createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
-        	    	} catch (RemoteException e) {
-        	    		ejbContext.setRollbackOnly();
-        	            throw new CatalogException(e.toString());
-        	    	} catch (Exception e) {
-        	    		ejbContext.setRollbackOnly();
-        	            throw new CatalogException(e.toString());
-        	    	}
-            	}
-            	
-                /*	TODO: remove */
-            	try {
-                    com.topcoder.forum.Forum forum = new com.topcoder.forum.Forum();
+        } else {
+            log.debug("Updating public flag");
+            // all forums are created, but the public attribute must be updated.
+            for (Iterator it=forums.iterator(); it.hasNext(); ) {
+                LocalDDECompForumXref compForumXref = (LocalDDECompForumXref)it.next();
+
+                RolePrincipal userRole = null;
+                try {
+                    log.debug("Looking for forum: " + compForumXref.getForumId());
+
+                    PrincipalMgrRemote principalManager = principalmgrHome.create();
+                    userRole = principalManager.getRole(Long.parseLong(getConfigValue("user_role")));
+
+                    PermissionCollection perms = null;
+                    perms = new PermissionCollection();
+                    perms.addPermission(new ForumPostPermission(compForumXref.getForumId()));
+
                     try {
-                        forum = forumadminHome.create().createForum(forum,
-                                Long.parseLong(getConfigValue("spec_forum_template")));
-                    } catch (ConfigManagerException cme) {
-                        log.warn("Encountered a configuration manager exception reading spec_forum_template property");
-                        forum = forumadminHome.create().createForum(forum);
-                    } catch (NumberFormatException nfe) {
-                        log.warn("Failed to parse the spec_forum_template property");
-                        forum = forumadminHome.create().createForum(forum);
+                    	forumsBean.setPublic(compForumXref.getCategoryId(), info.getPublicForum());
+                    } catch (UnauthorizedException exception) {
+                    	throw new CatalogException(
+                            "Not authorized to determine public forums: " + exception.toString());
+                    } catch (ForumCategoryNotFoundException exception) {
+                        throw new CatalogException(
+                            "Forum category not found: " + exception.toString());
                     }
-                    newForum = forum.getId();
-                    compforumHome.create(newForum, categoryID, ForumCategory.SPECIFICATION, versionBean);
-                    createForumRoles(newForum, ForumCategory.SPECIFICATION, info.getPublicForum());
-                } catch (ForumException exception) {
+                        
+                    PolicyMgrRemote policyManager = policymgrHome.create();
+                    log.debug("Remove public permission");
+                    policyManager.removePermissions(userRole, perms, null);
+
+                    if (info.getPublicForum()) {
+                        log.debug("Add public permission");
+                        policyManager.addPermissions(userRole, perms, null);
+                    }
+                } catch (ConfigManagerException exception) {
                     ejbContext.setRollbackOnly();
                     throw new CatalogException(
-                            "Failed to create specification forum: "
-                            + exception.toString());
+                        "Failed to obtain configuration data: " + exception.toString());
                 } catch (CreateException exception) {
                     ejbContext.setRollbackOnly();
-                    throw new CatalogException(exception.toString());
-                }
-            } else {
-                log.debug("Updating public flag");
-                // all forums are created, but the public attribute must be updated.
-                for (Iterator it=forums.iterator(); it.hasNext(); ) {
-                    LocalDDECompForumXref compForumXref = (LocalDDECompForumXref)it.next();
-
-                    RolePrincipal userRole = null;
-                    try {
-                        log.debug("Looking for forum: " + compForumXref.getForumId());
-
-                        PrincipalMgrRemote principalManager = principalmgrHome.create();
-                        userRole = principalManager.getRole(Long.parseLong(getConfigValue("user_role")));
-
-                        PermissionCollection perms = null;
-                        perms = new PermissionCollection();
-                        perms.addPermission(new ForumPostPermission(compForumXref.getForumId()));
-
-                        try {
-                        	forumsBean.setPublic(compForumXref.getCategoryId(), info.getPublicForum());
-                        } catch (UnauthorizedException exception) {
-                        	throw new CatalogException(
-                                "Not authorized to determine public forums: " + exception.toString());
-                        } catch (ForumCategoryNotFoundException exception) {
-                            throw new CatalogException(
-                                "Forum category not found: " + exception.toString());
-                        }
-                            
-                        PolicyMgrRemote policyManager = policymgrHome.create();
-                        log.debug("Remove public permission");
-                        policyManager.removePermissions(userRole, perms, null);
-
-                        if (info.getPublicForum()) {
-                            log.debug("Add public permission");
-                            policyManager.addPermissions(userRole, perms, null);
-                        }
-                    } catch (ConfigManagerException exception) {
-                        ejbContext.setRollbackOnly();
-                        throw new CatalogException(
-                            "Failed to obtain configuration data: " + exception.toString());
-                    } catch (CreateException exception) {
-                        ejbContext.setRollbackOnly();
-                        throw new CatalogException(
-                            "Failed to make forum public: " + exception.toString());
-                    } catch (GeneralSecurityException exception) {
-                        ejbContext.setRollbackOnly();
-                        throw new CatalogException(
-                            "Failed to make forum public: " + exception.toString());
-                    } catch (RemoteException exception) {
-                        ejbContext.setRollbackOnly();
-                        throw new EJBException(exception.toString());
-                    }
+                    throw new CatalogException(
+                        "Failed to make forum public: " + exception.toString());
+                } catch (GeneralSecurityException exception) {
+                    ejbContext.setRollbackOnly();
+                    throw new CatalogException(
+                        "Failed to make forum public: " + exception.toString());
+                } catch (RemoteException exception) {
+                    ejbContext.setRollbackOnly();
+                    throw new EJBException(exception.toString());
                 }
             }
         }
+
 
         // Change Online Review Security roles if versionText has changed
         if (!versionBean.getVersionText().trim().equals(info.getVersionLabel())) {
