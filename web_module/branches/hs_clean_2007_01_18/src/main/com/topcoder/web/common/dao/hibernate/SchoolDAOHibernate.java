@@ -70,11 +70,11 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
 
     public List search(SchoolType type, Date creationAfter, String countryCode, int startRow, int maxResults) {
         StringBuffer query = new StringBuffer(100);
-
+/*
         if (countryCode != null && countryCode.trim().length() == 0) {
         	countryCode = null;
         }
-        
+  */      
         query.append("SELECT (SELECT count(*) from CurrentSchool cs WHERE cs.school.id = s.id AND cs.coder.user.status=?), s ");
         query.append("FROM School s ");
         query.append("WHERE (SELECT count(*) from CurrentSchool cs WHERE cs.school.id = s.id AND cs.coder.user.status=?) > 0 ");
@@ -83,7 +83,11 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
         	query.append("AND s.type.id = ?");
         }
         if (countryCode != null) {
-        	query.append(" AND s.address.country.code=?");
+        	if (countryCode.length() > 0) {
+        		query.append(" AND s.address.country.code=?");
+        	} else {
+        		query.append(" AND s.address is null");
+        	}
         }
         if (creationAfter != null) {
         	query.append(" AND s.modifyDate >= ?");
@@ -100,7 +104,7 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
         if (type != null) {
         	q.setInteger(idx++, type.getId().intValue());
         }
-        if (countryCode != null) {                
+        if (countryCode != null && countryCode.length() > 0) {                
         	q.setString(idx++, countryCode);
         }
         if (creationAfter != null) {                
