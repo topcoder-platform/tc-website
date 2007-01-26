@@ -45,7 +45,10 @@
 <p>
     5.6.3 - 2007.01.25
     <ul>
-        <li>Fix bug in pacts that was missing to fill the due date when generating round payments, and the amount for referrals</li>
+        <li>Fix bug in pacts that was missing to fill the due date when generating round payments, and the amount for
+            referrals
+        </li>
+        <li>Include serbia on the HS regions page</li>
     </ul>
 </p>
 
@@ -58,7 +61,9 @@
         </li>
         <li>Fix the prev link in component competition history</li>
         <li>Allow studio competitors to upload a photo</li>
-        <li>Fix bug in the load of componente streaks.  Also, now the projects were the coder didn't reach the minimum score are taken into account.</li>
+        <li>Fix bug in the load of componente streaks. Also, now the projects were the coder didn't reach the minimum
+            score are taken into account.
+        </li>
     </ul>
 </p>
 
