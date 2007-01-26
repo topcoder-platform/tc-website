@@ -155,7 +155,7 @@ public class ForumsBean extends BaseEJB {
     }
     
     public void setPublic(long categoryID, boolean isPublic) throws ForumCategoryNotFoundException, UnauthorizedException {
-    	//log.info("*** called setPublic(): categoryID = " + categoryID + " | isPublic = " + isPublic);
+    	log.info("*** called setPublic(): categoryID = " + categoryID + " | isPublic = " + isPublic);
     	ForumCategory category = forumFactory.getForumCategory(categoryID);
     	PermissionsManager categoryPermissionsManager = category.getPermissionsManager();
     	
