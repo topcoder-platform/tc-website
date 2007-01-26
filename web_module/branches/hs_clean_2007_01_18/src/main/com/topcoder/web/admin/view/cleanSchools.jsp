@@ -127,8 +127,8 @@ function previous() {
                      	<tr>
                      		<td width="150">Order by:</td>
                      		<td>
-                     			<tc-webtag:radioButton name="c" value="1" />Country, School Name<br>
-				                <tc-webtag:radioButton name="s" value="2" />School Name (will show schools with unkown address)<br>
+                     			<tc-webtag:radioButton name="order" value="c" />Country, School Name<br>
+				                <tc-webtag:radioButton name="order" value="s" />School Name (will show schools with unkown address)<br>
                 			</td>
                 		</tr>
 				       <tr>
