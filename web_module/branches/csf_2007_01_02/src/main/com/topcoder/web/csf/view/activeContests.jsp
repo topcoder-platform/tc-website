@@ -12,27 +12,31 @@
 <html>
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <link type="text/css" rel="stylesheet" href="/css/main.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/stats.css"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder Studio</title>
-    <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_studio"/>
-    </jsp:include>
+    <title>CSF</title>
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+    <script type="text/javascript"> _uacct = "UA-321688-2";
+    urchinTracker(); </script>
+    <script type="text/javascript" src="/js/popup.js"></script>
 </head>
 
 <body>
 
 <div align="center">
-<div id="contentOut" class="contentOut">
+<div id="content">
+
 <jsp:include page="top.jsp"/>
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="contests"/>
+
+<jsp:include page="primaryNav.jsp">
+<jsp:param name="selectedTab" value="competitions"/>
 </jsp:include>
-<div id="contentIn" class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
 
-<div class="contentSpacer" style="padding-bottom:100px;">
-
-    <h1>Active Contests</h1>
+<div id="main">
+    <div class="sectionHeader">
+        <span class="sectionName">Active Contests</span>
+    </div>
 
     <h2 align="right">Need help? Learn how to
         <A href="/?module=Static&amp;d1=support&amp;d2=getStarted">get
@@ -143,10 +147,8 @@
 
 
 </div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
+    
 <jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
 </div>
 </div>
 

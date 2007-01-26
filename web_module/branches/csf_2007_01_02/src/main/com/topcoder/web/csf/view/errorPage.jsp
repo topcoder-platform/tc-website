@@ -11,38 +11,46 @@
 <html>
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <link type="text/css" rel="stylesheet" href="/css/main.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/stats.css"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder Studio</title>
-    <link type="text/css" rel="stylesheet" href="/css/main.css">
-    <link type="text/css" rel="stylesheet" href="/css/stats.css">
+    <title>CSF</title>
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+    <script type="text/javascript"> _uacct = "UA-321688-2";
+    urchinTracker(); </script>
+    <script type="text/javascript" src="/js/popup.js"></script>
 </head>
 
 <body>
 
 <div align="center">
-    <div id="contentOut" class="contentOut">
-        <div class="topBox">
-            <div class="logoBox">
-                <A href="/"><img src="/i/studio_logo.gif" alt="TopCoder Studio"/></A>
-            </div>
-        </div>
+<div id="content">
 
+<div class="top">
+    <div class="msLogo">
+        <a href="/"><img src="/i/microsoft.png" alt="Microsoft"></a>
+    </div>
+    <div class="csfLogo">
+        <a href="/"><img src="/i/csf.png" alt="Connected Services Framework Competition Series"></a>
+    </div>
+    <a href=""><img src="/i/sandboxLogo.gif" alt="Connected Services Sandbox"></a>
+</div>
 
-        <div id="topNav">
+<div id="primaryNav">
+<ul>
+<li style="border-top: 1px solid rgb(204, 204, 204);"><a href="/" onfocus="this.blur();">Home</a></li>
+<li><a href="" onfocus="this.blur();">Schedule</a></li>
+<li><a href="" onfocus="this.blur();">Rules</a></li>
+<li><a href="/?module=ViewActiveContests" onfocus="this.blur();">Competitions</a></li>
+<li style="border-bottom: 1px solid rgb(204, 204, 204); background-image: none;"><a href="" onfocus="this.blur();">Discuss the Competitions</a></li>
+</ul>
+<a href="http://www.topcoder.com" style="margin-left: 5px;"><img src="/i/pbtc.png" alt="Powered by TopCoder"></a>
+</div>
 
-            <A href="/">Home</A>
-            <A href="/?module=ViewActiveContests">Contests</A>
-            <A href="/forums">Forums</A>
-            <A href="/?module=Static&d1=support&d2=getStarted">Support</A>
-            <A href="/?module=Static&d1=contactUs">Contact Us</A>
-        </div>
-
-        <div id="contentIn" class="contentIn">
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-            <div class="contentSpacer">
-
-                <h1>Error</h1>
+<div id="main">
+    <div class="sectionHeader">
+        <span class="sectionName">Error</span>
+    </div>
 
                 <div align="center">
                     <div style="width:500px; padding: 50px 0px 100px 0px;">
@@ -53,21 +61,25 @@
                         <br><br>
                         If you have a question or comment, please email
                         <A href="service@topcoder.com?subject=TopCoder Studio Error">service@topcoder.com</A>.
+                        <br><br>
+                        <%=new Date().toString()%>
                     </div>
-                    <%=new Date().toString()%>
                 </div>
 
-            </div>
-            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-        </div>
-
-        <div class="foot">
-            <a href="/?module=Static&amp;d1=home">home</a>
-            | <a href="/?module=Static&amp;d1=contactUs">contact us</a>
-            | <a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=index">about TopCoder</a>
-        </div>
-        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
+</div>
+    
+<div align="center">
+    <div style="padding-left: 0px; padding-top: 15px;">
+        Copyright &#169; Microsoft Corporation, 2006. All Rights Reserved
     </div>
+    <div style="padding-left: 5px; padding-top: 5px;">
+        <a id="ctl00_Copyright_HyperLink1" class="footerLink" href="http://privacy.microsoft.com/">Privacy Policy</a>
+        &nbsp;&nbsp;|&nbsp;&nbsp;<a id="ctl00_Copyright_HyperLink2" class="footerLink" href="TermsOfUse.aspx">Terms of Use</a>
+        &nbsp;&nbsp;|&nbsp;&nbsp;<a id="ctl00_Copyright_HyperLink4" class="footerLink" href="ContactUs.aspx">Contact Us</a>
+        &nbsp;&nbsp;|&nbsp;&nbsp;<a id="ctl00_Copyright_HyperLink5" class="footerLink" href="Feedback.aspx">Feedback</a>
+    </div>
+</div>
+</div>
 </div>
 
 </body>
