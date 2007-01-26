@@ -88,9 +88,9 @@ public interface ForumConstants {
     
     public final static String PROPERTY_COMPONENT_ID = "componentId";
     public final static String PROPERTY_COMPONENT_VERSION_ID = "compVersionId";
+    public final static String PROPERTY_COMPONENT_VERSION_TEXT = "versionText";
     public final static String PROPERTY_COMPONENT_TECH_TYPES = "compTechTypes";
     public final static String PROPERTY_FORUM_TYPE = "forumType";
-    public final static String PROPERTY_VERSION_TEXT = "versionText";
 
     public final static String PROPERTY_ARCHIVAL_STATUS = "archivalStatus";
     public final static String PROPERTY_ARCHIVAL_STATUS_CLOSED = "0";

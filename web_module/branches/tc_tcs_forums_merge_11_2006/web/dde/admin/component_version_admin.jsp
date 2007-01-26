@@ -652,7 +652,20 @@ if (action != null) {
         ver.setComments(comments);
         ver.setPrice(Double.parseDouble(price));
 
-
+		com.topcoder.dde.catalog.ForumCategory activeCollab = null;
+		com.topcoder.dde.catalog.ForumCategory activeSpec = null;
+        try {
+            activeCollab = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.COLLABORATION);
+            if (activeCollab != null) {
+            	forums.setVersionLabel(activeCollab.getId(), versionLabel);
+            }
+            activeSpec = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
+            if (activeSpec != null) {
+            	forums.setVersionLabel(activeSpec.getId(), versionLabel);
+            }
+        } catch (CatalogException ce) {
+            debug.addMsg("component version admin", "catalog exception occurred");
+        }
 
         //StringTokenizer stDate = new StringTokenizer(phaseDate, "/");
         String month = "5";
@@ -758,11 +771,7 @@ if (action != null) {
             }
         } catch (Exception e) {
             log.error("An error occurred while updating version info", e);
-            if (e.getMessage().startsWith("Online Review:")) {
-                strError += e.getMessage();
-            } else {
-                strError += "An error occurred while updating version info.<BR>";
-            }
+			strError += "An error occurred while updating version info: " + e.getMessage();
             ver = componentManager.getVersionInfo();
         }
     }

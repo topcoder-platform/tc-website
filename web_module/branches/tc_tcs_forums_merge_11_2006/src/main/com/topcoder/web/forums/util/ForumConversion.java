@@ -288,7 +288,7 @@ public class ForumConversion {
             category.setProperty(ForumConstants.PROPERTY_COMPONENT_ROOT_CATEGORY_ID, 
             		forum.getRootCategoryId() + "");
             category.setProperty(ForumConstants.PROPERTY_FORUM_TYPE, forum.getForumType() + "");
-            category.setProperty(ForumConstants.PROPERTY_VERSION_TEXT, forum.getVersionText());
+            category.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_TEXT, forum.getVersionText());
             category.setProperty(ForumConstants.PROPERTY_MODIFY_FORUMS, "true");
             
             // set moderator, user, admin permissions

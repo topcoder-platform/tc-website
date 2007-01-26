@@ -2,6 +2,7 @@ package com.topcoder.web.ejb.forums;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.RowNotFoundException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
@@ -365,9 +366,9 @@ public class ForumsBean extends BaseEJB {
     		newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_STATUS, String.valueOf(componentStatusID));
     		newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_ID, String.valueOf(componentID));
     		newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID, String.valueOf(versionID));
+    		newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_TEXT, versionText);
     		newCategory.setProperty(ForumConstants.PROPERTY_FORUM_TYPE, String.valueOf(templateID));
     		newCategory.setProperty(ForumConstants.PROPERTY_MODIFY_FORUMS, "true");
-    		newCategory.setProperty(ForumConstants.PROPERTY_VERSION_TEXT, versionText);
     		
     		Connection forumsConn = DBMS.getConnection(DBMS.FORUMS_DATASOURCE_NAME);
     		PreparedStatement forumsPS = forumsConn.prepareStatement(
@@ -548,6 +549,20 @@ public class ForumsBean extends BaseEJB {
 			close(rs);
 			close(ps);
 			close(conn);
+    	}
+    }
+    
+    public void updateComponentVersion(long categoryID, long versionText) throws Exception {
+    	try {
+    		ForumCategory forumCategory = forumFactory.getForumCategory(categoryID);
+    		String oldVersionText = forumCategory.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_TEXT);
+    		String versionTextStr = "v" + versionText + " - ";
+    		String oldVersionTextStr = "v" + oldVersionText + " - ";
+    		forumCategory.setName(StringUtils.replace(forumCategory.getName(), oldVersionTextStr, versionTextStr));
+    		forumCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_TEXT, String.valueOf(versionText));
+    	} catch (Exception e) {
+    		logException(e, "error in updating component version");
+    		throw e;
     	}
     }
     
