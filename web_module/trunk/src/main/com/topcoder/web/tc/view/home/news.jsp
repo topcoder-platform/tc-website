@@ -4,6 +4,29 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.26.07<br>5:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_11">Intel&#174; Multi-Threading Competition 11 - Analysis</A>
+        </span><br><br>
+Optimization problems usually get
+harder the larger the data set is. In this problem it is the
+opposite, as the thousands of members provide a large and well
+balanced supply of different skill sets, which allows matching the
+vast majority of them almost optimally.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/battyone_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7504863" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_11">full story</A> | 
+        <tc-webtag:forumLink forumID="506179" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>01.26.06<br>2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=SurveyResults&sid=16270">dogsoldier39 is the TCO07 Web Site Design Contest Winner!</A>
@@ -194,18 +217,5 @@ features of the Standard Template Library can help.</td>
         <A href="/tc?module=SurveyResults&sid=11144">vote results</A> | 
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=24">discuss this</A> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>01.11.07<br>4:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2051">New at TopCoder Studio: Equitrader Wireframe contest</A></span><br><br>
-       There's a new business concept in store for Equitrader, called "Equitrader Research."  Help determine how information is laid out in 
-       this new section of their website, and you could win a share of the $2,750 prize pool. 
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2051">full story</A> | 
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=28">discuss this</A> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
