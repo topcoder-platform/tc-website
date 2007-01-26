@@ -67,14 +67,13 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
         return q.list();
 
     }
-
-    public List search(SchoolType type, Date creationAfter, String countryCode, int startRow, int maxResults) {
+    public List search(SchoolType type, Date creationAfter, String countryCode, boolean orderByCountry, int startRow, int maxResults) {
         StringBuffer query = new StringBuffer(100);
-/*
+
         if (countryCode != null && countryCode.trim().length() == 0) {
         	countryCode = null;
         }
-  */      
+        
         query.append("SELECT (SELECT count(*) from CurrentSchool cs WHERE cs.school.id = s.id AND cs.coder.user.status=?), s ");
         query.append("FROM School s ");
         query.append("WHERE (SELECT count(*) from CurrentSchool cs WHERE cs.school.id = s.id AND cs.coder.user.status=?) > 0 ");
@@ -83,18 +82,14 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
         	query.append("AND s.type.id = ?");
         }
         if (countryCode != null) {
-        	if (countryCode.length() > 0) {
-        		query.append(" AND s.address.country.code=?");
-        	} else {
-        		query.append(" AND s.address is null");
-        	}
+       		query.append(" AND s.address.country.code=?");
         }
         if (creationAfter != null) {
         	query.append(" AND s.modifyDate >= ?");
         }
         
         query.append(" AND s.viewable=1");
-        query.append(" ORDER BY " + (countryCode != null? " s.address.country.name, s.name" : " s.name"));
+        query.append(" ORDER BY " + (orderByCountry? " s.address.country.name, s.name" : " s.name"));
 
         Query q = session.createQuery(query.toString());
         q.setString(0, String.valueOf(Constants.ACTIVE_STATI[1]));
@@ -104,7 +99,7 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
         if (type != null) {
         	q.setInteger(idx++, type.getId().intValue());
         }
-        if (countryCode != null && countryCode.length() > 0) {                
+        if (countryCode != null) {                
         	q.setString(idx++, countryCode);
         }
         if (creationAfter != null) {                

@@ -124,6 +124,13 @@ function previous() {
 				       			<tc-webtag:textInput name="date" id="date" size="12" editable="true"/><button id="trigger_date">Set</button>      
 				       		</td>
 				       	</tr>
+                     	<tr>
+                     		<td width="150">Order by:</td>
+                     		<td>
+                     			<tc-webtag:radioButton name="obc" value="true" />Country, School Name<br>
+				                <tc-webtag:radioButton name="obc" value="false" />School Name (will show schools with unkown address)<br>
+                			</td>
+                		</tr>
 				       <tr>
 				       		<td>Rows:</td>
 				       		<td>
