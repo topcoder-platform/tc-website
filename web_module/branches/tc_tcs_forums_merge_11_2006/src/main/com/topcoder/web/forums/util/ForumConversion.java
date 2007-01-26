@@ -281,12 +281,12 @@ public class ForumConversion {
             category.setCreationDate(forum.getCreation());
             category.setModificationDate(forum.getCreation());
             category.setProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS, forum.getStatus() + "");           
-            category.setProperty(ForumConstants.PROPERTY_COMPONENT_PHASE, forum.getComponentPhase() + "");
-            category.setProperty(ForumConstants.PROPERTY_COMPONENT_STATUS, forum.getComponentStatus() + "");
+            //category.setProperty(ForumConstants.PROPERTY_COMPONENT_PHASE, forum.getComponentPhase() + "");
+            //category.setProperty(ForumConstants.PROPERTY_COMPONENT_STATUS, forum.getComponentStatus() + "");
             category.setProperty(ForumConstants.PROPERTY_COMPONENT_ID, forum.getComponentId() + "");
             category.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID, forum.getCompVersId() + "");
-            category.setProperty(ForumConstants.PROPERTY_COMPONENT_ROOT_CATEGORY_ID, 
-            		forum.getRootCategoryId() + "");
+            //category.setProperty(ForumConstants.PROPERTY_COMPONENT_ROOT_CATEGORY_ID, 
+            //		forum.getRootCategoryId() + "");
             category.setProperty(ForumConstants.PROPERTY_FORUM_TYPE, forum.getForumType() + "");
             category.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_TEXT, forum.getVersionText());
             category.setProperty(ForumConstants.PROPERTY_MODIFY_FORUMS, "true");

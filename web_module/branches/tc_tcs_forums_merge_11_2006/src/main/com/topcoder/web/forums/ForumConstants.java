@@ -77,14 +77,16 @@ public interface ForumConstants {
     public final static String PROPERTY_LINK = "link";
     public final static String PROPERTY_MODIFY_FORUMS = "modifyForums";
     
+    /* Some of the following software-related properties are now retrieved directly from the TCS database */
+    
     /* See Catalog.JAVA_CATALOG, etc. Determines technology icon displayed by the ImageMapper. */
-    public final static String PROPERTY_COMPONENT_ROOT_CATEGORY_ID = "compRootCategoryId";
+    //public final static String PROPERTY_COMPONENT_ROOT_CATEGORY_ID = "compRootCategoryId";
     
     /* See ComponentVersionInfo.COLLABORATION, etc. Determines phase icon displayed by the ImageMapper. */
-    public final static String PROPERTY_COMPONENT_PHASE = "componentPhase";		
+    //public final static String PROPERTY_COMPONENT_PHASE = "componentPhase";		
     
     /* See ComponentInfo.APPROVED, etc. Only approved components are displayed. */
-    public final static String PROPERTY_COMPONENT_STATUS = "componentStatus";
+    //public final static String PROPERTY_COMPONENT_STATUS = "componentStatus";
     
     public final static String PROPERTY_COMPONENT_ID = "componentId";
     public final static String PROPERTY_COMPONENT_VERSION_ID = "compVersionId";

@@ -361,9 +361,9 @@ public class ForumsBean extends BaseEJB {
     		String categoryName = ForumsUtil.getComponentCategoryName(componentName, versionText, templateID);
     		ForumCategory newCategory = forumFactory.getForumCategory(TCS_FORUMS_ROOT_CATEGORY_ID).createCategory(categoryName, description);
     		newCategory.setProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS, ForumConstants.PROPERTY_ARCHIVAL_STATUS_ACTIVE);
-    		newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_PHASE, String.valueOf(phaseID));
-    		newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_ROOT_CATEGORY_ID, String.valueOf(rootCategoryID));
-    		newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_STATUS, String.valueOf(componentStatusID));
+    		//newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_PHASE, String.valueOf(phaseID));
+    		//newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_ROOT_CATEGORY_ID, String.valueOf(rootCategoryID));
+    		//newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_STATUS, String.valueOf(componentStatusID));
     		newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_ID, String.valueOf(componentID));
     		newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID, String.valueOf(versionID));
     		newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_TEXT, versionText);
