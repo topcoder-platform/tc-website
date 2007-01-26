@@ -10,53 +10,52 @@
 <html>
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <link type="text/css" rel="stylesheet" href="/css/main.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/stats.css"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder Studio</title>
-    <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_studio"/>
-    </jsp:include>
-    <SCRIPT LANGUAGE="JavaScript" SRC="/js/arena.js"></SCRIPT>
+    <title>CSF</title>
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+    <script type="text/javascript"> _uacct = "UA-321688-2";
+    urchinTracker(); </script>
+    <script type="text/javascript" src="/js/popup.js"></script>
 </head>
 
 <body>
 
 <div align="center">
-<div id="contentOut" class="contentOut">
+<div id="content">
 
 <jsp:include page="top.jsp"/>
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="contests"/>
+
+<jsp:include page="primaryNav.jsp">
+<jsp:param name="selectedTab" value="competitions"/>
 </jsp:include>
 
-<div id="contentIn" class="contentIn">
+<div id="main">
+    <div class="sectionHeader">
+        <span class="sectionName">Competition Details</span>
+    </div>
 
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
 
-<div class="contentSpacer">
+    <div class="linkBox">
+        <csf:forumLink forumID="${contest.forumId}"/>
+    </div>
 
+    <div class="breadcrumb">
+        <c:choose>
+            <c:when test="${currentTime>contest.endTime}">
+                <A href="${sessionInfo.servletPath}?module=ViewPastContests">Past Competitions</A> &gt;
+            </c:when>
+            <c:otherwise>
+                <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Competitions</A> &gt;
+            </c:otherwise>
+        </c:choose>
+        ${contest.name}
+    </div>
 
-<div class="linkBox">
-    <csf:forumLink forumID="${contest.forumId}"/>
+<div class="sectionHeader">
+    <span class="sectionName">Project Overview</span>
 </div>
-
-<div class="breadcrumb">
-    <c:choose>
-        <c:when test="${currentTime>contest.endTime}">
-            <A href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</A> &gt;
-        </c:when>
-        <c:otherwise>
-            <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A> &gt;
-        </c:otherwise>
-    </c:choose>
-    ${contest.name}
-</div>
-
-<h1>Contest Details</h1>
-
-<div align="center">
-<div style="width:510px;" align="left">
-
-<div class="header">Project Overview</div>
 ${contest.overview.value}
 <br><br>
 
@@ -77,7 +76,9 @@ ${contest.overview.value}
 </c:if>
 
 
-<div class="header">Payment</div>
+<div class="sectionHeader">
+    <span class="sectionName">Payment</span>
+</div>
 ${contest.prizeDescription.value}
 <br><br>
 
@@ -103,7 +104,9 @@ ${contest.prizeDescription.value}
 </c:choose>
 
 
-<div class="header">Eligibility</div>
+<div class="sectionHeader">
+    <span class="sectionName">Eligibility</span>
+</div>
 
 <p>You must be a TopCoder Studio member, at least 18 years of age, meeting all of the membership requirements.
     In addition, you must fit into one of the following categories.
@@ -132,7 +135,9 @@ ${contest.prizeDescription.value}
 
 <br><br>
 
-<div class="header">Timeline</div>
+<div class="sectionHeader">
+    <span class="sectionName">Timeline</span>
+</div>
 All submissions are required to be submitted by the End Date.
 <br><br>
 
@@ -159,26 +164,20 @@ All submissions are required to be submitted by the End Date.
 <br><br>
 
 <c:if test="${currentTime<=contest.endTime && currentTime>=contest.startTime}">
-    <div class="header">Upload Your Submission</div>
+<div class="sectionHeader">
+    <span class="sectionName">Upload Your Submission</span>
+</div>
     If you are ready to submit your design for this contest, click the button below.
     <br><br>
 
     <div align="center">
-        <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="btn_submit">
-            &nbsp;</A>
+        <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="button" style="width: 60px;">Submit</A>
     </div>
 </c:if>
 
 </div>
-</div>
-
-</div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
-
+    
 <jsp:include page="foot.jsp"/>
-
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
 </div>
 </div>
 
