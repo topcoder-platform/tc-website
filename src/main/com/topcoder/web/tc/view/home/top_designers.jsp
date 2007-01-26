@@ -13,7 +13,7 @@
    <tr>
       <td class="statTextBig" colspan="3" align="center">
          <div style="padding:0px 0px 3px 5px;">
-            <div style="float:left;"><A href="/tc?module=Static&d1=digital_run&d2=description"><img class="popper" src="/i/interface/emblem/digitalrun.png" alt="The Digital Run" border="0" id="popper0" onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()" /></A></div>
+            <div style="float:left;"><A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/interface/emblem/digitalrun.png" alt="The Digital Run" border="0" /></A></div>
             <A href="/tc?&ph=112&module=LeaderBoard" class="gMetal">leaderboard</A> | 
             <A href="/tc?module=RookieBoard&ph=112" class="gMetal">ROTY</A>
          </div>
