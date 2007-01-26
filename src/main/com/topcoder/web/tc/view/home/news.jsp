@@ -4,6 +4,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>01.26.06<br>2:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=SurveyResults&sid=16270">jwlms is the TCO07 Web Site Design Contest Winner!</A>
+      </span><br><br> 
+      Congratulations to <tc-webtag:handle coderId="22656806" />!
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=SurveyResults&sid=16270">vote results</A> | 
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=27">discuss this</A> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>01.26.07<br>12:10 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
