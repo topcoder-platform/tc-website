@@ -49,7 +49,7 @@ public class CleanSchools extends ShortHibernateProcessor {
     	setDefault("nr", nr + "");
     	setDefault("cc", cc);
     	setDefault("type", type);
-    	setDefault("obc", order);
+    	setDefault("order", order);
     	setDefault("date", getRequest().getParameter("date"));
     	setDefault("ua", getRequest().getParameter("cc") == null? "true" :getRequest().getParameter("ua") );
     	
