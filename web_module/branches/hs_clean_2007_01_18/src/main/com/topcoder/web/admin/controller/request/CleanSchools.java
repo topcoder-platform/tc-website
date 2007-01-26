@@ -24,7 +24,7 @@ public class CleanSchools extends ShortHibernateProcessor {
     	int nr = 50;
     	Integer type = SchoolType.HIGH_SCHOOL;
     	Date creationAfter = null;
-    	boolean orderByCountry = !"false".equals("obc");
+    	String order = "c";
     	
     	if (getRequest().getParameter("type") != null) {
     		type = new Integer(getRequest().getParameter("type")); 
@@ -36,6 +36,11 @@ public class CleanSchools extends ShortHibernateProcessor {
     	if (getRequest().getParameter("nr") != null) {
     		nr = Integer.parseInt(getRequest().getParameter("nr")); 
     	}
+
+    	if (getRequest().getParameter("order") != null) {
+    		order = getRequest().getParameter("order"); 
+    	}
+    	
     	if (getRequest().getParameter("date") != null && getRequest().getParameter("date").trim().length() > 0) {
     		creationAfter = new SimpleDateFormat("MM/dd/yy").parse(getRequest().getParameter("date"));
     	}
@@ -44,11 +49,11 @@ public class CleanSchools extends ShortHibernateProcessor {
     	setDefault("nr", nr + "");
     	setDefault("cc", cc);
     	setDefault("type", type);
-    	setDefault("obc", Boolean.valueOf(orderByCountry));
+    	setDefault("obc", order);
     	setDefault("date", getRequest().getParameter("date"));
     	setDefault("ua", getRequest().getParameter("cc") == null? "true" :getRequest().getParameter("ua") );
     	
-    	List schools = s.search(type.intValue() <0? null:dao.getSchoolTypeDAO().find(type), creationAfter, cc, orderByCountry, sr - 1, nr);
+    	List schools = s.search(type.intValue() <0? null:dao.getSchoolTypeDAO().find(type), creationAfter, cc, "c".equals(order), sr - 1, nr);
     	getRequest().setAttribute("schools", schools);
     	getRequest().setAttribute("displayNext", Boolean.valueOf(schools.size() == nr));
     	
