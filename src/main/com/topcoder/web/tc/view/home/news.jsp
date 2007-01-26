@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.26.07<br>10:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm29">TCHS SRM 29 - Problem Set & Analysis</A></span><br><br>
+TopCoder High School algorithm competitors once again demonstrated impressive speed and accuracy in tackling a difficult set of problems.  Many competitors submitted very fast solutions on the easy and medium problems, with the hard providing a stiffer challenge.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/jmzero_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15498334" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm29">full story</A> | 
+        <tc-webtag:forumLink forumID="506245" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorial" border="0" /><br>01.23.07<br>5:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -180,17 +197,3 @@ easy to get wrong, but not nearly as easy to get wrong as the
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="Survey" border="0" /><br>01.09.06<br>2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=ViewSurvey&sid=11155">Take the AOL Video Mashup Survey</A>
-        </span><br><br>
-        We're giving away a 2GB iPod Nano to three randomly selected survey participants. Just tell us what you think of the latest AOL Video Mashup submissions, and you're in the running.
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=ViewSurvey&sid=11155">vote now</A> | 
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=25">discuss this</A> | 
-        <A href="/tc?&module=SurveyList">archive</A>
-   </td></tr>
