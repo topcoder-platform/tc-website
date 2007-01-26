@@ -2,13 +2,11 @@ package com.topcoder.web.ejb.forums;
 
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
-import java.sql.SQLException;
 
 import javax.ejb.EJBException;
 
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.UserNotFoundException;
-import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ForumCategoryNotFoundException;
 
 public interface Forums extends EJBObject {
@@ -60,6 +58,8 @@ public interface Forums extends EJBObject {
     public long getComponentRootCategory(long compID) throws EJBException, RemoteException;
     
     public long getComponentStatus(long compID) throws EJBException, RemoteException;
+    
+    public void updateComponentVersion(long categoryID, long versionText) throws EJBException, RemoteException, Exception;
     
     //public long getSoftwareComponentID(ForumCategory category) throws EJBException, RemoteException, SQLException;
     
