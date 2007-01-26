@@ -6,9 +6,9 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>01.26.06<br>2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=SurveyResults&sid=16270">jwlms is the TCO07 Web Site Design Contest Winner!</A>
+      <A href="/tc?module=SurveyResults&sid=16270">dogsoldier39 is the TCO07 Web Site Design Contest Winner!</A>
       </span><br><br> 
-      Congratulations to <tc-webtag:handle coderId="22656806" />!
+      Congratulations to <tc-webtag:handle coderId="22666646" />!
       </td>
    </tr>
    <tr><td class="newsLinksCell">
