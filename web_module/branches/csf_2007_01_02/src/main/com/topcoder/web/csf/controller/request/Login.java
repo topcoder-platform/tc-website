@@ -172,7 +172,11 @@ public class Login extends ShortHibernateProcessor {
         } catch (RemoteException e) {
             if (log.isDebugEnabled()) {
                 log.debug("cause stack");
-                e.getCause().printStackTrace();
+                if (e.getCause()!=null) {
+                    e.getCause().printStackTrace();
+                } else {
+                    log.debug("cause was null");
+                }
             }
             throw new TCWebException(e);
         }
