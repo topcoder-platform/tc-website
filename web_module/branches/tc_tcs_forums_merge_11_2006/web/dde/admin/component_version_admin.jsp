@@ -657,11 +657,11 @@ if (action != null) {
         try {
             activeCollab = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.COLLABORATION);
             if (activeCollab != null) {
-            	forums.setVersionLabel(activeCollab.getId(), versionLabel);
+            	forums.updateComponentVersion(activeCollab.getId(), versionLabel);
             }
             activeSpec = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
             if (activeSpec != null) {
-            	forums.setVersionLabel(activeSpec.getId(), versionLabel);
+            	forums.updateComponentVersion(activeSpec.getId(), versionLabel);
             }
         } catch (CatalogException ce) {
             debug.addMsg("component version admin", "catalog exception occurred");

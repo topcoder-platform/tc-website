@@ -552,7 +552,7 @@ public class ForumsBean extends BaseEJB {
     	}
     }
     
-    public void updateComponentVersion(long categoryID, long versionText) throws Exception {
+    public void updateComponentVersion(long categoryID, String versionText) throws Exception {
     	try {
     		ForumCategory forumCategory = forumFactory.getForumCategory(categoryID);
     		String oldVersionText = forumCategory.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_TEXT);

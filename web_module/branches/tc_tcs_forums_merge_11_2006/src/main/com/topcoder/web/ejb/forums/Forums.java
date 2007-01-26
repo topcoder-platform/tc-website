@@ -59,7 +59,7 @@ public interface Forums extends EJBObject {
     
     public long getComponentStatus(long compID) throws EJBException, RemoteException;
     
-    public void updateComponentVersion(long categoryID, long versionText) throws EJBException, RemoteException, Exception;
+    public void updateComponentVersion(long categoryID, String versionText) throws EJBException, RemoteException, Exception;
     
     //public long getSoftwareComponentID(ForumCategory category) throws EJBException, RemoteException, SQLException;
     
