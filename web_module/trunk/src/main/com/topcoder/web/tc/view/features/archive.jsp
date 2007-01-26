@@ -44,6 +44,11 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="251074" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=012607"><strong>Five things you didn't know about C++</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Jan 26, 2007</td> 
+            </tr>
+            <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="15498334" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=010407"><strong>Beginning Algorithm Competitions with VB.NET</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Jan 4, 2007</td> 
