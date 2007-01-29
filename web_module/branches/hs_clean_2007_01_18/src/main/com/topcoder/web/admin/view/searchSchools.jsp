@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<fmt:requestEncoding key="utf-8"/>
+<fmt:requestEncoding value="utf-8"/>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
