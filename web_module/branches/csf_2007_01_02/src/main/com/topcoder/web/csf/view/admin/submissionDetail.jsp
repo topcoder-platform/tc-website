@@ -11,7 +11,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Studio</title>
     <jsp:include page="../style.jsp">
-        <jsp:param name="key" value="tc_studio"/>
+        <jsp:param name="key" value="csf"/>
     </jsp:include>
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
     <c:set value="<%=Constants.REVIEW_STATUS_ID%>" var="reviewStatus"/>

@@ -18,7 +18,7 @@
     <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
     <jsp:include page="../style.jsp">
-        <jsp:param name="key" value="tc_studio"/>
+        <jsp:param name="key" value="csf"/>
     </jsp:include>
 
 </head>

@@ -14,7 +14,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Studio</title>
     <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_studio"/>
+        <jsp:param name="key" value="csf"/>
     </jsp:include>
     <script type="text/javascript" src="/js/popup.js"></script>
 </head>

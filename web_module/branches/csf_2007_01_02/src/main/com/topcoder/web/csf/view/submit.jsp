@@ -15,7 +15,7 @@
 
     <title>TopCoder Studio</title>
     <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_studio"/>
+        <jsp:param name="key" value="csf"/>
     </jsp:include>
     <script type="text/javascript" src="/js/popup.js"></script>
     <script language="javascript" type="text/javascript">

@@ -10,8 +10,9 @@
 <html>
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <link type="text/css" rel="stylesheet" href="/css/main.css"/>
-    <link type="text/css" rel="stylesheet" href="/css/stats.css"/>
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="csf"/>
+    </jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>CSF</title>
     <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>

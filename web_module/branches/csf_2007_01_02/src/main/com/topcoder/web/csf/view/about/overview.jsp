@@ -10,7 +10,7 @@
     <title>TopCoder Studio</title>
 
     <jsp:include page="../style.jsp">
-        <jsp:param name="key" value="tc_studio"/>
+        <jsp:param name="key" value="csf"/>
     </jsp:include>
 </head>
 
