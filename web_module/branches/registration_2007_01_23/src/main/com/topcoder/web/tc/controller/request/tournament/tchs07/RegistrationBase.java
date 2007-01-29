@@ -7,6 +7,7 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.tc.Constants;
@@ -76,20 +77,20 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
             log.debug("checking if " + getUser().getId() + " is registered for " + e.getId());
         }
 
-        /*        Event curr;
+        Event curr;
         for (Iterator it = u.getEventRegistrations().iterator(); it.hasNext();) {
-            curr = (Event) it.next();
+            curr = ((EventRegistration) it.next()).getId().getEvent();
             if (curr.equals(e)) {
                 return true;
             }
-        }*/
-        User curr;
+        }
+/*        User curr;
         for (Iterator it = e.getUsers().iterator(); it.hasNext();) {
             curr = (User) it.next();
             if (curr.equals(u)) {
                 return true;
             }
-        }
+        }*/
         return false;
     }
 
