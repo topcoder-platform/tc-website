@@ -29,10 +29,10 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder Studio</title>
+    <title>CSF</title>
 
     <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_studio_forums"/>
+        <jsp:param name="key" value="csfforums"/>
     </jsp:include>
 </head>
 
@@ -61,7 +61,7 @@
         </td>
         <td align="right" nowrap="nowrap" valign="top">
             <A href="?module=History" class="rtbcLink">My Post
-                History</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Watches" class="rtbcLink">My Watches</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Settings" class="rtbcLink">User
+                History</A> | <A href="?module=Watches" class="rtbcLink">My Watches</A> | <A href="?module=Settings" class="rtbcLink">User
             Settings</A><br/>
         </td>
     </tr>

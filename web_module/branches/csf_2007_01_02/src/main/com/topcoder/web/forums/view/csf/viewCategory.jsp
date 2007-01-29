@@ -77,29 +77,28 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder Studio</title>
+    <title>CSF</title>
 
     <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_studio_forums"/>
+        <jsp:param name="key" value="csfforums"/>
     </jsp:include>
 </head>
 
 <body>
 
 <div align="center">
-<div class="contentOut">
-
+<div id="content">
 
 <jsp:include page="top.jsp"/>
 
 
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="forums"/>
+<%--
+<jsp:include page="primaryNav.jsp">
+<jsp:param name="selectedTab" value="discuss"/>
 </jsp:include>
-<div class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
+--%>
 
-<div class="contentSpacer">
+<div id="forumsMain">
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>
@@ -155,7 +154,7 @@
 </table>
 
 <% if (forumCategory.getForumCount() > 0) { %>
-<table cellpadding="0" cellspacing="0" class="rtTable" style="width:740px;">
+<table cellpadding="0" cellspacing="0" class="rtTable" width="100%">
     <tr>
         <td class="rtHeader" width="80%"><a href="<%=forumLink%>" class="rtbcLink">Forum</a></td>
         <td class="rtHeader" width="20%">T./M.</td>
@@ -279,10 +278,8 @@ A category with a <b>bold
 </div>
 
 </div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
+    
 <jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
 </div>
 </div>
 

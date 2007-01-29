@@ -89,7 +89,7 @@ function AllowTabCharacter() {
 <title>TopCoder Studio</title>
 
 <jsp:include page="style.jsp">
-    <jsp:param name="key" value="tc_studio_forums"/>
+    <jsp:param name="key" value="csfforums"/>
 </jsp:include>
 </head>
 
