@@ -85,7 +85,6 @@ ${contest.prizeDescription.value}
                 <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/>
             </strong>
         </c:forEach>
-        <br><br>
     </c:when>
     <c:otherwise>
         <% int i = 1;%>
@@ -95,7 +94,6 @@ ${contest.prizeDescription.value}
             </strong>
             <br>
         </c:forEach>
-        <br><br>
     </c:otherwise>
 </c:choose>
 
@@ -126,8 +124,6 @@ ${contest.prizeDescription.value}
     </c:choose>
 </ul>
 
-
-<br><br>
 
 <h2>Timeline</h2>
 All submissions are required to be submitted by the End Date.
