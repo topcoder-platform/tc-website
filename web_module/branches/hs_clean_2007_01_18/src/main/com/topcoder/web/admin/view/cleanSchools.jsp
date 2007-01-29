@@ -142,7 +142,7 @@ function doMerge() {
 	<tr valign="top">
 		<td><jsp:include page="left.jsp" /></td>
 		<td>
-		<table>
+		<table cellpading="20" cellspacing="20">
 			<tr>
 				<td>
                         <div id="loading">
@@ -236,7 +236,7 @@ Calendar.setup(
 						<tr>
 							<td colspan="2">
 							<tc-webtag:chkBox name="ua" value="true"/>Update destination address_id if needed
-							<input type="button" value="Merge" onClick="merge()"></td>
+							<input type="button" value="Merge" onClick="doMerge()"></td>
 						</tr>
 					</table>
 
