@@ -324,39 +324,32 @@ phase 1, except for the last 40, are final and are
 removed from the pool with their members. We keep the last 40 groups
 for two reasons:</p>
 <ul>
-  <li>
-    <p>They are usually the worst compared
+<li>They are usually the worst compared
 to the theoretical total value of their members, since they were formed
 at the end of the list after global imbalances in useful skills have
-accumulated.</p>
-  </li>
-</ul>
-<ul>
-  <li>
-    <p>The leeway from more members helps form well balanced
+accumulated. </li>
+<li>
+<p>The leeway from more members helps form well balanced
 groups in this
 phase, while still keeping the data set small enough for the processing
-to be fast.</p>
-  </li>
+to be fast. </p>
+</li>
 </ul>
-<p>We complete the initial configuration by putting the unassigned
+<p>We complete the initial configuration by putting the
+unassigned
 members
 each in
 their own groups. Then we optimize that configuration in two ways:</p>
 <ol>
-  <li>
-    <p>For each member, calculate the
+<li> For each member, calculate the
 difference in total volume if reassigning the member to 10
 random
 groups. If the best difference is positive, reassign the member to
 that group. Otherwise, if the member is useless in its current group,
-put it by itself in a new group. </p>
-  </li>
-  <li>
-    <p>For each member, consider 50 random
+put it by itself in a new group. </li>
+<li><p> For each member, consider 50 random
 other members assigned to different groups and check if swapping the
-2 members increases the total volume. Swap them if so. </p>
-  </li>
+2 members increases the total volume. Swap them if so. </li>
 </ol>
 <p>Note that in high dimensionality
 volumes exceed the precision of doubles, and values used in
