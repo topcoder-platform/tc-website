@@ -15,7 +15,7 @@ public class MergeSchools extends Base {
 
     	s.mergeSchools(s1, s2, "on".equals(getRequest().getParameter("ua")));
     	
-    	setNextPage("/admin/?" + getRequest().getQueryString().replaceFirst("MergeSchools", "CleanSchools"));
+    	setNextPage("/admin/?" + getRequest().getQueryString().replaceFirst("MergeSchools", "SearchSchools"));
         setIsNextPageInContext(false);
     }
 

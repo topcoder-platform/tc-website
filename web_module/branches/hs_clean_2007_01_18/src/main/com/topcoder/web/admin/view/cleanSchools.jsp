@@ -27,6 +27,7 @@
 <script type="text/javascript" src="/js/taconite-parser.js"></script>
 
 <script language="javascript" type="text/javascript">
+
 function getIdx() {
     for (var i = 0; i < document.f.school.length; i++) {
     	if (document.f.school.options[i].selected) {
@@ -34,7 +35,6 @@ function getIdx() {
     	}
     }
     return -1;
-
 }
 
 function chooseSrc() {
@@ -67,11 +67,6 @@ function schoolDoubleClick() {
 }
 
 
-function merge() {
-	document.f.module.value = "MergeSchools";
-	document.f.module.method = "post";
-	document.f.submit();
-}
 
 function toggleDiv(divId, state) 
 {
@@ -103,6 +98,25 @@ function loaded() {
 function doSearch() {
 	var ajaxRequest = new AjaxRequest('/admin?module=SearchSchools');
     
+    ajaxRequest.addNamedFormElements("type");
+    ajaxRequest.addNamedFormElements("cc");    
+    ajaxRequest.addNamedFormElements("date");    
+    ajaxRequest.addNamedFormElements("order");    
+    ajaxRequest.addNamedFormElements("name");
+    ajaxRequest.setPostRequest(loaded);
+    ajaxRequest.setPreRequest(loading);    
+    ajaxRequest.sendRequest();
+}
+
+function doMerge() {
+    if (document.f.s1.value=="" || document.f.s2.value=="") {
+    	alert("Please select source and destination schools for the merge");
+    	return;
+    }
+	var ajaxRequest = new AjaxRequest('/admin?module=MergeSchools');
+    
+    ajaxRequest.addNamedFormElements("s1");
+    ajaxRequest.addNamedFormElements("s2");
     ajaxRequest.addNamedFormElements("type");
     ajaxRequest.addNamedFormElements("cc");    
     ajaxRequest.addNamedFormElements("date");    
