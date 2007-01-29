@@ -79,7 +79,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder Studio</title>
+    <title>CSF</title>
 
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="csfforums"/>
@@ -89,20 +89,18 @@
 <body>
 
 <div align="center">
-<div class="contentOut">
-
+<div id="content">
 
 <jsp:include page="top.jsp"/>
 
 
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="forums"/>
+<%--
+<jsp:include page="primaryNav.jsp">
+<jsp:param name="selectedTab" value="discuss"/>
 </jsp:include>
-<div class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
+--%>
 
-<div class="contentSpacer">
-
+<div id="forumsMain">
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>
@@ -277,10 +275,8 @@
 
 
 </div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
+    
 <jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
 </div>
 </div>
 

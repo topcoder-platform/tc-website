@@ -33,7 +33,7 @@ function noenter(e)
 <head>
 <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title>TopCoder Studio</title>
+<title>CSF</title>
 
 <jsp:include page="style.jsp">
     <jsp:param name="key" value="csfforums"/>
