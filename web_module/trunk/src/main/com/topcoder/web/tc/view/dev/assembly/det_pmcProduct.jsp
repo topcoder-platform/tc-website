@@ -148,10 +148,9 @@ All submissions are required to be submitted by the end of Competition Phase. Th
 </div>
 <br><br>
 <div class="sectionHeader">Registration</div>
-<%--
 Registration is closed.
 <br><br>
---%>
+<%--
 To sign up, please send an email to <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: PMC Product">AssemblyCompetitions@topcoder.com</A>.  In the email, include the following information:
 <ul>
 <li>Handle</li>
@@ -159,7 +158,7 @@ To sign up, please send an email to <A href="mailto:AssemblyCompetitions@topcode
 <li>Complete name of Assembly Competition project</li>
 <li>Indicate your role as either team captain, free agent, or a member of an existing team. Also, indicate your team name if applicable.</li>
 </ul>
-
+--%>
 <div class="sectionHeader">Submission</div>
 Once your team has working code you are ready to submit, you can do so by emailing your source code to <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Submission: PMC Product">AssemblySubmissions@topcoder.com</A> before the end of the Competition Phase.  Your team can submit code as many times as you wish before the submission deadline without any penalties.  The last code submitted prior to the deadline will be used as your final submission.
 <br><br>
