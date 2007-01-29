@@ -35,12 +35,13 @@ public class Helper {
 
         r.setProperty("cr", userId + "");
 
-        DataAccessInt dai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
+        DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
         ResultSetContainer ratings = (ResultSetContainer) dai.getData(r).get("coder_all_ratings");
 
         return ratings.getIntItem(0, "algorithm_rating") > 0 ||
                 ratings.getIntItem(0, "design_rating") > 0 ||
                 ratings.getIntItem(0, "development_rating") > 0 ||
+                ratings.getIntItem(0, "marathon_match_rating") > 0 ||
                 ratings.getIntItem(0, "hs_algorithm_rating") > 0;
     }
 
