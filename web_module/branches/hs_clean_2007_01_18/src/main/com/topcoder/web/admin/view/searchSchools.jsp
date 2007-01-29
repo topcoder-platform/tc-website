@@ -1,5 +1,8 @@
 <%@page contentType="text/xml;charset=utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 
 <taconite-root xml:space="preserve">
     <taconite-replace contextNodeID="searchResults" parseInBrowser="true">
