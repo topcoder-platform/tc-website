@@ -66,11 +66,6 @@ function schoolDoubleClick() {
 	else chooseDest();
 }
 
-function search() {
-	document.f.module.value = "CleanSchools";
-	document.f.module.method = "get";
-	document.f.submit();
-}
 
 function merge() {
 	document.f.module.value = "MergeSchools";
@@ -95,17 +90,6 @@ function toggleDiv(divId, state)
 }
 
 
-var sr = <c:out value="${requestScope[defaults]['sr']}"/>;
-var nr = <c:out value="${requestScope[defaults]['nr']}"/>;
-
-function next() {
-    document.f.sr.value = sr + nr;
-    search();
-}
-function previous() {
-   document.f.sr.value = sr - nr;
-   search();
-}
 
 
 function loading() {
@@ -182,8 +166,8 @@ function doSearch() {
                 		</tr>
 				       <tr>
 				       		<td>School Name:</td>
-				       			<tc-webtag:textInput name="name" size="30" editable="true"/>
 				       		<td>
+				       			<tc-webtag:textInput name="name" size="30" editable="true"/>
 				       		</td>
 				       	</tr>
 				       	<tr>
