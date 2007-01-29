@@ -76,10 +76,17 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
             log.debug("checking if " + getUser().getId() + " is registered for " + e.getId());
         }
 
-        Event curr;
+        /*        Event curr;
         for (Iterator it = u.getEventRegistrations().iterator(); it.hasNext();) {
             curr = (Event) it.next();
             if (curr.equals(e)) {
+                return true;
+            }
+        }*/
+        User curr;
+        for (Iterator it = e.getUsers().iterator(); it.hasNext();) {
+            curr = (User) it.next();
+            if (curr.equals(u)) {
                 return true;
             }
         }
