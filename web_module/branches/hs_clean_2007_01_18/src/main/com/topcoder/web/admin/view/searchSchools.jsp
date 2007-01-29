@@ -1,4 +1,4 @@
-<%@page contentType="text/xml"%>
+<%@page contentType="text/xml;charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <taconite-root xml:space="preserve">
