@@ -16,11 +16,12 @@
         <property name="registrationStart" column="start_registration" access="field"/>
         <property name="registrationEnd" column="end_registration" access="field"/>
         <many-to-one name="terms" column="terms_of_use_id" class="TermsOfUse" access="field"/>
+        <many-to-one name="survey" column="survey_id" class="Survey" access="field"/>
 
-        <set name="questions" table="event_question_xref" cascade="save-update" access="field">
+<!--        <set name="questions" table="event_question_xref" cascade="save-update" access="field">
             <key column="event_id" not-null="true"/>
             <many-to-many column="question_id" class="Question"/>
-        </set>
+        </set> -->
 
         <set name="users" table="event_registration" inverse="true" access="field">
             <key column="event_id"/>

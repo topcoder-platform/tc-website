@@ -23,10 +23,10 @@
             <one-to-many class="Answer"/>
         </set>
 
-        <set name="events" table="event_question_xref" inverse="true" access="field">
+<!--        <set name="events" table="event_question_xref" inverse="true" access="field">
             <key column="question_id"/>
             <many-to-many column="event_id" class="Event"/>
-        </set>
+        </set> -->
 
         <set name="surveys" table="survey_question" inverse="true" access="field">
             <key column="question_id"/>
