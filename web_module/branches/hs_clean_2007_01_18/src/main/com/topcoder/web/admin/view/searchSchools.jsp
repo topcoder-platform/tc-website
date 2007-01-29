@@ -1,5 +1,8 @@
 <%@page contentType="text/xml;charset=utf-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<fmt:requestEncoding key="utf-8"/>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
@@ -10,7 +13,7 @@
     
 		<select multiple="true" size="15" style="width: 600px;" name="school" ondblclick="schoolDoubleClick()">					
                       <c:forEach items="${requestScope.schools}" var="result">
-                         <option value="${result[1].id}">[<c:out value="${result[1].address.country.name}"/>] <c:out value="${result[1].name}" escapeXml="true" /> (${result[0]})</option>
+                         <option value="${result[1].id}">[<c:out value="${result[1].address.country.name}"/>] <c:out value="${result[1].name}"/> (${result[0]})</option>
                          
                       </c:forEach>
 		</select>    
