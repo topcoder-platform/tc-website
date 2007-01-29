@@ -152,6 +152,7 @@
 </div>
 </div>
 
+<%-- required by crazyegg site, ask Nick about it --%>
 <script type="text/javascript" src="http://cetrk.com/pages/scripts/0004/0536.js"> </script>
 </body>
 </html>
