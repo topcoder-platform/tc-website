@@ -598,7 +598,10 @@ public class ProjectUtil {
 
         // Rated
         createProjectInfo(ps, projectId, 13, "Yes", modUserId);
-
+        
+        // Eligibility
+        createProjectInfo(ps, projectId, 14, "Open", modUserId);
+        
         // Payments
         createProjectInfo(ps, projectId, 16, String.valueOf(price), modUserId);
 
