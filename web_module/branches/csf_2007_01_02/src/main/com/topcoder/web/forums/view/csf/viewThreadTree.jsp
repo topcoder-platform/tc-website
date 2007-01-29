@@ -128,19 +128,17 @@
 <body>
 
 <div align="center">
-<div class="contentOut">
+<div id="content">
 
+<jsp:include page="top.jsp"/>
 
-      <jsp:include page="top.jsp" />
-
-
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="forums"/>
+<%--
+<jsp:include page="primaryNav.jsp">
+<jsp:param name="selectedTab" value="discuss"/>
 </jsp:include>
-<div class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
+--%>
 
-<div class="contentSpacer">
+<div id="forumsMain">
 
     <table cellpadding="0" cellspacing="0" class="rtbcTable">
         <tr>
@@ -194,10 +192,10 @@
             <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink">
                 <%=forum.getName()%>
             </A>
-            <%	String linkStr = ForumsUtil.createLinkString(forum);
-		   		if (!linkStr.equals("")) { %>
-		   			<%=linkStr%>
-		   	<% 	} %> 
+            <%    String linkStr = ForumsUtil.createLinkString(forum);
+                   if (!linkStr.equals("")) { %>
+                       <%=linkStr%>
+               <%     } %> 
             > <%=thread.getName()%>
         </b>
         </td>
@@ -246,19 +244,19 @@
                 <% } %>
             </td>
         </tr>
-        <% 	if (activeMessage.getAttachmentCount() > 0) { %>
-		<tr>
-			<td class="rtHeader" colspan="2">
-				Attachments:
-				<%	Iterator attachments = activeMessage.getAttachments();
-					while(attachments.hasNext()) {
-						Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
-						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" /></A>
-						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
-				<% 	} %>
-			</td>
-	 	</tr>
-	  	<% 	} %>
+        <%     if (activeMessage.getAttachmentCount() > 0) { %>
+        <tr>
+            <td class="rtHeader" colspan="2">
+                Attachments:
+                <%    Iterator attachments = activeMessage.getAttachments();
+                    while(attachments.hasNext()) {
+                        Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
+                        <A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" /></A>
+                        <A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
+                <%     } %>
+            </td>
+         </tr>
+          <%     } %>
         <tr id="<%=msgBodyID%>">
             <td class="rtPosterCell">
                 <div class="rtPosterSpacer">
@@ -312,14 +310,16 @@
     <td class="rtThreadCell"><%if (message.getUser() != null) {%>
         <csf:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
     <td class="rtThreadCell"><strong>
-    	<tc-webtag:format object="${message.creationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></strong></td>
+        <tc-webtag:format object="${message.creationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></strong></td>
 </tr>
 </tc-webtag:iterator>
 </table>
 <%-------------POSTS END---------------%>
 
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
-    <tr><td><b>
+<div><b>
+    <div style="float:right; text-align:right;">
+            <a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" src="/i/forums/btn_rss.gif"/></a>
+    </div>
         <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
             <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>&mc=<%=category.getMessageCount()%>" class="rtbcLink">
                 <%=category.getName()%>
@@ -328,10 +328,10 @@
         <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink">
             <%=forum.getName()%>
         </A>
-        <%	linkStr = ForumsUtil.createLinkString(forum);
-   		if (!linkStr.equals("")) { %>
-   			<%=linkStr%>
-   		<% 	} %> 
+        <%    linkStr = ForumsUtil.createLinkString(forum);
+           if (!linkStr.equals("")) { %>
+               <%=linkStr%>
+           <%     } %> 
         > <%=thread.getName()%>
     </b>
         <% if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br>
@@ -352,17 +352,12 @@
         Next Thread
         <% } %>
         <% } %>
-    </td>
-        <td width=1% align="right" valign="top">
-            <a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" src="/i/forums/btn_rss.gif"/></a>
-        </td>
-</table>
+</b></div>
+
 
 </div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
+    
 <jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
 </div>
 </div>
 

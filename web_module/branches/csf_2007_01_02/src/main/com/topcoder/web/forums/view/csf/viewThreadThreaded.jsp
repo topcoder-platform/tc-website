@@ -223,7 +223,7 @@
                     </div>
                     <% if (ratingManager.isRatingsEnabled() && user != null && ForumsUtil.showRatings(user)) { %>
                     <a class="pointer" onMouseOver="this.style.color='#FF0000'"; onMouseOut="this.style.color='#333'"; onclick="toggle('<%=msgBodyID%>')";>
-                        <%=message.getSubject()%></ a>
+                        <%=message.getSubject()%></a>
                             <%  } else { %>
                             <%=message.getSubject()%>
                             <%  } %>
