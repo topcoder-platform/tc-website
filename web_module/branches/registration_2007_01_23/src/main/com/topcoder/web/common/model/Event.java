@@ -19,11 +19,12 @@ public class Event extends Base {
     private Timestamp registrationStart;
     private Timestamp registrationEnd;
     private TermsOfUse terms;
-    private Set questions;
+    private Survey survey;
+    //private Set questions;
     private Set users;
 
     public Event() {
-        questions = new TreeSet();
+        //questions = new TreeSet();
         users = new HashSet();
 
     }
@@ -86,11 +87,27 @@ public class Event extends Base {
         this.terms = terms;
     }
 
-    public Set getQuestions() {
+
+    /**
+     * @return the survey
+     */
+    public Survey getSurvey() {
+        return survey;
+    }
+
+
+    /**
+     * @param survey the survey to set
+     */
+    public void setSurvey(Survey survey) {
+        this.survey = survey;
+    }
+
+/*    public Set getQuestions() {
         return Collections.unmodifiableSet(questions);
     }
 
     public void setQuestions(Set questions) {
         this.questions = questions;
-    }
+    }*/
 }
