@@ -149,7 +149,7 @@ function doMerge() {
 </script>
 
 </head>
-<body onLoad="loaded()">
+<body onLoad="loaded(); toggleDiv('divMerge', 0);">
 <jsp:include page="top.jsp" />
 <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get" name="f">
 <input type="hidden" name="module" value=""/>
