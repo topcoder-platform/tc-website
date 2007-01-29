@@ -76,6 +76,23 @@ function merge() {
 	document.f.submit();
 }
 
+function toggleDiv(divId, state) 
+{
+    if(document.layers)   
+    {
+       document.layers[divId].visibility = state ? "show" : "hide";
+    }
+    else if(document.getElementById)
+    {
+        document.getElementById(divId).style.visibility = state ? "visible" : "hidden";
+    }
+    else if(document.all)
+    {
+        document.all[divId].style.visibility = state ? "visible" : "hidden";
+    }
+}
+
+
 var sr = <c:out value="${requestScope[defaults]['sr']}"/>;
 var nr = <c:out value="${requestScope[defaults]['nr']}"/>;
 
