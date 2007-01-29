@@ -117,6 +117,7 @@ function doMerge() {
     
     ajaxRequest.addNamedFormElements("s1");
     ajaxRequest.addNamedFormElements("s2");
+    ajaxRequest.addNamedFormElements("ua");
     ajaxRequest.addNamedFormElements("type");
     ajaxRequest.addNamedFormElements("cc");    
     ajaxRequest.addNamedFormElements("date");    

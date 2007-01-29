@@ -91,7 +91,7 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
         	query.append(" AND s.modifyDate >= ?");
         }
         if (name != null) {
-        	query.append(" AND s.name like ?");        	
+        	query.append(" AND lower(s.name) like lower(?)");        	
         }
         query.append(" AND s.viewable=1");
         query.append(" ORDER BY " + (orderByCountry? " s.address.country.name, s.name" : " s.name"));
