@@ -11,6 +11,10 @@ import com.topcoder.web.common.model.Event;
  *          Create Date: Jan 18, 2007
  */
 public class EventDAOHibernate extends Base implements EventDAO {
+    public EventDAOHibernate() {
+        super();
+    }
+    
     public EventDAOHibernate(Session session) {
         super(session);
     }
