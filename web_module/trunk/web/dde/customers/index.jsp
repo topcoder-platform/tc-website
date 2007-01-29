@@ -212,7 +212,6 @@
                     <td width="170"><img src="/images/clients/directenergy_logo.gif" alt="Direct Energy" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">Direct Energy is North America's largest competitive energy solutions provider, with over five million residential and commercial customer relationships. Direct Energy provides customers with choice and support in managing energy costs through a portfolio of innovative products and services.<br><br>
-                    <A href="http://www.directenergy.com/" target="_blank">homepage</A>
                     <A href="<tc-webtag:linkTracking link="http://www.directenergy.com/" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
