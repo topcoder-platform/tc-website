@@ -34,8 +34,8 @@
 </jsp:include>
 
 <div id="main">
-    <div class="sectionHeader">
-        <span class="sectionName">Active Competitions</span>
+    <div class="pageHeader">
+        <span class="pageName">Active Competitions</span>
     </div>
 
     <h2 align="right">Need help? Learn how to

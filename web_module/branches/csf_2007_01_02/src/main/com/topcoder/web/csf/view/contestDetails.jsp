@@ -32,8 +32,8 @@
 </jsp:include>
 
 <div id="main">
-    <div class="sectionHeader">
-        <span class="sectionName">Competition Details</span>
+    <div class="pageHeader">
+        <span class="pageName">Competition Details</span>
     </div>
 
 
@@ -53,9 +53,7 @@
         ${contest.name}
     </div>
 
-<div class="sectionHeader">
-    <span class="sectionName">Project Overview</span>
-</div>
+<h2>Project Overview</h2>
 ${contest.overview.value}
 <br><br>
 
@@ -76,9 +74,7 @@ ${contest.overview.value}
 </c:if>
 
 
-<div class="sectionHeader">
-    <span class="sectionName">Payment</span>
-</div>
+<h2>Payment</h2>
 ${contest.prizeDescription.value}
 <br><br>
 
@@ -104,9 +100,7 @@ ${contest.prizeDescription.value}
 </c:choose>
 
 
-<div class="sectionHeader">
-    <span class="sectionName">Eligibility</span>
-</div>
+<h2>Eligibility</h2>
 
 <p>You must be a TopCoder Studio member, at least 18 years of age, meeting all of the membership requirements.
     In addition, you must fit into one of the following categories.
@@ -135,9 +129,7 @@ ${contest.prizeDescription.value}
 
 <br><br>
 
-<div class="sectionHeader">
-    <span class="sectionName">Timeline</span>
-</div>
+<h2>Timeline</h2>
 All submissions are required to be submitted by the End Date.
 <br><br>
 
@@ -164,13 +156,11 @@ All submissions are required to be submitted by the End Date.
 <br><br>
 
 <c:if test="${currentTime<=contest.endTime && currentTime>=contest.startTime}">
-<div class="sectionHeader">
-    <span class="sectionName">Upload Your Submission</span>
-</div>
+<h2>Upload Your Submission</h2>
     If you are ready to submit your design for this contest, click the button below.
     <br><br>
 
-    <div align="center">
+    <div style="float: left;">
         <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="button" style="width: 60px;">Submit</A>
     </div>
 </c:if>

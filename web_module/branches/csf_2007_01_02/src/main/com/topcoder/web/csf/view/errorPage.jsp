@@ -48,8 +48,8 @@
 </div>
 
 <div id="main">
-    <div class="sectionHeader">
-        <span class="sectionName">Error</span>
+    <div class="pageHeader">
+        <span class="pageName">Error</span>
     </div>
 
                 <div align="center">

@@ -325,7 +325,7 @@ When you're done, click the <strong>Submit my vote</strong> button on bottom.
     </tr>
 </table>
 <%-- MAGNIFYING GLASS POPUP --%>
-<div id="magglassPopup" class="popUp"><div>View submission</div></div>
+<div id="magglassPopup" class="popUp"><div>View full submission</div></div>
 
 <div align="center" style="margin:20px;">
     Are you done ranking the candidates?
@@ -638,7 +638,7 @@ When you're done, click the <strong>Submit my vote</strong> button on bottom.
     </tr>
 </table>
 <%-- MAGNIFYING GLASS POPUP --%>
-<div id="magglassPopup" class="popUp"><div>View submission</div></div>
+<div id="magglassPopup" class="popUp"><div>View full submission</div></div>
 
 <div align="center" style="margin:20px;">
     Are you done ranking the candidates?

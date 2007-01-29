@@ -28,9 +28,9 @@
 </jsp:include>
 
 <div id="main">
-    <div class="sectionHeader">
-        <span class="sectionNumber">01</span>
-        | <span class="sectionName">Section Title</span>
+    <div class="pageHeader">
+        <span class="pageNumber">01</span>
+        | <span class="pageName">Section Title</span>
     </div>
 
     <p>
