@@ -21,6 +21,9 @@
 .calendar table { width: 250px; height: 200px; }
 </style>
 
+<script type="text/javascript" src="/js/taconite-client.js"></script>
+<script type="text/javascript" src="/js/taconite-parser.js"></script>
+
 <script language="javascript" type="text/javascript">
 function getIdx() {
     for (var i = 0; i < document.f.school.length; i++) {
@@ -85,6 +88,28 @@ function previous() {
    search();
 }
 
+
+function loading() {
+    toggleDiv("loading", 1);
+}
+
+function loaded() {
+    toggleDiv("loading", 0);
+}
+
+function doSearch() {
+	var ajaxRequest = new AjaxRequest('/admin?module=SearchSchools');
+    
+    ajaxRequest.addNamedFormElements("type");
+    ajaxRequest.addNamedFormElements("cc");    
+    ajaxRequest.addNamedFormElements("date");    
+    ajaxRequest.addNamedFormElements("order");    
+    ajaxRequest.setPostRequest(loaded);
+    ajaxRequest.setPreRequest(loading);    
+    ajaxRequest.sendRequest();
+}
+
+
 </script>
 
 </head>
@@ -102,6 +127,11 @@ function previous() {
 		<table>
 			<tr>
 				<td>
+                        <div id="loading">
+<p align="right">
+<b><font color="#FF0000" size="+1">Loading...</font></b>
+</p>
+</div>
                         
                      <table cellpading="5" cellspacing="5">
                      	<tr>
@@ -170,11 +200,9 @@ Calendar.setup(
 			</tr>
 			<tr>
 				<td>
-				<select multiple size="15" style="width: 600px;" name="school" ondblclick="schoolDoubleClick()">					
-                        <c:forEach items="${requestScope.schools}" var="result">
-                           <option value="${result[1].id}">[${result[1].address.country.name}] ${result[1].name} (${result[0]})</option>
-                        </c:forEach>
-				</select>
+				
+				<div id="searchResults">
+				</div>
 				</td>
 			</tr>
 			<tr>
