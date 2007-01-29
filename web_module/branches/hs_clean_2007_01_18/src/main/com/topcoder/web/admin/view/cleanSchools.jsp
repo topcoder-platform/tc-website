@@ -1,7 +1,9 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 
 <c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
 
@@ -10,7 +12,7 @@
 <html>
 <head>
 <title>TopCoder Admin</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-16">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
     <script type="text/javascript" src="/js/jscal/calendar.js"></script>
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
@@ -130,7 +132,7 @@ function doSearch() {
 </script>
 
 </head>
-<body>
+<body onLoad="loaded()">
 <jsp:include page="top.jsp" />
 <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get" name="f">
 <input type="hidden" name="module" value=""/>
