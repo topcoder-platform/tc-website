@@ -89,9 +89,9 @@ public class SetTeamPoints extends DBUtility {
                 	rsCoders.next();
                 	
                 	psUpd.clearParameters();
-                	psUpd.setInt(1, rsTeams.getInt("division_placed"));
+                	psUpd.setInt(1, rsCoders.getInt("division_placed"));
                 	psUpd.setLong(2, roundId);
-                	psUpd.setLong(3, rsTeams.getInt("coder_id"));
+                	psUpd.setLong(3, rsCoders.getInt("coder_id"));
                 	psUpd.executeUpdate();
                 }
 
