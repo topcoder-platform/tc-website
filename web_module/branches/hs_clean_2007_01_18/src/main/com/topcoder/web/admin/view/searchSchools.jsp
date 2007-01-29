@@ -4,9 +4,6 @@
 
 <fmt:requestEncoding value="utf-8"/>
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-
 <taconite-root xml:space="preserve">
     <taconite-replace contextNodeID="searchResults" parseInBrowser="true">
     				<div id="searchResults">
