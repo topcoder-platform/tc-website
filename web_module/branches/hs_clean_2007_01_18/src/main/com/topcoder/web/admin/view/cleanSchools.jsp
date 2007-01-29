@@ -176,7 +176,7 @@ function doSearch() {
 				       	</tr>
 				       	<tr>
 				       		<td colspan="2">
-								<input type="button" value="search" onClick="search()">
+								<input type="button" value="search" onClick="doSearch()">
 				       		</td>
 				       	</tr>
 				       </table>
