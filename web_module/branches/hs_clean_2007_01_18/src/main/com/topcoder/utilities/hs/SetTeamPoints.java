@@ -63,6 +63,7 @@ public class SetTeamPoints extends DBUtility {
 			
 			rsTeams = psTeams.executeQuery();
 
+			query = new StringBuffer(200);
 			query.append("SELECT rr.coder_id, rr.division_placed "); 
 			query.append("FROM room_result rr, round_registration reg ");
 			query.append("WHERE rr.round_id = ? ");
