@@ -138,7 +138,6 @@ function doSearch() {
 <input type="hidden" name="module" value=""/>
 <input type="hidden" name="s1" value="">
 <input type="hidden" name="s2" value="">
-
 <table cellpading="5" cellspacing="5">
 	<tr valign="top">
 		<td><jsp:include page="left.jsp" /></td>
