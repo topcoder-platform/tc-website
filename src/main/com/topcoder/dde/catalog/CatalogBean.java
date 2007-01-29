@@ -1244,21 +1244,31 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
 
             query = new StringBuffer(500);
-            query.append("SELECT ur.user_role_id, ur.login_id, s.user_id,                ");
-            query.append("       r.role_id, r.role_name, r.description, ur.description   ");
-            query.append("  FROM user_role ur, roles r, comp_catalog c, comp_versions v, ");
-            query.append("       security_user s                                         ");
-            query.append(" WHERE r.role_id = ur.role_id                                  ");
-            query.append("   AND c.component_id = ? AND c.component_id = v.component_id  ");
-            query.append("   AND s.login_id = ur.login_id                                ");
-            if (version < 0)
-                query.append("   AND c.current_version = v.version          ");
-            else
-                query.append("   AND ? = v.version                          ");
-            query.append("   AND ur.comp_vers_id = v.comp_vers_id            ORDER BY 3 ");
+            query.append("select r.resource_id, s.login_id, s.user_id, r.resource_role_id, project_category_id ");
+            query.append("  from resource r, resource_info ri, security_user s, project_info pi, project p");
+            if (version >= 0) {
+            	query.append(", project_info pi1 ");
+            }
+            query.append(" where r.resource_id = ri.resource_id");
+            query.append("   and ri.resource_info_type_id = 1  ");
+            query.append("   and ri.value = s.login_id ");
+            query.append("   and r.project_id = pi.project_id  ");
+            query.append("   and r.project_id = p.project_id ");
+            query.append("   and pi.project_info_type_id = 2 ");
+            query.append("   and ((r.resource_role_id = 1 and exists  ");
+            query.append("   (select 1 from resource_info where resource_id = r.resource_id   ");
+            query.append("   and resource_info_type_id = 12  ");
+            query.append("   and value = 1))  ");
+            query.append("   or r.resource_role_id in (4, 5, 6, 7)) ");
+            query.append("   and pi.value = ? ");
+            if (version >= 0) {
+                query.append("   and pi.project_id = pi1.project_id ");
+                query.append("   and pi1.project_info_type_id = 3 ");
+            	query.append("   and pi1.value = ? ");
+            }
+            query.append("   ORDER BY 3; ");
 
             try {
-
                 ps = c.prepareStatement(query.toString());
                 ps.setLong(1, componentId);
                 if (version >= 0) ps.setLong(2, version);
@@ -1268,7 +1278,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 while (rs.next())
                     list.add(new TeamMemberRole(rs.getLong(1),
                             rs.getLong(2), rs.getString(3), rs.getLong(4),
-                            rs.getString(5), rs.getString(6), rs.getString(7)));
+                            rs.getLong(5)));
 
                 members = (TeamMemberRole[]) list.toArray(new TeamMemberRole[0]);
 
