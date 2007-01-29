@@ -88,8 +88,8 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_pmcProduct">PMC Product</A>
       </td>
       <td class="valueC">
-      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: PMC Product">register</A>
-      <%--registration closed--%>
+      <%--<A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: PMC Product">register</A>--%>
+      registration closed
       </td>
       <td class="valueC">
       &#160;
@@ -122,8 +122,8 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_pmcOffline">PMC Offline</A>
       </td>
       <td class="valueC">
-      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: PMC Offline">register</A>
-      <%--registration closed--%>
+      <%--<A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: PMC Offline">register</A>--%>
+      registration closed
       </td>
       <td class="valueC">
       &#160;
@@ -156,8 +156,8 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_pmcUser">PMC User</A>
       </td>
       <td class="valueC">
-      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: PMC User">register</A>
-      <%--registration closed--%>
+      <%--<A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: PMC User">register</A>--%>
+      registration closed
       </td>
       <td class="valueC">
       &#160;
