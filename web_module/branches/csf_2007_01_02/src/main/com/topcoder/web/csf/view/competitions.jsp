@@ -1,0 +1,57 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page contentType="text/html;charset=utf-8" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="csf.tld" prefix="csf" %>
+<%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
+<html>
+<head>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <link type="text/css" rel="stylesheet" href="/css/main.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/stats.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>CSF</title>
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+    <script type="text/javascript"> _uacct = "UA-321688-2";
+    urchinTracker(); </script>
+    <script type="text/javascript" src="/js/popup.js"></script>
+</head>
+
+<body>
+
+<div align="center">
+<div id="content">
+
+<jsp:include page="top.jsp"/>
+
+<jsp:include page="primaryNav.jsp">
+<jsp:param name="selectedTab" value="competitions"/>
+</jsp:include>
+
+<div id="main">
+    <div class="pageHeader">
+        <span class="pageName">Competitions</span>
+    </div>
+
+<div align="center" style="margin: 20px 0px 40px 0px;">
+<table cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+<tbody>
+    <tr>
+        <td style="padding-right: 20px; background: transparent url(/i/layout/dotsVertical.png) top right repeat-y;">
+            <A href="/?module=ViewActiveContests"><img src="/i/layout/btnCreative.png" alt="" /></A>
+        </td>
+        <td style="padding-left: 20px;">
+            <A href=""><img src="/i/layout/btnAssembly.png" alt="" /></A>
+        </td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+</div>
+    
+<jsp:include page="foot.jsp"/>
+</div>
+</div>
+
+</body>
+</html>

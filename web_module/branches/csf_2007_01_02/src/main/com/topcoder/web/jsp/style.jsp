@@ -42,4 +42,11 @@
 <link type="text/css" rel="stylesheet" href="/css/main.css">
 <link type="text/css" rel="stylesheet" href="/css/stats.css">
 <link type="text/css" rel="stylesheet" href="/css/forums.css">
+<% } else if (key.equals("csf")) { %>
+<link type="text/css" rel="stylesheet" href="/css/main.css">
+<link type="text/css" rel="stylesheet" href="/css/stats.css">
+<% } else if (key.equals("csfforums")) { %>
+<link type="text/css" rel="stylesheet" href="/css/main.css">
+<link type="text/css" rel="stylesheet" href="/css/stats.css">
+<link type="text/css" rel="stylesheet" href="/css/forums.css">
 <% } %>
