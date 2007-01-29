@@ -95,6 +95,19 @@ function loaded() {
     toggleDiv("loading", 0);
 }
 
+function postSearch() {
+	loaded();
+    toggleDiv("divMerge", 1);
+}
+
+function postMerge() {
+	loaded();
+	document.f.s1.value="";
+	document.f.s2.value="";
+	document.f.destName.value="";	
+	document.f.srcName.value="";	
+}
+
 function doSearch() {
 	var ajaxRequest = new AjaxRequest('/admin?module=SearchSchools');
     
@@ -103,7 +116,7 @@ function doSearch() {
     ajaxRequest.addNamedFormElements("date");    
     ajaxRequest.addNamedFormElements("order");    
     ajaxRequest.addNamedFormElements("name");
-    ajaxRequest.setPostRequest(loaded);
+    ajaxRequest.setPostRequest(postSearch);
     ajaxRequest.setPreRequest(loading);    
     ajaxRequest.sendRequest();
 }
@@ -111,6 +124,10 @@ function doSearch() {
 function doMerge() {
     if (document.f.s1.value=="" || document.f.s2.value=="") {
     	alert("Please select source and destination schools for the merge");
+    	return;
+    }
+    if (document.f.s1.value==document.f.s2.value) {
+    	alert("Source and destination schools must be different");
     	return;
     }
 	var ajaxRequest = new AjaxRequest('/admin?module=MergeSchools');
@@ -123,7 +140,7 @@ function doMerge() {
     ajaxRequest.addNamedFormElements("date");    
     ajaxRequest.addNamedFormElements("order");    
     ajaxRequest.addNamedFormElements("name");
-    ajaxRequest.setPostRequest(loaded);
+    ajaxRequest.setPostRequest(postMerge);
     ajaxRequest.setPreRequest(loading);    
     ajaxRequest.sendRequest();
 }
@@ -218,6 +235,7 @@ Calendar.setup(
 			</tr>
 			<tr>
 				<td>
+				<div id="divMerge">
 				Double click in the source school first and then in the destination school or use the links below.<br>
 
 						<a href="javascript:chooseSrc()">choose as source school</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -239,6 +257,7 @@ Calendar.setup(
 							<input type="button" value="Merge" onClick="doMerge()"></td>
 						</tr>
 					</table>
+					</div>
 
 
 				</td>
