@@ -20,23 +20,13 @@ public class SearchSchools extends ShortHibernateProcessor {
     	DAOFactory dao = DAOUtil.getFactory();
     	SchoolDAO s = dao.getSchoolDAO();
     	String cc = getRequest().getParameter("cc");
-    	Integer type = SchoolType.HIGH_SCHOOL;
-    	Date creationAfter = null;
-    	String order = "c";
+    	String name = getRequest().getParameter("name");
+    	Integer type = new Integer(getRequest().getParameter("type"));
+    	Date creationAfter = new SimpleDateFormat("MM/dd/yy").parse(getRequest().getParameter("date"));
+    	String order = getRequest().getParameter("order");
+
     	
-    	if (getRequest().getParameter("type") != null) {
-    		type = new Integer(getRequest().getParameter("type")); 
-    	}
-    	
-    	if (getRequest().getParameter("order") != null) {
-    		order = getRequest().getParameter("order"); 
-    	}
-    	
-    	if (getRequest().getParameter("date") != null && getRequest().getParameter("date").trim().length() > 0) {
-    		creationAfter = new SimpleDateFormat("MM/dd/yy").parse(getRequest().getParameter("date"));
-    	}
-    	    	
-    	List schools = s.search(type.intValue() <0? null:dao.getSchoolTypeDAO().find(type), creationAfter, cc, "c".equals(order), 0, 10000);
+    	List schools = s.search(type.intValue() <0? null:dao.getSchoolTypeDAO().find(type), name, creationAfter, cc, "c".equals(order));
     	getRequest().setAttribute("schools", schools);
     	
     	setNextPage("/searchSchools.jsp");

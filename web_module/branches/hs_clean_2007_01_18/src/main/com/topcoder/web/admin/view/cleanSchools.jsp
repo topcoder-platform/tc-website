@@ -123,6 +123,7 @@ function doSearch() {
     ajaxRequest.addNamedFormElements("cc");    
     ajaxRequest.addNamedFormElements("date");    
     ajaxRequest.addNamedFormElements("order");    
+    ajaxRequest.addNamedFormElements("name");
     ajaxRequest.setPostRequest(loaded);
     ajaxRequest.setPreRequest(loading);    
     ajaxRequest.sendRequest();
@@ -151,7 +152,7 @@ function doSearch() {
 </p>
 </div>
                         
-                     <table cellpading="5" cellspacing="5">
+                     <table cellpading="20" cellspacing="20">
                      	<tr>
                      		<td width="150">School type:</td>
                      		<td>
@@ -180,16 +181,9 @@ function doSearch() {
                 			</td>
                 		</tr>
 				       <tr>
-				       		<td>Rows:</td>
+				       		<td>School Name:</td>
+				       			<tc-webtag:textInput name="name" size="30" editable="true"/>
 				       		<td>
-				       			starting at <tc-webtag:textInput name="sr" size="3"/> display <tc-webtag:textInput name="nr" size="3"/> rows.<br>
-				       			
-				       			<c:if test="${requestScope[defaults]['sr'] > 1}">
-				       				<a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
-				       			</c:if>
-                                <c:if test="${requestScope.displayNext}">
-				       				<a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>				       			
-				       				</c:if>
 				       		</td>
 				       	</tr>
 				       	<tr>

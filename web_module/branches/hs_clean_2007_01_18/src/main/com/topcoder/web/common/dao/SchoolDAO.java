@@ -19,6 +19,6 @@ public interface SchoolDAO {
 
     List searchByNameAndType(String name, SchoolType type, int maxResults);
     
-    List search(SchoolType type, Date creationAfter, String countryCode,  boolean orderByCountry, int startRow, int maxResults);
+    List search(SchoolType type, String name, Date creationAfter, String countryCode,  boolean orderByCountry);
     
 }
