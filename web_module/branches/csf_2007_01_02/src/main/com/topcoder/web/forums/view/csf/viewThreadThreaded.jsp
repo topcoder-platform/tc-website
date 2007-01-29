@@ -125,19 +125,17 @@
 <body>
 
 <div align="center">
-<div class="contentOut">
+<div id="content">
 
+<jsp:include page="top.jsp"/>
 
-      <jsp:include page="top.jsp" />
-
-
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="forums"/>
+<%--
+<jsp:include page="primaryNav.jsp">
+<jsp:param name="selectedTab" value="discuss"/>
 </jsp:include>
-<div class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
+--%>
 
-<div class="contentSpacer">
+<div id="forumsMain">
 
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
@@ -298,8 +296,11 @@
 </tc-webtag:iterator>
 <%-------------POSTS END---------------%>
 
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
-    <tr><td><b>
+<div><b>
+    <div style="float:right; text-align:right;">
+    <a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" src="/i/forums/btn_rss.gif"/></a>
+    </div>
+
         <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
             <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>&mc=<%=category.getMessageCount()%>" class="rtbcLink">
                 <%=category.getName()%>
@@ -332,17 +333,11 @@
         Next Thread
         <% } %>
         <% } %>
-    </td>
-        <td width=1% align="right" valign="top">
-            <a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" src="/i/forums/btn_rss.gif"/></a>
-        </td>
-</table>
+</div>
 
 </div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
+    
 <jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
 </div>
 </div>
 

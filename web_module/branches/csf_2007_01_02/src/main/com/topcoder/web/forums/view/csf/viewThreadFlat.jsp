@@ -24,7 +24,7 @@
 <tc-webtag:useBean id="historyBean" name="historyBean" type="com.topcoder.web.ejb.messagehistory.MessageHistory" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
-<% 	HashMap errors = (HashMap) request.getAttribute(BaseProcessor.ERRORS_KEY);
+<%     HashMap errors = (HashMap) request.getAttribute(BaseProcessor.ERRORS_KEY);
     User user = (User) request.getAttribute("user");
     String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW));
     RatingManager ratingManager = RatingManagerFactory.getInstance(authToken);
@@ -124,19 +124,17 @@
 <body>
 
 <div align="center">
-<div class="contentOut">
+<div id="content">
 
+<jsp:include page="top.jsp"/>
 
-      <jsp:include page="top.jsp" />
-
-
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="forums"/>
+<%--
+<jsp:include page="primaryNav.jsp">
+<jsp:param name="selectedTab" value="discuss"/>
 </jsp:include>
-<div class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
+--%>
 
-<div class="contentSpacer">
+<div id="forumsMain">
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable" border="0">
     <tr>
@@ -221,10 +219,10 @@
                 <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink">
                     <%=forum.getName()%>
                 </A>
-                <%	String linkStr = ForumsUtil.createLinkString(forum);
-			   		if (!linkStr.equals("")) { %>
-			   			<%=linkStr%>
-			   	<% 	} %> 
+                <%    String linkStr = ForumsUtil.createLinkString(forum);
+                       if (!linkStr.equals("")) { %>
+                           <%=linkStr%>
+                   <%     } %> 
                 > <%=thread.getName()%>
             </b>
         </td>
@@ -282,20 +280,20 @@
                         <%  } %>
             </td>
         </tr>
-        <% 	if (message.getAttachmentCount() > 0) { %>
-		<tr>
-			<td class="rtHeader" colspan="2">
-				Attachments:
-				<%	Iterator attachments = message.getAttachments();
-					while(attachments.hasNext()) {
-						Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
-						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" /></A>
-						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
-				<% 	} %>
-			</td>
-	 	</tr>
-	 	<% 	} %>
-        <% 	double pct = ratingCount <= 0 ? 0 : 100 * (double) (posRatings) / (double) (ratingCount);
+        <%     if (message.getAttachmentCount() > 0) { %>
+        <tr>
+            <td class="rtHeader" colspan="2">
+                Attachments:
+                <%    Iterator attachments = message.getAttachments();
+                    while(attachments.hasNext()) {
+                        Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
+                        <A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" /></A>
+                        <A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
+                <%     } %>
+            </td>
+         </tr>
+         <%     } %>
+        <%     double pct = ratingCount <= 0 ? 0 : 100 * (double) (posRatings) / (double) (ratingCount);
             String msgBodyDisplay = ForumsUtil.collapsePost(user, pct, ratingCount, thread.getMessageCount()) ? "display:none" : "";
         %>
         <tr id="<%=msgBodyID%>" style="<%=msgBodyDisplay%>">
@@ -365,10 +363,10 @@
 <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink">
     <%=forum.getName()%>
 </A>
-<%	linkStr = ForumsUtil.createLinkString(forum);
-   	if (!linkStr.equals("")) { %>
-   		<%=linkStr%>
-<% 	} %> 
+<%    linkStr = ForumsUtil.createLinkString(forum);
+       if (!linkStr.equals("")) { %>
+           <%=linkStr%>
+<%     } %> 
 > <%=thread.getName()%>
 </b>
 <% if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br>
@@ -392,10 +390,8 @@ Next Thread
 </div>
 
 </div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
+    
 <jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
 </div>
 </div>
 
