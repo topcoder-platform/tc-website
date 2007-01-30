@@ -63,7 +63,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
                 User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
                 if (!isRegistered(e, u)) {
                     if (isEligible()) {
-                        getRequest().setAttribute("questionInfo", e.getSurvey().getQuestions());
+                        getRequest().setAttribute("event", e);
                         regProcessing(e, u);
                     } else {
                         throw new NavigationException("You are not eligible to register for the " + e.getDescription());

@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.web.tc.controller.request.tournament.tchs07.RegistrationBase" %>
-<%@ page import="com.topcoder.web.common.model.Question,
+<%@ page import="com.topcoder.web.common.model.Event,
+                 com.topcoder.web.common.model.Question,
                  com.topcoder.web.common.tag.AnswerInput,
                  java.util.Collections" %>
 <%@ page import="java.util.Set" %>
@@ -10,7 +11,8 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<% List questionInfo = new ArrayList(((Set) request.getAttribute("questionInfo"))); %>
+<% Event event = (Event) request.getAttribute("event"); 
+   List questionInfo = new ArrayList(event.getSurvey().getQuestions()); %>
 <html>
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
@@ -39,11 +41,13 @@
 
 
 
-                <p align="left">To complete your registration for the 2007 TopCoder&#174; High School Tournament you
+                <p align="left">To complete your registration for the <%=event.getDescription()%> you
                     must <b>read and agree to</b> the terms listed below.</p>
 
                 <div align="center">
-                    <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tchs07&d3=termsContent&<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.TCHS07_TERMS_OF_USE_ID%>"></iframe>
+                    <textarea style="width:590; height:300;" name="textarea">
+                        <%=event.getTerms().getText()%>
+                    </textarea>
                 </div>
 
                 <div align="center">
