@@ -101,19 +101,19 @@ public class Question implements Serializable {
     }
 
     public int getTypeId() {
-        return typeId;
+        return type.getId().intValue();
     }
 
     public void setTypeId(int typeId) {
-        this.typeId = typeId;
+        this.type.setId(new Integer(typeId));
     }
 
     public int getStyleId() {
-        return styleId;
+        return style.getId().intValue();
     }
 
     public void setStyleId(int styleId) {
-        this.styleId = styleId;
+        this.style.setId(new Integer(styleId));
     }
 
     public String getText() {
