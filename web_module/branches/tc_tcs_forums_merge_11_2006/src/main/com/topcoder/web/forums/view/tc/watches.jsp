@@ -50,7 +50,7 @@
 
             <jsp:include page="page_title.jsp">
                 <jsp:param name="image" value="forums"/>
-                <jsp:param name="title" value="Watched Threads"/>
+                <jsp:param name="title" value="Watches"/>
             </jsp:include>
 
             <div class="topLinksL">
@@ -61,7 +61,7 @@
                 <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<b>My Watches</b>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User
                 Settings</A><br/>
             </div><br><br>
-
+	
             All watch updates will be emailed to your email address: <b><%=user.getEmail()%></b>.
             Watches on content that hasn't been updated for more than 90 days will be automatically removed from your
             list.
@@ -71,7 +71,7 @@
                 <tc-webtag:hiddenInput name="module" value="Watches"/>
                 <tc-webtag:hiddenInput name="<%=ForumConstants.WATCH_TYPE%>" value="<%=String.valueOf(JiveConstants.THREAD)%>"/>
                 <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>"/>
-                <b><font size="2">Watched Threads (<%=watchManager.getTotalWatchCount(user, JiveConstants.THREAD)%>)</font></b>
+                <b>Watched Threads (<%=watchManager.getTotalWatchCount(user, JiveConstants.THREAD)%>)</b>
                 <table cellpadding="0" cellspacing="0" class="rtTable">
                     <tr>
                         <td class="rtHeader" width="70%">Thread</td>
@@ -92,9 +92,8 @@
                             </td>
                             <td class="rtThreadCell"><%if (rootMessage.getUser() != null) {%>
                                 <tc-webtag:handle coderId="<%=rootMessage.getUser().getID()%>"/><%}%></td>
-                            <td class="rtThreadCell" align="right"><%=thread.getMessageCount() - 1%>&#160;&#160;&#160;&#160;&#160;</td>
-                            <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%>
-                                &#160;&#160;&#160;&#160;</td>
+                            <td class="rtThreadCell" align="right"><%=thread.getMessageCount() - 1%></td>
+                            <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%></td>
                             <td class="rtThreadCell"><b>
                                 <tc-webtag:format object="${thread.modificationDate}" format="MMM d, yyyy h:mm a z" timeZone="${sessionInfo.timezone}"/></b>
                             </td>
@@ -115,14 +114,14 @@
                 <div align="right">
                     <input type="image" src="/i/roundTables/update.gif" alt="Update" onclick="form1.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_UPDATE%>'"/>
                 </div>
-
             </form>
 
+			<%	if (watchManager.getTotalWatchCount(user, JiveConstants.FORUM_CATEGORY) > 0) { %>
 			<form name="form2" method="post" action="<%=sessionInfo.getServletPath()%>">
                 <tc-webtag:hiddenInput name="module" value="Watches"/>
                 <tc-webtag:hiddenInput name="<%=ForumConstants.WATCH_TYPE%>" value="<%=String.valueOf(JiveConstants.FORUM_CATEGORY)%>"/>
                 <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>"/>
-                <b><font size="2">Watched Categories (<%=watchManager.getTotalWatchCount(user, JiveConstants.FORUM_CATEGORY)%>)</font></b>
+                <b>Watched Software Forums (<%=watchManager.getTotalWatchCount(user, JiveConstants.FORUM_CATEGORY)%>)</b>
                 <table cellpadding="0" cellspacing="0" class="rtTable">
                     <tr>
                         <td class="rtHeader" width="100%">Category</td>
@@ -139,8 +138,8 @@
                             <td class="rtThreadCellWrap">
                                 <a href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="<%=trackerClass%>"><%=category.getName()%></a>
                             </td>
-                            <td class="rtThreadCell" align="right"><%=category.getThreadCount()%>&#160;&#160;&#160;&#160;&#160;</td>
-                            <td class="rtThreadCell" align="right"><%=category.getMessageCount()%>&#160;&#160;&#160;&#160;</td>
+                            <td class="rtThreadCell" align="right"><%=category.getThreadCount()%></td>
+                            <td class="rtThreadCell" align="right"><%=category.getMessageCount()%></td>
                             <td class="rtThreadCell"><b>
                                 <tc-webtag:format object="${category.modificationDate}" format="MMM d, yyyy h:mm a z" timeZone="${sessionInfo.timezone}"/></b>
                             </td>
@@ -161,10 +160,10 @@
 
                 <div align="right">
                     <input type="image" src="/i/roundTables/update.gif" alt="Update" onclick="form2.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_UPDATE%>'"/>
-                </div>
-                
+                </div>                
             </form>
             <p><br/></p>
+            <%	} %>
         </td>
         <!-- Center Column Ends -->
 
