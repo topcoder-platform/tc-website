@@ -44,8 +44,10 @@ public class Watches extends ForumsProcessor {
         }
 
         Iterator itThreads = watchManager.getAllWatches(user, JiveConstants.THREAD);
+        Iterator itCategories = watchManager.getAllWatches(user, JiveConstants.FORUM_CATEGORY);
         getRequest().setAttribute("watchManager", watchManager);
         getRequest().setAttribute("threads", itThreads);
+        getRequest().setAttribute("categories", itCategories);
 
 		setNextPage("/watches.jsp");
 		setIsNextPageInContext(true);

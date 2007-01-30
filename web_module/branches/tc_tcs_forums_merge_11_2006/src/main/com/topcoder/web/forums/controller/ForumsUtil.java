@@ -268,10 +268,15 @@ public class ForumsUtil {
         while (itCategories.hasNext()) {
         	ForumCategory c = (ForumCategory)itCategories.next();
         	String archivalStatus = c.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS);
-        	long componentStatus = forumsBean.getComponentStatus(Long.parseLong(c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID)));
         	if (ForumConstants.PROPERTY_ARCHIVAL_STATUS_ARCHIVED.equals(archivalStatus) ||
-        			ForumConstants.PROPERTY_ARCHIVAL_STATUS_CLOSED.equals(archivalStatus)) continue;
-        	if (componentStatus != ComponentInfo.APPROVED) continue;        	
+        			ForumConstants.PROPERTY_ARCHIVAL_STATUS_CLOSED.equals(archivalStatus)) continue; 
+        	try {
+        		long componentStatus = forumsBean.getComponentStatus(Long.parseLong(c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID)));
+            	if (componentStatus != ComponentInfo.APPROVED) continue; 
+        	} catch (NumberFormatException nfe) {
+        		log.info("*** Category " + c.getID() + " has no PROPERTY_COMPONENT_ID: add ID or remove category");
+        		continue;
+        	}      	
         	if (c.getMessageCount() > 0) {
         		categoriesList.add(c);
         	} else {

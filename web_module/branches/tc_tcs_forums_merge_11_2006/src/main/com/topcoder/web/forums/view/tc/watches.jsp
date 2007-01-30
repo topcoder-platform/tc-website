@@ -63,8 +63,6 @@
                 Settings</A><br/>
             </div><br><br>
 
-            <span class="bodySubtitle">Watched Threads: <%=watchManager.getTotalWatchCount(user, JiveConstants.THREAD)%></span>
-            <br/>
             All watch updates will be emailed to your email address: <b><%=user.getEmail()%></b>.
             Watches on content that hasn't been updated for more than 90 days will be automatically removed from your
             list.
@@ -72,6 +70,7 @@
             <form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
                 <tc-webtag:hiddenInput name="module" value="Watches"/>
                 <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>"/>
+                <b><font size="2">Watched Threads (<%=watchManager.getTotalWatchCount(user, JiveConstants.THREAD)%>)</font></b>
                 <table cellpadding="0" cellspacing="0" class="rtTable">
                     <tr>
                         <td class="rtHeader" width="70%">Thread</td>
