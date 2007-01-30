@@ -18,8 +18,8 @@
         <many-to-one name="style" column="question_style_id" access="field" class="QuestionStyle"/>
         <property name="required" column="is_required" type="boolean" access="field"/>
 
-        <set name="answers" cascade="save-update" inverse="true" access="field" order-by="sort_order">
-            <key column="question_id" not-null="true"/>
+        <set name="answers" cascade="save-update" inverse="true" access="field" order-by="sort_order" fetch="select">
+            <key column="answer_id" not-null="true"/>
             <one-to-many class="Answer"/>
         </set>
 
