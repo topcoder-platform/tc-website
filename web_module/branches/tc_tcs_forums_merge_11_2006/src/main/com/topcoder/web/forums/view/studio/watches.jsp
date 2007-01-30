@@ -103,19 +103,19 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
                                 <td class="rtThreadCell"><%if (latestMessage.getUser() != null) {%>
                                     <studio:handle coderId="<%=latestMessage.getUser().getID()%>"/><%}%></td>
                                 <td class="rtThreadCell" align="center">
-                                    <input name="<%=ForumConstants.WATCHES_SAVE_THREAD%><%=thread.getID()%>" value="<%=thread.getID()%>" type="checkbox"
-                                            <%= (watchManager.getWatch(user, thread).isExpirable()) ? "" : "checked" %> onclick="Javascript:document.form1.<%=ForumConstants.WATCHES_DELETE_THREAD%><%=thread.getID()%>.checked=false;"/>
+                                    <input name="<%=ForumConstants.STATUS_SAVE%><%=thread.getID()%>" value="<%=thread.getID()%>" type="checkbox"
+                                            <%= (watchManager.getWatch(user, thread).isExpirable()) ? "" : "checked" %> onclick="Javascript:document.form1.<%=ForumConstants.STATUS_DELETE%><%=thread.getID()%>.checked=false;"/>
                                 </td>
                                 <td class="rtThreadCell" align="center">
-                                    <input name="<%=ForumConstants.WATCHES_DELETE_THREAD%><%=thread.getID()%>" value="<%=thread.getID()%>" type="checkbox"
-                                           onclick="Javascript:document.form1.<%=ForumConstants.WATCHES_SAVE_THREAD%><%=thread.getID()%>.checked=false;"/>
+                                    <input name="<%=ForumConstants.STATUS_DELETE%><%=thread.getID()%>" value="<%=thread.getID()%>" type="checkbox"
+                                           onclick="Javascript:document.form1.<%=ForumConstants.STATUS_SAVE%><%=thread.getID()%>.checked=false;"/>
                                 </td>
                             </tr>
                         </tc-webtag:iterator>
                     </table>
 
                     <div align="right">
-                        <input type="image" src="/i/forums/update.gif" alt="Update" onclick="form1.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.WATCHES_UPDATE%>'"/>
+                        <input type="image" src="/i/forums/update.gif" alt="Update" onclick="form1.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_UPDATE%>'"/>
                     </div>
 
                 </form>
