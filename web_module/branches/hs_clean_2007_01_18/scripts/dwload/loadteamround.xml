@@ -5,8 +5,9 @@
     <load>
         <classname>com.topcoder.shared.util.dwload.TCLoadAggregate</classname>
         <parameterList>
-            <parameter name="roundid" value="10066"/>
-            <parameter name="fullload" value="false"/>
+            <parameter name="onlyteamround" value="true"/>
+            <parameter name="fullload" value="true"/>
+		<parameter name="roundid" value="0"/>
         </parameterList>
     </load>
 </loadDefinition>

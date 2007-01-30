@@ -7,6 +7,7 @@
         <parameterList>
             <parameter name="roundid" value="10066"/>
             <parameter name="fullload" value="false"/>
+            <parameter name="teamsrankfullload" value="true"/>
         </parameterList>
     </load>
 </loadDefinition>
