@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.30.07<br>1:40 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm30">TCHS SRM 30 - Problem Set & Analysis</A></span><br><br>
+This match was pretty uneven, with standard easy and medium problems and a particularly tough hard that only 2 coders were able to solve.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15231364" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm30">full story</A> | 
+        <tc-webtag:forumLink forumID="506246" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.29.07<br>11:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -200,24 +217,5 @@ the easy problem.
         <A href="/tc?module=Static&d1=match_editorials&d2=srm334">full story</A> | 
         <tc-webtag:forumLink forumID="506224" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorial" border="0" /><br>01.12.07<br>3:10 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=standardTemplateLibrary">Power up C++ with the Standard Template Library</A></span><br><br>
-       You may be using C++ already, but have noticed that some coders manage
-to write their code much more quickly than you can. Or perhaps you are
-not a C++ programmer, but want to become one. Either way, the powerful
-features of the Standard Template Library can help.</td>
-      <td class="newsPhoto"><img src="/i/m/DmitryKorolev_big2.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="21749340" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=standardTemplateLibrary">full story</A> | 
-         <tc-webtag:forumLink forumID="506253" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
 
