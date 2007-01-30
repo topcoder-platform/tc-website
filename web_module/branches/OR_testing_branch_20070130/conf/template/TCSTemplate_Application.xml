@@ -42,8 +42,12 @@
 			<Dependency id="appealsReponsePhase"/>
 		</Phase>
 
-		<Phase id="finalFixesPhase" length="86400000" type="final_fixes">
+		<Phase id="aggregationReviewPhase" length="86400000" type="aggregation_review">
 			<Dependency id="aggregationPhase" isDependencyStart="false" isDependentStart="true" lagTime="0"/>
+		</Phase>
+
+		<Phase id="finalFixesPhase" length="86400000" type="final_fixes">
+			<Dependency id="aggregationReviewPhase" isDependencyStart="false" isDependentStart="true" lagTime="0"/>
 		</Phase>
 
 		<Phase id="finalReviewPhase" length="86400000" type="final_review">
