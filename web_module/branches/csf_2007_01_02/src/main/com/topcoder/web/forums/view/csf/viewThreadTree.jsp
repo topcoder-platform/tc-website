@@ -132,13 +132,11 @@
 
 <jsp:include page="top.jsp"/>
 
-<%--
 <jsp:include page="primaryNav.jsp">
 <jsp:param name="selectedTab" value="discuss"/>
 </jsp:include>
---%>
 
-<div id="forumsMain">
+<div id="main">
 
     <table cellpadding="0" cellspacing="0" class="rtbcTable">
         <tr>
