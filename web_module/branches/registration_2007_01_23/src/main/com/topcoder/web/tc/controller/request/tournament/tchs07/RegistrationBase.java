@@ -1,5 +1,6 @@
 package com.topcoder.web.tc.controller.request.tournament.tchs07;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
@@ -8,6 +9,9 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
+import com.topcoder.web.common.model.Question;
+import com.topcoder.web.common.model.QuestionStyle;
+import com.topcoder.web.common.model.QuestionType;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.tc.Constants;
@@ -59,6 +63,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
                 User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
                 if (!isRegistered(e, u)) {
                     if (isEligible()) {
+                        getRequest().setAttribute("questionInfo", e.getSurvey().getQuestions());
                         regProcessing(e, u);
                     } else {
                         throw new NavigationException("You are not eligible to register for the " + e.getDescription());
@@ -70,8 +75,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
             }
         }
     }
-
-
+    
     public boolean isRegistered(Event e, User u) throws Exception {
         if (log.isDebugEnabled()) {
             log.debug("checking if " + getUser().getId() + " is registered for " + e.getId());

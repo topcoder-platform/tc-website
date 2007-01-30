@@ -1,8 +1,14 @@
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.web.tc.controller.request.tournament.tchs07.RegistrationBase" %>
+<%@ page import="com.topcoder.web.common.model.Question,
+                 com.topcoder.web.common.tag.AnswerInput,
+                 java.util.Collections" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<% List questionInfo = (List) request.getAttribute("questionInfo"); %>
 <html>
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
@@ -28,6 +34,53 @@
 
             <form name="terms" method="POST" action="${sessionInfo.servletPath}">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCHS07SubmitRegistration"/>
+
+            <tc:questionIterator list="<%=questionInfo%>" id="question">
+                <% resultsViewable |= (!(question.getStyleId() == Question.LONG_ANSWER || question.getStyleId() == Question.SHORT_ANSWER) && question.getTypeId() != Question.GENERAL_DO_NOT_SHOW_RESULTS_TYPE && surveyInfo.areResultsViewable());%>
+                <table cellpadding="0" cellspacing="0" class="stat">
+                <tbody>
+                    <tr class="light">
+                        <td colspan="2" align="center">
+                            <tc:sponsorImage src="<%=question.getImagePath()%>" href="<%=question.getLink()%>"
+                                             alt="survey logo" width="160" height="95" align="center" border="0"/>
+                        </td>
+                    </tr>
+                    <tr class="light">
+                        <td colspan="2"><span class="subtitle">
+                            <%=questionInfo.size() > 1 ? i + ". " : ""%>
+                            <jsp:getProperty name="question" property="text"/>
+                            <br /><br />
+                            </span>
+                            <hr width="100%" size="1" noshade/>
+                        </td>
+
+                    </tr>
+                    <tr class="light">
+                        <td colspan="2">
+                            <span class="bigRed">
+                            <tc-webtag:errorIterator id="err"
+                                                     name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%><br />
+                            </tc-webtag:errorIterator>
+                            </span>
+                        </td>
+                    </tr>
+                    <% boolean even = false; %>
+                    <tc:answerInput id="answerInput" question="<%=question%>" enabled="<%=!alreadyResponded.booleanValue()%>">
+                        <tr class="<%=even?"light":"dark"%>">
+                            <td class="value" width="100%">
+                                <%=answerText%>
+                            </td>
+                            <td class="valueR">
+                                <%=answerInput%>
+                            </td>
+                        </tr>
+                        <% even = !even; %>
+                    </tc:answerInput>
+                </tbody>
+                </table>
+                <p><br /></p>
+                <% i++;%>
+            </tc:questionIterator>
 
 
                 <p align="left">To complete your registration for the 2007 TopCoder&#174; High School Tournament you
