@@ -62,6 +62,7 @@ public class SetTeamPoints extends DBUtility {
 			query.append("AND rr.attended = 'Y'   ");
 			query.append("AND reg.coder_id = rr.coder_id "); 
 			query.append("AND reg.round_id = rr.round_id  ");
+            query.append("AND not reg.team_id is null ");
 			query.append("GROUP BY reg.team_id  ");
 			query.append("HAVING count(*) >= 3 ");
 
