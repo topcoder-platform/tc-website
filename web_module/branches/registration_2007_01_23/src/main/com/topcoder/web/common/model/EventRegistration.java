@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public class EventRegistration extends Base {
 
-    private Identifier id;
+    private Identifier id = new Identifier();
     private boolean eligible;
 
     public Identifier getId() {
