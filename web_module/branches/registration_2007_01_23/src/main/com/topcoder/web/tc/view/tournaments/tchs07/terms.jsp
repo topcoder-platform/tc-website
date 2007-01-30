@@ -8,7 +8,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<% List questionInfo = (List) request.getAttribute("questionInfo"); %>
+<% List questionInfo = Collections.unmodifiableList((List) request.getAttribute("questionInfo")); %>
 <html>
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
