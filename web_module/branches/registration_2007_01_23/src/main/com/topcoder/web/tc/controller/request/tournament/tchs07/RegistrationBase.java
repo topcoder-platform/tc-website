@@ -289,6 +289,10 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
         String termsAgree = getRequest().getParameter(Constants.TERMS_AGREE);
 
         responses = getResponses(event.getSurvey());
+        
+        for (Iterator it = responses.iterator(); it.hasNext();) {
+            ((Response) it.next()).setUser(user);
+        }
 
         checkRequiredQuestions(event.getSurvey(), responses);
         
