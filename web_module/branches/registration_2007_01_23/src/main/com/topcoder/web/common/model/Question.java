@@ -137,7 +137,7 @@ public class Question implements Serializable {
     }
 
     public void setAnswerInfo(List answerInfo) {
-        this.answerInfo = answerInfo;
+        this.answers = (Set) answerInfo;
     }
 
     public boolean isFreeForm() {
