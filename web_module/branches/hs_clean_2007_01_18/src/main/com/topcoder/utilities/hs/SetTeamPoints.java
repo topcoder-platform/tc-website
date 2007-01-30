@@ -39,6 +39,7 @@ public class SetTeamPoints extends DBUtility {
 		PreparedStatement psTeams = null;
 		PreparedStatement psCoders = null;
 		PreparedStatement psUpd = null;
+		PreparedStatement psUpdDW = null;
 		ResultSet rsTeams = null;
 		ResultSet rsCoders = null;
 		
@@ -46,6 +47,12 @@ public class SetTeamPoints extends DBUtility {
 			psUpd = prepareStatement("informixoltp","UPDATE room_result set team_points = null where round_id = ? and attended = 'Y'");
 			psUpd.setLong(1, roundId);
 			psUpd.executeUpdate();
+			psUpd.close();
+
+			psUpdDW = prepareStatement("dw","UPDATE room_result set team_points = null where round_id = ? and attended = 'Y'");
+			psUpdDW.setLong(1, roundId);
+			psUpdDW.executeUpdate();
+			psUpdDW.close();
 
             // Get all the teams that have at least 3 coders that participated in the round
 			StringBuffer query = new StringBuffer(200);
@@ -75,6 +82,7 @@ public class SetTeamPoints extends DBUtility {
 			psCoders = prepareStatement("informixoltp", query.toString());
 
 			psUpd = prepareStatement("informixoltp", "UPDATE room_result set team_points = ? where round_id = ? and coder_id = ?");
+			psUpdDW = prepareStatement("dw", "UPDATE room_result set team_points = ?, team_id=? where round_id = ? and coder_id = ?");
 			
 			// for each team with 3 or more participants
 			while(rsTeams.next()) {
@@ -93,6 +101,14 @@ public class SetTeamPoints extends DBUtility {
                 	psUpd.setLong(2, roundId);
                 	psUpd.setLong(3, rsCoders.getInt("coder_id"));
                 	psUpd.executeUpdate();
+
+                	psUpdDW.clearParameters();
+                	psUpdDW.setInt(1, rsCoders.getInt("division_placed"));
+                	psUpdDW.setLong(2, rsTeams.getLong(1));
+                	psUpdDW.setLong(3, roundId);
+                	psUpdDW.setLong(4, rsCoders.getInt("coder_id"));
+                	psUpdDW.executeUpdate();
+
                 }
 
 			}
