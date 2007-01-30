@@ -29,10 +29,11 @@ public class Question implements Serializable {
     private Set events;
 
     public Question() {
-        answers = new TreeSet();
+        type = new QuestionType();
+        style = new QuestionStyle();
+        events = new HashSet();
         surveys = new HashSet();
         events = new HashSet();
-
     }
 
     public int getStatusId() {
