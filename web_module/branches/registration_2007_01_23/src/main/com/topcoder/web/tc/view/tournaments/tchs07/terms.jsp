@@ -35,16 +35,10 @@
             <form name="terms" method="POST" action="${sessionInfo.servletPath}">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCHS07SubmitRegistration"/>
 
+            <% int i = 1; %>
             <tc:questionIterator list="<%=questionInfo%>" id="question">
-                <% resultsViewable |= (!(question.getStyleId() == Question.LONG_ANSWER || question.getStyleId() == Question.SHORT_ANSWER) && question.getTypeId() != Question.GENERAL_DO_NOT_SHOW_RESULTS_TYPE && surveyInfo.areResultsViewable());%>
                 <table cellpadding="0" cellspacing="0" class="stat">
                 <tbody>
-                    <tr class="light">
-                        <td colspan="2" align="center">
-                            <tc:sponsorImage src="<%=question.getImagePath()%>" href="<%=question.getLink()%>"
-                                             alt="survey logo" width="160" height="95" align="center" border="0"/>
-                        </td>
-                    </tr>
                     <tr class="light">
                         <td colspan="2"><span class="subtitle">
                             <%=questionInfo.size() > 1 ? i + ". " : ""%>
@@ -59,13 +53,13 @@
                         <td colspan="2">
                             <span class="bigRed">
                             <tc-webtag:errorIterator id="err"
-                                                     name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%><br />
+                                name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%><br />
                             </tc-webtag:errorIterator>
                             </span>
                         </td>
                     </tr>
                     <% boolean even = false; %>
-                    <tc:answerInput id="answerInput" question="<%=question%>" enabled="<%=!alreadyResponded.booleanValue()%>">
+                    <tc:answerInput id="answerInput" question="<%=question%>">
                         <tr class="<%=even?"light":"dark"%>">
                             <td class="value" width="100%">
                                 <%=answerText%>
