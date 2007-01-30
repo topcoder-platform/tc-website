@@ -43,15 +43,16 @@
     </div>
 
     <div class="breadcrumb">
+        <A href="/?module=Static&d1=competitions">Competitions</A>
         <c:choose>
             <c:when test="${currentTime>contest.endTime}">
-                <A href="${sessionInfo.servletPath}?module=ViewPastContests">Past Competitions</A> &gt;
+                > <A href="${sessionInfo.servletPath}?module=ViewPastContests">Past Creative Competitions</A>
             </c:when>
             <c:otherwise>
-                <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Competitions</A> &gt;
+                > <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Creative Competitions</A>
             </c:otherwise>
         </c:choose>
-        ${contest.name}
+        > ${contest.name}
     </div>
 
 <h2>Project Overview</h2>
