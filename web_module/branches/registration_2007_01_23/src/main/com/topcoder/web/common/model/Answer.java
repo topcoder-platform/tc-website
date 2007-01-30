@@ -8,7 +8,7 @@ public class Answer implements Serializable, Cloneable, Comparable {
     private Question question;
     private String text;
     private int sort;
-    private boolean correct;
+    private Boolean correct;
 
     public Answer() {
     }
@@ -63,11 +63,11 @@ public class Answer implements Serializable, Cloneable, Comparable {
         this.question = question;
     }
 
-    public boolean isCorrect() {
+    public Boolean isCorrect() {
         return correct;
     }
 
-    public void setCorrect(boolean correct) {
+    public void setCorrect(Boolean correct) {
         this.correct = correct;
     }
 

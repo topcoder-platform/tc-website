@@ -142,7 +142,7 @@ public class Question implements Serializable {
     }
 
     public boolean isFreeForm() {
-        return isFreeForm(styleId);
+        return isFreeForm(this.getStyleId());
     }
 
     public static boolean isFreeForm(int styleId) {
