@@ -3,12 +3,14 @@
 <%@ page import="com.topcoder.web.common.model.Question,
                  com.topcoder.web.common.tag.AnswerInput,
                  java.util.Collections" %>
+<%@ page import="java.util.Set" %>
+<%@ page import="java.util.TreeSet" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<% List questionInfo = Collections.unmodifiableList((List) request.getAttribute("questionInfo")); %>
+<% List questionInfo = Collections.unmodifiableList((List) new TreeSet((Set) request.getAttribute("questionInfo"))); %>
 <html>
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
