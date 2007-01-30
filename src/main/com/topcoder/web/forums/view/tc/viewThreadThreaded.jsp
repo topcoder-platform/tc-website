@@ -194,7 +194,7 @@ function displayVotes(messageID, posVotes, negVotes) {
    </tc-webtag:iterator>
    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A>
    <%	String linkStr = ForumsUtil.createLinkString(forum);
-   		if (!linkStr.equals("")) { %>
+   		if (!linkStr.equals("()")) { %>
    			<%=linkStr%>
    <% 	} %>
    > <%=thread.getName()%></b>
@@ -292,7 +292,7 @@ function displayVotes(messageID, posVotes, negVotes) {
    </tc-webtag:iterator>
    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A>
    <%	linkStr = ForumsUtil.createLinkString(forum);
-   		if (!linkStr.equals("")) { %>
+   		if (!linkStr.equals("()")) { %>
    			<%=linkStr%>
    <% 	} %>
    > <%=thread.getName()%></b>

@@ -301,7 +301,7 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
    </tc-webtag:iterator>
    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A>
    <%	String linkStr = ForumsUtil.createLinkString(forum);
-   		if (!linkStr.equals("")) { %>
+   		if (!linkStr.equals("()")) { %>
    			<%=linkStr%>
    <% 	} %>
    > <%=thread.getName()%></b>
@@ -505,7 +505,7 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
    </tc-webtag:iterator>
    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A>
    <%	linkStr = ForumsUtil.createLinkString(forum);
-   		if (!linkStr.equals("")) { %>
+   		if (!linkStr.equals("()")) { %>
    			<%=linkStr%>
    <% 	} %>
    > <%=thread.getName()%></b>
