@@ -37,10 +37,12 @@
             <form name="terms" method="POST" action="${sessionInfo.servletPath}">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCHS07SubmitRegistration"/>
 
-                <p> question size: <%=questionInfo.size()%>.</p>
+                <p> question size 1: <%=questionInfo.getAnswerInfo().size()%>.</p>
+                <p> question size 2: <%=questionInfo.getAnswers().size()%>.</p>
 
             <% int i = 1; %>
             <tc:questionIterator list="<%=questionInfo%>" id="question">
+                <p> answers size: <%=questionInfo[0].%>.</p>
                 <table cellpadding="0" cellspacing="0" class="stat">
                 <tbody>
                     <tr class="light">
