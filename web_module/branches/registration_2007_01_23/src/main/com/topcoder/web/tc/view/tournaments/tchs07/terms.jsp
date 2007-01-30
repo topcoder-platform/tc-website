@@ -41,7 +41,6 @@
 
             <% int i = 1; %>
             <tc:questionIterator list="<%=questionInfo%>" id="question">
-                <p> question size 1: <%=question.getAnswerInfo().size()%>.</p>
                 <p> question size 2: <%=question.getAnswers().size()%>.</p>
 
                 <table cellpadding="0" cellspacing="0" class="stat">
