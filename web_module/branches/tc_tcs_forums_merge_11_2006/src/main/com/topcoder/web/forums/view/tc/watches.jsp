@@ -25,7 +25,6 @@
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_forums"/>
     </jsp:include>
-
 </head>
 
 <body>
@@ -66,7 +65,8 @@
             All watch updates will be emailed to your email address: <b><%=user.getEmail()%></b>.
             Watches on content that hasn't been updated for more than 90 days will be automatically removed from your
             list.
-            To prevent any watch from being automatically deleted, toggle the "save" option.
+            To prevent any watch from being automatically deleted, toggle the "save" option.<br><br>
+            
             <form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
                 <tc-webtag:hiddenInput name="module" value="Watches"/>
                 <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>"/>
