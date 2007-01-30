@@ -1,6 +1,7 @@
 <%@page contentType="text/xml;charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <fmt:requestEncoding value="utf-8"/>
 
