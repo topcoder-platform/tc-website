@@ -33,7 +33,7 @@ crappy looking to save space on the transmission
     </c:choose>
     <tc-webtag:errorIterator id="err" name="${submissionId}${submission.id}">
         <tr class="${cssClass}">
-            <td class="value" colspan="9">
+            <td class="value" colspan="6">
                 <span class="bigRed">${err}</span>
             </td>
         </tr>
@@ -58,17 +58,12 @@ crappy looking to save space on the transmission
                 </c:if>
                 >
                 ${submission.originalFileName}
-        </td>
-        <td class="value"
-                <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"
-                </c:if>
-                >
 
             <div id="pop${submission.id}" class="popUp">
                 <div>View submission</div>
             </div>
             <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
-                <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop${submission.id}')" onmouseout="popHide()"/>
+                <img src="/i/layout/magnify.gif" alt="" align="absmiddle" onmouseover="popUp(this,'pop${submission.id}')" onmouseout="popHide()" />
             </A>
 
         </td>

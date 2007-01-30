@@ -150,7 +150,7 @@
                             <A href="#" onclick="batchUpdate();return false;" class="button">Update</A>
                         </div>
                     </td>
-                    <td class="header" colspan="2" width="33%">
+                    <td class="header" width="33%">
                         Submission
                     </td>
                     <td class="headerC" width="33%">
