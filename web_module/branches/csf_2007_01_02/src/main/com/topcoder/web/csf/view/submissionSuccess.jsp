@@ -52,31 +52,34 @@
 </head>
 
 <body>
-<div align="center">
-<div id="contentOut" class="contentOut">
-<jsp:include page="top.jsp"/>
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="contests"/>
-</jsp:include>
-<div id="contentIn" class="contentIn">
-    <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
 
-    <div class="contentSpacer">
+<div align="center">
+<div id="content">
+
+<jsp:include page="top.jsp"/>
+
+<jsp:include page="primaryNav.jsp">
+<jsp:param name="selectedTab" value="competitions"/>
+</jsp:include>
+
+<div id="main">
+
+    <div class="pageHeader">
+        <span class="pageName">Submission Successfully Uploaded!</span>
+    </div>
 
         <div class="linkBox">
             <csf:forumLink forumID="${contest.forumId}"/>
         </div>
 
         <div class="breadcrumb">
-            <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A>
-            &gt; ${contest.name}
+            <A href="/?module=Static&d1=competitions">Competitions</A>
+            > <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Creative Competitions</A>
+            > ${contest.name}
         </div>
 
-        <h1>Submission Successfully Uploaded</h1>
-
-        <div align="center">
-            <div align="left" style="width:500px; margin-top: 20px;">
-                Your Submission Has Been Uploaded
+            <div align="left" style="margin-top: 20px;">
+                <strong>Your Submission Has Been Uploaded</strong>
                 <br><br>
                 Please allow at least 24 hours for processing. If your submission does not pass screening, you
                 will receive an
@@ -86,10 +89,9 @@
                 <br><br>
 
                 <div align="center">
-                    <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" onfocus="this.blur();"><img src="/i/layout/btnSubmitAnother.png" alt="submit another" onmouseover="this.src = '/i/layout/btnSubmitAnotherOn.png';" onmouseout="this.src = '/i/layout/btnSubmitAnother.png';"/></A>
+                    <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" onfocus="this.blur();" class="button" style="width: 90px;">Submit Another</A>
                 </div>
             </div>
-        </div>
 
         <div style="margin: 40px 0px 20px 0px;">
             <form name="submissionForm" action="#">
@@ -104,24 +106,19 @@
                     submission will take its place.
                 </div>
                 <br><br>
-                <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
+                <table class="stat" cellpadding="0" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <td class="NW">&nbsp;</td>
-                            <td class="title" colspan="7">My Favorites</td>
-                            <td class="NE">&nbsp;</td>
+                            <td class="title" colspan="7"><span class="title">My Favorites</span></td>
                         </tr>
                         <tr>
-                            <td class="headerW">
-                                <div>&nbsp;</div>
-                            </td>
                             <td class="headerC">
                                 Ranking
                                 <div>
-                                    <A href="#" onclick="batchUpdate();return false;"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></A>
+                                    <A href="#" onclick="batchUpdate();return false;" class="button">Update</A>
                                 </div>
                             </td>
-                            <td class="header" colspan="2" width="33%">
+                            <td class="header" width="33%">
                                 Submission
                             </td>
                             <td class="headerC" width="33%">
@@ -136,20 +133,11 @@
                             <td class="headerC" nowrap>
                                 Move to<br>Top
                             </td>
-                            <td class="headerE">
-                                <div>&nbsp;</div>
-                            </td>
                         </tr>
                     </thead>
                     <tbody id="submissions">
                         <jsp:include page="submitTableBody.jsp"/>
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <td class="SW" colspan="8">&nbsp;</td>
-                            <td class="SE">&nbsp;</td>
-                        </tr>
-                    </tfoot>
                 </table>
             </form>
             <br><br>
@@ -158,11 +146,9 @@
         </div>
 
 
-    </div>
-    <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
 </div>
+    
 <jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
 </div>
 </div>
 

@@ -39,14 +39,13 @@
         <span class="pageName">Active Competitions</span>
     </div>
 
-<div class="breadcrumb">
-<%--
-    <h2 align="right">Need help? Learn how to
+    <div align="right" style="float:right;"><strong>Need help? Learn how to
         <A href="/?module=Static&amp;d1=support&amp;d2=getStarted">get
             started</A>.<br>
-        Got <A href="/?module=Static&amp;d1=support&amp;d2=generalFaq">questions</A>?
-    </h2>
---%>
+        Got <A href="/?module=Static&amp;d1=support&amp;d2=generalFaq">questions</A>?</strong>
+    </div>
+
+<div class="breadcrumb">
     <A href="/?module=Static&d1=competitions">Competitions</A>
      > Active Creative Competitions
 </div>
@@ -118,9 +117,7 @@
     </table>
 
 
-    <br><br>
-    (ASSEMBLY)
-    <br><br>
+<%-- ASSEMBLY
 
     <table class="stat" cellpadding="0" cellspacing="0" style="width:100%">
         <thead>
@@ -167,6 +164,8 @@
             <% even = !even;%>
         </tbody>
     </table>
+--%>
+
 
 </div>
     

@@ -1,7 +1,7 @@
 <br clear="all">
 <div align="center">
     <div style="padding-left: 0px; padding-top: 15px;">
-        Copyright &#169; Microsoft Corporation, 2006. All Rights Reserved
+        Copyright &#169; Microsoft Corporation, 2007. All Rights Reserved
     </div>
     <div style="margin: 5px 5px 20px 5px;">
         <a id="ctl00_Copyright_HyperLink1" class="footerLink" href="http://privacy.microsoft.com/">Privacy Policy</a>

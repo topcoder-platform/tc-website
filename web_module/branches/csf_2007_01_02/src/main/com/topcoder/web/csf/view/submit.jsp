@@ -79,8 +79,8 @@
 </div>
 
     <div align="left" style="margin-top: 20px;">
-        <p>Thank you for accepting the terms of the contest. Please use the form below to upload your
-            submission:</p>
+        <p><strong>Thank you for accepting the terms of the contest. Please use the form below to upload your
+            submission:</strong></p>
 
         <p>The maximum file size per submission is 2MB.</p>
 
