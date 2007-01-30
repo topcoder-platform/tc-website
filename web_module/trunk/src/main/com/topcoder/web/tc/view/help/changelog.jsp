@@ -43,6 +43,15 @@
 </jsp:include>
 
 <p>
+    5.6.4 - 2007.01.xx
+    <ul>
+        <%--
+                <li>Member contact was fixed to get rated users from transactional db rather than dw.</li>
+        --%>
+    </ul>
+</p>
+
+<p>
     5.6.3 - 2007.01.25
     <ul>
         <li>Fix bug in pacts that was missing to fill the due date when generating round payments, and the amount for
