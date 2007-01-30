@@ -38,8 +38,7 @@
 
             <form name="terms" method="POST" action="${sessionInfo.servletPath}">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCHS07SubmitRegistration"/>
-
-
+                <tc-webtag:hiddenInput name="<%=Constants.EVENT_ID%>" value="<%=event.getId()%>"/>
 
                 <p align="left">To complete your registration for the <%=event.getDescription()%> you
                     must <b>read and agree to</b> the terms listed below.</p>
@@ -109,7 +108,7 @@
 
         </div>
         <div class="footer">
-            Copyright &#169; 2000-2006, TopCoder, Inc. All rights reserved.
+            Copyright &#169; 2000-2007, TopCoder, Inc. All rights reserved.
         </div>
         <img src="/i/tournament/tchs07/contentS.png" alt="contentS" style="display: block;"/>
     </div>

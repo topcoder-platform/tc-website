@@ -383,7 +383,6 @@ public class User extends Base {
         eventRegistrations.add(er);
     }
 
-
     public Set getResponses() {
         return Collections.unmodifiableSet(responses);
     }
@@ -394,6 +393,10 @@ public class User extends Base {
 
     public void addResponse(Response r) {
         responses.add(r);
+    }
+
+    public void addResponse(List r) {
+        responses.addAll(r);
     }
 
 }

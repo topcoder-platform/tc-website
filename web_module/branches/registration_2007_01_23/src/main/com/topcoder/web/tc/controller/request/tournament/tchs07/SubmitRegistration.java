@@ -1,5 +1,8 @@
 package com.topcoder.web.tc.controller.request.tournament.tchs07;
 
+import java.util.Iterator;
+import java.util.List;
+
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.CacheClientFactory;
@@ -8,6 +11,9 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
+import com.topcoder.web.common.model.Question;
+import com.topcoder.web.common.model.Response;
+import com.topcoder.web.common.model.SurveyResponse;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.tc.Constants;
 
@@ -19,13 +25,23 @@ import com.topcoder.web.tc.Constants;
 public class SubmitRegistration extends ViewRegistration {
 
     protected void regProcessing(Event event, User user) throws Exception {
-
-        String termsAgree = getRequest().getParameter(Constants.TERMS_AGREE);
-
-        String ageInput = StringUtils.checkNull(getRequest().getParameter(AGE));
-        String inCollegeInput = StringUtils.checkNull(getRequest().getParameter(IN_COLLEGE));
-        String inHighSchoolInput = StringUtils.checkNull(getRequest().getParameter(IN_HIGH_SCHOOL));
-
+        super.regProcessing(event, user);
+        
+        String ageInput = "";
+        String inCollegeInput = "";
+        String inHighSchoolInput = "";
+        for (Iterator it = event.getSurvey().getQuestions().iterator(); it.hasNext(); ) {
+            Question q = (Question) it.next();
+            Response response = findResponse(responses, q.getId());
+            if (q.getKeyword().equals(AGE)) {
+                ageInput = StringUtils.checkNull(response.getText());
+            } else if (q.getKeyword().equals(IN_COLLEGE)) {
+                inCollegeInput = StringUtils.checkNull(response.getAnswer().getText());
+            } else if (q.getKeyword().equals(IN_HIGH_SCHOOL)) {
+                inHighSchoolInput = StringUtils.checkNull(response.getAnswer().getText());
+            }
+        }
+        
         if (log.isDebugEnabled()) {
             log.debug("ageInput " + ageInput + " college " + inCollegeInput + " highschool " + inHighSchoolInput);
         }
@@ -44,15 +60,11 @@ public class SubmitRegistration extends ViewRegistration {
             addError(IN_HIGH_SCHOOL, "Please respond to this question.");
         }
 
-        if (!"on".equals(termsAgree)) {
-            addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
-        }
-
         if (hasErrors()) {
-            setDefault(Constants.TERMS_AGREE, String.valueOf("on".equals(termsAgree)));
+/*            setDefault(Constants.TERMS_AGREE, String.valueOf("on".equals(termsAgree)));
             setDefault(AGE, ageInput);
             setDefault(IN_COLLEGE, inCollegeInput);
-            setDefault(IN_HIGH_SCHOOL, inHighSchoolInput);
+            setDefault(IN_HIGH_SCHOOL, inHighSchoolInput);*/
         } else {
             //todo store all their answers about age etc.
             UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
@@ -61,8 +73,9 @@ public class SubmitRegistration extends ViewRegistration {
             EventRegistration er = new EventRegistration();
             er.getId().setUser(user);
             er.getId().setEvent(event);
-            er.setEligible(age <= 20 && age >= 13 && !"on".equals(inCollegeInput) && "on".equals(inHighSchoolInput));
+            er.setEligible(age <= 20 && age >= 13 && !"Yes".equals(inCollegeInput) && "Yes".equals(inHighSchoolInput));
 
+            user.addResponse(responses);
             user.addEventRegistration(er);
 
             userDAO.saveOrUpdate(user);

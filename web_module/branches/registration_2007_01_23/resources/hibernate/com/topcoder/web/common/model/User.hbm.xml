@@ -59,6 +59,10 @@
             <key column="user_id" not-null="true"/>
             <one-to-many class="EventRegistration"/>
         </set>
+        <set name="responses" table="response" cascade="save-update" inverse="true" access="field">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="Response"/>
+        </set>
     </class>
 
 
