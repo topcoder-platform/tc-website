@@ -34,7 +34,7 @@ public class SetTeamPoints extends DBUtility {
 	}
 
     private void setTeamPointsForRound(long id) throws SQLException {
-		log.info("setTeamPointsForRound, roundId=" + id);
+		log.info("setTeamPointsForRound roundId=" + id);
 		
 		PreparedStatement psTeams = null;
 		PreparedStatement psCoders = null;
@@ -42,15 +42,15 @@ public class SetTeamPoints extends DBUtility {
 		PreparedStatement psUpdDW = null;
 		ResultSet rsTeams = null;
 		ResultSet rsCoders = null;
-		
+       
 		try {
 			psUpd = prepareStatement("informixoltp","UPDATE room_result set team_points = null where round_id = ? and attended = 'Y'");
-			psUpd.setLong(1, roundId);
+			psUpd.setLong(1, id);
 			psUpd.executeUpdate();
 			psUpd.close();
 
 			psUpdDW = prepareStatement("dw","UPDATE room_result set team_points = null where round_id = ? and attended = 'Y'");
-			psUpdDW.setLong(1, roundId);
+			psUpdDW.setLong(1, id);
 			psUpdDW.executeUpdate();
 			psUpdDW.close();
 
@@ -66,7 +66,7 @@ public class SetTeamPoints extends DBUtility {
 			query.append("HAVING count(*) >= 3 ");
 
 			psTeams = prepareStatement("informixoltp", query.toString());
-			psTeams.setLong(1, roundId);
+			psTeams.setLong(1, id);
 			
 			rsTeams = psTeams.executeQuery();
 
@@ -88,7 +88,7 @@ public class SetTeamPoints extends DBUtility {
 			while(rsTeams.next()) {
 				// find the coders
 				psCoders.clearParameters();
-				psCoders.setLong(1, roundId);
+				psCoders.setLong(1, id);
 				psCoders.setLong(2, rsTeams.getLong(1));
 				rsCoders = psCoders.executeQuery();
 
@@ -98,14 +98,14 @@ public class SetTeamPoints extends DBUtility {
                 	
                 	psUpd.clearParameters();
                 	psUpd.setInt(1, rsCoders.getInt("division_placed"));
-                	psUpd.setLong(2, roundId);
+                	psUpd.setLong(2, id);
                 	psUpd.setLong(3, rsCoders.getInt("coder_id"));
                 	psUpd.executeUpdate();
 
                 	psUpdDW.clearParameters();
                 	psUpdDW.setInt(1, rsCoders.getInt("division_placed"));
                 	psUpdDW.setLong(2, rsTeams.getLong(1));
-                	psUpdDW.setLong(3, roundId);
+                	psUpdDW.setLong(3, id);
                 	psUpdDW.setLong(4, rsCoders.getInt("coder_id"));
                 	psUpdDW.executeUpdate();
 
