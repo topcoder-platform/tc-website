@@ -31,7 +31,7 @@ public class Question implements Serializable {
     public Question() {
         type = new QuestionType();
         style = new QuestionStyle();
-        events = new HashSet();
+        answers = new TreeSet();
         surveys = new HashSet();
         events = new HashSet();
     }
@@ -138,7 +138,7 @@ public class Question implements Serializable {
     }
 
     public void setAnswerInfo(List answerInfo) {
-        this.answers = (Set) answerInfo;
+        this.answers = new TreeSet(answerInfo);
     }
 
     public boolean isFreeForm() {

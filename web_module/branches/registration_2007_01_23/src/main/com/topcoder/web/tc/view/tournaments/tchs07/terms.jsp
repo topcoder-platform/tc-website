@@ -37,12 +37,26 @@
             <form name="terms" method="POST" action="${sessionInfo.servletPath}">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCHS07SubmitRegistration"/>
 
-                <p> question size: <%=questionInfo.size()%>.</p>
+
+
+                <p align="left">To complete your registration for the 2007 TopCoder&#174; High School Tournament you
+                    must <b>read and agree to</b> the terms listed below.</p>
+
+                <div align="center">
+                    <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tchs07&d3=termsContent&<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.TCHS07_TERMS_OF_USE_ID%>"></iframe>
+                </div>
+
+                <div align="center">
+                    <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">
+                        <span class="bigRed">${err}</span>
+                        <br/></tc-webtag:errorIterator>
+                    <br/>
+                    <tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
+                    I agree
+                </div>
 
             <% int i = 1; %>
             <tc:questionIterator list="<%=questionInfo%>" id="question">
-                <p> question size 2: <%=question.getAnswers().size()%>.</p>
-
                 <table cellpadding="0" cellspacing="0" class="stat">
                 <tbody>
                     <tr class="light">
@@ -81,47 +95,6 @@
                 <p><br /></p>
                 <% i++;%>
             </tc:questionIterator>
-
-
-                <p align="left">To complete your registration for the 2007 TopCoder&#174; High School Tournament you
-                    must <b>read and agree to</b> the terms listed below.</p>
-
-                <div align="center">
-                    <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tchs07&d3=termsContent&<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.TCHS07_TERMS_OF_USE_ID%>"></iframe>
-                </div>
-
-                <div align="center">
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">
-                        <span class="bigRed">${err}</span>
-                        <br/></tc-webtag:errorIterator>
-                    <br/>
-                    <tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
-                    I agree
-                </div>
-
-                <p align="center">
-                    <tc-webtag:errorIterator id="err" name="<%=RegistrationBase.AGE%>"><span class="bigRed">${err}
-                        <br/></span>
-                    </tc-webtag:errorIterator>
-                    How old will you be on February 26? <tc-webtag:textInput name="<%=RegistrationBase.AGE%>" size="3" maxlength="3"/>
-                </p>
-
-
-                <p align="center">
-                    <tc-webtag:errorIterator id="err" name="<%=RegistrationBase.IN_COLLEGE%>"><span class="bigRed">${err}
-                        <br/></span></tc-webtag:errorIterator>
-                    Are you enrolled full time at a college or university?<%-- <tc-webtag:listSelect name='<%=RegistrationBase.IN_COLLEGE%>' list="<%=RegistrationBase.YES_NO_ANSWERS%>"/>--%>
-                    <br><input name="college" value="Yes" onchange="" type="radio">Yes&nbsp;&nbsp;&nbsp;
-                    <input name="college" value="No" onchange="" type="radio"> No
-                </p>
-
-                <p align="center">
-                    <tc-webtag:errorIterator id="err" name="<%=RegistrationBase.IN_HIGH_SCHOOL%>"><span class="bigRed">${err}
-                        <br/></span></tc-webtag:errorIterator>
-                    Are you enrolled full time at a secondary school (high school)?<%-- <tc-webtag:listSelect name='<%=RegistrationBase.IN_HIGH_SCHOOL%>' list="<%=RegistrationBase.YES_NO_ANSWERS%>"/>--%>
-                    <br><input name="college" value="Yes" onchange="" type="radio">Yes&nbsp;&nbsp;&nbsp;
-                    <input name="college" value="No" onchange="" type="radio"> No
-                </p>
 
 
                 <div align="center">
