@@ -69,6 +69,7 @@
             
             <form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
                 <tc-webtag:hiddenInput name="module" value="Watches"/>
+                <tc-webtag:hiddenInput name="<%=ForumConstants.WATCH_TYPE%>" value="<%=JiveConstants.THREAD%>"/>
                 <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>"/>
                 <b><font size="2">Watched Threads (<%=watchManager.getTotalWatchCount(user, JiveConstants.THREAD)%>)</font></b>
                 <table cellpadding="0" cellspacing="0" class="rtTable">
@@ -119,6 +120,7 @@
 
 			<form name="form2" method="post" action="<%=sessionInfo.getServletPath()%>">
                 <tc-webtag:hiddenInput name="module" value="Watches"/>
+                <tc-webtag:hiddenInput name="<%=ForumConstants.WATCH_TYPE%>" value="<%=JiveConstants.FORUM_CATEGORY%>"/>
                 <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>"/>
                 <b><font size="2">Watched Categories (<%=watchManager.getTotalWatchCount(user, JiveConstants.FORUM_CATEGORY)%>)</font></b>
                 <table cellpadding="0" cellspacing="0" class="rtTable">

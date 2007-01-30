@@ -72,6 +72,7 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
 
                 <form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
                     <tc-webtag:hiddenInput name="module" value="Watches"/>
+                    <tc-webtag:hiddenInput name="<%=ForumConstants.WATCH_TYPE%>" value="<%=JiveConstants.THREAD%>"/>
                     <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>"/>
                     <table cellpadding="0" cellspacing="0" class="rtTable">
                         <tr>
