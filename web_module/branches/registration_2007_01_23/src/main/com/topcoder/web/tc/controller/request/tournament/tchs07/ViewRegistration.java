@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class ViewRegistration extends RegistrationBase {
     protected void regProcessing(Event event, User user) throws Exception {
-        super.regProcessing(event, user)
+        super.regProcessing(event, user);
     }
 
     public Calendar getEnd() {
