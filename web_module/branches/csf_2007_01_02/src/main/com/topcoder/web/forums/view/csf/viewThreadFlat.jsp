@@ -247,7 +247,7 @@
                     <a name=<%=message.getID()%>><tc-webtag:format object="${message.creationDate}" format="EEE, MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></a>
                 </div>
                 <% if (ratingManager.isRatingsEnabled() && user != null && ForumsUtil.showRatings(user)) { %>
-                <a class="pointer" onMouseOver="this.style.color='#FF0000'"; onMouseOut="this.style.color='#333'"; onclick="toggle('<%=msgBodyID%>')";>
+                <a class="pointer" onclick="toggle('<%=msgBodyID%>')";>
                     <%=message.getSubject()%></a>
                         <%  } else { %>
                         <%=message.getSubject()%>

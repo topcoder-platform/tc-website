@@ -13,7 +13,7 @@
     <script type="text/javascript" src="/js/taconite-parser.js"></script>
     <script type="text/javascript" src="/js/fat.js"></script>
 
-    <title>TopCoder Studio</title>
+    <title>CSF</title>
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="csf"/>
     </jsp:include>
