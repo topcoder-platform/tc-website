@@ -133,7 +133,7 @@ public class Question implements Serializable {
     }
 
     public List getAnswerInfo() {
-        return answerInfo;
+        return Collections.unmodifiableList((List) answers);
     }
 
     public void setAnswerInfo(List answerInfo) {
