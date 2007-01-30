@@ -5,6 +5,14 @@
 <fmt:requestEncoding value="utf-8"/>
 
 <taconite-root xml:space="preserve">
+    <taconite-replace contextNodeID="errorDiv" parseInBrowser="true">
+    	<div id="errorDiv">    
+                 <tc-webtag:errorIterator id="err" name="error">
+                    <font color="#FF0000"><%=err%></font><br/>
+                </tc-webtag:errorIterator>
+         </div>
+    
+	</taconite-replace>
     <taconite-replace contextNodeID="searchResults" parseInBrowser="true">
     				<div id="searchResults">
     

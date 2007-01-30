@@ -17,6 +17,7 @@ import com.topcoder.web.common.dao.SchoolDAO;
 public class SearchSchools extends ShortHibernateProcessor {
 
     protected void dbProcessing() throws Exception {
+    	try {
     	DAOFactory dao = DAOUtil.getFactory();
     	SchoolDAO s = dao.getSchoolDAO();
     	String cc = getRequest().getParameter("cc");
@@ -29,7 +30,9 @@ public class SearchSchools extends ShortHibernateProcessor {
     	
     	List schools = s.search(type.intValue() <0? null:dao.getSchoolTypeDAO().find(type), name, creationAfter, cc, "c".equals(order));
     	getRequest().setAttribute("schools", schools);
-    	
+    	} catch (Exception e) {
+    		addError("error", e.getMessage());
+    	}
     	setNextPage("/searchSchools.jsp");
         setIsNextPageInContext(true);
     }

@@ -155,6 +155,12 @@ function doMerge() {
 <input type="hidden" name="module" value=""/>
 <input type="hidden" name="s1" value="">
 <input type="hidden" name="s2" value="">
+<div id="loading">
+<p align="right">
+<b><font color="#FF0000" size="+1">Loading...</font></b>
+</p>
+</div>
+
 <table cellpading="5" cellspacing="5">
 	<tr valign="top">
 		<td><jsp:include page="left.jsp" /></td>
@@ -162,11 +168,8 @@ function doMerge() {
 		<table cellpading="20" cellspacing="20">
 			<tr>
 				<td>
-                        <div id="loading">
-<p align="right">
-<b><font color="#FF0000" size="+1">Loading...</font></b>
-</p>
-</div>
+                        <div id="errorDiv">
+                        </div>
                         
                      <table cellpading="20" cellspacing="20">
                      	<tr>
