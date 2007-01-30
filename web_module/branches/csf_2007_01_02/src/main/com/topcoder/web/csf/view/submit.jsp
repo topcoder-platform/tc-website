@@ -54,30 +54,31 @@
 <body>
 
 <div align="center">
-<div id="contentOut" class="contentOut">
+<div id="content">
+
 <jsp:include page="top.jsp"/>
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="contests"/>
+
+<jsp:include page="primaryNav.jsp">
+<jsp:param name="selectedTab" value="competitions"/>
 </jsp:include>
-<div id="contentIn" class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
 
-<div class="contentSpacer">
+<div id="main">
 
+    <div class="pageHeader">
+        <span class="pageName">Submit for This Competition</span>
+    </div>
 
 <div class="linkBox">
     <csf:forumLink forumID="${contest.forumId}"/>
 </div>
 
 <div class="breadcrumb">
-    <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A> &gt;
-    ${contest.name}
+    <A href="/?module=Static&d1=competitions">Competitions</A>
+    > <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Creative Competitions</A>
+    > ${contest.name}
 </div>
 
-<h1>Submit Your Design</h1>
-
-<div align="center">
-    <div align="left" style="width:500px; margin-top: 20px;">
+    <div align="left" style="margin-top: 20px;">
         <p>Thank you for accepting the terms of the contest. Please use the form below to upload your
             submission:</p>
 
@@ -98,7 +99,7 @@
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
                 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
                 <p>
-                    <b>My design:</b><br/>
+                    <b>My file:</b><br/>
                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>">
                         <span class="bigRed">${err}</span>
                         <br></tc-webtag:errorIterator>
@@ -114,13 +115,11 @@
                 </p>
 
                 <p>
-                    <input type="image" src="/i/layout/btnSubmit.png" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'">
+                    <BUTTON name="submit" value="submit" type="submit" class="button">Submit</BUTTON>
                 </p>
             </form>
         </div>
-
     </div>
-</div>
 
 
 <div style="margin: 40px 0px 20px 0px;">
@@ -139,21 +138,16 @@
         </div>
 
         <br><br>
-        <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
+        <table class="stat" cellpadding="0" cellspacing="0" width="100%">
             <thead>
                 <tr>
-                    <td class="NW">&nbsp;</td>
-                    <td class="title" colspan="7">My Favorites</td>
-                    <td class="NE">&nbsp;</td>
+                    <td class="title" colspan="7"><span class="title">My Favorites</A></td>
                 </tr>
                 <tr>
-                    <td class="headerW">
-                        <div>&nbsp;</div>
-                    </td>
                     <td class="headerC">
                         Ranking
                         <div>
-                            <A href="#" onclick="batchUpdate();return false;"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></A>
+                            <A href="#" onclick="batchUpdate();return false;" class="button">Update</A>
                         </div>
                     </td>
                     <td class="header" colspan="2" width="33%">
@@ -171,29 +165,18 @@
                     <td class="headerC" nowrap>
                         Move to<br>Top
                     </td>
-                    <td class="headerE">
-                        <div>&nbsp;</div>
-                    </td>
                 </tr>
             </thead>
             <tbody id="submissions">
                 <jsp:include page="submitTableBody.jsp"/>
             </tbody>
-            <tfoot>
-                <tr>
-                    <td class="SW" colspan="8">&nbsp;</td>
-                    <td class="SE">&nbsp;</td>
-                </tr>
-            </tfoot>
         </table>
     </form>
 </div>
 
 </div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
+    
 <jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
 </div>
 </div>
 
