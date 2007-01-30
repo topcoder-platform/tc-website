@@ -19,7 +19,7 @@
         <property name="text" access="field"/>
         <property name="resultsViewable" column="results_viewable" type="boolean" access="field"/>
 
-        <set name="questions" table="survey_question" cascade="save-update" access="field">
+        <set name="questions" table="survey_question" cascade="save-update" order-by="question_id" access="field">
             <key column="survey_id" not-null="true"/>
             <many-to-many column="question_id" class="Question"/>
         </set>
