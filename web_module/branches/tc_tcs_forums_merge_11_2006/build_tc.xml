@@ -143,8 +143,8 @@
             <include name="com/topcoder/ejb/**"/>
             <include name="com/topcoder/security/**"/>
             <include name="com/topcoder/utilities/**"/>
+            <exclude name="com/topcoder/web/forums/util/**"/>
             <include name="com/topcoder/web/**"/>
-            <exclude name="com/topcoder/web/forums/util/ForumConversion.java"/>
         </javac>
         <antcall target="jar_common"/>
     </target>
