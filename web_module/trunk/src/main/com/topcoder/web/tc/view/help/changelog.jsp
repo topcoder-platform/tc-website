@@ -49,6 +49,7 @@
                 <li>Member contact was fixed to get rated users from transactional db rather than dw.</li>
         --%>
         <li>Added an admin tool for cleaning schools and utilities to fix team points</li>
+        <li>In Payment History, added the installment number and total if the payment is not for the total</li>
     </ul>
 </p>
 
