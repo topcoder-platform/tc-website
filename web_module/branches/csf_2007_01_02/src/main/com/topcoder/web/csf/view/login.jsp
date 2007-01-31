@@ -37,98 +37,83 @@
 <body>
 
 <div align="center">
-    <div id="contentOut" class="contentOut">
+<div id="content">
 
-        <jsp:include page="top.jsp">
-            <jsp:param name="section" value="login"/>
-        </jsp:include>
-        <jsp:include page="topNav.jsp">
-            <jsp:param name="node" value="none"/>
-        </jsp:include>
+<jsp:include page="top.jsp"/>
 
-        <div id="contentIn" class="contentIn">
+<jsp:include page="primaryNav.jsp">
+<jsp:param name="selectedTab" value=""/>
+</jsp:include>
 
-
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-            <div style="text-align:left; padding: 0px 10px 0px 10px;">
-
-                <h1>Login</h1>
-
-                <div align="center">
-                    <div align="left" style="width:500px;">
-                        <p><b>Forgot your password?</b><br/>
-                            If you cannot remember your password
-                            <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" class="bodyText">click
-                                here</A>
-                            and we can help you restore your account.</p>
-
-                        <br><br>
-                        <strong>New to TopCoder Studio?</strong><br>
-                        <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register now</A>. After you complete
-                        the
-                        registration process,
-                        we
-                        will send your account activation code via email.
-                        <br><br>
-
-                        <form method="post" name="frmLogin" action="${sessionInfo.secureAbsoluteServletPath}">
-                            <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>">
-                            <input type="hidden" name="module" value="Login">
-
-                            <div align="center">
-                                <span class="bigRed"><%= message %></span>
-                                <table cellpadding="2" cellspacing="0" border="0">
-                                    <tr>
-                                        <td class="name" align="right">
-                                            Handle:
-                                        </td>
-                                        <td class="value">
-                                            <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="name" align="right">
-                                            Password:
-                                        </td>
-                                        <td class="value">
-                                            <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" align="center">
-                                            <input type="checkbox" name="<%=Login.REMEMBER_USER%>">
-                                            Remember
-                                            Me
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td colspan="2" align="center">
-                                            <input type="image" src="/i/layout/btn_login.gif" onmouseover="this.src='/i/layout/btn_login_on.gif'" onmouseout="this.src='/i/layout/btn_login.gif'">
-                                        </td>
-                                    </tr>
-                                </table>
-
-                                <br><br>
-
-                                <script type="text/javascript">
-                                    document.frmLogin.<%=Login.USER_NAME%>.focus();
-                                </script>
-
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-            </div>
-            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-        </div>
-
-        <jsp:include page="foot.jsp"/>
-
-        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
+<div id="main">
+    <div class="pageHeader">
+        <span class="pageName">Login</span>
     </div>
+
+    <div align="center">
+    <div align="left" style="width:250px; margin:20px 0px 40px 0px;">
+        <form method="post" name="frmLogin" action="${sessionInfo.secureAbsoluteServletPath}">
+            <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>">
+            <input type="hidden" name="module" value="Login">
+
+                <div align="center"><span class="bigRed"><%= message %></span></div>
+                <table cellpadding="2" cellspacing="0" border="0">
+                    <tr>
+                        <td style="color: #82AA31; font-size: 11px; font-weight: bold;" colspan="2">
+                            Enter the login information below.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="color: #82AA31; font-size: 11px;">
+                            Username:
+                        </td>
+                        <td>
+                            <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="80" onkeypress="submitEnter(event)" class="TextBox">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="color: #82AA31; font-size: 11px;">
+                            Password:
+                        </td>
+                        <td>
+                            <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="80" onkeypress="submitEnter(event)" class="TextBox">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="color: #82AA31; font-size: 11px;">
+                            Remember Me:
+                        </td>
+                        <td>
+                            <input type="checkbox" name="<%=Login.REMEMBER_USER%>">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            <BUTTON name="submit" value="submit" type="submit" class="button">Login</BUTTON>
+                        </td>
+                    </tr>
+                </table>
+
+                <A href="http://www.networkmashups.com/Forgotpassword.aspx">Forgot your password? Click here!</A>
+                <br> 
+                <A href="http://www.networkmashups.com/Signup.aspx">Don't have an account? Create one!</A>
+
+                <script type="text/javascript">
+                    document.frmLogin.<%=Login.USER_NAME%>.focus();
+                </script>
+
+        </form>
+    </div>
+    </div>
+
+</div>
+    
+<jsp:include page="foot.jsp"/>
+</div>
 </div>
 
 </body>
