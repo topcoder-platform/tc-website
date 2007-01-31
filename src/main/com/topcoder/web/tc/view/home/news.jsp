@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>01.31.07<br>1:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=013107">Five Things You Didn't Know About C++, Part 2</A></span><br><br>
+       This article focuses on some of the more obscure aspects of C++ that deal with initialisation, constructors, destructors and memory management.</td>
+      <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="251074" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=013107">full story</A> | 
+         <tc-webtag:forumLink forumID="506264" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.30.07<br>1:40 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -182,40 +198,3 @@ in more than one problem.
          <tc-webtag:forumLink forumID="506257" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.17.07<br>6:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm28">TCHS SRM 28 - Problem Set & Analysis</A></span><br><br>
-High school competitions are enjoying a steady level of popularity and, with an attendance of 159 participants, this match was no exception.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/supernova_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7371063" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm28">full story</A> | 
-        <tc-webtag:forumLink forumID="506244" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.16.07<br>12:20 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm334">SRM 334 - Problem Set & Analysis</A></span><br><br>
-In Division 1, the problems were much easier than those in SRM 333. We didn't have 
-to wait long for the first submissions, with many coders scoring around 240 points on 
-the easy problem.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/Andrew_Lazarev_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7485898" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=srm334">full story</A> | 
-        <tc-webtag:forumLink forumID="506224" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
