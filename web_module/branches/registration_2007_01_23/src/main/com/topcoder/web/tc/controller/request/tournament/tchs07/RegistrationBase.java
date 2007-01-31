@@ -93,7 +93,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
         Event curr;
         for (Iterator it = u.getEventRegistrations().iterator(); it.hasNext();) {
             curr = ((EventRegistration) it.next()).getId().getEvent();
-            if (curr.equals(e)) {
+            if (curr.getId() == e.getId()) {
                 return true;
             }
         }
@@ -256,7 +256,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
         boolean found = false;
         for (Iterator it = responses.iterator(); it.hasNext() && !found;) {
             r = (Response) it.next();
-            found = (r.getQuestion().equals(question));
+            found = (r.getQuestion().getId() == question.getId());
         }
         return found;
     }
