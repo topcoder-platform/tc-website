@@ -57,32 +57,32 @@ function noenter(e)
 <body>
 
 <div align="center">
-   <div class="contentOut">
-   
+<div id="content">
 
-      <jsp:include page="top.jsp" />
+<jsp:include page="top.jsp"/>
 
+<jsp:include page="primaryNav.jsp">
+<jsp:param name="selectedTab" value="discuss"/>
+</jsp:include>
 
-   <jsp:include page="topNav.jsp">
-       <jsp:param name="node" value="forums"/>
-   </jsp:include>
-      <div class="contentIn">
-         <img src="/i/layout/contentInN.gif" alt="" style="display:block;" />
-         <div class="contentSpacer">
+<div id="main">
+    <div class="pageHeader">
+        <span class="pageName">Forums</span>
+    </div>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
-	<td class="categoriesBox" style="padding-right: 20px;">
-		<jsp:include page="categoriesHeader.jsp" />
-	</td>
-	<td align="right" nowrap="nowrap" width="100%" valign="top">   
-		<A href="?module=History" class="rtbcLink">My Post History</A> | <A href="?module=Watches" class="rtbcLink">My Watches</A> | <A href="?module=Settings" class="rtbcLink">User Settings</A><br>
-	</td>
+    <td class="categoriesBox" style="padding-right: 20px;">
+        <jsp:include page="categoriesHeader.jsp" />
+    </td>
+    <td align="right" nowrap="nowrap" width="100%" valign="top">   
+        <A href="?module=History" class="rtbcLink">My Post History</A> | <A href="?module=Watches" class="rtbcLink">My Watches</A> | <A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+    </td>
 </tr>
 <tr>
-	<td colspan="3" style="padding-bottom:2px;">
-		<b><a href="?module=Main" class="rtbcLink">Forums</a> > Search</b>
-	</td>
+    <td colspan="3" style="padding-bottom:2px;">
+        <b><a href="?module=Main" class="rtbcLink">Forums</a> > Search</b>
+    </td>
 </tr>
 </table>
 
@@ -186,6 +186,11 @@ function noenter(e)
 </select>
       </td>
    </tr>
+   <tr>
+      <td class="rtTextCell" nowrap="nowrap" colspan="2">
+        <BUTTON name="submit" value="submit" type="submit" class="button">Search</BUTTON>
+        </td>
+    </tr>
 </form>
 </table>
 <br>
@@ -193,12 +198,10 @@ function noenter(e)
     <jsp:include page="searchResults.jsp"/>
 <% } %>
 
-         </div>
-         <img src="/i/layout/contentInS.gif" alt="" style="display:block;" />
-      </div>
-      <jsp:include page="foot.jsp"/>
-      <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-   </div>
+</div>
+    
+<jsp:include page="foot.jsp"/>
+</div>
 </div>
 
 </body>
