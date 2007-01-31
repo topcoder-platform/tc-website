@@ -32,6 +32,7 @@ public class ProjectUtil {
     private static final int PHASE_TYPE_SUBMISSION = 2;
     private static final int PHASE_TYPE_SCREEN = 3;
     private static final int PHASE_TYPE_REVIEW = 4;
+    private static final int PHASE_TYPE_APPEAL = 5;
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy hh:mm", Locale.US);
 
     static void userInquiry(Connection conn, long userId, long projectId) throws SQLException {
@@ -338,7 +339,12 @@ public class ProjectUtil {
                     // Create scorecard id
                     // 1, 'Scorecard ID'
                     createPhaseCriteria(conn, phaseId, 1, String.valueOf(reviewTemplateId), modUserId);
-                }
+                }	            
+
+                if (phases[i].getPhaseType().getId() == PHASE_TYPE_APPEAL) {
+	                // View Response During Appeals
+	                createPhaseCriteria(conn, phaseId, 4, "No", modUserId);
+	            }
 
                 phaseIds.put(phases[i], String.valueOf(phaseId));
                 dependencies.addAll(Arrays.asList(phases[i].getAllDependencies()));
