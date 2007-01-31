@@ -14,6 +14,8 @@
 	</PhaseTypes>
 <!--	 A set of project phases defined in this template. -->
 	<Phases>
+		<Phase id="registrationPhase" length="259200000" type="registration"/>
+
 <!--		 A definition of a single phase. -->
 		<Phase id="submissionPhase" length="86400000" type="submission">
 		</Phase>
