@@ -138,8 +138,7 @@
                 debug="${debug}"
                 source="1.5"
                 target="1.5" memoryMaximumSize="380m" memoryInitialSize="380m" fork="true"
-                >
-        	<exclude name="com/topcoder/web/forums/util/**"/>
+        		excludes="com/topcoder/web/forums/util/**">    
             <include name="com/topcoder/common/**"/>
             <include name="com/topcoder/ejb/**"/>
             <include name="com/topcoder/security/**"/>
