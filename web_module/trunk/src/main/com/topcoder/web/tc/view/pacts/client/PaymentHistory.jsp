@@ -147,7 +147,7 @@
                         int inst = resultRow.getIntItem("installment_number");
                     	String cardinal = inst == 1? "1st" : inst==2? "2nd" : inst==3? "3rd" : inst+"th";
                     %>
-                      (<%= cardinal %> installment, total amount=<%= resultRow.getDoubleItem("total_amount") %>)                    
+                      (<%= cardinal %> installment, total amount=$<%= resultRow.getDoubleItem("total_amount") %>)                    
                     <% } %>
                     </A>                    
                 </c:when>
