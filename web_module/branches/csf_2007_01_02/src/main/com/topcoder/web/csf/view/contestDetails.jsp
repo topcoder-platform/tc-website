@@ -55,6 +55,10 @@
         > ${contest.name}
     </div>
 
+    <div style="float: left;">
+        <A href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="button" style="width: 60px;">Register</A>
+    </div>
+
 <h2>Project Overview</h2>
 ${contest.overview.value}
 <br><br>

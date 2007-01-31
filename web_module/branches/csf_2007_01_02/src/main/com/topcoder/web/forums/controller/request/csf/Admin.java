@@ -43,7 +43,6 @@ public class Admin extends ForumsProcessor {
 
     protected void businessProcessing() throws Exception {
         super.businessProcessing();
-        /* JUST TESTING, uncomment it!
         if (isGuest()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
@@ -56,7 +55,7 @@ public class Admin extends ForumsProcessor {
 
         log.info(user.getUsername() + " has accessed the csf forum admin tool.");
 
-*/
+
 
         ArrayList roundList = getRoundList();
 
