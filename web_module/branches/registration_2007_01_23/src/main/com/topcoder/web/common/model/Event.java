@@ -4,7 +4,6 @@ import java.sql.Timestamp;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 /**
  * @author dok
@@ -16,6 +15,7 @@ public class Event extends Base {
     private Long id;
     private EventType type;
     private String description;
+    private String shortDescription;
     private Timestamp registrationStart;
     private Timestamp registrationEnd;
     private TermsOfUse terms;
@@ -101,6 +101,22 @@ public class Event extends Base {
      */
     public void setSurvey(Survey survey) {
         this.survey = survey;
+    }
+
+
+    /**
+     * @return the shortDescription
+     */
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+
+    /**
+     * @param shortDescription the shortDescription to set
+     */
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
     }
 
 /*    public Set getQuestions() {

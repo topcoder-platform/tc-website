@@ -1,4 +1,4 @@
-package com.topcoder.web.tc.controller.request.tournament.tchs07;
+package com.topcoder.web.tc.controller.request.tournament;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -14,10 +14,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
-import com.topcoder.web.common.model.Question;
-import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.tc.Constants;
 
@@ -27,7 +24,6 @@ import com.topcoder.web.tc.Constants;
  *          Create Date: Jan 16, 2007
  */
 public abstract class RegistrationBase extends ShortHibernateProcessor {
-
     public static final String AGE = "age";
     public static final String IN_COLLEGE = "incollege";
     public static final String IN_HIGH_SCHOOL = "inhs";
@@ -39,8 +35,6 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
         YES_NO_ANSWERS.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
         YES_NO_ANSWERS.add(new ListSelectTag.Option(String.valueOf(false), "No"));
     }
-
-    public List responses;
 
     protected void dbProcessing() throws Exception {
 
@@ -66,7 +60,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
             } else {
                 User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
                 if (!isRegistered(e, u)) {
-                    if (isEligible()) {
+                    if (isEligible(e, u)) {
                         getRequest().setAttribute("event", e);
                         regProcessing(e, u);
                     } else {
@@ -95,24 +89,10 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
         return false;
     }
 
-    public void setDefaults(List responses) {
-        Response r = null;
-        for (Iterator it = responses.iterator(); it.hasNext();) {
-            r = (Response) it.next();
-            if (r.getQuestion().getStyle().getId().intValue() == Question.MULTIPLE_CHOICE) {
-                setDefault(AnswerInput.PREFIX + r.getQuestion().getId() + "," + r.getAnswer().getId(), "true");
-            } else if (r.getAnswer() == null) {
-                setDefault(AnswerInput.PREFIX + r.getQuestion().getId(), r.getText());
-            } else {
-                setDefault(AnswerInput.PREFIX + r.getQuestion().getId(), new Long(r.getAnswer().getId()));
-            }
-        }
-    }
-    
     protected abstract void regProcessing(Event event, User user) throws Exception;
 
     protected abstract void setNextPage(Event event, User user) throws Exception;
 
-    public abstract boolean isEligible() throws Exception;
+    public abstract boolean isEligible(Event event, User user) throws Exception;
 
 }

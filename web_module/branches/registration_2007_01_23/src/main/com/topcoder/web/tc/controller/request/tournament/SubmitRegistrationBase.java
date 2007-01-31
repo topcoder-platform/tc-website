@@ -1,0 +1,128 @@
+package com.topcoder.web.tc.controller.request.tournament;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.distCache.CacheClient;
+import com.topcoder.shared.distCache.CacheClientFactory;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.UserDAO;
+import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventRegistration;
+import com.topcoder.web.common.model.Question;
+import com.topcoder.web.common.model.Response;
+import com.topcoder.web.common.model.Survey;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.tag.AnswerInput;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.survey.Helper;
+
+/**
+ * @author dok
+ * @version $Revision$ Date: 2005/01/01 00:00:00
+ *          Create Date: Jan 16, 2007
+ */
+public abstract class SubmitRegistrationBase extends ViewRegistrationBase {
+
+    protected void regProcessing(Event event, User user) throws Exception {
+        List responses = processSurvey(event, user);
+        boolean elegible = validateSurvey(event.getSurvey(), responses);
+        
+        String termsAgree = getRequest().getParameter(Constants.TERMS_AGREE);
+        if (!"on".equals(termsAgree)) {
+            addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
+        }
+
+        if (hasErrors()) {
+            setDefaults(responses);
+            setDefault(Constants.TERMS_AGREE, String.valueOf("on".equals(termsAgree)));
+        } else {
+            completeRegistration(event, user, elegible, responses);
+        }
+
+    }
+
+    public void setDefaults(List responses) {
+        Response r = null;
+        for (Iterator it = responses.iterator(); it.hasNext();) {
+            r = (Response) it.next();
+            if (r.getQuestion().getStyle().getId().intValue() == Question.MULTIPLE_CHOICE) {
+                setDefault(AnswerInput.PREFIX + r.getQuestion().getId() + "," + r.getAnswer().getId(), "true");
+            } else if (r.getAnswer() == null) {
+                setDefault(AnswerInput.PREFIX + r.getQuestion().getId(), r.getText());
+            } else {
+                setDefault(AnswerInput.PREFIX + r.getQuestion().getId(), new Long(r.getAnswer().getId()));
+            }
+        }
+    }
+    
+
+    protected void completeRegistration(Event event, User user, boolean elegible, List responses) {
+        UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
+
+        EventRegistration er = new EventRegistration();
+        er.getId().setUser(user);
+        er.getId().setEvent(event);
+        er.setEligible(elegible);
+
+        user.addEventRegistration(er);
+        user.addTerms(event.getTerms());
+        user.addResponse(responses);
+
+        userDAO.saveOrUpdate(user);
+        refreshCache(event);
+    }
+    
+    protected abstract boolean validateSurvey(Survey survey, List responses);
+
+    protected void refreshCache(Event e) {
+        try {
+            CacheClient cc = CacheClientFactory.createCacheClient();
+            Request r = new Request();
+            r.setContentHandle(e.getShortDescription() + "_registrants");
+            cc.remove(r.getCacheKey());
+        } catch (Exception ignore) {
+            ignore.printStackTrace();
+        }
+    }
+    
+    protected void setNextPage(Event e, User u) throws Exception {
+        if (hasErrors()) {
+            setNextPage("/tournaments/" + e.getShortDescription() + "/terms.jsp");
+            setIsNextPageInContext(true);
+        } else {
+            setNextPage("/tournaments/" + e.getShortDescription() + "/termsSuccess.jsp");
+            setIsNextPageInContext(true);
+        }
+    }
+
+    /**
+     * @param event
+     * @param user
+     * @param helper
+     * @param termsAgree
+     */
+    protected List processSurvey(Event event, User user) {
+        Helper helper = new Helper();
+        
+        helper.setRequest(getRequest());
+        List responses = helper.getResponses(event.getSurvey());
+        
+        for (Iterator it = responses.iterator(); it.hasNext();) {
+            ((Response) it.next()).setUser(user);
+        }
+    
+        helper.checkRequiredQuestions(event.getSurvey(), responses);
+        
+        if (helper.hasErrors()) {
+            for (Iterator it = helper.getErrors().entrySet().iterator(); it.hasNext();) {
+                Map.Entry entry = (Map.Entry) it.next();
+                addError((String) entry.getKey(), entry.getValue());
+            }
+        }
+        
+        return responses;
+    }
+}

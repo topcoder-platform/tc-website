@@ -13,7 +13,7 @@
         </id>
         <many-to-one name="type" column="event_type_id" class="EventType" access="field"/>
         <property name="description" column="event_desc" access="field"/>
-        <property name="shortDescription" column="event__shortdesc" access="field"/>
+        <property name="shortDescription" column="event_shortdesc" access="field"/>
         <property name="registrationStart" column="start_registration" access="field"/>
         <property name="registrationEnd" column="end_registration" access="field"/>
         <many-to-one name="terms" column="terms_of_use_id" class="TermsOfUse" access="field"/>

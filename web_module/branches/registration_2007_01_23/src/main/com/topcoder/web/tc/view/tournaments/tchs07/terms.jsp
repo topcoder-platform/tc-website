@@ -36,7 +36,7 @@
         <div class="contentSpacer">
             <h2>Registration</h2>
 
-            <form name="terms" method="GET" action="${sessionInfo.servletPath}">
+            <form name="terms" method="POST" action="${sessionInfo.servletPath}">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCHS07SubmitRegistration"/>
                 <tc-webtag:hiddenInput name="<%=Constants.EVENT_ID%>" value="<%=event.getId().toString()%>"/>
 

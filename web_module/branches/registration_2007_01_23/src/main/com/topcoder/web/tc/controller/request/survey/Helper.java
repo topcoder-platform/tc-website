@@ -10,7 +10,6 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.model.Answer;
