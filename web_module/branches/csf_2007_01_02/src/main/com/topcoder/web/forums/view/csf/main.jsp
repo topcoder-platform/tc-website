@@ -66,6 +66,9 @@
             Settings</A><br/>
         </td>
     </tr>
+    <tr><td colspan="3" style="padding-bottom:3px;"><b>
+        Forums ></b></td>
+    </tr>
 </table>
 <% if (categories.size() > 0) {
     Calendar calendar = Calendar.getInstance();
@@ -103,7 +106,7 @@
         }
         
         if (numActiveForums > 0 || ("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)))) { %>
-    <br>
+
     <table cellpadding="0" cellspacing="0" class="rtTable">
         <tr>
             <td class="rtHeader" width="100%">

@@ -31,19 +31,18 @@
 <body>
 
 <div align="center">
-    <div class="contentOut">
+<div id="content">
 
+<jsp:include page="top.jsp"/>
 
-        <jsp:include page="top.jsp"/>
+<jsp:include page="primaryNav.jsp">
+<jsp:param name="selectedTab" value="discuss"/>
+</jsp:include>
 
-
-        <jsp:include page="topNav.jsp">
-            <jsp:param name="node" value="forums"/>
-        </jsp:include>
-        <div class="contentIn">
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-            <div class="contentSpacer">
+<div id="main">
+    <div class="pageHeader">
+        <span class="pageName">Forums</span>
+    </div>
 
                 <table cellpadding="0" cellspacing="0" class="rtbcTable">
                     <tr>
@@ -64,11 +63,13 @@
 
                 <b><A href="?module=Main" class="rtbcLink">Forums</A> > My Watches
                     (<%=watchManager.getTotalWatchCount(user, JiveConstants.THREAD)%> threads)</b>
-                <br><span class="small">All watch updates will be emailed to your email address: <b>
+                <br><br>
+                <span class="small">All watch updates will be emailed to your email address: <b>
                 <%=user.getEmail()%>
             </b>.
 Watches on content that hasn't been updated for more than 90 days will be automatically removed from your list.
 To prevent any watch from being automatically deleted, toggle the "save" option.</span>
+                <br><br>
 
                 <form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
                     <tc-webtag:hiddenInput name="module" value="Watches"/>
@@ -120,12 +121,10 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
 
                 </form>
 
-            </div>
-            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-        </div>
-        <jsp:include page="foot.jsp"/>
-        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-    </div>
+</div>
+    
+<jsp:include page="foot.jsp"/>
+</div>
 </div>
 
 </body>
