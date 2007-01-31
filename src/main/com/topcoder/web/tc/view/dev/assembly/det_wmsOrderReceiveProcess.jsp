@@ -105,7 +105,7 @@ All submissions are required to be submitted by the end of Competition Phase. Th
       <td><strong>Phase</strong></td><td align="right"><strong>Start</strong></td><td align="right"><strong>End</strong></td>
    </tr>
    <tr>
-      <td>Team Creation:</td><td align="right">01.30.2007</td><td align="right">02.05.2007</td>
+      <td>Team Creation:</td><td align="right">01.31.2007</td><td align="right">02.05.2007</td>
    </tr>
    <tr>
       <td>Competition Phase:</td><td align="right">02.05.2007</td><td align="right">02.26.2007</td>
@@ -169,12 +169,6 @@ At intervals during the competition phase, assembly teams will be expected to de
       - Manage PO Status<br>
       - Manage Items Costs<br>
       - Combine PO's
-      <br><br>
-      
-      <b>Create Work Order</b><br>
-      - Determine Items/Sort/Label/Grading/Packing<br>
-      - Enter the Description/Label Options Based on the Pre-Sort<br>
-      - Label Preview
       </td>
    </tr>
    <tr>
