@@ -1,62 +1,39 @@
 package com.topcoder.web.tc.controller.request.tournament.tchs07;
 
 import java.util.Iterator;
-import java.util.Map;
+import java.util.List;
 
+import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.CacheClientFactory;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.model.Event;
-import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.Response;
+import com.topcoder.web.common.model.Survey;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.AnswerInput;
-import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.survey.Helper;
+import com.topcoder.web.tc.controller.request.tournament.SubmitRegistrationBase;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jan 16, 2007
  */
-public class SubmitRegistration extends ViewRegistration {
+public class SubmitRegistration extends SubmitRegistrationBase {
 
-    protected void regProcessing(Event event, User user) throws Exception {
-        Helper helper = new Helper();
-        
-        String termsAgree = getRequest().getParameter(Constants.TERMS_AGREE);
-
-        helper.setRequest(getRequest());
-        responses = helper.getResponses(event.getSurvey());
-        
-        for (Iterator it = responses.iterator(); it.hasNext();) {
-            ((Response) it.next()).setUser(user);
-        }
-
-        helper.checkRequiredQuestions(event.getSurvey(), responses);
-        
-        if (helper.hasErrors()) {
-            for (Iterator it = helper.getErrors().entrySet().iterator(); it.hasNext();) {
-                Map.Entry entry = (Map.Entry) it.next();
-                addError((String) entry.getKey(), entry.getValue());
-            }
-        }
-        
-        if (!"on".equals(termsAgree)) {
-            addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
-        }
-        
+    protected boolean validateSurvey(Survey survey, List responses) {
         String ageInput = "";
         String inCollegeInput = "";
         String inHighSchoolInput = "";
         String ageKey = "";
-        for (Iterator it = event.getSurvey().getQuestions().iterator(); it.hasNext(); ) {
+        for (Iterator it = survey.getQuestions().iterator(); it.hasNext(); ) {
             Question q = (Question) it.next();
-            Response response = helper.findResponse(responses, q.getId());
+            Response response = (new Helper()).findResponse(responses, q.getId());
             if (response != null) {
                 if (q.getKeyword().equals(AGE)) {
                     ageInput = StringUtils.checkNull(response.getText());
@@ -78,30 +55,11 @@ public class SubmitRegistration extends ViewRegistration {
         } catch (NumberFormatException e) {
             addError(ageKey, "Please enter a valid number for your age.");
         }
-
-        if (hasErrors()) {
-            setDefaults (responses);
-            setDefault(Constants.TERMS_AGREE, String.valueOf("on".equals(termsAgree)));
-        } else {
-            //todo store all their answers about age etc.
-            UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
-
-            EventRegistration er = new EventRegistration();
-            er.getId().setUser(user);
-            er.getId().setEvent(event);
-            er.setEligible(age <= 20 && age >= 13 && !"Yes".equals(inCollegeInput) && "Yes".equals(inHighSchoolInput));
-
-            user.addEventRegistration(er);
-            user.addTerms(event.getTerms());
-            user.addResponse(responses);
-
-            userDAO.saveOrUpdate(user);
-            refreshCache();
-        }
-
+        
+        return (age <= 20 && age >= 13 && !"Yes".equals(inCollegeInput) && "Yes".equals(inHighSchoolInput));
     }
-
-    protected void setNextPage(Event event, User u) throws Exception {
+    
+/*    protected void setNextPage(Event event, User u) throws Exception {
         if (hasErrors()) {
             setNextPage("/tournaments/tchs07/terms.jsp");
             setIsNextPageInContext(true);
@@ -109,8 +67,8 @@ public class SubmitRegistration extends ViewRegistration {
             setNextPage("/tournaments/tchs07/termsSuccess.jsp");
             setIsNextPageInContext(true);
         }
-    }
-
+    }*/
+/*
     protected void refreshCache() {
         try {
             CacheClient cc = CacheClientFactory.createCacheClient();
@@ -120,7 +78,17 @@ public class SubmitRegistration extends ViewRegistration {
         } catch (Exception ignore) {
             ignore.printStackTrace();
         }
-    }
-
-
+    }*/
+    
+/*    public boolean isEligible() throws Exception {
+        Request r = new Request();
+        r.setContentHandle("tchs07_eligibility");
+        r.setProperty("cr", String.valueOf(getUser().getId()));
+        ResultSetContainer rsc =
+                (ResultSetContainer) new DataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(r).get("tchs07_eligibility");
+        if (log.isDebugEnabled()) {
+            log.debug("they " + (rsc.isEmpty() ? "are not" : "are") + " eligible");
+        }
+        return !rsc.isEmpty();
+    }*/
 }
