@@ -1,5 +1,7 @@
 package com.topcoder.web.common.model;
 
+import java.util.Date;
+
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -13,6 +15,7 @@ public class School extends Base {
     private String shortName;
     private SchoolType type;
     private Boolean viewable;
+    private Date modifyDate;
 
     public Long getId() {
         return id;
@@ -92,5 +95,13 @@ public class School extends Base {
             }
         }
     }
+
+	public Date getModifyDate() {
+		return modifyDate;
+	}
+
+	public void setModifyDate(Date modifyDate) {
+		this.modifyDate = modifyDate;
+	}
 
 }
