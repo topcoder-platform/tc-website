@@ -138,7 +138,7 @@
 <%-- Documentation --%>
 <p><strong>Documentation</strong><br/>
     Documentation / Specification available in the
-    <% if (projectDetail.getItem(0, "category_id").getResultData() == null) { %>
+    <% if (projectDetail.getItem(0, "jive_category_id").getResultData() == null) { %>
     component forums.
     <% } else { %>
     <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="category_id"/>">component

@@ -1,13 +1,10 @@
 <%@  page language="java"  %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<%@ page import="com.topcoder.shared.util.TCResourceBundle" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>Component Competition Guidelines</title>
-
-<%	TCResourceBundle bundle = new TCResourceBundle("TC");
-	long tcsForumsID = Long.parseLong(bundle.getProperty("tcs_forums_root_category_id")); %>
 
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
@@ -42,7 +39,7 @@
 
 <h2>Component Competition Guidelines</h2>
 
-We have posted a number of answers, clarifications and best practices for the component competition process in various forum threads. The following, along with our updated <A href="/tc?module=Static&d1=dev&d2=support&d3=desReviewerGuide">Reviewer Guidelines</A>, compiles these updates into one definitive list, and it should be considered required reading for component competitors and reviewers. This document will be updated as needed over time &mdash; to discuss the points below or raise more questions, please visit the <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">Software Forums</A>. 
+We have posted a number of answers, clarifications and best practices for the component competition process in various forum threads. The following, along with our updated <A href="/tc?module=Static&d1=dev&d2=support&d3=desReviewerGuide">Reviewer Guidelines</A>, compiles these updates into one definitive list, and it should be considered required reading for component competitors and reviewers. This document will be updated as needed over time &mdash; to discuss the points below or raise more questions, please visit the <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=Constants.TCS_FORUMS_ROOT_CATEGORY_ID%>">Software Forums</A>. 
 
 <H2>Design</H2>
 <ul>
