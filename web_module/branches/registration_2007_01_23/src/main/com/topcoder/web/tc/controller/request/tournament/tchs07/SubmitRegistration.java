@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.request.tournament.tchs07;
 
 import java.util.Iterator;
+import java.util.Map;
 
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.distCache.CacheClient;
@@ -15,6 +16,7 @@ import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.survey.Helper;
 
 /**
  * @author dok
@@ -24,15 +26,25 @@ import com.topcoder.web.tc.Constants;
 public class SubmitRegistration extends ViewRegistration {
 
     protected void regProcessing(Event event, User user) throws Exception {
+        Helper helper = new Helper();
+        
         String termsAgree = getRequest().getParameter(Constants.TERMS_AGREE);
 
-        responses = getResponses(event.getSurvey());
+        helper.setRequest(getRequest());
+        responses = helper.getResponses(event.getSurvey());
         
         for (Iterator it = responses.iterator(); it.hasNext();) {
             ((Response) it.next()).setUser(user);
         }
 
-        checkRequiredQuestions(event.getSurvey(), responses);
+        helper.checkRequiredQuestions(event.getSurvey(), responses);
+        
+        if (helper.hasErrors()) {
+            for (Iterator it = helper.getErrors().entrySet().iterator(); it.hasNext();) {
+                Map.Entry entry = (Map.Entry) it.next();
+                addError((String) entry.getKey(), entry.getValue());
+            }
+        }
         
         if (!"on".equals(termsAgree)) {
             addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
@@ -44,7 +56,7 @@ public class SubmitRegistration extends ViewRegistration {
         String ageKey = "";
         for (Iterator it = event.getSurvey().getQuestions().iterator(); it.hasNext(); ) {
             Question q = (Question) it.next();
-            Response response = findResponse(responses, q.getId());
+            Response response = helper.findResponse(responses, q.getId());
             if (response != null) {
                 if (q.getKeyword().equals(AGE)) {
                     ageInput = StringUtils.checkNull(response.getText());
