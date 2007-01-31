@@ -334,9 +334,6 @@ public class Constants implements WebConstants {
     }
 
     public static void initialize() {
-    	log.info("**************!!!!!!!!!!!!!!!!!! Initializing!!!!!");
-    	log.info("**************!!!!!!!!!!!!!!!!!! Initializing!!!!!");
-    	log.info("**************!!!!!!!!!!!!!!!!!! Initializing!!!!!");
         Field[] f = Constants.class.getFields();
         for (int i = 0; i < f.length; i++) {
             try {
