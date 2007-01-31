@@ -134,6 +134,9 @@
 </jsp:include>
 
 <div id="main">
+    <div class="pageHeader">
+        <span class="pageName">Forums</span>
+    </div>
 
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
