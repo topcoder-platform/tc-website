@@ -45,7 +45,7 @@ public class SubmitRegistration extends ViewRegistration {
         for (Iterator it = event.getSurvey().getQuestions().iterator(); it.hasNext(); ) {
             Question q = (Question) it.next();
             Response response = findResponse(responses, q.getId());
-            if (response.getAnswer() != null) {
+            if (response != null) {
                 if (q.getKeyword().equals(AGE)) {
                     ageInput = StringUtils.checkNull(response.getText());
                     ageKey = AnswerInput.PREFIX + q.getId();
