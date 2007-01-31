@@ -1,6 +1,14 @@
 package com.topcoder.web.tc.controller.request.tournament.tchs07;
 
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.StringTokenizer;
+
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
@@ -11,17 +19,12 @@ import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.Question;
-import com.topcoder.web.common.model.QuestionStyle;
-import com.topcoder.web.common.model.QuestionType;
 import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Survey;
-import com.topcoder.web.common.model.SurveyResponse;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.tc.Constants;
-
-import java.util.*;
 
 /**
  * @author dok
@@ -94,13 +97,6 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
                 return true;
             }
         }
-/*        User curr;
-        for (Iterator it = e.getUsers().iterator(); it.hasNext();) {
-            curr = (User) it.next();
-            if (curr.equals(u)) {
-                return true;
-            }
-        }*/
         return false;
     }
 
@@ -284,22 +280,22 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
         }
         return found ? a : null;
     }
-
-    protected void regProcessing(Event event, User user) throws Exception {
-        String termsAgree = getRequest().getParameter(Constants.TERMS_AGREE);
-
-        responses = getResponses(event.getSurvey());
-        
+    
+    protected void setDefaults(List responses) {
+        Response r = null;
         for (Iterator it = responses.iterator(); it.hasNext();) {
-            ((Response) it.next()).setUser(user);
-        }
-
-        checkRequiredQuestions(event.getSurvey(), responses);
-        
-        if (!"on".equals(termsAgree)) {
-            addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
+            r = (Response) it.next();
+            if (r.getQuestion().getStyle().getId().intValue() == Question.MULTIPLE_CHOICE) {
+                setDefault(AnswerInput.PREFIX + r.getQuestion().getId() + "," + r.getAnswer().getId(), "true");
+            } else if (r.getAnswer() == null) {
+                setDefault(AnswerInput.PREFIX + r.getQuestion().getId(), r.getText());
+            } else {
+                setDefault(AnswerInput.PREFIX + r.getQuestion().getId(), new Long(r.getAnswer().getId()));
+            }
         }
     }
+
+    protected abstract void regProcessing(Event event, User user) throws Exception;
 
     protected abstract void setNextPage(Event event, User user) throws Exception;
 

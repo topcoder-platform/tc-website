@@ -3,14 +3,9 @@ package com.topcoder.web.tc.controller.request.tournament.tchs07;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.tc.Constants;
-
-import java.util.Calendar;
-import java.util.List;
 
 /**
  * @author dok
@@ -19,32 +14,6 @@ import java.util.List;
  */
 public class ViewRegistration extends RegistrationBase {
     protected void regProcessing(Event event, User user) throws Exception {
-        super.regProcessing(event, user);
-    }
-
-    public Calendar getEnd() {
-        Calendar end = Calendar.getInstance();
-        end.set(2007, Calendar.FEBRUARY, 25, 18, 0);
-        return end;
-    }
-
-    public Calendar getBeginning() {
-        Calendar beginning = Calendar.getInstance();
-        if (ApplicationServer.ENVIRONMENT != ApplicationServer.PROD) {
-            //if we're not in prod, then let it be open for testing.
-            beginning.set(2006, Calendar.FEBRUARY, 13, 9, 0);
-        } else {
-            beginning.set(2007, Calendar.FEBRUARY, 13, 9, 0);
-        }
-        return beginning;
-    }
-
-    public String getEventName() {
-        return "2007 TopCoder High School Tournament";
-    }
-
-    public int getTermsId() {
-        return Constants.TCHS07_TERMS_OF_USE_ID;
     }
 
     protected void setNextPage(Event e, User u) throws Exception {

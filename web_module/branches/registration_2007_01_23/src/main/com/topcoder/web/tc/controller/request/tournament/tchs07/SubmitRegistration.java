@@ -1,7 +1,6 @@
 package com.topcoder.web.tc.controller.request.tournament.tchs07;
 
 import java.util.Iterator;
-import java.util.List;
 
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.distCache.CacheClient;
@@ -13,7 +12,6 @@ import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.Response;
-import com.topcoder.web.common.model.SurveyResponse;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.tc.Constants;
 
@@ -25,7 +23,19 @@ import com.topcoder.web.tc.Constants;
 public class SubmitRegistration extends ViewRegistration {
 
     protected void regProcessing(Event event, User user) throws Exception {
-        super.regProcessing(event, user);
+        String termsAgree = getRequest().getParameter(Constants.TERMS_AGREE);
+
+        responses = getResponses(event.getSurvey());
+        
+        for (Iterator it = responses.iterator(); it.hasNext();) {
+            ((Response) it.next()).setUser(user);
+        }
+
+        checkRequiredQuestions(event.getSurvey(), responses);
+        
+        if (!"on".equals(termsAgree)) {
+            addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
+        }
         
         String ageInput = "";
         String inCollegeInput = "";
@@ -61,22 +71,20 @@ public class SubmitRegistration extends ViewRegistration {
         }
 
         if (hasErrors()) {
-/*            setDefault(Constants.TERMS_AGREE, String.valueOf("on".equals(termsAgree)));
-            setDefault(AGE, ageInput);
-            setDefault(IN_COLLEGE, inCollegeInput);
-            setDefault(IN_HIGH_SCHOOL, inHighSchoolInput);*/
+            setDefaults (responses);
+            setDefault(Constants.TERMS_AGREE, String.valueOf("on".equals(termsAgree)));
         } else {
             //todo store all their answers about age etc.
             UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
-            user.addTerms(DAOUtil.getFactory().getTermsOfUse().find(new Integer(getTermsId())));
 
             EventRegistration er = new EventRegistration();
             er.getId().setUser(user);
             er.getId().setEvent(event);
             er.setEligible(age <= 20 && age >= 13 && !"Yes".equals(inCollegeInput) && "Yes".equals(inHighSchoolInput));
 
-            user.addResponse(responses);
             user.addEventRegistration(er);
+            user.addTerms(event.getTerms());
+            user.addResponse(responses);
 
             userDAO.saveOrUpdate(user);
             refreshCache();
