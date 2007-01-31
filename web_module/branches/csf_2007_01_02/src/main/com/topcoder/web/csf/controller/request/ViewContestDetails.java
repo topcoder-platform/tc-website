@@ -6,6 +6,9 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.dao.DAOFactory;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.csf.Constants;
 import com.topcoder.web.csf.dao.CSFDAOUtil;
 import com.topcoder.web.csf.model.Contest;
@@ -47,6 +50,16 @@ public class ViewContestDetails extends ShortHibernateProcessor {
                     throw new NavigationException("Invalid contest specified.");
                 }
             }
+
+            boolean registered = false;
+            if (userLoggedIn()) {
+                User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+                if (CSFDAOUtil.getFactory().getContestRegistrationDAO().find(contest, u) != null) {
+                    registered = true;
+                }
+            }
+            
+            getRequest().setAttribute("registered", Boolean.valueOf(registered));
 
             getRequest().setAttribute("currentTime", new Date());
 

@@ -55,29 +55,46 @@
         > ${contest.name}
     </div>
 
+<c:choose>
+<c:when test="${registered}">
+<strong>You are registered for this project.</strong>
+<br>
+</c:when>
+<c:otherwise>
     <div style="float: left;">
         <A href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="button" style="width: 60px;">Register</A>
     </div>
+    <br>
+</c:otherwise>
+</c:choose>
 
 <h2>Project Overview</h2>
 ${contest.overview.value}
 <br><br>
 
-<c:if test="${fn:length(contest.documents)>0}">
-    <strong>Documentation</strong><br>
-    <%--
-        To view this project's documentation, you must be a registered TopCoder Studio member. If you are <strong>
-        already a registered TopCoder member</strong> you still need to add TopCoder Studio to your registration by
-        <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">updating your profile</A>.
-        <br><br>
-    --%>
-    <c:forEach items="${contest.documents}" var="document">
-        ${document.type.description}:
-        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
-                ${document.originalFileName}</a> <br/>
-    </c:forEach>
-    <br><br>
-</c:if>
+<c:choose>
+<c:when test="${registered}">
+	<c:if test="${fn:length(contest.documents)>0}">
+	    <strong>Documentation</strong><br>
+	    <%--
+	        To view this project's documentation, you must be a registered TopCoder Studio member. If you are <strong>
+	        already a registered TopCoder member</strong> you still need to add TopCoder Studio to your registration by
+	        <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">updating your profile</A>.
+	        <br><br>
+	    --%>
+	    <c:forEach items="${contest.documents}" var="document">
+	        ${document.type.description}:
+	        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
+	                ${document.originalFileName}</a> <br/>
+	    </c:forEach>
+	    <br><br>
+	</c:if>
+</c:when>
+<c:otherwise>
+	To view this project's documentation, you must register for the project.
+	
+</c:otherwise>	
+</c:choose>
 
 
 <h2>Payment</h2>
