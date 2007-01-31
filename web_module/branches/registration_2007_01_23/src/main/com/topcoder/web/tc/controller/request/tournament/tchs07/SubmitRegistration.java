@@ -13,6 +13,7 @@ import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.tc.Constants;
 
 /**
@@ -40,15 +41,19 @@ public class SubmitRegistration extends ViewRegistration {
         String ageInput = "";
         String inCollegeInput = "";
         String inHighSchoolInput = "";
+        String ageKey = "";
         for (Iterator it = event.getSurvey().getQuestions().iterator(); it.hasNext(); ) {
             Question q = (Question) it.next();
             Response response = findResponse(responses, q.getId());
-            if (q.getKeyword().equals(AGE)) {
-                ageInput = StringUtils.checkNull(response.getText());
-            } else if (q.getKeyword().equals(IN_COLLEGE)) {
-                inCollegeInput = StringUtils.checkNull(response.getAnswer().getText());
-            } else if (q.getKeyword().equals(IN_HIGH_SCHOOL)) {
-                inHighSchoolInput = StringUtils.checkNull(response.getAnswer().getText());
+            if (response.getAnswer() != null) {
+                if (q.getKeyword().equals(AGE)) {
+                    ageInput = StringUtils.checkNull(response.getText());
+                    ageKey = AnswerInput.PREFIX + q.getId();
+                } else if (q.getKeyword().equals(IN_COLLEGE)) {
+                    inCollegeInput = StringUtils.checkNull(response.getAnswer().getText());
+                } else if (q.getKeyword().equals(IN_HIGH_SCHOOL)) {
+                    inHighSchoolInput = StringUtils.checkNull(response.getAnswer().getText());
+                }
             }
         }
         
@@ -59,15 +64,7 @@ public class SubmitRegistration extends ViewRegistration {
         try {
             age = Integer.parseInt(ageInput);
         } catch (NumberFormatException e) {
-            addError(AGE, "Please enter a valid number for your age.");
-        }
-
-        if ("".equals(inCollegeInput)) {
-            addError(IN_COLLEGE, "Please respond to this question.");
-        }
-
-        if ("".equals(inHighSchoolInput)) {
-            addError(IN_HIGH_SCHOOL, "Please respond to this question.");
+            addError(ageKey, "Please enter a valid number for your age.");
         }
 
         if (hasErrors()) {
