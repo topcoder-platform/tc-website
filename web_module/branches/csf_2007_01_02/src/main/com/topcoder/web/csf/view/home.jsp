@@ -30,85 +30,36 @@
 
 <div id="main">
     <div class="pageHeader">
-        <span class="pageNumber">01</span>
-        | <span class="pageName">Section Title</span>
+        <span class="pageName">Competition Guide</span>
     </div>
+<p>
+Microsoft and British Telecom, in association with TopCoder, will run a series of Connected Services Sandbox competition series.  In these competitions, developers from Sandbox member organizations, as well as freelance application developers, can collaborate and compete to generate new mashup service designs and then build functional prototypes of those designs. 
+</p>
+<p>
+Through this series of competitions, Sandbox members can take advantage of a "no-shore" pool of creative talent to design and assemble working prototypes of services which could result in commercialized deployments in service provider networks
+</p>
+<h2>Competition Series Goals & Objectives</h2>
+<ul>
+<li>Fuel the creative development process  and encourage collaboration among the wide range of Connected Services Sandbox participants, as well as freelance application developers</li>
+<li>Encourage broader development on and service experimentation with the Microsoft  Connected Services Framework platform</li>
+<li>Excite customers by providing  access to a pool of developers that yields results, reducing time from concept to market</li>
+<li>Drive the development of innovative, new mashup services</li>
+</ul>
+<h2>Competition Structure and Format</h2>
+<p>
+The competitions will be divided into multiple usage scenarios defined by Microsoft and British Telecom. These scenarios will provide the criteria for the competitions. 
+</p>
+<p>
+<strong>Two Stage Competitions:</strong>
+</p>
+<p><strong><a href="/?module=ViewActiveContests">Creative Mashup Design Competitions:</a></strong> The Creative Mashup Design Competitions represent the first stage of the contests, and consist of creating a textual or graphical representation of the proposed solution (specification, process diagram, flow chart) that will satisfy the criteria specified for the given  usage scenario. The scope and rules for the competitions will be defined by Microsoft and British Telecom.</p>
+<p><strong><a href="">The Assembly Competitions:</a></strong> The Assembly Competition is the second stage and requires that the winning Mashup Design from the first stage of the competition be built into a prototype that delivers a demonstrable service. The Connected Services Sandbox Competition Series are not intended to produce commercial, carrier-grade software, but a working prototype or proof-of-concept service which could then be scaled for commercial use.</p>
+<h2>Scoring the Competition</h2>
+<p>
+At the end of each stage of the competitions, the submissions will be reviewed by a panel of Microsoft customers, Microsoft engineers and a selection of participants in the Sandbox. The judging criteria will be defined by Microsoft and British Telecom.  Winners will be identified, announced and rewarded through both monetary prizes and non-monetary promotional programs.
+</p>
+<p><strong>Welcome to the Connected Services Sandbox. We hope you will find these competitions both challenging and rewarding.</strong></p>
 
-    <p>
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In nisi orci, rhoncus in, sollicitudin quis, lacinia at, nisi. Suspendisse potenti. Maecenas pretium. Vestibulum dapibus dictum nibh. Ut augue ligula, fringilla non, lacinia sit amet, dignissim id, dui. Maecenas vel nulla. Donec quis dolor at mi faucibus iaculis. Morbi a sapien at ligula auctor viverra. Curabitur hendrerit metus ut ligula. Aliquam dignissim ultricies augue.
-    </p>
-    <p>
-    Maecenas leo. Duis convallis malesuada est. Aenean suscipit, nisi non laoreet consequat, est felis cursus turpis, at rutrum quam mi nec massa. Sed eu orci. Quisque nec nisi. Maecenas condimentum pede sagittis libero. Donec dictum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Vestibulum vehicula, metus at laoreet hendrerit, justo nunc aliquam ipsum, sed dictum orci nibh sed nunc. Maecenas rhoncus, eros vel malesuada nonummy, ante nisl consectetuer leo, ut ornare massa urna ut sapien. Ut rhoncus. Mauris a velit quis ligula accumsan tempus. Suspendisse potenti. Mauris diam. Cras felis mauris, egestas quis, bibendum ut, elementum vitae, nisl. Curabitur non lectus. Nulla eget lectus. Aenean et lectus.
-    </p>
-    <p>
-    Morbi nulla. Sed ac nisl. Nulla ultrices, elit viverra accumsan bibendum, urna odio placerat urna, quis facilisis nibh ligula at dolor. Integer nec justo. Aenean vehicula eros at nulla. Cras justo diam, rutrum nec, varius et, pellentesque quis, felis. Praesent cursus, tortor eget pellentesque dictum, turpis risus suscipit magna, eget convallis lacus tellus eget enim. Maecenas auctor. Duis imperdiet leo id lacus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-    </p>
-    <p>
-    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Praesent lobortis mollis ante. Quisque lobortis nisi vel quam malesuada egestas. Donec tempus neque ut sem. Donec bibendum, nisl in viverra blandit, tortor lacus viverra mauris, vitae vehicula sapien ligula a leo. Integer sollicitudin egestas odio. Donec et nisi. Vestibulum sit amet eros. Nunc in sem. Nulla facilisi.
-    </p>
-    <table cellpadding="0" cellspacing="0" class="stat" width="100%">
-    <thead>
-        <tr>
-            <td class="title" colspan="3">
-                <span class="title">Title:</span>
-                Subtitle
-            </td>
-        </tr>
-        <tr>
-            <td class="header">
-                Header
-            </td>
-            <td class="headerC">
-                Header
-            </td>
-            <td class="headerR">
-                Header
-            </td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="light">
-            <td class="value">
-                Value
-            </td>
-            <td class="valueC">
-                Value
-            </td>
-            <td class="valueR">
-                Value
-            </td>
-        </tr>
-        <tr class="dark">
-            <td class="value">
-                Value
-            </td>
-            <td class="valueC">
-                Value
-            </td>
-            <td class="valueR">
-                Value
-            </td>
-        </tr>
-        <tr class="light">
-            <td class="value">
-                Value
-            </td>
-            <td class="valueC">
-                Value
-            </td>
-            <td class="valueR">
-                Value
-            </td>
-        </tr>
-    </tbody>
-    </table>
-    <p>
-    Nulla quis risus id lectus aliquet auctor. Fusce posuere pulvinar augue. Aliquam erat volutpat. Nam purus risus, condimentum eu, laoreet id, euismod ac, erat. Nullam eu massa. Sed nonummy tempor enim. Vivamus velit. Mauris euismod sodales quam. Vivamus nisl. Nulla elementum dui nec magna mattis sollicitudin. Sed convallis. Aliquam nec odio et quam sagittis condimentum.
-    </p>
-    <div align="center">
-        <A href="" class="button" style="width: 50px;">Button</A>
-        <A href="" class="button" style="width: 50px;">Button</A>
-    </div>
 
 </div>
     

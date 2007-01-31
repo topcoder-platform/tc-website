@@ -27,7 +27,7 @@
                 <img src="/i/layout/headerBullet.png" alt="bullet" />&nbsp;<a href="/?module=Login">Login</a>
             </div>
             <div class="topLinkBox">
-                <img src="/i/layout/headerBullet.png" alt="bullet" />&nbsp;<a href="">Home</a>
+                <img src="/i/layout/headerBullet.png" alt="bullet" />&nbsp;<a href="/">Home</a>
             </div>
         </c:when>
         <c:otherwise>
@@ -38,7 +38,7 @@
                 <img src="/i/layout/headerBullet.png" alt="bullet" />&nbsp;<a href="http://<%=ApplicationServer.CSF_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout">Logout</a>
             </div>
             <div class="topLinkBox">
-                <img src="/i/layout/headerBullet.png" alt="bullet" />&nbsp;<a href="">Home</a>
+                <img src="/i/layout/headerBullet.png" alt="bullet" />&nbsp;<a href="/">Home</a>
             </div>
             <div class="topLinkBox">
                 Hello, <csf:handle coderId="${sessionInfo.userId}"/>
