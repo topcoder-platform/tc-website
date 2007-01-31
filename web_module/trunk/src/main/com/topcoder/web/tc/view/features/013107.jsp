@@ -58,7 +58,7 @@
 <div id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A></div>
 <div id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A></div>
 </div>
-<span class="bigTitle">Five Things You Didn't Know About C++, Part II</span>
+<span class="bigTitle">Five Things You Didn't Know About C++, Part 2</span>
 <br /><br />
 
 <div class="authorPhoto">
