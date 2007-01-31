@@ -14,6 +14,8 @@
 	</PhaseTypes>
 <!--	 A set of project phases defined in this template. -->
 	<Phases>
+		<Phase id="registrationPhase" length="259200000" type="registration"/>
+
 <!--		 A definition of a single phase. -->
 		<Phase id="submissionPhase" length="86400000" type="submission">
 		</Phase>
@@ -42,8 +44,12 @@
 			<Dependency id="appealsReponsePhase"/>
 		</Phase>
 
-		<Phase id="finalFixesPhase" length="86400000" type="final_fixes">
+		<Phase id="aggregationReviewPhase" length="86400000" type="aggregation_review">
 			<Dependency id="aggregationPhase" isDependencyStart="false" isDependentStart="true" lagTime="0"/>
+		</Phase>
+
+		<Phase id="finalFixesPhase" length="86400000" type="final_fixes">
+			<Dependency id="aggregationReviewPhase" isDependencyStart="false" isDependentStart="true" lagTime="0"/>
 		</Phase>
 
 		<Phase id="finalReviewPhase" length="86400000" type="final_review">
