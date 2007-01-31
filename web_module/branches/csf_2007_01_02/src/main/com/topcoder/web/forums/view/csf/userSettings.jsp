@@ -72,18 +72,18 @@ function toggleTabs(anchor,id) {
 <body onload="toggleTabs('','gen')">
 
 <div align="center">
-   <div class="contentOut">
-   
+<div id="content">
 
-      <jsp:include page="top.jsp" />
+<jsp:include page="top.jsp"/>
 
+<jsp:include page="primaryNav.jsp">
+<jsp:param name="selectedTab" value="discuss"/>
+</jsp:include>
 
-   <jsp:include page="topNav.jsp">
-       <jsp:param name="node" value="forums"/>
-   </jsp:include>
-      <div class="contentIn">
-         <img src="/i/layout/contentInN.gif" alt="" style="display:block;" />
-         <div class="contentSpacer">
+<div id="main">
+    <div class="pageHeader">
+        <span class="pageName">Forums</span>
+    </div>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
@@ -98,9 +98,9 @@ function toggleTabs(anchor,id) {
     </td>
 </tr>
 <tr>
-	<td colspan="2" style="padding-bottom:3px;">
-		<b><A href="?module=Main" class="rtbcLink">Forums</A> > User Settings</b>
-	</td>
+    <td colspan="2" style="padding-bottom:3px;">
+        <b><A href="?module=Main" class="rtbcLink">Forums</A> > User Settings</b>
+    </td>
 </tr>
 </table>
 
@@ -135,11 +135,11 @@ function toggleTabs(anchor,id) {
               forumRange = Integer.parseInt(user.getProperty("jiveForumRange"));
           } catch (Exception ignored) {}
           for (int i=0; i<forumCounts.length; i++) {
-	          if (forumCounts[i] == forumRange) { %>
-	              <option value="<%=forumCounts[i]%>" selected><%=forumCounts[i]%></option>
-	      <%  } else { %>
-	              <option value="<%=forumCounts[i]%>"><%=forumCounts[i]%></option>
-	      <%  }
+              if (forumCounts[i] == forumRange) { %>
+                  <option value="<%=forumCounts[i]%>" selected><%=forumCounts[i]%></option>
+          <%  } else { %>
+                  <option value="<%=forumCounts[i]%>"><%=forumCounts[i]%></option>
+          <%  }
           } %>
       </select>
       </td>
@@ -458,18 +458,15 @@ function toggleTabs(anchor,id) {
 <span id="infoRate" class="rtDesc">TopCoder provides the ability to rate posts.  You may click the [+] next to the thread title if you think it is of high quality.   Similarly, you may click the [-] if it is of low quality.  We recommend that you also post your comments if you agree or disagree with the content of a post. Also, when ratings are enabled, you may click on a post's subject to expand or collapse the post.</span>
 
 <div>
-   <div style="float:right;">
-   <input type="image" src="/i/layout/btn_save.gif" onmouseover="this.src='/i/layout/btn_save_on.gif'" onmouseout="this.src='/i/layout/btn_save.gif'">
-   </div>
+    <BUTTON name="submit" value="submit" type="submit" class="button">Save</BUTTON>
+<%--   <input type="image" src="/i/layout/btn_save.gif" onmouseover="this.src='/i/layout/btn_save_on.gif'" onmouseout="this.src='/i/layout/btn_save.gif'">--%>
 </div>
 </form>
 <br><br><br>
-         </div>
-         <img src="/i/layout/contentInS.gif" alt="" style="display:block;" />
-      </div>
-      <jsp:include page="foot.jsp"/>
-      <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-   </div>
+</div>
+    
+<jsp:include page="foot.jsp"/>
+</div>
 </div>
 
 </body>
