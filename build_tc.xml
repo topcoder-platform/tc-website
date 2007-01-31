@@ -943,6 +943,10 @@
             <webinf dir="${resources}/admin">
                 <include name="jboss-web.xml"/>
             </webinf>
+            <lib dir="${jars.dir}">
+                <include name="jstl.jar"/>
+                <include name="standard.jar"/>
+            </lib>            
         </war>
         <antcall target="expand-admin"/>
     </target>
