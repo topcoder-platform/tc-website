@@ -44,10 +44,11 @@
 
 <p>
     5.6.4 - 2007.01.xx
-    <ul>
+    <ul>    
         <%--
                 <li>Member contact was fixed to get rated users from transactional db rather than dw.</li>
         --%>
+        <li>Added an admin tool for cleaning schools and utilities to fix team points</li>
     </ul>
 </p>
 
