@@ -946,6 +946,7 @@
                 <include name="com/topcoder/web/forums/**/*.class"/>
             	<include name="com/topcoder/dde/catalog/**/*.class"/>
                 <include name="com/topcoder/web/tc/controller.request.authentication.Login.class"/>
+            	<include name="com/topcoder/web/tc/Constants.class"/>
             </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
