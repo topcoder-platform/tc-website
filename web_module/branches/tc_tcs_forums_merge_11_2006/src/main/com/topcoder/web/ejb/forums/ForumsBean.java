@@ -37,7 +37,6 @@ import java.util.Comparator;
 import java.util.Iterator;
 
 import javax.ejb.EJBException;
-import javax.naming.InitialContext;
 
 /**
  * This class handles interaction with the Jive database.
@@ -155,7 +154,7 @@ public class ForumsBean extends BaseEJB {
     }
     
     public void setPublic(long categoryID, boolean isPublic) throws ForumCategoryNotFoundException, UnauthorizedException {
-    	log.info("*** called setPublic(): categoryID = " + categoryID + " | isPublic = " + isPublic);
+    	//log.info("*** called setPublic(): categoryID = " + categoryID + " | isPublic = " + isPublic);
     	ForumCategory category = forumFactory.getForumCategory(categoryID);
     	PermissionsManager categoryPermissionsManager = category.getPermissionsManager();
     	
