@@ -17,7 +17,6 @@ import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.ForumMessage;
-import com.jivesoftware.forum.ForumPermissions;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
@@ -41,8 +40,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.activation.MimetypesFileTypeMap;
-import javax.naming.Context;
-import javax.naming.InitialContext;
 
 /**
  * Uses the Jive API to create categories/forums/threads/messages with data retrieved from the old Topcoder
@@ -545,7 +542,7 @@ public class ForumConversion {
             }
             
             log.info(forumNum + " out of " + totalForum + " forums have been processed.");
-            if (forumNum >= 60) {
+            if (forumNum >= 100) {
             	break;
             }
         }
