@@ -552,7 +552,7 @@ public class ForumConversion {
             }
             
             log.info(forumNum + " out of " + totalForum + " forums have been processed.");
-            if (forumNum >= 100) {
+            if (forumNum >= 200) {
             	break;
             }
         }
