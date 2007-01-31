@@ -72,6 +72,11 @@ public class Submit extends View {
                 if (hasErrors()) {
                     setDefaults(responses);
                     setNextPage(Constants.SURVEY_VIEW);
+                    if (alreadyResponded()) {
+                        getRequest().setAttribute("alreadyResponded", new Boolean("true"));
+                    } else {
+                        getRequest().setAttribute("alreadyResponded", new Boolean("false"));
+                    }
                     setIsNextPageInContext(true);
                 } else if (hasAllFreeForm && !responses.isEmpty()) {
                     setNextPage(Constants.SURVEY_THANKS);
