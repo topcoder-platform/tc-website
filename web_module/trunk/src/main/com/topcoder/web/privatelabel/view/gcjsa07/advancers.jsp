@@ -66,15 +66,15 @@
                                 <a href="/pl/?&module=Static&d1=gcjsa07&d2=advQual">408</a>
                             </td>
                         </tr>
-                        <%--
                         <tr valign="top">
                             <td class="advancersRound">
                                 <a href="/pl/?&module=Static&d1=gcjsa07&d2=advRd1" class="topLink">Online Round 1</a>
                             </td>
                             <td class="boxText" align="right">
-                                <a href="/pl/?&module=Static&d1=gcjsa07&d2=advRd1">500</a>
+                                <a href="/pl/?&module=Static&d1=gcjsa07&d2=advRd1">250</a>
                             </td>
                         </tr>
+                        <%--
                         <tr valign="top">
                             <td class="advancersRound">
                                 <a href="/pl/?&module=Static&d1=gcjsa07&d2=advRd2" class="topLink">Online Round 2</a>
