@@ -142,7 +142,14 @@
                     <A href="/stat?c=coder_room_stats&cr=${cr}&rd=${algorithmRoundId}"><rsc:item name="payment_desc" row="<%=resultRow%>"/></A>
                 </c:when>
                 <c:when test="${(typeId == 6 || typeId == 7) && componentProjectId > 0}">
-                    <A href="/tc?module=CompContestDetails&pj=${componentProjectId}" class="bcLink"><rsc:item name="payment_desc" row="<%=resultRow%>"/></A>                    
+                    <A href="/tc?module=CompContestDetails&pj=${componentProjectId}" class="bcLink"><rsc:item name="payment_desc" row="<%=resultRow%>"/>
+                    <% if(resultRow.getDoubleItem("gross_amount") != resultRow.getDoubleItem("total_amount")) {
+                        int inst = resultRow.getIntItem("installment_number");
+                    	String cardinal = inst == 1? "1st" : inst==2? "2nd" : inst==3? "3rd" : inst+"th";
+                    %>
+                      (<%= cardinal %> installment, total amount=<%= resultRow.getDoubleItem("total_amount") %>)                    
+                    <% } %>
+                    </A>                    
                 </c:when>
                 <c:when test="${(typeId == 17 || typeId == 25) && digitalRunStageId > 0}">
                     <A href="/tc?module=LeaderBoard&ph=112&staid=${digitalRunStageId}" class="bcLink"><rsc:item name="payment_desc" row="<%=resultRow%>"/></A>                    
