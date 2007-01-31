@@ -3,6 +3,7 @@
 <Template name="Application">
 <!--	 An enumeration of project phase types defined in this template -->
 	<PhaseTypes>
+		<PhaseType id="registration" typeId="1" typeName="Registration"/>
 		<PhaseType id="submission" typeId="2" typeName="Submission"/>
 		<PhaseType id="screening" typeId="3" typeName="Screening"/>
 		<PhaseType id="review" typeId="4" typeName="Review"/>
