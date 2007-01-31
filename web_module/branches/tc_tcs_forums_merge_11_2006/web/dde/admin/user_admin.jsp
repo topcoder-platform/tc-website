@@ -103,6 +103,7 @@
         	long groupID = Long.parseLong(request.getParameter("selForumRole"));
         	try {
         		forums.assignRole(userID, groupID);
+        		strMessage += "Assigned forum role.";
         	} catch (Exception e) {
         		strError += "Error occurred while assigning forums role: " + e.getMessage();
         	}
@@ -127,6 +128,7 @@
         	long groupID = Long.parseLong(request.getParameter("groupID"));
         	try {
         		forums.removeRole(selectedPrincipal.getId(), groupID);
+        		strMessage += "Removed forum role.";
         	} catch (Exception e) {
         		strError += "Error occurred while removing forums role: " + e.getMessage();
         	}
@@ -142,7 +144,11 @@
 	            }
                 long lngUser = Long.parseLong(request.getParameter("user"));
                 forums.createCategoryWatches(lngUser, categoryIDs);
-       		    strMessage += "Notification events were assigned";
+                if (categoryIDs.length > 1) {
+                	strMessage += "Added " + categoryIDs.length + " watches.";
+                } else if (categoryIDs.length == 1) {
+       		    	strMessage += "Added watch.";
+       		    }
             } catch (RemoteException re) {
                 strError += "RemoteException occurred while assigning notification event: " + re.getMessage();
             }
@@ -153,7 +159,7 @@
                 long categoryID = Long.parseLong(request.getParameter("categoryID"));
                 long lngUser = Long.parseLong(request.getParameter("user"));
                 forums.deleteCategoryWatch(lngUser, categoryID);
-                strMessage += "Notification event was unassigned";
+                strMessage += "Removed watch.";
             } catch (RemoteException re) {
                 strError += "RemoteException occurred while unassigning notification event: " + re.getMessage();
             }
@@ -191,6 +197,8 @@
 <%@ include file="/includes/adminHeader.jsp" %>
 <%@ include file="/includes/adminNav.jsp" %>
 <!-- Header ends -->
+
+<%=strMessage%>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
 	<tr valign="top">
