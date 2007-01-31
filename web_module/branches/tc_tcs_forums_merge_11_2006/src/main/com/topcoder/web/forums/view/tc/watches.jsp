@@ -71,7 +71,7 @@
                 <tc-webtag:hiddenInput name="module" value="Watches"/>
                 <tc-webtag:hiddenInput name="<%=ForumConstants.WATCH_TYPE%>" value="<%=String.valueOf(JiveConstants.THREAD)%>"/>
                 <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>"/>
-                <b>Watched Threads (<%=watchManager.getTotalWatchCount(user, JiveConstants.THREAD)%>)</b>
+                <div style="padding-bottom:3px;"><b>Watched Threads (<%=watchManager.getTotalWatchCount(user, JiveConstants.THREAD)%>)</b></div>
                 <table cellpadding="0" cellspacing="0" class="rtTable">
                     <tr>
                         <td class="rtHeader" width="70%">Thread</td>
@@ -121,7 +121,7 @@
                 <tc-webtag:hiddenInput name="module" value="Watches"/>
                 <tc-webtag:hiddenInput name="<%=ForumConstants.WATCH_TYPE%>" value="<%=String.valueOf(JiveConstants.FORUM_CATEGORY)%>"/>
                 <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>"/>
-                <b>Watched Software Forums (<%=watchManager.getTotalWatchCount(user, JiveConstants.FORUM_CATEGORY)%>)</b>
+                <div style="padding-bottom:3px;"><b>Watched Software Forums (<%=watchManager.getTotalWatchCount(user, JiveConstants.FORUM_CATEGORY)%>)</b></div>
                 <table cellpadding="0" cellspacing="0" class="rtTable">
                     <tr>
                         <td class="rtHeader" width="100%">Category</td>
