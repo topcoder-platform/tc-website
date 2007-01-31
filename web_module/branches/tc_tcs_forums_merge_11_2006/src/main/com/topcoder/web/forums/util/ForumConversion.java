@@ -266,6 +266,8 @@ public class ForumConversion {
 
         int forumNum = 0;
         int totalForum = forums.size();
+       	int limit = JiveGlobals.getJiveIntProperty("tc.convert.tcs.forums.limit", totalForum);
+       	log.info("Returning " + limit + " out of " + totalForum + " total forums: ");
         
         for (Iterator it = forums.iterator(); it.hasNext();) {
             forumNum++;
@@ -551,8 +553,8 @@ public class ForumConversion {
                 }
             }
             
-            log.info(forumNum + " out of " + totalForum + " forums have been processed.");
-            if (forumNum >= 200) {
+            log.info(forumNum + " out of " + limit + " forums have been processed.");
+            if (forumNum >= limit) {
             	break;
             }
         }
