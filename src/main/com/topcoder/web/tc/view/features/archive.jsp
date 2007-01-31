@@ -45,7 +45,12 @@
             </tr>
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="251074" /></td>
-               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=012607"><strong>Five things you didn't know about C++</strong></A></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=013107"><strong>Five Things You Didn't Know About C++, Part 2</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Jan 31, 2007</td> 
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="251074" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=012607"><strong>Five Things You Didn't Know About C++</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Jan 26, 2007</td> 
             </tr>
             <tr valign="top">

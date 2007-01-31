@@ -58,7 +58,7 @@
 <div id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A></div>
 <div id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A></div>
 </div>
-<span class="bigTitle">Five things you didn't know about C++</span>
+<span class="bigTitle">Five Things You Didn't Know About C++</span>
 <br /><br />
 
 <div class="authorPhoto">
@@ -291,7 +291,7 @@ int (A::*afuncptr)();</pre>
         <br /><br />
 
         <span class="bodySubtitle">Coming soon</span><br />
-        Watch for a follow-up article coming soon, featuring five things you didn't know about initialization and destruction in C++.
+        Watch for a <a href="/tc?module=Static&d1=features&d2=013107">follow-up article</a> coming soon, featuring five things you didn't know about initialization and destruction in C++.
         <br><br>
         </td>
 <!-- Center Column Ends -->
