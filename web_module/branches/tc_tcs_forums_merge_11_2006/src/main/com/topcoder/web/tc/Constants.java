@@ -334,10 +334,14 @@ public class Constants implements WebConstants {
     }
 
     public static void initialize() {
+    	log.info("**************!!!!!!!!!!!!!!!!!! Initializing!!!!!");
+    	log.info("**************!!!!!!!!!!!!!!!!!! Initializing!!!!!");
+    	log.info("**************!!!!!!!!!!!!!!!!!! Initializing!!!!!");
         Field[] f = Constants.class.getFields();
         for (int i = 0; i < f.length; i++) {
             try {
                 if (!Modifier.isFinal(f[i].getModifiers())) {
+                	log.info("Initializing field with name: " + f[i].getType().getName());
                     if (f[i].getType().getName().equals("int")) {
                         try {
                             f[i].setInt(null, bundle.getIntProperty(f[i].getName().toLowerCase()));

@@ -1,4 +1,5 @@
 <%@ page language="java"%>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.web.common.model.NavNode"%>
 <%@ page import="com.topcoder.web.common.model.NavTree"%>
