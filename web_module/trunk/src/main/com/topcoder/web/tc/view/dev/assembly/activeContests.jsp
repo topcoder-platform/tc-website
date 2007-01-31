@@ -49,26 +49,25 @@
       <td class="tableHeader" align="center" nowrap="nowrap">Forums</td>
    </tr>
    <% boolean even = false; %>
-<%--
    <tr class="<%=even?"dark":"light"%>">
       <td class="value" nowrap>
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_wmsOrderReceiveProcess">Warehouse Management Phase 2 - <br>Ordering, Receiving and Processing</A>
       </td>
       <td class="valueC">
       <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Warehouse Management Phase 2 - Ordering, Receiving and Processing">register</A>
-      <!--registration closed-->
+      <%--registration closed--%>
       </td>
       <td class="valueC">
       &#160;
-      <!--   
+      <%--   
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_wmsOrderReceiveProcess">results</A>
-      -->
+      --%>
       </td>
       <td class="valueC">
       &#160;
-      <!-- 
+      <%-- 
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_wmsOrderReceiveProcess">standings</A>
-      -->
+      --%>
       </td>
       <td class="valueC">$11,000</td>
       <td class="valueC">
@@ -80,11 +79,10 @@
       <td class="valueC" nowrap="nowrap">
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506269">join a team</A>
       <br>
-      <!--<A href="">discuss</A>-->
+      <%--<A href="">discuss</A>--%>
       </td>
    </tr>
    <% even = !even;%>
---%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value" nowrap>
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_warehouseMgmtRepPhase2">Warehouse Management Phase 2 Reporting</A>
