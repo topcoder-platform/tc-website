@@ -221,7 +221,7 @@
                             </td>
                         </tr>
                         <tr><td class="rtFooter">
-                            <BUTTON name="submit" value="submit" type="submit" class="button" onclick="form1.module.value='PostMessage'">Post</BUTTON>
+                            <BUTTON name="submit" value="submit" type="submit" class="button" style="margin-right: 5px;" onclick="form1.module.value='PostMessage'">Post</BUTTON>
                             <BUTTON name="submit" value="submit" type="submit" class="button" onclick="form1.module.value='PreviewMessage'">Preview</BUTTON>
 <%--
                             <input type="image" src="/i/forums/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/>
