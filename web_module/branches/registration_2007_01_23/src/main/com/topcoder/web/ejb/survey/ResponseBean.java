@@ -28,7 +28,7 @@ public class ResponseBean extends BaseEJB {
             conn = DBMS.getConnection(DBMS.JTS_OLTP_DATASOURCE_NAME);
             responseId = IdGeneratorClient.getSeqId("RESPONSE_SEQ");
 
-            ps = conn.prepareStatement("INSERT INTO response (response_id, user_id, question_id, answer_id) VALUES (?,?,?)");
+            ps = conn.prepareStatement("INSERT INTO response (response_id, user_id, question_id, answer_id) VALUES (?,?,?,?)");
             ps.setLong(1, responseId);
             ps.setLong(2, userId);
             ps.setLong(3, questionId);
@@ -63,7 +63,7 @@ public class ResponseBean extends BaseEJB {
             conn = DBMS.getConnection(DBMS.JTS_OLTP_DATASOURCE_NAME);
             responseId = IdGeneratorClient.getSeqId("RESPONSE_SEQ");
 
-            ps = conn.prepareStatement("INSERT INTO response (response_id, user_id, question_id, response) VALUES (?,?,?)");
+            ps = conn.prepareStatement("INSERT INTO response (response_id, user_id, question_id, response) VALUES (?,?,?,?)");
             ps.setLong(1, responseId);
             ps.setLong(2, userId);
             ps.setLong(3, questionId);
