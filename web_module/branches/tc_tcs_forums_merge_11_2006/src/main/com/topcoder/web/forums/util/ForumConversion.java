@@ -323,8 +323,13 @@ public class ForumConversion {
             		+ "where r.description = 'ForumModerator " + oldForumID + "' and urx.role_id = r.role_id");
             rs = rolesPS.executeQuery();
             while (rs.next()) {
-            	long userID = rs.getLong("login_id");
-            	moderatorGroup.addMember(userManager.getUser(userID));
+            	try {
+            		long userID = rs.getLong("login_id");
+            		moderatorGroup.addMember(userManager.getUser(userID));
+            	} catch (UserNotFoundException unfe) {
+                	log.info("UserNotFoundException when trying to add member to moderatorGroup: " + unfe.getMessage());
+                	log.info("userID: " + rs.getLong("login_id"));
+            	}
             }
             rs.close();
             
@@ -332,8 +337,13 @@ public class ForumConversion {
             		+ "where r.description = 'ForumUser " + oldForumID + "' and urx.role_id = r.role_id");
             rs = rolesPS.executeQuery();
             while (rs.next()) {
-            	long userID = rs.getLong("login_id");
-            	userGroup.addMember(userManager.getUser(userID));
+            	try {
+            		long userID = rs.getLong("login_id");
+            		userGroup.addMember(userManager.getUser(userID));
+            	} catch (UserNotFoundException unfe) {
+                	log.info("UserNotFoundException when trying to add member to userGroup: " + unfe.getMessage());
+                	log.info("userID: " + rs.getLong("login_id"));
+            	}
             }
             rs.close();
             
@@ -464,7 +474,7 @@ public class ForumConversion {
                         try {
                         	msg = topicForum.createMessage(userManager.getUser(post.getLoginId()));
                         } catch (UserNotFoundException unfe) {
-                        	log.info("UserNotFoundException: " + unfe.getMessage());
+                        	log.info("UserNotFoundException when trying to create message: " + unfe.getMessage());
                         	log.info("post.getId(): " + post.getId());
                         	log.info("post.getLoginId(): " + post.getLoginId());
 
