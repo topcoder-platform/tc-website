@@ -45,22 +45,22 @@
 <p>
     5.6.4 - 2007.01.xx
     <ul>    
+    </ul>
+</p>
+
+<p>
+    5.6.3 - 2007.02.01
+    <ul>
+        <li>Fix bug in pacts that was missing to fill the due date when generating round payments, and the amount for
+            referrals
+        </li>
+        <li>Include serbia on the HS regions page</li>
         <%--
                 <li>Member contact was fixed to get rated users from transactional db rather than dw.</li>
         --%>
         <li>Added an admin tool for cleaning schools and utilities to fix team points</li>
         <li>In Payment History, added the installment number and total if the payment is not for the total</li>
         <li>PACTS: fixed a bug when updating the status in batch mode; the total amount was replaced by gross</li>
-    </ul>
-</p>
-
-<p>
-    5.6.3 - 2007.01.25
-    <ul>
-        <li>Fix bug in pacts that was missing to fill the due date when generating round payments, and the amount for
-            referrals
-        </li>
-        <li>Include serbia on the HS regions page</li>
     </ul>
 </p>
 
