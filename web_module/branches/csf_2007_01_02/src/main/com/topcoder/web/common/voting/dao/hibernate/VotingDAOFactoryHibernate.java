@@ -1,0 +1,25 @@
+package com.topcoder.web.common.voting.dao.hibernate;
+
+import com.topcoder.web.common.voting.dao.CandidatePropertyDAO;
+import com.topcoder.web.common.voting.dao.CondorcetSchulzeElectionDAO;
+import com.topcoder.web.common.voting.dao.RankBallotDAO;
+import com.topcoder.web.common.voting.dao.VotingDAOFactory;
+
+/**
+ * @author dok
+ * @version $Revision$ Date: 2005/01/01 00:00:00
+ *          Create Date: Jan 30, 2007
+ */
+public class VotingDAOFactoryHibernate implements VotingDAOFactory {
+    public RankBallotDAO getRankBallotDAO() {
+        return new RankBallotDAOHibernate();
+    }
+
+    public CondorcetSchulzeElectionDAO getCondorcetSchulzeElectionDAO() {
+        return new CondorcetSchulzeElectionDAOHibernate();
+    }
+
+    public CandidatePropertyDAO getContestPropertyDAO() {
+        return new CandidatePropertyDAOHibernate();
+    }
+}
