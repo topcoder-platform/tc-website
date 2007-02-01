@@ -104,6 +104,7 @@
                             </td>
 
                             <td class="valueR" nowrap="nowrap">
+                            rr=<%=resultRow.getIntItem("is_user_registered") %>;  <rsc:item name="is_user_registered" row="<%=resultRow%>" ifNull="null"/>
                             <% if (resultRow.getIntItem("is_user_registered") == 1) { %>
                                 <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" class="button" style="margin: 4px;">Submit & Rank</A>
                              <% } else { %>
