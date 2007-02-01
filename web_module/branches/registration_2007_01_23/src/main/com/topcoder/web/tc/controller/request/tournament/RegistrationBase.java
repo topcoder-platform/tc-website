@@ -1,10 +1,8 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.List;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
@@ -15,7 +13,6 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.tc.Constants;
 
 /**
@@ -24,17 +21,15 @@ import com.topcoder.web.tc.Constants;
  *          Create Date: Jan 16, 2007
  */
 public abstract class RegistrationBase extends ShortHibernateProcessor {
-    public static final String AGE = "age";
-    public static final String IN_COLLEGE = "incollege";
-    public static final String IN_HIGH_SCHOOL = "inhs";
+    protected static final String AGE = "age";
+    protected static final String IN_COLLEGE = "incollege";
+    protected static final String IN_HIGH_SCHOOL = "inhs";
 
-    public static final List YES_NO_ANSWERS;
+    protected abstract void regProcessing(Event event, User user) throws Exception;
 
-    static {
-        YES_NO_ANSWERS = new ArrayList();
-        YES_NO_ANSWERS.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
-        YES_NO_ANSWERS.add(new ListSelectTag.Option(String.valueOf(false), "No"));
-    }
+    protected abstract void setNextPage(Event event, User user) throws Exception;
+
+    protected abstract boolean isEligible(Event event, User user) throws Exception;
 
     protected void dbProcessing() throws Exception {
 
@@ -74,7 +69,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
         }
     }
     
-    public boolean isRegistered(Event e, User u) throws Exception {
+    protected boolean isRegistered(Event e, User u) throws Exception {
         if (log.isDebugEnabled()) {
             log.debug("checking if " + getUser().getId() + " is registered for " + e.getId());
         }
@@ -88,11 +83,4 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
         }
         return false;
     }
-
-    protected abstract void regProcessing(Event event, User user) throws Exception;
-
-    protected abstract void setNextPage(Event event, User user) throws Exception;
-
-    public abstract boolean isEligible(Event event, User user) throws Exception;
-
 }

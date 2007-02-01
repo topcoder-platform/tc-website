@@ -12,31 +12,22 @@ import java.util.StringTokenizer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Survey;
 import com.topcoder.web.common.tag.AnswerInput;
 
 public class Helper {
-
     protected static final Logger log = Logger.getLogger(Helper.class);
-
     private TCRequest request = null;
-
     private Map errors = new HashMap();
 
-    /**
-     * @return the request
-     */
-    public TCRequest getRequest() {
-        return request;
+    public Helper() {
+        super();
     }
 
-    /**
-     * @param request the request to set
-     */
-    public void setRequest(TCRequest request) {
+    public Helper(TCRequest request) {
+        super();
         this.request = request;
     }
 
@@ -50,7 +41,7 @@ public class Helper {
         return found ? r : null;
     }
     
-    public List getResponses(Survey s) {
+    public List processResponses(Survey s) {
         String paramName = null;
         List responses = new ArrayList(10);
         for (Enumeration params = getRequest().getParameterNames(); params.hasMoreElements();) {
@@ -75,7 +66,6 @@ public class Helper {
      * @return a list of the user's responses
      */
     private List validateAnswer(Set questions, String paramName) {
-
         Question question = null;
         String[] values = getRequest().getParameterValues(paramName);
         List ret = null;
@@ -120,7 +110,7 @@ public class Helper {
                             log.debug("param has answerid but it's not multiple choice");
                         }
                         addError(errorKey, "Invalid answer.");
-                    } else if (findAnswer(answerId, question) == null) {
+                    } else if (question.findAnswer(answerId) == null) {
                         if (log.isDebugEnabled()) {
                             log.debug("can't find multiple choice answer");
                         }
@@ -144,7 +134,7 @@ public class Helper {
                                 }
                                 addError(errorKey, "Invalid answer.");
                             }
-                            if (findAnswer(answerId, question) == null) {
+                            if (question.findAnswer(answerId) == null) {
                                 if (log.isDebugEnabled()) {
                                     log.debug("can't find single choice answer");
                                 }
@@ -160,7 +150,7 @@ public class Helper {
                             }
                             addError(errorKey, "Invalid answer.");
                         }
-                        if (findAnswer(answerId, question) == null) {
+                        if (question.findAnswer(answerId) == null) {
                             if (log.isDebugEnabled()) {
                                 log.debug("can't find single choice answer");
                             }
@@ -170,7 +160,7 @@ public class Helper {
                 }
                 Response response = new Response();
                 response.setQuestion(question);
-                response.setAnswer(findAnswer(answerId, question));
+                response.setAnswer(question.findAnswer(answerId));
                 response.setText(StringUtils.checkNull(values[i]));
                 ret.add(response);
             }
@@ -211,39 +201,28 @@ public class Helper {
         return found ? q : null;
     }
 
-    private Answer findAnswer(long answerId, Question question) {
-        Answer a = null;
-        boolean found = false;
-        for (Iterator it = question.getAnswerInfo().iterator(); it.hasNext() && !found;) {
-            a = (Answer) it.next();
-            found = (a.getId() == answerId);
-        }
-        return found ? a : null;
+    public Map getErrors() {
+        return errors;
     }
-    
+
+    public void setErrors(Map errors) {
+        this.errors = errors;
+    }
 
     protected void addError(String key, Object error) {
         errors.put(key, error);
     }
 
-    /**
-     * @return true if errors exists
-     */
     public boolean hasErrors() {
         return errors.size() > 0;
     }
-
-    /**
-     * @return the errors
-     */
-    public Map getErrors() {
-        return errors;
+    
+    public TCRequest getRequest() {
+        return request;
     }
 
-    /**
-     * @param errors the errors to set
-     */
-    public void setErrors(Map errors) {
-        this.errors = errors;
+    public void setRequest(TCRequest request) {
+        this.request = request;
     }
+
 }

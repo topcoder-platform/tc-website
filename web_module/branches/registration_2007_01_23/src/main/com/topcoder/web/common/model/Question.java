@@ -76,6 +76,16 @@ public class Question implements Serializable {
         this.answers = answers;
     }
 
+    public Answer findAnswer(long answerId) {
+        Answer a = null;
+        boolean found = false;
+        for (Iterator it = answers.iterator(); it.hasNext() && !found;) {
+            a = (Answer) it.next();
+            found = (a.getId() == answerId);
+        }
+        return found ? a : null;
+    }
+
     public Set getSurveys() {
         return Collections.unmodifiableSet(surveys);
     }

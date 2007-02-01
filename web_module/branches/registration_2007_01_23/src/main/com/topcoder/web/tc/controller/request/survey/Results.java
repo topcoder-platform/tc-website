@@ -1,5 +1,11 @@
 package com.topcoder.web.tc.controller.request.survey;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -7,12 +13,13 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
-import com.topcoder.web.common.voting.*;
+import com.topcoder.web.common.voting.Candidate;
+import com.topcoder.web.common.voting.CondorcetSchulzeElection;
+import com.topcoder.web.common.voting.CondorcetSchulzeResults;
+import com.topcoder.web.common.voting.RankBallot;
+import com.topcoder.web.common.voting.Vote;
 import com.topcoder.web.tc.Constants;
-
-import java.util.*;
 
 public class Results extends SurveyData {
     protected void surveyProcessing() throws TCWebException {
@@ -54,36 +61,6 @@ public class Results extends SurveyData {
             }
             ret.put(new Long(q.getId()), (ResultSetContainer) dataAccess.getData(responseRequest).get("response_info"));
         }        
-        return ret;
-    }
-
-    protected List makeAnswerInfo(long questionId) throws Exception {
-        if (log.isDebugEnabled()) {
-            log.debug("makeAnswerInfo called: " + questionId);
-        }
-        Request req = new Request();
-        DataAccessInt dataAccess = getDataAccess(true);
-        req.setContentHandle("answers");
-        req.setProperty("qid", String.valueOf(questionId));
-        ResultSetContainer rsc = (ResultSetContainer) dataAccess.getData(req).get("answer_info");
-        List ret = null;
-        if (rsc == null) {
-            ret = new ArrayList(0);
-        } else {
-            ret = new ArrayList(rsc.size());
-            ResultSetContainer.ResultSetRow row = null;
-            Answer a = null;
-            for (Iterator it = rsc.iterator(); it.hasNext();) {
-                row = (ResultSetContainer.ResultSetRow) it.next();
-                a = new Answer();
-                a.setId(row.getLongItem("answer_id"));
-                a.setQuestionId(row.getLongItem("question_id"));
-                a.setSort(row.getIntItem("sort_order"));
-                a.setText(row.getStringItem("answer_text"));
-                ret.add(a);
-            }
-        }
-
         return ret;
     }
 

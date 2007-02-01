@@ -1,5 +1,4 @@
 <%@ page import="com.topcoder.web.tc.Constants" %>
-<%@ page import="com.topcoder.web.tc.controller.request.tournament.tchs07.RegistrationBase" %>
 <%@ page import="com.topcoder.web.common.model.Event,
                  com.topcoder.web.common.model.Question,
                  com.topcoder.web.common.tag.AnswerInput,

@@ -26,6 +26,8 @@ import com.topcoder.web.tc.controller.request.survey.Helper;
  */
 public abstract class SubmitRegistrationBase extends ViewRegistrationBase {
 
+    protected abstract boolean validateSurvey(Survey survey, List responses);
+
     protected void regProcessing(Event event, User user) throws Exception {
         List responses = processSurvey(event, user);
         boolean elegible = validateSurvey(event.getSurvey(), responses);
@@ -44,7 +46,7 @@ public abstract class SubmitRegistrationBase extends ViewRegistrationBase {
 
     }
 
-    public void setDefaults(List responses) {
+    protected void setDefaults(List responses) {
         Response r = null;
         for (Iterator it = responses.iterator(); it.hasNext();) {
             r = (Response) it.next();
@@ -58,7 +60,6 @@ public abstract class SubmitRegistrationBase extends ViewRegistrationBase {
         }
     }
     
-
     protected void completeRegistration(Event event, User user, boolean elegible, List responses) {
         UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
 
@@ -75,8 +76,6 @@ public abstract class SubmitRegistrationBase extends ViewRegistrationBase {
         refreshCache(event);
     }
     
-    protected abstract boolean validateSurvey(Survey survey, List responses);
-
     protected void refreshCache(Event e) {
         try {
             CacheClient cc = CacheClientFactory.createCacheClient();
@@ -98,17 +97,10 @@ public abstract class SubmitRegistrationBase extends ViewRegistrationBase {
         }
     }
 
-    /**
-     * @param event
-     * @param user
-     * @param helper
-     * @param termsAgree
-     */
     protected List processSurvey(Event event, User user) {
-        Helper helper = new Helper();
-        
-        helper.setRequest(getRequest());
-        List responses = helper.getResponses(event.getSurvey());
+        Helper helper = new Helper(getRequest());
+
+        List responses = helper.processResponses(event.getSurvey());
         
         for (Iterator it = responses.iterator(); it.hasNext();) {
             ((Response) it.next()).setUser(user);
