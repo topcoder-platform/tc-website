@@ -291,25 +291,26 @@
         </tr>
         <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">January
+            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">February
                 Events:</A></td>
         </tr>
         <tr>
             <td class="homeArrow">&#160; </td>
             <td class="homeText"><br>
-                <b>01.03</b> - Marathon Match 9 - 12 NOON<br><br>
-                <b>01.03</b> - TCHS SRM 26 - 2 PM<br><br>
-                <b>01.04</b> - SRM 333 - 11 AM<br><br>
-                <b>01.08</b> - TCHS SRM 27 - 10 AM<br><br>
+                <b>02.03</b> - SRM 337 - 12 NOON<br><br>
+                <b>02.05</b> - TCHS SRM 31 - 10 AM<br><br>
+                <b>02.07</b> - SRM 338 - 7 AM<br><br>
+                <b>02.10</b> - SRM STRESS TEST - 12 Noon<br><br>
+                <b>02.12</b> - TCHS SRM 32 - 6 AM<br><br>
+                <b>02.13</b> - TCHS07 Registration Opens - 9 AM<br><br>
+                <b>02.14</b> - Marathon Match 12 - 12 NOON<br><br>
+                <b>02.14</b> - SRM 339 - 9 PM<br><br>
                 <%--<b>01.13</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 12 - 12 NOON<br><br>--%>
-                <b>01.13</b> - SRM 334 - 12 Noon<br><br>
-                <b>01.15</b> - TCHS SRM 28 - 6 AM<br><br>
-                <b>01.17</b> - SRM 335 - 7 AM<br><br>
-                <b>01.17</b> - Marathon Match 10 - 12 NOON<br><br>
-                <b>01.22</b> - TCHS SRM 29 - 7 PM<br><br>
-                <b>01.25</b> - SRM 336 - 9 PM<br><br>
-                <b>01.31</b> - Marathon Match 11 - 12 NOON<br><br>
-            </td>
+                <b>02.20</b> - SRM 340 - 11 AM<br><br>
+                <b>02.25</b> - TCHS07 Registration Closes - 6 PM<br><br>
+                <b>02.26</b> - TCHS07 Gamma Round 1 - 10 AM<br><br>
+                <b>02.26</b> - TCHS07 Alpha Round 1 - 9 PM<br><br>
+          </td>
         </tr>
 
     </table>
