@@ -67,7 +67,28 @@
                                 <button id="trigger<%=Constants.END_TIME%>">Set</button>
                             </td>
                         </tr>
-
+<script language="javascript" type="text/javascript">
+            Calendar.setup(
+            {
+                inputField  : "<%=Constants.START_TIME%>",         // ID of the input field
+                ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
+                button      : "trigger<%=Constants.START_TIME%>",       // ID of the button
+                showsTime   : true,
+                singleClick  : false,
+                cache       : true
+            }
+                    );
+    Calendar.setup(
+    {
+        inputField  : "<%=Constants.END_TIME%>",         // ID of the input field
+        ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
+        button      : "trigger<%=Constants.END_TIME%>",      // ID of the button
+        showsTime    : true,
+        singleClick  : false,
+        cache       : true
+    }
+            );
+</script>
                         <tr>
                             <td colspan="2">
                                         <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_IDS%>"><span class="bigRed">${err}<br /></span></tc-webtag:errorIterator>
@@ -78,6 +99,7 @@
                                 <tc-webtag:objectSelect name="<%=Constants.SUBMISSION_IDS%>" list="${submissions}" size="10" multiple="true" valueField="id" textField="id"/>
                             </td>
                         </tr>
+
                         <tr>
                             <td>
                                 <button name="submit" value="submit" type="submit">Save</button>
