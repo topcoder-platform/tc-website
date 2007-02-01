@@ -20,20 +20,28 @@
 
 <body>
 
-<div style="margin: 2px;" align="center">
-    <div id="contentOut" class="contentOut">
-        <div id="contentIn" class="contentIn">
-            <div class="contentSpacer">
-                <h1>Vote</h1>
+<div align="center">
+<div id="content">
+
+<jsp:include page="../top.jsp"/>
+
+<jsp:include page="../primaryNav.jsp">
+<jsp:param name="selectedTab" value="competitions"/>
+</jsp:include>
+
+<div id="main">
+    <div class="pageHeader">
+        <span class="pageName">Vote</span>
+    </div>
 
 <div align="center" style="margin: 100px;">
 Thank you for voting.
 </div>
 
-            </div>
-        </div>
-        <jsp:include page="../foot.jsp"/>
-    </div>
+</div>
+    
+<jsp:include page="../foot.jsp"/>
+</div>
 </div>
 
 </body>
