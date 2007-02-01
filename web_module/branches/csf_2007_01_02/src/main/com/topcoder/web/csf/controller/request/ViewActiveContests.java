@@ -1,12 +1,13 @@
 package com.topcoder.web.csf.controller.request;
 
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.model.SortInfo;
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.util.DBMS;
 
 /**
  * @author dok
@@ -22,13 +23,17 @@ public class ViewActiveContests extends BaseProcessor {
 
         String col = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         String dir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-
+        String uid = StringUtils.checkNull(getRequest().getParameter(WebConstants.USER_ID));
+        
         if (!"".equals(col) && !"".equals(dir)) {
             r.setProperty(DataAccessConstants.SORT_COLUMN, getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
             r.setProperty(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             r.setProperty(DataAccessConstants.SORT_QUERY, "active_contests");
         }
 
+        if (!"".equals(uid)) {
+            r.setProperty(WebConstants.USER_ID, uid);
+        }
         getRequest().setAttribute("contests", da.getData(r).get("active_contests"));
 
         SortInfo s = new SortInfo();
