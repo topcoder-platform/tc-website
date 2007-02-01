@@ -5,7 +5,7 @@
 <div id="primaryNav">
 <ul>
 <li<% if (selectedTab.equals("home")) {%> class="on"<% } %> style="border-top: 1px solid #CCCCCC;"><A href="/" onfocus="this.blur();">Home</A></li>
-<li<% if (selectedTab.equals("schedule")) {%> class="on"<% } %>><A href="" onfocus="this.blur();">Schedule</A></li>
+<li<% if (selectedTab.equals("schedule")) {%> class="on"<% } %>><A href="/?module=Static&d1=schedule" onfocus="this.blur();">Schedule</A></li>
 <li<% if (selectedTab.equals("rules")) {%> class="on"<% } %>><A href="" onfocus="this.blur();">Rules</A></li>
 <li<% if (selectedTab.equals("competitions")) {%> class="on"<% } %>><A href="/?module=Static&d1=competitions" onfocus="this.blur();">Competitions</A></li>
 <li<% if (selectedTab.equals("discuss")) {%> class="on"<% } %> style="background-image: none; border-bottom: 1px solid #CCCCCC;"><A href="/forums" onfocus="this.blur();">Discuss the Competitions</A></li>
