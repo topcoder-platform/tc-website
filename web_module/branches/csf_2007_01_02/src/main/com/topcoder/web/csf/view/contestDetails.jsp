@@ -134,12 +134,6 @@ ${contest.overview.value}
 <c:when test="${registered}">
     <c:if test="${fn:length(contest.documents)>0}">
         <strong>Documentation</strong><br>
-        <%--
-            To view this project's documentation, you must be a registered TopCoder Studio member. If you are <strong>
-            already a registered TopCoder member</strong> you still need to add TopCoder Studio to your registration by
-            <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">updating your profile</A>.
-            <br><br>
-        --%>
         <c:forEach items="${contest.documents}" var="document">
             ${document.type.description}:
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
@@ -149,8 +143,7 @@ ${contest.overview.value}
     </c:if>
 </c:when>
 <c:otherwise>
-    To view this project's documentation, you must register for the project.
-    
+    To view this project's documentation, you must register for the project.    
 </c:otherwise>    
 </c:choose>
 

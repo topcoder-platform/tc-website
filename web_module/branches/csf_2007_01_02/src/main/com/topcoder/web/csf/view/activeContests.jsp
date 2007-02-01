@@ -104,7 +104,7 @@
                             </td>
 
                             <td class="valueR" nowrap="nowrap">
-                            <% if (resultRow.getIntValue("is_user_registered") == 1) { %>
+                            <% if (resultRow.getInt("is_user_registered") == 1) { %>
                                 <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" class="button" style="margin: 4px;">Submit & Rank</A>
                              <% } else { %>
                                <A href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" class="button" style="margin: 4px;">Register</A>                             
