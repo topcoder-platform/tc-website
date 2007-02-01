@@ -128,7 +128,7 @@ public class EditContest extends Base {
             FileTypeDAO fDao = CSFDAOUtil.getFactory().getFileTypeDAO();
             HashSet fts = new HashSet();
             for (Iterator it = fileTypes.iterator(); it.hasNext();) {
-                //log.debug("add a file type");
+                //log.debug("addVote a file type");
                 fts.add(fDao.find(new Integer((String) it.next())));
             }
             contest.setFileTypes(fts);
