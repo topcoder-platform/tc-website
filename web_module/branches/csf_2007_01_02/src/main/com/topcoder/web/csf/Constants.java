@@ -1,8 +1,8 @@
 package com.topcoder.web.csf;
 
-import com.topcoder.web.common.WebConstants;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.WebConstants;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -39,6 +39,7 @@ public class Constants implements WebConstants {
     public static final long CONTEST_ADMIN_ROLE_ID = 2040;
     public static final String FILE_TYPE = "ft_";
     public static final String SUBMISSION_RANK = "srank";
+    public static final String SUBMISSION_IDS = "sids";
 
     public static int MAX_CONTEST_NAME_LENGTH;
     public static String JS_DATE_FORMAT;
