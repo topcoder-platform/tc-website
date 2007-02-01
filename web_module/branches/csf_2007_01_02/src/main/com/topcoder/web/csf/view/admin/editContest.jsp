@@ -26,28 +26,27 @@
 <body>
 
 <div align="center">
-<div id="contentOut" class="contentOut">
-<jsp:include page="../top.jsp">
-    <jsp:param name="section" value="admin"/>
-</jsp:include>
-<jsp:include page="../topNav.jsp">
-    <jsp:param name="node" value="contests"/>
-</jsp:include>
-<div id="contentIn" class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
+<div id="content">
 
-<div class="contentSpacer">
+<jsp:include page="../top.jsp"/>
+
+<jsp:include page="../primaryNav.jsp">
+<jsp:param name="selectedTab" value="competitions"/>
+</jsp:include>
+
+<div id="main">
+    <div class="pageHeader">
+        <span class="pageName">Edit Contest Details</span>
+    </div>
 
 <div class="linkBox"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">back to
     Contests</A></div>
-
-<h1>Edit Contest Details</h1>
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="editForm">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminEditContest"/>
 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
-<div class="header">Contest Details</div>
+<h2>Contest Details</h2>
 
 <table cellpadding="0" cellspacing="0" class="input">
 <tbody>
@@ -340,7 +339,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 
 <br><br>
 
-<div class="header">Prizes</div>
+<h2>Prizes</h2>
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removePrizeForm">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemovePrize"/>
@@ -398,7 +397,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 </form>
 <br><br>
 
-<div class="header">Documentation</div>
+<h2>Documentation</h2>
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removeDocForm">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemoveDocument"/>
@@ -445,10 +444,8 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 
 
 </div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
+    
 <jsp:include page="../foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
 </div>
 </div>
 
