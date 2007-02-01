@@ -44,17 +44,18 @@
 <body>
 
 <div align="center">
-    <div id="contentOut" class="contentOut">
-        <jsp:include page="../top.jsp">
-            <jsp:param name="section" value="admin"/>
-        </jsp:include>
-        <jsp:include page="../topNav.jsp">
-            <jsp:param name="node" value="contests"/>
-        </jsp:include>
-        <div id="contentIn" class="contentIn">
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
+<div id="content">
 
-            <div class="contentSpacer">
+<jsp:include page="../top.jsp"/>
+
+<jsp:include page="../primaryNav.jsp">
+<jsp:param name="selectedTab" value="competitions"/>
+</jsp:include>
+
+<div id="main">
+    <div class="pageHeader">
+        <span class="pageName">Submission Detail</span>
+    </div>
 
                 <div class="breadcrumb">
                     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">Contests</a>
@@ -64,8 +65,6 @@
                     <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${submission.contest.id}">Submissions</a>
                     &gt; ${submission.submitter.handle} - ${submission.originalFileName}
                 </div>
-
-                <h1>Submission Detail</h1>
 
                 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="reviewForm">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSubmitReview"/>
@@ -81,7 +80,7 @@
                                 Submission</a>
                         </c:otherwise>
                     </c:choose>
-                    <br/>
+                    <br />
 
 
                     <c:if test="${submissionReview.reviewer!=null}">
@@ -104,9 +103,9 @@
                     <button name="submit" value="submit" type="submit">Submit</button>
                 </form>
 
-                <br/> <br/>
+                <br /> <br />
 
-                <div class="header">Contest Results</div>
+                <h2>Contest Results</h2>
 
                 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="placedForm">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSetPlace"/>
@@ -119,12 +118,10 @@
                     </p>
                 </form>
 
-            </div>
-            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-        </div>
-        <jsp:include page="../foot.jsp"/>
-        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-    </div>
+</div>
+    
+<jsp:include page="../foot.jsp"/>
+</div>
 </div>
 
 </body>

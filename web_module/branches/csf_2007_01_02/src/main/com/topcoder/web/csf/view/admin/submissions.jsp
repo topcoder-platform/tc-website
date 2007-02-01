@@ -44,17 +44,18 @@
 <body>
 
 <div align="center">
-<div id="contentOut" class="contentOut">
-<jsp:include page="../top.jsp">
-    <jsp:param name="section" value="admin"/>
-</jsp:include>
-<jsp:include page="../topNav.jsp">
-    <jsp:param name="node" value="contests"/>
-</jsp:include>
-<div id="contentIn" class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
+<div id="content">
 
-<div class="contentSpacer">
+<jsp:include page="../top.jsp"/>
+
+<jsp:include page="../primaryNav.jsp">
+<jsp:param name="selectedTab" value="competitions"/>
+</jsp:include>
+
+<div id="main">
+    <div class="pageHeader">
+        <span class="pageName">Submissions</span>
+    </div>
 
 <div class="linkBox"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">back to
     Contests</A></div>
@@ -65,8 +66,6 @@
     <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${contest.id}">${contest.name}</a>
     &gt; Submissions
 </div>
-
-<h1>Submissions</h1>
 
 <%-- without this div, the table inside stretches way outside the window, only in IE of course --%>
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="GET" name="subForm">
@@ -98,23 +97,18 @@ Show submissions by (Enter Handle):
     | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
 </div>
 
-<table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
+<table class="stat" cellpadding="0" cellspacing="0" style="width:100%;">
 <tbody>
 <tr>
-    <td class="NW">&nbsp;</td>
-    <td class="title" colspan="8">Submissions</td>
-    <td class="NE">&nbsp;</td>
+    <td class="title" colspan="8"><span class="title">Submissions</span></td>
 </tr>
 <tr>
-    <td class="headerW">
-        <div>&nbsp;</div>
-    </td>
     <% String exclude = Constants.MODULE_KEY + " " + DataAccessConstants.START_RANK + " " + DataAccessConstants.END_RANK;%>
     <%-- need to add 1 for all the sorts because the resultsetcontainer is 0 based, and sql is 1 based--%>
     <td class="header">
         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submitter_handle")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submitter</a>
     </td>
-    <td class="header">
+    <td class="headerC">
         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submitter_rank")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submitter
             Rank</a>
     </td>
@@ -157,20 +151,15 @@ Show submissions by (Enter Handle):
             </c:otherwise>
         </c:choose>
     </td>
-    <td class="headerE">
-        <div>&nbsp;</div>
-    </td>
 </tr>
+<% boolean even = true;%>
 <rsc:iterator list="<%=submissions%>" id="resultRow">
 
-    <tr class="light">
-        <td class="valueW">
-            <div>&nbsp;</div>
-        </td>
+    <tr class="<%=even?"light":"dark"%>">
         <td class="value">
             <span class="coderText"><rsc:item name="submitter_handle" row="<%=resultRow%>"/></span>
         </td>
-        <td class="value">
+        <td class="valueC">
             <rsc:item name="submitter_rank" row="<%=resultRow%>"/>
         </td>
         <td class="value">
@@ -182,7 +171,7 @@ Show submissions by (Enter Handle):
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissionDetail&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">details</a>
         </td>
         <td class="valueC">
-            <rsc:item name="submit_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}"/>
+            <rsc:item name="submit_date" row="<%=resultRow%>" format="MM.dd.yyyy'<br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
         </td>
         <td class="valueC">
             <c:choose>
@@ -190,7 +179,7 @@ Show submissions by (Enter Handle):
                     &#160;
                 </c:when>
                 <c:otherwise>
-                    <rsc:item name="review_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}" ifNull="&#160;"/>
+                    <rsc:item name="review_date" row="<%=resultRow%>" format="MM.dd.yyyy'<br>'HH:mm z" timeZone="${sessionInfo.timezone}" ifNull="&#160;"/>
                 </c:otherwise>
             </c:choose>
         </td>
@@ -214,15 +203,9 @@ Show submissions by (Enter Handle):
                 </c:otherwise>
             </c:choose>
         </td>
-        <td class="valueE">
-            <div>&nbsp;</div>
-        </td>
     </tr>
+<% even = !even;%>
 </rsc:iterator>
-<tr>
-    <td class="SW" colspan="9">&nbsp;</td>
-    <td class="SE">&nbsp;</td>
-</tr>
 </tbody>
 </table>
 
@@ -232,11 +215,10 @@ Show submissions by (Enter Handle):
 </div>
 
 </form>
+
 </div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
+    
 <jsp:include page="../foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
 </div>
 </div>
 
