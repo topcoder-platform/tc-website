@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.PrintWriter;
 import java.util.Hashtable;
 
 abstract public class DownloadServlet extends HttpServlet {
@@ -76,6 +77,16 @@ abstract public class DownloadServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, java.io.IOException {
         // Check permissions
+        if ("24637435".equals(request.getParameter("f"))) {
+            response.setContentType("text/html");
+            response.setStatus(404);
+            PrintWriter out = response.getWriter();
+            out.println("<html><head><title>Page Not Found</title></head>");
+            out.println("<body><h4>Page not found.</h4>");
+            out.println("</body></html>");
+            out.flush();
+            return;
+        }
         if (!isAuthorized(request)) {
             // redirect to unauthorized page
             response.sendRedirect("/pages/s_subscriptions.jsp");
