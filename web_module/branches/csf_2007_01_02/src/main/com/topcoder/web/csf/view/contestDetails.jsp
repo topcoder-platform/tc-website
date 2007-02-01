@@ -119,6 +119,7 @@
         </td>
 </c:otherwise>
 </c:choose>
+
     </tr>
 </tbody>
 </table>
