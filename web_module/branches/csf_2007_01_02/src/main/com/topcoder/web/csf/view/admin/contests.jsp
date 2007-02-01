@@ -19,34 +19,27 @@
 <body>
 
 <div align="center">
-    <div id="contentOut" class="contentOut">
-        <jsp:include page="../top.jsp">
-            <jsp:param name="section" value="admin"/>
-        </jsp:include>
-        <jsp:include page="../topNav.jsp">
-            <jsp:param name="node" value="contests"/>
-        </jsp:include>
-        <div id="contentIn" class="contentIn">
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
+<div id="content">
 
-            <div class="contentSpacer">
+<jsp:include page="../top.jsp"/>
 
-                <h1>Contests</h1>
+<jsp:include page="../primaryNav.jsp">
+<jsp:param name="selectedTab" value="competitions"/>
+</jsp:include>
 
-                <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
+<div id="main">
+    <div class="pageHeader">
+        <span class="pageName">Contests</span>
+    </div>
+
+<div align="right"><a href="${sessionInfo.servletPath}?module=AdminViewContest" class="button" style="width: 90px;">Add Competition</a></div>
+
+                <table class="stat" cellpadding="0" cellspacing="0" style="width: 100%;">
                     <tbody>
                         <tr>
-                            <td class="NW">&nbsp;</td>
-                            <td class="title" colspan="6">Contests</td>
-                            <td class="titleR">
-                                <h2><a href="${sessionInfo.servletPath}?module=AdminViewContest">add contest</a></h2>
-                            </td>
-                            <td class="NE">&nbsp;</td>
+                            <td class="title" colspan="7"><span class="title">Contests</span></td>
                         </tr>
                         <tr>
-                            <td class="headerW">
-                                <div>&nbsp;</div>
-                            </td>
                             <td class="header">Name</td>
                             <td class="header">Status</td>
                             <td class="headerC">Start</td>
@@ -54,16 +47,10 @@
                             <td class="headerC">Submissions</td>
                             <td class="headerC"></td>
                             <td class="headerC"></td>
-                            <td class="headerE">
-                                <div>&nbsp;</div>
-                            </td>
                         </tr>
                         <% boolean even = true;%>
                         <c:forEach items="${contests}" var="contest">
                             <tr class="<%=even?"light":"dark"%>">
-                                <td class="valueW">
-                                    <div>&nbsp;</div>
-                                </td>
                                 <td class="value"><strong>${contest.name}</strong></td>
                                 <td class="value">${contest.status.description}</td>
                                 <td class="valueC" nowrap="nowrap">
@@ -81,26 +68,16 @@
                                 <td class="valueC">
                                     <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}">view</a>
                                 </td>
-                                <td class="valueE">
-                                    <div>&nbsp;</div>
-                                </td>
                             </tr>
                             <% even = !even;%>
                         </c:forEach>
-                        <tr>
-                            <td class="SW" colspan="8">&nbsp;</td>
-                            <td class="SE">&nbsp;</td>
-                        </tr>
-
                     </tbody>
                 </table>
 
-            </div>
-            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-        </div>
-        <jsp:include page="../foot.jsp"/>
-        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
-    </div>
+</div>
+    
+<jsp:include page="../foot.jsp"/>
+</div>
 </div>
 
 </body>
