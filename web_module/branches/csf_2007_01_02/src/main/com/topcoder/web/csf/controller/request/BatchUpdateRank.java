@@ -1,14 +1,14 @@
 package com.topcoder.web.csf.controller.request;
 
-import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.validation.IntegerValidator;
 import com.topcoder.web.common.validation.StringInput;
-import com.topcoder.web.common.HibernateUtils;
-import com.topcoder.web.csf.model.ContestStatus;
-import com.topcoder.web.csf.model.Submission;
+import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.csf.Constants;
 import com.topcoder.web.csf.dao.CSFDAOUtil;
 import com.topcoder.web.csf.dao.SubmissionDAO;
+import com.topcoder.web.csf.model.ContestStatus;
+import com.topcoder.web.csf.model.Submission;
 
 import java.util.*;
 
@@ -154,7 +154,7 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
             if (hash.contains(sub.getRank())) {
                 addError(Constants.SUBMISSION_ID+sub.getId(), "Be sure you rank each of your submissions uniquely, there can be no ties.");
             }
-            hash.add(sub.getRank());
+            hash.addVote(sub.getRank());
         }
 
         Submission s = (Submission)userSubmissions.get(0);

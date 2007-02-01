@@ -32,7 +32,7 @@ public class ViewElectionCreation extends Base {
             getRequest().setAttribute("submissions", a);
         }
 
-        setNextPage("/admin/editContest.jsp");
+        setNextPage("/admin/electionCreation.jsp");
         setIsNextPageInContext(true);
 
     }

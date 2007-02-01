@@ -98,7 +98,7 @@ public class Login extends ShortHibernateProcessor {
             log.debug("create the security user");
             myPrincipal = pmr.createUser(u.getId().longValue(), u.getHandle(), u.getPassword(), tcs, DBMS.CSF_DATASOURCE_NAME);
 
-            //add them to these two as well.  eventually i'm guessing we'll rearrange security and this'll change
+            //addVote them to these two as well.  eventually i'm guessing we'll rearrange security and this'll change
             Collection groups = pmr.getGroups(tcs, DBMS.CSF_DATASOURCE_NAME);
             GroupPrincipal anonGroup = null;
             GroupPrincipal userGroup = null;
@@ -172,7 +172,7 @@ public class Login extends ShortHibernateProcessor {
         } catch (RemoteException e) {
             if (log.isDebugEnabled()) {
                 log.debug("cause stack");
-                if (e.getCause()!=null) {
+                if (e.getCause() != null) {
                     e.getCause().printStackTrace();
                 } else {
                     log.debug("cause was null");
