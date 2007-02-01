@@ -25,7 +25,7 @@ public class TCInterceptor extends EmptyInterceptor {
     }
 
     public String onPrepareStatement(String string) {
-        log.debug("sql: " + string);
+        //log.debug("sql: " + string);
         return super.onPrepareStatement(string);
     }
 
