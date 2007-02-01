@@ -57,10 +57,9 @@ public class DownloadDocument extends ShortHibernateProcessor {
             for (Iterator it = contests.iterator(); it.hasNext() && !isRegistered ; ) {
                 Contest c = (Contest) it.next();
                 
-                if (ContestStatus.ACTIVE.equals(c.getStatus().getId())) {
-                    if (CSFDAOUtil.getFactory().getContestRegistrationDAO().find(c, u) != null || new Date().after(c.getEndTime())) {
-                        isRegistered = true;
-                    }
+                if ((ContestStatus.ACTIVE.equals(c.getStatus().getId()) && CSFDAOUtil.getFactory().getContestRegistrationDAO().find(c, u) != null) 
+                        || new Date().after(c.getEndTime())) {
+                    isRegistered = true;
                 }
             }
             
