@@ -33,16 +33,60 @@
 
                 <h1>Create an Election</h1>
 
+                <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="electionForm">
+                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminCreateElection"/>
                 <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
                     <tbody>
+
                         <tr>
-                            <td class="NW">
+                            <td>
+                               <tc-webtag:errorIterator id="err" name="<%=Constants.START_TIME%>"><span class="bigRed">${err}</span><br /></tc-webtag:errorIterator>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="name" nowrap="nowrap">
+                                Election Start<br>(Eastern Time):
+                            </td>
+                            <td class="value">
+                                <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
+                                <button id="trigger<%=Constants.START_TIME%>">Set</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                        <tc-webtag:errorIterator id="err" name="<%=Constants.END_TIME%>"><span class="bigRed">${err}<br /></span></tc-webtag:errorIterator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name" nowrap="nowrap">
+                                Election End<br>(Eastern Time):
+                            </td>
+                            <td class="value">
+                                <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
+                                <button id="trigger<%=Constants.END_TIME%>">Set</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                        <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_IDS%>"><span class="bigRed">${err}<br /></span></tc-webtag:errorIterator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                                 <tc-webtag:objectSelect name="<%=Constants.SUBMISSION_IDS%>" list="${submissions}" size="10" multiple="true" valueField="id" textField="id"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button name="submit" value="submit" type="submit">Save</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
 
+                    </form>
             </div>
             <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
         </div>
