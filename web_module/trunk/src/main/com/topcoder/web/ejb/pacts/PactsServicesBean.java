@@ -3896,6 +3896,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             p.setNetAmount(TCData.getTCDouble(detailData.getRow(0), "net_amount", 0, false));
             p.setGrossAmount(TCData.getTCDouble(detailData.getRow(0), "gross_amount", 0, false));
+            p.setTotalAmount(TCData.getTCDouble(detailData.getRow(0), "total_amount", 0, false));
             p.setStatusId(statusId);
             p.setRationaleId(MODIFICATION_STATUS);
             p.getHeader().setDescription(TCData.getTCString(detailData.getRow(0), "payment_desc", "", false));
