@@ -130,8 +130,7 @@ ${contest.overview.value}
 <br><br>
 
 
-<c:choose>
-<c:when test="${registered}">
+<c:if test="${registered}">
     <c:if test="${fn:length(contest.documents)>0}">
         <strong>Documentation</strong><br>
         <c:forEach items="${contest.documents}" var="document">
@@ -142,10 +141,6 @@ ${contest.overview.value}
         <br><br>
     </c:if>
 </c:when>
-<c:otherwise>
-    To view this project's documentation, you must register for the project.    
-</c:otherwise>    
-</c:choose>
 
 
 <h2>Payment</h2>

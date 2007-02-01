@@ -23,7 +23,6 @@ public class ViewActiveContests extends BaseProcessor {
 
         String col = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         String dir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-        String uid = StringUtils.checkNull(getRequest().getParameter(WebConstants.USER_ID));
         
         if (!"".equals(col) && !"".equals(dir)) {
             r.setProperty(DataAccessConstants.SORT_COLUMN, getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
@@ -31,8 +30,8 @@ public class ViewActiveContests extends BaseProcessor {
             r.setProperty(DataAccessConstants.SORT_QUERY, "active_contests");
         }
 
-        if (!"".equals(uid)) {
-            r.setProperty(WebConstants.USER_ID, uid);
+        if (userLoggedIn()) {
+            r.setProperty(WebConstants.USER_ID, getUser().getId() + "");
         }
         getRequest().setAttribute("contests", da.getData(r).get("active_contests"));
 
