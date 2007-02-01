@@ -125,16 +125,16 @@
 <p><strong>Documentation</strong><br>
     Documentation available in the
     <% if (projectDetail.getItem(0, "forum_id").getResultData() == null) { %>
-    discussion forums.
+    discussion forums
     <% } else { %>
     <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_forum.jsp?f=<rsc:item set="<%=projectDetail%>" name="forum_id"/>">discussion
-        forums</a>.
+        forums</a>
     <% } %>
-
+    after you successfully register for this competition.
 </p>
 
 <br>
-<span class="bigRed">NOTE: Please see the eligibility requirements below. Competitors must sign a non-disclosure agreement and pass a background check before being admitted into this competition.   If you have previously completed these documents, no further action is needed.</span>
+<span class="bigRed">NOTE: Please see the eligibility requirements below. Competitors must sign a non-disclosure agreement before being admitted into this competition.   If you have previously completed these documents, no further action is needed.</span>
 
 <p>
 <div align="right"><A href="/tc?module=Static&d1=features&d2=061906"><img src="/i/development/assembly/learn_more.gif" alt="Want to Learn More?" border="0" /></A></div>
@@ -190,16 +190,10 @@ Second Milestone: Marked by the completion of the Deployment phase of the projec
 <p><strong>Second Place Team</strong><br>
     Total Payment - $<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br>
 </p>
-<%-- Definition of Completion --%>
-<p class="noSpListTitle"><strong>Project Completion</strong><br>
-    *Completion of the project is defined as follows:</p>
 
-<ul class="noSpList">
-    <li>The Initial Submission has been delivered by the Initial Submission Due Date.</li>
-    <li>The Submission has been selected by the board as the winning submission.</li>
-    <li>Final payment is conditional on acceptance of the fully functional component by the Development Review
-        Board.</li>
-</ul>
+<p>
+Final payment is conditional on acceptance of the fully functional assembly by the Assembly Review Board
+</p>
 
 <%-- Eligibility Requirements --%>
 <table cellspacing="0" class="formFrame" align="center" width="530">
@@ -224,7 +218,7 @@ Second Milestone: Marked by the completion of the Deployment phase of the projec
             need to do anything to become authorized)</li>
     </ul>
 
-<span class="bigRed">Your ability to participate in this competition is contingent on the completion and satisfactory review of a background check, agreement to the Assembly Terms of Work and signing of a Non Disclosure Agreement. Once you have registered this information will be emailed to you and should be returned within 24 hours.  If you have previously completed these documents, no further action is needed.</span>
+<span class="bigRed">Your ability to participate in this competition is contingent on the agreement to the Assembly Terms of Work and signing of a Non Disclosure Agreement. Once you have registered this information will be emailed to you and should be returned within 24 hours.  If you have previously completed these documents, no further action is needed.</span>
 </p>
 
 </td>
