@@ -140,7 +140,7 @@ ${contest.overview.value}
         </c:forEach>
         <br><br>
     </c:if>
-</c:when>
+</c:if>
 
 
 <h2>Payment</h2>
