@@ -50,6 +50,7 @@
         --%>
         <li>Added an admin tool for cleaning schools and utilities to fix team points</li>
         <li>In Payment History, added the installment number and total if the payment is not for the total</li>
+        <li>PACTS: fixed a bug when updating the status in batch mode; the total amount was replaced by gross</li>
     </ul>
 </p>
 
