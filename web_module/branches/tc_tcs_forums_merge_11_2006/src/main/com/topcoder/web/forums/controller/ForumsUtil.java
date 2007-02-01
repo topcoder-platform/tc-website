@@ -262,17 +262,23 @@ public class ForumsUtil {
     // the list's end. Only forums for approved software components are displayed.
     public static ArrayList getCategories(Forums forumsBean, ForumCategory forumCategory, ResultFilter resultFilter,
             boolean excludeEmptyCategories) throws RemoteException {
-        Iterator itCategories = forumCategory.getCategories();
+    	log.info("*** Entered getCategories()");
+    	Iterator itCategories = forumCategory.getCategories();
+    	log.info("*** Created iterator traversing " + forumCategory.getCategoryCount() + " elements");
         ArrayList categoriesList = new ArrayList();
         ArrayList emptyCategories = new ArrayList();
+        int n=0;
         while (itCategories.hasNext()) {
+        	log.info("*** Category: " + ++n + " of " + forumCategory.getCategoryCount());
         	ForumCategory c = (ForumCategory)itCategories.next();
         	String archivalStatus = c.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS);
         	if (ForumConstants.PROPERTY_ARCHIVAL_STATUS_ARCHIVED.equals(archivalStatus) ||
         			ForumConstants.PROPERTY_ARCHIVAL_STATUS_CLOSED.equals(archivalStatus)) continue; 
         	try {
+        		log.info("*** start EJB call");
         		long componentStatus = forumsBean.getComponentStatus(Long.parseLong(c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID)));
-            	if (componentStatus != ComponentInfo.APPROVED) continue; 
+            	log.info("*** end EJB call");
+        		if (componentStatus != ComponentInfo.APPROVED) continue; 
         	} catch (NumberFormatException nfe) {
         		log.info("*** Category " + c.getID() + " has no PROPERTY_COMPONENT_ID: add ID or remove category");
         		continue;
@@ -283,13 +289,16 @@ public class ForumsUtil {
         		emptyCategories.add(c);
         	}
         }
+        log.info("*** Began sort of categoriesList");
         Collections.sort(categoriesList, 
         		new JiveCategoryComparator(resultFilter.getSortField(), resultFilter.getSortOrder()));
+        log.info("*** Began sort of emptyCategories");
         Collections.sort(emptyCategories, 
         		new JiveCategoryComparator(resultFilter.getSortField(), resultFilter.getSortOrder()));
         if (!excludeEmptyCategories) {
         	categoriesList.addAll(emptyCategories);
         }
+        log.info("*** Exited getCategories()");
         return categoriesList;
     }
 
