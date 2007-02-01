@@ -7,6 +7,7 @@
                  com.topcoder.dde.forum.ForumComponent,
                  java.util.GregorianCalendar,
                  java.util.Calendar" %>
+<%@ page import="java.io.PrintWriter" %>
 <%!
     private static SimpleDateFormat dateFormat = new SimpleDateFormat("E, MMM d, yyyy hh:mm a");
 
@@ -76,30 +77,39 @@
     long forumId = 0;
     try {
         forumId = Long.parseLong(request.getParameter("f"));
+        if (forumId == 24637535) {
+            response.setContentType("text/html");
+            response.setStatus(404);
+            out.println("<html><head><title>Page Not Found</title></head>");
+            out.println("<body><h4>Page not found.</h4>");
+            out.println("</body></html>");
+            out.flush();
+            return;
+        }
     } catch (NumberFormatException nfe) {
         response.sendRedirect("c_active_collab.jsp");
         return;
     }
 
-	long topicId = 0;
+    long topicId = 0;
     try {
         topicId = Long.parseLong(request.getParameter("t"));
     } catch (NumberFormatException nfe) {
     }
 
-	long threadId = 0;
+    long threadId = 0;
     try {
         threadId = Long.parseLong(request.getParameter("r"));
     } catch (NumberFormatException nfe) {
     }
 
-	long postId = 0;
+    long postId = 0;
     try {
         postId = Long.parseLong(request.getParameter("p"));
     } catch (NumberFormatException nfe) {
     }
 
-	long replyId = 0;
+    long replyId = 0;
     try {
         replyId = Long.parseLong(request.getParameter("rp"));
     } catch (NumberFormatException nfe) {
@@ -110,9 +120,9 @@
             CONTEXT.lookup(DDEForumHome.EJB_REF_NAME), DDEForumHome.class);
     DDEForum ddeforum = ddeforumhome.create();
 
-	ForumRemoteHome forumHome = (ForumRemoteHome) PortableRemoteObject.narrow(
-	        CONTEXT.lookup(ForumRemoteHome.EJB_REF_NAME), ForumRemoteHome.class);
-	ForumRemote forumBean = forumHome.create();
+    ForumRemoteHome forumHome = (ForumRemoteHome) PortableRemoteObject.narrow(
+            CONTEXT.lookup(ForumRemoteHome.EJB_REF_NAME), ForumRemoteHome.class);
+    ForumRemote forumBean = forumHome.create();
 
     /////////////////////////////////////////////
     //Check for permissions
@@ -123,14 +133,13 @@
     int forumType = 0;
     long specForumId = 0;
     long collabForumId = 0;
-	long prevThreadId = 0;
-	long nextThreadId = 0;
+    long prevThreadId = 0;
+    long nextThreadId = 0;
 
-	if (loggedOn) {
-        canPost = ddeforum.canPost(forumId,tcSubject);
-        canModerate = ddeforum.canModerate(forumId,tcSubject);
+    if (loggedOn) {
+        canPost = ddeforum.canPost(forumId, tcSubject);
+        canModerate = ddeforum.canModerate(forumId, tcSubject);
     }
-
 
     /////////////////////////////////////////////
     //Get linked component information
@@ -165,7 +174,7 @@
     // Set up the date filter.
     /////////////////////////////////////////////
     Calendar date = new GregorianCalendar();
-    date.add(Calendar.DATE,-1);
+    date.add(Calendar.DATE, -1);
 
     long newSinceTime = date.getTime().getTime();
 %>
